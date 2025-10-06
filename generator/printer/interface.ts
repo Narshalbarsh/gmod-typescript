@@ -15,6 +15,7 @@ export function _printInterface(
     let functions: string;
     let fields: string;
     let docComment: string = printDocComent(tsInterface.docComment);
+
     if (tsInterface.namespace) {
         head = `${!innerCollection ? 'declare ' : ''}namespace ${tsInterface.identifier} {`;
         head = innerCollection ? indentStr(head, '    ') : head;

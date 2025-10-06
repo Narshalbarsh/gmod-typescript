@@ -78,6 +78,21 @@ export function transformDescription(description: string): string {
     return unescapedResult;
 }
 
+function realmEmojis(realm: string): string {
+    const r = realm.toLowerCase();
+    const out: string[] = [];
+
+    if (/\bshared\b/.test(r)) {
+        out.push('🟨', '🟦');
+    }
+    if (/\bclient\b/.test(r) && !out.includes('🟨')) out.push('🟨');
+    if (/\bserver\b/.test(r) && !out.includes('🟦')) out.push('🟦');
+    if (/\bmenu\b/.test(r)) out.push('🟩');
+
+    return out.join('');
+}
+
 export function createRealmString(realm: string) {
-    return `[${realm}]`;
+    const emojis = realmEmojis(realm);
+    return `${emojis} [${realm}]`;
 }

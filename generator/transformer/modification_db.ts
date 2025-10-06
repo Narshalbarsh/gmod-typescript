@@ -77,15 +77,6 @@ export function isRenameIndentifierModification(
     return mod.kind === ModificationKind.RenameIndentifier;
 }
 
-export interface AddFieldModification extends Modification {
-    kind: ModificationKind.RenameIndentifier;
-    field: TSField;
-}
-
-export function isAddFieldModification(mod: Modification): mod is AddFieldModification {
-    return mod.kind === ModificationKind.AddFieldModification;
-}
-
 export interface InnerNamespaceModification extends Modification {
     kind: ModificationKind.InnerNamespace;
     prefix: string;
@@ -93,4 +84,13 @@ export interface InnerNamespaceModification extends Modification {
 
 export function isInnerNamespaceModification(mod: Modification): mod is InnerNamespaceModification {
     return mod.kind === ModificationKind.InnerNamespace;
+}
+
+export interface AddFieldModification extends Modification {
+    kind: ModificationKind.AddFieldModification;
+    field: TSField;
+}
+
+export function isAddFieldModification(mod: Modification): mod is AddFieldModification {
+    return mod.kind === ModificationKind.AddFieldModification;
 }

@@ -45,3 +45,13 @@ export interface TSEnumField extends TSDocumented {
     identifier: string;
     value: string;
 }
+
+export interface TSTypeMap extends TSDocumented {
+    identifier: string;
+    entries: TSTypeMapEntry[];
+}
+
+export interface TSTypeMapEntry extends TSDocumented {
+    key: string;
+    fields: TSField[];
+}
