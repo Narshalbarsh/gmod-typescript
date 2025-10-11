@@ -11,7 +11,7 @@ export function transformDescription(description: string): string {
         /<page>(.*?)<\/page>/g,
         (_, pagePath) => {
             return `[${pagePath}](https://wiki.facepunch.com/gmod/${pagePath.replace(/ /g, '_')})`;
-        }
+        },
     );
 
     const descriptionObj = parseMarkup(descriptionWithMarkdownLinks);
@@ -57,7 +57,7 @@ export function transformDescription(description: string): string {
     const descriptionWithoutInlineTags = descriptionWithMarkdownLinks
         .replace(
             /<((bug)|(note)|(warning)|(deprecated))(.*?)>(.|\n)*<\/((bug)|(note)|(warning)|(deprecated))>/g,
-            ''
+            '',
         )
         .replace(/<internal><\/internal>/g, '')
         .replace(/<internal>(.|\n)*<\/internal>/g, '**$1**')
@@ -66,7 +66,7 @@ export function transformDescription(description: string): string {
     const append = (s: string) => (s === '' ? '' : `\n\n${s}`);
 
     const result = `${descriptionWithoutInlineTags}${append(deprecated)}${append(warnings)}${append(
-        bugs
+        bugs,
     )}${append(notes)}`;
 
     const unescapedResult = result

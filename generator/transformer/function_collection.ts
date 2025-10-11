@@ -20,7 +20,7 @@ import { transformStructField } from './struct';
 
 export function transformFunctionCollection(
     wikiClass: WikiFunctionCollection,
-    wikiMembers: (WikiFunction | WikiStructItem)[]
+    wikiMembers: (WikiFunction | WikiStructItem)[],
 ): TSCollection {
     const mods = getPageMods(wikiClass.address);
 
@@ -31,7 +31,7 @@ export function transformFunctionCollection(
         const namespaceFuncs = membersCopy.filter((f) => f.address.includes(mod.prefix + '.'));
         // remove from original funcs
         membersCopy = membersCopy.filter(
-            (f) => !f.address.includes(mod.prefix + '.') && f.name !== mod.prefix
+            (f) => !f.address.includes(mod.prefix + '.') && f.name !== mod.prefix,
         );
 
         const namespaceRoot = namespaceFuncs.find((f) => f.name === mod.prefix);

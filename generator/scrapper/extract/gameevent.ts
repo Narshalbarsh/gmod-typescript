@@ -26,7 +26,10 @@ function fetchHtml(path: string): Promise<string> {
 }
 
 function stripTags(s: string): string {
-    return s.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+    return s
+        .replace(/<[^>]+>/g, '')
+        .replace(/\s+/g, ' ')
+        .trim();
 }
 
 function descriptionFromMarkup(markup: string): string {

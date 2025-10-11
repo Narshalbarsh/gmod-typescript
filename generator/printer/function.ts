@@ -16,7 +16,7 @@ export function printGlobalFunction(func: TSFunction): string {
 export function printFunction(
     func: TSFunction,
     prependFunction: boolean,
-    prependDeclare: boolean
+    prependDeclare: boolean,
 ): string {
     const docComment = printDocComent(func.docComment);
     const prefix = `${prependDeclare ? 'declare ' : ''}${prependFunction ? 'function ' : ''}`;

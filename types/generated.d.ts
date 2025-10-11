@@ -35688,7 +35688,7 @@ interface Gamemode {
      * @param victim - Name of the victim
      * @param victimTeam - Team of the victim
      */
-    AddDeathNotice(attacker: string, attackerTeam: number, inflictor: string, victim: string, victimTeam: number): boolean;
+    AddDeathNotice(attacker: string, attackerTeam: number, inflictor: string, victim: string, victimTeam: number): any;
 
     /**
      * 🟨 [Client]
@@ -41426,8 +41426,9 @@ interface SANDBOX extends GM {
     /**
      * 🟦 [Server]
      *
-     * Called after the player has spawned a scripted weapon from the spawnmenu with a middle mouse click.
+     * Called after the player has spawned a weapon from the spawnmenu with a middle mouse click (mouse wheel click).
      *
+     * For a hook capable of preventing such spawns, see [SANDBOX:PlayerSpawnSWEP](https://wiki.facepunch.com/gmod/SANDBOX:PlayerSpawnSWEP).
      * For left mouse click spawns, see [SANDBOX:PlayerGiveSWEP](https://wiki.facepunch.com/gmod/SANDBOX:PlayerGiveSWEP).
      * @param ply - The player that spawned the SWEP
      * @param ent - The SWEP itself
@@ -41502,9 +41503,11 @@ interface SANDBOX extends GM {
     /**
      * 🟦 [Server]
      *
-     * Called when a player attempts to spawn a weapon from the Q menu as an entity on the ground. (Mouse wheel clicks on an icon)
+     * Called when a player attempts to spawn a weapon from the spawnmenu as an entity on the ground, by middle mouse clicking (mouse wheel clicking) on a weapon icon.
      *
      * Not to be confused with [SANDBOX:PlayerGiveSWEP](https://wiki.facepunch.com/gmod/SANDBOX:PlayerGiveSWEP), which is called only when the weapon is given to the player directly, if they don't already have it.
+     *
+     * See [SANDBOX:PlayerSpawnedSWEP](https://wiki.facepunch.com/gmod/SANDBOX:PlayerSpawnedSWEP) for post entity creation event.
      * @param ply - The player who attempted to spawn a weapon.
      * @param weapon - Class name of the weapon the player tried to spawn.
      * @param swep - Information about the weapon the player is trying to spawn, see [Structures/SWEP](https://wiki.facepunch.com/gmod/Structures/SWEP)
@@ -43528,7 +43531,7 @@ interface MeshVertex {
 }
 
 /**
- * 🟨🟦🟩 [Shared and Menu]
+ * 🟨🟦 [Shared]
  *
  * Table returned by [util.GetModelInfo](https://wiki.facepunch.com/gmod/util.GetModelInfo).
  */
@@ -68755,6 +68758,9 @@ declare namespace debug {
 /**
  * The debugoverlay library is mainly useful for 3D debugging, it can be used to draw shapes on the screen for debug purposes.
  *
+ * **Bug [#5972#issuecomment-2275751896](https://github.com/Facepunch/garrysmod-issues/issues/5972#issuecomment-2275751896):**
+ * >There's some code that prevents debugoverlay from being added if the game is paused, i.e. when console is open in singleplayer.
+ *
  * **Note:**
  * >These functions will not do anything unless the **developer** console variable is set to non 0.
  *
@@ -79101,12 +79107,12 @@ declare namespace surface {
      * @param originX - The center x integer coordinate.
      * @param originY - The center y integer coordinate.
      * @param radius - The radius of the circle.
-     * @param r - The red value of the color to draw the circle with, or a [Color](https://wiki.facepunch.com/gmod/Color).
-     * @param g - The green value of the color to draw the circle with. Unused if a [Color](https://wiki.facepunch.com/gmod/Color) was given.
-     * @param b - The blue value of the color to draw the circle with. Unused if a [Color](https://wiki.facepunch.com/gmod/Color) was given.
-     * @param [a = 255] - The alpha value of the color to draw the circle with. Unused if a [Color](https://wiki.facepunch.com/gmod/Color) was given.
+     * @param r - The red value of the color to draw the circle with.
+     * @param g - The green value of the color to draw the circle with.
+     * @param b - The blue value of the color to draw the circle with.
+     * @param [a = 255] - The alpha value of the color to draw the circle with.
      */
-    function DrawCircle(originX: number, originY: number, radius: number, r: Color, g: Color, b: Color, a = 255): void;
+    function DrawCircle(originX: number, originY: number, radius: number, r: number, g: number, b: number, a = 255): void;
 
     /**
      * 🟨🟩 [Client and Menu]

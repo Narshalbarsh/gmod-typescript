@@ -28,7 +28,7 @@ export function transformEnum(wikiEnum: WikiEnum): TSEnum {
 
 export function transformEnumField(
     wikiEnumItem: WikiEnumItem,
-    compileMembersOnly: boolean
+    compileMembersOnly: boolean,
 ): TSEnumField {
     const identifier = compileMembersOnly ? wikiEnumItem.key : wikiEnumItem.key.split('.')[1];
     return {

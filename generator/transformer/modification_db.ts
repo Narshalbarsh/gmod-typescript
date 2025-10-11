@@ -31,7 +31,7 @@ export interface ModifiyArgumentModification extends Modification {
 }
 
 export function isModifiyArgumentModification(
-    mod: Modification
+    mod: Modification,
 ): mod is ModifiyArgumentModification {
     return mod.kind === ModificationKind.ModifiyArgument;
 }
@@ -61,7 +61,7 @@ export interface OmitParentFieldModification extends Modification {
 }
 
 export function isOmitParentFieldModification(
-    mod: Modification
+    mod: Modification,
 ): mod is OmitParentFieldModification {
     return mod.kind === ModificationKind.OmitParentField;
 }
@@ -72,7 +72,7 @@ export interface RenameIndentifierModification extends Modification {
 }
 
 export function isRenameIndentifierModification(
-    mod: Modification
+    mod: Modification,
 ): mod is RenameIndentifierModification {
     return mod.kind === ModificationKind.RenameIndentifier;
 }

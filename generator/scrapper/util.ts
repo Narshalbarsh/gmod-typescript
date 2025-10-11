@@ -31,20 +31,20 @@ export function parseMarkup(markup: string, extraOptions: parser.X2jOptionsOptio
                 .replace(/\\\"/g, '&quot;') // escaped double quote -> entity
                 .replace(/\\'/g, '&apos;'); // escaped single quote -> entity
             return `<${tag} ${fixedAttrs}${selfClose}>`;
-        }
+        },
     );
 
     // escape placeholders like GAMEMODE:<eventName>
     markup = markup.replace(
         /\b[A-Z][A-Z0-9_]*:\s*<([A-Za-z0-9_]+)>/g,
-        (_m, name) => `:&lt;${name}&gt;`
+        (_m, name) => `:&lt;${name}&gt;`,
     );
 
     const validation = parser.validate(markup);
     if (validation != true) {
         if (validation.err.code != 'InvalidTag') {
             throw new Error(
-                `Invalid markup: \n${JSON.stringify(validation.err, undefined, 4)}\n ${markup}`
+                `Invalid markup: \n${JSON.stringify(validation.err, undefined, 4)}\n ${markup}`,
             );
         }
     }

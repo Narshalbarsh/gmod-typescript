@@ -59,7 +59,7 @@ import { printTypeMap } from './printer/typemap';
     // Hook member pages from "hook" category (e.g., /gmod/GM%3APlayerSpawn)
     const hookPathsAll = await GetPagesInCategory('hook');
     const hookMemberPaths = hookPathsAll.filter(
-        (p) => /\/gmod\/[A-Z]+%3A/.test(p) || /[A-Z]+:/.test(p)
+        (p) => /\/gmod\/[A-Z]+%3A/.test(p) || /[A-Z]+:/.test(p),
     );
 
     const allFuncPaths = Array.from(new Set([...classFuncPaths, ...hookMemberPaths]));
@@ -72,7 +72,7 @@ import { printTypeMap } from './printer/typemap';
             ...explicitContainerPages,
             ...classFuncsPages.filter((p) => !p.title.includes(':') && !p.title.includes('.')),
             ...hookIndexPages,
-        ])
+        ]),
     );
 
     const classFuncs = classFuncsPages
@@ -84,8 +84,8 @@ import { printTypeMap } from './printer/typemap';
         .map((wikiClass) =>
             transformFunctionCollection(
                 wikiClass,
-                classFuncs.filter((cf) => cf.parent === wikiClass.name)
-            )
+                classFuncs.filter((cf) => cf.parent === wikiClass.name),
+            ),
         );
 
     // Merge classes with structs sharing the same identifier
@@ -133,8 +133,8 @@ import { printTypeMap } from './printer/typemap';
         .map((wikiLibrary) =>
             transformFunctionCollection(
                 wikiLibrary,
-                libraryFuncs.filter((cf) => cf.parent === wikiLibrary.name)
-            )
+                libraryFuncs.filter((cf) => cf.parent === wikiLibrary.name),
+            ),
         )
         .map(printInterface)
         .join('\n\n');

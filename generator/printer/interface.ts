@@ -9,7 +9,7 @@ export function printInterface(tsInterface: TSCollection): string {
 export function _printInterface(
     tsInterface: TSCollection,
     indent = '    ',
-    innerCollection = false
+    innerCollection = false,
 ): string {
     let head: string;
     let functions: string;
@@ -22,22 +22,22 @@ export function _printInterface(
         docComment = innerCollection ? indentStr(docComment, '    ') : docComment;
         functions = indentStr(
             tsInterface.functions.map(printNamespaceFunction).join('\n\n'),
-            indent
+            indent,
         );
         fields = indentStr(
             tsInterface.fields.map((f) => printInterfaceField(f, true)).join('\n\n'),
-            indent
+            indent,
         );
     } else {
         const parent = tsInterface.parent ? `extends ${tsInterface.parent} ` : '';
         head = `interface ${tsInterface.identifier} ${parent}{`;
         functions = indentStr(
             tsInterface.functions.map(printInterfaceFunction).join('\n\n'),
-            indent
+            indent,
         );
         fields = indentStr(
             tsInterface.fields.map((f) => printInterfaceField(f)).join('\n\n'),
-            indent
+            indent,
         );
     }
 

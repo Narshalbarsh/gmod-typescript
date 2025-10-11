@@ -22,10 +22,9 @@ type SubModelChar =
 type _ValidateSubModelIdsLiteral<S extends string> = S extends ''
     ? never
     : S extends `${SubModelChar}${infer R}`
-    ? R extends ''
-        ? S
-        : _ValidateSubModelIdsLiteral<R>
-    : never;
-type _ValidatedSubModelIdsOK<S extends string> = _ValidateSubModelIdsLiteral<S> extends never
-    ? never
-    : S;
+      ? R extends ''
+          ? S
+          : _ValidateSubModelIdsLiteral<R>
+      : never;
+type _ValidatedSubModelIdsOK<S extends string> =
+    _ValidateSubModelIdsLiteral<S> extends never ? never : S;

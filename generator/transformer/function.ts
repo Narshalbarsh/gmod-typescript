@@ -71,8 +71,7 @@ function parseFirstCallbackSigFrom(desc: string): string | undefined {
         const rawName = /name="([^"]+)"/i.exec(attrs)?.[1] || 'arg';
         const rawType = /type="([^"]*)"/i.exec(attrs)?.[1] || 'any';
 
-        const isVararg =
-            rawName === '...' || /^vararg$/i.test(rawType);
+        const isVararg = rawName === '...' || /^vararg$/i.test(rawType);
 
         if (isVararg) {
             args.push('...args: any[]');
@@ -84,8 +83,9 @@ function parseFirstCallbackSigFrom(desc: string): string | undefined {
         }
     }
 
-    const retTypes = Array.from(block.matchAll(/<ret\b[^>]*type="([^"]*)"/gi))
-        .map(mm => transformType((mm[1] || 'void').trim()));
+    const retTypes = Array.from(block.matchAll(/<ret\b[^>]*type="([^"]*)"/gi)).map((mm) =>
+        transformType((mm[1] || 'void').trim()),
+    );
     let retType = 'void';
     if (retTypes.length === 1) retType = retTypes[0];
     else if (retTypes.length > 1) retType = `LuaMultiReturn<[${retTypes.join(', ')}]>`;
@@ -106,7 +106,9 @@ function transformArgs(func: WikiFunction): TSArgument[] {
         const isEntitySetBodyGroups =
             func.parent === 'Entity' && func.name === 'SetBodyGroups' && arg.name === 'subModelIds';
         const isPMAddValidHands =
-            func.parent === 'player_manager' && func.name === 'AddValidHands' && arg.name === 'bodygroups';
+            func.parent === 'player_manager' &&
+            func.name === 'AddValidHands' &&
+            arg.name === 'bodygroups';
         if (isEntitySetBodyGroups || isPMAddValidHands) type = 'SubModelIds';
 
         if (argMod) {
@@ -120,7 +122,9 @@ function transformArgs(func: WikiFunction): TSArgument[] {
         }
 
         // Prefer per-arg <callback>; fallback to function-level
-        const cb = parseFirstCallbackSigFrom(arg.description) || parseFirstCallbackSigFrom(func.description);
+        const cb =
+            parseFirstCallbackSigFrom(arg.description) ||
+            parseFirstCallbackSigFrom(func.description);
         if (cb) type = cb;
 
         const outType = /\)\s*=>/.test(type) ? type : transformType(type);
@@ -153,15 +157,16 @@ function inferType(type: string, desc: string) {
 
     const parts = rawPage.split('/');
     const leaf = parts[parts.length - 1] || rawPage;
-    const cat  = parts.length > 1 ? parts[parts.length - 2] : '';
+    const cat = parts.length > 1 ? parts[parts.length - 2] : '';
 
     // renames take precedence
     const mods = getPageMods(rawPage);
     const renameMods = mods.filter(isRenameIndentifierModification);
     if (renameMods.length > 0) return renameMods[0].newName;
 
-    const isEnumLink   = /^(enum|enums)$/i.test(cat)   || /\/(enum|enums)\//i.test(rawPage);
-    const isStructLink = /^(structure|structures)$/i.test(cat) || /\/(structure|structures)\//i.test(rawPage);
+    const isEnumLink = /^(enum|enums)$/i.test(cat) || /\/(enum|enums)\//i.test(rawPage);
+    const isStructLink =
+        /^(structure|structures)$/i.test(cat) || /\/(structure|structures)\//i.test(rawPage);
 
     // treat these as "vague" and safe to upgrade
     const isVague = /^(number|string|any|table|function)$/i.test(t) || t === '';
