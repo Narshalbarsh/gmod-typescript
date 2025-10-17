@@ -2,9 +2,12 @@ import { TSEnum, TSEnumField } from '../ts_types';
 import { indentStr, printDocComent } from './util';
 
 export function printEnum(tsEnum: TSEnum): string {
+    const doc = tsEnum.docComment + (tsEnum.compileMembersOnly ? '\n@compileMembersOnly' : '');
+    const constKw = tsEnum.compileMembersOnly ? 'const ' : '';
+    // TODO is const actually correct here?
     return `
-${printDocComent(tsEnum.docComment + tsEnum.compileMembersOnly ? '\n@compileMembersOnly' : '')}
-declare enum ${tsEnum.identifier} {
+${printDocComent(doc)}
+declare ${constKw}enum ${tsEnum.identifier} {
 ${indentStr(tsEnum.fields.map(printEnumField).join('\n\n'), '    ')}
 }
 `.trim();

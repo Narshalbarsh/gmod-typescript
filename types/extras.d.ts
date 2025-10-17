@@ -28,3 +28,10 @@ type _ValidateSubModelIdsLiteral<S extends string> = S extends ''
       : never;
 type _ValidatedSubModelIdsOK<S extends string> =
     _ValidateSubModelIdsLiteral<S> extends never ? never : S;
+
+type GMHookKey = {
+  [K in keyof Gamemode]: Gamemode[K] extends (...a: any) => any ? K : never;
+}[keyof Gamemode];
+
+type Equals<A, B> =
+  (<T>() => T extends A ? 1 : 2) extends <T>() => T extends B ? 1 : 2 ? true : false;

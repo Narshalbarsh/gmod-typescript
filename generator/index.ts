@@ -13,9 +13,10 @@ import { transformFunctionCollection } from './transformer/function_collection';
 import { extractClass } from './scrapper/extract/class';
 import { extractLibrary } from './scrapper/extract/library';
 import { isWikiFunction } from './wiki_types';
-import { TSCollection } from './ts_types';
+import { TSCollection, TSEnum } from './ts_types';
 import { fetchGameEventTypeMap } from './scrapper/extract/gameevent';
 import { printTypeMap } from './printer/typemap';
+import { transformIdentifier } from './transformer/util';
 
 (async (): Promise<void> => {
     const globalFuncs = await GetPagesInCategory('Global');
@@ -121,6 +122,32 @@ import { printTypeMap } from './printer/typemap';
         identifier: remapName(s.identifier),
     }));
 
+    // Build GMHook enum from Gamemode methods for use with things like hook.Add
+    let gmHookResult = '';
+    {
+        const gm = remappedClasses.find((c) => c.identifier === 'Gamemode');
+        if (gm) {
+            const seen = new Set<string>();
+            const fields = gm.functions
+                .map((f) => f.identifier.trim())
+                .filter((n) => n.length > 0 && !seen.has(n) && (seen.add(n), true))
+                .map((name) => ({
+                    identifier: transformIdentifier(name),
+                    docComment: '',
+                    value: JSON.stringify(name),
+                }));
+
+            const gmHookEnum: TSEnum = {
+                identifier: 'GMHook',
+                docComment: '',
+                fields,
+                compileMembersOnly: true,
+            };
+
+            gmHookResult = printEnum(gmHookEnum);
+        }
+    }
+
     const classResult = remappedClasses.map(printInterface).join('\n\n');
     const structResult = remainingStructs.map(printInterface).join('\n\n');
 
@@ -149,6 +176,7 @@ import { printTypeMap } from './printer/typemap';
         classResult,
         structResult,
         enumResult,
+        gmHookResult,
         gameeventResult,
         globalFunctionResult,
         libraryResult,

@@ -172,7 +172,7 @@ function inferType(type: string, desc: string) {
     const isVague = /^(number|string|any|table|function)$/i.test(t) || t === '';
 
     if (isEnumLink && (isVague || /^number(\s*\{.*\})?$/i.test(t))) {
-        // number|string → Enum leaf (e.g., DOCK)
+        // number|string -> Enum leaf (e.g., DOCK)
         return leaf;
     }
 

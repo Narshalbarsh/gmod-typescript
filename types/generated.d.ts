@@ -135,7 +135,6 @@ interface Angle {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns a normal vector facing in the direction that the angle points.
-     *
      */
     Forward(): Vector;
 
@@ -152,7 +151,6 @@ interface Angle {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns whether the pitch, yaw and roll are 0 or not.
-     *
      */
     IsZero(): boolean;
 
@@ -168,7 +166,6 @@ interface Angle {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Normalizes the angles by applying a module with 360 to pitch, yaw and roll.
-     *
      */
     Normalize(): void;
 
@@ -185,7 +182,6 @@ interface Angle {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns a normal vector facing in the direction that points right relative to the angle's direction.
-     *
      */
     Right(): Vector;
 
@@ -241,7 +237,6 @@ interface Angle {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns the angle as a table with three elements.
-     *
      */
     ToTable(): any;
 
@@ -249,7 +244,6 @@ interface Angle {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns the pitch, yaw, and roll components of the angle.
-     *
      */
     Unpack(): LuaMultiReturn<[number, number, number]>;
 
@@ -257,7 +251,6 @@ interface Angle {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns a normal vector facing in the direction that points up relative to the angle's direction.
-     *
      */
     Up(): Vector;
 
@@ -266,7 +259,6 @@ interface Angle {
      *
      * Sets pitch, yaw and roll to 0.
      * This function is faster than doing it manually.
-     *
      */
     Zero(): void;
 
@@ -276,7 +268,6 @@ interface Angle {
  * This is the object passed to [usermessage.Hook](https://wiki.facepunch.com/gmod/usermessage.Hook) when a message is received. It contains each value stored in the message in sequential order. You should read values from it in the order you wrote them.
  *
  * @deprecated You should be using [net](https://wiki.facepunch.com/gmod/net) instead
- *
  */
 interface bf_read {
 
@@ -285,7 +276,6 @@ interface bf_read {
      * 🟨 [Client]
      *
      * Reads and returns an angle object from the bitstream.
-     *
      */
     ReadAngle(): Angle;
 
@@ -293,7 +283,6 @@ interface bf_read {
      * 🟨 [Client]
      *
      * Reads 1 bit and returns a bool representing the bit.
-     *
      */
     ReadBool(): boolean;
 
@@ -301,7 +290,6 @@ interface bf_read {
      * 🟨 [Client]
      *
      * Reads a signed char and returns a number from -127 to 127 representing the ascii value of that char.
-     *
      */
     ReadChar(): number;
 
@@ -309,7 +297,6 @@ interface bf_read {
      * 🟨 [Client]
      *
      * Reads a short representing an entity index and returns the matching entity handle.
-     *
      */
     ReadEntity(): Entity;
 
@@ -317,7 +304,6 @@ interface bf_read {
      * 🟨 [Client]
      *
      * Reads a 4 byte float from the bitstream and returns it.
-     *
      */
     ReadFloat(): number;
 
@@ -325,7 +311,6 @@ interface bf_read {
      * 🟨 [Client]
      *
      * Reads a 4 byte long from the bitstream and returns it.
-     *
      */
     ReadLong(): number;
 
@@ -333,7 +318,6 @@ interface bf_read {
      * 🟨 [Client]
      *
      * Reads a 2 byte short from the bitstream and returns it.
-     *
      */
     ReadShort(): number;
 
@@ -341,7 +325,6 @@ interface bf_read {
      * 🟨 [Client]
      *
      * Reads a null terminated string from the bitstream.
-     *
      */
     ReadString(): string;
 
@@ -349,7 +332,6 @@ interface bf_read {
      * 🟨 [Client]
      *
      * Reads a special encoded vector from the bitstream and returns it, this function is not suitable to send normals.
-     *
      */
     ReadVector(): Vector;
 
@@ -357,7 +339,6 @@ interface bf_read {
      * 🟨 [Client]
      *
      * Reads a special encoded vector normal from the bitstream and returns it, this function is not suitable to send vectors that represent a position.
-     *
      */
     ReadVectorNormal(): Vector;
 
@@ -365,7 +346,6 @@ interface bf_read {
      * 🟨 [Client]
      *
      * Rewinds the bitstream so it can be read again.
-     *
      */
     Reset(): void;
 
@@ -381,7 +361,6 @@ interface CEffectData {
      * 🟨🟦 [Shared]
      *
      * Returns the angles of the effect.
-     *
      */
     GetAngles(): Angle;
 
@@ -389,7 +368,6 @@ interface CEffectData {
      * 🟨🟦 [Shared]
      *
      * Returns the attachment ID for the effect.
-     *
      */
     GetAttachment(): number;
 
@@ -397,7 +375,6 @@ interface CEffectData {
      * 🟨🟦 [Shared]
      *
      * Returns byte which represents the color of the effect.
-     *
      */
     GetColor(): number;
 
@@ -405,7 +382,6 @@ interface CEffectData {
      * 🟨🟦 [Shared]
      *
      * Returns the damage type of the effect
-     *
      */
     GetDamageType(): DMG;
 
@@ -413,7 +389,6 @@ interface CEffectData {
      * 🟦 [Server]
      *
      * Returns the entity index of the entity set for the effect.
-     *
      */
     GetEntIndex(): number;
 
@@ -421,7 +396,6 @@ interface CEffectData {
      * 🟨🟦 [Shared]
      *
      * Returns the entity assigned to the effect.
-     *
      */
     GetEntity(): Entity;
 
@@ -429,7 +403,6 @@ interface CEffectData {
      * 🟨🟦 [Shared]
      *
      * Returns the flags of the effect.
-     *
      */
     GetFlags(): number;
 
@@ -437,7 +410,6 @@ interface CEffectData {
      * 🟨🟦 [Shared]
      *
      * Returns the hit box ID of the effect.
-     *
      */
     GetHitBox(): number;
 
@@ -445,7 +417,6 @@ interface CEffectData {
      * 🟨🟦 [Shared]
      *
      * Returns the magnitude of the effect.
-     *
      */
     GetMagnitude(): number;
 
@@ -453,7 +424,6 @@ interface CEffectData {
      * 🟨🟦 [Shared]
      *
      * Returns the material ID of the effect.
-     *
      */
     GetMaterialIndex(): number;
 
@@ -461,7 +431,6 @@ interface CEffectData {
      * 🟨🟦 [Shared]
      *
      * Returns the normalized direction vector of the effect.
-     *
      */
     GetNormal(): Vector;
 
@@ -469,7 +438,6 @@ interface CEffectData {
      * 🟨🟦 [Shared]
      *
      * Returns the origin position of the effect.
-     *
      */
     GetOrigin(): Vector;
 
@@ -477,7 +445,6 @@ interface CEffectData {
      * 🟨🟦 [Shared]
      *
      * Returns the radius of the effect.
-     *
      */
     GetRadius(): number;
 
@@ -485,7 +452,6 @@ interface CEffectData {
      * 🟨🟦 [Shared]
      *
      * Returns the scale of the effect.
-     *
      */
     GetScale(): number;
 
@@ -493,7 +459,6 @@ interface CEffectData {
      * 🟨🟦 [Shared]
      *
      * Returns the start position of the effect.
-     *
      */
     GetStart(): Vector;
 
@@ -503,7 +468,6 @@ interface CEffectData {
      * Returns the surface property index of the effect. See [util.GetSurfaceData](https://wiki.facepunch.com/gmod/util.GetSurfaceData) for more details about what they are.
      *
      * See [CEffectData:SetSurfaceProp](https://wiki.facepunch.com/gmod/CEffectData:SetSurfaceProp) for details about limitations of this function.
-     *
      */
     GetSurfaceProp(): number;
 
@@ -705,7 +669,6 @@ interface CLuaEmitter {
      * 🟨 [Client]
      *
      * Manually renders all particles the emitter has created.
-     *
      */
     Draw(): void;
 
@@ -713,7 +676,6 @@ interface CLuaEmitter {
      * 🟨 [Client]
      *
      * Removes the emitter, making it no longer usable from Lua. If particles remain, the emitter will be removed when all particles die.
-     *
      */
     Finish(): void;
 
@@ -721,7 +683,6 @@ interface CLuaEmitter {
      * 🟨 [Client]
      *
      * Returns the amount of active particles of this emitter.
-     *
      */
     GetNumActiveParticles(): number;
 
@@ -729,7 +690,6 @@ interface CLuaEmitter {
      * 🟨 [Client]
      *
      * Returns the position of this emitter. This is set when creating the emitter with [Global.ParticleEmitter](https://wiki.facepunch.com/gmod/Global.ParticleEmitter).
-     *
      */
     GetPos(): Vector;
 
@@ -737,7 +697,6 @@ interface CLuaEmitter {
      * 🟨 [Client]
      *
      * Returns whether this emitter is 3D or not. This is set when creating the emitter with [Global.ParticleEmitter](https://wiki.facepunch.com/gmod/Global.ParticleEmitter).
-     *
      */
     Is3D(): boolean;
 
@@ -745,7 +704,6 @@ interface CLuaEmitter {
      * 🟨 [Client]
      *
      * Returns whether this [CLuaEmitter](https://wiki.facepunch.com/gmod/CLuaEmitter) is valid or not.
-     *
      */
     IsValid(): boolean;
 
@@ -820,7 +778,6 @@ interface CLuaLocomotion {
      * 🟦 [Server]
      *
      * Removes the stuck status from the bot
-     *
      */
     ClearStuck(): void;
 
@@ -836,7 +793,6 @@ interface CLuaLocomotion {
      * 🟦 [Server]
      *
      * Returns the acceleration speed
-     *
      */
     GetAcceleration(): number;
 
@@ -844,7 +800,6 @@ interface CLuaLocomotion {
      * 🟦 [Server]
      *
      * Returns whether the Nextbot is allowed to avoid obstacles or not.
-     *
      */
     GetAvoidAllowed(): boolean;
 
@@ -852,7 +807,6 @@ interface CLuaLocomotion {
      * 🟦 [Server]
      *
      * Returns whether the Nextbot is allowed to climb or not.
-     *
      */
     GetClimbAllowed(): boolean;
 
@@ -860,7 +814,6 @@ interface CLuaLocomotion {
      * 🟦 [Server]
      *
      * Returns the current acceleration as a vector
-     *
      */
     GetCurrentAcceleration(): Vector;
 
@@ -868,7 +821,6 @@ interface CLuaLocomotion {
      * 🟦 [Server]
      *
      * Gets the height the bot is scared to fall from
-     *
      */
     GetDeathDropHeight(): number;
 
@@ -876,7 +828,6 @@ interface CLuaLocomotion {
      * 🟦 [Server]
      *
      * Gets the deceleration speed
-     *
      */
     GetDeceleration(): number;
 
@@ -884,7 +835,6 @@ interface CLuaLocomotion {
      * 🟦 [Server]
      *
      * Returns the desired movement speed set by [CLuaLocomotion:SetDesiredSpeed](https://wiki.facepunch.com/gmod/CLuaLocomotion:SetDesiredSpeed)
-     *
      */
     GetDesiredSpeed(): number;
 
@@ -892,7 +842,6 @@ interface CLuaLocomotion {
      * 🟦 [Server]
      *
      * Returns the locomotion's gravity.
-     *
      */
     GetGravity(): number;
 
@@ -900,7 +849,6 @@ interface CLuaLocomotion {
      * 🟦 [Server]
      *
      * Return unit vector in XY plane describing our direction of motion - even if we are currently not moving
-     *
      */
     GetGroundMotionVector(): Vector;
 
@@ -908,7 +856,6 @@ interface CLuaLocomotion {
      * 🟦 [Server]
      *
      * Returns the current ground normal.
-     *
      */
     GetGroundNormal(): Vector;
 
@@ -916,7 +863,6 @@ interface CLuaLocomotion {
      * 🟦 [Server]
      *
      * Returns whether the Nextbot is allowed to jump gaps or not.
-     *
      */
     GetJumpGapsAllowed(): boolean;
 
@@ -924,7 +870,6 @@ interface CLuaLocomotion {
      * 🟦 [Server]
      *
      * Gets the height of the bot's jump
-     *
      */
     GetJumpHeight(): number;
 
@@ -932,7 +877,6 @@ interface CLuaLocomotion {
      * 🟦 [Server]
      *
      * Returns maximum jump height of this [CLuaLocomotion](https://wiki.facepunch.com/gmod/CLuaLocomotion).
-     *
      */
     GetMaxJumpHeight(): number;
 
@@ -940,7 +884,6 @@ interface CLuaLocomotion {
      * 🟦 [Server]
      *
      * Returns the max rate at which the NextBot can visually rotate.
-     *
      */
     GetMaxYawRate(): number;
 
@@ -948,7 +891,6 @@ interface CLuaLocomotion {
      * 🟦 [Server]
      *
      * Returns the [NextBot](https://wiki.facepunch.com/gmod/NextBot) this locomotion is associated with.
-     *
      */
     GetNextBot(): NextBot;
 
@@ -956,7 +898,6 @@ interface CLuaLocomotion {
      * 🟦 [Server]
      *
      * Gets the max height the bot can step up
-     *
      */
     GetStepHeight(): number;
 
@@ -964,7 +905,6 @@ interface CLuaLocomotion {
      * 🟦 [Server]
      *
      * Returns the current movement velocity as a vector
-     *
      */
     GetVelocity(): Vector;
 
@@ -980,7 +920,6 @@ interface CLuaLocomotion {
      * 🟦 [Server]
      *
      * Returns true if we're trying to move.
-     *
      */
     IsAttemptingToMove(): boolean;
 
@@ -988,7 +927,6 @@ interface CLuaLocomotion {
      * 🟦 [Server]
      *
      * Returns true of the locomotion engine is jumping or climbing
-     *
      */
     IsClimbingOrJumping(): boolean;
 
@@ -996,7 +934,6 @@ interface CLuaLocomotion {
      * 🟦 [Server]
      *
      * Returns whether the nextbot this locomotion is attached to is on ground or not.
-     *
      */
     IsOnGround(): boolean;
 
@@ -1004,7 +941,6 @@ interface CLuaLocomotion {
      * 🟦 [Server]
      *
      * Returns true if we're stuck
-     *
      */
     IsStuck(): boolean;
 
@@ -1012,7 +948,6 @@ interface CLuaLocomotion {
      * 🟦 [Server]
      *
      * Returns whether or not the target in question is on a ladder or not.
-     *
      */
     IsUsingLadder(): boolean;
 
@@ -1147,7 +1082,6 @@ interface CLuaParticle {
      * 🟨 [Client]
      *
      * Returns the air resistance of the particle.
-     *
      */
     GetAirResistance(): number;
 
@@ -1155,7 +1089,6 @@ interface CLuaParticle {
      * 🟨 [Client]
      *
      * Returns the current orientation of the particle.
-     *
      */
     GetAngles(): Angle;
 
@@ -1163,7 +1096,6 @@ interface CLuaParticle {
      * 🟨 [Client]
      *
      * Returns the angular velocity of the particle
-     *
      */
     GetAngleVelocity(): Angle;
 
@@ -1171,7 +1103,6 @@ interface CLuaParticle {
      * 🟨 [Client]
      *
      * Returns the 'bounciness' of the particle.
-     *
      */
     GetBounce(): number;
 
@@ -1179,7 +1110,6 @@ interface CLuaParticle {
      * 🟨 [Client]
      *
      * Returns the color of the particle.
-     *
      */
     GetColor(): LuaMultiReturn<[number, number, number]>;
 
@@ -1187,7 +1117,6 @@ interface CLuaParticle {
      * 🟨 [Client]
      *
      * Returns the amount of time in seconds after which the particle will be destroyed.
-     *
      */
     GetDieTime(): number;
 
@@ -1195,7 +1124,6 @@ interface CLuaParticle {
      * 🟨 [Client]
      *
      * Returns the alpha value that the particle will reach on its death.
-     *
      */
     GetEndAlpha(): number;
 
@@ -1203,7 +1131,6 @@ interface CLuaParticle {
      * 🟨 [Client]
      *
      * Returns the length that the particle will reach on its death.
-     *
      */
     GetEndLength(): number;
 
@@ -1211,7 +1138,6 @@ interface CLuaParticle {
      * 🟨 [Client]
      *
      * Returns the size that the particle will reach on its death.
-     *
      */
     GetEndSize(): number;
 
@@ -1219,7 +1145,6 @@ interface CLuaParticle {
      * 🟨 [Client]
      *
      * Returns the gravity of the particle.
-     *
      */
     GetGravity(): Vector;
 
@@ -1235,7 +1160,6 @@ interface CLuaParticle {
      * It can be manipulated using [CLuaParticle:SetLifeTime](https://wiki.facepunch.com/gmod/CLuaParticle:SetLifeTime).
      *
      * If the life time of the particle will be more than [CLuaParticle:GetDieTime](https://wiki.facepunch.com/gmod/CLuaParticle:GetDieTime), it will be removed.
-     *
      */
     GetLifeTime(): number;
 
@@ -1243,7 +1167,6 @@ interface CLuaParticle {
      * 🟨 [Client]
      *
      * Returns the current material of the particle.
-     *
      */
     GetMaterial(): IMaterial;
 
@@ -1251,7 +1174,6 @@ interface CLuaParticle {
      * 🟨 [Client]
      *
      * Returns the absolute position of the particle.
-     *
      */
     GetPos(): Vector;
 
@@ -1259,7 +1181,6 @@ interface CLuaParticle {
      * 🟨 [Client]
      *
      * Returns the current rotation of the particle in radians, this should only be used for 2D particles.
-     *
      */
     GetRoll(): number;
 
@@ -1267,7 +1188,6 @@ interface CLuaParticle {
      * 🟨 [Client]
      *
      * Returns the current rotation speed of the particle in radians, this should only be used for 2D particles.
-     *
      */
     GetRollDelta(): number;
 
@@ -1275,7 +1195,6 @@ interface CLuaParticle {
      * 🟨 [Client]
      *
      * Returns the alpha value which the particle has when it's created.
-     *
      */
     GetStartAlpha(): number;
 
@@ -1283,7 +1202,6 @@ interface CLuaParticle {
      * 🟨 [Client]
      *
      * Returns the length which the particle has when it's created.
-     *
      */
     GetStartLength(): number;
 
@@ -1291,7 +1209,6 @@ interface CLuaParticle {
      * 🟨 [Client]
      *
      * Returns the size which the particle has when it's created.
-     *
      */
     GetStartSize(): number;
 
@@ -1299,7 +1216,6 @@ interface CLuaParticle {
      * 🟨 [Client]
      *
      * Returns the current velocity of the particle.
-     *
      */
     GetVelocity(): Vector;
 
@@ -1544,7 +1460,6 @@ interface CMoveData {
      * 🟨🟦 [Shared]
      *
      * Gets the aim angle. Seems to be same as [CMoveData:GetAngles](https://wiki.facepunch.com/gmod/CMoveData:GetAngles).
-     *
      */
     GetAbsMoveAngles(): Angle;
 
@@ -1552,7 +1467,6 @@ interface CMoveData {
      * 🟨🟦 [Shared]
      *
      * Gets the aim angle. On client is the same as [Entity:GetAngles](https://wiki.facepunch.com/gmod/Entity:GetAngles).
-     *
      */
     GetAngles(): Angle;
 
@@ -1560,7 +1474,6 @@ interface CMoveData {
      * 🟨🟦 [Shared]
      *
      * Gets which buttons are down
-     *
      */
     GetButtons(): IN;
 
@@ -1568,7 +1481,6 @@ interface CMoveData {
      * 🟨🟦 [Shared]
      *
      * Returns the center of the player movement constraint. See [CMoveData:SetConstraintCenter](https://wiki.facepunch.com/gmod/CMoveData:SetConstraintCenter).
-     *
      */
     GetConstraintCenter(): Vector;
 
@@ -1576,7 +1488,6 @@ interface CMoveData {
      * 🟨🟦 [Shared]
      *
      * Returns the radius that constrains the players movement. See [CMoveData:SetConstraintRadius](https://wiki.facepunch.com/gmod/CMoveData:SetConstraintRadius).
-     *
      */
     GetConstraintRadius(): number;
 
@@ -1584,7 +1495,6 @@ interface CMoveData {
      * 🟨🟦 [Shared]
      *
      * Returns the player movement constraint speed scale. See [CMoveData:SetConstraintSpeedScale](https://wiki.facepunch.com/gmod/CMoveData:SetConstraintSpeedScale).
-     *
      */
     GetConstraintSpeedScale(): number;
 
@@ -1592,7 +1502,6 @@ interface CMoveData {
      * 🟨🟦 [Shared]
      *
      * Returns the width (distance from the edge of the radius, inward) where the actual movement constraint functions.
-     *
      */
     GetConstraintWidth(): number;
 
@@ -1600,7 +1509,6 @@ interface CMoveData {
      * 🟨🟦 [Shared]
      *
      * Returns an internal player movement variable `m_outWishVel`.
-     *
      */
     GetFinalIdealVelocity(): Vector;
 
@@ -1608,7 +1516,6 @@ interface CMoveData {
      * 🟨🟦 [Shared]
      *
      * Returns an internal player movement variable `m_outJumpVel`.
-     *
      */
     GetFinalJumpVelocity(): Vector;
 
@@ -1616,7 +1523,6 @@ interface CMoveData {
      * 🟨🟦 [Shared]
      *
      * Returns an internal player movement variable `m_outStepHeight`.
-     *
      */
     GetFinalStepHeight(): number;
 
@@ -1624,7 +1530,6 @@ interface CMoveData {
      * 🟨🟦 [Shared]
      *
      * Returns the players forward speed.
-     *
      */
     GetForwardSpeed(): number;
 
@@ -1632,7 +1537,6 @@ interface CMoveData {
      * 🟨🟦 [Shared]
      *
      * Gets the number passed to "impulse" console command
-     *
      */
     GetImpulseCommand(): number;
 
@@ -1640,7 +1544,6 @@ interface CMoveData {
      * 🟨🟦 [Shared]
      *
      * Returns the maximum client speed of the player
-     *
      */
     GetMaxClientSpeed(): number;
 
@@ -1648,7 +1551,6 @@ interface CMoveData {
      * 🟨🟦 [Shared]
      *
      * Returns the maximum speed of the player.
-     *
      */
     GetMaxSpeed(): number;
 
@@ -1656,7 +1558,6 @@ interface CMoveData {
      * 🟨🟦 [Shared]
      *
      * Returns the angle the player is moving at. For more info, see [CMoveData:SetMoveAngles](https://wiki.facepunch.com/gmod/CMoveData:SetMoveAngles).
-     *
      */
     GetMoveAngles(): Angle;
 
@@ -1664,7 +1565,6 @@ interface CMoveData {
      * 🟨🟦 [Shared]
      *
      * Gets the aim angle. Only works clientside, server returns same as [CMoveData:GetAngles](https://wiki.facepunch.com/gmod/CMoveData:GetAngles).
-     *
      */
     GetOldAngles(): Angle;
 
@@ -1672,7 +1572,6 @@ interface CMoveData {
      * 🟨🟦 [Shared]
      *
      * Get which buttons were down last frame
-     *
      */
     GetOldButtons(): IN;
 
@@ -1680,7 +1579,6 @@ interface CMoveData {
      * 🟨🟦 [Shared]
      *
      * Gets the player's position.
-     *
      */
     GetOrigin(): Vector;
 
@@ -1688,7 +1586,6 @@ interface CMoveData {
      * 🟨🟦 [Shared]
      *
      * Returns the strafe speed of the player.
-     *
      */
     GetSideSpeed(): number;
 
@@ -1696,7 +1593,6 @@ interface CMoveData {
      * 🟨🟦 [Shared]
      *
      * Returns the vertical speed of the player. ( Z axis of [CMoveData:GetVelocity](https://wiki.facepunch.com/gmod/CMoveData:GetVelocity) )
-     *
      */
     GetUpSpeed(): number;
 
@@ -1707,8 +1603,6 @@ interface CMoveData {
      *
      * **Bug [#3413](https://github.com/Facepunch/garrysmod-issues/issues/3413):**
      * >This will return Vector(0,0,0) sometimes when walking on props.
-     *
-     *
      */
     GetVelocity(): Vector;
 
@@ -1978,7 +1872,6 @@ interface CNavArea {
      * Used in pathfinding via the [A* algorithm](https://en.wikipedia.org/wiki/A*_search_algorithm).
      *
      * More information can be found on the [Simple Pathfinding](https://wiki.facepunch.com/gmod/Simple_Pathfinding) page.
-     *
      */
     AddToClosedList(): void;
 
@@ -1990,7 +1883,6 @@ interface CNavArea {
      * Used in pathfinding via the [A* algorithm](https://en.wikipedia.org/wiki/A*_search_algorithm).
      *
      * More information can be found on the [Simple Pathfinding](https://wiki.facepunch.com/gmod/Simple_Pathfinding) page.
-     *
      */
     AddToOpenList(): void;
 
@@ -2002,7 +1894,6 @@ interface CNavArea {
      * Used in pathfinding via the [A* algorithm](https://en.wikipedia.org/wiki/A*_search_algorithm).
      *
      * More information can be found on the [Simple Pathfinding](https://wiki.facepunch.com/gmod/Simple_Pathfinding) page.
-     *
      */
     ClearSearchLists(): void;
 
@@ -2060,7 +1951,6 @@ interface CNavArea {
      * 🟦 [Server]
      *
      * Draws this navarea on debug overlay.
-     *
      */
     Draw(): void;
 
@@ -2068,7 +1958,6 @@ interface CNavArea {
      * 🟦 [Server]
      *
      * Draws the hiding spots on debug overlay. This includes sniper/exposed spots too!
-     *
      */
     DrawSpots(): void;
 
@@ -2090,7 +1979,6 @@ interface CNavArea {
      * If an area has a one-way incoming connection to this [CNavArea](https://wiki.facepunch.com/gmod/CNavArea), then it will **not** be returned from this function, use [CNavArea:GetIncomingConnections](https://wiki.facepunch.com/gmod/CNavArea:GetIncomingConnections) to get all one-way incoming connections.
      *
      * See [CNavArea:GetAdjacentAreasAtSide](https://wiki.facepunch.com/gmod/CNavArea:GetAdjacentAreasAtSide) for a function that only returns areas from one side/direction.
-     *
      */
     GetAdjacentAreas(): any;
 
@@ -2112,7 +2000,6 @@ interface CNavArea {
      * Returns the amount of [CNavArea](https://wiki.facepunch.com/gmod/CNavArea)s that have a connection ( one and two way ) **from** this [CNavArea](https://wiki.facepunch.com/gmod/CNavArea).
      *
      * See [CNavArea:GetAdjacentCountAtSide](https://wiki.facepunch.com/gmod/CNavArea:GetAdjacentCountAtSide) for a function that only returns area count from one side/direction.
-     *
      */
     GetAdjacentCount(): number;
 
@@ -2130,7 +2017,6 @@ interface CNavArea {
      * 🟦 [Server]
      *
      * Returns the attribute mask for the given [CNavArea](https://wiki.facepunch.com/gmod/CNavArea).
-     *
      */
     GetAttributes(): number;
 
@@ -2138,7 +2024,6 @@ interface CNavArea {
      * 🟦 [Server]
      *
      * Returns the center most vector point for the given [CNavArea](https://wiki.facepunch.com/gmod/CNavArea).
-     *
      */
     GetCenter(): Vector;
 
@@ -2166,7 +2051,6 @@ interface CNavArea {
      * Used in pathfinding via the [A* algorithm](https://en.wikipedia.org/wiki/A*_search_algorithm).
      *
      * More information can be found on the [Simple Pathfinding](https://wiki.facepunch.com/gmod/Simple_Pathfinding) page.
-     *
      */
     GetCostSoFar(): number;
 
@@ -2176,7 +2060,6 @@ interface CNavArea {
      * Returns a table of very bad hiding spots in this area.
      *
      * See also [CNavArea:GetHidingSpots](https://wiki.facepunch.com/gmod/CNavArea:GetHidingSpots).
-     *
      */
     GetExposedSpots(): any;
 
@@ -2184,7 +2067,6 @@ interface CNavArea {
      * 🟦 [Server]
      *
      * Returns size info about the nav area.
-     *
      */
     GetExtentInfo(): any;
 
@@ -2208,7 +2090,6 @@ interface CNavArea {
      * 🟦 [Server]
      *
      * Returns this [CNavArea](https://wiki.facepunch.com/gmod/CNavArea)s unique ID.
-     *
      */
     GetID(): number;
 
@@ -2230,7 +2111,6 @@ interface CNavArea {
      * If a [CNavArea](https://wiki.facepunch.com/gmod/CNavArea) has a two-way connection **to or from** this [CNavArea](https://wiki.facepunch.com/gmod/CNavArea) then it will not be returned from this function, use [CNavArea:GetAdjacentAreas](https://wiki.facepunch.com/gmod/CNavArea:GetAdjacentAreas) to get outgoing ( one and two way ) connections.
      *
      * See [CNavArea:GetIncomingConnectionsAtSide](https://wiki.facepunch.com/gmod/CNavArea:GetIncomingConnectionsAtSide) for a function that returns one-way incoming connections from  only one side/direction.
-     *
      */
     GetIncomingConnections(): CNavArea[];
 
@@ -2252,7 +2132,6 @@ interface CNavArea {
      * Returns all [CNavLadder](https://wiki.facepunch.com/gmod/CNavLadder)s that have a ( one or two way ) connection **from** this [CNavArea](https://wiki.facepunch.com/gmod/CNavArea).
      *
      * See [CNavArea:GetLaddersAtSide](https://wiki.facepunch.com/gmod/CNavArea:GetLaddersAtSide) for a function that only returns [CNavLadder](https://wiki.facepunch.com/gmod/CNavLadder)s in given direction.
-     *
      */
     GetLadders(): CNavLadder[];
 
@@ -2272,7 +2151,6 @@ interface CNavArea {
      * 🟦 [Server]
      *
      * Returns the parent [CNavArea](https://wiki.facepunch.com/gmod/CNavArea)
-     *
      */
     GetParent(): CNavArea;
 
@@ -2280,7 +2158,6 @@ interface CNavArea {
      * 🟦 [Server]
      *
      * Returns how this [CNavArea](https://wiki.facepunch.com/gmod/CNavArea) is connected to its parent.
-     *
      */
     GetParentHow(): NavTraverseType;
 
@@ -2288,7 +2165,6 @@ interface CNavArea {
      * 🟦 [Server]
      *
      * Returns the Place of the nav area.
-     *
      */
     GetPlace(): string;
 
@@ -2304,7 +2180,6 @@ interface CNavArea {
      * 🟦 [Server]
      *
      * Returns a random point on the nav area.
-     *
      */
     GetRandomPoint(): Vector;
 
@@ -2312,7 +2187,6 @@ interface CNavArea {
      * 🟦 [Server]
      *
      * Returns the width this Nav Area.
-     *
      */
     GetSizeX(): number;
 
@@ -2320,7 +2194,6 @@ interface CNavArea {
      * 🟦 [Server]
      *
      * Returns the height of this Nav Area.
-     *
      */
     GetSizeY(): number;
 
@@ -2328,7 +2201,6 @@ interface CNavArea {
      * 🟦 [Server]
      *
      * Returns all possible path segments through a [CNavArea](https://wiki.facepunch.com/gmod/CNavArea), and the dangerous spots to look at as we traverse that path segment.
-     *
      */
     GetSpotEncounters(): any;
 
@@ -2340,7 +2212,6 @@ interface CNavArea {
      * Used in pathfinding via the [A* algorithm](https://en.wikipedia.org/wiki/A*_search_algorithm).
      *
      * More information can be found on the [Simple Pathfinding](https://wiki.facepunch.com/gmod/Simple_Pathfinding) page.
-     *
      */
     GetTotalCost(): number;
 
@@ -2348,7 +2219,6 @@ interface CNavArea {
      * 🟦 [Server]
      *
      * Returns all [CNavArea](https://wiki.facepunch.com/gmod/CNavArea)s that are visible from this [CNavArea](https://wiki.facepunch.com/gmod/CNavArea).
-     *
      */
     GetVisibleAreas(): any;
 
@@ -2386,7 +2256,6 @@ interface CNavArea {
      * Used in pathfinding via the [A* algorithm](https://en.wikipedia.org/wiki/A*_search_algorithm).
      *
      * More information can be found on the [Simple Pathfinding](https://wiki.facepunch.com/gmod/Simple_Pathfinding) page.
-     *
      */
     IsClosed(): boolean;
 
@@ -2431,7 +2300,6 @@ interface CNavArea {
      * 🟦 [Server]
      *
      * Returns whether the [CNavArea](https://wiki.facepunch.com/gmod/CNavArea) would damage if traversed, as set by [CNavArea:MarkAsDamaging](https://wiki.facepunch.com/gmod/CNavArea:MarkAsDamaging).
-     *
      */
     IsDamaging(): boolean;
 
@@ -2439,7 +2307,6 @@ interface CNavArea {
      * 🟦 [Server]
      *
      * Returns whether this Nav Area is flat within the tolerance of the **nav_coplanar_slope_limit_displacement** and **nav_coplanar_slope_limit** convars.
-     *
      */
     IsFlat(): boolean;
 
@@ -2451,7 +2318,6 @@ interface CNavArea {
      * Used in pathfinding via the [A* algorithm](https://en.wikipedia.org/wiki/A*_search_algorithm).
      *
      * More information can be found on the [Simple Pathfinding](https://wiki.facepunch.com/gmod/Simple_Pathfinding) page.
-     *
      */
     IsOpen(): boolean;
 
@@ -2463,7 +2329,6 @@ interface CNavArea {
      * Used in pathfinding via the [A* algorithm](https://en.wikipedia.org/wiki/A*_search_algorithm).
      *
      * More information can be found on the [Simple Pathfinding](https://wiki.facepunch.com/gmod/Simple_Pathfinding) page.
-     *
      */
     IsOpenListEmpty(): boolean;
 
@@ -2505,7 +2370,6 @@ interface CNavArea {
      * 🟦 [Server]
      *
      * Returns if we're shaped like a square.
-     *
      */
     IsRoughlySquare(): boolean;
 
@@ -2513,7 +2377,6 @@ interface CNavArea {
      * 🟦 [Server]
      *
      * Whether this Nav Area is placed underwater.
-     *
      */
     IsUnderwater(): boolean;
 
@@ -2521,7 +2384,6 @@ interface CNavArea {
      * 🟦 [Server]
      *
      * Returns whether this [CNavArea](https://wiki.facepunch.com/gmod/CNavArea) is valid or not.
-     *
      */
     IsValid(): boolean;
 
@@ -2573,7 +2435,6 @@ interface CNavArea {
      * Used in pathfinding via the [A* algorithm](https://en.wikipedia.org/wiki/A*_search_algorithm).
      *
      * More information can be found on the [Simple Pathfinding](https://wiki.facepunch.com/gmod/Simple_Pathfinding) page.
-     *
      */
     PopOpenList(): CNavArea;
 
@@ -2581,7 +2442,6 @@ interface CNavArea {
      * 🟦 [Server]
      *
      * Removes the given nav area.
-     *
      */
     Remove(): void;
 
@@ -2603,8 +2463,6 @@ interface CNavArea {
      * More information can be found on the [Simple Pathfinding](https://wiki.facepunch.com/gmod/Simple_Pathfinding) page.
      *
      * @deprecated Does nothing
-     *
-     *
      */
     RemoveFromClosedList(): void;
 
@@ -2677,7 +2535,6 @@ interface CNavArea {
      * Used in pathfinding via the [A* algorithm](https://en.wikipedia.org/wiki/A*_search_algorithm).
      *
      * More information can be found on the [Simple Pathfinding](https://wiki.facepunch.com/gmod/Simple_Pathfinding) page.
-     *
      */
     UpdateOnOpenList(): void;
 
@@ -2711,7 +2568,6 @@ interface CNavLadder {
      * 🟦 [Server]
      *
      * Returns the bottom most position of the ladder.
-     *
      */
     GetBottom(): Vector;
 
@@ -2719,7 +2575,6 @@ interface CNavLadder {
      * 🟦 [Server]
      *
      * Returns the bottom area of the [CNavLadder](https://wiki.facepunch.com/gmod/CNavLadder).
-     *
      */
     GetBottomArea(): CNavArea;
 
@@ -2727,7 +2582,6 @@ interface CNavLadder {
      * 🟦 [Server]
      *
      * Returns this [CNavLadder](https://wiki.facepunch.com/gmod/CNavLadder)s unique ID.
-     *
      */
     GetID(): number;
 
@@ -2735,7 +2589,6 @@ interface CNavLadder {
      * 🟦 [Server]
      *
      * Returns the length of the ladder.
-     *
      */
     GetLength(): number;
 
@@ -2743,7 +2596,6 @@ interface CNavLadder {
      * 🟦 [Server]
      *
      * Returns the direction of this [CNavLadder](https://wiki.facepunch.com/gmod/CNavLadder). ( The direction in which players back will be facing if they are looking directly at the ladder )
-     *
      */
     GetNormal(): Vector;
 
@@ -2759,7 +2611,6 @@ interface CNavLadder {
      * 🟦 [Server]
      *
      * Returns the topmost position of the ladder.
-     *
      */
     GetTop(): Vector;
 
@@ -2767,7 +2618,6 @@ interface CNavLadder {
      * 🟦 [Server]
      *
      * Returns the top behind [CNavArea](https://wiki.facepunch.com/gmod/CNavArea) of the [CNavLadder](https://wiki.facepunch.com/gmod/CNavLadder).
-     *
      */
     GetTopBehindArea(): CNavArea;
 
@@ -2775,7 +2625,6 @@ interface CNavLadder {
      * 🟦 [Server]
      *
      * Returns the top forward [CNavArea](https://wiki.facepunch.com/gmod/CNavArea) of the [CNavLadder](https://wiki.facepunch.com/gmod/CNavLadder).
-     *
      */
     GetTopForwardArea(): CNavArea;
 
@@ -2783,7 +2632,6 @@ interface CNavLadder {
      * 🟦 [Server]
      *
      * Returns the top left [CNavArea](https://wiki.facepunch.com/gmod/CNavArea) of the [CNavLadder](https://wiki.facepunch.com/gmod/CNavLadder).
-     *
      */
     GetTopLeftArea(): CNavArea;
 
@@ -2791,7 +2639,6 @@ interface CNavLadder {
      * 🟦 [Server]
      *
      * Returns the top right [CNavArea](https://wiki.facepunch.com/gmod/CNavArea) of the [CNavLadder](https://wiki.facepunch.com/gmod/CNavLadder).
-     *
      */
     GetTopRightArea(): CNavArea;
 
@@ -2799,7 +2646,6 @@ interface CNavLadder {
      * 🟦 [Server]
      *
      * Returns the width of the ladder in Hammer Units.
-     *
      */
     GetWidth(): number;
 
@@ -2816,7 +2662,6 @@ interface CNavLadder {
      * 🟦 [Server]
      *
      * Returns whether this [CNavLadder](https://wiki.facepunch.com/gmod/CNavLadder) is valid or not.
-     *
      */
     IsValid(): boolean;
 
@@ -2824,7 +2669,6 @@ interface CNavLadder {
      * 🟦 [Server]
      *
      * Removes the given nav ladder.
-     *
      */
     Remove(): void;
 
@@ -2894,8 +2738,6 @@ interface CNewParticleEffect {
 
     /**
      * 🟨 [Client]
-     *
-     *
      */
     GetAutoUpdateBBox(): boolean;
 
@@ -2903,7 +2745,6 @@ interface CNewParticleEffect {
      * 🟨 [Client]
      *
      * Returns the name of the particle effect this system is set to emit.
-     *
      */
     GetEffectName(): string;
 
@@ -2911,7 +2752,6 @@ interface CNewParticleEffect {
      * 🟨 [Client]
      *
      * Returns the highest control point number for given particle system.
-     *
      */
     GetHighestControlPoint(): boolean;
 
@@ -2919,7 +2759,6 @@ interface CNewParticleEffect {
      * 🟨 [Client]
      *
      * Returns the owner of the particle system, the entity the particle system is attached to.
-     *
      */
     GetOwner(): Entity;
 
@@ -2927,7 +2766,6 @@ interface CNewParticleEffect {
      * 🟨 [Client]
      *
      * Returns the bounding box of the particle effect, including all the particles it emitted.
-     *
      */
     GetRenderBounds(): LuaMultiReturn<[Vector, Vector]>;
 
@@ -2935,7 +2773,6 @@ interface CNewParticleEffect {
      * 🟨 [Client]
      *
      * Returns whether the particle system has finished emitting particles or not.
-     *
      */
     IsFinished(): boolean;
 
@@ -2943,7 +2780,6 @@ interface CNewParticleEffect {
      * 🟨 [Client]
      *
      * Returns whether the particle system is valid or not.
-     *
      */
     IsValid(): boolean;
 
@@ -2951,7 +2787,6 @@ interface CNewParticleEffect {
      * 🟨 [Client]
      *
      * Returns whether the particle system is intended to be used on a view model?
-     *
      */
     IsViewModelEffect(): boolean;
 
@@ -2963,7 +2798,6 @@ interface CNewParticleEffect {
      * Can be used to render the particle system in vgui panels, etc.
      *
      * Used in conjunction with [CNewParticleEffect:SetShouldDraw](https://wiki.facepunch.com/gmod/CNewParticleEffect:SetShouldDraw).
-     *
      */
     Render(): void;
 
@@ -2971,7 +2805,6 @@ interface CNewParticleEffect {
      * 🟨 [Client]
      *
      * Forces the particle system to restart emitting particles.
-     *
      */
     Restart(): void;
 
@@ -3094,8 +2927,6 @@ interface CNewParticleEffect {
      *
      * **Note:**
      * >This function will work identically to [CNewParticleEffect:StopEmission](https://wiki.facepunch.com/gmod/CNewParticleEffect:StopEmission)( false, true ) if  [CNewParticleEffect:GetOwner](https://wiki.facepunch.com/gmod/CNewParticleEffect:GetOwner) entity is not valid.
-     *
-     *
      */
     StopEmissionAndDestroyImmediately(): void;
 
@@ -3214,7 +3045,6 @@ interface Color {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns a copy of this color, usually so it can be safely modified later without affecting the original color.
-     *
      */
     Copy(): Color;
 
@@ -3224,7 +3054,6 @@ interface Color {
      * Converts a [Color](https://wiki.facepunch.com/gmod/Color) into [HWB color space](https://en.wikipedia.org/wiki/HWB_color_model) and returns the "blackness" of the color.
      *
      * See [COLOR:ToHWB](https://wiki.facepunch.com/gmod/COLOR:ToHWB) if you want to get all 3 components.
-     *
      */
     GetBlackness(): number;
 
@@ -3234,7 +3063,6 @@ interface Color {
      * Converts a [Color](https://wiki.facepunch.com/gmod/Color) into [HSV color space](https://en.wikipedia.org/wiki/HSL_and_HSV) and returns the [brightness also known as "value"](https://en.wikipedia.org/wiki/Brightness).
      *
      * See [COLOR:ToHSV](https://wiki.facepunch.com/gmod/COLOR:ToHSV) if you want to get all 3 components.
-     *
      */
     GetBrightness(): number;
 
@@ -3244,7 +3072,6 @@ interface Color {
      * Converts a [Color](https://wiki.facepunch.com/gmod/Color) into [HSV color space](https://en.wikipedia.org/wiki/HSL_and_HSV) and returns the [hue](https://en.wikipedia.org/wiki/Hue).
      *
      * See [COLOR:ToHSV](https://wiki.facepunch.com/gmod/COLOR:ToHSV) if you want to get all 3 components.
-     *
      */
     GetHue(): number;
 
@@ -3254,7 +3081,6 @@ interface Color {
      * Converts a [Color](https://wiki.facepunch.com/gmod/Color) into [HSL color space](https://en.wikipedia.org/wiki/HSL_and_HSV) and returns the ["lightness"](https://en.wikipedia.org/wiki/Lightness) of the color.
      *
      * See [COLOR:ToHSL](https://wiki.facepunch.com/gmod/COLOR:ToHSL) if you want to get all 3 components.
-     *
      */
     GetLightness(): number;
 
@@ -3264,7 +3090,6 @@ interface Color {
      * Converts a [Color](https://wiki.facepunch.com/gmod/Color) into [HSV color space](https://en.wikipedia.org/wiki/HSL_and_HSV) and returns the [saturation](https://en.wikipedia.org/wiki/Colorfulness).
      *
      * See [COLOR:ToHSV](https://wiki.facepunch.com/gmod/COLOR:ToHSV) if you want to get all 3 components.
-     *
      */
     GetSaturation(): number;
 
@@ -3274,7 +3099,6 @@ interface Color {
      * Converts a [Color](https://wiki.facepunch.com/gmod/Color) into [HWB color space](https://en.wikipedia.org/wiki/HWB_color_model) and returns the "whiteness" of the color.
      *
      * See [COLOR:ToHWB](https://wiki.facepunch.com/gmod/COLOR:ToHWB) if you want to get all 3 components.
-     *
      */
     GetWhiteness(): number;
 
@@ -3368,7 +3192,6 @@ interface Color {
      * Converts a [Color](https://wiki.facepunch.com/gmod/Color) into [HSL color space](https://en.wikipedia.org/wiki/HSL_and_HSV) .
      *
      * This calls [Global.ColorToHSL](https://wiki.facepunch.com/gmod/Global.ColorToHSL) internally.
-     *
      */
     ToHSL(): LuaMultiReturn<[number, number, number]>;
 
@@ -3378,7 +3201,6 @@ interface Color {
      * Encodes a RGB [Color](https://wiki.facepunch.com/gmod/Color) into the [HSV color space](https://en.wikipedia.org/wiki/HSL_and_HSV).
      *
      * 		This function uses [Global.ColorToHSV](https://wiki.facepunch.com/gmod/Global.ColorToHSV) internally.
-     *
      */
     ToHSV(): LuaMultiReturn<[number, number, number]>;
 
@@ -3386,7 +3208,6 @@ interface Color {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Converts a [Color](https://wiki.facepunch.com/gmod/Color) into [HWB color space](https://en.wikipedia.org/wiki/HWB_color_model). See [Global.HWBToColor](https://wiki.facepunch.com/gmod/Global.HWBToColor) for more info.
-     *
      */
     ToHWB(): LuaMultiReturn<[number, number, number]>;
 
@@ -3394,7 +3215,6 @@ interface Color {
      * 🟨🟦 [Shared]
      *
      * Returns the color as a table (an array or a list) with four elements.
-     *
      */
     ToTable(): number[];
 
@@ -3409,7 +3229,6 @@ interface Color {
      * b / 255 -> z
      *
      * This is the opposite of [Vector:ToColor](https://wiki.facepunch.com/gmod/Vector:ToColor)
-     *
      */
     ToVector(): Vector;
 
@@ -3417,7 +3236,6 @@ interface Color {
      * 🟨🟦 [Shared]
      *
      * Returns the red, green, blue, and alpha of the color.
-     *
      */
     Unpack(): LuaMultiReturn<[number, number, number, number]>;
 
@@ -3435,7 +3253,6 @@ interface ConVar {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Tries to convert the current string value of a [ConVar](https://wiki.facepunch.com/gmod/ConVar) to a boolean.
-     *
      */
     GetBool(): boolean;
 
@@ -3443,7 +3260,6 @@ interface ConVar {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns the default value of the [ConVar](https://wiki.facepunch.com/gmod/ConVar)
-     *
      */
     GetDefault(): string;
 
@@ -3451,7 +3267,6 @@ interface ConVar {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns the [Enums/FCVAR](https://wiki.facepunch.com/gmod/Enums/FCVAR) flags of the ConVar
-     *
      */
     GetFlags(): FCVAR;
 
@@ -3459,7 +3274,6 @@ interface ConVar {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Attempts to convert the [ConVar](https://wiki.facepunch.com/gmod/ConVar) value to a float
-     *
      */
     GetFloat(): number;
 
@@ -3467,7 +3281,6 @@ interface ConVar {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns the help text assigned to that convar.
-     *
      */
     GetHelpText(): string;
 
@@ -3475,7 +3288,6 @@ interface ConVar {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Attempts to convert the [ConVar](https://wiki.facepunch.com/gmod/ConVar) value to a integer.
-     *
      */
     GetInt(): number;
 
@@ -3483,7 +3295,6 @@ interface ConVar {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns the maximum value of the [ConVar](https://wiki.facepunch.com/gmod/ConVar)
-     *
      */
     GetMax(): number;
 
@@ -3491,7 +3302,6 @@ interface ConVar {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns the minimum value of the [ConVar](https://wiki.facepunch.com/gmod/ConVar)
-     *
      */
     GetMin(): number;
 
@@ -3499,7 +3309,6 @@ interface ConVar {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns the name of the [ConVar](https://wiki.facepunch.com/gmod/ConVar).
-     *
      */
     GetName(): string;
 
@@ -3507,7 +3316,6 @@ interface ConVar {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns the current [ConVar](https://wiki.facepunch.com/gmod/ConVar) value as a string.
-     *
      */
     GetString(): string;
 
@@ -3526,8 +3334,6 @@ interface ConVar {
      *
      * **Note:**
      * >This can only be ran on ConVars created from within Lua.
-     *
-     *
      */
     Revert(): void;
 
@@ -3583,7 +3389,6 @@ interface CRecipientFilter {
      * 🟦 [Server]
      *
      * Adds all players to the recipient filter.
-     *
      */
     AddAllPlayers(): void;
 
@@ -3631,7 +3436,6 @@ interface CRecipientFilter {
      * 🟦 [Server]
      *
      * Returns the number of valid players in the recipient filter.
-     *
      */
     GetCount(): number;
 
@@ -3639,7 +3443,6 @@ interface CRecipientFilter {
      * 🟦 [Server]
      *
      * Returns a table of all valid players currently in the recipient filter.
-     *
      */
     GetPlayers(): Player[];
 
@@ -3647,7 +3450,6 @@ interface CRecipientFilter {
      * 🟦 [Server]
      *
      * Removes all players from the recipient filter.
-     *
      */
     RemoveAllPlayers(): void;
 
@@ -3722,7 +3524,6 @@ interface CSEnt extends Entity {
      * 🟨 [Client]
      *
      * Removes the clientside entity
-     *
      */
     Remove(): void;
 
@@ -3769,7 +3570,6 @@ interface CSoundPatch {
      * 🟨🟦 [Shared]
      *
      * Returns the DSP (Digital Signal Processor) effect ID for the sound.
-     *
      */
     GetDSP(): number;
 
@@ -3777,7 +3577,6 @@ interface CSoundPatch {
      * 🟨🟦 [Shared]
      *
      * Returns the current pitch.
-     *
      */
     GetPitch(): number;
 
@@ -3785,7 +3584,6 @@ interface CSoundPatch {
      * 🟨🟦 [Shared]
      *
      * Returns the current sound level.
-     *
      */
     GetSoundLevel(): SNDLVL;
 
@@ -3793,7 +3591,6 @@ interface CSoundPatch {
      * 🟨🟦 [Shared]
      *
      * Returns the current volume.
-     *
      */
     GetVolume(): number;
 
@@ -3801,7 +3598,6 @@ interface CSoundPatch {
      * 🟨🟦 [Shared]
      *
      * Returns whenever the sound is being played.
-     *
      */
     IsPlaying(): boolean;
 
@@ -3809,7 +3605,6 @@ interface CSoundPatch {
      * 🟨🟦 [Shared]
      *
      * Starts to play the sound. This will reset the sound's volume and pitch to their default values. See [CSoundPatch:PlayEx](https://wiki.facepunch.com/gmod/CSoundPatch:PlayEx)
-     *
      */
     Play(): void;
 
@@ -3849,8 +3644,6 @@ interface CSoundPatch {
      *
      * **Bug [#3260](https://github.com/Facepunch/garrysmod-issues/issues/3260):**
      * >This will not work if the entity attached to this sound patch (specified by [Global.CreateSound](https://wiki.facepunch.com/gmod/Global.CreateSound)) is invalid.
-     *
-     *
      */
     Stop(): void;
 
@@ -3893,7 +3686,6 @@ interface CTakeDamageInfo {
      * 🟨🟦 [Shared]
      *
      * Returns the ammo type used by the weapon that inflicted the damage.
-     *
      */
     GetAmmoType(): number;
 
@@ -3901,7 +3693,6 @@ interface CTakeDamageInfo {
      * 🟨🟦 [Shared]
      *
      * Returns the attacker ( character who originated the attack ), for example a player or an NPC that shot the weapon.
-     *
      */
     GetAttacker(): Entity;
 
@@ -3909,7 +3700,6 @@ interface CTakeDamageInfo {
      * 🟨🟦 [Shared]
      *
      * Returns the initial unmodified by skill level ( [game.GetSkillLevel](https://wiki.facepunch.com/gmod/game.GetSkillLevel) ) damage.
-     *
      */
     GetBaseDamage(): number;
 
@@ -3917,7 +3707,6 @@ interface CTakeDamageInfo {
      * 🟨🟦 [Shared]
      *
      * Returns the total damage.
-     *
      */
     GetDamage(): number;
 
@@ -3925,7 +3714,6 @@ interface CTakeDamageInfo {
      * 🟨🟦 [Shared]
      *
      * Gets the current bonus damage.
-     *
      */
     GetDamageBonus(): number;
 
@@ -3933,7 +3721,6 @@ interface CTakeDamageInfo {
      * 🟨🟦 [Shared]
      *
      * Gets the custom damage type. This is used by Day of Defeat: Source and Team Fortress 2 for extended damage info, but isn't used in Garry's Mod by default.
-     *
      */
     GetDamageCustom(): number;
 
@@ -3943,7 +3730,6 @@ interface CTakeDamageInfo {
      * Returns a vector representing the damage force.
      *
      * Can be set with [CTakeDamageInfo:SetDamageForce](https://wiki.facepunch.com/gmod/CTakeDamageInfo:SetDamageForce).
-     *
      */
     GetDamageForce(): Vector;
 
@@ -3953,7 +3739,6 @@ interface CTakeDamageInfo {
      * Returns the position where the damage was or is going to be applied to.
      *
      * Can be set using [CTakeDamageInfo:SetDamagePosition](https://wiki.facepunch.com/gmod/CTakeDamageInfo:SetDamagePosition).
-     *
      */
     GetDamagePosition(): Vector;
 
@@ -3963,7 +3748,6 @@ interface CTakeDamageInfo {
      * Returns a bitflag which indicates the damage type(s) of the damage.
      *
      * Consider using [CTakeDamageInfo:IsDamageType](https://wiki.facepunch.com/gmod/CTakeDamageInfo:IsDamageType) instead. Value returned by this function can contain multiple damage types.
-     *
      */
     GetDamageType(): DMG;
 
@@ -3977,7 +3761,6 @@ interface CTakeDamageInfo {
      * For projectile weapons this is the projectile.
      *
      * For a more reliable method of getting the weapon that damaged an entity, use [CTakeDamageInfo:GetWeapon](https://wiki.facepunch.com/gmod/CTakeDamageInfo:GetWeapon) or <page text="GetAttacker">CTakeDamageInfo:GetAttacker</page> with <page text="GetActiveWeapon">Player:GetActiveWeapon</page>.
-     *
      */
     GetInflictor(): Entity;
 
@@ -3985,7 +3768,6 @@ interface CTakeDamageInfo {
      * 🟨🟦 [Shared]
      *
      * Returns the maximum damage. See [CTakeDamageInfo:SetMaxDamage](https://wiki.facepunch.com/gmod/CTakeDamageInfo:SetMaxDamage)
-     *
      */
     GetMaxDamage(): number;
 
@@ -3993,7 +3775,6 @@ interface CTakeDamageInfo {
      * 🟨🟦 [Shared]
      *
      * Returns the initial, unmodified position where the damage occured.
-     *
      */
     GetReportedPosition(): Vector;
 
@@ -4005,7 +3786,6 @@ interface CTakeDamageInfo {
      * This is not necessarily a [Weapon](https://wiki.facepunch.com/gmod/Weapon) entity, but it is very likely to be one.
      *
      * See [CTakeDamageInfo:GetInflictor](https://wiki.facepunch.com/gmod/CTakeDamageInfo:GetInflictor) for the actual entity that did the damage.
-     *
      */
     GetWeapon(): Entity;
 
@@ -4013,7 +3793,6 @@ interface CTakeDamageInfo {
      * 🟨🟦 [Shared]
      *
      * Returns true if the damage was caused by a bullet.
-     *
      */
     IsBulletDamage(): boolean;
 
@@ -4029,7 +3808,6 @@ interface CTakeDamageInfo {
      * 🟨🟦 [Shared]
      *
      * Returns whenever the damageinfo contains explosion damage.
-     *
      */
     IsExplosionDamage(): boolean;
 
@@ -4037,7 +3815,6 @@ interface CTakeDamageInfo {
      * 🟨🟦 [Shared]
      *
      * Returns whenever the damageinfo contains fall damage.
-     *
      */
     IsFallDamage(): boolean;
 
@@ -4200,8 +3977,6 @@ interface CUserCmd {
      *
      * **Note:**
      * >If you are looking to affect player movement, you may need to use [CUserCmd:ClearMovement](https://wiki.facepunch.com/gmod/CUserCmd:ClearMovement) instead of clearing the buttons.
-     *
-     *
      */
     ClearButtons(): void;
 
@@ -4211,7 +3986,6 @@ interface CUserCmd {
      * Clears the movement from the command.
      *
      * See also [CUserCmd:SetForwardMove](https://wiki.facepunch.com/gmod/CUserCmd:SetForwardMove), [CUserCmd:SetSideMove](https://wiki.facepunch.com/gmod/CUserCmd:SetSideMove) and  [CUserCmd:SetUpMove](https://wiki.facepunch.com/gmod/CUserCmd:SetUpMove).
-     *
      */
     ClearMovement(): void;
 
@@ -4222,8 +3996,6 @@ interface CUserCmd {
      *
      * **Warning:**
      * >The value returned is occasionally 0 inside [GM:CreateMove](https://wiki.facepunch.com/gmod/GM:CreateMove) and [GM:StartCommand](https://wiki.facepunch.com/gmod/GM:StartCommand). It is advised to check for a non-zero value if you wish to get the correct number.
-     *
-     *
      */
     CommandNumber(): number;
 
@@ -4231,7 +4003,6 @@ interface CUserCmd {
      * 🟨🟦 [Shared]
      *
      * Returns a bitflag indicating which buttons are pressed.
-     *
      */
     GetButtons(): IN;
 
@@ -4239,7 +4010,6 @@ interface CUserCmd {
      * 🟨🟦 [Shared]
      *
      * The speed the client wishes to move forward with, negative if the clients wants to move backwards.
-     *
      */
     GetForwardMove(): number;
 
@@ -4247,7 +4017,6 @@ interface CUserCmd {
      * 🟨🟦 [Shared]
      *
      * Gets the current impulse from the client, usually 0. [See impulses list](https://developer.valvesoftware.com/wiki/Impulse) and some <page text="GMod specific impulses">CUserCmd:SetImpulse</page>.
-     *
      */
     GetImpulse(): number;
 
@@ -4255,7 +4024,6 @@ interface CUserCmd {
      * 🟨🟦 [Shared]
      *
      * Returns the scroll delta as whole number.
-     *
      */
     GetMouseWheel(): number;
 
@@ -4263,7 +4031,6 @@ interface CUserCmd {
      * 🟨🟦 [Shared]
      *
      * Returns the delta of the angular horizontal mouse movement of the player.
-     *
      */
     GetMouseX(): number;
 
@@ -4271,7 +4038,6 @@ interface CUserCmd {
      * 🟨🟦 [Shared]
      *
      * Returns the delta of the angular vertical mouse movement of the player.
-     *
      */
     GetMouseY(): number;
 
@@ -4279,7 +4045,6 @@ interface CUserCmd {
      * 🟨🟦 [Shared]
      *
      * The speed the client wishes to move sideways with, positive if it wants to move right, negative if it wants to move left.
-     *
      */
     GetSideMove(): number;
 
@@ -4287,7 +4052,6 @@ interface CUserCmd {
      * 🟨🟦 [Shared]
      *
      * The speed the client wishes to move up with, negative if the clients wants to move down.
-     *
      */
     GetUpMove(): number;
 
@@ -4295,7 +4059,6 @@ interface CUserCmd {
      * 🟨🟦 [Shared]
      *
      * Gets the direction the player is looking in.
-     *
      */
     GetViewAngles(): Angle;
 
@@ -4305,7 +4068,6 @@ interface CUserCmd {
      * When players are not sending usercommands to the server (often due to lag), their last usercommand will be executed multiple times as a backup. This function returns true if that is happening.
      *
      * This will never return true clientside.
-     *
      */
     IsForced(): boolean;
 
@@ -4457,8 +4219,6 @@ interface CUserCmd {
      *
      * **Note:**
      * >Returns 0 clientside during prediction calls. If you are trying to use CUserCmd:Set*() on the client in a movement or command hook, keep doing so till TickCount returns a non-zero number to maintain prediction.
-     *
-     *
      */
     TickCount(): number;
 
@@ -4481,8 +4241,6 @@ interface Entity {
      * >For some entity types when this function is used after [Entity:SetModelScale](https://wiki.facepunch.com/gmod/Entity:SetModelScale), the physics object will be recreated with the new scale. [Source-sdk-2013](https://github.com/ValveSoftware/source-sdk-2013/blob/55ed12f8d1eb6887d348be03aee5573d44177ffb/mp/src/game/server/baseanimating.cpp#L321-L327).
      *
      * Calling this method after [Entity:SetModelScale](https://wiki.facepunch.com/gmod/Entity:SetModelScale) will recreate a new scaled `SOLID_VPHYSICS` [PhysObj](https://wiki.facepunch.com/gmod/PhysObj) on scripted entities. This can be a problem if you made a properly scaled [PhysObj](https://wiki.facepunch.com/gmod/PhysObj) of another kind (using [Entity:PhysicsInitSphere](https://wiki.facepunch.com/gmod/Entity:PhysicsInitSphere) for instance) or if you edited the [PhysObj](https://wiki.facepunch.com/gmod/PhysObj)'s properties. This is especially the behavior of the Sandbox spawn menu.
-     *
-     *
      */
     Activate(): void;
 
@@ -4635,7 +4393,6 @@ interface Entity {
      * Checks if the entity is considered alive.
      *
      * Checks entity's internal life state variable. Does not check health, but it is generally expected the health to be 0 or below at the point of an entity being considered dead. This internally looks up the save value `m_lifeState`
-     *
      */
     Alive(): boolean;
 
@@ -4649,7 +4406,6 @@ interface Entity {
      * The original entity is not removed, and neither are any ragdolls previously generated with this function.
      *
      * To make the entity re-appear, run [Entity:SetNoDraw](https://wiki.facepunch.com/gmod/Entity:SetNoDraw)( false )
-     *
      */
     BecomeRagdollOnClient(): Entity;
 
@@ -4660,8 +4416,6 @@ interface Entity {
      *
      * **Note:**
      * >This function is only available in entities that are based off of sandbox's base_gmodentity.
-     *
-     *
      */
     BeingLookedAtByLocalPlayer(): boolean;
 
@@ -4707,7 +4461,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the distance between the center of the bounding box and the furthest bounding box corner.
-     *
      */
     BoundingRadius(): number;
 
@@ -4761,7 +4514,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Resets all pose parameters such as aim_yaw, aim_pitch and rotation.
-     *
      */
     ClearPoseParameters(): void;
 
@@ -4775,8 +4527,6 @@ interface Entity {
      *
      * **Warning:**
      * >Failure to use this function correctly will result in a crash of the physics engine.
-     *
-     *
      */
     CollisionRulesChanged(): void;
 
@@ -4803,7 +4553,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns whether the entity was created by map or not.
-     *
      */
     CreatedByMap(): boolean;
 
@@ -4829,7 +4578,6 @@ interface Entity {
      * 🟨 [Client]
      *
      * Draws the shadow of an entity.
-     *
      */
     CreateShadow(): void;
 
@@ -4848,8 +4596,6 @@ interface Entity {
      *
      * **Note:**
      * >This function only works on `anim` type entities.
-     *
-     *
      */
     DestroyBoneFollowers(): void;
 
@@ -4862,8 +4608,6 @@ interface Entity {
      *
      * **Note:**
      * >Doesn't affect shadows from flashlight/lamps/env_projectedtexture.
-     *
-     *
      */
     DestroyShadow(): void;
 
@@ -4965,9 +4709,11 @@ interface Entity {
      * **Warning:**
      * >The entity needs to already have something below it within 256 units.
      *
-     *
+     * @param [mask = MASK_SOLID] - Trace mask.
+     * @param [ignoreEnt = nil] - Trace ignore entity.
+     * @param [maxDist = 256] - Max trace dist.
      */
-    DropToFloor(): void;
+    DropToFloor(mask?: number, ignoreEnt?: Entity, maxDist = 256): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -5037,7 +4783,6 @@ interface Entity {
      * Internally identical to `Entity:AddSolidFlags( bit.bor( FSOLID_CUSTOMRAYTEST, FSOLID_CUSTOMBOXTEST ) )`
      *
      * Do not confuse this function with [Entity:SetCustomCollisionCheck](https://wiki.facepunch.com/gmod/Entity:SetCustomCollisionCheck), they are not the same.
-     *
      */
     EnableCustomCollisions(): void;
 
@@ -5069,8 +4814,6 @@ interface Entity {
      *
      * **Note:**
      * >Entity indices are marked as unused after deletion, and can be reused by newly-created entities
-     *
-     *
      */
     EntIndex(): number;
 
@@ -5082,7 +4825,6 @@ interface Entity {
      * Has no effect if called inside [GM:EntityTakeDamage](https://wiki.facepunch.com/gmod/GM:EntityTakeDamage) (and the attacker is the flame that's hurting the entity)
      *
      * See also [Entity:Ignite](https://wiki.facepunch.com/gmod/Entity:Ignite).
-     *
      */
     Extinguish(): void;
 
@@ -5096,8 +4838,6 @@ interface Entity {
      *
      * **Bug [#2620](https://github.com/Facepunch/garrysmod-issues/issues/2620):**
      * >This may return local angles in jeeps when used with [Player:EnterVehicle](https://wiki.facepunch.com/gmod/Player:EnterVehicle). **A workaround is available in the second example.**
-     *
-     *
      */
     EyeAngles(): Angle;
 
@@ -5105,7 +4845,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the position of an Player/NPC's view.
-     *
      */
     EyePos(): Vector;
 
@@ -5212,7 +4951,6 @@ interface Entity {
      * Forces the entity to be dropped, if it is being held by a player's Gravity Gun, Physics Gun or `+use` pickup.
      *
      * See also [Player:DropObject](https://wiki.facepunch.com/gmod/Player:DropObject).
-     *
      */
     ForcePlayerDrop(): void;
 
@@ -5227,8 +4965,6 @@ interface Entity {
      * >Do not call this function multiple times a frame, as it can cause unexpected results, such as animations playing at increased rate, etc.
      *
      * [NextBot:BodyMoveXY](https://wiki.facepunch.com/gmod/NextBot:BodyMoveXY) calls this internally, so do not call this function before or after [NextBot:BodyMoveXY](https://wiki.facepunch.com/gmod/NextBot:BodyMoveXY).
-     *
-     *
      */
     FrameAdvance(): void;
 
@@ -5239,8 +4975,6 @@ interface Entity {
      *
      * **Note:**
      * >Actually binds to CBaseEntity::GetLocalVelocity() which retrieves the velocity of the entity due to its movement in the world from forces such as gravity. Does not include velocity from entity-on-entity collision.
-     *
-     *
      */
     GetAbsVelocity(): Vector;
 
@@ -5257,8 +4991,6 @@ interface Entity {
      *
      * **Bug [#3107](https://github.com/Facepunch/garrysmod-issues/issues/3107):**
      * >This will return [Global.Angle](https://wiki.facepunch.com/gmod/Global.Angle)(0,0,0) inwhile paused in single-player.
-     *
-     *
      */
     GetAngles(): Angle;
 
@@ -5268,7 +5000,6 @@ interface Entity {
      * Returns the amount of animations (not to be confused with sequences) the entity's model has. A sequence can consist of multiple animations.
      *
      * See also [Entity:GetAnimInfo](https://wiki.facepunch.com/gmod/Entity:GetAnimInfo)
-     *
      */
     GetAnimCount(): number;
 
@@ -5288,7 +5019,6 @@ interface Entity {
      * 🟨 [Client]
      *
      * Returns the last time the entity had an animation update. Returns 0 if the entity doesn't animate.
-     *
      */
     GetAnimTime(): number;
 
@@ -5298,7 +5028,6 @@ interface Entity {
      * Returns the amount of time since last animation.
      *
      * Works only on `CBaseAnimating` entities.
-     *
      */
     GetAnimTimeInterval(): number;
 
@@ -5324,8 +5053,6 @@ interface Entity {
      *
      * **Bug [#3167](https://github.com/Facepunch/garrysmod-issues/issues/3167):**
      * >This can have inconsistent results in single-player.
-     *
-     *
      */
     GetAttachments(): AttachmentData;
 
@@ -5333,7 +5060,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the entity's base velocity which is their velocity due to forces applied by other entities. This includes entity-on-entity collision or riding a treadmill.
-     *
      */
     GetBaseVelocity(): Vector;
 
@@ -5341,7 +5067,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the blood color of this entity. This can be set with [Entity:SetBloodColor](https://wiki.facepunch.com/gmod/Entity:SetBloodColor).
-     *
      */
     GetBloodColor(): BLOOD_COLOR;
 
@@ -5390,8 +5115,6 @@ interface Entity {
      *
      * **Note:**
      * >Weapons will return results from their viewmodels.
-     *
-     *
      */
     GetBodyGroups(): BodyGroupData;
 
@@ -5422,8 +5145,6 @@ interface Entity {
      *
      * **Note:**
      * >Will return `0` for [Global.ClientsideModel](https://wiki.facepunch.com/gmod/Global.ClientsideModel) or undrawn entities until [Entity:SetupBones](https://wiki.facepunch.com/gmod/Entity:SetupBones) is called on the entity.
-     *
-     *
      */
     GetBoneCount(): number;
 
@@ -5528,7 +5249,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the amount of planes of non-nodraw brush model surfaces of the entity's model.
-     *
      */
     GetBrushPlaneCount(): number;
 
@@ -5536,7 +5256,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns a table of brushes surfaces for brush model entities.
-     *
      */
     GetBrushSurfaces(): any;
 
@@ -5571,8 +5290,6 @@ interface Entity {
      * This means that some entities in the returned list might have a NULL [Entity:GetParent](https://wiki.facepunch.com/gmod/Entity:GetParent).
      *
      * This also means that using this function on players will return their weapons on the client but not the server.
-     *
-     *
      */
     GetChildren(): Entity[];
 
@@ -5580,7 +5297,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the classname of a entity. This is often the name of the Lua file or folder containing the files for the entity
-     *
      */
     GetClass(): string;
 
@@ -5592,7 +5308,6 @@ interface Entity {
      * In most cases, this will return the same bounding box as [Entity:GetModelBounds](https://wiki.facepunch.com/gmod/Entity:GetModelBounds) unless the entity does not have a physics mesh or it has a [PhysObj](https://wiki.facepunch.com/gmod/PhysObj) different from the default.
      *
      * Collision bounds can be previewed in singleplayer via `ent_bbox` console command, while looking at a desired entity and with `developer 1`. (Will appear as an orange wireframe box)
-     *
      */
     GetCollisionBounds(): LuaMultiReturn<[Vector, Vector]>;
 
@@ -5600,7 +5315,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the entity's collision group
-     *
      */
     GetCollisionGroup(): COLLISION_GROUP;
 
@@ -5608,7 +5322,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the color the entity is set to.
-     *
      */
     GetColor(): Color;
 
@@ -5618,7 +5331,6 @@ interface Entity {
      * Returns the color the entity is set to without using a color object.
      *
      * **.**
-     *
      */
     GetColor4Part(): LuaMultiReturn<[number, number, number, number]>;
 
@@ -5626,7 +5338,6 @@ interface Entity {
      * 🟦 [Server]
      *
      * Returns the two entities involved in a constraint ent, or nil if the entity is not a constraint.
-     *
      */
     GetConstrainedEntities(): LuaMultiReturn<[Entity, Entity]>;
 
@@ -5634,7 +5345,6 @@ interface Entity {
      * 🟦 [Server]
      *
      * Returns the two entities physobjects involved in a constraint ent, or no value if the entity is not a constraint.
-     *
      */
     GetConstrainedPhysObjects(): LuaMultiReturn<[PhysObj, PhysObj]>;
 
@@ -5644,7 +5354,6 @@ interface Entity {
      * Returns entity's creation ID. Unlike [Entity:EntIndex](https://wiki.facepunch.com/gmod/Entity:EntIndex) or [Entity:MapCreationID](https://wiki.facepunch.com/gmod/Entity:MapCreationID).
      *
      * It will increase up until value of `10 000 000`, at which point it will reset back to `0`.
-     *
      */
     GetCreationID(): number;
 
@@ -5652,7 +5361,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the time the entity was created on, relative to [Global.CurTime](https://wiki.facepunch.com/gmod/Global.CurTime).
-     *
      */
     GetCreationTime(): number;
 
@@ -5660,7 +5368,6 @@ interface Entity {
      * 🟦 [Server]
      *
      * Gets the creator of the SENT.
-     *
      */
     GetCreator(): Player;
 
@@ -5668,7 +5375,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns whether this entity uses custom collision check set by [Entity:SetCustomCollisionCheck](https://wiki.facepunch.com/gmod/Entity:SetCustomCollisionCheck).
-     *
      */
     GetCustomCollisionCheck(): boolean;
 
@@ -5676,7 +5382,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the frame of the currently played sequence. This will be a number between 0 and 1 as a representation of sequence progress.
-     *
      */
     GetCycle(): number;
 
@@ -5766,8 +5471,6 @@ interface Entity {
      *
      * **Note:**
      * >This function will only work on entities which had [Entity:InstallDataTable](https://wiki.facepunch.com/gmod/Entity:InstallDataTable) called on them, which is done automatically for players and all [Scripted Entities](https://wiki.facepunch.com/gmod/Scripted_Entities)
-     *
-     *
      */
     GetEditingData(): any;
 
@@ -5775,7 +5478,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns a bit flag of all engine effect flags of the entity.
-     *
      */
     GetEffects(): EF;
 
@@ -5783,7 +5485,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns a bit flag of all engine flags of the entity.
-     *
      */
     GetEFlags(): EFL;
 
@@ -5791,7 +5492,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the elasticity of this entity, used by some flying entities such as the Helicopter NPC to determine how much it should bounce around when colliding.
-     *
      */
     GetElasticity(): number;
 
@@ -5799,7 +5499,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns all flags of given entity.
-     *
      */
     GetFlags(): FL;
 
@@ -5836,8 +5535,6 @@ interface Entity {
      *
      * **Note:**
      * >Please note that while this function can return the real number of flex controllers, the game supports only a certain amount due to networking limitations. See [Entity:SetFlexWeight](https://wiki.facepunch.com/gmod/Entity:SetFlexWeight).
-     *
-     *
      */
     GetFlexNum(): number;
 
@@ -5845,7 +5542,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the flex scale of the entity.
-     *
      */
     GetFlexScale(): number;
 
@@ -5869,7 +5565,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the forward vector of the entity, as a normalized direction vector
-     *
      */
     GetForward(): Vector;
 
@@ -5877,7 +5572,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the friction modifier for this entity. Entities default to `1` (100%) and can be higher.
-     *
      */
     GetFriction(): number;
 
@@ -5885,7 +5579,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Gets the gravity multiplier of the entity.
-     *
      */
     GetGravity(): number;
 
@@ -5893,7 +5586,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the object the entity is standing on.
-     *
      */
     GetGroundEntity(): Entity;
 
@@ -5901,7 +5593,6 @@ interface Entity {
      * 🟦 [Server]
      *
      * Returns the entity's ground speed velocity, which is based on the entity's walk/run speed and/or the ground speed of their sequence ( [Entity:GetSequenceGroundSpeed](https://wiki.facepunch.com/gmod/Entity:GetSequenceGroundSpeed) ). Will return an empty [Vector](https://wiki.facepunch.com/gmod/Vector) if the entity isn't moving on the ground.
-     *
      */
     GetGroundSpeedVelocity(): Vector;
 
@@ -5938,8 +5629,6 @@ interface Entity {
      * Returns the number of hit box sets that an entity has. Functionally identical to [Entity:GetHitboxSetCount](https://wiki.facepunch.com/gmod/Entity:GetHitboxSetCount)
      *
      * @deprecated You should use [Entity:GetHitboxSetCount](https://wiki.facepunch.com/gmod/Entity:GetHitboxSetCount) instead.
-     *
-     *
      */
     GetHitBoxGroupCount(): number;
 
@@ -5957,7 +5646,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns entity's current hit box set
-     *
      */
     GetHitboxSet(): LuaMultiReturn<[number, string]>;
 
@@ -5965,7 +5653,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the amount of hitbox sets in the entity.
-     *
      */
     GetHitboxSetCount(): number;
 
@@ -5999,7 +5686,6 @@ interface Entity {
      * * angles - [Entity:GetAngles](https://wiki.facepunch.com/gmod/Entity:GetAngles)
      * * origin - [Entity:GetPos](https://wiki.facepunch.com/gmod/Entity:GetPos)
      * * targetname - [Entity:GetName](https://wiki.facepunch.com/gmod/Entity:GetName)
-     *
      */
     GetKeyValues(): any;
 
@@ -6067,7 +5753,6 @@ interface Entity {
      * 🟦 [Server]
      *
      * Returns the entity that is being used as the light origin position for this entity.
-     *
      */
     GetLightingOriginEntity(): Entity;
 
@@ -6075,7 +5760,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the rotation of the entity relative to its parent entity.
-     *
      */
     GetLocalAngles(): Angle;
 
@@ -6083,7 +5767,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the non-VPhysics angular velocity of the entity relative to its parent entity.
-     *
      */
     GetLocalAngularVelocity(): Angle;
 
@@ -6093,7 +5776,6 @@ interface Entity {
      * Returns entity's position relative to it's [Entity:GetParent](https://wiki.facepunch.com/gmod/Entity:GetParent).
      *
      * See [Entity:GetPos](https://wiki.facepunch.com/gmod/Entity:GetPos) for the absolute position.
-     *
      */
     GetLocalPos(): Vector;
 
@@ -6140,8 +5822,6 @@ interface Entity {
      *
      * **Bug [#3362](https://github.com/Facepunch/garrysmod-issues/issues/3362):**
      * >The server's value takes priority on the client.
-     *
-     *
      */
     GetMaterial(): string;
 
@@ -6154,8 +5834,6 @@ interface Entity {
      *
      * **Bug :**
      * >The table returned by this function will not contain materials if they are missing from the disk/repository. This means that if you are attempting to find the ID of a material to replace with [Entity:SetSubMaterial](https://wiki.facepunch.com/gmod/Entity:SetSubMaterial) and there are missing materials on the model, all subsequent materials will be offset in the table, meaning that the ID you are trying to get will be incorrect.
-     *
-     *
      */
     GetMaterials(): any;
 
@@ -6167,7 +5845,6 @@ interface Entity {
      * This can be approximated clientside via [util.GetModelInfo](https://wiki.facepunch.com/gmod/util.GetModelInfo).
      *
      * Internally, all this does is return `gamematerial` of the surface property on the first physics object of the entity. You can do this yourself using [PhysObj:GetMaterial](https://wiki.facepunch.com/gmod/PhysObj:GetMaterial) and [util.GetSurfaceData](https://wiki.facepunch.com/gmod/util.GetSurfaceData).
-     *
      */
     GetMaterialType(): MAT;
 
@@ -6175,7 +5852,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the max health that the entity was given. It can be set via [Entity:SetMaxHealth](https://wiki.facepunch.com/gmod/Entity:SetMaxHealth).
-     *
      */
     GetMaxHealth(): number;
 
@@ -6188,8 +5864,6 @@ interface Entity {
      * >This does not necessarily return the model's path, as is the case for brush and virtual models. This is intentional behaviour, however, there is currently no way to retrieve the actual file path.
      *
      * This also affects certain models that are edited by 3rd party programs after being compiled.
-     *
-     *
      */
     GetModel(): string|nil;
 
@@ -6202,7 +5876,6 @@ interface Entity {
      * See [Entity:GetModelRenderBounds](https://wiki.facepunch.com/gmod/Entity:GetModelRenderBounds) for just the render bounds of the model.
      *
      * This is different than the collision bounds/hull, which are set via [Entity:SetCollisionBounds](https://wiki.facepunch.com/gmod/Entity:SetCollisionBounds).
-     *
      */
     GetModelBounds(): LuaMultiReturn<[Vector, Vector]>;
 
@@ -6210,7 +5883,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the contents of the entity's current model.
-     *
      */
     GetModelContents(): CONTENTS;
 
@@ -6218,7 +5890,6 @@ interface Entity {
      * 🟨 [Client]
      *
      * Gets the physics bone count of the entity's model. This is only applicable to `anim` type [Scripted Entities](https://wiki.facepunch.com/gmod/Scripted_Entities) with ragdoll models.
-     *
      */
     GetModelPhysBoneCount(): number;
 
@@ -6226,7 +5897,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Gets the models radius.
-     *
      */
     GetModelRadius(): number;
 
@@ -6234,7 +5904,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the entity's model render bounds. Unlike [Entity:GetModelBounds](https://wiki.facepunch.com/gmod/Entity:GetModelBounds), bounds returning by this function will not be affected by animations (at compile time).
-     *
      */
     GetModelRenderBounds(): LuaMultiReturn<[Vector, Vector]>;
 
@@ -6242,7 +5911,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Gets the selected entity's model scale.
-     *
      */
     GetModelScale(): number;
 
@@ -6262,7 +5930,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the move collide type of the entity. The move collide is the way a physics object reacts to hitting an object - will it bounce, slide?
-     *
      */
     GetMoveCollide(): MOVECOLLIDE;
 
@@ -6272,7 +5939,6 @@ interface Entity {
      * Returns the movement parent of this entity.
      *
      * See [Entity:SetMoveParent](https://wiki.facepunch.com/gmod/Entity:SetMoveParent) for more info.
-     *
      */
     GetMoveParent(): Entity;
 
@@ -6280,7 +5946,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the entity's movetype
-     *
      */
     GetMoveType(): MOVETYPE;
 
@@ -6288,7 +5953,6 @@ interface Entity {
      * 🟦 [Server]
      *
      * Returns the map/hammer targetname of this entity.
-     *
      */
     GetName(): string;
 
@@ -6296,7 +5960,6 @@ interface Entity {
      * 🟨 [Client]
      *
      * Gets networked angles for entity.
-     *
      */
     GetNetworkAngles(): Angle;
 
@@ -6404,8 +6067,6 @@ interface Entity {
      * Returns all the networked2 variables in an entity.
      *
      * @deprecated You should be using [Entity:GetNW2VarTable](https://wiki.facepunch.com/gmod/Entity:GetNW2VarTable) instead.
-     *
-     *
      */
     GetNetworked2VarTable(): any;
 
@@ -6519,8 +6180,6 @@ interface Entity {
      * Returns all the networked variables in an entity.
      *
      * @deprecated You should be using [Entity:GetNWVarTable](https://wiki.facepunch.com/gmod/Entity:GetNWVarTable) instead.
-     *
-     *
      */
     GetNetworkedVarTable(): Record<string, any>;
 
@@ -6543,8 +6202,6 @@ interface Entity {
      *
      * **Note:**
      * >On the Client, this seems to return the position relative to the parent (if it has one). On the server-side this will return what you expect even if it has a parent.
-     *
-     *
      */
     GetNetworkOrigin(): Vector;
 
@@ -6559,8 +6216,6 @@ interface Entity {
      *
      * **Note:**
      * >This function will only work on entities which had [Entity:InstallDataTable](https://wiki.facepunch.com/gmod/Entity:InstallDataTable) called on them, which is done automatically for players and all [Scripted Entities](https://wiki.facepunch.com/gmod/Scripted_Entities)
-     *
-     *
      */
     GetNetworkVars(): any;
 
@@ -6571,8 +6226,6 @@ interface Entity {
      *
      * **Note:**
      * >This is equivalent to calling [Entity:IsEffectActive](https://wiki.facepunch.com/gmod/Entity:IsEffectActive)( EF_NODRAW )
-     *
-     *
      */
     GetNoDraw(): boolean;
 
@@ -6583,8 +6236,6 @@ interface Entity {
      *
      * **Note:**
      * >Weapons will return results from their viewmodels.
-     *
-     *
      */
     GetNumBodyGroups(): number;
 
@@ -6592,7 +6243,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the number of pose parameters this entity has.
-     *
      */
     GetNumPoseParameters(): number;
 
@@ -6678,8 +6328,6 @@ interface Entity {
      *
      * **Bug [#5396](https://github.com/Facepunch/garrysmod-issues/issues/5396):**
      * >This function will return keys with empty tables if the NW2Var is nil.
-     *
-     *
      */
     GetNW2VarTable(): any;
 
@@ -6763,7 +6411,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns all the networked variables in an entity.
-     *
      */
     GetNWVarTable(): Record<string, any>;
 
@@ -6783,8 +6430,6 @@ interface Entity {
      *
      * **Note:**
      * >This function is generally used to disable physics interactions on projectiles being fired by their owner, but can also be used for normal ownership in case physics interactions are not involved at all. The Gravity gun will be able to pick up the entity even if the owner can't collide with it, the Physics gun however will not.
-     *
-     *
      */
     GetOwner(): Entity;
 
@@ -6792,7 +6437,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the parent entity of this entity.
-     *
      */
     GetParent(): Entity;
 
@@ -6802,7 +6446,6 @@ interface Entity {
      * Returns the attachment/bone index of the entity's parent. Returns 0 if the entity is not parented to an attachment/bone or if it isn't parented at all.
      *
      * This is set by second argument of [Entity:SetParent](https://wiki.facepunch.com/gmod/Entity:SetParent) or the **SetParentAttachment** input.
-     *
      */
     GetParentAttachment(): number;
 
@@ -6810,7 +6453,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * If the entity is parented to an entity that has a model with multiple physics objects (like a ragdoll), this is used to retrieve what physics object number the entity is parented to on it's parent.
-     *
      */
     GetParentPhysNum(): number;
 
@@ -6818,7 +6460,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the position and angle of the entity's move parent as a 3x4 matrix ([VMatrix](https://wiki.facepunch.com/gmod/VMatrix) is 4x4 so the fourth row goes unused). The first three columns store the angle as a [rotation matrix](https://en.wikipedia.org/wiki/Rotation_matrix), and the fourth column stores the position vector.
-     *
      */
     GetParentWorldTransformMatrix(): VMatrix;
 
@@ -6828,7 +6469,6 @@ interface Entity {
      * Returns whether the entity is persistent or not.
      *
      * See [Entity:SetPersistent](https://wiki.facepunch.com/gmod/Entity:SetPersistent) for more information on persistence.
-     *
      */
     GetPersistent(): boolean;
 
@@ -6839,7 +6479,6 @@ interface Entity {
      * @param [timeLimit = 1] - The time to check if the entity was still a proper physics attacker.
      * **Note:**
      * >Some entities such as the Combine Ball disregard the time limit and always return the physics attacker.
-     *
      */
     GetPhysicsAttacker(timeLimit = 1): Player;
 
@@ -6850,8 +6489,6 @@ interface Entity {
      *
      * **Note:**
      * >Entities don't have clientside physics objects by default, so this will return `[NULL PHYSOBJ]` on the client in most cases.
-     *
-     *
      */
     GetPhysicsObject(): PhysObj;
 
@@ -6859,7 +6496,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the number of physics objects an entity has (usually 1 for non-ragdolls)
-     *
      */
     GetPhysicsObjectCount(): number;
 
@@ -6877,7 +6513,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the playback rate of the main sequence on this entity, with 1.0 being the default speed.
-     *
      */
     GetPlaybackRate(): number;
 
@@ -6887,7 +6522,6 @@ interface Entity {
      * Gets the position of given entity in the world.
      *
      * See [Entity:GetLocalPos](https://wiki.facepunch.com/gmod/Entity:GetLocalPos) for the position relative to the entity's [Entity:GetParent](https://wiki.facepunch.com/gmod/Entity:GetParent).
-     *
      */
     GetPos(): Vector;
 
@@ -6921,7 +6555,6 @@ interface Entity {
      * Returns whether this entity is predictable or not.
      *
      * See [Entity:SetPredictable](https://wiki.facepunch.com/gmod/Entity:SetPredictable) for more information
-     *
      */
     GetPredictable(): boolean;
 
@@ -6941,7 +6574,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the entity which the ragdoll came from. The opposite of [Player:GetRagdollEntity](https://wiki.facepunch.com/gmod/Player:GetRagdollEntity).
-     *
      */
     GetRagdollOwner(): Entity;
 
@@ -6949,7 +6581,6 @@ interface Entity {
      * 🟨 [Client]
      *
      * Returns the entity's render angles, set by [Entity:SetRenderAngles](https://wiki.facepunch.com/gmod/Entity:SetRenderAngles) in a drawing hook.
-     *
      */
     GetRenderAngles(): Angle;
 
@@ -6959,7 +6590,6 @@ interface Entity {
      * Returns render bounds of the entity as local vectors. Can be overridden by [Entity:SetRenderBounds](https://wiki.facepunch.com/gmod/Entity:SetRenderBounds).
      *
      * If the render bounds are not inside players view, the entity will not be drawn!
-     *
      */
     GetRenderBounds(): LuaMultiReturn<[Vector, Vector]>;
 
@@ -6967,7 +6597,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns current render FX of the entity.
-     *
      */
     GetRenderFX(): kRenderFx;
 
@@ -6975,7 +6604,6 @@ interface Entity {
      * 🟨 [Client]
      *
      * Returns the render group of the entity.
-     *
      */
     GetRenderGroup(): RENDERGROUP;
 
@@ -6983,7 +6611,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the render mode of the entity.
-     *
      */
     GetRenderMode(): RENDERMODE;
 
@@ -6991,7 +6618,6 @@ interface Entity {
      * 🟨 [Client]
      *
      * Returns the entity's render origin, set by [Entity:SetRenderOrigin](https://wiki.facepunch.com/gmod/Entity:SetRenderOrigin) in a drawing hook.
-     *
      */
     GetRenderOrigin(): Vector;
 
@@ -6999,7 +6625,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the rightward vector of the entity, as a normalized direction vector
-     *
      */
     GetRight(): Vector;
 
@@ -7070,7 +6695,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Return the index of the model sequence that is currently active for the entity.
-     *
      */
     GetSequence(): number;
 
@@ -7094,7 +6718,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the amount of sequences ( animations ) the entity's model has.
-     *
      */
     GetSequenceCount(): number;
 
@@ -7118,7 +6741,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns a list of all sequences ( animations ) the model has.
-     *
      */
     GetSequenceList(): any;
 
@@ -7174,7 +6796,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Checks if the entity plays a sound when picked up by a player.
-     *
      */
     GetShouldPlayPickupSound(): boolean;
 
@@ -7182,15 +6803,13 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns if entity should create a server ragdoll on death or a client one.
-     *
      */
     GetShouldServerRagdoll(): boolean;
 
     /**
      * 🟨🟦 [Shared]
      *
-     * Returns the skin index of the current skin.
-     *
+     * Returns the skin index of the current skin. Can be manipulated via [Entity:SetSkin](https://wiki.facepunch.com/gmod/Entity:SetSkin).
      */
     GetSkin(): number;
 
@@ -7198,7 +6817,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns solid type of an entity.
-     *
      */
     GetSolid(): SOLID;
 
@@ -7206,7 +6824,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns solid flag(s) of an entity.
-     *
      */
     GetSolidFlags(): FSOLID;
 
@@ -7214,7 +6831,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns if we should show a spawn effect on spawn on this entity.
-     *
      */
     GetSpawnEffect(): boolean;
 
@@ -7222,7 +6838,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the bitwise spawn flags used by the entity. These can be set by [Entity:SetKeyValue](https://wiki.facepunch.com/gmod/Entity:SetKeyValue).
-     *
      */
     GetSpawnFlags(): SF;
 
@@ -7244,7 +6859,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns a list of models included into the entity's model in the .qc file.
-     *
      */
     GetSubModels(): any[];
 
@@ -7252,7 +6866,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns two vectors representing the minimum and maximum extent of the entity's axis-aligned bounding box for hitbox detection. In most cases, this will return the same bounding box as [Entity:WorldSpaceAABB](https://wiki.facepunch.com/gmod/Entity:WorldSpaceAABB) unless it was changed by [Entity:SetSurroundingBounds](https://wiki.facepunch.com/gmod/Entity:SetSurroundingBounds) or [Entity:SetSurroundingBoundsType](https://wiki.facepunch.com/gmod/Entity:SetSurroundingBoundsType).
-     *
      */
     GetSurroundingBounds(): LuaMultiReturn<[Vector, Vector]>;
 
@@ -7262,7 +6875,6 @@ interface Entity {
      * Returns a [table](https://wiki.facepunch.com/gmod/table) that contains all lua-based key-value pairs saved on the [Entity](https://wiki.facepunch.com/gmod/Entity).
      *
      * 		For retrieving engine-based key-value pairs, see [Entity:GetSaveTable](https://wiki.facepunch.com/gmod/Entity:GetSaveTable)
-     *
      */
     GetTable(): any;
 
@@ -7273,8 +6885,6 @@ interface Entity {
      *
      * **Note:**
      * >This returns the last collision trace used, regardless of the entity that caused it. As such, it's only reliable when used in the hooks mentioned above
-     *
-     *
      */
     GetTouchTrace(): TraceResult;
 
@@ -7282,7 +6892,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns true if the TransmitWithParent flag is set or not.
-     *
      */
     GetTransmitWithParent(): boolean;
 
@@ -7290,7 +6899,6 @@ interface Entity {
      * 🟦 [Server]
      *
      * Returns if the entity is unfreezable, meaning it can't be frozen with the physgun. By default props are freezable, so this function will typically return false.
-     *
      */
     GetUnFreezable(): boolean;
 
@@ -7298,7 +6906,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the upward vector of the entity, as a normalized direction vector
-     *
      */
     GetUp(): Vector;
 
@@ -7322,8 +6929,6 @@ interface Entity {
      *
      * **Bug [#774](https://github.com/Facepunch/garrysmod-issues/issues/774):**
      * >This can become out-of-sync on the client if the server has been up for a long time.
-     *
-     *
      */
     GetVelocity(): Vector;
 
@@ -7333,8 +6938,6 @@ interface Entity {
      * Returns ID of workshop addon that the entity is from.
      *
      * @deprecated The function **currently** does nothing and always returns nil
-     *
-     *
      */
     GetWorkshopID(): number;
 
@@ -7351,8 +6954,6 @@ interface Entity {
      *
      * **Bug [#3107](https://github.com/Facepunch/garrysmod-issues/issues/3107):**
      * >Columns 1-3 will be all 0 (angular component) inwhile paused in single-player.
-     *
-     *
      */
     GetWorldTransformMatrix(): VMatrix;
 
@@ -7408,8 +7009,6 @@ interface Entity {
      *
      * **Bug [#3131](https://github.com/Facepunch/garrysmod-issues/issues/3131):**
      * >This will return true if the entity's bones have ever been manipulated. Resetting the position/angles/jiggle/scaling to 0,0,0 will not affect this function.
-     *
-     *
      */
     HasBoneManipulations(): boolean;
 
@@ -7417,7 +7016,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns whether or not the the entity has had flex manipulations performed with [Entity:SetFlexWeight](https://wiki.facepunch.com/gmod/Entity:SetFlexWeight) or [Entity:SetFlexScale](https://wiki.facepunch.com/gmod/Entity:SetFlexScale).
-     *
      */
     HasFlexManipulatior(): boolean;
 
@@ -7445,7 +7043,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the health of the entity.
-     *
      */
     Health(): number;
 
@@ -7471,8 +7068,6 @@ interface Entity {
      * ```
      * [ERROR] InitializeAsClientEntity is deprecated and should no longer be used.
      * ```
-     *
-     *
      */
     InitializeAsClientEntity(): void;
 
@@ -7495,7 +7090,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Sets up Data Tables from entity to use with [Entity:NetworkVar](https://wiki.facepunch.com/gmod/Entity:NetworkVar).
-     *
      */
     InstallDataTable(): void;
 
@@ -7505,7 +7099,6 @@ interface Entity {
      * Resets the entity's bone cache values in order to prepare for a model change.
      *
      * This should be called after calling [Entity:SetPoseParameter](https://wiki.facepunch.com/gmod/Entity:SetPoseParameter).
-     *
      */
     InvalidateBoneCache(): void;
 
@@ -7518,8 +7111,6 @@ interface Entity {
      * >This will only update clientside if the server calls it first. This only checks constraints added through the [constraint](https://wiki.facepunch.com/gmod/constraint) so this will not react to map constraints.
      *
      * For a serverside alternative, see [constraint.HasConstraints](https://wiki.facepunch.com/gmod/constraint.HasConstraints)
-     *
-     *
      */
     IsConstrained(): boolean;
 
@@ -7532,8 +7123,6 @@ interface Entity {
      *
      * **Warning:**
      * >For some constraint entities, such as `phys_spring`, `phys_slideconstraint`, `phys_torque` and `logic_collision_pair`, this function will return `false`!
-     *
-     *
      */
     IsConstraint(): boolean;
 
@@ -7544,7 +7133,6 @@ interface Entity {
      *
      * Client/server entities become dormant when they leave the PVS on the server. Client side entities can decide for themselves whether to become dormant.
      * This mainly applies to [PVS (Potential Visibility Set)](https://developer.valvesoftware.com/wiki/PVS "PVS - Valve Developer Community").
-     *
      */
     IsDormant(): boolean;
 
@@ -7579,8 +7167,6 @@ interface Entity {
      *
      * **Note:**
      * >Internally this function uses [util.IsInWorld](https://wiki.facepunch.com/gmod/util.IsInWorld), that means that this function only checks [Entity:GetPos](https://wiki.facepunch.com/gmod/Entity:GetPos) of the entity. If an entity is only partially inside a wall, or has a weird GetPos offset, this function may not give reliable output.
-     *
-     *
      */
     IsInWorld(): boolean;
 
@@ -7588,7 +7174,6 @@ interface Entity {
      * 🟦 [Server]
      *
      * Returns whether the entity is lag compensated or not.
-     *
      */
     IsLagCompensated(): boolean;
 
@@ -7608,7 +7193,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns if the entity is going to be deleted in the next frame. Entities marked for deletion should not be accessed.
-     *
      */
     IsMarkedForDeletion(): boolean;
 
@@ -7616,7 +7200,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Checks if the entity is a [NextBot](https://wiki.facepunch.com/gmod/NextBot) or not.
-     *
      */
     IsNextBot(): boolean;
 
@@ -7626,7 +7209,6 @@ interface Entity {
      * Checks if the entity is an NPC or not.
      *
      * This will return false for [NextBot](https://wiki.facepunch.com/gmod/NextBot)s, see [Entity:IsNextBot](https://wiki.facepunch.com/gmod/Entity:IsNextBot) for that.
-     *
      */
     IsNPC(): boolean;
 
@@ -7634,7 +7216,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns whether the entity is on fire.
-     *
      */
     IsOnFire(): boolean;
 
@@ -7646,7 +7227,6 @@ interface Entity {
      * Internally, this checks if <page text="FL_ONGROUND">Enums/FL</page> is set on the entity.
      *
      * This function is an alias of [Entity:OnGround](https://wiki.facepunch.com/gmod/Entity:OnGround).
-     *
      */
     IsOnGround(): boolean;
 
@@ -7654,7 +7234,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Checks if the entity is a player or not.
-     *
      */
     IsPlayer(): boolean;
 
@@ -7665,8 +7244,6 @@ interface Entity {
      *
      * **Bug [#2046](https://github.com/Facepunch/garrysmod-issues/issues/2046):**
      * >If multiple players are holding an object and one drops it, this will return false despite the object still being held.
-     *
-     *
      */
     IsPlayerHolding(): boolean;
 
@@ -7696,7 +7273,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Checks if the entity is a ragdoll, or became a ragdoll. Internally checks whether [kRenderFXRagdoll](kRenderFX) is set.
-     *
      */
     IsRagdoll(): boolean;
 
@@ -7704,7 +7280,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Checks if the entity is a SENT or a built-in entity.
-     *
      */
     IsScripted(): boolean;
 
@@ -7712,7 +7287,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns whether the entity's current sequence is finished or not.
-     *
      */
     IsSequenceFinished(): boolean;
 
@@ -7721,7 +7295,6 @@ interface Entity {
      *
      * Returns if the entity is solid or not.
      * Very useful for determining if the entity is a trigger or not.
-     *
      */
     IsSolid(): boolean;
 
@@ -7741,8 +7314,6 @@ interface Entity {
      *
      * **Note:**
      * >Instead of calling this method directly, it's a good idea to call the global [Global.IsValid](https://wiki.facepunch.com/gmod/Global.IsValid) instead, however if you're sure the variable you're using is always an entity object it's better to use this method
-     *
-     *
      */
     IsValid(): boolean;
 
@@ -7762,7 +7333,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Checks if the entity is a vehicle or not.
-     *
      */
     IsVehicle(): boolean;
 
@@ -7770,7 +7340,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Checks if the entity is a weapon or not.
-     *
      */
     IsWeapon(): boolean;
 
@@ -7780,7 +7349,6 @@ interface Entity {
      * Returns whether the entity is a widget or not.
      *
      * This is used by the "Edit Bones" context menu property.
-     *
      */
     IsWidget(): boolean;
 
@@ -7788,23 +7356,22 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns if this entity is the map entity `Entity[0] worldspawn`.
-     *
      */
     IsWorld(): boolean;
 
     /**
      * 🟨🟦 [Shared]
      *
-     * Converts a vector local to an entity into a worldspace vector
-     * @param lpos - The local vector
+     * Translates a vector relative to the entity's coordinate system into a worldspace vector.
+     * @param lpos - A local space vector.
      */
     LocalToWorld(lpos: Vector): Vector;
 
     /**
      * 🟨🟦 [Shared]
      *
-     * Converts a local angle (local to the entity) to a world angle.
-     * @param ang - The local angle
+     * Translates an angle relative to the entity's coordinate system to a worldspace angle.
+     * @param ang - A local space angle.
      */
     LocalToWorldAngles(ang: Angle): Angle;
 
@@ -7936,7 +7503,6 @@ interface Entity {
      * It may change if the map is recompiled, even if no edits were made. It will definitely change if entities are added or removed from the map file.
      *
      * To be used in conjunction with [ents.GetMapCreatedEntity](https://wiki.facepunch.com/gmod/ents.GetMapCreatedEntity). See also [Entity:CreatedByMap](https://wiki.facepunch.com/gmod/Entity:CreatedByMap).
-     *
      */
     MapCreationID(): number;
 
@@ -7944,7 +7510,6 @@ interface Entity {
      * 🟨 [Client]
      *
      * Refreshes the shadow of the entity.
-     *
      */
     MarkShadowAsDirty(): void;
 
@@ -7952,7 +7517,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Fires the muzzle flash effect of the weapon the entity is carrying. This only creates a light effect and is often called alongside [Weapon:SendWeaponAnim](https://wiki.facepunch.com/gmod/Weapon:SendWeaponAnim)
-     *
      */
     MuzzleFlash(): void;
 
@@ -8054,7 +7618,6 @@ interface Entity {
      * </callback>
      * </arg>
      * 	</args>
-     *
      */
     NetworkVarNotify(): void;
 
@@ -8081,7 +7644,6 @@ interface Entity {
      * Returns the center of an entity's collision bounding box as a local vector.
      *
      * See also [Entity:GetCollisionBounds](https://wiki.facepunch.com/gmod/Entity:GetCollisionBounds), [Entity:OBBMins](https://wiki.facepunch.com/gmod/Entity:OBBMins) and [Entity:OBBMaxs](https://wiki.facepunch.com/gmod/Entity:OBBMaxs).
-     *
      */
     OBBCenter(): Vector;
 
@@ -8091,7 +7653,6 @@ interface Entity {
      * Returns the highest corner of an entity's collision bounding box as a local vector.
      *
      * See also [Entity:GetCollisionBounds](https://wiki.facepunch.com/gmod/Entity:GetCollisionBounds), [Entity:OBBMins](https://wiki.facepunch.com/gmod/Entity:OBBMins) and [Entity:OBBCenter](https://wiki.facepunch.com/gmod/Entity:OBBCenter).
-     *
      */
     OBBMaxs(): Vector;
 
@@ -8101,7 +7662,6 @@ interface Entity {
      * Returns the lowest corner of an entity's collision bounding box as a local vector.
      *
      * See also [Entity:GetCollisionBounds](https://wiki.facepunch.com/gmod/Entity:GetCollisionBounds), [Entity:OBBMaxs](https://wiki.facepunch.com/gmod/Entity:OBBMaxs) and [Entity:OBBCenter](https://wiki.facepunch.com/gmod/Entity:OBBCenter).
-     *
      */
     OBBMins(): Vector;
 
@@ -8116,8 +7676,6 @@ interface Entity {
      *
      * **Note:**
      * >The enums for this are not currently implemented in Lua, however you can access the defines [here](https://github.com/ValveSoftware/source-sdk-2013/blob/55ed12f8d1eb6887d348be03aee5573d44177ffb/mp/src/game/shared/baseentity_shared.h#L21-L38).
-     *
-     *
      */
     ObjectCaps(): number;
 
@@ -8127,7 +7685,6 @@ interface Entity {
      * Returns true if the entity is on the ground, and false if it isn't.
      *
      * Internally, this checks if <page text="FL_ONGROUND">Enums/FL</page> is set on the entity. This is only updated for players and NPCs, and thus won't inherently work for other entities.
-     *
      */
     OnGround(): boolean;
 
@@ -8168,8 +7725,6 @@ interface Entity {
      *
      * **Note:**
      * >Cannot be used on a ragdoll or the world entity.
-     *
-     *
      */
     PhysicsDestroy(): void;
 
@@ -8352,7 +7907,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Wakes up the entity's physics object
-     *
      */
     PhysWake(): void;
 
@@ -8381,7 +7935,6 @@ interface Entity {
      * Normally this function should be ran when the entity is spawned, for example the [ENTITY:Initialize](https://wiki.facepunch.com/gmod/ENTITY:Initialize), after [Entity:SetModel](https://wiki.facepunch.com/gmod/Entity:SetModel) is called.
      *
      * This is required for [Entity:GibBreakServer](https://wiki.facepunch.com/gmod/Entity:GibBreakServer) and [Entity:GibBreakClient](https://wiki.facepunch.com/gmod/Entity:GibBreakClient) to work.
-     *
      */
     PrecacheGibs(): number;
 
@@ -8389,7 +7942,6 @@ interface Entity {
      * 🟦 [Server]
      *
      * Normalizes the ragdoll. This is used alongside Kinect in [Entity:SetRagdollBuildFunction](https://wiki.facepunch.com/gmod/Entity:SetRagdollBuildFunction), for more info see ragdoll_motion entity.
-     *
      */
     RagdollSolve(): void;
 
@@ -8397,7 +7949,6 @@ interface Entity {
      * 🟦 [Server]
      *
      * Sets the function to build the ragdoll. This is used alongside Kinect in [Entity:SetRagdollBuildFunction](https://wiki.facepunch.com/gmod/Entity:SetRagdollBuildFunction), for more info see ragdoll_motion entity.
-     *
      */
     RagdollStopControlling(): void;
 
@@ -8405,7 +7956,6 @@ interface Entity {
      * 🟦 [Server]
      *
      * Makes the physics objects follow the set bone positions. This is used alongside Kinect in [Entity:SetRagdollBuildFunction](https://wiki.facepunch.com/gmod/Entity:SetRagdollBuildFunction), for more info see ragdoll_motion entity.
-     *
      */
     RagdollUpdatePhysics(): void;
 
@@ -8413,7 +7963,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Removes the entity it is used on. The entity will be removed at the start of next tick.
-     *
      */
     Remove(): void;
 
@@ -8421,7 +7970,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Removes all decals from the entities surface.
-     *
      */
     RemoveAllDecals(): void;
 
@@ -8435,8 +7983,6 @@ interface Entity {
      *
      * **Note:**
      * >Layer removal procedures aren't immediate. Layer removal functions actually manipulate [Entity:GetLayerWeight](https://wiki.facepunch.com/gmod/Entity:GetLayerWeight) down to 0, then remove the layer in next intervals. If the targeted layer's weight keeps changing, your layer will not be removed.
-     *
-     *
      */
     RemoveAllGestures(): void;
 
@@ -8577,7 +8123,6 @@ interface Entity {
      * @param sequence - The sequence to play. Also accepts strings.
      * **Note:**
      * >If set to a string, the function will automatically call [Entity:LookupSequence](https://wiki.facepunch.com/gmod/Entity:LookupSequence) to retrieve the sequence ID as a number.
-     *
      */
     ResetSequence(sequence: number): void;
 
@@ -8585,7 +8130,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Reset entity sequence info such as playback rate, ground speed, last event check, etc.
-     *
      */
     ResetSequenceInfo(): void;
 
@@ -8596,7 +8140,6 @@ interface Entity {
      *
      * Only usable on HL2/HL:S pickups and any weapons. Seems to be buggy with weapons.
      * Very unreliable.
-     *
      */
     Respawn(): void;
 
@@ -10309,7 +9852,6 @@ interface Entity {
      * Use [Entity:AddEffects](https://wiki.facepunch.com/gmod/Entity:AddEffects)( EF_FOLLOWBONE ) to treat this argument as a Bone ID instead of an Attachment ID. Similar to [Entity:FollowBone](https://wiki.facepunch.com/gmod/Entity:FollowBone).
      * **Note:**
      * >You must call [Entity:SetMoveType](https://wiki.facepunch.com/gmod/Entity:SetMoveType)( MOVETYPE_NONE ) on the child for this argument to have any effect!
-     *
      */
     SetParent(parent?: Entity, attachmentOrBoneId = -1): void;
 
@@ -10606,6 +10148,8 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Sets the skin of the entity.
+     *
+     * [Entity:GetSkin](https://wiki.facepunch.com/gmod/Entity:GetSkin) returns current skin and [Entity:SkinCount](https://wiki.facepunch.com/gmod/Entity:SkinCount) returns amount of skins.
      * @param skinIndex - 0-based index of the skin to use.
      */
     SetSkin(skinIndex: number): void;
@@ -10741,8 +10285,6 @@ interface Entity {
      *
      * **Note:**
      * >This calls the BuildBonePositions callback added via [Entity:AddCallback](https://wiki.facepunch.com/gmod/Entity:AddCallback), so avoid calling this function inside it to prevent an infinite loop.
-     *
-     *
      */
     SetupBones(): void;
 
@@ -10816,8 +10358,10 @@ interface Entity {
     /**
      * 🟨🟦 [Shared]
      *
-     * Returns the amount of skins the entity has. To retrieve the total number of skins on a model, please look at this function [util.GetModelInfo](https://wiki.facepunch.com/gmod/util.GetModelInfo)
+     * Returns the amount of skins the entity has.
      *
+     * To set the entity's skin, use [Entity:SetSkin](https://wiki.facepunch.com/gmod/Entity:SetSkin).
+     * To retrieve the total number of skins without an entity, see [util.GetModelInfo](https://wiki.facepunch.com/gmod/util.GetModelInfo).
      */
     SkinCount(): number;
 
@@ -10837,7 +10381,6 @@ interface Entity {
      * Initializes the entity and starts its networking. If called on a player, it will respawn them.
      *
      * This calls [ENTITY:Initialize](https://wiki.facepunch.com/gmod/ENTITY:Initialize) on Lua-defined entities.
-     *
      */
     Spawn(): void;
 
@@ -10868,8 +10411,6 @@ interface Entity {
      *
      * **Note:**
      * >Only works on a scripted [Entity](https://wiki.facepunch.com/gmod/Entity) of anim type.
-     *
-     *
      */
     StartMotionController(): void;
 
@@ -10877,7 +10418,6 @@ interface Entity {
      * 🟨 [Client]
      *
      * Stops all particle effects parented to the entity and immediately destroys them.
-     *
      */
     StopAndDestroyParticles(): void;
 
@@ -10893,7 +10433,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Stops the motion controller created with [Entity:StartMotionController](https://wiki.facepunch.com/gmod/Entity:StartMotionController).
-     *
      */
     StopMotionController(): void;
 
@@ -10903,7 +10442,6 @@ interface Entity {
      * Stops all particle effects parented to the entity.
      *
      * This is ran automatically on every client by [Entity:StopParticles](https://wiki.facepunch.com/gmod/Entity:StopParticles) if called on the server.
-     *
      */
     StopParticleEmission(): void;
 
@@ -10915,7 +10453,6 @@ interface Entity {
      * On client, this is the same as [Entity:StopParticleEmission](https://wiki.facepunch.com/gmod/Entity:StopParticleEmission). ( and you should use StopParticleEmission instead )
      *
      * On server, this is the same as running [Entity:StopParticleEmission](https://wiki.facepunch.com/gmod/Entity:StopParticleEmission) on every client.
-     *
      */
     StopParticles(): void;
 
@@ -11030,8 +10567,6 @@ interface Entity {
      *
      * **Note:**
      * >This function only works on `anim`, `nextbot` and `ai` type entities.
-     *
-     *
      */
     UpdateBoneFollowers(): void;
 
@@ -11039,7 +10574,6 @@ interface Entity {
      * 🟨 [Client]
      *
      * Marks the render-to-texture (RTT) shadow of this entity as dirty, as well as any potential projected texture shadows related to this entity, so they will be updated as soon as possible.
-     *
      */
     UpdateShadow(): void;
 
@@ -11061,8 +10595,6 @@ interface Entity {
      *
      * **Note:**
      * >Does nothing on server.
-     *
-     *
      */
     UseClientSideAnimation(): void;
 
@@ -11090,7 +10622,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the index of this view model, it can be used to identify which one of the player's view models this entity is.
-     *
      */
     ViewModelIndex(): number;
 
@@ -11126,7 +10657,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns an integer that represents how deep in water the entity is.
-     *
      */
     WaterLevel(): number;
 
@@ -11160,7 +10690,6 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns two vectors representing the minimum and maximum extent of the entity's axis-aligned bounding box (which is calculated from entity's collision bounds.
-     *
      */
     WorldSpaceAABB(): LuaMultiReturn<[Vector, Vector]>;
 
@@ -11168,23 +10697,22 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the center of the entity according to its collision model.
-     *
      */
     WorldSpaceCenter(): Vector;
 
     /**
      * 🟨🟦 [Shared]
      *
-     * Converts a worldspace vector into a vector local to an entity
-     * @param wpos - The world vector
+     * Translates a worldspace vector into a vector relative to the entity's coordinate system.
+     * @param wpos - A worldspace vector.
      */
     WorldToLocal(wpos: Vector): Vector;
 
     /**
      * 🟨🟦 [Shared]
      *
-     * Converts world angles to local angles ( local to the entity )
-     * @param ang - The world angles
+     * Translates a worldspace angle into an angle relative to the entity's coordinate system.
+     * @param ang - A worldspace angle.
      */
     WorldToLocalAngles(ang: Angle): Angle;
 
@@ -11203,7 +10731,6 @@ interface File {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Dumps the file changes to disk and closes the file handle which makes the handle useless.
-     *
      */
     Close(): void;
 
@@ -11211,7 +10738,6 @@ interface File {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns whether the [File](https://wiki.facepunch.com/gmod/File) object has reached the end of file or not.
-     *
      */
     EndOfFile(): boolean;
 
@@ -11219,7 +10745,6 @@ interface File {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Dumps the file changes to disk and saves the file.
-     *
      */
     Flush(): void;
 
@@ -11235,7 +10760,6 @@ interface File {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Reads one byte of the file and returns whether that byte was not 0.
-     *
      */
     ReadBool(): boolean;
 
@@ -11243,7 +10767,6 @@ interface File {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Reads one unsigned 8-bit integer from the file.
-     *
      */
     ReadByte(): number;
 
@@ -11251,7 +10774,6 @@ interface File {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Reads an 8-byte little-endian IEEE-754 floating point double from the file.
-     *
      */
     ReadDouble(): number;
 
@@ -11259,7 +10781,6 @@ interface File {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Reads an IEEE 754 little-endian 4-byte float from the file.
-     *
      */
     ReadFloat(): number;
 
@@ -11274,8 +10795,6 @@ interface File {
      * It will also stop at a `\0` or `NULL` character, but will add a new line instead.
      *
      * This function will not return more than 8192 characters. The return value will include the `\n` character.
-     *
-     *
      */
     ReadLine(): string;
 
@@ -11283,7 +10802,6 @@ interface File {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Reads a signed little-endian 32-bit integer from the file.
-     *
      */
     ReadLong(): number;
 
@@ -11291,7 +10809,6 @@ interface File {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Reads a signed little-endian 16-bit integer from the file.
-     *
      */
     ReadShort(): number;
 
@@ -11299,7 +10816,6 @@ interface File {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Reads an unsigned 64-bit integer from the file.
-     *
      */
     ReadUInt64(): string;
 
@@ -11307,7 +10823,6 @@ interface File {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Reads an unsigned little-endian 32-bit integer from the file.
-     *
      */
     ReadULong(): number;
 
@@ -11315,7 +10830,6 @@ interface File {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Reads an unsigned little-endian 16-bit integer from the file.
-     *
      */
     ReadUShort(): number;
 
@@ -11331,7 +10845,6 @@ interface File {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns the size of the file in bytes.
-     *
      */
     Size(): number;
 
@@ -11347,7 +10860,6 @@ interface File {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns the current position of the file pointer.
-     *
      */
     Tell(): number;
 
@@ -11414,7 +10926,6 @@ interface File {
      * @param uint64 - The unsigned 64-bit integer to be written to the file.
      * **Note:**
      * >Since Lua cannot store full 64-bit integers, this function takes a string. It is mainly aimed at usage with [Player:SteamID64](https://wiki.facepunch.com/gmod/Player:SteamID64).
-     *
      */
     WriteUInt64(uint64: string): void;
 
@@ -11473,7 +10984,6 @@ interface IGModAudioChannel {
      * 🟨 [Client]
      *
      * Returns 3D cone of the sound channel. See [IGModAudioChannel:Set3DCone](https://wiki.facepunch.com/gmod/IGModAudioChannel:Set3DCone).
-     *
      */
     Get3DCone(): LuaMultiReturn<[number, number, number]>;
 
@@ -11481,7 +10991,6 @@ interface IGModAudioChannel {
      * 🟨 [Client]
      *
      * Returns if the sound channel is currently in 3D mode or not. This value will be affected by [IGModAudioChannel:Set3DEnabled](https://wiki.facepunch.com/gmod/IGModAudioChannel:Set3DEnabled).
-     *
      */
     Get3DEnabled(): boolean;
 
@@ -11489,7 +10998,6 @@ interface IGModAudioChannel {
      * 🟨 [Client]
      *
      * Returns 3D fade distances of a sound channel.
-     *
      */
     Get3DFadeDistance(): LuaMultiReturn<[number, number]>;
 
@@ -11497,7 +11005,6 @@ interface IGModAudioChannel {
      * 🟨 [Client]
      *
      * Returns the average bit rate of the sound channel.
-     *
      */
     GetAverageBitRate(): number;
 
@@ -11507,7 +11014,6 @@ interface IGModAudioChannel {
      * Retrieves the number of bits per sample of the sound channel.
      *
      * Doesn't work for mp3 and ogg files.
-     *
      */
     GetBitsPerSample(): number;
 
@@ -11517,7 +11023,6 @@ interface IGModAudioChannel {
      * Returns the buffered time of the sound channel in seconds, for online streaming sound channels. ([sound.PlayURL](https://wiki.facepunch.com/gmod/sound.PlayURL))
      *
      * For offline channels this will be equivalent to [IGModAudioChannel:GetLength](https://wiki.facepunch.com/gmod/IGModAudioChannel:GetLength).
-     *
      */
     GetBufferedTime(): number;
 
@@ -11525,7 +11030,6 @@ interface IGModAudioChannel {
      * 🟨 [Client]
      *
      * Returns the filename for the sound channel.
-     *
      */
     GetFileName(): string;
 
@@ -11533,7 +11037,6 @@ interface IGModAudioChannel {
      * 🟨 [Client]
      *
      * Returns the length of sound played by the sound channel in seconds.
-     *
      */
     GetLength(): number;
 
@@ -11541,7 +11044,6 @@ interface IGModAudioChannel {
      * 🟨 [Client]
      *
      * Returns the right and left levels of sound played by the sound channel.
-     *
      */
     GetLevel(): LuaMultiReturn<[number, number]>;
 
@@ -11549,7 +11051,6 @@ interface IGModAudioChannel {
      * 🟨 [Client]
      *
      * Gets the relative volume of the left and right channels.
-     *
      */
     GetPan(): number;
 
@@ -11557,7 +11058,6 @@ interface IGModAudioChannel {
      * 🟨 [Client]
      *
      * Returns the playback rate of the sound channel.
-     *
      */
     GetPlaybackRate(): number;
 
@@ -11565,7 +11065,6 @@ interface IGModAudioChannel {
      * 🟨 [Client]
      *
      * Returns position of the sound channel
-     *
      */
     GetPos(): Vector;
 
@@ -11573,7 +11072,6 @@ interface IGModAudioChannel {
      * 🟨 [Client]
      *
      * Returns the sample rate for currently playing sound.
-     *
      */
     GetSamplingRate(): number;
 
@@ -11581,7 +11079,6 @@ interface IGModAudioChannel {
      * 🟨 [Client]
      *
      * Returns the state of a sound channel
-     *
      */
     GetState(): GMOD_CHANNEL;
 
@@ -11591,7 +11088,6 @@ interface IGModAudioChannel {
      * Retrieves HTTP headers from a bass stream channel created by [sound.PlayURL](https://wiki.facepunch.com/gmod/sound.PlayURL), if available.
      *
      * Of special interest here are headers such as `icy-name`, `icy-br`, `ice-audio-info`, `icy-genre`.
-     *
      */
     GetTagsHTTP(): string[];
 
@@ -11601,7 +11097,6 @@ interface IGModAudioChannel {
      * Retrieves the ID3 version 1 info from a bass channel created by [sound.PlayFile](https://wiki.facepunch.com/gmod/sound.PlayFile) or [sound.PlayURL](https://wiki.facepunch.com/gmod/sound.PlayURL), if available.
      *
      * ID3v2 is not supported.
-     *
      */
     GetTagsID3(): any;
 
@@ -11609,15 +11104,20 @@ interface IGModAudioChannel {
      * 🟨 [Client]
      *
      * Retrieves ICY metadata from a bass stream channel created by [sound.PlayURL](https://wiki.facepunch.com/gmod/sound.PlayURL), if available.
-     *
      */
     GetTagsMeta(): string;
 
     /**
      * 🟨 [Client]
      *
-     * Retrieves OGG media info tag, from a bass channel created by [sound.PlayURL](https://wiki.facepunch.com/gmod/sound.PlayURL) or [sound.PlayFile](https://wiki.facepunch.com/gmod/sound.PlayFile), if available.
+     * Retrieves `.m4a` media info, from a bass channel created by [sound.PlayURL](https://wiki.facepunch.com/gmod/sound.PlayURL) or [sound.PlayFile](https://wiki.facepunch.com/gmod/sound.PlayFile), if available.
+     */
+    GetTagsMP4(): string[];
+
+    /**
+     * 🟨 [Client]
      *
+     * Retrieves OGG media info tag, from a bass channel created by [sound.PlayURL](https://wiki.facepunch.com/gmod/sound.PlayURL) or [sound.PlayFile](https://wiki.facepunch.com/gmod/sound.PlayFile), if available.
      */
     GetTagsOGG(): string[];
 
@@ -11625,15 +11125,20 @@ interface IGModAudioChannel {
      * 🟨 [Client]
      *
      * Retrieves OGG Vendor tag, usually containing the application that created the file, from a bass channel created by [sound.PlayURL](https://wiki.facepunch.com/gmod/sound.PlayURL) or [sound.PlayFile](https://wiki.facepunch.com/gmod/sound.PlayFile), if available.
-     *
      */
     GetTagsVendor(): string;
 
     /**
      * 🟨 [Client]
      *
-     * Returns the current time of the sound channel in seconds
+     * Retrieves `.WMA` media info, from a bass channel created by [sound.PlayURL](https://wiki.facepunch.com/gmod/sound.PlayURL) or [sound.PlayFile](https://wiki.facepunch.com/gmod/sound.PlayFile), if available.
+     */
+    GetTagsWMA(): string[];
+
+    /**
+     * 🟨 [Client]
      *
+     * Returns the current time of the sound channel in seconds
      */
     GetTime(): number;
 
@@ -11641,7 +11146,6 @@ interface IGModAudioChannel {
      * 🟨 [Client]
      *
      * Returns volume of a sound channel
-     *
      */
     GetVolume(): number;
 
@@ -11649,7 +11153,6 @@ interface IGModAudioChannel {
      * 🟨 [Client]
      *
      * Returns if the sound channel is in 3D mode or not.
-     *
      */
     Is3D(): boolean;
 
@@ -11657,7 +11160,6 @@ interface IGModAudioChannel {
      * 🟨 [Client]
      *
      * Returns whether the audio stream is block streamed or not.
-     *
      */
     IsBlockStreamed(): boolean;
 
@@ -11665,7 +11167,6 @@ interface IGModAudioChannel {
      * 🟨 [Client]
      *
      * Returns if the sound channel is looping or not.
-     *
      */
     IsLooping(): boolean;
 
@@ -11673,7 +11174,6 @@ interface IGModAudioChannel {
      * 🟨 [Client]
      *
      * Returns if the sound channel is streamed from the Internet or not.
-     *
      */
     IsOnline(): boolean;
 
@@ -11681,7 +11181,6 @@ interface IGModAudioChannel {
      * 🟨 [Client]
      *
      * Returns if the sound channel is valid or not.
-     *
      */
     IsValid(): boolean;
 
@@ -11689,7 +11188,6 @@ interface IGModAudioChannel {
      * 🟨 [Client]
      *
      * Pauses the stream. It can be started again using [IGModAudioChannel:Play](https://wiki.facepunch.com/gmod/IGModAudioChannel:Play)
-     *
      */
     Pause(): void;
 
@@ -11697,7 +11195,6 @@ interface IGModAudioChannel {
      * 🟨 [Client]
      *
      * Starts playing the stream.
-     *
      */
     Play(): void;
 
@@ -11790,8 +11287,6 @@ interface IGModAudioChannel {
      *
      * **Bug [#1497](https://github.com/Facepunch/garrysmod-issues/issues/1497):**
      * >Calling this invalidates the IGModAudioChannel object rendering it unusable for further functions.
-     *
-     *
      */
     Stop(): void;
 
@@ -11843,7 +11338,6 @@ interface IMaterial {
      * 🟨🟦 [Shared]
      *
      * Gets all the key values defined for the material.
-     *
      */
     GetKeyValues(): Record<string, any>;
 
@@ -11859,7 +11353,6 @@ interface IMaterial {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns the name of the material, in most cases the path.
-     *
      */
     GetName(): string;
 
@@ -11870,8 +11363,6 @@ interface IMaterial {
      *
      * **Bug [#3256](https://github.com/Facepunch/garrysmod-issues/issues/3256):**
      * >This function does not work serverside on Linux SRCDS.
-     *
-     *
      */
     GetShader(): string;
 
@@ -11925,7 +11416,6 @@ interface IMaterial {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns the height of the member texture set for `$basetexture`.
-     *
      */
     Height(): number;
 
@@ -11933,7 +11423,6 @@ interface IMaterial {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns whenever the material is valid, i.e. whether it was not loaded successfully from disk or not.
-     *
      */
     IsError(): boolean;
 
@@ -11943,7 +11432,6 @@ interface IMaterial {
      * Recomputes the material's snapshot. This needs to be called if you have changed variables on your material and it isn't changing.
      *
      * Be careful though - this function is slow - so try to call it only when needed!
-     *
      */
     Recompute(): void;
 
@@ -12049,7 +11537,6 @@ interface IMaterial {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns the width of the member texture set for `$basetexture`.
-     *
      */
     Width(): number;
 
@@ -12062,7 +11549,6 @@ interface IMaterial {
  * **Note:**
  * >IMeshes only respond to one projected texture.
  * 			See the [render.RenderFlashlights](https://wiki.facepunch.com/gmod/render.RenderFlashlights) function and example that solves this problem.
- *
  */
 interface IMesh {
 
@@ -12089,7 +11575,6 @@ interface IMesh {
      * 🟨 [Client]
      *
      * Deletes the mesh and frees the memory used by it.
-     *
      */
     Destroy(): void;
 
@@ -12097,7 +11582,6 @@ interface IMesh {
      * 🟨 [Client]
      *
      * Renders the mesh with the active matrix.
-     *
      */
     Draw(): void;
 
@@ -12105,7 +11589,6 @@ interface IMesh {
      * 🟨 [Client]
      *
      * Returns whether this [IMesh](https://wiki.facepunch.com/gmod/IMesh) is valid or not.
-     *
      */
     IsValid(): boolean;
 
@@ -12125,7 +11608,6 @@ interface IRestore {
      * Ends current data block started with [IRestore:StartBlock](https://wiki.facepunch.com/gmod/IRestore:StartBlock) and returns to the parent block.
      *
      * To avoid all sorts of errors, you **must** end all blocks you start.
-     *
      */
     EndBlock(): void;
 
@@ -12133,7 +11615,6 @@ interface IRestore {
      * 🟨🟦 [Shared]
      *
      * Reads next bytes from the restore object as an [Angle](https://wiki.facepunch.com/gmod/Angle).
-     *
      */
     ReadAngle(): Angle;
 
@@ -12141,7 +11622,6 @@ interface IRestore {
      * 🟨🟦 [Shared]
      *
      * Reads next bytes from the restore object as a [boolean](https://wiki.facepunch.com/gmod/boolean).
-     *
      */
     ReadBool(): boolean;
 
@@ -12149,7 +11629,6 @@ interface IRestore {
      * 🟨🟦 [Shared]
      *
      * Reads next bytes from the restore object as an [Entity](https://wiki.facepunch.com/gmod/Entity).
-     *
      */
     ReadEntity(): Entity;
 
@@ -12157,7 +11636,6 @@ interface IRestore {
      * 🟨🟦 [Shared]
      *
      * Reads next bytes from the restore object as a floating point [number](https://wiki.facepunch.com/gmod/number).
-     *
      */
     ReadFloat(): number;
 
@@ -12165,7 +11643,6 @@ interface IRestore {
      * 🟨🟦 [Shared]
      *
      * Reads next bytes from the restore object as an integer [number](https://wiki.facepunch.com/gmod/number).
-     *
      */
     ReadInt(): number;
 
@@ -12173,7 +11650,6 @@ interface IRestore {
      * 🟨🟦 [Shared]
      *
      * Reads next bytes from the restore object as a [string](https://wiki.facepunch.com/gmod/string).
-     *
      */
     ReadString(): string;
 
@@ -12181,7 +11657,6 @@ interface IRestore {
      * 🟨🟦 [Shared]
      *
      * Reads next bytes from the restore object as a [Vector](https://wiki.facepunch.com/gmod/Vector).
-     *
      */
     ReadVector(): Vector;
 
@@ -12189,7 +11664,6 @@ interface IRestore {
      * 🟨🟦 [Shared]
      *
      * Loads next block of data to be read inside current block. Blocks **must** be ended with [IRestore:EndBlock](https://wiki.facepunch.com/gmod/IRestore:EndBlock).
-     *
      */
     StartBlock(): string;
 
@@ -12209,7 +11683,6 @@ interface ISave {
      * Ends current data block started with [ISave:StartBlock](https://wiki.facepunch.com/gmod/ISave:StartBlock) and returns to the parent block.
      *
      * To avoid all sorts of errors, you **must** end all blocks you start.
-     *
      */
     EndBlock(): void;
 
@@ -12293,7 +11766,6 @@ interface ITexture {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Invokes the generator of the texture. Reloads file based textures from disk and clears render target textures.
-     *
      */
     Download(): void;
 
@@ -12314,7 +11786,6 @@ interface ITexture {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns the true unmodified height of the texture.
-     *
      */
     GetMappingHeight(): number;
 
@@ -12322,7 +11793,6 @@ interface ITexture {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns the true unmodified width of the texture.
-     *
      */
     GetMappingWidth(): number;
 
@@ -12330,7 +11800,6 @@ interface ITexture {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns the name of the texture, in most cases the path.
-     *
      */
     GetName(): string;
 
@@ -12338,7 +11807,6 @@ interface ITexture {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns the number of animation frames in this texture.
-     *
      */
     GetNumAnimationFrames(): number;
 
@@ -12346,7 +11814,6 @@ interface ITexture {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns the modified height of the texture, this value may be affected by mipmapping and other factors.
-     *
      */
     Height(): number;
 
@@ -12357,8 +11824,6 @@ interface ITexture {
      *
      * **Note:**
      * >The "error" texture is a valid texture, and therefore this function will return false when used on it. Use [ITexture:IsErrorTexture](https://wiki.facepunch.com/gmod/ITexture:IsErrorTexture), instead.
-     *
-     *
      */
     IsError(): boolean;
 
@@ -12366,7 +11831,6 @@ interface ITexture {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns whenever the texture is the error texture (pink and black checkerboard pattern).
-     *
      */
     IsErrorTexture(): boolean;
 
@@ -12374,7 +11838,6 @@ interface ITexture {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns the modified width of the texture, this value may be affected by mipmapping and other factors.
-     *
      */
     Width(): number;
 
@@ -12399,7 +11862,6 @@ interface IVideoWriter {
      * 🟨🟩 [Client and Menu]
      *
      * Ends the video recording and dumps it to disk.
-     *
      */
     Finish(): void;
 
@@ -12407,7 +11869,6 @@ interface IVideoWriter {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the height of the video stream.
-     *
      */
     Height(): number;
 
@@ -12423,7 +11884,6 @@ interface IVideoWriter {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the width of the video stream.
-     *
      */
     Width(): number;
 
@@ -12452,7 +11912,6 @@ interface MarkupObject {
      * 🟨🟩 [Client and Menu]
      *
      * Gets computed the height of the markupobject.
-     *
      */
     GetHeight(): number;
 
@@ -12460,7 +11919,6 @@ interface MarkupObject {
      * 🟨🟩 [Client and Menu]
      *
      * Gets maximum width for this markup object as defined in [markup.Parse](https://wiki.facepunch.com/gmod/markup.Parse).
-     *
      */
     GetMaxWidth(): number;
 
@@ -12468,7 +11926,6 @@ interface MarkupObject {
      * 🟨🟩 [Client and Menu]
      *
      * Gets computed the width of the markupobject.
-     *
      */
     GetWidth(): number;
 
@@ -12476,7 +11933,6 @@ interface MarkupObject {
      * 🟨🟩 [Client and Menu]
      *
      * Gets computed the width and height of the markupobject.
-     *
      */
     Size(): LuaMultiReturn<[number, number]>;
 
@@ -12507,8 +11963,6 @@ interface NextBot extends Entity {
      *
      * **Bug [#3420](https://github.com/Facepunch/garrysmod-issues/issues/3420):**
      * >This function might cause crashes with some activities.
-     *
-     *
      */
     BodyMoveXY(): void;
 
@@ -12516,7 +11970,6 @@ interface NextBot extends Entity {
      * 🟦 [Server]
      *
      * Clears this bot's last known area. See [NextBot:GetLastKnownArea](https://wiki.facepunch.com/gmod/NextBot:GetLastKnownArea).
-     *
      */
     ClearLastKnownArea(): void;
 
@@ -12551,7 +12004,6 @@ interface NextBot extends Entity {
      * 🟦 [Server]
      *
      * Returns the currently running activity
-     *
      */
     GetActivity(): number;
 
@@ -12559,7 +12011,6 @@ interface NextBot extends Entity {
      * 🟦 [Server]
      *
      * Returns the Field of View of the Nextbot NPC, used for its vision functionality, such as [NextBot:IsAbleToSee](https://wiki.facepunch.com/gmod/NextBot:IsAbleToSee).
-     *
      */
     GetFOV(): number;
 
@@ -12567,7 +12018,6 @@ interface NextBot extends Entity {
      * 🟦 [Server]
      *
      * Returns this bots last known area. See also [NextBot:ClearLastKnownArea](https://wiki.facepunch.com/gmod/NextBot:ClearLastKnownArea).
-     *
      */
     GetLastKnownArea(): CNavArea;
 
@@ -12575,7 +12025,6 @@ interface NextBot extends Entity {
      * 🟦 [Server]
      *
      * Returns the maximum range the nextbot can see other nextbots/players at. See [NextBot:IsAbleToSee](https://wiki.facepunch.com/gmod/NextBot:IsAbleToSee).
-     *
      */
     GetMaxVisionRange(): number;
 
@@ -12603,7 +12052,6 @@ interface NextBot extends Entity {
      * 🟦 [Server]
      *
      * Returns the solid mask for given NextBot.
-     *
      */
     GetSolidMask(): CONTENTS;
 
@@ -12613,7 +12061,6 @@ interface NextBot extends Entity {
      * Called from Lua when the NPC is stuck. This should only be called from the behaviour coroutine - so if you want to override this function and do something special that yields - then go for it.
      *
      * You should always call self.loco:ClearStuck() in this function to reset the stuck status - so it knows it's unstuck. See [CLuaLocomotion:ClearStuck](https://wiki.facepunch.com/gmod/CLuaLocomotion:ClearStuck).
-     *
      */
     HandleStuck(): void;
 
@@ -12731,8 +12178,6 @@ interface NPC extends Entity {
      *
      * **Warning:**
      * >Calling this on an NPC without any route will result in an instant crash.
-     *
-     *
      */
     AdvancePath(): void;
 
@@ -12740,7 +12185,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Force an NPC to play their Alert sound.
-     *
      */
     AlertSound(): void;
 
@@ -12773,7 +12217,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Removes all of Capabilities the NPC has.
-     *
      */
     CapabilitiesClear(): void;
 
@@ -12781,7 +12224,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Returns the NPC's capabilities along the ones defined on its weapon.
-     *
      */
     CapabilitiesGet(): CAP;
 
@@ -12805,7 +12247,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Returns the NPC class. Do not confuse with [Entity:GetClass](https://wiki.facepunch.com/gmod/Entity:GetClass)!
-     *
      */
     Classify(): CLASS;
 
@@ -12813,7 +12254,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Resets the [NPC:GetBlockingEntity](https://wiki.facepunch.com/gmod/NPC:GetBlockingEntity).
-     *
      */
     ClearBlockingEntity(): void;
 
@@ -12837,7 +12277,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Clears the NPC's current expression which can be set with [NPC:SetExpression](https://wiki.facepunch.com/gmod/NPC:SetExpression).
-     *
      */
     ClearExpression(): void;
 
@@ -12845,7 +12284,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Clears the current NPC goal or target.
-     *
      */
     ClearGoal(): void;
 
@@ -12853,7 +12291,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Stops the current schedule that the NPC is doing.
-     *
      */
     ClearSchedule(): void;
 
@@ -12901,7 +12338,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Makes an NPC exit a scripted sequence, if one is playing.
-     *
      */
     ExitScriptedSequence(): void;
 
@@ -12909,7 +12345,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Force an NPC to play its Fear sound.
-     *
      */
     FearSound(): void;
 
@@ -12917,7 +12352,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Force an NPC to play its FoundEnemy sound.
-     *
      */
     FoundEnemySound(): void;
 
@@ -12925,7 +12359,6 @@ interface NPC extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the weapon the NPC is currently carrying, or <page text="NULL">Global_Variables</page>.
-     *
      */
     GetActiveWeapon(): Entity;
 
@@ -12933,7 +12366,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Returns the NPC's current activity.
-     *
      */
     GetActivity(): ACT;
 
@@ -12944,8 +12376,6 @@ interface NPC extends Entity {
      *
      * **Note:**
      * >If the NPC has both [NPC:GetEnemy](https://wiki.facepunch.com/gmod/NPC:GetEnemy) and [NPC:GetActiveWeapon](https://wiki.facepunch.com/gmod/NPC:GetActiveWeapon), engine will automatically call [ENTITY:GetAttackSpread](https://wiki.facepunch.com/gmod/ENTITY:GetAttackSpread) to add random spread degrees to the return value.
-     *
-     *
      */
     GetAimVector(): Vector;
 
@@ -12953,7 +12383,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Returns the activity to be played when the NPC arrives at its goal
-     *
      */
     GetArrivalActivity(): ACT;
 
@@ -12961,7 +12390,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Returns the direction from the NPC origin to its current navigational destination.
-     *
      */
     GetArrivalDirection(): Vector;
 
@@ -12969,7 +12397,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Returns NPC arrival distance, set by [NPC:SetArrivalDistance](https://wiki.facepunch.com/gmod/NPC:SetArrivalDistance).
-     *
      */
     GetArrivalDistance(): number;
 
@@ -12977,7 +12404,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Returns the sequence to be played when the NPC arrives at its goal.
-     *
      */
     GetArrivalSequence(): number;
 
@@ -12985,7 +12411,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Returns NPC arrival speed, set by [NPC:SetArrivalSpeed](https://wiki.facepunch.com/gmod/NPC:SetArrivalSpeed).
-     *
      */
     GetArrivalSpeed(): number;
 
@@ -13001,7 +12426,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Returns the entity blocking the NPC along its path.
-     *
      */
     GetBlockingEntity(): Entity;
 
@@ -13009,7 +12433,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Returns the goal type for current navigation path.
-     *
      */
     GetCurGoalType(): GOALTYPE;
 
@@ -13017,7 +12440,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Returns the NPC's current schedule.
-     *
      */
     GetCurrentSchedule(): SCHED;
 
@@ -13025,7 +12447,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Returns how proficient (skilled) an NPC is with its current weapon.
-     *
      */
     GetCurrentWeaponProficiency(): WEAPON_PROFICIENCY;
 
@@ -13033,7 +12454,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Gets the NPC's current waypoint position (where NPC is currently moving towards), if any is available.
-     *
      */
     GetCurWaypointPos(): Vector;
 
@@ -13044,8 +12464,6 @@ interface NPC extends Entity {
      *
      * **Bug [#3132](https://github.com/Facepunch/garrysmod-issues/issues/3132):**
      * >This returns nil if the NPC has no enemy. You should use [Global.IsValid](https://wiki.facepunch.com/gmod/Global.IsValid) (which accounts for nil and NULL) on the return to verify validity of the enemy.
-     *
-     *
      */
     GetEnemy(): NPC;
 
@@ -13089,7 +12507,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Returns the expression file the NPC is currently playing.
-     *
      */
     GetExpression(): string;
 
@@ -13097,7 +12514,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Returns the eye direction of the NPC.
-     *
      */
     GetEyeDirection(): Vector;
 
@@ -13105,7 +12521,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Returns the Field Of View of the NPC. See [NPC:SetFOV](https://wiki.facepunch.com/gmod/NPC:SetFOV).
-     *
      */
     GetFOV(): number;
 
@@ -13113,7 +12528,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Returns the position we are trying to reach, if any.
-     *
      */
     GetGoalPos(): Vector;
 
@@ -13121,7 +12535,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Returns the entity we are trying to reach, if any.
-     *
      */
     GetGoalTarget(): Entity;
 
@@ -13129,7 +12542,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Returns the 2D head direction of the NPC.
-     *
      */
     GetHeadDirection(): Vector;
 
@@ -13137,7 +12549,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Returns NPCs hull type set by [NPC:SetHullType](https://wiki.facepunch.com/gmod/NPC:SetHullType).
-     *
      */
     GetHullType(): HULL;
 
@@ -13148,8 +12559,6 @@ interface NPC extends Entity {
      *
      * **Note:**
      * >By default, base NPCs will automatically attempt to play a sequence bound to the ideal activity. To prevent ideal activity from overriding NPC's active sequence, set this to `ACT_DO_NOT_DISTURB`.
-     *
-     *
      */
     GetIdealActivity(): ACT;
 
@@ -13157,7 +12566,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Returns the ideal move acceleration of the NPC.
-     *
      */
     GetIdealMoveAcceleration(): number;
 
@@ -13165,7 +12573,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Returns the ideal move speed of the NPC.
-     *
      */
     GetIdealMoveSpeed(): number;
 
@@ -13173,7 +12580,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Returns the ideal sequence the NPC currently wants to achieve.
-     *
      */
     GetIdealSequence(): number;
 
@@ -13181,7 +12587,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Returns the ideal yaw (left right rotation) for this NPC at this moment.
-     *
      */
     GetIdealYaw(): number;
 
@@ -13191,7 +12596,6 @@ interface NPC extends Entity {
      * Returns all known enemies this NPC has.
      *
      * See also [NPC:GetKnownEnemyCount](https://wiki.facepunch.com/gmod/NPC:GetKnownEnemyCount)
-     *
      */
     GetKnownEnemies(): any;
 
@@ -13201,7 +12605,6 @@ interface NPC extends Entity {
      * Returns known enemy count of this NPC.
      *
      * See also [NPC:GetKnownEnemies](https://wiki.facepunch.com/gmod/NPC:GetKnownEnemies)
-     *
      */
     GetKnownEnemyCount(): number;
 
@@ -13211,7 +12614,6 @@ interface NPC extends Entity {
      * Returns the last registered or memorized position of the NPC. When using scheduling, the NPC will focus on navigating to the last position via nodes.
      *
      * See [NPC:SetLastPosition](https://wiki.facepunch.com/gmod/NPC:SetLastPosition).
-     *
      */
     GetLastPosition(): Vector;
 
@@ -13227,7 +12629,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Returns NPCs max view distance. An NPC will not be able to see enemies outside of this distance.
-     *
      */
     GetMaxLookDistance(): number;
 
@@ -13235,7 +12636,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Returns how far should the NPC look ahead in its route.
-     *
      */
     GetMinMoveCheckDist(): number;
 
@@ -13253,7 +12653,6 @@ interface NPC extends Entity {
      * Returns the movement delay for given NPC.
      *
      * See [NPC:SetMoveDelay](https://wiki.facepunch.com/gmod/NPC:SetMoveDelay).
-     *
      */
     GetMoveDelay(): number;
 
@@ -13261,7 +12660,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Returns the current timestep the internal NPC motor is working on.
-     *
      */
     GetMoveInterval(): number;
 
@@ -13269,7 +12667,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Returns the NPC's current movement activity.
-     *
      */
     GetMovementActivity(): ACT;
 
@@ -13277,7 +12674,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Returns the index of the sequence the NPC uses to move.
-     *
      */
     GetMovementSequence(): number;
 
@@ -13285,7 +12681,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Returns the current move velocity of the NPC.
-     *
      */
     GetMoveVelocity(): Vector;
 
@@ -13293,7 +12688,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Returns the NPC's navigation type.
-     *
      */
     GetNavType(): NAV;
 
@@ -13301,7 +12695,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Returns the nearest member of the squad the NPC is in.
-     *
      */
     GetNearestSquadMember(): NPC;
 
@@ -13309,7 +12702,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Gets the NPC's next waypoint position, where NPC will be moving after reaching current waypoint, if any is available.
-     *
      */
     GetNextWaypointPos(): Vector;
 
@@ -13317,7 +12709,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Returns the NPC's state.
-     *
      */
     GetNPCState(): NPC_STATE;
 
@@ -13325,7 +12716,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Returns the distance the NPC is from Target Goal.
-     *
      */
     GetPathDistanceToGoal(): number;
 
@@ -13333,7 +12723,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Returns the amount of time it will take for the NPC to get to its Target Goal.
-     *
      */
     GetPathTimeToGoal(): number;
 
@@ -13343,7 +12732,6 @@ interface NPC extends Entity {
      * Returns the shooting position of the NPC, i.e. where their bullets would come from, etc.
      *
      * If the NPC does not overwrite this, it will return [Entity:GetPos](https://wiki.facepunch.com/gmod/Entity:GetPos).
-     *
      */
     GetShootPos(): Vector;
 
@@ -13351,7 +12739,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Returns the current squad name of the NPC, as set via [NPC:SetSquad](https://wiki.facepunch.com/gmod/NPC:SetSquad).
-     *
      */
     GetSquad(): string;
 
@@ -13359,7 +12746,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Returns NPC step height.
-     *
      */
     GetStepHeight(): number;
 
@@ -13370,8 +12756,6 @@ interface NPC extends Entity {
      *
      * **Bug [#3132](https://github.com/Facepunch/garrysmod-issues/issues/3132):**
      * >This returns nil if the NPC has no target. You should use [Global.IsValid](https://wiki.facepunch.com/gmod/Global.IsValid) (which accounts for nil and NULL) on the return to verify validity of the target.
-     *
-     *
      */
     GetTarget(): Entity;
 
@@ -13379,7 +12763,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Returns the status of the current task.
-     *
      */
     GetTaskStatus(): TASKSTATUS;
 
@@ -13395,7 +12778,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Returns the view offset of the NPC. Set by [NPC:SetViewOffset](https://wiki.facepunch.com/gmod/NPC:SetViewOffset).
-     *
      */
     GetViewOffset(): Vector;
 
@@ -13411,7 +12793,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Returns a table of the NPC's weapons.
-     *
      */
     GetWeapons(): Weapon[];
 
@@ -13451,7 +12832,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Returns true if the current navigation has an obstacle, this is different from [NPC:GetBlockingEntity](https://wiki.facepunch.com/gmod/NPC:GetBlockingEntity), this is for virtual navigation obstacles put by AI's local navigation system to prevent movement to the marked area, forcing NPC to steer around, [for example](https://github.com/ValveSoftware/source-sdk-2013/blob/master/src/game/server/hl2/npc_playercompanion.cpp#L2897).
-     *
      */
     HasObstacles(): boolean;
 
@@ -13459,7 +12839,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Force an NPC to play their Idle sound.
-     *
      */
     IdleSound(): void;
 
@@ -13476,7 +12855,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Returns whether the NPC is currently crouching or not. Citizens and Combine Soldiers are capable of this behavior by default.
-     *
      */
     IsCrouching(): boolean;
 
@@ -13492,7 +12870,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Returns whether the current navigational waypoint is the final one.
-     *
      */
     IsCurWaypointGoal(): boolean;
 
@@ -13500,7 +12877,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Returns whether the NPC is facing their ideal yaw. See [NPC:SetIdealYaw](https://wiki.facepunch.com/gmod/NPC:SetIdealYaw), [NPC:GetIdealYaw](https://wiki.facepunch.com/gmod/NPC:GetIdealYaw) and [NPC:SetIdealYawAndUpdate](https://wiki.facepunch.com/gmod/NPC:SetIdealYawAndUpdate).
-     *
      */
     IsFacingIdealYaw(): boolean;
 
@@ -13508,7 +12884,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Returns whether the NPC has an active goal.
-     *
      */
     IsGoalActive(): boolean;
 
@@ -13524,7 +12899,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Returns if the current movement is locked on the Yaw axis.
-     *
      */
     IsMoveYawLocked(): boolean;
 
@@ -13532,7 +12906,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Returns whether the NPC is moving or not.
-     *
      */
     IsMoving(): boolean;
 
@@ -13540,7 +12913,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Checks if the NPC is running an **ai_goal**. ( e.g. An npc_citizen NPC following the Player. )
-     *
      */
     IsRunningBehavior(): boolean;
 
@@ -13548,7 +12920,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Returns whether the current NPC is the leader of the squad it is in.
-     *
      */
     IsSquadLeader(): boolean;
 
@@ -13577,7 +12948,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Force an NPC to play their LostEnemy sound.
-     *
      */
     LostEnemySound(): void;
 
@@ -13585,7 +12955,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Tries to achieve our ideal animation state, playing any transition sequences that we need to play to get there.
-     *
      */
     MaintainActivity(): void;
 
@@ -13640,7 +13009,6 @@ interface NPC extends Entity {
      * Stops a climb move.
      *
      * Related functions are [NPC:MoveClimbExec](https://wiki.facepunch.com/gmod/NPC:MoveClimbExec) and [NPC:MoveClimbStart](https://wiki.facepunch.com/gmod/NPC:MoveClimbStart).
-     *
      */
     MoveClimbStop(): void;
 
@@ -13664,7 +13032,6 @@ interface NPC extends Entity {
      * Executes a jump move.
      *
      * Related functions are [NPC:MoveJumpStart](https://wiki.facepunch.com/gmod/NPC:MoveJumpStart) and [NPC:MoveJumpStop](https://wiki.facepunch.com/gmod/NPC:MoveJumpStop).
-     *
      */
     MoveJumpExec(): AIMR;
 
@@ -13684,7 +13051,6 @@ interface NPC extends Entity {
      * Stops a jump move.
      *
      * Related functions are [NPC:MoveJumpExec](https://wiki.facepunch.com/gmod/NPC:MoveJumpExec) and [NPC:MoveJumpStart](https://wiki.facepunch.com/gmod/NPC:MoveJumpStart).
-     *
      */
     MoveJumpStop(): AIMR;
 
@@ -13706,7 +13072,6 @@ interface NPC extends Entity {
      * Pauses the NPC movement?
      *
      * Related functions are [NPC:MoveStart](https://wiki.facepunch.com/gmod/NPC:MoveStart), [NPC:MoveStop](https://wiki.facepunch.com/gmod/NPC:MoveStop) and [NPC:ResetMoveCalc](https://wiki.facepunch.com/gmod/NPC:ResetMoveCalc).
-     *
      */
     MovePause(): void;
 
@@ -13716,7 +13081,6 @@ interface NPC extends Entity {
      * Starts NPC movement?
      *
      * Related functions are [NPC:MoveStop](https://wiki.facepunch.com/gmod/NPC:MoveStop), [NPC:MovePause](https://wiki.facepunch.com/gmod/NPC:MovePause) and [NPC:ResetMoveCalc](https://wiki.facepunch.com/gmod/NPC:ResetMoveCalc).
-     *
      */
     MoveStart(): void;
 
@@ -13726,7 +13090,6 @@ interface NPC extends Entity {
      * Stops the NPC movement?
      *
      * Related functions are [NPC:MoveStart](https://wiki.facepunch.com/gmod/NPC:MoveStart), [NPC:MovePause](https://wiki.facepunch.com/gmod/NPC:MovePause) and [NPC:ResetMoveCalc](https://wiki.facepunch.com/gmod/NPC:ResetMoveCalc).
-     *
      */
     MoveStop(): void;
 
@@ -13832,7 +13195,6 @@ interface NPC extends Entity {
      * Resets all the movement calculations.
      *
      * Related functions are [NPC:MoveStart](https://wiki.facepunch.com/gmod/NPC:MoveStart), [NPC:MovePause](https://wiki.facepunch.com/gmod/NPC:MovePause) and [NPC:MoveStop](https://wiki.facepunch.com/gmod/NPC:MoveStop).
-     *
      */
     ResetMoveCalc(): void;
 
@@ -13861,7 +13223,6 @@ interface NPC extends Entity {
      * Stops any sounds (speech) the NPC is currently palying.
      *
      * Equivalent to `Entity:EmitSound( "AI_BaseNPC.SentenceStop" )`
-     *
      */
     SentenceStop(): void;
 
@@ -13965,7 +13326,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Updates the NPC's hull and physics hull in order to match its model scale. [Entity:SetModelScale](https://wiki.facepunch.com/gmod/Entity:SetModelScale) seems to take care of this regardless.
-     *
      */
     SetHullSizeNormal(): void;
 
@@ -14219,7 +13579,6 @@ interface NPC extends Entity {
      * Marks the current NPC task as completed.
      *
      * This is meant to be used alongside [NPC:TaskFail](https://wiki.facepunch.com/gmod/NPC:TaskFail) to complete or fail custom Lua defined tasks. ([Schedule:AddTask](https://wiki.facepunch.com/gmod/Schedule:AddTask))
-     *
      */
     TaskComplete(): void;
 
@@ -14246,7 +13605,6 @@ interface NPC extends Entity {
      * 🟦 [Server]
      *
      * Updates the turn activity. Basically applies the turn animations depending on the current turn yaw.
-     *
      */
     UpdateTurnActivity(): void;
 
@@ -14265,8 +13623,6 @@ interface NPC extends Entity {
      *
      * **Note:**
      * >This function only works on `ai` type [SENTs](Scripted_Entities).
-     *
-     *
      */
     UseActBusyBehavior(): boolean;
 
@@ -14277,8 +13633,6 @@ interface NPC extends Entity {
      *
      * **Note:**
      * >This function only works on `ai` type [SENTs](Scripted_Entities).
-     *
-     *
      */
     UseAssaultBehavior(): boolean;
 
@@ -14287,8 +13641,6 @@ interface NPC extends Entity {
      *
      * **Note:**
      * >This function only works on `ai` type [SENTs](Scripted_Entities).
-     *
-     *
      */
     UseFollowBehavior(): boolean;
 
@@ -14299,8 +13651,6 @@ interface NPC extends Entity {
      *
      * **Note:**
      * >This function only works on `ai` type [SENTs](Scripted_Entities).
-     *
-     *
      */
     UseFuncTankBehavior(): boolean;
 
@@ -14311,8 +13661,6 @@ interface NPC extends Entity {
      *
      * **Note:**
      * >This function only works on `ai` type [SENTs](Scripted_Entities).
-     *
-     *
      */
     UseLeadBehavior(): boolean;
 
@@ -14323,8 +13671,6 @@ interface NPC extends Entity {
      *
      * **Note:**
      * >This function only works on `ai` type [SENTs](Scripted_Entities).
-     *
-     *
      */
     UseNoBehavior(): void;
 
@@ -14398,8 +13744,6 @@ interface Panel {
      * This function does nothing.
      *
      * @deprecated Does nothing
-     *
-     *
      */
     AddText(): void;
 
@@ -14456,7 +13800,6 @@ interface Panel {
      * Performs the per-frame operations required for panel animations.
      *
      * This is called every frame by [PANEL:AnimationThink](https://wiki.facepunch.com/gmod/PANEL:AnimationThink).
-     *
      */
     AnimationThinkInternal(): void;
 
@@ -14464,7 +13807,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the [Global.SysTime](https://wiki.facepunch.com/gmod/Global.SysTime) value when all animations for this panel object will end.
-     *
      */
     AnimTail(): number;
 
@@ -14501,8 +13843,6 @@ interface Panel {
      *
      * **Note:**
      * >This will center the panel using the current size of the panel so should be called AFTER setting or adjusting the size of the 	panel
-     *
-     *
      */
     Center(): void;
 
@@ -14526,7 +13866,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the amount of children of the of panel.
-     *
      */
     ChildCount(): number;
 
@@ -14534,7 +13873,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the width and height of the space between the position of the panel (upper-left corner) and the max bound of the children panels (farthest reaching lower-right corner).
-     *
      */
     ChildrenSize(): LuaMultiReturn<[number, number]>;
 
@@ -14542,7 +13880,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Removes all of the panel's children. Many panels also override this method to gracefully clear their contents without breaking themselves.
-     *
      */
     Clear(): void;
 
@@ -14584,8 +13921,6 @@ interface Panel {
      *
      * **Note:**
      * >Make sure your Panel has a SetValue function, else you may get errors.
-     *
-     *
      */
     ConVarNumberThink(): void;
 
@@ -14600,8 +13935,6 @@ interface Panel {
      *
      * **Note:**
      * >Make sure your Panel has a SetValue function, else you may get errors.
-     *
-     *
      */
     ConVarStringThink(): void;
 
@@ -14641,7 +13974,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Performs the <key>CONTROL</key> + <key>C</key> key combination effect ( Copy selection to clipboard ) on selected text in a [TextEntry](https://wiki.facepunch.com/gmod/TextEntry) or [RichText](https://wiki.facepunch.com/gmod/RichText) based element.
-     *
      */
     CopySelected(): void;
 
@@ -14664,8 +13996,6 @@ interface Panel {
      * >This function uses a cached value for the screen position of the panel, computed at the end of the last VGUI Think/Layout pass.
      *
      * ie. inaccurate results may be returned if the panel or any of its ancestors have been repositioned outside of [PANEL:Think](https://wiki.facepunch.com/gmod/PANEL:Think) or [PANEL:PerformLayout](https://wiki.facepunch.com/gmod/PANEL:PerformLayout) within the last frame.
-     *
-     *
      */
     CursorPos(): LuaMultiReturn<[number, number]>;
 
@@ -14673,7 +14003,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Performs the <key>CONTROL</key> + <key>X</key> (delete text and copy it to clipboard buffer) action on selected text in a [TextEntry](https://wiki.facepunch.com/gmod/TextEntry) or [RichText](https://wiki.facepunch.com/gmod/RichText) based element.
-     *
      */
     CutSelected(): void;
 
@@ -14691,7 +14020,6 @@ interface Panel {
      * Resets the panel object's [Panel:SetPos](https://wiki.facepunch.com/gmod/Panel:SetPos) method and removes its animation table (`Panel.LerpAnim`). This effectively undoes the changes made by [Panel:LerpPositions](https://wiki.facepunch.com/gmod/Panel:LerpPositions).
      *
      * In order to use Lerp animation again, you must call [Panel:Stop](https://wiki.facepunch.com/gmod/Panel:Stop) before setting its `SetPosReal` property to `nil`. See the example below.
-     *
      */
     DisableLerp(): void;
 
@@ -14762,7 +14090,6 @@ interface Panel {
      * It will silently fail if used while cursor is not visible.
      * Call [Panel:MakePopup](https://wiki.facepunch.com/gmod/Panel:MakePopup) before calling this function.
      * This must be called on a panel derived from [EditablePanel](https://wiki.facepunch.com/gmod/EditablePanel).
-     *
      */
     DoModal(): void;
 
@@ -14770,7 +14097,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Called by [Panel:DragMouseRelease](https://wiki.facepunch.com/gmod/Panel:DragMouseRelease) when a user clicks one mouse button whilst dragging with another.
-     *
      */
     DragClick(): boolean;
 
@@ -14786,7 +14112,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Called to end a drag and hover action. This resets the panel's [PANEL:PaintOver](https://wiki.facepunch.com/gmod/PANEL:PaintOver) method, and is primarily used by [dragndrop.StopDragging](https://wiki.facepunch.com/gmod/dragndrop.StopDragging).
-     *
      */
     DragHoverEnd(): void;
 
@@ -14823,7 +14148,6 @@ interface Panel {
      * Draws a coloured rectangle to fill the panel object this method is called on. The colour is set using [surface.SetDrawColor](https://wiki.facepunch.com/gmod/surface.SetDrawColor). This should only be called within the object's [PANEL:Paint](https://wiki.facepunch.com/gmod/PANEL:Paint) or [PANEL:PaintOver](https://wiki.facepunch.com/gmod/PANEL:PaintOver) hooks, as a shortcut for [surface.DrawRect](https://wiki.facepunch.com/gmod/surface.DrawRect).
      *
      * <rendercontext hook="false" type="2D"></rendercontext>
-     *
      */
     DrawFilledRect(): void;
 
@@ -14833,7 +14157,6 @@ interface Panel {
      * Draws a hollow rectangle the size of the panel object this method is called on, with a border width of 1 px. The border colour is set using [surface.SetDrawColor](https://wiki.facepunch.com/gmod/surface.SetDrawColor). This should only be called within the object's [PANEL:Paint](https://wiki.facepunch.com/gmod/PANEL:Paint) or [PANEL:PaintOver](https://wiki.facepunch.com/gmod/PANEL:PaintOver) hooks, as a shortcut for [surface.DrawOutlinedRect](https://wiki.facepunch.com/gmod/surface.DrawOutlinedRect).
      *
      * <rendercontext hook="false" type="2D"></rendercontext>
-     *
      */
     DrawOutlinedRect(): void;
 
@@ -14841,7 +14164,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Used to draw the magenta highlight colour of a panel object when it is selected. This should be called in the object's [PANEL:PaintOver](https://wiki.facepunch.com/gmod/PANEL:PaintOver) hook. Once this is implemented, the highlight colour will be displayed only when the object is selectable and selected. This is achieved using [Panel:SetSelectable](https://wiki.facepunch.com/gmod/Panel:SetSelectable) and [Panel:SetSelected](https://wiki.facepunch.com/gmod/Panel:SetSelected) respectively.
-     *
      */
     DrawSelections(): void;
 
@@ -14867,7 +14189,6 @@ interface Panel {
      * Draws a textured rectangle to fill the panel object this method is called on. The texture is set using [surface.SetTexture](https://wiki.facepunch.com/gmod/surface.SetTexture) or [surface.SetMaterial](https://wiki.facepunch.com/gmod/surface.SetMaterial). This should only be called within the object's [PANEL:Paint](https://wiki.facepunch.com/gmod/PANEL:Paint) or [PANEL:PaintOver](https://wiki.facepunch.com/gmod/PANEL:PaintOver) hooks, as a shortcut for [surface.DrawTexturedRect](https://wiki.facepunch.com/gmod/surface.DrawTexturedRect).
      *
      * <rendercontext hook="false" type="2D"></rendercontext>
-     *
      */
     DrawTexturedRect(): void;
 
@@ -14885,7 +14206,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Completes a box selection. If the end point of the selection box is within the selection canvas, mouse capture is disabled for the panel object, and the selected state of each child object within the selection box is toggled.
-     *
      */
     EndBoxSelection(): boolean;
 
@@ -14909,7 +14229,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Focuses the next panel in the focus queue.
-     *
      */
     FocusNext(): void;
 
@@ -14917,7 +14236,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Focuses the previous panel in the focus queue.
-     *
      */
     FocusPrevious(): void;
 
@@ -14925,7 +14243,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the alpha multiplier for this panel.
-     *
      */
     GetAlpha(): number;
 
@@ -14936,8 +14253,6 @@ interface Panel {
      *
      * **Note:**
      * >This doesn't apply to all VGUI elements and its function varies between them
-     *
-     *
      */
     GetBGColor(): Color;
 
@@ -14947,7 +14262,6 @@ interface Panel {
      * Returns the position and size of the panel.
      *
      * This is equivalent to calling [Panel:GetPos](https://wiki.facepunch.com/gmod/Panel:GetPos) and [Panel:GetSize](https://wiki.facepunch.com/gmod/Panel:GetSize) together.
-     *
      */
     GetBounds(): LuaMultiReturn<[number, number, number, number]>;
 
@@ -14955,7 +14269,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the position/offset of the caret (or text cursor) in a text-based panel object.
-     *
      */
     GetCaretPos(): number;
 
@@ -14966,7 +14279,6 @@ interface Panel {
      * @param childIndex - The index of the child to get.
      * **Note:**
      * >This index starts at 0, except when you use this on a [DMenu](https://wiki.facepunch.com/gmod/DMenu).
-     *
      */
     GetChild(childIndex: number): void;
 
@@ -14982,7 +14294,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns a table with all the child panels of the panel.
-     *
      */
     GetChildren(): any;
 
@@ -15001,7 +14312,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the class name of the panel. This would be the class name of the base engine-level panel, not Lua classname. The latter is stored usually in [Panel:GetName](https://wiki.facepunch.com/gmod/Panel:GetName).
-     *
      */
     GetClassName(): string;
 
@@ -15021,8 +14331,6 @@ interface Panel {
      *
      * **Note:**
      * >This function only works on [Label](https://wiki.facepunch.com/gmod/Label) panels and its derivatives.
-     *
-     *
      */
     GetContentAlignment(): number;
 
@@ -15034,7 +14342,6 @@ interface Panel {
      * Only works with [Label](https://wiki.facepunch.com/gmod/Label) derived panels by default such as [DLabel](https://wiki.facepunch.com/gmod/DLabel).
      *
      * Will also work on any panel that manually implements this method.
-     *
      */
     GetContentSize(): LuaMultiReturn<[number, number]>;
 
@@ -15053,7 +14360,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Gets the name the panel uses to store cookies. This is set with [Panel:SetCookieName](https://wiki.facepunch.com/gmod/Panel:SetCookieName).
-     *
      */
     GetCookieName(): string;
 
@@ -15072,7 +14378,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns a dock enum for the panel's current docking type.
-     *
      */
     GetDock(): DOCK;
 
@@ -15080,7 +14385,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the docked margins of the panel. (set by [Panel:DockMargin](https://wiki.facepunch.com/gmod/Panel:DockMargin))
-     *
      */
     GetDockMargin(): LuaMultiReturn<[number, number, number, number]>;
 
@@ -15088,7 +14392,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the docked padding of the panel. (set by [Panel:DockPadding](https://wiki.facepunch.com/gmod/Panel:DockPadding))
-     *
      */
     GetDockPadding(): LuaMultiReturn<[number, number, number, number]>;
 
@@ -15101,8 +14404,6 @@ interface Panel {
      *
      * **Note:**
      * >This doesn't apply to all VGUI elements (such as [DLabel](https://wiki.facepunch.com/gmod/DLabel)) and its function varies between them
-     *
-     *
      */
     GetFGColor(): Color;
 
@@ -15115,8 +14416,6 @@ interface Panel {
      *
      * **Note:**
      * >Only works on [Label](https://wiki.facepunch.com/gmod/Label) and [TextEntry](https://wiki.facepunch.com/gmod/TextEntry) and their derived panels by default (such as [DLabel](https://wiki.facepunch.com/gmod/DLabel) and [DTextEntry](https://wiki.facepunch.com/gmod/DTextEntry)), and on any panel that manually implemented the [Panel:GetFont](https://wiki.facepunch.com/gmod/Panel:GetFont) method.
-     *
-     *
      */
     GetFont(): string;
 
@@ -15124,7 +14423,6 @@ interface Panel {
      * 🟨 [Client]
      *
      * Returns the panel's HTML material. Only works with [Awesomium](https://wiki.facepunch.com/gmod/Awesomium), [HTML](https://wiki.facepunch.com/gmod/HTML) and [DHTML](https://wiki.facepunch.com/gmod/DHTML) panels that have been fully loaded.
-     *
      */
     GetHTMLMaterial(): IMaterial;
 
@@ -15132,7 +14430,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the height of a single line of a [RichText](https://wiki.facepunch.com/gmod/RichText) panel.
-     *
      */
     GetLineHeight(): number;
 
@@ -15142,7 +14439,6 @@ interface Panel {
      * Returns the current maximum character count.
      *
      * This function will only work on [RichText](https://wiki.facepunch.com/gmod/RichText) and [TextEntry](https://wiki.facepunch.com/gmod/TextEntry) panels and their derivatives.
-     *
      */
     GetMaximumCharCount(): number;
 
@@ -15150,7 +14446,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the internal name of the panel. Can be set via [Panel:SetName](https://wiki.facepunch.com/gmod/Panel:SetName).
-     *
      */
     GetName(): string;
 
@@ -15160,7 +14455,6 @@ interface Panel {
      * Returns the number of lines in a [RichText](https://wiki.facepunch.com/gmod/RichText) or a [TextEntry](https://wiki.facepunch.com/gmod/TextEntry).
      *
      * You must wait a couple frames before calling this after using [Panel:AppendText](https://wiki.facepunch.com/gmod/Panel:AppendText) or [Panel:SetText](https://wiki.facepunch.com/gmod/Panel:SetText), otherwise it will return the number of text lines before the text change.
-     *
      */
     GetNumLines(): number;
 
@@ -15168,7 +14462,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the parent of the panel, returns nil if there is no parent.
-     *
      */
     GetParent(): Panel;
 
@@ -15182,7 +14475,6 @@ interface Panel {
      * If you need the position in screen space, see [Panel:LocalToScreen](https://wiki.facepunch.com/gmod/Panel:LocalToScreen).
      *
      * See also [Panel:GetX](https://wiki.facepunch.com/gmod/Panel:GetX) and [Panel:GetY](https://wiki.facepunch.com/gmod/Panel:GetY).
-     *
      */
     GetPos(): LuaMultiReturn<[number, number]>;
 
@@ -15190,7 +14482,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the vertical and horizontal start indexes of a [TextEntry](https://wiki.facepunch.com/gmod/TextEntry)'s visible text. This is useful when the panel is scrolled.
-     *
      */
     GetScrollStartIndexes(): LuaMultiReturn<[number, number]>;
 
@@ -15198,7 +14489,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns a table of all children of the panel object that are selected. This is recursive, and the returned table will include tables for any child objects that also have children. This means that not all first-level members in the returned table will be of type [Panel](https://wiki.facepunch.com/gmod/Panel).
-     *
      */
     GetSelectedChildren(): any;
 
@@ -15208,7 +14498,6 @@ interface Panel {
      * Returns the currently selected range of text.
      *
      * This function will only work on [RichText](https://wiki.facepunch.com/gmod/RichText) and [TextEntry](https://wiki.facepunch.com/gmod/TextEntry) panels and their derivatives.
-     *
      */
     GetSelectedTextRange(): LuaMultiReturn<[number, number]>;
 
@@ -15218,7 +14507,6 @@ interface Panel {
      * Returns the selection canvas for this panel. This will be the first parent that has [Panel:SetSelectionCanvas](https://wiki.facepunch.com/gmod/Panel:SetSelectionCanvas) set to true (or `self` if this panel is the selection canvas)
      *
      * A selection canvas would be the panel that contains a bunch of selectable panels ([Panel:SetSelectable](https://wiki.facepunch.com/gmod/Panel:SetSelectable)), usually for the drag'n'drop system. Calling this function on any of the selectable items, or any of their children, will return the first parent that can contain selectable panels.
-     *
      */
     GetSelectionCanvas(): Panel;
 
@@ -15228,7 +14516,6 @@ interface Panel {
      * Returns the size of the panel.
      *
      * If you require both the panel's position and size, consider using [Panel:GetBounds](https://wiki.facepunch.com/gmod/Panel:GetBounds) instead.
-     *
      */
     GetSize(): LuaMultiReturn<[number, number]>;
 
@@ -15236,7 +14523,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the table for the derma skin currently being used by this panel object.
-     *
      */
     GetSkin(): any;
 
@@ -15244,7 +14530,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the internal Lua table of the panel.
-     *
      */
     GetTable(): any;
 
@@ -15254,7 +14539,6 @@ interface Panel {
      * Returns the height of the panel.
      *
      * See [Panel:GetWide](https://wiki.facepunch.com/gmod/Panel:GetWide) for the width of the panel. See also [Panel:GetSize](https://wiki.facepunch.com/gmod/Panel:GetSize) for a function that returns both.
-     *
      */
     GetTall(): number;
 
@@ -15263,8 +14547,7 @@ interface Panel {
      *
      * Returns the panel's text (where applicable).
      *
-     * This method returns a maximum of 1023 bytes, except for [DTextEntry](https://wiki.facepunch.com/gmod/DTextEntry).
-     *
+     * This method returns a maximum of 1023 bytes, except for [TextEntry](https://wiki.facepunch.com/gmod/TextEntry).
      */
     GetText(): string;
 
@@ -15272,7 +14555,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Gets the left and top text margins of a text-based panel object, such as a [DButton](https://wiki.facepunch.com/gmod/DButton) or [DLabel](https://wiki.facepunch.com/gmod/DLabel). This is set with [Panel:SetTextInset](https://wiki.facepunch.com/gmod/Panel:SetTextInset).
-     *
      */
     GetTextInset(): LuaMultiReturn<[number, number]>;
 
@@ -15280,7 +14562,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Gets the size of the text within a [Label](https://wiki.facepunch.com/gmod/Label) derived panel.
-     *
      */
     GetTextSize(): LuaMultiReturn<[number, number]>;
 
@@ -15288,7 +14569,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the tooltip text that was set with [PANEL:SetTooltip](https://wiki.facepunch.com/gmod/PANEL:SetTooltip).
-     *
      */
     GetTooltip(): string;
 
@@ -15298,7 +14578,6 @@ interface Panel {
      * Returns the tooltip delay (time between hovering over the panel, and the tooltip showing up) that was set with [Panel:SetTooltipDelay](https://wiki.facepunch.com/gmod/Panel:SetTooltipDelay), or nothing if it was not set.
      *
      * If the delay is not explicitly set by this function, it will fallback to the value of the `tooltip_delay` [ConVar](https://wiki.facepunch.com/gmod/ConVar), which is `0.5` by default.
-     *
      */
     GetTooltipDelay(): number;
 
@@ -15306,7 +14585,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the tooltip panel that was set with [PANEL:SetTooltipPanel](https://wiki.facepunch.com/gmod/PANEL:SetTooltipPanel).
-     *
      */
     GetTooltipPanel(): Panel;
 
@@ -15314,7 +14592,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Gets valid receiver slot of currently dragged panel.
-     *
      */
     GetValidReceiverSlot(): LuaMultiReturn<[Panel, any]>;
 
@@ -15327,8 +14604,6 @@ interface Panel {
      *
      * **Note:**
      * >This function is limited to 8092 Bytes. If using [DTextEntry](https://wiki.facepunch.com/gmod/DTextEntry), use [Panel:GetText](https://wiki.facepunch.com/gmod/Panel:GetText) for unlimited bytes.
-     *
-     *
      */
     GetValue(): any;
 
@@ -15338,7 +14613,6 @@ interface Panel {
      * Returns the width of the panel.
      *
      * See [Panel:GetTall](https://wiki.facepunch.com/gmod/Panel:GetTall) for the height of the panel. See also [Panel:GetSize](https://wiki.facepunch.com/gmod/Panel:GetSize) for a function that returns both.
-     *
      */
     GetWide(): number;
 
@@ -15348,7 +14622,6 @@ interface Panel {
      * Returns the X position of the panel relative to its [Panel:GetParent](https://wiki.facepunch.com/gmod/Panel:GetParent).
      *
      * Uses [Panel:GetPos](https://wiki.facepunch.com/gmod/Panel:GetPos) internally.
-     *
      */
     GetX(): number;
 
@@ -15358,7 +14631,6 @@ interface Panel {
      * Returns the Y position of the panel relative to its [Panel:GetParent](https://wiki.facepunch.com/gmod/Panel:GetParent).
      *
      * Uses [Panel:GetPos](https://wiki.facepunch.com/gmod/Panel:GetPos) internally.
-     *
      */
     GetY(): number;
 
@@ -15366,7 +14638,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the Z position of the panel.
-     *
      */
     GetZPos(): number;
 
@@ -15374,7 +14645,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Goes back one page in the HTML panel's history if available.
-     *
      */
     GoBack(): void;
 
@@ -15382,7 +14652,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Goes forward one page in the HTML panel's history if available.
-     *
      */
     GoForward(): void;
 
@@ -15398,7 +14667,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Causes a [RichText](https://wiki.facepunch.com/gmod/RichText) element to scroll to the bottom of its text.
-     *
      */
     GotoTextEnd(): void;
 
@@ -15406,7 +14674,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Causes a [RichText](https://wiki.facepunch.com/gmod/RichText) element to scroll to the top of its text.
-     *
      */
     GotoTextStart(): void;
 
@@ -15510,7 +14777,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whenever the panel has child panels.
-     *
      */
     HasChildren(): boolean;
 
@@ -15518,7 +14784,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns if the panel is focused.
-     *
      */
     HasFocus(): boolean;
 
@@ -15526,7 +14791,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns if the panel or any of its children(sub children and so on) has the focus.
-     *
      */
     HasHierarchicalFocus(): boolean;
 
@@ -15542,7 +14806,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Makes a panel invisible.
-     *
      */
     Hide(): void;
 
@@ -15550,7 +14813,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Marks the end of a clickable text segment in a [RichText](https://wiki.facepunch.com/gmod/RichText) element, started with [Panel:InsertClickableTextStart](https://wiki.facepunch.com/gmod/Panel:InsertClickableTextStart).
-     *
      */
     InsertClickableTextEnd(): void;
 
@@ -15639,7 +14901,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether this panel is draggable ( if user is able to drag it ) or not.
-     *
      */
     IsDraggable(): boolean;
 
@@ -15647,7 +14908,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether this panel is currently being dragged or not.
-     *
      */
     IsDragging(): boolean;
 
@@ -15657,7 +14917,6 @@ interface Panel {
      * Returns whether the the panel is enabled or disabled.
      *
      * See [Panel:SetEnabled](https://wiki.facepunch.com/gmod/Panel:SetEnabled) for a function that makes the panel enabled or disabled.
-     *
      */
     IsEnabled(): boolean;
 
@@ -15669,7 +14928,6 @@ interface Panel {
      * Uses [vgui.GetHoveredPanel](https://wiki.facepunch.com/gmod/vgui.GetHoveredPanel) internally.
      *
      * Requires [Panel:SetMouseInputEnabled](https://wiki.facepunch.com/gmod/Panel:SetMouseInputEnabled) to be set to true.
-     *
      */
     IsHovered(): boolean;
 
@@ -15677,7 +14935,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns true if the panel can receive keyboard input.
-     *
      */
     IsKeyboardInputEnabled(): boolean;
 
@@ -15693,8 +14950,6 @@ interface Panel {
      * >On Awesomium, the result remains `true` until the root document is loaded and when in-page content is loading (when adding pictures, frames, etc.). During this state, the HTML texture is not refreshed and the panel is not painted (it becomes invisible).
      *
      * On Chromium, the value is only `true` when the root document is not ready. The rendering is not suspended when in-page elements are loading.
-     *
-     *
      */
     IsLoading(): boolean;
 
@@ -15702,7 +14957,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns if the panel is going to be deleted in the next frame.
-     *
      */
     IsMarkedForDeletion(): boolean;
 
@@ -15710,7 +14964,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether the panel was made modal or not. See [Panel:DoModal](https://wiki.facepunch.com/gmod/Panel:DoModal).
-     *
      */
     IsModal(): boolean;
 
@@ -15718,7 +14971,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns true if the panel can receive mouse input.
-     *
      */
     IsMouseInputEnabled(): boolean;
 
@@ -15726,7 +14978,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Determines whether or not a [TextEntry](https://wiki.facepunch.com/gmod/TextEntry) panel is in multi-line mode. This is set with [Panel:SetMultiline](https://wiki.facepunch.com/gmod/Panel:SetMultiline).
-     *
      */
     IsMultiline(): boolean;
 
@@ -15742,7 +14993,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns if the panel was made popup or not. See [Panel:MakePopup](https://wiki.facepunch.com/gmod/Panel:MakePopup)
-     *
      */
     IsPopup(): boolean;
 
@@ -15750,7 +15000,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Determines if the panel object is selectable (like icons in the Spawn Menu, holding <key>Shift</key>). This is set with [Panel:SetSelectable](https://wiki.facepunch.com/gmod/Panel:SetSelectable).
-     *
      */
     IsSelectable(): boolean;
 
@@ -15758,7 +15007,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns if the panel object is selected (like icons in the Spawn Menu, holding <key>Shift</key>). This can be set in Lua using [Panel:SetSelected](https://wiki.facepunch.com/gmod/Panel:SetSelected).
-     *
      */
     IsSelected(): boolean;
 
@@ -15766,7 +15014,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Determines if the panel object is a selection canvas or not. This is set with [Panel:SetSelectionCanvas](https://wiki.facepunch.com/gmod/Panel:SetSelectionCanvas).
-     *
      */
     IsSelectionCanvas(): any;
 
@@ -15774,7 +15021,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns if the panel is valid and not marked for deletion.
-     *
      */
     IsValid(): boolean;
 
@@ -15782,7 +15028,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns if the panel is visible. This will **NOT** take into account visibility of the parent.
-     *
      */
     IsVisible(): boolean;
 
@@ -15790,7 +15035,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns if a panel allows world clicking set by [Panel:SetWorldClicker](https://wiki.facepunch.com/gmod/Panel:SetWorldClicker).
-     *
      */
     IsWorldClicker(): boolean;
 
@@ -15798,7 +15042,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Remove the focus from the panel.
-     *
      */
     KillFocus(): void;
 
@@ -15868,7 +15111,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the cursor position local to the position of the panel (usually the upper-left corner).
-     *
      */
     LocalCursorPos(): LuaMultiReturn<[number, number]>;
 
@@ -15901,8 +15143,6 @@ interface Panel {
      * >Panels derived from [Panel](https://wiki.facepunch.com/gmod/Panel) will not work properly with this function. Due to this, any children will not be intractable with keyboard. Derive from [EditablePanel](https://wiki.facepunch.com/gmod/EditablePanel) instead.
      *
      * For non gui related mouse focus, you can use [gui.EnableScreenClicker](https://wiki.facepunch.com/gmod/gui.EnableScreenClicker).
-     *
-     *
      */
     MakePopup(): void;
 
@@ -16000,7 +15240,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Moves the panel object behind all other panels on screen. If the panel has been made a pop-up with [Panel:MakePopup](https://wiki.facepunch.com/gmod/Panel:MakePopup), it will still draw in front of any panels that haven't.
-     *
      */
     MoveToBack(): void;
 
@@ -16016,7 +15255,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Moves the panel in front of all other panels on screen. Unless the panel has been made a pop-up using [Panel:MakePopup](https://wiki.facepunch.com/gmod/Panel:MakePopup), it will still draw behind any that have.
-     *
      */
     MoveToFront(): void;
 
@@ -16085,7 +15323,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the number of children of the panel object that are selected. This is equivalent to calling [Panel:IsSelected](https://wiki.facepunch.com/gmod/Panel:IsSelected) on all child objects and counting the number of returns that are `true`.
-     *
      */
     NumSelectedChildren(): number;
 
@@ -16130,7 +15367,6 @@ interface Panel {
      *
      * Parents the panel to the HUD.
      * Makes it invisible on the escape-menu and disables controls.
-     *
      */
     ParentToHUD(): void;
 
@@ -16141,8 +15377,6 @@ interface Panel {
      *
      * **Note:**
      * >Tab characters will be dropped from the pasted text
-     *
-     *
      */
     Paste(): void;
 
@@ -16162,7 +15396,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Installs Lua defined functions into the panel.
-     *
      */
     Prepare(): void;
 
@@ -16170,7 +15403,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Enables the queue for panel animations. If enabled, the next new animation will begin after all current animations have ended. This must be called before [Panel:NewAnimation](https://wiki.facepunch.com/gmod/Panel:NewAnimation) to work, and only applies to the next new animation. If you want to queue many, you must call this before each.
-     *
      */
     Queue(): void;
 
@@ -16178,7 +15410,6 @@ interface Panel {
      * 🟨 [Client]
      *
      * Causes a [SpawnIcon](https://wiki.facepunch.com/gmod/SpawnIcon) to rebuild its model image.
-     *
      */
     RebuildSpawnIcon(): void;
 
@@ -16237,7 +15468,6 @@ interface Panel {
      * See also [Panel:IsMarkedForDeletion](https://wiki.facepunch.com/gmod/Panel:IsMarkedForDeletion)
      *
      * Will automatically call [Panel:InvalidateParent](https://wiki.facepunch.com/gmod/Panel:InvalidateParent).
-     *
      */
     Remove(): void;
 
@@ -16245,7 +15475,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Attempts to obtain focus for this panel.
-     *
      */
     RequestFocus(): void;
 
@@ -16283,7 +15512,6 @@ interface Panel {
      * Saves the current state (caret position and the text inside) of a [TextEntry](https://wiki.facepunch.com/gmod/TextEntry) as an undo state.
      *
      * See also [Panel:Undo](https://wiki.facepunch.com/gmod/Panel:Undo).
-     *
      */
     SaveUndoState(): void;
 
@@ -16309,8 +15537,6 @@ interface Panel {
      *
      * **Note:**
      * >Only works on [RichText](https://wiki.facepunch.com/gmod/RichText) and [TextEntry](https://wiki.facepunch.com/gmod/TextEntry) and their derived panels by default (such as [DTextEntry](https://wiki.facepunch.com/gmod/DTextEntry)), and on any panel that manually reimplemented this method.
-     *
-     *
      */
     SelectAll(): void;
 
@@ -16318,7 +15544,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * If called on a [TextEntry](https://wiki.facepunch.com/gmod/TextEntry), clicking the text entry for the first time will automatically select all of the text ready to be copied by the user.
-     *
      */
     SelectAllOnFocus(): void;
 
@@ -16340,8 +15565,6 @@ interface Panel {
      *
      * **Note:**
      * >Only works on [RichText](https://wiki.facepunch.com/gmod/RichText) and [TextEntry](https://wiki.facepunch.com/gmod/TextEntry) and their derived panels by default (such as [DTextEntry](https://wiki.facepunch.com/gmod/DTextEntry)), and on any panel that manually reimplemented this method.
-     *
-     *
      */
     SelectNone(): void;
 
@@ -16710,7 +15933,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Sets the height of a single line of a [RichText](https://wiki.facepunch.com/gmod/RichText) panel.
-     *
      */
     SetLineHeight(): number;
 
@@ -16983,6 +16205,14 @@ interface Panel {
     /**
      * 🟨🟩 [Client and Menu]
      *
+     * Makes [TextEntry](https://wiki.facepunch.com/gmod/TextEntry)'s text be replaced by `*` characters, just like a password-entry text field would.
+     * @param __unnamedArg - Whether to have the text be hidden.
+     */
+    SetTextHidden(__unnamedArg: boolean): void;
+
+    /**
+     * 🟨🟩 [Client and Menu]
+     *
      * Sets the left and top text margins of a text-based panel object, such as a [DButton](https://wiki.facepunch.com/gmod/DButton) or [DLabel](https://wiki.facepunch.com/gmod/DLabel).
      * @param insetX - The left margin for the text, in pixels. This will only affect centered text if the margin is greater than its x-coordinate.
      * @param insetY - The top margin for the text, in pixels.
@@ -17005,8 +16235,6 @@ interface Panel {
      *
      * **Note:**
      * >This function internally relies on [Panel:GetNumLines](https://wiki.facepunch.com/gmod/Panel:GetNumLines), so it should be called at least a couple frames after modifying the text using [Panel:AppendText](https://wiki.facepunch.com/gmod/Panel:AppendText)
-     *
-     *
      */
     SetToFullHeight(): void;
 
@@ -17171,7 +16399,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Makes a panel visible.
-     *
      */
     Show(): void;
 
@@ -17218,8 +16445,6 @@ interface Panel {
      *
      * **Note:**
      * >Only works on [Label](https://wiki.facepunch.com/gmod/Label) derived panels such as [DLabel](https://wiki.facepunch.com/gmod/DLabel) by default, and on any panel that manually implemented the [Panel:SizeToContents](https://wiki.facepunch.com/gmod/Panel:SizeToContents) method, such as [DNumberWang](https://wiki.facepunch.com/gmod/DNumberWang) and [DImage](https://wiki.facepunch.com/gmod/DImage).
-     *
-     *
      */
     SizeToContents(): void;
 
@@ -17271,7 +16496,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Begins a box selection, enables mouse capture for the panel object, and sets the start point of the selection box to the mouse cursor's position, relative to this object. For this to work, either the object or its parent must be enabled as a selection canvas. This is set using [Panel:SetSelectionCanvas](https://wiki.facepunch.com/gmod/Panel:SetSelectionCanvas).
-     *
      */
     StartBoxSelection(): void;
 
@@ -17279,7 +16503,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Stops all panel animations by clearing its animation list. This also clears all delayed animations.
-     *
      */
     Stop(): void;
 
@@ -17287,7 +16510,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Stops the loading of the [HTML](https://wiki.facepunch.com/gmod/HTML) panel's current page.
-     *
      */
     StopLoading(): void;
 
@@ -17324,7 +16546,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Toggles the selected state of a selectable panel object. This functionality is set with [Panel:SetSelectable](https://wiki.facepunch.com/gmod/Panel:SetSelectable) and checked with [Panel:IsSelectable](https://wiki.facepunch.com/gmod/Panel:IsSelectable). To check whether the object is selected or not, [Panel:IsSelected](https://wiki.facepunch.com/gmod/Panel:IsSelected) is used.
-     *
      */
     ToggleSelection(): void;
 
@@ -17332,7 +16553,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Toggles the visibility of a panel and all its children.
-     *
      */
     ToggleVisible(): void;
 
@@ -17342,7 +16562,6 @@ interface Panel {
      * Restores the last saved state (caret position and the text inside) of a [TextEntry](https://wiki.facepunch.com/gmod/TextEntry). Should act identically to pressing CTRL+Z in a [TextEntry](https://wiki.facepunch.com/gmod/TextEntry).
      *
      * See also [Panel:SaveUndoState](https://wiki.facepunch.com/gmod/Panel:SaveUndoState).
-     *
      */
     Undo(): void;
 
@@ -17350,7 +16569,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Recursively deselects this panel object and all of its children. This will cascade to all child objects at every level below the parent.
-     *
      */
     UnselectAll(): void;
 
@@ -17364,8 +16582,6 @@ interface Panel {
      *
      * **Note:**
      * >A good place to call this is in the [GM:PreRender](https://wiki.facepunch.com/gmod/GM:PreRender) hook
-     *
-     *
      */
     UpdateHTMLTexture(): void;
 
@@ -17375,8 +16591,6 @@ interface Panel {
      * Returns if a given panel is valid or not.
      *
      * @deprecated Use [Panel:IsValid](https://wiki.facepunch.com/gmod/Panel:IsValid) instead.
-     *
-     *
      */
     Valid(): boolean;
 
@@ -17384,7 +16598,6 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Set to true by the [dragndrop](https://wiki.facepunch.com/gmod/dragndrop) system when the panel is being drawn for the drag'n'drop.
-     *
      */
     PaintingDragging(): boolean;
 
@@ -17440,7 +16653,6 @@ interface PathFollower {
      * 🟦 [Server]
      *
      * Draws the path. This is meant for debugging - and uses [debugoverlay](https://wiki.facepunch.com/gmod/debugoverlay).
-     *
      */
     Draw(): void;
 
@@ -17448,7 +16660,6 @@ interface PathFollower {
      * 🟦 [Server]
      *
      * Returns the first segment of the path.
-     *
      */
     FirstSegment(): PathSegment;
 
@@ -17456,7 +16667,6 @@ interface PathFollower {
      * 🟦 [Server]
      *
      * Returns the age since the path was built
-     *
      */
     GetAge(): number;
 
@@ -17464,7 +16674,6 @@ interface PathFollower {
      * 🟦 [Server]
      *
      * Returns all of the segments of the given path.
-     *
      */
     GetAllSegments(): PathSegment;
 
@@ -17480,7 +16689,6 @@ interface PathFollower {
      * 🟦 [Server]
      *
      * Returns the current goal data. Can return nil if the current goal is invalid, for example immediately after [PathFollower:Update](https://wiki.facepunch.com/gmod/PathFollower:Update).
-     *
      */
     GetCurrentGoal(): PathSegment;
 
@@ -17488,7 +16696,6 @@ interface PathFollower {
      * 🟦 [Server]
      *
      * Returns the cursor data
-     *
      */
     GetCursorData(): any;
 
@@ -17496,7 +16703,6 @@ interface PathFollower {
      * 🟦 [Server]
      *
      * Returns the current progress along the path
-     *
      */
     GetCursorPosition(): number;
 
@@ -17504,7 +16710,6 @@ interface PathFollower {
      * 🟦 [Server]
      *
      * Returns the path end position
-     *
      */
     GetEnd(): Vector;
 
@@ -17512,14 +16717,11 @@ interface PathFollower {
      * 🟦 [Server]
      *
      * Returns how close we can get to the goal to call it done.
-     *
      */
     GetGoalTolerance(): number;
 
     /**
      * 🟦 [Server]
-     *
-     *
      */
     GetHindrance(): Entity;
 
@@ -17527,7 +16729,6 @@ interface PathFollower {
      * 🟦 [Server]
      *
      * Returns the total length of the path
-     *
      */
     GetLength(): number;
 
@@ -17535,7 +16736,6 @@ interface PathFollower {
      * 🟦 [Server]
      *
      * Returns the minimum range movement goal must be along path.
-     *
      */
     GetMinLookAheadDistance(): number;
 
@@ -17551,7 +16751,6 @@ interface PathFollower {
      * 🟦 [Server]
      *
      * Returns the path start position
-     *
      */
     GetStart(): Vector;
 
@@ -17559,7 +16758,6 @@ interface PathFollower {
      * 🟦 [Server]
      *
      * Invalidates the current path
-     *
      */
     Invalidate(): void;
 
@@ -17567,7 +16765,6 @@ interface PathFollower {
      * 🟦 [Server]
      *
      * Returns true if the path is valid
-     *
      */
     IsValid(): boolean;
 
@@ -17575,7 +16772,6 @@ interface PathFollower {
      * 🟦 [Server]
      *
      * Returns the last segment of the path.
-     *
      */
     LastSegment(): PathSegment;
 
@@ -17616,7 +16812,6 @@ interface PathFollower {
      * 🟦 [Server]
      *
      * Moves the cursor to the end of the path
-     *
      */
     MoveCursorToEnd(): void;
 
@@ -17624,7 +16819,6 @@ interface PathFollower {
      * 🟦 [Server]
      *
      * Moves the cursor to the end of the path
-     *
      */
     MoveCursorToStart(): void;
 
@@ -17632,7 +16826,6 @@ interface PathFollower {
      * 🟦 [Server]
      *
      * Returns the next segment of the path.
-     *
      */
     NextSegment(): PathSegment;
 
@@ -17640,7 +16833,6 @@ interface PathFollower {
      * 🟦 [Server]
      *
      * Returns the previous segment of the path.
-     *
      */
     PriorSegment(): PathSegment;
 
@@ -17648,7 +16840,6 @@ interface PathFollower {
      * 🟦 [Server]
      *
      * Resets the age which is retrieved by [PathFollower:GetAge](https://wiki.facepunch.com/gmod/PathFollower:GetAge) to 0.
-     *
      */
     ResetAge(): void;
 
@@ -17694,7 +16885,6 @@ interface PhysCollide {
      * 🟨🟦 [Shared]
      *
      * Destroys the [PhysCollide](https://wiki.facepunch.com/gmod/PhysCollide) object.
-     *
      */
     Destroy(): void;
 
@@ -17704,7 +16894,6 @@ interface PhysCollide {
      * Checks whether this [PhysCollide](https://wiki.facepunch.com/gmod/PhysCollide) object is valid or not.
      *
      * You should just use [Global.IsValid](https://wiki.facepunch.com/gmod/Global.IsValid) instead.
-     *
      */
     IsValid(): boolean;
 
@@ -17740,7 +16929,6 @@ interface PhysObj {
      * @param angularVelocity - The additional velocity in `degrees/s`. (Local to the physics object.)
      * **Note:**
      * >Does nothing on frozen objects.
-     *
      */
     AddAngleVelocity(angularVelocity: Vector): void;
 
@@ -17759,7 +16947,6 @@ interface PhysObj {
      * @param velocity - Additional velocity in `source_unit/s`. (World frame)
      * **Note:**
      * >Does nothing on frozen objects.
-     *
      */
     AddVelocity(velocity: Vector): void;
 
@@ -17800,7 +16987,6 @@ interface PhysObj {
      * @param angularImpulse - The angular impulse to be applied in `kg * m^2 * degrees / s`. (The vector is in world frame)
      * **Note:**
      * >The unit conversion between meters and source units in this case is `1 meter ≈ 39.37 source units (100/2.54 exactly)`
-     *
      */
     ApplyTorqueCenter(angularImpulse: Vector): void;
 
@@ -17888,7 +17074,6 @@ interface PhysObj {
      * 🟨🟦 [Shared]
      *
      * Returns the mins and max of the physics object Axis-Aligned Bounding Box.
-     *
      */
     GetAABB(): LuaMultiReturn<[Vector, Vector]>;
 
@@ -17896,7 +17081,6 @@ interface PhysObj {
      * 🟨🟦 [Shared]
      *
      * Returns the angles of the physics object in degrees.
-     *
      */
     GetAngles(): Angle;
 
@@ -17904,7 +17088,6 @@ interface PhysObj {
      * 🟨🟦 [Shared]
      *
      * Gets the angular velocity of the object in degrees per second as a local vector. You can use dot product to read the magnitude from a specific axis.
-     *
      */
     GetAngleVelocity(): Vector;
 
@@ -17912,7 +17095,6 @@ interface PhysObj {
      * 🟨🟦 [Shared]
      *
      * Returns the contents flag of the [PhysObj](https://wiki.facepunch.com/gmod/PhysObj).
-     *
      */
     GetContents(): CONTENTS;
 
@@ -17920,7 +17102,6 @@ interface PhysObj {
      * 🟨🟦 [Shared]
      *
      * Returns the linear and angular damping of the physics object.
-     *
      */
     GetDamping(): LuaMultiReturn<[number, number]>;
 
@@ -17928,7 +17109,6 @@ interface PhysObj {
      * 🟨🟦 [Shared]
      *
      * Returns the sum of the linear and rotational kinetic energies of the physics object.
-     *
      */
     GetEnergy(): number;
 
@@ -17936,7 +17116,6 @@ interface PhysObj {
      * 🟨🟦 [Shared]
      *
      * Returns the parent entity of the physics object.
-     *
      */
     GetEntity(): Entity;
 
@@ -17944,7 +17123,6 @@ interface PhysObj {
      * 🟦 [Server]
      *
      * Returns the friction snapshot of this physics object. This is useful for determining if an object touching ground for example.
-     *
      */
     GetFrictionSnapshot(): any;
 
@@ -17954,7 +17132,6 @@ interface PhysObj {
      * Returns the index this physics object is on its [PhysObj:GetEntity](https://wiki.facepunch.com/gmod/PhysObj:GetEntity).
      *
      * Useful for [Entity:TranslateBoneToPhysBone](https://wiki.facepunch.com/gmod/Entity:TranslateBoneToPhysBone).
-     *
      */
     GetIndex(): number;
 
@@ -17962,7 +17139,6 @@ interface PhysObj {
      * 🟨🟦 [Shared]
      *
      * Returns the principal moments of inertia `(Ixx, Iyy, Izz)` of the physics object, in the local frame, with respect to the center of mass.
-     *
      */
     GetInertia(): Vector;
 
@@ -17970,7 +17146,6 @@ interface PhysObj {
      * 🟨🟦 [Shared]
      *
      * Returns 1 divided by the angular inertia. See [PhysObj:GetInertia](https://wiki.facepunch.com/gmod/PhysObj:GetInertia)
-     *
      */
     GetInvInertia(): Vector;
 
@@ -17978,7 +17153,6 @@ interface PhysObj {
      * 🟨🟦 [Shared]
      *
      * Returns 1 divided by the physics object's mass (in kilograms).
-     *
      */
     GetInvMass(): number;
 
@@ -17986,7 +17160,6 @@ interface PhysObj {
      * 🟨🟦 [Shared]
      *
      * Returns the mass of the physics object.
-     *
      */
     GetMass(): number;
 
@@ -17994,7 +17167,6 @@ interface PhysObj {
      * 🟨🟦 [Shared]
      *
      * Returns the center of mass of the physics object as a local vector.
-     *
      */
     GetMassCenter(): Vector;
 
@@ -18004,7 +17176,6 @@ interface PhysObj {
      * Returns the [physical material](https://developer.valvesoftware.com/wiki/Material_surface_properties) of the physics object.
      *
      * See [util.GetSurfaceData](https://wiki.facepunch.com/gmod/util.GetSurfaceData) for a function that adds these types as well as further explanation of what they are.
-     *
      */
     GetMaterial(): string;
 
@@ -18012,7 +17183,6 @@ interface PhysObj {
      * 🟨🟦 [Shared]
      *
      * Returns the physics mesh of the object which is used for physobj-on-physobj collision.
-     *
      */
     GetMesh(): MeshVertex;
 
@@ -18020,7 +17190,6 @@ interface PhysObj {
      * 🟨🟦 [Shared]
      *
      * Returns all convex physics meshes of the object. See [Entity:PhysicsInitMultiConvex](https://wiki.facepunch.com/gmod/Entity:PhysicsInitMultiConvex) for more information.
-     *
      */
     GetMeshConvexes(): MeshVertex;
 
@@ -18028,7 +17197,6 @@ interface PhysObj {
      * 🟨🟦 [Shared]
      *
      * Returns the name of the physics object.
-     *
      */
     GetName(): string;
 
@@ -18036,7 +17204,6 @@ interface PhysObj {
      * 🟨🟦 [Shared]
      *
      * Returns the position of the physics object.
-     *
      */
     GetPos(): Vector;
 
@@ -18044,7 +17211,6 @@ interface PhysObj {
      * 🟨🟦 [Shared]
      *
      * Returns the position and angle of the physics object as a 3x4 matrix ([VMatrix](https://wiki.facepunch.com/gmod/VMatrix) is 4x4 so the fourth row goes unused). The first three columns store the angle as a [rotation matrix](https://en.wikipedia.org/wiki/Rotation_matrix), and the fourth column stores the position vector.
-     *
      */
     GetPositionMatrix(): VMatrix;
 
@@ -18052,7 +17218,6 @@ interface PhysObj {
      * 🟨🟦 [Shared]
      *
      * Returns the rotation damping of the physics object.
-     *
      */
     GetRotDamping(): number;
 
@@ -18060,7 +17225,6 @@ interface PhysObj {
      * 🟨🟦 [Shared]
      *
      * Returns the angles of the [PhysObj](https://wiki.facepunch.com/gmod/PhysObj) shadow. See [PhysObj:UpdateShadow](https://wiki.facepunch.com/gmod/PhysObj:UpdateShadow).
-     *
      */
     GetShadowAngles(): Angle;
 
@@ -18068,7 +17232,6 @@ interface PhysObj {
      * 🟨🟦 [Shared]
      *
      * Returns the position of the [PhysObj](https://wiki.facepunch.com/gmod/PhysObj) shadow. See [PhysObj:UpdateShadow](https://wiki.facepunch.com/gmod/PhysObj:UpdateShadow).
-     *
      */
     GetShadowPos(): Vector;
 
@@ -18076,7 +17239,6 @@ interface PhysObj {
      * 🟨🟦 [Shared]
      *
      * Returns the speed damping of the physics object.
-     *
      */
     GetSpeedDamping(): number;
 
@@ -18084,7 +17246,6 @@ interface PhysObj {
      * 🟦 [Server]
      *
      * Returns the internal and external stress of the entity.
-     *
      */
     GetStress(): LuaMultiReturn<[number, number]>;
 
@@ -18092,7 +17253,6 @@ interface PhysObj {
      * 🟨🟦 [Shared]
      *
      * Returns the surface area of the physics object in source-units². Or nil if the PhysObj is a generated sphere or box.
-     *
      */
     GetSurfaceArea(): number|nil;
 
@@ -18100,7 +17260,6 @@ interface PhysObj {
      * 🟨🟦 [Shared]
      *
      * Returns the absolute directional velocity of the physobject.
-     *
      */
     GetVelocity(): Vector;
 
@@ -18116,7 +17275,6 @@ interface PhysObj {
      * 🟨🟦 [Shared]
      *
      * Returns the volume in source units³. Or nil if the PhysObj is a generated sphere or box.
-     *
      */
     GetVolume(): number|nil;
 
@@ -18134,7 +17292,6 @@ interface PhysObj {
      * Returns whether the physics object is "sleeping".
      *
      * See [PhysObj:Sleep](https://wiki.facepunch.com/gmod/PhysObj:Sleep) for more information.
-     *
      */
     IsAsleep(): boolean;
 
@@ -18142,7 +17299,6 @@ interface PhysObj {
      * 🟨🟦 [Shared]
      *
      * Returns whenever the entity is able to collide or not.
-     *
      */
     IsCollisionEnabled(): boolean;
 
@@ -18150,7 +17306,6 @@ interface PhysObj {
      * 🟨🟦 [Shared]
      *
      * Returns whenever the entity is affected by drag.
-     *
      */
     IsDragEnabled(): boolean;
 
@@ -18158,7 +17313,6 @@ interface PhysObj {
      * 🟨🟦 [Shared]
      *
      * Returns whenever the entity is affected by gravity.
-     *
      */
     IsGravityEnabled(): boolean;
 
@@ -18166,7 +17320,6 @@ interface PhysObj {
      * 🟨🟦 [Shared]
      *
      * Returns if the physics object can move itself (by velocity, acceleration)
-     *
      */
     IsMotionEnabled(): boolean;
 
@@ -18174,7 +17327,6 @@ interface PhysObj {
      * 🟨🟦 [Shared]
      *
      * Returns whenever the entity is able to move.
-     *
      */
     IsMoveable(): boolean;
 
@@ -18184,7 +17336,6 @@ interface PhysObj {
      * Returns whenever the physics object is penetrating another physics object.
      *
      * This is internally implemented as `PhysObj:HasGameFlag( FVPHYSICS_PENETRATING )` and thus is only updated for non-static physics objects.
-     *
      */
     IsPenetrating(): boolean;
 
@@ -18192,39 +17343,45 @@ interface PhysObj {
      * 🟨🟦 [Shared]
      *
      * Returns if the physics object is valid/not NULL.
-     *
      */
     IsValid(): boolean;
 
     /**
      * 🟨🟦 [Shared]
      *
-     * Mapping a vector in local frame of the physics object to world frame.
+     * Translates a vector in the local space of the physics object into worldspace coordinates.
      *
      * **Note:**
-     * >this function does translation and rotation, with translation done first.
+     * >Internally transforms the vector by the `PhysObj:GetPositionMatrix()`'s rotation &amp; translation.
      *
-     * @param LocalVec - A vector in the physics object's local frame
+     * So in GLua it approximates to:
+     * ```
+     * local matrixWorldTransform = PhysObj:GetPositionMatrix()
+     * local vecWorldspaced = Vector()
+     * vecWorldspaced:Set( vecLocal )
+     * vecWorldspaced:Mul( matrixWorldTransform )
+     *
+     * return vecWorldspaced
+     * ```
+     *
+     * @param vecLocal - A vector in the physics object's local space.
      */
-    LocalToWorld(LocalVec: Vector): Vector;
+    LocalToWorld(vecLocal: Vector): Vector;
 
     /**
      * 🟨🟦 [Shared]
      *
-     * Rotate a vector from the local frame of the physics object to world frame.
+     * Transforms a vector in the local space of the physics object merely by the rotation of the `PhysObj:GetPositionMatrix()`.
      *
-     * **Note:**
-     * >This function only rotates the vector, without any translation operation.
-     *
-     * @param LocalVec - A vector in the physics object's local frame
+     * In contrast to [PhysObj:LocalToWorld](https://wiki.facepunch.com/gmod/PhysObj:LocalToWorld), this function doesn't translate the vector.
+     * @param vecLocal - A vector in the physics object's local space.
      */
-    LocalToWorldVector(LocalVec: Vector): Vector;
+    LocalToWorldVector(vecLocal: Vector): Vector;
 
     /**
      * 🟨🟦 [Shared]
      *
      * Prints debug info about the state of the physics object to the console.
-     *
      */
     OutputDebugInfo(): void;
 
@@ -18232,7 +17389,6 @@ interface PhysObj {
      * 🟨🟦 [Shared]
      *
      * Call this when the collision filter conditions change due to this object's state (e.g. changing solid type or collision group)
-     *
      */
     RecheckCollisionFilter(): void;
 
@@ -18260,7 +17416,6 @@ interface PhysObj {
      * @param angles - The new angles of the physobject.
      * **Warning:**
      * >The new angle will not be applied on the parent entity while the physics object is asleep ([PhysObj:Sleep](https://wiki.facepunch.com/gmod/PhysObj:Sleep))
-     *
      */
     SetAngles(angles: Angle): void;
 
@@ -18384,7 +17539,6 @@ interface PhysObj {
      * Makes the physics object "sleep". The physics object will no longer be moving unless it is "woken up" by either a collision with another moving object, or by [PhysObj:Wake](https://wiki.facepunch.com/gmod/PhysObj:Wake).
      *
      * This is an optimization feature of the physics engine. Normally physics objects will automatically "sleep" when not moving for a short while, to save resources, but it can be used for other purposes, for example to temporarily suspend an object mid air.
-     *
      */
     Sleep(): void;
 
@@ -18410,29 +17564,26 @@ interface PhysObj {
      * Wakes the physics object, so that it will continue to simulate physics/gravity.
      *
      * See [PhysObj:Sleep](https://wiki.facepunch.com/gmod/PhysObj:Sleep) for more information.
-     *
      */
     Wake(): void;
 
     /**
      * 🟨🟦 [Shared]
      *
-     * Converts a vector to a relative to the physics object coordinate system.
-     * @param vec - The vector in world space coordinates.
+     * Translates a worldspace vector into the local space of the physics object.
+     * @param vec - A worldspace vector.
      */
     WorldToLocal(vec: Vector): Vector;
 
     /**
      * 🟨🟦 [Shared]
      *
-     * Rotate a vector from the world frame to the local frame of the physics object.
+     * Transforms a worldspace vector into the local space of the physics object merely by the rotation of the **inverted** `PhysObj:GetPositionMatrix()`.
      *
-     * **Note:**
-     * >This function only rotates the vector, without any translation operation.
-     *
-     * @param WorldVec - A vector in the world frame
+     * In contrast to [PhysObj:WorldToLocal](https://wiki.facepunch.com/gmod/PhysObj:WorldToLocal), this function doesn't translate the vector.
+     * @param vec - A worldspace vector.
      */
-    WorldToLocalVector(WorldVec: Vector): Vector;
+    WorldToLocalVector(vec: Vector): Vector;
 
 }
 
@@ -18466,8 +17617,6 @@ interface Player extends Entity {
      * >In a `-multirun` environment, this will return `-1` for all "copies" of a player because they are not authenticated with Steam.
      *
      * For bots this will return values starting with `0` for the first bot, `1` for the second bot and so on.
-     *
-     *
      */
     AccountID(): number;
 
@@ -18559,7 +17708,6 @@ interface Player extends Entity {
      * Checks if the player is alive.
      *
      * Player specific implementation of [Entity:Alive](https://wiki.facepunch.com/gmod/Entity:Alive), the value is synchronized to the client.
-     *
      */
     Alive(): boolean;
 
@@ -18567,6 +17715,8 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Sets if the player can toggle their flashlight. Function exists on both the server and client but has no effect when ran on the client.
+     *
+     * This is a Lua method that internally uses [GM:PlayerSwitchFlashlight](https://wiki.facepunch.com/gmod/GM:PlayerSwitchFlashlight). If current gamemode overwrites that hook and doesn't respect [Player:CanUseFlashlight](https://wiki.facepunch.com/gmod/Player:CanUseFlashlight), this function will not have any effect.
      * @param canFlashlight - True allows flashlight toggling
      */
     AllowFlashlight(canFlashlight: boolean): void;
@@ -18605,7 +17755,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Restarts the main animation on the player, has the same effect as calling [Entity:SetCycle](https://wiki.facepunch.com/gmod/Entity:SetCycle)( 0 ).
-     *
      */
     AnimRestartMainSequence(): void;
 
@@ -18631,7 +17780,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the player's armor.
-     *
      */
     Armor(): number;
 
@@ -18651,8 +17799,6 @@ interface Player extends Entity {
      *
      * **Note:**
      * >This is not synchronized between clients and server automatically!
-     *
-     *
      */
     CanUseFlashlight(): boolean;
 
@@ -18722,7 +17868,6 @@ interface Player extends Entity {
      * The ragdoll will be created with the player's properties such as <page text="Position">Entity:GetPos</page>, <page text="Angles">Entity:GetAngles</page>, <page text="PlayerColor">Player:GetPlayerColor</page>, <page text="Velocity">Entity:GetVelocity</page> and <page text="Model">Entity:GetModel</page>.
      *
      * You can retrieve the entity this creates with [Player:GetRagdollEntity](https://wiki.facepunch.com/gmod/Player:GetRagdollEntity).
-     *
      */
     CreateRagdoll(): void;
 
@@ -18730,7 +17875,6 @@ interface Player extends Entity {
      * 🟦 [Server]
      *
      * Disables the default player's crosshair. Can be reenabled with [Player:CrosshairEnable](https://wiki.facepunch.com/gmod/Player:CrosshairEnable). This will affect [WEAPON:DoDrawCrosshair](https://wiki.facepunch.com/gmod/WEAPON:DoDrawCrosshair).
-     *
      */
     CrosshairDisable(): void;
 
@@ -18738,7 +17882,6 @@ interface Player extends Entity {
      * 🟦 [Server]
      *
      * Enables the player's crosshair, if it was previously disabled via [Player:CrosshairDisable](https://wiki.facepunch.com/gmod/Player:CrosshairDisable).
-     *
      */
     CrosshairEnable(): void;
 
@@ -18746,7 +17889,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns whether the player is crouching or not (<page text="FL_DUCKING">Enums/FL</page> flag).
-     *
      */
     Crouching(): boolean;
 
@@ -18754,7 +17896,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the player's death count
-     *
      */
     Deaths(): number;
 
@@ -18762,7 +17903,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Prints the players' name and position to the console.
-     *
      */
     DebugInfo(): void;
 
@@ -18770,7 +17910,6 @@ interface Player extends Entity {
      * 🟦 [Server]
      *
      * Detonates all tripmines belonging to the player.
-     *
      */
     DetonateTripmines(): void;
 
@@ -18798,7 +17937,6 @@ interface Player extends Entity {
      * Starts the player's attack animation. The attack animation is determined by the weapon's HoldType.
      *
      * Similar to other animation event functions, calls [GM:DoAnimationEvent](https://wiki.facepunch.com/gmod/GM:DoAnimationEvent) with <page text="PLAYERANIMEVENT_ATTACK_PRIMARY">Enums/PLAYERANIMEVENT</page> as the event and no extra data.
-     *
      */
     DoAttackEvent(): void;
 
@@ -18819,7 +17957,6 @@ interface Player extends Entity {
      * Sends a third person reload animation event to the player.
      *
      * Similar to other animation event functions, calls [GM:DoAnimationEvent](https://wiki.facepunch.com/gmod/GM:DoAnimationEvent) with <page text= "PLAYERANIMEVENT_RELOAD">Enums/PLAYERANIMEVENT</page> as the event and no extra data.
-     *
      */
     DoReloadEvent(): void;
 
@@ -18829,7 +17966,6 @@ interface Player extends Entity {
      * Sends a third person secondary fire animation event to the player.
      *
      * Similar to other animation event functions, calls [GM:DoAnimationEvent](https://wiki.facepunch.com/gmod/GM:DoAnimationEvent) with <page text="PLAYERANIMEVENT_ATTACK_SECONDARY">Enums/PLAYERANIMEVENT</page> as the event and no extra data.
-     *
      */
     DoSecondaryAttack(): void;
 
@@ -18866,7 +18002,6 @@ interface Player extends Entity {
      * Drops any object the player is currently holding with either Gravity Gun, Physics Gun or `+use` (E key)
      *
      * See also [Entity:ForcePlayerDrop](https://wiki.facepunch.com/gmod/Entity:ForcePlayerDrop).
-     *
      */
     DropObject(): void;
 
@@ -18898,7 +18033,6 @@ interface Player extends Entity {
      * The player also emits a flatline sound on death, which can be overridden with [GM:PlayerDeathSound](https://wiki.facepunch.com/gmod/GM:PlayerDeathSound).
      *
      * The player is automatically equipped with the suit on spawn, if you wish to stop that, use [Player:RemoveSuit](https://wiki.facepunch.com/gmod/Player:RemoveSuit).
-     *
      */
     EquipSuit(): void;
 
@@ -18906,7 +18040,6 @@ interface Player extends Entity {
      * 🟦 [Server]
      *
      * Forces the player off the current ladder if they are on one.
-     *
      */
     ExitLadder(): void;
 
@@ -18916,7 +18049,6 @@ interface Player extends Entity {
      * Forces the player to exit the vehicle if they're in one.
      *
      * This function will bypass [GM:CanExitVehicle](https://wiki.facepunch.com/gmod/GM:CanExitVehicle). See also [GM:PlayerLeaveVehicle](https://wiki.facepunch.com/gmod/GM:PlayerLeaveVehicle)
-     *
      */
     ExitVehicle(): void;
 
@@ -18926,6 +18058,7 @@ interface Player extends Entity {
      * Enables/Disables the player's flashlight.
      *
      * [Player:CanUseFlashlight](https://wiki.facepunch.com/gmod/Player:CanUseFlashlight) must be true in order for the player's flashlight to be changed.
+     * [GM:PlayerSwitchFlashlight](https://wiki.facepunch.com/gmod/GM:PlayerSwitchFlashlight) can block this function.
      * @param isOn - Turns the flashlight on/off
      */
     Flashlight(isOn: boolean): void;
@@ -18934,7 +18067,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns true if the player's flashlight is on.
-     *
      */
     FlashlightIsOn(): boolean;
 
@@ -18945,8 +18077,6 @@ interface Player extends Entity {
      *
      * **Note:**
      * >The value will change depending on the player's kill or suicide: +1 for a kill, -1 for a suicide.
-     *
-     *
      */
     Frags(): number;
 
@@ -18966,7 +18096,6 @@ interface Player extends Entity {
      * Returns the player's active weapon.
      *
      * If used on a [Global.LocalPlayer](https://wiki.facepunch.com/gmod/Global.LocalPlayer)() and the player is spectating another player with `OBS_MODE_IN_EYE`, the weapon returned will be of the spectated player.
-     *
      */
     GetActiveWeapon(): Weapon;
 
@@ -18974,7 +18103,6 @@ interface Player extends Entity {
      * 🟦 [Server]
      *
      * Returns the player's current activity.
-     *
      */
     GetActivity(): ACT;
 
@@ -18982,7 +18110,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the direction that the player is aiming.
-     *
      */
     GetAimVector(): Vector;
 
@@ -18990,7 +18117,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns true if the players' model is allowed to rotate around the pitch and roll axis.
-     *
      */
     GetAllowFullRotation(): boolean;
 
@@ -18998,7 +18124,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns whether the player is allowed to use their weapons in a vehicle or not.
-     *
      */
     GetAllowWeaponsInVehicle(): boolean;
 
@@ -19006,7 +18131,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns a table of all ammo the player has.
-     *
      */
     GetAmmo(): any;
 
@@ -19022,7 +18146,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Gets if the player will be pushed out of nocollided players.
-     *
      */
     GetAvoidPlayers(): boolean;
 
@@ -19030,7 +18153,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns true if the player is able to walk using the (default) alt key.
-     *
      */
     GetCanWalk(): boolean;
 
@@ -19038,7 +18160,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Determines whenever the player is allowed to use the zoom functionality.
-     *
      */
     GetCanZoom(): boolean;
 
@@ -19046,7 +18167,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the player's class id.
-     *
      */
     GetClassID(): number;
 
@@ -19089,7 +18209,6 @@ interface Player extends Entity {
      * Returns the crouched walk speed multiplier.
      *
      * See also [Player:GetWalkSpeed](https://wiki.facepunch.com/gmod/Player:GetWalkSpeed) and [Player:SetCrouchedWalkSpeed](https://wiki.facepunch.com/gmod/Player:SetCrouchedWalkSpeed).
-     *
      */
     GetCrouchedWalkSpeed(): number;
 
@@ -19103,8 +18222,6 @@ interface Player extends Entity {
      *
      * **Note:**
      * >When called clientside in singleplayer during [WEAPON:Think](https://wiki.facepunch.com/gmod/WEAPON:Think), it will return nothing as the hook is not technically predicted in that instance. See the note on the page.
-     *
-     *
      */
     GetCurrentCommand(): CUserCmd;
 
@@ -19114,7 +18231,6 @@ interface Player extends Entity {
      * Gets the **actual** view offset which equals the difference between the players actual position and their view when standing.
      *
      * Do not confuse with [Player:GetViewOffset](https://wiki.facepunch.com/gmod/Player:GetViewOffset) and [Player:GetViewOffsetDucked](https://wiki.facepunch.com/gmod/Player:GetViewOffsetDucked)
-     *
      */
     GetCurrentViewOffset(): Vector;
 
@@ -19122,7 +18238,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Gets the entity the player is currently driving via the [drive](https://wiki.facepunch.com/gmod/drive) library.
-     *
      */
     GetDrivingEntity(): Entity;
 
@@ -19130,7 +18245,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns driving mode of the player. See [Entity Driving](https://wiki.facepunch.com/gmod/Entity_Driving).
-     *
      */
     GetDrivingMode(): number;
 
@@ -19138,7 +18252,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns a player's duck speed (in seconds)
-     *
      */
     GetDuckSpeed(): number;
 
@@ -19146,7 +18259,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the entity the player is currently using, like func_tank mounted turrets or +use prop pickups.
-     *
      */
     GetEntityInUse(): Entity;
 
@@ -19160,7 +18272,6 @@ interface Player extends Entity {
      * Uses [util.GetPlayerTrace](https://wiki.facepunch.com/gmod/util.GetPlayerTrace) internally and is therefore bound by its limits.
      *
      * See also [Player:GetEyeTraceNoCursor](https://wiki.facepunch.com/gmod/Player:GetEyeTraceNoCursor).
-     *
      */
     GetEyeTrace(): TraceResult;
 
@@ -19174,7 +18285,6 @@ interface Player extends Entity {
      * Uses [util.GetPlayerTrace](https://wiki.facepunch.com/gmod/util.GetPlayerTrace) internally and is therefore bound by its limits.
      *
      * See also [Player:GetEyeTrace](https://wiki.facepunch.com/gmod/Player:GetEyeTrace).
-     *
      */
     GetEyeTraceNoCursor(): TraceResult;
 
@@ -19182,7 +18292,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the FOV of the player.
-     *
      */
     GetFOV(): number;
 
@@ -19190,7 +18299,6 @@ interface Player extends Entity {
      * 🟨 [Client]
      *
      * Returns the steam "relationship" towards the player.
-     *
      */
     GetFriendStatus(): string;
 
@@ -19198,7 +18306,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Gets the hands entity of a player
-     *
      */
     GetHands(): Entity;
 
@@ -19206,7 +18313,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the widget the player is hovering with their mouse.
-     *
      */
     GetHoveredWidget(): Entity;
 
@@ -19216,7 +18322,6 @@ interface Player extends Entity {
      * Retrieves the minimum and maximum <page text="Vectors">Vector</page> of the [Axis-Aligned Bounding Box (AABB)](https://en.wikipedia.org/wiki/Minimum_bounding_box) used for the <page text="Player's">Player</page> physics and movement <page text="Hull Traces">util.TraceHull</page>.
      *
      * 		See also: [Player:SetHull](https://wiki.facepunch.com/gmod/Player:SetHull), [Player:SetHullDuck](https://wiki.facepunch.com/gmod/Player:SetHullDuck), [Player:GetHullDuck](https://wiki.facepunch.com/gmod/Player:GetHullDuck)
-     *
      */
     GetHull(): LuaMultiReturn<[Vector, Vector]>;
 
@@ -19226,7 +18331,6 @@ interface Player extends Entity {
      * Retrieves the minimum and maximum <page text="Vectors">Vector</page> of the [Axis-Aligned Bounding Box (AABB)](https://en.wikipedia.org/wiki/Minimum_bounding_box) used for the <page text="Player's">Player</page> physics and movement <page text="Hull Traces">util.TraceHull</page> while they are crouching (or "Ducking").
      *
      * 		See also: [Player:SetHullDuck](https://wiki.facepunch.com/gmod/Player:SetHullDuck), [Player:GetHull](https://wiki.facepunch.com/gmod/Player:GetHull), [Player:SetHull](https://wiki.facepunch.com/gmod/Player:SetHull)
-     *
      */
     GetHullDuck(): LuaMultiReturn<[Vector, Vector]>;
 
@@ -19255,7 +18359,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the jump power of the player
-     *
      */
     GetJumpPower(): number;
 
@@ -19265,7 +18368,6 @@ interface Player extends Entity {
      * Returns the player's ladder climbing speed.
      *
      * See [Player:GetWalkSpeed](https://wiki.facepunch.com/gmod/Player:GetWalkSpeed) for normal walking speed, [Player:GetRunSpeed](https://wiki.facepunch.com/gmod/Player:GetRunSpeed) for sprinting speed and [Player:GetSlowWalkSpeed](https://wiki.facepunch.com/gmod/Player:GetSlowWalkSpeed) for slow walking speed.
-     *
      */
     GetLadderClimbSpeed(): number;
 
@@ -19273,7 +18375,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the timescale multiplier of the player movement.
-     *
      */
     GetLaggedMovementValue(): number;
 
@@ -19281,7 +18382,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the maximum amount of armor the player should have. Default value is 100.
-     *
      */
     GetMaxArmor(): number;
 
@@ -19291,7 +18391,6 @@ interface Player extends Entity {
      * Returns the player's maximum movement speed.
      *
      * See also [Player:SetMaxSpeed](https://wiki.facepunch.com/gmod/Player:SetMaxSpeed), [Player:GetWalkSpeed](https://wiki.facepunch.com/gmod/Player:GetWalkSpeed) and [Player:GetRunSpeed](https://wiki.facepunch.com/gmod/Player:GetRunSpeed).
-     *
      */
     GetMaxSpeed(): number;
 
@@ -19302,8 +18401,6 @@ interface Player extends Entity {
      *
      * **Note:**
      * >This function overrides [Entity:GetName](https://wiki.facepunch.com/gmod/Entity:GetName) (in the Lua metatable, not in c++), keep it in mind when dealing with [ents.FindByName](https://wiki.facepunch.com/gmod/ents.FindByName) or any engine function which requires the mapping name.
-     *
-     *
      */
     GetName(): string;
 
@@ -19311,7 +18408,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns whenever the player is set not to collide with their teammates.
-     *
      */
     GetNoCollideWithTeammates(): boolean;
 
@@ -19319,7 +18415,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the the observer mode of the player
-     *
      */
     GetObserverMode(): OBS_MODE;
 
@@ -19329,7 +18424,6 @@ interface Player extends Entity {
      * Returns the entity the player is currently observing.
      *
      * Set using [Player:SpectateEntity](https://wiki.facepunch.com/gmod/Player:SpectateEntity).
-     *
      */
     GetObserverTarget(): Entity;
 
@@ -19358,8 +18452,6 @@ interface Player extends Entity {
      *
      * **Note:**
      * >Overide this function clientside on a Entity(not a player) with playermodel and return color will apply color on it
-     *
-     *
      */
     GetPlayerColor(): Vector;
 
@@ -19367,7 +18459,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns a table containing player information.
-     *
      */
     GetPlayerInfo(): any;
 
@@ -19387,7 +18478,6 @@ interface Player extends Entity {
      * Returns the widget entity the player is using.
      *
      * Having a pressed widget stops the player from firing their weapon to allow input to be passed onto the widget.
-     *
      */
     GetPressedWidget(): Entity;
 
@@ -19395,7 +18485,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the weapon the player previously had equipped.
-     *
      */
     GetPreviousWeapon(): Entity;
 
@@ -19405,8 +18494,6 @@ interface Player extends Entity {
      * Returns players screen punch effect angle. See [Player:ViewPunch](https://wiki.facepunch.com/gmod/Player:ViewPunch) and [Player:SetViewPunchAngles](https://wiki.facepunch.com/gmod/Player:SetViewPunchAngles)
      *
      * @deprecated You should use [Player:GetViewPunchAngles](https://wiki.facepunch.com/gmod/Player:GetViewPunchAngles) instead.
-     *
-     *
      */
     GetPunchAngle(): Angle;
 
@@ -19417,8 +18504,6 @@ interface Player extends Entity {
      *
      * **Note:**
      * >Calling [Entity:GetPos](https://wiki.facepunch.com/gmod/Entity:GetPos) server-side with this function then will return the position where [Player:CreateRagdoll](https://wiki.facepunch.com/gmod/Player:CreateRagdoll) was used, as it is a hl2mp_ragdoll which is a serverside point entity that creates a clientside ragdoll for everyone (opposed to prop_ragdoll that is serverside and networks).
-     *
-     *
      */
     GetRagdollEntity(): Entity;
 
@@ -19426,7 +18511,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the render angles for the player.
-     *
      */
     GetRenderAngles(): Angle;
 
@@ -19436,7 +18520,6 @@ interface Player extends Entity {
      * Returns the player's sprint speed.
      *
      * See also [Player:SetRunSpeed](https://wiki.facepunch.com/gmod/Player:SetRunSpeed), [Player:GetWalkSpeed](https://wiki.facepunch.com/gmod/Player:GetWalkSpeed) and [Player:GetMaxSpeed](https://wiki.facepunch.com/gmod/Player:GetMaxSpeed).
-     *
      */
     GetRunSpeed(): number;
 
@@ -19447,8 +18530,6 @@ interface Player extends Entity {
      *
      * **Note:**
      * >This is the same as calling [Entity:EyePos](https://wiki.facepunch.com/gmod/Entity:EyePos) on the player.
-     *
-     *
      */
     GetShootPos(): Vector;
 
@@ -19458,7 +18539,6 @@ interface Player extends Entity {
      * Returns the player's slow walking speed, which is activated via <key>+WALK</key> keybind.
      *
      * See [Player:GetWalkSpeed](https://wiki.facepunch.com/gmod/Player:GetWalkSpeed) for normal walking speed, [Player:GetRunSpeed](https://wiki.facepunch.com/gmod/Player:GetRunSpeed) for sprinting speed and [Player:GetLadderClimbSpeed](https://wiki.facepunch.com/gmod/Player:GetLadderClimbSpeed) for ladder climb speed.
-     *
      */
     GetSlowWalkSpeed(): number;
 
@@ -19466,7 +18546,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the maximum height player can step onto.
-     *
      */
     GetStepSize(): number;
 
@@ -19477,8 +18556,6 @@ interface Player extends Entity {
      *
      * **Bug [#3449](https://github.com/Facepunch/garrysmod-issues/issues/3449):**
      * >This will only work for the local player when used clientside.
-     *
-     *
      */
     GetSuitPower(): number;
 
@@ -19489,8 +18566,6 @@ interface Player extends Entity {
      *
      * **Note:**
      * >This function is relatively useless because it is tied to the value of the `sv_timeout` ConVar, which is irrelevant to the description above. [This is not considered as a bug](https://discord.com/channels/565105920414318602/567617926991970306/748970396224585738).
-     *
-     *
      */
     GetTimeoutSeconds(): number;
 
@@ -19506,7 +18581,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns a player's unduck speed (in seconds)
-     *
      */
     GetUnDuckSpeed(): number;
 
@@ -19519,8 +18593,6 @@ interface Player extends Entity {
      * >Because entity physics objects usually do not exist on the client, the client's use entity will resolve to whatever the crosshair is placed on within a little less than 72 units of the player's eye position. This differs from the entity returned by the server, which has fully physical use checking. See [util.TraceHull](https://wiki.facepunch.com/gmod/util.TraceHull).
      *
      * Issue tracker: [5027](https://github.com/Facepunch/garrysmod-issues/issues/5027)
-     *
-     *
      */
     GetUseEntity(): Entity;
 
@@ -19528,7 +18600,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the player's user group. By default, player user groups are loaded from `garrysmod/settings/users.txt`.
-     *
      */
     GetUserGroup(): string;
 
@@ -19536,7 +18607,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the vehicle the player is driving.
-     *
      */
     GetVehicle(): Vehicle;
 
@@ -19547,8 +18617,6 @@ interface Player extends Entity {
      *
      * **Note:**
      * >This function will return a [NULL Entity] until [Player:SetViewEntity](https://wiki.facepunch.com/gmod/Player:SetViewEntity) has been used
-     *
-     *
      */
     GetViewEntity(): Entity;
 
@@ -19573,7 +18641,6 @@ interface Player extends Entity {
      * Returns the view offset of the player which equals the difference between the players actual position and their view.
      *
      * See also [Player:GetViewOffsetDucked](https://wiki.facepunch.com/gmod/Player:GetViewOffsetDucked).
-     *
      */
     GetViewOffset(): Vector;
 
@@ -19583,7 +18650,6 @@ interface Player extends Entity {
      * Returns the view offset of the player which equals the difference between the players actual position and their view when ducked.
      *
      * See also [Player:GetViewOffset](https://wiki.facepunch.com/gmod/Player:GetViewOffset).
-     *
      */
     GetViewOffsetDucked(): Vector;
 
@@ -19591,7 +18657,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns players screen punch effect angle.
-     *
      */
     GetViewPunchAngles(): Angle;
 
@@ -19599,7 +18664,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns client's view punch velocity. See [Player:ViewPunch](https://wiki.facepunch.com/gmod/Player:ViewPunch) and [Player:SetViewPunchVelocity](https://wiki.facepunch.com/gmod/Player:SetViewPunchVelocity)
-     *
      */
     GetViewPunchVelocity(): Angle;
 
@@ -19607,7 +18671,6 @@ interface Player extends Entity {
      * 🟨 [Client]
      *
      * Returns the current voice volume scale for given player on client.
-     *
      */
     GetVoiceVolumeScale(): number;
 
@@ -19617,7 +18680,6 @@ interface Player extends Entity {
      * Returns the player's normal walking speed. Not sprinting, not slow walking. (+walk)
      *
      * See also [Player:SetWalkSpeed](https://wiki.facepunch.com/gmod/Player:SetWalkSpeed), [Player:GetMaxSpeed](https://wiki.facepunch.com/gmod/Player:GetMaxSpeed) and [Player:GetRunSpeed](https://wiki.facepunch.com/gmod/Player:GetRunSpeed).
-     *
      */
     GetWalkSpeed(): number;
 
@@ -19633,7 +18695,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns a player's weapon color. The part of the model that is colored is determined by the model itself, and is different for each model. The format is `Vector(r,g,b)`, and each color should be between 0 and 1.
-     *
      */
     GetWeaponColor(): Vector;
 
@@ -19644,8 +18705,6 @@ interface Player extends Entity {
      *
      * **Note:**
      * >This function returns a sequential table. Prefer to loop it with [Global.ipairs](https://wiki.facepunch.com/gmod/Global.ipairs) instead of the [Global.pairs](https://wiki.facepunch.com/gmod/Global.pairs) function.
-     *
-     *
      */
     GetWeapons(): any;
 
@@ -19680,7 +18739,6 @@ interface Player extends Entity {
      * 🟦 [Server]
      *
      * Disables god mode on the player.
-     *
      */
     GodDisable(): void;
 
@@ -19688,7 +18746,6 @@ interface Player extends Entity {
      * 🟦 [Server]
      *
      * Enables god mode on the player.
-     *
      */
     GodEnable(): void;
 
@@ -19696,7 +18753,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns whether the player has god mode or not, contolled by [Player:GodEnable](https://wiki.facepunch.com/gmod/Player:GodEnable) and [Player:GodDisable](https://wiki.facepunch.com/gmod/Player:GodDisable).
-     *
      */
     HasGodMode(): boolean;
 
@@ -19712,7 +18768,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns if the player is in a vehicle
-     *
      */
     InVehicle(): boolean;
 
@@ -19723,8 +18778,6 @@ interface Player extends Entity {
      *
      * **Note:**
      * >Returns `Error!` for bots.
-     *
-     *
      */
     IPAddress(): string;
 
@@ -19734,7 +18787,6 @@ interface Player extends Entity {
      * Returns whether the player is an admin or not. It will also return `true` if the player is [Player:IsSuperAdmin](https://wiki.facepunch.com/gmod/Player:IsSuperAdmin) by default.
      *
      * Internally this is determined by [Player:IsUserGroup](https://wiki.facepunch.com/gmod/Player:IsUserGroup).
-     *
      */
     IsAdmin(): boolean;
 
@@ -19742,7 +18794,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns if the player is an bot or not
-     *
      */
     IsBot(): boolean;
 
@@ -19750,7 +18801,6 @@ interface Player extends Entity {
      * 🟦 [Server]
      *
      * Returns true from the point when the player is sending client info but not fully in the game until they disconnect.
-     *
      */
     IsConnected(): boolean;
 
@@ -19758,7 +18808,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Used to find out if a player is currently 'driving' an entity (by which we mean 'right click > drive' ).
-     *
      */
     IsDrivingEntity(): boolean;
 
@@ -19766,7 +18815,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns whether the players movement is currently frozen, controlled by [Player:Freeze](https://wiki.facepunch.com/gmod/Player:Freeze).
-     *
      */
     IsFrozen(): boolean;
 
@@ -19776,7 +18824,6 @@ interface Player extends Entity {
      * Returns whether the player identity was confirmed by the Steam network.
      *
      * See also [GM:NetworkIDValidated](https://wiki.facepunch.com/gmod/GM:NetworkIDValidated).
-     *
      */
     IsFullyAuthenticated(): boolean;
 
@@ -19784,7 +18831,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns if a player is the host of the current session.
-     *
      */
     IsListenServerHost(): boolean;
 
@@ -19792,7 +18838,6 @@ interface Player extends Entity {
      * 🟨 [Client]
      *
      * Returns whether or not the player is voice muted locally.
-     *
      */
     IsMuted(): boolean;
 
@@ -19800,7 +18845,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns true if the player is playing a taunt.
-     *
      */
     IsPlayingTaunt(): boolean;
 
@@ -19808,7 +18852,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns whenever the player is heard by the local player clientside, or if the player is speaking serverside.
-     *
      */
     IsSpeaking(): boolean;
 
@@ -19818,7 +18861,6 @@ interface Player extends Entity {
      * Returns whether the player is currently sprinting or not, specifically if they are holding their sprint key and are allowed to sprint.
      *
      * This will not check if the player is currently sprinting into a wall. (i.e. holding their sprint key but not moving)
-     *
      */
     IsSprinting(): boolean;
 
@@ -19829,8 +18871,6 @@ interface Player extends Entity {
      *
      * **Bug [#3449](https://github.com/Facepunch/garrysmod-issues/issues/3449):**
      * >This will only work for the local player when used clientside.
-     *
-     *
      */
     IsSuitEquipped(): boolean;
 
@@ -19840,7 +18880,6 @@ interface Player extends Entity {
      * Returns whether the player is a super admin.
      *
      * Internally this is determined by [Player:IsUserGroup](https://wiki.facepunch.com/gmod/Player:IsUserGroup). See also [Player:IsAdmin](https://wiki.facepunch.com/gmod/Player:IsAdmin).
-     *
      */
     IsSuperAdmin(): boolean;
 
@@ -19850,7 +18889,6 @@ interface Player extends Entity {
      * Returns `true` if the player is timing out (i.e. is losing connection), `false` otherwise.
      *
      * A player is considered timing out when more than 4 seconds has elapsed since a network packet was received from given player.
-     *
      */
     IsTimingOut(): boolean;
 
@@ -19860,7 +18898,6 @@ interface Player extends Entity {
      * Returns whether the player is typing in their chat.
      *
      * This may not work properly if the server uses a custom chatbox.
-     *
      */
     IsTyping(): boolean;
 
@@ -19876,7 +18913,6 @@ interface Player extends Entity {
      * 🟨 [Client]
      *
      * Returns if the player can be heard by the local player.
-     *
      */
     IsVoiceAudible(): boolean;
 
@@ -19884,7 +18920,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns if the player currently walking. (`+walk` keybind)
-     *
      */
     IsWalking(): boolean;
 
@@ -19892,7 +18927,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns whether the player is using the world clicking feature, see [Panel:SetWorldClicker](https://wiki.facepunch.com/gmod/Panel:SetWorldClicker)
-     *
      */
     IsWorldClicking(): boolean;
 
@@ -19900,7 +18934,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns whether the world clicking is disabled for given player or not. See [Player:DisableWorldClicking](https://wiki.facepunch.com/gmod/Player:DisableWorldClicking).
-     *
      */
     IsWorldClickingDisabled(): boolean;
 
@@ -19947,7 +18980,6 @@ interface Player extends Entity {
      * @param [reason = No reason given] - Reason to show for disconnection.
      * **Warning:**
      * >This will be shortened to ~512 chars, though this includes the command itself and the player index so will realistically be more around ~498. It is recommended to avoid going near the limit to avoid truncation.
-     *
      */
     Kick(reason: string = "No reason given"): void;
 
@@ -19955,7 +18987,6 @@ interface Player extends Entity {
      * 🟦 [Server]
      *
      * Kills a player and calls [GM:PlayerDeath](https://wiki.facepunch.com/gmod/GM:PlayerDeath).
-     *
      */
     Kill(): void;
 
@@ -19965,7 +18996,6 @@ interface Player extends Entity {
      * Kills a player without notifying the rest of the server.
      *
      * This will call [GM:PlayerSilentDeath](https://wiki.facepunch.com/gmod/GM:PlayerSilentDeath) instead of [GM:PlayerDeath](https://wiki.facepunch.com/gmod/GM:PlayerDeath).
-     *
      */
     KillSilent(): void;
 
@@ -19993,7 +19023,6 @@ interface Player extends Entity {
      * 🟦 [Server]
      *
      * Returns the hitgroup where the player was last hit.
-     *
      */
     LastHitGroup(): HITGROUP;
 
@@ -20018,8 +19047,6 @@ interface Player extends Entity {
      *
      * **Bug :**
      * >Does not work correctly clientside for non local players when in a vehicle. (validate: when parented in general?)
-     *
-     *
      */
     LocalEyeAngles(): Angle;
 
@@ -20029,7 +19056,6 @@ interface Player extends Entity {
      * Stops a player from using any inputs, such as moving, turning, or attacking. Key binds are still called. Similar to [Player:Freeze](https://wiki.facepunch.com/gmod/Player:Freeze) but the player takes no damage.
      *
      * Adds the <page text="FL_FROZEN">Enums/FL</page> and <page text="FL_GODMODE">Enums/FL</page> flags to the player.
-     *
      */
     Lock(): void;
 
@@ -20045,7 +19071,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the player's name. Identical to [Player:Nick](https://wiki.facepunch.com/gmod/Player:Nick) and [Player:GetName](https://wiki.facepunch.com/gmod/Player:GetName).
-     *
      */
     Name(): string;
 
@@ -20053,7 +19078,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the player's name. Identical to [Player:Name](https://wiki.facepunch.com/gmod/Player:Name) and [Player:GetName](https://wiki.facepunch.com/gmod/Player:GetName).
-     *
      */
     Nick(): string;
 
@@ -20066,8 +19090,6 @@ interface Player extends Entity {
      *
      * **Note:**
      * >This data will only be available after the player has fully authenticated with Steam. See [Player:IsFullyAuthenticated](https://wiki.facepunch.com/gmod/Player:IsFullyAuthenticated).
-     *
-     *
      */
     OwnerSteamID64(): string;
 
@@ -20075,7 +19097,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the percentage of packets lost by the client. It is not networked so it only returns 0 when run clientside.
-     *
      */
     PacketLoss(): number;
 
@@ -20085,7 +19106,6 @@ interface Player extends Entity {
      * Unfreezes the props player is looking at. This is essentially the same as pressing reload with the physics gun, including double press for unfreeze all.
      *
      * For freezing props, use [PhysObj:EnableMotion](https://wiki.facepunch.com/gmod/PhysObj:EnableMotion).
-     *
      */
     PhysgunUnfreeze(): number;
 
@@ -20116,7 +19136,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the player's ping to server.
-     *
      */
     Ping(): number;
 
@@ -20147,7 +19166,6 @@ interface Player extends Entity {
      * 🟦 [Server]
      *
      * Removes all ammo from a certain player
-     *
      */
     RemoveAllAmmo(): void;
 
@@ -20155,7 +19173,6 @@ interface Player extends Entity {
      * 🟦 [Server]
      *
      * Removes all weapons and ammo from the player.
-     *
      */
     RemoveAllItems(): void;
 
@@ -20189,7 +19206,6 @@ interface Player extends Entity {
      * 🟦 [Server]
      *
      * Strips the player's suit item.
-     *
      */
     RemoveSuit(): void;
 
@@ -20197,7 +19213,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Resets both normal and duck hulls to their default values.
-     *
      */
     ResetHull(): void;
 
@@ -20423,7 +19438,6 @@ interface Player extends Entity {
      * **Note:**
      * >**This only works clientside**
      * 				If used serverside, a message will be displayed (`SetPlayerDSP: fastReset only valid from client`) in the server console.
-     *
      */
     SetDSP(dspEffectId: number, fastReset: boolean): void;
 
@@ -20844,7 +19858,6 @@ interface Player extends Entity {
      * 🟨 [Client]
      *
      * Returns whether the player's player model will be drawn at the time the function is called.
-     *
      */
     ShouldDrawLocalPlayer(): boolean;
 
@@ -20864,7 +19877,6 @@ interface Player extends Entity {
      * 🟨 [Client]
      *
      * Opens the player steam profile page in the steam overlay browser.
-     *
      */
     ShowProfile(): void;
 
@@ -20924,7 +19936,6 @@ interface Player extends Entity {
      * 🟦 [Server]
      *
      * Disables the sprint on the player.
-     *
      */
     SprintDisable(): void;
 
@@ -20932,7 +19943,6 @@ interface Player extends Entity {
      * 🟦 [Server]
      *
      * Enables the sprint on the player.
-     *
      */
     SprintEnable(): void;
 
@@ -20942,8 +19952,6 @@ interface Player extends Entity {
      * Doesn't appear to do anything.
      *
      * @deprecated This appears to be a direct binding to internal functionality that is overridden by the engine every frame so calling these functions may not have any or expected effect.
-     *
-     *
      */
     StartSprinting(): void;
 
@@ -20953,8 +19961,6 @@ interface Player extends Entity {
      * When used in a [GM:SetupMove](https://wiki.facepunch.com/gmod/GM:SetupMove) hook, this function will force the player to walk, as well as preventing the player from sprinting.
      *
      * @deprecated This appears to be a direct binding to internal functionality that is overridden by the engine every frame so calling these functions may not have any or expected effect.
-     *
-     *
      */
     StartWalking(): void;
 
@@ -20971,8 +19977,6 @@ interface Player extends Entity {
      * >In a `-multirun` environment, this will return `STEAM_ID_LAN` for all "copies" of a player because they are not authenticated with Steam.
      *
      * For Bots this will return `BOT`.
-     *
-     *
      */
     SteamID(): string;
 
@@ -20989,8 +19993,6 @@ interface Player extends Entity {
      * For bots, this will return `90071996842377216` (equivalent to `STEAM_0:0:0`) for the first bot to join.
      *
      * For each additional bot, the number increases by 1. So the next bot will be `90071996842377217` (`STEAM_0:1:0`) then `90071996842377218` (`STEAM_0:0:1`) and so on.
-     *
-     *
      */
     SteamID64(): string;
 
@@ -21002,8 +20004,6 @@ interface Player extends Entity {
      * When +walk is engaged, the player will still be able to sprint to half speed (normal run speed) as opposed to full sprint speed without this function.
      *
      * @deprecated This appears to be a direct binding to internal functionality that is overridden by the engine every frame so calling these functions may not have any or expected effect.
-     *
-     *
      */
     StopSprinting(): void;
 
@@ -21013,8 +20013,6 @@ interface Player extends Entity {
      * When used in a [GM:SetupMove](https://wiki.facepunch.com/gmod/GM:SetupMove) hook, this function behaves unexpectedly by preventing the player from sprinting similar to [Player:StopSprinting](https://wiki.facepunch.com/gmod/Player:StopSprinting).
      *
      * @deprecated This appears to be a direct binding to internal functionality that is overridden by the engine every frame so calling these functions may not have any or expected effect.
-     *
-     *
      */
     StopWalking(): void;
 
@@ -21024,7 +20022,6 @@ interface Player extends Entity {
      * Turns off the zoom mode of the player. (+zoom console command)
      *
      * Basically equivalent of entering "-zoom" into player's console.
-     *
      */
     StopZooming(): void;
 
@@ -21034,8 +20031,6 @@ interface Player extends Entity {
      * Removes all ammo from the player.
      *
      * @deprecated Alias of [Player:RemoveAllAmmo](https://wiki.facepunch.com/gmod/Player:RemoveAllAmmo)
-     *
-     *
      */
     StripAmmo(): void;
 
@@ -21055,7 +20050,6 @@ interface Player extends Entity {
      * 🟦 [Server]
      *
      * Removes all weapons from a certain player
-     *
      */
     StripWeapons(): void;
 
@@ -21077,7 +20071,6 @@ interface Player extends Entity {
      * Attempts to switch the player weapon to the one specified in the "cl_defaultweapon" convar, if the player does not own the specified weapon nothing will happen.
      *
      * If you want to switch to a specific weapon, use: [Player:SetActiveWeapon](https://wiki.facepunch.com/gmod/Player:SetActiveWeapon)
-     *
      */
     SwitchToDefaultWeapon(): void;
 
@@ -21087,7 +20080,6 @@ interface Player extends Entity {
      * Returns the player's team ID, set by [Player:SetTeam](https://wiki.facepunch.com/gmod/Player:SetTeam)
      *
      * Returns 0 clientside when the game is not fully loaded.
-     *
      */
     Team(): TEAM;
 
@@ -21097,7 +20089,6 @@ interface Player extends Entity {
      * Returns the time in seconds since the player connected.
      *
      * Bots will always return value 0.
-     *
      */
     TimeConnected(): number;
 
@@ -21132,7 +20123,6 @@ interface Player extends Entity {
      * 🟨🟦 [Shared]
      *
      * Unfreezes all objects the player has frozen with their Physics Gun. Same as double pressing <key>R</key> while holding Physics Gun.
-     *
      */
     UnfreezePhysicsObjects(): void;
 
@@ -21146,8 +20136,6 @@ interface Player extends Entity {
      *
      * **Note:**
      * >In Singleplayer, this function will always return 1.
-     *
-     *
      */
     UniqueID(): number;
 
@@ -21169,7 +20157,6 @@ interface Player extends Entity {
      * Unlocks the player movement if locked previously.
      *
      * Will disable godmode for the player if locked previously.
-     *
      */
     UnLock(): void;
 
@@ -21180,8 +20167,6 @@ interface Player extends Entity {
      *
      * **Warning:**
      * >The player must be respawned, otherwise they will be able to walk through doors and become invincible.
-     *
-     *
      */
     UnSpectate(): void;
 
@@ -21191,7 +20176,6 @@ interface Player extends Entity {
      * Returns the player's user ID. This number will always be unique, but will reset if the player reconnects. (Always increments for each connecting player)
      *
      * You can use [Global.Player](https://wiki.facepunch.com/gmod/Global.Player) global function to get a player by their user ID.
-     *
      */
     UserID(): number;
 
@@ -21219,7 +20203,6 @@ interface Player extends Entity {
      * 🟨 [Client]
      *
      * Returns the players voice volume, how loud the player's voice communication currently is, as a number in range of [0,1].
-     *
      */
     VoiceVolume(): number;
 
@@ -21235,7 +20218,6 @@ interface ProjectedTexture {
      * 🟨 [Client]
      *
      * Returns the angle of the ProjectedTexture, which were previously set by [ProjectedTexture:SetAngles](https://wiki.facepunch.com/gmod/ProjectedTexture:SetAngles)
-     *
      */
     GetAngles(): Angle;
 
@@ -21243,7 +20225,6 @@ interface ProjectedTexture {
      * 🟨 [Client]
      *
      * Returns the brightness of the ProjectedTexture, which was previously set by [ProjectedTexture:SetBrightness](https://wiki.facepunch.com/gmod/ProjectedTexture:SetBrightness)
-     *
      */
     GetBrightness(): number;
 
@@ -21254,8 +20235,6 @@ interface ProjectedTexture {
      *
      * **Bug [#2407](https://github.com/Facepunch/garrysmod-issues/issues/2407):**
      * >The returned color will not have the color metatable.
-     *
-     *
      */
     GetColor(): Color;
 
@@ -21263,7 +20242,6 @@ interface ProjectedTexture {
      * 🟨 [Client]
      *
      * Returns the constant attenuation of the projected texture, which can also be set by [ProjectedTexture:SetConstantAttenuation](https://wiki.facepunch.com/gmod/ProjectedTexture:SetConstantAttenuation).
-     *
      */
     GetConstantAttenuation(): number;
 
@@ -21271,7 +20249,6 @@ interface ProjectedTexture {
      * 🟨 [Client]
      *
      * Returns whether shadows are enabled for this ProjectedTexture, which was previously set by [ProjectedTexture:SetEnableShadows](https://wiki.facepunch.com/gmod/ProjectedTexture:SetEnableShadows)
-     *
      */
     GetEnableShadows(): boolean;
 
@@ -21279,7 +20256,6 @@ interface ProjectedTexture {
      * 🟨 [Client]
      *
      * Returns the projection distance of the ProjectedTexture, which was previously set by [ProjectedTexture:SetFarZ](https://wiki.facepunch.com/gmod/ProjectedTexture:SetFarZ)
-     *
      */
     GetFarZ(): number;
 
@@ -21287,7 +20263,6 @@ interface ProjectedTexture {
      * 🟨 [Client]
      *
      * Returns the horizontal FOV of the ProjectedTexture, which was previously set by [ProjectedTexture:SetHorizontalFOV](https://wiki.facepunch.com/gmod/ProjectedTexture:SetHorizontalFOV) or [ProjectedTexture:SetFOV](https://wiki.facepunch.com/gmod/ProjectedTexture:SetFOV)
-     *
      */
     GetHorizontalFOV(): number;
 
@@ -21295,7 +20270,6 @@ interface ProjectedTexture {
      * 🟨 [Client]
      *
      * Returns whenever or not the Texture should light up world geometry.
-     *
      */
     GetLightWorld(): boolean;
 
@@ -21303,7 +20277,6 @@ interface ProjectedTexture {
      * 🟨 [Client]
      *
      * Returns the linear attenuation of the projected texture, which can also be set by [ProjectedTexture:SetLinearAttenuation](https://wiki.facepunch.com/gmod/ProjectedTexture:SetLinearAttenuation).
-     *
      */
     GetLinearAttenuation(): number;
 
@@ -21311,7 +20284,6 @@ interface ProjectedTexture {
      * 🟨 [Client]
      *
      * Returns the NearZ value of the ProjectedTexture, which was previously set by [ProjectedTexture:SetNearZ](https://wiki.facepunch.com/gmod/ProjectedTexture:SetNearZ)
-     *
      */
     GetNearZ(): number;
 
@@ -21319,7 +20291,6 @@ interface ProjectedTexture {
      * 🟨 [Client]
      *
      * Returns the state of projected texture view-frustum culling. See [ProjectedTexture:SetNoCull](https://wiki.facepunch.com/gmod/ProjectedTexture:SetNoCull).
-     *
      */
     GetNoCull(): boolean;
 
@@ -21327,7 +20298,6 @@ interface ProjectedTexture {
      * 🟨 [Client]
      *
      * Returns the current orthographic settings of the Projected Texture. To set these values, use [ProjectedTexture:SetOrthographic](https://wiki.facepunch.com/gmod/ProjectedTexture:SetOrthographic).
-     *
      */
     GetOrthographic(): LuaMultiReturn<[boolean, number, number, number, number]>;
 
@@ -21335,7 +20305,6 @@ interface ProjectedTexture {
      * 🟨 [Client]
      *
      * Returns the position of the ProjectedTexture, which was previously set by [ProjectedTexture:SetPos](https://wiki.facepunch.com/gmod/ProjectedTexture:SetPos)
-     *
      */
     GetPos(): Vector;
 
@@ -21343,7 +20312,6 @@ interface ProjectedTexture {
      * 🟨 [Client]
      *
      * Returns the quadratic attenuation of the projected texture, which can also be set by [ProjectedTexture:SetQuadraticAttenuation](https://wiki.facepunch.com/gmod/ProjectedTexture:SetQuadraticAttenuation).
-     *
      */
     GetQuadraticAttenuation(): number;
 
@@ -21353,7 +20321,6 @@ interface ProjectedTexture {
      * Returns the shadow depth bias of the projected texture.
      *
      * Set by [ProjectedTexture:SetShadowDepthBias](https://wiki.facepunch.com/gmod/ProjectedTexture:SetShadowDepthBias).
-     *
      */
     GetShadowDepthBias(): number;
 
@@ -21363,7 +20330,6 @@ interface ProjectedTexture {
      * Returns the shadow "filter size" of the projected texture. `0` is fully pixelated, higher values will blur the shadow more.
      *
      * Set by [ProjectedTexture:SetShadowFilter](https://wiki.facepunch.com/gmod/ProjectedTexture:SetShadowFilter).
-     *
      */
     GetShadowFilter(): number;
 
@@ -21373,7 +20339,6 @@ interface ProjectedTexture {
      * Returns the shadow depth slope scale bias of the projected texture.
      *
      * Set by [ProjectedTexture:SetShadowSlopeScaleDepthBias](https://wiki.facepunch.com/gmod/ProjectedTexture:SetShadowSlopeScaleDepthBias).
-     *
      */
     GetShadowSlopeScaleDepthBias(): number;
 
@@ -21381,7 +20346,6 @@ interface ProjectedTexture {
      * 🟨 [Client]
      *
      * Returns the target entity of this projected texture.
-     *
      */
     GetTargetEntity(): Entity;
 
@@ -21389,7 +20353,6 @@ interface ProjectedTexture {
      * 🟨 [Client]
      *
      * Returns the texture of the ProjectedTexture, which was previously set by [ProjectedTexture:SetTexture](https://wiki.facepunch.com/gmod/ProjectedTexture:SetTexture)
-     *
      */
     GetTexture(): ITexture;
 
@@ -21397,7 +20360,6 @@ interface ProjectedTexture {
      * 🟨 [Client]
      *
      * Returns the texture frame of the ProjectedTexture, which was previously set by [ProjectedTexture:SetTextureFrame](https://wiki.facepunch.com/gmod/ProjectedTexture:SetTextureFrame)
-     *
      */
     GetTextureFrame(): number;
 
@@ -21405,7 +20367,6 @@ interface ProjectedTexture {
      * 🟨 [Client]
      *
      * Returns the vertical FOV of the ProjectedTexture, which was previously set by [ProjectedTexture:SetVerticalFOV](https://wiki.facepunch.com/gmod/ProjectedTexture:SetVerticalFOV) or [ProjectedTexture:SetFOV](https://wiki.facepunch.com/gmod/ProjectedTexture:SetFOV)
-     *
      */
     GetVerticalFOV(): number;
 
@@ -21421,7 +20382,6 @@ interface ProjectedTexture {
      * ```
      *
      * This not only checks whether the projected texture is valid - but also checks whether it's nil.
-     *
      */
     IsValid(): boolean;
 
@@ -21429,7 +20389,6 @@ interface ProjectedTexture {
      * 🟨 [Client]
      *
      * Removes the projected texture. After calling this, [ProjectedTexture:IsValid](https://wiki.facepunch.com/gmod/ProjectedTexture:IsValid) will return false, and any hooks with the projected texture as the identifier will be automatically deleted.
-     *
      */
     Remove(): void;
 
@@ -21685,7 +20644,6 @@ interface ProjectedTexture {
      * Updates the Projected Light and applies all previously set parameters.
      *
      * The best place to call this function is in [GM:PreDrawOpaqueRenderables](https://wiki.facepunch.com/gmod/GM:PreDrawOpaqueRenderables).
-     *
      */
     Update(): void;
 
@@ -21749,7 +20707,6 @@ interface Schedule {
      * 🟦 [Server]
      *
      * Returns the number of tasks in the schedule.
-     *
      */
     NumTasks(): number;
 
@@ -21793,7 +20750,6 @@ interface Stack {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns the size of the stack
-     *
      */
     Size(): number;
 
@@ -21801,7 +20757,6 @@ interface Stack {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Get the item at the top of the stack
-     *
      */
     Top(): any;
 
@@ -21814,7 +20769,6 @@ interface Stack {
  *
  * **Note:**
  * >This object internally uses the `SurfaceHandle_t` class, which is an alias for `msurface2_t*`.
- *
  */
 interface SurfaceInfo {
 
@@ -21823,7 +20777,6 @@ interface SurfaceInfo {
      * 🟨🟦 [Shared]
      *
      * Returns the brush surface's material.
-     *
      */
     GetMaterial(): IMaterial;
 
@@ -21831,7 +20784,6 @@ interface SurfaceInfo {
      * 🟨🟦 [Shared]
      *
      * Returns a list of vertices the brush surface is built from.
-     *
      */
     GetVertices(): Vector[];
 
@@ -21842,8 +20794,6 @@ interface SurfaceInfo {
      *
      * **Note:**
      * >This internally checks the SURFDRAW_NODRAW flag.
-     *
-     *
      */
     IsNoDraw(): boolean;
 
@@ -21854,8 +20804,6 @@ interface SurfaceInfo {
      *
      * **Note:**
      * >This internally checks the SURFDRAW_SKY flag.
-     *
-     *
      */
     IsSky(): boolean;
 
@@ -21866,8 +20814,6 @@ interface SurfaceInfo {
      *
      * **Note:**
      * >This internally checks the SURFDRAW_WATER flag.
-     *
-     *
      */
     IsWater(): boolean;
 
@@ -21883,7 +20829,6 @@ interface Task {
      * 🟦 [Server]
      *
      * Initialises the AI task. Called by [ai_task.New](https://wiki.facepunch.com/gmod/ai_task.New).
-     *
      */
     Init(): void;
 
@@ -21910,7 +20855,6 @@ interface Task {
      * 🟦 [Server]
      *
      * Determines if the task is an engine task (`TYPE_ENGINE`, 1).
-     *
      */
     IsEngineType(): void;
 
@@ -21918,7 +20862,6 @@ interface Task {
      * 🟦 [Server]
      *
      * Determines if the task is an NPC method-based task (`TYPE_FNAME`, 2).
-     *
      */
     IsFNameType(): void;
 
@@ -21970,7 +20913,6 @@ interface Tool {
      * Returns whether the tool is allowed to be used or not. This function ignores the [SANDBOX:CanTool](https://wiki.facepunch.com/gmod/SANDBOX:CanTool) hook.
      *
      * By default this will always return true clientside and uses `TOOL.AllowedCVar`which is a [ConVar](https://wiki.facepunch.com/gmod/ConVar) object pointing to  `toolmode_allow_*toolname*` convar on the server.
-     *
      */
     Allowed(): boolean;
 
@@ -21978,7 +20920,6 @@ interface Tool {
      * 🟨🟦 [Shared]
      *
      * Builds a list of all ConVars set via the ClientConVar variable on the [Structures/TOOL](https://wiki.facepunch.com/gmod/Structures/TOOL) and their default values. This is used for the preset system.
-     *
      */
     BuildConVarList(): any;
 
@@ -21988,7 +20929,6 @@ interface Tool {
      * **.**
      *
      * Checks all added objects to see if they're still valid, if not, clears the list of objects.
-     *
      */
     CheckObjects(): void;
 
@@ -21996,7 +20936,6 @@ interface Tool {
      * 🟨🟦 [Shared]
      *
      * Clears all objects previously set with [Tool:SetObject](https://wiki.facepunch.com/gmod/Tool:SetObject).
-     *
      */
     ClearObjects(): void;
 
@@ -22005,7 +20944,6 @@ interface Tool {
      *
      * **.**
      * Initializes the tool object
-     *
      */
     Create(): Tool;
 
@@ -22015,7 +20953,6 @@ interface Tool {
      * **.**
      *
      * Creates clientside ConVars based on the ClientConVar table specified in the tool structure. Also creates the 'toolmode_allow_X' ConVar.
-     *
      */
     CreateConVars(): void;
 
@@ -22065,7 +21002,6 @@ interface Tool {
      * 🟨🟦 [Shared]
      *
      * Returns a language key based on this tool's name and the current stage it is on.
-     *
      */
     GetHelpText(): string;
 
@@ -22082,7 +21018,6 @@ interface Tool {
      * 🟨🟦 [Shared]
      *
      * Returns the name of the current tool mode.
-     *
      */
     GetMode(): string;
 
@@ -22098,7 +21033,6 @@ interface Tool {
      * 🟨🟦 [Shared]
      *
      * Returns the current operation of the tool set by [Tool:SetOperation](https://wiki.facepunch.com/gmod/Tool:SetOperation).
-     *
      */
     GetOperation(): number;
 
@@ -22106,7 +21040,6 @@ interface Tool {
      * 🟨🟦 [Shared]
      *
      * Returns the owner of this tool.
-     *
      */
     GetOwner(): Player;
 
@@ -22140,7 +21073,6 @@ interface Tool {
      * 🟨🟦 [Shared]
      *
      * Returns the current stage of the tool set by [Tool:SetStage](https://wiki.facepunch.com/gmod/Tool:SetStage).
-     *
      */
     GetStage(): number;
 
@@ -22150,8 +21082,6 @@ interface Tool {
      * Returns the Tool Gun (`gmod_tool`) Scripted [Weapon](https://wiki.facepunch.com/gmod/Weapon).
      *
      * @deprecated Use [Tool:GetWeapon](https://wiki.facepunch.com/gmod/Tool:GetWeapon) instead.
-     *
-     *
      */
     GetSWEP(): Weapon;
 
@@ -22159,7 +21089,6 @@ interface Tool {
      * 🟨🟦 [Shared]
      *
      * Returns the Tool Gun (`gmod_tool`) Scripted [Weapon](https://wiki.facepunch.com/gmod/Weapon).
-     *
      */
     GetWeapon(): Weapon;
 
@@ -22180,7 +21109,6 @@ interface Tool {
      *
      * Returns the amount of stored objects ( [Entity](https://wiki.facepunch.com/gmod/Entity)s ) the tool has.
      * <validate>Are TOOLs limited to 4 entities?</validate>
-     *
      */
     NumObjects(): number;
 
@@ -22198,7 +21126,6 @@ interface Tool {
      * Removes any ghost entity created for this tool.
      *
      * This is called automatically at various points, including when changing tools, holstering the toolgun, therefore it is a very good idea to implement this callback in your custom tool to cleanup any custom ghost entities.
-     *
      */
     ReleaseGhostEntity(): void;
 
@@ -22262,7 +21189,6 @@ interface Tool {
      * **y**
      *
      * Sets the tool's stage to how many stored objects the tool has.
-     *
      */
     UpdateData(): void;
 
@@ -22274,7 +21200,6 @@ interface Tool {
      * This should be called in the tool's [TOOL:Think](https://wiki.facepunch.com/gmod/TOOL:Think) hook.
      *
      * This command is only used for tools that move props, such as easy weld, axis and motor. If you want to update a ghost like the thruster tool does it for example, check its [source code](https://github.com/Facepunch/garrysmod/blob/master/garrysmod/gamemodes/sandbox/entities/weapons/gmod_tool/stools/thruster.lua#L179).
-     *
      */
     UpdateGhostEntity(): void;
 
@@ -22371,7 +21296,6 @@ interface Vector {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns an angle representing the normal of the vector.
-     *
      */
     Angle(): Angle;
 
@@ -22487,7 +21411,6 @@ interface Vector {
      * Returns the negative version of this vector, i.e. a vector with every component to the negative value of itself.
      *
      * See also [Vector:Negate](https://wiki.facepunch.com/gmod/Vector:Negate).
-     *
      */
     GetNegated(): Vector;
 
@@ -22497,8 +21420,6 @@ interface Vector {
      * Returns a normalized version of the vector. This is a alias of [Vector:GetNormalized](https://wiki.facepunch.com/gmod/Vector:GetNormalized).
      *
      * @deprecated Use [Vector:GetNormalized](https://wiki.facepunch.com/gmod/Vector:GetNormalized) instead.
-     *
-     *
      */
     GetNormal(): Vector;
 
@@ -22508,7 +21429,6 @@ interface Vector {
      * Returns a normalized version of the vector. Normalized means vector with same direction but with length of 1.
      *
      * This does not affect the vector you call it on; to do this, use [Vector:Normalize](https://wiki.facepunch.com/gmod/Vector:Normalize).
-     *
      */
     GetNormalized(): Vector;
 
@@ -22525,7 +21445,6 @@ interface Vector {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Checks whenever all fields of the vector are 0.
-     *
      */
     IsZero(): boolean;
 
@@ -22536,8 +21455,6 @@ interface Vector {
      *
      * **Warning:**
      * >This is a relatively expensive process since it uses the square root. It is recommended that you use [Vector:LengthSqr](https://wiki.facepunch.com/gmod/Vector:LengthSqr) whenever possible.
-     *
-     *
      */
     Length(): number;
 
@@ -22548,8 +21465,6 @@ interface Vector {
      *
      * **Warning:**
      * >This is a relatively expensive process since it uses the square root. It is recommended that you use [Vector:Length2DSqr](https://wiki.facepunch.com/gmod/Vector:Length2DSqr) whenever possible.
-     *
-     *
      */
     Length2D(): number;
 
@@ -22559,7 +21474,6 @@ interface Vector {
      * Returns the squared length of the vectors x and y value, x&sup2; + y&sup2;.
      *
      * This is faster than [Vector:Length2D](https://wiki.facepunch.com/gmod/Vector:Length2D) as calculating the square root is an expensive process.
-     *
      */
     Length2DSqr(): number;
 
@@ -22569,7 +21483,6 @@ interface Vector {
      * Returns the squared length of the vector, x&sup2; + y&sup2; + z&sup2;.
      *
      * This is faster than [Vector:Length](https://wiki.facepunch.com/gmod/Vector:Length) as calculating the square root is an expensive process.
-     *
      */
     LengthSqr(): number;
 
@@ -22585,7 +21498,6 @@ interface Vector {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Negates this vector, i.e. sets every component to the negative value of itself. Same as `Vector( -vec.x, -vec.y, -vec.z )`
-     *
      */
     Negate(): void;
 
@@ -22593,7 +21505,6 @@ interface Vector {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Normalizes the given vector. This changes the vector you call it on, if you want to return a normalized copy without affecting the original, use [Vector:GetNormalized](https://wiki.facepunch.com/gmod/Vector:GetNormalized).
-     *
      */
     Normalize(): void;
 
@@ -22651,7 +21562,6 @@ interface Vector {
      * z * 255 -> b
      *
      * This is the opposite of [Color:ToVector](https://wiki.facepunch.com/gmod/Color:ToVector)
-     *
      */
     ToColor(): Color;
 
@@ -22668,8 +21578,6 @@ interface Vector {
      *
      * **Note:**
      * >Should be called from a 3D rendering environment or after [cam.Start3D](https://wiki.facepunch.com/gmod/cam.Start3D) or it may not work correctly.
-     *
-     *
      */
     ToScreen(): ToScreenData;
 
@@ -22677,7 +21585,6 @@ interface Vector {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns the vector as a table with three elements.
-     *
      */
     ToTable(): any;
 
@@ -22685,7 +21592,6 @@ interface Vector {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns the x, y, and z of the vector.
-     *
      */
     Unpack(): LuaMultiReturn<[number, number, number]>;
 
@@ -22704,7 +21610,6 @@ interface Vector {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Sets x, y and z to 0.
-     *
      */
     Zero(): void;
 
@@ -22720,7 +21625,6 @@ interface Vehicle extends Entity {
      * 🟦 [Server]
      *
      * Returns the remaining boosting time left.
-     *
      */
     BoostTimeLeft(): number;
 
@@ -22745,7 +21649,6 @@ interface Vehicle extends Entity {
      * 🟨 [Client]
      *
      * Returns information about the ammo of the vehicle
-     *
      */
     GetAmmo(): LuaMultiReturn<[number, number, number]>;
 
@@ -22753,7 +21656,6 @@ interface Vehicle extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns third person camera distance.
-     *
      */
     GetCameraDistance(): number;
 
@@ -22761,7 +21663,6 @@ interface Vehicle extends Entity {
      * 🟨🟦 [Shared]
      *
      * Gets the driver of the vehicle, returns `NULL` if no driver is present.
-     *
      */
     GetDriver(): Entity;
 
@@ -22769,7 +21670,6 @@ interface Vehicle extends Entity {
      * 🟦 [Server]
      *
      * Returns the current speed of the vehicle in Half-Life Hammer Units (in/s). Same as [Entity:GetVelocity](https://wiki.facepunch.com/gmod/Entity:GetVelocity) + [Vector:Length](https://wiki.facepunch.com/gmod/Vector:Length).
-     *
      */
     GetHLSpeed(): number;
 
@@ -22777,7 +21677,6 @@ interface Vehicle extends Entity {
      * 🟦 [Server]
      *
      * Returns the max speed of the vehicle in MPH.
-     *
      */
     GetMaxSpeed(): number;
 
@@ -22785,7 +21684,6 @@ interface Vehicle extends Entity {
      * 🟦 [Server]
      *
      * Returns some info about the vehicle.
-     *
      */
     GetOperatingParams(): OperatingParams;
 
@@ -22809,7 +21707,6 @@ interface Vehicle extends Entity {
      * 🟦 [Server]
      *
      * Returns the current RPM of the vehicle. This value is fake and doesn't actually affect the vehicle movement.
-     *
      */
     GetRPM(): number;
 
@@ -22817,7 +21714,6 @@ interface Vehicle extends Entity {
      * 🟦 [Server]
      *
      * Returns the current speed of the vehicle in MPH.
-     *
      */
     GetSpeed(): number;
 
@@ -22825,7 +21721,6 @@ interface Vehicle extends Entity {
      * 🟦 [Server]
      *
      * Returns the current steering of the vehicle.
-     *
      */
     GetSteering(): number;
 
@@ -22833,7 +21728,6 @@ interface Vehicle extends Entity {
      * 🟦 [Server]
      *
      * Returns the maximum steering degree of the vehicle
-     *
      */
     GetSteeringDegrees(): number;
 
@@ -22841,7 +21735,6 @@ interface Vehicle extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns if vehicle has thirdperson mode enabled or not.
-     *
      */
     GetThirdPersonMode(): boolean;
 
@@ -22849,7 +21742,6 @@ interface Vehicle extends Entity {
      * 🟦 [Server]
      *
      * Returns the current throttle of the vehicle.
-     *
      */
     GetThrottle(): number;
 
@@ -22857,7 +21749,6 @@ interface Vehicle extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the vehicle class name. This is only useful for Sandbox spawned vehicles or any vehicle that properly sets the vehicle class with [Vehicle:SetVehicleClass](https://wiki.facepunch.com/gmod/Vehicle:SetVehicleClass).
-     *
      */
     GetVehicleClass(): string;
 
@@ -22865,7 +21756,6 @@ interface Vehicle extends Entity {
      * 🟦 [Server]
      *
      * Returns the vehicle parameters of given vehicle.
-     *
      */
     GetVehicleParams(): VehicleParams;
 
@@ -22905,7 +21795,6 @@ interface Vehicle extends Entity {
      * 🟦 [Server]
      *
      * Returns the wheel count of the vehicle
-     *
      */
     GetWheelCount(): number;
 
@@ -22921,7 +21810,6 @@ interface Vehicle extends Entity {
      * 🟦 [Server]
      *
      * Returns whether this vehicle has boost at all.
-     *
      */
     HasBoost(): boolean;
 
@@ -22929,7 +21817,6 @@ interface Vehicle extends Entity {
      * 🟦 [Server]
      *
      * Returns whether this vehicle has a brake pedal. See [Vehicle:SetHasBrakePedal](https://wiki.facepunch.com/gmod/Vehicle:SetHasBrakePedal).
-     *
      */
     HasBrakePedal(): boolean;
 
@@ -22937,7 +21824,6 @@ interface Vehicle extends Entity {
      * 🟦 [Server]
      *
      * Returns whether this vehicle is currently boosting or not.
-     *
      */
     IsBoosting(): boolean;
 
@@ -22945,7 +21831,6 @@ interface Vehicle extends Entity {
      * 🟦 [Server]
      *
      * Returns whether the engine is enabled or not, i.e. whether it can be started.
-     *
      */
     IsEngineEnabled(): boolean;
 
@@ -22953,7 +21838,6 @@ interface Vehicle extends Entity {
      * 🟦 [Server]
      *
      * Returns whether the engine is started or not.
-     *
      */
     IsEngineStarted(): boolean;
 
@@ -22965,7 +21849,6 @@ interface Vehicle extends Entity {
      * It is possible, in uncommon circumstances, for a <page text="valid">Global.IsValid</page> <page text="vehicle">Entity:IsVehicle</page> entity to be in an invalid state, such as before [Entity:Spawn](https://wiki.facepunch.com/gmod/Entity:Spawn) is called on the vehicle after creation.
      *
      * If this function returns `false`, then the [Vehicle](https://wiki.facepunch.com/gmod/Vehicle) functions are not usable on this vehicle, while [Entity](https://wiki.facepunch.com/gmod/Entity) functions are.
-     *
      */
     IsValidVehicle(): boolean;
 
@@ -22973,7 +21856,6 @@ interface Vehicle extends Entity {
      * 🟦 [Server]
      *
      * Returns whether this vehicle's engine is underwater or not. ( Internally the attachment point "engine" or "vehicle_engine" is checked )
-     *
      */
     IsVehicleBodyInWater(): boolean;
 
@@ -22983,7 +21865,6 @@ interface Vehicle extends Entity {
      * Releases the vehicle's handbrake (Jeep) so it can roll without any passengers.
      *
      * This will be overwritten if the vehicle has a driver. Same as [Vehicle:SetHandbrake](https://wiki.facepunch.com/gmod/Vehicle:SetHandbrake)( false )
-     *
      */
     ReleaseHandbrake(): void;
 
@@ -23171,7 +22052,6 @@ interface VMatrix {
      * 🟨🟦 [Shared]
      *
      * Returns the absolute rotation of the matrix. Scaled matrix might produce unexpected results!
-     *
      */
     GetAngles(): Angle;
 
@@ -23190,7 +22070,6 @@ interface VMatrix {
      * Gets the forward direction of the matrix.
      *
      * ie. The first column of the matrix, excluding the w coordinate.
-     *
      */
     GetForward(): Vector;
 
@@ -23202,7 +22081,6 @@ interface VMatrix {
      * Inverting the matrix will fail if its [determinant](https://en.wikipedia.org/wiki/Determinant) is 0 or close to 0. (ie. its "scale" in any direction is 0.)
      *
      * See also [VMatrix:GetInverseTR](https://wiki.facepunch.com/gmod/VMatrix:GetInverseTR).
-     *
      */
     GetInverse(): VMatrix;
 
@@ -23214,7 +22092,6 @@ interface VMatrix {
      * Using this function on a matrix with modified scale may return an incorrect inverted matrix.
      *
      * To get the inverse of a matrix that contains other modifications, see [VMatrix:GetInverse](https://wiki.facepunch.com/gmod/VMatrix:GetInverse).
-     *
      */
     GetInverseTR(): VMatrix;
 
@@ -23224,7 +22101,6 @@ interface VMatrix {
      * Gets the right direction of the matrix.
      *
      * ie. The second column of the matrix, negated, excluding the w coordinate.
-     *
      */
     GetRight(): Vector;
 
@@ -23232,7 +22108,6 @@ interface VMatrix {
      * 🟨🟦 [Shared]
      *
      * Returns the absolute scale of the matrix.
-     *
      */
     GetScale(): Vector;
 
@@ -23240,7 +22115,6 @@ interface VMatrix {
      * 🟨🟦 [Shared]
      *
      * Returns the absolute translation of the matrix.
-     *
      */
     GetTranslation(): Vector;
 
@@ -23248,7 +22122,6 @@ interface VMatrix {
      * 🟨🟦 [Shared]
      *
      * Returns the transpose (each row becomes a column) of this matrix.
-     *
      */
     GetTransposed(): VMatrix;
 
@@ -23258,7 +22131,6 @@ interface VMatrix {
      * Gets the up direction of the matrix.
      *
      * ie. The third column of the matrix, excluding the w coordinate.
-     *
      */
     GetUp(): Vector;
 
@@ -23266,7 +22138,6 @@ interface VMatrix {
      * 🟨🟦 [Shared]
      *
      * Initializes the matrix as Identity matrix.
-     *
      */
     Identity(): void;
 
@@ -23280,7 +22151,6 @@ interface VMatrix {
      * If the matrix cannot be inverted, it does not get modified.
      *
      * See also [VMatrix:InvertTR](https://wiki.facepunch.com/gmod/VMatrix:InvertTR).
-     *
      */
     Invert(): boolean;
 
@@ -23292,7 +22162,6 @@ interface VMatrix {
      * Using this function on a matrix with modified scale may return an incorrect inverted matrix.
      *
      * To invert a matrix that contains other modifications, see [VMatrix:Invert](https://wiki.facepunch.com/gmod/VMatrix:Invert). This function is faster.
-     *
      */
     InvertTR(): void;
 
@@ -23300,7 +22169,6 @@ interface VMatrix {
      * 🟨🟦 [Shared]
      *
      * Returns whether the matrix is equal to Identity matrix or not.
-     *
      */
     IsIdentity(): boolean;
 
@@ -23310,7 +22178,6 @@ interface VMatrix {
      * Returns whether the matrix is a rotation matrix or not.
      *
      * Technically it checks if the forward, right and up vectors are orthogonal and normalized.
-     *
      */
     IsRotationMatrix(): boolean;
 
@@ -23318,7 +22185,6 @@ interface VMatrix {
      * 🟨🟦 [Shared]
      *
      * Checks whenever all fields of the matrix are 0, aka if this is a [null matrix](https://en.wikipedia.org/wiki/Zero_matrix).
-     *
      */
     IsZero(): boolean;
 
@@ -23465,7 +22331,6 @@ interface VMatrix {
      * 🟨🟦 [Shared]
      *
      * Converts the matrix to a 4x4 table. See [Global.Matrix](https://wiki.facepunch.com/gmod/Global.Matrix) function.
-     *
      */
     ToTable(): any;
 
@@ -23483,7 +22348,6 @@ interface VMatrix {
      * 🟨🟦 [Shared]
      *
      * Returns each component of the matrix, expanding rows before columns.
-     *
      */
     Unpack(): LuaMultiReturn<[number, number, number, number, number, number, number, number, number, number, number, number, number, number, number, number]>;
 
@@ -23493,7 +22357,6 @@ interface VMatrix {
      * Sets all components of the matrix to 0, also known as a [null matrix](https://en.wikipedia.org/wiki/Zero_matrix).
      *
      * This function is more efficient than setting each element manually.
-     *
      */
     Zero(): void;
 
@@ -23504,7 +22367,6 @@ interface VMatrix {
  *
  * **Note:**
  * >A list of available methods has been expanded in your navigation bar.
- *
  */
 interface Weapon extends Entity {
 
@@ -23513,7 +22375,6 @@ interface Weapon extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns whether the weapon allows to being switched from when a better ( [Weapon:GetWeight](https://wiki.facepunch.com/gmod/Weapon:GetWeight) ) weapon is being picked up.
-     *
      */
     AllowsAutoSwitchFrom(): boolean;
 
@@ -23521,7 +22382,6 @@ interface Weapon extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns whether the weapon allows to being switched to when a better ([Weapon:GetWeight](https://wiki.facepunch.com/gmod/Weapon:GetWeight)) weapon is being picked up.
-     *
      */
     AllowsAutoSwitchTo(): boolean;
 
@@ -23545,8 +22405,6 @@ interface Weapon extends Entity {
      *
      * **Note:**
      * >This is not shared between clients and will instead return the maximum primary clip size.
-     *
-     *
      */
     Clip1(): number;
 
@@ -23557,8 +22415,6 @@ interface Weapon extends Entity {
      *
      * **Note:**
      * >This is not shared between clients and will instead return the maximum secondary clip size.
-     *
-     *
      */
     Clip2(): number;
 
@@ -23581,8 +22437,6 @@ interface Weapon extends Entity {
      *
      * **Bug [#2543](https://github.com/Facepunch/garrysmod-issues/issues/2543):**
      * >This can return inconsistent results between the server and client.
-     *
-     *
      */
     GetActivity(): ACT;
 
@@ -23590,7 +22444,6 @@ interface Weapon extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the weapon deploy speed, as set by [Weapon:SetDeploySpeed](https://wiki.facepunch.com/gmod/Weapon:SetDeploySpeed). If not previously set, the value will be polled from the `sv_defaultdeployspeed` [ConVar](https://wiki.facepunch.com/gmod/ConVar).
-     *
      */
     GetDeploySpeed(): number;
 
@@ -23598,7 +22451,6 @@ interface Weapon extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the hold type of the weapon.
-     *
      */
     GetHoldType(): string;
 
@@ -23606,7 +22458,6 @@ interface Weapon extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns maximum primary clip size
-     *
      */
     GetMaxClip1(): number;
 
@@ -23614,7 +22465,6 @@ interface Weapon extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns maximum secondary clip size
-     *
      */
     GetMaxClip2(): number;
 
@@ -23622,7 +22472,6 @@ interface Weapon extends Entity {
      * 🟨🟦 [Shared]
      *
      * Gets the next time the weapon can primary fire. ( Can call [WEAPON:PrimaryAttack](https://wiki.facepunch.com/gmod/WEAPON:PrimaryAttack) )
-     *
      */
     GetNextPrimaryFire(): number;
 
@@ -23630,7 +22479,6 @@ interface Weapon extends Entity {
      * 🟨🟦 [Shared]
      *
      * Gets the next time the weapon can secondary fire. ( Can call [WEAPON:SecondaryAttack](https://wiki.facepunch.com/gmod/WEAPON:SecondaryAttack) )
-     *
      */
     GetNextSecondaryFire(): number;
 
@@ -23638,7 +22486,6 @@ interface Weapon extends Entity {
      * 🟨🟦 [Shared]
      *
      * Gets the primary ammo type of the given weapon.
-     *
      */
     GetPrimaryAmmoType(): number;
 
@@ -23652,8 +22499,6 @@ interface Weapon extends Entity {
      *
      * **Note:**
      * >If SWEP.PrintName is not set in the Weapon or the Weapon Base then "&amp;lt;MISSING SWEP PRINT NAME&amp;gt;" will be returned.
-     *
-     *
      */
     GetPrintName(): string;
 
@@ -23661,7 +22506,6 @@ interface Weapon extends Entity {
      * 🟨🟦 [Shared]
      *
      * Gets the ammo type of the given weapons secondary fire.
-     *
      */
     GetSecondaryAmmoType(): number;
 
@@ -23672,8 +22516,6 @@ interface Weapon extends Entity {
      *
      * **Note:**
      * >The slot numbers start from 0.
-     *
-     *
      */
     GetSlot(): number;
 
@@ -23681,7 +22523,6 @@ interface Weapon extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns slot position of the weapon
-     *
      */
     GetSlotPos(): number;
 
@@ -23689,7 +22530,6 @@ interface Weapon extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the view model of the weapon.
-     *
      */
     GetWeaponViewModel(): string;
 
@@ -23697,7 +22537,6 @@ interface Weapon extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the world model of the weapon.
-     *
      */
     GetWeaponWorldModel(): string;
 
@@ -23705,7 +22544,6 @@ interface Weapon extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the "weight" of the weapon, which is used when deciding which [Weapon](https://wiki.facepunch.com/gmod/Weapon) is better by the engine.
-     *
      */
     GetWeight(): number;
 
@@ -23716,8 +22554,6 @@ interface Weapon extends Entity {
      *
      * **Note:**
      * >This will return true for weapons like crowbar, gravity gun, etc.
-     *
-     *
      */
     HasAmmo(): boolean;
 
@@ -23725,7 +22561,6 @@ interface Weapon extends Entity {
      * 🟨 [Client]
      *
      * Returns whenever the weapon is carried by the local player.
-     *
      */
     IsCarriedByLocalPlayer(): boolean;
 
@@ -23733,7 +22568,6 @@ interface Weapon extends Entity {
      * 🟨🟦 [Shared]
      *
      * Checks if the weapon is a SWEP or a built-in weapon.
-     *
      */
     IsScripted(): boolean;
 
@@ -23741,7 +22575,6 @@ interface Weapon extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns whether the weapon is visible. The term visibility is not exactly what gets checked here, first it checks if the owner is a player, then checks if the active view model has EF_NODRAW flag NOT set.
-     *
      */
     IsWeaponVisible(): boolean;
 
@@ -23749,7 +22582,6 @@ interface Weapon extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the time since this weapon last fired a bullet with [Entity:FireBullets](https://wiki.facepunch.com/gmod/Entity:FireBullets) in seconds. It is not networked.
-     *
      */
     LastShootTime(): number;
 
@@ -23851,7 +22683,6 @@ interface Weapon extends Entity {
  *
  * **Note:**
  * >You need to set the `HTML` field to a [DHTML](https://wiki.facepunch.com/gmod/DHTML) panel that is set up correctly like [here](https://github.com/Facepunch/garrysmod/blob/master/garrysmod/gamemodes/sandbox/gamemode/spawnmenu/creationmenu/content/contenttypes/dupes.lua#L12), or else you might get errors.
- *
  */
 interface WorkshopFileBase {
 
@@ -23943,13 +22774,10 @@ interface AvatarImage extends Panel {
 }
 
 /**
- *
- *
  * @deprecated You should be using [HTML](https://wiki.facepunch.com/gmod/HTML) panel, which this is an alias of.
  *
  * **Note:**
  * >On the `x86-64` beta this panel isn't actually Awesomium, its the same as `HTML` (`HtmlPanel`)
- *
  */
 interface Awesomium extends Panel {
 
@@ -23963,7 +22791,6 @@ interface Awesomium extends Panel {
  * 	[View source](https://github.com/Facepunch/garrysmod/blob/dfdafba0f04e75be122961291a56d9c1714a3d8a/garrysmod/lua/vgui/dbutton.lua#L181-L193)
  *
  * @deprecated Only exists for backwards compatibility with [Panel:SetActionFunction](https://wiki.facepunch.com/gmod/Panel:SetActionFunction). Use [DButton](https://wiki.facepunch.com/gmod/DButton) instead.
- *
  */
 interface Button extends DButton {
 
@@ -24022,7 +22849,6 @@ interface ContentIcon extends Omit<DButton, "SetMaterial"> {
      * 🟨 [Client]
      *
      * An [Global.AccessorFunc](https://wiki.facepunch.com/gmod/Global.AccessorFunc) that returns the color set by [ContentIcon:SetColor](https://wiki.facepunch.com/gmod/ContentIcon:SetColor)
-     *
      */
     GetColor(): Color;
 
@@ -24030,7 +22856,6 @@ interface ContentIcon extends Omit<DButton, "SetMaterial"> {
      * 🟨 [Client]
      *
      * An [Global.AccessorFunc](https://wiki.facepunch.com/gmod/Global.AccessorFunc) that returns the content type used to save and restore the content icon in a spawnlist.
-     *
      */
     GetContentType(): string;
 
@@ -24038,7 +22863,6 @@ interface ContentIcon extends Omit<DButton, "SetMaterial"> {
      * 🟨 [Client]
      *
      * An [Global.AccessorFunc](https://wiki.facepunch.com/gmod/Global.AccessorFunc) that returns a table of weapon classes for the content icon with "NPC" content type to be randomly chosen from when user tries to spawn the NPC.
-     *
      */
     GetNPCWeapon(): any;
 
@@ -24046,7 +22870,6 @@ interface ContentIcon extends Omit<DButton, "SetMaterial"> {
      * 🟨 [Client]
      *
      * An [Global.AccessorFunc](https://wiki.facepunch.com/gmod/Global.AccessorFunc) that returns the internal "name" for the content icon, usually a class name for an entity.
-     *
      */
     GetSpawnName(): string;
 
@@ -24054,7 +22877,6 @@ interface ContentIcon extends Omit<DButton, "SetMaterial"> {
      * 🟨 [Client]
      *
      * A hook for override, by default does nothing. Called when user right clicks on the content icon, you are supposed to open a [Global.DermaMenu](https://wiki.facepunch.com/gmod/Global.DermaMenu) here with additional options.
-     *
      */
     OpenMenu(): void;
 
@@ -24137,7 +22959,6 @@ interface ContentSidebar extends DPanel {
      * 🟨 [Client]
      *
      * Internally calls [ContentSidebar:EnableSearch](https://wiki.facepunch.com/gmod/ContentSidebar:EnableSearch), [ContentSidebar:CreateSaveNotification](https://wiki.facepunch.com/gmod/ContentSidebar:CreateSaveNotification) and creates a ContentSidebarToolbox which is accessible under ContentSidebar.Toolbox. Call the Hook [SANDBOX:OpenToolbox](https://wiki.facepunch.com/gmod/SANDBOX:OpenToolbox) to open the created Toolbox
-     *
      */
     EnableModify(): void;
 
@@ -24183,7 +23004,6 @@ interface ContextBase extends Panel {
      * 🟨 [Client]
      *
      * Returns the [ConVar](https://wiki.facepunch.com/gmod/ConVar) for the panel to change/handle, set by [ContextBase:SetConVar](https://wiki.facepunch.com/gmod/ContextBase:SetConVar)
-     *
      */
     ConVar(): string;
 
@@ -24199,7 +23019,6 @@ interface ContextBase extends Panel {
      * 🟨 [Client]
      *
      * You should override this function and use it to check whether your convar value changed.
-     *
      */
     TestForChanges(): void;
 
@@ -24303,7 +23122,6 @@ interface ControlPanel extends DForm {
      * 🟨 [Client]
      *
      * Alias of [Panel:Clear](https://wiki.facepunch.com/gmod/Panel:Clear).
-     *
      */
     ClearControls(): void;
 
@@ -24347,7 +23165,6 @@ interface ControlPanel extends DForm {
      * 🟨 [Client]
      *
      * Returns this control panel.
-     *
      */
     GetEmbeddedPanel(): ControlPanel;
 
@@ -24414,7 +23231,6 @@ interface ControlPresets extends Panel {
      * 🟨 [Client]
      *
      * Runs [Panel:Clear](https://wiki.facepunch.com/gmod/Panel:Clear) on the Internal [DComboBox](https://wiki.facepunch.com/gmod/DComboBox)
-     *
      */
     Clear(): void;
 
@@ -24422,7 +23238,6 @@ interface ControlPresets extends Panel {
      * 🟨 [Client]
      *
      * Get a list of all Console Variables being managed by this panel.
-     *
      */
     GetConVars(): any;
 
@@ -24441,7 +23256,6 @@ interface ControlPresets extends Panel {
      * 🟨 [Client]
      *
      * Creates and opens [PresetEditor](https://wiki.facepunch.com/gmod/PresetEditor)
-     *
      */
     OpenPresetEditor(): void;
 
@@ -24454,15 +23268,11 @@ interface ControlPresets extends Panel {
 
     /**
      * 🟨 [Client]
-     *
-     *
      */
     QuickSavePreset(): void;
 
     /**
      * 🟨 [Client]
-     *
-     *
      */
     ReloadPresets(): void;
 
@@ -24493,7 +23303,6 @@ interface ControlPresets extends Panel {
      * 🟨 [Client]
      *
      * Alias of [ControlPresets:ReloadPresets](https://wiki.facepunch.com/gmod/ControlPresets:ReloadPresets)
-     *
      */
     Update(): void;
 
@@ -24530,7 +23339,6 @@ interface CtrlNumPad extends Panel {
      * 🟨 [Client]
      *
      * The value (key bind) of the first [DBinder](https://wiki.facepunch.com/gmod/DBinder).
-     *
      */
     GetValue1(): KEY;
 
@@ -24538,7 +23346,6 @@ interface CtrlNumPad extends Panel {
      * 🟨 [Client]
      *
      * The value (key bind) of the second [DBinder](https://wiki.facepunch.com/gmod/DBinder), if it's enabled.
-     *
      */
     GetValue2(): KEY;
 
@@ -24590,7 +23397,6 @@ interface DAdjustableModelPanel extends DModelPanel {
      * 🟨 [Client]
      *
      * Used by the panel to perform mouse capture operations when adjusting the model.
-     *
      */
     CaptureMouse(): void;
 
@@ -24598,7 +23404,6 @@ interface DAdjustableModelPanel extends DModelPanel {
      * 🟨 [Client]
      *
      * Used to adjust the perspective in the model panel via the keyboard, when the right mouse button is used.
-     *
      */
     FirstPersonControls(): void;
 
@@ -24608,7 +23413,6 @@ interface DAdjustableModelPanel extends DModelPanel {
      * Gets whether mouse and keyboard-based adjustment of the perspective has been enabled. See [DAdjustableModelPanel:SetFirstPerson](https://wiki.facepunch.com/gmod/DAdjustableModelPanel:SetFirstPerson) for more information.
      *
      * This is an [Global.AccessorFunc](https://wiki.facepunch.com/gmod/Global.AccessorFunc)
-     *
      */
     GetFirstPerson(): boolean;
 
@@ -24618,7 +23422,6 @@ interface DAdjustableModelPanel extends DModelPanel {
      * Returns the movement speed multiplier set by [DAdjustableModelPanel:SetMovementScale](https://wiki.facepunch.com/gmod/DAdjustableModelPanel:SetMovementScale).
      *
      * 	An [Global.AccessorFunc](https://wiki.facepunch.com/gmod/Global.AccessorFunc)
-     *
      */
     GetMovementScale(): number;
 
@@ -24654,7 +23457,6 @@ interface DAlphaBar extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the base color of the alpha bar. This is the color for which the alpha channel is being modified. An [Global.AccessorFunc](https://wiki.facepunch.com/gmod/Global.AccessorFunc)
-     *
      */
     GetBarColor(): any;
 
@@ -24662,7 +23464,6 @@ interface DAlphaBar extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the alpha value of the alpha bar. An [Global.AccessorFunc](https://wiki.facepunch.com/gmod/Global.AccessorFunc)
-     *
      */
     GetValue(): number;
 
@@ -24702,7 +23503,6 @@ interface DBinder extends DButton {
      * 🟨 [Client]
      *
      * Gets the code of the key currently bound by the DBinder. Same as [DBinder:GetValue](https://wiki.facepunch.com/gmod/DBinder:GetValue). An [Global.AccessorFunc](https://wiki.facepunch.com/gmod/Global.AccessorFunc)
-     *
      */
     GetSelectedNumber(): KEY;
 
@@ -24710,7 +23510,6 @@ interface DBinder extends DButton {
      * 🟨 [Client]
      *
      * Gets the code of the key currently bound by the DBinder. Same as [DBinder:GetSelectedNumber](https://wiki.facepunch.com/gmod/DBinder:GetSelectedNumber).
-     *
      */
     GetValue(): KEY;
 
@@ -24742,7 +23541,6 @@ interface DBinder extends DButton {
      * 🟨 [Client]
      *
      * Used to set the text of the DBinder to the current key binding, or `NONE`.
-     *
      */
     UpdateText(): void;
 
@@ -24758,7 +23556,6 @@ interface DBubbleContainer extends DPanel {
      * 🟨 [Client]
      *
      * Returns Background Color, See [DBubbleContainer:SetBackgroundColor](https://wiki.facepunch.com/gmod/DBubbleContainer:SetBackgroundColor)
-     *
      */
     GetBackgroundColor(): void;
 
@@ -24795,7 +23592,6 @@ interface DButton extends DLabel {
      * 🟨🟩 [Client and Menu]
      *
      * An [Global.AccessorFunc](https://wiki.facepunch.com/gmod/Global.AccessorFunc) that returns value set by [DButton:SetDrawBorder](https://wiki.facepunch.com/gmod/DButton:SetDrawBorder). See that page for more info.
-     *
      */
     GetDrawBorder(): boolean;
 
@@ -24803,7 +23599,6 @@ interface DButton extends DLabel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns true if the DButton is currently depressed (a user is clicking on it).
-     *
      */
     IsDown(): boolean;
 
@@ -24903,7 +23698,6 @@ interface DCategoryList extends Omit<DScrollPanel, "Add"> {
      * 🟨🟩 [Client and Menu]
      *
      * Calls [Panel:UnselectAll](https://wiki.facepunch.com/gmod/Panel:UnselectAll) on all child elements, if they have it.
-     *
      */
     UnselectAll(): void;
 
@@ -24919,7 +23713,6 @@ interface DCheckBox extends DButton {
      * 🟨🟩 [Client and Menu]
      *
      * Calls [DCheckBox:Toggle](https://wiki.facepunch.com/gmod/DCheckBox:Toggle)
-     *
      */
     DoClick(): void;
 
@@ -24927,7 +23720,6 @@ interface DCheckBox extends DButton {
      * 🟨🟩 [Client and Menu]
      *
      * An [Global.AccessorFunc](https://wiki.facepunch.com/gmod/Global.AccessorFunc) that gets the checked state of the checkbox.
-     *
      */
     GetChecked(): boolean;
 
@@ -24935,7 +23727,6 @@ interface DCheckBox extends DButton {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether the state of the checkbox is being edited. This means whether the user is currently clicking (mouse-down) on the checkbox, and applies to both the left and right mouse buttons.
-     *
      */
     IsEditing(): boolean;
 
@@ -24967,7 +23758,6 @@ interface DCheckBox extends DButton {
      * 🟨🟩 [Client and Menu]
      *
      * Toggles the checked state of the checkbox, and calls the checkbox's [DCheckBox:OnChange](https://wiki.facepunch.com/gmod/DCheckBox:OnChange) and [Panel:ConVarChanged](https://wiki.facepunch.com/gmod/Panel:ConVarChanged) methods. [DCheckBox:DoClick](https://wiki.facepunch.com/gmod/DCheckBox:DoClick) is an alias of this function.
-     *
      */
     Toggle(): void;
 
@@ -24984,7 +23774,6 @@ interface DCheckBoxLabel extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Gets the checked state of the checkbox. This calls the checkbox's [DCheckBox:GetChecked](https://wiki.facepunch.com/gmod/DCheckBox:GetChecked) function.
-     *
      */
     GetChecked(): boolean;
 
@@ -24992,7 +23781,6 @@ interface DCheckBoxLabel extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * An [Global.AccessorFunc](https://wiki.facepunch.com/gmod/Global.AccessorFunc) that gets the indentation of the element on the X axis. See also [DCheckBoxLabel:SetIndent](https://wiki.facepunch.com/gmod/DCheckBoxLabel:SetIndent)
-     *
      */
     GetIndent(): number;
 
@@ -25072,7 +23860,6 @@ interface DCheckBoxLabel extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Sizes the panel to the size of the internal DLabel and DButton
-     *
      */
     SizeToContents(): void;
 
@@ -25080,7 +23867,6 @@ interface DCheckBoxLabel extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Toggles the checked state of the [DCheckBoxLabel](https://wiki.facepunch.com/gmod/DCheckBoxLabel).
-     *
      */
     Toggle(): void;
 
@@ -25124,7 +23910,6 @@ interface DCollapsibleCategory extends Omit<Panel, "Add"> {
      * 🟨🟩 [Client and Menu]
      *
      * An [Global.AccessorFunc](https://wiki.facepunch.com/gmod/Global.AccessorFunc) that returns the expand/collapse animation time set by [DCollapsibleCategory:SetAnimTime](https://wiki.facepunch.com/gmod/DCollapsibleCategory:SetAnimTime).
-     *
      */
     GetAnimTime(): number;
 
@@ -25134,8 +23919,6 @@ interface DCollapsibleCategory extends Omit<Panel, "Add"> {
      * Returns whether or not the panel background is being drawn. Alias of [DCollapsibleCategory:GetPaintBackground](https://wiki.facepunch.com/gmod/DCollapsibleCategory:GetPaintBackground).
      *
      * @deprecated You should use [DCollapsibleCategory:GetPaintBackground](https://wiki.facepunch.com/gmod/DCollapsibleCategory:GetPaintBackground) instead.
-     *
-     *
      */
     GetDrawBackground(): boolean;
 
@@ -25143,7 +23926,6 @@ interface DCollapsibleCategory extends Omit<Panel, "Add"> {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether the DCollapsibleCategory is expanded or not.
-     *
      */
     GetExpanded(): boolean;
 
@@ -25153,7 +23935,6 @@ interface DCollapsibleCategory extends Omit<Panel, "Add"> {
      * Returns the header height of the [DCollapsibleCategory](https://wiki.facepunch.com/gmod/DCollapsibleCategory).
      *
      * See also [DCollapsibleCategory:SetHeaderHeight](https://wiki.facepunch.com/gmod/DCollapsibleCategory:SetHeaderHeight).
-     *
      */
     GetHeaderHeight(): number;
 
@@ -25163,7 +23944,6 @@ interface DCollapsibleCategory extends Omit<Panel, "Add"> {
      * If set, the [DCategoryList](https://wiki.facepunch.com/gmod/DCategoryList) that created this panel.
      *
      * See also [DCollapsibleCategory:SetList](https://wiki.facepunch.com/gmod/DCollapsibleCategory:SetList).
-     *
      */
     GetList(): Panel;
 
@@ -25173,7 +23953,6 @@ interface DCollapsibleCategory extends Omit<Panel, "Add"> {
      * Doesn't actually do anything.
      *
      * Returns the number set by [DCollapsibleCategory:SetPadding](https://wiki.facepunch.com/gmod/DCollapsibleCategory:SetPadding).
-     *
      */
     GetPadding(): number;
 
@@ -25181,7 +23960,6 @@ interface DCollapsibleCategory extends Omit<Panel, "Add"> {
      * 🟨🟩 [Client and Menu]
      *
      * An [Global.AccessorFunc](https://wiki.facepunch.com/gmod/Global.AccessorFunc) that returns whether or not the background should be painted.
-     *
      */
     GetPaintBackground(): boolean;
 
@@ -25189,7 +23967,6 @@ interface DCollapsibleCategory extends Omit<Panel, "Add"> {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whatever was set by [DCollapsibleCategory:SetStartHeight](https://wiki.facepunch.com/gmod/DCollapsibleCategory:SetStartHeight)
-     *
      */
     GetStartHeight(): number;
 
@@ -25296,7 +24073,6 @@ interface DCollapsibleCategory extends Omit<Panel, "Add"> {
      * Toggles the expanded state of the [DCollapsibleCategory](https://wiki.facepunch.com/gmod/DCollapsibleCategory).
      *
      * See [DCollapsibleCategory:GetExpanded](https://wiki.facepunch.com/gmod/DCollapsibleCategory:GetExpanded) for a function to retrieve the expanded state.
-     *
      */
     Toggle(): void;
 
@@ -25304,7 +24080,6 @@ interface DCollapsibleCategory extends Omit<Panel, "Add"> {
      * 🟨🟩 [Client and Menu]
      *
      * Used internally to update the "AltLine" property on all "child" panels.
-     *
      */
     UpdateAltLines(): void;
 
@@ -25320,7 +24095,6 @@ interface DColorButton extends Omit<DLabel, "SetColor"> {
      * 🟨🟩 [Client and Menu]
      *
      * An [Global.AccessorFunc](https://wiki.facepunch.com/gmod/Global.AccessorFunc) that returns the color of the button
-     *
      */
     GetColor(): Color;
 
@@ -25328,7 +24102,6 @@ interface DColorButton extends Omit<DLabel, "SetColor"> {
      * 🟨🟩 [Client and Menu]
      *
      * An [Global.AccessorFunc](https://wiki.facepunch.com/gmod/Global.AccessorFunc) that returns value set by [DColorButton:SetDrawBorder](https://wiki.facepunch.com/gmod/DColorButton:SetDrawBorder). See that page for more info.
-     *
      */
     GetDrawBorder(): boolean;
 
@@ -25338,7 +24111,6 @@ interface DColorButton extends Omit<DLabel, "SetColor"> {
      * An [Global.AccessorFunc](https://wiki.facepunch.com/gmod/Global.AccessorFunc) that returns the unique ID set by [DColorButton:SetID](https://wiki.facepunch.com/gmod/DColorButton:SetID).
      *
      * Used internally by [DColorPalette](https://wiki.facepunch.com/gmod/DColorPalette)
-     *
      */
     GetID(): number;
 
@@ -25346,7 +24118,6 @@ interface DColorButton extends Omit<DLabel, "SetColor"> {
      * 🟨🟩 [Client and Menu]
      *
      * An [Global.AccessorFunc](https://wiki.facepunch.com/gmod/Global.AccessorFunc) that is an alias of [Panel:IsSelected](https://wiki.facepunch.com/gmod/Panel:IsSelected).
-     *
      */
     GetSelected(): boolean;
 
@@ -25354,7 +24125,6 @@ interface DColorButton extends Omit<DLabel, "SetColor"> {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether the [DColorButton](https://wiki.facepunch.com/gmod/DColorButton) is currently being pressed (the user is holding it down).
-     *
      */
     IsDown(): boolean;
 
@@ -25398,7 +24168,6 @@ interface DColorCombo extends DPropertySheet {
      * 🟨 [Client]
      *
      * Called internally to create panels necessary for this panel to work.
-     *
      */
     BuildControls(): void;
 
@@ -25406,7 +24175,6 @@ interface DColorCombo extends DPropertySheet {
      * 🟨 [Client]
      *
      * An [Global.AccessorFunc](https://wiki.facepunch.com/gmod/Global.AccessorFunc) that returns the color of the [DColorCombo](https://wiki.facepunch.com/gmod/DColorCombo).
-     *
      */
     GetColor(): Color;
 
@@ -25416,7 +24184,6 @@ interface DColorCombo extends DPropertySheet {
      * Returns true if the panel is currently being edited
      *
      * More of a internal method, it technically should only ever work (i.e. return true) inside [DColorCombo:OnValueChanged](https://wiki.facepunch.com/gmod/DColorCombo:OnValueChanged).
-     *
      */
     IsEditing(): boolean;
 
@@ -25448,7 +24215,6 @@ interface DColorCube extends DSlider {
      * 🟨🟩 [Client and Menu]
      *
      * An [Global.AccessorFunc](https://wiki.facepunch.com/gmod/Global.AccessorFunc) that returns the base Color set by [DColorCube:SetBaseRGB](https://wiki.facepunch.com/gmod/DColorCube:SetBaseRGB).
-     *
      */
     GetBaseRGB(): Color;
 
@@ -25456,7 +24222,6 @@ interface DColorCube extends DSlider {
      * 🟨🟩 [Client and Menu]
      *
      * An [Global.AccessorFunc](https://wiki.facepunch.com/gmod/Global.AccessorFunc) that returns the color cube's default color. By default, it is set to white. (255 255 255 RGB)
-     *
      */
     GetDefaultColor(): Color;
 
@@ -25464,7 +24229,6 @@ interface DColorCube extends DSlider {
      * 🟨🟩 [Client and Menu]
      *
      * An [Global.AccessorFunc](https://wiki.facepunch.com/gmod/Global.AccessorFunc) that returns the value set by [DColorCube:SetHue](https://wiki.facepunch.com/gmod/DColorCube:SetHue).
-     *
      */
     GetHue(): number;
 
@@ -25472,7 +24236,6 @@ interface DColorCube extends DSlider {
      * 🟨🟩 [Client and Menu]
      *
      * An [Global.AccessorFunc](https://wiki.facepunch.com/gmod/Global.AccessorFunc) that returns the color cube's current set color.
-     *
      */
     GetRGB(): Color;
 
@@ -25488,7 +24251,6 @@ interface DColorCube extends DSlider {
      * 🟨🟩 [Client and Menu]
      *
      * Sets the color to whatever [DColorCube:GetDefaultColor](https://wiki.facepunch.com/gmod/DColorCube:GetDefaultColor) returns
-     *
      */
     ResetToDefaultValue(): void;
 
@@ -25564,8 +24326,6 @@ interface DColorMixer extends DPanel {
 
     /**
      * 🟨🟩 [Client and Menu]
-     *
-     *
      */
     ConVarThink(): void;
 
@@ -25580,7 +24340,6 @@ interface DColorMixer extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * An [Global.AccessorFunc](https://wiki.facepunch.com/gmod/Global.AccessorFunc) that returns true if alpha bar is shown, false if not.
-     *
      */
     GetAlphaBar(): boolean;
 
@@ -25588,7 +24347,6 @@ interface DColorMixer extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * An [Global.AccessorFunc](https://wiki.facepunch.com/gmod/Global.AccessorFunc) that returns the current selected color.
-     *
      */
     GetColor(): Color;
 
@@ -25601,7 +24359,6 @@ interface DColorMixer extends DPanel {
      * * [DColorMixer:GetConVarR](https://wiki.facepunch.com/gmod/DColorMixer:GetConVarR) - For the red channel
      * * [DColorMixer:GetConVarG](https://wiki.facepunch.com/gmod/DColorMixer:GetConVarG) - For the green channel
      * * [DColorMixer:GetConVarB](https://wiki.facepunch.com/gmod/DColorMixer:GetConVarB) - For the blue channel
-     *
      */
     GetConVarA(): string;
 
@@ -25614,7 +24371,6 @@ interface DColorMixer extends DPanel {
      * * [DColorMixer:GetConVarR](https://wiki.facepunch.com/gmod/DColorMixer:GetConVarR) - For the red channel
      * * [DColorMixer:GetConVarG](https://wiki.facepunch.com/gmod/DColorMixer:GetConVarG) - For the green channel
      * * [DColorMixer:GetConVarA](https://wiki.facepunch.com/gmod/DColorMixer:GetConVarA) - For the alpha channel
-     *
      */
     GetConVarB(): string;
 
@@ -25627,7 +24383,6 @@ interface DColorMixer extends DPanel {
      * * [DColorMixer:GetConVarR](https://wiki.facepunch.com/gmod/DColorMixer:GetConVarR) - For the red channel
      * * [DColorMixer:GetConVarB](https://wiki.facepunch.com/gmod/DColorMixer:GetConVarB) - For the blue channel
      * * [DColorMixer:GetConVarA](https://wiki.facepunch.com/gmod/DColorMixer:GetConVarA) - For the alpha channel
-     *
      */
     GetConVarG(): string;
 
@@ -25640,7 +24395,6 @@ interface DColorMixer extends DPanel {
      * * [DColorMixer:GetConVarG](https://wiki.facepunch.com/gmod/DColorMixer:GetConVarG) - For the green channel
      * * [DColorMixer:GetConVarB](https://wiki.facepunch.com/gmod/DColorMixer:GetConVarB) - For the blue channel
      * * [DColorMixer:GetConVarA](https://wiki.facepunch.com/gmod/DColorMixer:GetConVarA) - For the alpha channel
-     *
      */
     GetConVarR(): string;
 
@@ -25648,7 +24402,6 @@ interface DColorMixer extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * An [Global.AccessorFunc](https://wiki.facepunch.com/gmod/Global.AccessorFunc) that returns true if palette is shown, false if not.
-     *
      */
     GetPalette(): boolean;
 
@@ -25656,7 +24409,6 @@ interface DColorMixer extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the color as a normalized [Vector](https://wiki.facepunch.com/gmod/Vector).
-     *
      */
     GetVector(): Vector;
 
@@ -25664,7 +24416,6 @@ interface DColorMixer extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * An [Global.AccessorFunc](https://wiki.facepunch.com/gmod/Global.AccessorFunc) that returns true if the wangs are shown, false if not.
-     *
      */
     GetWangs(): boolean;
 
@@ -25807,7 +24558,6 @@ interface DColorMixer extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * sets the default color of the element to the currently selected color
-     *
      */
     UpdateDefaultColor(): void;
 
@@ -25848,7 +24598,6 @@ interface DColorPalette extends DIconLayout {
      * 🟨🟩 [Client and Menu]
      *
      * An [Global.AccessorFunc](https://wiki.facepunch.com/gmod/Global.AccessorFunc) that returns the size of each palette button. Set by [DColorPalette:SetButtonSize](https://wiki.facepunch.com/gmod/DColorPalette:SetButtonSize).
-     *
      */
     GetButtonSize(): number;
 
@@ -25861,7 +24610,6 @@ interface DColorPalette extends DIconLayout {
      * * [DColorPalette:GetConVarR](https://wiki.facepunch.com/gmod/DColorPalette:GetConVarR) - For the red channel
      * * [DColorPalette:GetConVarG](https://wiki.facepunch.com/gmod/DColorPalette:GetConVarG) - For the green channel
      * * [DColorPalette:GetConVarB](https://wiki.facepunch.com/gmod/DColorPalette:GetConVarB) - For the blue channel
-     *
      */
     GetConVarA(): string;
 
@@ -25874,7 +24622,6 @@ interface DColorPalette extends DIconLayout {
      * * [DColorPalette:GetConVarR](https://wiki.facepunch.com/gmod/DColorPalette:GetConVarR) - For the red channel
      * * [DColorPalette:GetConVarG](https://wiki.facepunch.com/gmod/DColorPalette:GetConVarG) - For the green channel
      * * [DColorPalette:GetConVarA](https://wiki.facepunch.com/gmod/DColorPalette:GetConVarA) - For the alpha channel
-     *
      */
     GetConVarB(): string;
 
@@ -25887,7 +24634,6 @@ interface DColorPalette extends DIconLayout {
      * * [DColorPalette:GetConVarR](https://wiki.facepunch.com/gmod/DColorPalette:GetConVarR) - For the red channel
      * * [DColorPalette:GetConVarB](https://wiki.facepunch.com/gmod/DColorPalette:GetConVarB) - For the blue channel
      * * [DColorPalette:GetConVarA](https://wiki.facepunch.com/gmod/DColorPalette:GetConVarA) - For the alpha channel
-     *
      */
     GetConVarG(): string;
 
@@ -25900,7 +24646,6 @@ interface DColorPalette extends DIconLayout {
      * * [DColorPalette:GetConVarG](https://wiki.facepunch.com/gmod/DColorPalette:GetConVarG) - For the green channel
      * * [DColorPalette:GetConVarB](https://wiki.facepunch.com/gmod/DColorPalette:GetConVarB) - For the blue channel
      * * [DColorPalette:GetConVarA](https://wiki.facepunch.com/gmod/DColorPalette:GetConVarA) - For the alpha channel
-     *
      */
     GetConVarR(): string;
 
@@ -25908,7 +24653,6 @@ interface DColorPalette extends DIconLayout {
      * 🟨🟩 [Client and Menu]
      *
      * An [Global.AccessorFunc](https://wiki.facepunch.com/gmod/Global.AccessorFunc) that returns the number of rows of the palette, provided 6 colors fill each row. This value is equal to the number of colors in the DColorPalette divided by 6.
-     *
      */
     GetNumRows(): number;
 
@@ -25916,7 +24660,6 @@ interface DColorPalette extends DIconLayout {
      * 🟨🟩 [Client and Menu]
      *
      * Used internally to make sure changes on one palette affect other palettes with same name.
-     *
      */
     NetworkColorChange(): void;
 
@@ -25942,7 +24685,6 @@ interface DColorPalette extends DIconLayout {
      * Resets this entire color palette to a default preset one, without saving.
      *
      * See [DColorPalette:ResetSavedColors](https://wiki.facepunch.com/gmod/DColorPalette:ResetSavedColors) for version that also saves the changes.
-     *
      */
     Reset(): void;
 
@@ -25952,7 +24694,6 @@ interface DColorPalette extends DIconLayout {
      * Resets this entire color palette to a default preset one and saves the changes.
      *
      * See [DColorPalette:Reset](https://wiki.facepunch.com/gmod/DColorPalette:Reset) for version that does not save the changes.
-     *
      */
     ResetSavedColors(): void;
 
@@ -26103,7 +24844,6 @@ interface DColumnSheet extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * An [Global.AccessorFunc](https://wiki.facepunch.com/gmod/Global.AccessorFunc) that returns the active button of this [DColumnSheet](https://wiki.facepunch.com/gmod/DColumnSheet).
-     *
      */
     GetActiveButton(): Panel;
 
@@ -26119,7 +24859,6 @@ interface DColumnSheet extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Makes the tabs/buttons show only the image and no text.
-     *
      */
     UseButtonOnlyStyle(): void;
 
@@ -26147,7 +24886,6 @@ interface DComboBox extends DButton {
      * 🟨🟩 [Client and Menu]
      *
      * Adds a spacer below the currently last item in the drop down. Recommended to use with [DComboBox:SetSortItems](https://wiki.facepunch.com/gmod/DComboBox:SetSortItems) set to `false`.
-     *
      */
     AddSpacer(): void;
 
@@ -26155,7 +24893,6 @@ interface DComboBox extends DButton {
      * 🟨🟩 [Client and Menu]
      *
      * Ran every frame to update the value of this panel to the value of the associated convar. See [Panel:SetConvar](https://wiki.facepunch.com/gmod/Panel:SetConvar).
-     *
      */
     CheckConVarChanges(): void;
 
@@ -26180,7 +24917,6 @@ interface DComboBox extends DButton {
      * 🟨🟩 [Client and Menu]
      *
      * Clears the combo box's text value, choices, and data values.
-     *
      */
     Clear(): void;
 
@@ -26188,7 +24924,6 @@ interface DComboBox extends DButton {
      * 🟨🟩 [Client and Menu]
      *
      * Closes the combo box menu. Called when the combo box is clicked while open.
-     *
      */
     CloseMenu(): void;
 
@@ -26221,7 +24956,6 @@ interface DComboBox extends DButton {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the currently selected option's text and data
-     *
      */
     GetSelected(): LuaMultiReturn<[string, any]>;
 
@@ -26229,7 +24963,6 @@ interface DComboBox extends DButton {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the index (ID) of the currently selected option.
-     *
      */
     GetSelectedID(): number;
 
@@ -26239,7 +24972,6 @@ interface DComboBox extends DButton {
      * An [Global.AccessorFunc](https://wiki.facepunch.com/gmod/Global.AccessorFunc) that returns an whether the items in the dropdown will be alphabetically sorted or not.
      *
      * See [DComboBox:SetSortItems](https://wiki.facepunch.com/gmod/DComboBox:SetSortItems).
-     *
      */
     GetSortItems(): boolean;
 
@@ -26247,7 +24979,6 @@ interface DComboBox extends DButton {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether or not the combo box's menu is opened.
-     *
      */
     IsMenuOpen(): boolean;
 
@@ -26273,7 +25004,6 @@ interface DComboBox extends DButton {
      * 🟨🟩 [Client and Menu]
      *
      * Opens the combo box drop down menu. Called when the combo box is clicked.
-     *
      */
     OpenMenu(): void;
 
@@ -26351,7 +25081,6 @@ interface DDragBase extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the drag'n'drop group this panel belongs to. See [DDragBase:MakeDroppable](https://wiki.facepunch.com/gmod/DDragBase:MakeDroppable). An [Global.AccessorFunc](https://wiki.facepunch.com/gmod/Global.AccessorFunc)
-     *
      */
     GetDnD(): string;
 
@@ -26359,7 +25088,6 @@ interface DDragBase extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether this panel is read only or not for drag'n'drop purposes. An [Global.AccessorFunc](https://wiki.facepunch.com/gmod/Global.AccessorFunc)
-     *
      */
     GetReadOnly(): boolean;
 
@@ -26367,7 +25095,6 @@ interface DDragBase extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Whether this panel uses live drag'n'drop previews. An [Global.AccessorFunc](https://wiki.facepunch.com/gmod/Global.AccessorFunc)
-     *
      */
     GetUseLiveDrag(): boolean;
 
@@ -26386,7 +25113,6 @@ interface DDragBase extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Called when anything is dropped on or rearranged within the [DDragBase](https://wiki.facepunch.com/gmod/DDragBase). For Override
-     *
      */
     OnModified(): void;
 
@@ -26452,7 +25178,6 @@ interface DDrawer extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Closes the [DDrawer](https://wiki.facepunch.com/gmod/DDrawer).
-     *
      */
     Close(): void;
 
@@ -26460,7 +25185,6 @@ interface DDrawer extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * An [Global.AccessorFunc](https://wiki.facepunch.com/gmod/Global.AccessorFunc) that returns the Open Size of DDrawer.
-     *
      */
     GetOpenSize(): number;
 
@@ -26468,7 +25192,6 @@ interface DDrawer extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * An [Global.AccessorFunc](https://wiki.facepunch.com/gmod/Global.AccessorFunc) that returns the Open Time of DDrawer.
-     *
      */
     GetOpenTime(): number;
 
@@ -26476,7 +25199,6 @@ interface DDrawer extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Opens the [DDrawer](https://wiki.facepunch.com/gmod/DDrawer).
-     *
      */
     Open(): void;
 
@@ -26500,7 +25222,6 @@ interface DDrawer extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Toggles the [DDrawer](https://wiki.facepunch.com/gmod/DDrawer).
-     *
      */
     Toggle(): void;
 
@@ -26529,7 +25250,6 @@ interface DEntityProperties extends DProperties {
      * Called internally when an entity being edited became invalid.
      *
      * You should use [DEntityProperties:OnEntityLost](https://wiki.facepunch.com/gmod/DEntityProperties:OnEntityLost) instead.
-     *
      */
     EntityLost(): void;
 
@@ -26537,7 +25257,6 @@ interface DEntityProperties extends DProperties {
      * 🟨 [Client]
      *
      * Called when we were editing an entity and then it became invalid (probably removed). For Override
-     *
      */
     OnEntityLost(): void;
 
@@ -26545,7 +25264,6 @@ interface DEntityProperties extends DProperties {
      * 🟨 [Client]
      *
      * Called internally by [DEntityProperties:SetEntity](https://wiki.facepunch.com/gmod/DEntityProperties:SetEntity) to rebuild the controls.
-     *
      */
     RebuildControls(): void;
 
@@ -26569,7 +25287,6 @@ interface DExpandButton extends DButton {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether this DExpandButton is expanded or not.
-     *
      */
     GetExpanded(): boolean;
 
@@ -26595,7 +25312,6 @@ interface DFileBrowser extends DPanel {
      * 🟨 [Client]
      *
      * Clears the file tree and list, and resets all values.
-     *
      */
     Clear(): void;
 
@@ -26603,7 +25319,6 @@ interface DFileBrowser extends DPanel {
      * 🟨 [Client]
      *
      * An [Global.AccessorFunc](https://wiki.facepunch.com/gmod/Global.AccessorFunc) that returns the root directory/folder of the file tree.
-     *
      */
     GetBaseFolder(): string;
 
@@ -26611,7 +25326,6 @@ interface DFileBrowser extends DPanel {
      * 🟨 [Client]
      *
      * An [Global.AccessorFunc](https://wiki.facepunch.com/gmod/Global.AccessorFunc) that returns the current directory/folder being displayed.
-     *
      */
     GetCurrentFolder(): string;
 
@@ -26619,7 +25333,6 @@ interface DFileBrowser extends DPanel {
      * 🟨 [Client]
      *
      * An [Global.AccessorFunc](https://wiki.facepunch.com/gmod/Global.AccessorFunc) that returns the current file type filter on the file list.
-     *
      */
     GetFileTypes(): string;
 
@@ -26629,7 +25342,6 @@ interface DFileBrowser extends DPanel {
      * Returns the [DTree Node](https://wiki.facepunch.com/gmod/DTree_Node) that the file tree stems from.
      *
      * This is a child of the root node of the [DTree](https://wiki.facepunch.com/gmod/DTree).
-     *
      */
     GetFolderNode(): Panel;
 
@@ -26637,7 +25349,6 @@ interface DFileBrowser extends DPanel {
      * 🟨 [Client]
      *
      * An [Global.AccessorFunc](https://wiki.facepunch.com/gmod/Global.AccessorFunc) that returns whether or not the model viewer mode is enabled. In this mode, files are displayed as [SpawnIcon](https://wiki.facepunch.com/gmod/SpawnIcon)s instead of a list.
-     *
      */
     GetModels(): boolean;
 
@@ -26645,7 +25356,6 @@ interface DFileBrowser extends DPanel {
      * 🟨 [Client]
      *
      * An [Global.AccessorFunc](https://wiki.facepunch.com/gmod/Global.AccessorFunc) that returns the name being used for the file tree.
-     *
      */
     GetName(): string;
 
@@ -26653,7 +25363,6 @@ interface DFileBrowser extends DPanel {
      * 🟨 [Client]
      *
      * An [Global.AccessorFunc](https://wiki.facepunch.com/gmod/Global.AccessorFunc) that returns whether or not the file tree is open.
-     *
      */
     GetOpen(): boolean;
 
@@ -26663,7 +25372,6 @@ interface DFileBrowser extends DPanel {
      * An [Global.AccessorFunc](https://wiki.facepunch.com/gmod/Global.AccessorFunc) that returns the access path of the file tree. This is `GAME` unless changed with [DFileBrowser:SetPath](https://wiki.facepunch.com/gmod/DFileBrowser:SetPath).
      *
      * See [file.Read](https://wiki.facepunch.com/gmod/file.Read) for how paths work.
-     *
      */
     GetPath(): string;
 
@@ -26671,7 +25379,6 @@ interface DFileBrowser extends DPanel {
      * 🟨 [Client]
      *
      * An [Global.AccessorFunc](https://wiki.facepunch.com/gmod/Global.AccessorFunc) that returns the current search filter on the file tree.
-     *
      */
     GetSearch(): string;
 
@@ -26797,7 +25504,6 @@ interface DFileBrowser extends DPanel {
      * Called to set up the [DTree](https://wiki.facepunch.com/gmod/DTree) and file viewer when a base path has been set.
      *
      * Calls [DFileBrowser:SetupTree](https://wiki.facepunch.com/gmod/DFileBrowser:SetupTree) and [DFileBrowser:SetupFiles](https://wiki.facepunch.com/gmod/DFileBrowser:SetupFiles).
-     *
      */
     Setup(): boolean;
 
@@ -26807,7 +25513,6 @@ interface DFileBrowser extends DPanel {
      * Called to set up the [DListView](https://wiki.facepunch.com/gmod/DListView) or [DIconBrowser](https://wiki.facepunch.com/gmod/DIconBrowser) by [DFileBrowser:Setup](https://wiki.facepunch.com/gmod/DFileBrowser:Setup).
      *
      * The icon browser is used when in models mode. See [DFileBrowser:SetModels](https://wiki.facepunch.com/gmod/DFileBrowser:SetModels).
-     *
      */
     SetupFiles(): boolean;
 
@@ -26815,7 +25520,6 @@ interface DFileBrowser extends DPanel {
      * 🟨 [Client]
      *
      * Called to set up the [DTree](https://wiki.facepunch.com/gmod/DTree) by [DFileBrowser:Setup](https://wiki.facepunch.com/gmod/DFileBrowser:Setup).
-     *
      */
     SetupTree(): boolean;
 
@@ -26905,7 +25609,6 @@ interface DForm extends DCollapsibleCategory {
      * 🟨🟩 [Client and Menu]
      *
      * An Accessor Function in DForm that does nothing.
-     *
      */
     GetAutoSize(): boolean;
 
@@ -26913,7 +25616,6 @@ interface DForm extends DCollapsibleCategory {
      * 🟨🟩 [Client and Menu]
      *
      * An [Global.AccessorFunc](https://wiki.facepunch.com/gmod/Global.AccessorFunc) that does nothing.
-     *
      */
     GetSpacing(): number;
 
@@ -26966,8 +25668,6 @@ interface DForm extends DCollapsibleCategory {
      * Creates a [DPanelSelect](https://wiki.facepunch.com/gmod/DPanelSelect) and docks it to the top of the DForm.
      *
      * @deprecated This is derived from the deprecated [DPanelSelect](https://wiki.facepunch.com/gmod/DPanelSelect).
-     *
-     *
      */
     PanelSelect(): Panel;
 
@@ -26992,7 +25692,6 @@ interface DForm extends DCollapsibleCategory {
      * 🟨🟩 [Client and Menu]
      *
      * Does nothing.
-     *
      */
     Rebuild(): void;
 
@@ -27044,7 +25743,6 @@ interface DFrame extends EditablePanel {
      * 🟨🟩 [Client and Menu]
      *
      * Centers the frame relative to the whole screen and invalidates its layout. This overrides [Panel:Center](https://wiki.facepunch.com/gmod/Panel:Center).
-     *
      */
     Center(): void;
 
@@ -27054,7 +25752,6 @@ interface DFrame extends EditablePanel {
      * Hides or removes the DFrame, and calls [DFrame:OnClose](https://wiki.facepunch.com/gmod/DFrame:OnClose).
      *
      * To set whether the frame is hidden or removed, use [DFrame:SetDeleteOnClose](https://wiki.facepunch.com/gmod/DFrame:SetDeleteOnClose).
-     *
      */
     Close(): void;
 
@@ -27062,7 +25759,6 @@ interface DFrame extends EditablePanel {
      * 🟨🟩 [Client and Menu]
      *
      * Gets whether the background behind the frame is being blurred.
-     *
      */
     GetBackgroundBlur(): boolean;
 
@@ -27070,7 +25766,6 @@ interface DFrame extends EditablePanel {
      * 🟨🟩 [Client and Menu]
      *
      * Determines whether or not the DFrame will be removed when it is closed. This is set with [DFrame:SetDeleteOnClose](https://wiki.facepunch.com/gmod/DFrame:SetDeleteOnClose).
-     *
      */
     GetDeleteOnClose(): boolean;
 
@@ -27078,7 +25773,6 @@ interface DFrame extends EditablePanel {
      * 🟨🟩 [Client and Menu]
      *
      * Gets whether or not the frame is draggable by the user.
-     *
      */
     GetDraggable(): boolean;
 
@@ -27086,7 +25780,6 @@ interface DFrame extends EditablePanel {
      * 🟨🟩 [Client and Menu]
      *
      * Gets whether or not the frame is part of a derma menu. This is set with [DFrame:SetIsMenu](https://wiki.facepunch.com/gmod/DFrame:SetIsMenu).
-     *
      */
     GetIsMenu(): boolean;
 
@@ -27096,7 +25789,6 @@ interface DFrame extends EditablePanel {
      * Gets the minimum height the DFrame can be resized to by the user.
      *
      * You must call [DFrame:SetSizable](https://wiki.facepunch.com/gmod/DFrame:SetSizable) before the user can resize the frame.
-     *
      */
     GetMinHeight(): number;
 
@@ -27106,7 +25798,6 @@ interface DFrame extends EditablePanel {
      * Gets the minimum width the DFrame can be resized to by the user.
      *
      * You must call [DFrame:SetSizable](https://wiki.facepunch.com/gmod/DFrame:SetSizable) before the user can resize the frame.
-     *
      */
     GetMinWidth(): number;
 
@@ -27114,7 +25805,6 @@ interface DFrame extends EditablePanel {
      * 🟨🟩 [Client and Menu]
      *
      * Gets whether or not the shadow effect bordering the DFrame is being drawn.
-     *
      */
     GetPaintShadow(): boolean;
 
@@ -27122,7 +25812,6 @@ interface DFrame extends EditablePanel {
      * 🟨🟩 [Client and Menu]
      *
      * Gets whether or not the DFrame is restricted to the boundaries of the screen resolution.
-     *
      */
     GetScreenLock(): boolean;
 
@@ -27132,7 +25821,6 @@ interface DFrame extends EditablePanel {
      * Gets whether or not the DFrame can be resized by the user.
      *
      * This is achieved by clicking and dragging in the bottom right corner of the frame.
-     *
      */
     GetSizable(): boolean;
 
@@ -27140,7 +25828,6 @@ interface DFrame extends EditablePanel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the title of the frame.
-     *
      */
     GetTitle(): string;
 
@@ -27148,7 +25835,6 @@ interface DFrame extends EditablePanel {
      * 🟨🟩 [Client and Menu]
      *
      * Determines if the frame or one of its children has the screen focus.
-     *
      */
     IsActive(): boolean;
 
@@ -27160,7 +25846,6 @@ interface DFrame extends EditablePanel {
      * This function does nothing and is safe to override.
      *
      * This is **not** called when the DFrame is removed with [Panel:Remove](https://wiki.facepunch.com/gmod/Panel:Remove), see [PANEL:OnRemove](https://wiki.facepunch.com/gmod/PANEL:OnRemove) for that.
-     *
      */
     OnClose(): void;
 
@@ -27279,7 +25964,6 @@ interface DFrame extends EditablePanel {
  * **Note:**
  * >This panel will set its size automatically based on set column count.
  * 		This makes it play badly with [Panel:Dock](https://wiki.facepunch.com/gmod/Panel:Dock) and cause a [PANEL:PerformLayout](https://wiki.facepunch.com/gmod/PANEL:PerformLayout) call every frame.
- *
  */
 interface DGrid extends Panel {
 
@@ -27296,7 +25980,6 @@ interface DGrid extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the number of columns of this [DGrid](https://wiki.facepunch.com/gmod/DGrid). Set by [DGrid:SetCols](https://wiki.facepunch.com/gmod/DGrid:SetCols).
-     *
      */
     GetCols(): number;
 
@@ -27304,7 +25987,6 @@ interface DGrid extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the width of each column of the [DGrid](https://wiki.facepunch.com/gmod/DGrid), which is set by [DGrid:SetColWide](https://wiki.facepunch.com/gmod/DGrid:SetColWide).
-     *
      */
     GetColWide(): number;
 
@@ -27312,7 +25994,6 @@ interface DGrid extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns a list of panels in the grid.
-     *
      */
     GetItems(): any;
 
@@ -27320,7 +26001,6 @@ interface DGrid extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the height of each row of the [DGrid](https://wiki.facepunch.com/gmod/DGrid), which is set by [DGrid:SetRowHeight](https://wiki.facepunch.com/gmod/DGrid:SetRowHeight).
-     *
      */
     GetRowHeight(): number;
 
@@ -27384,7 +26064,6 @@ interface DHorizontalDivider extends DPanel {
      * 🟨 [Client]
      *
      * Returns the width of the horizontal divider bar, set by [DHorizontalDivider:SetDividerWidth](https://wiki.facepunch.com/gmod/DHorizontalDivider:SetDividerWidth).
-     *
      */
     GetDividerWidth(): number;
 
@@ -27392,7 +26071,6 @@ interface DHorizontalDivider extends DPanel {
      * 🟨 [Client]
      *
      * Returns whether or not the player is currently dragging the middle divider bar.
-     *
      */
     GetDragging(): boolean;
 
@@ -27400,7 +26078,6 @@ interface DHorizontalDivider extends DPanel {
      * 🟨 [Client]
      *
      * Returns the local X coordinate of where the player started dragging the thing
-     *
      */
     GetHoldPos(): number;
 
@@ -27408,7 +26085,6 @@ interface DHorizontalDivider extends DPanel {
      * 🟨 [Client]
      *
      * Returns the left side content of the [DHorizontalDivider](https://wiki.facepunch.com/gmod/DHorizontalDivider)
-     *
      */
     GetLeft(): Panel;
 
@@ -27416,7 +26092,6 @@ interface DHorizontalDivider extends DPanel {
      * 🟨 [Client]
      *
      * Returns the minimum width of the left side, set by [DHorizontalDivider:SetLeftMin](https://wiki.facepunch.com/gmod/DHorizontalDivider:SetLeftMin).
-     *
      */
     GetLeftMin(): number;
 
@@ -27424,7 +26099,6 @@ interface DHorizontalDivider extends DPanel {
      * 🟨 [Client]
      *
      * Returns the current width of the left side, set by [DHorizontalDivider:SetLeftWidth](https://wiki.facepunch.com/gmod/DHorizontalDivider:SetLeftWidth) or by the user.
-     *
      */
     GetLeftWidth(): number;
 
@@ -27432,7 +26106,6 @@ interface DHorizontalDivider extends DPanel {
      * 🟨 [Client]
      *
      * Returns the middle content, set by [DHorizontalDivider:SetMiddle](https://wiki.facepunch.com/gmod/DHorizontalDivider:SetMiddle).
-     *
      */
     GetMiddle(): Panel;
 
@@ -27440,7 +26113,6 @@ interface DHorizontalDivider extends DPanel {
      * 🟨 [Client]
      *
      * Returns the right side content
-     *
      */
     GetRight(): Panel;
 
@@ -27448,7 +26120,6 @@ interface DHorizontalDivider extends DPanel {
      * 🟨 [Client]
      *
      * Returns the minimum width of the right side, set by [DHorizontalDivider:SetRightMin](https://wiki.facepunch.com/gmod/DHorizontalDivider:SetRightMin).
-     *
      */
     GetRightMin(): number;
 
@@ -27530,7 +26201,6 @@ interface DHorizontalDivider extends DPanel {
      * 🟨 [Client]
      *
      * <validate>TODO Document me</validate>
-     *
      */
     StartGrab(): void;
 
@@ -27556,7 +26226,6 @@ interface DHorizontalScroller extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the internal canvas panel where the content of [DHorizontalScroller](https://wiki.facepunch.com/gmod/DHorizontalScroller) are placed on.
-     *
      */
     GetCanvas(): Panel;
 
@@ -27564,7 +26233,6 @@ interface DHorizontalScroller extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the overlap set by [DHorizontalScroller:SetOverlap](https://wiki.facepunch.com/gmod/DHorizontalScroller:SetOverlap).
-     *
      */
     GetOverlap(): number;
 
@@ -27572,7 +26240,6 @@ interface DHorizontalScroller extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether this panel should show drop targets.
-     *
      */
     GetShowDropTargets(): boolean;
 
@@ -27589,7 +26256,6 @@ interface DHorizontalScroller extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Called when the panel is scrolled.
-     *
      */
     OnDragModified(): void;
 
@@ -27666,7 +26332,6 @@ interface DHScrollBar extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the scale of the scroll bar based on the difference in size between the visible "window" into the canvas that is being scrolled. Should be used after [DHScrollBar:SetUp](https://wiki.facepunch.com/gmod/DHScrollBar:SetUp).
-     *
      */
     BarScale(): number;
 
@@ -27674,7 +26339,6 @@ interface DHScrollBar extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether or not the manual left/right scroll buttons are visible or not. Set by [DHScrollBar:SetHideButtons](https://wiki.facepunch.com/gmod/DHScrollBar:SetHideButtons).
-     *
      */
     GetHideButtons(): boolean;
 
@@ -27682,7 +26346,6 @@ interface DHScrollBar extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the negative of [DHScrollBar:GetScroll](https://wiki.facepunch.com/gmod/DHScrollBar:GetScroll).
-     *
      */
     GetOffset(): number;
 
@@ -27690,7 +26353,6 @@ interface DHScrollBar extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the amount of scroll level from the left in pixels.
-     *
      */
     GetScroll(): number;
 
@@ -27698,7 +26360,6 @@ interface DHScrollBar extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Called from within [DScrollBarGrip](https://wiki.facepunch.com/gmod/DScrollBarGrip)
-     *
      */
     Grip(): void;
 
@@ -27732,10 +26393,10 @@ interface DHScrollBar extends Panel {
 }
 
 /**
- * The DHTML control wraps the internal Awesomium framework, supports calling Javascript functions from Lua,
+ * The DHTML control wraps the internal web engine, supports calling Javascript functions from Lua,
  * 		as well as running Lua from within the HTML. Running Lua code is disabled by default.
  */
-interface DHTML extends Awesomium {
+interface DHTML extends HTML {
 
 
     /**
@@ -27770,18 +26431,7 @@ interface DHTML extends Awesomium {
     /**
      * 🟨🟩 [Client and Menu]
      *
-     * Called when the page inside the [DHTML](https://wiki.facepunch.com/gmod/DHTML) window runs the `console.log` javascript function. On the x86-64 beta, it's called for all built-in `console.*` javascript functions.
-     *
-     * If [DHTML:SetAllowLua](https://wiki.facepunch.com/gmod/DHTML:SetAllowLua) is set to `true` and the message begins with `RUNLUA:`, the text following `RUNLUA:` will be executed as code within the Lua environment (this is how Lua is called from DHTML windows).
-     * @param msg - The message to be logged (or Lua code to be executed; see above).
-     */
-    ConsoleMessage(msg: string): void;
-
-    /**
-     * 🟨🟩 [Client and Menu]
-     *
      * Returns if the loaded page can run Lua code, set by [DHTML:SetAllowLua](https://wiki.facepunch.com/gmod/DHTML:SetAllowLua)
-     *
      */
     GetAllowLua(): boolean;
 
@@ -27791,70 +26441,8 @@ interface DHTML extends Awesomium {
      * Returns the value set by [DHTML:SetScrollbars](https://wiki.facepunch.com/gmod/DHTML:SetScrollbars).
      *
      * @deprecated Broken. Use the CSS `overflow` rule instead.
-     *
-     *
      */
     GetScrollbars(): boolean;
-
-    /**
-     * 🟨 [Client]
-     *
-     * Called when this panel begins loading a page.
-     * @param url - The URL of the current page.
-     */
-    OnBeginLoadingDocument(url: string): void;
-
-    /**
-     * 🟨 [Client]
-     *
-     * Called by the engine when a callback function is called.
-     * @param library - Library name of the JS function that was called.
-     * @param name - Name of the JS function that was called.
-     * @param arguments - Table containing all arguments passed to the JS function.
-     */
-    OnCallback(library: string, name: string, arguments: any): boolean;
-
-    /**
-     * 🟨 [Client]
-     *
-     * Called by HTML panels when the target URL of the frame has changed, this happens when you hover over a link.
-     * @param url - New target URL.
-     */
-    OnChangeTargetURL(url: string): void;
-
-    /**
-     * 🟨 [Client]
-     *
-     * Called by HTML panels when the title of the loaded page has been changed.
-     * @param newTitle - The new title of the page.
-     */
-    OnChangeTitle(newTitle: string): void;
-
-    /**
-     * 🟨 [Client]
-     *
-     * Called by HTML panels when the page attempts to open a new child view (such as a popup or new tab).
-     * @param sourceURL - The URL of the page requesting to create a child.
-     * @param targetURL - The URL of the requested child.
-     * @param isPopup - True if the requested view is a popup.
-     */
-    OnChildViewCreated(sourceURL: string, targetURL: string, isPopup: boolean): void;
-
-    /**
-     * 🟨 [Client]
-     *
-     * Called by HTML panels when the panel's DOM has been set up. You can run JavaScript in here.
-     * @param url - The URL of the current page.
-     */
-    OnDocumentReady(url: string): void;
-
-    /**
-     * 🟨 [Client]
-     *
-     * Called when this panel successfully loads a page.
-     * @param url - The URL of the current page.
-     */
-    OnFinishLoadingDocument(url: string): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -27900,8 +26488,6 @@ interface DHTMLControls extends Omit<Panel, "SetHTML"> {
 
     /**
      * 🟨🟩 [Client and Menu]
-     *
-     *
      */
     FinishedLoading(): void;
 
@@ -27923,8 +26509,6 @@ interface DHTMLControls extends Omit<Panel, "SetHTML"> {
 
     /**
      * 🟨🟩 [Client and Menu]
-     *
-     *
      */
     StartedLoading(): void;
 
@@ -27938,8 +26522,6 @@ interface DHTMLControls extends Omit<Panel, "SetHTML"> {
 
     /**
      * 🟨🟩 [Client and Menu]
-     *
-     *
      */
     UpdateNavButtonStatus(): void;
 
@@ -27956,7 +26538,6 @@ interface DIconBrowser extends DScrollPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Automatically called to fill the browser with icons. Will not work if [DIconBrowser:SetManual](https://wiki.facepunch.com/gmod/DIconBrowser:SetManual) is set to true.
-     *
      */
     Fill(): void;
 
@@ -27972,7 +26553,6 @@ interface DIconBrowser extends DScrollPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether or not the browser should fill itself with icons.
-     *
      */
     GetManual(): boolean;
 
@@ -27980,7 +26560,6 @@ interface DIconBrowser extends DScrollPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the currently selected icon's file path.
-     *
      */
     GetSelectedIcon(): string;
 
@@ -27988,7 +26567,6 @@ interface DIconBrowser extends DScrollPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Called when the selected icon was changed. Use [DIconBrowser:GetSelectedIcon](https://wiki.facepunch.com/gmod/DIconBrowser:GetSelectedIcon) to get the selected icon's filepath.
-     *
      */
     OnChange(): void;
 
@@ -27996,7 +26574,6 @@ interface DIconBrowser extends DScrollPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Use [DIconBrowser:OnChange](https://wiki.facepunch.com/gmod/DIconBrowser:OnChange) instead
-     *
      */
     OnChangeInternal(): void;
 
@@ -28004,7 +26581,6 @@ interface DIconBrowser extends DScrollPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Scrolls the browser to the selected icon
-     *
      */
     ScrollToSelected(): void;
 
@@ -28048,7 +26624,6 @@ interface DIconLayout extends DDragBase {
      * 🟨🟩 [Client and Menu]
      *
      * Creates a replica of the DIconLayout it is called on.
-     *
      */
     Copy(): Panel;
 
@@ -28064,7 +26639,6 @@ interface DIconLayout extends DDragBase {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the size of the border.
-     *
      */
     GetBorder(): number;
 
@@ -28072,7 +26646,6 @@ interface DIconLayout extends DDragBase {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the direction that it will be layed out, using the DOCK enumerations.
-     *
      */
     GetLayoutDir(): number;
 
@@ -28080,7 +26653,6 @@ interface DIconLayout extends DDragBase {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the distance between two 'icons' on the X axis.
-     *
      */
     GetSpaceX(): number;
 
@@ -28088,7 +26660,6 @@ interface DIconLayout extends DDragBase {
      * 🟨🟩 [Client and Menu]
      *
      * Returns distance between two "Icons" on the Y axis.
-     *
      */
     GetSpaceY(): number;
 
@@ -28098,7 +26669,6 @@ interface DIconLayout extends DDragBase {
      * Returns whether the icon layout will stretch its height to fit all the children.
      *
      * See also [DIconLayout:GetStretchWidth](https://wiki.facepunch.com/gmod/DIconLayout:GetStretchWidth)
-     *
      */
     GetStretchHeight(): boolean;
 
@@ -28108,7 +26678,6 @@ interface DIconLayout extends DDragBase {
      * Returns whether the icon layout will stretch its width to fit all the children.
      *
      * See also [DIconLayout:GetStretchHeight](https://wiki.facepunch.com/gmod/DIconLayout:GetStretchHeight)
-     *
      */
     GetStretchWidth(): boolean;
 
@@ -28116,7 +26685,6 @@ interface DIconLayout extends DDragBase {
      * 🟨🟩 [Client and Menu]
      *
      * Resets layout vars before calling [Panel:InvalidateLayout](https://wiki.facepunch.com/gmod/Panel:InvalidateLayout). This is called when children are added or removed, and must be called when the spacing, border or layout direction is changed.
-     *
      */
     Layout(): void;
 
@@ -28124,7 +26692,6 @@ interface DIconLayout extends DDragBase {
      * 🟨🟩 [Client and Menu]
      *
      * Used internally to layout the child elements if the [DIconLayout:SetLayoutDir](https://wiki.facepunch.com/gmod/DIconLayout:SetLayoutDir) is set to LEFT (See [Enums/DOCK](https://wiki.facepunch.com/gmod/Enums/DOCK)).
-     *
      */
     LayoutIcons_LEFT(): void;
 
@@ -28132,7 +26699,6 @@ interface DIconLayout extends DDragBase {
      * 🟨🟩 [Client and Menu]
      *
      * Used internally to layout the child elements if the [DIconLayout:SetLayoutDir](https://wiki.facepunch.com/gmod/DIconLayout:SetLayoutDir) is set to TOP (See [Enums/DOCK](https://wiki.facepunch.com/gmod/Enums/DOCK)).
-     *
      */
     LayoutIcons_TOP(): void;
 
@@ -28140,7 +26706,6 @@ interface DIconLayout extends DDragBase {
      * 🟨🟩 [Client and Menu]
      *
      * Called when the panel is modified.
-     *
      */
     OnModified(): void;
 
@@ -28212,7 +26777,6 @@ interface DImage extends Omit<DPanel, "PaintAt"> {
      * 🟨🟩 [Client and Menu]
      *
      * Actually loads the [IMaterial](https://wiki.facepunch.com/gmod/IMaterial) to render it. Called from [DImage:LoadMaterial](https://wiki.facepunch.com/gmod/DImage:LoadMaterial).
-     *
      */
     DoLoadMaterial(): void;
 
@@ -28222,7 +26786,6 @@ interface DImage extends Omit<DPanel, "PaintAt"> {
      * "Fixes" the current material of the [DImage](https://wiki.facepunch.com/gmod/DImage) if it has VertexLit shader by creating a new one with the same name and a prefix of "_DImage" and automatically calling [DImage:SetMaterial](https://wiki.facepunch.com/gmod/DImage:SetMaterial) with the new material.
      *
      * This fixes the problem where using materials using shaders that expect lighting information causing "weird" flickering when displayed in 2D/Unlit environment.
-     *
      */
     FixVertexLitMaterial(): void;
 
@@ -28230,7 +26793,6 @@ interface DImage extends Omit<DPanel, "PaintAt"> {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the texture path set by [DImage:SetFailsafeMatName](https://wiki.facepunch.com/gmod/DImage:SetFailsafeMatName).
-     *
      */
     GetFailsafeMatName(): string;
 
@@ -28238,7 +26800,6 @@ interface DImage extends Omit<DPanel, "PaintAt"> {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the image loaded in the image panel.
-     *
      */
     GetImage(): string;
 
@@ -28246,7 +26807,6 @@ interface DImage extends Omit<DPanel, "PaintAt"> {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the color override of the image panel.
-     *
      */
     GetImageColor(): Color;
 
@@ -28256,7 +26816,6 @@ interface DImage extends Omit<DPanel, "PaintAt"> {
      * Returns whether the [DImage](https://wiki.facepunch.com/gmod/DImage) should keep the aspect ratio of its image when being resized.
      *
      * See [DImage:SetKeepAspect](https://wiki.facepunch.com/gmod/DImage:SetKeepAspect) for more info on how it works.
-     *
      */
     GetKeepAspect(): boolean;
 
@@ -28264,7 +26823,6 @@ interface DImage extends Omit<DPanel, "PaintAt"> {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the current [Global.Material](https://wiki.facepunch.com/gmod/Global.Material) of the [DImage](https://wiki.facepunch.com/gmod/DImage).
-     *
      */
     GetMaterial(): IMaterial;
 
@@ -28272,7 +26830,6 @@ interface DImage extends Omit<DPanel, "PaintAt"> {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the texture path set by [DImage:SetMatName](https://wiki.facepunch.com/gmod/DImage:SetMatName).
-     *
      */
     GetMatName(): string;
 
@@ -28282,7 +26839,6 @@ interface DImage extends Omit<DPanel, "PaintAt"> {
      * Initializes the loading process of the material to render if it is not loaded yet.
      *
      * You do not need to call this function. It is done for you automatically.
-     *
      */
     LoadMaterial(): void;
 
@@ -28365,7 +26921,6 @@ interface DImage extends Omit<DPanel, "PaintAt"> {
      * 🟨🟩 [Client and Menu]
      *
      * Returns true if the image is **not** yet loaded.
-     *
      */
     Unloaded(): boolean;
 
@@ -28383,7 +26938,6 @@ interface DImageButton extends Omit<DButton, "SetImage"> {
      * 🟨🟩 [Client and Menu]
      *
      * Used internally to briefly scale the image when clicked.
-     *
      */
     DepressImage(): void;
 
@@ -28391,7 +26945,6 @@ interface DImageButton extends Omit<DButton, "SetImage"> {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether [DImageButton:DepressImage](https://wiki.facepunch.com/gmod/DImageButton:DepressImage) is functional or not.
-     *
      */
     GetDepressImage(): boolean;
 
@@ -28399,7 +26952,6 @@ interface DImageButton extends Omit<DButton, "SetImage"> {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the "image" of the [DImageButton](https://wiki.facepunch.com/gmod/DImageButton). Equivalent of [DImage:GetImage](https://wiki.facepunch.com/gmod/DImage:GetImage).
-     *
      */
     GetImage(): string;
 
@@ -28409,7 +26961,6 @@ interface DImageButton extends Omit<DButton, "SetImage"> {
      * Returns whether the image inside the button should be stretched to fit it or not
      *
      * See [DImageButton:SetStretchToFit](https://wiki.facepunch.com/gmod/DImageButton:SetStretchToFit)
-     *
      */
     GetStretchToFit(): boolean;
 
@@ -28433,7 +26984,6 @@ interface DImageButton extends Omit<DButton, "SetImage"> {
      * 🟨🟩 [Client and Menu]
      *
      * Alias of [DImageButton:SetImage](https://wiki.facepunch.com/gmod/DImageButton:SetImage).
-     *
      */
     SetIcon(): void;
 
@@ -28503,7 +27053,6 @@ interface DKillIcon extends Panel {
      * 🟨 [Client]
      *
      * Gets the killicon being shown.
-     *
      */
     GetName(): string;
 
@@ -28535,7 +27084,6 @@ interface DLabel extends Label {
      * This can be overridden; by default, it calls [DLabel:Toggle](https://wiki.facepunch.com/gmod/DLabel:Toggle).
      *
      * See also [DLabel:DoRightClick](https://wiki.facepunch.com/gmod/DLabel:DoRightClick), [DLabel:DoMiddleClick](https://wiki.facepunch.com/gmod/DLabel:DoMiddleClick) and [DLabel:DoDoubleClick](https://wiki.facepunch.com/gmod/DLabel:DoDoubleClick).
-     *
      */
     DoClick(): void;
 
@@ -28545,7 +27093,6 @@ interface DLabel extends Label {
      * Called just before [DLabel:DoClick](https://wiki.facepunch.com/gmod/DLabel:DoClick).
      *
      * In [DLabel](https://wiki.facepunch.com/gmod/DLabel) does nothing and is safe to override. Used by [DMenuOption](https://wiki.facepunch.com/gmod/DMenuOption) and [DCollapsibleCategory](https://wiki.facepunch.com/gmod/DCollapsibleCategory)'s tabs.
-     *
      */
     DoClickInternal(): void;
 
@@ -28559,7 +27106,6 @@ interface DLabel extends Label {
      * This will be called after [DLabel:OnDepressed](https://wiki.facepunch.com/gmod/DLabel:OnDepressed) and [DLabel:OnReleased](https://wiki.facepunch.com/gmod/DLabel:OnReleased) and [DLabel:DoClick](https://wiki.facepunch.com/gmod/DLabel:DoClick).
      *
      * See also [DLabel:DoRightClick](https://wiki.facepunch.com/gmod/DLabel:DoRightClick) and [DLabel:DoMiddleClick](https://wiki.facepunch.com/gmod/DLabel:DoMiddleClick).
-     *
      */
     DoDoubleClick(): void;
 
@@ -28567,7 +27113,6 @@ interface DLabel extends Label {
      * 🟨🟩 [Client and Menu]
      *
      * Called just before [DLabel:DoDoubleClick](https://wiki.facepunch.com/gmod/DLabel:DoDoubleClick). In [DLabel](https://wiki.facepunch.com/gmod/DLabel) does nothing and is safe to override.
-     *
      */
     DoDoubleClickInternal(): void;
 
@@ -28579,7 +27124,6 @@ interface DLabel extends Label {
      * This will be called after [DLabel:OnDepressed](https://wiki.facepunch.com/gmod/DLabel:OnDepressed) and [DLabel:OnReleased](https://wiki.facepunch.com/gmod/DLabel:OnReleased).
      *
      * See also [DLabel:DoClick](https://wiki.facepunch.com/gmod/DLabel:DoClick), [DLabel:DoRightClick](https://wiki.facepunch.com/gmod/DLabel:DoRightClick) and [DLabel:DoDoubleClick](https://wiki.facepunch.com/gmod/DLabel:DoDoubleClick).
-     *
      */
     DoMiddleClick(): void;
 
@@ -28591,7 +27135,6 @@ interface DLabel extends Label {
      * This will be called after [DLabel:OnDepressed](https://wiki.facepunch.com/gmod/DLabel:OnDepressed) and [DLabel:OnReleased](https://wiki.facepunch.com/gmod/DLabel:OnReleased).
      *
      * See also [DLabel:DoClick](https://wiki.facepunch.com/gmod/DLabel:DoClick), [DLabel:DoMiddleClick](https://wiki.facepunch.com/gmod/DLabel:DoMiddleClick) and [DLabel:DoDoubleClick](https://wiki.facepunch.com/gmod/DLabel:DoDoubleClick).
-     *
      */
     DoRightClick(): void;
 
@@ -28601,7 +27144,6 @@ interface DLabel extends Label {
      * Returns whether the label stretches vertically or not.
      *
      * Set by [DLabel:SetAutoStretchVertical](https://wiki.facepunch.com/gmod/DLabel:SetAutoStretchVertical).
-     *
      */
     GetAutoStretchVertical(): boolean;
 
@@ -28611,7 +27153,6 @@ interface DLabel extends Label {
      * Returns whether the [DLabel](https://wiki.facepunch.com/gmod/DLabel) should set its text color to the current skin's bright text color.
      *
      * See [DLabel:SetBright](https://wiki.facepunch.com/gmod/DLabel:SetBright).
-     *
      */
     GetBright(): boolean;
 
@@ -28621,7 +27162,6 @@ interface DLabel extends Label {
      * Returns the actual color of the text.
      *
      * See also [DLabel:GetTextColor](https://wiki.facepunch.com/gmod/DLabel:GetTextColor) and [DLabel:GetTextStyleColor](https://wiki.facepunch.com/gmod/DLabel:GetTextStyleColor).
-     *
      */
     GetColor(): any;
 
@@ -28631,7 +27171,6 @@ interface DLabel extends Label {
      * Returns whether the [DLabel](https://wiki.facepunch.com/gmod/DLabel) should set its text color to the current skin's dark text color.
      *
      * See [DLabel:SetDark](https://wiki.facepunch.com/gmod/DLabel:SetDark).
-     *
      */
     GetDark(): boolean;
 
@@ -28641,8 +27180,6 @@ interface DLabel extends Label {
      * Gets the disabled state of the [DLabel](https://wiki.facepunch.com/gmod/DLabel). This is set with [DLabel:SetDisabled](https://wiki.facepunch.com/gmod/DLabel:SetDisabled).
      *
      * @deprecated Use [Panel:IsEnabled](https://wiki.facepunch.com/gmod/Panel:IsEnabled) instead.
-     *
-     *
      */
     GetDisabled(): boolean;
 
@@ -28652,7 +27189,6 @@ interface DLabel extends Label {
      * Returns whether or not double clicking will call [DLabel:DoDoubleClick](https://wiki.facepunch.com/gmod/DLabel:DoDoubleClick).
      *
      * See [DLabel:SetDoubleClickingEnabled](https://wiki.facepunch.com/gmod/DLabel:SetDoubleClickingEnabled).
-     *
      */
     GetDoubleClickingEnabled(): boolean;
 
@@ -28662,8 +27198,6 @@ interface DLabel extends Label {
      * Returns whether or not the panel background is being drawn. Alias of [DLabel:GetPaintBackground](https://wiki.facepunch.com/gmod/DLabel:GetPaintBackground).
      *
      * @deprecated You should use [DLabel:GetPaintBackground](https://wiki.facepunch.com/gmod/DLabel:GetPaintBackground) instead.
-     *
-     *
      */
     GetDrawBackground(): boolean;
 
@@ -28671,7 +27205,6 @@ interface DLabel extends Label {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the current font of the DLabel. This is set with [DLabel:SetFont](https://wiki.facepunch.com/gmod/DLabel:SetFont).
-     *
      */
     GetFont(): string;
 
@@ -28681,7 +27214,6 @@ interface DLabel extends Label {
      * Returns whether the [DLabel](https://wiki.facepunch.com/gmod/DLabel) should set its text color to the current skin's highlighted text color.
      *
      * See [DLabel:SetHighlight](https://wiki.facepunch.com/gmod/DLabel:SetHighlight).
-     *
      */
     GetHighlight(): boolean;
 
@@ -28693,7 +27225,6 @@ interface DLabel extends Label {
      * Returns whether the frame is part of a derma menu or not.
      *
      * If this is `true`, [Global.CloseDermaMenus](https://wiki.facepunch.com/gmod/Global.CloseDermaMenus) will not be called when the frame is clicked, and thus any open menus will remain open.
-     *
      */
     GetIsMenu(): boolean;
 
@@ -28701,7 +27232,6 @@ interface DLabel extends Label {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether the toggle functionality is enabled for a label. Set with [DLabel:SetIsToggle](https://wiki.facepunch.com/gmod/DLabel:SetIsToggle).
-     *
      */
     GetIsToggle(): boolean;
 
@@ -28709,7 +27239,6 @@ interface DLabel extends Label {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether or not the background should be painted.
-     *
      */
     GetPaintBackground(): boolean;
 
@@ -28717,7 +27246,6 @@ interface DLabel extends Label {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the "override" text color, set by [DLabel:SetTextColor](https://wiki.facepunch.com/gmod/DLabel:SetTextColor).
-     *
      */
     GetTextColor(): any;
 
@@ -28727,7 +27255,6 @@ interface DLabel extends Label {
      * Returns the "internal" or fallback color of the text.
      *
      * See also [DLabel:GetTextColor](https://wiki.facepunch.com/gmod/DLabel:GetTextColor) and [DLabel:SetTextStyleColor](https://wiki.facepunch.com/gmod/DLabel:SetTextStyleColor).
-     *
      */
     GetTextStyleColor(): any;
 
@@ -28737,7 +27264,6 @@ interface DLabel extends Label {
      * Returns the current toggle state of the label. This can be set with [DLabel:SetToggle](https://wiki.facepunch.com/gmod/DLabel:SetToggle) and toggled with [DLabel:Toggle](https://wiki.facepunch.com/gmod/DLabel:Toggle).
      *
      * In order to use toggle functionality, you must first call [DLabel:SetIsToggle](https://wiki.facepunch.com/gmod/DLabel:SetIsToggle) with `true`, as it is disabled by default.
-     *
      */
     GetToggle(): boolean;
 
@@ -28749,7 +27275,6 @@ interface DLabel extends Label {
      * This works as an alternative to [PANEL:OnMousePressed](https://wiki.facepunch.com/gmod/PANEL:OnMousePressed) as that hook is used heavily by [DLabel](https://wiki.facepunch.com/gmod/DLabel) and overriding it will break functionality.
      *
      * See also [DLabel:DoClick](https://wiki.facepunch.com/gmod/DLabel:DoClick), [DLabel:DoMiddleClick](https://wiki.facepunch.com/gmod/DLabel:DoMiddleClick), [DLabel:DoRightClick](https://wiki.facepunch.com/gmod/DLabel:DoRightClick), [DLabel:OnReleased](https://wiki.facepunch.com/gmod/DLabel:OnReleased) and [DLabel:DoDoubleClick](https://wiki.facepunch.com/gmod/DLabel:DoDoubleClick).
-     *
      */
     OnDepressed(): void;
 
@@ -28761,7 +27286,6 @@ interface DLabel extends Label {
      * This works as an alternative to [PANEL:OnMouseReleased](https://wiki.facepunch.com/gmod/PANEL:OnMouseReleased) as that hook is used heavily by [DLabel](https://wiki.facepunch.com/gmod/DLabel) and overriding it will break functionality.
      *
      * See also [DLabel:DoClick](https://wiki.facepunch.com/gmod/DLabel:DoClick), [DLabel:DoMiddleClick](https://wiki.facepunch.com/gmod/DLabel:DoMiddleClick), [DLabel:DoRightClick](https://wiki.facepunch.com/gmod/DLabel:DoRightClick) and [DLabel:DoDoubleClick](https://wiki.facepunch.com/gmod/DLabel:DoDoubleClick).
-     *
      */
     OnReleased(): void;
 
@@ -28937,7 +27461,6 @@ interface DLabel extends Label {
      * Toggles the label's state. This can be set and retrieved with [DLabel:SetToggle](https://wiki.facepunch.com/gmod/DLabel:SetToggle) and [DLabel:GetToggle](https://wiki.facepunch.com/gmod/DLabel:GetToggle).
      *
      * In order to use toggle functionality, you must first call [DLabel:SetIsToggle](https://wiki.facepunch.com/gmod/DLabel:SetIsToggle) with `true`, as it is disabled by default.
-     *
      */
     Toggle(): void;
 
@@ -28953,7 +27476,6 @@ interface DLabel extends Label {
      * 🟨🟩 [Client and Menu]
      *
      * Called internally to update the color of the text.
-     *
      */
     UpdateFGColor(): void;
 
@@ -28971,7 +27493,6 @@ interface DLabelEditable extends DLabel {
      * 🟨 [Client]
      *
      * Returns whether the editable label will stretch to the text entered or not.
-     *
      */
     GetAutoStretch(): boolean;
 
@@ -28979,7 +27500,6 @@ interface DLabelEditable extends DLabel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether this [DLabelEditable](https://wiki.facepunch.com/gmod/DLabelEditable) is being edited or not. (i.e. has focus)
-     *
      */
     IsEditing(): boolean;
 
@@ -29015,7 +27535,6 @@ interface DLabelURL extends URLLabel {
      * 🟨🟩 [Client and Menu]
      *
      * Does absolutely nothing at all.
-     *
      */
     GetAutoStretchVertical(): boolean;
 
@@ -29023,7 +27542,6 @@ interface DLabelURL extends URLLabel {
      * 🟨🟩 [Client and Menu]
      *
      * Gets the current text color of the [DLabelURL](https://wiki.facepunch.com/gmod/DLabelURL). Returns either [DLabelURL:GetTextColor](https://wiki.facepunch.com/gmod/DLabelURL:GetTextColor) or if that is unset -  [DLabelURL:GetTextStyleColor](https://wiki.facepunch.com/gmod/DLabelURL:GetTextStyleColor).
-     *
      */
     GetColor(): any;
 
@@ -29031,7 +27549,6 @@ interface DLabelURL extends URLLabel {
      * 🟨🟩 [Client and Menu]
      *
      * Gets the current text color of the [DLabelURL](https://wiki.facepunch.com/gmod/DLabelURL) set by [DLabelURL:SetTextColor](https://wiki.facepunch.com/gmod/DLabelURL:SetTextColor).
-     *
      */
     GetTextColor(): any;
 
@@ -29039,7 +27556,6 @@ interface DLabelURL extends URLLabel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the color set by [DLabelURL:SetTextStyleColor](https://wiki.facepunch.com/gmod/DLabelURL:SetTextStyleColor).
-     *
      */
     GetTextStyleColor(): Color;
 
@@ -29081,7 +27597,6 @@ interface DLabelURL extends URLLabel {
      * 🟨🟩 [Client and Menu]
      *
      * Used internally to set correct text color via [Panel:SetFGColor](https://wiki.facepunch.com/gmod/Panel:SetFGColor) and [DLabelURL:GetColor](https://wiki.facepunch.com/gmod/DLabelURL:GetColor).
-     *
      */
     UpdateFGColor(): void;
 
@@ -29092,7 +27607,6 @@ interface DLabelURL extends URLLabel {
  * 		As this is deprecated, it is recommended that you use [DListView](https://wiki.facepunch.com/gmod/DListView), which contains the same functionality with multi-column options.
  *
  * @deprecated Derived from the deprecated [DPanelList](https://wiki.facepunch.com/gmod/DPanelList).
- *
  */
 interface DListBox extends DPanelList {
 
@@ -29101,7 +27615,6 @@ interface DListBox extends DPanelList {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether the list box can select multiple items.
-     *
      */
     GetMultiple(): boolean;
 
@@ -29109,7 +27622,6 @@ interface DListBox extends DPanelList {
      * 🟨🟩 [Client and Menu]
      *
      * Returns selected items.
-     *
      */
     GetSelectedItems(): any;
 
@@ -29117,7 +27629,6 @@ interface DListBox extends DPanelList {
      * 🟨🟩 [Client and Menu]
      *
      * Returns selected item values.
-     *
      */
     GetSelectedValues(): any;
 
@@ -29157,10 +27668,7 @@ interface DListBox extends DPanelList {
 }
 
 /**
- *
- *
  * @deprecated Used Internally by [DListBox](https://wiki.facepunch.com/gmod/DListBox).
- *
  */
 interface DListBoxItem extends DLabel {
 
@@ -29169,7 +27677,6 @@ interface DListBoxItem extends DLabel {
      * 🟨 [Client]
      *
      * Returns the parent "mother" of this **DListBoxItem** set by [DListBoxItem:SetMother](https://wiki.facepunch.com/gmod/DListBoxItem:SetMother).
-     *
      */
     GetMother(): Panel;
 
@@ -29233,7 +27740,6 @@ interface DListView extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Clears the current selection in the DListView.
-     *
      */
     ClearSelection(): void;
 
@@ -29249,7 +27755,6 @@ interface DListView extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Creates the lines and gets the height of the contents, in a DListView.
-     *
      */
     DataLayout(): number;
 
@@ -29257,7 +27762,6 @@ interface DListView extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Removes the scrollbar.
-     *
      */
     DisableScrollbar(): void;
 
@@ -29274,7 +27778,6 @@ interface DListView extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Internal helper function called from the [PANEL:PerformLayout](https://wiki.facepunch.com/gmod/PANEL:PerformLayout) of [DListView](https://wiki.facepunch.com/gmod/DListView).
-     *
      */
     FixColumnsLayout(): void;
 
@@ -29282,7 +27785,6 @@ interface DListView extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Gets the canvas.
-     *
      */
     GetCanvas(): Panel;
 
@@ -29292,7 +27794,6 @@ interface DListView extends DPanel {
      * Returns the height of the data of the [DListView](https://wiki.facepunch.com/gmod/DListView).
      *
      * See also [DListView:SetDataHeight](https://wiki.facepunch.com/gmod/DListView:SetDataHeight).
-     *
      */
     GetDataHeight(): number;
 
@@ -29300,7 +27801,6 @@ interface DListView extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * See [DListView:SetDirty](https://wiki.facepunch.com/gmod/DListView:SetDirty).
-     *
      */
     GetDirty(): boolean;
 
@@ -29310,7 +27810,6 @@ interface DListView extends DPanel {
      * Returns the height of the header of the [DListView](https://wiki.facepunch.com/gmod/DListView).
      *
      * See also [DListView:SetHeaderHeight](https://wiki.facepunch.com/gmod/DListView:SetHeaderHeight).
-     *
      */
     GetHeaderHeight(): number;
 
@@ -29318,7 +27817,6 @@ interface DListView extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether the header line should be visible on not.
-     *
      */
     GetHideHeaders(): boolean;
 
@@ -29328,7 +27826,6 @@ interface DListView extends DPanel {
      * Returns the height of [DListView:GetCanvas](https://wiki.facepunch.com/gmod/DListView:GetCanvas).
      *
      * Intended to represent the height of all data lines.
-     *
      */
     GetInnerTall(): number;
 
@@ -29344,7 +27841,6 @@ interface DListView extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Gets all of the lines added to the DListView.
-     *
      */
     GetLines(): any;
 
@@ -29354,7 +27850,6 @@ interface DListView extends DPanel {
      * Returns whether multiple lines can be selected or not.
      *
      * See [DListView:SetMultiSelect](https://wiki.facepunch.com/gmod/DListView:SetMultiSelect).
-     *
      */
     GetMultiSelect(): boolean;
 
@@ -29362,7 +27857,6 @@ interface DListView extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Gets all of the lines that are currently selected.
-     *
      */
     GetSelected(): any;
 
@@ -29372,7 +27866,6 @@ interface DListView extends DPanel {
      * Gets the currently selected [DListView_Line](https://wiki.facepunch.com/gmod/DListView_Line) index.
      *
      * If [DListView:SetMultiSelect](https://wiki.facepunch.com/gmod/DListView:SetMultiSelect) is set to true, only the first line of all selected lines will be returned. Use [DListView:GetSelected](https://wiki.facepunch.com/gmod/DListView:GetSelected) instead to get all of the selected lines.
-     *
      */
     GetSelectedLine(): LuaMultiReturn<[number, Panel]>;
 
@@ -29382,7 +27875,6 @@ interface DListView extends DPanel {
      * Returns whether sorting of columns by clicking their headers is allowed or not.
      *
      * See also [DListView:SetSortable](https://wiki.facepunch.com/gmod/DListView:SetSortable).
-     *
      */
     GetSortable(): boolean;
 
@@ -29444,7 +27936,6 @@ interface DListView extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Selects the line at the first index of the DListView if one has been added.
-     *
      */
     SelectFirstItem(): void;
 
@@ -29552,7 +28043,6 @@ interface DListView_Column extends Panel {
      * Called when the column is left clicked (on key release) by the client.
      *
      * See also [DListView_Column:DoRightClick](https://wiki.facepunch.com/gmod/DListView_Column:DoRightClick).
-     *
      */
     DoClick(): void;
 
@@ -29562,7 +28052,6 @@ interface DListView_Column extends Panel {
      * Called when the column is right clicked (on key release) by the client.
      *
      * See also [DListView_Column:DoClick](https://wiki.facepunch.com/gmod/DListView_Column:DoClick).
-     *
      */
     DoRightClick(): void;
 
@@ -29570,7 +28059,6 @@ interface DListView_Column extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Gets the index used for this column.
-     *
      */
     GetColumnID(): number;
 
@@ -29578,7 +28066,6 @@ interface DListView_Column extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether the column is sorted in descending order or not.
-     *
      */
     GetDescending(): boolean;
 
@@ -29586,7 +28073,6 @@ interface DListView_Column extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the fixed width of this column.
-     *
      */
     GetFixedWidth(): number;
 
@@ -29594,7 +28080,6 @@ interface DListView_Column extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the maximum width set with [DListView_Column:SetMaxWidth](https://wiki.facepunch.com/gmod/DListView_Column:SetMaxWidth).
-     *
      */
     GetMaxWidth(): number;
 
@@ -29602,7 +28087,6 @@ interface DListView_Column extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the minimum width set with [DListView_Column:SetMinWidth](https://wiki.facepunch.com/gmod/DListView_Column:SetMinWidth).
-     *
      */
     GetMinWidth(): number;
 
@@ -29610,7 +28094,6 @@ interface DListView_Column extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the text alignment for the column
-     *
      */
     GetTextAlign(): number;
 
@@ -29736,7 +28219,6 @@ interface DListView_Line extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether this line is odd or even in the list. This is internally used (and set) to change the looks of every other line.
-     *
      */
     GetAltLine(): boolean;
 
@@ -29754,7 +28236,6 @@ interface DListView_Line extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the ID of this line, set automatically in [DListView:AddLine](https://wiki.facepunch.com/gmod/DListView:AddLine).
-     *
      */
     GetID(): number;
 
@@ -29762,7 +28243,6 @@ interface DListView_Line extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the parent [DListView](https://wiki.facepunch.com/gmod/DListView) of this line.
-     *
      */
     GetListView(): DListView;
 
@@ -29788,7 +28268,6 @@ interface DListView_Line extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether this line is selected.
-     *
      */
     IsLineSelected(): boolean;
 
@@ -29796,7 +28275,6 @@ interface DListView_Line extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Called when the player right clicks this line.
-     *
      */
     OnRightClick(): void;
 
@@ -29804,7 +28282,6 @@ interface DListView_Line extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Called when the player selects this line.
-     *
      */
     OnSelect(): void;
 
@@ -29948,7 +28425,6 @@ interface DMenu extends DScrollPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Adds a horizontal line spacer.
-     *
      */
     AddSpacer(): void;
 
@@ -29968,7 +28444,6 @@ interface DMenu extends DScrollPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the number of child elements of [DMenu](https://wiki.facepunch.com/gmod/DMenu)'s [DScrollPanel:GetCanvas](https://wiki.facepunch.com/gmod/DScrollPanel:GetCanvas).
-     *
      */
     ChildCount(): number;
 
@@ -29978,7 +28453,6 @@ interface DMenu extends DScrollPanel {
      * Clears all highlights made by [DMenu:HighlightItem](https://wiki.facepunch.com/gmod/DMenu:HighlightItem).
      *
      * Doesn't appear to be used or do anything.
-     *
      */
     ClearHighlights(): void;
 
@@ -29997,7 +28471,6 @@ interface DMenu extends DScrollPanel {
      * @param childIndex - The index of the child to get.
      * **Note:**
      * >Unlike [Panel:GetChild](https://wiki.facepunch.com/gmod/Panel:GetChild), this index starts at 1.
-     *
      */
     GetChild(childIndex: number): void;
 
@@ -30005,7 +28478,6 @@ interface DMenu extends DScrollPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Set by [DMenu:SetDeleteSelf](https://wiki.facepunch.com/gmod/DMenu:SetDeleteSelf)
-     *
      */
     GetDeleteSelf(): boolean;
 
@@ -30013,7 +28485,6 @@ interface DMenu extends DScrollPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the value set by [DMenu:SetDrawBorder](https://wiki.facepunch.com/gmod/DMenu:SetDrawBorder).
-     *
      */
     GetDrawBorder(): boolean;
 
@@ -30023,7 +28494,6 @@ interface DMenu extends DScrollPanel {
      * Returns whether the [DMenu](https://wiki.facepunch.com/gmod/DMenu) should draw the icon column with a different color or not.
      *
      * See [DMenu:SetDrawColumn](https://wiki.facepunch.com/gmod/DMenu:SetDrawColumn)
-     *
      */
     GetDrawColumn(): boolean;
 
@@ -30031,7 +28501,6 @@ interface DMenu extends DScrollPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the maximum height of the [DMenu](https://wiki.facepunch.com/gmod/DMenu).
-     *
      */
     GetMaxHeight(): number;
 
@@ -30039,7 +28508,6 @@ interface DMenu extends DScrollPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the minimum width of the [DMenu](https://wiki.facepunch.com/gmod/DMenu) in pixels
-     *
      */
     GetMinimumWidth(): number;
 
@@ -30049,7 +28517,6 @@ interface DMenu extends DScrollPanel {
      * Returns the currently opened submenu.
      *
      * Used internally to store the open submenu by [DMenu:Hide](https://wiki.facepunch.com/gmod/DMenu:Hide), [DMenu:OpenSubMenu](https://wiki.facepunch.com/gmod/DMenu:OpenSubMenu).
-     *
      */
     GetOpenSubMenu(): Panel;
 
@@ -30057,7 +28524,6 @@ interface DMenu extends DScrollPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Used to safely hide (not remove) the menu. This will also hide any opened submenues recursively.
-     *
      */
     Hide(): void;
 
@@ -30192,8 +28658,6 @@ interface DMenuBar extends DPanel {
      * Returns whether or not the background should be painted. Is the same as [DMenuBar:GetPaintBackground](https://wiki.facepunch.com/gmod/DMenuBar:GetPaintBackground)
      *
      * @deprecated Use [DMenuBar:GetPaintBackground](https://wiki.facepunch.com/gmod/DMenuBar:GetPaintBackground) instead.
-     *
-     *
      */
     GetDrawBackground(): boolean;
 
@@ -30201,7 +28665,6 @@ interface DMenuBar extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether or not the panel is a menu. Used for closing menus when another panel is selected.
-     *
      */
     GetIsMenu(): boolean;
 
@@ -30209,7 +28672,6 @@ interface DMenuBar extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * If a menu is visible/opened, then the menu is returned.
-     *
      */
     GetOpenMenu(): Panel;
 
@@ -30217,7 +28679,6 @@ interface DMenuBar extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether or not the background should be painted. Is the same as [DMenuBar:GetDrawBackground](https://wiki.facepunch.com/gmod/DMenuBar:GetDrawBackground)
-     *
      */
     GetPaintBackground(): boolean;
 
@@ -30262,7 +28723,6 @@ interface DMenuOption extends DButton {
      * 🟨🟩 [Client and Menu]
      *
      * Creates a sub [DMenu](https://wiki.facepunch.com/gmod/DMenu) and returns it. Has no duplicate call protection.
-     *
      */
     AddSubMenu(): Panel;
 
@@ -30270,7 +28730,6 @@ interface DMenuOption extends DButton {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the checked state of [DMenuOption](https://wiki.facepunch.com/gmod/DMenuOption).
-     *
      */
     GetChecked(): boolean;
 
@@ -30278,7 +28737,6 @@ interface DMenuOption extends DButton {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether the [DMenuOption](https://wiki.facepunch.com/gmod/DMenuOption) is a checkbox option or a normal button option.
-     *
      */
     GetIsCheckable(): boolean;
 
@@ -30286,7 +28744,6 @@ interface DMenuOption extends DButton {
      * 🟨🟩 [Client and Menu]
      *
      * Returns which [DMenu](https://wiki.facepunch.com/gmod/DMenu) this option belongs.
-     *
      */
     GetMenu(): Panel;
 
@@ -30294,7 +28751,6 @@ interface DMenuOption extends DButton {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether this [DMenuOption](https://wiki.facepunch.com/gmod/DMenuOption) should act like a radio button, set by [DMenuOption:SetRadio](https://wiki.facepunch.com/gmod/DMenuOption:SetRadio).
-     *
      */
     GetRadio(): boolean;
 
@@ -30356,7 +28812,6 @@ interface DMenuOption extends DButton {
      * 🟨🟩 [Client and Menu]
      *
      * Toggles the checked state of [DMenuOption](https://wiki.facepunch.com/gmod/DMenuOption). Does not respect [DMenuOption:GetIsCheckable](https://wiki.facepunch.com/gmod/DMenuOption:GetIsCheckable).
-     *
      */
     ToggleCheck(): void;
 
@@ -30378,7 +28833,6 @@ interface DMenuOptionCVar extends DMenuOption {
      * 🟨 [Client]
      *
      * Returns the <page text="console variable">ConVars</page> used by the [DMenuOptionCVar](https://wiki.facepunch.com/gmod/DMenuOptionCVar).
-     *
      */
     GetConVar(): string;
 
@@ -30386,7 +28840,6 @@ interface DMenuOptionCVar extends DMenuOption {
      * 🟨 [Client]
      *
      * Returns the value of the <page text="console variable">ConVars</page> when the [DMenuOptionCVar](https://wiki.facepunch.com/gmod/DMenuOptionCVar) is not checked.
-     *
      */
     GetValueOff(): string;
 
@@ -30394,7 +28847,6 @@ interface DMenuOptionCVar extends DMenuOption {
      * 🟨 [Client]
      *
      * Return the value of the <page text="console variable">ConVars</page> when the [DMenuOptionCVar](https://wiki.facepunch.com/gmod/DMenuOptionCVar) is checked.
-     *
      */
     GetValueOn(): string;
 
@@ -30434,7 +28886,6 @@ interface DModelPanel extends DButton {
      * 🟨 [Client]
      *
      * Used by the DModelPanel's paint hook to draw the model and background.
-     *
      */
     DrawModel(): void;
 
@@ -30442,7 +28893,6 @@ interface DModelPanel extends DButton {
      * 🟨 [Client]
      *
      * Returns the ambient lighting used on the rendered entity.
-     *
      */
     GetAmbientLight(): any;
 
@@ -30450,7 +28900,6 @@ interface DModelPanel extends DButton {
      * 🟨 [Client]
      *
      * Returns whether or not the panel entity should be animated when the default [DModelPanel:LayoutEntity](https://wiki.facepunch.com/gmod/DModelPanel:LayoutEntity) function is called.
-     *
      */
     GetAnimated(): boolean;
 
@@ -30458,7 +28907,6 @@ interface DModelPanel extends DButton {
      * 🟨 [Client]
      *
      * Returns the animation speed of the panel entity, see [DModelPanel:SetAnimSpeed](https://wiki.facepunch.com/gmod/DModelPanel:SetAnimSpeed).
-     *
      */
     GetAnimSpeed(): number;
 
@@ -30466,7 +28914,6 @@ interface DModelPanel extends DButton {
      * 🟨 [Client]
      *
      * Returns the position of the model viewing camera.
-     *
      */
     GetCamPos(): Vector;
 
@@ -30474,7 +28921,6 @@ interface DModelPanel extends DButton {
      * 🟨 [Client]
      *
      * Returns the color of the rendered entity.
-     *
      */
     GetColor(): Color;
 
@@ -30482,7 +28928,6 @@ interface DModelPanel extends DButton {
      * 🟨 [Client]
      *
      * Returns the entity being rendered by the model panel.
-     *
      */
     GetEntity(): CSEnt;
 
@@ -30490,7 +28935,6 @@ interface DModelPanel extends DButton {
      * 🟨 [Client]
      *
      * Returns the FOV (field of view) the camera is using.
-     *
      */
     GetFOV(): number;
 
@@ -30498,7 +28942,6 @@ interface DModelPanel extends DButton {
      * 🟨 [Client]
      *
      * Returns the angles of the model viewing camera. Is **nil** until changed with [DModelPanel:SetLookAng](https://wiki.facepunch.com/gmod/DModelPanel:SetLookAng).
-     *
      */
     GetLookAng(): Angle;
 
@@ -30506,7 +28949,6 @@ interface DModelPanel extends DButton {
      * 🟨 [Client]
      *
      * Returns the position the viewing camera is pointing toward.
-     *
      */
     GetLookAt(): Vector;
 
@@ -30514,7 +28956,6 @@ interface DModelPanel extends DButton {
      * 🟨 [Client]
      *
      * Gets the model of the rendered entity.
-     *
      */
     GetModel(): string;
 
@@ -30550,7 +28991,6 @@ interface DModelPanel extends DButton {
      * 🟨 [Client]
      *
      * This function is used in [DModelPanel:LayoutEntity](https://wiki.facepunch.com/gmod/DModelPanel:LayoutEntity). It will progress the animation, set using [Entity:SetSequence](https://wiki.facepunch.com/gmod/Entity:SetSequence). By default, it is the walking animation.
-     *
      */
     RunAnimation(): void;
 
@@ -30673,7 +29113,6 @@ interface DModelPanel extends DButton {
  * A vertical list of models.
  *
  * @deprecated This is derived from the deprecated [DPanelList](https://wiki.facepunch.com/gmod/DPanelList).
- *
  */
 interface DModelSelect extends DPanelSelect {
 
@@ -30740,7 +29179,6 @@ interface DNotify extends Panel {
      * 🟨 [Client]
      *
      * Returns the current alignment of this notification panel. Set by [DNotify:SetAlignment](https://wiki.facepunch.com/gmod/DNotify:SetAlignment).
-     *
      */
     GetAlignment(): number;
 
@@ -30748,7 +29186,6 @@ interface DNotify extends Panel {
      * 🟨 [Client]
      *
      * Returns all the items added with [DNotify:AddItem](https://wiki.facepunch.com/gmod/DNotify:AddItem).
-     *
      */
     GetItems(): any;
 
@@ -30757,7 +29194,6 @@ interface DNotify extends Panel {
      *
      * Returns the display time in seconds of the DNotify. This is set with
      * [DNotify:SetLife](https://wiki.facepunch.com/gmod/DNotify:SetLife).
-     *
      */
     GetLife(): number;
 
@@ -30765,7 +29201,6 @@ interface DNotify extends Panel {
      * 🟨 [Client]
      *
      * Returns the spacing between items set by [DNotify:SetSpacing](https://wiki.facepunch.com/gmod/DNotify:SetSpacing).
-     *
      */
     GetSpacing(): number;
 
@@ -30797,7 +29232,6 @@ interface DNotify extends Panel {
      * 🟨 [Client]
      *
      * Used internally to position and fade in/out its [DNotify:GetItems](https://wiki.facepunch.com/gmod/DNotify:GetItems).
-     *
      */
     Shuffle(): void;
 
@@ -30841,7 +29275,6 @@ interface DNumberScratch extends DImageButton {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether this panel is active or not, i.e. if the player is currently changing its value.
-     *
      */
     GetActive(): boolean;
 
@@ -30849,7 +29282,6 @@ interface DNumberScratch extends DImageButton {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the desired amount of numbers after the decimal point.
-     *
      */
     GetDecimals(): number;
 
@@ -30859,7 +29291,6 @@ interface DNumberScratch extends DImageButton {
      * Returns the real value of the [DNumberScratch](https://wiki.facepunch.com/gmod/DNumberScratch) as a number.
      *
      * See also [DNumberScratch:GetTextValue](https://wiki.facepunch.com/gmod/DNumberScratch:GetTextValue) and [DNumberScratch:GetFraction](https://wiki.facepunch.com/gmod/DNumberScratch:GetFraction).
-     *
      */
     GetFloatValue(): number;
 
@@ -30872,7 +29303,6 @@ interface DNumberScratch extends DImageButton {
      * * [DNumberScratch:GetTextValue](https://wiki.facepunch.com/gmod/DNumberScratch:GetTextValue)
      * * [DNumberScratch:GetFloatValue](https://wiki.facepunch.com/gmod/DNumberScratch:GetFloatValue)
      * * [DNumberScratch:SetFraction](https://wiki.facepunch.com/gmod/DNumberScratch:SetFraction)
-     *
      */
     GetFraction(): number;
 
@@ -30880,7 +29310,6 @@ interface DNumberScratch extends DImageButton {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the maximum value that can be selected on the number scratch
-     *
      */
     GetMax(): number;
 
@@ -30888,7 +29317,6 @@ interface DNumberScratch extends DImageButton {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the minimum value that can be selected on the number scratch
-     *
      */
     GetMin(): number;
 
@@ -30896,7 +29324,6 @@ interface DNumberScratch extends DImageButton {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the range of the [DNumberScratch](https://wiki.facepunch.com/gmod/DNumberScratch). Basically max value - min value.
-     *
      */
     GetRange(): number;
 
@@ -30904,7 +29331,6 @@ interface DNumberScratch extends DImageButton {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether the scratch window should be visible or not.
-     *
      */
     GetShouldDrawScreen(): boolean;
 
@@ -30914,7 +29340,6 @@ interface DNumberScratch extends DImageButton {
      * Returns the real value of the [DNumberScratch](https://wiki.facepunch.com/gmod/DNumberScratch) as a string.
      *
      * See also [DNumberScratch:GetFloatValue](https://wiki.facepunch.com/gmod/DNumberScratch:GetFloatValue) and [DNumberScratch:GetFraction](https://wiki.facepunch.com/gmod/DNumberScratch:GetFraction).
-     *
      */
     GetTextValue(): string;
 
@@ -30922,7 +29347,6 @@ interface DNumberScratch extends DImageButton {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the zoom level of the scratch window
-     *
      */
     GetZoom(): number;
 
@@ -30930,7 +29354,6 @@ interface DNumberScratch extends DImageButton {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the ideal zoom level for the panel based on the [DNumberScratch:GetRange](https://wiki.facepunch.com/gmod/DNumberScratch:GetRange).
-     *
      */
     IdealZoom(): number;
 
@@ -30938,7 +29361,6 @@ interface DNumberScratch extends DImageButton {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether the player is currently editing the value of the [DNumberScratch](https://wiki.facepunch.com/gmod/DNumberScratch).
-     *
      */
     IsEditing(): boolean;
 
@@ -30946,7 +29368,6 @@ interface DNumberScratch extends DImageButton {
      * 🟨🟩 [Client and Menu]
      *
      * Used to lock the cursor in place.
-     *
      */
     LockCursor(): void;
 
@@ -30962,7 +29383,6 @@ interface DNumberScratch extends DImageButton {
      * 🟨🟩 [Client and Menu]
      *
      * Used to paint the 'scratch' window.
-     *
      */
     PaintScratchWindow(): void;
 
@@ -31046,7 +29466,6 @@ interface DNumberScratch extends DImageButton {
      * 🟨🟩 [Client and Menu]
      *
      * Forces the assigned ConVar to be updated to the value of this [DNumberScratch](https://wiki.facepunch.com/gmod/DNumberScratch)
-     *
      */
     UpdateConVar(): void;
 
@@ -31062,7 +29481,6 @@ interface DNumberWang extends Omit<DTextEntry, "SetValue"> {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the amount of decimal places allowed in the number selector, set by [DNumberWang:SetDecimals](https://wiki.facepunch.com/gmod/DNumberWang:SetDecimals)
-     *
      */
     GetDecimals(): number;
 
@@ -31070,7 +29488,6 @@ interface DNumberWang extends Omit<DTextEntry, "SetValue"> {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whatever is set by [DNumberWang:SetFloatValue](https://wiki.facepunch.com/gmod/DNumberWang:SetFloatValue) or 0.
-     *
      */
     GetFloatValue(): number;
 
@@ -31086,7 +29503,6 @@ interface DNumberWang extends Omit<DTextEntry, "SetValue"> {
      * 🟨🟩 [Client and Menu]
      *
      * Returns interval at which the up and down buttons change the current value.
-     *
      */
     GetInterval(): number;
 
@@ -31094,7 +29510,6 @@ interface DNumberWang extends Omit<DTextEntry, "SetValue"> {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the maximum numeric value allowed by the number selector.
-     *
      */
     GetMax(): number;
 
@@ -31102,7 +29517,6 @@ interface DNumberWang extends Omit<DTextEntry, "SetValue"> {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the minimum numeric value allowed by the number selector.
-     *
      */
     GetMin(): number;
 
@@ -31110,7 +29524,6 @@ interface DNumberWang extends Omit<DTextEntry, "SetValue"> {
      * 🟨🟩 [Client and Menu]
      *
      * This function returns the panel it is used on.
-     *
      */
     GetTextArea(): Panel;
 
@@ -31118,7 +29531,6 @@ interface DNumberWang extends Omit<DTextEntry, "SetValue"> {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the numeric value inside the number selector.
-     *
      */
     GetValue(): number;
 
@@ -31126,7 +29538,6 @@ interface DNumberWang extends Omit<DTextEntry, "SetValue"> {
      * 🟨🟩 [Client and Menu]
      *
      * Hides the number selector arrows.
-     *
      */
     HideWang(): void;
 
@@ -31209,7 +29620,6 @@ interface DNumberWang extends Omit<DTextEntry, "SetValue"> {
  * GMod 12 style "number pad" panel used by tools for binding keys to tool actions. Deprecated in favor of [DBinder](https://wiki.facepunch.com/gmod/DBinder).
  *
  * @deprecated You should use [DBinder](https://wiki.facepunch.com/gmod/DBinder) instead.
- *
  */
 interface DNumPad extends DPanel {
 
@@ -31228,7 +29638,6 @@ interface DNumSlider extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the amount of numbers after the decimal point.
-     *
      */
     GetDecimals(): number;
 
@@ -31236,7 +29645,6 @@ interface DNumSlider extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the default value of the slider, if one was set by [DNumSlider:SetDefaultValue](https://wiki.facepunch.com/gmod/DNumSlider:SetDefaultValue)
-     *
      */
     GetDefaultValue(): number;
 
@@ -31244,7 +29652,6 @@ interface DNumSlider extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the maximum value of the slider
-     *
      */
     GetMax(): number;
 
@@ -31252,7 +29659,6 @@ interface DNumSlider extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the minimum value of the slider
-     *
      */
     GetMin(): number;
 
@@ -31260,7 +29666,6 @@ interface DNumSlider extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the range of the slider, basically maximum value - minimum value.
-     *
      */
     GetRange(): number;
 
@@ -31268,7 +29673,6 @@ interface DNumSlider extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the [DTextEntry](https://wiki.facepunch.com/gmod/DTextEntry) component of the slider.
-     *
      */
     GetTextArea(): Panel;
 
@@ -31276,7 +29680,6 @@ interface DNumSlider extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the value of the [DNumSlider](https://wiki.facepunch.com/gmod/DNumSlider)
-     *
      */
     GetValue(): number;
 
@@ -31284,7 +29687,6 @@ interface DNumSlider extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns true if either the [DTextEntry](https://wiki.facepunch.com/gmod/DTextEntry), the [DSlider](https://wiki.facepunch.com/gmod/DSlider) or the [DNumberScratch](https://wiki.facepunch.com/gmod/DNumberScratch) are being edited.
-     *
      */
     IsEditing(): boolean;
 
@@ -31302,7 +29704,6 @@ interface DNumSlider extends Panel {
      * Resets the slider to the default value, if one was set by [DNumSlider:SetDefaultValue](https://wiki.facepunch.com/gmod/DNumSlider:SetDefaultValue).
      *
      * This function is called by the [DNumSlider](https://wiki.facepunch.com/gmod/DNumSlider) when user middle mouse clicks on the draggable knob of the slider.
-     *
      */
     ResetToDefaultValue(): void;
 
@@ -31390,7 +29791,6 @@ interface DNumSlider extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Updates visual notches on the slider.
-     *
      */
     UpdateNotches(): void;
 
@@ -31419,8 +29819,6 @@ interface DPanel extends Panel {
      *
      * **Note:**
      * >By default this returns **nil** even though the default background color is white
-     *
-     *
      */
     GetBackgroundColor(): any;
 
@@ -31428,7 +29826,6 @@ interface DPanel extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether or not the panel is disabled.
-     *
      */
     GetDisabled(): boolean;
 
@@ -31438,8 +29835,6 @@ interface DPanel extends Panel {
      * Returns whether or not the panel background is being drawn. Alias of [DPanel:GetPaintBackground](https://wiki.facepunch.com/gmod/DPanel:GetPaintBackground).
      *
      * @deprecated You should use [DPanel:GetPaintBackground](https://wiki.facepunch.com/gmod/DPanel:GetPaintBackground) instead.
-     *
-     *
      */
     GetDrawBackground(): boolean;
 
@@ -31451,7 +29846,6 @@ interface DPanel extends Panel {
      * Returns whether the frame is part of a derma menu or not.
      *
      * If this is `true`, [Global.CloseDermaMenus](https://wiki.facepunch.com/gmod/Global.CloseDermaMenus) will not be called when the frame is clicked, and thus any open menus will remain open.
-     *
      */
     GetIsMenu(): boolean;
 
@@ -31459,7 +29853,6 @@ interface DPanel extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether or not the panel background is being drawn.
-     *
      */
     GetPaintBackground(): boolean;
 
@@ -31467,7 +29860,6 @@ interface DPanel extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Does nothing. Returns value set by [DPanel:SetTabbingDisabled](https://wiki.facepunch.com/gmod/DPanel:SetTabbingDisabled).
-     *
      */
     GetTabbingDisabled(): boolean;
 
@@ -31530,7 +29922,6 @@ interface DPanel extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Does nothing.
-     *
      */
     UpdateColours(): void;
 
@@ -31542,7 +29933,6 @@ interface DPanel extends Panel {
  * 		[DPanelList](https://wiki.facepunch.com/gmod/DPanelList) was succeeded in version 13 by more specialised layout elements.
  *
  * @deprecated Use a combination of [DIconLayout](https://wiki.facepunch.com/gmod/DIconLayout), [DListLayout](https://wiki.facepunch.com/gmod/DListLayout) and [DScrollPanel](https://wiki.facepunch.com/gmod/DScrollPanel) instead.
- *
  */
 interface DPanelList extends DPanel {
 
@@ -31560,7 +29950,6 @@ interface DPanelList extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Removes all items.
-     *
      */
     CleanList(): void;
 
@@ -31576,7 +29965,6 @@ interface DPanelList extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Enables/creates the vertical scroll bar so that the panel list can be scrolled through.
-     *
      */
     EnableVerticalScrollbar(): void;
 
@@ -31584,7 +29972,6 @@ interface DPanelList extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns all panels has added by [DPanelList:AddItem](https://wiki.facepunch.com/gmod/DPanelList:AddItem)
-     *
      */
     GetItems(): any;
 
@@ -31592,7 +29979,6 @@ interface DPanelList extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns offset of list items from the panel borders set by [DPanelList:SetPadding](https://wiki.facepunch.com/gmod/DPanelList:SetPadding)
-     *
      */
     GetPadding(): number;
 
@@ -31600,7 +29986,6 @@ interface DPanelList extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns distance between list items set by [DPanelList:SetSpacing](https://wiki.facepunch.com/gmod/DPanelList:SetSpacing)
-     *
      */
     GetSpacing(): number;
 
@@ -31617,7 +30002,6 @@ interface DPanelList extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Used internally to rebuild the child panel positions.
-     *
      */
     Rebuild(): void;
 
@@ -31657,7 +30041,6 @@ interface DPanelOverlay extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the border color of the [DPanelOverlay](https://wiki.facepunch.com/gmod/DPanelOverlay) set by [DPanelOverlay:SetColor](https://wiki.facepunch.com/gmod/DPanelOverlay:SetColor).
-     *
      */
     GetColor(): Color;
 
@@ -31665,7 +30048,6 @@ interface DPanelOverlay extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the type of the [DPanelOverlay](https://wiki.facepunch.com/gmod/DPanelOverlay) set by [DPanelOverlay:SetType](https://wiki.facepunch.com/gmod/DPanelOverlay:SetType).
-     *
      */
     GetType(): number;
 
@@ -31717,7 +30099,6 @@ interface DPanelOverlay extends DPanel {
  * 		Selected panel can be retrieved and has visual indication of being selected.
  *
  * @deprecated This is derived from the deprecated [DPanelList](https://wiki.facepunch.com/gmod/DPanelList).
- *
  */
 interface DPanelSelect extends DPanelList {
 
@@ -31735,7 +30116,6 @@ interface DPanelSelect extends DPanelList {
      * 🟨 [Client]
      *
      * Used internally by [DPanelSelect:AddPanel](https://wiki.facepunch.com/gmod/DPanelSelect:AddPanel) to select the best default selected panel based on player's convars.
-     *
      */
     FindBestActive(): void;
 
@@ -31776,7 +30156,6 @@ interface DPanPanel extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * The internal canvas panel.
-     *
      */
     GetCanvas(): Panel;
 
@@ -31817,7 +30196,6 @@ interface DProgress extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the progress bar's fraction. 0 is 0% and 1 is 100%.
-     *
      */
     GetFraction(): number;
 
@@ -31859,7 +30237,6 @@ interface DProperties extends Panel {
      * 🟨 [Client]
      *
      * Returns the [DScrollPanel](https://wiki.facepunch.com/gmod/DScrollPanel) all the properties panels are attached to.
-     *
      */
     GetCanvas(): Panel;
 
@@ -31953,7 +30330,6 @@ interface DProperty_Float extends DProperty_Generic {
      * 🟨 [Client]
      *
      * Called to poll the amount of digits after the decimal point. This is used internally for [DProperty_Int](https://wiki.facepunch.com/gmod/DProperty_Int).
-     *
      */
     GetDecimals(): any;
 
@@ -31969,7 +30345,6 @@ interface DProperty_Generic extends Panel {
      * 🟨 [Client]
      *
      * Returns the internal row panel of a [DProperties](https://wiki.facepunch.com/gmod/DProperties) that this panel belongs to.
-     *
      */
     GetRow(): Panel;
 
@@ -32079,7 +30454,6 @@ interface DPropertySheet extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the active [DTab](https://wiki.facepunch.com/gmod/DTab) of this [DPropertySheet](https://wiki.facepunch.com/gmod/DPropertySheet).
-     *
      */
     GetActiveTab(): Panel;
 
@@ -32089,7 +30463,6 @@ interface DPropertySheet extends Panel {
      * Returns the amount of time (in seconds) it takes to fade between tabs.
      *
      * 	Set by [DPropertySheet:SetFadeTime](https://wiki.facepunch.com/gmod/DPropertySheet:SetFadeTime)
-     *
      */
     GetFadeTime(): number;
 
@@ -32097,7 +30470,6 @@ interface DPropertySheet extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns a list of all tabs of this [DPropertySheet](https://wiki.facepunch.com/gmod/DPropertySheet).
-     *
      */
     GetItems(): any;
 
@@ -32105,7 +30477,6 @@ interface DPropertySheet extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Gets the padding from the parent panel to child panels.
-     *
      */
     GetPadding(): number;
 
@@ -32113,7 +30484,6 @@ interface DPropertySheet extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whatever value was set by [DPropertySheet:SetShowIcons](https://wiki.facepunch.com/gmod/DPropertySheet:SetShowIcons).
-     *
      */
     GetShowIcons(): boolean;
 
@@ -32173,7 +30543,6 @@ interface DPropertySheet extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Sets the width of the [DPropertySheet](https://wiki.facepunch.com/gmod/DPropertySheet) to fit the contents of all of the tabs.
-     *
      */
     SizeToContentWidth(): void;
 
@@ -32210,7 +30579,6 @@ interface DRGBPicker extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the color currently set on the color picker.
-     *
      */
     GetRGB(): Color;
 
@@ -32255,7 +30623,6 @@ interface DScrollBarGrip extends DPanel {
  *
  * **Note:**
  * >[Panel:DockPadding](https://wiki.facepunch.com/gmod/Panel:DockPadding) will not have an effect on children of this panel. Use the function on [DScrollPanel:GetCanvas](https://wiki.facepunch.com/gmod/DScrollPanel:GetCanvas) instead.
- *
  */
 interface DScrollPanel extends DPanel {
 
@@ -32272,7 +30639,6 @@ interface DScrollPanel extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the canvas ( The panel all child panels are parented to ) of the DScrollPanel.
-     *
      */
     GetCanvas(): Panel;
 
@@ -32280,7 +30646,6 @@ interface DScrollPanel extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Gets the [DScrollPanel](https://wiki.facepunch.com/gmod/DScrollPanel)s padding, set by [DScrollPanel:SetPadding](https://wiki.facepunch.com/gmod/DScrollPanel:SetPadding).
-     *
      */
     GetPadding(): number;
 
@@ -32288,7 +30653,6 @@ interface DScrollPanel extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the vertical scroll bar of the panel.
-     *
      */
     GetVBar(): DVScrollBar;
 
@@ -32296,7 +30660,6 @@ interface DScrollPanel extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Return the width of the DScrollPanel's canvas.
-     *
      */
     InnerWidth(): number;
 
@@ -32304,7 +30667,6 @@ interface DScrollPanel extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Used internally to rebuild the panel's children positioning. You should use [Panel:InvalidateLayout](https://wiki.facepunch.com/gmod/Panel:InvalidateLayout) instead.
-     *
      */
     PerformLayoutInternal(): void;
 
@@ -32312,7 +30674,6 @@ interface DScrollPanel extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Used internally to rebuild the panel's children positioning. You should use [Panel:InvalidateLayout](https://wiki.facepunch.com/gmod/Panel:InvalidateLayout) instead.
-     *
      */
     Rebuild(): void;
 
@@ -32354,7 +30715,6 @@ interface DShape extends DPanel {
      * Returns the current type of shape this panel is set to display.
      *
      * See [DShape:SetBorderColor](https://wiki.facepunch.com/gmod/DShape:SetBorderColor).
-     *
      */
     GetBorderColor(): Color;
 
@@ -32362,7 +30722,6 @@ interface DShape extends DPanel {
      * 🟨 [Client]
      *
      * Returns the color set to display the shape with.
-     *
      */
     GetColor(): Color;
 
@@ -32372,7 +30731,6 @@ interface DShape extends DPanel {
      * Returns the current type of shape this panel is set to display.
      *
      * See [DShape:SetType](https://wiki.facepunch.com/gmod/DShape:SetType).
-     *
      */
     GetType(): string;
 
@@ -32415,7 +30773,6 @@ interface DSizeToContents extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether the [DSizeToContents](https://wiki.facepunch.com/gmod/DSizeToContents) panel should size to contents horizontally.
-     *
      */
     GetSizeX(): boolean;
 
@@ -32423,7 +30780,6 @@ interface DSizeToContents extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether the [DSizeToContents](https://wiki.facepunch.com/gmod/DSizeToContents) panel should size to contents vertically.
-     *
      */
     GetSizeY(): boolean;
 
@@ -32455,7 +30811,6 @@ interface DSlider extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Used internally to set the X axis convar.
-     *
      */
     ConVarXNumberThink(): void;
 
@@ -32463,7 +30818,6 @@ interface DSlider extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Used internally to set the Y axis convar.
-     *
      */
     ConVarYNumberThink(): void;
 
@@ -32471,7 +30825,6 @@ interface DSlider extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Identical to [DSlider:IsEditing](https://wiki.facepunch.com/gmod/DSlider:IsEditing)
-     *
      */
     GetDragging(): boolean;
 
@@ -32481,7 +30834,6 @@ interface DSlider extends Panel {
      * Returns the draggable panel's lock on the X axis.
      *
      * See [DSlider:SetLockX](https://wiki.facepunch.com/gmod/DSlider:SetLockX) for more info.
-     *
      */
     GetLockX(): number;
 
@@ -32491,7 +30843,6 @@ interface DSlider extends Panel {
      * Returns the draggable panel's lock on the Y axis.
      *
      * See [DSlider:SetLockY](https://wiki.facepunch.com/gmod/DSlider:SetLockY) for more info.
-     *
      */
     GetLockY(): number;
 
@@ -32501,8 +30852,6 @@ interface DSlider extends Panel {
      * Returns the current notch color, set by [DSlider:SetNotchColor](https://wiki.facepunch.com/gmod/DSlider:SetNotchColor)
      *
      * @deprecated Does not affect anything by default.
-     *
-     *
      */
     GetNotchColor(): Color;
 
@@ -32510,7 +30859,6 @@ interface DSlider extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Appears to be non functioning, however is still used by panels such as [DNumSlider](https://wiki.facepunch.com/gmod/DNumSlider).
-     *
      */
     GetNotches(): number;
 
@@ -32518,7 +30866,6 @@ interface DSlider extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Does nothing.
-     *
      */
     GetNumSlider(): any;
 
@@ -32528,7 +30875,6 @@ interface DSlider extends Panel {
      * Returns the target position of the draggable "knob" panel of the slider on the X axis.
      *
      * Set by [DSlider:SetSlideX](https://wiki.facepunch.com/gmod/DSlider:SetSlideX).
-     *
      */
     GetSlideX(): number;
 
@@ -32538,7 +30884,6 @@ interface DSlider extends Panel {
      * Returns the target position of the draggable "knob" panel of the slider on the Y axis.
      *
      * Set by [DSlider:SetSlideY](https://wiki.facepunch.com/gmod/DSlider:SetSlideY).
-     *
      */
     GetSlideY(): number;
 
@@ -32546,7 +30891,6 @@ interface DSlider extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the value set by [DSlider:SetTrapInside](https://wiki.facepunch.com/gmod/DSlider:SetTrapInside).
-     *
      */
     GetTrapInside(): boolean;
 
@@ -32554,7 +30898,6 @@ interface DSlider extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns true if this element is being edited by the player.
-     *
      */
     IsEditing(): boolean;
 
@@ -32571,7 +30914,6 @@ interface DSlider extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Used internally to fire [DSlider:OnValueChanged](https://wiki.facepunch.com/gmod/DSlider:OnValueChanged)
-     *
      */
     OnValuesChangedInternal(): void;
 
@@ -32583,7 +30925,6 @@ interface DSlider extends Panel {
      * You are meant to override this function to do reset the slider to desired defaults on both axes.
      *
      * By default, will reset the slider to `0.5` on both axes.
-     *
      */
     ResetToDefaultValue(): void;
 
@@ -32623,7 +30964,6 @@ interface DSlider extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Does nothing.
-     *
      */
     SetImage(): void;
 
@@ -32631,7 +30971,6 @@ interface DSlider extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Does nothing.
-     *
      */
     SetImageColor(): void;
 
@@ -32733,7 +31072,6 @@ interface DSprite extends DPanel {
      * 🟨 [Client]
      *
      * Gets the color the sprite is using as a modifier.
-     *
      */
     GetColor(): any;
 
@@ -32741,7 +31079,6 @@ interface DSprite extends DPanel {
      * 🟨 [Client]
      *
      * Returns the value set by [DSprite:SetHandle](https://wiki.facepunch.com/gmod/DSprite:SetHandle)
-     *
      */
     GetHandle(): Vector;
 
@@ -32749,7 +31086,6 @@ interface DSprite extends DPanel {
      * 🟨 [Client]
      *
      * Gets the material the sprite is using.
-     *
      */
     GetMaterial(): IMaterial;
 
@@ -32757,7 +31093,6 @@ interface DSprite extends DPanel {
      * 🟨 [Client]
      *
      * Gets the 2D rotation angle of the sprite, in the plane of the screen.
-     *
      */
     GetRotation(): number;
 
@@ -32805,7 +31140,6 @@ interface DTab extends DButton {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the panel that the tab represents.
-     *
      */
     GetPanel(): Panel;
 
@@ -32813,7 +31147,6 @@ interface DTab extends DButton {
      * 🟨🟩 [Client and Menu]
      *
      * The [DPropertySheet](https://wiki.facepunch.com/gmod/DPropertySheet) this tab belongs to.
-     *
      */
     GetPropertySheet(): Panel;
 
@@ -32821,7 +31154,6 @@ interface DTab extends DButton {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the target height of this tab. Used internally by [DTab](https://wiki.facepunch.com/gmod/DTab)'s [PANEL:ApplySchemeSettings](https://wiki.facepunch.com/gmod/PANEL:ApplySchemeSettings).
-     *
      */
     GetTabHeight(): number;
 
@@ -32829,7 +31161,6 @@ interface DTab extends DButton {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether the tab is the currently selected tab of the associated [DPropertySheet](https://wiki.facepunch.com/gmod/DPropertySheet).
-     *
      */
     IsActive(): boolean;
 
@@ -32869,7 +31200,6 @@ interface DTab extends DButton {
  * >At least one of your `DTextEntry`'s parents must either be an [EditablePanel](https://wiki.facepunch.com/gmod/EditablePanel) or derived from it (like a [DFrame](https://wiki.facepunch.com/gmod/DFrame), for example), else it won't be able to focus and thus be unselectable.
  *
  * You must also call [Panel:MakePopup](https://wiki.facepunch.com/gmod/Panel:MakePopup) on said panel or the `DTextEntry` will not work.
- *
  */
 interface DTextEntry extends TextEntry {
 
@@ -32921,7 +31251,6 @@ interface DTextEntry extends TextEntry {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the cursor color of a DTextEntry.
-     *
      */
     GetCursorColor(): Color;
 
@@ -32931,8 +31260,6 @@ interface DTextEntry extends TextEntry {
      * Returns whether the textbox is disabled. Use [Panel:IsEnabled](https://wiki.facepunch.com/gmod/Panel:IsEnabled) instead.
      *
      * @deprecated Use [Panel:IsEnabled](https://wiki.facepunch.com/gmod/Panel:IsEnabled) instead.
-     *
-     *
      */
     GetDisabled(): boolean;
 
@@ -32942,7 +31269,6 @@ interface DTextEntry extends TextEntry {
      * Alias of [DTextEntry:GetPaintBackground](https://wiki.facepunch.com/gmod/DTextEntry:GetPaintBackground). Use that instead.
      *
      * Whether the background is displayed or not.
-     *
      */
     GetDrawBackground(): boolean;
 
@@ -32950,7 +31276,6 @@ interface DTextEntry extends TextEntry {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the value set by [DTextEntry:SetDrawBorder](https://wiki.facepunch.com/gmod/DTextEntry:SetDrawBorder).
-     *
      */
     GetDrawBorder(): boolean;
 
@@ -32958,7 +31283,6 @@ interface DTextEntry extends TextEntry {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether pressing Enter can cause the panel to lose focus. Note that a multiline DTextEntry cannot be escaped using the Enter key even when this function returns true.
-     *
      */
     GetEnterAllowed(): boolean;
 
@@ -32966,7 +31290,6 @@ interface DTextEntry extends TextEntry {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the contents of the DTextEntry as a number.
-     *
      */
     GetFloat(): number;
 
@@ -32974,7 +31297,6 @@ interface DTextEntry extends TextEntry {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the highlight/text selection color of the text entry. If it was not overwritten, it will return the derma skin value. (`colTextEntryTextHighlight`)
-     *
      */
     GetHighlightColor(): any;
 
@@ -32982,7 +31304,6 @@ interface DTextEntry extends TextEntry {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether the history functionality of  [DTextEntry](https://wiki.facepunch.com/gmod/DTextEntry) is enabled. See [DTextEntry:AddHistory](https://wiki.facepunch.com/gmod/DTextEntry:AddHistory).
-     *
      */
     GetHistoryEnabled(): boolean;
 
@@ -32990,7 +31311,6 @@ interface DTextEntry extends TextEntry {
      * 🟨🟩 [Client and Menu]
      *
      * Similar to [DTextEntry:GetFloat](https://wiki.facepunch.com/gmod/DTextEntry:GetFloat), but rounds the value to the nearest integer.
-     *
      */
     GetInt(): number;
 
@@ -32998,7 +31318,6 @@ interface DTextEntry extends TextEntry {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether only numeric characters (`123456789.-`) can be entered into the DTextEntry.
-     *
      */
     GetNumeric(): boolean;
 
@@ -33006,7 +31325,6 @@ interface DTextEntry extends TextEntry {
      * 🟨🟩 [Client and Menu]
      *
      * Whether the background is displayed or not
-     *
      */
     GetPaintBackground(): boolean;
 
@@ -33014,7 +31332,6 @@ interface DTextEntry extends TextEntry {
      * 🟨🟩 [Client and Menu]
      *
      * Return current color of panel placeholder
-     *
      */
     GetPlaceholderColor(): any;
 
@@ -33022,7 +31339,6 @@ interface DTextEntry extends TextEntry {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the placeholder text set with [DTextEntry:SetPlaceholderText](https://wiki.facepunch.com/gmod/DTextEntry:SetPlaceholderText).
-     *
      */
     GetPlaceholderText(): string;
 
@@ -33030,7 +31346,6 @@ interface DTextEntry extends TextEntry {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether or not the panel accepts <key>tab</key> key.
-     *
      */
     GetTabbingDisabled(): boolean;
 
@@ -33038,7 +31353,6 @@ interface DTextEntry extends TextEntry {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the text color of a DTextEntry.
-     *
      */
     GetTextColor(): Color;
 
@@ -33046,7 +31360,6 @@ interface DTextEntry extends TextEntry {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether the [DTextEntry](https://wiki.facepunch.com/gmod/DTextEntry) is set to run [DTextEntry:OnValueChange](https://wiki.facepunch.com/gmod/DTextEntry:OnValueChange) every time a character is typed or deleted or only when Enter is pressed.
-     *
      */
     GetUpdateOnType(): boolean;
 
@@ -33054,7 +31367,6 @@ interface DTextEntry extends TextEntry {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether this DTextEntry is being edited or not. (i.e. has focus)
-     *
      */
     IsEditing(): boolean;
 
@@ -33064,7 +31376,6 @@ interface DTextEntry extends TextEntry {
      * Called by [DTextEntry:OnTextChanged](https://wiki.facepunch.com/gmod/DTextEntry:OnTextChanged) when the user modifies the text in the [DTextEntry](https://wiki.facepunch.com/gmod/DTextEntry).
      *
      * You should override this function to define custom behavior when the [DTextEntry](https://wiki.facepunch.com/gmod/DTextEntry) text changes.
-     *
      */
     OnChange(): void;
 
@@ -33084,7 +31395,6 @@ interface DTextEntry extends TextEntry {
      * 🟨🟩 [Client and Menu]
      *
      * Called whenever the [DTextEntry](https://wiki.facepunch.com/gmod/DTextEntry) gains focus.
-     *
      */
     OnGetFocus(): void;
 
@@ -33100,7 +31410,6 @@ interface DTextEntry extends TextEntry {
      * 🟨🟩 [Client and Menu]
      *
      * Called whenever the [DTextEntry](https://wiki.facepunch.com/gmod/DTextEntry) lose focus.
-     *
      */
     OnLoseFocus(): void;
 
@@ -33297,7 +31606,6 @@ interface DTextEntry extends TextEntry {
      * **)**
      *
      * Updates the ConVar associated with the TextEntry to its new value.
-     *
      */
     UpdateConvarValue(): void;
 
@@ -33305,7 +31613,6 @@ interface DTextEntry extends TextEntry {
      * 🟨🟩 [Client and Menu]
      *
      * Used internally to set text from the history.
-     *
      */
     UpdateFromHistory(): void;
 
@@ -33313,7 +31620,6 @@ interface DTextEntry extends TextEntry {
      * 🟨🟩 [Client and Menu]
      *
      * Used internally to set text from the autocomplete menu.
-     *
      */
     UpdateFromMenu(): void;
 
@@ -33347,7 +31653,6 @@ interface DTileLayout extends DDragBase {
      * 🟨 [Client]
      *
      * Clears the panel's tile table. Used by [DTileLayout:LayoutTiles](https://wiki.facepunch.com/gmod/DTileLayout:LayoutTiles).
-     *
      */
     ClearTiles(): void;
 
@@ -33366,7 +31671,6 @@ interface DTileLayout extends DDragBase {
      * 🟨 [Client]
      *
      * Creates and returns an exact copy of the DTileLayout.
-     *
      */
     Copy(): Panel;
 
@@ -33404,7 +31708,6 @@ interface DTileLayout extends DDragBase {
      * 🟨 [Client]
      *
      * Returns the size of each single tile, set with [DTileLayout:SetBaseSize](https://wiki.facepunch.com/gmod/DTileLayout:SetBaseSize).
-     *
      */
     GetBaseSize(): number;
 
@@ -33412,7 +31715,6 @@ interface DTileLayout extends DDragBase {
      * 🟨 [Client]
      *
      * Returns the border spacing set by [DTileLayout:SetBorder](https://wiki.facepunch.com/gmod/DTileLayout:SetBorder).
-     *
      */
     GetBorder(): number;
 
@@ -33420,7 +31722,6 @@ interface DTileLayout extends DDragBase {
      * 🟨 [Client]
      *
      * Returns the minimum height the DTileLayout can resize to.
-     *
      */
     GetMinHeight(): number;
 
@@ -33428,7 +31729,6 @@ interface DTileLayout extends DDragBase {
      * 🟨 [Client]
      *
      * Returns the X axis spacing between 2 elements set by [DTileLayout:SetSpaceX](https://wiki.facepunch.com/gmod/DTileLayout:SetSpaceX).
-     *
      */
     GetSpaceX(): number;
 
@@ -33436,7 +31736,6 @@ interface DTileLayout extends DDragBase {
      * 🟨 [Client]
      *
      * Returns the Y axis spacing between 2 elements set by [DTileLayout:SetSpaceY](https://wiki.facepunch.com/gmod/DTileLayout:SetSpaceY).
-     *
      */
     GetSpaceY(): number;
 
@@ -33453,7 +31752,6 @@ interface DTileLayout extends DDragBase {
      * 🟨 [Client]
      *
      * Resets the last width/height info, and invalidates the panel's layout, causing it to recalculate all child positions. It is called whenever a child is added or removed, and can be called to refresh the panel.
-     *
      */
     Layout(): void;
 
@@ -33461,7 +31759,6 @@ interface DTileLayout extends DDragBase {
      * 🟨 [Client]
      *
      * Called by [PANEL:PerformLayout](https://wiki.facepunch.com/gmod/PANEL:PerformLayout) to arrange and lay out the child panels, if it has changed in size.
-     *
      */
     LayoutTiles(): void;
 
@@ -33469,7 +31766,6 @@ interface DTileLayout extends DDragBase {
      * 🟨 [Client]
      *
      * Called when anything is dropped on or rearranged within the DTileLayout.
-     *
      */
     OnModified(): void;
 
@@ -33539,7 +31835,6 @@ interface DTooltip extends DLabel {
      * 🟨🟩 [Client and Menu]
      *
      * Forces the tooltip to close. This will remove the panel.
-     *
      */
     Close(): void;
 
@@ -33570,7 +31865,6 @@ interface DTooltip extends DLabel {
      * 🟨🟩 [Client and Menu]
      *
      * Positions the [DTooltip](https://wiki.facepunch.com/gmod/DTooltip) so it doesn't stay in the same draw position.
-     *
      */
     PositionTooltip(): void;
 
@@ -33649,7 +31943,6 @@ interface DTree extends DScrollPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the status of [DTree:SetClickOnDragHover](https://wiki.facepunch.com/gmod/DTree:SetClickOnDragHover). See that for more info.
-     *
      */
     GetClickOnDragHover(): boolean;
 
@@ -33659,7 +31952,6 @@ interface DTree extends DScrollPanel {
      * Returns the indentation size of the [DTree](https://wiki.facepunch.com/gmod/DTree), the distance between each "level" of the tree is offset on the left from the previous level.
      *
      * Currently this feature has no effect on the [DTree](https://wiki.facepunch.com/gmod/DTree) element.
-     *
      */
     GetIndentSize(): number;
 
@@ -33667,7 +31959,6 @@ interface DTree extends DScrollPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the height of each [DTree_Node](https://wiki.facepunch.com/gmod/DTree_Node) in the tree.
-     *
      */
     GetLineHeight(): number;
 
@@ -33675,7 +31966,6 @@ interface DTree extends DScrollPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the currently selected node.
-     *
      */
     GetSelectedItem(): Panel;
 
@@ -33685,7 +31975,6 @@ interface DTree extends DScrollPanel {
      * Returns whether or not the [Silkicons](https://wiki.facepunch.com/gmod/Silkicons) next to each node of the DTree will be displayed.
      *
      * Individual icons can be set with [DTree_Node:SetIcon](https://wiki.facepunch.com/gmod/DTree_Node:SetIcon) or passed as the second argument in [DTree:AddNode](https://wiki.facepunch.com/gmod/DTree:AddNode).
-     *
      */
     GetShowIcons(): boolean;
 
@@ -33693,7 +31982,6 @@ interface DTree extends DScrollPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Does nothing.
-     *
      */
     LayoutTree(): void;
 
@@ -33722,7 +32010,6 @@ interface DTree extends DScrollPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the root [DTree_Node](https://wiki.facepunch.com/gmod/DTree_Node), the node that is the parent to all other nodes of the DTree.
-     *
      */
     Root(): Panel;
 
@@ -33792,7 +32079,6 @@ interface DTree extends DScrollPanel {
      * Returns whether or not the [Silkicons](https://wiki.facepunch.com/gmod/Silkicons) next to each node of the DTree will be displayed.
      *
      * Alias of [DTree:GetShowIcons](https://wiki.facepunch.com/gmod/DTree:GetShowIcons).
-     *
      */
     ShowIcons(): boolean;
 
@@ -33859,7 +32145,6 @@ interface DTree_Node extends DPanel {
      * Cleans up the internal table of items (sub-nodes) of this node from invalid panels or sub-nodes that were moved from this node to another.
      *
      * Appears the be completely unused by the game on its own.
-     *
      */
     CleanList(): void;
 
@@ -33867,7 +32152,6 @@ interface DTree_Node extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Create and returns a copy of this node, including all the sub-nodes.
-     *
      */
     Copy(): Panel;
 
@@ -33877,7 +32161,6 @@ interface DTree_Node extends DPanel {
      * Creates the container [DListLayout](https://wiki.facepunch.com/gmod/DListLayout) for the [DTree_Node](https://wiki.facepunch.com/gmod/DTree_Node)s.
      *
      * This is called automatically so you don't have to.
-     *
      */
     CreateChildNodes(): void;
 
@@ -33885,7 +32168,6 @@ interface DTree_Node extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Called automatically to update the status of [DTree_Node:GetLastChild](https://wiki.facepunch.com/gmod/DTree_Node:GetLastChild) on children of this node.
-     *
      */
     DoChildrenOrder(): void;
 
@@ -33895,7 +32177,6 @@ interface DTree_Node extends DPanel {
      * Called when the node is clicked.
      *
      * See also [DTree_Node:DoRightClick](https://wiki.facepunch.com/gmod/DTree_Node:DoRightClick).
-     *
      */
     DoClick(): boolean;
 
@@ -33905,7 +32186,6 @@ interface DTree_Node extends DPanel {
      * Called when the node is right clicked.
      *
      * See also [DTree_Node:DoClick](https://wiki.facepunch.com/gmod/DTree_Node:DoClick).
-     *
      */
     DoRightClick(): boolean;
 
@@ -33965,7 +32245,6 @@ interface DTree_Node extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the number of child nodes this node has. For use with [DTree_Node:GetChildNode](https://wiki.facepunch.com/gmod/DTree_Node:GetChildNode)
-     *
      */
     GetChildNodeCount(): number;
 
@@ -33973,7 +32252,6 @@ interface DTree_Node extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns a table containing all child nodes of this node.
-     *
      */
     GetChildNodes(): any;
 
@@ -33981,7 +32259,6 @@ interface DTree_Node extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns value set by [DTree_Node:SetDirty](https://wiki.facepunch.com/gmod/DTree_Node:SetDirty).
-     *
      */
     GetDirty(): boolean;
 
@@ -33989,7 +32266,6 @@ interface DTree_Node extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether the double clock to collapse/expand functionality is enabled on this node.
-     *
      */
     GetDoubleClickToOpen(): boolean;
 
@@ -33997,7 +32273,6 @@ interface DTree_Node extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns what is set by [DTree_Node:SetDraggableName](https://wiki.facepunch.com/gmod/DTree_Node:SetDraggableName).
-     *
      */
     GetDraggableName(): string;
 
@@ -34005,7 +32280,6 @@ interface DTree_Node extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether or not this node is drawing lines
-     *
      */
     GetDrawLines(): boolean;
 
@@ -34013,7 +32287,6 @@ interface DTree_Node extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether the node is expanded or not.
-     *
      */
     GetExpanded(): boolean;
 
@@ -34021,7 +32294,6 @@ interface DTree_Node extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the filepath of the file attached to this node.
-     *
      */
     GetFileName(): string;
 
@@ -34029,7 +32301,6 @@ interface DTree_Node extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the folder path to search in, set by [DTree_Node:MakeFolder](https://wiki.facepunch.com/gmod/DTree_Node:MakeFolder).
-     *
      */
     GetFolder(): string;
 
@@ -34039,7 +32310,6 @@ interface DTree_Node extends DPanel {
      * Returns whether the expand/collapse button is shown on this node regardless of whether or not it has sub-nodes.
      *
      * See also [DTree_Node:SetForceShowExpander](https://wiki.facepunch.com/gmod/DTree_Node:SetForceShowExpander).
-     *
      */
     GetForceShowExpander(): boolean;
 
@@ -34047,7 +32317,6 @@ interface DTree_Node extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether the expand button (little + button) should be shown or hidden.
-     *
      */
     GetHideExpander(): boolean;
 
@@ -34055,7 +32324,6 @@ interface DTree_Node extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the image path to the icon of this node.
-     *
      */
     GetIcon(): string;
 
@@ -34065,7 +32333,6 @@ interface DTree_Node extends DPanel {
      * Returns the indentation level of the [DTree](https://wiki.facepunch.com/gmod/DTree) this node belongs to.
      *
      * Alias of [DTree:GetIndentSize](https://wiki.facepunch.com/gmod/DTree:GetIndentSize), see it for more info.
-     *
      */
     GetIndentSize(): number;
 
@@ -34073,7 +32340,6 @@ interface DTree_Node extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether this node is the last child on this level or not.
-     *
      */
     GetLastChild(): boolean;
 
@@ -34083,7 +32349,6 @@ interface DTree_Node extends DPanel {
      * The height of a single [DTree_Node](https://wiki.facepunch.com/gmod/DTree_Node) of the [DTree](https://wiki.facepunch.com/gmod/DTree) this node belongs to.
      *
      * Alias of [DTree:GetLineHeight](https://wiki.facepunch.com/gmod/DTree:GetLineHeight).
-     *
      */
     GetLineHeight(): number;
 
@@ -34093,8 +32358,6 @@ interface DTree_Node extends DPanel {
      * Returns whether the node still needs a filesystem search for sub-nodes.
      *
      * @deprecated Seems to be unused entirely.
-     *
-     *
      */
     GetNeedsChildSearch(): boolean;
 
@@ -34102,7 +32365,6 @@ interface DTree_Node extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether or not the node is set to be populated from the filesystem.
-     *
      */
     GetNeedsPopulating(): boolean;
 
@@ -34110,7 +32372,6 @@ interface DTree_Node extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the parent [DTree_Node](https://wiki.facepunch.com/gmod/DTree_Node). Note that [Panel:GetParent](https://wiki.facepunch.com/gmod/Panel:GetParent) will not be the same!
-     *
      */
     GetParentNode(): Panel;
 
@@ -34120,7 +32381,6 @@ interface DTree_Node extends DPanel {
      * Returns the path ID ([File Search Paths](https://wiki.facepunch.com/gmod/File_Search_Paths)) used in populating the [DTree](https://wiki.facepunch.com/gmod/DTree) from the filesystem.
      *
      * See [DTree_Node:SetPathID](https://wiki.facepunch.com/gmod/DTree_Node:SetPathID) and [DTree_Node:MakeFolder](https://wiki.facepunch.com/gmod/DTree_Node:MakeFolder).
-     *
      */
     GetPathID(): string;
 
@@ -34130,7 +32390,6 @@ interface DTree_Node extends DPanel {
      * Returns the root node, the [DTree](https://wiki.facepunch.com/gmod/DTree) this node is under.
      *
      * See also [DTree_Node:GetParentNode](https://wiki.facepunch.com/gmod/DTree_Node:GetParentNode).
-     *
      */
     GetRoot(): Panel;
 
@@ -34138,7 +32397,6 @@ interface DTree_Node extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether or not nodes for files should/will be added when populating the node from filesystem.
-     *
      */
     GetShowFiles(): boolean;
 
@@ -34146,7 +32404,6 @@ interface DTree_Node extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the wildcard set by [DTree_Node:MakeFolder](https://wiki.facepunch.com/gmod/DTree_Node:MakeFolder).
-     *
      */
     GetWildCard(): string;
 
@@ -34183,7 +32440,6 @@ interface DTree_Node extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * See [DTree_Node:DoClick](https://wiki.facepunch.com/gmod/DTree_Node:DoClick)
-     *
      */
     InternalDoClick(): void;
 
@@ -34191,7 +32447,6 @@ interface DTree_Node extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * See [DTree_Node:DoRightClick](https://wiki.facepunch.com/gmod/DTree_Node:DoRightClick).
-     *
      */
     InternalDoRightClick(): void;
 
@@ -34199,7 +32454,6 @@ interface DTree_Node extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns true if [DTree_Node:GetRoot](https://wiki.facepunch.com/gmod/DTree_Node:GetRoot) is the same as [DTree_Node:GetParentNode](https://wiki.facepunch.com/gmod/DTree_Node:GetParentNode) of this node.
-     *
      */
     IsRootNode(): boolean;
 
@@ -34241,7 +32495,6 @@ interface DTree_Node extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Moves this node to the top of the level.
-     *
      */
     MoveToTop(): void;
 
@@ -34249,7 +32502,6 @@ interface DTree_Node extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Called when sub-nodes of this [DTree_Node](https://wiki.facepunch.com/gmod/DTree_Node) were changed, such as being rearranged if that functionality is enabled.
-     *
      */
     OnModified(): void;
 
@@ -34275,7 +32527,6 @@ interface DTree_Node extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Called automatically to perform layout on this node if this node [DTree_Node:IsRootNode](https://wiki.facepunch.com/gmod/DTree_Node:IsRootNode).
-     *
      */
     PerformRootNodeLayout(): void;
 
@@ -34283,7 +32534,6 @@ interface DTree_Node extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Called automatically from [DTree_Node:PopulateChildrenAndSelf](https://wiki.facepunch.com/gmod/DTree_Node:PopulateChildrenAndSelf).
-     *
      */
     PopulateChildren(): void;
 
@@ -34455,7 +32705,6 @@ interface DTree_Node extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Currently does nothing, not implemented.
-     *
      */
     SetupCopy(): void;
 
@@ -34475,7 +32724,6 @@ interface DTree_Node extends DPanel {
      * Returns whether or not the [DTree](https://wiki.facepunch.com/gmod/DTree) this node is in has icons enabled.
      *
      * See [DTree:ShowIcons](https://wiki.facepunch.com/gmod/DTree:ShowIcons) for more info.
-     *
      */
     ShowIcons(): number;
 
@@ -34501,7 +32749,6 @@ interface DVerticalDivider extends DPanel {
      * 🟨 [Client]
      *
      * Used internally to clamp the vertical divider to [DVerticalDivider:GetTopMin](https://wiki.facepunch.com/gmod/DVerticalDivider:GetTopMin) and [DVerticalDivider:GetBottomMin](https://wiki.facepunch.com/gmod/DVerticalDivider:GetBottomMin).
-     *
      */
     DoConstraints(): void;
 
@@ -34509,7 +32756,6 @@ interface DVerticalDivider extends DPanel {
      * 🟨 [Client]
      *
      * Returns the bottom content panel of the [DVerticalDivider](https://wiki.facepunch.com/gmod/DVerticalDivider).
-     *
      */
     GetBottom(): Panel;
 
@@ -34517,7 +32763,6 @@ interface DVerticalDivider extends DPanel {
      * 🟨 [Client]
      *
      * Returns the minimum height of the bottom content panel.
-     *
      */
     GetBottomMin(): number;
 
@@ -34525,7 +32770,6 @@ interface DVerticalDivider extends DPanel {
      * 🟨 [Client]
      *
      * Returns the height of the divider bar between the top and bottom content panels of the [DVerticalDivider](https://wiki.facepunch.com/gmod/DVerticalDivider).
-     *
      */
     GetDividerHeight(): number;
 
@@ -34533,7 +32777,6 @@ interface DVerticalDivider extends DPanel {
      * 🟨 [Client]
      *
      * Returns whether the divider is being dragged or not.
-     *
      */
     GetDragging(): boolean;
 
@@ -34541,7 +32784,6 @@ interface DVerticalDivider extends DPanel {
      * 🟨 [Client]
      *
      * Returns the local Y position of where the user starts dragging the divider.
-     *
      */
     GetHoldPos(): number;
 
@@ -34549,7 +32791,6 @@ interface DVerticalDivider extends DPanel {
      * 🟨 [Client]
      *
      * Returns the middle content panel of the [DVerticalDivider](https://wiki.facepunch.com/gmod/DVerticalDivider).
-     *
      */
     GetMiddle(): Panel;
 
@@ -34557,7 +32798,6 @@ interface DVerticalDivider extends DPanel {
      * 🟨 [Client]
      *
      * Returns the top content panel of the [DVerticalDivider](https://wiki.facepunch.com/gmod/DVerticalDivider).
-     *
      */
     GetTop(): Panel;
 
@@ -34565,7 +32805,6 @@ interface DVerticalDivider extends DPanel {
      * 🟨 [Client]
      *
      * Returns the current height of the top content panel set by [DVerticalDivider:SetTopHeight](https://wiki.facepunch.com/gmod/DVerticalDivider:SetTopHeight) or by the user.
-     *
      */
     GetTopHeight(): number;
 
@@ -34573,7 +32812,6 @@ interface DVerticalDivider extends DPanel {
      * 🟨 [Client]
      *
      * Returns the maximum height of the top content panel. See [DVerticalDivider:SetTopMax](https://wiki.facepunch.com/gmod/DVerticalDivider:SetTopMax) for more information.
-     *
      */
     GetTopMax(): number;
 
@@ -34581,7 +32819,6 @@ interface DVerticalDivider extends DPanel {
      * 🟨 [Client]
      *
      * Returns the minimum height of the top content panel.
-     *
      */
     GetTopMin(): number;
 
@@ -34671,7 +32908,6 @@ interface DVerticalDivider extends DPanel {
      * 🟨 [Client]
      *
      * Causes the user to start dragging the divider.
-     *
      */
     StartGrab(): void;
 
@@ -34708,7 +32944,6 @@ interface DVScrollBar extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the scale of the scroll bar based on the difference in size between the visible "window" into the canvas that is being scrolled. Should be used after [DVScrollBar:SetUp](https://wiki.facepunch.com/gmod/DVScrollBar:SetUp).
-     *
      */
     BarScale(): number;
 
@@ -34716,7 +32951,6 @@ interface DVScrollBar extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether or not the manual up/down scroll buttons are visible or not. Set by [DVScrollBar:SetHideButtons](https://wiki.facepunch.com/gmod/DVScrollBar:SetHideButtons).
-     *
      */
     GetHideButtons(): boolean;
 
@@ -34724,7 +32958,6 @@ interface DVScrollBar extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the negative of [DVScrollBar:GetScroll](https://wiki.facepunch.com/gmod/DVScrollBar:GetScroll).
-     *
      */
     GetOffset(): number;
 
@@ -34732,7 +32965,6 @@ interface DVScrollBar extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the amount of scroll level from the top in pixels
-     *
      */
     GetScroll(): number;
 
@@ -34740,7 +32972,6 @@ interface DVScrollBar extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Called from within [DScrollBarGrip](https://wiki.facepunch.com/gmod/DScrollBarGrip)
-     *
      */
     Grip(): void;
 
@@ -34809,7 +33040,6 @@ interface FingerVar extends Panel {
  * A window that in which you can place just about every other component and even another frame.
  *
  * @deprecated You should use [DFrame](https://wiki.facepunch.com/gmod/DFrame) instead.
- *
  */
 interface Frame extends Panel {
 
@@ -34819,11 +33049,13 @@ interface Frame extends Panel {
 }
 
 /**
- * The HTML control can be used to display HTML code just like an internet browser. Unlike [DHTML](https://wiki.facepunch.com/gmod/DHTML), this control cannot accept user input or complex interaction, such as retrieving image data.
+ * The HTML control can be used to display web pages just like an internet browser.
  *
- * **Blocked URL Extentions**
+ * [DHTML](https://wiki.facepunch.com/gmod/DHTML) has additional functionality for interfacing with the page, such as sending and receiving data.
  *
- * `This means your url cannot end in any of these extensions, e.g.: (http://yourdomain.com/garry.exe)`
+ * ## Blocked URL Extentions
+ *
+ * This means your url cannot end in any of these extensions, e.g.: (http://yourdomain.com/garry.exe)
  * * .exe
  * * .bat
  * * .dll
@@ -34834,7 +33066,92 @@ interface Frame extends Panel {
 interface HTML extends Panel {
 
 
+    /**
+     * 🟨🟩 [Client and Menu]
+     *
+     * Called when the page inside the [HTML](https://wiki.facepunch.com/gmod/HTML) window runs the `console.log` javascript function.
+     *
+     * On the x86-64 beta, it's called for all built-in `console.*` javascript functions.
+     *
+     * Overwriting this function in any way will disable default behavior of printing the message to the in-game console.
+     * @param msg - The message to be logged (or Lua code to be executed; see above).
+     * @param file - The message source file, if any.
+     * @param lineNr - The line number in the file the message was output from.
+     * @param severity - The severity of the message. Possible values are:
+     * * "log"
+     * * "warn"
+     * * "error"
+     * * "debug"
+     */
+    ConsoleMessage(msg: string, file: string, lineNr: number, severity: string): void;
 
+    /**
+     * 🟨 [Client]
+     *
+     * Called when this panel begins loading a page.
+     * @param url - The URL of the current page.
+     */
+    OnBeginLoadingDocument(url: string): void;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Called by the engine when a callback function is called.
+     * @param library - Library name of the JS function that was called.
+     * @param name - Name of the JS function that was called.
+     * @param arguments - Table containing all arguments passed to the JS function.
+     */
+    OnCallback(library: string, name: string, arguments: any): boolean;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Called when this panel's address changes.
+     * @param url - The URL of the new page.
+     */
+    OnChangeAddressBar(url: string): void;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Called by HTML panels when the target URL of the frame has changed, this happens when you hover over a link.
+     * @param url - New target URL.
+     */
+    OnChangeTargetURL(url: string): void;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Called by HTML panels when the title of the loaded page has been changed.
+     * @param newTitle - The new title of the page.
+     */
+    OnChangeTitle(newTitle: string): void;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Called by HTML panels when the page attempts to open a new child view (such as a popup or new tab).
+     * @param sourceURL - The URL of the page requesting to create a child.
+     * @param targetURL - The URL of the requested child.
+     * @param isPopup - True if the requested view is a popup.
+     */
+    OnChildViewCreated(sourceURL: string, targetURL: string, isPopup: boolean): void;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Called by HTML panels when the panel's DOM has been set up. You can run JavaScript in here.
+     * @param url - The URL of the current page.
+     */
+    OnDocumentReady(url: string): void;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Called when this panel successfully loads a page.
+     * @param url - The URL of the current page.
+     */
+    OnFinishLoadingDocument(url: string): void;
 
 }
 
@@ -34847,7 +33164,6 @@ interface HTML extends Panel {
  *
  * **Note:**
  * >This panel is only available in Sandbox and Sandbox derived gamemodes!
- *
  */
 interface IconEditor extends Omit<DFrame, "SetIcon"> {
 
@@ -34858,7 +33174,6 @@ interface IconEditor extends Omit<DFrame, "SetIcon"> {
      * Applies the top-down view camera settings for the model in the [DAdjustableModelPanel](https://wiki.facepunch.com/gmod/DAdjustableModelPanel).
      *
      * Called when a user clicks the `Above` (third) button (See [IconEditor](https://wiki.facepunch.com/gmod/IconEditor)).
-     *
      */
     AboveLayout(): void;
 
@@ -34868,7 +33183,6 @@ interface IconEditor extends Omit<DFrame, "SetIcon"> {
      * Applies the best camera settings for the model in the [DAdjustableModelPanel](https://wiki.facepunch.com/gmod/DAdjustableModelPanel), using the values returned by [Global.PositionSpawnIcon](https://wiki.facepunch.com/gmod/Global.PositionSpawnIcon).
      *
      * Called when a user clicks the `wand` button (See the ) and when [IconEditor:Refresh](https://wiki.facepunch.com/gmod/IconEditor:Refresh) is called.
-     *
      */
     BestGuessLayout(): void;
 
@@ -34886,7 +33200,6 @@ interface IconEditor extends Omit<DFrame, "SetIcon"> {
      * Applies the front view camera settings for the model in the [DAdjustableModelPanel](https://wiki.facepunch.com/gmod/DAdjustableModelPanel).
      *
      * Called when a user clicks the `Front` (second) button (See the ).
-     *
      */
     FullFrontalLayout(): void;
 
@@ -34896,7 +33209,6 @@ interface IconEditor extends Omit<DFrame, "SetIcon"> {
      * Places the camera at the origin (0,0,0), relative to the entity, in the [DAdjustableModelPanel](https://wiki.facepunch.com/gmod/DAdjustableModelPanel).
      *
      * Called when a user clicks the `Center` (fifth) button (See the ).
-     *
      */
     OriginLayout(): void;
 
@@ -34906,7 +33218,6 @@ interface IconEditor extends Omit<DFrame, "SetIcon"> {
      * Updates the internal [DAdjustableModelPanel](https://wiki.facepunch.com/gmod/DAdjustableModelPanel) and [SpawnIcon](https://wiki.facepunch.com/gmod/SpawnIcon).
      *
      * This should be called immediately after setting the SpawnIcon with [IconEditor:SetIcon](https://wiki.facepunch.com/gmod/IconEditor:SetIcon).
-     *
      */
     Refresh(): void;
 
@@ -34916,7 +33227,6 @@ interface IconEditor extends Omit<DFrame, "SetIcon"> {
      * Re-renders the [SpawnIcon](https://wiki.facepunch.com/gmod/SpawnIcon).
      *
      * Called when a user clicks the `RENDER` button, this retrieves the render data from the internal [DAdjustableModelPanel](https://wiki.facepunch.com/gmod/DAdjustableModelPanel) and passes it as a table to [Panel:RebuildSpawnIconEx](https://wiki.facepunch.com/gmod/Panel:RebuildSpawnIconEx).
-     *
      */
     RenderIcon(): void;
 
@@ -34926,7 +33236,6 @@ interface IconEditor extends Omit<DFrame, "SetIcon"> {
      * Applies the right side view camera settings for the model in the [DAdjustableModelPanel](https://wiki.facepunch.com/gmod/DAdjustableModelPanel).
      *
      * Called when a user clicks the `Right` (fourth) button (See the ). (Note: The icon for this points left.)
-     *
      */
     RightLayout(): void;
 
@@ -34934,7 +33243,6 @@ interface IconEditor extends Omit<DFrame, "SetIcon"> {
      * 🟨 [Client]
      *
      * Sets up the default ambient and directional lighting for the [DAdjustableModelPanel](https://wiki.facepunch.com/gmod/DAdjustableModelPanel). Called by [IconEditor:Refresh](https://wiki.facepunch.com/gmod/IconEditor:Refresh).
-     *
      */
     SetDefaultLighting(): void;
 
@@ -34973,7 +33281,6 @@ interface IconEditor extends Omit<DFrame, "SetIcon"> {
  *
  * **Note:**
  * >Will error if no material was set.
- *
  */
 interface ImageCheckBox extends Button {
 
@@ -34982,7 +33289,6 @@ interface ImageCheckBox extends Button {
      * 🟨 [Client]
      *
      * Returns the checked state of the [ImageCheckBox](https://wiki.facepunch.com/gmod/ImageCheckBox)
-     *
      */
     GetChecked(): boolean;
 
@@ -35108,7 +33414,6 @@ interface MatSelect extends ContextBase {
      * 🟨 [Client]
      *
      * Returns whether the panel would set its own height to fit all materials within its height.
-     *
      */
     GetAutoHeight(): boolean;
 
@@ -35202,7 +33507,6 @@ interface ModelImage extends Panel {
  * A panel list with a custom vertical scroll bar that doesn't have up/down buttons and has a momentum to scrolling.
  *
  * @deprecated You should use [DScrollPanel](https://wiki.facepunch.com/gmod/DScrollPanel) instead
- *
  */
 interface PanelList extends Panel {
 
@@ -35326,7 +33630,6 @@ interface RichText extends Panel {
  * Used as scroll bar for [PanelList](https://wiki.facepunch.com/gmod/PanelList)
  *
  * @deprecated Used in deprecated  [PanelList](https://wiki.facepunch.com/gmod/PanelList). Use [DVScrollBar](https://wiki.facepunch.com/gmod/DVScrollBar) (Used in [DScrollPanel](https://wiki.facepunch.com/gmod/DScrollPanel)).
- *
  */
 interface SlideBar extends Panel {
 
@@ -35340,7 +33643,6 @@ interface SlideBar extends Panel {
  *
  * @deprecated Only exists for backwards compatibility with [Panel:SetActionFunction](https://wiki.facepunch.com/gmod/Panel:SetActionFunction) and [Panel:PostMessage](https://wiki.facepunch.com/gmod/Panel:PostMessage).
  * 			Use [DNumSlider](https://wiki.facepunch.com/gmod/DNumSlider) instead.
- *
  */
 interface Slider extends Panel {
 
@@ -35363,7 +33665,6 @@ interface SpawnIcon extends DButton {
      * Returns the currently active <page text="Sub Model IDs">Structures/BodyGroupData#submodels</page> for each Body Group of the spawn icon.
      *
      * 		This is set by [SpawnIcon:SetBodyGroup](https://wiki.facepunch.com/gmod/SpawnIcon:SetBodyGroup).
-     *
      */
     GetBodyGroup(): string;
 
@@ -35371,7 +33672,6 @@ interface SpawnIcon extends DButton {
      * 🟨 [Client]
      *
      * Returns the currently set model name. This is set by [SpawnIcon:SetModelName](https://wiki.facepunch.com/gmod/SpawnIcon:SetModelName).
-     *
      */
     GetModelName(): string;
 
@@ -35379,7 +33679,6 @@ interface SpawnIcon extends DButton {
      * 🟨 [Client]
      *
      * Returns the currently set skin of the spawnicon. This is set by [SpawnIcon:SetSkinID](https://wiki.facepunch.com/gmod/SpawnIcon:SetSkinID).
-     *
      */
     GetSkinID(): number;
 
@@ -35387,7 +33686,6 @@ interface SpawnIcon extends DButton {
      * 🟨 [Client]
      *
      * Called when right clicked on the SpawnIcon. It will not be called if there is a selection ([Panel:GetSelectionCanvas](https://wiki.facepunch.com/gmod/Panel:GetSelectionCanvas)), in which case [SANDBOX:SpawnlistOpenGenericMenu](https://wiki.facepunch.com/gmod/SANDBOX:SpawnlistOpenGenericMenu) is called.
-     *
      */
     OpenMenu(): void;
 
@@ -35446,7 +33744,6 @@ interface SpawnmenuContentPanel extends DPanel {
      * 🟨 [Client]
      *
      * Allows the modification of the ContentSidebar
-     *
      */
     EnableModify(): void;
 
@@ -35470,7 +33767,9 @@ interface SpawnmenuContentPanel extends DPanel {
 }
 
 /**
- * Basic text input field. See [DTextEntry](https://wiki.facepunch.com/gmod/DTextEntry) for a more advanced version.
+ * Basic text input field.
+ *
+ * See [DTextEntry](https://wiki.facepunch.com/gmod/DTextEntry) for a more advanced version.
  */
 interface TextEntry extends Panel {
 
@@ -35491,7 +33790,6 @@ interface TextEntry extends Panel {
      * Called when the text inside the [TextEntry](https://wiki.facepunch.com/gmod/TextEntry) changes.
      *
      * You may be looking for [DTextEntry:OnValueChange](https://wiki.facepunch.com/gmod/DTextEntry:OnValueChange) instead.
-     *
      */
     OnTextChanged(): void;
 
@@ -35518,7 +33816,6 @@ interface UGCPublishWindow extends DFrame {
      * 🟩 [Menu]
      *
      * Checks if the Tags and Title are valid and if so it enables the publish button.
-     *
      */
     CheckInput(): void;
 
@@ -35543,7 +33840,6 @@ interface UGCPublishWindow extends DFrame {
      * 🟩 [Menu]
      *
      * Rezises the panel to nicely fit all children
-     *
      */
     FitContents(): void;
 
@@ -35551,7 +33847,6 @@ interface UGCPublishWindow extends DFrame {
      * 🟩 [Menu]
      *
      * Returns the name of the current selected tag.
-     *
      */
     GetChosenTag(): string;
 
@@ -35579,7 +33874,6 @@ interface UGCPublishWindow extends DFrame {
      * 🟩 [Menu]
      *
      * updated the Workshop items list.
-     *
      */
     UpdateWorkshopItems(): void;
 
@@ -35655,7 +33949,6 @@ interface Gamemode {
      *
      * **Note:**
      * >[Global.DeriveGamemode](https://wiki.facepunch.com/gmod/Global.DeriveGamemode) modifies the main gamemode's BaseClass, which is shared with parent gamemodes. Because of this, in parent gamemodes the BaseClass can be incorrect, so for instance you need to use `self.BaseClass.BaseClass` in the 1st parent instead
-     *
      */
     BaseClass: any,
 
@@ -35862,8 +34155,6 @@ interface Gamemode {
      *
      * **Note:**
      * >This hook is called every frame regardless of whether or not a demo is being recorded
-     *
-     *
      */
     CaptureVideo(): void;
 
@@ -35926,7 +34217,6 @@ interface Gamemode {
      * 🟨🟩 [Client and Menu]
      *
      * Called when derma menus are closed with [Global.CloseDermaMenus](https://wiki.facepunch.com/gmod/Global.CloseDermaMenus).
-     *
      */
     CloseDermaMenus(): void;
 
@@ -35972,7 +34262,6 @@ interface Gamemode {
      * Teams are created within this hook using [team.SetUp](https://wiki.facepunch.com/gmod/team.SetUp).
      *
      * This hook is called before [GM:PreGamemodeLoaded](https://wiki.facepunch.com/gmod/GM:PreGamemodeLoaded).
-     *
      */
     CreateTeams(): void;
 
@@ -36018,7 +34307,6 @@ interface Gamemode {
      * 🟨 [Client]
      *
      * Called every frame before drawing the in-game monitors ( Breencast, in-game TVs, etc ), but doesn't seem to be doing anything, trying to render 2D or 3D elements fail.
-     *
      */
     DrawMonitors(): void;
 
@@ -36032,7 +34320,6 @@ interface Gamemode {
      * Does not get called when `r_drawvgui` is disabled.
      *
      * <rendercontext hook="true" type="2D"></rendercontext>
-     *
      */
     DrawOverlay(): void;
 
@@ -36167,7 +34454,6 @@ interface Gamemode {
      * 🟨 [Client]
      *
      * Runs when user cancels/finishes typing.
-     *
      */
     FinishChat(): void;
 
@@ -36189,8 +34475,6 @@ interface Gamemode {
      *
      * **Note:**
      * >This hook is only called on Lua start up, changing its value (or adding new hooks) after it has been already called will not have any effect.
-     *
-     *
      */
     ForceDermaSkin(): string;
 
@@ -36198,7 +34482,6 @@ interface Gamemode {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Called when game content has been changed, for example an addon or a mountable game was (un)mounted.
-     *
      */
     GameContentChanged(): void;
 
@@ -36228,8 +34511,6 @@ interface Gamemode {
      * >This hook (and the `sv_gamename_override` command) may not work on some popular gamemodes like DarkRP or Trouble Terrorist Town. This is not a bug, it's just how it works. See [here](https://github.com/Facepunch/garrysmod-issues/issues/4637#issuecomment-677884989) for more information.
      *
      * Also, it **only** works on dedicated servers and is called at regular intervals (about one second) **even** if the server has no players and the hibernation function is enabled.
-     *
-     *
      */
     GetGameDescription(): string;
 
@@ -36441,7 +34722,6 @@ interface Gamemode {
      * 🟨 [Client]
      *
      * Hides the team selection panel.
-     *
      */
     HideTeam(): void;
 
@@ -36458,7 +34738,6 @@ interface Gamemode {
      * 🟨 [Client]
      *
      * Renders the HUD pick-up history. Override to hide default or draw your own HUD.
-     *
      */
     HUDDrawPickupHistory(): void;
 
@@ -36470,7 +34749,6 @@ interface Gamemode {
      * It is recommended to use Derma and VGUI for this job instead of this hook. Called right after [GM:HUDPaint](https://wiki.facepunch.com/gmod/GM:HUDPaint).
      *
      * <rendercontext hook="true" type="2D"></rendercontext>
-     *
      */
     HUDDrawScoreBoard(): void;
 
@@ -36478,7 +34756,6 @@ interface Gamemode {
      * 🟨 [Client]
      *
      * Called from [GM:HUDPaint](https://wiki.facepunch.com/gmod/GM:HUDPaint) to draw player info when you hover over a player with your crosshair or mouse.
-     *
      */
     HUDDrawTargetID(): boolean;
 
@@ -36503,7 +34780,6 @@ interface Gamemode {
      * 		If you need to draw in those situations, use [GM:DrawOverlay](https://wiki.facepunch.com/gmod/GM:DrawOverlay) instead.
      *
      * 		<rendercontext hook="true" type="2D"></rendercontext>
-     *
      */
     HUDPaint(): void;
 
@@ -36517,7 +34793,6 @@ interface Gamemode {
      * Things rendered in this hook will **always** appear behind things rendered in [GM:HUDPaint](https://wiki.facepunch.com/gmod/GM:HUDPaint).
      *
      * <rendercontext hook="true" type="2D"></rendercontext>
-     *
      */
     HUDPaintBackground(): void;
 
@@ -36547,7 +34822,6 @@ interface Gamemode {
      * Called after the gamemode loads and starts.
      *
      * No entities would be present at the time this hook is called, please see [GM:InitPostEntity](https://wiki.facepunch.com/gmod/GM:InitPostEntity) for a one time fire hook after all map entities have been initialized.
-     *
      */
     Initialize(): void;
 
@@ -36558,8 +34832,6 @@ interface Gamemode {
      *
      * **Note:**
      * >At this point the client only knows about the entities that are within the spawnpoints' [PVS (Potential Visibility Set)](https://developer.valvesoftware.com/wiki/PVS "PVS - Valve Developer Community"). For instance, if the server sends an entity that is not within this PVS, the client will receive it as NULL entity.
-     *
-     *
      */
     InitPostEntity(): void;
 
@@ -36630,7 +34902,6 @@ interface Gamemode {
      * 🟩 [Menu]
      *
      * Called while an addon from the Steam workshop is downloading. Used by default to update details on the fancy workshop download panel.
-     *
      */
     LoadGModSaveFailed(): LuaMultiReturn<[string, string]>;
 
@@ -36638,7 +34909,6 @@ interface Gamemode {
      * 🟩 [Menu]
      *
      * Called when `menu.lua` has finished loading.
-     *
      */
     MenuStart(): void;
 
@@ -36671,7 +34941,6 @@ interface Gamemode {
      * 🟨 [Client]
      *
      * Returning true in this hook will cause it to render depth buffers defined with [render.GetResolvedFullFrameDepth](https://wiki.facepunch.com/gmod/render.GetResolvedFullFrameDepth).
-     *
      */
     NeedsDepthPass(): boolean;
 
@@ -36786,7 +35055,6 @@ interface Gamemode {
      * This hook will not run if [input.IsKeyTrapping](https://wiki.facepunch.com/gmod/input.IsKeyTrapping) returns true.
      *
      * See also [GM:OnContextMenuOpen](https://wiki.facepunch.com/gmod/GM:OnContextMenuOpen).
-     *
      */
     OnContextMenuClose(): void;
 
@@ -36796,7 +35064,6 @@ interface Gamemode {
      * Called when the context menu keybind (`+menu_context`) is pressed, which by default is <key>C</key>.
      *
      * See also [GM:OnContextMenuClose](https://wiki.facepunch.com/gmod/GM:OnContextMenuClose).
-     *
      */
     OnContextMenuOpen(): void;
 
@@ -36861,7 +35128,6 @@ interface Gamemode {
      * Called when the gamemode is loaded.
      *
      * [Global.LocalPlayer](https://wiki.facepunch.com/gmod/Global.LocalPlayer)() returns NULL at the time this is run.
-     *
      */
     OnGamemodeLoaded(): void;
 
@@ -36920,7 +35186,6 @@ interface Gamemode {
      * 🟩 [Menu]
      *
      * Called when the main menu has been blocked by [GM:OnPauseMenuShow](https://wiki.facepunch.com/gmod/GM:OnPauseMenuShow) four times in a small interval. This is used internally to explain to the user that they can hold <key>SHIFT</key> to force open the main menu.
-     *
      */
     OnPauseMenuBlockedTooManyTimes(): void;
 
@@ -36930,7 +35195,6 @@ interface Gamemode {
      * Called when the pause menu is attempting to be opened. Allows you to prevent the main menu from being opened that time.
      *
      * 	The user can hold <key>SHIFT</key> to not call this hook. If the main menu is blocked multiple times in short succession, a warning will be displayed to the end user on how to bypass the hook.
-     *
      */
     OnPauseMenuShow(): boolean;
 
@@ -36938,7 +35202,6 @@ interface Gamemode {
      * 🟩 [Menu]
      *
      * Called when a permission gets Granted or Revoked.
-     *
      */
     OnPermissionsChanged(): void;
 
@@ -37054,8 +35317,6 @@ interface Gamemode {
      *
      * **Note:**
      * >It seems that this event can be triggered more than once for a single refresh event.
-     *
-     *
      */
     OnReloaded(): void;
 
@@ -37076,7 +35337,6 @@ interface Gamemode {
      * 🟨 [Client]
      *
      * Called when a player releases the `+menu` bind on their keyboard, which is bound to Q by default.
-     *
      */
     OnSpawnMenuClose(): void;
 
@@ -37084,7 +35344,6 @@ interface Gamemode {
      * 🟨 [Client]
      *
      * Called when a player presses the `+menu` bind on their keyboard, which is bound to <key>Q</key> by default.
-     *
      */
     OnSpawnMenuOpen(): void;
 
@@ -37179,7 +35438,6 @@ interface Gamemode {
      * @param uniqueid - The player's UniqueID.
      * **Warning:**
      * >This will always be `"1"` in singleplayer.
-     *
      */
     PlayerAuthed(ply: Player, steamid: string, uniqueid: string): void;
 
@@ -37361,7 +35619,6 @@ interface Gamemode {
      * @param ip - The player's IP address. Will be "none" for bots.
      * **Note:**
      * >This argument will only be passed serverside.
-     *
      */
     PlayerConnect(name: string, ip: string): void;
 
@@ -37813,7 +36070,6 @@ interface Gamemode {
      * @param newWeapon - The weapon the player switched to. Will be `NULL` if the player is switching to nothing.
      * **Bug [#2922](https://github.com/Facepunch/garrysmod-issues/issues/2922):**
      * >This can be `NULL` on the client if the weapon hasn't been created over the network yet.
-     *
      */
     PlayerSwitchWeapon(player: Player, oldWeapon: Weapon, newWeapon: Weapon): boolean;
 
@@ -37874,7 +36130,6 @@ interface Gamemode {
      * Called right after the map has cleaned up (usually because [game.CleanUpMap](https://wiki.facepunch.com/gmod/game.CleanUpMap) was called)
      *
      * See also [GM:PreCleanupMap](https://wiki.facepunch.com/gmod/GM:PreCleanupMap).
-     *
      */
     PostCleanupMap(): void;
 
@@ -37884,7 +36139,6 @@ interface Gamemode {
      * Called right after the 2D skybox has been drawn - allowing you to draw over it.
      *
      * <rendercontext hook="true" type="3D"></rendercontext>
-     *
      */
     PostDraw2DSkyBox(): void;
 
@@ -37894,7 +36148,6 @@ interface Gamemode {
      * Called after rendering effects. This is where halos are drawn. Called just before [GM:PreDrawHUD](https://wiki.facepunch.com/gmod/GM:PreDrawHUD).
      *
      * <rendercontext hook="true" type="2D"></rendercontext>
-     *
      */
     PostDrawEffects(): void;
 
@@ -37906,7 +36159,6 @@ interface Gamemode {
      * Unlike [GM:HUDPaint](https://wiki.facepunch.com/gmod/GM:HUDPaint)(<page text="Background">GM:HUDPaintBackground</page>) hooks, this will still be called when the main menu is visible. And so will be [GM:PreDrawHUD](https://wiki.facepunch.com/gmod/GM:PreDrawHUD)
      *
      * 		<rendercontext hook="true" type="2D"></rendercontext>
-     *
      */
     PostDrawHUD(): void;
 
@@ -37947,7 +36199,6 @@ interface Gamemode {
      * See also [GM:PostDraw2DSkyBox](https://wiki.facepunch.com/gmod/GM:PostDraw2DSkyBox).
      *
      * <rendercontext hook="true" type="3D"></rendercontext>
-     *
      */
     PostDrawSkyBox(): void;
 
@@ -38027,7 +36278,6 @@ interface Gamemode {
      * 🟨🟦 [Shared]
      *
      * Called after the gamemode has loaded.
-     *
      */
     PostGamemodeLoaded(): void;
 
@@ -38048,7 +36298,9 @@ interface Gamemode {
     /**
      * 🟨 [Client]
      *
-     * Called after a player in your [PVS (Potential Visibility Set)](https://developer.valvesoftware.com/wiki/PVS "PVS - Valve Developer Community") was drawn.
+     * Called after a given player in your [PVS (Potential Visibility Set)](https://developer.valvesoftware.com/wiki/PVS "PVS - Valve Developer Community") was drawn.
+     *
+     * This hook will not be called if player was prevented from being drawn via [GM:PrePlayerDraw](https://wiki.facepunch.com/gmod/GM:PrePlayerDraw).
      * <rendercontext hook="true" type="3D"></rendercontext>
      * @param ply - The player that was drawn.
      * @param flags - The <page text="STUDIO_">Enums/STUDIO</page> flags for this render operation.
@@ -38067,7 +36319,6 @@ interface Gamemode {
      * 🟨 [Client]
      *
      * Called after the frame has been rendered.
-     *
      */
     PostRender(): void;
 
@@ -38077,7 +36328,6 @@ interface Gamemode {
      * Called after the VGUI has been drawn.
      *
      * <rendercontext hook="true" type="2D"></rendercontext>
-     *
      */
     PostRenderVGUI(): void;
 
@@ -38096,7 +36346,6 @@ interface Gamemode {
      * Called right before the map cleans up (usually because [game.CleanUpMap](https://wiki.facepunch.com/gmod/game.CleanUpMap) was called)
      *
      * See also [GM:PostCleanupMap](https://wiki.facepunch.com/gmod/GM:PostCleanupMap).
-     *
      */
     PreCleanupMap(): void;
 
@@ -38106,7 +36355,6 @@ interface Gamemode {
      * Called just after [GM:PreDrawViewModel](https://wiki.facepunch.com/gmod/GM:PreDrawViewModel) and can technically be considered "PostDrawAllViewModels".
      *
      * <rendercontext hook="true" type="3D"></rendercontext>
-     *
      */
     PreDrawEffects(): void;
 
@@ -38116,7 +36364,6 @@ interface Gamemode {
      * Called before rendering the halos. This is the place to call [halo.Add](https://wiki.facepunch.com/gmod/halo.Add). This hook is actually running inside of [GM:PostDrawEffects](https://wiki.facepunch.com/gmod/GM:PostDrawEffects).
      *
      * <rendercontext hook="true" type="3D"></rendercontext>
-     *
      */
     PreDrawHalos(): void;
 
@@ -38124,7 +36371,6 @@ interface Gamemode {
      * 🟨 [Client]
      *
      * Called just after [GM:PostDrawEffects](https://wiki.facepunch.com/gmod/GM:PostDrawEffects). Drawing anything in it seems to work incorrectly.
-     *
      */
     PreDrawHUD(): void;
 
@@ -38165,7 +36411,6 @@ interface Gamemode {
      * See also [GM:PostDrawSkyBox](https://wiki.facepunch.com/gmod/GM:PostDrawSkyBox)
      *
      * <rendercontext hook="true" type="3D"></rendercontext>
-     *
      */
     PreDrawSkyBox(): boolean;
 
@@ -38220,7 +36465,6 @@ interface Gamemode {
      * You can use [GM:PreDrawEffects](https://wiki.facepunch.com/gmod/GM:PreDrawEffects) as a "`PostDrawViewModels`" hook as it is called just after the all the view model(s) are drawn.
      *
      * <rendercontext hook="true" type="3D"></rendercontext>
-     *
      */
     PreDrawViewModels(): void;
 
@@ -38228,7 +36472,6 @@ interface Gamemode {
      * 🟨🟦 [Shared]
      *
      * Called before the gamemode is loaded.
-     *
      */
     PreGamemodeLoaded(): void;
 
@@ -38236,6 +36479,8 @@ interface Gamemode {
      * 🟨 [Client]
      *
      * Called before the player is drawn.
+     *
+     * See also [GM:PostPlayerDraw](https://wiki.facepunch.com/gmod/GM:PostPlayerDraw).
      * @param player - The player that is about to be drawn.
      * @param flags - The <page text="STUDIO_">Enums/STUDIO</page> flags for this render operation.
      */
@@ -38263,7 +36508,6 @@ interface Gamemode {
      * 🟨 [Client]
      *
      * Called before the renderer is about to start rendering the next frame.
-     *
      */
     PreRender(): boolean;
 
@@ -38279,7 +36523,6 @@ interface Gamemode {
      * 🟨 [Client]
      *
      * This will prevent <key>IN_ATTACK</key> from sending to server when player tries to shoot from C menu.
-     *
      */
     PreventScreenClicks(): boolean;
 
@@ -38312,7 +36555,6 @@ interface Gamemode {
      * Used to render post processing effects.
      *
      * <rendercontext hook="true" type="2D"></rendercontext>
-     *
      */
     RenderScreenspaceEffects(): void;
 
@@ -38322,7 +36564,6 @@ interface Gamemode {
      * Called when the game is reloaded from a Source Engine save system ( not the Sandbox saves or dupes ).
      *
      * See [GM:Saved](https://wiki.facepunch.com/gmod/GM:Saved) for a hook that is called when such a save file is created.
-     *
      */
     Restored(): void;
 
@@ -38334,7 +36575,6 @@ interface Gamemode {
      * See [GM:Restored](https://wiki.facepunch.com/gmod/GM:Restored) for a hook that is called when such a save file is loaded.
      *
      * See also the [saverestore](https://wiki.facepunch.com/gmod/saverestore) for relevant functions.
-     *
      */
     Saved(): void;
 
@@ -38370,7 +36610,6 @@ interface Gamemode {
      * 🟨 [Client]
      *
      * Called when player released the scoreboard button (<key>TAB</key> by default).
-     *
      */
     ScoreboardHide(): void;
 
@@ -38378,7 +36617,6 @@ interface Gamemode {
      * 🟨 [Client]
      *
      * Called when player presses the scoreboard button (<key>TAB</key> by default).
-     *
      */
     ScoreboardShow(): boolean;
 
@@ -38444,7 +36682,6 @@ interface Gamemode {
      * 🟨 [Client]
      *
      * Allows you to use render.Fog* functions to manipulate world fog.
-     *
      */
     SetupWorldFog(): boolean;
 
@@ -38518,7 +36755,6 @@ interface Gamemode {
      * 🟨🟦 [Shared]
      *
      * Called whenever the Lua environment is about to be shut down, for example on map change, or when the server is going to shut down.
-     *
      */
     ShutDown(): void;
 
@@ -38536,7 +36772,6 @@ interface Gamemode {
      * 🟨 [Client]
      *
      * Called when the Spawnmenu is Created.
-     *
      */
     SpawnMenuCreated(): void;
 
@@ -38580,7 +36815,6 @@ interface Gamemode {
      * 🟩 [Menu]
      *
      * Called when you start a new game via the menu.
-     *
      */
     StartGame(): void;
 
@@ -38596,8 +36830,6 @@ interface Gamemode {
      *
      * **Note:**
      * >On server, this hook **WILL NOT** run if the server is empty, unless you set the [ConVar](https://wiki.facepunch.com/gmod/ConVar) `sv_hibernate_think` to `1`.
-     *
-     *
      */
     Think(): void;
 
@@ -38613,8 +36845,6 @@ interface Gamemode {
      *
      * **Note:**
      * >This hook **WILL NOT** run if the server is empty, unless you set the [ConVar](https://wiki.facepunch.com/gmod/ConVar) `sv_hibernate_think` to 1
-     *
-     *
      */
     Tick(): void;
 
@@ -38761,7 +36991,6 @@ interface Gamemode {
      * 🟩 [Menu]
      *
      * Called when downloading content from Steam workshop ends. Used by default to hide fancy workshop downloading panel.
-     *
      */
     WorkshopEnd(): void;
 
@@ -38794,7 +37023,6 @@ interface Gamemode {
      * * WorkshopDownloadProgress - This is called until the file is finished
      * * WorkshopDownloadedFile
      * * WorkshopEnd (this ones called once)
-     *
      */
     WorkshopStart(): void;
 
@@ -38802,7 +37030,6 @@ interface Gamemode {
      * 🟩 [Menu]
      *
      * Called when UGC subscription status changes.
-     *
      */
     WorkshopSubscriptionsChanged(): void;
 
@@ -38837,7 +37064,6 @@ interface Gamemode {
  *
  * **Note:**
  * >The hooks listed here are also dependent on the scripted entity type. For instance, a base scripted entity will not use [ENTITY:DoSchedule](https://wiki.facepunch.com/gmod/ENTITY:DoSchedule) at all, that is only for scripted NPCs
- *
  */
 interface ENTITY extends Entity {
 
@@ -38849,8 +37075,6 @@ interface ENTITY extends Entity {
      *
      * **Note:**
      * >This is a helper function only available if your SENT is based on `base_ai`
-     *
-     *
      */
     GetNPCClass(): CLASS;
 
@@ -38977,7 +37201,6 @@ interface ENTITY extends Entity {
      * 🟦 [Server]
      *
      * Called just before [ENTITY:Initialize](https://wiki.facepunch.com/gmod/ENTITY:Initialize) for "ai" type entities only.
-     *
      */
     CreateSchedulesInternal(): void;
 
@@ -39001,8 +37224,6 @@ interface ENTITY extends Entity {
      *
      * **Note:**
      * >This is a helper function only available if your SENT is based on `base_ai`
-     *
-     *
      */
     DoingEngineSchedule(): boolean;
 
@@ -39068,8 +37289,6 @@ interface ENTITY extends Entity {
      *
      * **Note:**
      * >This hook isn't called when the engine schedule is failed, the schedule is cleared with [NPC:ClearSchedule](https://wiki.facepunch.com/gmod/NPC:ClearSchedule) or [NPC:SetSchedule](https://wiki.facepunch.com/gmod/NPC:SetSchedule) has been called.
-     *
-     *
      */
     EngineScheduleFinish(): void;
 
@@ -39130,8 +37349,6 @@ interface ENTITY extends Entity {
      *
      * **Note:**
      * >You should not be creating or modifying an [IMesh](https://wiki.facepunch.com/gmod/IMesh) in this hook. [Reference](https://github.com/Facepunch/garrysmod-issues/issues/6411#issuecomment-3070608549)
-     *
-     *
      */
     GetRenderMesh(): any;
 
@@ -39155,8 +37372,6 @@ interface ENTITY extends Entity {
      *
      * **Note:**
      * >This hook only exists for `ai` type SENTs
-     *
-     *
      */
     GetSoundInterests(): SOUND;
 
@@ -39213,7 +37428,6 @@ interface ENTITY extends Entity {
      * Called when the entity is created. This is called when you [Entity:Spawn](https://wiki.facepunch.com/gmod/Entity:Spawn) the custom entity.
      *
      * This is called **after** [ENTITY:SetupDataTables](https://wiki.facepunch.com/gmod/ENTITY:SetupDataTables) and [GM:OnEntityCreated](https://wiki.facepunch.com/gmod/GM:OnEntityCreated).
-     *
      */
     Initialize(): void;
 
@@ -39323,8 +37537,6 @@ interface ENTITY extends Entity {
      *
      * **Note:**
      * >This hook only works on `ai` type entities.
-     *
-     *
      */
     OnMovementComplete(): void;
 
@@ -39335,8 +37547,6 @@ interface ENTITY extends Entity {
      *
      * **Note:**
      * >This hook only works on `ai` type entities.
-     *
-     *
      */
     OnMovementFailed(): void;
 
@@ -39344,7 +37554,6 @@ interface ENTITY extends Entity {
      * 🟨🟦 [Shared]
      *
      * Called when the entity is reloaded by the lua auto-refresh system, i.e. when the developer edits the lua file for the entity while the game is running.
-     *
      */
     OnReloaded(): void;
 
@@ -39378,7 +37587,6 @@ interface ENTITY extends Entity {
      * Called when the entity is reloaded from a Source Engine save (not the Sandbox saves or dupes) or on a changelevel (for example Half-Life 2 campaign level transitions).
      *
      * For the [duplicator](https://wiki.facepunch.com/gmod/duplicator) callbacks, see [ENTITY:OnDuplicated](https://wiki.facepunch.com/gmod/ENTITY:OnDuplicated).
-     *
      */
     OnRestore(): void;
 
@@ -39418,8 +37626,6 @@ interface ENTITY extends Entity {
      *
      * **Note:**
      * >This hook only exists for `ai` type [SENTs](Scripted_Entities).
-     *
-     *
      */
     OnTaskComplete(): void;
 
@@ -39536,7 +37742,6 @@ interface ENTITY extends Entity {
      * Called after the duplicator finished copying the entity.
      *
      * See also [ENTITY:PreEntityCopy](https://wiki.facepunch.com/gmod/ENTITY:PreEntityCopy), [ENTITY:PostEntityPaste](https://wiki.facepunch.com/gmod/ENTITY:PostEntityPaste) and [ENTITY:OnEntityCopyTableFinish](https://wiki.facepunch.com/gmod/ENTITY:OnEntityCopyTableFinish).
-     *
      */
     PostEntityCopy(): void;
 
@@ -39554,7 +37759,6 @@ interface ENTITY extends Entity {
      * @param createdEntities - All entities that are within the placed dupe.
      * **Note:**
      * >The keys of each value in this table are the original entity indexes when the duplication was created. This can be utilized to restore entity references that don't get saved in duplications.
-     *
      */
     PostEntityPaste(ply: Player, ent: Entity, createdEntities: any): void;
 
@@ -39566,7 +37770,6 @@ interface ENTITY extends Entity {
      * If you are looking for a way to make the duplicator spawn another entity when duplicated. (For example, you duplicate a `prop_physics`, but you want the duplicator to spawn `prop_physics_my`), you should add `prop_physics.ClassOverride = "prop_physics_my"`. The duplication table should be also stored on that `prop_physics`, not on `prop_physics_my`.
      *
      * See also [ENTITY:PostEntityCopy](https://wiki.facepunch.com/gmod/ENTITY:PostEntityCopy).
-     *
      */
     PreEntityCopy(): void;
 
@@ -39597,8 +37800,6 @@ interface ENTITY extends Entity {
      *
      * **Note:**
      * >This hook only exists for `ai` type [SENTs](Scripted_Entities).
-     *
-     *
      */
     RunAI(): boolean;
 
@@ -39635,8 +37836,6 @@ interface ENTITY extends Entity {
      *
      * **Note:**
      * >This is a helper function only available if your SENT is based on `base_ai`
-     *
-     *
      */
     ScheduleFinished(): void;
 
@@ -39647,8 +37846,6 @@ interface ENTITY extends Entity {
      *
      * **Note:**
      * >This is a helper function only available if your SENT is based on `base_ai`
-     *
-     *
      */
     SelectSchedule(): void;
 
@@ -39682,7 +37879,6 @@ interface ENTITY extends Entity {
      * This is a much better option than using Set/Get Networked Values.
      *
      * This hook is called after [GM:OnEntityCreated](https://wiki.facepunch.com/gmod/GM:OnEntityCreated) and [GM:NetworkEntityCreated](https://wiki.facepunch.com/gmod/GM:NetworkEntityCreated).
-     *
      */
     SetupDataTables(): void;
 
@@ -39787,8 +37983,6 @@ interface ENTITY extends Entity {
      *
      * **Note:**
      * >This hook only exists for `ai` type [SENTs](Scripted_Entities).
-     *
-     *
      */
     TaskFinished(): boolean;
 
@@ -39799,8 +37993,6 @@ interface ENTITY extends Entity {
      *
      * **Note:**
      * >This hook only exists for `ai` type [SENTs](Scripted_Entities).
-     *
-     *
      */
     TaskTime(): number;
 
@@ -39834,8 +38026,6 @@ interface ENTITY extends Entity {
      * >You may need to call [Entity:Spawn](https://wiki.facepunch.com/gmod/Entity:Spawn) to get this hook to run server side.
      *
      * You can force it to run at servers tickrate using the example below.
-     *
-     *
      */
     Think(): boolean;
 
@@ -39908,7 +38098,6 @@ interface ENTITY extends Entity {
      * 🟦 [Server]
      *
      * Called whenever the transmit state should be updated.
-     *
      */
     UpdateTransmitState(): TRANSMIT;
 
@@ -39954,7 +38143,6 @@ interface WEAPON extends Weapon {
      * 🟨 [Client]
      *
      * Allows you to adjust the mouse sensitivity. This hook only works if you haven't overridden [GM:AdjustMouseSensitivity](https://wiki.facepunch.com/gmod/GM:AdjustMouseSensitivity).
-     *
      */
     AdjustMouseSensitivity(): number;
 
@@ -39962,7 +38150,6 @@ interface WEAPON extends Weapon {
      * 🟨🟦 [Shared]
      *
      * Returns how much of primary ammo the player has.
-     *
      */
     Ammo1(): number;
 
@@ -39970,7 +38157,6 @@ interface WEAPON extends Weapon {
      * 🟨🟦 [Shared]
      *
      * Returns how much of secondary ammo the player has.
-     *
      */
     Ammo2(): number;
 
@@ -40003,7 +38189,6 @@ interface WEAPON extends Weapon {
      * 🟦 [Server]
      *
      * Called when a Citizen NPC is looking around to a (better) weapon to pickup.
-     *
      */
     CanBePickedUpByNPCs(): boolean;
 
@@ -40011,7 +38196,6 @@ interface WEAPON extends Weapon {
      * 🟨🟦 [Shared]
      *
      * Helper function for checking for no ammo.
-     *
      */
     CanPrimaryAttack(): boolean;
 
@@ -40019,7 +38203,6 @@ interface WEAPON extends Weapon {
      * 🟨🟦 [Shared]
      *
      * Helper function for checking for no ammo.
-     *
      */
     CanSecondaryAttack(): boolean;
 
@@ -40029,7 +38212,6 @@ interface WEAPON extends Weapon {
      * Allows you to use any numbers you want for the ammo display on the HUD.
      *
      * Can be useful for weapons that don't use standard ammo.
-     *
      */
     CustomAmmoDisplay(): any;
 
@@ -40040,8 +38222,6 @@ interface WEAPON extends Weapon {
      *
      * **Note:**
      * >Due to this hook being predicted, it is not called clientside in singleplayer at all, and in multiplayer it will not be called clientside if the weapon is switched with [Player:SelectWeapon](https://wiki.facepunch.com/gmod/Player:SelectWeapon) or the "use" console command, however it will be called clientside with the default weapon selection menu and when using [CUserCmd:SelectWeapon](https://wiki.facepunch.com/gmod/CUserCmd:SelectWeapon)
-     *
-     *
      */
     Deploy(): boolean;
 
@@ -40078,7 +38258,6 @@ interface WEAPON extends Weapon {
      * This hook allows you to draw on screen while this weapon is in use.
      *
      * If you want to draw a custom crosshair, consider using [WEAPON:DoDrawCrosshair](https://wiki.facepunch.com/gmod/WEAPON:DoDrawCrosshair) instead.
-     *
      */
     DrawHUD(): void;
 
@@ -40086,7 +38265,6 @@ interface WEAPON extends Weapon {
      * 🟨 [Client]
      *
      * This hook allows you to draw on screen while this weapon is in use. This hook is called **before** [WEAPON:DrawHUD](https://wiki.facepunch.com/gmod/WEAPON:DrawHUD) and is equivalent of [GM:HUDPaintBackground](https://wiki.facepunch.com/gmod/GM:HUDPaintBackground).
-     *
      */
     DrawHUDBackground(): void;
 
@@ -40156,8 +38334,6 @@ interface WEAPON extends Weapon {
      *
      * **Note:**
      * >Player will still be able to move or shoot
-     *
-     *
      */
     FreezeMovement(): boolean;
 
@@ -40168,8 +38344,6 @@ interface WEAPON extends Weapon {
      *
      * **Warning:**
      * >Calling [NPC:CapabilitiesGet](https://wiki.facepunch.com/gmod/NPC:CapabilitiesGet) in this hook on the same entity can cause infinite loops since that function adds the result of [WEAPON:GetCapabilities](https://wiki.facepunch.com/gmod/WEAPON:GetCapabilities) on top of the return value.
-     *
-     *
      */
     GetCapabilities(): CAP;
 
@@ -40187,7 +38361,6 @@ interface WEAPON extends Weapon {
      * 🟦 [Server]
      *
      * Called when the weapon is used by NPCs to tell the NPC how to use this weapon. Controls how long the NPC can or should shoot continuously.
-     *
      */
     GetNPCBurstSettings(): LuaMultiReturn<[number, number, number]>;
 
@@ -40195,7 +38368,6 @@ interface WEAPON extends Weapon {
      * 🟦 [Server]
      *
      * Called when the weapon is used by NPCs to tell the NPC how to use this weapon. Controls amount of time the NPC can rest (not shoot) between bursts.
-     *
      */
     GetNPCRestTimes(): LuaMultiReturn<[number, number]>;
 
@@ -40203,7 +38375,6 @@ interface WEAPON extends Weapon {
      * 🟨 [Client]
      *
      * Allows you to override where the tracer effect comes from. ( Visual bullets )
-     *
      */
     GetTracerOrigin(): Vector;
 
@@ -40252,8 +38423,6 @@ interface WEAPON extends Weapon {
      *
      * **Note:**
      * >[Entity:GetOwner](https://wiki.facepunch.com/gmod/Entity:GetOwner) will return NULL at this point because the weapon is not equpped by a player or NPC yet. Use [WEAPON:Equip](https://wiki.facepunch.com/gmod/WEAPON:Equip) or [WEAPON:Deploy](https://wiki.facepunch.com/gmod/WEAPON:Deploy) if you need the owner to be valid.
-     *
-     *
      */
     Initialize(): void;
 
@@ -40310,15 +38479,15 @@ interface WEAPON extends Weapon {
      * 🟨🟦 [Shared]
      *
      * Called whenever the weapons Lua script is reloaded.
-     *
      */
     OnReloaded(): void;
 
     /**
      * 🟨🟦 [Shared]
      *
-     * Called when the swep is about to be removed.
+     * Called when the <page text="Scripted Weapon">Scripted Entities</page> is about to be removed.
      *
+     * [Entity:GetOwner](https://wiki.facepunch.com/gmod/Entity:GetOwner) may be unset at this point, see [WEAPON:OnDrop](https://wiki.facepunch.com/gmod/WEAPON:OnDrop) and [WEAPON:OwnerChanged](https://wiki.facepunch.com/gmod/WEAPON:OwnerChanged).
      */
     OnRemove(): void;
 
@@ -40330,7 +38499,6 @@ interface WEAPON extends Weapon {
      * For the [duplicator](https://wiki.facepunch.com/gmod/duplicator) callbacks, see [ENTITY:OnDuplicated](https://wiki.facepunch.com/gmod/ENTITY:OnDuplicated).
      *
      * See also [saverestore](https://wiki.facepunch.com/gmod/saverestore) for relevant functions.
-     *
      */
     OnRestore(): void;
 
@@ -40340,7 +38508,6 @@ interface WEAPON extends Weapon {
      * Called when weapon is dropped or picked up by a new player. This can be called clientside for all players on the server if the weapon has no owner and is picked up.
      *
      * See also [WEAPON:OnDrop](https://wiki.facepunch.com/gmod/WEAPON:OnDrop).
-     *
      */
     OwnerChanged(): void;
 
@@ -40380,7 +38547,6 @@ interface WEAPON extends Weapon {
      * ```
      *
      * Note that due to prediction, in multiplayer SWEP:PrimaryAttack is called multiple times per one "shot" with the gun. To work around that, use [Global.IsFirstTimePredicted](https://wiki.facepunch.com/gmod/Global.IsFirstTimePredicted).
-     *
      */
     PrimaryAttack(): void;
 
@@ -40398,7 +38564,6 @@ interface WEAPON extends Weapon {
      * 🟨🟦 [Shared]
      *
      * Called when the reload key ( +reload ) is pressed.
-     *
      */
     Reload(): void;
 
@@ -40411,8 +38576,6 @@ interface WEAPON extends Weapon {
      *
      * **Note:**
      * >Materials rendered in this hook require $ignorez parameter to draw properly.
-     *
-     *
      */
     RenderScreen(): void;
 
@@ -40422,7 +38585,6 @@ interface WEAPON extends Weapon {
      * Called when secondary attack button ( +attack2 ) is pressed.
      *
      * For issues with this hook being called rapidly on the client side, see the global function [Global.IsFirstTimePredicted](https://wiki.facepunch.com/gmod/Global.IsFirstTimePredicted).
-     *
      */
     SecondaryAttack(): void;
 
@@ -40430,7 +38592,6 @@ interface WEAPON extends Weapon {
      * 🟨🟦 [Shared]
      *
      * Called when the SWEP should set up its <page text=" Data Tables">Networking_Entities</page>.
-     *
      */
     SetupDataTables(): void;
 
@@ -40461,7 +38622,6 @@ interface WEAPON extends Weapon {
      * 🟨🟦 [Shared]
      *
      * A convenience function to create shoot effects.
-     *
      */
     ShootEffects(): void;
 
@@ -40469,7 +38629,6 @@ interface WEAPON extends Weapon {
      * 🟨 [Client]
      *
      * Called to determine if the view model should be drawn or not.
-     *
      */
     ShouldDrawViewModel(): boolean;
 
@@ -40479,7 +38638,6 @@ interface WEAPON extends Weapon {
      * Should this weapon be dropped when its owner dies?
      *
      * This only works if the player has [Player:ShouldDropWeapon](https://wiki.facepunch.com/gmod/Player:ShouldDropWeapon) set to true.
-     *
      */
     ShouldDropOnDie(): boolean;
 
@@ -40515,8 +38673,6 @@ interface WEAPON extends Weapon {
      *
      * **Note:**
      * >This hook only runs while the weapon is in players hands. It does not run while it is carried by an NPC.
-     *
-     *
      */
     Think(): void;
 
@@ -40526,8 +38682,6 @@ interface WEAPON extends Weapon {
      * Alias of [Weapon:Think](https://wiki.facepunch.com/gmod/Weapon:Think).
      *
      * @deprecated Use [Weapon:Think](https://wiki.facepunch.com/gmod/Weapon:Think) instead.
-     *
-     *
      */
     Tick(): void;
 
@@ -40582,7 +38736,6 @@ interface WEAPON extends Weapon {
  *
  * **Note:**
  * >This function or feature is only available in the Sandbox gamemode and its.
- *
  */
 interface TOOL extends Tool {
     /**
@@ -40668,7 +38821,6 @@ interface TOOL extends Tool {
      * Called when [WEAPON:Deploy](https://wiki.facepunch.com/gmod/WEAPON:Deploy) of the toolgun is called.
      *
      * This is also called when switching from another tool on the server.
-     *
      */
     Deploy(): boolean;
 
@@ -40676,7 +38828,6 @@ interface TOOL extends Tool {
      * 🟨 [Client]
      *
      * Called when [WEAPON:DrawHUD](https://wiki.facepunch.com/gmod/WEAPON:DrawHUD) of the toolgun is called, only when the user has this tool selected.
-     *
      */
     DrawHUD(): void;
 
@@ -40700,7 +38851,6 @@ interface TOOL extends Tool {
      * 🟨 [Client]
      *
      * Called when [WEAPON:Think](https://wiki.facepunch.com/gmod/WEAPON:Think) of the toolgun is called, only when the user has this tool selected.
-     *
      */
     FreezeMovement(): boolean;
 
@@ -40708,7 +38858,6 @@ interface TOOL extends Tool {
      * 🟨🟦 [Shared]
      *
      * Called when [WEAPON:Holster](https://wiki.facepunch.com/gmod/WEAPON:Holster) of the toolgun is called, when switching between different toolguns.
-     *
      */
     Holster(): void;
 
@@ -40740,7 +38889,6 @@ interface TOOL extends Tool {
      * 🟨🟦 [Shared]
      *
      * Called when [WEAPON:Think](https://wiki.facepunch.com/gmod/WEAPON:Think) of the toolgun is called. This only happens when the tool gun is currently equipped/selected by the player and the selected tool is this tool.
-     *
      */
     Think(): void;
 
@@ -40835,7 +38983,6 @@ interface EFFECT extends Entity {
      * 🟨 [Client]
      *
      * Effect alternative to [ENTITY:EndTouch](https://wiki.facepunch.com/gmod/ENTITY:EndTouch).
-     *
      */
     EndTouch(): void;
 
@@ -40850,7 +38997,6 @@ interface EFFECT extends Entity {
      * @param attachment - Attachment ID of on the weapon "muzzle", to use as the start position.
      * **Note:**
      * >Please note that it is expected that the same attachment ID is used on both, the world and the view model.
-     *
      */
     GetTracerShootPos(pos: Vector, ent: Weapon, attachment: number): Vector;
 
@@ -40876,6 +39022,7 @@ interface EFFECT extends Entity {
      *
      * Called when the effect should be rendered.
      *
+     * 	When not overridden, it will perform default action, which is [Entity:DrawModel](https://wiki.facepunch.com/gmod/Entity:DrawModel).
      */
     Render(): void;
 
@@ -40883,7 +39030,6 @@ interface EFFECT extends Entity {
      * 🟨 [Client]
      *
      * Effect alternative to [ENTITY:StartTouch](https://wiki.facepunch.com/gmod/ENTITY:StartTouch).
-     *
      */
     StartTouch(): void;
 
@@ -40891,7 +39037,6 @@ interface EFFECT extends Entity {
      * 🟨 [Client]
      *
      * Called when the effect should think, return false to kill the effect.
-     *
      */
     Think(): boolean;
 
@@ -40899,7 +39044,6 @@ interface EFFECT extends Entity {
      * 🟨 [Client]
      *
      * Effect alternative to [ENTITY:Touch](https://wiki.facepunch.com/gmod/ENTITY:Touch).
-     *
      */
     Touch(): void;
 
@@ -40917,7 +39061,6 @@ interface EFFECT extends Entity {
  *
  * **Note:**
  * >These hooks are used in [player_manager](https://wiki.facepunch.com/gmod/player_manager) this can't be
- *
  */
 interface PLAYER {
     /**
@@ -41009,7 +39152,6 @@ interface PLAYER {
      * 🟨🟦 [Shared]
      *
      * Called when the player's class was changed from this class.
-     *
      */
     ClassChanged(): void;
 
@@ -41017,7 +39159,6 @@ interface PLAYER {
      * 🟦 [Server]
      *
      * Called when the player dies
-     *
      */
     Death(): void;
 
@@ -41040,7 +39181,6 @@ interface PLAYER {
      * 🟦 [Server]
      *
      * Called on player spawn to determine which hand model to use
-     *
      */
     GetHandsModel(): any;
 
@@ -41048,7 +39188,6 @@ interface PLAYER {
      * 🟨🟦 [Shared]
      *
      * Called when the class object is created
-     *
      */
     Init(): void;
 
@@ -41056,7 +39195,6 @@ interface PLAYER {
      * 🟦 [Server]
      *
      * Called on spawn to give the player their default loadout
-     *
      */
     Loadout(): void;
 
@@ -41100,8 +39238,6 @@ interface PLAYER {
      *
      * **Note:**
      * >This will only be called if you have not overridden [GM:PlayerSetModel](https://wiki.facepunch.com/gmod/GM:PlayerSetModel) or call this function from it or anywhere else using [player_manager.RunClass](https://wiki.facepunch.com/gmod/player_manager.RunClass)
-     *
-     *
      */
     SetModel(): void;
 
@@ -41109,7 +39245,6 @@ interface PLAYER {
      * 🟨🟦 [Shared]
      *
      * Setup the network table accessors.
-     *
      */
     SetupDataTables(): void;
 
@@ -41117,7 +39252,6 @@ interface PLAYER {
      * 🟦 [Server]
      *
      * Called when the player spawns
-     *
      */
     Spawn(): void;
 
@@ -41163,7 +39297,6 @@ interface PLAYER {
  *
  * **Note:**
  * >This function or feature is only available in the Sandbox gamemode and its.
- *
  */
 interface SANDBOX extends GM {
 
@@ -41174,7 +39307,6 @@ interface SANDBOX extends GM {
      * This hook is used to add default categories to spawnmenu tool tabs.
      *
      * Do not override or hook this function, use [SANDBOX:AddToolMenuCategories](https://wiki.facepunch.com/gmod/SANDBOX:AddToolMenuCategories)!
-     *
      */
     AddGamemodeToolMenuCategories(): void;
 
@@ -41184,7 +39316,6 @@ interface SANDBOX extends GM {
      * This hook is used to add default tool tabs to spawnmenu.
      *
      * Do not override or hook this function, use [SANDBOX:AddToolMenuTabs](https://wiki.facepunch.com/gmod/SANDBOX:AddToolMenuTabs)!
-     *
      */
     AddGamemodeToolMenuTabs(): void;
 
@@ -41192,7 +39323,6 @@ interface SANDBOX extends GM {
      * 🟨 [Client]
      *
      * This hook is used to add new categories to spawnmenu tool tabs.
-     *
      */
     AddToolMenuCategories(): void;
 
@@ -41200,7 +39330,6 @@ interface SANDBOX extends GM {
      * 🟨 [Client]
      *
      * This hook is used to add new tool tabs to spawnmenu.
-     *
      */
     AddToolMenuTabs(): void;
 
@@ -41250,7 +39379,6 @@ interface SANDBOX extends GM {
      * This is simply an alias of [GM:OnContextMenuClose](https://wiki.facepunch.com/gmod/GM:OnContextMenuClose).
      *
      * This hook **will** be called even if the Sandbox's context menu doesn't actually exist, i.e. [SANDBOX:ContextMenuEnabled](https://wiki.facepunch.com/gmod/SANDBOX:ContextMenuEnabled) blocked its creation.
-     *
      */
     ContextMenuClosed(): void;
 
@@ -41266,7 +39394,6 @@ interface SANDBOX extends GM {
      * 🟨 [Client]
      *
      * Allows to prevent the creation of the context menu. If the context menu is already created, this will have no effect.
-     *
      */
     ContextMenuEnabled(): boolean;
 
@@ -41274,7 +39401,6 @@ interface SANDBOX extends GM {
      * 🟨 [Client]
      *
      * Called when the context menu is trying to be opened.
-     *
      */
     ContextMenuOpen(): boolean;
 
@@ -41286,7 +39412,6 @@ interface SANDBOX extends GM {
      * This is simply an alias of [GM:OnContextMenuOpen](https://wiki.facepunch.com/gmod/GM:OnContextMenuOpen) but will **not** be called if [SANDBOX:ContextMenuOpen](https://wiki.facepunch.com/gmod/SANDBOX:ContextMenuOpen) prevents the context menu from opening.
      *
      * This hook **will** be called even if the context menu doesn't actually exist, i.e. [SANDBOX:ContextMenuEnabled](https://wiki.facepunch.com/gmod/SANDBOX:ContextMenuEnabled) blocked its creation.
-     *
      */
     ContextMenuOpened(): void;
 
@@ -41294,7 +39419,6 @@ interface SANDBOX extends GM {
      * 🟨 [Client]
      *
      * Called to poll if active tool settings should appear in the context menu. Please note that this is only called on initial opening of the context menu, not every frame the context menu is in use.
-     *
      */
     ContextMenuShowTool(): boolean;
 
@@ -41302,7 +39426,6 @@ interface SANDBOX extends GM {
      * 🟨 [Client]
      *
      * Called when the Client reverts spawnlist changes
-     *
      */
     OnRevertSpawnlist(): void;
 
@@ -41310,7 +39433,6 @@ interface SANDBOX extends GM {
      * 🟨 [Client]
      *
      * Called when a player saves his changes made to the spawnmenu
-     *
      */
     OnSaveSpawnlist(): void;
 
@@ -41318,7 +39440,6 @@ interface SANDBOX extends GM {
      * 🟨 [Client]
      *
      * This hook is called when the player edits a category in the Spawnmenu
-     *
      */
     OpenToolbox(): void;
 
@@ -41329,8 +39450,6 @@ interface SANDBOX extends GM {
      *
      * **Note:**
      * >This cannot be used with [hook.Add](https://wiki.facepunch.com/gmod/hook.Add)
-     *
-     *
      */
     PaintNotes(): void;
 
@@ -41342,8 +39461,6 @@ interface SANDBOX extends GM {
      *
      * **Note:**
      * >This cannot be used with [hook.Add](https://wiki.facepunch.com/gmod/hook.Add)
-     *
-     *
      */
     PaintWorldTips(): void;
 
@@ -41572,7 +39689,6 @@ interface SANDBOX extends GM {
      *
      * This hook makes the engine load the spawnlist text files.
      * It calls [spawnmenu.PopulateFromEngineTextFiles](https://wiki.facepunch.com/gmod/spawnmenu.PopulateFromEngineTextFiles) by default.
-     *
      */
     PopulatePropMenu(): void;
 
@@ -41580,7 +39696,6 @@ interface SANDBOX extends GM {
      * 🟨 [Client]
      *
      * Add the <page text="Scripted TOOLs">TOOL</page> to the tool menu. You want to call [spawnmenu.AddToolMenuOption](https://wiki.facepunch.com/gmod/spawnmenu.AddToolMenuOption) in this hook.
-     *
      */
     PopulateToolMenu(): void;
 
@@ -41616,7 +39731,6 @@ interface SANDBOX extends GM {
      * 🟨 [Client]
      *
      * Called right after the Lua Loaded tool menus are reloaded. This is a good place to set up any [ControlPanel](https://wiki.facepunch.com/gmod/ControlPanel)s.
-     *
      */
     PostReloadToolsMenu(): void;
 
@@ -41633,7 +39747,6 @@ interface SANDBOX extends GM {
      * 🟨 [Client]
      *
      * Called right before the Lua Loaded tool menus are reloaded.
-     *
      */
     PreReloadToolsMenu(): void;
 
@@ -41641,7 +39754,6 @@ interface SANDBOX extends GM {
      * 🟨 [Client]
      *
      * Called when changes were made to the spawnmenu like creating a new category.
-     *
      */
     SpawnlistContentChanged(): void;
 
@@ -41657,7 +39769,6 @@ interface SANDBOX extends GM {
      * 🟨 [Client]
      *
      * If false is returned then the spawn menu is never created. This saves load times if your mod doesn't actually use the spawn menu for any reason.
-     *
      */
     SpawnMenuEnabled(): boolean;
 
@@ -41688,8 +39799,6 @@ interface SANDBOX extends GM {
      *
      * **Note:**
      * >Hiding the spawnmenu will not stop people from being able to use the various console commands to spawn in items, etc. See GM:PlayerSpawn* hooks for blocking actual spawning.
-     *
-     *
      */
     SpawnMenuOpen(): boolean;
 
@@ -41701,7 +39810,6 @@ interface SANDBOX extends GM {
      * This is an alias of [GM:OnSpawnMenuOpen](https://wiki.facepunch.com/gmod/GM:OnSpawnMenuOpen) but will **not** be called if [SANDBOX:SpawnMenuOpen](https://wiki.facepunch.com/gmod/SANDBOX:SpawnMenuOpen) prevents the spawnmenu from opening.
      *
      * This hook **will** be called even if the spawnmenu doesn't actually exist, i.e. [SANDBOX:SpawnMenuEnabled](https://wiki.facepunch.com/gmod/SANDBOX:SpawnMenuEnabled) blocked its creation.
-     *
      */
     SpawnMenuOpened(): void;
 
@@ -41778,7 +39886,6 @@ interface AmmoData {
      *
      * **Warning:**
      * >`gmod_maxammo` convar will override this value if set to above 0, **which it is by default**.
-     *
      */
     maxcarry: number,
 
@@ -42250,7 +40357,6 @@ interface CamData {
  *     print(colData.OurOldVelocity:Length())
  * end
  * ```
- *
  */
 interface CollisionData {
     /**
@@ -42446,7 +40552,6 @@ interface DateData {
  *
  * **Note:**
  * >If a filter is applied to [debug.getinfo](https://wiki.facepunch.com/gmod/debug.getinfo), some members may not exist!
- *
  */
 interface DebugInfo {
     /**
@@ -42556,7 +40661,6 @@ interface DebugInfo {
  *
  * **Note:**
  * >This is an actual class named **dlight_t**, not a table.
- *
  */
 interface DynamicLight {
     /**
@@ -42744,7 +40848,6 @@ interface EmitSoundInfo {
  *
  * **Note:**
  * >Values defined in ENT table can't be changed per instance. Initialize default values in [ENTITY:Initialize](https://wiki.facepunch.com/gmod/ENTITY:Initialize) or other hook.
- *
  */
 interface ENT {
     /**
@@ -42866,7 +40969,6 @@ interface ENT {
      *
      * **Note:**
      * >This only works for `nextbot`, `anim` and `ai` type SENTs.
-     *
      */
     PhysicsSolidMask: number,
 
@@ -42893,7 +40995,6 @@ interface ENT {
  *
  * **Note:**
  * >In addition to all fields listed here, any field saved on the entity will be saved as-is to this table. For example, if you set `ent.FavoriteFood = "Steak"` before duplicating it, this structure will also contain the field `FavoriteFood` with the value `"Steak"`.
- *
  */
 interface EntityCopyData {
     /**
@@ -43057,7 +41158,6 @@ interface FontData {
      * >This must be the actual 'nice' font, not a file name. Unless the client is running Linux or macOS. ([Finding the Font Name](https://wiki.facepunch.com/gmod/Finding_the_Font_Name))
      *
      * This also cannot be an already registered font, i.e. you cannot base your font from any of the
-     *
      */
     font: string,
 
@@ -43448,7 +41548,6 @@ interface MatProxyData {
  * >Not all MeshVertex will contain all fields and not all fields are used by all shaders
  *
  * Information on the fields used by most Source Engine shaders (Like `VertexLitGeneric`, `UnlitGeneric`, etc.) can be found [on the Valve Developer Wiki here.](https://developer.valvesoftware.com/wiki/Category:Shaders)
- *
  */
 interface MeshVertex {
     /**
@@ -43735,7 +41834,6 @@ interface ModelMeshData {
      *
      * **Bug :**
      * >This field has a typo in its name and should be named "vertices"
-     *
      */
     verticies: any[],
 
@@ -43975,14 +42073,8 @@ interface PathSegment {
      */
     length: number,
 
-    /**
-     *
-     */
     m_portalCenter: Vector,
 
-    /**
-     *
-     */
     m_portalHalfWidth: number,
 
     /**
@@ -44150,7 +42242,6 @@ interface PhysProperties {
  * >You must pass a table of tables with this structure to the function. **You need to pass at least 3 points.**
  *
  * Your points must be defined in a **clockwise order.** Otherwise, your shape will not render properly.
- *
  */
 interface PolygonVertex {
     /**
@@ -44550,9 +42641,6 @@ interface SequenceInfo {
      */
     numevents: number,
 
-    /**
-     *
-     */
     numblends: number,
 
     /**
@@ -44600,9 +42688,6 @@ interface SequenceInfo {
      */
     nextseq: number,
 
-    /**
-     *
-     */
     pose: number,
 
     /**
@@ -44691,7 +42776,6 @@ interface ShadowControlParams {
      *
      * **Warning:**
      * >Cannot be 0! Will give errors if you do.
-     *
      */
     secondstoarrive: number,
 
@@ -44790,7 +42874,6 @@ interface SoundData {
      * The initial pitch.
      *
      * @deprecated Use pitch instead.
-     *
      */
     pitchstart: number,
 
@@ -44798,7 +42881,6 @@ interface SoundData {
      * The pitch end.
      *
      * @deprecated Use pitch instead.
-     *
      */
     pitchend: number,
 
@@ -45074,18 +43156,12 @@ interface SWEP {
     m_WeaponDeploySpeed: number,
 
     /**
-     *
-     *
      * @deprecated Use [Entity:GetOwner](https://wiki.facepunch.com/gmod/Entity:GetOwner)() instead.
-     *
      */
     Owner: Entity,
 
     /**
-     *
-     *
      * @deprecated Use `SWEP` instead. However, if called in a SWEP method; use `self` instead.
-     *
      */
     Weapon: Weapon,
 
@@ -45255,7 +43331,6 @@ interface SWEP {
      * **Warning:**
      * >The gamemode and view models **must** support this feature for it to work!
      *                 You can find more information here:
-     *
      */
     UseHands: boolean,
 
@@ -45733,7 +43808,6 @@ interface UGCFileInfo {
      *
      * **Warning:**
      * >We advise against using this. It may be changed or removed in a future update.
-     *
      */
     ownername: string,
 
@@ -45872,59 +43946,26 @@ interface VehicleParams {
  * The structure used by [Structures/VehicleParams](https://wiki.facepunch.com/gmod/Structures/VehicleParams).
  */
 interface VehicleParamsAxle {
-    /**
-     *
-     */
     brakeFactor: number,
 
-    /**
-     *
-     */
     offset: Vector,
 
-    /**
-     *
-     */
     raytraceCenterOffset: Vector,
 
-    /**
-     *
-     */
     raytraceOffset: Vector,
 
-    /**
-     *
-     */
     suspension_maxBodyForce: number,
 
-    /**
-     *
-     */
     suspension_springConstant: number,
 
-    /**
-     *
-     */
     suspension_springDamping: number,
 
-    /**
-     *
-     */
     suspension_springDampingCompression: number,
 
-    /**
-     *
-     */
     suspension_stabilizerConstant: number,
 
-    /**
-     *
-     */
     torqueFactor: number,
 
-    /**
-     *
-     */
     wheelOffset: Vector,
 
     /**
@@ -45932,19 +43973,10 @@ interface VehicleParamsAxle {
      */
     wheels_brakeMaterialIndex: number,
 
-    /**
-     *
-     */
     wheels_damping: number,
 
-    /**
-     *
-     */
     wheels_frictionScale: number,
 
-    /**
-     *
-     */
     wheels_inertia: number,
 
     /**
@@ -45962,9 +43994,6 @@ interface VehicleParamsAxle {
      */
     wheels_radius: number,
 
-    /**
-     *
-     */
     wheels_rotdamping: number,
 
     /**
@@ -45972,9 +44001,6 @@ interface VehicleParamsAxle {
      */
     wheels_skidMaterialIndex: number,
 
-    /**
-     *
-     */
     wheels_springAdditionalLength: number,
 
 
@@ -45992,14 +44018,8 @@ interface VehicleParamsBody {
      */
     addGravity: number,
 
-    /**
-     *
-     */
     counterTorqueFactor: number,
 
-    /**
-     *
-     */
     keepUprightTorque: number,
 
     /**
@@ -46017,14 +44037,8 @@ interface VehicleParamsBody {
      */
     maxAngularVelocity: number,
 
-    /**
-     *
-     */
     tiltForce: number,
 
-    /**
-     *
-     */
     tiltForceHeight: number,
 
 
@@ -46037,14 +44051,8 @@ interface VehicleParamsBody {
  * The structure used by [Structures/VehicleParams](https://wiki.facepunch.com/gmod/Structures/VehicleParams).
  */
 interface VehicleParamsEngine {
-    /**
-     *
-     */
     autobrakeSpeedFactor: number,
 
-    /**
-     *
-     */
     autobrakeSpeedGain: number,
 
     /**
@@ -46064,9 +44072,6 @@ interface VehicleParamsEngine {
      */
     boostDuration: number,
 
-    /**
-     *
-     */
     boostForce: number,
 
     /**
@@ -46076,7 +44081,6 @@ interface VehicleParamsEngine {
      * >The [Vehicle:SetVehicleParams](https://wiki.facepunch.com/gmod/Vehicle:SetVehicleParams) function takes this in **miles per hour**, but [Vehicle:GetVehicleParams](https://wiki.facepunch.com/gmod/Vehicle:GetVehicleParams) returns this in **hammer units per second**!
      *
      * In this case HU = inches, so 1 MPH is 17.6 HU/s.
-     *
      */
     boostMaxSpeed: number,
 
@@ -46111,7 +44115,6 @@ interface VehicleParamsEngine {
      *
      * **Warning:**
      * >Attempts to exceed the max RPM will force the active gear ratio to be that of the 1st gear, which will provide even more torque. This is the opposite of a rev limiter. This value is only used for the calculation of the effectively applied torque.
-     *
      */
     maxRPM: number,
 
@@ -46122,7 +44125,6 @@ interface VehicleParamsEngine {
      * >The [Vehicle:SetVehicleParams](https://wiki.facepunch.com/gmod/Vehicle:SetVehicleParams) function takes this in **miles per hour**, but [Vehicle:GetVehicleParams](https://wiki.facepunch.com/gmod/Vehicle:GetVehicleParams) returns this in **hammer units per second**!
      *
      * In this case HU = inches, so 1 MPH is 17.6 HU/s.
-     *
      */
     maxRevSpeed: number,
 
@@ -46133,7 +44135,6 @@ interface VehicleParamsEngine {
      * >The [Vehicle:SetVehicleParams](https://wiki.facepunch.com/gmod/Vehicle:SetVehicleParams) function takes this in **miles per hour**, but [Vehicle:GetVehicleParams](https://wiki.facepunch.com/gmod/Vehicle:GetVehicleParams) returns this in **hammer units per second**!
      *
      * In this case HU = inches, so 1 MPH is 17.6 HU/s.
-     *
      */
     maxSpeed: number,
 
@@ -46147,14 +44148,8 @@ interface VehicleParamsEngine {
      */
     shiftUpRPM: number,
 
-    /**
-     *
-     */
     throttleTime: number,
 
-    /**
-     *
-     */
     torqueBoost: boolean,
 
 
@@ -46167,19 +44162,10 @@ interface VehicleParamsEngine {
  * The structure used by [Structures/VehicleParams](https://wiki.facepunch.com/gmod/Structures/VehicleParams).
  */
 interface VehicleParamsSteering {
-    /**
-     *
-     */
     boostSteeringRateFactor: number,
 
-    /**
-     *
-     */
     boostSteeringRestRateFactor: number,
 
-    /**
-     *
-     */
     brakeSteeringRateFactor: number,
 
     /**
@@ -46212,54 +44198,24 @@ interface VehicleParamsSteering {
      */
     powerSlideAccel: number,
 
-    /**
-     *
-     */
     speedFast: number,
 
-    /**
-     *
-     */
     speedSlow: number,
 
-    /**
-     *
-     */
     steeringExponent: number,
 
-    /**
-     *
-     */
     steeringRateFast: number,
 
-    /**
-     *
-     */
     steeringRateSlow: number,
 
-    /**
-     *
-     */
     steeringRestRateFast: number,
 
-    /**
-     *
-     */
     steeringRestRateSlow: number,
 
-    /**
-     *
-     */
     throttleSteeringRestRateFactor: number,
 
-    /**
-     *
-     */
     turnThrottleReduceFast: number,
 
-    /**
-     *
-     */
     turnThrottleReduceSlow: number,
 
 
@@ -46703,10 +44659,14 @@ interface ViewSetup {
 }
 
 /**
+ * 🟨🟦 [Shared]
  *
+ * Enumerations used by [Entity:SetUseType](https://wiki.facepunch.com/gmod/Entity:SetUseType). Affects when [ENTITY:Use](https://wiki.facepunch.com/gmod/ENTITY:Use) is triggered.
+ *
+ * Not to be confused with [Enums/USE](https://wiki.facepunch.com/gmod/Enums/USE) used for [ENTITY:Use](https://wiki.facepunch.com/gmod/ENTITY:Use) and others.
  * @compileMembersOnly
  */
-declare enum _USE {
+declare const enum _USE {
     /**
      * Fire a <page text="USE_ON">Enums/USE</page> signal every tick as long as the player holds their use key and aims at the target.
      */
@@ -46719,7 +44679,6 @@ declare enum _USE {
      * >There is no guarantee to receive both ON and OFF signals. A signal will only be sent when pushing or letting go of the use key while actually aiming at the entity, so an ON signal might not be followed by an OFF signal if the player is aiming somewhere else when releasing the key, and similarly, an OFF signal may not be preceded by an ON signal if the player started aiming at the entity only after pressing the key.
      *
      * Therefore, this method of input is unreliable and should not be used.
-     *
      */
     ONOFF_USE = 1,
 
@@ -46735,7988 +44694,3206 @@ declare enum _USE {
 }
 
 /**
+ * 🟨🟦 [Shared]
  *
+ * Enumerations used by functions like [Weapon:SendWeaponAnim](https://wiki.facepunch.com/gmod/Weapon:SendWeaponAnim) & [Entity:SelectWeightedSequence](https://wiki.facepunch.com/gmod/Entity:SelectWeightedSequence).
+ *
+ * An activity is a code-friendly identifier for an animation, and can point to multiple sequences (animations) depending on the model.
+ *
+ * See [$sequence](https://developer.valvesoftware.com/wiki/$sequence) `.qc` command documentation on Valve Developer Wiki, specifically the `activity` parameter.
  * @compileMembersOnly
  */
-declare enum ACT {
-    /**
-     *
-     */
+declare const enum ACT {
     ACT_INVALID = -1,
 
-    /**
-     *
-     */
     ACT_RESET = 0,
 
-    /**
-     *
-     */
     ACT_IDLE = 1,
 
-    /**
-     *
-     */
     ACT_TRANSITION = 2,
 
-    /**
-     *
-     */
     ACT_COVER = 3,
 
-    /**
-     *
-     */
     ACT_COVER_MED = 4,
 
-    /**
-     *
-     */
     ACT_COVER_LOW = 5,
 
-    /**
-     *
-     */
     ACT_WALK = 6,
 
-    /**
-     *
-     */
     ACT_WALK_AIM = 7,
 
-    /**
-     *
-     */
     ACT_WALK_CROUCH = 8,
 
-    /**
-     *
-     */
     ACT_WALK_CROUCH_AIM = 9,
 
-    /**
-     *
-     */
     ACT_RUN = 10,
 
-    /**
-     *
-     */
     ACT_RUN_AIM = 11,
 
-    /**
-     *
-     */
     ACT_RUN_CROUCH = 12,
 
-    /**
-     *
-     */
     ACT_RUN_CROUCH_AIM = 13,
 
-    /**
-     *
-     */
     ACT_RUN_PROTECTED = 14,
 
-    /**
-     *
-     */
     ACT_SCRIPT_CUSTOM_MOVE = 15,
 
-    /**
-     *
-     */
     ACT_RANGE_ATTACK1 = 16,
 
-    /**
-     *
-     */
     ACT_RANGE_ATTACK2 = 17,
 
-    /**
-     *
-     */
     ACT_RANGE_ATTACK1_LOW = 18,
 
-    /**
-     *
-     */
     ACT_RANGE_ATTACK2_LOW = 19,
 
-    /**
-     *
-     */
     ACT_DIESIMPLE = 20,
 
-    /**
-     *
-     */
     ACT_DIEBACKWARD = 21,
 
-    /**
-     *
-     */
     ACT_DIEFORWARD = 22,
 
-    /**
-     *
-     */
     ACT_DIEVIOLENT = 23,
 
-    /**
-     *
-     */
     ACT_DIERAGDOLL = 24,
 
-    /**
-     *
-     */
     ACT_FLY = 25,
 
-    /**
-     *
-     */
     ACT_HOVER = 26,
 
-    /**
-     *
-     */
     ACT_GLIDE = 27,
 
-    /**
-     *
-     */
     ACT_SWIM = 28,
 
-    /**
-     *
-     */
     ACT_SWIM_IDLE = 29,
 
-    /**
-     *
-     */
     ACT_JUMP = 30,
 
-    /**
-     *
-     */
     ACT_HOP = 31,
 
-    /**
-     *
-     */
     ACT_LEAP = 32,
 
-    /**
-     *
-     */
     ACT_LAND = 33,
 
-    /**
-     *
-     */
     ACT_CLIMB_UP = 34,
 
-    /**
-     *
-     */
     ACT_CLIMB_DOWN = 35,
 
-    /**
-     *
-     */
     ACT_CLIMB_DISMOUNT = 36,
 
-    /**
-     *
-     */
     ACT_SHIPLADDER_UP = 37,
 
-    /**
-     *
-     */
     ACT_SHIPLADDER_DOWN = 38,
 
-    /**
-     *
-     */
     ACT_STRAFE_LEFT = 39,
 
-    /**
-     *
-     */
     ACT_STRAFE_RIGHT = 40,
 
-    /**
-     *
-     */
     ACT_ROLL_LEFT = 41,
 
-    /**
-     *
-     */
     ACT_ROLL_RIGHT = 42,
 
-    /**
-     *
-     */
     ACT_TURN_LEFT = 43,
 
-    /**
-     *
-     */
     ACT_TURN_RIGHT = 44,
 
-    /**
-     *
-     */
     ACT_CROUCH = 45,
 
-    /**
-     *
-     */
     ACT_CROUCHIDLE = 46,
 
-    /**
-     *
-     */
     ACT_STAND = 47,
 
-    /**
-     *
-     */
     ACT_USE = 48,
 
-    /**
-     *
-     */
     ACT_SIGNAL1 = 49,
 
-    /**
-     *
-     */
     ACT_SIGNAL2 = 50,
 
-    /**
-     *
-     */
     ACT_SIGNAL3 = 51,
 
-    /**
-     *
-     */
     ACT_SIGNAL_ADVANCE = 52,
 
-    /**
-     *
-     */
     ACT_SIGNAL_FORWARD = 53,
 
-    /**
-     *
-     */
     ACT_SIGNAL_GROUP = 54,
 
-    /**
-     *
-     */
     ACT_SIGNAL_HALT = 55,
 
-    /**
-     *
-     */
     ACT_SIGNAL_LEFT = 56,
 
-    /**
-     *
-     */
     ACT_SIGNAL_RIGHT = 57,
 
-    /**
-     *
-     */
     ACT_SIGNAL_TAKECOVER = 58,
 
-    /**
-     *
-     */
     ACT_LOOKBACK_RIGHT = 59,
 
-    /**
-     *
-     */
     ACT_LOOKBACK_LEFT = 60,
 
-    /**
-     *
-     */
     ACT_COWER = 61,
 
-    /**
-     *
-     */
     ACT_SMALL_FLINCH = 62,
 
-    /**
-     *
-     */
     ACT_BIG_FLINCH = 63,
 
-    /**
-     *
-     */
     ACT_MELEE_ATTACK1 = 64,
 
-    /**
-     *
-     */
     ACT_MELEE_ATTACK2 = 65,
 
-    /**
-     *
-     */
     ACT_RELOAD = 66,
 
-    /**
-     *
-     */
     ACT_RELOAD_START = 67,
 
-    /**
-     *
-     */
     ACT_RELOAD_FINISH = 68,
 
-    /**
-     *
-     */
     ACT_RELOAD_LOW = 69,
 
-    /**
-     *
-     */
     ACT_ARM = 70,
 
-    /**
-     *
-     */
     ACT_DISARM = 71,
 
-    /**
-     *
-     */
     ACT_DROP_WEAPON = 72,
 
-    /**
-     *
-     */
     ACT_DROP_WEAPON_SHOTGUN = 73,
 
-    /**
-     *
-     */
     ACT_PICKUP_GROUND = 74,
 
-    /**
-     *
-     */
     ACT_PICKUP_RACK = 75,
 
-    /**
-     *
-     */
     ACT_IDLE_ANGRY = 76,
 
-    /**
-     *
-     */
     ACT_IDLE_RELAXED = 77,
 
-    /**
-     *
-     */
     ACT_IDLE_STIMULATED = 78,
 
-    /**
-     *
-     */
     ACT_IDLE_AGITATED = 79,
 
-    /**
-     *
-     */
     ACT_IDLE_STEALTH = 80,
 
-    /**
-     *
-     */
     ACT_IDLE_HURT = 81,
 
-    /**
-     *
-     */
     ACT_WALK_RELAXED = 82,
 
-    /**
-     *
-     */
     ACT_WALK_STIMULATED = 83,
 
-    /**
-     *
-     */
     ACT_WALK_AGITATED = 84,
 
-    /**
-     *
-     */
     ACT_WALK_STEALTH = 85,
 
-    /**
-     *
-     */
     ACT_RUN_RELAXED = 86,
 
-    /**
-     *
-     */
     ACT_RUN_STIMULATED = 87,
 
-    /**
-     *
-     */
     ACT_RUN_AGITATED = 88,
 
-    /**
-     *
-     */
     ACT_RUN_STEALTH = 89,
 
-    /**
-     *
-     */
     ACT_IDLE_AIM_RELAXED = 90,
 
-    /**
-     *
-     */
     ACT_IDLE_AIM_STIMULATED = 91,
 
-    /**
-     *
-     */
     ACT_IDLE_AIM_AGITATED = 92,
 
-    /**
-     *
-     */
     ACT_IDLE_AIM_STEALTH = 93,
 
-    /**
-     *
-     */
     ACT_WALK_AIM_RELAXED = 94,
 
-    /**
-     *
-     */
     ACT_WALK_AIM_STIMULATED = 95,
 
-    /**
-     *
-     */
     ACT_WALK_AIM_AGITATED = 96,
 
-    /**
-     *
-     */
     ACT_WALK_AIM_STEALTH = 97,
 
-    /**
-     *
-     */
     ACT_RUN_AIM_RELAXED = 98,
 
-    /**
-     *
-     */
     ACT_RUN_AIM_STIMULATED = 99,
 
-    /**
-     *
-     */
     ACT_RUN_AIM_AGITATED = 100,
 
-    /**
-     *
-     */
     ACT_RUN_AIM_STEALTH = 101,
 
-    /**
-     *
-     */
     ACT_CROUCHIDLE_STIMULATED = 102,
 
-    /**
-     *
-     */
     ACT_CROUCHIDLE_AIM_STIMULATED = 103,
 
-    /**
-     *
-     */
     ACT_CROUCHIDLE_AGITATED = 104,
 
-    /**
-     *
-     */
     ACT_WALK_HURT = 105,
 
-    /**
-     *
-     */
     ACT_RUN_HURT = 106,
 
-    /**
-     *
-     */
     ACT_SPECIAL_ATTACK1 = 107,
 
-    /**
-     *
-     */
     ACT_SPECIAL_ATTACK2 = 108,
 
-    /**
-     *
-     */
     ACT_COMBAT_IDLE = 109,
 
-    /**
-     *
-     */
     ACT_WALK_SCARED = 110,
 
-    /**
-     *
-     */
     ACT_RUN_SCARED = 111,
 
-    /**
-     *
-     */
     ACT_VICTORY_DANCE = 112,
 
-    /**
-     *
-     */
     ACT_DIE_HEADSHOT = 113,
 
-    /**
-     *
-     */
     ACT_DIE_CHESTSHOT = 114,
 
-    /**
-     *
-     */
     ACT_DIE_GUTSHOT = 115,
 
-    /**
-     *
-     */
     ACT_DIE_BACKSHOT = 116,
 
-    /**
-     *
-     */
     ACT_FLINCH_HEAD = 117,
 
-    /**
-     *
-     */
     ACT_FLINCH_CHEST = 118,
 
-    /**
-     *
-     */
     ACT_FLINCH_STOMACH = 119,
 
-    /**
-     *
-     */
     ACT_FLINCH_LEFTARM = 120,
 
-    /**
-     *
-     */
     ACT_FLINCH_RIGHTARM = 121,
 
-    /**
-     *
-     */
     ACT_FLINCH_LEFTLEG = 122,
 
-    /**
-     *
-     */
     ACT_FLINCH_RIGHTLEG = 123,
 
-    /**
-     *
-     */
     ACT_FLINCH_PHYSICS = 124,
 
-    /**
-     *
-     */
     ACT_IDLE_ON_FIRE = 125,
 
-    /**
-     *
-     */
     ACT_WALK_ON_FIRE = 126,
 
-    /**
-     *
-     */
     ACT_RUN_ON_FIRE = 127,
 
-    /**
-     *
-     */
     ACT_RAPPEL_LOOP = 128,
 
-    /**
-     *
-     */
     ACT_180_LEFT = 129,
 
-    /**
-     *
-     */
     ACT_180_RIGHT = 130,
 
-    /**
-     *
-     */
     ACT_90_LEFT = 131,
 
-    /**
-     *
-     */
     ACT_90_RIGHT = 132,
 
-    /**
-     *
-     */
     ACT_STEP_LEFT = 133,
 
-    /**
-     *
-     */
     ACT_STEP_RIGHT = 134,
 
-    /**
-     *
-     */
     ACT_STEP_BACK = 135,
 
-    /**
-     *
-     */
     ACT_STEP_FORE = 136,
 
-    /**
-     *
-     */
     ACT_GESTURE_RANGE_ATTACK1 = 137,
 
-    /**
-     *
-     */
     ACT_GESTURE_RANGE_ATTACK2 = 138,
 
-    /**
-     *
-     */
     ACT_GESTURE_MELEE_ATTACK1 = 139,
 
-    /**
-     *
-     */
     ACT_GESTURE_MELEE_ATTACK2 = 140,
 
-    /**
-     *
-     */
     ACT_GESTURE_RANGE_ATTACK1_LOW = 141,
 
-    /**
-     *
-     */
     ACT_GESTURE_RANGE_ATTACK2_LOW = 142,
 
-    /**
-     *
-     */
     ACT_MELEE_ATTACK_SWING_GESTURE = 143,
 
-    /**
-     *
-     */
     ACT_GESTURE_SMALL_FLINCH = 144,
 
-    /**
-     *
-     */
     ACT_GESTURE_BIG_FLINCH = 145,
 
-    /**
-     *
-     */
     ACT_GESTURE_FLINCH_BLAST = 146,
 
-    /**
-     *
-     */
     ACT_GESTURE_FLINCH_BLAST_SHOTGUN = 147,
 
-    /**
-     *
-     */
     ACT_GESTURE_FLINCH_BLAST_DAMAGED = 148,
 
-    /**
-     *
-     */
     ACT_GESTURE_FLINCH_BLAST_DAMAGED_SHOTGUN = 149,
 
-    /**
-     *
-     */
     ACT_GESTURE_FLINCH_HEAD = 150,
 
-    /**
-     *
-     */
     ACT_GESTURE_FLINCH_CHEST = 151,
 
-    /**
-     *
-     */
     ACT_GESTURE_FLINCH_STOMACH = 152,
 
-    /**
-     *
-     */
     ACT_GESTURE_FLINCH_LEFTARM = 153,
 
-    /**
-     *
-     */
     ACT_GESTURE_FLINCH_RIGHTARM = 154,
 
-    /**
-     *
-     */
     ACT_GESTURE_FLINCH_LEFTLEG = 155,
 
-    /**
-     *
-     */
     ACT_GESTURE_FLINCH_RIGHTLEG = 156,
 
-    /**
-     *
-     */
     ACT_GESTURE_TURN_LEFT = 157,
 
-    /**
-     *
-     */
     ACT_GESTURE_TURN_RIGHT = 158,
 
-    /**
-     *
-     */
     ACT_GESTURE_TURN_LEFT45 = 159,
 
-    /**
-     *
-     */
     ACT_GESTURE_TURN_RIGHT45 = 160,
 
-    /**
-     *
-     */
     ACT_GESTURE_TURN_LEFT90 = 161,
 
-    /**
-     *
-     */
     ACT_GESTURE_TURN_RIGHT90 = 162,
 
-    /**
-     *
-     */
     ACT_GESTURE_TURN_LEFT45_FLAT = 163,
 
-    /**
-     *
-     */
     ACT_GESTURE_TURN_RIGHT45_FLAT = 164,
 
-    /**
-     *
-     */
     ACT_GESTURE_TURN_LEFT90_FLAT = 165,
 
-    /**
-     *
-     */
     ACT_GESTURE_TURN_RIGHT90_FLAT = 166,
 
-    /**
-     *
-     */
     ACT_BARNACLE_HIT = 167,
 
-    /**
-     *
-     */
     ACT_BARNACLE_PULL = 168,
 
-    /**
-     *
-     */
     ACT_BARNACLE_CHOMP = 169,
 
-    /**
-     *
-     */
     ACT_BARNACLE_CHEW = 170,
 
-    /**
-     *
-     */
     ACT_DO_NOT_DISTURB = 171,
 
-    /**
-     *
-     */
     ACT_VM_DRAW = 172,
 
-    /**
-     *
-     */
     ACT_VM_HOLSTER = 173,
 
-    /**
-     *
-     */
     ACT_VM_IDLE = 174,
 
-    /**
-     *
-     */
     ACT_VM_FIDGET = 175,
 
-    /**
-     *
-     */
     ACT_VM_PULLBACK = 176,
 
-    /**
-     *
-     */
     ACT_VM_PULLBACK_HIGH = 177,
 
-    /**
-     *
-     */
     ACT_VM_PULLBACK_LOW = 178,
 
-    /**
-     *
-     */
     ACT_VM_THROW = 179,
 
-    /**
-     *
-     */
     ACT_VM_PULLPIN = 180,
 
-    /**
-     *
-     */
     ACT_VM_PRIMARYATTACK = 181,
 
-    /**
-     *
-     */
     ACT_VM_SECONDARYATTACK = 182,
 
-    /**
-     *
-     */
     ACT_VM_RELOAD = 183,
 
-    /**
-     *
-     */
     ACT_VM_DRYFIRE = 186,
 
-    /**
-     *
-     */
     ACT_VM_HITLEFT = 187,
 
-    /**
-     *
-     */
     ACT_VM_HITLEFT2 = 188,
 
-    /**
-     *
-     */
     ACT_VM_HITRIGHT = 189,
 
-    /**
-     *
-     */
     ACT_VM_HITRIGHT2 = 190,
 
-    /**
-     *
-     */
     ACT_VM_HITCENTER = 191,
 
-    /**
-     *
-     */
     ACT_VM_HITCENTER2 = 192,
 
-    /**
-     *
-     */
     ACT_VM_MISSLEFT = 193,
 
-    /**
-     *
-     */
     ACT_VM_MISSLEFT2 = 194,
 
-    /**
-     *
-     */
     ACT_VM_MISSRIGHT = 195,
 
-    /**
-     *
-     */
     ACT_VM_MISSRIGHT2 = 196,
 
-    /**
-     *
-     */
     ACT_VM_MISSCENTER = 197,
 
-    /**
-     *
-     */
     ACT_VM_MISSCENTER2 = 198,
 
-    /**
-     *
-     */
     ACT_VM_HAULBACK = 199,
 
-    /**
-     *
-     */
     ACT_VM_SWINGHARD = 200,
 
-    /**
-     *
-     */
     ACT_VM_SWINGMISS = 201,
 
-    /**
-     *
-     */
     ACT_VM_SWINGHIT = 202,
 
-    /**
-     *
-     */
     ACT_VM_IDLE_TO_LOWERED = 203,
 
-    /**
-     *
-     */
     ACT_VM_IDLE_LOWERED = 204,
 
-    /**
-     *
-     */
     ACT_VM_LOWERED_TO_IDLE = 205,
 
-    /**
-     *
-     */
     ACT_VM_RECOIL1 = 206,
 
-    /**
-     *
-     */
     ACT_VM_RECOIL2 = 207,
 
-    /**
-     *
-     */
     ACT_VM_RECOIL3 = 208,
 
-    /**
-     *
-     */
     ACT_VM_PICKUP = 209,
 
-    /**
-     *
-     */
     ACT_VM_RELEASE = 210,
 
-    /**
-     *
-     */
     ACT_VM_ATTACH_SILENCER = 211,
 
-    /**
-     *
-     */
     ACT_VM_DETACH_SILENCER = 212,
 
-    /**
-     *
-     */
     ACT_SLAM_STICKWALL_IDLE = 229,
 
-    /**
-     *
-     */
     ACT_SLAM_STICKWALL_ND_IDLE = 230,
 
-    /**
-     *
-     */
     ACT_SLAM_STICKWALL_ATTACH = 231,
 
-    /**
-     *
-     */
     ACT_SLAM_STICKWALL_ATTACH2 = 232,
 
-    /**
-     *
-     */
     ACT_SLAM_STICKWALL_ND_ATTACH = 233,
 
-    /**
-     *
-     */
     ACT_SLAM_STICKWALL_ND_ATTACH2 = 234,
 
-    /**
-     *
-     */
     ACT_SLAM_STICKWALL_DETONATE = 235,
 
-    /**
-     *
-     */
     ACT_SLAM_STICKWALL_DETONATOR_HOLSTER = 236,
 
-    /**
-     *
-     */
     ACT_SLAM_STICKWALL_DRAW = 237,
 
-    /**
-     *
-     */
     ACT_SLAM_STICKWALL_ND_DRAW = 238,
 
-    /**
-     *
-     */
     ACT_SLAM_STICKWALL_TO_THROW = 239,
 
-    /**
-     *
-     */
     ACT_SLAM_STICKWALL_TO_THROW_ND = 240,
 
-    /**
-     *
-     */
     ACT_SLAM_STICKWALL_TO_TRIPMINE_ND = 241,
 
-    /**
-     *
-     */
     ACT_SLAM_THROW_IDLE = 242,
 
-    /**
-     *
-     */
     ACT_SLAM_THROW_ND_IDLE = 243,
 
-    /**
-     *
-     */
     ACT_SLAM_THROW_THROW = 244,
 
-    /**
-     *
-     */
     ACT_SLAM_THROW_THROW2 = 245,
 
-    /**
-     *
-     */
     ACT_SLAM_THROW_THROW_ND = 246,
 
-    /**
-     *
-     */
     ACT_SLAM_THROW_THROW_ND2 = 247,
 
-    /**
-     *
-     */
     ACT_SLAM_THROW_DRAW = 248,
 
-    /**
-     *
-     */
     ACT_SLAM_THROW_ND_DRAW = 249,
 
-    /**
-     *
-     */
     ACT_SLAM_THROW_TO_STICKWALL = 250,
 
-    /**
-     *
-     */
     ACT_SLAM_THROW_TO_STICKWALL_ND = 251,
 
-    /**
-     *
-     */
     ACT_SLAM_THROW_DETONATE = 252,
 
-    /**
-     *
-     */
     ACT_SLAM_THROW_DETONATOR_HOLSTER = 253,
 
-    /**
-     *
-     */
     ACT_SLAM_THROW_TO_TRIPMINE_ND = 254,
 
-    /**
-     *
-     */
     ACT_SLAM_TRIPMINE_IDLE = 255,
 
-    /**
-     *
-     */
     ACT_SLAM_TRIPMINE_DRAW = 256,
 
-    /**
-     *
-     */
     ACT_SLAM_TRIPMINE_ATTACH = 257,
 
-    /**
-     *
-     */
     ACT_SLAM_TRIPMINE_ATTACH2 = 258,
 
-    /**
-     *
-     */
     ACT_SLAM_TRIPMINE_TO_STICKWALL_ND = 259,
 
-    /**
-     *
-     */
     ACT_SLAM_TRIPMINE_TO_THROW_ND = 260,
 
-    /**
-     *
-     */
     ACT_SLAM_DETONATOR_IDLE = 261,
 
-    /**
-     *
-     */
     ACT_SLAM_DETONATOR_DRAW = 262,
 
-    /**
-     *
-     */
     ACT_SLAM_DETONATOR_DETONATE = 263,
 
-    /**
-     *
-     */
     ACT_SLAM_DETONATOR_HOLSTER = 264,
 
-    /**
-     *
-     */
     ACT_SLAM_DETONATOR_STICKWALL_DRAW = 265,
 
-    /**
-     *
-     */
     ACT_SLAM_DETONATOR_THROW_DRAW = 266,
 
-    /**
-     *
-     */
     ACT_SHOTGUN_RELOAD_START = 267,
 
-    /**
-     *
-     */
     ACT_SHOTGUN_RELOAD_FINISH = 268,
 
-    /**
-     *
-     */
     ACT_SHOTGUN_PUMP = 269,
 
-    /**
-     *
-     */
     ACT_SMG2_IDLE2 = 270,
 
-    /**
-     *
-     */
     ACT_SMG2_FIRE2 = 271,
 
-    /**
-     *
-     */
     ACT_SMG2_DRAW2 = 272,
 
-    /**
-     *
-     */
     ACT_SMG2_RELOAD2 = 273,
 
-    /**
-     *
-     */
     ACT_SMG2_DRYFIRE2 = 274,
 
-    /**
-     *
-     */
     ACT_SMG2_TOAUTO = 275,
 
-    /**
-     *
-     */
     ACT_SMG2_TOBURST = 276,
 
-    /**
-     *
-     */
     ACT_PHYSCANNON_UPGRADE = 277,
 
-    /**
-     *
-     */
     ACT_RANGE_ATTACK_AR1 = 278,
 
-    /**
-     *
-     */
     ACT_RANGE_ATTACK_AR2 = 279,
 
-    /**
-     *
-     */
     ACT_RANGE_ATTACK_AR2_LOW = 280,
 
-    /**
-     *
-     */
     ACT_RANGE_ATTACK_AR2_GRENADE = 281,
 
-    /**
-     *
-     */
     ACT_RANGE_ATTACK_HMG1 = 282,
 
-    /**
-     *
-     */
     ACT_RANGE_ATTACK_ML = 283,
 
-    /**
-     *
-     */
     ACT_RANGE_ATTACK_SMG1 = 284,
 
-    /**
-     *
-     */
     ACT_RANGE_ATTACK_SMG1_LOW = 285,
 
-    /**
-     *
-     */
     ACT_RANGE_ATTACK_SMG2 = 286,
 
-    /**
-     *
-     */
     ACT_RANGE_ATTACK_SHOTGUN = 287,
 
-    /**
-     *
-     */
     ACT_RANGE_ATTACK_SHOTGUN_LOW = 288,
 
-    /**
-     *
-     */
     ACT_RANGE_ATTACK_PISTOL = 289,
 
-    /**
-     *
-     */
     ACT_RANGE_ATTACK_PISTOL_LOW = 290,
 
-    /**
-     *
-     */
     ACT_RANGE_ATTACK_SLAM = 291,
 
-    /**
-     *
-     */
     ACT_RANGE_ATTACK_TRIPWIRE = 292,
 
-    /**
-     *
-     */
     ACT_RANGE_ATTACK_THROW = 293,
 
-    /**
-     *
-     */
     ACT_RANGE_ATTACK_SNIPER_RIFLE = 294,
 
-    /**
-     *
-     */
     ACT_RANGE_ATTACK_RPG = 295,
 
-    /**
-     *
-     */
     ACT_MELEE_ATTACK_SWING = 296,
 
-    /**
-     *
-     */
     ACT_RANGE_AIM_LOW = 297,
 
-    /**
-     *
-     */
     ACT_RANGE_AIM_SMG1_LOW = 298,
 
-    /**
-     *
-     */
     ACT_RANGE_AIM_PISTOL_LOW = 299,
 
-    /**
-     *
-     */
     ACT_RANGE_AIM_AR2_LOW = 300,
 
-    /**
-     *
-     */
     ACT_COVER_PISTOL_LOW = 301,
 
-    /**
-     *
-     */
     ACT_COVER_SMG1_LOW = 302,
 
-    /**
-     *
-     */
     ACT_GESTURE_RANGE_ATTACK_AR1 = 303,
 
-    /**
-     *
-     */
     ACT_GESTURE_RANGE_ATTACK_AR2 = 304,
 
-    /**
-     *
-     */
     ACT_GESTURE_RANGE_ATTACK_AR2_GRENADE = 305,
 
-    /**
-     *
-     */
     ACT_GESTURE_RANGE_ATTACK_HMG1 = 306,
 
-    /**
-     *
-     */
     ACT_GESTURE_RANGE_ATTACK_ML = 307,
 
-    /**
-     *
-     */
     ACT_GESTURE_RANGE_ATTACK_SMG1 = 308,
 
-    /**
-     *
-     */
     ACT_GESTURE_RANGE_ATTACK_SMG1_LOW = 309,
 
-    /**
-     *
-     */
     ACT_GESTURE_RANGE_ATTACK_SMG2 = 310,
 
-    /**
-     *
-     */
     ACT_GESTURE_RANGE_ATTACK_SHOTGUN = 311,
 
-    /**
-     *
-     */
     ACT_GESTURE_RANGE_ATTACK_PISTOL = 312,
 
-    /**
-     *
-     */
     ACT_GESTURE_RANGE_ATTACK_PISTOL_LOW = 313,
 
-    /**
-     *
-     */
     ACT_GESTURE_RANGE_ATTACK_SLAM = 314,
 
-    /**
-     *
-     */
     ACT_GESTURE_RANGE_ATTACK_TRIPWIRE = 315,
 
-    /**
-     *
-     */
     ACT_GESTURE_RANGE_ATTACK_THROW = 316,
 
-    /**
-     *
-     */
     ACT_GESTURE_RANGE_ATTACK_SNIPER_RIFLE = 317,
 
-    /**
-     *
-     */
     ACT_GESTURE_MELEE_ATTACK_SWING = 318,
 
-    /**
-     *
-     */
     ACT_IDLE_RIFLE = 319,
 
-    /**
-     *
-     */
     ACT_IDLE_SMG1 = 320,
 
-    /**
-     *
-     */
     ACT_IDLE_ANGRY_SMG1 = 321,
 
-    /**
-     *
-     */
     ACT_IDLE_PISTOL = 322,
 
-    /**
-     *
-     */
     ACT_IDLE_ANGRY_PISTOL = 323,
 
-    /**
-     *
-     */
     ACT_IDLE_ANGRY_SHOTGUN = 324,
 
-    /**
-     *
-     */
     ACT_IDLE_STEALTH_PISTOL = 325,
 
-    /**
-     *
-     */
     ACT_IDLE_PACKAGE = 326,
 
-    /**
-     *
-     */
     ACT_WALK_PACKAGE = 327,
 
-    /**
-     *
-     */
     ACT_IDLE_SUITCASE = 328,
 
-    /**
-     *
-     */
     ACT_WALK_SUITCASE = 329,
 
-    /**
-     *
-     */
     ACT_IDLE_SMG1_RELAXED = 330,
 
-    /**
-     *
-     */
     ACT_IDLE_SMG1_STIMULATED = 331,
 
-    /**
-     *
-     */
     ACT_WALK_RIFLE_RELAXED = 332,
 
-    /**
-     *
-     */
     ACT_RUN_RIFLE_RELAXED = 333,
 
-    /**
-     *
-     */
     ACT_WALK_RIFLE_STIMULATED = 334,
 
-    /**
-     *
-     */
     ACT_RUN_RIFLE_STIMULATED = 335,
 
-    /**
-     *
-     */
     ACT_IDLE_AIM_RIFLE_STIMULATED = 336,
 
-    /**
-     *
-     */
     ACT_WALK_AIM_RIFLE_STIMULATED = 337,
 
-    /**
-     *
-     */
     ACT_RUN_AIM_RIFLE_STIMULATED = 338,
 
-    /**
-     *
-     */
     ACT_IDLE_SHOTGUN_RELAXED = 339,
 
-    /**
-     *
-     */
     ACT_IDLE_SHOTGUN_STIMULATED = 340,
 
-    /**
-     *
-     */
     ACT_IDLE_SHOTGUN_AGITATED = 341,
 
-    /**
-     *
-     */
     ACT_WALK_ANGRY = 342,
 
-    /**
-     *
-     */
     ACT_POLICE_HARASS1 = 343,
 
-    /**
-     *
-     */
     ACT_POLICE_HARASS2 = 344,
 
-    /**
-     *
-     */
     ACT_IDLE_MANNEDGUN = 345,
 
-    /**
-     *
-     */
     ACT_IDLE_MELEE = 346,
 
-    /**
-     *
-     */
     ACT_IDLE_ANGRY_MELEE = 347,
 
-    /**
-     *
-     */
     ACT_IDLE_RPG_RELAXED = 348,
 
-    /**
-     *
-     */
     ACT_IDLE_RPG = 349,
 
-    /**
-     *
-     */
     ACT_IDLE_ANGRY_RPG = 350,
 
-    /**
-     *
-     */
     ACT_COVER_LOW_RPG = 351,
 
-    /**
-     *
-     */
     ACT_WALK_RPG = 352,
 
-    /**
-     *
-     */
     ACT_RUN_RPG = 353,
 
-    /**
-     *
-     */
     ACT_WALK_CROUCH_RPG = 354,
 
-    /**
-     *
-     */
     ACT_RUN_CROUCH_RPG = 355,
 
-    /**
-     *
-     */
     ACT_WALK_RPG_RELAXED = 356,
 
-    /**
-     *
-     */
     ACT_RUN_RPG_RELAXED = 357,
 
-    /**
-     *
-     */
     ACT_WALK_RIFLE = 358,
 
-    /**
-     *
-     */
     ACT_WALK_AIM_RIFLE = 359,
 
-    /**
-     *
-     */
     ACT_WALK_CROUCH_RIFLE = 360,
 
-    /**
-     *
-     */
     ACT_WALK_CROUCH_AIM_RIFLE = 361,
 
-    /**
-     *
-     */
     ACT_RUN_RIFLE = 362,
 
-    /**
-     *
-     */
     ACT_RUN_AIM_RIFLE = 363,
 
-    /**
-     *
-     */
     ACT_RUN_CROUCH_RIFLE = 364,
 
-    /**
-     *
-     */
     ACT_RUN_CROUCH_AIM_RIFLE = 365,
 
-    /**
-     *
-     */
     ACT_RUN_STEALTH_PISTOL = 366,
 
-    /**
-     *
-     */
     ACT_WALK_AIM_SHOTGUN = 367,
 
-    /**
-     *
-     */
     ACT_RUN_AIM_SHOTGUN = 368,
 
-    /**
-     *
-     */
     ACT_WALK_PISTOL = 369,
 
-    /**
-     *
-     */
     ACT_RUN_PISTOL = 370,
 
-    /**
-     *
-     */
     ACT_WALK_AIM_PISTOL = 371,
 
-    /**
-     *
-     */
     ACT_RUN_AIM_PISTOL = 372,
 
-    /**
-     *
-     */
     ACT_WALK_STEALTH_PISTOL = 373,
 
-    /**
-     *
-     */
     ACT_WALK_AIM_STEALTH_PISTOL = 374,
 
-    /**
-     *
-     */
     ACT_RUN_AIM_STEALTH_PISTOL = 375,
 
-    /**
-     *
-     */
     ACT_RELOAD_PISTOL = 376,
 
-    /**
-     *
-     */
     ACT_RELOAD_PISTOL_LOW = 377,
 
-    /**
-     *
-     */
     ACT_RELOAD_SMG1 = 378,
 
-    /**
-     *
-     */
     ACT_RELOAD_SMG1_LOW = 379,
 
-    /**
-     *
-     */
     ACT_RELOAD_SHOTGUN = 380,
 
-    /**
-     *
-     */
     ACT_RELOAD_SHOTGUN_LOW = 381,
 
-    /**
-     *
-     */
     ACT_GESTURE_RELOAD = 382,
 
-    /**
-     *
-     */
     ACT_GESTURE_RELOAD_PISTOL = 383,
 
-    /**
-     *
-     */
     ACT_GESTURE_RELOAD_SMG1 = 384,
 
-    /**
-     *
-     */
     ACT_GESTURE_RELOAD_SHOTGUN = 385,
 
-    /**
-     *
-     */
     ACT_BUSY_LEAN_LEFT = 386,
 
-    /**
-     *
-     */
     ACT_BUSY_LEAN_LEFT_ENTRY = 387,
 
-    /**
-     *
-     */
     ACT_BUSY_LEAN_LEFT_EXIT = 388,
 
-    /**
-     *
-     */
     ACT_BUSY_LEAN_BACK = 389,
 
-    /**
-     *
-     */
     ACT_BUSY_LEAN_BACK_ENTRY = 390,
 
-    /**
-     *
-     */
     ACT_BUSY_LEAN_BACK_EXIT = 391,
 
-    /**
-     *
-     */
     ACT_BUSY_SIT_GROUND = 392,
 
-    /**
-     *
-     */
     ACT_BUSY_SIT_GROUND_ENTRY = 393,
 
-    /**
-     *
-     */
     ACT_BUSY_SIT_GROUND_EXIT = 394,
 
-    /**
-     *
-     */
     ACT_BUSY_SIT_CHAIR = 395,
 
-    /**
-     *
-     */
     ACT_BUSY_SIT_CHAIR_ENTRY = 396,
 
-    /**
-     *
-     */
     ACT_BUSY_SIT_CHAIR_EXIT = 397,
 
-    /**
-     *
-     */
     ACT_BUSY_STAND = 398,
 
-    /**
-     *
-     */
     ACT_BUSY_QUEUE = 399,
 
-    /**
-     *
-     */
     ACT_DUCK_DODGE = 400,
 
-    /**
-     *
-     */
     ACT_DIE_BARNACLE_SWALLOW = 401,
 
-    /**
-     *
-     */
     ACT_GESTURE_BARNACLE_STRANGLE = 402,
 
-    /**
-     *
-     */
     ACT_PHYSCANNON_DETACH = 403,
 
-    /**
-     *
-     */
     ACT_PHYSCANNON_ANIMATE = 404,
 
-    /**
-     *
-     */
     ACT_PHYSCANNON_ANIMATE_PRE = 405,
 
-    /**
-     *
-     */
     ACT_PHYSCANNON_ANIMATE_POST = 406,
 
-    /**
-     *
-     */
     ACT_DIE_FRONTSIDE = 407,
 
-    /**
-     *
-     */
     ACT_DIE_RIGHTSIDE = 408,
 
-    /**
-     *
-     */
     ACT_DIE_BACKSIDE = 409,
 
-    /**
-     *
-     */
     ACT_DIE_LEFTSIDE = 410,
 
-    /**
-     *
-     */
     ACT_OPEN_DOOR = 411,
 
-    /**
-     *
-     */
     ACT_DI_ALYX_ZOMBIE_MELEE = 412,
 
-    /**
-     *
-     */
     ACT_DI_ALYX_ZOMBIE_TORSO_MELEE = 413,
 
-    /**
-     *
-     */
     ACT_DI_ALYX_HEADCRAB_MELEE = 414,
 
-    /**
-     *
-     */
     ACT_DI_ALYX_ANTLION = 415,
 
-    /**
-     *
-     */
     ACT_DI_ALYX_ZOMBIE_SHOTGUN64 = 416,
 
-    /**
-     *
-     */
     ACT_DI_ALYX_ZOMBIE_SHOTGUN26 = 417,
 
-    /**
-     *
-     */
     ACT_READINESS_RELAXED_TO_STIMULATED = 418,
 
-    /**
-     *
-     */
     ACT_READINESS_RELAXED_TO_STIMULATED_WALK = 419,
 
-    /**
-     *
-     */
     ACT_READINESS_AGITATED_TO_STIMULATED = 420,
 
-    /**
-     *
-     */
     ACT_READINESS_STIMULATED_TO_RELAXED = 421,
 
-    /**
-     *
-     */
     ACT_READINESS_PISTOL_RELAXED_TO_STIMULATED = 422,
 
-    /**
-     *
-     */
     ACT_READINESS_PISTOL_RELAXED_TO_STIMULATED_WALK = 423,
 
-    /**
-     *
-     */
     ACT_READINESS_PISTOL_AGITATED_TO_STIMULATED = 424,
 
-    /**
-     *
-     */
     ACT_READINESS_PISTOL_STIMULATED_TO_RELAXED = 425,
 
-    /**
-     *
-     */
     ACT_IDLE_CARRY = 426,
 
-    /**
-     *
-     */
     ACT_WALK_CARRY = 427,
 
-    /**
-     *
-     */
     ACT_STARTDYING = 428,
 
-    /**
-     *
-     */
     ACT_DYINGLOOP = 429,
 
-    /**
-     *
-     */
     ACT_DYINGTODEAD = 430,
 
-    /**
-     *
-     */
     ACT_RIDE_MANNED_GUN = 431,
 
-    /**
-     *
-     */
     ACT_VM_SPRINT_ENTER = 432,
 
-    /**
-     *
-     */
     ACT_VM_SPRINT_IDLE = 433,
 
-    /**
-     *
-     */
     ACT_VM_SPRINT_LEAVE = 434,
 
-    /**
-     *
-     */
     ACT_FIRE_START = 435,
 
-    /**
-     *
-     */
     ACT_FIRE_LOOP = 436,
 
-    /**
-     *
-     */
     ACT_FIRE_END = 437,
 
-    /**
-     *
-     */
     ACT_CROUCHING_GRENADEIDLE = 438,
 
-    /**
-     *
-     */
     ACT_CROUCHING_GRENADEREADY = 439,
 
-    /**
-     *
-     */
     ACT_CROUCHING_PRIMARYATTACK = 440,
 
-    /**
-     *
-     */
     ACT_OVERLAY_GRENADEIDLE = 441,
 
-    /**
-     *
-     */
     ACT_OVERLAY_GRENADEREADY = 442,
 
-    /**
-     *
-     */
     ACT_OVERLAY_PRIMARYATTACK = 443,
 
-    /**
-     *
-     */
     ACT_OVERLAY_SHIELD_UP = 444,
 
-    /**
-     *
-     */
     ACT_OVERLAY_SHIELD_DOWN = 445,
 
-    /**
-     *
-     */
     ACT_OVERLAY_SHIELD_UP_IDLE = 446,
 
-    /**
-     *
-     */
     ACT_OVERLAY_SHIELD_ATTACK = 447,
 
-    /**
-     *
-     */
     ACT_OVERLAY_SHIELD_KNOCKBACK = 448,
 
-    /**
-     *
-     */
     ACT_SHIELD_UP = 449,
 
-    /**
-     *
-     */
     ACT_SHIELD_DOWN = 450,
 
-    /**
-     *
-     */
     ACT_SHIELD_UP_IDLE = 451,
 
-    /**
-     *
-     */
     ACT_SHIELD_ATTACK = 452,
 
-    /**
-     *
-     */
     ACT_SHIELD_KNOCKBACK = 453,
 
-    /**
-     *
-     */
     ACT_CROUCHING_SHIELD_UP = 454,
 
-    /**
-     *
-     */
     ACT_CROUCHING_SHIELD_DOWN = 455,
 
-    /**
-     *
-     */
     ACT_CROUCHING_SHIELD_UP_IDLE = 456,
 
-    /**
-     *
-     */
     ACT_CROUCHING_SHIELD_ATTACK = 457,
 
-    /**
-     *
-     */
     ACT_CROUCHING_SHIELD_KNOCKBACK = 458,
 
-    /**
-     *
-     */
     ACT_TURNRIGHT45 = 459,
 
-    /**
-     *
-     */
     ACT_TURNLEFT45 = 460,
 
-    /**
-     *
-     */
     ACT_TURN = 461,
 
-    /**
-     *
-     */
     ACT_OBJ_ASSEMBLING = 462,
 
-    /**
-     *
-     */
     ACT_OBJ_DISMANTLING = 463,
 
-    /**
-     *
-     */
     ACT_OBJ_STARTUP = 464,
 
-    /**
-     *
-     */
     ACT_OBJ_RUNNING = 465,
 
-    /**
-     *
-     */
     ACT_OBJ_IDLE = 466,
 
-    /**
-     *
-     */
     ACT_OBJ_PLACING = 467,
 
-    /**
-     *
-     */
     ACT_OBJ_DETERIORATING = 468,
 
-    /**
-     *
-     */
     ACT_OBJ_UPGRADING = 469,
 
-    /**
-     *
-     */
     ACT_DEPLOY = 470,
 
-    /**
-     *
-     */
     ACT_DEPLOY_IDLE = 471,
 
-    /**
-     *
-     */
     ACT_UNDEPLOY = 472,
 
-    /**
-     *
-     */
     ACT_GRENADE_ROLL = 473,
 
-    /**
-     *
-     */
     ACT_GRENADE_TOSS = 474,
 
-    /**
-     *
-     */
     ACT_HANDGRENADE_THROW1 = 475,
 
-    /**
-     *
-     */
     ACT_HANDGRENADE_THROW2 = 476,
 
-    /**
-     *
-     */
     ACT_HANDGRENADE_THROW3 = 477,
 
-    /**
-     *
-     */
     ACT_SHOTGUN_IDLE_DEEP = 478,
 
-    /**
-     *
-     */
     ACT_SHOTGUN_IDLE4 = 479,
 
-    /**
-     *
-     */
     ACT_GLOCK_SHOOTEMPTY = 480,
 
-    /**
-     *
-     */
     ACT_GLOCK_SHOOT_RELOAD = 481,
 
-    /**
-     *
-     */
     ACT_RPG_DRAW_UNLOADED = 482,
 
-    /**
-     *
-     */
     ACT_RPG_HOLSTER_UNLOADED = 483,
 
-    /**
-     *
-     */
     ACT_RPG_IDLE_UNLOADED = 484,
 
-    /**
-     *
-     */
     ACT_RPG_FIDGET_UNLOADED = 485,
 
-    /**
-     *
-     */
     ACT_CROSSBOW_DRAW_UNLOADED = 486,
 
-    /**
-     *
-     */
     ACT_CROSSBOW_IDLE_UNLOADED = 487,
 
-    /**
-     *
-     */
     ACT_CROSSBOW_FIDGET_UNLOADED = 488,
 
-    /**
-     *
-     */
     ACT_GAUSS_SPINUP = 489,
 
-    /**
-     *
-     */
     ACT_GAUSS_SPINCYCLE = 490,
 
-    /**
-     *
-     */
     ACT_TRIPMINE_GROUND = 491,
 
-    /**
-     *
-     */
     ACT_TRIPMINE_WORLD = 492,
 
-    /**
-     *
-     */
     ACT_VM_PRIMARYATTACK_SILENCED = 493,
 
-    /**
-     *
-     */
     ACT_VM_RELOAD_SILENCED = 494,
 
-    /**
-     *
-     */
     ACT_VM_DRYFIRE_SILENCED = 495,
 
-    /**
-     *
-     */
     ACT_VM_IDLE_SILENCED = 496,
 
-    /**
-     *
-     */
     ACT_VM_DRAW_SILENCED = 497,
 
-    /**
-     *
-     */
     ACT_VM_IDLE_EMPTY_LEFT = 498,
 
-    /**
-     *
-     */
     ACT_VM_DRYFIRE_LEFT = 499,
 
-    /**
-     *
-     */
     ACT_PLAYER_IDLE_FIRE = 500,
 
-    /**
-     *
-     */
     ACT_PLAYER_CROUCH_FIRE = 501,
 
-    /**
-     *
-     */
     ACT_PLAYER_CROUCH_WALK_FIRE = 502,
 
-    /**
-     *
-     */
     ACT_PLAYER_WALK_FIRE = 503,
 
-    /**
-     *
-     */
     ACT_PLAYER_RUN_FIRE = 504,
 
-    /**
-     *
-     */
     ACT_IDLETORUN = 505,
 
-    /**
-     *
-     */
     ACT_RUNTOIDLE = 506,
 
-    /**
-     *
-     */
     ACT_SPRINT = 507,
 
-    /**
-     *
-     */
     ACT_GET_DOWN_STAND = 508,
 
-    /**
-     *
-     */
     ACT_GET_UP_STAND = 509,
 
-    /**
-     *
-     */
     ACT_GET_DOWN_CROUCH = 510,
 
-    /**
-     *
-     */
     ACT_GET_UP_CROUCH = 511,
 
-    /**
-     *
-     */
     ACT_PRONE_FORWARD = 512,
 
-    /**
-     *
-     */
     ACT_PRONE_IDLE = 513,
 
-    /**
-     *
-     */
     ACT_DEEPIDLE1 = 514,
 
-    /**
-     *
-     */
     ACT_DEEPIDLE2 = 515,
 
-    /**
-     *
-     */
     ACT_DEEPIDLE3 = 516,
 
-    /**
-     *
-     */
     ACT_DEEPIDLE4 = 517,
 
-    /**
-     *
-     */
     ACT_VM_RELOAD_DEPLOYED = 518,
 
-    /**
-     *
-     */
     ACT_VM_RELOAD_IDLE = 519,
 
-    /**
-     *
-     */
     ACT_VM_DRAW_DEPLOYED = 520,
 
-    /**
-     *
-     */
     ACT_VM_DRAW_EMPTY = 521,
 
-    /**
-     *
-     */
     ACT_VM_PRIMARYATTACK_EMPTY = 522,
 
-    /**
-     *
-     */
     ACT_VM_RELOAD_EMPTY = 523,
 
-    /**
-     *
-     */
     ACT_VM_IDLE_EMPTY = 524,
 
-    /**
-     *
-     */
     ACT_VM_IDLE_DEPLOYED_EMPTY = 525,
 
-    /**
-     *
-     */
     ACT_VM_IDLE_8 = 526,
 
-    /**
-     *
-     */
     ACT_VM_IDLE_7 = 527,
 
-    /**
-     *
-     */
     ACT_VM_IDLE_6 = 528,
 
-    /**
-     *
-     */
     ACT_VM_IDLE_5 = 529,
 
-    /**
-     *
-     */
     ACT_VM_IDLE_4 = 530,
 
-    /**
-     *
-     */
     ACT_VM_IDLE_3 = 531,
 
-    /**
-     *
-     */
     ACT_VM_IDLE_2 = 532,
 
-    /**
-     *
-     */
     ACT_VM_IDLE_1 = 533,
 
-    /**
-     *
-     */
     ACT_VM_IDLE_DEPLOYED = 534,
 
-    /**
-     *
-     */
     ACT_VM_IDLE_DEPLOYED_8 = 535,
 
-    /**
-     *
-     */
     ACT_VM_IDLE_DEPLOYED_7 = 536,
 
-    /**
-     *
-     */
     ACT_VM_IDLE_DEPLOYED_6 = 537,
 
-    /**
-     *
-     */
     ACT_VM_IDLE_DEPLOYED_5 = 538,
 
-    /**
-     *
-     */
     ACT_VM_IDLE_DEPLOYED_4 = 539,
 
-    /**
-     *
-     */
     ACT_VM_IDLE_DEPLOYED_3 = 540,
 
-    /**
-     *
-     */
     ACT_VM_IDLE_DEPLOYED_2 = 541,
 
-    /**
-     *
-     */
     ACT_VM_IDLE_DEPLOYED_1 = 542,
 
-    /**
-     *
-     */
     ACT_VM_UNDEPLOY = 543,
 
-    /**
-     *
-     */
     ACT_VM_UNDEPLOY_8 = 544,
 
-    /**
-     *
-     */
     ACT_VM_UNDEPLOY_7 = 545,
 
-    /**
-     *
-     */
     ACT_VM_UNDEPLOY_6 = 546,
 
-    /**
-     *
-     */
     ACT_VM_UNDEPLOY_5 = 547,
 
-    /**
-     *
-     */
     ACT_VM_UNDEPLOY_4 = 548,
 
-    /**
-     *
-     */
     ACT_VM_UNDEPLOY_3 = 549,
 
-    /**
-     *
-     */
     ACT_VM_UNDEPLOY_2 = 550,
 
-    /**
-     *
-     */
     ACT_VM_UNDEPLOY_1 = 551,
 
-    /**
-     *
-     */
     ACT_VM_UNDEPLOY_EMPTY = 552,
 
-    /**
-     *
-     */
     ACT_VM_DEPLOY = 553,
 
-    /**
-     *
-     */
     ACT_VM_DEPLOY_8 = 554,
 
-    /**
-     *
-     */
     ACT_VM_DEPLOY_7 = 555,
 
-    /**
-     *
-     */
     ACT_VM_DEPLOY_6 = 556,
 
-    /**
-     *
-     */
     ACT_VM_DEPLOY_5 = 557,
 
-    /**
-     *
-     */
     ACT_VM_DEPLOY_4 = 558,
 
-    /**
-     *
-     */
     ACT_VM_DEPLOY_3 = 559,
 
-    /**
-     *
-     */
     ACT_VM_DEPLOY_2 = 560,
 
-    /**
-     *
-     */
     ACT_VM_DEPLOY_1 = 561,
 
-    /**
-     *
-     */
     ACT_VM_DEPLOY_EMPTY = 562,
 
-    /**
-     *
-     */
     ACT_VM_PRIMARYATTACK_8 = 563,
 
-    /**
-     *
-     */
     ACT_VM_PRIMARYATTACK_7 = 564,
 
-    /**
-     *
-     */
     ACT_VM_PRIMARYATTACK_6 = 565,
 
-    /**
-     *
-     */
     ACT_VM_PRIMARYATTACK_5 = 566,
 
-    /**
-     *
-     */
     ACT_VM_PRIMARYATTACK_4 = 567,
 
-    /**
-     *
-     */
     ACT_VM_PRIMARYATTACK_3 = 568,
 
-    /**
-     *
-     */
     ACT_VM_PRIMARYATTACK_2 = 569,
 
-    /**
-     *
-     */
     ACT_VM_PRIMARYATTACK_1 = 570,
 
-    /**
-     *
-     */
     ACT_VM_PRIMARYATTACK_DEPLOYED = 571,
 
-    /**
-     *
-     */
     ACT_VM_PRIMARYATTACK_DEPLOYED_8 = 572,
 
-    /**
-     *
-     */
     ACT_VM_PRIMARYATTACK_DEPLOYED_7 = 573,
 
-    /**
-     *
-     */
     ACT_VM_PRIMARYATTACK_DEPLOYED_6 = 574,
 
-    /**
-     *
-     */
     ACT_VM_PRIMARYATTACK_DEPLOYED_5 = 575,
 
-    /**
-     *
-     */
     ACT_VM_PRIMARYATTACK_DEPLOYED_4 = 576,
 
-    /**
-     *
-     */
     ACT_VM_PRIMARYATTACK_DEPLOYED_3 = 577,
 
-    /**
-     *
-     */
     ACT_VM_PRIMARYATTACK_DEPLOYED_2 = 578,
 
-    /**
-     *
-     */
     ACT_VM_PRIMARYATTACK_DEPLOYED_1 = 579,
 
-    /**
-     *
-     */
     ACT_VM_PRIMARYATTACK_DEPLOYED_EMPTY = 580,
 
-    /**
-     *
-     */
     ACT_DOD_DEPLOYED = 581,
 
-    /**
-     *
-     */
     ACT_DOD_PRONE_DEPLOYED = 582,
 
-    /**
-     *
-     */
     ACT_DOD_IDLE_ZOOMED = 583,
 
-    /**
-     *
-     */
     ACT_DOD_WALK_ZOOMED = 584,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCH_ZOOMED = 585,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCHWALK_ZOOMED = 586,
 
-    /**
-     *
-     */
     ACT_DOD_PRONE_ZOOMED = 587,
 
-    /**
-     *
-     */
     ACT_DOD_PRONE_FORWARD_ZOOMED = 588,
 
-    /**
-     *
-     */
     ACT_DOD_PRIMARYATTACK_DEPLOYED = 589,
 
-    /**
-     *
-     */
     ACT_DOD_PRIMARYATTACK_PRONE_DEPLOYED = 590,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_DEPLOYED = 591,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_PRONE_DEPLOYED = 592,
 
-    /**
-     *
-     */
     ACT_DOD_PRIMARYATTACK_PRONE = 593,
 
-    /**
-     *
-     */
     ACT_DOD_SECONDARYATTACK_PRONE = 594,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_CROUCH = 595,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_PRONE = 596,
 
-    /**
-     *
-     */
     ACT_DOD_STAND_IDLE = 597,
 
-    /**
-     *
-     */
     ACT_DOD_STAND_AIM = 598,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCH_IDLE = 599,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCH_AIM = 600,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCHWALK_IDLE = 601,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCHWALK_AIM = 602,
 
-    /**
-     *
-     */
     ACT_DOD_WALK_IDLE = 603,
 
-    /**
-     *
-     */
     ACT_DOD_WALK_AIM = 604,
 
-    /**
-     *
-     */
     ACT_DOD_RUN_IDLE = 605,
 
-    /**
-     *
-     */
     ACT_DOD_RUN_AIM = 606,
 
-    /**
-     *
-     */
     ACT_DOD_STAND_AIM_PISTOL = 607,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCH_AIM_PISTOL = 608,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCHWALK_AIM_PISTOL = 609,
 
-    /**
-     *
-     */
     ACT_DOD_WALK_AIM_PISTOL = 610,
 
-    /**
-     *
-     */
     ACT_DOD_RUN_AIM_PISTOL = 611,
 
-    /**
-     *
-     */
     ACT_DOD_PRONE_AIM_PISTOL = 612,
 
-    /**
-     *
-     */
     ACT_DOD_STAND_IDLE_PISTOL = 613,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCH_IDLE_PISTOL = 614,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCHWALK_IDLE_PISTOL = 615,
 
-    /**
-     *
-     */
     ACT_DOD_WALK_IDLE_PISTOL = 616,
 
-    /**
-     *
-     */
     ACT_DOD_RUN_IDLE_PISTOL = 617,
 
-    /**
-     *
-     */
     ACT_DOD_SPRINT_IDLE_PISTOL = 618,
 
-    /**
-     *
-     */
     ACT_DOD_PRONEWALK_IDLE_PISTOL = 619,
 
-    /**
-     *
-     */
     ACT_DOD_STAND_AIM_C96 = 620,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCH_AIM_C96 = 621,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCHWALK_AIM_C96 = 622,
 
-    /**
-     *
-     */
     ACT_DOD_WALK_AIM_C96 = 623,
 
-    /**
-     *
-     */
     ACT_DOD_RUN_AIM_C96 = 624,
 
-    /**
-     *
-     */
     ACT_DOD_PRONE_AIM_C96 = 625,
 
-    /**
-     *
-     */
     ACT_DOD_STAND_IDLE_C96 = 626,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCH_IDLE_C96 = 627,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCHWALK_IDLE_C96 = 628,
 
-    /**
-     *
-     */
     ACT_DOD_WALK_IDLE_C96 = 629,
 
-    /**
-     *
-     */
     ACT_DOD_RUN_IDLE_C96 = 630,
 
-    /**
-     *
-     */
     ACT_DOD_SPRINT_IDLE_C96 = 631,
 
-    /**
-     *
-     */
     ACT_DOD_PRONEWALK_IDLE_C96 = 632,
 
-    /**
-     *
-     */
     ACT_DOD_STAND_AIM_RIFLE = 633,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCH_AIM_RIFLE = 634,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCHWALK_AIM_RIFLE = 635,
 
-    /**
-     *
-     */
     ACT_DOD_WALK_AIM_RIFLE = 636,
 
-    /**
-     *
-     */
     ACT_DOD_RUN_AIM_RIFLE = 637,
 
-    /**
-     *
-     */
     ACT_DOD_PRONE_AIM_RIFLE = 638,
 
-    /**
-     *
-     */
     ACT_DOD_STAND_IDLE_RIFLE = 639,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCH_IDLE_RIFLE = 640,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCHWALK_IDLE_RIFLE = 641,
 
-    /**
-     *
-     */
     ACT_DOD_WALK_IDLE_RIFLE = 642,
 
-    /**
-     *
-     */
     ACT_DOD_RUN_IDLE_RIFLE = 643,
 
-    /**
-     *
-     */
     ACT_DOD_SPRINT_IDLE_RIFLE = 644,
 
-    /**
-     *
-     */
     ACT_DOD_PRONEWALK_IDLE_RIFLE = 645,
 
-    /**
-     *
-     */
     ACT_DOD_STAND_AIM_BOLT = 646,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCH_AIM_BOLT = 647,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCHWALK_AIM_BOLT = 648,
 
-    /**
-     *
-     */
     ACT_DOD_WALK_AIM_BOLT = 649,
 
-    /**
-     *
-     */
     ACT_DOD_RUN_AIM_BOLT = 650,
 
-    /**
-     *
-     */
     ACT_DOD_PRONE_AIM_BOLT = 651,
 
-    /**
-     *
-     */
     ACT_DOD_STAND_IDLE_BOLT = 652,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCH_IDLE_BOLT = 653,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCHWALK_IDLE_BOLT = 654,
 
-    /**
-     *
-     */
     ACT_DOD_WALK_IDLE_BOLT = 655,
 
-    /**
-     *
-     */
     ACT_DOD_RUN_IDLE_BOLT = 656,
 
-    /**
-     *
-     */
     ACT_DOD_SPRINT_IDLE_BOLT = 657,
 
-    /**
-     *
-     */
     ACT_DOD_PRONEWALK_IDLE_BOLT = 658,
 
-    /**
-     *
-     */
     ACT_DOD_STAND_AIM_TOMMY = 659,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCH_AIM_TOMMY = 660,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCHWALK_AIM_TOMMY = 661,
 
-    /**
-     *
-     */
     ACT_DOD_WALK_AIM_TOMMY = 662,
 
-    /**
-     *
-     */
     ACT_DOD_RUN_AIM_TOMMY = 663,
 
-    /**
-     *
-     */
     ACT_DOD_PRONE_AIM_TOMMY = 664,
 
-    /**
-     *
-     */
     ACT_DOD_STAND_IDLE_TOMMY = 665,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCH_IDLE_TOMMY = 666,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCHWALK_IDLE_TOMMY = 667,
 
-    /**
-     *
-     */
     ACT_DOD_WALK_IDLE_TOMMY = 668,
 
-    /**
-     *
-     */
     ACT_DOD_RUN_IDLE_TOMMY = 669,
 
-    /**
-     *
-     */
     ACT_DOD_SPRINT_IDLE_TOMMY = 670,
 
-    /**
-     *
-     */
     ACT_DOD_PRONEWALK_IDLE_TOMMY = 671,
 
-    /**
-     *
-     */
     ACT_DOD_STAND_AIM_MP40 = 672,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCH_AIM_MP40 = 673,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCHWALK_AIM_MP40 = 674,
 
-    /**
-     *
-     */
     ACT_DOD_WALK_AIM_MP40 = 675,
 
-    /**
-     *
-     */
     ACT_DOD_RUN_AIM_MP40 = 676,
 
-    /**
-     *
-     */
     ACT_DOD_PRONE_AIM_MP40 = 677,
 
-    /**
-     *
-     */
     ACT_DOD_STAND_IDLE_MP40 = 678,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCH_IDLE_MP40 = 679,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCHWALK_IDLE_MP40 = 680,
 
-    /**
-     *
-     */
     ACT_DOD_WALK_IDLE_MP40 = 681,
 
-    /**
-     *
-     */
     ACT_DOD_RUN_IDLE_MP40 = 682,
 
-    /**
-     *
-     */
     ACT_DOD_SPRINT_IDLE_MP40 = 683,
 
-    /**
-     *
-     */
     ACT_DOD_PRONEWALK_IDLE_MP40 = 684,
 
-    /**
-     *
-     */
     ACT_DOD_STAND_AIM_MP44 = 685,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCH_AIM_MP44 = 686,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCHWALK_AIM_MP44 = 687,
 
-    /**
-     *
-     */
     ACT_DOD_WALK_AIM_MP44 = 688,
 
-    /**
-     *
-     */
     ACT_DOD_RUN_AIM_MP44 = 689,
 
-    /**
-     *
-     */
     ACT_DOD_PRONE_AIM_MP44 = 690,
 
-    /**
-     *
-     */
     ACT_DOD_STAND_IDLE_MP44 = 691,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCH_IDLE_MP44 = 692,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCHWALK_IDLE_MP44 = 693,
 
-    /**
-     *
-     */
     ACT_DOD_WALK_IDLE_MP44 = 694,
 
-    /**
-     *
-     */
     ACT_DOD_RUN_IDLE_MP44 = 695,
 
-    /**
-     *
-     */
     ACT_DOD_SPRINT_IDLE_MP44 = 696,
 
-    /**
-     *
-     */
     ACT_DOD_PRONEWALK_IDLE_MP44 = 697,
 
-    /**
-     *
-     */
     ACT_DOD_STAND_AIM_GREASE = 698,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCH_AIM_GREASE = 699,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCHWALK_AIM_GREASE = 700,
 
-    /**
-     *
-     */
     ACT_DOD_WALK_AIM_GREASE = 701,
 
-    /**
-     *
-     */
     ACT_DOD_RUN_AIM_GREASE = 702,
 
-    /**
-     *
-     */
     ACT_DOD_PRONE_AIM_GREASE = 703,
 
-    /**
-     *
-     */
     ACT_DOD_STAND_IDLE_GREASE = 704,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCH_IDLE_GREASE = 705,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCHWALK_IDLE_GREASE = 706,
 
-    /**
-     *
-     */
     ACT_DOD_WALK_IDLE_GREASE = 707,
 
-    /**
-     *
-     */
     ACT_DOD_RUN_IDLE_GREASE = 708,
 
-    /**
-     *
-     */
     ACT_DOD_SPRINT_IDLE_GREASE = 709,
 
-    /**
-     *
-     */
     ACT_DOD_PRONEWALK_IDLE_GREASE = 710,
 
-    /**
-     *
-     */
     ACT_DOD_STAND_AIM_MG = 711,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCH_AIM_MG = 712,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCHWALK_AIM_MG = 713,
 
-    /**
-     *
-     */
     ACT_DOD_WALK_AIM_MG = 714,
 
-    /**
-     *
-     */
     ACT_DOD_RUN_AIM_MG = 715,
 
-    /**
-     *
-     */
     ACT_DOD_PRONE_AIM_MG = 716,
 
-    /**
-     *
-     */
     ACT_DOD_STAND_IDLE_MG = 717,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCH_IDLE_MG = 718,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCHWALK_IDLE_MG = 719,
 
-    /**
-     *
-     */
     ACT_DOD_WALK_IDLE_MG = 720,
 
-    /**
-     *
-     */
     ACT_DOD_RUN_IDLE_MG = 721,
 
-    /**
-     *
-     */
     ACT_DOD_SPRINT_IDLE_MG = 722,
 
-    /**
-     *
-     */
     ACT_DOD_PRONEWALK_IDLE_MG = 723,
 
-    /**
-     *
-     */
     ACT_DOD_STAND_AIM_30CAL = 724,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCH_AIM_30CAL = 725,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCHWALK_AIM_30CAL = 726,
 
-    /**
-     *
-     */
     ACT_DOD_WALK_AIM_30CAL = 727,
 
-    /**
-     *
-     */
     ACT_DOD_RUN_AIM_30CAL = 728,
 
-    /**
-     *
-     */
     ACT_DOD_PRONE_AIM_30CAL = 729,
 
-    /**
-     *
-     */
     ACT_DOD_STAND_IDLE_30CAL = 730,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCH_IDLE_30CAL = 731,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCHWALK_IDLE_30CAL = 732,
 
-    /**
-     *
-     */
     ACT_DOD_WALK_IDLE_30CAL = 733,
 
-    /**
-     *
-     */
     ACT_DOD_RUN_IDLE_30CAL = 734,
 
-    /**
-     *
-     */
     ACT_DOD_SPRINT_IDLE_30CAL = 735,
 
-    /**
-     *
-     */
     ACT_DOD_PRONEWALK_IDLE_30CAL = 736,
 
-    /**
-     *
-     */
     ACT_DOD_STAND_AIM_GREN_FRAG = 737,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCH_AIM_GREN_FRAG = 738,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCHWALK_AIM_GREN_FRAG = 739,
 
-    /**
-     *
-     */
     ACT_DOD_WALK_AIM_GREN_FRAG = 740,
 
-    /**
-     *
-     */
     ACT_DOD_RUN_AIM_GREN_FRAG = 741,
 
-    /**
-     *
-     */
     ACT_DOD_PRONE_AIM_GREN_FRAG = 742,
 
-    /**
-     *
-     */
     ACT_DOD_SPRINT_AIM_GREN_FRAG = 743,
 
-    /**
-     *
-     */
     ACT_DOD_PRONEWALK_AIM_GREN_FRAG = 744,
 
-    /**
-     *
-     */
     ACT_DOD_STAND_AIM_GREN_STICK = 745,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCH_AIM_GREN_STICK = 746,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCHWALK_AIM_GREN_STICK = 747,
 
-    /**
-     *
-     */
     ACT_DOD_WALK_AIM_GREN_STICK = 748,
 
-    /**
-     *
-     */
     ACT_DOD_RUN_AIM_GREN_STICK = 749,
 
-    /**
-     *
-     */
     ACT_DOD_PRONE_AIM_GREN_STICK = 750,
 
-    /**
-     *
-     */
     ACT_DOD_SPRINT_AIM_GREN_STICK = 751,
 
-    /**
-     *
-     */
     ACT_DOD_PRONEWALK_AIM_GREN_STICK = 752,
 
-    /**
-     *
-     */
     ACT_DOD_STAND_AIM_KNIFE = 753,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCH_AIM_KNIFE = 754,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCHWALK_AIM_KNIFE = 755,
 
-    /**
-     *
-     */
     ACT_DOD_WALK_AIM_KNIFE = 756,
 
-    /**
-     *
-     */
     ACT_DOD_RUN_AIM_KNIFE = 757,
 
-    /**
-     *
-     */
     ACT_DOD_PRONE_AIM_KNIFE = 758,
 
-    /**
-     *
-     */
     ACT_DOD_SPRINT_AIM_KNIFE = 759,
 
-    /**
-     *
-     */
     ACT_DOD_PRONEWALK_AIM_KNIFE = 760,
 
-    /**
-     *
-     */
     ACT_DOD_STAND_AIM_SPADE = 761,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCH_AIM_SPADE = 762,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCHWALK_AIM_SPADE = 763,
 
-    /**
-     *
-     */
     ACT_DOD_WALK_AIM_SPADE = 764,
 
-    /**
-     *
-     */
     ACT_DOD_RUN_AIM_SPADE = 765,
 
-    /**
-     *
-     */
     ACT_DOD_PRONE_AIM_SPADE = 766,
 
-    /**
-     *
-     */
     ACT_DOD_SPRINT_AIM_SPADE = 767,
 
-    /**
-     *
-     */
     ACT_DOD_PRONEWALK_AIM_SPADE = 768,
 
-    /**
-     *
-     */
     ACT_DOD_STAND_AIM_BAZOOKA = 769,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCH_AIM_BAZOOKA = 770,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCHWALK_AIM_BAZOOKA = 771,
 
-    /**
-     *
-     */
     ACT_DOD_WALK_AIM_BAZOOKA = 772,
 
-    /**
-     *
-     */
     ACT_DOD_RUN_AIM_BAZOOKA = 773,
 
-    /**
-     *
-     */
     ACT_DOD_PRONE_AIM_BAZOOKA = 774,
 
-    /**
-     *
-     */
     ACT_DOD_STAND_IDLE_BAZOOKA = 775,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCH_IDLE_BAZOOKA = 776,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCHWALK_IDLE_BAZOOKA = 777,
 
-    /**
-     *
-     */
     ACT_DOD_WALK_IDLE_BAZOOKA = 778,
 
-    /**
-     *
-     */
     ACT_DOD_RUN_IDLE_BAZOOKA = 779,
 
-    /**
-     *
-     */
     ACT_DOD_SPRINT_IDLE_BAZOOKA = 780,
 
-    /**
-     *
-     */
     ACT_DOD_PRONEWALK_IDLE_BAZOOKA = 781,
 
-    /**
-     *
-     */
     ACT_DOD_STAND_AIM_PSCHRECK = 782,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCH_AIM_PSCHRECK = 783,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCHWALK_AIM_PSCHRECK = 784,
 
-    /**
-     *
-     */
     ACT_DOD_WALK_AIM_PSCHRECK = 785,
 
-    /**
-     *
-     */
     ACT_DOD_RUN_AIM_PSCHRECK = 786,
 
-    /**
-     *
-     */
     ACT_DOD_PRONE_AIM_PSCHRECK = 787,
 
-    /**
-     *
-     */
     ACT_DOD_STAND_IDLE_PSCHRECK = 788,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCH_IDLE_PSCHRECK = 789,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCHWALK_IDLE_PSCHRECK = 790,
 
-    /**
-     *
-     */
     ACT_DOD_WALK_IDLE_PSCHRECK = 791,
 
-    /**
-     *
-     */
     ACT_DOD_RUN_IDLE_PSCHRECK = 792,
 
-    /**
-     *
-     */
     ACT_DOD_SPRINT_IDLE_PSCHRECK = 793,
 
-    /**
-     *
-     */
     ACT_DOD_PRONEWALK_IDLE_PSCHRECK = 794,
 
-    /**
-     *
-     */
     ACT_DOD_STAND_AIM_BAR = 795,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCH_AIM_BAR = 796,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCHWALK_AIM_BAR = 797,
 
-    /**
-     *
-     */
     ACT_DOD_WALK_AIM_BAR = 798,
 
-    /**
-     *
-     */
     ACT_DOD_RUN_AIM_BAR = 799,
 
-    /**
-     *
-     */
     ACT_DOD_PRONE_AIM_BAR = 800,
 
-    /**
-     *
-     */
     ACT_DOD_STAND_IDLE_BAR = 801,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCH_IDLE_BAR = 802,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCHWALK_IDLE_BAR = 803,
 
-    /**
-     *
-     */
     ACT_DOD_WALK_IDLE_BAR = 804,
 
-    /**
-     *
-     */
     ACT_DOD_RUN_IDLE_BAR = 805,
 
-    /**
-     *
-     */
     ACT_DOD_SPRINT_IDLE_BAR = 806,
 
-    /**
-     *
-     */
     ACT_DOD_PRONEWALK_IDLE_BAR = 807,
 
-    /**
-     *
-     */
     ACT_DOD_STAND_ZOOM_RIFLE = 808,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCH_ZOOM_RIFLE = 809,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCHWALK_ZOOM_RIFLE = 810,
 
-    /**
-     *
-     */
     ACT_DOD_WALK_ZOOM_RIFLE = 811,
 
-    /**
-     *
-     */
     ACT_DOD_RUN_ZOOM_RIFLE = 812,
 
-    /**
-     *
-     */
     ACT_DOD_PRONE_ZOOM_RIFLE = 813,
 
-    /**
-     *
-     */
     ACT_DOD_STAND_ZOOM_BOLT = 814,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCH_ZOOM_BOLT = 815,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCHWALK_ZOOM_BOLT = 816,
 
-    /**
-     *
-     */
     ACT_DOD_WALK_ZOOM_BOLT = 817,
 
-    /**
-     *
-     */
     ACT_DOD_RUN_ZOOM_BOLT = 818,
 
-    /**
-     *
-     */
     ACT_DOD_PRONE_ZOOM_BOLT = 819,
 
-    /**
-     *
-     */
     ACT_DOD_STAND_ZOOM_BAZOOKA = 820,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCH_ZOOM_BAZOOKA = 821,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCHWALK_ZOOM_BAZOOKA = 822,
 
-    /**
-     *
-     */
     ACT_DOD_WALK_ZOOM_BAZOOKA = 823,
 
-    /**
-     *
-     */
     ACT_DOD_RUN_ZOOM_BAZOOKA = 824,
 
-    /**
-     *
-     */
     ACT_DOD_PRONE_ZOOM_BAZOOKA = 825,
 
-    /**
-     *
-     */
     ACT_DOD_STAND_ZOOM_PSCHRECK = 826,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCH_ZOOM_PSCHRECK = 827,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCHWALK_ZOOM_PSCHRECK = 828,
 
-    /**
-     *
-     */
     ACT_DOD_WALK_ZOOM_PSCHRECK = 829,
 
-    /**
-     *
-     */
     ACT_DOD_RUN_ZOOM_PSCHRECK = 830,
 
-    /**
-     *
-     */
     ACT_DOD_PRONE_ZOOM_PSCHRECK = 831,
 
-    /**
-     *
-     */
     ACT_DOD_DEPLOY_RIFLE = 832,
 
-    /**
-     *
-     */
     ACT_DOD_DEPLOY_TOMMY = 833,
 
-    /**
-     *
-     */
     ACT_DOD_DEPLOY_MG = 834,
 
-    /**
-     *
-     */
     ACT_DOD_DEPLOY_30CAL = 835,
 
-    /**
-     *
-     */
     ACT_DOD_PRONE_DEPLOY_RIFLE = 836,
 
-    /**
-     *
-     */
     ACT_DOD_PRONE_DEPLOY_TOMMY = 837,
 
-    /**
-     *
-     */
     ACT_DOD_PRONE_DEPLOY_MG = 838,
 
-    /**
-     *
-     */
     ACT_DOD_PRONE_DEPLOY_30CAL = 839,
 
-    /**
-     *
-     */
     ACT_DOD_PRIMARYATTACK_RIFLE = 840,
 
-    /**
-     *
-     */
     ACT_DOD_SECONDARYATTACK_RIFLE = 841,
 
-    /**
-     *
-     */
     ACT_DOD_PRIMARYATTACK_PRONE_RIFLE = 842,
 
-    /**
-     *
-     */
     ACT_DOD_SECONDARYATTACK_PRONE_RIFLE = 843,
 
-    /**
-     *
-     */
     ACT_DOD_PRIMARYATTACK_PRONE_DEPLOYED_RIFLE = 844,
 
-    /**
-     *
-     */
     ACT_DOD_PRIMARYATTACK_DEPLOYED_RIFLE = 845,
 
-    /**
-     *
-     */
     ACT_DOD_PRIMARYATTACK_BOLT = 846,
 
-    /**
-     *
-     */
     ACT_DOD_SECONDARYATTACK_BOLT = 847,
 
-    /**
-     *
-     */
     ACT_DOD_PRIMARYATTACK_PRONE_BOLT = 848,
 
-    /**
-     *
-     */
     ACT_DOD_SECONDARYATTACK_PRONE_BOLT = 849,
 
-    /**
-     *
-     */
     ACT_DOD_PRIMARYATTACK_TOMMY = 850,
 
-    /**
-     *
-     */
     ACT_DOD_PRIMARYATTACK_PRONE_TOMMY = 851,
 
-    /**
-     *
-     */
     ACT_DOD_SECONDARYATTACK_TOMMY = 852,
 
-    /**
-     *
-     */
     ACT_DOD_SECONDARYATTACK_PRONE_TOMMY = 853,
 
-    /**
-     *
-     */
     ACT_DOD_PRIMARYATTACK_MP40 = 854,
 
-    /**
-     *
-     */
     ACT_DOD_PRIMARYATTACK_PRONE_MP40 = 855,
 
-    /**
-     *
-     */
     ACT_DOD_SECONDARYATTACK_MP40 = 856,
 
-    /**
-     *
-     */
     ACT_DOD_SECONDARYATTACK_PRONE_MP40 = 857,
 
-    /**
-     *
-     */
     ACT_DOD_PRIMARYATTACK_MP44 = 858,
 
-    /**
-     *
-     */
     ACT_DOD_PRIMARYATTACK_PRONE_MP44 = 859,
 
-    /**
-     *
-     */
     ACT_DOD_PRIMARYATTACK_GREASE = 860,
 
-    /**
-     *
-     */
     ACT_DOD_PRIMARYATTACK_PRONE_GREASE = 861,
 
-    /**
-     *
-     */
     ACT_DOD_PRIMARYATTACK_PISTOL = 862,
 
-    /**
-     *
-     */
     ACT_DOD_PRIMARYATTACK_PRONE_PISTOL = 863,
 
-    /**
-     *
-     */
     ACT_DOD_PRIMARYATTACK_C96 = 864,
 
-    /**
-     *
-     */
     ACT_DOD_PRIMARYATTACK_PRONE_C96 = 865,
 
-    /**
-     *
-     */
     ACT_DOD_PRIMARYATTACK_MG = 866,
 
-    /**
-     *
-     */
     ACT_DOD_PRIMARYATTACK_PRONE_MG = 867,
 
-    /**
-     *
-     */
     ACT_DOD_PRIMARYATTACK_PRONE_DEPLOYED_MG = 868,
 
-    /**
-     *
-     */
     ACT_DOD_PRIMARYATTACK_DEPLOYED_MG = 869,
 
-    /**
-     *
-     */
     ACT_DOD_PRIMARYATTACK_30CAL = 870,
 
-    /**
-     *
-     */
     ACT_DOD_PRIMARYATTACK_PRONE_30CAL = 871,
 
-    /**
-     *
-     */
     ACT_DOD_PRIMARYATTACK_DEPLOYED_30CAL = 872,
 
-    /**
-     *
-     */
     ACT_DOD_PRIMARYATTACK_PRONE_DEPLOYED_30CAL = 873,
 
-    /**
-     *
-     */
     ACT_DOD_PRIMARYATTACK_GREN_FRAG = 874,
 
-    /**
-     *
-     */
     ACT_DOD_PRIMARYATTACK_PRONE_GREN_FRAG = 875,
 
-    /**
-     *
-     */
     ACT_DOD_PRIMARYATTACK_GREN_STICK = 876,
 
-    /**
-     *
-     */
     ACT_DOD_PRIMARYATTACK_PRONE_GREN_STICK = 877,
 
-    /**
-     *
-     */
     ACT_DOD_PRIMARYATTACK_KNIFE = 878,
 
-    /**
-     *
-     */
     ACT_DOD_PRIMARYATTACK_PRONE_KNIFE = 879,
 
-    /**
-     *
-     */
     ACT_DOD_PRIMARYATTACK_SPADE = 880,
 
-    /**
-     *
-     */
     ACT_DOD_PRIMARYATTACK_PRONE_SPADE = 881,
 
-    /**
-     *
-     */
     ACT_DOD_PRIMARYATTACK_BAZOOKA = 882,
 
-    /**
-     *
-     */
     ACT_DOD_PRIMARYATTACK_PRONE_BAZOOKA = 883,
 
-    /**
-     *
-     */
     ACT_DOD_PRIMARYATTACK_PSCHRECK = 884,
 
-    /**
-     *
-     */
     ACT_DOD_PRIMARYATTACK_PRONE_PSCHRECK = 885,
 
-    /**
-     *
-     */
     ACT_DOD_PRIMARYATTACK_BAR = 886,
 
-    /**
-     *
-     */
     ACT_DOD_PRIMARYATTACK_PRONE_BAR = 887,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_GARAND = 888,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_K43 = 889,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_BAR = 890,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_MP40 = 891,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_MP44 = 892,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_BOLT = 893,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_M1CARBINE = 894,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_TOMMY = 895,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_GREASEGUN = 896,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_PISTOL = 897,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_FG42 = 898,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_RIFLE = 899,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_RIFLEGRENADE = 900,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_C96 = 901,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_CROUCH_BAR = 902,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_CROUCH_RIFLE = 903,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_CROUCH_RIFLEGRENADE = 904,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_CROUCH_BOLT = 905,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_CROUCH_MP44 = 906,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_CROUCH_MP40 = 907,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_CROUCH_TOMMY = 908,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_CROUCH_BAZOOKA = 909,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_CROUCH_PSCHRECK = 910,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_CROUCH_PISTOL = 911,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_CROUCH_M1CARBINE = 912,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_CROUCH_C96 = 913,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_BAZOOKA = 914,
 
-    /**
-     *
-     */
     ACT_DOD_ZOOMLOAD_BAZOOKA = 915,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_PSCHRECK = 916,
 
-    /**
-     *
-     */
     ACT_DOD_ZOOMLOAD_PSCHRECK = 917,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_DEPLOYED_FG42 = 918,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_DEPLOYED_30CAL = 919,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_DEPLOYED_MG = 920,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_DEPLOYED_MG34 = 921,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_DEPLOYED_BAR = 922,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_PRONE_PISTOL = 923,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_PRONE_GARAND = 924,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_PRONE_M1CARBINE = 925,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_PRONE_BOLT = 926,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_PRONE_K43 = 927,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_PRONE_MP40 = 928,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_PRONE_MP44 = 929,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_PRONE_BAR = 930,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_PRONE_GREASEGUN = 931,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_PRONE_TOMMY = 932,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_PRONE_FG42 = 933,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_PRONE_RIFLE = 934,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_PRONE_RIFLEGRENADE = 935,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_PRONE_C96 = 936,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_PRONE_BAZOOKA = 937,
 
-    /**
-     *
-     */
     ACT_DOD_ZOOMLOAD_PRONE_BAZOOKA = 938,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_PRONE_PSCHRECK = 939,
 
-    /**
-     *
-     */
     ACT_DOD_ZOOMLOAD_PRONE_PSCHRECK = 940,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_PRONE_DEPLOYED_BAR = 941,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_PRONE_DEPLOYED_FG42 = 942,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_PRONE_DEPLOYED_30CAL = 943,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_PRONE_DEPLOYED_MG = 944,
 
-    /**
-     *
-     */
     ACT_DOD_RELOAD_PRONE_DEPLOYED_MG34 = 945,
 
-    /**
-     *
-     */
     ACT_DOD_PRONE_ZOOM_FORWARD_RIFLE = 946,
 
-    /**
-     *
-     */
     ACT_DOD_PRONE_ZOOM_FORWARD_BOLT = 947,
 
-    /**
-     *
-     */
     ACT_DOD_PRONE_ZOOM_FORWARD_BAZOOKA = 948,
 
-    /**
-     *
-     */
     ACT_DOD_PRONE_ZOOM_FORWARD_PSCHRECK = 949,
 
-    /**
-     *
-     */
     ACT_DOD_PRIMARYATTACK_CROUCH = 950,
 
-    /**
-     *
-     */
     ACT_DOD_PRIMARYATTACK_CROUCH_SPADE = 951,
 
-    /**
-     *
-     */
     ACT_DOD_PRIMARYATTACK_CROUCH_KNIFE = 952,
 
-    /**
-     *
-     */
     ACT_DOD_PRIMARYATTACK_CROUCH_GREN_FRAG = 953,
 
-    /**
-     *
-     */
     ACT_DOD_PRIMARYATTACK_CROUCH_GREN_STICK = 954,
 
-    /**
-     *
-     */
     ACT_DOD_SECONDARYATTACK_CROUCH = 955,
 
-    /**
-     *
-     */
     ACT_DOD_SECONDARYATTACK_CROUCH_TOMMY = 956,
 
-    /**
-     *
-     */
     ACT_DOD_SECONDARYATTACK_CROUCH_MP40 = 957,
 
-    /**
-     *
-     */
     ACT_DOD_HS_IDLE = 958,
 
-    /**
-     *
-     */
     ACT_DOD_HS_CROUCH = 959,
 
-    /**
-     *
-     */
     ACT_DOD_HS_IDLE_30CAL = 960,
 
-    /**
-     *
-     */
     ACT_DOD_HS_IDLE_BAZOOKA = 961,
 
-    /**
-     *
-     */
     ACT_DOD_HS_IDLE_PSCHRECK = 962,
 
-    /**
-     *
-     */
     ACT_DOD_HS_IDLE_KNIFE = 963,
 
-    /**
-     *
-     */
     ACT_DOD_HS_IDLE_MG42 = 964,
 
-    /**
-     *
-     */
     ACT_DOD_HS_IDLE_PISTOL = 965,
 
-    /**
-     *
-     */
     ACT_DOD_HS_IDLE_STICKGRENADE = 966,
 
-    /**
-     *
-     */
     ACT_DOD_HS_IDLE_TOMMY = 967,
 
-    /**
-     *
-     */
     ACT_DOD_HS_IDLE_MP44 = 968,
 
-    /**
-     *
-     */
     ACT_DOD_HS_IDLE_K98 = 969,
 
-    /**
-     *
-     */
     ACT_DOD_HS_CROUCH_30CAL = 970,
 
-    /**
-     *
-     */
     ACT_DOD_HS_CROUCH_BAZOOKA = 971,
 
-    /**
-     *
-     */
     ACT_DOD_HS_CROUCH_PSCHRECK = 972,
 
-    /**
-     *
-     */
     ACT_DOD_HS_CROUCH_KNIFE = 973,
 
-    /**
-     *
-     */
     ACT_DOD_HS_CROUCH_MG42 = 974,
 
-    /**
-     *
-     */
     ACT_DOD_HS_CROUCH_PISTOL = 975,
 
-    /**
-     *
-     */
     ACT_DOD_HS_CROUCH_STICKGRENADE = 976,
 
-    /**
-     *
-     */
     ACT_DOD_HS_CROUCH_TOMMY = 977,
 
-    /**
-     *
-     */
     ACT_DOD_HS_CROUCH_MP44 = 978,
 
-    /**
-     *
-     */
     ACT_DOD_HS_CROUCH_K98 = 979,
 
-    /**
-     *
-     */
     ACT_DOD_STAND_IDLE_TNT = 980,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCH_IDLE_TNT = 981,
 
-    /**
-     *
-     */
     ACT_DOD_CROUCHWALK_IDLE_TNT = 982,
 
-    /**
-     *
-     */
     ACT_DOD_WALK_IDLE_TNT = 983,
 
-    /**
-     *
-     */
     ACT_DOD_RUN_IDLE_TNT = 984,
 
-    /**
-     *
-     */
     ACT_DOD_SPRINT_IDLE_TNT = 985,
 
-    /**
-     *
-     */
     ACT_DOD_PRONEWALK_IDLE_TNT = 986,
 
-    /**
-     *
-     */
     ACT_DOD_PLANT_TNT = 987,
 
-    /**
-     *
-     */
     ACT_DOD_DEFUSE_TNT = 988,
 
-    /**
-     *
-     */
     ACT_VM_FIZZLE = 989,
 
-    /**
-     *
-     */
     ACT_MP_STAND_IDLE = 990,
 
-    /**
-     *
-     */
     ACT_MP_CROUCH_IDLE = 991,
 
-    /**
-     *
-     */
     ACT_MP_CROUCH_DEPLOYED_IDLE = 992,
 
-    /**
-     *
-     */
     ACT_MP_CROUCH_DEPLOYED = 993,
 
-    /**
-     *
-     */
     ACT_MP_DEPLOYED_IDLE = 995,
 
-    /**
-     *
-     */
     ACT_MP_RUN = 996,
 
-    /**
-     *
-     */
     ACT_MP_WALK = 997,
 
-    /**
-     *
-     */
     ACT_MP_AIRWALK = 998,
 
-    /**
-     *
-     */
     ACT_MP_CROUCHWALK = 999,
 
-    /**
-     *
-     */
     ACT_MP_SPRINT = 1000,
 
-    /**
-     *
-     */
     ACT_MP_JUMP = 1001,
 
-    /**
-     *
-     */
     ACT_MP_JUMP_START = 1002,
 
-    /**
-     *
-     */
     ACT_MP_JUMP_FLOAT = 1003,
 
-    /**
-     *
-     */
     ACT_MP_JUMP_LAND = 1004,
 
-    /**
-     *
-     */
     ACT_MP_DOUBLEJUMP = 1005,
 
-    /**
-     *
-     */
     ACT_MP_SWIM = 1006,
 
-    /**
-     *
-     */
     ACT_MP_DEPLOYED = 1007,
 
-    /**
-     *
-     */
     ACT_MP_SWIM_DEPLOYED = 1008,
 
-    /**
-     *
-     */
     ACT_MP_VCD = 1009,
 
-    /**
-     *
-     */
     ACT_MP_SWIM_IDLE = 1010,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_STAND_PRIMARYFIRE = 1011,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_STAND_PRIMARYFIRE_DEPLOYED = 1012,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_STAND_SECONDARYFIRE = 1013,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_STAND_GRENADE = 1014,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_CROUCH_PRIMARYFIRE = 1015,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_CROUCH_PRIMARYFIRE_DEPLOYED = 1016,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_CROUCH_SECONDARYFIRE = 1017,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_CROUCH_GRENADE = 1018,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_SWIM_PRIMARYFIRE = 1019,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_SWIM_SECONDARYFIRE = 1020,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_SWIM_GRENADE = 1021,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_AIRWALK_PRIMARYFIRE = 1022,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_AIRWALK_SECONDARYFIRE = 1023,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_AIRWALK_GRENADE = 1024,
 
-    /**
-     *
-     */
     ACT_MP_RELOAD_STAND = 1025,
 
-    /**
-     *
-     */
     ACT_MP_RELOAD_STAND_LOOP = 1026,
 
-    /**
-     *
-     */
     ACT_MP_RELOAD_STAND_END = 1027,
 
-    /**
-     *
-     */
     ACT_MP_RELOAD_CROUCH = 1028,
 
-    /**
-     *
-     */
     ACT_MP_RELOAD_CROUCH_LOOP = 1029,
 
-    /**
-     *
-     */
     ACT_MP_RELOAD_CROUCH_END = 1030,
 
-    /**
-     *
-     */
     ACT_MP_RELOAD_SWIM = 1031,
 
-    /**
-     *
-     */
     ACT_MP_RELOAD_SWIM_LOOP = 1032,
 
-    /**
-     *
-     */
     ACT_MP_RELOAD_SWIM_END = 1033,
 
-    /**
-     *
-     */
     ACT_MP_RELOAD_AIRWALK = 1034,
 
-    /**
-     *
-     */
     ACT_MP_RELOAD_AIRWALK_LOOP = 1035,
 
-    /**
-     *
-     */
     ACT_MP_RELOAD_AIRWALK_END = 1036,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_STAND_PREFIRE = 1037,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_STAND_POSTFIRE = 1038,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_STAND_STARTFIRE = 1039,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_CROUCH_PREFIRE = 1040,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_CROUCH_POSTFIRE = 1041,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_SWIM_PREFIRE = 1042,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_SWIM_POSTFIRE = 1043,
 
-    /**
-     *
-     */
     ACT_MP_STAND_PRIMARY = 1044,
 
-    /**
-     *
-     */
     ACT_MP_CROUCH_PRIMARY = 1045,
 
-    /**
-     *
-     */
     ACT_MP_RUN_PRIMARY = 1046,
 
-    /**
-     *
-     */
     ACT_MP_WALK_PRIMARY = 1047,
 
-    /**
-     *
-     */
     ACT_MP_AIRWALK_PRIMARY = 1048,
 
-    /**
-     *
-     */
     ACT_MP_CROUCHWALK_PRIMARY = 1049,
 
-    /**
-     *
-     */
     ACT_MP_JUMP_PRIMARY = 1050,
 
-    /**
-     *
-     */
     ACT_MP_JUMP_START_PRIMARY = 1051,
 
-    /**
-     *
-     */
     ACT_MP_JUMP_FLOAT_PRIMARY = 1052,
 
-    /**
-     *
-     */
     ACT_MP_JUMP_LAND_PRIMARY = 1053,
 
-    /**
-     *
-     */
     ACT_MP_SWIM_PRIMARY = 1054,
 
-    /**
-     *
-     */
     ACT_MP_DEPLOYED_PRIMARY = 1055,
 
-    /**
-     *
-     */
     ACT_MP_SWIM_DEPLOYED_PRIMARY = 1056,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_STAND_PRIMARY = 1059,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_STAND_PRIMARY_DEPLOYED = 1060,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_CROUCH_PRIMARY = 1061,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_CROUCH_PRIMARY_DEPLOYED = 1062,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_SWIM_PRIMARY = 1063,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_AIRWALK_PRIMARY = 1064,
 
-    /**
-     *
-     */
     ACT_MP_RELOAD_STAND_PRIMARY = 1065,
 
-    /**
-     *
-     */
     ACT_MP_RELOAD_STAND_PRIMARY_LOOP = 1066,
 
-    /**
-     *
-     */
     ACT_MP_RELOAD_STAND_PRIMARY_END = 1067,
 
-    /**
-     *
-     */
     ACT_MP_RELOAD_CROUCH_PRIMARY = 1068,
 
-    /**
-     *
-     */
     ACT_MP_RELOAD_CROUCH_PRIMARY_LOOP = 1069,
 
-    /**
-     *
-     */
     ACT_MP_RELOAD_CROUCH_PRIMARY_END = 1070,
 
-    /**
-     *
-     */
     ACT_MP_RELOAD_SWIM_PRIMARY = 1071,
 
-    /**
-     *
-     */
     ACT_MP_RELOAD_SWIM_PRIMARY_LOOP = 1072,
 
-    /**
-     *
-     */
     ACT_MP_RELOAD_SWIM_PRIMARY_END = 1073,
 
-    /**
-     *
-     */
     ACT_MP_RELOAD_AIRWALK_PRIMARY = 1074,
 
-    /**
-     *
-     */
     ACT_MP_RELOAD_AIRWALK_PRIMARY_LOOP = 1075,
 
-    /**
-     *
-     */
     ACT_MP_RELOAD_AIRWALK_PRIMARY_END = 1076,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_STAND_GRENADE_PRIMARY = 1105,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_CROUCH_GRENADE_PRIMARY = 1106,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_SWIM_GRENADE_PRIMARY = 1107,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_AIRWALK_GRENADE_PRIMARY = 1108,
 
-    /**
-     *
-     */
     ACT_MP_STAND_SECONDARY = 1109,
 
-    /**
-     *
-     */
     ACT_MP_CROUCH_SECONDARY = 1110,
 
-    /**
-     *
-     */
     ACT_MP_RUN_SECONDARY = 1111,
 
-    /**
-     *
-     */
     ACT_MP_WALK_SECONDARY = 1112,
 
-    /**
-     *
-     */
     ACT_MP_AIRWALK_SECONDARY = 1113,
 
-    /**
-     *
-     */
     ACT_MP_CROUCHWALK_SECONDARY = 1114,
 
-    /**
-     *
-     */
     ACT_MP_JUMP_SECONDARY = 1115,
 
-    /**
-     *
-     */
     ACT_MP_JUMP_START_SECONDARY = 1116,
 
-    /**
-     *
-     */
     ACT_MP_JUMP_FLOAT_SECONDARY = 1117,
 
-    /**
-     *
-     */
     ACT_MP_JUMP_LAND_SECONDARY = 1118,
 
-    /**
-     *
-     */
     ACT_MP_SWIM_SECONDARY = 1119,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_STAND_SECONDARY = 1120,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_CROUCH_SECONDARY = 1121,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_SWIM_SECONDARY = 1122,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_AIRWALK_SECONDARY = 1123,
 
-    /**
-     *
-     */
     ACT_MP_RELOAD_STAND_SECONDARY = 1124,
 
-    /**
-     *
-     */
     ACT_MP_RELOAD_STAND_SECONDARY_LOOP = 1125,
 
-    /**
-     *
-     */
     ACT_MP_RELOAD_STAND_SECONDARY_END = 1126,
 
-    /**
-     *
-     */
     ACT_MP_RELOAD_CROUCH_SECONDARY = 1127,
 
-    /**
-     *
-     */
     ACT_MP_RELOAD_CROUCH_SECONDARY_LOOP = 1128,
 
-    /**
-     *
-     */
     ACT_MP_RELOAD_CROUCH_SECONDARY_END = 1129,
 
-    /**
-     *
-     */
     ACT_MP_RELOAD_SWIM_SECONDARY = 1130,
 
-    /**
-     *
-     */
     ACT_MP_RELOAD_SWIM_SECONDARY_LOOP = 1131,
 
-    /**
-     *
-     */
     ACT_MP_RELOAD_SWIM_SECONDARY_END = 1132,
 
-    /**
-     *
-     */
     ACT_MP_RELOAD_AIRWALK_SECONDARY = 1133,
 
-    /**
-     *
-     */
     ACT_MP_RELOAD_AIRWALK_SECONDARY_LOOP = 1134,
 
-    /**
-     *
-     */
     ACT_MP_RELOAD_AIRWALK_SECONDARY_END = 1135,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_STAND_GRENADE_SECONDARY = 1140,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_CROUCH_GRENADE_SECONDARY = 1141,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_SWIM_GRENADE_SECONDARY = 1142,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_AIRWALK_GRENADE_SECONDARY = 1143,
 
-    /**
-     *
-     */
     ACT_MP_STAND_MELEE = 1171,
 
-    /**
-     *
-     */
     ACT_MP_CROUCH_MELEE = 1172,
 
-    /**
-     *
-     */
     ACT_MP_RUN_MELEE = 1173,
 
-    /**
-     *
-     */
     ACT_MP_WALK_MELEE = 1174,
 
-    /**
-     *
-     */
     ACT_MP_AIRWALK_MELEE = 1175,
 
-    /**
-     *
-     */
     ACT_MP_CROUCHWALK_MELEE = 1176,
 
-    /**
-     *
-     */
     ACT_MP_JUMP_MELEE = 1177,
 
-    /**
-     *
-     */
     ACT_MP_JUMP_START_MELEE = 1178,
 
-    /**
-     *
-     */
     ACT_MP_JUMP_FLOAT_MELEE = 1179,
 
-    /**
-     *
-     */
     ACT_MP_JUMP_LAND_MELEE = 1180,
 
-    /**
-     *
-     */
     ACT_MP_SWIM_MELEE = 1181,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_STAND_MELEE = 1182,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_STAND_MELEE_SECONDARY = 1183,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_CROUCH_MELEE = 1184,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_CROUCH_MELEE_SECONDARY = 1185,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_SWIM_MELEE = 1186,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_AIRWALK_MELEE = 1187,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_STAND_GRENADE_MELEE = 1188,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_CROUCH_GRENADE_MELEE = 1189,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_SWIM_GRENADE_MELEE = 1190,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_AIRWALK_GRENADE_MELEE = 1191,
 
-    /**
-     *
-     */
     ACT_MP_GESTURE_FLINCH = 1258,
 
-    /**
-     *
-     */
     ACT_MP_GESTURE_FLINCH_PRIMARY = 1259,
 
-    /**
-     *
-     */
     ACT_MP_GESTURE_FLINCH_SECONDARY = 1260,
 
-    /**
-     *
-     */
     ACT_MP_GESTURE_FLINCH_MELEE = 1261,
 
-    /**
-     *
-     */
     ACT_MP_GESTURE_FLINCH_HEAD = 1264,
 
-    /**
-     *
-     */
     ACT_MP_GESTURE_FLINCH_CHEST = 1265,
 
-    /**
-     *
-     */
     ACT_MP_GESTURE_FLINCH_STOMACH = 1266,
 
-    /**
-     *
-     */
     ACT_MP_GESTURE_FLINCH_LEFTARM = 1267,
 
-    /**
-     *
-     */
     ACT_MP_GESTURE_FLINCH_RIGHTARM = 1268,
 
-    /**
-     *
-     */
     ACT_MP_GESTURE_FLINCH_LEFTLEG = 1269,
 
-    /**
-     *
-     */
     ACT_MP_GESTURE_FLINCH_RIGHTLEG = 1270,
 
-    /**
-     *
-     */
     ACT_MP_GRENADE1_DRAW = 1271,
 
-    /**
-     *
-     */
     ACT_MP_GRENADE1_IDLE = 1272,
 
-    /**
-     *
-     */
     ACT_MP_GRENADE1_ATTACK = 1273,
 
-    /**
-     *
-     */
     ACT_MP_GRENADE2_DRAW = 1274,
 
-    /**
-     *
-     */
     ACT_MP_GRENADE2_IDLE = 1275,
 
-    /**
-     *
-     */
     ACT_MP_GRENADE2_ATTACK = 1276,
 
-    /**
-     *
-     */
     ACT_MP_PRIMARY_GRENADE1_DRAW = 1277,
 
-    /**
-     *
-     */
     ACT_MP_PRIMARY_GRENADE1_IDLE = 1278,
 
-    /**
-     *
-     */
     ACT_MP_PRIMARY_GRENADE1_ATTACK = 1279,
 
-    /**
-     *
-     */
     ACT_MP_PRIMARY_GRENADE2_DRAW = 1280,
 
-    /**
-     *
-     */
     ACT_MP_PRIMARY_GRENADE2_IDLE = 1281,
 
-    /**
-     *
-     */
     ACT_MP_PRIMARY_GRENADE2_ATTACK = 1282,
 
-    /**
-     *
-     */
     ACT_MP_SECONDARY_GRENADE1_DRAW = 1283,
 
-    /**
-     *
-     */
     ACT_MP_SECONDARY_GRENADE1_IDLE = 1284,
 
-    /**
-     *
-     */
     ACT_MP_SECONDARY_GRENADE1_ATTACK = 1285,
 
-    /**
-     *
-     */
     ACT_MP_SECONDARY_GRENADE2_DRAW = 1286,
 
-    /**
-     *
-     */
     ACT_MP_SECONDARY_GRENADE2_IDLE = 1287,
 
-    /**
-     *
-     */
     ACT_MP_SECONDARY_GRENADE2_ATTACK = 1288,
 
-    /**
-     *
-     */
     ACT_MP_MELEE_GRENADE1_DRAW = 1289,
 
-    /**
-     *
-     */
     ACT_MP_MELEE_GRENADE1_IDLE = 1290,
 
-    /**
-     *
-     */
     ACT_MP_MELEE_GRENADE1_ATTACK = 1291,
 
-    /**
-     *
-     */
     ACT_MP_MELEE_GRENADE2_DRAW = 1292,
 
-    /**
-     *
-     */
     ACT_MP_MELEE_GRENADE2_IDLE = 1293,
 
-    /**
-     *
-     */
     ACT_MP_MELEE_GRENADE2_ATTACK = 1294,
 
-    /**
-     *
-     */
     ACT_MP_STAND_BUILDING = 1307,
 
-    /**
-     *
-     */
     ACT_MP_CROUCH_BUILDING = 1308,
 
-    /**
-     *
-     */
     ACT_MP_RUN_BUILDING = 1309,
 
-    /**
-     *
-     */
     ACT_MP_WALK_BUILDING = 1310,
 
-    /**
-     *
-     */
     ACT_MP_AIRWALK_BUILDING = 1311,
 
-    /**
-     *
-     */
     ACT_MP_CROUCHWALK_BUILDING = 1312,
 
-    /**
-     *
-     */
     ACT_MP_JUMP_BUILDING = 1313,
 
-    /**
-     *
-     */
     ACT_MP_JUMP_START_BUILDING = 1314,
 
-    /**
-     *
-     */
     ACT_MP_JUMP_FLOAT_BUILDING = 1315,
 
-    /**
-     *
-     */
     ACT_MP_JUMP_LAND_BUILDING = 1316,
 
-    /**
-     *
-     */
     ACT_MP_SWIM_BUILDING = 1317,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_STAND_BUILDING = 1318,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_CROUCH_BUILDING = 1319,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_SWIM_BUILDING = 1320,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_AIRWALK_BUILDING = 1321,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_STAND_GRENADE_BUILDING = 1322,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_CROUCH_GRENADE_BUILDING = 1323,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_SWIM_GRENADE_BUILDING = 1324,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_AIRWALK_GRENADE_BUILDING = 1325,
 
-    /**
-     *
-     */
     ACT_MP_STAND_PDA = 1345,
 
-    /**
-     *
-     */
     ACT_MP_CROUCH_PDA = 1346,
 
-    /**
-     *
-     */
     ACT_MP_RUN_PDA = 1347,
 
-    /**
-     *
-     */
     ACT_MP_WALK_PDA = 1348,
 
-    /**
-     *
-     */
     ACT_MP_AIRWALK_PDA = 1349,
 
-    /**
-     *
-     */
     ACT_MP_CROUCHWALK_PDA = 1350,
 
-    /**
-     *
-     */
     ACT_MP_JUMP_PDA = 1351,
 
-    /**
-     *
-     */
     ACT_MP_JUMP_START_PDA = 1352,
 
-    /**
-     *
-     */
     ACT_MP_JUMP_FLOAT_PDA = 1353,
 
-    /**
-     *
-     */
     ACT_MP_JUMP_LAND_PDA = 1354,
 
-    /**
-     *
-     */
     ACT_MP_SWIM_PDA = 1355,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_STAND_PDA = 1356,
 
-    /**
-     *
-     */
     ACT_MP_ATTACK_SWIM_PDA = 1357,
 
-    /**
-     *
-     */
     ACT_MP_GESTURE_VC_HANDMOUTH = 1377,
 
-    /**
-     *
-     */
     ACT_MP_GESTURE_VC_FINGERPOINT = 1378,
 
-    /**
-     *
-     */
     ACT_MP_GESTURE_VC_FISTPUMP = 1379,
 
-    /**
-     *
-     */
     ACT_MP_GESTURE_VC_THUMBSUP = 1380,
 
-    /**
-     *
-     */
     ACT_MP_GESTURE_VC_NODYES = 1381,
 
-    /**
-     *
-     */
     ACT_MP_GESTURE_VC_NODNO = 1382,
 
-    /**
-     *
-     */
     ACT_MP_GESTURE_VC_HANDMOUTH_PRIMARY = 1383,
 
-    /**
-     *
-     */
     ACT_MP_GESTURE_VC_FINGERPOINT_PRIMARY = 1384,
 
-    /**
-     *
-     */
     ACT_MP_GESTURE_VC_FISTPUMP_PRIMARY = 1385,
 
-    /**
-     *
-     */
     ACT_MP_GESTURE_VC_THUMBSUP_PRIMARY = 1386,
 
-    /**
-     *
-     */
     ACT_MP_GESTURE_VC_NODYES_PRIMARY = 1387,
 
-    /**
-     *
-     */
     ACT_MP_GESTURE_VC_NODNO_PRIMARY = 1388,
 
-    /**
-     *
-     */
     ACT_MP_GESTURE_VC_HANDMOUTH_SECONDARY = 1389,
 
-    /**
-     *
-     */
     ACT_MP_GESTURE_VC_FINGERPOINT_SECONDARY = 1390,
 
-    /**
-     *
-     */
     ACT_MP_GESTURE_VC_FISTPUMP_SECONDARY = 1391,
 
-    /**
-     *
-     */
     ACT_MP_GESTURE_VC_THUMBSUP_SECONDARY = 1392,
 
-    /**
-     *
-     */
     ACT_MP_GESTURE_VC_NODYES_SECONDARY = 1393,
 
-    /**
-     *
-     */
     ACT_MP_GESTURE_VC_NODNO_SECONDARY = 1394,
 
-    /**
-     *
-     */
     ACT_MP_GESTURE_VC_HANDMOUTH_MELEE = 1395,
 
-    /**
-     *
-     */
     ACT_MP_GESTURE_VC_FINGERPOINT_MELEE = 1396,
 
-    /**
-     *
-     */
     ACT_MP_GESTURE_VC_FISTPUMP_MELEE = 1397,
 
-    /**
-     *
-     */
     ACT_MP_GESTURE_VC_THUMBSUP_MELEE = 1398,
 
-    /**
-     *
-     */
     ACT_MP_GESTURE_VC_NODYES_MELEE = 1399,
 
-    /**
-     *
-     */
     ACT_MP_GESTURE_VC_NODNO_MELEE = 1400,
 
-    /**
-     *
-     */
     ACT_MP_GESTURE_VC_HANDMOUTH_BUILDING = 1413,
 
-    /**
-     *
-     */
     ACT_MP_GESTURE_VC_FINGERPOINT_BUILDING = 1414,
 
-    /**
-     *
-     */
     ACT_MP_GESTURE_VC_FISTPUMP_BUILDING = 1415,
 
-    /**
-     *
-     */
     ACT_MP_GESTURE_VC_THUMBSUP_BUILDING = 1416,
 
-    /**
-     *
-     */
     ACT_MP_GESTURE_VC_NODYES_BUILDING = 1417,
 
-    /**
-     *
-     */
     ACT_MP_GESTURE_VC_NODNO_BUILDING = 1418,
 
-    /**
-     *
-     */
     ACT_MP_GESTURE_VC_HANDMOUTH_PDA = 1419,
 
-    /**
-     *
-     */
     ACT_MP_GESTURE_VC_FINGERPOINT_PDA = 1420,
 
-    /**
-     *
-     */
     ACT_MP_GESTURE_VC_FISTPUMP_PDA = 1421,
 
-    /**
-     *
-     */
     ACT_MP_GESTURE_VC_THUMBSUP_PDA = 1422,
 
-    /**
-     *
-     */
     ACT_MP_GESTURE_VC_NODYES_PDA = 1423,
 
-    /**
-     *
-     */
     ACT_MP_GESTURE_VC_NODNO_PDA = 1424,
 
-    /**
-     *
-     */
     ACT_VM_UNUSABLE = 1428,
 
-    /**
-     *
-     */
     ACT_VM_UNUSABLE_TO_USABLE = 1429,
 
-    /**
-     *
-     */
     ACT_VM_USABLE_TO_UNUSABLE = 1430,
 
-    /**
-     *
-     */
     ACT_GMOD_GESTURE_AGREE = 1610,
 
-    /**
-     *
-     */
     ACT_GMOD_GESTURE_BECON = 1611,
 
-    /**
-     *
-     */
     ACT_GMOD_GESTURE_BOW = 1612,
 
-    /**
-     *
-     */
     ACT_GMOD_GESTURE_DISAGREE = 1613,
 
-    /**
-     *
-     */
     ACT_GMOD_TAUNT_SALUTE = 1614,
 
-    /**
-     *
-     */
     ACT_GMOD_GESTURE_WAVE = 1615,
 
-    /**
-     *
-     */
     ACT_GMOD_TAUNT_PERSISTENCE = 1616,
 
-    /**
-     *
-     */
     ACT_GMOD_TAUNT_MUSCLE = 1617,
 
-    /**
-     *
-     */
     ACT_GMOD_TAUNT_LAUGH = 1618,
 
-    /**
-     *
-     */
     ACT_GMOD_GESTURE_POINT = 1619,
 
-    /**
-     *
-     */
     ACT_GMOD_TAUNT_CHEER = 1620,
 
-    /**
-     *
-     */
     ACT_HL2MP_RUN_FAST = 1621,
 
-    /**
-     *
-     */
     ACT_HL2MP_RUN_CHARGING = 1622,
 
-    /**
-     *
-     */
     ACT_HL2MP_RUN_PANICKED = 1623,
 
-    /**
-     *
-     */
     ACT_HL2MP_RUN_PROTECTED = 1624,
 
-    /**
-     *
-     */
     ACT_HL2MP_IDLE_MELEE_ANGRY = 1625,
 
-    /**
-     *
-     */
     ACT_HL2MP_ZOMBIE_SLUMP_IDLE = 1626,
 
-    /**
-     *
-     */
     ACT_HL2MP_ZOMBIE_SLUMP_RISE = 1627,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_ZOMBIE_01 = 1628,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_ZOMBIE_02 = 1629,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_ZOMBIE_03 = 1630,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_ZOMBIE_04 = 1631,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_ZOMBIE_05 = 1632,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_CROUCH_ZOMBIE_01 = 1633,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_CROUCH_ZOMBIE_02 = 1634,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_CROUCH_ZOMBIE_03 = 1635,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_CROUCH_ZOMBIE_04 = 1636,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_CROUCH_ZOMBIE_05 = 1637,
 
-    /**
-     *
-     */
     ACT_HL2MP_IDLE_CROUCH_ZOMBIE_01 = 1638,
 
-    /**
-     *
-     */
     ACT_HL2MP_IDLE_CROUCH_ZOMBIE_02 = 1639,
 
-    /**
-     *
-     */
     ACT_GMOD_GESTURE_RANGE_ZOMBIE = 1640,
 
-    /**
-     *
-     */
     ACT_GMOD_GESTURE_TAUNT_ZOMBIE = 1641,
 
-    /**
-     *
-     */
     ACT_GMOD_TAUNT_DANCE = 1642,
 
-    /**
-     *
-     */
     ACT_GMOD_TAUNT_ROBOT = 1643,
 
-    /**
-     *
-     */
     ACT_GMOD_GESTURE_RANGE_ZOMBIE_SPECIAL = 1644,
 
-    /**
-     *
-     */
     ACT_GMOD_GESTURE_RANGE_FRENZY = 1645,
 
-    /**
-     *
-     */
     ACT_HL2MP_RUN_ZOMBIE_FAST = 1646,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_ZOMBIE_06 = 1647,
 
-    /**
-     *
-     */
     ACT_ZOMBIE_LEAP_START = 1648,
 
-    /**
-     *
-     */
     ACT_ZOMBIE_LEAPING = 1649,
 
-    /**
-     *
-     */
     ACT_ZOMBIE_CLIMB_UP = 1650,
 
-    /**
-     *
-     */
     ACT_ZOMBIE_CLIMB_START = 1651,
 
-    /**
-     *
-     */
     ACT_ZOMBIE_CLIMB_END = 1652,
 
-    /**
-     *
-     */
     ACT_HL2MP_IDLE_MAGIC = 1653,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_MAGIC = 1654,
 
-    /**
-     *
-     */
     ACT_HL2MP_RUN_MAGIC = 1655,
 
-    /**
-     *
-     */
     ACT_HL2MP_IDLE_CROUCH_MAGIC = 1656,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_CROUCH_MAGIC = 1657,
 
-    /**
-     *
-     */
     ACT_HL2MP_GESTURE_RANGE_ATTACK_MAGIC = 1658,
 
-    /**
-     *
-     */
     ACT_HL2MP_GESTURE_RELOAD_MAGIC = 1659,
 
-    /**
-     *
-     */
     ACT_HL2MP_JUMP_MAGIC = 1660,
 
-    /**
-     *
-     */
     ACT_HL2MP_SWIM_IDLE_MAGIC = 1661,
 
-    /**
-     *
-     */
     ACT_HL2MP_SWIM_MAGIC = 1662,
 
-    /**
-     *
-     */
     ACT_HL2MP_IDLE_REVOLVER = 1663,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_REVOLVER = 1664,
 
-    /**
-     *
-     */
     ACT_HL2MP_RUN_REVOLVER = 1665,
 
-    /**
-     *
-     */
     ACT_HL2MP_IDLE_CROUCH_REVOLVER = 1666,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_CROUCH_REVOLVER = 1667,
 
-    /**
-     *
-     */
     ACT_HL2MP_GESTURE_RANGE_ATTACK_REVOLVER = 1668,
 
-    /**
-     *
-     */
     ACT_HL2MP_GESTURE_RELOAD_REVOLVER = 1669,
 
-    /**
-     *
-     */
     ACT_HL2MP_JUMP_REVOLVER = 1670,
 
-    /**
-     *
-     */
     ACT_HL2MP_SWIM_IDLE_REVOLVER = 1671,
 
-    /**
-     *
-     */
     ACT_HL2MP_SWIM_REVOLVER = 1672,
 
-    /**
-     *
-     */
     ACT_HL2MP_IDLE_CAMERA = 1673,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_CAMERA = 1674,
 
-    /**
-     *
-     */
     ACT_HL2MP_RUN_CAMERA = 1675,
 
-    /**
-     *
-     */
     ACT_HL2MP_IDLE_CROUCH_CAMERA = 1676,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_CROUCH_CAMERA = 1677,
 
-    /**
-     *
-     */
     ACT_HL2MP_GESTURE_RANGE_ATTACK_CAMERA = 1678,
 
-    /**
-     *
-     */
     ACT_HL2MP_GESTURE_RELOAD_CAMERA = 1679,
 
-    /**
-     *
-     */
     ACT_HL2MP_JUMP_CAMERA = 1680,
 
-    /**
-     *
-     */
     ACT_HL2MP_SWIM_IDLE_CAMERA = 1681,
 
-    /**
-     *
-     */
     ACT_HL2MP_SWIM_CAMERA = 1682,
 
-    /**
-     *
-     */
     ACT_HL2MP_IDLE_ANGRY = 1683,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_ANGRY = 1684,
 
-    /**
-     *
-     */
     ACT_HL2MP_RUN_ANGRY = 1685,
 
-    /**
-     *
-     */
     ACT_HL2MP_IDLE_CROUCH_ANGRY = 1686,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_CROUCH_ANGRY = 1687,
 
-    /**
-     *
-     */
     ACT_HL2MP_GESTURE_RANGE_ATTACK_ANGRY = 1688,
 
-    /**
-     *
-     */
     ACT_HL2MP_GESTURE_RELOAD_ANGRY = 1689,
 
-    /**
-     *
-     */
     ACT_HL2MP_JUMP_ANGRY = 1690,
 
-    /**
-     *
-     */
     ACT_HL2MP_SWIM_IDLE_ANGRY = 1691,
 
-    /**
-     *
-     */
     ACT_HL2MP_SWIM_ANGRY = 1692,
 
-    /**
-     *
-     */
     ACT_HL2MP_IDLE_SCARED = 1693,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_SCARED = 1694,
 
-    /**
-     *
-     */
     ACT_HL2MP_RUN_SCARED = 1695,
 
-    /**
-     *
-     */
     ACT_HL2MP_IDLE_CROUCH_SCARED = 1696,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_CROUCH_SCARED = 1697,
 
-    /**
-     *
-     */
     ACT_HL2MP_GESTURE_RANGE_ATTACK_SCARED = 1698,
 
-    /**
-     *
-     */
     ACT_HL2MP_GESTURE_RELOAD_SCARED = 1699,
 
-    /**
-     *
-     */
     ACT_HL2MP_JUMP_SCARED = 1700,
 
-    /**
-     *
-     */
     ACT_HL2MP_SWIM_IDLE_SCARED = 1701,
 
-    /**
-     *
-     */
     ACT_HL2MP_SWIM_SCARED = 1702,
 
-    /**
-     *
-     */
     ACT_HL2MP_IDLE_ZOMBIE = 1703,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_ZOMBIE = 1704,
 
-    /**
-     *
-     */
     ACT_HL2MP_RUN_ZOMBIE = 1705,
 
-    /**
-     *
-     */
     ACT_HL2MP_IDLE_CROUCH_ZOMBIE = 1706,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_CROUCH_ZOMBIE = 1707,
 
-    /**
-     *
-     */
     ACT_HL2MP_GESTURE_RANGE_ATTACK_ZOMBIE = 1708,
 
-    /**
-     *
-     */
     ACT_HL2MP_GESTURE_RELOAD_ZOMBIE = 1709,
 
-    /**
-     *
-     */
     ACT_HL2MP_JUMP_ZOMBIE = 1710,
 
-    /**
-     *
-     */
     ACT_HL2MP_SWIM_IDLE_ZOMBIE = 1711,
 
-    /**
-     *
-     */
     ACT_HL2MP_SWIM_ZOMBIE = 1712,
 
-    /**
-     *
-     */
     ACT_HL2MP_IDLE_SUITCASE = 1713,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_SUITCASE = 1714,
 
-    /**
-     *
-     */
     ACT_HL2MP_RUN_SUITCASE = 1715,
 
-    /**
-     *
-     */
     ACT_HL2MP_IDLE_CROUCH_SUITCASE = 1716,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_CROUCH_SUITCASE = 1717,
 
-    /**
-     *
-     */
     ACT_HL2MP_GESTURE_RANGE_ATTACK_SUITCASE = 1718,
 
-    /**
-     *
-     */
     ACT_HL2MP_GESTURE_RELOAD_SUITCASE = 1719,
 
-    /**
-     *
-     */
     ACT_HL2MP_JUMP_SUITCASE = 1720,
 
-    /**
-     *
-     */
     ACT_HL2MP_SWIM_IDLE_SUITCASE = 1721,
 
-    /**
-     *
-     */
     ACT_HL2MP_SWIM_SUITCASE = 1722,
 
-    /**
-     *
-     */
     ACT_HL2MP_IDLE = 1777,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK = 1778,
 
-    /**
-     *
-     */
     ACT_HL2MP_RUN = 1779,
 
-    /**
-     *
-     */
     ACT_HL2MP_IDLE_CROUCH = 1780,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_CROUCH = 1781,
 
-    /**
-     *
-     */
     ACT_HL2MP_GESTURE_RANGE_ATTACK = 1782,
 
-    /**
-     *
-     */
     ACT_HL2MP_GESTURE_RELOAD = 1783,
 
-    /**
-     *
-     */
     ACT_HL2MP_JUMP = 1784,
 
-    /**
-     *
-     */
     ACT_HL2MP_SWIM = 1786,
 
-    /**
-     *
-     */
     ACT_HL2MP_IDLE_PISTOL = 1787,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_PISTOL = 1788,
 
-    /**
-     *
-     */
     ACT_HL2MP_RUN_PISTOL = 1789,
 
-    /**
-     *
-     */
     ACT_HL2MP_IDLE_CROUCH_PISTOL = 1790,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_CROUCH_PISTOL = 1791,
 
-    /**
-     *
-     */
     ACT_HL2MP_GESTURE_RANGE_ATTACK_PISTOL = 1792,
 
-    /**
-     *
-     */
     ACT_HL2MP_GESTURE_RELOAD_PISTOL = 1793,
 
-    /**
-     *
-     */
     ACT_HL2MP_JUMP_PISTOL = 1794,
 
-    /**
-     *
-     */
     ACT_HL2MP_SWIM_IDLE_PISTOL = 1795,
 
-    /**
-     *
-     */
     ACT_HL2MP_SWIM_PISTOL = 1796,
 
-    /**
-     *
-     */
     ACT_HL2MP_IDLE_SMG1 = 1797,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_SMG1 = 1798,
 
-    /**
-     *
-     */
     ACT_HL2MP_RUN_SMG1 = 1799,
 
-    /**
-     *
-     */
     ACT_HL2MP_IDLE_CROUCH_SMG1 = 1800,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_CROUCH_SMG1 = 1801,
 
-    /**
-     *
-     */
     ACT_HL2MP_GESTURE_RANGE_ATTACK_SMG1 = 1802,
 
-    /**
-     *
-     */
     ACT_HL2MP_GESTURE_RELOAD_SMG1 = 1803,
 
-    /**
-     *
-     */
     ACT_HL2MP_JUMP_SMG1 = 1804,
 
-    /**
-     *
-     */
     ACT_HL2MP_SWIM_IDLE_SMG1 = 1805,
 
-    /**
-     *
-     */
     ACT_HL2MP_SWIM_SMG1 = 1806,
 
-    /**
-     *
-     */
     ACT_HL2MP_IDLE_AR2 = 1807,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_AR2 = 1808,
 
-    /**
-     *
-     */
     ACT_HL2MP_RUN_AR2 = 1809,
 
-    /**
-     *
-     */
     ACT_HL2MP_IDLE_CROUCH_AR2 = 1810,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_CROUCH_AR2 = 1811,
 
-    /**
-     *
-     */
     ACT_HL2MP_GESTURE_RANGE_ATTACK_AR2 = 1812,
 
-    /**
-     *
-     */
     ACT_HL2MP_GESTURE_RELOAD_AR2 = 1813,
 
-    /**
-     *
-     */
     ACT_HL2MP_JUMP_AR2 = 1814,
 
-    /**
-     *
-     */
     ACT_HL2MP_SWIM_IDLE_AR2 = 1815,
 
-    /**
-     *
-     */
     ACT_HL2MP_SWIM_AR2 = 1816,
 
-    /**
-     *
-     */
     ACT_HL2MP_IDLE_SHOTGUN = 1817,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_SHOTGUN = 1818,
 
-    /**
-     *
-     */
     ACT_HL2MP_RUN_SHOTGUN = 1819,
 
-    /**
-     *
-     */
     ACT_HL2MP_IDLE_CROUCH_SHOTGUN = 1820,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_CROUCH_SHOTGUN = 1821,
 
-    /**
-     *
-     */
     ACT_HL2MP_GESTURE_RANGE_ATTACK_SHOTGUN = 1822,
 
-    /**
-     *
-     */
     ACT_HL2MP_GESTURE_RELOAD_SHOTGUN = 1823,
 
-    /**
-     *
-     */
     ACT_HL2MP_JUMP_SHOTGUN = 1824,
 
-    /**
-     *
-     */
     ACT_HL2MP_SWIM_IDLE_SHOTGUN = 1825,
 
-    /**
-     *
-     */
     ACT_HL2MP_SWIM_SHOTGUN = 1826,
 
-    /**
-     *
-     */
     ACT_HL2MP_IDLE_RPG = 1827,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_RPG = 1828,
 
-    /**
-     *
-     */
     ACT_HL2MP_RUN_RPG = 1829,
 
-    /**
-     *
-     */
     ACT_HL2MP_IDLE_CROUCH_RPG = 1830,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_CROUCH_RPG = 1831,
 
-    /**
-     *
-     */
     ACT_HL2MP_GESTURE_RANGE_ATTACK_RPG = 1832,
 
-    /**
-     *
-     */
     ACT_HL2MP_GESTURE_RELOAD_RPG = 1833,
 
-    /**
-     *
-     */
     ACT_HL2MP_JUMP_RPG = 1834,
 
-    /**
-     *
-     */
     ACT_HL2MP_SWIM_IDLE_RPG = 1835,
 
-    /**
-     *
-     */
     ACT_HL2MP_SWIM_RPG = 1836,
 
-    /**
-     *
-     */
     ACT_HL2MP_IDLE_GRENADE = 1837,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_GRENADE = 1838,
 
-    /**
-     *
-     */
     ACT_HL2MP_RUN_GRENADE = 1839,
 
-    /**
-     *
-     */
     ACT_HL2MP_IDLE_CROUCH_GRENADE = 1840,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_CROUCH_GRENADE = 1841,
 
-    /**
-     *
-     */
     ACT_HL2MP_GESTURE_RANGE_ATTACK_GRENADE = 1842,
 
-    /**
-     *
-     */
     ACT_HL2MP_GESTURE_RELOAD_GRENADE = 1843,
 
-    /**
-     *
-     */
     ACT_HL2MP_JUMP_GRENADE = 1844,
 
-    /**
-     *
-     */
     ACT_HL2MP_SWIM_IDLE_GRENADE = 1845,
 
-    /**
-     *
-     */
     ACT_HL2MP_SWIM_GRENADE = 1846,
 
-    /**
-     *
-     */
     ACT_HL2MP_IDLE_DUEL = 1847,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_DUEL = 1848,
 
-    /**
-     *
-     */
     ACT_HL2MP_RUN_DUEL = 1849,
 
-    /**
-     *
-     */
     ACT_HL2MP_IDLE_CROUCH_DUEL = 1850,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_CROUCH_DUEL = 1851,
 
-    /**
-     *
-     */
     ACT_HL2MP_GESTURE_RANGE_ATTACK_DUEL = 1852,
 
-    /**
-     *
-     */
     ACT_HL2MP_GESTURE_RELOAD_DUEL = 1853,
 
-    /**
-     *
-     */
     ACT_HL2MP_JUMP_DUEL = 1854,
 
-    /**
-     *
-     */
     ACT_HL2MP_SWIM_IDLE_DUEL = 1855,
 
-    /**
-     *
-     */
     ACT_HL2MP_SWIM_DUEL = 1856,
 
-    /**
-     *
-     */
     ACT_HL2MP_IDLE_PHYSGUN = 1857,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_PHYSGUN = 1858,
 
-    /**
-     *
-     */
     ACT_HL2MP_RUN_PHYSGUN = 1859,
 
-    /**
-     *
-     */
     ACT_HL2MP_IDLE_CROUCH_PHYSGUN = 1860,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_CROUCH_PHYSGUN = 1861,
 
-    /**
-     *
-     */
     ACT_HL2MP_GESTURE_RANGE_ATTACK_PHYSGUN = 1862,
 
-    /**
-     *
-     */
     ACT_HL2MP_GESTURE_RELOAD_PHYSGUN = 1863,
 
-    /**
-     *
-     */
     ACT_HL2MP_JUMP_PHYSGUN = 1864,
 
-    /**
-     *
-     */
     ACT_HL2MP_SWIM_IDLE_PHYSGUN = 1865,
 
-    /**
-     *
-     */
     ACT_HL2MP_SWIM_PHYSGUN = 1866,
 
-    /**
-     *
-     */
     ACT_HL2MP_IDLE_CROSSBOW = 1867,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_CROSSBOW = 1868,
 
-    /**
-     *
-     */
     ACT_HL2MP_RUN_CROSSBOW = 1869,
 
-    /**
-     *
-     */
     ACT_HL2MP_IDLE_CROUCH_CROSSBOW = 1870,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_CROUCH_CROSSBOW = 1871,
 
-    /**
-     *
-     */
     ACT_HL2MP_GESTURE_RANGE_ATTACK_CROSSBOW = 1872,
 
-    /**
-     *
-     */
     ACT_HL2MP_GESTURE_RELOAD_CROSSBOW = 1873,
 
-    /**
-     *
-     */
     ACT_HL2MP_JUMP_CROSSBOW = 1874,
 
-    /**
-     *
-     */
     ACT_HL2MP_SWIM_IDLE_CROSSBOW = 1875,
 
-    /**
-     *
-     */
     ACT_HL2MP_SWIM_CROSSBOW = 1876,
 
-    /**
-     *
-     */
     ACT_HL2MP_IDLE_MELEE = 1877,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_MELEE = 1878,
 
-    /**
-     *
-     */
     ACT_HL2MP_RUN_MELEE = 1879,
 
-    /**
-     *
-     */
     ACT_HL2MP_IDLE_CROUCH_MELEE = 1880,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_CROUCH_MELEE = 1881,
 
-    /**
-     *
-     */
     ACT_HL2MP_GESTURE_RANGE_ATTACK_MELEE = 1882,
 
-    /**
-     *
-     */
     ACT_HL2MP_GESTURE_RELOAD_MELEE = 1883,
 
-    /**
-     *
-     */
     ACT_HL2MP_JUMP_MELEE = 1884,
 
-    /**
-     *
-     */
     ACT_HL2MP_SWIM_IDLE_MELEE = 1885,
 
-    /**
-     *
-     */
     ACT_HL2MP_SWIM_MELEE = 1886,
 
-    /**
-     *
-     */
     ACT_HL2MP_IDLE_SLAM = 1887,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_SLAM = 1888,
 
-    /**
-     *
-     */
     ACT_HL2MP_RUN_SLAM = 1889,
 
-    /**
-     *
-     */
     ACT_HL2MP_IDLE_CROUCH_SLAM = 1890,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_CROUCH_SLAM = 1891,
 
-    /**
-     *
-     */
     ACT_HL2MP_GESTURE_RANGE_ATTACK_SLAM = 1892,
 
-    /**
-     *
-     */
     ACT_HL2MP_GESTURE_RELOAD_SLAM = 1893,
 
-    /**
-     *
-     */
     ACT_HL2MP_JUMP_SLAM = 1894,
 
-    /**
-     *
-     */
     ACT_HL2MP_SWIM_IDLE_SLAM = 1895,
 
-    /**
-     *
-     */
     ACT_HL2MP_SWIM_SLAM = 1896,
 
-    /**
-     *
-     */
     ACT_VM_CRAWL = 1897,
 
-    /**
-     *
-     */
     ACT_VM_CRAWL_EMPTY = 1898,
 
-    /**
-     *
-     */
     ACT_VM_HOLSTER_EMPTY = 1899,
 
-    /**
-     *
-     */
     ACT_VM_DOWN = 1900,
 
-    /**
-     *
-     */
     ACT_VM_DOWN_EMPTY = 1901,
 
-    /**
-     *
-     */
     ACT_VM_READY = 1902,
 
-    /**
-     *
-     */
     ACT_VM_ISHOOT = 1903,
 
-    /**
-     *
-     */
     ACT_VM_IIN = 1904,
 
-    /**
-     *
-     */
     ACT_VM_IIN_EMPTY = 1905,
 
-    /**
-     *
-     */
     ACT_VM_IIDLE = 1906,
 
-    /**
-     *
-     */
     ACT_VM_IIDLE_EMPTY = 1907,
 
-    /**
-     *
-     */
     ACT_VM_IOUT = 1908,
 
-    /**
-     *
-     */
     ACT_VM_IOUT_EMPTY = 1909,
 
-    /**
-     *
-     */
     ACT_VM_PULLBACK_HIGH_BAKE = 1910,
 
-    /**
-     *
-     */
     ACT_VM_HITKILL = 1911,
 
-    /**
-     *
-     */
     ACT_VM_DEPLOYED_IN = 1912,
 
-    /**
-     *
-     */
     ACT_VM_DEPLOYED_IDLE = 1913,
 
-    /**
-     *
-     */
     ACT_VM_DEPLOYED_FIRE = 1914,
 
-    /**
-     *
-     */
     ACT_VM_DEPLOYED_DRYFIRE = 1915,
 
-    /**
-     *
-     */
     ACT_VM_DEPLOYED_RELOAD = 1916,
 
-    /**
-     *
-     */
     ACT_VM_DEPLOYED_RELOAD_EMPTY = 1917,
 
-    /**
-     *
-     */
     ACT_VM_DEPLOYED_OUT = 1918,
 
-    /**
-     *
-     */
     ACT_VM_DEPLOYED_IRON_IN = 1919,
 
-    /**
-     *
-     */
     ACT_VM_DEPLOYED_IRON_IDLE = 1920,
 
-    /**
-     *
-     */
     ACT_VM_DEPLOYED_IRON_FIRE = 1921,
 
-    /**
-     *
-     */
     ACT_VM_DEPLOYED_IRON_DRYFIRE = 1922,
 
-    /**
-     *
-     */
     ACT_VM_DEPLOYED_IRON_OUT = 1923,
 
-    /**
-     *
-     */
     ACT_VM_DEPLOYED_LIFTED_IN = 1924,
 
-    /**
-     *
-     */
     ACT_VM_DEPLOYED_LIFTED_IDLE = 1925,
 
-    /**
-     *
-     */
     ACT_VM_DEPLOYED_LIFTED_OUT = 1926,
 
-    /**
-     *
-     */
     ACT_VM_RELOADEMPTY = 1927,
 
-    /**
-     *
-     */
     ACT_VM_IRECOIL1 = 1928,
 
-    /**
-     *
-     */
     ACT_VM_IRECOIL2 = 1929,
 
-    /**
-     *
-     */
     ACT_VM_FIREMODE = 1930,
 
-    /**
-     *
-     */
     ACT_VM_ISHOOT_LAST = 1931,
 
-    /**
-     *
-     */
     ACT_VM_IFIREMODE = 1932,
 
-    /**
-     *
-     */
     ACT_VM_DFIREMODE = 1933,
 
-    /**
-     *
-     */
     ACT_VM_DIFIREMODE = 1934,
 
-    /**
-     *
-     */
     ACT_VM_SHOOTLAST = 1935,
 
-    /**
-     *
-     */
     ACT_VM_ISHOOTDRY = 1936,
 
-    /**
-     *
-     */
     ACT_VM_DRAW_M203 = 1937,
 
-    /**
-     *
-     */
     ACT_VM_DRAWFULL_M203 = 1938,
 
-    /**
-     *
-     */
     ACT_VM_READY_M203 = 1939,
 
-    /**
-     *
-     */
     ACT_VM_IDLE_M203 = 1940,
 
-    /**
-     *
-     */
     ACT_VM_RELOAD_M203 = 1941,
 
-    /**
-     *
-     */
     ACT_VM_HOLSTER_M203 = 1942,
 
-    /**
-     *
-     */
     ACT_VM_HOLSTERFULL_M203 = 1943,
 
-    /**
-     *
-     */
     ACT_VM_IIN_M203 = 1944,
 
-    /**
-     *
-     */
     ACT_VM_IIDLE_M203 = 1945,
 
-    /**
-     *
-     */
     ACT_VM_IOUT_M203 = 1946,
 
-    /**
-     *
-     */
     ACT_VM_CRAWL_M203 = 1947,
 
-    /**
-     *
-     */
     ACT_VM_DOWN_M203 = 1948,
 
-    /**
-     *
-     */
     ACT_VM_ISHOOT_M203 = 1949,
 
-    /**
-     *
-     */
     ACT_VM_RELOAD_INSERT = 1950,
 
-    /**
-     *
-     */
     ACT_VM_RELOAD_INSERT_PULL = 1951,
 
-    /**
-     *
-     */
     ACT_VM_RELOAD_END = 1952,
 
-    /**
-     *
-     */
     ACT_VM_RELOAD_END_EMPTY = 1953,
 
-    /**
-     *
-     */
     ACT_VM_RELOAD_INSERT_EMPTY = 1954,
 
-    /**
-     *
-     */
     ACT_CROSSBOW_HOLSTER_UNLOADED = 1955,
 
-    /**
-     *
-     */
     ACT_VM_FIRE_TO_EMPTY = 1956,
 
-    /**
-     *
-     */
     ACT_VM_UNLOAD = 1957,
 
-    /**
-     *
-     */
     ACT_VM_RELOAD2 = 1958,
 
-    /**
-     *
-     */
     ACT_GMOD_NOCLIP_LAYER = 1959,
 
-    /**
-     *
-     */
     ACT_HL2MP_IDLE_FIST = 1960,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_FIST = 1961,
 
-    /**
-     *
-     */
     ACT_HL2MP_RUN_FIST = 1962,
 
-    /**
-     *
-     */
     ACT_HL2MP_IDLE_CROUCH_FIST = 1963,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_CROUCH_FIST = 1964,
 
-    /**
-     *
-     */
     ACT_HL2MP_GESTURE_RANGE_ATTACK_FIST = 1965,
 
-    /**
-     *
-     */
     ACT_HL2MP_GESTURE_RELOAD_FIST = 1966,
 
-    /**
-     *
-     */
     ACT_HL2MP_JUMP_FIST = 1967,
 
-    /**
-     *
-     */
     ACT_HL2MP_SWIM_IDLE_FIST = 1968,
 
-    /**
-     *
-     */
     ACT_HL2MP_SWIM_FIST = 1969,
 
-    /**
-     *
-     */
     ACT_HL2MP_SIT = 1970,
 
-    /**
-     *
-     */
     ACT_HL2MP_FIST_BLOCK = 1971,
 
-    /**
-     *
-     */
     ACT_DRIVE_AIRBOAT = 1972,
 
-    /**
-     *
-     */
     ACT_DRIVE_JEEP = 1973,
 
-    /**
-     *
-     */
     ACT_GMOD_SIT_ROLLERCOASTER = 1974,
 
-    /**
-     *
-     */
     ACT_HL2MP_IDLE_KNIFE = 1975,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_KNIFE = 1976,
 
-    /**
-     *
-     */
     ACT_HL2MP_RUN_KNIFE = 1977,
 
-    /**
-     *
-     */
     ACT_HL2MP_IDLE_CROUCH_KNIFE = 1978,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_CROUCH_KNIFE = 1979,
 
-    /**
-     *
-     */
     ACT_HL2MP_GESTURE_RANGE_ATTACK_KNIFE = 1980,
 
-    /**
-     *
-     */
     ACT_HL2MP_GESTURE_RELOAD_KNIFE = 1981,
 
-    /**
-     *
-     */
     ACT_HL2MP_JUMP_KNIFE = 1982,
 
-    /**
-     *
-     */
     ACT_HL2MP_SWIM_IDLE_KNIFE = 1983,
 
-    /**
-     *
-     */
     ACT_HL2MP_SWIM_KNIFE = 1984,
 
-    /**
-     *
-     */
     ACT_HL2MP_IDLE_PASSIVE = 1985,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_PASSIVE = 1986,
 
-    /**
-     *
-     */
     ACT_HL2MP_RUN_PASSIVE = 1987,
 
-    /**
-     *
-     */
     ACT_HL2MP_IDLE_CROUCH_PASSIVE = 1988,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_CROUCH_PASSIVE = 1989,
 
-    /**
-     *
-     */
     ACT_HL2MP_GESTURE_RANGE_ATTACK_PASSIVE = 1990,
 
-    /**
-     *
-     */
     ACT_HL2MP_GESTURE_RELOAD_PASSIVE = 1991,
 
-    /**
-     *
-     */
     ACT_HL2MP_JUMP_PASSIVE = 1992,
 
-    /**
-     *
-     */
     ACT_HL2MP_SWIM_PASSIVE = 1993,
 
-    /**
-     *
-     */
     ACT_HL2MP_SWIM_IDLE_PASSIVE = 1994,
 
-    /**
-     *
-     */
     ACT_HL2MP_IDLE_MELEE2 = 1995,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_MELEE2 = 1996,
 
-    /**
-     *
-     */
     ACT_HL2MP_RUN_MELEE2 = 1997,
 
-    /**
-     *
-     */
     ACT_HL2MP_IDLE_CROUCH_MELEE2 = 1998,
 
-    /**
-     *
-     */
     ACT_HL2MP_WALK_CROUCH_MELEE2 = 1999,
 
-    /**
-     *
-     */
     ACT_HL2MP_GESTURE_RANGE_ATTACK_MELEE2 = 2000,
 
-    /**
-     *
-     */
     ACT_HL2MP_GESTURE_RELOAD_MELEE2 = 2001,
 
-    /**
-     *
-     */
     ACT_HL2MP_JUMP_MELEE2 = 2002,
 
-    /**
-     *
-     */
     ACT_HL2MP_SWIM_IDLE_MELEE2 = 2003,
 
-    /**
-     *
-     */
     ACT_HL2MP_SWIM_MELEE2 = 2004,
 
-    /**
-     *
-     */
     ACT_HL2MP_SIT_PISTOL = 2005,
 
-    /**
-     *
-     */
     ACT_HL2MP_SIT_SHOTGUN = 2006,
 
-    /**
-     *
-     */
     ACT_HL2MP_SIT_SMG1 = 2007,
 
-    /**
-     *
-     */
     ACT_HL2MP_SIT_AR2 = 2008,
 
-    /**
-     *
-     */
     ACT_HL2MP_SIT_PHYSGUN = 2009,
 
-    /**
-     *
-     */
     ACT_HL2MP_SIT_GRENADE = 2010,
 
-    /**
-     *
-     */
     ACT_HL2MP_SIT_RPG = 2011,
 
-    /**
-     *
-     */
     ACT_HL2MP_SIT_CROSSBOW = 2012,
 
-    /**
-     *
-     */
     ACT_HL2MP_SIT_MELEE = 2013,
 
-    /**
-     *
-     */
     ACT_HL2MP_SIT_SLAM = 2014,
 
-    /**
-     *
-     */
     ACT_HL2MP_SIT_FIST = 2015,
 
-    /**
-     *
-     */
     ACT_GMOD_IN_CHAT = 2019,
 
-    /**
-     *
-     */
     ACT_GMOD_GESTURE_ITEM_GIVE = 2020,
 
-    /**
-     *
-     */
     ACT_GMOD_GESTURE_ITEM_DROP = 2021,
 
-    /**
-     *
-     */
     ACT_GMOD_GESTURE_ITEM_PLACE = 2022,
 
-    /**
-     *
-     */
     ACT_GMOD_GESTURE_ITEM_THROW = 2023,
 
-    /**
-     *
-     */
     ACT_GMOD_GESTURE_MELEE_SHOVE_2HAND = 2024,
 
-    /**
-     *
-     */
     ACT_GMOD_GESTURE_MELEE_SHOVE_1HAND = 2025,
 
-    /**
-     *
-     */
     ACT_HL2MP_SWIM_IDLE = 2026,
 
-    /**
-     *
-     */
     ACT_HL2MP_IDLE_COWER = 2027,
 
-    /**
-     *
-     */
     ACT_GMOD_DEATH = 2028,
 
-    /**
-     *
-     */
     ACT_DRIVE_POD = 2029,
 
-    /**
-     *
-     */
     ACT_FLINCH = 2030,
 
-    /**
-     *
-     */
     ACT_FLINCH_BACK = 2031,
 
-    /**
-     *
-     */
     ACT_FLINCH_SHOULDER_LEFT = 2032,
 
-    /**
-     *
-     */
     ACT_FLINCH_SHOULDER_RIGHT = 2033,
 
-    /**
-     *
-     */
     ACT_HL2MP_SIT_CAMERA = 2034,
 
-    /**
-     *
-     */
     ACT_HL2MP_SIT_PASSIVE = 2035,
 
-    /**
-     *
-     */
     ACT_HL2MP_ZOMBIE_SLUMP_ALT_IDLE = 2036,
 
-    /**
-     *
-     */
     ACT_HL2MP_ZOMBIE_SLUMP_ALT_RISE_FAST = 2037,
 
-    /**
-     *
-     */
     ACT_HL2MP_ZOMBIE_SLUMP_ALT_RISE_SLOW = 2038,
 
-    /**
-     *
-     */
     ACT_GMOD_SHOWOFF_STAND_01 = 2039,
 
-    /**
-     *
-     */
     ACT_GMOD_SHOWOFF_STAND_02 = 2040,
 
-    /**
-     *
-     */
     ACT_GMOD_SHOWOFF_STAND_03 = 2041,
 
-    /**
-     *
-     */
     ACT_GMOD_SHOWOFF_STAND_04 = 2042,
 
-    /**
-     *
-     */
     ACT_GMOD_SHOWOFF_DUCK_01 = 2043,
 
-    /**
-     *
-     */
     ACT_GMOD_SHOWOFF_DUCK_02 = 2044,
 
     /**
@@ -54726,10 +47903,12 @@ declare enum ACT {
 }
 
 /**
+ * 🟦 [Server]
  *
+ * Used by [NPC:MoveClimbExec](https://wiki.facepunch.com/gmod/NPC:MoveClimbExec), [NPC:MoveJumpExec](https://wiki.facepunch.com/gmod/NPC:MoveJumpExec) and [NPC:MoveJumpStop](https://wiki.facepunch.com/gmod/NPC:MoveJumpStop).
  * @compileMembersOnly
  */
-declare enum AIMR {
+declare const enum AIMR {
     /**
      * Move is illegal for some reason.
      */
@@ -54762,10 +47941,16 @@ declare enum AIMR {
 }
 
 /**
+ * 🟨🟦 [Shared]
+ *
+ * Used by [game.AddAmmoType](https://wiki.facepunch.com/gmod/game.AddAmmoType)'s input structure - the [Structures/AmmoData](https://wiki.facepunch.com/gmod/Structures/AmmoData).
+ *
+ * **Warning:**
+ * >These enumerations do not exist in game and are listed here only for reference
  *
  * @compileMembersOnly
  */
-declare enum AMMO {
+declare const enum AMMO {
     /**
      * Forces player to drop the object they are carrying if the object was hit by this ammo type.
      */
@@ -54778,61 +47963,42 @@ declare enum AMMO {
 }
 
 /**
+ * 🟨 [Client]
  *
+ * The analog axis to get the value of via [input.GetAnalogValue](https://wiki.facepunch.com/gmod/input.GetAnalogValue).
  * @compileMembersOnly
  */
-declare enum ANALOG {
-    /**
-     *
-     */
+declare const enum ANALOG {
     ANALOG_MOUSE_X = 0,
 
-    /**
-     *
-     */
     ANALOG_MOUSE_Y = 1,
 
-    /**
-     *
-     */
     ANALOG_MOUSE_WHEEL = 3,
 
-    /**
-     *
-     */
     ANALOG_JOY_X = 4,
 
-    /**
-     *
-     */
     ANALOG_JOY_Y = 5,
 
-    /**
-     *
-     */
     ANALOG_JOY_Z = 6,
 
-    /**
-     *
-     */
     ANALOG_JOY_R = 7,
 
-    /**
-     *
-     */
     ANALOG_JOY_U = 8,
 
-    /**
-     *
-     */
     ANALOG_JOY_V = 9,
 }
 
 /**
+ * 🟨 [Client]
  *
+ * These enums are used by [render.OverrideBlend](https://wiki.facepunch.com/gmod/render.OverrideBlend) to determine what the Source and Destination color and alpha channel values for a given pixel will be multiplied by before they are sent to the <page text="Blend Function">Enums/BLENDFUNC</page> to calculate the pixel's final color during draw operations.
+ *
+ * For an interactive demonstration of how these enums behave, see [Anders Riggelsen's Visual glBlendFunc Tool here](https://www.andersriggelsen.dk/glblendfunc.php)
+ *
+ * <upload src="19952/8d96354db95acb4.png" size="573673" name="image.png" />
  * @compileMembersOnly
  */
-declare enum BLEND {
+declare const enum BLEND {
     /**
      * The Multiplier will be `r=0`, `g=0`, `b=0`, `a=0`
      *
@@ -54937,10 +48103,16 @@ declare enum BLEND {
 }
 
 /**
+ * 🟨🟦🟩 [Shared and Menu]
  *
+ * These enums are used by [render.OverrideBlend](https://wiki.facepunch.com/gmod/render.OverrideBlend) to combine the Source and Destination color and alpha into a final pixel color after they have been multiplied by their corresponding <page text="Blend Multiplier">Enums/BLEND</page>.
+ *
+ * All results will be clamped in the range `(0-1)` and will produce final pixel channel values in the range `(0-255)`.
+ *
+ * For an interactive demonstration of how these enums behave, see [Anders Riggelsen's Visual glBlendFunc Tool here](https://www.andersriggelsen.dk/glblendfunc.php)
  * @compileMembersOnly
  */
-declare enum BLENDFUNC {
+declare const enum BLENDFUNC {
     /**
      * **Source + Destination**
      * 			Adds each channel of the Source with the same channel of the Destination.
@@ -54988,10 +48160,12 @@ declare enum BLENDFUNC {
 }
 
 /**
+ * 🟨🟦 [Shared]
  *
+ * Enumerations used by [Entity:GetBloodColor](https://wiki.facepunch.com/gmod/Entity:GetBloodColor) and [Entity:SetBloodColor](https://wiki.facepunch.com/gmod/Entity:SetBloodColor).
  * @compileMembersOnly
  */
-declare enum BLOOD_COLOR {
+declare const enum BLOOD_COLOR {
     /**
      * No blood
      */
@@ -55034,10 +48208,12 @@ declare enum BLOOD_COLOR {
 }
 
 /**
+ * 🟨🟦 [Shared]
  *
+ * Used by [Entity:BoneHasFlag](https://wiki.facepunch.com/gmod/Entity:BoneHasFlag).
  * @compileMembersOnly
  */
-declare enum BONE {
+declare const enum BONE {
     /**
      * Bone is physically simulated when physics are active
      */
@@ -55063,9 +48239,6 @@ declare enum BONE {
      */
     BONE_SCREEN_ALIGN_CYLINDER = 16,
 
-    /**
-     *
-     */
     BONE_CALCULATE_MASK = 31,
 
     /**
@@ -55078,49 +48251,22 @@ declare enum BONE {
      */
     BONE_USED_BY_ATTACHMENT = 512,
 
-    /**
-     *
-     */
     BONE_USED_BY_VERTEX_LOD0 = 1024,
 
-    /**
-     *
-     */
     BONE_USED_BY_VERTEX_LOD1 = 2048,
 
-    /**
-     *
-     */
     BONE_USED_BY_VERTEX_LOD2 = 4096,
 
-    /**
-     *
-     */
     BONE_USED_BY_VERTEX_LOD3 = 8192,
 
-    /**
-     *
-     */
     BONE_USED_BY_VERTEX_LOD4 = 16384,
 
-    /**
-     *
-     */
     BONE_USED_BY_VERTEX_LOD5 = 32768,
 
-    /**
-     *
-     */
     BONE_USED_BY_VERTEX_LOD6 = 65536,
 
-    /**
-     *
-     */
     BONE_USED_BY_VERTEX_LOD7 = 131072,
 
-    /**
-     *
-     */
     BONE_USED_BY_VERTEX_MASK = 261120,
 
     /**
@@ -55135,17 +48281,16 @@ declare enum BONE {
      */
     BONE_USED_BY_ANYTHING = 524032,
 
-    /**
-     *
-     */
     BONE_USED_MASK = 524032,
 }
 
 /**
+ * 🟨🟦 [Shared]
  *
+ * Enumerations used by [Entity:SetSurroundingBoundsType](https://wiki.facepunch.com/gmod/Entity:SetSurroundingBoundsType).
  * @compileMembersOnly
  */
-declare enum BOUNDS {
+declare const enum BOUNDS {
     /**
      * Sets the bounds in relation to the entity's collision bounds.
      */
@@ -55158,10 +48303,12 @@ declare enum BOUNDS {
 }
 
 /**
+ * 🟨🟦🟩 [Shared and Menu]
  *
+ * Enumerations used by [render.SetModelLighting](https://wiki.facepunch.com/gmod/render.SetModelLighting).
  * @compileMembersOnly
  */
-declare enum BOX {
+declare const enum BOX {
     /**
      * Place the light from the front
      */
@@ -55194,36 +48341,34 @@ declare enum BOX {
 }
 
 /**
+ * 🟨🟦🟩 [Shared and Menu]
  *
+ * Encompasses the range of [Enums/KEY](https://wiki.facepunch.com/gmod/Enums/KEY), [Enums/MOUSE](https://wiki.facepunch.com/gmod/Enums/MOUSE) and [Enums/JOYSTICK](https://wiki.facepunch.com/gmod/Enums/JOYSTICK), all of which can be used by:
+ * * [input.IsButtonDown](https://wiki.facepunch.com/gmod/input.IsButtonDown)
+ * * [input.LookupKeyBinding](https://wiki.facepunch.com/gmod/input.LookupKeyBinding)
+ * * [input.GetKeyName](https://wiki.facepunch.com/gmod/input.GetKeyName)
+ * * [input.GetKeyCode](https://wiki.facepunch.com/gmod/input.GetKeyCode)
+ * * [GM:PlayerButtonDown](https://wiki.facepunch.com/gmod/GM:PlayerButtonDown)
+ * * [GM:PlayerButtonUp](https://wiki.facepunch.com/gmod/GM:PlayerButtonUp)
  * @compileMembersOnly
  */
-declare enum BUTTON_CODE {
-    /**
-     *
-     */
+declare const enum BUTTON_CODE {
     BUTTON_CODE_INVALID = -1,
 
-    /**
-     *
-     */
     BUTTON_CODE_NONE = 0,
 
-    /**
-     *
-     */
     BUTTON_CODE_LAST = 171,
 
-    /**
-     *
-     */
     BUTTON_CODE_COUNT = 172,
 }
 
 /**
+ * 🟦 [Server]
  *
+ * Enumerations used by [NPC:CapabilitiesAdd](https://wiki.facepunch.com/gmod/NPC:CapabilitiesAdd), [WEAPON:GetCapabilities](https://wiki.facepunch.com/gmod/WEAPON:GetCapabilities) and [NPC:CapabilitiesGet](https://wiki.facepunch.com/gmod/NPC:CapabilitiesGet). Serverside only.
  * @compileMembersOnly
  */
-declare enum CAP {
+declare const enum CAP {
     /**
      * When hit by an explosion, we'll simply block it instead of spilling it to entities behind us, the sv_robust_explosions cvar can also enable this globally when set to 0
      */
@@ -55249,14 +48394,8 @@ declare enum CAP {
      */
     CAP_MOVE_CLIMB = 8,
 
-    /**
-     *
-     */
     CAP_MOVE_SWIM = 16,
 
-    /**
-     *
-     */
     CAP_MOVE_CRAWL = 32,
 
     /**
@@ -55264,9 +48403,6 @@ declare enum CAP {
      */
     CAP_MOVE_SHOOT = 64,
 
-    /**
-     *
-     */
     CAP_SKIP_NAV_GROUND_CHECK = 128,
 
     /**
@@ -55289,54 +48425,24 @@ declare enum CAP {
      */
     CAP_TURN_HEAD = 4096,
 
-    /**
-     *
-     */
     CAP_WEAPON_RANGE_ATTACK1 = 8192,
 
-    /**
-     *
-     */
     CAP_WEAPON_RANGE_ATTACK2 = 16384,
 
-    /**
-     *
-     */
     CAP_WEAPON_MELEE_ATTACK1 = 32768,
 
-    /**
-     *
-     */
     CAP_WEAPON_MELEE_ATTACK2 = 65536,
 
-    /**
-     *
-     */
     CAP_INNATE_RANGE_ATTACK1 = 131072,
 
-    /**
-     *
-     */
     CAP_INNATE_RANGE_ATTACK2 = 262144,
 
-    /**
-     *
-     */
     CAP_INNATE_MELEE_ATTACK1 = 524288,
 
-    /**
-     *
-     */
     CAP_INNATE_MELEE_ATTACK2 = 1048576,
 
-    /**
-     *
-     */
     CAP_USE_WEAPONS = 2097152,
 
-    /**
-     *
-     */
     CAP_USE_SHOT_REGULATOR = 16777216,
 
     /**
@@ -55369,17 +48475,16 @@ declare enum CAP {
      */
     CAP_AIM_GUN = 536870912,
 
-    /**
-     *
-     */
     CAP_NO_HIT_SQUADMATES = 1073741824,
 }
 
 /**
+ * 🟨🟦 [Shared]
  *
+ * Enumerations used by [Global.EmitSound](https://wiki.facepunch.com/gmod/Global.EmitSound) and [sound.Add](https://wiki.facepunch.com/gmod/sound.Add).
  * @compileMembersOnly
  */
-declare enum CHAN {
+declare const enum CHAN {
     /**
      * Used when playing sounds through console commands.
      */
@@ -55439,10 +48544,12 @@ declare enum CHAN {
 }
 
 /**
+ * 🟦 [Server]
  *
+ * Enumerations used by [NPC:Classify](https://wiki.facepunch.com/gmod/NPC:Classify).
  * @compileMembersOnly
  */
-declare enum CLASS {
+declare const enum CLASS {
     /**
      * None - default class for entities.
      */
@@ -55720,10 +48827,12 @@ declare enum CLASS {
 }
 
 /**
+ * 🟨🟦 [Shared]
  *
+ * Enumerations used by [Entity:SetCollisionGroup](https://wiki.facepunch.com/gmod/Entity:SetCollisionGroup), [Entity:GetCollisionGroup](https://wiki.facepunch.com/gmod/Entity:GetCollisionGroup) and <page text="Traces">Structures/Trace#collisiongroup</page>.
  * @compileMembersOnly
  */
-declare enum COLLISION_GROUP {
+declare const enum COLLISION_GROUP {
     /**
      * Normal
      */
@@ -55749,9 +48858,6 @@ declare enum COLLISION_GROUP {
      */
     COLLISION_GROUP_INTERACTIVE = 4,
 
-    /**
-     *
-     */
     COLLISION_GROUP_PLAYER = 5,
 
     /**
@@ -55759,9 +48865,6 @@ declare enum COLLISION_GROUP {
      */
     COLLISION_GROUP_BREAKABLE_GLASS = 6,
 
-    /**
-     *
-     */
     COLLISION_GROUP_VEHICLE = 7,
 
     /**
@@ -55789,9 +48892,6 @@ declare enum COLLISION_GROUP {
      */
     COLLISION_GROUP_VEHICLE_CLIP = 12,
 
-    /**
-     *
-     */
     COLLISION_GROUP_PROJECTILE = 13,
 
     /**
@@ -55836,213 +48936,97 @@ declare enum COLLISION_GROUP {
 }
 
 /**
+ * 🟦 [Server]
  *
- * @compileMembersOnly
+ * Enumerations for NPC conditions, used by [NPC:SetCondition](https://wiki.facepunch.com/gmod/NPC:SetCondition). Serverside only.
+ *
+ * **Note:**
+ * >Unlike other Enums `COND` is a table that contains all the enums.
+ *
+ * 	There are more conditions than listed here after **COND_NO_CUSTOM_INTERRUPTS**(70)
+ * 	but the name depends on what's returned by [NPC:ConditionName](https://wiki.facepunch.com/gmod/NPC:ConditionName)
  */
 declare enum COND {
-    /**
-     *
-     */
     BEHIND_ENEMY = 29,
 
-    /**
-     *
-     */
     BETTER_WEAPON_AVAILABLE = 46,
 
-    /**
-     *
-     */
     CAN_MELEE_ATTACK1 = 23,
 
-    /**
-     *
-     */
     CAN_MELEE_ATTACK2 = 24,
 
-    /**
-     *
-     */
     CAN_RANGE_ATTACK1 = 21,
 
-    /**
-     *
-     */
     CAN_RANGE_ATTACK2 = 22,
 
-    /**
-     *
-     */
     ENEMY_DEAD = 30,
 
-    /**
-     *
-     */
     ENEMY_FACING_ME = 28,
 
-    /**
-     *
-     */
     ENEMY_OCCLUDED = 13,
 
-    /**
-     *
-     */
     ENEMY_TOO_FAR = 27,
 
-    /**
-     *
-     */
     ENEMY_UNREACHABLE = 31,
 
-    /**
-     *
-     */
     ENEMY_WENT_NULL = 12,
 
-    /**
-     *
-     */
     FLOATING_OFF_GROUND = 61,
 
-    /**
-     *
-     */
     GIVE_WAY = 48,
 
-    /**
-     *
-     */
     HAVE_ENEMY_LOS = 15,
 
-    /**
-     *
-     */
     HAVE_TARGET_LOS = 16,
 
-    /**
-     *
-     */
     HEALTH_ITEM_AVAILABLE = 47,
 
-    /**
-     *
-     */
     HEAR_BUGBAIT = 52,
 
-    /**
-     *
-     */
     HEAR_BULLET_IMPACT = 56,
 
-    /**
-     *
-     */
     HEAR_COMBAT = 53,
 
-    /**
-     *
-     */
     HEAR_DANGER = 50,
 
-    /**
-     *
-     */
     HEAR_MOVE_AWAY = 58,
 
-    /**
-     *
-     */
     HEAR_PHYSICS_DANGER = 57,
 
-    /**
-     *
-     */
     HEAR_PLAYER = 55,
 
-    /**
-     *
-     */
     HEAR_SPOOKY = 59,
 
-    /**
-     *
-     */
     HEAR_THUMPER = 51,
 
-    /**
-     *
-     */
     HEAR_WORLD = 54,
 
-    /**
-     *
-     */
     HEAVY_DAMAGE = 18,
 
-    /**
-     *
-     */
     IDLE_INTERRUPT = 2,
 
-    /**
-     *
-     */
     IN_PVS = 1,
 
-    /**
-     *
-     */
     LIGHT_DAMAGE = 17,
 
-    /**
-     *
-     */
     LOST_ENEMY = 11,
 
-    /**
-     *
-     */
     LOST_PLAYER = 33,
 
-    /**
-     *
-     */
     LOW_PRIMARY_AMMO = 3,
 
-    /**
-     *
-     */
     MOBBED_BY_ENEMIES = 62,
 
-    /**
-     *
-     */
     NEW_ENEMY = 26,
 
-    /**
-     *
-     */
     NO_CUSTOM_INTERRUPTS = 70,
 
-    /**
-     *
-     */
     NO_HEAR_DANGER = 60,
 
-    /**
-     *
-     */
     NO_PRIMARY_AMMO = 4,
 
-    /**
-     *
-     */
     NO_SECONDARY_AMMO = 5,
 
-    /**
-     *
-     */
     NO_WEAPON = 6,
 
     /**
@@ -56050,9 +49034,6 @@ declare enum COND {
      */
     NONE = 0,
 
-    /**
-     *
-     */
     NOT_FACING_ATTACK = 40,
 
     /**
@@ -56065,142 +49046,66 @@ declare enum COND {
      */
     NPC_UNFREEZE = 68,
 
-    /**
-     *
-     */
     PHYSICS_DAMAGE = 19,
 
-    /**
-     *
-     */
     PLAYER_ADDED_TO_SQUAD = 64,
 
-    /**
-     *
-     */
     PLAYER_PUSHING = 66,
 
-    /**
-     *
-     */
     PLAYER_REMOVED_FROM_SQUAD = 65,
 
-    /**
-     *
-     */
     PROVOKED = 25,
 
-    /**
-     *
-     */
     RECEIVED_ORDERS = 63,
 
-    /**
-     *
-     */
     REPEATED_DAMAGE = 20,
 
-    /**
-     *
-     */
     SCHEDULE_DONE = 36,
 
-    /**
-     *
-     */
     SEE_DISLIKE = 9,
 
-    /**
-     *
-     */
     SEE_ENEMY = 10,
 
-    /**
-     *
-     */
     SEE_FEAR = 8,
 
-    /**
-     *
-     */
     SEE_HATE = 7,
 
-    /**
-     *
-     */
     SEE_NEMESIS = 34,
 
-    /**
-     *
-     */
     SEE_PLAYER = 32,
 
-    /**
-     *
-     */
     SMELL = 37,
 
-    /**
-     *
-     */
     TALKER_RESPOND_TO_QUESTION = 69,
 
-    /**
-     *
-     */
     TARGET_OCCLUDED = 14,
 
-    /**
-     *
-     */
     TASK_FAILED = 35,
 
-    /**
-     *
-     */
     TOO_CLOSE_TO_ATTACK = 38,
 
-    /**
-     *
-     */
     TOO_FAR_TO_ATTACK = 39,
 
-    /**
-     *
-     */
     WAY_CLEAR = 49,
 
-    /**
-     *
-     */
     WEAPON_BLOCKED_BY_FRIEND = 42,
 
-    /**
-     *
-     */
     WEAPON_HAS_LOS = 41,
 
-    /**
-     *
-     */
     WEAPON_PLAYER_IN_SPREAD = 43,
 
-    /**
-     *
-     */
     WEAPON_PLAYER_NEAR_TARGET = 44,
 
-    /**
-     *
-     */
     WEAPON_SIGHT_OCCLUDED = 45,
 }
 
 /**
+ * 🟨🟦 [Shared]
  *
+ * Enumerations used by [util.PointContents](https://wiki.facepunch.com/gmod/util.PointContents) and [PhysObj:SetContents](https://wiki.facepunch.com/gmod/PhysObj:SetContents) as tracer masks, and by <page text="ENT.PhysicsSolidMask">Structures/ENT#PhysicsSolidMask</page> for collision masking.
  * @compileMembersOnly
  */
-declare enum CONTENTS {
+declare const enum CONTENTS {
     /**
      * Things that are not solid
      */
@@ -56216,9 +49121,6 @@ declare enum CONTENTS {
      */
     CONTENTS_WINDOW = 2,
 
-    /**
-     *
-     */
     CONTENTS_AUX = 4,
 
     /**
@@ -56226,9 +49128,6 @@ declare enum CONTENTS {
      */
     CONTENTS_GRATE = 8,
 
-    /**
-     *
-     */
     CONTENTS_SLIME = 16,
 
     /**
@@ -56246,84 +49145,36 @@ declare enum CONTENTS {
      */
     CONTENTS_OPAQUE = 128,
 
-    /**
-     *
-     */
     CONTENTS_TESTFOGVOLUME = 256,
 
-    /**
-     *
-     */
     CONTENTS_TEAM4 = 512,
 
-    /**
-     *
-     */
     CONTENTS_TEAM3 = 1024,
 
-    /**
-     *
-     */
     CONTENTS_TEAM1 = 2048,
 
-    /**
-     *
-     */
     CONTENTS_TEAM2 = 4096,
 
-    /**
-     *
-     */
     CONTENTS_IGNORE_NODRAW_OPAQUE = 8192,
 
-    /**
-     *
-     */
     CONTENTS_MOVEABLE = 16384,
 
-    /**
-     *
-     */
     CONTENTS_AREAPORTAL = 32768,
 
-    /**
-     *
-     */
     CONTENTS_PLAYERCLIP = 65536,
 
-    /**
-     *
-     */
     CONTENTS_MONSTERCLIP = 131072,
 
-    /**
-     *
-     */
     CONTENTS_CURRENT_0 = 262144,
 
-    /**
-     *
-     */
     CONTENTS_CURRENT_180 = 1048576,
 
-    /**
-     *
-     */
     CONTENTS_CURRENT_270 = 2097152,
 
-    /**
-     *
-     */
     CONTENTS_CURRENT_90 = 524288,
 
-    /**
-     *
-     */
     CONTENTS_CURRENT_DOWN = 8388608,
 
-    /**
-     *
-     */
     CONTENTS_CURRENT_UP = 4194304,
 
     /**
@@ -56331,9 +49182,6 @@ declare enum CONTENTS {
      */
     CONTENTS_DEBRIS = 67108864,
 
-    /**
-     *
-     */
     CONTENTS_DETAIL = 134217728,
 
     /**
@@ -56351,9 +49199,6 @@ declare enum CONTENTS {
      */
     CONTENTS_MONSTER = 33554432,
 
-    /**
-     *
-     */
     CONTENTS_ORIGIN = 16777216,
 
     /**
@@ -56373,10 +49218,12 @@ declare enum CONTENTS {
 }
 
 /**
+ * 🟨 [Client]
  *
+ * Enumerations used by [Global.GetRenderTargetEx](https://wiki.facepunch.com/gmod/Global.GetRenderTargetEx). Clientside only.
  * @compileMembersOnly
  */
-declare enum CREATERENDERTARGETFLAGS {
+declare const enum CREATERENDERTARGETFLAGS {
     /**
      * Makes this render target an HDR render target if the current system supports HDR.
      */
@@ -56394,10 +49241,12 @@ declare enum CREATERENDERTARGETFLAGS {
 }
 
 /**
+ * 🟦 [Server]
  *
+ * Citizen type, a KeyValue for npc_citizen( citizentype ), serverside only.
  * @compileMembersOnly
  */
-declare enum CT {
+declare const enum CT {
     /**
      * Default citizen
      */
@@ -56425,10 +49274,12 @@ declare enum CT {
 }
 
 /**
+ * 🟦 [Server]
  *
+ * Enumerations used by [NPC:Disposition](https://wiki.facepunch.com/gmod/NPC:Disposition) and [ENTITY:GetRelationship](https://wiki.facepunch.com/gmod/ENTITY:GetRelationship).
  * @compileMembersOnly
  */
-declare enum D {
+declare const enum D {
     /**
      * Error
      */
@@ -56456,10 +49307,14 @@ declare enum D {
 }
 
 /**
+ * 🟨🟦 [Shared]
  *
+ * Enumerations used internally by death notice system.
+ *
+ * This enumeration is a bit field/bitflag, which means that you can combine multiple death flags using the [bit](https://wiki.facepunch.com/gmod/bit) library. You can use [bit.band](https://wiki.facepunch.com/gmod/bit.band) to test if a specific death flag is set.
  * @compileMembersOnly
  */
-declare enum DEATH_NOTICE {
+declare const enum DEATH_NOTICE {
     /**
      * Was the victim friendly?
      */
@@ -56472,41 +49327,32 @@ declare enum DEATH_NOTICE {
 }
 
 /**
+ * 🟨🟦 [Shared]
  *
+ * Displacement surface flags, used by the [Structures/TraceResult](https://wiki.facepunch.com/gmod/Structures/TraceResult).
  * @compileMembersOnly
  */
-declare enum DISPSURF {
-    /**
-     *
-     */
+declare const enum DISPSURF {
     DISPSURF_SURFACE = 1,
 
-    /**
-     *
-     */
     DISPSURF_WALKABLE = 2,
 
-    /**
-     *
-     */
     DISPSURF_BUILDABLE = 4,
 
-    /**
-     *
-     */
     DISPSURF_SURFPROP1 = 8,
 
-    /**
-     *
-     */
     DISPSURF_SURFPROP2 = 16,
 }
 
 /**
+ * 🟨🟦 [Shared]
  *
+ * Enumerations used by [CTakeDamageInfo:GetDamageType](https://wiki.facepunch.com/gmod/CTakeDamageInfo:GetDamageType), [CTakeDamageInfo:SetDamageType](https://wiki.facepunch.com/gmod/CTakeDamageInfo:SetDamageType) and [CTakeDamageInfo:IsDamageType](https://wiki.facepunch.com/gmod/CTakeDamageInfo:IsDamageType).
+ *
+ * This enumeration is a bit field/bitflag, which means that you can combine multiple damage types using the [bit](https://wiki.facepunch.com/gmod/bit) library. You can use [bit.band](https://wiki.facepunch.com/gmod/bit.band) to test if a specific damage type is set.
  * @compileMembersOnly
  */
-declare enum DMG {
+declare const enum DMG {
     /**
      * Generic damage (used by weapon_fists)
      */
@@ -56674,10 +49520,16 @@ declare enum DMG {
 }
 
 /**
+ * 🟨🟩 [Client and Menu]
+ *
+ * Enumerations used by [Panel:Dock](https://wiki.facepunch.com/gmod/Panel:Dock).
+ *
+ * **Note:**
+ * >These enumerations doesn't have DOCK_ prefix, this is an exception from all other enumerations.
  *
  * @compileMembersOnly
  */
-declare enum DOCK {
+declare const enum DOCK {
     /**
      * Don't dock
      */
@@ -56710,26 +49562,24 @@ declare enum DOCK {
 }
 
 /**
+ * 🟨 [Client]
  *
+ * Internal globals for SimpleDoF.
  * @compileMembersOnly
  */
-declare enum DOF {
-    /**
-     *
-     */
+declare const enum DOF {
     DOF_OFFSET = 256,
 
-    /**
-     *
-     */
     DOF_SPACING = 512,
 }
 
 /**
+ * 🟨🟦 [Shared]
  *
+ * Enumerations used by [Entity:AddEffects](https://wiki.facepunch.com/gmod/Entity:AddEffects),  [Entity:RemoveEffects](https://wiki.facepunch.com/gmod/Entity:RemoveEffects) and  [Entity:IsEffectActive](https://wiki.facepunch.com/gmod/Entity:IsEffectActive).
  * @compileMembersOnly
  */
-declare enum EF {
+declare const enum EF {
     /**
      * Performs bone merge on client side, merging bone positions of child entities ([Entity:SetParent](https://wiki.facepunch.com/gmod/Entity:SetParent)) with those of the parent, by bone names. The skeletons should have identical proportions, however it is not a requirement.
      */
@@ -56792,16 +49642,17 @@ declare enum EF {
 }
 
 /**
+ * 🟨🟦 [Shared]
  *
+ * Enumerations used by [Entity:AddEFlags](https://wiki.facepunch.com/gmod/Entity:AddEFlags), [Entity:RemoveEFlags](https://wiki.facepunch.com/gmod/Entity:RemoveEFlags) and [Entity:IsEFlagSet](https://wiki.facepunch.com/gmod/Entity:IsEFlagSet).
  * @compileMembersOnly
  */
-declare enum EFL {
+declare const enum EFL {
     /**
      * This entity is marked for death -- This allows the game to actually delete ents at a safe time.
      *
      * **Warning:**
      * >You should never set this flag manually.
-     *
      */
     EFL_KILLME = 1,
 
@@ -56962,10 +49813,12 @@ declare enum EFL {
 }
 
 /**
+ * 🟨🟦🟩 [Shared and Menu]
  *
+ * Enumerations used by [Global.AddConsoleCommand](https://wiki.facepunch.com/gmod/Global.AddConsoleCommand), [concommand.Add](https://wiki.facepunch.com/gmod/concommand.Add), [Global.CreateClientConVar](https://wiki.facepunch.com/gmod/Global.CreateClientConVar) and [Global.CreateConVar](https://wiki.facepunch.com/gmod/Global.CreateConVar).
  * @compileMembersOnly
  */
-declare enum FCVAR {
+declare const enum FCVAR {
     /**
      * Save the [ConVar](https://wiki.facepunch.com/gmod/ConVar) value into either client.vdf or server.vdf
      *
@@ -57123,10 +49976,12 @@ declare enum FCVAR {
 }
 
 /**
+ * 🟨 [Client]
  *
+ * Enumerations used by [IGModAudioChannel:FFT](https://wiki.facepunch.com/gmod/IGModAudioChannel:FFT). Clientside only.
  * @compileMembersOnly
  */
-declare enum FFT {
+declare const enum FFT {
     /**
      * 128 levels
      */
@@ -57169,10 +50024,12 @@ declare enum FFT {
 }
 
 /**
+ * 🟨🟦 [Shared]
  *
+ * Enumerations used by [Entity:AddFlags](https://wiki.facepunch.com/gmod/Entity:AddFlags), [Entity:RemoveFlags](https://wiki.facepunch.com/gmod/Entity:RemoveFlags) and [Entity:IsFlagSet](https://wiki.facepunch.com/gmod/Entity:IsFlagSet).
  * @compileMembersOnly
  */
-declare enum FL {
+declare const enum FL {
     /**
      * Is the entity on ground or not
      */
@@ -57208,7 +50065,6 @@ declare enum FL {
      *
      * **Bug :**
      * >Bots will still be able to look around.
-     *
      */
     FL_FROZEN = 64,
 
@@ -57339,10 +50195,12 @@ declare enum FL {
 }
 
 /**
+ * 🟨🟦🟩 [Shared and Menu]
  *
+ * Enumerations used by [Global.AccessorFunc](https://wiki.facepunch.com/gmod/Global.AccessorFunc).
  * @compileMembersOnly
  */
-declare enum FORCE {
+declare const enum FORCE {
     /**
      * Forces the function to take [string](https://wiki.facepunch.com/gmod/string)s only
      */
@@ -57375,81 +50233,46 @@ declare enum FORCE {
 }
 
 /**
+ * 🟨🟦 [Shared]
  *
+ * Used by [file.AsyncRead](https://wiki.facepunch.com/gmod/file.AsyncRead).
  * @compileMembersOnly
  */
-declare enum FSASYNC {
-    /**
-     *
-     */
+declare const enum FSASYNC {
     FSASYNC_ERR_NOT_MINE = -8,
 
-    /**
-     *
-     */
     FSASYNC_ERR_RETRY_LATER = -7,
 
-    /**
-     *
-     */
     FSASYNC_ERR_ALIGNMENT = -6,
 
-    /**
-     *
-     */
     FSASYNC_ERR_FAILURE = -5,
 
-    /**
-     *
-     */
     FSASYNC_ERR_READING = -4,
 
-    /**
-     *
-     */
     FSASYNC_ERR_NOMEMORY = -3,
 
-    /**
-     *
-     */
     FSASYNC_ERR_UNKNOWNID = -2,
 
-    /**
-     *
-     */
     FSASYNC_ERR_FILEOPEN = -1,
 
-    /**
-     *
-     */
     FSASYNC_OK = 0,
 
-    /**
-     *
-     */
     FSASYNC_STATUS_PENDING = 1,
 
-    /**
-     *
-     */
     FSASYNC_STATUS_INPROGRESS = 2,
 
-    /**
-     *
-     */
     FSASYNC_STATUS_ABORTED = 3,
 
-    /**
-     *
-     */
     FSASYNC_STATUS_UNSERVICED = 4,
 }
 
 /**
+ * 🟨🟦 [Shared]
  *
+ * Enumerations used by [Entity:SetSolidFlags](https://wiki.facepunch.com/gmod/Entity:SetSolidFlags) and [Entity:GetSolidFlags](https://wiki.facepunch.com/gmod/Entity:GetSolidFlags).
  * @compileMembersOnly
  */
-declare enum FSOLID {
+declare const enum FSOLID {
     /**
      * Ignore solid type + always call into the entity for ray tests
      */
@@ -57507,10 +50330,12 @@ declare enum FSOLID {
 }
 
 /**
+ * 🟨🟦 [Shared]
  *
+ * Enumerations used by [PhysObj:AddGameFlag](https://wiki.facepunch.com/gmod/PhysObj:AddGameFlag), [PhysObj:HasGameFlag](https://wiki.facepunch.com/gmod/PhysObj:HasGameFlag) and [PhysObj:ClearGameFlag](https://wiki.facepunch.com/gmod/PhysObj:ClearGameFlag).
  * @compileMembersOnly
  */
-declare enum FVPHYSICS {
+declare const enum FVPHYSICS {
     /**
      * Won't receive physics forces from collisions and won't collide with other [PhysObj](https://wiki.facepunch.com/gmod/PhysObj) with the same flag set.
      */
@@ -57578,18 +50403,17 @@ declare enum FVPHYSICS {
 }
 
 /**
+ * 🟨🟦 [Shared]
  *
+ * Enumerations used by [Player:AddVCDSequenceToGestureSlot](https://wiki.facepunch.com/gmod/Player:AddVCDSequenceToGestureSlot), [Player:AnimResetGestureSlot](https://wiki.facepunch.com/gmod/Player:AnimResetGestureSlot) and [Player:AnimRestartGesture](https://wiki.facepunch.com/gmod/Player:AnimRestartGesture).
  * @compileMembersOnly
  */
-declare enum GESTURE_SLOT {
+declare const enum GESTURE_SLOT {
     /**
      * Slot for weapon gestures
      */
     GESTURE_SLOT_ATTACK_AND_RELOAD = 0,
 
-    /**
-     *
-     */
     GESTURE_SLOT_GRENADE = 1,
 
     /**
@@ -57607,9 +50431,6 @@ declare enum GESTURE_SLOT {
      */
     GESTURE_SLOT_FLINCH = 4,
 
-    /**
-     *
-     */
     GESTURE_SLOT_VCD = 5,
 
     /**
@@ -57619,10 +50440,14 @@ declare enum GESTURE_SLOT {
 }
 
 /**
+ * 🟦 [Server]
  *
+ * Enumerations used by [game.SetGlobalState](https://wiki.facepunch.com/gmod/game.SetGlobalState) and [game.GetGlobalState](https://wiki.facepunch.com/gmod/game.GetGlobalState).
+ *
+ * Serverside only.
  * @compileMembersOnly
  */
-declare enum GLOBAL {
+declare const enum GLOBAL {
     /**
      * Initial state, the global state is off.
      */
@@ -57640,10 +50465,12 @@ declare enum GLOBAL {
 }
 
 /**
+ * 🟨 [Client]
  *
+ * Enumerations used by [IGModAudioChannel:GetState](https://wiki.facepunch.com/gmod/IGModAudioChannel:GetState). Clientside only.
  * @compileMembersOnly
  */
-declare enum GMOD_CHANNEL {
+declare const enum GMOD_CHANNEL {
     /**
      * The channel is stopped
      */
@@ -57666,10 +50493,16 @@ declare enum GMOD_CHANNEL {
 }
 
 /**
+ * 🟦 [Server]
+ *
+ * Used by [NPC:GetCurGoalType](https://wiki.facepunch.com/gmod/NPC:GetCurGoalType).
+ *
+ * **Warning:**
+ * >These enumerations do not exist in game and are listed here only for reference
  *
  * @compileMembersOnly
  */
-declare enum GOALTYPE {
+declare const enum GOALTYPE {
     /**
      * No goal type.
      */
@@ -57717,10 +50550,12 @@ declare enum GOALTYPE {
 }
 
 /**
+ * 🟨🟦 [Shared]
  *
+ * Enumerations used by [GM:ScalePlayerDamage](https://wiki.facepunch.com/gmod/GM:ScalePlayerDamage) and [GM:ScaleNPCDamage](https://wiki.facepunch.com/gmod/GM:ScaleNPCDamage) and returned by [Player:LastHitGroup](https://wiki.facepunch.com/gmod/Player:LastHitGroup).
  * @compileMembersOnly
  */
-declare enum HITGROUP {
+declare const enum HITGROUP {
     /**
      * 1:1 damage. Melee weapons and fall damage typically hit this hitgroup.
      * This hitgroup is not present on default player models.
@@ -57775,10 +50610,12 @@ declare enum HITGROUP {
 }
 
 /**
+ * 🟨🟦 [Shared]
  *
+ * Enumerations used by [Player:PrintMessage](https://wiki.facepunch.com/gmod/Player:PrintMessage) and [Global.PrintMessage](https://wiki.facepunch.com/gmod/Global.PrintMessage).
  * @compileMembersOnly
  */
-declare enum HUD {
+declare const enum HUD {
     /**
      * No longer works; now same as HUD_PRINTCONSOLE
      */
@@ -57801,69 +50638,47 @@ declare enum HUD {
 }
 
 /**
+ * 🟦 [Server]
  *
+ * Enumerations used by [NPC:SetHullType](https://wiki.facepunch.com/gmod/NPC:SetHullType) and  [NPC:GetHullType](https://wiki.facepunch.com/gmod/NPC:GetHullType). Serverside only.
  * @compileMembersOnly
  */
-declare enum HULL {
+declare const enum HULL {
     /**
      * Hull of a Citizen
      */
     HULL_HUMAN = 0,
 
-    /**
-     *
-     */
     HULL_SMALL_CENTERED = 1,
 
-    /**
-     *
-     */
     HULL_WIDE_HUMAN = 2,
 
-    /**
-     *
-     */
     HULL_TINY = 3,
 
-    /**
-     *
-     */
     HULL_WIDE_SHORT = 4,
 
-    /**
-     *
-     */
     HULL_MEDIUM = 5,
 
-    /**
-     *
-     */
     HULL_TINY_CENTERED = 6,
 
-    /**
-     *
-     */
     HULL_LARGE = 7,
 
-    /**
-     *
-     */
     HULL_LARGE_CENTERED = 8,
 
-    /**
-     *
-     */
     HULL_MEDIUM_TALL = 9,
 }
 
 /**
+ * 🟨 [Client]
+ *
+ * Enumerations used by [Global.GetRenderTargetEx](https://wiki.facepunch.com/gmod/Global.GetRenderTargetEx). Clientside only.
+ *
+ * **Note:**
+ * >Some additional image formats are accepted by GetRenderTargetEx, but don't currently have enums in Lua and aren't listed here. See [VTF Enumerations.](https://developer.valvesoftware.com/wiki/Valve_Texture_Format#VTF_enumerations)
  *
  * @compileMembersOnly
  */
-declare enum IMAGE_FORMAT {
-    /**
-     *
-     */
+declare const enum IMAGE_FORMAT {
     IMAGE_FORMAT_DEFAULT = -1,
 
     /**
@@ -57913,10 +50728,35 @@ declare enum IMAGE_FORMAT {
 }
 
 /**
+ * 🟨🟦 [Shared]
  *
+ * Unlike [Enums/BUTTON_CODE](https://wiki.facepunch.com/gmod/Enums/BUTTON_CODE), these enums are abstracted to allow the user to bind actions to any key they might prefer.
+ *
+ * Keybinds using these actions work with two console commands, one starting with a plus and one with a minus symbol. A key press or release will call either the plus or minus command, adding or removing the corresponding enum in the current [CUserCmd](https://wiki.facepunch.com/gmod/CUserCmd).
+ *
+ * Enumerations used by:
+ * * [Player:KeyDown](https://wiki.facepunch.com/gmod/Player:KeyDown)
+ * * [Player:KeyDownLast](https://wiki.facepunch.com/gmod/Player:KeyDownLast)
+ * * [Player:KeyPressed](https://wiki.facepunch.com/gmod/Player:KeyPressed)
+ * * [Player:KeyReleased](https://wiki.facepunch.com/gmod/Player:KeyReleased)
+ * * [CMoveData:AddKey](https://wiki.facepunch.com/gmod/CMoveData:AddKey)
+ * * [CMoveData:GetButtons](https://wiki.facepunch.com/gmod/CMoveData:GetButtons)
+ * * [CMoveData:GetOldButtons](https://wiki.facepunch.com/gmod/CMoveData:GetOldButtons)
+ * * [CMoveData:KeyDown](https://wiki.facepunch.com/gmod/CMoveData:KeyDown)
+ * * [CMoveData:KeyPressed](https://wiki.facepunch.com/gmod/CMoveData:KeyPressed)
+ * * [CMoveData:KeyReleased](https://wiki.facepunch.com/gmod/CMoveData:KeyReleased)
+ * * [CMoveData:KeyWasDown](https://wiki.facepunch.com/gmod/CMoveData:KeyWasDown)
+ * * [CMoveData:SetButtons](https://wiki.facepunch.com/gmod/CMoveData:SetButtons)
+ * * [CMoveData:SetOldButtons](https://wiki.facepunch.com/gmod/CMoveData:SetOldButtons)
+ * * [CUserCmd:GetButtons](https://wiki.facepunch.com/gmod/CUserCmd:GetButtons)
+ * * [CUserCmd:KeyDown](https://wiki.facepunch.com/gmod/CUserCmd:KeyDown)
+ * * [CUserCmd:RemoveKey](https://wiki.facepunch.com/gmod/CUserCmd:RemoveKey)
+ * * [CUserCmd:SetButtons](https://wiki.facepunch.com/gmod/CUserCmd:SetButtons)
+ * * [GM:KeyPress](https://wiki.facepunch.com/gmod/GM:KeyPress)
+ * * [GM:KeyRelease](https://wiki.facepunch.com/gmod/GM:KeyRelease)
  * @compileMembersOnly
  */
-declare enum IN {
+declare const enum IN {
     /**
      * +attack bound key ( Default: Left Mouse Button )
      */
@@ -57947,9 +50787,6 @@ declare enum IN {
      */
     IN_USE = 32,
 
-    /**
-     *
-     */
     IN_CANCEL = 64,
 
     /**
@@ -57977,9 +50814,6 @@ declare enum IN {
      */
     IN_ATTACK2 = 2048,
 
-    /**
-     *
-     */
     IN_RUN = 4096,
 
     /**
@@ -58027,9 +50861,6 @@ declare enum IN {
      */
     IN_WEAPON2 = 2097152,
 
-    /**
-     *
-     */
     IN_BULLRUSH = 4194304,
 
     /**
@@ -58044,13 +50875,14 @@ declare enum IN {
 }
 
 /**
+ * 🟨🟦🟩 [Shared and Menu]
  *
+ * Enumerations used by [input.IsButtonDown](https://wiki.facepunch.com/gmod/input.IsButtonDown).
+ *
+ * It's also part of the [Enums/BUTTON_CODE](https://wiki.facepunch.com/gmod/Enums/BUTTON_CODE).
  * @compileMembersOnly
  */
-declare enum JOYSTICK {
-    /**
-     *
-     */
+declare const enum JOYSTICK {
     JOYSTICK_FIRST = 114,
 
     /**
@@ -58058,9 +50890,6 @@ declare enum JOYSTICK {
      */
     JOYSTICK_FIRST_BUTTON = 114,
 
-    /**
-     *
-     */
     JOYSTICK_LAST_BUTTON = 145,
 
     /**
@@ -58068,9 +50897,6 @@ declare enum JOYSTICK {
      */
     JOYSTICK_FIRST_POV_BUTTON = 146,
 
-    /**
-     *
-     */
     JOYSTICK_LAST_POV_BUTTON = 149,
 
     /**
@@ -58078,30 +50904,31 @@ declare enum JOYSTICK {
      */
     JOYSTICK_FIRST_AXIS_BUTTON = 150,
 
-    /**
-     *
-     */
     JOYSTICK_LAST_AXIS_BUTTON = 161,
 
-    /**
-     *
-     */
     JOYSTICK_LAST = 161,
 }
 
 /**
+ * 🟨🟦🟩 [Shared and Menu]
  *
+ * Enumerations used by:
+ * * [input.IsKeyDown](https://wiki.facepunch.com/gmod/input.IsKeyDown)
+ * * [input.WasKeyPressed](https://wiki.facepunch.com/gmod/input.WasKeyPressed)
+ * * [input.WasKeyReleased](https://wiki.facepunch.com/gmod/input.WasKeyReleased)
+ * * [input.WasKeyTyped](https://wiki.facepunch.com/gmod/input.WasKeyTyped)
+ * * [input.IsKeyTrapping](https://wiki.facepunch.com/gmod/input.IsKeyTrapping)
+ * * [input.GetKeyName](https://wiki.facepunch.com/gmod/input.GetKeyName)
+ * * [input.LookupBinding](https://wiki.facepunch.com/gmod/input.LookupBinding)
+ * * [PANEL:OnKeyCodePressed](https://wiki.facepunch.com/gmod/PANEL:OnKeyCodePressed)
+ * * [PANEL:OnKeyCodeReleased](https://wiki.facepunch.com/gmod/PANEL:OnKeyCodeReleased)
+ *
+ * It's also part of the [Enums/BUTTON_CODE](https://wiki.facepunch.com/gmod/Enums/BUTTON_CODE).
  * @compileMembersOnly
  */
-declare enum KEY {
-    /**
-     *
-     */
+declare const enum KEY {
     KEY_FIRST = 0,
 
-    /**
-     *
-     */
     KEY_NONE = 0,
 
     /**
@@ -58154,134 +50981,56 @@ declare enum KEY {
      */
     KEY_9 = 10,
 
-    /**
-     *
-     */
     KEY_A = 11,
 
-    /**
-     *
-     */
     KEY_B = 12,
 
-    /**
-     *
-     */
     KEY_C = 13,
 
-    /**
-     *
-     */
     KEY_D = 14,
 
-    /**
-     *
-     */
     KEY_E = 15,
 
-    /**
-     *
-     */
     KEY_F = 16,
 
-    /**
-     *
-     */
     KEY_G = 17,
 
-    /**
-     *
-     */
     KEY_H = 18,
 
-    /**
-     *
-     */
     KEY_I = 19,
 
-    /**
-     *
-     */
     KEY_J = 20,
 
-    /**
-     *
-     */
     KEY_K = 21,
 
-    /**
-     *
-     */
     KEY_L = 22,
 
-    /**
-     *
-     */
     KEY_M = 23,
 
-    /**
-     *
-     */
     KEY_N = 24,
 
-    /**
-     *
-     */
     KEY_O = 25,
 
-    /**
-     *
-     */
     KEY_P = 26,
 
-    /**
-     *
-     */
     KEY_Q = 27,
 
-    /**
-     *
-     */
     KEY_R = 28,
 
-    /**
-     *
-     */
     KEY_S = 29,
 
-    /**
-     *
-     */
     KEY_T = 30,
 
-    /**
-     *
-     */
     KEY_U = 31,
 
-    /**
-     *
-     */
     KEY_V = 32,
 
-    /**
-     *
-     */
     KEY_W = 33,
 
-    /**
-     *
-     */
     KEY_X = 34,
 
-    /**
-     *
-     */
     KEY_Y = 35,
 
-    /**
-     *
-     */
     KEY_Z = 36,
 
     /**
@@ -58364,134 +51113,56 @@ declare enum KEY {
      */
     KEY_PAD_DECIMAL = 52,
 
-    /**
-     *
-     */
     KEY_LBRACKET = 53,
 
-    /**
-     *
-     */
     KEY_RBRACKET = 54,
 
-    /**
-     *
-     */
     KEY_SEMICOLON = 55,
 
-    /**
-     *
-     */
     KEY_APOSTROPHE = 56,
 
-    /**
-     *
-     */
     KEY_BACKQUOTE = 57,
 
-    /**
-     *
-     */
     KEY_COMMA = 58,
 
-    /**
-     *
-     */
     KEY_PERIOD = 59,
 
-    /**
-     *
-     */
     KEY_SLASH = 60,
 
-    /**
-     *
-     */
     KEY_BACKSLASH = 61,
 
-    /**
-     *
-     */
     KEY_MINUS = 62,
 
-    /**
-     *
-     */
     KEY_EQUAL = 63,
 
-    /**
-     *
-     */
     KEY_ENTER = 64,
 
-    /**
-     *
-     */
     KEY_SPACE = 65,
 
-    /**
-     *
-     */
     KEY_BACKSPACE = 66,
 
-    /**
-     *
-     */
     KEY_TAB = 67,
 
-    /**
-     *
-     */
     KEY_CAPSLOCK = 68,
 
-    /**
-     *
-     */
     KEY_NUMLOCK = 69,
 
-    /**
-     *
-     */
     KEY_ESCAPE = 70,
 
-    /**
-     *
-     */
     KEY_SCROLLLOCK = 71,
 
-    /**
-     *
-     */
     KEY_INSERT = 72,
 
-    /**
-     *
-     */
     KEY_DELETE = 73,
 
-    /**
-     *
-     */
     KEY_HOME = 74,
 
-    /**
-     *
-     */
     KEY_END = 75,
 
-    /**
-     *
-     */
     KEY_PAGEUP = 76,
 
-    /**
-     *
-     */
     KEY_PAGEDOWN = 77,
 
-    /**
-     *
-     */
     KEY_BREAK = 78,
 
     /**
@@ -58499,29 +51170,14 @@ declare enum KEY {
      */
     KEY_LSHIFT = 79,
 
-    /**
-     *
-     */
     KEY_RSHIFT = 80,
 
-    /**
-     *
-     */
     KEY_LALT = 81,
 
-    /**
-     *
-     */
     KEY_RALT = 82,
 
-    /**
-     *
-     */
     KEY_LCONTROL = 83,
 
-    /**
-     *
-     */
     KEY_RCONTROL = 84,
 
     /**
@@ -58534,246 +51190,112 @@ declare enum KEY {
      */
     KEY_RWIN = 86,
 
-    /**
-     *
-     */
     KEY_APP = 87,
 
-    /**
-     *
-     */
     KEY_UP = 88,
 
-    /**
-     *
-     */
     KEY_LEFT = 89,
 
-    /**
-     *
-     */
     KEY_DOWN = 90,
 
-    /**
-     *
-     */
     KEY_RIGHT = 91,
 
-    /**
-     *
-     */
     KEY_F1 = 92,
 
-    /**
-     *
-     */
     KEY_F2 = 93,
 
-    /**
-     *
-     */
     KEY_F3 = 94,
 
-    /**
-     *
-     */
     KEY_F4 = 95,
 
-    /**
-     *
-     */
     KEY_F5 = 96,
 
-    /**
-     *
-     */
     KEY_F6 = 97,
 
-    /**
-     *
-     */
     KEY_F7 = 98,
 
     /**
-     *
-     *
      * **Warning:**
      * >By default, it serves as bind "load quick", which loads the save by forcing the player to exit the server.
-     *
      */
     KEY_F8 = 99,
 
-    /**
-     *
-     */
     KEY_F9 = 100,
 
-    /**
-     *
-     */
     KEY_F10 = 101,
 
-    /**
-     *
-     */
     KEY_F11 = 102,
 
-    /**
-     *
-     */
     KEY_F12 = 103,
 
-    /**
-     *
-     */
     KEY_CAPSLOCKTOGGLE = 104,
 
-    /**
-     *
-     */
     KEY_NUMLOCKTOGGLE = 105,
 
-    /**
-     *
-     */
     KEY_LAST = 106,
 
-    /**
-     *
-     */
     KEY_SCROLLLOCKTOGGLE = 106,
 
-    /**
-     *
-     */
     KEY_COUNT = 107,
 
-    /**
-     *
-     */
     KEY_XBUTTON_A = 114,
 
-    /**
-     *
-     */
     KEY_XBUTTON_B = 115,
 
-    /**
-     *
-     */
     KEY_XBUTTON_X = 116,
 
-    /**
-     *
-     */
     KEY_XBUTTON_Y = 117,
 
-    /**
-     *
-     */
     KEY_XBUTTON_LEFT_SHOULDER = 118,
 
-    /**
-     *
-     */
     KEY_XBUTTON_RIGHT_SHOULDER = 119,
 
-    /**
-     *
-     */
     KEY_XBUTTON_BACK = 120,
 
-    /**
-     *
-     */
     KEY_XBUTTON_START = 121,
 
-    /**
-     *
-     */
     KEY_XBUTTON_STICK1 = 122,
 
-    /**
-     *
-     */
     KEY_XBUTTON_STICK2 = 123,
 
-    /**
-     *
-     */
     KEY_XBUTTON_UP = 146,
 
-    /**
-     *
-     */
     KEY_XBUTTON_RIGHT = 147,
 
-    /**
-     *
-     */
     KEY_XBUTTON_DOWN = 148,
 
-    /**
-     *
-     */
     KEY_XBUTTON_LEFT = 149,
 
-    /**
-     *
-     */
     KEY_XSTICK1_RIGHT = 150,
 
-    /**
-     *
-     */
     KEY_XSTICK1_LEFT = 151,
 
-    /**
-     *
-     */
     KEY_XSTICK1_DOWN = 152,
 
-    /**
-     *
-     */
     KEY_XSTICK1_UP = 153,
 
-    /**
-     *
-     */
     KEY_XBUTTON_LTRIGGER = 154,
 
-    /**
-     *
-     */
     KEY_XBUTTON_RTRIGGER = 155,
 
-    /**
-     *
-     */
     KEY_XSTICK2_RIGHT = 156,
 
-    /**
-     *
-     */
     KEY_XSTICK2_LEFT = 157,
 
-    /**
-     *
-     */
     KEY_XSTICK2_DOWN = 158,
 
-    /**
-     *
-     */
     KEY_XSTICK2_UP = 159,
 }
 
 /**
+ * 🟨🟦 [Shared]
  *
+ * Used by [Entity:SetRenderFX](https://wiki.facepunch.com/gmod/Entity:SetRenderFX) and returned by [Entity:GetRenderFX](https://wiki.facepunch.com/gmod/Entity:GetRenderFX).
+ *
+ * Most of these require alpha value of entitys color to be less than 255 to have any visible effect.
  * @compileMembersOnly
  */
-declare enum kRenderFx {
+declare const enum kRenderFx {
     /**
      * None. No change.
      */
@@ -58852,9 +51374,6 @@ declare enum kRenderFx {
      */
     kRenderFxFlickerFast = 13,
 
-    /**
-     *
-     */
     kRenderFxNoDissipation = 14,
 
     /**
@@ -58867,34 +51386,16 @@ declare enum kRenderFx {
      */
     kRenderFxHologram = 16,
 
-    /**
-     *
-     */
     kRenderFxExplode = 17,
 
-    /**
-     *
-     */
     kRenderFxGlowShell = 18,
 
-    /**
-     *
-     */
     kRenderFxClampMinScale = 19,
 
-    /**
-     *
-     */
     kRenderFxEnvRain = 20,
 
-    /**
-     *
-     */
     kRenderFxEnvSnow = 21,
 
-    /**
-     *
-     */
     kRenderFxSpotlight = 22,
 
     /**
@@ -58909,10 +51410,12 @@ declare enum kRenderFx {
 }
 
 /**
+ * 🟨🟦 [Shared]
  *
+ * Enumerations used as trace masks in [Structures/Trace](https://wiki.facepunch.com/gmod/Structures/Trace) and [Structures/HullTrace](https://wiki.facepunch.com/gmod/Structures/HullTrace). These enumerations are simply combinations of [Enums/CONTENTS](https://wiki.facepunch.com/gmod/Enums/CONTENTS).
  * @compileMembersOnly
  */
-declare enum MASK {
+declare const enum MASK {
     /**
      * Anything that is not empty space
      */
@@ -59020,10 +51523,12 @@ declare enum MASK {
 }
 
 /**
+ * 🟨🟦 [Shared]
  *
+ * Enumerations used in [Structures/TraceResult](https://wiki.facepunch.com/gmod/Structures/TraceResult) and by [Entity:GetMaterialType](https://wiki.facepunch.com/gmod/Entity:GetMaterialType).
  * @compileMembersOnly
  */
-declare enum MAT {
+declare const enum MAT {
     /**
      * Antlions
      */
@@ -59141,16 +51646,19 @@ declare enum MAT {
 }
 
 /**
+ * 🟨 [Client]
  *
+ * Enumerations used by [mesh.Begin](https://wiki.facepunch.com/gmod/mesh.Begin) to control what type of vertex information it should expect. Clientside only.
+ *
+ * 		For more information, see the <page text="Mesh Primitives">mesh_primitives</page> reference page.
  * @compileMembersOnly
  */
-declare enum MATERIAL {
+declare const enum MATERIAL {
     /**
      * For more information, see <page text="Point Primitives">mesh_primitives#points</page>
      *
      * **Warning:**
      * >The primitive type `MATERIAL_POINTS` does not currently work and will not produce any visual effect if used.
-     *
      */
     MATERIAL_POINTS = 0,
 
@@ -59159,7 +51667,6 @@ declare enum MATERIAL {
      *
      * **Warning:**
      * >The primitive type `MATERIAL_LINES` does not currently work and will not produce any visual effect if used.
-     *
      */
     MATERIAL_LINES = 1,
 
@@ -59188,7 +51695,6 @@ declare enum MATERIAL {
      *
      * **Warning:**
      * >The primitive type `MATERIAL_LINE_STRIP` does not currently work and will not produce any visual effect if used.
-     *
      */
     MATERIAL_LINE_STRIP = 4,
 
@@ -59197,7 +51703,6 @@ declare enum MATERIAL {
      *
      * **Warning:**
      * >The primitive type `MATERIAL_LINE_LOOP` does not currently work and will not produce any visual effect if used.
-     *
      */
     MATERIAL_LINE_LOOP = 5,
 
@@ -59223,10 +51728,12 @@ declare enum MATERIAL {
 }
 
 /**
+ * 🟨 [Client]
  *
+ * Enumerations used by [render.CullMode](https://wiki.facepunch.com/gmod/render.CullMode). Clientside only.
  * @compileMembersOnly
  */
-declare enum MATERIAL_CULLMODE {
+declare const enum MATERIAL_CULLMODE {
     /**
      * Cull back faces with counterclockwise vertices.
      */
@@ -59236,13 +51743,20 @@ declare enum MATERIAL_CULLMODE {
      * Cull back faces with clockwise vertices.
      */
     MATERIAL_CULLMODE_CW = 1,
+
+    /**
+     * Do not cull back faces at all.
+     */
+    MATERIAL_CULLMODE_NONE = 2,
 }
 
 /**
+ * 🟨 [Client]
  *
+ * Enumerations used by [render.GetFogMode](https://wiki.facepunch.com/gmod/render.GetFogMode) and [render.FogMode](https://wiki.facepunch.com/gmod/render.FogMode). Clientside only.
  * @compileMembersOnly
  */
-declare enum MATERIAL_FOG {
+declare const enum MATERIAL_FOG {
     /**
      * No fog
      */
@@ -59260,10 +51774,12 @@ declare enum MATERIAL_FOG {
 }
 
 /**
+ * 🟨 [Client]
  *
+ * Enumerations used by [render.SetLocalModelLights](https://wiki.facepunch.com/gmod/render.SetLocalModelLights). Clientside only.
  * @compileMembersOnly
  */
-declare enum MATERIAL_LIGHT {
+declare const enum MATERIAL_LIGHT {
     /**
      * No light
      */
@@ -59286,10 +51802,16 @@ declare enum MATERIAL_LIGHT {
 }
 
 /**
+ * 🟨 [Client]
+ *
+ * Enumerations used by [Global.GetRenderTargetEx](https://wiki.facepunch.com/gmod/Global.GetRenderTargetEx). Clientside only.
+ *
+ * **Warning:**
+ * >When Anti Aliasing is enabled then `MATERIAL_RT_DEPTH_SHARED` and `MATERIAL_RT_DEPTH_SEPARATE` will always create a new depth-stencil buffer because Render Targets do not have Anti Aliasing.
  *
  * @compileMembersOnly
  */
-declare enum MATERIAL_RT_DEPTH {
+declare const enum MATERIAL_RT_DEPTH {
     /**
      * Do not create a depth-stencil buffer.<br/>Use the default depth-stencil buffer if used as render target 0.
      */
@@ -59315,10 +51837,26 @@ declare enum MATERIAL_RT_DEPTH {
 }
 
 /**
+ * 🟨🟦🟩 [Shared and Menu]
  *
+ * Enumerations used by:
+ * * [input.IsMouseDown](https://wiki.facepunch.com/gmod/input.IsMouseDown)
+ * * [input.WasMousePressed](https://wiki.facepunch.com/gmod/input.WasMousePressed)
+ * * [input.WasMouseDoublePressed](https://wiki.facepunch.com/gmod/input.WasMouseDoublePressed)
+ *
+ * It's also part of the [Enums/BUTTON_CODE](https://wiki.facepunch.com/gmod/Enums/BUTTON_CODE).
+ * # Catch mouse wheel
+ * You can catch the mouse wheel's value by:
+ * ```
+ * local testVal = 0
+ * hook.Add("InputMouseApply", "testMouseWheel", function(cmd, x, y, ang)
+ *     testVal = testVal + cmd:GetMouseWheel() * 2 --any scale number you want to use
+ *     print(testVal)
+ * end)
+ * ```
  * @compileMembersOnly
  */
-declare enum MOUSE {
+declare const enum MOUSE {
     /**
      * First mouse button
      */
@@ -59371,10 +51909,12 @@ declare enum MOUSE {
 }
 
 /**
+ * 🟨🟦 [Shared]
  *
+ * Enumerations used by [Entity:SetMoveCollide](https://wiki.facepunch.com/gmod/Entity:SetMoveCollide) and [Entity:GetMoveCollide](https://wiki.facepunch.com/gmod/Entity:GetMoveCollide).
  * @compileMembersOnly
  */
-declare enum MOVECOLLIDE {
+declare const enum MOVECOLLIDE {
     /**
      * Default behavior
      */
@@ -59402,10 +51942,12 @@ declare enum MOVECOLLIDE {
 }
 
 /**
+ * 🟨🟦 [Shared]
  *
+ * Enumerations used by [Entity:SetMoveType](https://wiki.facepunch.com/gmod/Entity:SetMoveType) and [Entity:GetMoveType](https://wiki.facepunch.com/gmod/Entity:GetMoveType).
  * @compileMembersOnly
  */
-declare enum MOVETYPE {
+declare const enum MOVETYPE {
     /**
      * Don't move
      */
@@ -59460,7 +52002,6 @@ declare enum MOVETYPE {
      *
      * **Note:**
      * >MOVETYPE_PUSH entities only move during [Entity:Think](https://wiki.facepunch.com/gmod/Entity:Think) so if you want smooth movement, you need to set [Entity:NextThink](https://wiki.facepunch.com/gmod/Entity:NextThink) to [Global.CurTime](https://wiki.facepunch.com/gmod/Global.CurTime), which instructs the entity to execute [Entity:Think](https://wiki.facepunch.com/gmod/Entity:Think) as quickly as possible.
-     *
      */
     MOVETYPE_PUSH = 7,
 
@@ -59486,10 +52027,12 @@ declare enum MOVETYPE {
 }
 
 /**
+ * 🟦 [Server]
  *
+ * Used by [NPC:SetNavType](https://wiki.facepunch.com/gmod/NPC:SetNavType) and [NPC:GetNavType](https://wiki.facepunch.com/gmod/NPC:GetNavType).
  * @compileMembersOnly
  */
-declare enum NAV {
+declare const enum NAV {
     /**
      * Error condition.
      */
@@ -59517,10 +52060,12 @@ declare enum NAV {
 }
 
 /**
+ * 🟦 [Server]
  *
+ * Enumerations used by [CNavArea:GetAttributes](https://wiki.facepunch.com/gmod/CNavArea:GetAttributes) and [CNavArea:HasAttributes](https://wiki.facepunch.com/gmod/CNavArea:HasAttributes).
  * @compileMembersOnly
  */
-declare enum NAV_MESH {
+declare const enum NAV_MESH {
     /**
      * The nav area is invalid.
      */
@@ -59633,10 +52178,17 @@ declare enum NAV_MESH {
 }
 
 /**
+ * 🟦 [Server]
+ *
+ * Enumerations used by [CNavArea](https://wiki.facepunch.com/gmod/CNavArea) methods.
+ * These Enums correspond to each corner of a [CNavArea](https://wiki.facepunch.com/gmod/CNavArea)
+ *
+ * **Warning:**
+ * >These enumerations do not exist in game and are listed here only for reference
  *
  * @compileMembersOnly
  */
-declare enum NavCorner {
+declare const enum NavCorner {
     /**
      * North West Corner
      */
@@ -59664,10 +52216,17 @@ declare enum NavCorner {
 }
 
 /**
+ * 🟦 [Server]
+ *
+ * Enumerations used by [CNavArea](https://wiki.facepunch.com/gmod/CNavArea) methods.
+ * These Enums correspond to each side of a [CNavArea](https://wiki.facepunch.com/gmod/CNavArea)
+ *
+ * **Warning:**
+ * >These enumerations do not exist in game and are listed here only for reference
  *
  * @compileMembersOnly
  */
-declare enum NavDir {
+declare const enum NavDir {
     /**
      * North from given [CNavArea](https://wiki.facepunch.com/gmod/CNavArea)
      */
@@ -59690,61 +52249,42 @@ declare enum NavDir {
 }
 
 /**
+ * 🟦 [Server]
+ *
+ * Enumerations used by [CNavArea:GetParentHow](https://wiki.facepunch.com/gmod/CNavArea:GetParentHow).
+ *
+ * **Warning:**
+ * >These enumerations do not exist in game and are listed here only for reference
  *
  * @compileMembersOnly
  */
-declare enum NavTraverseType {
-    /**
-     *
-     */
+declare const enum NavTraverseType {
     GO_NORTH = 0,
 
-    /**
-     *
-     */
     GO_EAST = 1,
 
-    /**
-     *
-     */
     GO_SOUTH = 2,
 
-    /**
-     *
-     */
     GO_WEST = 3,
 
-    /**
-     *
-     */
     GO_LADDER_UP = 4,
 
-    /**
-     *
-     */
     GO_LADDER_DOWN = 5,
 
-    /**
-     *
-     */
     GO_JUMP = 6,
 
-    /**
-     *
-     */
     GO_ELEVATOR_UP = 7,
 
-    /**
-     *
-     */
     GO_ELEVATOR_DOWN = 8,
 }
 
 /**
+ * 🟨🟩 [Client and Menu]
  *
+ * Enumerations used by [notification.AddLegacy](https://wiki.facepunch.com/gmod/notification.AddLegacy). Clientside & Menu only.
  * @compileMembersOnly
  */
-declare enum NOTIFY {
+declare const enum NOTIFY {
     /**
      * <image src="NOTIFY_GENERIC_PREVIEW.png" alt="middle"/> Generic notification
      */
@@ -59772,10 +52312,12 @@ declare enum NOTIFY {
 }
 
 /**
+ * 🟦 [Server]
  *
+ * Enumerations used by [NPC:SetNPCState](https://wiki.facepunch.com/gmod/NPC:SetNPCState). Serverside only.
  * @compileMembersOnly
  */
-declare enum NPC_STATE {
+declare const enum NPC_STATE {
     /**
      * Invalid state
      */
@@ -59823,10 +52365,12 @@ declare enum NPC_STATE {
 }
 
 /**
+ * 🟦 [Server]
  *
+ * Various count enums.
  * @compileMembersOnly
  */
-declare enum NUM {
+declare const enum NUM {
     /**
      * Amount of [Enums/CLASS](https://wiki.facepunch.com/gmod/Enums/CLASS). Used by [Global.Add_NPC_Class](https://wiki.facepunch.com/gmod/Global.Add_NPC_Class).
      */
@@ -59839,10 +52383,12 @@ declare enum NUM {
 }
 
 /**
+ * 🟨🟦 [Shared]
  *
+ * Enumerations used by [Player:SetObserverMode](https://wiki.facepunch.com/gmod/Player:SetObserverMode), [Player:GetObserverMode](https://wiki.facepunch.com/gmod/Player:GetObserverMode) and [Player:Spectate](https://wiki.facepunch.com/gmod/Player:Spectate).
  * @compileMembersOnly
  */
-declare enum OBS_MODE {
+declare const enum OBS_MODE {
     /**
      * Not spectating
      */
@@ -59880,10 +52426,12 @@ declare enum OBS_MODE {
 }
 
 /**
+ * 🟨🟦 [Shared]
  *
+ * Enumerations used by [Global.ParticleEffectAttach](https://wiki.facepunch.com/gmod/Global.ParticleEffectAttach).
  * @compileMembersOnly
  */
-declare enum PATTACH {
+declare const enum PATTACH {
     /**
      * Particle spawns in entity's origin and does not follow it
      */
@@ -59916,33 +52464,20 @@ declare enum PATTACH {
 }
 
 /**
+ * 🟨🟦 [Shared]
  *
+ * Enumerations used by [Entity:SetAnimation](https://wiki.facepunch.com/gmod/Entity:SetAnimation)
  * @compileMembersOnly
  */
-declare enum PLAYERANIM {
-    /**
-     *
-     */
+declare const enum PLAYERANIM {
     PLAYER_IDLE = 0,
 
-    /**
-     *
-     */
     PLAYER_WALK = 1,
 
-    /**
-     *
-     */
     PLAYER_JUMP = 2,
 
-    /**
-     *
-     */
     PLAYER_SUPERJUMP = 3,
 
-    /**
-     *
-     */
     PLAYER_DIE = 4,
 
     /**
@@ -59950,9 +52485,6 @@ declare enum PLAYERANIM {
      */
     PLAYER_ATTACK1 = 5,
 
-    /**
-     *
-     */
     PLAYER_IN_VEHICLE = 6,
 
     /**
@@ -59960,22 +52492,18 @@ declare enum PLAYERANIM {
      */
     PLAYER_RELOAD = 7,
 
-    /**
-     *
-     */
     PLAYER_START_AIMING = 8,
 
-    /**
-     *
-     */
     PLAYER_LEAVE_AIMING = 9,
 }
 
 /**
+ * 🟨🟦 [Shared]
  *
+ * Used by [GM:DoAnimationEvent](https://wiki.facepunch.com/gmod/GM:DoAnimationEvent) and [Player:DoCustomAnimEvent](https://wiki.facepunch.com/gmod/Player:DoCustomAnimEvent).
  * @compileMembersOnly
  */
-declare enum PLAYERANIMEVENT {
+declare const enum PLAYERANIMEVENT {
     /**
      * Primary attack
      */
@@ -60021,44 +52549,20 @@ declare enum PLAYERANIMEVENT {
      */
     PLAYERANIMEVENT_DIE = 8,
 
-    /**
-     *
-     */
     PLAYERANIMEVENT_FLINCH_CHEST = 9,
 
-    /**
-     *
-     */
     PLAYERANIMEVENT_FLINCH_HEAD = 10,
 
-    /**
-     *
-     */
     PLAYERANIMEVENT_FLINCH_LEFTARM = 11,
 
-    /**
-     *
-     */
     PLAYERANIMEVENT_FLINCH_RIGHTARM = 12,
 
-    /**
-     *
-     */
     PLAYERANIMEVENT_FLINCH_LEFTLEG = 13,
 
-    /**
-     *
-     */
     PLAYERANIMEVENT_FLINCH_RIGHTLEG = 14,
 
-    /**
-     *
-     */
     PLAYERANIMEVENT_DOUBLEJUMP = 15,
 
-    /**
-     *
-     */
     PLAYERANIMEVENT_CANCEL = 16,
 
     /**
@@ -60066,9 +52570,6 @@ declare enum PLAYERANIMEVENT {
      */
     PLAYERANIMEVENT_SPAWN = 17,
 
-    /**
-     *
-     */
     PLAYERANIMEVENT_SNAP_YAW = 18,
 
     /**
@@ -60098,10 +52599,12 @@ declare enum PLAYERANIMEVENT {
 }
 
 /**
+ * 🟨🟦 [Shared]
  *
+ * Enumerations used by [Global.ClientsideModel](https://wiki.facepunch.com/gmod/Global.ClientsideModel), `ENT.RenderGroup` in [Structures/ENT](https://wiki.facepunch.com/gmod/Structures/ENT) and [Entity:GetRenderGroup](https://wiki.facepunch.com/gmod/Entity:GetRenderGroup).
  * @compileMembersOnly
  */
-declare enum RENDERGROUP {
+declare const enum RENDERGROUP {
     /**
      * Huge static prop, possibly leftover from goldsrc
      */
@@ -60160,10 +52663,12 @@ declare enum RENDERGROUP {
 }
 
 /**
+ * 🟨🟦 [Shared]
  *
+ * Enumerations used by [Entity:SetRenderMode](https://wiki.facepunch.com/gmod/Entity:SetRenderMode) and [Entity:GetRenderMode](https://wiki.facepunch.com/gmod/Entity:GetRenderMode).
  * @compileMembersOnly
  */
-declare enum RENDERMODE {
+declare const enum RENDERMODE {
     /**
      * Default render mode. Transparently has no effect.
      */
@@ -60176,9 +52681,6 @@ declare enum RENDERMODE {
      */
     RENDERMODE_TRANSCOLOR = 1,
 
-    /**
-     *
-     */
     RENDERMODE_TRANSTEXTURE = 2,
 
     /**
@@ -60231,10 +52733,12 @@ declare enum RENDERMODE {
 }
 
 /**
+ * 🟨 [Client]
  *
+ * Enumerations used by [Global.GetRenderTargetEx](https://wiki.facepunch.com/gmod/Global.GetRenderTargetEx). Clientside only.
  * @compileMembersOnly
  */
-declare enum RT_SIZE {
+declare const enum RT_SIZE {
     /**
      * Only allowed for render targets that don't want a depth buffer (because if they have a depth buffer, the render target must be less than or equal to the size of the framebuffer).
      */
@@ -60287,10 +52791,12 @@ declare enum RT_SIZE {
 }
 
 /**
+ * 🟦 [Server]
  *
+ * Enumerations for NPC schedules, used by [ENTITY:StartEngineSchedule](https://wiki.facepunch.com/gmod/ENTITY:StartEngineSchedule), [ENTITY:TranslateSchedule](https://wiki.facepunch.com/gmod/ENTITY:TranslateSchedule) and [NPC:SetSchedule](https://wiki.facepunch.com/gmod/NPC:SetSchedule). Serverside only.
  * @compileMembersOnly
  */
-declare enum SCHED {
+declare const enum SCHED {
     /**
      * The schedule enum limit
      */
@@ -60306,14 +52812,8 @@ declare enum SCHED {
      */
     SCHED_ALERT_FACE = 5,
 
-    /**
-     *
-     */
     SCHED_ALERT_FACE_BESTSOUND = 6,
 
-    /**
-     *
-     */
     SCHED_ALERT_REACT_TO_COMBAT_SOUND = 7,
 
     /**
@@ -60376,19 +52876,10 @@ declare enum SCHED {
      */
     SCHED_COMBAT_PATROL = 75,
 
-    /**
-     *
-     */
     SCHED_COMBAT_STAND = 15,
 
-    /**
-     *
-     */
     SCHED_COMBAT_SWEEP = 13,
 
-    /**
-     *
-     */
     SCHED_COMBAT_WALK = 16,
 
     /**
@@ -60411,9 +52902,6 @@ declare enum SCHED {
      */
     SCHED_DISARM_WEAPON = 49,
 
-    /**
-     *
-     */
     SCHED_DROPSHIP_DUSTOFF = 79,
 
     /**
@@ -60441,9 +52929,6 @@ declare enum SCHED {
      */
     SCHED_FAIL_ESTABLISH_LINE_OF_FIRE = 38,
 
-    /**
-     *
-     */
     SCHED_FAIL_NOSTOP = 82,
 
     /**
@@ -60461,9 +52946,6 @@ declare enum SCHED {
      */
     SCHED_FEAR_FACE = 14,
 
-    /**
-     *
-     */
     SCHED_FLEE_FROM_BEST_SOUND = 29,
 
     /**
@@ -60506,29 +52988,14 @@ declare enum SCHED {
      */
     SCHED_IDLE_WANDER = 3,
 
-    /**
-     *
-     */
     SCHED_INTERACTION_MOVE_TO_PARTNER = 85,
 
-    /**
-     *
-     */
     SCHED_INTERACTION_WAIT_FOR_PARTNER = 86,
 
-    /**
-     *
-     */
     SCHED_INVESTIGATE_SOUND = 11,
 
-    /**
-     *
-     */
     SCHED_MELEE_ATTACK1 = 41,
 
-    /**
-     *
-     */
     SCHED_MELEE_ATTACK2 = 42,
 
     /**
@@ -60586,19 +53053,10 @@ declare enum SCHED {
      */
     SCHED_PATROL_WALK = 74,
 
-    /**
-     *
-     */
     SCHED_PRE_FAIL_ESTABLISH_LINE_OF_FIRE = 37,
 
-    /**
-     *
-     */
     SCHED_RANGE_ATTACK1 = 43,
 
-    /**
-     *
-     */
     SCHED_RANGE_ATTACK2 = 44,
 
     /**
@@ -60611,14 +53069,8 @@ declare enum SCHED {
      */
     SCHED_RUN_FROM_ENEMY = 32,
 
-    /**
-     *
-     */
     SCHED_RUN_FROM_ENEMY_FALLBACK = 33,
 
-    /**
-     *
-     */
     SCHED_RUN_FROM_ENEMY_MOB = 83,
 
     /**
@@ -60626,34 +53078,16 @@ declare enum SCHED {
      */
     SCHED_RUN_RANDOM = 77,
 
-    /**
-     *
-     */
     SCHED_SCENE_GENERIC = 62,
 
-    /**
-     *
-     */
     SCHED_SCRIPTED_CUSTOM_MOVE = 59,
 
-    /**
-     *
-     */
     SCHED_SCRIPTED_FACE = 61,
 
-    /**
-     *
-     */
     SCHED_SCRIPTED_RUN = 58,
 
-    /**
-     *
-     */
     SCHED_SCRIPTED_WAIT = 60,
 
-    /**
-     *
-     */
     SCHED_SCRIPTED_WALK = 57,
 
     /**
@@ -60666,34 +53100,16 @@ declare enum SCHED {
      */
     SCHED_SLEEP = 87,
 
-    /**
-     *
-     */
     SCHED_SMALL_FLINCH = 22,
 
-    /**
-     *
-     */
     SCHED_SPECIAL_ATTACK1 = 45,
 
-    /**
-     *
-     */
     SCHED_SPECIAL_ATTACK2 = 46,
 
-    /**
-     *
-     */
     SCHED_STANDOFF = 47,
 
-    /**
-     *
-     */
     SCHED_SWITCH_TO_PENDING_WEAPON = 65,
 
-    /**
-     *
-     */
     SCHED_TAKE_COVER_FROM_BEST_SOUND = 28,
 
     /**
@@ -60721,14 +53137,8 @@ declare enum SCHED {
      */
     SCHED_VICTORY_DANCE = 19,
 
-    /**
-     *
-     */
     SCHED_WAIT_FOR_SCRIPT = 55,
 
-    /**
-     *
-     */
     SCHED_WAIT_FOR_SPEAK_FINISH = 67,
 
     /**
@@ -60738,8 +53148,9 @@ declare enum SCHED {
 }
 
 /**
+ * 🟨🟦 [Shared]
  *
- * @compileMembersOnly
+ * Bitflags used by [Player:ScreenFade](https://wiki.facepunch.com/gmod/Player:ScreenFade).
  */
 declare enum SCREENFADE {
     /**
@@ -60778,116 +53189,71 @@ declare enum SCREENFADE {
 }
 
 /**
+ * 🟨🟦 [Shared]
  *
- * @compileMembersOnly
+ * Enumerations used by Kinect SDK bindings.
  */
 declare enum SENSORBONE {
-    /**
-     *
-     */
     SHOULDER_RIGHT = 8,
 
-    /**
-     *
-     */
     SHOULDER_LEFT = 4,
 
-    /**
-     *
-     */
     HIP = 0,
 
-    /**
-     *
-     */
     ELBOW_RIGHT = 9,
 
-    /**
-     *
-     */
     KNEE_RIGHT = 17,
 
-    /**
-     *
-     */
     WRIST_RIGHT = 10,
 
-    /**
-     *
-     */
     ANKLE_LEFT = 14,
 
-    /**
-     *
-     */
     FOOT_LEFT = 15,
 
-    /**
-     *
-     */
     WRIST_LEFT = 6,
 
-    /**
-     *
-     */
     FOOT_RIGHT = 19,
 
-    /**
-     *
-     */
     HAND_RIGHT = 11,
 
-    /**
-     *
-     */
     SHOULDER = 2,
 
-    /**
-     *
-     */
     HIP_LEFT = 12,
 
-    /**
-     *
-     */
     HIP_RIGHT = 16,
 
-    /**
-     *
-     */
     HAND_LEFT = 7,
 
-    /**
-     *
-     */
     ANKLE_RIGHT = 18,
 
-    /**
-     *
-     */
     SPINE = 1,
 
-    /**
-     *
-     */
     ELBOW_LEFT = 5,
 
-    /**
-     *
-     */
     KNEE_LEFT = 13,
 
-    /**
-     *
-     */
     HEAD = 3,
 }
 
 /**
+ * 🟦 [Server]
+ *
+ * Enumerations describing certain spawnflags. Everything except for SF_PHYS* and SF_WEAPON* is serverside only.
+ *
+ * Spawnflags are set using [Entity:SetKeyValue](https://wiki.facepunch.com/gmod/Entity:SetKeyValue) with **"spawnflags"** as the key.
+ *
+ * * SF_CITIZEN_* spawnflags represent spawnflags only usable on [npc_citizen](https://developer.valvesoftware.com/wiki/Npc_citizen).
+ * * SF_NPC_* - Usable on all NPCs
+ * * SF_PHYSBOX_* - Usable on [func_physbox](https://developer.valvesoftware.com/wiki/Func_physbox)
+ * * SF_PHYSPROP_* - Usable on [prop_physics](https://developer.valvesoftware.com/wiki/Prop_physics) entities
+ * * SF_WEAPON_* - Usable on <page text="Weapons">Weapon</page>
+ *
+ * **Note:**
+ * >This is not a full list of available spawnflags, there are **a lot** more, each unique to each entity, you can find out more on the [Valve Developer Community](https://developer.valvesoftware.com/wiki/Main_Page) website for the entities in question.
  *
  * @compileMembersOnly
  */
-declare enum SF {
+declare const enum SF {
     /**
      * Citizen that resupplies ammo
      */
@@ -61060,56 +53426,36 @@ declare enum SF {
 }
 
 /**
+ * 🟨🟦 [Shared]
  *
+ * Used by [GM:ClientSignOnStateChanged](https://wiki.facepunch.com/gmod/GM:ClientSignOnStateChanged).
  * @compileMembersOnly
  */
-declare enum SIGNONSTATE {
-    /**
-     *
-     */
+declare const enum SIGNONSTATE {
     SIGNONSTATE_NONE = 0,
 
-    /**
-     *
-     */
     SIGNONSTATE_CHALLENGE = 1,
 
-    /**
-     *
-     */
     SIGNONSTATE_CONNECTED = 2,
 
-    /**
-     *
-     */
     SIGNONSTATE_NEW = 3,
 
-    /**
-     *
-     */
     SIGNONSTATE_PRESPAWN = 4,
 
-    /**
-     *
-     */
     SIGNONSTATE_SPAWN = 5,
 
-    /**
-     *
-     */
     SIGNONSTATE_FULL = 6,
 
-    /**
-     *
-     */
     SIGNONSTATE_CHANGELEVEL = 7,
 }
 
 /**
+ * 🟨🟦 [Shared]
  *
+ * Enumerations used by [ENTITY:PhysicsSimulate](https://wiki.facepunch.com/gmod/ENTITY:PhysicsSimulate).
  * @compileMembersOnly
  */
-declare enum SIM {
+declare const enum SIM {
     /**
      * Don't simulate physics
      */
@@ -61137,10 +53483,12 @@ declare enum SIM {
 }
 
 /**
+ * 🟨🟦 [Shared]
  *
+ * Sound flags used by [Global.EmitSound](https://wiki.facepunch.com/gmod/Global.EmitSound) and [Entity:EmitSound](https://wiki.facepunch.com/gmod/Entity:EmitSound).
  * @compileMembersOnly
  */
-declare enum SND {
+declare const enum SND {
     /**
      * To keep the compiler happy
      */
@@ -61198,10 +53546,18 @@ declare enum SND {
 }
 
 /**
+ * 🟨🟦 [Shared]
+ *
+ * The sound's attenuation; how fast it drops away, enumerations used by [Global.EmitSound](https://wiki.facepunch.com/gmod/Global.EmitSound) and [Entity:EmitSound](https://wiki.facepunch.com/gmod/Entity:EmitSound). Information taken from [soundflags.h in Source SDK 2013](https://github.com/ValveSoftware/source-sdk-2013/blob/0d8dceea4310fde5706b3ce1c70609d72a38efdf/sp/src/public/soundflags.h#L53)
+ *
+ * The engine starts running into trouble below 60dB.
+ *
+ * **Warning:**
+ * >These enumerations do not exist in game and are listed here only for reference
  *
  * @compileMembersOnly
  */
-declare enum SNDLVL {
+declare const enum SNDLVL {
     /**
      * Sound plays everywhere
      */
@@ -61222,14 +53578,8 @@ declare enum SNDLVL {
      */
     SNDLVL_30dB = 30,
 
-    /**
-     *
-     */
     SNDLVL_35dB = 35,
 
-    /**
-     *
-     */
     SNDLVL_40dB = 40,
 
     /**
@@ -61242,9 +53592,6 @@ declare enum SNDLVL {
      */
     SNDLVL_50dB = 50,
 
-    /**
-     *
-     */
     SNDLVL_55dB = 55,
 
     /**
@@ -61262,9 +53609,6 @@ declare enum SNDLVL {
      */
     SNDLVL_65dB = 65,
 
-    /**
-     *
-     */
     SNDLVL_STATIC = 66,
 
     /**
@@ -61302,9 +53646,6 @@ declare enum SNDLVL {
      */
     SNDLVL_90dB = 90,
 
-    /**
-     *
-     */
     SNDLVL_95dB = 95,
 
     /**
@@ -61342,9 +53683,6 @@ declare enum SNDLVL {
      */
     SNDLVL_GUNFIRE = 140,
 
-    /**
-     *
-     */
     SNDLVL_150dB = 150,
 
     /**
@@ -61354,16 +53692,17 @@ declare enum SNDLVL {
 }
 
 /**
+ * 🟨🟦 [Shared]
  *
+ * For use with [Entity:PhysicsInit](https://wiki.facepunch.com/gmod/Entity:PhysicsInit), [Entity:SetSolid](https://wiki.facepunch.com/gmod/Entity:SetSolid) and [Entity:GetSolid](https://wiki.facepunch.com/gmod/Entity:GetSolid).
  * @compileMembersOnly
  */
-declare enum SOLID {
+declare const enum SOLID {
     /**
      * Does not collide with anything.
      *
      * **Note:**
      * >No physics object will be created when using this with [Entity:PhysicsInit](https://wiki.facepunch.com/gmod/Entity:PhysicsInit).
-     *
      */
     SOLID_NONE = 0,
 
@@ -61387,7 +53726,6 @@ declare enum SOLID {
      *
      * **Note:**
      * >Seems to be broken.
-     *
      */
     SOLID_OBB_YAW = 4,
 
@@ -61403,38 +53741,22 @@ declare enum SOLID {
 }
 
 /**
+ * 🟦 [Server]
  *
+ * Enumerations used by [sound.EmitHint](https://wiki.facepunch.com/gmod/sound.EmitHint).
  * @compileMembersOnly
  */
-declare enum SOUND {
-    /**
-     *
-     */
+declare const enum SOUND {
     SOUND_NONE = 0,
 
-    /**
-     *
-     */
     SOUND_COMBAT = 1,
 
-    /**
-     *
-     */
     SOUND_WORLD = 2,
 
-    /**
-     *
-     */
     SOUND_PLAYER = 4,
 
-    /**
-     *
-     */
     SOUND_DANGER = 8,
 
-    /**
-     *
-     */
     SOUND_BULLET_IMPACT = 16,
 
     /**
@@ -61462,9 +53784,6 @@ declare enum SOUND {
      */
     SOUND_BUGBAIT = 512,
 
-    /**
-     *
-     */
     SOUND_PHYSICS_DANGER = 1024,
 
     /**
@@ -61472,14 +53791,8 @@ declare enum SOUND {
      */
     SOUND_DANGER_SNIPERONLY = 2048,
 
-    /**
-     *
-     */
     SOUND_MOVE_AWAY = 4096,
 
-    /**
-     *
-     */
     SOUND_PLAYER_VEHICLE = 8192,
 
     /**
@@ -61487,14 +53800,8 @@ declare enum SOUND {
      */
     SOUND_READINESS_LOW = 16384,
 
-    /**
-     *
-     */
     SOUND_READINESS_MEDIUM = 32768,
 
-    /**
-     *
-     */
     SOUND_READINESS_HIGH = 65536,
 
     /**
@@ -61549,10 +53856,18 @@ declare enum SOUND {
 }
 
 /**
+ * 🟨 [Client]
  *
+ * Enumerations for use with [render.SetStencilCompareFunction](https://wiki.facepunch.com/gmod/render.SetStencilCompareFunction).
+ *
+ * The comparison is between the reference value set by [render.SetStencilReferenceValue](https://wiki.facepunch.com/gmod/render.SetStencilReferenceValue), and the value of each pixel in the stencil buffer.
+ *
+ * These enumerations are mirrors of [Enums/STENCILCOMPARISONFUNCTION](https://wiki.facepunch.com/gmod/Enums/STENCILCOMPARISONFUNCTION).
+ *
+ * Also see this corresponding MSDN entry: https://msdn.microsoft.com/en-us/library/windows/desktop/ff476101%28v=vs.85%29.aspx.
  * @compileMembersOnly
  */
-declare enum STENCIL {
+declare const enum STENCIL {
     /**
      * Never passes.
      */
@@ -61595,10 +53910,22 @@ declare enum STENCIL {
 }
 
 /**
+ * 🟨 [Client]
+ *
+ * Enumerations for use with [render.SetStencilCompareFunction](https://wiki.facepunch.com/gmod/render.SetStencilCompareFunction).
+ *
+ * The comparison is between the reference value set by [render.SetStencilReferenceValue](https://wiki.facepunch.com/gmod/render.SetStencilReferenceValue), and the value of each pixel in the stencil buffer.
+ *
+ * Clientside only.
+ *
+ * Also see this corresponding MSDN entry: http://msdn.microsoft.com/en-us/library/windows/desktop/ff476101%28v=vs.85%29.aspx.
+ *
+ * **Note:**
+ * >These enumerations are also mirrored as [Enums/STENCIL](https://wiki.facepunch.com/gmod/Enums/STENCIL).
  *
  * @compileMembersOnly
  */
-declare enum STENCILCOMPARISONFUNCTION {
+declare const enum STENCILCOMPARISONFUNCTION {
     /**
      * Never passes.
      */
@@ -61641,10 +53968,18 @@ declare enum STENCILCOMPARISONFUNCTION {
 }
 
 /**
+ * 🟨 [Client]
+ *
+ * Enumerations for use with [render.SetStencilPassOperation](https://wiki.facepunch.com/gmod/render.SetStencilPassOperation), [render.SetStencilFailOperation](https://wiki.facepunch.com/gmod/render.SetStencilFailOperation) and [render.SetStencilZFailOperation](https://wiki.facepunch.com/gmod/render.SetStencilZFailOperation). Clientside only.
+ *
+ * Also see this corresponding MSDN entry: http://msdn.microsoft.com/en-us/library/windows/desktop/ff476219%28v=vs.85%29.aspx.
+ *
+ * **Note:**
+ * >These enumerations are also mirrored as [Enums/STENCIL](https://wiki.facepunch.com/gmod/Enums/STENCIL).
  *
  * @compileMembersOnly
  */
-declare enum STENCILOPERATION {
+declare const enum STENCILOPERATION {
     /**
      * Preserves the existing stencil buffer value.
      */
@@ -61687,10 +54022,12 @@ declare enum STENCILOPERATION {
 }
 
 /**
+ * 🟨🟦 [Shared]
  *
+ * Enumerations used in [GM:PlayerStepSoundTime](https://wiki.facepunch.com/gmod/GM:PlayerStepSoundTime) hook.
  * @compileMembersOnly
  */
-declare enum STEPSOUNDTIME {
+declare const enum STEPSOUNDTIME {
     /**
      * Normal step
      */
@@ -61713,18 +54050,17 @@ declare enum STEPSOUNDTIME {
 }
 
 /**
+ * 🟨 [Client]
  *
+ * Used by [ENTITY:Draw](https://wiki.facepunch.com/gmod/ENTITY:Draw), [ENTITY:DrawTranslucent](https://wiki.facepunch.com/gmod/ENTITY:DrawTranslucent), [GM:PostPlayerDraw](https://wiki.facepunch.com/gmod/GM:PostPlayerDraw), [GM:PrePlayerDraw](https://wiki.facepunch.com/gmod/GM:PrePlayerDraw) and [Entity:DrawModel](https://wiki.facepunch.com/gmod/Entity:DrawModel).
  * @compileMembersOnly
  */
-declare enum STUDIO {
+declare const enum STUDIO {
     /**
      * The current render is for opaque renderables only
      */
     STUDIO_RENDER = 1,
 
-    /**
-     *
-     */
     STUDIO_VIEWXFORMATTACHMENTS = 2,
 
     /**
@@ -61737,29 +54073,14 @@ declare enum STUDIO {
      */
     STUDIO_TWOPASS = 8,
 
-    /**
-     *
-     */
     STUDIO_STATIC_LIGHTING = 16,
 
-    /**
-     *
-     */
     STUDIO_WIREFRAME = 32,
 
-    /**
-     *
-     */
     STUDIO_ITEM_BLINK = 64,
 
-    /**
-     *
-     */
     STUDIO_NOSHADOWS = 128,
 
-    /**
-     *
-     */
     STUDIO_WIREFRAME_VCOLLIDE = 256,
 
     /**
@@ -61784,10 +54105,12 @@ declare enum STUDIO {
 }
 
 /**
+ * 🟨🟦 [Shared]
  *
+ * Surface flags, used by the [Structures/TraceResult](https://wiki.facepunch.com/gmod/Structures/TraceResult).
  * @compileMembersOnly
  */
-declare enum SURF {
+declare const enum SURF {
     /**
      * Value will hold the light strength
      */
@@ -61870,10 +54193,12 @@ declare enum SURF {
 }
 
 /**
+ * 🟦 [Server]
  *
+ * Used by [NPC:GetTaskStatus](https://wiki.facepunch.com/gmod/NPC:GetTaskStatus) and [NPC:SetTaskStatus](https://wiki.facepunch.com/gmod/NPC:SetTaskStatus).
  * @compileMembersOnly
  */
-declare enum TASKSTATUS {
+declare const enum TASKSTATUS {
     /**
      * Just started
      */
@@ -61901,10 +54226,12 @@ declare enum TASKSTATUS {
 }
 
 /**
+ * 🟨🟦 [Shared]
  *
+ * Default defined teams in Garry's Mod. This does not include any custom teams created in custom gamemodes. Enumerations to use with [Player:Team](https://wiki.facepunch.com/gmod/Player:Team)
  * @compileMembersOnly
  */
-declare enum TEAM {
+declare const enum TEAM {
     /**
      * Connecting team ID, set when player connects to the server
      */
@@ -61922,8 +54249,11 @@ declare enum TEAM {
 }
 
 /**
+ * 🟨🟦🟩 [Shared and Menu]
  *
- * @compileMembersOnly
+ * Enumerations used by [render.PushFilterMin](https://wiki.facepunch.com/gmod/render.PushFilterMin) and [render.PushFilterMag](https://wiki.facepunch.com/gmod/render.PushFilterMag).
+ *
+ * See [this](https://msdn.microsoft.com/en-us/library/windows/desktop/bb172615(v=vs.85).aspx) and [this page](https://en.wikipedia.org/wiki/Texture_filtering) for more information on texture filtering.
  */
 declare enum TEXFILTER {
     /**
@@ -61948,10 +54278,12 @@ declare enum TEXFILTER {
 }
 
 /**
+ * 🟨🟦 [Shared]
  *
+ * Enumerations used by [draw.SimpleText](https://wiki.facepunch.com/gmod/draw.SimpleText), [draw.DrawText](https://wiki.facepunch.com/gmod/draw.DrawText) and in [Structures/TextData](https://wiki.facepunch.com/gmod/Structures/TextData).
  * @compileMembersOnly
  */
-declare enum TEXT_ALIGN {
+declare const enum TEXT_ALIGN {
     /**
      * Align the text on the left
      */
@@ -61979,10 +54311,12 @@ declare enum TEXT_ALIGN {
 }
 
 /**
+ * 🟨 [Client]
  *
+ * Used by [util.FilterText](https://wiki.facepunch.com/gmod/util.FilterText).
  * @compileMembersOnly
  */
-declare enum TEXT_FILTER {
+declare const enum TEXT_FILTER {
     /**
      * Unknown context.
      */
@@ -62005,10 +54339,16 @@ declare enum TEXT_FILTER {
 }
 
 /**
+ * 🟨 [Client]
+ *
+ * Bit flags used by [Global.GetRenderTargetEx](https://wiki.facepunch.com/gmod/Global.GetRenderTargetEx). Information taken from [VTF (Valve Texture Format) - Texture flags](https://developer.valvesoftware.com/wiki/Valve_Texture_Format#Texture_flags)
+ *
+ * **Warning:**
+ * >These enumerations do not exist in game and are listed here only for reference
  *
  * @compileMembersOnly
  */
-declare enum TEXTUREFLAGS {
+declare const enum TEXTUREFLAGS {
     /**
      * Low quality, "pixel art" texture filtering.
      */
@@ -62094,21 +54434,14 @@ declare enum TEXTUREFLAGS {
      */
     TEXTUREFLAGS_DEPTHRENDERTARGET = 65536,
 
-    /**
-     *
-     */
     TEXTUREFLAGS_NODEBUGOVERRIDE = 131072,
 
-    /**
-     *
-     */
     TEXTUREFLAGS_SINGLECOPY = 262144,
 
     /**
      * Aka TEXTUREFLAGS_UNUSED_00080000
      *
      * @deprecated [object Object]
-     *
      */
     TEXTUREFLAGS_STAGING_MEMORY = 524288,
 
@@ -62118,7 +54451,6 @@ declare enum TEXTUREFLAGS {
      * Aka TEXTUREFLAGS_UNUSED_00100000
      *
      * @deprecated [object Object]
-     *
      */
     TEXTUREFLAGS_IMMEDIATE_CLEANUP = 1048576,
 
@@ -62126,13 +54458,9 @@ declare enum TEXTUREFLAGS {
      * Aka TEXTUREFLAGS_UNUSED_00200000
      *
      * @deprecated [object Object]
-     *
      */
     TEXTUREFLAGS_IGNORE_PICMIP = 2097152,
 
-    /**
-     *
-     */
     TEXTUREFLAGS_UNUSED_00400000 = 4194304,
 
     /**
@@ -62140,9 +54468,6 @@ declare enum TEXTUREFLAGS {
      */
     TEXTUREFLAGS_NODEPTHBUFFER = 8388608,
 
-    /**
-     *
-     */
     TEXTUREFLAGS_UNUSED_01000000 = 16777216,
 
     /**
@@ -62160,9 +54485,6 @@ declare enum TEXTUREFLAGS {
      */
     TEXTUREFLAGS_SSBUMP = 134217728,
 
-    /**
-     *
-     */
     TEXTUREFLAGS_UNUSED_10000000 = 268435456,
 
     /**
@@ -62174,7 +54496,6 @@ declare enum TEXTUREFLAGS {
      * Aka TEXTUREFLAGS_UNUSED_40000000
      *
      * @deprecated [object Object]
-     *
      */
     TEXTUREFLAGS_STREAMABLE_COARSE = 1073741824,
 
@@ -62182,16 +54503,17 @@ declare enum TEXTUREFLAGS {
      * Aka TEXTUREFLAGS_UNUSED_80000000
      *
      * @deprecated [object Object]
-     *
      */
     TEXTUREFLAGS_STREAMABLE_FINE = 2147483648,
 }
 
 /**
+ * 🟨🟦 [Shared]
  *
+ * Enumerations used by [Structures/AmmoData](https://wiki.facepunch.com/gmod/Structures/AmmoData).
  * @compileMembersOnly
  */
-declare enum TRACER {
+declare const enum TRACER {
     /**
      * Generates no tracer effects
      */
@@ -62219,10 +54541,12 @@ declare enum TRACER {
 }
 
 /**
+ * 🟨🟦 [Shared]
  *
+ * Enumerations used in [ENTITY:UpdateTransmitState](https://wiki.facepunch.com/gmod/ENTITY:UpdateTransmitState) hook.
  * @compileMembersOnly
  */
-declare enum TRANSMIT {
+declare const enum TRANSMIT {
     /**
      * Always transmit the entity
      */
@@ -62240,20 +54564,19 @@ declare enum TRANSMIT {
 }
 
 /**
+ * 🟨🟦🟩 [Shared and Menu]
  *
+ * Enumerations used by [net.ReadType](https://wiki.facepunch.com/gmod/net.ReadType) and returned by [Global.TypeID](https://wiki.facepunch.com/gmod/Global.TypeID)
  * @compileMembersOnly
  */
-declare enum TYPE {
+declare const enum TYPE {
     /**
      * Invalid type
      */
     TYPE_NONE = -1,
 
     /**
-     *
-     *
      * @deprecated Use TYPE_NONE
-     *
      */
     TYPE_INVALID = -1,
 
@@ -62358,10 +54681,7 @@ declare enum TYPE {
     TYPE_USERCMD = 19,
 
     /**
-     *
-     *
      * @deprecated Leftover from GMod 13 Beta
-     *
      */
     TYPE_SCRIPTEDVEHICLE = 20,
 
@@ -62490,42 +54810,35 @@ declare enum TYPE {
      *
      * **Note:**
      * >This doesn't actually represent a unique type returned by [Global.TypeID](https://wiki.facepunch.com/gmod/Global.TypeID), but instead is a hack for networking colors with [net.WriteType](https://wiki.facepunch.com/gmod/net.WriteType).
-     *
      */
     TYPE_COLOR = 255,
 }
 
 /**
+ * 🟨🟦 [Shared]
  *
+ * Enumerations used by [ENTITY:Use](https://wiki.facepunch.com/gmod/ENTITY:Use).
+ *
+ * Not to be confused with [Enums/_USE](https://wiki.facepunch.com/gmod/Enums/_USE) used by [Entity:SetUseType](https://wiki.facepunch.com/gmod/Entity:SetUseType).
  * @compileMembersOnly
  */
-declare enum USE {
-    /**
-     *
-     */
+declare const enum USE {
     USE_OFF = 0,
 
-    /**
-     *
-     */
     USE_ON = 1,
 
-    /**
-     *
-     */
     USE_SET = 2,
 
-    /**
-     *
-     */
     USE_TOGGLE = 3,
 }
 
 /**
+ * 🟨 [Client]
  *
+ * Enumerations used by [render.RenderView](https://wiki.facepunch.com/gmod/render.RenderView) inside of [Structures/ViewData](https://wiki.facepunch.com/gmod/Structures/ViewData).
  * @compileMembersOnly
  */
-declare enum VIEW {
+declare const enum VIEW {
     /**
      * Default value
      */
@@ -62573,10 +54886,13 @@ declare enum VIEW {
 }
 
 /**
+ * 🟨🟦 [Shared]
  *
+ * Enumerations used by [NPC:SetCurrentWeaponProficiency](https://wiki.facepunch.com/gmod/NPC:SetCurrentWeaponProficiency) and
+ * [NPC:GetCurrentWeaponProficiency](https://wiki.facepunch.com/gmod/NPC:GetCurrentWeaponProficiency).
  * @compileMembersOnly
  */
-declare enum WEAPON_PROFICIENCY {
+declare const enum WEAPON_PROFICIENCY {
     /**
      * The NPC will miss a large majority of their shots.
      */
@@ -62601,6 +54917,545 @@ declare enum WEAPON_PROFICIENCY {
      * The NPC will almost never miss their shots.
      */
     WEAPON_PROFICIENCY_PERFECT = 4,
+}
+
+/**
+ * @compileMembersOnly
+ */
+declare const enum GMHook {
+    AcceptInput = "AcceptInput",
+
+    AddDeathNotice = "AddDeathNotice",
+
+    AdjustMouseSensitivity = "AdjustMouseSensitivity",
+
+    AllowPlayerPickup = "AllowPlayerPickup",
+
+    CalcMainActivity = "CalcMainActivity",
+
+    CalcVehicleView = "CalcVehicleView",
+
+    CalcView = "CalcView",
+
+    CalcViewModelView = "CalcViewModelView",
+
+    CanCreateUndo = "CanCreateUndo",
+
+    CanEditVariable = "CanEditVariable",
+
+    CanExitVehicle = "CanExitVehicle",
+
+    CanPlayerEnterVehicle = "CanPlayerEnterVehicle",
+
+    CanPlayerSuicide = "CanPlayerSuicide",
+
+    CanPlayerUnfreeze = "CanPlayerUnfreeze",
+
+    CanProperty = "CanProperty",
+
+    CanUndo = "CanUndo",
+
+    CaptureVideo = "CaptureVideo",
+
+    ChatText = "ChatText",
+
+    ChatTextChanged = "ChatTextChanged",
+
+    CheckPassword = "CheckPassword",
+
+    ClientSignOnStateChanged = "ClientSignOnStateChanged",
+
+    CloseDermaMenus = "CloseDermaMenus",
+
+    CreateClientsideRagdoll = "CreateClientsideRagdoll",
+
+    CreateEntityRagdoll = "CreateEntityRagdoll",
+
+    CreateMove = "CreateMove",
+
+    CreateTeams = "CreateTeams",
+
+    DoAnimationEvent = "DoAnimationEvent",
+
+    DoPlayerDeath = "DoPlayerDeath",
+
+    DrawDeathNotice = "DrawDeathNotice",
+
+    DrawMonitors = "DrawMonitors",
+
+    DrawOverlay = "DrawOverlay",
+
+    DrawPhysgunBeam = "DrawPhysgunBeam",
+
+    EndEntityDriving = "EndEntityDriving",
+
+    EntityEmitSound = "EntityEmitSound",
+
+    EntityFireBullets = "EntityFireBullets",
+
+    EntityKeyValue = "EntityKeyValue",
+
+    EntityNetworkedVarChanged = "EntityNetworkedVarChanged",
+
+    EntityRemoved = "EntityRemoved",
+
+    EntityTakeDamage = "EntityTakeDamage",
+
+    FindUseEntity = "FindUseEntity",
+
+    FinishChat = "FinishChat",
+
+    FinishMove = "FinishMove",
+
+    ForceDermaSkin = "ForceDermaSkin",
+
+    GameContentChanged = "GameContentChanged",
+
+    GetDeathNoticeEntityName = "GetDeathNoticeEntityName",
+
+    GetFallDamage = "GetFallDamage",
+
+    GetGameDescription = "GetGameDescription",
+
+    GetMotionBlurValues = "GetMotionBlurValues",
+
+    GetPreferredCarryAngles = "GetPreferredCarryAngles",
+
+    GetTeamColor = "GetTeamColor",
+
+    GetTeamNumColor = "GetTeamNumColor",
+
+    GrabEarAnimation = "GrabEarAnimation",
+
+    GravGunOnDropped = "GravGunOnDropped",
+
+    GravGunOnPickedUp = "GravGunOnPickedUp",
+
+    GravGunPickupAllowed = "GravGunPickupAllowed",
+
+    GravGunPunt = "GravGunPunt",
+
+    GUIMouseDoublePressed = "GUIMouseDoublePressed",
+
+    GUIMousePressed = "GUIMousePressed",
+
+    GUIMouseReleased = "GUIMouseReleased",
+
+    HandlePlayerArmorReduction = "HandlePlayerArmorReduction",
+
+    HandlePlayerDriving = "HandlePlayerDriving",
+
+    HandlePlayerDucking = "HandlePlayerDucking",
+
+    HandlePlayerJumping = "HandlePlayerJumping",
+
+    HandlePlayerLanding = "HandlePlayerLanding",
+
+    HandlePlayerNoClipping = "HandlePlayerNoClipping",
+
+    HandlePlayerSwimming = "HandlePlayerSwimming",
+
+    HandlePlayerVaulting = "HandlePlayerVaulting",
+
+    HideTeam = "HideTeam",
+
+    HUDAmmoPickedUp = "HUDAmmoPickedUp",
+
+    HUDDrawPickupHistory = "HUDDrawPickupHistory",
+
+    HUDDrawScoreBoard = "HUDDrawScoreBoard",
+
+    HUDDrawTargetID = "HUDDrawTargetID",
+
+    HUDItemPickedUp = "HUDItemPickedUp",
+
+    HUDPaint = "HUDPaint",
+
+    HUDPaintBackground = "HUDPaintBackground",
+
+    HUDShouldDraw = "HUDShouldDraw",
+
+    HUDWeaponPickedUp = "HUDWeaponPickedUp",
+
+    Initialize = "Initialize",
+
+    InitPostEntity = "InitPostEntity",
+
+    InputMouseApply = "InputMouseApply",
+
+    IsSpawnpointSuitable = "IsSpawnpointSuitable",
+
+    KeyPress = "KeyPress",
+
+    KeyRelease = "KeyRelease",
+
+    LoadGModSave = "LoadGModSave",
+
+    LoadGModSaveFailed = "LoadGModSaveFailed",
+
+    MenuStart = "MenuStart",
+
+    MouthMoveAnimation = "MouthMoveAnimation",
+
+    Move = "Move",
+
+    NeedsDepthPass = "NeedsDepthPass",
+
+    NetworkEntityCreated = "NetworkEntityCreated",
+
+    NetworkIDValidated = "NetworkIDValidated",
+
+    NotifyShouldTransmit = "NotifyShouldTransmit",
+
+    OnAchievementAchieved = "OnAchievementAchieved",
+
+    OnChatTab = "OnChatTab",
+
+    OnCleanup = "OnCleanup",
+
+    OnClientLuaError = "OnClientLuaError",
+
+    OnCloseCaptionEmit = "OnCloseCaptionEmit",
+
+    OnContextMenuClose = "OnContextMenuClose",
+
+    OnContextMenuOpen = "OnContextMenuOpen",
+
+    OnCrazyPhysics = "OnCrazyPhysics",
+
+    OnDamagedByExplosion = "OnDamagedByExplosion",
+
+    OnEntityCreated = "OnEntityCreated",
+
+    OnEntityWaterLevelChanged = "OnEntityWaterLevelChanged",
+
+    OnGamemodeLoaded = "OnGamemodeLoaded",
+
+    OnLuaError = "OnLuaError",
+
+    OnNotifyAddonConflict = "OnNotifyAddonConflict",
+
+    OnNPCDropItem = "OnNPCDropItem",
+
+    OnNPCKilled = "OnNPCKilled",
+
+    OnPauseMenuBlockedTooManyTimes = "OnPauseMenuBlockedTooManyTimes",
+
+    OnPauseMenuShow = "OnPauseMenuShow",
+
+    OnPermissionsChanged = "OnPermissionsChanged",
+
+    OnPhysgunFreeze = "OnPhysgunFreeze",
+
+    OnPhysgunPickup = "OnPhysgunPickup",
+
+    OnPhysgunReload = "OnPhysgunReload",
+
+    OnPlayerChangedTeam = "OnPlayerChangedTeam",
+
+    OnPlayerChat = "OnPlayerChat",
+
+    OnPlayerHitGround = "OnPlayerHitGround",
+
+    OnPlayerJump = "OnPlayerJump",
+
+    OnPlayerPhysicsDrop = "OnPlayerPhysicsDrop",
+
+    OnPlayerPhysicsPickup = "OnPlayerPhysicsPickup",
+
+    OnReloaded = "OnReloaded",
+
+    OnScreenSizeChanged = "OnScreenSizeChanged",
+
+    OnSpawnMenuClose = "OnSpawnMenuClose",
+
+    OnSpawnMenuOpen = "OnSpawnMenuOpen",
+
+    OnTextEntryGetFocus = "OnTextEntryGetFocus",
+
+    OnTextEntryLoseFocus = "OnTextEntryLoseFocus",
+
+    OnUndo = "OnUndo",
+
+    OnViewModelChanged = "OnViewModelChanged",
+
+    PhysgunDrop = "PhysgunDrop",
+
+    PhysgunPickup = "PhysgunPickup",
+
+    PlayerAmmoChanged = "PlayerAmmoChanged",
+
+    PlayerAuthed = "PlayerAuthed",
+
+    PlayerBindPress = "PlayerBindPress",
+
+    PlayerButtonDown = "PlayerButtonDown",
+
+    PlayerButtonUp = "PlayerButtonUp",
+
+    PlayerCanHearPlayersVoice = "PlayerCanHearPlayersVoice",
+
+    PlayerCanJoinTeam = "PlayerCanJoinTeam",
+
+    PlayerCanPickupItem = "PlayerCanPickupItem",
+
+    PlayerCanPickupWeapon = "PlayerCanPickupWeapon",
+
+    PlayerCanSeePlayersChat = "PlayerCanSeePlayersChat",
+
+    PlayerChangedTeam = "PlayerChangedTeam",
+
+    PlayerCheckLimit = "PlayerCheckLimit",
+
+    PlayerClassChanged = "PlayerClassChanged",
+
+    PlayerConnect = "PlayerConnect",
+
+    PlayerDeath = "PlayerDeath",
+
+    PlayerDeathSound = "PlayerDeathSound",
+
+    PlayerDeathThink = "PlayerDeathThink",
+
+    PlayerDisconnected = "PlayerDisconnected",
+
+    PlayerDriveAnimate = "PlayerDriveAnimate",
+
+    PlayerDroppedWeapon = "PlayerDroppedWeapon",
+
+    PlayerEndVoice = "PlayerEndVoice",
+
+    PlayerEnteredVehicle = "PlayerEnteredVehicle",
+
+    PlayerFireAnimationEvent = "PlayerFireAnimationEvent",
+
+    PlayerFootstep = "PlayerFootstep",
+
+    PlayerFrozeObject = "PlayerFrozeObject",
+
+    PlayerHandleAnimEvent = "PlayerHandleAnimEvent",
+
+    PlayerHurt = "PlayerHurt",
+
+    PlayerInitialSpawn = "PlayerInitialSpawn",
+
+    PlayerJoinTeam = "PlayerJoinTeam",
+
+    PlayerLeaveVehicle = "PlayerLeaveVehicle",
+
+    PlayerLoadout = "PlayerLoadout",
+
+    PlayerNoClip = "PlayerNoClip",
+
+    PlayerPostThink = "PlayerPostThink",
+
+    PlayerRequestTeam = "PlayerRequestTeam",
+
+    PlayerSay = "PlayerSay",
+
+    PlayerSelectSpawn = "PlayerSelectSpawn",
+
+    PlayerSelectTeamSpawn = "PlayerSelectTeamSpawn",
+
+    PlayerSetHandsModel = "PlayerSetHandsModel",
+
+    PlayerSetModel = "PlayerSetModel",
+
+    PlayerShouldTakeDamage = "PlayerShouldTakeDamage",
+
+    PlayerShouldTaunt = "PlayerShouldTaunt",
+
+    PlayerSilentDeath = "PlayerSilentDeath",
+
+    PlayerSpawn = "PlayerSpawn",
+
+    PlayerSpawnAsSpectator = "PlayerSpawnAsSpectator",
+
+    PlayerSpray = "PlayerSpray",
+
+    PlayerStartTaunt = "PlayerStartTaunt",
+
+    PlayerStartVoice = "PlayerStartVoice",
+
+    PlayerStepSoundTime = "PlayerStepSoundTime",
+
+    PlayerSwitchFlashlight = "PlayerSwitchFlashlight",
+
+    PlayerSwitchWeapon = "PlayerSwitchWeapon",
+
+    PlayerTick = "PlayerTick",
+
+    PlayerTraceAttack = "PlayerTraceAttack",
+
+    PlayerUnfrozeObject = "PlayerUnfrozeObject",
+
+    PlayerUse = "PlayerUse",
+
+    PopulateMenuBar = "PopulateMenuBar",
+
+    PostCleanupMap = "PostCleanupMap",
+
+    PostDraw2DSkyBox = "PostDraw2DSkyBox",
+
+    PostDrawEffects = "PostDrawEffects",
+
+    PostDrawHUD = "PostDrawHUD",
+
+    PostDrawOpaqueRenderables = "PostDrawOpaqueRenderables",
+
+    PostDrawPlayerHands = "PostDrawPlayerHands",
+
+    PostDrawSkyBox = "PostDrawSkyBox",
+
+    PostDrawTranslucentRenderables = "PostDrawTranslucentRenderables",
+
+    PostDrawViewModel = "PostDrawViewModel",
+
+    PostEntityFireBullets = "PostEntityFireBullets",
+
+    PostEntityTakeDamage = "PostEntityTakeDamage",
+
+    PostGamemodeLoaded = "PostGamemodeLoaded",
+
+    PostPlayerDeath = "PostPlayerDeath",
+
+    PostPlayerDraw = "PostPlayerDraw",
+
+    PostProcessPermitted = "PostProcessPermitted",
+
+    PostRender = "PostRender",
+
+    PostRenderVGUI = "PostRenderVGUI",
+
+    PostUndo = "PostUndo",
+
+    PreCleanupMap = "PreCleanupMap",
+
+    PreDrawEffects = "PreDrawEffects",
+
+    PreDrawHalos = "PreDrawHalos",
+
+    PreDrawHUD = "PreDrawHUD",
+
+    PreDrawOpaqueRenderables = "PreDrawOpaqueRenderables",
+
+    PreDrawPlayerHands = "PreDrawPlayerHands",
+
+    PreDrawSkyBox = "PreDrawSkyBox",
+
+    PreDrawTranslucentRenderables = "PreDrawTranslucentRenderables",
+
+    PreDrawViewModel = "PreDrawViewModel",
+
+    PreDrawViewModels = "PreDrawViewModels",
+
+    PreGamemodeLoaded = "PreGamemodeLoaded",
+
+    PrePlayerDraw = "PrePlayerDraw",
+
+    PreRegisterSENT = "PreRegisterSENT",
+
+    PreRegisterSWEP = "PreRegisterSWEP",
+
+    PreRender = "PreRender",
+
+    PreUndo = "PreUndo",
+
+    PreventScreenClicks = "PreventScreenClicks",
+
+    PropBreak = "PropBreak",
+
+    RenderScene = "RenderScene",
+
+    RenderScreenspaceEffects = "RenderScreenspaceEffects",
+
+    Restored = "Restored",
+
+    Saved = "Saved",
+
+    ScaleNPCDamage = "ScaleNPCDamage",
+
+    ScalePlayerDamage = "ScalePlayerDamage",
+
+    ScoreboardHide = "ScoreboardHide",
+
+    ScoreboardShow = "ScoreboardShow",
+
+    SendDeathNotice = "SendDeathNotice",
+
+    SetPlayerSpeed = "SetPlayerSpeed",
+
+    SetupMove = "SetupMove",
+
+    SetupPlayerVisibility = "SetupPlayerVisibility",
+
+    SetupSkyboxFog = "SetupSkyboxFog",
+
+    SetupWorldFog = "SetupWorldFog",
+
+    ShouldCollide = "ShouldCollide",
+
+    ShouldDrawLocalPlayer = "ShouldDrawLocalPlayer",
+
+    ShowHelp = "ShowHelp",
+
+    ShowSpare1 = "ShowSpare1",
+
+    ShowSpare2 = "ShowSpare2",
+
+    ShowTeam = "ShowTeam",
+
+    ShutDown = "ShutDown",
+
+    SpawniconGenerated = "SpawniconGenerated",
+
+    SpawnMenuCreated = "SpawnMenuCreated",
+
+    StartChat = "StartChat",
+
+    StartCommand = "StartCommand",
+
+    StartEntityDriving = "StartEntityDriving",
+
+    StartGame = "StartGame",
+
+    Think = "Think",
+
+    Tick = "Tick",
+
+    TranslateActivity = "TranslateActivity",
+
+    UpdateAnimation = "UpdateAnimation",
+
+    VariableEdited = "VariableEdited",
+
+    VehicleMove = "VehicleMove",
+
+    VGUIMousePressAllowed = "VGUIMousePressAllowed",
+
+    VGUIMousePressed = "VGUIMousePressed",
+
+    WeaponEquip = "WeaponEquip",
+
+    WorkshopDownloadedFile = "WorkshopDownloadedFile",
+
+    WorkshopDownloadFile = "WorkshopDownloadFile",
+
+    WorkshopDownloadProgress = "WorkshopDownloadProgress",
+
+    WorkshopDownloadTotals = "WorkshopDownloadTotals",
+
+    WorkshopEnd = "WorkshopEnd",
+
+    WorkshopExtractProgress = "WorkshopExtractProgress",
+
+    WorkshopStart = "WorkshopStart",
+
+    WorkshopSubscriptionsChanged = "WorkshopSubscriptionsChanged",
+
+    WorkshopSubscriptionsMessage = "WorkshopSubscriptionsMessage",
+
+    WorkshopSubscriptionsProgress = "WorkshopSubscriptionsProgress",
 }
 
 /** Used to interface with the built-in game events system.
@@ -62916,7 +55771,6 @@ declare function AddConsoleCommand(name: string, helpText: string, flags: FCVAR)
  * The file path can be relative to the script it's ran from. For example, if your script is in `lua/myfolder/stuff.lua`, calling [Global.AddCSLuaFile](https://wiki.facepunch.com/gmod/Global.AddCSLuaFile)("otherstuff.lua") and [Global.AddCSLuaFile](https://wiki.facepunch.com/gmod/Global.AddCSLuaFile)("myfolder/otherstuff.lua") is the same thing.
  * **Note:**
  * >Please make sure your file names are unique, the filesystem is shared across all addons, so a file named `lua/config.lua` in your addon may be overwritten by the same file in another addon.
- *
  */
 declare function AddCSLuaFile(file: string = "current file"): void;
 
@@ -63027,7 +55881,6 @@ declare function assert(expression: any, errorMessage: string = "assertion faile
  * * dev
  * * prerelease
  * * x86-64
- *
  */
 declare function BRANCH(): string;
 
@@ -63049,7 +55902,6 @@ declare function BroadcastLua(code: string): void;
  * 🟨🟦 [Shared]
  *
  * Dumps the networked variables of all entities into one table and returns it.
- *
  */
 declare function BuildNetworkedVarsTable(): any;
 
@@ -63057,7 +55909,6 @@ declare function BuildNetworkedVarsTable(): any;
  * 🟩 [Menu]
  *
  * Used internally to check if the current server the player is on can be added to favorites or not. Does not check if the server is ALREADY in the favorites.
- *
  */
 declare function CanAddServerToFavorites(): boolean;
 
@@ -63065,7 +55916,6 @@ declare function CanAddServerToFavorites(): boolean;
  * 🟩 [Menu]
  *
  * Aborts joining of the server you are currently joining.
- *
  */
 declare function CancelLoading(): void;
 
@@ -63089,7 +55939,6 @@ declare function ChangeTooltip(panel: Panel): void;
  * 🟩 [Menu]
  *
  * Empties the pool of main menu background images.
- *
  */
 declare function ClearBackgroundImages(): void;
 
@@ -63159,7 +56008,6 @@ declare function ClientsideScene(name: string, targetEnt: Entity): CSEnt;
  * 🟨🟩 [Client and Menu]
  *
  * Closes all Derma menus that have been passed to [Global.RegisterDermaMenuForClose](https://wiki.facepunch.com/gmod/Global.RegisterDermaMenuForClose) and calls [GM:CloseDermaMenus](https://wiki.facepunch.com/gmod/GM:CloseDermaMenus)
- *
  */
 declare function CloseDermaMenus(): void;
 
@@ -63281,7 +56129,6 @@ declare function CreateClientConVar(name: string, default_: string, shouldsave =
  * 🟨 [Client]
  *
  * Creates a ContextMenu.
- *
  */
 declare function CreateContextMenu(): void;
 
@@ -63326,7 +56173,6 @@ declare function CreateConVar(name: string, value: string, flags?: FCVAR|number[
  * * See: [List of Shader Parameters on Valve Developers Wiki](https://developer.valvesoftware.com/wiki/Category:List_of_Shader_Parameters) and each shader's page from .
  * **Note:**
  * >Unlike [IMaterial:SetTexture](https://wiki.facepunch.com/gmod/IMaterial:SetTexture), this table will not accept [ITexture](https://wiki.facepunch.com/gmod/ITexture) values. Instead, use the texture's name (see [ITexture:GetName](https://wiki.facepunch.com/gmod/ITexture:GetName)).
- *
  */
 declare function CreateMaterial(name: string, shaderName: string, materialData: any): IMaterial;
 
@@ -63410,7 +56256,6 @@ declare function CreatePhysCollidesFromModel(modelName: string): PhysCollide[];
  * If not set, the default is a [CPASAttenuationFilter](https://developer.valvesoftware.com/wiki/CRecipientFilter#Derived_classes).
  * **Note:**
  * >This argument only works serverside.
- *
  */
 declare function CreateSound(targetEnt: Entity, soundName: string, filter?: CRecipientFilter): CSoundPatch;
 
@@ -63437,8 +56282,6 @@ declare function CreateSprite(material: IMaterial): Panel;
  * >This is internally defined as a float, and as such it will be affected by precision loss if your server uptime is more than 6 hours, which will cause jittery movement of players and props and inaccuracy of timers, it is highly encouraged to refresh or change the map when that happens (a server restart is not necessary).
  *
  * This is **NOT** easy as it sounds to fix in the engine, so please refrain from posting issues about this
- *
- *
  */
 declare function CurTime(): number;
 
@@ -63449,8 +56292,6 @@ declare function CurTime(): number;
  *
  * **Bug [#2771](https://github.com/Facepunch/garrysmod-issues/issues/2771):**
  * >This does not create a unique object, but instead returns a shared reference. That means you cannot use two or more of these objects at once.
- *
- *
  */
 declare function DamageInfo(): CTakeDamageInfo;
 
@@ -63634,7 +56475,6 @@ declare function DisableClipping(disable: boolean): boolean;
  * 🟨 [Client]
  *
  * Cancels current DOF post-process effect started with [Global.DOF_Start](https://wiki.facepunch.com/gmod/Global.DOF_Start)
- *
  */
 declare function DOF_Kill(): void;
 
@@ -63643,7 +56483,6 @@ declare function DOF_Kill(): void;
  *
  * Cancels any existing DOF post-process effects.
  * Begins the DOF post-process effect.
- *
  */
 declare function DOF_Start(): void;
 
@@ -63671,7 +56510,6 @@ declare function DoStopServers(category: string): void;
  * Draws the currently active main menu background image and handles transitioning between background images.
  *
  * This is called by default in the menu panel's Paint hook.
- *
  */
 declare function DrawBackground(): void;
 
@@ -63847,8 +56685,6 @@ declare function DynamicMaterial(materialPath: string, flags?: string): IMateria
  *
  * **Bug [#2771](https://github.com/Facepunch/garrysmod-issues/issues/2771):**
  * >This does not create a unique object, but instead returns a shared reference. That means you cannot use two or more of these objects at once.
- *
- *
  */
 declare function EffectData(): CEffectData;
 
@@ -64003,8 +56839,6 @@ declare function ErrorNoHaltWithStack(...arguments: any[]): void;
  *
  * **Bug [#2516](https://github.com/Facepunch/garrysmod-issues/issues/2516):**
  * >This function is only reliable inside rendering hooks.
- *
- *
  */
 declare function EyeAngles(): Angle;
 
@@ -64015,8 +56849,6 @@ declare function EyeAngles(): Angle;
  *
  * **Bug [#2516](https://github.com/Facepunch/garrysmod-issues/issues/2516):**
  * >This function is only reliable inside rendering hooks.
- *
- *
  */
 declare function EyePos(): Vector;
 
@@ -64027,8 +56859,6 @@ declare function EyePos(): Vector;
  *
  * **Bug [#2516](https://github.com/Facepunch/garrysmod-issues/issues/2516):**
  * >This function is only reliable inside rendering hooks.
- *
- *
  */
 declare function EyeVector(): Vector;
 
@@ -64058,7 +56888,6 @@ declare function FindTooltip(panel: Panel): LuaMultiReturn<[string, Panel, Panel
  * 🟩 [Menu]
  *
  * Refreshes all Addon Conflicts and Fires a Problem. Internally uses [Global.FireProblem](https://wiki.facepunch.com/gmod/Global.FireProblem)
- *
  */
 declare function FireAddonConflicts(): void;
 
@@ -64099,7 +56928,6 @@ declare function Format(format: string, ...formatParameters: any[]): string;
  * 🟨🟦 [Shared]
  *
  * Returns the number of frames rendered since the game was launched.
- *
  */
 declare function FrameNumber(): void;
 
@@ -64111,7 +56939,6 @@ declare function FrameNumber(): void;
  * This should be used for frame/tick based timing, such as movement prediction or animations.
  *
  * For real-time-based frame time that isn't affected by `host_timescale`, use [Global.RealFrameTime](https://wiki.facepunch.com/gmod/Global.RealFrameTime). RealFrameTime is more suited for things like GUIs or HUDs.
- *
  */
 declare function FrameTime(): number;
 
@@ -64134,8 +56961,6 @@ declare function GameDetails(servername: string, serverurl: string, mapname: str
  * Returns the current floored dynamic memory usage of Lua in kilobytes.
  *
  * @deprecated This function was deprecated in Lua 5.1 and is removed in Lua 5.2. Use [Global.collectgarbage](https://wiki.facepunch.com/gmod/Global.collectgarbage)( "count" ) instead.
- *
- *
  */
 declare function gcinfo(): number;
 
@@ -64159,7 +56984,6 @@ declare function GenerateSpawnlistFromPath(folder: string, path: string, name: s
  * 🟩 [Menu]
  *
  * Returns if the game was started with either -noaddons or -noworkshop
- *
  */
 declare function GetAddonStatus(): LuaMultiReturn<[boolean, boolean]>;
 
@@ -64272,7 +57096,6 @@ declare function GetConVarString(name: string): string;
  * 🟩 [Menu]
  *
  * Returns the default loading screen URL (asset://garrysmod/html/loading.html)
- *
  */
 declare function GetDefaultLoadingHTML(): string;
 
@@ -64288,7 +57111,6 @@ declare function GetDemoFileDetails(filename: string): any;
  * 🟩 [Menu]
  *
  * Returns a table with the names of files needed from the server you are currently joining.
- *
  */
 declare function GetDownloadables(): string[];
 
@@ -64459,8 +57281,6 @@ declare function GetGlobalVector(Index: string, Default: Vector): Vector;
  *
  * **Note:**
  * >GetHostName returns information fromhostname
- *
- *
  */
 declare function GetHostName(): string;
 
@@ -64470,7 +57290,6 @@ declare function GetHostName(): string;
  * Returns the panel that is used as a wrapper for the HUD. If you want your panel to be hidden when the main menu is opened, parent it to this. Child panels will also have their controls disabled.
  *
  * See also [vgui.GetWorldPanel](https://wiki.facepunch.com/gmod/vgui.GetWorldPanel)
- *
  */
 declare function GetHUDPanel(): Panel;
 
@@ -64478,7 +57297,6 @@ declare function GetHUDPanel(): Panel;
  * 🟩 [Menu]
  *
  * Returns the loading screen panel and creates it if it doesn't exist.
- *
  */
 declare function GetLoadPanel(): Panel;
 
@@ -64486,7 +57304,6 @@ declare function GetLoadPanel(): Panel;
  * 🟩 [Menu]
  *
  * Returns the current status of the server join progress.
- *
  */
 declare function GetLoadStatus(): string;
 
@@ -64494,7 +57311,6 @@ declare function GetLoadStatus(): string;
  * 🟩 [Menu]
  *
  * Returns a table with the names of all maps and categories that you have on your client.
- *
  */
 declare function GetMapList(): any;
 
@@ -64514,7 +57330,6 @@ declare function getmetatable(object: any): any;
  * 🟩 [Menu]
  *
  * Returns the menu overlay panel, a container for panels like the error panel created in [GM:OnLuaError](https://wiki.facepunch.com/gmod/GM:OnLuaError).
- *
  */
 declare function GetOverlayPanel(): Panel;
 
@@ -64530,7 +57345,6 @@ declare function GetPlayerList(serverip: string): void;
  * 🟨🟦 [Shared]
  *
  * Returns the player whose movement commands are currently being processed. The player this returns can safely have [Player:GetCurrentCommand](https://wiki.facepunch.com/gmod/Player:GetCurrentCommand)() called on them. See [Prediction](https://wiki.facepunch.com/gmod/Prediction).
- *
  */
 declare function GetPredictionPlayer(): Player;
 
@@ -64593,7 +57407,6 @@ declare function GetRenderTarget(name: string, width: number, height: number): I
  * @param imageFormat - Image format, see [Enums/IMAGE_FORMAT](https://wiki.facepunch.com/gmod/Enums/IMAGE_FORMAT).
  * **Note:**
  * >Some additional image formats are accepted, but don't have enums. See [VTF Enumerations.](https://developer.valvesoftware.com/wiki/Valve_Texture_Format#VTF_enumerations)
- *
  */
 declare function GetRenderTargetEx(name: string, width: number, height: number, sizeMode: RT_SIZE, depthMode: MATERIAL_RT_DEPTH, textureFlags: TEXTUREFLAGS, rtFlags: CREATERENDERTARGETFLAGS, imageFormat: IMAGE_FORMAT): ITexture;
 
@@ -64619,7 +57432,6 @@ declare function GetServers(category: string, id: number): void;
  * 🟨 [Client]
  *
  * Returns if the client is timing out, and time since last ping from the server. Similar to the server side [Player:IsTimingOut](https://wiki.facepunch.com/gmod/Player:IsTimingOut).
- *
  */
 declare function GetTimeoutInfo(): LuaMultiReturn<[boolean, number]>;
 
@@ -64627,7 +57439,6 @@ declare function GetTimeoutInfo(): LuaMultiReturn<[boolean, number]>;
  * 🟨 [Client]
  *
  * Returns the entity the client is using to see from (such as the player itself, the camera, or another entity).
- *
  */
 declare function GetViewEntity(): Entity;
 
@@ -64859,8 +57670,6 @@ declare function isentity(variable: any): boolean;
  * Identical to [Global.isentity](https://wiki.facepunch.com/gmod/Global.isentity).
  *
  * @deprecated Use the function [Global.isentity](https://wiki.facepunch.com/gmod/Global.isentity) instead.
- *
- *
  */
 declare function IsEntity(): void;
 
@@ -64875,8 +57684,6 @@ declare function IsEntity(): void;
  *
  * **Note:**
  * >This is already used internally for [Entity:EmitSound](https://wiki.facepunch.com/gmod/Entity:EmitSound), [Weapon:SendWeaponAnim](https://wiki.facepunch.com/gmod/Weapon:SendWeaponAnim) and [Entity:FireBullets](https://wiki.facepunch.com/gmod/Entity:FireBullets), but NOT in  [util.Effect](https://wiki.facepunch.com/gmod/util.Effect).
- *
- *
  */
 declare function IsFirstTimePredicted(): boolean;
 
@@ -64915,7 +57722,6 @@ declare function isfunction(variable: any): boolean;
  * 🟩 [Menu]
  *
  * Returns true if the client is currently playing either a singleplayer or multiplayer game.
- *
  */
 declare function IsInGame(): boolean;
 
@@ -64923,7 +57729,6 @@ declare function IsInGame(): boolean;
  * 🟩 [Menu]
  *
  * Returns true when the loading panel is active.
- *
  */
 declare function IsInLoading(): boolean;
 
@@ -65149,7 +57954,6 @@ declare function LerpVector(fraction: number, from: Vector, to: Vector): Vector;
  * 🟩 [Menu]
  *
  * Loads all Addon Presets and updates the Preset list.
- *
  */
 declare function ListAddonPresets(): void;
 
@@ -65159,7 +57963,6 @@ declare function ListAddonPresets(): void;
  * Returns the contents of `addonpresets.txt` located in the `garrysmod/settings` folder. By default, this file stores your addon presets as JSON.
  *
  * You can use [Global.SaveAddonPresets](https://wiki.facepunch.com/gmod/Global.SaveAddonPresets) to modify this file.
- *
  */
 declare function LoadAddonPresets(): string;
 
@@ -65167,7 +57970,6 @@ declare function LoadAddonPresets(): string;
  * 🟩 [Menu]
  *
  * This function is used to get the last map and category to which the map belongs from the cookie saved with [Global.SaveLastMap](https://wiki.facepunch.com/gmod/Global.SaveLastMap).
- *
  */
 declare function LoadLastMap(): void;
 
@@ -65175,7 +57977,6 @@ declare function LoadLastMap(): void;
  * 🟩 [Menu]
  *
  * Updates the News List
- *
  */
 declare function LoadNewsList(): void;
 
@@ -65183,7 +57984,6 @@ declare function LoadNewsList(): void;
  * 🟨 [Client]
  *
  * Loads all preset settings for the [presets](https://wiki.facepunch.com/gmod/presets) and returns them in a table
- *
  */
 declare function LoadPresets(): any;
 
@@ -65206,25 +58006,42 @@ declare function Localize(localisationToken: string, default_: string): string;
  *
  * **Note:**
  * >LocalPlayer() will return NULL until all entities have been initialized. See [GM:InitPostEntity](https://wiki.facepunch.com/gmod/GM:InitPostEntity).
- *
- *
  */
 declare function LocalPlayer(): Player;
 
 /**
  * 🟨🟦 [Shared]
  *
- * Translates the specified position and angle from the specified local coordinate system into worldspace coordinates.
+ * Translates a vector and angle from a local coordinate system into a global coordinate system.
  *
- * If you're working with an entity's local vectors, use [Entity:LocalToWorld](https://wiki.facepunch.com/gmod/Entity:LocalToWorld) and/or [Entity:LocalToWorldAngles](https://wiki.facepunch.com/gmod/Entity:LocalToWorldAngles) instead.
+ * For the reverse of this function see [Global.WorldToLocal](https://wiki.facepunch.com/gmod/Global.WorldToLocal).
  *
- * See also: [Global.WorldToLocal](https://wiki.facepunch.com/gmod/Global.WorldToLocal), the reverse of this function.
- * @param localPos - The position vector in the source coordinate system, that should be translated to world coordinates
- * @param localAng - The angle in the source coordinate system, that should be converted to a world angle. If you don't need to convert an angle, you can supply an arbitrary valid angle (e.g. [Global.Angle](https://wiki.facepunch.com/gmod/Global.Angle)()).
- * @param originPos - The origin point of the source coordinate system, in world coordinates
- * @param originAngle - The angles of the source coordinate system, as a world angle
+ * For working with an entity's local space vectors/angles you might want to use [Entity:LocalToWorld](https://wiki.facepunch.com/gmod/Entity:LocalToWorld)/[Entity:LocalToWorldAngles](https://wiki.facepunch.com/gmod/Entity:LocalToWorldAngles) instead.
+ * @param localPos - A vector from a local coordinate system.
+ * @param localAng - An angle from a local coordinate system.
+ * Pass a zero angle if you don't need to translate an angle.
+ * @param originPos - The origin of a global coordinate system, in worldspace coordinates.
+ * @param originAngle - The angles of a global coordinate system, as a worldspace angle.
  */
 declare function LocalToWorld(localPos: Vector, localAng: Angle, originPos: Vector, originAngle: Angle): LuaMultiReturn<[Vector, Angle]>;
+
+/**
+ * 🟨 [Client]
+ *
+ * Returns the main view angles, as they were at the start of the latest main view render.
+ *
+ * This is a good alternative to [Global.EyeAngles](https://wiki.facepunch.com/gmod/Global.EyeAngles) which is affected by other rendering operations, including [render.RenderView](https://wiki.facepunch.com/gmod/render.RenderView).
+ */
+declare function MainEyeAngles(): Angle;
+
+/**
+ * 🟨 [Client]
+ *
+ * Returns the origin of the main view, as it was at the start of the latest main view render.
+ *
+ * This is a good alternative to [Global.EyePos](https://wiki.facepunch.com/gmod/Global.EyePos) which is affected by other rendering operations, including [render.RenderView](https://wiki.facepunch.com/gmod/render.RenderView).
+ */
+declare function MainEyePos(): Vector;
 
 /**
  * 🟦 [Server]
@@ -65272,7 +58089,6 @@ declare function MakeBalloon(ply: player, r = 255, g = 255, b = 255, force = 0, 
  * See [Material Parameters](https://wiki.facepunch.com/gmod/Material_Parameters) for more information.
  * **Note:**
  * >This feature only works when importing `.png` or `.jpg` image files.
- *
  */
 declare function Material(materialName: string, pngParameters?: string): LuaMultiReturn<[IMaterial, number]>;
 
@@ -65400,7 +58216,6 @@ declare function next(tab: any, prevKey?: any): LuaMultiReturn<[any, any]>;
  * 🟩 [Menu]
  *
  * Returns the number of files needed from the server you are currently joining.
- *
  */
 declare function NumDownloadables(): number;
 
@@ -65444,7 +58259,6 @@ declare function OpenFolder(folder: string): void;
  * 🟩 [Menu]
  *
  * Opens the Problems Panel.
- *
  */
 declare function OpenProblemsPanel(): void;
 
@@ -65660,7 +58474,6 @@ declare function PrintTable(tableToPrint: any, indent = 0, done?: any): void;
  * 🟨 [Client]
  *
  * Creates a new [ProjectedTexture](https://wiki.facepunch.com/gmod/ProjectedTexture).
- *
  */
 declare function ProjectedTexture(): ProjectedTexture;
 
@@ -65719,8 +58532,6 @@ declare function rawset(table: any, index: any, value: any): void;
  *
  * **Note:**
  * >The returned number is clamped between `0` and `0.1`.
- *
- *
  */
 declare function RealFrameTime(): number;
 
@@ -65739,8 +58550,6 @@ declare function RealFrameTime(): number;
  * This will be affected by precision loss if the uptime is more than 30+(?) days, and effectively cease to be functional after 50+(?) days.
  *
  * Changing the map will **not** fix it like it does with [Global.CurTime](https://wiki.facepunch.com/gmod/Global.CurTime). A server restart is necessary.
- *
- *
  */
 declare function RealTime(): number;
 
@@ -65757,7 +58566,6 @@ declare function RecipientFilter(unreliable = false): CRecipientFilter;
  * 🟩 [Menu]
  *
  * Adds a frame to the currently recording demo.
- *
  */
 declare function RecordDemoFrame(): void;
 
@@ -65765,7 +58573,6 @@ declare function RecordDemoFrame(): void;
  * 🟩 [Menu]
  *
  * Refreshes all Addon Conflicts after 1 Second. Internally uses [Global.FireAddonConflicts](https://wiki.facepunch.com/gmod/Global.FireAddonConflicts)
- *
  */
 declare function RefreshAddonConflicts(): void;
 
@@ -65790,7 +58597,6 @@ declare function RegisterMetaTable(metaName: string, metaTable: any): void;
  * 🟨🟩 [Client and Menu]
  *
  * Saves position of your cursor on screen. You can restore it by using [Global.RestoreCursorPosition](https://wiki.facepunch.com/gmod/Global.RestoreCursorPosition). This is used internally by the spawn menu/context menu
- *
  */
 declare function RememberCursorPosition(): void;
 
@@ -65798,7 +58604,6 @@ declare function RememberCursorPosition(): void;
  * 🟨🟩 [Client and Menu]
  *
  * Does the removing of the tooltip panel. Called by [Global.EndTooltip](https://wiki.facepunch.com/gmod/Global.EndTooltip).
- *
  */
 declare function RemoveTooltip(): void;
 
@@ -65808,7 +58613,6 @@ declare function RemoveTooltip(): void;
  * Returns the angle that the clients view is being rendered at. Returns `angles` from the return value of [render.GetViewSetup](https://wiki.facepunch.com/gmod/render.GetViewSetup).
  *
  * See also [Global.EyeAngles](https://wiki.facepunch.com/gmod/Global.EyeAngles).
- *
  */
 declare function RenderAngles(): Angle;
 
@@ -65899,7 +58703,6 @@ declare function require(name: string): void;
  * 🟨🟩 [Client and Menu]
  *
  * Restores position of your cursor on screen. You can save it by using [Global.RememberCursorPosition](https://wiki.facepunch.com/gmod/Global.RememberCursorPosition).
- *
  */
 declare function RestoreCursorPosition(): void;
 
@@ -65968,8 +58771,6 @@ declare function RunString(code: string, identifier: string = "RunString", handl
  * Alias of [Global.RunString](https://wiki.facepunch.com/gmod/Global.RunString).
  *
  * @deprecated Use [Global.RunString](https://wiki.facepunch.com/gmod/Global.RunString) instead.
- *
- *
  */
 declare function RunStringEx(): void;
 
@@ -66060,8 +58861,6 @@ declare function ScreenScaleH(size: number): number;
  *
  * **Note:**
  * >ScrH() returns the height from the current viewport, this can be changed via [render.SetViewPort](https://wiki.facepunch.com/gmod/render.SetViewPort), inside Render Targets and cam.Start contexts.
- *
- *
  */
 declare function ScrH(): number;
 
@@ -66072,8 +58871,6 @@ declare function ScrH(): number;
  *
  * **Note:**
  * >ScrW() returns the width from the current viewport, this can be changed via [render.SetViewPort](https://wiki.facepunch.com/gmod/render.SetViewPort), inside Render Targets and cam.Start contexts.
- *
- *
  */
 declare function ScrW(): number;
 
@@ -66533,7 +59330,6 @@ declare function SuppressHostEvents(suppressPlayer: Player): void;
  * 🟨🟦🟩 [Shared and Menu]
  *
  * Returns a highly accurate time in seconds since the start up, ideal for benchmarking. Unlike [Global.RealTime](https://wiki.facepunch.com/gmod/Global.RealTime), this value will be updated any time the function is called, allowing for sub-think precision.
- *
  */
 declare function SysTime(): number;
 
@@ -66541,7 +59337,6 @@ declare function SysTime(): number;
  * 🟨🟦 [Shared]
  *
  * Returns a TauntCamera object
- *
  */
 declare function TauntCamera(): any;
 
@@ -66549,7 +59344,6 @@ declare function TauntCamera(): any;
  * 🟨🟩 [Client and Menu]
  *
  * Clears focus from any text entries player may have focused.
- *
  */
 declare function TextEntryLoseFocus(): void;
 
@@ -66668,7 +59462,6 @@ declare function unpack(tbl: any, startIndex = 1, endIndex?: number): any;
  * 🟨🟦🟩 [Shared and Menu]
  *
  * Returns the current asynchronous in-game time. This will not be synced with the players current clock allowing you to get [Global.CurTime](https://wiki.facepunch.com/gmod/Global.CurTime) without interference from [Prediction](https://wiki.facepunch.com/gmod/Prediction).
- *
  */
 declare function UnPredictedCurTime(): number;
 
@@ -66676,7 +59469,6 @@ declare function UnPredictedCurTime(): number;
  * 🟩 [Menu]
  *
  * This function retrieves the values from [Global.GetAddonStatus](https://wiki.facepunch.com/gmod/Global.GetAddonStatus) and passes them to JS(JavaScript).
- *
  */
 declare function UpdateAddonDisabledState(): void;
 
@@ -66684,7 +59476,6 @@ declare function UpdateAddonDisabledState(): void;
  * 🟩 [Menu]
  *
  * This function is called by [Global.UpdateMapList](https://wiki.facepunch.com/gmod/Global.UpdateMapList) to pass the AddonMaps to JS to be used for the Search.
- *
  */
 declare function UpdateAddonMapList(): void;
 
@@ -66692,7 +59483,6 @@ declare function UpdateAddonMapList(): void;
  * 🟩 [Menu]
  *
  * Updates the Gamelist.
- *
  */
 declare function UpdateGames(): void;
 
@@ -66700,7 +59490,6 @@ declare function UpdateGames(): void;
  * 🟩 [Menu]
  *
  * This function searches for all available languages and passes them to JS(JavaScript). JS then updates the Language list with the given languages.
- *
  */
 declare function UpdateLanguages(): void;
 
@@ -66717,7 +59506,6 @@ declare function UpdateLoadPanel(javascript: string): void;
  *
  * **e**
  * 		This function updates the Map List
- *
  */
 declare function UpdateMapList(): void;
 
@@ -66726,7 +59514,6 @@ declare function UpdateMapList(): void;
  *
  * **e**
  * 		Updates the Server Settings when called.
- *
  */
 declare function UpdateServerSettings(): void;
 
@@ -66734,7 +59521,6 @@ declare function UpdateServerSettings(): void;
  * 🟩 [Menu]
  *
  * Updates the Addons list.
- *
  */
 declare function UpdateSubscribedAddons(): void;
 
@@ -66809,8 +59595,6 @@ declare function VectorRand(min = -1, max = 1): Vector;
  * Identical to [Global.SysTime](https://wiki.facepunch.com/gmod/Global.SysTime).
  *
  * @deprecated Use the function [Global.SysTime](https://wiki.facepunch.com/gmod/Global.SysTime) instead.
- *
- *
  */
 declare function VGUIFrameTime(): void;
 
@@ -66846,11 +59630,11 @@ declare function WorkshopFileBase(namespace: string, requiredTags: any): any;
 /**
  * 🟨🟦 [Shared]
  *
- * Translates the specified position and angle into the specified coordinate system.
- * @param position - The position that should be translated from the current to the new system.
- * @param angle - The angles that should be translated from the current to the new system.
- * @param newSystemOrigin - The origin of the system to translate to.
- * @param newSystemAngles - The angles of the system to translate to.
+ * Translates a worldspace vector and angle into a specific coordinate system.
+ * @param position - A worldspace vector.
+ * @param angle - A worldspace angle.
+ * @param newSystemOrigin - The origin of the new coordinate system.
+ * @param newSystemAngles - The angles of the new coordinate system.
  */
 declare function WorldToLocal(position: Vector, angle: Angle, newSystemOrigin: Vector, newSystemAngles: Angle): LuaMultiReturn<[Vector, Angle]>;
 
@@ -66884,7 +59668,6 @@ declare namespace achievements {
      * 🟨 [Client]
      *
      * Adds one to the count of balloons burst. Once this count reaches 1000, the 'Popper' achievement is unlocked.
-     *
      */
     function BalloonPopped(): void;
 
@@ -66892,7 +59675,6 @@ declare namespace achievements {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the amount of achievements in Garry's Mod.
-     *
      */
     function Count(): number;
 
@@ -66900,7 +59682,6 @@ declare namespace achievements {
      * 🟨 [Client]
      *
      * Adds one to the count of balls eaten. Once this count reaches 200, the 'Ball Eater' achievement is unlocked.
-     *
      */
     function EatBall(): void;
 
@@ -66940,7 +59721,6 @@ declare namespace achievements {
      * 🟨 [Client]
      *
      * Adds one to the count of baddies killed. Once this count reaches 1000, the 'War Zone' achievement is unlocked.
-     *
      */
     function IncBaddies(): void;
 
@@ -66948,7 +59728,6 @@ declare namespace achievements {
      * 🟨 [Client]
      *
      * Adds one to the count of innocent animals killed. Once this count reaches 1000, the 'Innocent Bystander' achievement is unlocked.
-     *
      */
     function IncBystander(): void;
 
@@ -66956,7 +59735,6 @@ declare namespace achievements {
      * 🟨 [Client]
      *
      * Adds one to the count of friendly NPCs killed. Once this count reaches 1000, the 'Bad Friend' achievement is unlocked.
-     *
      */
     function IncGoodies(): void;
 
@@ -66972,7 +59750,6 @@ declare namespace achievements {
      * 🟨 [Client]
      *
      * Adds one to the count of things removed. Once this count reaches 5000, the 'Destroyer' achievement is unlocked.
-     *
      */
     function Remover(): void;
 
@@ -66980,7 +59757,6 @@ declare namespace achievements {
      * 🟨 [Client]
      *
      * Adds one to the count of NPCs spawned. Once this count reaches 1000, the 'Procreator' achievement is unlocked.
-     *
      */
     function SpawnedNPC(): void;
 
@@ -66988,7 +59764,6 @@ declare namespace achievements {
      * 🟨 [Client]
      *
      * Adds one to the count of props spawned. Once this count reaches 5000, the 'Creator' achievement is unlocked.
-     *
      */
     function SpawnedProp(): void;
 
@@ -66996,7 +59771,6 @@ declare namespace achievements {
      * 🟨 [Client]
      *
      * Adds one to the count of ragdolls spawned. Once this count reaches 2000, the 'Dollhouse' achievement is unlocked.
-     *
      */
     function SpawnedRagdoll(): void;
 
@@ -67004,7 +59778,6 @@ declare namespace achievements {
      * 🟨 [Client]
      *
      * Adds one to the count of how many times the spawnmenu has been opened. Once this count reaches 100,000, the 'Menu User' achievement is unlocked.
-     *
      */
     function SpawnMenuOpen(): void;
 
@@ -67022,7 +59795,6 @@ declare namespace ai {
      * Returns the number of AI nodes on the map, used by the base game NPCs.
      *
      * For nextbots, see [navmesh](https://wiki.facepunch.com/gmod/navmesh).
-     *
      */
     function GetNodeCount(): number;
 
@@ -67094,7 +59866,6 @@ declare namespace ai_task {
      * 🟦 [Server]
      *
      * Create a new empty task. Used by [Schedule:AddTask](https://wiki.facepunch.com/gmod/Schedule:AddTask) and [Schedule:EngTask](https://wiki.facepunch.com/gmod/Schedule:EngTask).
-     *
      */
     function New(): Task;
 
@@ -67294,7 +60065,6 @@ declare namespace cam {
      * Switches the renderer back to the previous drawing mode from a 3D context.
      *
      * This function is an alias of [cam.End3D](https://wiki.facepunch.com/gmod/cam.End3D).
-     *
      */
     function End(): void;
 
@@ -67302,7 +60072,6 @@ declare namespace cam {
      * 🟨 [Client]
      *
      * Switches the renderer back to the previous drawing mode from a 2D context.
-     *
      */
     function End2D(): void;
 
@@ -67310,7 +60079,6 @@ declare namespace cam {
      * 🟨 [Client]
      *
      * Switches the renderer back to the previous drawing mode from a 3D context.
-     *
      */
     function End3D(): void;
 
@@ -67318,7 +60086,6 @@ declare namespace cam {
      * 🟨 [Client]
      *
      * Switches the renderer back to the previous drawing mode from a 3D2D context.
-     *
      */
     function End3D2D(): void;
 
@@ -67326,7 +60093,6 @@ declare namespace cam {
      * 🟨 [Client]
      *
      * Switches the renderer back to the previous drawing mode from a 3D orthographic rendering context.
-     *
      */
     function EndOrthoView(): void;
 
@@ -67337,8 +60103,6 @@ declare namespace cam {
      *
      * **Note:**
      * >Editing the matrix **will not** edit the current view. To do so, you will have to use [cam.PushModelMatrix](https://wiki.facepunch.com/gmod/cam.PushModelMatrix).
-     *
-     *
      */
     function GetModelMatrix(): VMatrix;
 
@@ -67356,7 +60120,6 @@ declare namespace cam {
      * 🟨 [Client]
      *
      * Pops the current active rendering matrix from the stack and reinstates the previous one.
-     *
      */
     function PopModelMatrix(): void;
 
@@ -67399,8 +60162,6 @@ declare namespace cam {
      *
      * **Note:**
      * >This will put an identity matrix at the top of the model matrix stack. If you are trying to use [cam.PushModelMatrix](https://wiki.facepunch.com/gmod/cam.PushModelMatrix), call it after this function and not before.
-     *
-     *
      */
     function Start2D(): void;
 
@@ -67498,7 +60259,6 @@ declare namespace chat {
      * 🟨 [Client]
      *
      * Closes the chat window.
-     *
      */
     function Close(): void;
 
@@ -67506,7 +60266,6 @@ declare namespace chat {
      * 🟨 [Client]
      *
      * Returns the chatbox position.
-     *
      */
     function GetChatBoxPos(): LuaMultiReturn<[number, number]>;
 
@@ -67514,7 +60273,6 @@ declare namespace chat {
      * 🟨 [Client]
      *
      * Returns the chatbox size.
-     *
      */
     function GetChatBoxSize(): LuaMultiReturn<[number, number]>;
 
@@ -67530,7 +60288,6 @@ declare namespace chat {
      * 🟨 [Client]
      *
      * Plays the chat "tick" sound.
-     *
      */
     function PlaySound(): void;
 
@@ -67576,7 +60333,6 @@ declare namespace cleanup {
      * 🟦 [Server]
      *
      * Gets the cleanup list.
-     *
      */
     function GetList(): void;
 
@@ -67584,7 +60340,6 @@ declare namespace cleanup {
      * 🟨🟦 [Shared]
      *
      * Gets the table of cleanup types.
-     *
      */
     function GetTable(): any;
 
@@ -67611,7 +60366,6 @@ declare namespace cleanup {
      * 🟨 [Client]
      *
      * Repopulates the clients cleanup menu
-     *
      */
     function UpdateUI(): void;
 
@@ -67669,7 +60423,6 @@ declare namespace concommand {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns the tables of all console command callbacks, and autocomplete functions, that were added to the game with [concommand.Add](https://wiki.facepunch.com/gmod/concommand.Add).
-     *
      */
     function GetTable(): LuaMultiReturn<[Record<string, Function>, Record<string, Function>]>;
 
@@ -68293,7 +61046,6 @@ declare namespace controlpanel {
      * 🟨 [Client]
      *
      * Clears ALL the control panels ( for tools )
-     *
      */
     function Clear(): void;
 
@@ -68384,8 +61136,6 @@ declare namespace coroutine {
      *
      * **Note:**
      * >This is only available on the x86-64 versions, because of the difference in the LuaJIT version. [See here](jit.version)
-     *
-     *
      */
     function isyieldable(): boolean;
 
@@ -68402,7 +61152,6 @@ declare namespace coroutine {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns the active coroutine or nil if we are not within a coroutine.
-     *
      */
     function running(): thread;
 
@@ -68554,8 +61303,6 @@ declare namespace debug {
      *
      * **Note:**
      * >This only works on the source dedicated server.
-     *
-     *
      */
     function debug(): void;
 
@@ -68628,8 +61375,6 @@ declare namespace debug {
      *
      * **Warning:**
      * >Improper editing of the registry can result in unintended side effects, including crashing the game.
-     *
-     *
      */
     function getregistry(): any;
 
@@ -68715,7 +61460,6 @@ declare namespace debug {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Prints out the lua function call stack to the console.
-     *
      */
     function Trace(): void;
 
@@ -68763,7 +61507,6 @@ declare namespace debug {
  *
  * **Note:**
  * >These functions will not do anything unless the **developer** console variable is set to non 0.
- *
  */
 declare namespace debugoverlay {
 
@@ -69012,7 +61755,6 @@ declare namespace derma {
      * * [string](https://wiki.facepunch.com/gmod/string) ClassName - The class name of the panel
      * * [string](https://wiki.facepunch.com/gmod/string) Description - The description of the panel
      * * [string](https://wiki.facepunch.com/gmod/string) BaseClass - The base class of the panel
-     *
      */
     function Controls(): any;
 
@@ -69047,7 +61789,6 @@ declare namespace derma {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the [derma.Controls](https://wiki.facepunch.com/gmod/derma.Controls) table, a list of all derma controls registered with [derma.DefineControl](https://wiki.facepunch.com/gmod/derma.DefineControl).
-     *
      */
     function GetControlList(): any;
 
@@ -69055,7 +61796,6 @@ declare namespace derma {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the default skin table, which can be changed with the hook [GM:ForceDermaSkin](https://wiki.facepunch.com/gmod/GM:ForceDermaSkin)
-     *
      */
     function GetDefaultSkin(): any;
 
@@ -69071,7 +61811,6 @@ declare namespace derma {
      * 🟨🟩 [Client and Menu]
      *
      * Returns a copy of the table containing every Derma skin
-     *
      */
     function GetSkinTable(): any;
 
@@ -69079,7 +61818,6 @@ declare namespace derma {
      * 🟨🟩 [Client and Menu]
      *
      * Clears all cached panels so that they reassess which skin they should be using.
-     *
      */
     function RefreshSkins(): void;
 
@@ -69087,7 +61825,6 @@ declare namespace derma {
      * 🟨🟩 [Client and Menu]
      *
      * Returns how many times [derma.RefreshSkins](https://wiki.facepunch.com/gmod/derma.RefreshSkins) has been called.
-     *
      */
     function SkinChangeIndex(): number;
 
@@ -69109,7 +61846,6 @@ declare namespace derma {
      * 🟨🟩 [Client and Menu]
      *
      * This is NOT a function, it's a variable containing all registered via [derma.DefineSkin](https://wiki.facepunch.com/gmod/derma.DefineSkin) derma skins.
-     *
      */
     function SkinList(): any;
 
@@ -69148,7 +61884,6 @@ declare namespace dragndrop {
      * 🟨🟩 [Client and Menu]
      *
      * Clears all the internal drag'n'drop variables.
-     *
      */
     function Clear(): void;
 
@@ -69156,7 +61891,6 @@ declare namespace dragndrop {
      * 🟨🟩 [Client and Menu]
      *
      * Handles the drop action of drag'n'drop library.
-     *
      */
     function Drop(): void;
 
@@ -69172,7 +61906,6 @@ declare namespace dragndrop {
      * 🟨🟩 [Client and Menu]
      *
      * Allows you to capture the panel that was dropped into the game (dropped onto the root panel). This function is meant to be overridden.
-     *
      */
     function HandleDroppedInGame(): void;
 
@@ -69180,7 +61913,6 @@ declare namespace dragndrop {
      * 🟨🟩 [Client and Menu]
      *
      * Handles the hover think. Called from [dragndrop.Think](https://wiki.facepunch.com/gmod/dragndrop.Think).
-     *
      */
     function HoverThink(): void;
 
@@ -69188,7 +61920,6 @@ declare namespace dragndrop {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether the user is dragging something with the drag'n'drop system.
-     *
      */
     function IsDragging(): boolean;
 
@@ -69196,7 +61927,6 @@ declare namespace dragndrop {
      * 🟨🟩 [Client and Menu]
      *
      * Starts the drag'n'drop.
-     *
      */
     function StartDragging(): void;
 
@@ -69204,7 +61934,6 @@ declare namespace dragndrop {
      * 🟨🟩 [Client and Menu]
      *
      * Stops the drag'n'drop and calls [dragndrop.Clear](https://wiki.facepunch.com/gmod/dragndrop.Clear).
-     *
      */
     function StopDragging(): void;
 
@@ -69212,7 +61941,6 @@ declare namespace dragndrop {
      * 🟨🟩 [Client and Menu]
      *
      * Handles all the drag'n'drop processes. Calls [dragndrop.UpdateReceiver](https://wiki.facepunch.com/gmod/dragndrop.UpdateReceiver) and [dragndrop.HoverThink](https://wiki.facepunch.com/gmod/dragndrop.HoverThink).
-     *
      */
     function Think(): void;
 
@@ -69220,7 +61948,6 @@ declare namespace dragndrop {
      * 🟨🟩 [Client and Menu]
      *
      * Updates the receiver to drop the panels onto. Called from [dragndrop.Think](https://wiki.facepunch.com/gmod/dragndrop.Think).
-     *
      */
     function UpdateReceiver(): void;
 
@@ -69265,7 +61992,6 @@ declare namespace draw {
      * Sets drawing texture to a default white texture (vgui/white) via [surface.SetMaterial](https://wiki.facepunch.com/gmod/surface.SetMaterial). Useful for resetting the drawing texture.
      *
      * <rendercontext hook="false" type="2D"></rendercontext>
-     *
      */
     function NoTexture(): void;
 
@@ -69561,7 +62287,6 @@ declare namespace duplicator {
      * 🟨🟦 [Shared]
      *
      * A list of all entity bone modifiers registered with [duplicator.RegisterBoneModifier](https://wiki.facepunch.com/gmod/duplicator.RegisterBoneModifier).
-     *
      */
     function BoneModifiers(): any;
 
@@ -69578,7 +62303,6 @@ declare namespace duplicator {
      * 🟨🟦 [Shared]
      *
      * A list of all [constraint](https://wiki.facepunch.com/gmod/constraint)s that can be duplicated. Registered with [duplicator.RegisterConstraint](https://wiki.facepunch.com/gmod/duplicator.RegisterConstraint).
-     *
      */
     function ConstraintType(): any;
 
@@ -69694,7 +62418,6 @@ declare namespace duplicator {
      * A list of all entity classes have a custom duplication spawn function. Registered with [duplicator.RegisterEntityClass](https://wiki.facepunch.com/gmod/duplicator.RegisterEntityClass).
      *
      * If you wish to get a specific entity class table, use [duplicator.FindEntityClass](https://wiki.facepunch.com/gmod/duplicator.FindEntityClass).
-     *
      */
     function EntityClasses(): any;
 
@@ -69702,7 +62425,6 @@ declare namespace duplicator {
      * 🟨🟦 [Shared]
      *
      * A list of all entity modifiers registered with [duplicator.RegisterEntityModifier](https://wiki.facepunch.com/gmod/duplicator.RegisterEntityModifier).
-     *
      */
     function EntityModifiers(): any;
 
@@ -69839,7 +62561,6 @@ declare namespace duplicator {
      * Help to remove certain map created entities before creating the saved entities
      * This is obviously so we don't get duplicate props everywhere.
      * It should be called before calling Paste.
-     *
      */
     function RemoveMapCreatedEntities(): void;
 
@@ -69958,7 +62679,6 @@ declare namespace effects {
      * 🟨 [Client]
      *
      * Returns a list of all Lua-defined effects.
-     *
      */
     function GetList(): any;
 
@@ -70001,7 +62721,6 @@ declare namespace engine {
      * 🟨🟦 [Shared]
      *
      * Returns non paused [Global.FrameTime](https://wiki.facepunch.com/gmod/Global.FrameTime).
-     *
      */
     function AbsoluteFrameTime(): number;
 
@@ -70009,7 +62728,6 @@ declare namespace engine {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns the name of the currently running gamemode.
-     *
      */
     function ActiveGamemode(): string;
 
@@ -70021,7 +62739,6 @@ declare namespace engine {
      * To enable this function for use on your server, add `-allowquit` to your commandline, which will make this function run `quit keep_players` when executed, this also does not forcibly disconnect players.
      *
      * This is also available when running in server test mode (launch option `-systemtest`). Server test mode is used internally at Facepunch as part of the build process to make sure that the dedicated servers aren't crashing on startup.
-     *
      */
     function CloseServer(): void;
 
@@ -70031,7 +62748,6 @@ declare namespace engine {
      * Returns a list of addons the player have subscribed to on the workshop.
      *
      * This list will also include "Floating" .gma addons that are mounted by the game, but not the folder addons.
-     *
      */
     function GetAddons(): any;
 
@@ -70039,7 +62755,6 @@ declare namespace engine {
      * 🟨🟩 [Client and Menu]
      *
      * When starting playing a demo, [engine.GetDemoPlaybackTick](https://wiki.facepunch.com/gmod/engine.GetDemoPlaybackTick) will be reset and its old value will be added to this functions return value.
-     *
      */
     function GetDemoPlaybackStartTick(): number;
 
@@ -70049,7 +62764,6 @@ declare namespace engine {
      * Current tick of currently loaded demo.
      *
      * If not playing a demo, it will return amount of ticks since last demo playback.
-     *
      */
     function GetDemoPlaybackTick(): number;
 
@@ -70059,7 +62773,6 @@ declare namespace engine {
      * Returns time scale of demo playback.
      *
      * If not during demo playback, returns 1.
-     *
      */
     function GetDemoPlaybackTimeScale(): number;
 
@@ -70069,7 +62782,6 @@ declare namespace engine {
      * Returns total amount of ticks of currently loaded demo.
      *
      * If not playing a demo, returns 0 or the value of last played demo.
-     *
      */
     function GetDemoPlaybackTotalTicks(): number;
 
@@ -70077,7 +62789,6 @@ declare namespace engine {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns a table containing info for all installed gamemodes
-     *
      */
     function GetGamemodes(): any;
 
@@ -70085,7 +62796,6 @@ declare namespace engine {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns an array of tables corresponding to all games from which Garry's Mod supports mounting content.
-     *
      */
     function GetGames(): any;
 
@@ -70095,8 +62805,6 @@ declare namespace engine {
      * Returns the UGC (demos, saves and dupes) the player have subscribed to on the workshop.
      *
      * @deprecated Used internally for in-game menus, may be merged in the future into [engine.GetAddons](https://wiki.facepunch.com/gmod/engine.GetAddons).
-     *
-     *
      */
     function GetUserContent(): any;
 
@@ -70106,7 +62814,6 @@ declare namespace engine {
      * Returns true if we're currently playing a demo.
      *
      * You will notice that there's no server-side version of this. That's because there is no server when playing a demo. Demos are both recorded and played back purely clientside.
-     *
      */
     function IsPlayingDemo(): boolean;
 
@@ -70114,7 +62821,6 @@ declare namespace engine {
      * 🟨🟩 [Client and Menu]
      *
      * Returns true if the game is currently recording a demo file (.dem) using gm_demo
-     *
      */
     function IsRecordingDemo(): boolean;
 
@@ -70143,7 +62849,6 @@ declare namespace engine {
      * 🟨 [Client]
      *
      * Returns an estimate of the server's performance. Equivalent to calling [Global.FrameTime](https://wiki.facepunch.com/gmod/Global.FrameTime) from the server, according to source code.
-     *
      */
     function ServerFrameTime(): LuaMultiReturn<[number, number]>;
 
@@ -70160,7 +62865,6 @@ declare namespace engine {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns the number of ticks since the game server started.
-     *
      */
     function TickCount(): number;
 
@@ -70175,7 +62879,6 @@ declare namespace engine {
      *
      * The default tickrate is `66.6666`, aka `15` milliseconds interval between each game tick.
      * The tickrate can be adjusted via the `-tickrate` [command line option](Command_Line_Parameters).
-     *
      */
     function TickInterval(): number;
 
@@ -70183,7 +62886,6 @@ declare namespace engine {
      * 🟨 [Client]
      *
      * Returns video recording settings set by [video.Record](https://wiki.facepunch.com/gmod/video.Record). Used by Demo-To-Video feature.
-     *
      */
     function VideoSettings(): VideoData;
 
@@ -70408,7 +63110,6 @@ declare namespace ents {
      * Consider using [ents.Iterator](https://wiki.facepunch.com/gmod/ents.Iterator) instead for better performance.
      *
      * This function returns a sequential table, meaning it should be looped with [Global.ipairs](https://wiki.facepunch.com/gmod/Global.ipairs) instead of [Global.pairs](https://wiki.facepunch.com/gmod/Global.pairs) for efficiency reasons.
-     *
      */
     function GetAll(): Entity[];
 
@@ -70435,7 +63136,6 @@ declare namespace ents {
      * 🟦 [Server]
      *
      * Returns the amount of networked entities, which is limited to 8192. [ents.Create](https://wiki.facepunch.com/gmod/ents.Create) will fail somewhere between 8064 and 8176 - this can vary based on the amount of existing temp ents.
-     *
      */
     function GetEdictCount(): number;
 
@@ -70456,7 +63156,6 @@ declare namespace ents {
      *
      * 		Internally, this function uses cached values that exist entirely within lua, as opposed to [ents.GetAll](https://wiki.facepunch.com/gmod/ents.GetAll), which is a C++ function.
      * 		Because switching from lua to C++ (and vice versa) incurs a performance cost, this function will be somewhat more efficient than [ents.GetAll](https://wiki.facepunch.com/gmod/ents.GetAll).
-     *
      */
     function Iterator(): LuaMultiReturn<[Function, Entity[], number]>;
 
@@ -70524,7 +63223,6 @@ declare namespace file {
      * @param [path = nil] - The path to look for the files and directories in. See <page text="this list">File_Search_Paths</page> for a list of valid paths.
      * **Note:**
      * >This is only available in the menu state.
-     *
      */
     function Delete(name: string, path?: string): boolean;
 
@@ -70670,7 +63368,6 @@ declare namespace frame_blend {
      * 🟨 [Client]
      *
      * Adds a frame to the blend. Calls [frame_blend.CompleteFrame](https://wiki.facepunch.com/gmod/frame_blend.CompleteFrame) once enough frames have passed since last [frame_blend.CompleteFrame](https://wiki.facepunch.com/gmod/frame_blend.CompleteFrame) call.
-     *
      */
     function AddFrame(): void;
 
@@ -70678,7 +63375,6 @@ declare namespace frame_blend {
      * 🟨 [Client]
      *
      * Blends the frame(s).
-     *
      */
     function BlendFrame(): void;
 
@@ -70686,7 +63382,6 @@ declare namespace frame_blend {
      * 🟨 [Client]
      *
      * Renders the frame onto internal render target.
-     *
      */
     function CompleteFrame(): void;
 
@@ -70694,7 +63389,6 @@ declare namespace frame_blend {
      * 🟨 [Client]
      *
      * Actually draws the frame blend effect.
-     *
      */
     function DrawPreview(): void;
 
@@ -70702,7 +63396,6 @@ declare namespace frame_blend {
      * 🟨 [Client]
      *
      * Returns whether frame blend post processing effect is enabled or not.
-     *
      */
     function IsActive(): boolean;
 
@@ -70710,7 +63403,6 @@ declare namespace frame_blend {
      * 🟨 [Client]
      *
      * Returns whether the current frame is the last frame?
-     *
      */
     function IsLastFrame(): boolean;
 
@@ -70718,7 +63410,6 @@ declare namespace frame_blend {
      * 🟨 [Client]
      *
      * Returns amount of frames needed to render?
-     *
      */
     function RenderableFrames(): number;
 
@@ -70726,7 +63417,6 @@ declare namespace frame_blend {
      * 🟨 [Client]
      *
      * Returns whether we should skip frame or not
-     *
      */
     function ShouldSkipFrame(): boolean;
 
@@ -70785,7 +63475,6 @@ declare namespace game {
      *
      * **.**
      * Called by the engine to retrieve the ammo types.
-     *
      */
     function BuildAmmoTypes(): any;
 
@@ -70906,7 +63595,6 @@ declare namespace game {
      * 🟨🟦 [Shared]
      *
      * Returns a list of all ammo types currently registered.
-     *
      */
     function GetAmmoTypes(): Record<number, string>;
 
@@ -70944,8 +63632,6 @@ declare namespace game {
      *
      * **Note:**
      * >Returns "loopback" in singleplayer.
-     *
-     *
      */
     function GetIPAddress(): string;
 
@@ -70957,8 +63643,6 @@ declare namespace game {
      *
      * **Warning:**
      * >In Multiplayer this does not return the current map in the CLIENT realm before [GM:Initialize](https://wiki.facepunch.com/gmod/GM:Initialize).
-     *
-     *
      */
     function GetMap(): string;
 
@@ -70966,7 +63650,6 @@ declare namespace game {
      * 🟦 [Server]
      *
      * Returns the next map that would be loaded according to the file that is set by the mapcyclefile convar.
-     *
      */
     function GetMapNext(): string;
 
@@ -70974,7 +63657,6 @@ declare namespace game {
      * 🟦 [Server]
      *
      * Returns the revision (Not to be confused with [VBSP Version](https://developer.valvesoftware.com/wiki/Source_BSP_File_Format#Versions)) of the current map.
-     *
      */
     function GetMapVersion(): number;
 
@@ -70987,8 +63669,6 @@ declare namespace game {
      *
      * **Note:**
      * >Internally this is tied to the gamerules entity, so you'll have to wait until [GM:InitPostEntity](https://wiki.facepunch.com/gmod/GM:InitPostEntity) is called to return the skill level
-     *
-     *
      */
     function GetSkillLevel(): number;
 
@@ -71001,7 +63681,6 @@ declare namespace game {
      * 		```lua
      * local timescale = GetConVar( "host_timescale" ):GetFloat()
      * 		```
-     *
      */
     function GetTimeScale(): number;
 
@@ -71009,7 +63688,6 @@ declare namespace game {
      * 🟨🟦 [Shared]
      *
      * Returns the worldspawn entity.
-     *
      */
     function GetWorld(): Entity;
 
@@ -71017,7 +63695,6 @@ declare namespace game {
      * 🟨🟦 [Shared]
      *
      * Returns true if the server is a dedicated server, false if it is a listen server or a singleplayer game.
-     *
      */
     function IsDedicated(): boolean;
 
@@ -71029,7 +63706,6 @@ declare namespace game {
      * @param [reason = No reason given] - Reason to display to the player. This can span across multiple lines.
      * **Warning:**
      * >This will be shortened to ~512 chars, though this includes the command itself and the player index so will realistically be more around ~483. It is recommended to avoid going near the limit to avoid truncation.
-     *
      */
     function KickID(id: string, reason: string = "No reason given"): void;
 
@@ -71037,7 +63713,6 @@ declare namespace game {
      * 🟦 [Server]
      *
      * Loads the next map according to the `nextlevel` convar, or from the current `mapcyclefile` set by the respective convar.
-     *
      */
     function LoadNextMap(): void;
 
@@ -71047,7 +63722,6 @@ declare namespace game {
      * Returns the map load type of the current map.
      *
      * After changing the map with the console command `changelevel`, "newgame" is returned. With `changelevel2` (single player only), "transition" is returned.
-     *
      */
     function MapLoadType(): string;
 
@@ -71055,7 +63729,6 @@ declare namespace game {
      * 🟨🟦 [Shared]
      *
      * Returns the maximum amount of players (including bots) that the server can have.
-     *
      */
     function MaxPlayers(): number;
 
@@ -71078,7 +63751,6 @@ declare namespace game {
      * 🟨🟦 [Shared]
      *
      * Removes all the clientside ragdolls. On server, it will remove all `prop_ragdolls` that have the `SF_RAGDOLLPROP_USE_LRU_RETIREMENT` (4096) spawnflag.
-     *
      */
     function RemoveRagdolls(): void;
 
@@ -71141,7 +63813,6 @@ declare namespace game {
      * 🟨🟦 [Shared]
      *
      * Returns whether the current session is a single player game.
-     *
      */
     function SinglePlayer(): boolean;
 
@@ -71151,7 +63822,6 @@ declare namespace game {
      * Returns the name of the entity that should be used as player start position.
      *
      * This is not the same thing as spawn points (See [GM:PlayerSelectSpawn](https://wiki.facepunch.com/gmod/GM:PlayerSelectSpawn) for that), this is used to properly transit the player between maps, and therefore will only be set after a level change via `trigger_changelevel` entity in singleplayer.
-     *
      */
     function StartSpot(): string;
 
@@ -71165,7 +63835,6 @@ declare namespace game {
  *
  * **Note:**
  * >All Serverside gameevents are networked and called clientside. It could happen that a gameevent is called twice because of this like.
- *
  */
 declare namespace gameevent {
 
@@ -71233,7 +63902,6 @@ declare namespace gmod {
      * 🟨🟦 [Shared]
      *
      * Returns [GAMEMODE](https://wiki.facepunch.com/gmod/GAMEMODE).
-     *
      */
     function GetGamemode(): GM;
 
@@ -71301,7 +63969,6 @@ declare namespace gui {
      * 🟨🟩 [Client and Menu]
      *
      * Opens the game menu overlay.
-     *
      */
     function ActivateGameUI(): void;
 
@@ -71339,8 +64006,6 @@ declare namespace gui {
      * Hides the game menu overlay.
      *
      * @deprecated Will be disabled in a future patch. Use [GM:OnPauseMenuShow](https://wiki.facepunch.com/gmod/GM:OnPauseMenuShow) instead.
-     *
-     *
      */
     function HideGameUI(): void;
 
@@ -71423,7 +64088,6 @@ declare namespace gui {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether the console is visible or not.
-     *
      */
     function IsConsoleVisible(): boolean;
 
@@ -71431,7 +64095,6 @@ declare namespace gui {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether the game menu overlay ( main menu ) is open or not.
-     *
      */
     function IsGameUIVisible(): boolean;
 
@@ -71441,8 +64104,6 @@ declare namespace gui {
      * Returns the cursor's position on the screen, or 0, 0 if cursor is not visible.
      *
      * @deprecated Use [input.GetCursorPos](https://wiki.facepunch.com/gmod/input.GetCursorPos) instead.
-     *
-     *
      */
     function MousePos(): LuaMultiReturn<[number, number]>;
 
@@ -71450,7 +64111,6 @@ declare namespace gui {
      * 🟨🟩 [Client and Menu]
      *
      * Returns x component of the mouse position.
-     *
      */
     function MouseX(): number;
 
@@ -71458,7 +64118,6 @@ declare namespace gui {
      * 🟨🟩 [Client and Menu]
      *
      * Returns y component of the mouse position.
-     *
      */
     function MouseY(): number;
 
@@ -71501,7 +64160,6 @@ declare namespace gui {
      * 🟩 [Menu]
      *
      * Shows console in the game UI.
-     *
      */
     function ShowConsole(): void;
 
@@ -71611,7 +64269,6 @@ declare namespace halo {
      * Returns the entity the halo library is currently rendering the halo for.
      *
      * The main purpose of this function is to be used in [ENTITY:Draw](https://wiki.facepunch.com/gmod/ENTITY:Draw) in order not to draw certain parts of the entity when the halo is being rendered, so there's no halo around unwanted entity parts, such as lasers, 3D2D displays, etc.
-     *
      */
     function RenderedEntity(): Entity;
 
@@ -71668,9 +64325,20 @@ declare namespace hook {
      * >Returning any value besides nil from the hook's function will stop other hooks of the same event down the loop from being executed. Only return a value when absolutely necessary and when you know what you are doing.
      * 				It will also prevent the associated `GM:*` hook from being called on the gamemode.
      * 				It WILL break other addons.
-     *
      */
-    function Add(eventName: string, identifier: any, func: Function): void;
+    /* Manual override from: namespace/hook/Add */
+    declare function Add<
+        N extends keyof gameevent | GMHookKey | GMHook,
+        Expected extends (...args: any) => any =
+            N extends keyof gameevent
+                ? (data: gameevent[N]) => any
+                : Gamemode[N extends GMHook ? `${N}` : Extract<N, GMHookKey>],
+        F extends (...args: any) => any = Expected
+    >(
+        name: N,
+        id: string,
+        cb: F & (Equals<Parameters<F>, Parameters<Expected>> extends true ? unknown : never)
+    ): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -71688,7 +64356,6 @@ declare namespace hook {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns a list of all the hooks registered with [hook.Add](https://wiki.facepunch.com/gmod/hook.Add).
-     *
      */
     function GetTable(): any;
 
@@ -71822,7 +64489,6 @@ declare namespace input {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the last key captured by key trapping.
-     *
      */
     function CheckKeyTrapping(): KEY;
 
@@ -71841,8 +64507,6 @@ declare namespace input {
      *
      * **Bug [#4964](https://github.com/Facepunch/garrysmod-issues/issues/4964):**
      * >On macOS, the cursor isn't locked on the middle of the screen which causes a significant offset of the positions returned by this function.
-     *
-     *
      */
     function GetCursorPos(): LuaMultiReturn<[number, number]>;
 
@@ -71880,7 +64544,6 @@ declare namespace input {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether a control key is being pressed
-     *
      */
     function IsControlDown(): boolean;
 
@@ -71896,7 +64559,6 @@ declare namespace input {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether key trapping is activate and the next key press will be captured.
-     *
      */
     function IsKeyTrapping(): boolean;
 
@@ -71912,7 +64574,6 @@ declare namespace input {
      * 🟨🟩 [Client and Menu]
      *
      * Gets whether a shift key is being pressed
-     *
      */
     function IsShiftDown(): boolean;
 
@@ -71954,7 +64615,6 @@ declare namespace input {
      * 🟨🟩 [Client and Menu]
      *
      * Begins waiting for a key to be pressed so we can save it for [input.CheckKeyTrapping](https://wiki.facepunch.com/gmod/input.CheckKeyTrapping). Used by the [DBinder](https://wiki.facepunch.com/gmod/DBinder).
-     *
      */
     function StartKeyTrapping(): void;
 
@@ -72042,7 +64702,6 @@ declare namespace jit {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * A variable containing the target architecture name: `x86`, `x64`, `arm`, `ppc`, `ppcspe`, or `mips`. This will be `x86` or `x64` in GMod.
-     *
      */
     function arch(): string;
 
@@ -72091,7 +64750,6 @@ declare namespace jit {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Flushes the whole cache of compiled code.
-     *
      */
     function flush(): void;
 
@@ -72099,7 +64757,6 @@ declare namespace jit {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Disables LuaJIT Lua compilation.
-     *
      */
     function off(): void;
 
@@ -72107,7 +64764,6 @@ declare namespace jit {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Enables LuaJIT Lua compilation.
-     *
      */
     function on(): void;
 
@@ -72115,7 +64771,6 @@ declare namespace jit {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * This is NOT a function, it's a variable containing the target OS name: `Windows`, `Linux`, `OSX`, `BSD`, `POSIX` or `Other`.
-     *
      */
     function os(): string;
 
@@ -72123,7 +64778,6 @@ declare namespace jit {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns the status of the JIT compiler and the current optimizations enabled.
-     *
      */
     function status(): LuaMultiReturn<[boolean, any]>;
 
@@ -72131,7 +64785,6 @@ declare namespace jit {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * A variable containing the LuaJIT version string. This is `LuaJIT 2.0.4` in GMod, and `LuaJIT 2.1.0-beta3` on the x86-64 branch of GMod.
-     *
      */
     function version(): string;
 
@@ -72139,13 +64792,9 @@ declare namespace jit {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * A variable containing the version number of the LuaJIT core.
-     *
      */
     function version_num(): number;
-/**
-     *
-     */
-    namespace opt {
+namespace opt {
 
 
         /**
@@ -72167,10 +64816,7 @@ declare namespace jit {
 
     }
 
-/**
-     *
-     */
-    namespace util {
+namespace util {
 
 
         /**
@@ -72522,7 +65168,6 @@ declare namespace list {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns a list of all lists currently in use.
-     *
      */
     function GetTable(): any;
 
@@ -72892,7 +65537,6 @@ declare namespace math {
      * For example, if `x` is a number, `x > math.huge` will **NEVER** be `true` except in the case of overflow (see below).
      *
      * Lua will consider any number greater than or equal to `2^1024` (the exponent limit of a [double](http://en.wikipedia.org/wiki/Double-precision_floating-point_format)) as `inf` and hence equal to this.
-     *
      */
     function huge(): number;
 
@@ -72999,8 +65643,6 @@ declare namespace math {
      *
      * **Note:**
      * >It should be noted that due to the nature of floating point numbers, results of calculations with `math.pi` may not be what you expect. See second example below.
-     *
-     *
      */
     function pi(): number;
 
@@ -73157,8 +65799,6 @@ declare namespace math {
      *
      * **Note:**
      * >It should be noted that due to the nature of floating point numbers, results of calculations with `math.tau` may not be what you expect. See the second example on [math.pi](https://wiki.facepunch.com/gmod/math.pi) page.
-     *
-     *
      */
     function tau(): number;
 
@@ -73180,10 +65820,7 @@ declare namespace math {
      * @param [digits = 0] - The amount of digits to keep after the point.
      */
     function Truncate(num: number, digits = 0): number;
-/**
-     *
-     */
-    namespace ease {
+namespace ease {
 
 
         /**
@@ -73479,7 +66116,6 @@ declare namespace matproxy {
      * 🟨 [Client]
      *
      * A list of all **active** material proxies.
-     *
      */
     function ActiveList(): any;
 
@@ -73520,7 +66156,6 @@ declare namespace matproxy {
      * 🟨 [Client]
      *
      * A list of all material proxies registered with [matproxy.Add](https://wiki.facepunch.com/gmod/matproxy.Add).
-     *
      */
     function ProxyList(): any;
 
@@ -73544,7 +66179,6 @@ declare namespace menu {
      * 🟨 [Client]
      *
      * Used by "Demo to Video" to record the frame.
-     *
      */
     function RecordFrame(): void;
 
@@ -73562,7 +66196,6 @@ declare namespace menubar {
      * Creates the menu bar ( The bar at the top of the screen when holding C or Q in sandbox ) and docks it to the top of the screen. It will not appear.
      *
      * Calling this multiple times will **NOT** remove previous panel.
-     *
      */
     function Init(): void;
 
@@ -73594,7 +66227,6 @@ declare namespace mesh {
      * 🟨 [Client]
      *
      * Pushes the currently set vertex data (via other `mesh.*` functions) into the mesh stack. See example on [mesh.Begin](https://wiki.facepunch.com/gmod/mesh.Begin).
-     *
      */
     function AdvanceVertex(): void;
 
@@ -73633,7 +66265,6 @@ declare namespace mesh {
      * 🟨 [Client]
      *
      * Ends the mesh (Started with [mesh.Begin](https://wiki.facepunch.com/gmod/mesh.Begin)) and renders it.
-     *
      */
     function End(): void;
 
@@ -73721,11 +66352,11 @@ declare namespace mesh {
     /**
      * 🟨 [Client]
      *
-     * Sets the texture coordinates for the next vertex.
+     * Sets the texture coordinates for the next vertex for the current mesh. (See [mesh.Begin](https://wiki.facepunch.com/gmod/mesh.Begin))
      * @param set - The texture coordinate set, 0 to 7.
      * Non-zero values require the currently bound material to support it. For example, any `LightmappedGeneric` material supports sets 1 and 2 (lightmap texture coordinates and bump map texture coords?).
      * @param s - S coordinate.
-     * @param t - T coordinate.
+     * @param t - T coordinate. Will be optional in the next update.
      * @param [u = nil] - U coordinate.
      * @param [v = nil] - V coordinate.
      */
@@ -73747,7 +66378,6 @@ declare namespace mesh {
      * 🟨 [Client]
      *
      * Returns the amount of vertices that have been pushed via [mesh.AdvanceVertex](https://wiki.facepunch.com/gmod/mesh.AdvanceVertex).
-     *
      */
     function VertexCount(): number;
 
@@ -73758,7 +66388,6 @@ declare namespace mesh {
  *
  * **Warning:**
  * >Kinect feature works only on 32-bit version of the game.
- *
  */
 declare namespace motionsensor {
 
@@ -73784,7 +66413,6 @@ declare namespace motionsensor {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the depth map material.
-     *
      */
     function GetColourMaterial(): IMaterial;
 
@@ -73792,7 +66420,6 @@ declare namespace motionsensor {
      * 🟨 [Client]
      *
      * Returns players skeletal data if they are using Kinect. See [Using The Kinect](https://wiki.facepunch.com/gmod/Using_The_Kinect) and [Kinect developing](https://wiki.facepunch.com/gmod/Kinect_developing).
-     *
      */
     function GetSkeleton(): any;
 
@@ -73800,7 +66427,6 @@ declare namespace motionsensor {
      * 🟨 [Client]
      *
      * Return whether a kinect is connected - and active (ie - Start has been called).
-     *
      */
     function IsActive(): boolean;
 
@@ -73808,7 +66434,6 @@ declare namespace motionsensor {
      * 🟨🟩 [Client and Menu]
      *
      * Returns true if we have detected that there's a kinect connected to the PC
-     *
      */
     function IsAvailable(): boolean;
 
@@ -73850,7 +66475,6 @@ declare namespace motionsensor {
      * 🟨🟩 [Client and Menu]
      *
      * This starts access to the kinect sensor. Note that this usually freezes the game for a couple of seconds.
-     *
      */
     function Start(): boolean;
 
@@ -73858,7 +66482,6 @@ declare namespace motionsensor {
      * 🟨 [Client]
      *
      * Stops the motion capture.
-     *
      */
     function Stop(): void;
 
@@ -73888,8 +66511,6 @@ declare namespace navmesh {
      *
      * **Note:**
      * >This process is highly resource intensive and it's not wise to use during normal gameplay
-     *
-     *
      */
     function BeginGeneration(): void;
 
@@ -73897,7 +66518,6 @@ declare namespace navmesh {
      * 🟦 [Server]
      *
      * Clears all the walkable positions, used before calling [navmesh.BeginGeneration](https://wiki.facepunch.com/gmod/navmesh.BeginGeneration).
-     *
      */
     function ClearWalkableSeeds(): void;
 
@@ -73946,7 +66566,6 @@ declare namespace navmesh {
      * 🟦 [Server]
      *
      * Returns an integer indexed table of all [CNavArea](https://wiki.facepunch.com/gmod/CNavArea)s on the current map. If the map doesn't have a navmesh generated then this will return an empty table.
-     *
      */
     function GetAllNavAreas(): CNavArea[];
 
@@ -73954,7 +66573,6 @@ declare namespace navmesh {
      * 🟦 [Server]
      *
      * Returns a table of all blocked [CNavArea](https://wiki.facepunch.com/gmod/CNavArea)s on the current map. See [CNavArea:MarkAsBlocked](https://wiki.facepunch.com/gmod/CNavArea:MarkAsBlocked).
-     *
      */
     function GetBlockedAreas(): any;
 
@@ -73962,7 +66580,6 @@ declare namespace navmesh {
      * 🟦 [Server]
      *
      * Returns the position of the edit cursor when nav_edit is set to 1.
-     *
      */
     function GetEditCursorPosition(): Vector;
 
@@ -73982,7 +66599,6 @@ declare namespace navmesh {
      * 🟦 [Server]
      *
      * Returns the currently marked [CNavArea](https://wiki.facepunch.com/gmod/CNavArea), for use with editing console commands.
-     *
      */
     function GetMarkedArea(): CNavArea;
 
@@ -73990,7 +66606,6 @@ declare namespace navmesh {
      * 🟦 [Server]
      *
      * Returns the currently marked [CNavLadder](https://wiki.facepunch.com/gmod/CNavLadder), for use with editing console commands.
-     *
      */
     function GetMarkedLadder(): CNavLadder;
 
@@ -74021,7 +66636,6 @@ declare namespace navmesh {
      * 🟦 [Server]
      *
      * Returns the total count of nav areas on the map. If you want to get all nav areas, use [navmesh.GetAllNavAreas](https://wiki.facepunch.com/gmod/navmesh.GetAllNavAreas) instead as nav areas IDs are not always sequential.
-     *
      */
     function GetNavAreaCount(): number;
 
@@ -74053,7 +66667,6 @@ declare namespace navmesh {
      * 🟦 [Server]
      *
      * Returns the classname of the player spawn entity.
-     *
      */
     function GetPlayerSpawnName(): string;
 
@@ -74061,7 +66674,6 @@ declare namespace navmesh {
      * 🟦 [Server]
      *
      * Whether we're currently generating a new navmesh with [navmesh.BeginGeneration](https://wiki.facepunch.com/gmod/navmesh.BeginGeneration).
-     *
      */
     function IsGenerating(): boolean;
 
@@ -74069,7 +66681,6 @@ declare namespace navmesh {
      * 🟦 [Server]
      *
      * Returns true if a navmesh has been loaded when loading the map.
-     *
      */
     function IsLoaded(): boolean;
 
@@ -74080,8 +66691,6 @@ declare namespace navmesh {
      *
      * **Warning:**
      * >Calling this function too soon, causes the Server to crash!
-     *
-     *
      */
     function Load(): void;
 
@@ -74089,7 +66698,6 @@ declare namespace navmesh {
      * 🟦 [Server]
      *
      * Deletes every [CNavArea](https://wiki.facepunch.com/gmod/CNavArea) and [CNavLadder](https://wiki.facepunch.com/gmod/CNavLadder) on the map **without saving the changes**.
-     *
      */
     function Reset(): void;
 
@@ -74097,7 +66705,6 @@ declare namespace navmesh {
      * 🟦 [Server]
      *
      * Saves any changes made to navmesh to the .nav file.
-     *
      */
     function Save(): void;
 
@@ -74141,7 +66748,6 @@ declare namespace net {
      * 🟨🟦 [Shared]
      *
      * Cancels a net message started by [net.Start](https://wiki.facepunch.com/gmod/net.Start), so you can immediately start a new one without any errors.
-     *
      */
     function Abort(): void;
 
@@ -74150,7 +66756,6 @@ declare namespace net {
      *
      * Sends the currently built net message (see [net.Start](https://wiki.facepunch.com/gmod/net.Start)) to all connected players.
      * More information can be found in [Net Library Usage](https://wiki.facepunch.com/gmod/Net_Library_Usage).
-     *
      */
     function Broadcast(): void;
 
@@ -74161,8 +66766,6 @@ declare namespace net {
      *
      * **Note:**
      * >This will include 6 extra bits (or 1 byte rounded-up) used by the engine internally.
-     *
-     *
      */
     function BytesLeft(): LuaMultiReturn<[number, number]>;
 
@@ -74173,8 +66776,6 @@ declare namespace net {
      *
      * **Note:**
      * >This will include 3 extra bytes (24 bits) used by the engine internally to send the data over the network.
-     *
-     *
      */
     function BytesWritten(): LuaMultiReturn<[number, number]>;
 
@@ -74196,8 +66797,6 @@ declare namespace net {
      *
      * **Warning:**
      * >You **must** read information in same order as you write it.
-     *
-     *
      */
     function ReadAngle(): Angle;
 
@@ -74208,8 +66807,6 @@ declare namespace net {
      *
      * **Warning:**
      * >You **must** read information in same order as you write it.
-     *
-     *
      */
     function ReadBit(): number;
 
@@ -74220,8 +66817,6 @@ declare namespace net {
      *
      * **Warning:**
      * >You **must** read information in same order as you write it.
-     *
-     *
      */
     function ReadBool(): boolean;
 
@@ -74256,8 +66851,6 @@ declare namespace net {
      *
      * **Warning:**
      * >You **must** read information in same order as you write it.
-     *
-     *
      */
     function ReadDouble(): number;
 
@@ -74268,8 +66861,6 @@ declare namespace net {
      *
      * **Warning:**
      * >You **must** read information in same order as you write it.
-     *
-     *
      */
     function ReadEntity(): Entity;
 
@@ -74280,8 +66871,6 @@ declare namespace net {
      *
      * **Warning:**
      * >You **must** read information in same order as you write it.
-     *
-     *
      */
     function ReadFloat(): number;
 
@@ -74289,7 +66878,6 @@ declare namespace net {
      * 🟨🟦 [Shared]
      *
      * Reads a word, basically unsigned short. This is used internally to read the "header" of the message which is an unsigned short which can be converted to the corresponding message name via [util.NetworkIDToString](https://wiki.facepunch.com/gmod/util.NetworkIDToString).
-     *
      */
     function ReadHeader(): number;
 
@@ -74313,8 +66901,6 @@ declare namespace net {
      *
      * **Warning:**
      * >You **must** read information in same order as you write it.
-     *
-     *
      */
     function ReadMatrix(): VMatrix;
 
@@ -74325,8 +66911,6 @@ declare namespace net {
      *
      * **Warning:**
      * >You **must** read information in same order as you write it.
-     *
-     *
      */
     function ReadNormal(): Vector;
 
@@ -74339,8 +66923,6 @@ declare namespace net {
      *
      * **Warning:**
      * >You **must** read information in same order as you write it.
-     *
-     *
      */
     function ReadPlayer(): Player;
 
@@ -74351,8 +66933,6 @@ declare namespace net {
      *
      * **Warning:**
      * >You **must** read information in same order as you write it.
-     *
-     *
      */
     function ReadString(): string;
 
@@ -74409,8 +66989,6 @@ declare namespace net {
      *
      * **Warning:**
      * >You **must** read information in same order as you write it.
-     *
-     *
      */
     function ReadUInt64(): string;
 
@@ -74418,7 +66996,6 @@ declare namespace net {
      * 🟨🟦 [Shared]
      *
      * A list of types that can be sent over the network via [net.ReadType](https://wiki.facepunch.com/gmod/net.ReadType).
-     *
      */
     function ReadVars(): any;
 
@@ -74429,8 +67006,6 @@ declare namespace net {
      *
      * **Warning:**
      * >You **must** read information in same order as you write it.
-     *
-     *
      */
     function ReadVector(): Vector;
 
@@ -74469,8 +67044,6 @@ declare namespace net {
      *
      * **Note:**
      * >Modifying [net.Receivers](https://wiki.facepunch.com/gmod/net.Receivers) won't affect the net string pool used in [util.AddNetworkString](https://wiki.facepunch.com/gmod/util.AddNetworkString).
-     *
-     *
      */
     function Receivers(): any;
 
@@ -74515,8 +67088,6 @@ declare namespace net {
      * >Each net message has a length limit of 65,533 bytes (approximately 64 KiB) and your net message will error and fail to send if it is larger than this.
      *
      * The message name must be pooled with [util.AddNetworkString](https://wiki.facepunch.com/gmod/util.AddNetworkString) beforehand!
-     *
-     *
      */
     function SendToServer(): void;
 
@@ -74713,7 +67284,6 @@ declare namespace net {
      * >If the table contains a `nil` key the table may not be read correctly.
      * Not all objects can be sent over the network. Things like functions, [IMaterial](https://wiki.facepunch.com/gmod/IMaterial)s, etc will cause errors when reading the table from a net message.
      * Each element is also limited by the constraint of the `net.Write
-     *
      */
     function WriteTable(table: any): void;
 
@@ -74798,7 +67368,6 @@ declare namespace net {
      * 				This is because Lua represents numbers over 13 digits as `1e+14`(`100 000 000 000 000`)
      * 				You can do something like this to convert it to a string: `string.format("%.0f", number)`.
      * 				If you try to use [Global.tostring](https://wiki.facepunch.com/gmod/Global.tostring) it will fail because it will create a result something like `1e+14` which doesn't work.
-     *
      */
     function WriteUInt64(uint64: string): void;
 
@@ -74806,7 +67375,6 @@ declare namespace net {
      * 🟨🟦 [Shared]
      *
      * A list of types that can be sent over the network via [net.WriteType](https://wiki.facepunch.com/gmod/net.WriteType).
-     *
      */
     function WriteVars(): any;
 
@@ -74889,7 +67457,6 @@ declare namespace numpad {
      * Returns true during a function added with [numpad.Register](https://wiki.facepunch.com/gmod/numpad.Register) when the third argument to [numpad.Activate](https://wiki.facepunch.com/gmod/numpad.Activate) is true.
      *
      * This is caused when a numpad function is triggered by a button SENT being used.
-     *
      */
     function FromButton(): boolean;
 
@@ -74967,8 +67534,6 @@ declare namespace os {
      *
      * **Note:**
      * >This function has different precision on Linux (1/100).
-     *
-     *
      */
     function clock(): number;
 
@@ -75040,7 +67605,6 @@ declare namespace package {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * A list of all loaded packages.
-     *
      */
     function loaded(): any;
 
@@ -75089,7 +67653,6 @@ declare namespace permissions {
      * 🟩 [Menu]
      *
      * Returns all permissions per server. Permanent permissions are stored in `settings/permissions.bin`.
-     *
      */
     function GetAll(): Record<string, any>;
 
@@ -75150,7 +67713,6 @@ declare namespace physenv {
      *
      * Returns the air density used to calculate drag on physics objects.
      * 		<validate>The unit is in `kg/m³`.</validate>
-     *
      */
     function GetAirDensity(): number;
 
@@ -75158,7 +67720,6 @@ declare namespace physenv {
      * 🟨🟦 [Shared]
      *
      * Gets the gravitational acceleration used for physics objects in `source_unit/s^2`.
-     *
      */
     function GetGravity(): Vector;
 
@@ -75166,7 +67727,6 @@ declare namespace physenv {
      * 🟨🟦 [Shared]
      *
      * Returns the last simulation duration of the in-game physics.
-     *
      */
     function GetLastSimulationTime(): number;
 
@@ -75174,7 +67734,6 @@ declare namespace physenv {
      * 🟨🟦 [Shared]
      *
      * Gets the current performance settings in table form.
-     *
      */
     function GetPerformanceSettings(): any;
 
@@ -75182,7 +67741,6 @@ declare namespace physenv {
      * 🟨🟦 [Shared]
      *
      * Returns the pause status of global physics simulation. See [physenv.SetPhysicsPaused](https://wiki.facepunch.com/gmod/physenv.SetPhysicsPaused) for the setter.
-     *
      */
     function GetPhysicsPaused(): boolean;
 
@@ -75254,8 +67812,6 @@ declare namespace player {
      *
      * **Note:**
      * >This function returns a sequential table, meaning it should be looped with [Global.ipairs](https://wiki.facepunch.com/gmod/Global.ipairs) instead of [Global.pairs](https://wiki.facepunch.com/gmod/Global.pairs) for efficiency reasons.
-     *
-     *
      */
     function GetAll(): Player[];
 
@@ -75263,7 +67819,6 @@ declare namespace player {
      * 🟨🟦 [Shared]
      *
      * Returns a table of all bots on the server.
-     *
      */
     function GetBots(): Player[];
 
@@ -75342,8 +67897,6 @@ declare namespace player {
      *
      * **Note:**
      * >Players who are currently connecting to the server will not be counted. See function: [player.GetCountConnecting](https://wiki.facepunch.com/gmod/player.GetCountConnecting)
-     *
-     *
      */
     function GetCount(): number;
 
@@ -75353,7 +67906,6 @@ declare namespace player {
      * Returns the amount of players connecting to the server, but not yet spawned in.
      *
      * `player.GetCountConnecting() + player.GetCount()` would result in the total player count on this server.
-     *
      */
     function GetCountConnecting(): number;
 
@@ -75366,8 +67918,6 @@ declare namespace player {
      *
      * **Note:**
      * >This function returns a sequential table, meaning it should be looped with [Global.ipairs](https://wiki.facepunch.com/gmod/Global.ipairs) instead of [Global.pairs](https://wiki.facepunch.com/gmod/Global.pairs) for efficiency reasons.
-     *
-     *
      */
     function GetHumans(): Player[];
 
@@ -75380,7 +67930,6 @@ declare namespace player {
      *
      * 		Internally, this function uses cached values that exist entirely within lua, as opposed to [player.GetAll](https://wiki.facepunch.com/gmod/player.GetAll), which is a C++ function.
      * 		Because switching from lua to C++ (and vice versa) incurs a performance cost, this function will be somewhat more efficient than [player.GetAll](https://wiki.facepunch.com/gmod/player.GetAll).
-     *
      */
     function Iterator(): LuaMultiReturn<[Function, Player[], number]>;
 
@@ -75421,7 +67970,6 @@ declare namespace player_manager {
      * 🟨🟦 [Shared]
      *
      * Returns the entire list of valid player models.
-     *
      */
     function AllValidModels(): any;
 
@@ -75445,7 +67993,6 @@ declare namespace player_manager {
      * 🟨🟦 [Shared]
      *
      * Retrieves a copy of all registered player classes.
-     *
      */
     function GetPlayerClasses(): any;
 
@@ -75549,7 +68096,6 @@ declare namespace presets {
      * 🟨 [Client]
      *
      * Used internally to tell the player that the name they tried to use in their preset is not acceptable.
-     *
      */
     function BadNameAlert(): void;
 
@@ -75638,7 +68184,6 @@ declare namespace properties {
      * 🟨🟦 [Shared]
      *
      * A list of all properties registered with [properties.Add](https://wiki.facepunch.com/gmod/properties.Add).
-     *
      */
     function List(): any;
 
@@ -75737,7 +68282,6 @@ declare namespace render {
      * 	Dumps the current render target and allows the pixels to be accessed by [render.ReadPixel](https://wiki.facepunch.com/gmod/render.ReadPixel).
      *
      * 	Capturing outside a render hook will return 0 0 0 255
-     *
      */
     function CapturePixels(): void;
 
@@ -75806,7 +68350,6 @@ declare namespace render {
      * Sets the Stencil Buffer value to `0` for all pixels in the currently active <page text="Render Target">render_rendertargets</page>.
      *
      * 		For more detailed information on the Stencil system, including usage examples, see the <page text="Stencils Render Reference">render_stencils</page> page
-     *
      */
     function ClearStencil(): void;
 
@@ -75942,7 +68485,6 @@ declare namespace render {
      * @param [writeZ = false] - Whether or not to consider the Z buffer. If false, the line will be drawn over everything currently drawn, if true, the line will be drawn with depth considered, as if it were a regular object in 3D space.
      * **Bug [#1086](https://github.com/Facepunch/garrysmod-issues/issues/1086):**
      * >Enabling this option will cause the line to ignore the color's alpha.
-     *
      */
     function DrawLine(startPos: Vector, endPos: Vector, color?: Color, writeZ = false): void;
 
@@ -76105,7 +68647,6 @@ declare namespace render {
      * Ends the beam mesh of a beam started with [render.StartBeam](https://wiki.facepunch.com/gmod/render.StartBeam).
      *
      * 		For more detailed information on Beams, as well as usage examples, see the <page text="Beams Render Reference">render_beams</page>
-     *
      */
     function EndBeam(): void;
 
@@ -76126,7 +68667,6 @@ declare namespace render {
      * @param distance - The distance at which the fog reaches its max density.
      * **Note:**
      * >If used in [GM:SetupSkyboxFog](https://wiki.facepunch.com/gmod/GM:SetupSkyboxFog), this value **must** be scaled by the first argument of the hook
-     *
      */
     function FogEnd(distance: number): void;
 
@@ -76153,7 +68693,6 @@ declare namespace render {
      * @param fogStart - The distance at which the fog starts showing up.
      * **Note:**
      * >If used in [GM:SetupSkyboxFog](https://wiki.facepunch.com/gmod/GM:SetupSkyboxFog), this value **must** be scaled by the first argument of the hook
-     *
      */
     function FogStart(fogStart: number): void;
 
@@ -76161,7 +68700,6 @@ declare namespace render {
      * 🟨 [Client]
      *
      * Returns the ambient color of the map.
-     *
      */
     function GetAmbientLightColor(): Vector;
 
@@ -76169,7 +68707,6 @@ declare namespace render {
      * 🟨 [Client]
      *
      * Returns the current alpha blending.
-     *
      */
     function GetBlend(): number;
 
@@ -76178,7 +68715,6 @@ declare namespace render {
      *
      * **t**
      * Returns the Render Target texture that is used internally for the <page text="Bloom">Global.DrawBloom</page> <page text="Post Processing">Post-Processing_Materials</page> effect.
-     *
      */
     function GetBloomTex0(): ITexture;
 
@@ -76190,7 +68726,6 @@ declare namespace render {
      * Returns the Render Target texture used internally for the <page text="Blur">render.BlurRenderTarget</page> <page text="Post Processing">Post-Processing_Materials</page> effect.
      *
      * Despite its name, this function is not used for the <page text="Bloom">Global.DrawBloom</page> effect.
-     *
      */
     function GetBloomTex1(): ITexture;
 
@@ -76198,7 +68733,6 @@ declare namespace render {
      * 🟨 [Client]
      *
      * Returns the current color modulation values as normals.
-     *
      */
     function GetColorModulation(): LuaMultiReturn<[number, number, number]>;
 
@@ -76206,7 +68740,6 @@ declare namespace render {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the maximum available directX version.
-     *
      */
     function GetDXLevel(): number;
 
@@ -76214,7 +68747,6 @@ declare namespace render {
      * 🟨 [Client]
      *
      * Returns the current fog color.
-     *
      */
     function GetFogColor(): LuaMultiReturn<[number, number, number]>;
 
@@ -76222,15 +68754,20 @@ declare namespace render {
      * 🟨 [Client]
      *
      * Returns the fog start and end distance.
-     *
      */
     function GetFogDistances(): LuaMultiReturn<[number, number, number]>;
 
     /**
      * 🟨 [Client]
      *
-     * Returns the fog mode.
+     * Get the maximum density of the fog.
+     */
+    function GetFogMaxDensity(): number;
+
+    /**
+     * 🟨 [Client]
      *
+     * Returns the fog mode.
      */
     function GetFogMode(): MATERIAL_FOG;
 
@@ -76238,7 +68775,6 @@ declare namespace render {
      * 🟨 [Client]
      *
      * Returns the full screen depth texture.
-     *
      */
     function GetFullScreenDepthTexture(): ITexture;
 
@@ -76246,7 +68782,6 @@ declare namespace render {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether HDR is currently enabled or not. This takes into account hardware support, current map and current client settings.
-     *
      */
     function GetHDREnabled(): boolean;
 
@@ -76264,7 +68799,6 @@ declare namespace render {
      * **.**
      *
      * Returns the first render target texture that is used internally for Motion Blur and Frame Blend post processing effects.
-     *
      */
     function GetMoBlurTex0(): ITexture;
 
@@ -76274,7 +68808,6 @@ declare namespace render {
      * **.**
      *
      * Returns the second render target texture that is used internally for Motion Blur and Frame Blend post processing effects.
-     *
      */
     function GetMoBlurTex1(): ITexture;
 
@@ -76286,7 +68819,6 @@ declare namespace render {
      * Returns the first render target texture that was used internally for Morph post processing effect
      *
      * The post processing effect was removed from the base game at some point during development of Garry's Mod 13, but can still be found as a community mod: https://steamcommunity.com/sharedfiles/filedetails/?id=501088470
-     *
      */
     function GetMorphTex0(): ITexture;
 
@@ -76298,7 +68830,6 @@ declare namespace render {
      * Returns the second render target texture that was used internally for Morph post processing effect.
      *
      * See [render.GetMorphTex0](https://wiki.facepunch.com/gmod/render.GetMorphTex0) for more information..
-     *
      */
     function GetMorphTex1(): ITexture;
 
@@ -76306,7 +68837,6 @@ declare namespace render {
      * 🟨 [Client]
      *
      * Returns the Power Of Two Frame Buffer texture.
-     *
      */
     function GetPowerOfTwoTexture(): ITexture;
 
@@ -76316,8 +68846,6 @@ declare namespace render {
      * Alias of [render.GetPowerOfTwoTexture](https://wiki.facepunch.com/gmod/render.GetPowerOfTwoTexture).
      *
      * @deprecated Alias of [render.GetPowerOfTwoTexture](https://wiki.facepunch.com/gmod/render.GetPowerOfTwoTexture).
-     *
-     *
      */
     function GetRefractTexture(): ITexture;
 
@@ -76327,7 +68855,6 @@ declare namespace render {
      * Returns the currently active render target.
      *
      * Instead of saving the current render target using this function and restoring to it later, it is generally better practice to use [render.PushRenderTarget](https://wiki.facepunch.com/gmod/render.PushRenderTarget) and [render.PopRenderTarget](https://wiki.facepunch.com/gmod/render.PopRenderTarget).
-     *
      */
     function GetRenderTarget(): ITexture;
 
@@ -76335,7 +68862,6 @@ declare namespace render {
      * 🟨 [Client]
      *
      * Returns the `_rt_ResolvedFullFrameDepth` texture for SSAO depth. It will only be updated if [GM:NeedsDepthPass](https://wiki.facepunch.com/gmod/GM:NeedsDepthPass) returns true. Depth is written using the [Shaders/DepthWrite](https://wiki.facepunch.com/gmod/Shaders/DepthWrite).
-     *
      */
     function GetResolvedFullFrameDepth(): ITexture;
 
@@ -76353,7 +68879,6 @@ declare namespace render {
      * 🟨 [Client]
      *
      * Returns the first quarter sized frame buffer texture.
-     *
      */
     function GetSmallTex0(): ITexture;
 
@@ -76361,7 +68886,6 @@ declare namespace render {
      * 🟨 [Client]
      *
      * Returns the second quarter sized frame buffer texture.
-     *
      */
     function GetSmallTex1(): ITexture;
 
@@ -76372,8 +68896,6 @@ declare namespace render {
      *
      * **Note:**
      * >The [gmodscreenspace](https://wiki.facepunch.com/gmod/gmodscreenspace) doesn't behave as expected when drawing a floating-point texture to an integer texture (e.g. the default render target). Use an UnlitGeneric material instead
-     *
-     *
      */
     function GetSuperFPTex(): ITexture;
 
@@ -76381,7 +68903,6 @@ declare namespace render {
      * 🟨 [Client]
      *
      * See [render.GetSuperFPTex](https://wiki.facepunch.com/gmod/render.GetSuperFPTex)
-     *
      */
     function GetSuperFPTex2(): ITexture;
 
@@ -76398,7 +68919,6 @@ declare namespace render {
      * 🟨 [Client]
      *
      * Returns a vector representing linear tone mapping scale.
-     *
      */
     function GetToneMappingScaleLinear(): Vector;
 
@@ -76433,7 +68953,6 @@ declare namespace render {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the maximum texture height the renderer can handle.
-     *
      */
     function MaxTextureHeight(): number;
 
@@ -76441,7 +68960,6 @@ declare namespace render {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the maximum texture width the renderer can handle.
-     *
      */
     function MaxTextureWidth(): number;
 
@@ -76549,7 +69067,6 @@ declare namespace render {
      * Performs a Stencil operation on every pixel in the active <page text="Render Target">render_rendertargets</page> without performing a draw operation.
      *
      * 		For more detailed information on the Stencil system, including usage examples, see the <page text="Stencils Render Reference">render_stencils</page> page
-     *
      */
     function PerformFullScreenStencilOperation(): void;
 
@@ -76557,7 +69074,6 @@ declare namespace render {
      * 🟨🟩 [Client and Menu]
      *
      * Removes the current active clipping plane from the clip plane stack.
-     *
      */
     function PopCustomClipPlane(): void;
 
@@ -76569,7 +69085,6 @@ declare namespace render {
      * 		This function should only be called *after* a magnification filter has been pushed via <page text="render.PushFilterMag()">render.PushFilterMag</page>
      *
      * 		For more detailed information and a usage example, see <page text="the texture minification and magnification render reference.">render_min_mag_filters</page>
-     *
      */
     function PopFilterMag(): void;
 
@@ -76581,7 +69096,6 @@ declare namespace render {
      * 		This function should only be called *after* a minification filter has been pushed via <page text="render.PushFilterMin()">render.PushFilterMin</page>
      *
      * 		For more detailed information and a usage example, see <page text="the texture minification and magnification render reference.">render_min_mag_filters</page>
-     *
      */
     function PopFilterMin(): void;
 
@@ -76589,7 +69103,6 @@ declare namespace render {
      * 🟨 [Client]
      *
      * Pops the current flashlight mode from the flashlight mode stack.
-     *
      */
     function PopFlashlightMode(): void;
 
@@ -76599,7 +69112,6 @@ declare namespace render {
      * Pops the last render target and viewport from the RT stack and sets them as the current render target and viewport.
      *
      * This is should be called to restore the previous render target and viewport after a call to [render.PushRenderTarget](https://wiki.facepunch.com/gmod/render.PushRenderTarget).
-     *
      */
     function PopRenderTarget(): void;
 
@@ -76803,7 +69315,6 @@ declare namespace render {
      *  	"$vertexcolor" 	1
      *  }
      * ```
-     *
      */
     function SetColorMaterial(): void;
 
@@ -76825,7 +69336,6 @@ declare namespace render {
      *  	"$ignorez"		1
      *  }
      * ```
-     *
      */
     function SetColorMaterialIgnoreZ(): void;
 
@@ -77147,7 +69657,6 @@ declare namespace render {
      * Swaps the frame buffers/cycles the frame. In other words, this updates the screen.
      *
      * If you take a really long time during a single frame render, it is a good idea to use this and let the user know that the game isn't stuck.
-     *
      */
     function Spin(): void;
 
@@ -77167,7 +69676,6 @@ declare namespace render {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether the player's hardware supports HDR. (High Dynamic Range) HDR can still be disabled by the `mat_hdr_level` console variable or just not be supported by the map.
-     *
      */
     function SupportsHDR(): boolean;
 
@@ -77175,7 +69683,6 @@ declare namespace render {
      * 🟨🟩 [Client and Menu]
      *
      * Returns if the current settings and the system allow the usage of pixel shaders 1.4.
-     *
      */
     function SupportsPixelShaders_1_4(): boolean;
 
@@ -77183,7 +69690,6 @@ declare namespace render {
      * 🟨🟩 [Client and Menu]
      *
      * Returns if the current settings and the system allow the usage of pixel shaders 2.0.
-     *
      */
     function SupportsPixelShaders_2_0(): boolean;
 
@@ -77191,7 +69697,6 @@ declare namespace render {
      * 🟨🟩 [Client and Menu]
      *
      * Returns if the current settings and the system allow the usage of vertex shaders 2.0.
-     *
      */
     function SupportsVertexShaders_2_0(): boolean;
 
@@ -77211,7 +69716,6 @@ declare namespace render {
      * 🟨 [Client]
      *
      * Enables HDR tone mapping which influences the brightness.
-     *
      */
     function TurnOnToneMapping(): void;
 
@@ -77221,7 +69725,6 @@ declare namespace render {
      * Updates the texture returned by [render.GetFullScreenDepthTexture](https://wiki.facepunch.com/gmod/render.GetFullScreenDepthTexture).
      *
      * Silently fails if [render.SupportsPixelShaders_2_0](https://wiki.facepunch.com/gmod/render.SupportsPixelShaders_2_0) returns false.
-     *
      */
     function UpdateFullScreenDepthTexture(): void;
 
@@ -77229,7 +69732,6 @@ declare namespace render {
      * 🟨 [Client]
      *
      * Updates the power of two texture.
-     *
      */
     function UpdatePowerOfTwoTexture(): ITexture;
 
@@ -77237,7 +69739,6 @@ declare namespace render {
      * 🟨 [Client]
      *
      * Pretty much alias of [render.UpdatePowerOfTwoTexture](https://wiki.facepunch.com/gmod/render.UpdatePowerOfTwoTexture) but does not return the texture.
-     *
      */
     function UpdateRefractTexture(): void;
 
@@ -77391,7 +69892,6 @@ declare namespace saverestore {
      * 🟨🟦 [Shared]
      *
      * Called by the engine just before [saverestore.LoadGlobal](https://wiki.facepunch.com/gmod/saverestore.LoadGlobal) is.
-     *
      */
     function PreRestore(): void;
 
@@ -77399,7 +69899,6 @@ declare namespace saverestore {
      * 🟨🟦 [Shared]
      *
      * Called by the engine just before [saverestore.SaveGlobal](https://wiki.facepunch.com/gmod/saverestore.SaveGlobal) is.
-     *
      */
     function PreSave(): void;
 
@@ -77496,7 +69995,6 @@ declare namespace scripted_ents {
      * 🟨🟦 [Shared]
      *
      * Returns a copy of the list of all ENT tables registered
-     *
      */
     function GetList(): any;
 
@@ -77513,7 +70011,6 @@ declare namespace scripted_ents {
      * 🟨🟦 [Shared]
      *
      * Returns a list of all ENT tables which contain ENT.Spawnable
-     *
      */
     function GetSpawnable(): ENT;
 
@@ -77551,8 +70048,6 @@ declare namespace scripted_ents {
      *
      * **Note:**
      * >This is not called after an ENT auto refresh, and thus the inherited baseclass functions retrieved with [baseclass.Get](https://wiki.facepunch.com/gmod/baseclass.Get) will not be updated
-     *
-     *
      */
     function OnLoaded(): void;
 
@@ -77635,7 +70130,6 @@ declare namespace serverlist {
      * 🟩 [Menu]
      *
      * Returns true if the current server address is in their favorites.
-     *
      */
     function IsCurrentServerFavorite(): boolean;
 
@@ -77776,7 +70270,6 @@ declare namespace sound {
      * Returns a list of all registered sound scripts.
      *
      * New ones can be registered using [sound.Add](https://wiki.facepunch.com/gmod/sound.Add), and detailed information about each one can be retrieved via [sound.GetProperties](https://wiki.facepunch.com/gmod/sound.GetProperties).
-     *
      */
     function GetTable(): string[];
 
@@ -77900,7 +70393,6 @@ declare namespace spawnmenu {
      * 🟨 [Client]
      *
      * Returns currently opened control panel of a tool, post process effect or some other menu in spawnmenu.
-     *
      */
     function ActiveControlPanel(): Panel;
 
@@ -78016,7 +70508,6 @@ declare namespace spawnmenu {
      * Clears all the tools from the different tool categories and the categories itself, if ran at the correct place.
      *
      * Seems to only work when ran at initialization.
-     *
      */
     function ClearToolMenus(): void;
 
@@ -78064,7 +70555,6 @@ declare namespace spawnmenu {
      * 🟨 [Client]
      *
      * Returns the list of Creation tabs. Creation tabs are added via [spawnmenu.AddCreationTab](https://wiki.facepunch.com/gmod/spawnmenu.AddCreationTab).
-     *
      */
     function GetCreationTabs(): CreationMenus;
 
@@ -78074,7 +70564,6 @@ declare namespace spawnmenu {
      * Similar to [spawnmenu.GetPropTable](https://wiki.facepunch.com/gmod/spawnmenu.GetPropTable), but only returns spawnlists created by addons via [spawnmenu.AddPropCategory](https://wiki.facepunch.com/gmod/spawnmenu.AddPropCategory).
      *
      * These spawnlists are shown in a separate menu in-game.
-     *
      */
     function GetCustomPropTable(): any;
 
@@ -78086,7 +70575,6 @@ declare namespace spawnmenu {
      * Note that if the spawnmenu has not been populated, this will return an empty table.
      *
      * This will not return spawnlists created by addons, see  [spawnmenu.GetCustomPropTable](https://wiki.facepunch.com/gmod/spawnmenu.GetCustomPropTable) for that.
-     *
      */
     function GetPropTable(): any;
 
@@ -78104,7 +70592,6 @@ declare namespace spawnmenu {
      * 🟨 [Client]
      *
      * Gets a table of tools on the client.
-     *
      */
     function GetTools(): any;
 
@@ -78112,7 +70599,6 @@ declare namespace spawnmenu {
      * 🟨 [Client]
      *
      * Calls [spawnmenu.PopulateFromTextFiles](https://wiki.facepunch.com/gmod/spawnmenu.PopulateFromTextFiles).
-     *
      */
     function PopulateFromEngineTextFiles(): void;
 
@@ -78204,7 +70690,6 @@ declare namespace sql {
      * ```
      * sql.Query( "BEGIN;" )
      * ```
-     *
      */
     function Begin(): void;
 
@@ -78214,7 +70699,6 @@ declare namespace sql {
      * Tells the engine to execute a series of queries queued for execution, must be preceded by [sql.Begin](https://wiki.facepunch.com/gmod/sql.Begin).
      *
      * This is equivalent to `sql.Query( "COMMIT;" )`.
-     *
      */
     function Commit(): void;
 
@@ -78230,7 +70714,6 @@ declare namespace sql {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns the last error from a SQLite query.
-     *
      */
     function LastError(): string;
 
@@ -78324,7 +70807,6 @@ declare namespace steamworks {
      * 🟩 [Menu]
      *
      * Refreshes clients addons.
-     *
      */
     function ApplyAddons(): void;
 
@@ -78423,7 +70905,6 @@ declare namespace steamworks {
      * 🟨🟩 [Client and Menu]
      *
      * Opens the workshop website in the steam overlay browser.
-     *
      */
     function OpenWorkshop(): void;
 
@@ -78572,7 +71053,6 @@ declare namespace steamworks {
  *
  * **Warning:**
  * >Making changes to the string *metatable* is not a good idea unless you know what you are doing. Use the string *library* instead.
- *
  */
 declare namespace string {
 
@@ -79271,7 +71751,6 @@ declare namespace surface {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the current alpha multiplier affecting drawing operations. This is set by [surface.SetAlphaMultiplier](https://wiki.facepunch.com/gmod/surface.SetAlphaMultiplier) or by the game engine in certain other cases.
-     *
      */
     function GetAlphaMultiplier(): number;
 
@@ -79279,7 +71758,6 @@ declare namespace surface {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the current color affecting draw operations.
-     *
      */
     function GetDrawColor(): Color;
 
@@ -79299,7 +71777,6 @@ declare namespace surface {
      * Retrieves the position and <page text="ScissorRect">render.SetScissorRect</page> information for the [Panel](https://wiki.facepunch.com/gmod/Panel) that is currently being drawn.
      *
      * When using the [surface](https://wiki.facepunch.com/gmod/surface) library (and, by extension, the [draw](https://wiki.facepunch.com/gmod/draw) library) inside of the [PANEL:Paint](https://wiki.facepunch.com/gmod/PANEL:Paint) function, the origin (The on-screen position of `(0,0)`) is automatically shifted to the top-left corner of the panel to make it easier to draw the panel's contents.  Additionally, [render.SetScissorRect](https://wiki.facepunch.com/gmod/render.SetScissorRect) is used to clip (or "mask") all drawn content to within the boundaries of the panel.  This function returns the information used by the [surface](https://wiki.facepunch.com/gmod/surface) library about the current panel's origin and <page text="ScissorRect">render.SetScissorRect</page>.
-     *
      */
     function GetPanelPaintState(): any;
 
@@ -79307,7 +71784,6 @@ declare namespace surface {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the current color affecting text draw operations.
-     *
      */
     function GetTextColor(): Color;
 
@@ -79315,7 +71791,6 @@ declare namespace surface {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the X and Y co-ordinate that has been set with [surface.SetTextPos](https://wiki.facepunch.com/gmod/surface.SetTextPos) or changed by [surface.DrawText](https://wiki.facepunch.com/gmod/surface.DrawText).
-     *
      */
     function GetTextPos(): LuaMultiReturn<[number, number]>;
 
@@ -79384,8 +71859,6 @@ declare namespace surface {
      * Returns the height of the current client's screen.
      *
      * @deprecated You should use [Global.ScrH](https://wiki.facepunch.com/gmod/Global.ScrH) instead.
-     *
-     *
      */
     function ScreenHeight(): number;
 
@@ -79395,8 +71868,6 @@ declare namespace surface {
      * Returns the width of the current client's screen.
      *
      * @deprecated You should use [Global.ScrW](https://wiki.facepunch.com/gmod/Global.ScrW) instead.
-     *
-     *
      */
     function ScreenWidth(): number;
 
@@ -79456,7 +71927,6 @@ declare namespace surface {
      * material:SetInt( "$flags", bit.bor( material:GetInt( "$flags" ), 32768 ) )
      * ```
      * If using [Global.Material](https://wiki.facepunch.com/gmod/Global.Material), simply use the `ignorez` parameter.
-     *
      */
     function SetMaterial(material: IMaterial): void;
 
@@ -79507,8 +71977,6 @@ declare namespace system {
      *
      * **Note:**
      * >This function does not work on Dedicated Servers and will instead return no value.
-     *
-     *
      */
     function AppTime(): number;
 
@@ -79516,7 +71984,6 @@ declare namespace system {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns the current battery power.
-     *
      */
     function BatteryPower(): number;
 
@@ -79524,7 +71991,6 @@ declare namespace system {
      * 🟨🟩 [Client and Menu]
      *
      * Flashes the window, turning the border to white briefly
-     *
      */
     function FlashWindow(): void;
 
@@ -79535,8 +72001,6 @@ declare namespace system {
      *
      * **Note:**
      * >This function does not work on Dedicated Servers and will instead return no value.
-     *
-     *
      */
     function GetCountry(): string;
 
@@ -79547,8 +72011,6 @@ declare namespace system {
      *
      * **Note:**
      * >This function does not work on dedicated servers and will instead return no value.
-     *
-     *
      */
     function HasFocus(): boolean;
 
@@ -79556,7 +72018,6 @@ declare namespace system {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns whether the current OS is Linux.
-     *
      */
     function IsLinux(): boolean;
 
@@ -79564,7 +72025,6 @@ declare namespace system {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns whether the current OS is OSX.
-     *
      */
     function IsOSX(): boolean;
 
@@ -79574,7 +72034,6 @@ declare namespace system {
      * Returns whether the game is being run in a window or in fullscreen (you can change this by opening the menu, clicking 'Options', then clicking the 'Video' tab, and changing the Display Mode using the dropdown menu):
      *
      * <image src="DisplayModeDropdown.jpeg"/>
-     *
      */
     function IsWindowed(): boolean;
 
@@ -79582,7 +72041,6 @@ declare namespace system {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns whether the current OS is Windows.
-     *
      */
     function IsWindows(): boolean;
 
@@ -79593,8 +72051,6 @@ declare namespace system {
      *
      * **Note:**
      * >This function does not work on Dedicated Servers and will instead return no value.
-     *
-     *
      */
     function SteamTime(): number;
 
@@ -79607,8 +72063,6 @@ declare namespace system {
      *
      * **Note:**
      * >This function does not work on Dedicated Servers and will instead return no value.
-     *
-     *
      */
     function UpTime(): number;
 
@@ -80172,7 +72626,6 @@ declare namespace team {
      * 🟨🟦 [Shared]
      *
      * Returns the team index of the team with the least players. Falls back to TEAM_UNASSIGNED
-     *
      */
     function BestAutoJoinTeam(): number;
 
@@ -80180,7 +72633,6 @@ declare namespace team {
      * 🟨🟦 [Shared]
      *
      * Returns the real table consisting of information on every defined team
-     *
      */
     function GetAllTeams(): any;
 
@@ -80360,8 +72812,6 @@ declare namespace timer {
      * This function does nothing.
      *
      * @deprecated If you want to check if whether or not a timer exists, use [timer.Exists](https://wiki.facepunch.com/gmod/timer.Exists).
-     *
-     *
      */
     function Check(): void;
 
@@ -80506,13 +72956,10 @@ declare namespace timer {
 }
 
 /**
- *
- *
  * @deprecated You should be using the [net](https://wiki.facepunch.com/gmod/net) library instead
  *
  * **Warning:**
  * >Usermessages have a limit of only 256 bytes!
- *
  */
 declare namespace umsg {
 
@@ -80556,8 +73003,6 @@ declare namespace umsg {
      * Dispatches the usermessage to the client(s).
      *
      * @deprecated You should be using the [net](https://wiki.facepunch.com/gmod/net) instead
-     *
-     *
      */
     function End(): void;
 
@@ -80725,8 +73170,6 @@ declare namespace undo {
      *
      * **Note:**
      * >Serverside, this table's keys use [Player:UniqueID](https://wiki.facepunch.com/gmod/Player:UniqueID) to store a player's undo blocks.
-     *
-     *
      */
     function GetTable(): Undo[];
 
@@ -80734,7 +73177,6 @@ declare namespace undo {
      * 🟨 [Client]
      *
      * Makes the UI dirty - it will re-create the controls the next time it is viewed.
-     *
      */
     function MakeUIDirty(): void;
 
@@ -80769,20 +73211,16 @@ declare namespace undo {
      * 🟨 [Client]
      *
      * Adds a hook (CPanelPaint) to the control panel paint function so we can determine when it is being drawn.
-     *
      */
     function SetupUI(): void;
 
 }
 
 /**
- *
- *
  * @deprecated You should be using the [net](https://wiki.facepunch.com/gmod/net) instead
  *
  * **Warning:**
  * >Usermessages have a limit of only 256 bytes!
- *
  */
 declare namespace usermessage {
 
@@ -80793,8 +73231,6 @@ declare namespace usermessage {
      * Returns a table of every usermessage hook
      *
      * @deprecated You should be using [net](https://wiki.facepunch.com/gmod/net) instead
-     *
-     *
      */
     function GetTable(): any;
 
@@ -80847,7 +73283,6 @@ declare namespace utf8 {
      * 🟨🟩 [Client and Menu]
      *
      * This is NOT a function, it's a <page text="pattern">Patterns</page> (a string, not a function) which matches exactly one UTF-8 byte sequence, assuming that the subject is a valid UTF-8 string.
-     *
      */
     function charpattern(): string;
 
@@ -81041,7 +73476,6 @@ declare namespace util {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns the current date formatted like '2012-10-31 18-00-00'
-     *
      */
     function DateStamp(): string;
 
@@ -81204,6 +73638,8 @@ declare namespace util {
      *
      * Returns a table containing the info about the model. The model will be loaded and cached if it was not previously.
      *
+     * See also [util.GetModelMeshes](https://wiki.facepunch.com/gmod/util.GetModelMeshes)
+     *
      * **Note:**
      * >This function will silently fail if used on models with following strings in them:
      * * _shared
@@ -81233,11 +73669,14 @@ declare namespace util {
      * @param model - The full path to the model to get the visual meshes of.
      * @param [lod = 0] - Which of the model's Level of Detail (LOD) models to retrieve.
      * 			`0` is the best quality with higher numbers progressively lowering the quality.
-     * @param [bodygroupMask = 0] - The combination of bodygroups to retrieve meshes for.
+     * @param [bodygroupMask = 0] - The combination of bodygroups to retrieve meshes for. This can also be a specially formatted bitflag.
      *
-     * 			For more information, see [Entity:SetBodyGroups](https://wiki.facepunch.com/gmod/Entity:SetBodyGroups)
+     * 			For more information, see [Entity:SetBodyGroups](https://wiki.facepunch.com/gmod/Entity:SetBodyGroups).
+     * @param [skin = 0] - Skin index. Affects the `.material` of [Structures/ModelMeshData](https://wiki.facepunch.com/gmod/Structures/ModelMeshData).
+     *
+     * 			For more information, see [Entity:GetSkin](https://wiki.facepunch.com/gmod/Entity:GetSkin).
      */
-    function GetModelMeshes(model: string, lod = 0, bodygroupMask = 0): LuaMultiReturn<[ModelMeshData, BoneBindPose]>;
+    function GetModelMeshes(model: string, lod = 0, bodygroupMask = 0, skin = 0): LuaMultiReturn<[Structures/ModelMeshData[], Structures/BoneBindPose[]]>;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -81260,7 +73699,6 @@ declare namespace util {
      * 🟨 [Client]
      *
      * Creates a new PixVis handle. See [util.PixelVisible](https://wiki.facepunch.com/gmod/util.PixelVisible).
-     *
      */
     function GetPixelVisibleHandle(): pixelvis_handle_t;
 
@@ -81279,7 +73717,6 @@ declare namespace util {
      * 🟨 [Client]
      *
      * Gets information about the sun position and obstruction or nil if there is no sun.
-     *
      */
     function GetSunInfo(): SunInfo;
 
@@ -81323,8 +73760,6 @@ declare namespace util {
      * >This returns only groups that are registered in the **settings/users.txt** file of your server.
      *
      * In order to get the usergroup of a connected player, please use [Player:GetUserGroup](https://wiki.facepunch.com/gmod/Player:GetUserGroup) instead.
-     *
-     *
      */
     function GetUserGroups(): any;
 
@@ -81557,7 +73992,6 @@ declare namespace util {
      * @param [ignoreConversions = false] - ignore string to number conversions for table keys.
      * **Warning:**
      * >if this is false, keys are converted to numbers wherever possible. This means using [Player:SteamID64](https://wiki.facepunch.com/gmod/Player:SteamID64) as keys won't work.
-     *
      */
     function JSONToTable(json: string, ignoreLimits = false, ignoreConversions = false): any|nil;
 
@@ -81586,14 +74020,20 @@ declare namespace util {
     function KeyValuesToTablePreserveOrder(keyvals: string, usesEscapeSequences = false, preserveKeyCase = false): any;
 
     /**
-     * 🟨🟦🟩 [Shared and Menu]
+     * 🟨🟦 [Shared]
      *
-     * Returns a vector in world coordinates based on an entity and local coordinates
-     * @param ent - The entity lpos is local to
-     * @param lpos - Coordinates local to the ent
-     * @param bonenum - The bonenumber of the ent lpos is local to
+     * A convenience function around LocalToWorld-related functions.
+     *
+     * **Note:**
+     * >If [Entity:EntIndex](https://wiki.facepunch.com/gmod/Entity:EntIndex) returns `0`, the function will return the passed `lpos`.
+     *
+     * @param ent - The entity to take.
+     * @param lpos - A local space vector.
+     * @param [bone = 0] - Actually to be treated as the number corresponding to a specific [PhysObj](https://wiki.facepunch.com/gmod/PhysObj) of the entity.
+     * If that specific physics object is valid, then [PhysObj:LocalToWorld](https://wiki.facepunch.com/gmod/PhysObj:LocalToWorld) is used.
+     * Otherwise, [Entity:LocalToWorld](https://wiki.facepunch.com/gmod/Entity:LocalToWorld).
      */
-    function LocalToWorld(ent: Entity, lpos: Vector, bonenum: number): Vector;
+    function LocalToWorld(ent: Entity, lpos: Vector, bone = 0): Vector;
 
     /**
      * 🟨🟦 [Shared]
@@ -81666,7 +74106,6 @@ declare namespace util {
      * @param PixVis - The PixVis handle created with [util.GetPixelVisibleHandle](https://wiki.facepunch.com/gmod/util.GetPixelVisibleHandle).
      * **Warning:**
      * >Don't use the same handle twice per tick or it will give unpredictable results.
-     *
      */
     function PixelVisible(position: Vector, size: number, PixVis: pixelvis_handle_t): number;
 
@@ -81869,7 +74308,6 @@ declare namespace util {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns a new [Stack](https://wiki.facepunch.com/gmod/Stack) object.
-     *
      */
     function Stack(): Stack;
 
@@ -81945,7 +74383,6 @@ declare namespace util {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns the time since this function has been last called
-     *
      */
     function TimerCycle(): number;
 
@@ -82018,17 +74455,13 @@ declare namespace util {
      * @param input - What to convert
      */
     function TypeToString(input: any): string;
-/**
-     *
-     */
-    namespace worldpicker {
+namespace worldpicker {
 
 
         /**
          * 🟨 [Client]
          *
          * Returns if the user is currently picking an entity.
-         *
          */
         function Active(): boolean;
 
@@ -82102,7 +74535,6 @@ declare namespace vgui {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whenever the cursor is currently active and visible.
-     *
      */
     function CursorVisible(): boolean;
 
@@ -82128,7 +74560,6 @@ declare namespace vgui {
      * Returns all Lua-created panels.
      *
      * Used internally for [PANEL:PreAutoRefresh](https://wiki.facepunch.com/gmod/PANEL:PreAutoRefresh) and [PANEL:PostAutoRefresh](https://wiki.facepunch.com/gmod/PANEL:PostAutoRefresh).
-     *
      */
     function GetAll(): Panel[];
 
@@ -82149,8 +74580,6 @@ declare namespace vgui {
      * >This returns a cached value that is only updated after rendering and `before` the next VGUI Think/Layout pass.
      *
      * ie. it lags one frame behind panel layout and is completely unhelpful for [PANEL:Paint](https://wiki.facepunch.com/gmod/PANEL:Paint) if your panels are moving around under the mouse a lot every frame.
-     *
-     *
      */
     function GetHoveredPanel(): Panel;
 
@@ -82158,7 +74587,6 @@ declare namespace vgui {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the panel which is currently receiving keyboard input.
-     *
      */
     function GetKeyboardFocus(): Panel;
 
@@ -82168,7 +74596,6 @@ declare namespace vgui {
      * Returns the global world panel which is the parent to all others, except for the HUD panel.
      *
      * See also [Global.GetHUDPanel](https://wiki.facepunch.com/gmod/Global.GetHUDPanel).
-     *
      */
     function GetWorldPanel(): Panel;
 
@@ -82176,7 +74603,6 @@ declare namespace vgui {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whenever the cursor is hovering the world panel.
-     *
      */
     function IsHoveringWorld(): boolean;
 
@@ -82264,7 +74690,6 @@ declare namespace weapons {
      * 🟨🟦 [Shared]
      *
      * Get a list of all the registered SWEPs. This does not include weapons added to spawnmenu manually.
-     *
      */
     function GetList(): any;
 
@@ -82298,8 +74723,6 @@ declare namespace weapons {
      *
      * **Note:**
      * >This is not called after a SWEP auto refresh, and thus the inherited baseclass functions retrieved with [baseclass.Get](https://wiki.facepunch.com/gmod/baseclass.Get) will not be updated
-     *
-     *
      */
     function OnLoaded(): void;
 

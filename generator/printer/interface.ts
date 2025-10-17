@@ -1,6 +1,7 @@
 import { TSCollection, TSField } from '../ts_types';
 import { printInterfaceFunction, printNamespaceFunction } from './function';
 import { indentStr, printDocComent } from './util';
+import { tryLoadFunctionOverride } from '../override_loader';
 
 export function printInterface(tsInterface: TSCollection): string {
     return _printInterface(tsInterface);
@@ -20,10 +21,19 @@ export function _printInterface(
         head = `${!innerCollection ? 'declare ' : ''}namespace ${tsInterface.identifier} {`;
         head = innerCollection ? indentStr(head, '    ') : head;
         docComment = innerCollection ? indentStr(docComment, '    ') : docComment;
-        functions = indentStr(
-            tsInterface.functions.map(printNamespaceFunction).join('\n\n'),
-            indent,
-        );
+
+        const renderedFns = tsInterface.functions.map((f) => {
+            const override = tryLoadFunctionOverride('namespace', tsInterface.identifier, f.identifier);
+            if (override) {
+                return `
+${printDocComent(f.docComment)}
+${override}
+`.trim();
+            }
+            return printNamespaceFunction(f, tsInterface.identifier);
+        });
+
+        functions = indentStr(renderedFns.join('\n\n'), indent);
         fields = indentStr(
             tsInterface.fields.map((f) => printInterfaceField(f, true)).join('\n\n'),
             indent,
@@ -32,7 +42,9 @@ export function _printInterface(
         const parent = tsInterface.parent ? `extends ${tsInterface.parent} ` : '';
         head = `interface ${tsInterface.identifier} ${parent}{`;
         functions = indentStr(
-            tsInterface.functions.map(printInterfaceFunction).join('\n\n'),
+            tsInterface.functions
+                .map((f) => printInterfaceFunction(f, tsInterface.identifier))
+                .join('\n\n'),
             indent,
         );
         fields = indentStr(

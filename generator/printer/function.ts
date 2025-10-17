@@ -1,24 +1,36 @@
 import { TSArgument, TSFunction } from '../ts_types';
 import { printDocComent } from './util';
+import { tryLoadFunctionOverride, OverrideKind } from '../override_loader';
 
-export function printNamespaceFunction(func: TSFunction): string {
-    return printFunction(func, true, false);
+export function printNamespaceFunction(func: TSFunction, container?: string): string {
+    return printFunction(func, true, false, { kind: 'namespace', container });
 }
 
-export function printInterfaceFunction(func: TSFunction): string {
-    return printFunction(func, false, false);
+export function printInterfaceFunction(func: TSFunction, container?: string): string {
+    return printFunction(func, false, false, { kind: 'interface', container });
 }
 
 export function printGlobalFunction(func: TSFunction): string {
-    return printFunction(func, true, true);
+    return printFunction(func, true, true, { kind: 'global' });
 }
 
-export function printFunction(
+function printFunction(
     func: TSFunction,
     prependFunction: boolean,
     prependDeclare: boolean,
+    ctx?: { kind: OverrideKind; container?: string },
 ): string {
     const docComment = printDocComent(func.docComment);
+
+    // Signature override (keep scraped doc, replace only the declaration)
+    const override = tryLoadFunctionOverride(ctx?.kind ?? 'interface', ctx?.container, func.identifier);
+    if (override) {
+        return `
+${docComment}
+${override}
+`.trim();
+    }
+
     const prefix = `${prependDeclare ? 'declare ' : ''}${prependFunction ? 'function ' : ''}`;
 
     // special case: for any SubModelIds parameter print some overloads
@@ -28,7 +40,6 @@ export function printFunction(
         .map((x) => x.i);
 
     if (subIdxs.length > 0) {
-        // (literal-only): reject widened string + validate
         const genNames1 = subIdxs.map((_, k) => `S${k} extends string`);
         const gen1 = genNames1.length ? `<${genNames1.join(', ')}>` : '';
         const args1 = func.args.map((a, i) => {
@@ -39,7 +50,6 @@ export function printFunction(
         });
         const sig1 = `${prefix}${func.identifier}${gen1}(${args1.join(', ')}): ${func.ret.type};`;
 
-        // (widened-string only): accept dynamic strings
         const genNames2 = subIdxs.map((_, k) => `W${k} extends string`);
         const gen2 = genNames2.length ? `<${genNames2.join(', ')}>` : '';
         const args2 = func.args.map((a, i) => {
@@ -69,14 +79,11 @@ ${sig2}
         const isSubModelIds = a.type === 'SubModelIds';
 
         if (isNil) return `${a.identifier}?: ${a.type}`;
-
         if (isStringType || isSubModelIds) {
             const literal = isQuoted ? dRaw : JSON.stringify(dRaw);
             return `${a.identifier}: ${a.type} = ${literal}`;
         }
-
         if (isBool || isNum) return `${a.identifier} = ${dRaw}`;
-
         return `${a.identifier}?: ${a.type}`;
     };
 
