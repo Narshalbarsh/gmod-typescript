@@ -64328,17 +64328,13 @@ declare namespace hook {
      */
     /* Manual override from: namespace/hook/Add */
     declare function Add<
-        N extends keyof gameevent | GMHookKey | GMHook,
-        Expected extends (...args: any) => any =
-            N extends keyof gameevent
-                ? (data: gameevent[N]) => any
-                : Gamemode[N extends GMHook ? `${N}` : Extract<N, GMHookKey>],
-        F extends (...args: any) => any = Expected
+        N extends HookName,
+        F extends (...args: any) => any = ExpectedCallback<N>
     >(
         name: N,
         id: string,
-        cb: F & (Equals<Parameters<F>, Parameters<Expected>> extends true ? unknown : never)
-    ): void;
+        cb: F & (Equals<Parameters<F>, Parameters<ExpectedCallback<N>>> extends true ? unknown : never)
+    ): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -64350,7 +64346,12 @@ declare namespace hook {
      * @param [gamemodeTable = nil] - If the gamemode is specified, the gamemode hook within will be called, otherwise not.
      * @param [args = nil] - The arguments to be passed to the hooks.
      */
-    function Call(eventName: string, gamemodeTable?: any, ...args?: any[]): any;
+    /* Manual override from: namespace/hook/Call */
+    declare function Call<N extends HookName>(
+        eventName: N,
+        gamemodeTable?: any,
+        ...args: HookArgsFor<N>
+    ): HookRetFor<N> | undefined;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -64379,7 +64380,11 @@ declare namespace hook {
      * @param eventName - The event to call hooks for.
      * @param args - The arguments to be passed to the hooks.
      */
-    function Run(eventName: string, ...args: any[]): any;
+    /* Manual override from: namespace/hook/Run */
+    declare function Run<N extends HookName>(
+        eventName: N,
+        ...args: HookArgsFor<N>
+    ): HookRetFor<N> | undefined;
 
 }
 
