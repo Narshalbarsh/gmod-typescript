@@ -156,28 +156,22 @@ import { transformIdentifier } from './transformer/util';
     const libraryFuncs = libraryFuncPages.filter((p) => p.title.includes('.')).map(extractFunction);
     const libraries = libraryFuncPages.filter((p) => !p.title.includes('.')).map(extractLibrary);
 
-    const libraryCollections: TSCollection[] = libraries.map((wikiLibrary) =>
-        transformFunctionCollection(
-            wikiLibrary,
-            libraryFuncs.filter((cf) => cf.parent === wikiLibrary.name),
-        ),
-    );
-
-    const hookCollection = libraryCollections.find(
-        (c) => c.identifier.toLowerCase() === 'hook',
-    );
-    const otherLibraries = libraryCollections.filter((c) => c !== hookCollection);
-
-    const libraryResult = otherLibraries.map(printInterface).join('\n\n');
-    const hookNamespaceResult = hookCollection ? printInterface(hookCollection) : '';
+    const libraryResult = libraries
+        .map((wikiLibrary) =>
+            transformFunctionCollection(
+                wikiLibrary,
+                libraryFuncs.filter((cf) => cf.parent === wikiLibrary.name),
+            ),
+        )
+        .map(printInterface)
+        .join('\n\n');
 
     const gameeventTypeMap = await fetchGameEventTypeMap();
     const gameeventResult = printTypeMap(gameeventTypeMap);
 
-    const resultMain = [
+    const result = [
         '/// <reference types="typescript-to-lua/language-extensions" />',
         '/// <reference path="./extras.d.ts" />',
-        '/// <reference path="./generatedWithSelf.d.ts" />',
         '/** @noSelfInFile **/',
         classResult,
         structResult,
@@ -188,16 +182,11 @@ import { transformIdentifier } from './transformer/util';
         libraryResult,
     ].join('\n\n');
 
-    const resultWithSelf = [
-        '/// <reference types="typescript-to-lua/language-extensions" />',
-        '/// <reference path="./extras.d.ts" />',
-        '/// <reference path="./generated.d.ts" />',
-        hookNamespaceResult,
-    ].filter(Boolean).join('\n\n');
+    const cleaned =
+        result
+            .replace(/\r\n/g, '\n')
+            .replace(/[ \t]+$/gm, '')
+            .trimEnd() + '\n';
 
-    const clean = (s: string) =>
-        (s.replace(/\r\n/g, '\n').replace(/[ \t]+$/gm, '').trimEnd() + '\n');
-
-    fs.writeFileSync('types/generated.d.ts', clean(resultMain));
-    fs.writeFileSync('types/generatedWithSelf.d.ts', clean(resultWithSelf));
+    fs.writeFileSync('types/generated.d.ts', cleaned);
 })();
