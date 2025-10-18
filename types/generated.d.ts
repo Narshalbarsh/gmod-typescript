@@ -73681,7 +73681,7 @@ declare namespace util {
      *
      * 			For more information, see [Entity:GetSkin](https://wiki.facepunch.com/gmod/Entity:GetSkin).
      */
-    function GetModelMeshes(model: string, lod = 0, bodygroupMask = 0, skin = 0): LuaMultiReturn<[Structures/ModelMeshData[], Structures/BoneBindPose[]]>;
+    function GetModelMeshes(model: string, lod = 0, bodygroupMask = 0, skin = 0): LuaMultiReturn<[ModelMeshData[], BoneBindPose[]]>;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]

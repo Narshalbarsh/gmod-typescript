@@ -1,6 +1,11 @@
 export function transformType(type: string) {
     let t = (type || '').trim();
 
+    t = t.replace(
+        /\b(?:Structures?|Structure|Enums?|Enum|Classes?|Class|Panels?|Panel|Libraries?|Library)\/([A-Za-z0-9_.]+)/gi,
+        '$1',
+    );
+
     // if already a TS function type, keep it as-is
     if (/^\(.*\)\s*=>\s*.+$/.test(t)) return t;
 

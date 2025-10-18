@@ -4,8 +4,9 @@ import { createRealmString, transformDescription } from './description';
 import { transformIdentifier, transformType } from './util';
 
 export function transformStruct(wikiStruct: WikiStruct): TSCollection {
+    const plainName = wikiStruct.name.replace(/^.*\//, '');
     return {
-        identifier: wikiStruct.name,
+        identifier: transformIdentifier(plainName),
         docComment:
             createRealmString(wikiStruct.realm) +
             '\n\n' +
