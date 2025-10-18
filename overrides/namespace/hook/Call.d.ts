@@ -1,5 +1,5 @@
 declare function Call<N extends HookName>(
     eventName: N,
     gamemodeTable?: any,
-    ...args: HookArgsFor<N>
-): HookRetFor<N> | undefined;
+    ...args: Parameters<NoThis<ExpectedCallback<N>>>
+): ReturnType<NoThis<ExpectedCallback<N>>> | undefined;

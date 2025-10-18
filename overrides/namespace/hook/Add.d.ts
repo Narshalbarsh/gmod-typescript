@@ -4,5 +4,8 @@ declare function Add<
 >(
     name: N,
     id: string,
-    cb: F & (Equals<Parameters<F>, Parameters<ExpectedCallback<N>>> extends true ? unknown : never)
+    cb: NoThis<F> &
+        (Equals<Parameters<NoThis<F>>, Parameters<ExpectedCallback<N>>> extends true
+            ? unknown
+            : never)
 ): any;

@@ -1,4 +1,4 @@
 declare function Run<N extends HookName>(
     eventName: N,
-    ...args: HookArgsFor<N>
-): HookRetFor<N> | undefined;
+    ...args: Parameters<NoThis<ExpectedCallback<N>>>
+): ReturnType<NoThis<ExpectedCallback<N>>> | undefined;

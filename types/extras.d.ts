@@ -74,5 +74,4 @@ type ExpectedCallback<N extends HookName> =
     | When<IsCustomKey<N>,   CustomFnFromKey<Extract<N, CustomHookKey>>>
     | When<IsCustomEnum<N>,  CustomFnFromEnum<Extract<N, CustomHookName>>>;
 
-type HookArgsFor<N extends HookName> = Parameters<ExpectedCallback<N>>;
-type HookRetFor<N extends HookName>  = ReturnType<ExpectedCallback<N>>;
+type NoThis<T extends (...args: any) => any> = OmitThisParameter<T>;

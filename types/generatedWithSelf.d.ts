@@ -31,7 +31,10 @@ declare namespace hook {
     >(
         name: N,
         id: string,
-        cb: F & (Equals<Parameters<F>, Parameters<ExpectedCallback<N>>> extends true ? unknown : never)
+        cb: NoThis<F> &
+            (Equals<Parameters<NoThis<F>>, Parameters<ExpectedCallback<N>>> extends true
+                ? unknown
+                : never)
     ): any;
 
     /**
@@ -48,8 +51,8 @@ declare namespace hook {
     declare function Call<N extends HookName>(
         eventName: N,
         gamemodeTable?: any,
-        ...args: HookArgsFor<N>
-    ): HookRetFor<N> | undefined;
+        ...args: Parameters<NoThis<ExpectedCallback<N>>>
+    ): ReturnType<NoThis<ExpectedCallback<N>>> | undefined;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -81,7 +84,7 @@ declare namespace hook {
     /* Manual override from: namespace/hook/Run */
     declare function Run<N extends HookName>(
         eventName: N,
-        ...args: HookArgsFor<N>
-    ): HookRetFor<N> | undefined;
+        ...args: Parameters<NoThis<ExpectedCallback<N>>>
+    ): ReturnType<NoThis<ExpectedCallback<N>>> | undefined;
 
 }
