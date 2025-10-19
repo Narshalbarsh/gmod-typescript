@@ -55649,7 +55649,7 @@ type gameevent = {
         name: string;
         networkid: string;
     };
-    /** Called when the player say a message. This is called after GM:PlayerSay so you could just use that hook serverside. */
+    /** Called when the player says a message. This is called after GM:PlayerSay so you could just use that hook serverside. */
     player_say: {
         priority: number;
         userid: number;
@@ -72377,7 +72377,9 @@ declare namespace table {
      * @param position - The position in the table to insert the variable. If the third argument is nil this argument becomes the value to insert at the end of given table.
      * @param value - The variable to insert into the table.
      */
-    function insert(tbl: any, position: number, value: any): number;
+    /* Manual override from: namespace/table/insert */
+    function insert<T>(tbl: T[] | LuaTable<number, T>, value: T): void;
+    function insert<T>(tbl: T[] | LuaTable<number, T>, position: number, value: T): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
