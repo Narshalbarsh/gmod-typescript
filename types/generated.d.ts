@@ -5257,7 +5257,7 @@ interface Entity {
      *
      * Returns a table of brushes surfaces for brush model entities.
      */
-    GetBrushSurfaces(): any;
+    GetBrushSurfaces(): SurfaceInfo[];
 
     /**
      * 🟨🟦 [Shared]
@@ -57821,7 +57821,14 @@ declare function InvalidateInternalEntityCache(isPly: boolean): void;
  * For pairs sorted by key in alphabetical order, see [Global.SortedPairs](https://wiki.facepunch.com/gmod/Global.SortedPairs).
  * @param tab - The table to iterate over.
  */
-declare function ipairs(tab: any): LuaMultiReturn<[Function, any, number]>;
+/* Manual override from: global/ipairs */
+declare function ipairs<T>(
+    t: readonly T[]
+): LuaIterable<LuaMultiReturn<[number, T]>>;
+
+declare function ipairs<V>(
+    t: LuaTable<number, V>
+): LuaIterable<LuaMultiReturn<[number, V]>>;
 
 /**
  * 🟨🟦🟩 [Shared and Menu]
@@ -63408,11 +63415,12 @@ declare namespace ents {
      * 🟨🟦 [Shared]
      *
      * Returns a [Stateless Iterator](https://www.lua.org/pil/7.3.html) for all entities.
-     * 		Intended for use in [Generic For Loops](https://www.lua.org/pil/4.3.5.html).
+     * 		Intended for use in [Generic For-Loops](https://www.lua.org/pil/4.3.5.html).
      * 		See [player.Iterator](https://wiki.facepunch.com/gmod/player.Iterator) for a similar function for all players.
      *
-     * 		Internally, this function uses cached values that exist entirely within lua, as opposed to [ents.GetAll](https://wiki.facepunch.com/gmod/ents.GetAll), which is a C++ function.
-     * 		Because switching from lua to C++ (and vice versa) incurs a performance cost, this function will be somewhat more efficient than [ents.GetAll](https://wiki.facepunch.com/gmod/ents.GetAll).
+     * **Note:**
+     * >Internally, this function uses cached values that are stored in Lua, as opposed to [ents.GetAll](https://wiki.facepunch.com/gmod/ents.GetAll), which is a C++ function.
+     * 		Because a call operation from Lua to C++ *and* with a return back to Lua is quite costly, this function will be more efficient than [ents.GetAll](https://wiki.facepunch.com/gmod/ents.GetAll).
      */
     function Iterator(): LuaMultiReturn<[Function, Entity[], number]>;
 
@@ -68188,11 +68196,12 @@ declare namespace player {
      * 🟨🟦 [Shared]
      *
      * Returns a [Stateless Iterator](https://www.lua.org/pil/7.3.html) for all players on the server.
-     * 		Intended for use in [Generic For Loops](https://www.lua.org/pil/4.3.5.html).
+     * 		Intended for use in [Generic For-Loops](https://www.lua.org/pil/4.3.5.html).
      * 		See [ents.Iterator](https://wiki.facepunch.com/gmod/ents.Iterator) for a similar function for all entities.
      *
-     * 		Internally, this function uses cached values that exist entirely within lua, as opposed to [player.GetAll](https://wiki.facepunch.com/gmod/player.GetAll), which is a C++ function.
-     * 		Because switching from lua to C++ (and vice versa) incurs a performance cost, this function will be somewhat more efficient than [player.GetAll](https://wiki.facepunch.com/gmod/player.GetAll).
+     * **Note:**
+     * >Internally, this function uses cached values that are stored in Lua, as opposed to [player.GetAll](https://wiki.facepunch.com/gmod/player.GetAll), which is a C++ function.
+     * 		Because a call operation from Lua to C++ *and* with a return back to Lua is quite costly, this function will be more efficient than [player.GetAll](https://wiki.facepunch.com/gmod/player.GetAll).
      */
     function Iterator(): LuaMultiReturn<[Function, Player[], number]>;
 

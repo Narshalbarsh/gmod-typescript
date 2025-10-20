@@ -35,13 +35,12 @@ export function tryLoadFunctionOverride(
 ): string | undefined {
     const c = norm(container);
     const f = norm(funcName);
-    if (!c || !f) return undefined;
+    if (!f) return undefined;
 
-    const folders = kind === 'global'
-        ? ['global', 'namespace']
-        : kind === 'interface'
-        ? ['interface', 'namespace']
-        : ['namespace'];
+    const folders =
+        kind === 'global' ? ['global', 'namespace'] :
+            kind === 'interface' ? ['interface', 'namespace'] :
+                ['namespace'];
 
     const anchors = [
         process.cwd(),
@@ -56,16 +55,25 @@ export function tryLoadFunctionOverride(
         if (!root) continue;
 
         for (const folder of folders) {
-            const candidates = [
-                path.join(root, folder, c, `${f}.d.ts`),
-                path.join(root, folder, c.toLowerCase(), `${f}.d.ts`),
-                path.join(root, folder, c, `${f.toLowerCase()}.d.ts`),
-                path.join(root, folder, c.toLowerCase(), `${f.toLowerCase()}.d.ts`),
-            ];
+            const candidates = c
+                ? [
+                    path.join(root, folder, c, `${f}.d.ts`),
+                    path.join(root, folder, c.toLowerCase(), `${f}.d.ts`),
+                    path.join(root, folder, c, `${f.toLowerCase()}.d.ts`),
+                    path.join(root, folder, c.toLowerCase(), `${f.toLowerCase()}.d.ts`),
+                ]
+                : kind === 'global'
+                    ? [
+                        path.join(root, folder, `${f}.d.ts`),
+                        path.join(root, folder, `${f.toLowerCase()}.d.ts`),
+                    ]
+                    : [];
+
             for (const p of candidates) {
                 const s = readIfExists(p);
                 if (s) {
-                    return `/* Manual override from: ${folder}/${c}/${f} */\n${s}`;
+                    const loc = c ? `${folder}/${c}/${f}` : `${folder}/${f}`;
+                    return `/* Manual override from: ${loc} */\n${s}`;
                 }
             }
         }
