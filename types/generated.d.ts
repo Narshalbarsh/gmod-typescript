@@ -38740,24 +38740,28 @@ interface WEAPON extends Weapon {
 interface TOOL extends Tool {
     /**
      * If set to false, the tool won't be added to the tool menu and players will have to access it by other means.
+     * @default true
      */
-    AddToMenu: boolean,
+    AddToMenu?: boolean,
 
     /**
      * The tool menu category under which the tool should be listed.
+     * @default New Category
      */
-    Category: string,
+    Category?: string,
 
     /**
      * The console command to execute upon being selected in the Q menu.
+     * @default gmod_toolmode [tool]
      */
-    Command: string,
+    Command?: string,
 
     /**
      * The name of the tool in the Q menu.
      * Common practice is to set this to "#tool.[lua filename].name" to match the name displayed in the tool information box.
+     * @default #[tool mode]
      */
-    Name: string,
+    Name?: string,
 
     /**
      * A key-value ( convar name-default value ) table containing the client-side convars to create. All convars will be prefixed with the filename of the tool.
@@ -38807,13 +38811,15 @@ interface TOOL extends Tool {
 
     /**
      * When enabled the game tries to run the left mouse click as soon as possible
+     * @default false
      */
-    LeftClickAutomatic: boolean,
+    LeftClickAutomatic?: boolean,
 
     /**
      * When enabled the game tries to run the right mouse click as soon as possible
+     * @default false
      */
-    RightClickAutomatic: boolean,
+    RightClickAutomatic?: boolean,
 
     /**
      * 🟨🟦 [Shared]
@@ -39070,83 +39076,99 @@ interface PLAYER {
 
     /**
      * How fast to move when not running
+     * @default 400
      */
-    WalkSpeed: number,
+    WalkSpeed?: number,
 
     /**
      * How fast to move when running/sprinting
+     * @default 600
      */
-    RunSpeed: number,
+    RunSpeed?: number,
 
     /**
      * How fast to move when slow walking, which is activated via the <key>+WALK</key> keybind.
+     * @default 200
      */
-    SlowWalkSpeed: number,
+    SlowWalkSpeed?: number,
 
     /**
      * Multiply walk speed by this when crouching
+     * @default 0.3
      */
-    CrouchedWalkSpeed: number,
+    CrouchedWalkSpeed?: number,
 
     /**
      * How fast to go from not ducking, to ducking
+     * @default 0.3
      */
-    DuckSpeed: number,
+    DuckSpeed?: number,
 
     /**
      * How fast to go from ducking, to not ducking
+     * @default 0.3
      */
-    UnDuckSpeed: number,
+    UnDuckSpeed?: number,
 
     /**
      * How powerful a jump should be
+     * @default 200
      */
-    JumpPower: number,
+    JumpPower?: number,
 
     /**
      * Can the player use the flashlight
+     * @default true
      */
-    CanUseFlashlight: boolean,
+    CanUseFlashlight?: boolean,
 
     /**
      * Max health we can have
+     * @default 100
      */
-    MaxHealth: number,
+    MaxHealth?: number,
 
     /**
      * Max armor the player can have
+     * @default 0
      */
-    MaxArmor: number,
+    MaxArmor?: number,
 
     /**
      * How much health we start with
+     * @default 100
      */
-    StartHealth: number,
+    StartHealth?: number,
 
     /**
      * How much armour we start with
+     * @default 0
      */
-    StartArmor: number,
+    StartArmor?: number,
 
     /**
      * Do we drop our weapon when we die
+     * @default false
      */
-    DropWeaponOnDie: boolean,
+    DropWeaponOnDie?: boolean,
 
     /**
      * Do we collide with teammates or run straight through them
+     * @default true
      */
-    TeammateNoCollide: boolean,
+    TeammateNoCollide?: boolean,
 
     /**
      * Automatically swerves around other players
+     * @default true
      */
-    AvoidPlayers: boolean,
+    AvoidPlayers?: boolean,
 
     /**
      * Uses viewmodel hands
+     * @default true
      */
-    UseVMHands: boolean,
+    UseVMHands?: boolean,
 
     /**
      * 🟨🟦 [Shared]
@@ -39827,25 +39849,29 @@ interface AmmoData {
      * Damage type using [Enums/DMG](https://wiki.facepunch.com/gmod/Enums/DMG).
      *
      * Related function is [game.GetAmmoDamageType](https://wiki.facepunch.com/gmod/game.GetAmmoDamageType).
+     * @default DMG_BULLET
      */
-    dmgtype: DMG,
+    dmgtype?: DMG,
 
     /**
      * The force of the ammo.
      *
      * Related function is [game.GetAmmoForce](https://wiki.facepunch.com/gmod/game.GetAmmoForce).
+     * @default 1000
      */
-    force: number,
+    force?: number,
 
     /**
      * The maximum water splash size.
+     * @default 0
      */
-    maxsplash: number,
+    maxsplash?: number,
 
     /**
      * The minimum water splash size.
+     * @default 0
      */
-    minsplash: number,
+    minsplash?: number,
 
     /**
      * Name of the ammo.
@@ -39860,8 +39886,9 @@ interface AmmoData {
      * Related function is [game.GetAmmoNPCDamage](https://wiki.facepunch.com/gmod/game.GetAmmoNPCDamage).
      *
      * Can also be a string with the name of a [convar](https://wiki.facepunch.com/gmod/convar). The value will automatically update with the convar's.
+     * @default 10
      */
-    npcdmg: number,
+    npcdmg?: number,
 
     /**
      * The damage dealt to players.
@@ -39869,13 +39896,15 @@ interface AmmoData {
      * Related function is [game.GetAmmoPlayerDamage](https://wiki.facepunch.com/gmod/game.GetAmmoPlayerDamage).
      *
      * Can also be a string with the name of a [convar](https://wiki.facepunch.com/gmod/convar). The value will automatically update with the convar's.
+     * @default 10
      */
-    plydmg: number,
+    plydmg?: number,
 
     /**
      * Tracer type using [Enums/TRACER](https://wiki.facepunch.com/gmod/Enums/TRACER).
+     * @default TRACER_NONE
      */
-    tracer: TRACER,
+    tracer?: TRACER,
 
     /**
      * Maximum amount of ammo of this type the player should be able to carry in reserve. `-2` makes this ammo type infinite.
@@ -39886,13 +39915,16 @@ interface AmmoData {
      *
      * **Warning:**
      * >`gmod_maxammo` convar will override this value if set to above 0, **which it is by default**.
+     *
+     * @default 9999
      */
-    maxcarry: number,
+    maxcarry?: number,
 
     /**
      * Flags for the ammo type using [Enums/AMMO](https://wiki.facepunch.com/gmod/Enums/AMMO).
+     * @default 0
      */
-    flags: AMMO,
+    flags?: AMMO,
 
 
 
@@ -39941,8 +39973,9 @@ interface AnimationData {
 
     /**
      * The ease in/out level of the animation.
+     * @default -1
      */
-    Ease: number,
+    Ease?: number,
 
     /**
      * The callback function that will be called upon completion of the animation.
@@ -39987,8 +40020,9 @@ interface AnimationData {
 
     /**
      * The target size of the panel object. Only used by [Panel:SizeTo](https://wiki.facepunch.com/gmod/Panel:SizeTo).
+     * @default (0, 0, 0)
      */
-    Size: Vector,
+    Size?: Vector,
 
     /**
      * The size of the panel object when the animation started. Only used by [Panel:SizeTo](https://wiki.facepunch.com/gmod/Panel:SizeTo).
@@ -40059,18 +40093,21 @@ interface AttachmentData {
 interface BalloonData {
     /**
      * Where the balloon will spawn
+     * @default Vector(0, 0, 0)
      */
-    Pos: Vector,
+    Pos?: Vector,
 
     /**
      * The balloon’s model
+     * @default models/error.mdl
      */
-    Model: string,
+    Model?: string,
 
     /**
      * The balloon’s skin
+     * @default 0
      */
-    Skin: number,
+    Skin?: number,
 
 
 
@@ -40145,18 +40182,21 @@ interface BoneBindPose {
 interface BoneManipulationData {
     /**
      * The entity's scale manipulation of the bone
+     * @default nil
      */
-    s: Vector,
+    s?: Vector,
 
     /**
      * The entity's angle manipulation of the bone
+     * @default nil
      */
-    a: Angle,
+    a?: Angle,
 
     /**
      * The entity's position manipulation of the given bone
+     * @default nil
      */
-    p: Vector,
+    p?: Vector,
 
 
 
@@ -40198,15 +40238,17 @@ interface Bullet {
      * The entity that should be reported as attacker eg. a player
      *
      * By default this would be set to the entity [Entity:FireBullets](https://wiki.facepunch.com/gmod/Entity:FireBullets) is called on.
+     * @default self
      */
-    Attacker: Entity,
+    Attacker?: Entity,
 
     /**
      * The entity that should be reported as inflictor eg. a weapon or something similar
      *
      * Also defines [CTakeDamageInfo:GetWeapon](https://wiki.facepunch.com/gmod/CTakeDamageInfo:GetWeapon) for [Weapon](https://wiki.facepunch.com/gmod/Weapon).
+     * @default NULL
      */
-    Inflictor: Entity,
+    Inflictor?: Entity,
 
     /**
      * Function to be called **after** the bullet was fired but **before** the damage is applied (the callback is called even if no damage is applied).
@@ -40221,71 +40263,84 @@ interface Bullet {
      * * [boolean](https://wiki.facepunch.com/gmod/boolean) damage - `false` to not do any damage.
      * </ret>
      * </callback>
+     * @default nil
      */
-    Callback: Function,
+    Callback?: Function,
 
     /**
      * The damage dealt by the bullet.
      *
      * If set to `0`, it means the damage should be calculated from the ammo type's [ConVar](https://wiki.facepunch.com/gmod/ConVar)s if  the ammo type has `AMMO_INTERPRET_PLRDAMAGE_AS_DAMAGE_TO_PLAYER` flag set.
      * See [Structures/AmmoData](https://wiki.facepunch.com/gmod/Structures/AmmoData).
+     * @default 1
      */
-    Damage: number,
+    Damage?: number,
 
     /**
      * The force of the bullets
+     * @default 1
      */
-    Force: number,
+    Force?: number,
 
     /**
      * Maximum distance the bullet can travel
+     * @default 56756
      */
-    Distance: number,
+    Distance?: number,
 
     /**
      * The hull size of the bullet
+     * @default 0
      */
-    HullSize: number,
+    HullSize?: number,
 
     /**
      * The amount of bullets to fire
+     * @default 1
      */
-    Num: number,
+    Num?: number,
 
     /**
      * Show tracer for every x bullets
+     * @default 1
      */
-    Tracer: number,
+    Tracer?: number,
 
     /**
      * The ammunition name
+     * @default <empty string>
      */
-    AmmoType: string,
+    AmmoType?: string,
 
     /**
      * The tracer name. You can find a list of default effects <page text="here">Default_Effects</page>.
+     * @default nil
      */
-    TracerName: string,
+    TracerName?: string,
 
     /**
      * The fire direction
+     * @default Vector( 0, 0, 0 )
      */
-    Dir: Vector,
+    Dir?: Vector,
 
     /**
      * The spread, only x and y are needed
+     * @default Vector( 0, 0, 0 )
      */
-    Spread: Vector,
+    Spread?: Vector,
 
     /**
      * The position to fire the bullets from
+     * @default Vector( 0, 0, 0 )
      */
-    Src: Vector,
+    Src?: Vector,
 
     /**
      * The entity that the bullet will ignore when it will be shot.
+     * @default NULL
      */
-    IgnoreEntity: Entity,
+    IgnoreEntity?: Entity,
 
 
 
@@ -40324,8 +40379,9 @@ interface CamData {
 
     /**
      * Set true to draw local players player model.
+     * @default false
      */
-    drawviewer: boolean,
+    drawviewer?: boolean,
 
     /**
      * If set, enables orthographic mode. The table has following arguments:
@@ -40335,8 +40391,9 @@ interface CamData {
      * * [number](https://wiki.facepunch.com/gmod/number) bottom
      *
      * Each describes where their border starts, (`left`+`right`) and (`top`+`bottom`) should equal `0` to center on the view position.
+     * @default nil
      */
-    ortho: any,
+    ortho?: any,
 
 
 
@@ -40685,18 +40742,21 @@ interface DynamicLight {
 
     /**
      * The light direction. Used with **InnerAngle** and **OuterAngle**.
+     * @default Vector( 0, 0, 0 )
      */
-    dir: Vector,
+    dir?: Vector,
 
     /**
      * The closer this is to zero, the smoother the light will be. Requires **Dir** and **OuterAngle** to be set.
+     * @default 0
      */
-    innerangle: number,
+    innerangle?: number,
 
     /**
      * The angle of the Dynamic Light. Requires **Dir** to be set.
+     * @default 0
      */
-    outerangle: number,
+    outerangle?: number,
 
     /**
      * Makes the light brighter and flicker? Changing the value does not seem to affect anything.
@@ -40705,18 +40765,21 @@ interface DynamicLight {
 
     /**
      * Minimum light
+     * @default 0
      */
-    minlight: number,
+    minlight?: number,
 
     /**
      * Don't light the world. Has no effect for elights since they never light the world.
+     * @default false
      */
-    noworld: boolean,
+    noworld?: boolean,
 
     /**
      * Don't light models
+     * @default false
      */
-    nomodel: boolean,
+    nomodel?: boolean,
 
     /**
      * Position of the light
@@ -40780,8 +40843,9 @@ interface EmitSoundInfo {
      * The time at which the sound should be played.
      *
      * If equal to 0 or CurTime(), the sound is played immediately. If greater than CurTime(), the sound is played with a delay. If less than CurTime(), part of the sound is skipped.
+     * @default 0
      */
-    SoundTime: number,
+    SoundTime?: number,
 
     /**
      * The DSP (digital signal processing) preset applied to the sound.
@@ -40789,8 +40853,9 @@ interface EmitSoundInfo {
      * There are approximately 134 different presets defined by the Source engine between 0 and 133. These presets represent different types of 'rooms' or environments.
      *
      * [List of DSP's](https://developer.valvesoftware.com/wiki/Dsp_presets)
+     * @default 0
      */
-    DSP: number,
+    DSP?: number,
 
     /**
      * The sound's attenuation, a number between 0 (low) and 511 (high)
@@ -40798,18 +40863,21 @@ interface EmitSoundInfo {
      * This determines how fast the sound drops away. A higher value means the sound can be heard farther away.
      *
      * See [Enums/SNDLVL](https://wiki.facepunch.com/gmod/Enums/SNDLVL).
+     * @default 75
      */
-    SoundLevel: SNDLVL,
+    SoundLevel?: SNDLVL,
 
     /**
      * The pitch of the played sound, a number between 0 (low) and 255 (high), where 100 is the sound's original pitch.
+     * @default 100
      */
-    Pitch: number,
+    Pitch?: number,
 
     /**
      * The bit flags of the played sound. See [Enums/SND](https://wiki.facepunch.com/gmod/Enums/SND) for available options.
+     * @default 0
      */
-    Flags: SND,
+    Flags?: SND,
 
     /**
      * The sound's channel. See [Enums/CHAN](https://wiki.facepunch.com/gmod/Enums/CHAN) for available options.
@@ -40886,28 +40954,33 @@ interface ENT {
 
     /**
      * Set this to true if your entity has animations. You should also apply changes to the [ENTITY:Think](https://wiki.facepunch.com/gmod/ENTITY:Think) function from the example on that page.
+     * @default false
      */
-    AutomaticFrameAdvance: boolean,
+    AutomaticFrameAdvance?: boolean,
 
     /**
      * Spawnmenu category to put the entity into
+     * @default Other
      */
-    Category: string,
+    Category?: string,
 
     /**
      * Whether this entity should be displayed and is spawnable in the spawn menu
+     * @default false
      */
-    Spawnable: boolean,
+    Spawnable?: boolean,
 
     /**
      * Whether the entity supports Editing. See [Editable Entities](https://wiki.facepunch.com/gmod/Editable_Entities) for more info.
+     * @default false
      */
-    Editable: boolean,
+    Editable?: boolean,
 
     /**
      * Whether or not only admins can spawn the entity from their spawn menu
+     * @default false
      */
-    AdminOnly: boolean,
+    AdminOnly?: boolean,
 
     /**
      * Nice name of the entity to appear in the spawn menu
@@ -40941,13 +41014,15 @@ interface ENT {
 
     /**
      * If set and RenderGroup is not, will switch the render group to <page text="RENDERGROUP_BOTH">Enums/RENDERGROUP#RENDERGROUP_BOTH</page> when appropriate.
+     * @default false
      */
-    WantsTranslucency: boolean,
+    WantsTranslucency?: boolean,
 
     /**
      * Disable the ability for players to duplicate this entity.
+     * @default false
      */
-    DisableDuplicator: boolean,
+    DisableDuplicator?: boolean,
 
     /**
      * Sets the spawnmenu content icon type for the entity, used by spawnmenu in the Sandbox-derived gamemodes.
@@ -40959,8 +41034,9 @@ interface ENT {
      * If set, overrides the icon path to be displayed in the Spawnmenu for this entity.
      *
      * Like many functions, this expects a path relative to the `materials/` folder, do not include `materials/` in the provided string.
+     * @default entities/<ClassName>.png
      */
-    IconOverride: string,
+    IconOverride?: string,
 
     /**
      * If set, a bitflag for the physics solidity of the entity. See [Enums/CONTENTS](https://wiki.facepunch.com/gmod/Enums/CONTENTS).
@@ -40969,13 +41045,16 @@ interface ENT {
      *
      * **Note:**
      * >This only works for `nextbot`, `anim` and `ai` type SENTs.
+     *
+     * @default nil
      */
-    PhysicsSolidMask: number,
+    PhysicsSolidMask?: number,
 
     /**
      * For `anim` type entities, if set, enables physics collision sounds.
+     * @default false
      */
-    PhysicsSounds: boolean,
+    PhysicsSounds?: boolean,
 
 
 
@@ -41103,8 +41182,9 @@ interface FiredBullet {
      * The type of ammo that was fired.
      *
      * 			Should be one of the values from the [game.GetAmmoTypes](https://wiki.facepunch.com/gmod/game.GetAmmoTypes) table.
+     * @default <Empty String>
      */
-    AmmoType: string,
+    AmmoType?: string,
 
     /**
      * The [Entity](https://wiki.facepunch.com/gmod/Entity) that fired the bullet.
@@ -41158,85 +41238,101 @@ interface FontData {
      * >This must be the actual 'nice' font, not a file name. Unless the client is running Linux or macOS. ([Finding the Font Name](https://wiki.facepunch.com/gmod/Finding_the_Font_Name))
      *
      * This also cannot be an already registered font, i.e. you cannot base your font from any of the
+     *
+     * @default Arial
      */
-    font: string,
+    font?: string,
 
     /**
      * Allow the font to display glyphs that are outside of the Latin-1 range. Unicode code points above 0xFFFF are not supported.
+     * @default false
      */
-    extended: boolean,
+    extended?: boolean,
 
     /**
      * The font height in pixels
      *
      * `Range:` 4 - 255
+     * @default 13
      */
-    size: number,
+    size?: number,
 
     /**
      * The font boldness
+     * @default 500
      */
-    weight: number,
+    weight?: number,
 
     /**
      * The strength of the font blurring
      *
      * `Range:` 0 - 80
+     * @default 0
      */
-    blursize: number,
+    blursize?: number,
 
     /**
      * The "scanline" interval
      * Must be > 1 to work. This setting is per blursize per font - so if you create a font using "Arial" without scanlines, you cannot create an Arial font using scanlines with the same blursize
+     * @default 0
      */
-    scanlines: number,
+    scanlines?: number,
 
     /**
      * Smooth the font
+     * @default true
      */
-    antialias: boolean,
+    antialias?: boolean,
 
     /**
      * Add an underline to the font
+     * @default false
      */
-    underline: boolean,
+    underline?: boolean,
 
     /**
      * Make the font italic
+     * @default false
      */
-    italic: boolean,
+    italic?: boolean,
 
     /**
      * Add a strike through
+     * @default false
      */
-    strikeout: boolean,
+    strikeout?: boolean,
 
     /**
      * Enables the use of symbolic fonts such as Webdings
+     * @default false
      */
-    symbol: boolean,
+    symbol?: boolean,
 
     /**
      * Seems to add a line in the middle of each letter
+     * @default false
      */
-    rotary: boolean,
+    rotary?: boolean,
 
     /**
      * Add shadow casting to the font
+     * @default false
      */
-    shadow: boolean,
+    shadow?: boolean,
 
     /**
      * Additive rendering
+     * @default false
      */
-    additive: boolean,
+    additive?: boolean,
 
     /**
      * Add a black outline to the font.
      *
      * This does not work well with antialias, and only allows black 1-pixel outlines. It may be preferable to not use this parameter, and instead use [draw.SimpleTextOutlined](https://wiki.facepunch.com/gmod/draw.SimpleTextOutlined) when drawing text that you want outlined.
+     * @default false
      */
-    outline: boolean,
+    outline?: boolean,
 
 
 
@@ -41305,8 +41401,9 @@ interface HTTPRequest {
      * * DELETE
      * * PATCH
      * * OPTIONS
+     * @default GET
      */
-    method: string,
+    method?: string,
 
     /**
      * The target url
@@ -41333,13 +41430,15 @@ interface HTTPRequest {
 
     /**
      * Content type for body.
+     * @default text/plain; charset=utf-8
      */
-    type: string,
+    type?: string,
 
     /**
      * The timeout for the connection.
+     * @default 60
      */
-    timeout: number,
+    timeout?: number,
 
 
 
@@ -41380,38 +41479,45 @@ interface HullTrace {
      * 	</callback>
      *
      * 	Using a function here is super slow. Try to avoid it.
+     * @default nil
      */
-    filter: Entity|Entity[]|string[]|Function,
+    filter?: Entity|Entity[]|string[]|Function,
 
     /**
      * The trace mask [Enums/MASK](https://wiki.facepunch.com/gmod/Enums/MASK). This determines what the trace should hit and what it shouldn't hit.
+     * @default MASK_SOLID
      */
-    mask: MASK,
+    mask?: MASK,
 
     /**
      * The collision group [Enums/COLLISION_GROUP](https://wiki.facepunch.com/gmod/Enums/COLLISION_GROUP). This determines what the trace should hit in regards to the entity's collision group.
+     * @default COLLISION_GROUP_NONE
      */
-    collisiongroup: COLLISION_GROUP,
+    collisiongroup?: COLLISION_GROUP,
 
     /**
      * Should the trace ignore world or not.
+     * @default false
      */
-    ignoreworld: boolean,
+    ignoreworld?: boolean,
 
     /**
      * If set, the trace result will be written to the supplied table instead of returning a new table
+     * @default nil
      */
-    output: TraceResult,
+    output?: TraceResult,
 
     /**
      * Turns the `filter` field into a whitelist, if it is a table.
+     * @default false
      */
-    whitelist: boolean,
+    whitelist?: boolean,
 
     /**
      * Enables traces to hit clientside only entities. Keep in mind that most naturally spawned entities are classified as debris, so extra `mask` values might be required.
+     * @default false
      */
-    hitclientonly: boolean,
+    hitclientonly?: boolean,
 
 
 
@@ -41425,43 +41531,51 @@ interface HullTrace {
 interface LocalLight {
     /**
      * The type of the light source, see [Enums/MATERIAL_LIGHT](https://wiki.facepunch.com/gmod/Enums/MATERIAL_LIGHT).
+     * @default MATERIAL_LIGHT_POINT
      */
-    type: MATERIAL_LIGHT,
+    type?: MATERIAL_LIGHT,
 
     /**
      * The color of the light source (x is red, y is green, z is blue). Values are not restricted to a specific range, higher values will result in a brighter light.
+     * @default vector_origin
      */
-    color: Vector,
+    color?: Vector,
 
     /**
      * The origin of the light in world coordinates.
+     * @default vector_origin
      */
-    pos: Vector,
+    pos?: Vector,
 
     /**
      * The direction of the light. Only required for directional and spot lights.
+     * @default vector_origin
      */
-    dir: Vector,
+    dir?: Vector,
 
     /**
      * The maximum range of the light source. Does not actually control light attenuation. Usually left at 0 for infinite range.
+     * @default 0
      */
-    range: number,
+    range?: number,
 
     /**
      * Angular falloff exponent for spot lights. Higher values result in a sharper transition between the inner cone and the outer cone.
+     * @default 5
      */
-    angularFalloff: number,
+    angularFalloff?: number,
 
     /**
      * The inner cone angle for spot lights, in degrees. No angular falloff will occur inside that cone.
+     * @default 45
      */
-    innerAngle: number,
+    innerAngle?: number,
 
     /**
      * The outer cone angle for spot lights, in degrees.
+     * @default 45
      */
-    outerAngle: number,
+    outerAngle?: number,
 
     /**
      * The distance at which the light will fade to 50% of its brightness.
@@ -41475,18 +41589,21 @@ interface LocalLight {
 
     /**
      * The quadratic term of the light falloff. This will only be used if fiftyPercentDistance and zeroPercentDistance are not supplied, and allows finer control over light attenuation.
+     * @default 0
      */
-    quadraticFalloff: number,
+    quadraticFalloff?: number,
 
     /**
      * The linear term of the light falloff. This will only be used if fiftyPercentDistance and zeroPercentDistance are not supplied, and allows finer control over light attenuation.
+     * @default 0
      */
-    linearFalloff: number,
+    linearFalloff?: number,
 
     /**
      * The constant term of the light falloff. This will only be used if fiftyPercentDistance and zeroPercentDistance are not supplied, and allows finer control over light attenuation.
+     * @default 1
      */
-    constantFalloff: number,
+    constantFalloff?: number,
 
 
 
@@ -41868,50 +41985,59 @@ interface NPCData {
 
     /**
      * Spawnmenu category to put the NPCinto.
+     * @default Other
      */
-    Category: string,
+    Category?: string,
 
     /**
      * A list of weapons this NPC is typically meant to use. One will be picked on spawn at random, unless overwritten by the player.
+     * @default {}
      */
-    Weapons: any,
+    Weapons?: any,
 
     /**
      * Key-value pairs to apply to the NPC on spawn. See [Entity:SetKeyValue](https://wiki.facepunch.com/gmod/Entity:SetKeyValue).
+     * @default {}
      */
-    KeyValues: any,
+    KeyValues?: any,
 
     /**
      * Model override for this NPC.
+     * @default nil
      */
-    Model: string,
+    Model?: string,
 
     /**
      * Additional spawnflags for this NPC. See [Entity:GetSpawnFlags](https://wiki.facepunch.com/gmod/Entity:GetSpawnFlags).
      *
      * Ignored if `TotalSpawnFlags` key is present.
+     * @default 0
      */
-    SpawnFlags: number,
+    SpawnFlags?: number,
 
     /**
      * Total spawnflags override for this NPC.
+     * @default nil
      */
-    TotalSpawnFlags: number,
+    TotalSpawnFlags?: number,
 
     /**
      * If set to `true`, this NPC can only be spawned on the ceiling. Stacks with `OnFloor`.
+     * @default false
      */
-    OnCeiling: boolean,
+    OnCeiling?: boolean,
 
     /**
      * If set to `true`, this NPC can only be spawned on the floor. Stacks with `OnCeiling`.
+     * @default false
      */
-    OnFloor: boolean,
+    OnFloor?: boolean,
 
     /**
      * Offset, in Hammer units, away from the surface where the player is looking at for the NPC spawn position.
+     * @default 0
      */
-    Offset: number,
+    Offset?: number,
 
     /**
      * Material override for this NPC. See [Entity:SetMaterial](https://wiki.facepunch.com/gmod/Entity:SetMaterial).
@@ -41920,28 +42046,33 @@ interface NPCData {
 
     /**
      * Skin override for the NPC. See [Entity:SetSkin](https://wiki.facepunch.com/gmod/Entity:SetSkin).
+     * @default nil
      */
-    Skin: number,
+    Skin?: number,
 
     /**
      * If set to `true`, do not try to teleport the NPC to the ground.
+     * @default false
      */
-    NoDrop: boolean,
+    NoDrop?: boolean,
 
     /**
      * Used to add additional rotation the NPC post spawn. Usually all NPCs would be facing the player on spawn. Value of `Angle( 0, 180, 0 )` would make the NPC face away from the player.
+     * @default Angle( 0, 0, 0 )
      */
-    Rotate: Angle,
+    Rotate?: Angle,
 
     /**
      * Health override for this NPC. Also sets [Entity:SetMaxHealth](https://wiki.facepunch.com/gmod/Entity:SetMaxHealth).
+     * @default nil
      */
-    Health: number,
+    Health?: number,
 
     /**
      * If set, a function to be called when the NPC is pasted using the [duplicator](https://wiki.facepunch.com/gmod/duplicator) library.
+     * @default nil
      */
-    OnDuplicated: Function,
+    OnDuplicated?: Function,
 
 
 
@@ -42109,15 +42240,17 @@ interface PhysEnvPerformanceSettings {
      * Maximum amount of seconds to precalculate collisions with objects.
      *
      * Default value for this setting is `0.5`.
+     * @default nil
      */
-    LookAheadTimeObjectsVsObject: number,
+    LookAheadTimeObjectsVsObject?: number,
 
     /**
      * Maximum amount of seconds to precalculate collisions with world.
      *
      * Default value for this setting is `1`.
+     * @default nil
      */
-    LookAheadTimeObjectsVsWorld: number,
+    LookAheadTimeObjectsVsWorld?: number,
 
     /**
      * Maximum collision checks per tick.
@@ -42125,8 +42258,9 @@ interface PhysEnvPerformanceSettings {
      * Objects may penetrate after this many collision checks
      *
      * Default value for this setting is `50000`.
+     * @default nil
      */
-    MaxCollisionChecksPerTimestep: number,
+    MaxCollisionChecksPerTimestep?: number,
 
     /**
      * Maximum collision per object per tick.
@@ -42134,36 +42268,41 @@ interface PhysEnvPerformanceSettings {
      * Object will be frozen after this many collisions (visual hitching vs. CPU cost)
      *
      * Default value for this setting is `10`.
+     * @default nil
      */
-    MaxCollisionsPerObjectPerTimestep: number,
+    MaxCollisionsPerObjectPerTimestep?: number,
 
     /**
      * Maximum world-space speed of an object in inches per second.
      *
      * Default value for this setting is `4000`.
+     * @default nil
      */
-    MaxVelocity: number,
+    MaxVelocity?: number,
 
     /**
      * Maximum world-space rotational velocity in degrees per second.
      *
      * Default value for this setting is `7200`.
+     * @default nil
      */
-    MaxAngularVelocity: number,
+    MaxAngularVelocity?: number,
 
     /**
      * Minimum mass of an object to be affected by friction.
      *
      * Default value for this setting is `10`.
+     * @default nil
      */
-    MinFrictionMass: number,
+    MinFrictionMass?: number,
 
     /**
      * Maximum mass of an object to be affected by friction.
      *
      * Default value for this setting is `2500`.
+     * @default nil
      */
-    MaxFrictionMass: number,
+    MaxFrictionMass?: number,
 
 
 
@@ -42219,13 +42358,15 @@ interface PhysicsObjectSave {
 interface PhysProperties {
     /**
      * Enables or disables gravity for the entity
+     * @default nil
      */
-    GravityToggle: boolean,
+    GravityToggle?: boolean,
 
     /**
      * Sets the physics material for the entity
+     * @default nil
      */
-    Material: string,
+    Material?: string,
 
 
 
@@ -42344,8 +42485,9 @@ interface Problem {
 interface PropertyAdd {
     /**
      * Can be set to "toggle" to make this property a toggle property.
+     * @default simple
      */
-    Type: string,
+    Type?: string,
 
     /**
      * Label to show on opened menu
@@ -42382,8 +42524,9 @@ interface PropertyAdd {
 
     /**
      * Whether to add a spacer before this property. This should generally be true for the first property in a group of properties.
+     * @default false
      */
-    PrependSpacer: boolean,
+    PrependSpacer?: boolean,
 
     /**
      * Used **clientside** to decide whether this property should be shown for an entity.
@@ -42471,70 +42614,83 @@ interface PropertyAdd {
 interface RenderCamData {
     /**
      * The x position of the view port
+     * @default nil
      */
-    x: number,
+    x?: number,
 
     /**
      * The y position of the view port
+     * @default nil
      */
-    y: number,
+    y?: number,
 
     /**
      * The width of the view port
+     * @default nil
      */
-    w: number,
+    w?: number,
 
     /**
      * The height of the view port
+     * @default nil
      */
-    h: number,
+    h?: number,
 
     /**
      * The type of cam. Valid types are:
      * * "2D" - No additional arguments are required
      * * "3D" - Only origin and angles are needed, all other parameters are optional.
+     * @default 3D
      */
-    type: string,
+    type?: string,
 
     /**
      * The position to render from
+     * @default nil
      */
-    origin: Vector,
+    origin?: Vector,
 
     /**
      * The angles to render from
+     * @default nil
      */
-    angles: Angle,
+    angles?: Angle,
 
     /**
      * The field of view
+     * @default nil
      */
-    fov: number,
+    fov?: number,
 
     /**
      * The aspect ratio of the view port (Note that this is NOT set to w/h by default)
+     * @default nil
      */
-    aspect: number,
+    aspect?: number,
 
     /**
      * The distance to the far clipping plane
+     * @default nil
      */
-    zfar: number,
+    zfar?: number,
 
     /**
      * The distance to the near clipping plane
+     * @default nil
      */
-    znear: number,
+    znear?: number,
 
     /**
      * Set to true if this is to draw into a subrect of the larger screen.
+     * @default nil
      */
-    subrect: boolean,
+    subrect?: boolean,
 
     /**
      * m_bDoBloomAndToneMapping
+     * @default false
      */
-    bloomtone: boolean,
+    bloomtone?: boolean,
 
     /**
      * A table having these keys: ( all floats )
@@ -42542,8 +42698,9 @@ interface RenderCamData {
      * * right
      * * bottom
      * * top
+     * @default nil
      */
-    offcenter: any,
+    offcenter?: any,
 
     /**
      * If set, makes the view/camera orthogonal. A table having these keys: ( all floats )
@@ -42551,8 +42708,9 @@ interface RenderCamData {
      * * right
      * * bottom
      * * top
+     * @default nil
      */
-    ortho: any,
+    ortho?: any,
 
 
 
@@ -42598,8 +42756,9 @@ interface RenderCaptureData {
 
     /**
      * Set to false to capture an image with alpha channel set to fully opaque. Affects png only.
+     * @default true
      */
-    alpha: boolean,
+    alpha?: boolean,
 
 
 
@@ -42712,8 +42871,9 @@ interface SequenceInfo {
 interface ServerQueryData {
     /**
      * The game directory to get the servers for
+     * @default garrysmod
      */
-    GameDir: string,
+    GameDir?: string,
 
     /**
      * Type of servers to retrieve. Valid values are `internet`, `favorite`, `history` and `lan`
@@ -42722,8 +42882,9 @@ interface ServerQueryData {
 
     /**
      * Steam application ID to get the servers for
+     * @default 4000
      */
-    AppID: number,
+    AppID?: number,
 
     /**
      * Called when a new server is found and queried.
@@ -42776,53 +42937,64 @@ interface ShadowControlParams {
      *
      * **Warning:**
      * >Cannot be 0! Will give errors if you do.
+     *
+     * @default TICK_INTERVAL * 2
      */
-    secondstoarrive: number,
+    secondstoarrive?: number,
 
     /**
      * The time it should use - just use the one from [ENTITY:PhysicsSimulate](https://wiki.facepunch.com/gmod/ENTITY:PhysicsSimulate).
+     * @default 0.1
      */
-    delta: number,
+    delta?: number,
 
     /**
      * Where you want to move to.
+     * @default vector_origin
      */
-    pos: Vector,
+    pos?: Vector,
 
     /**
      * Angle you want to move to.
+     * @default angle_zero
      */
-    angle: Angle,
+    angle?: Angle,
 
     /**
      * What should be the maximal angular force applied.
+     * @default 1
      */
-    maxangular: number,
+    maxangular?: number,
 
     /**
      * At which force/speed should it start damping the rotation.
+     * @default 1
      */
-    maxangulardamp: number,
+    maxangulardamp?: number,
 
     /**
      * Maximum linear force applied
+     * @default 1
      */
-    maxspeed: number,
+    maxspeed?: number,
 
     /**
      * Maximum linear force/speed before damping.
+     * @default 1
      */
-    maxspeeddamp: number,
+    maxspeeddamp?: number,
 
     /**
      * The percentage it should damp the linear/angular force if it reaches it's max amount
+     * @default 1
      */
-    dampfactor: number,
+    dampfactor?: number,
 
     /**
      * If it's further away than this it'll teleport (Set to 0 to not teleport)
+     * @default 0
      */
-    teleportdistance: number,
+    teleportdistance?: number,
 
 
 
@@ -42862,27 +43034,33 @@ interface SoundData {
      * The volume of the sound as a decimal between `0` and `1`. Can be a table of two numbers, a minimum and a maximum value.
      *
      * **Warning:** Volume of `0` will act as volume of `1`
+     * @default 1.0
      */
-    volume: number,
+    volume?: number,
 
     /**
      * The pitch of the sound. Can be a table of two numbers, a minimum and a maximum value.
+     * @default 100
      */
-    pitch: number|number[],
+    pitch?: number|number[],
 
     /**
      * The initial pitch.
      *
      * @deprecated Use pitch instead.
+     *
+     * @default 100
      */
-    pitchstart: number,
+    pitchstart?: number,
 
     /**
      * The pitch end.
      *
      * @deprecated Use pitch instead.
+     *
+     * @default 100
      */
-    pitchend: number,
+    pitchend?: number,
 
 
 
@@ -43124,36 +43302,42 @@ interface SWEP {
     /**
      * The spawn menu category that this weapon
      *             resides in.
+     * @default #spawnmenu.category.other
      */
-    Category: string,
+    Category?: string,
 
     /**
      * Whether or not this weapon can be obtained through the
      *             spawn menu.
+     * @default false
      */
-    Spawnable: boolean,
+    Spawnable?: boolean,
 
     /**
      * If spawnable, this variable determines whether only
      *             administrators can use the button in the spawn menu.
+     * @default false
      */
-    AdminOnly: boolean,
+    AdminOnly?: boolean,
 
     /**
      * The name of the SWEP displayed in the spawn menu.
+     * @default Scripted Weapon
      */
-    PrintName: string,
+    PrintName?: string,
 
     /**
      * The weapon's base script, relative to `lua/weapons`.
+     * @default weapon_base
      */
-    Base: string,
+    Base?: string,
 
     /**
      * The deploy speed multiplier. This does not change the
      *             internal deployment speed.
+     * @default GetConVar('sv_defaultdeployspeed'):GetFloat()
      */
-    m_WeaponDeploySpeed: number,
+    m_WeaponDeploySpeed?: number,
 
     /**
      * @deprecated Use [Entity:GetOwner](https://wiki.facepunch.com/gmod/Entity:GetOwner)() instead.
@@ -43187,86 +43371,101 @@ interface SWEP {
 
     /**
      * Relative path to the SWEP's view model.
+     * @default models/weapons/v_pistol.mdl
      */
-    ViewModel: string,
+    ViewModel?: string,
 
     /**
      * Used primarily for Counter Strike: Source view models, this variable is used to flip them back to normal.
+     * @default false
      */
-    ViewModelFlip: boolean,
+    ViewModelFlip?: boolean,
 
     /**
      * Behaves similarly to `ViewModelFlip`, but for the second view model.
+     * @default false
      */
-    ViewModelFlip1: boolean,
+    ViewModelFlip1?: boolean,
 
     /**
      * Behaves similarly to `ViewModelFlip`, but for the third view model.
+     * @default false
      */
-    ViewModelFlip2: boolean,
+    ViewModelFlip2?: boolean,
 
     /**
      * The field of view percieved whilst wielding this `SWEP`.
+     * @default 62
      */
-    ViewModelFOV: number,
+    ViewModelFOV?: number,
 
     /**
      * Relative path to the SWEP's world model.
+     * @default models/weapons/w_357.mdl
      */
-    WorldModel: string,
+    WorldModel?: string,
 
     /**
      * Whether this weapon can be autoswitched
      *             away from when the player runs out of ammo in this weapon or picks up another weapon or ammo
+     * @default true
      */
-    AutoSwitchFrom: boolean,
+    AutoSwitchFrom?: boolean,
 
     /**
      * Whether this weapon can be autoswitched to
      *             when the player runs out of ammo in their current weapon or they pick this weapon up
+     * @default true
      */
-    AutoSwitchTo: boolean,
+    AutoSwitchTo?: boolean,
 
     /**
      * Determines the priority of the weapon when
      *             autoswitching. The weapon being autoswitched from will attempt to switch to a weapon with the same weight
      *             that has ammo, but if none exists, it will prioritise higher weight weapons.
+     * @default 5
      */
-    Weight: number,
+    Weight?: number,
 
     /**
      * The scale of the viewmodel bob (viewmodel movement
      *             from left to right when walking around)
+     * @default 1
      */
-    BobScale: number,
+    BobScale?: number,
 
     /**
      * The scale of the viewmodel sway (viewmodel
      *             position lerp when looking around).
+     * @default 1
      */
-    SwayScale: number,
+    SwayScale?: number,
 
     /**
      * Should the weapon icon bounce in weapon
      *             selection?
+     * @default true
      */
-    BounceWeaponIcon: boolean,
+    BounceWeaponIcon?: boolean,
 
     /**
      * Should draw the weapon selection info
      *             box, containing SWEP.Instructions, etc.
+     * @default true
      */
-    DrawWeaponInfoBox: boolean,
+    DrawWeaponInfoBox?: boolean,
 
     /**
      * Should we draw the default HL2 ammo counter?
+     * @default true
      */
-    DrawAmmo: boolean,
+    DrawAmmo?: boolean,
 
     /**
      * Should we draw the default crosshair?
+     * @default true
      */
-    DrawCrosshair: boolean,
+    DrawCrosshair?: boolean,
 
     /**
      * The SWEP render group, see [Enums/RENDERGROUP](https://wiki.facepunch.com/gmod/Enums/RENDERGROUP). If unset, the engine will decide the render group based on the SWEPs world model.
@@ -43275,18 +43474,21 @@ interface SWEP {
 
     /**
      * Slot in the weapon selection menu, starts with `0`
+     * @default 0
      */
-    Slot: number,
+    Slot?: number,
 
     /**
      * Position in the slot, should be in the range `0-128`
+     * @default 10
      */
-    SlotPos: number,
+    SlotPos?: number,
 
     /**
      * Internal variable for drawing the info box in weapon selection
+     * @default surface.GetTextureID( 'gui/speech_lid' )
      */
-    SpeechBubbleLid: number,
+    SpeechBubbleLid?: number,
 
     /**
      * Path to
@@ -43294,20 +43496,23 @@ interface SWEP {
      *             see [surface.GetTextureID](https://wiki.facepunch.com/gmod/surface.GetTextureID). Keep in mind that the path must be to a `.vmt` file, NOT `.vtf`.
      *
      * Alternatively you can render custom weapon selection via [WEAPON:DrawWeaponSelection](https://wiki.facepunch.com/gmod/WEAPON:DrawWeaponSelection).
+     * @default surface.GetTextureID( 'weapons/swep' )
      */
-    WepSelectIcon: number,
+    WepSelectIcon?: number,
 
     /**
      * Should we use Counter-Strike muzzle
      *             flashes upon firing? This is required for DoD:S or CS:S view models to fix their muzzle flashes.
+     * @default false
      */
-    CSMuzzleFlashes: boolean,
+    CSMuzzleFlashes?: boolean,
 
     /**
      * Use the X shape muzzle flash instead of the
      *             default Counter-Strike muzzle flash. Requires <page text="CSMuzzleFlashes">Structures/SWEP#CSMuzzleFlashes</page> to be set to true.
+     * @default false
      */
-    CSMuzzleX: boolean,
+    CSMuzzleX?: boolean,
 
     /**
      * Primary attack settings. The table contains these fields:
@@ -43331,8 +43536,10 @@ interface SWEP {
      * **Warning:**
      * >The gamemode and view models **must** support this feature for it to work!
      *                 You can find more information here:
+     *
+     * @default false
      */
-    UseHands: boolean,
+    UseHands?: boolean,
 
     /**
      * The folder from where the weapon was loaded. This should always be
@@ -43345,33 +43552,38 @@ interface SWEP {
      * Makes the default SWEP crosshair be
      *             positioned in 3D space where your aim actually is (like on Jeep), instead of simply sitting in the middle of
      *             the screen at all times
+     * @default false
      */
-    AccurateCrosshair: boolean,
+    AccurateCrosshair?: boolean,
 
     /**
      * Disable the ability for players to duplicate this
      *             SWEP
+     * @default false
      */
-    DisableDuplicator: boolean,
+    DisableDuplicator?: boolean,
 
     /**
      * Sets the spawnmenu content icon type
      *             for the entity, used by spawnmenu in the Sandbox-derived gamemodes.
      *             See [spawnmenu.AddContentType](https://wiki.facepunch.com/gmod/spawnmenu.AddContentType) for more information.
+     * @default weapon
      */
-    ScriptedEntityType: string,
+    ScriptedEntityType?: string,
 
     /**
      * If set to false, the weapon will not play the
      *             weapon pick up sound when picked up.
+     * @default true
      */
-    m_bPlayPickupSound: boolean,
+    m_bPlayPickupSound?: boolean,
 
     /**
      * If set,
      *             overrides the icon path to be displayed in the Spawnmenu for this entity. The path is relative to the `materials/` folder.
+     * @default entities/<ClassName>.png
      */
-    IconOverride: string,
+    IconOverride?: string,
 
 
 
@@ -43420,8 +43632,9 @@ interface TextData {
 
     /**
      * The font to draw with. List of default fonts can be found <page text="here">Default_Fonts</page>.
+     * @default DermaDefault
      */
-    font: string,
+    font?: string,
 
     /**
      * This holds the X and Y coordinates. Key value 1 is x, key value 2 is y.
@@ -43430,18 +43643,21 @@ interface TextData {
 
     /**
      * The alignment of the X position. See [Enums/TEXT_ALIGN](https://wiki.facepunch.com/gmod/Enums/TEXT_ALIGN)
+     * @default TEXT_ALIGN_LEFT
      */
-    xalign: TEXT_ALIGN,
+    xalign?: TEXT_ALIGN,
 
     /**
      * The alignment of the Y position. See [Enums/TEXT_ALIGN](https://wiki.facepunch.com/gmod/Enums/TEXT_ALIGN)
+     * @default TEXT_ALIGN_TOP
      */
-    yalign: TEXT_ALIGN,
+    yalign?: TEXT_ALIGN,
 
     /**
      * The text color
+     * @default color_white
      */
-    color: Color,
+    color?: Color,
 
 
 
@@ -43480,8 +43696,9 @@ interface TextureData {
 
     /**
      * The texture color. See [Color](https://wiki.facepunch.com/gmod/Color).
+     * @default color_white
      */
-    color: Color,
+    color?: Color,
 
 
 
@@ -43520,13 +43737,15 @@ interface ToScreenData {
 interface Trace {
     /**
      * The start position of the trace
+     * @default Vector(0, 0, 0)
      */
-    start: Vector,
+    start?: Vector,
 
     /**
      * The end position of the trace
+     * @default Vector(0, 0, 0)
      */
-    endpos: Vector,
+    endpos?: Vector,
 
     /**
      * Things the trace should not hit. Can be an entity, a table of entities, a table of entity classes or a function:
@@ -43537,38 +43756,45 @@ interface Trace {
      * 	</callback>
      *
      * 	Using a function here is super slow. Try to avoid it.
+     * @default nil
      */
-    filter: Entity|Entity[]|string[]|Function,
+    filter?: Entity|Entity[]|string[]|Function,
 
     /**
      * The trace mask [Enums/MASK](https://wiki.facepunch.com/gmod/Enums/MASK). This determines what the trace should hit and what it shouldn't hit. A mask is a combination of [Enums/CONTENTS](https://wiki.facepunch.com/gmod/Enums/CONTENTS) - you can use these for more advanced masks.
+     * @default MASK_SOLID
      */
-    mask: MASK,
+    mask?: MASK,
 
     /**
      * The collision group [Enums/COLLISION_GROUP](https://wiki.facepunch.com/gmod/Enums/COLLISION_GROUP). This determines what the trace should hit in regards to the entity's collision group.
+     * @default COLLISION_GROUP_NONE
      */
-    collisiongroup: COLLISION_GROUP,
+    collisiongroup?: COLLISION_GROUP,
 
     /**
      * Should the trace ignore world or not
+     * @default false
      */
-    ignoreworld: boolean,
+    ignoreworld?: boolean,
 
     /**
      * If set, the trace result will be written to the supplied table instead of returning a new table
+     * @default nil
      */
-    output: TraceResult,
+    output?: TraceResult,
 
     /**
      * Turns the `filter` field into a whitelist, if it is a table.
+     * @default false
      */
-    whitelist: boolean,
+    whitelist?: boolean,
 
     /**
      * Enables traces to hit clientside only entities. Keep in mind that most naturally spawned entities are classified as debris, so extra `mask` values might be required.
+     * @default false
      */
-    hitclientonly: boolean,
+    hitclientonly?: boolean,
 
 
 
@@ -43584,48 +43810,57 @@ interface Trace {
 interface TraceResult {
     /**
      * The entity hit by the trace.
+     * @default NULL
      */
-    Entity: Entity,
+    Entity?: Entity,
 
     /**
      * This indicates the how much of your trace length was used from 0-1 (resultLength/originalLength).
+     * @default 1
      */
-    Fraction: number,
+    Fraction?: number,
 
     /**
      * Given the trace started in a solid enviroment, this will return at what distance the trace left the solid from 0-1. Doesn't work if the trace hit a non-worldspawn entity.
+     * @default 0
      */
-    FractionLeftSolid: number,
+    FractionLeftSolid?: number,
 
     /**
      * Indicates whether the trace hit something.
+     * @default false
      */
-    Hit: boolean,
+    Hit?: boolean,
 
     /**
      * The ID of the hitbox hit by the trace.
+     * @default 0
      */
-    HitBox: number,
+    HitBox?: number,
 
     /**
      * [Enums/HITGROUP](https://wiki.facepunch.com/gmod/Enums/HITGROUP) describing what hitgroup the trace hit (not the same as HitBox).
+     * @default 0
      */
-    HitGroup: HITGROUP,
+    HitGroup?: HITGROUP,
 
     /**
      * Indicates whenever the trace hit a no-draw brush.
+     * @default false
      */
-    HitNoDraw: boolean,
+    HitNoDraw?: boolean,
 
     /**
      * Indicates whenever the trace did not hit the world.
+     * @default false
      */
-    HitNonWorld: boolean,
+    HitNonWorld?: boolean,
 
     /**
      * The direction of the surface that was hit as a normal vector (vector with <page text="length">Vector:Length</page> of 1).
+     * @default Global.Vector(0, 0, 0)
      */
-    HitNormal: Vector,
+    HitNormal?: Vector,
 
     /**
      * The position the trace stopped. This will be the provided endpos if the trace hit nothing.
@@ -43634,23 +43869,27 @@ interface TraceResult {
 
     /**
      * Indicates whenever the trace hit the sky.
+     * @default false
      */
-    HitSky: boolean,
+    HitSky?: boolean,
 
     /**
      * The surface material (not texture) of whatever the trace hit. Will be `**displacement**` if the trace hit a displacement, and `**studio**` if it hit a prop.
+     * @default ** empty **
      */
-    HitTexture: string,
+    HitTexture?: string,
 
     /**
      * Indicates whenever the trace hit the world.
+     * @default false
      */
-    HitWorld: boolean,
+    HitWorld?: boolean,
 
     /**
      * [Enums/MAT](https://wiki.facepunch.com/gmod/Enums/MAT) of the material hit by the trace.
+     * @default nil
      */
-    MatType: MAT,
+    MatType?: MAT,
 
     /**
      * The direction of the trace as a normal vector (vector with <page text="length">Vector:Length</page> of 1).
@@ -43663,8 +43902,9 @@ interface TraceResult {
      * The [PhysObj](https://wiki.facepunch.com/gmod/PhysObj) ID that was hit.
      *
      * Used for [Entity:GetPhysicsObjectNum](https://wiki.facepunch.com/gmod/Entity:GetPhysicsObjectNum).
+     * @default 0
      */
-    PhysicsBone: number,
+    PhysicsBone?: number,
 
     /**
      * The origin of the trace. Will match the provided startpos.
@@ -43676,38 +43916,45 @@ interface TraceResult {
      * You can get the name using [util.GetSurfacePropName](https://wiki.facepunch.com/gmod/util.GetSurfacePropName).
      *
      * Used for [CEffectData:SetSurfaceProp](https://wiki.facepunch.com/gmod/CEffectData:SetSurfaceProp).
+     * @default 0
      */
-    SurfaceProps: number,
+    SurfaceProps?: number,
 
     /**
      * Indicates whenever the trace started in a solid enviroment.
+     * @default false
      */
-    StartSolid: boolean,
+    StartSolid?: boolean,
 
     /**
      * True if the entire trace is inside a solid.
+     * @default false
      */
-    AllSolid: boolean,
+    AllSolid?: boolean,
 
     /**
      * The surface flags of the hit surface. See [Enums/SURF](https://wiki.facepunch.com/gmod/Enums/SURF).
+     * @default 0
      */
-    SurfaceFlags: SURF,
+    SurfaceFlags?: SURF,
 
     /**
      * The displacement flags of the hit surface. See [Enums/DISPSURF](https://wiki.facepunch.com/gmod/Enums/DISPSURF).
+     * @default 0
      */
-    DispFlags: DISPSURF,
+    DispFlags?: DISPSURF,
 
     /**
      * The contents of the hit surface. See [Enums/CONTENTS](https://wiki.facepunch.com/gmod/Enums/CONTENTS).
+     * @default 0
      */
-    Contents: CONTENTS,
+    Contents?: CONTENTS,
 
     /**
      * BoneID on the model that the hit hitbox is attached to, if available.
+     * @default nil
      */
-    HitBoxBone: number,
+    HitBoxBone?: number,
 
 
 
@@ -44275,13 +44522,15 @@ interface VehicleTable {
 
     /**
      * Offset away the surface player is looking at to spawn at.
+     * @default nil
      */
-    Offset: number,
+    Offset?: number,
 
     /**
      * Set these members on the spawned vehicle's table ([Entity:GetTable](https://wiki.facepunch.com/gmod/Entity:GetTable)) to given values.
+     * @default nil
      */
-    Members: any,
+    Members?: any,
 
     /**
      * Author of the vehicle, for UI purposes.
@@ -44290,8 +44539,9 @@ interface VehicleTable {
 
     /**
      * Category of this vehicle, for UI purposes.
+     * @default Other
      */
-    Category: string,
+    Category?: string,
 
     /**
      * A small description of the vehicle, for UI purposes.
@@ -44413,23 +44663,27 @@ interface ViewData {
 
     /**
      * Draw the HUD and call the hud painting related hooks
+     * @default false
      */
-    drawhud: boolean,
+    drawhud?: boolean,
 
     /**
      * Draw monitors
+     * @default false
      */
-    drawmonitors: boolean,
+    drawmonitors?: boolean,
 
     /**
      * The weapon's viewmodel
+     * @default true
      */
-    drawviewmodel: boolean,
+    drawviewmodel?: boolean,
 
     /**
      * Whether to force draw the local player or not.
+     * @default false
      */
-    drawviewer: boolean,
+    drawviewer?: boolean,
 
     /**
      * The viewmodel's FOV
@@ -44500,18 +44754,21 @@ interface ViewData {
 
     /**
      * Currently works identically to the "bloomtone" option (it also overrides it if you set this to false).
+     * @default false
      */
-    dopostprocess: boolean,
+    dopostprocess?: boolean,
 
     /**
      * Disables default engine bloom and pauses the "brightness changes" on HDR maps.
+     * @default true
      */
-    bloomtone: boolean,
+    bloomtone?: boolean,
 
     /**
      * This is identifying which logical part of the scene an entity is being redered in, see [Enums/VIEW](https://wiki.facepunch.com/gmod/Enums/VIEW).
+     * @default 0
      */
-    viewid: VIEW,
+    viewid?: VIEW,
 
     /**
      * This allows you to "zoom in" on a part of the screen - for example, the top-left quarter of the screen. This is similar to how [poster splits the screen](https://garry.blog/poster-screenshots/) into separate renders.

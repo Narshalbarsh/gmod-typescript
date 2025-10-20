@@ -68,7 +68,7 @@ export function printInterfaceField(tsInterfaceField: TSField, isNamespace = fal
     return `
 ${printDocComent(tsInterfaceField.docComment)}
 ${isNamespace ? 'const ' : ''}${tsInterfaceField.identifier}${
-        tsInterfaceField.optional ? '?' : ''
+        !isNamespace && tsInterfaceField.optional ? '?' : ''
     }: ${tsInterfaceField.type}${isNamespace ? ';' : ','}
 `.trim();
 }
