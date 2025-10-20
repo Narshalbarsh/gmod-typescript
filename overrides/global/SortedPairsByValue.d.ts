@@ -3,7 +3,7 @@ declare function SortedPairsByValue<V>(
     desc?: boolean
 ): LuaIterable<LuaMultiReturn<[number, V]>>;
 
-declare function SortedPairsByValue<K extends string | number, V>(
+declare function SortedPairsByValue<K, V>(
     t: LuaTable<K, V>,
     desc?: boolean
 ): LuaIterable<LuaMultiReturn<[K, V]>>;

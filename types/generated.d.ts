@@ -58553,7 +58553,7 @@ declare function pairs<T>(
     t: readonly T[]
 ): LuaIterable<LuaMultiReturn<[number, T]>>;
 
-declare function pairs<K extends string | number, V>(
+declare function pairs<K, V>(
     t: LuaTable<K, V>
 ): LuaIterable<LuaMultiReturn<[K, V]>>;
 
@@ -59539,11 +59539,21 @@ declare function SortedPairsByMemberValue<
 ): LuaIterable<LuaMultiReturn<[number, V]>>;
 
 declare function SortedPairsByMemberValue<
+    K,
+    V extends object,
+    M extends keyof V
+>(
+    t: LuaTable<K, V>,
+    memberKey: M,
+    desc?: boolean
+): LuaIterable<LuaMultiReturn<[K, V]>>;
+
+declare function SortedPairsByMemberValue<
     K extends string | number,
     V extends object,
     M extends keyof V
 >(
-    t: LuaTable<K, V> | Record<K, V>,
+    t: Record<K, V>,
     memberKey: M,
     desc?: boolean
 ): LuaIterable<LuaMultiReturn<[K, V]>>;
@@ -59565,7 +59575,7 @@ declare function SortedPairsByValue<V>(
     desc?: boolean
 ): LuaIterable<LuaMultiReturn<[number, V]>>;
 
-declare function SortedPairsByValue<K extends string | number, V>(
+declare function SortedPairsByValue<K, V>(
     t: LuaTable<K, V>,
     desc?: boolean
 ): LuaIterable<LuaMultiReturn<[K, V]>>;

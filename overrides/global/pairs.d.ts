@@ -2,7 +2,7 @@ declare function pairs<T>(
     t: readonly T[]
 ): LuaIterable<LuaMultiReturn<[number, T]>>;
 
-declare function pairs<K extends string | number, V>(
+declare function pairs<K, V>(
     t: LuaTable<K, V>
 ): LuaIterable<LuaMultiReturn<[K, V]>>;
 
