@@ -58548,7 +58548,20 @@ declare function OrderVectors(vector1: Vector, vector2: Vector): void;
  * * For alphabetical **value** order use [Global.SortedPairsByValue](https://wiki.facepunch.com/gmod/Global.SortedPairsByValue).
  * @param tab - The table to iterate over.
  */
-declare function pairs(tab: any): LuaMultiReturn<[Function, any, any]>;
+/* Manual override from: global/pairs */
+declare function pairs<T>(
+    t: readonly T[]
+): LuaIterable<LuaMultiReturn<[number, T]>>;
+
+declare function pairs<K extends string | number, V>(
+    t: LuaTable<K, V>
+): LuaIterable<LuaMultiReturn<[K, V]>>;
+
+declare function pairs<T extends object>(
+    t: T
+): LuaIterable<LuaMultiReturn<
+    [Extract<keyof T, string | number>, T[Extract<keyof T, string | number>]]
+>>;
 
 /**
  * 🟨🟦🟩 [Shared and Menu]
@@ -59497,7 +59510,11 @@ declare function SetPhysConstraintSystem(constraintSystem: Entity): void;
  * @param table - The table to sort
  * @param [desc = false] - Reverse the sorting order
  */
-declare function SortedPairs(table: any, desc = false): LuaMultiReturn<[Function, any]>;
+/* Manual override from: global/SortedPairs */
+declare function SortedPairs<K extends string | number, V>(
+    t: LuaTable<K, V> | Record<K, V>,
+    desc?: boolean
+): LuaIterable<LuaMultiReturn<[K, V]>>;
 
 /**
  * 🟨🟦🟩 [Shared and Menu]
@@ -59511,7 +59528,25 @@ declare function SortedPairs(table: any, desc = false): LuaMultiReturn<[Function
  * @param memberKey - Key of the value member to sort by.
  * @param [descending = false] - Whether the iterator should iterate in descending order or not.
  */
-declare function SortedPairsByMemberValue(table: any, memberKey: any, descending = false): LuaMultiReturn<[Function, any]>;
+/* Manual override from: global/SortedPairsByMemberValue */
+declare function SortedPairsByMemberValue<
+    V extends object,
+    M extends keyof V
+>(
+    t: readonly V[] | V[],
+    memberKey: M,
+    desc?: boolean
+): LuaIterable<LuaMultiReturn<[number, V]>>;
+
+declare function SortedPairsByMemberValue<
+    K extends string | number,
+    V extends object,
+    M extends keyof V
+>(
+    t: LuaTable<K, V> | Record<K, V>,
+    memberKey: M,
+    desc?: boolean
+): LuaIterable<LuaMultiReturn<[K, V]>>;
 
 /**
  * 🟨🟦🟩 [Shared and Menu]
@@ -59524,7 +59559,21 @@ declare function SortedPairsByMemberValue(table: any, memberKey: any, descending
  * @param table - Table to create iterator for
  * @param [descending = false] - Whether the iterator should iterate in descending order or not
  */
-declare function SortedPairsByValue(table: any, descending = false): LuaMultiReturn<[Function, any]>;
+/* Manual override from: global/SortedPairsByValue */
+declare function SortedPairsByValue<V>(
+    t: readonly V[],
+    desc?: boolean
+): LuaIterable<LuaMultiReturn<[number, V]>>;
+
+declare function SortedPairsByValue<K extends string | number, V>(
+    t: LuaTable<K, V>,
+    desc?: boolean
+): LuaIterable<LuaMultiReturn<[K, V]>>;
+
+declare function SortedPairsByValue<K extends string | number, V>(
+    t: Record<K, V>,
+    desc?: boolean
+): LuaIterable<LuaMultiReturn<[K, V]>>;
 
 /**
  * 🟨🟦🟩 [Shared and Menu]
