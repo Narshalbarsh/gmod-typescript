@@ -4,6 +4,5 @@ declare function Add<
 >(
     name: N,
     id: string,
-    cb: ((...args: A) => any) &
-            (Equals<A, HookArgsFor<N>> extends true ? unknown : never)
+    cb: ((...args: A) => any) & (Equals<A, HookArgsFor<N>> extends true ? unknown : never)
 ): any;
