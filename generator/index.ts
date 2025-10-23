@@ -18,6 +18,12 @@ import { fetchGameEventTypeMap } from './scrapper/extract/gameevent';
 import { printTypeMap } from './printer/typemap';
 import { transformIdentifier } from './transformer/util';
 
+const OMIT_LIBRARIES = new Set([
+    // Using the bit library directly emits: error TSTL: Invalid ambient identifier name 'bit'.
+    //   Ambient identifiers must be valid lua identifiers.
+    'bit',
+]);
+
 (async (): Promise<void> => {
     const globalFuncs = await GetPagesInCategory('Global');
     const globalFunctionPages = await Promise.all(globalFuncs.map(GetPage));
@@ -154,7 +160,13 @@ import { transformIdentifier } from './transformer/util';
     const libraryFuncPaths = await GetPagesInCategory('libraryfunc');
     const libraryFuncPages = await Promise.all(libraryFuncPaths.map(GetPage));
     const libraryFuncs = libraryFuncPages.filter((p) => p.title.includes('.')).map(extractFunction);
-    const libraries = libraryFuncPages.filter((p) => !p.title.includes('.')).map(extractLibrary);
+
+    const librariesAll = libraryFuncPages
+        .filter((p) => !p.title.includes('.'))
+        .map(extractLibrary);
+    const libraries = librariesAll.filter(
+        (lib) => !OMIT_LIBRARIES.has(lib.name.toLowerCase()),
+    );
 
     const libraryResult = libraries
         .map((wikiLibrary) =>

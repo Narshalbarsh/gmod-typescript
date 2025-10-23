@@ -17825,6 +17825,7 @@ interface Player extends Entity {
      * >This function is only available in Sandbox and its derivatives.
      *
      * @param str - The entity type to check the limit for. Default types:
+     * * "constraints"
      * * "props"
      * * "ragdolls"
      * * "vehicles"
@@ -25570,10 +25571,10 @@ interface DForm extends DCollapsibleCategory {
      *
      * Adds a [DButton](https://wiki.facepunch.com/gmod/DButton) onto the [DForm](https://wiki.facepunch.com/gmod/DForm)
      * @param text - The text on the button
-     * @param concommand - The concommand to run when the button is clicked
+     * @param [concommand] - The concommand to run when the button is clicked
      * @param [args = nil] - The arguments to pass on to the concommand when the button is clicked
      */
-    Button(text: string, concommand: string, ...args?: any[]): Panel;
+    Button(text: string, concommand: string = "", ...args?: any[]): Panel;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -40086,7 +40087,7 @@ interface AttachmentData {
 /**
  * 🟦 [Server]
  *
- * TTable structure used as balloon spawn data. Default values are applied when the trace hits nothing. This data is required for correctly spawning the balloon.
+ * Table structure used as balloon spawn data. Default values are applied when the trace hits nothing. This data is required for correctly spawning the balloon.
  *
  * See [MakeBalloon](https://wiki.facepunch.com/gmod/MakeBalloon)
  */
@@ -60243,128 +60244,6 @@ declare namespace baseclass {
 }
 
 /**
- * The bitwise library contains useful functions for bitwise operations.
- * Make sure you're familiar with [Bitwise Operators](https://code.tutsplus.com/articles/understanding-bitwise-operators--active-11301)
- */
-declare namespace bit {
-
-
-    /**
-     * 🟨🟦🟩 [Shared and Menu]
-     *
-     * Returns the arithmetically shifted value.
-     * @param value - The value to be manipulated.
-     * @param shiftCount - Amounts of bits to shift.
-     */
-    function arshift(value: number, shiftCount: number): number;
-
-    /**
-     * 🟨🟦🟩 [Shared and Menu]
-     *
-     * Performs the bitwise `and` for all values specified.
-     * @param value - The value to be manipulated.
-     * @param vararg - Values bit to perform bitwise "and" with. Optional.
-     */
-    function band(value: number, ...vararg: any[]): number;
-
-    /**
-     * 🟨🟦🟩 [Shared and Menu]
-     *
-     * Returns the bitwise not of the value. Inverts every bit of the 32bit integer.
-     * @param value - The value to be inverted.
-     */
-    function bnot(value: number): number;
-
-    /**
-     * 🟨🟦🟩 [Shared and Menu]
-     *
-     * Returns the bitwise OR of all values specified.
-     * @param value1 - The first value.
-     * @param vararg - Extra values to be evaluated. (must all be numbers)
-     */
-    function bor(value1: number, ...vararg: any[]): number;
-
-    /**
-     * 🟨🟦🟩 [Shared and Menu]
-     *
-     * Swaps the byte order.
-     * @param value - The value to be byte swapped.
-     */
-    function bswap(value: number): number;
-
-    /**
-     * 🟨🟦🟩 [Shared and Menu]
-     *
-     * Returns the bitwise xor of all values specified.
-     * @param value - The value to be manipulated.
-     * @param [otherValues = nil] - Values bit xor with. Optional.
-     */
-    function bxor(value: number, otherValues?: number): number;
-
-    /**
-     * 🟨🟦🟩 [Shared and Menu]
-     *
-     * Returns the result of shifting given value left bitwise by given number of bits. See [this wiki article](https://en.wikipedia.org/wiki/Bitwise_operation#Bit_shifts) for more details.
-     *
-     * **Note:**
-     * >The returned value will be clamped to a signed 32-bit integer, even on 64-bit builds.
-     *
-     * @param value - The value to be manipulated.
-     * @param shiftCount - Amounts of bits to shift left by.
-     */
-    function lshift(value: number, shiftCount: number): number;
-
-    /**
-     * 🟨🟦🟩 [Shared and Menu]
-     *
-     * Returns the left rotated value.
-     * @param value - The value to be manipulated.
-     * @param shiftCount - Amounts of bits to rotate left by.
-     */
-    function rol(value: number, shiftCount: number): number;
-
-    /**
-     * 🟨🟦🟩 [Shared and Menu]
-     *
-     * Returns the right rotated value.
-     * @param value - The value to be manipulated.
-     * @param shiftCount - Amounts of bits to rotate right by.
-     */
-    function ror(value: number, shiftCount: number): number;
-
-    /**
-     * 🟨🟦🟩 [Shared and Menu]
-     *
-     * Returns the right shifted value.
-     *
-     * **Note:**
-     * >The returned value will be clamped to a signed 32-bit integer, even on 64-bit builds.
-     *
-     * @param value - The value to be manipulated.
-     * @param shiftCount - Amounts of bits to shift right by.
-     */
-    function rshift(value: number, shiftCount: number): number;
-
-    /**
-     * 🟨🟦🟩 [Shared and Menu]
-     *
-     * Normalizes the specified value and clamps it in the range of a signed 32bit integer.
-     * @param value - The value to be normalized.
-     */
-    function tobit(value: number): number;
-
-    /**
-     * 🟨🟦🟩 [Shared and Menu]
-     *
-     * Returns the hexadecimal representation of the number with the specified number of characters.
-     * @param value - The value to be normalized.
-     * @param [characters = 8] - Maximum number of characters, if set. The absolute maximum is 8.
-     */
-    function tohex(value: number, characters = 8): string;
-
-}
-
-/**
  * This directs all drawing to be done to a certain 2D or 3D plane or position, until the corresponding "End" function is called.
  *
  * The matrix functions exist, but are mostly unusable unless you're familiar with the source engine's layout for each aspect.
@@ -74283,11 +74162,11 @@ declare namespace util {
     function IsValidModel(modelName: string): boolean;
 
     /**
-     * 🟨🟦🟩 [Shared and Menu]
+     * 🟨🟦 [Shared]
      *
-     * Checks if given numbered physics object of given entity is valid or not. Most useful for ragdolls.
-     * @param ent - The entity
-     * @param physobj - Number of the physics object to test
+     * Checks whether the given numbered physics object of the given entity is valid or not. Most useful for ragdolls.
+     * @param ent - The entity to take.
+     * @param physobj - Number of the physics object to test.
      */
     function IsValidPhysicsObject(ent: Entity, physobj: number): boolean;
 
