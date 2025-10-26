@@ -77,3 +77,10 @@ type ExpectedCallback<N extends HookName> =
 type NoThis<T extends (...args: any) => any> = OmitThisParameter<T>;
 type HookArgsFor<N extends HookName> = Parameters<NoThis<ExpectedCallback<N>>>;
 type HookRetFor<N extends HookName>  = ReturnType<NoThis<ExpectedCallback<N>>>;
+
+type Metatable<T> = {
+    [K in keyof T]:
+        T[K] extends (...args: infer A) => infer R
+            ? (this: T, ...args: A) => R
+            : T[K]
+};

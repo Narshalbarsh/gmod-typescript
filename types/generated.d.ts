@@ -15851,7 +15851,9 @@ interface Panel {
      * @param b - The blue channel of the color.
      * @param a - The alpha channel of the color.
      */
-    SetFGColor(r_or_color: Color, g: number, b: number, a: number): void;
+    /* Manual override from: interface/Panel/SetFGColor */
+    SetFGColor(color: Color): void;
+    SetFGColor(r: number, g: number, b: number, a?: number): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -17825,6 +17827,7 @@ interface Player extends Entity {
      * >This function is only available in Sandbox and its derivatives.
      *
      * @param str - The entity type to check the limit for. Default types:
+     * * "constraints"
      * * "props"
      * * "ragdolls"
      * * "vehicles"
@@ -18448,10 +18451,14 @@ interface Player extends Entity {
     /**
      * 🟨🟦 [Shared]
      *
-     * Returns a player model's color. The part of the model that is colored is determined by the model itself, and is different for each model.
+     * Returns a player's character model color.
+     *
+     * The part of the model that is colored is determined by the model's materials, and is therefore different for each model.
+     *
+     * See [Player:GetWeaponColor](https://wiki.facepunch.com/gmod/Player:GetWeaponColor) for the accompanying function for the weapon color.
      *
      * **Note:**
-     * >Overide this function clientside on a Entity(not a player) with playermodel and return color will apply color on it
+     * >Override this function clientside on any Entity (including a player) with a supported model set (such as default player models) and returned color will apply to the model. This is done via the `PlayerColor` [matproxy](https://wiki.facepunch.com/gmod/matproxy).
      */
     GetPlayerColor(): Vector;
 
@@ -18694,7 +18701,11 @@ interface Player extends Entity {
     /**
      * 🟨🟦 [Shared]
      *
-     * Returns a player's weapon color. The part of the model that is colored is determined by the model itself, and is different for each model. The format is `Vector(r,g,b)`, and each color should be between 0 and 1.
+     * Returns a player's weapon color.
+     *
+     * The part of the model that is colored is determined by the model itself, and is different for each model.
+     *
+     * See [Player:GetPlayerColor](https://wiki.facepunch.com/gmod/Player:GetPlayerColor) for the accompanying function for the player character model color.
      */
     GetWeaponColor(): Vector;
 
@@ -25570,10 +25581,10 @@ interface DForm extends DCollapsibleCategory {
      *
      * Adds a [DButton](https://wiki.facepunch.com/gmod/DButton) onto the [DForm](https://wiki.facepunch.com/gmod/DForm)
      * @param text - The text on the button
-     * @param concommand - The concommand to run when the button is clicked
+     * @param [concommand] - The concommand to run when the button is clicked
      * @param [args = nil] - The arguments to pass on to the concommand when the button is clicked
      */
-    Button(text: string, concommand: string, ...args?: any[]): Panel;
+    Button(text: string, concommand: string = "", ...args?: any[]): Panel;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -40086,7 +40097,7 @@ interface AttachmentData {
 /**
  * 🟦 [Server]
  *
- * TTable structure used as balloon spawn data. Default values are applied when the trace hits nothing. This data is required for correctly spawning the balloon.
+ * Table structure used as balloon spawn data. Default values are applied when the trace hits nothing. This data is required for correctly spawning the balloon.
  *
  * See [MakeBalloon](https://wiki.facepunch.com/gmod/MakeBalloon)
  */
@@ -69782,11 +69793,23 @@ declare namespace render {
     /**
      * 🟨 [Client]
      *
-     * Sets the render target with the specified index to the specified rt.
-     * @param rtIndex - The index of the rt to set.
-     * @param texture - The new render target to be used.
+     * Sets the render target with the specified index of `COLOR[n]` to the specified rt, allowing you to work with [Multiple Render Targets (MRT)](https://learn.microsoft.com/en-us/windows/win32/direct3d9/multiple-render-targets). Since standard shaders don't use MRT, you might find this useful at [Shaders/screenspace_general](https://wiki.facepunch.com/gmod/Shaders/screenspace_general).
+     *
+     * **Warning:**
+     * >If you try to render with MSAA and set the main RenderTarget with another RenderTarget, nothing will be rendered.
+     *
+     * [Link to Direct3D 9 documentation on MRT](https://learn.microsoft.com/en-us/windows/win32/direct3d9/multiple-render-targets#:~:text=No%20antialiasing%20is%20supported)
+     *
+     * `Multiple render targets have the following restrictions:`
+     * * *No antialiasing is supported.*
+     *
+     * **Note:**
+     * >MRT doesn't work with 2D render functions like [render.DrawScreenQuad](https://wiki.facepunch.com/gmod/render.DrawScreenQuad). Instead, you can render a [render.DrawQuad](https://wiki.facepunch.com/gmod/render.DrawQuad) using [cam.Start2D](https://wiki.facepunch.com/gmod/cam.Start2D).
+     *
+     * @param rtIndex - The index of output `COLOR[n]` [semantics](https://learn.microsoft.com/en-us/windows/win32/direct3dhlsl/dx-graphics-hlsl-semantics) from pixel-shader. Min: `0`, max: `3`.
+     * @param [texture = nil] - The new render target to be used.
      */
-    function SetRenderTargetEx(rtIndex: number, texture: ITexture): void;
+    function SetRenderTargetEx(rtIndex: number, texture?: ITexture): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -74283,11 +74306,11 @@ declare namespace util {
     function IsValidModel(modelName: string): boolean;
 
     /**
-     * 🟨🟦🟩 [Shared and Menu]
+     * 🟨🟦 [Shared]
      *
-     * Checks if given numbered physics object of given entity is valid or not. Most useful for ragdolls.
-     * @param ent - The entity
-     * @param physobj - Number of the physics object to test
+     * Checks whether the given numbered physics object of the given entity is valid or not. Most useful for ragdolls.
+     * @param ent - The entity to take.
+     * @param physobj - Number of the physics object to test.
      */
     function IsValidPhysicsObject(ent: Entity, physobj: number): boolean;
 
