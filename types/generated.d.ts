@@ -4614,9 +4614,9 @@ interface Entity {
     /**
      * 🟨 [Client]
      *
-     * Disables an active matrix.
+     * Disables an active matrix. See [Entity:EnableMatrix](https://wiki.facepunch.com/gmod/Entity:EnableMatrix) for more info about active matrixes.
      * @param matrixType - The name of the matrix type to disable.
-     * The only known matrix type is "RenderMultiply".
+     * Currently the only matrix type is `"RenderMultiply"`.
      */
     DisableMatrix(matrixType: string): void;
 
@@ -4801,8 +4801,8 @@ interface Entity {
      * **Note:**
      * >The matrix can also be modified to apply a custom rotation and offset via the [VMatrix:SetAngles](https://wiki.facepunch.com/gmod/VMatrix:SetAngles) and [VMatrix:SetTranslation](https://wiki.facepunch.com/gmod/VMatrix:SetTranslation) functions.
      *
-     * @param matrixType - The name of the matrix type. <br/>
-     * The only implemented matrix type is "RenderMultiply".
+     * @param matrixType - The name of the matrix type.
+     * Currently the only matrix type is `"RenderMultiply"`.
      * @param matrix - The matrix to apply before drawing the entity.
      */
     EnableMatrix(matrixType: string, matrix: VMatrix): void;
@@ -5952,7 +5952,10 @@ interface Entity {
     /**
      * 🟦 [Server]
      *
-     * Returns the map/hammer targetname of this entity.
+     * Returns the "targetname" of this entity, typically used in map making and scripting to uniquely identify and target (hence 'targetname') an entity or a group of entities.
+     *
+     * **Warning:**
+     * >For players, this function is overwritten by [Player:GetName](https://wiki.facepunch.com/gmod/Player:GetName), which returns the player's nick name, not the target name.
      */
     GetName(): string;
 
@@ -18402,6 +18405,8 @@ interface Player extends Entity {
      *
      * Returns the player's name, this is an alias of [Player:Nick](https://wiki.facepunch.com/gmod/Player:Nick).
      *
+     * @deprecated Use [Player:Nick](https://wiki.facepunch.com/gmod/Player:Nick).
+     *
      * **Note:**
      * >This function overrides [Entity:GetName](https://wiki.facepunch.com/gmod/Entity:GetName) (in the Lua metatable, not in c++), keep it in mind when dealing with [ents.FindByName](https://wiki.facepunch.com/gmod/ents.FindByName) or any engine function which requires the mapping name.
      */
@@ -19081,14 +19086,16 @@ interface Player extends Entity {
     /**
      * 🟨🟦 [Shared]
      *
-     * Returns the player's name. Identical to [Player:Nick](https://wiki.facepunch.com/gmod/Player:Nick) and [Player:GetName](https://wiki.facepunch.com/gmod/Player:GetName).
+     * Returns the player's nick name. Identical to [Player:Nick](https://wiki.facepunch.com/gmod/Player:Nick) and [Player:GetName](https://wiki.facepunch.com/gmod/Player:GetName).
+     *
+     * @deprecated Use [Player:Nick](https://wiki.facepunch.com/gmod/Player:Nick).
      */
     Name(): string;
 
     /**
      * 🟨🟦 [Shared]
      *
-     * Returns the player's name. Identical to [Player:Name](https://wiki.facepunch.com/gmod/Player:Name) and [Player:GetName](https://wiki.facepunch.com/gmod/Player:GetName).
+     * Returns the player's nick name also known as display name, as it appears in Steam.
      */
     Nick(): string;
 
@@ -22812,7 +22819,10 @@ interface Button extends DButton {
 
 /**
  * **.**
+ *
  * 		Engine checkbox
+ *
+ * @deprecated Use [DCheckBoxLabel](https://wiki.facepunch.com/gmod/DCheckBoxLabel) instead.
  */
 interface CheckButton extends Panel {
 
@@ -33609,6 +33619,15 @@ interface PropSelect extends ContextBase {
      */
     SelectModel(icon: SpawnIcon): void;
 
+    /**
+     * 🟨 [Client]
+     *
+     * If set to above 0, automatically stretches the panel to fit this many rows. Default is 2.
+     *
+     * If 0 or below, it will automatically stretch to fit all rows.
+     */
+    Height(): number;
+
 }
 
 /**
@@ -33891,7 +33910,9 @@ interface UGCPublishWindow extends DFrame {
 }
 
 /**
- * A panel similar to [Label](https://wiki.facepunch.com/gmod/Label), but can be clicked to open a URL in the Steam Overlay, and appears with an underline. This is used by [DLabelURL](https://wiki.facepunch.com/gmod/DLabelURL).
+ * **.**
+ *
+ * 		A panel similar to [Label](https://wiki.facepunch.com/gmod/Label), but can be clicked to open a URL in the Steam Overlay, and appears with an underline. This is used by [DLabelURL](https://wiki.facepunch.com/gmod/DLabelURL).
  */
 interface URLLabel extends Panel {
 
@@ -41024,7 +41045,9 @@ interface ENT {
     RenderGroup: number,
 
     /**
-     * If set and RenderGroup is not, will switch the render group to <page text="RENDERGROUP_BOTH">Enums/RENDERGROUP#RENDERGROUP_BOTH</page> when appropriate.
+     * If set and `RenderGroup` is not, will switch the render group to <page text="RENDERGROUP_BOTH">Enums/RENDERGROUP#RENDERGROUP_BOTH</page> when appropriate.
+     *
+     * Basically, when the default render group of the entity's model is opaque, [ENTITY:DrawTranslucent](https://wiki.facepunch.com/gmod/ENTITY:DrawTranslucent) will still be called, for example to render effects and such. This is preferable to forcing translucent models to render in the opaque pass by setting `RenderGroup` to `RENDERGROUP_BOTH` at all times, causing graphical issues.
      * @default false
      */
     WantsTranslucency?: boolean,
@@ -42802,7 +42825,7 @@ interface SequenceInfo {
     actweight: number,
 
     /**
-     * The looping and other flags of this sequence.
+     * The looping and other flags of this sequence, see [flags here](https://github.com/ValveSoftware/source-sdk-2013/blob/master/src/public/studio.h#L3078).
      */
     flags: number,
 
@@ -49126,6 +49149,9 @@ declare const enum COLLISION_GROUP {
      */
     COLLISION_GROUP_INTERACTIVE = 4,
 
+    /**
+     * Used by players, but NOT for movement collision. Does not collide with COLLISION_GROUP_PASSABLE_DOOR and COLLISION_GROUP_PUSHAWAY
+     */
     COLLISION_GROUP_PLAYER = 5,
 
     /**
@@ -49133,6 +49159,9 @@ declare const enum COLLISION_GROUP {
      */
     COLLISION_GROUP_BREAKABLE_GLASS = 6,
 
+    /**
+     * Used by driveable vehicles. Always collides against COLLISION_GROUP_VEHICLE_CLIP
+     */
     COLLISION_GROUP_VEHICLE = 7,
 
     /**
@@ -49160,6 +49189,9 @@ declare const enum COLLISION_GROUP {
      */
     COLLISION_GROUP_VEHICLE_CLIP = 12,
 
+    /**
+     * Set on projectiles. Does not collide with other projectiles.
+     */
     COLLISION_GROUP_PROJECTILE = 13,
 
     /**
@@ -66055,7 +66087,9 @@ declare namespace math {
      * For shared random values across predicted realms, use [util.SharedRandom](https://wiki.facepunch.com/gmod/util.SharedRandom).
      *
      * **Warning:**
-     * >Incorrect usage of this function will affect `all` random numbers in the game.
+     * >Usage of this function affects **ALL** random numbers in the game. This means that improper use (such as setting the seed to a static value that doesn't change with time) can negatively affect other addons or the base game.
+     *
+     * It is a good idea to set the seed back to at least something like [Global.SysTime](https://wiki.facepunch.com/gmod/Global.SysTime) in those cases.
      *
      * @param seed - The new seed
      */
@@ -70774,7 +70808,7 @@ declare namespace spawnmenu {
      * <callback>
      * <ret type="Panel" name="content">A container panel that holds all of the content for the new tab.</ret>
      * </callback>
-     * @param [material = icon16/exclamation.png] - Path to the material that will be used as an icon on the tab.
+     * @param [material = icon16/exclamation.png] - Path to the material that will be used as an icon on the tab. Should be a `.png` file. See [Silkicons](https://wiki.facepunch.com/gmod/Silkicons).
      * @param [order = 1000] - The order in which this tab should be shown relative to the other tabs on the creation menu.
      * @param [tooltip = nil] - The tooltip to be shown for this tab.
      */
@@ -70813,28 +70847,32 @@ declare namespace spawnmenu {
     /**
      * 🟨 [Client]
      *
-     * Used to create a new category in the list inside of a spawnmenu ToolTab.
+     * Used to create a new category in the list inside of a spawnmenu Tool Tab.
      *
      * You must call this function from [SANDBOX:AddToolMenuCategories](https://wiki.facepunch.com/gmod/SANDBOX:AddToolMenuCategories) for it to work properly.
-     * @param tab - The ToolTab name, as created with [spawnmenu.AddToolTab](https://wiki.facepunch.com/gmod/spawnmenu.AddToolTab).
-     * You can also use the default ToolTab names "Main" and "Utilities".
-     * @param RealName - The identifier name
-     * @param PrintName - The displayed name
+     *
+     * See [spawnmenu.AddToolTab](https://wiki.facepunch.com/gmod/spawnmenu.AddToolTab) to add new tool tabs.
+     * See [spawnmenu.AddToolMenuOption](https://wiki.facepunch.com/gmod/spawnmenu.AddToolMenuOption) to add new sub options to a newly created tool category.
+     * @param tabName - The internal tool tab name, as created with [spawnmenu.AddToolTab](https://wiki.facepunch.com/gmod/spawnmenu.AddToolTab).
+     * You can also use the default Tool Tab names `"Main"` and `"Utilities"`.
+     * @param className - The unique identifier name, which will be used to add tool option to this category.
+     * @param printName - The nice name to be displayed to the player. See [Addon Localization](https://wiki.facepunch.com/gmod/Addon_Localization).
      */
-    function AddToolCategory(tab: string, RealName: string, PrintName: string): void;
+    function AddToolCategory(tabName: string, className: string, printName: string): void;
 
     /**
      * 🟨 [Client]
      *
-     * Adds an option to the right side of the spawnmenu
-     * @param tab - The spawnmenu tab to add into (for example "Utilities")
-     * @param category - The category to add into (for example "Admin")
-     * @param class_ - Unique identifier of option to add
-     * @param name - The nice name of item
-     * @param cmd - Command to execute when the item is selected
-     * @param config - Config name, used in older versions to load tool settings UI from a file. No longer works.
-     * **Warning:**
-     * >We advise against using this. It may be changed or removed in a future update.
+     * Adds an option to the right side of the spawnmenu.
+     *
+     * See [spawnmenu.AddToolTab](https://wiki.facepunch.com/gmod/spawnmenu.AddToolTab) to add new right-side tabs. See [spawnmenu.AddToolCategory](https://wiki.facepunch.com/gmod/spawnmenu.AddToolCategory) to add new categories.
+     * @param tab - The internal name of the spawnmenu tab to add into (for example "Utilities")
+     * @param category - The internal name of the category within the tab to add into (for example "Admin")
+     * @param class_ - Unique internal identifier of the new option. This is used to reference this option by other code.
+     * @param name - The nice name of item to show to the player. See [Addon Localization](https://wiki.facepunch.com/gmod/Addon_Localization).
+     * @param [cmd = nil] - Console command to execute when the item is selected.
+     * @param [config = nil] - Config name, used in older versions to load tool settings UI from a file.
+     * @deprecated Legacy argument, no longer works.
      *
      * @param cpanel - A function to build the context panel.
      * <callback>
@@ -70842,17 +70880,22 @@ declare namespace spawnmenu {
      * </callback>
      * @param [table = {}] - Allows to override the table that will be added to the tool list. Some of the fields will be overwritten by this function.
      */
-    function AddToolMenuOption(tab: string, category: string, class_: string, name: string, cmd: string, config: string, cpanel: (pnl: Panel) => void, table?: any): void;
+    function AddToolMenuOption(tab: string, category: string, class_: string, name: string, cmd?: string, config?: string, cpanel: (pnl: Panel) => void, table?: any): void;
 
     /**
      * 🟨 [Client]
      *
-     * Adds a new tool tab to the right side of the spawnmenu via the [SANDBOX:AddToolMenuTabs](https://wiki.facepunch.com/gmod/SANDBOX:AddToolMenuTabs) hook.
+     * Adds a new tool tab to the right side of the spawnmenu. (usually via the [SANDBOX:AddToolMenuTabs](https://wiki.facepunch.com/gmod/SANDBOX:AddToolMenuTabs) hook)
      *
-     * This function is a inferior duplicate of [spawnmenu.GetToolMenu](https://wiki.facepunch.com/gmod/spawnmenu.GetToolMenu), just without its return value.
-     * @param name - The internal name of the tab. This is used for sorting.
-     * @param [label = name] - The 'nice' name of the tab (Tip: [language.Add](https://wiki.facepunch.com/gmod/language.Add))
-     * @param [icon = icon16/wrench.png] - The filepath to the icon of the tab. Should be a .png
+     * See [spawnmenu.GetToolMenu](https://wiki.facepunch.com/gmod/spawnmenu.GetToolMenu) for a function to retrieve existing tool tabs.
+     *
+     * See [spawnmenu.AddCreationTab](https://wiki.facepunch.com/gmod/spawnmenu.AddCreationTab) for tabs on the left side of the spawnmenu.
+     *
+     * See [spawnmenu.AddToolCategory](https://wiki.facepunch.com/gmod/spawnmenu.AddToolCategory) to add new categories to the newly created tool tab.
+     * See [spawnmenu.AddToolMenuOption](https://wiki.facepunch.com/gmod/spawnmenu.AddToolMenuOption) to add new options to the categories within a tool tab.
+     * @param name - The internal name of the tab. This is used for sorting, as well as adding categories, so it should be unique.
+     * @param [label = name] - The 'nice' name of the tab that is displayed to the player. See [Addon Localization](https://wiki.facepunch.com/gmod/Addon_Localization).
+     * @param [icon = icon16/wrench.png] - The file path to the icon of the tab. Should be a `.png` file. See [Silkicons](https://wiki.facepunch.com/gmod/Silkicons).
      */
     function AddToolTab(name: string, label: string = "name", icon: string = "icon16/wrench.png"): void;
 
@@ -70935,10 +70978,12 @@ declare namespace spawnmenu {
     /**
      * 🟨 [Client]
      *
-     * Adds a new tool tab (or returns an existing one by name) to the right side of the spawnmenu via the [SANDBOX:AddToolMenuTabs](https://wiki.facepunch.com/gmod/SANDBOX:AddToolMenuTabs) hook.
+     * Returns an existing tool tab by name from the right side of the spawnmenu (usually during the [SANDBOX:AddToolMenuTabs](https://wiki.facepunch.com/gmod/SANDBOX:AddToolMenuTabs) hook)
+     *
+     * If the requested tooltab does not exist, it will be added. See also [spawnmenu.AddToolTab](https://wiki.facepunch.com/gmod/spawnmenu.AddToolTab).
      * @param name - The internal name of the tab. This is used for sorting.
      * @param [label = name] - The 'nice' name of the tab
-     * @param [icon = icon16/wrench.png] - The filepath to the icon of the tab. Should be a .png
+     * @param [icon = icon16/wrench.png] - The file path to the icon of the tab. Should be a `.png` file. See [Silkicons](https://wiki.facepunch.com/gmod/Silkicons).
      */
     function GetToolMenu(name: string, label: string = "name", icon: string = "icon16/wrench.png"): any;
 
@@ -72250,7 +72295,9 @@ declare namespace surface {
      * @param b - The blue value of color.
      * @param [a = 255] - The alpha value of color.
      */
-    function SetDrawColor(r: number, g: number, b: number, a = 255): void;
+    /* Manual override from: namespace/surface/SetDrawColor */
+    SetDrawColor(color: Color): void;
+    SetDrawColor(r: number, g: number, b: number, a?: number): void;
 
     /**
      * 🟨🟩 [Client and Menu]
