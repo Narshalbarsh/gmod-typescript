@@ -72296,8 +72296,8 @@ declare namespace surface {
      * @param [a = 255] - The alpha value of color.
      */
     /* Manual override from: namespace/surface/SetDrawColor */
-    SetDrawColor(color: Color): void;
-    SetDrawColor(r: number, g: number, b: number, a?: number): void;
+    function SetDrawColor(color: Color): void;
+    function SetDrawColor(r: number, g: number, b: number, a?: number): void;
 
     /**
      * 🟨🟩 [Client and Menu]
