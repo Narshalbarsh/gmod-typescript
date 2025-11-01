@@ -27606,48 +27606,6 @@ interface DLabel extends Label {
      * Called internally to update the color of the text.
      */
     UpdateFGColor(): void;
-
-    /* Manual extra from: interface/DLabel/m_FontName */
-    m_FontName: string;
-
-    /* Manual extra from: interface/DLabel/m_bAutoStretchVertical */
-    m_bAutoStretchVertical: boolean;
-
-    /* Manual extra from: interface/DLabel/m_bBackground */
-    m_bBackground: boolean;
-
-    /* Manual extra from: interface/DLabel/m_bBright */
-    m_bBright: boolean;
-
-    /* Manual extra from: interface/DLabel/m_bDark */
-    m_bDark: boolean;
-
-    /* Manual extra from: interface/DLabel/m_bDisabled */
-    /*
-    @deprecated
-    */
-    m_bDisabled: boolean;
-
-    /* Manual extra from: interface/DLabel/m_bDoubleClicking */
-    m_bDoubleClicking: boolean;
-
-    /* Manual extra from: interface/DLabel/m_bHighlight */
-    m_bHighlight: boolean;
-
-    /* Manual extra from: interface/DLabel/m_bIsMenuComponent */
-    m_bIsMenuComponent: boolean;
-
-    /* Manual extra from: interface/DLabel/m_bIsToggle */
-    m_bIsToggle: boolean;
-
-    /* Manual extra from: interface/DLabel/m_bToggle */
-    m_bToggle: boolean;
-
-    /* Manual extra from: interface/DLabel/m_colText */
-    m_colText: Color;
-
-    /* Manual extra from: interface/DLabel/m_colTextStyle */
-    m_colTextStyle: Color;
 }
 
 /**
@@ -30048,7 +30006,8 @@ interface DPanelList extends DPanel {
      * Hides all child panels, and optionally deletes them.
      * @param remove - Whether to actually delete the panels, not just hide them.
      */
-    Clear(remove: boolean): void;
+    /* Manual override from: interface/DPanelList/Clear */
+    Clear(remove?: boolean): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -31092,6 +31051,9 @@ interface DSlider extends Panel {
      * @param y - The input Y coordinate, in range of 0-1.
      */
     TranslateValues(x: number, y: number): LuaMultiReturn<[number, number]>;
+
+    /* Manual extra from: interface/DSlider/Knob */
+    Knob: DButton
 }
 
 /**
