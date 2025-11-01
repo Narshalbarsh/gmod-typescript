@@ -261,7 +261,6 @@ interface Angle {
      * This function is faster than doing it manually.
      */
     Zero(): void;
-
 }
 
 /**
@@ -270,8 +269,6 @@ interface Angle {
  * @deprecated You should be using [net](https://wiki.facepunch.com/gmod/net) instead
  */
 interface bf_read {
-
-
     /**
      * 🟨 [Client]
      *
@@ -348,15 +345,12 @@ interface bf_read {
      * Rewinds the bitstream so it can be read again.
      */
     Reset(): void;
-
 }
 
 /**
  * List of all possible functions available for effect data. This is the object returned by the <page text="EffectData">Global.EffectData</page> function and is required for [util.Effect](https://wiki.facepunch.com/gmod/util.Effect) function.
  */
 interface CEffectData {
-
-
     /**
      * 🟨🟦 [Shared]
      *
@@ -647,15 +641,12 @@ interface CEffectData {
      * @param surfaceProperties - The surface property index of the effect.
      */
     SetSurfaceProp(surfaceProperties: number): void;
-
 }
 
 /**
  * List of all possible functions available for LuaEmitters. This is the object returned by the [Global.ParticleEmitter](https://wiki.facepunch.com/gmod/Global.ParticleEmitter) function.
  */
 interface CLuaEmitter {
-
-
     /**
      * 🟨 [Client]
      *
@@ -750,15 +741,12 @@ interface CLuaEmitter {
      * @param position - New position.
      */
     SetPos(position: Vector): void;
-
 }
 
 /**
  * This class is essentially what controls a [NextBot](https://wiki.facepunch.com/gmod/NextBot) NPC. You can access it in a [NextBot](https://wiki.facepunch.com/gmod/NextBot) NPC by using **self.loco** variable.
  */
 interface CLuaLocomotion {
-
-
     /**
      * 🟦 [Server]
      *
@@ -1069,15 +1057,12 @@ interface CLuaLocomotion {
      * @param velocity -
      */
     SetVelocity(velocity: Vector): void;
-
 }
 
 /**
  * List of all possible functions available for Lua particles. This is the object returned by the [CLuaEmitter:Add](https://wiki.facepunch.com/gmod/CLuaEmitter:Add) function.
  */
 interface CLuaParticle {
-
-
     /**
      * 🟨 [Client]
      *
@@ -1437,7 +1422,6 @@ interface CLuaParticle {
      * @param [doScale = false] - Use velocity scaling.
      */
     SetVelocityScale(doScale = false): void;
-
 }
 
 /**
@@ -1446,8 +1430,6 @@ interface CLuaParticle {
  * This can only be accessed during [GM:SetupMove](https://wiki.facepunch.com/gmod/GM:SetupMove) , [GM:Move](https://wiki.facepunch.com/gmod/GM:Move) , [GM:PlayerTick](https://wiki.facepunch.com/gmod/GM:PlayerTick) and [GM:FinishMove](https://wiki.facepunch.com/gmod/GM:FinishMove).
  */
 interface CMoveData {
-
-
     /**
      * 🟨🟦 [Shared]
      *
@@ -1830,15 +1812,12 @@ interface CMoveData {
      * @param velocity - The velocity to set
      */
     SetVelocity(velocity: Vector): void;
-
 }
 
 /**
  * An object returned by [navmesh](https://wiki.facepunch.com/gmod/navmesh) functions.
  */
 interface CNavArea {
-
-
     /**
      * 🟦 [Server]
      *
@@ -2537,15 +2516,12 @@ interface CNavArea {
      * More information can be found on the [Simple Pathfinding](https://wiki.facepunch.com/gmod/Simple_Pathfinding) page.
      */
     UpdateOnOpenList(): void;
-
 }
 
 /**
  * An object that represents a ladder for Nextbots.
  */
 interface CNavLadder {
-
-
     /**
      * 🟦 [Server]
      *
@@ -2711,15 +2687,12 @@ interface CNavLadder {
      * @param area -
      */
     SetTopRightArea(area: CNavArea): void;
-
 }
 
 /**
  * This object represents a .pcf ( Orange Box ) particle system. Created by [Entity:CreateParticleEffect](https://wiki.facepunch.com/gmod/Entity:CreateParticleEffect) and [Global.CreateParticleSystem](https://wiki.facepunch.com/gmod/Global.CreateParticleSystem).
  */
 interface CNewParticleEffect {
-
-
     /**
      * 🟨 [Client]
      *
@@ -2929,7 +2902,6 @@ interface CNewParticleEffect {
      * >This function will work identically to [CNewParticleEffect:StopEmission](https://wiki.facepunch.com/gmod/CNewParticleEffect:StopEmission)( false, true ) if  [CNewParticleEffect:GetOwner](https://wiki.facepunch.com/gmod/CNewParticleEffect:GetOwner) entity is not valid.
      */
     StopEmissionAndDestroyImmediately(): void;
-
 }
 
 /**
@@ -3238,7 +3210,6 @@ interface Color {
      * Returns the red, green, blue, and alpha of the color.
      */
     Unpack(): LuaMultiReturn<[number, number, number, number]>;
-
 }
 
 /**
@@ -3247,8 +3218,6 @@ interface Color {
  * It represents a console variable. See <page text="this">ConVars</page> page for more information.
  */
 interface ConVar {
-
-
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
@@ -3376,15 +3345,12 @@ interface ConVar {
      * @param value - Value to set the ConVar to.
      */
     SetString(value: string): void;
-
 }
 
 /**
  * List of all possible functions to manipulate Recipient Filters. Can be created with [Global.RecipientFilter](https://wiki.facepunch.com/gmod/Global.RecipientFilter).
  */
 interface CRecipientFilter {
-
-
     /**
      * 🟦 [Server]
      *
@@ -3509,7 +3475,6 @@ interface CRecipientFilter {
      * @param teamid - Team index.
      */
     RemoveRecipientsNotOnTeam(teamid: number): void;
-
 }
 
 /**
@@ -3518,15 +3483,12 @@ interface CRecipientFilter {
  * Its base class is [Entity](https://wiki.facepunch.com/gmod/Entity) so it inherits all of the client and shared functions used by [Entity](https://wiki.facepunch.com/gmod/Entity).
  */
 interface CSEnt extends Entity {
-
-
     /**
      * 🟨 [Client]
      *
      * Removes the clientside entity
      */
     Remove(): void;
-
 }
 
 /**
@@ -3535,8 +3497,6 @@ interface CSEnt extends Entity {
  * Created with [Global.CreateSound](https://wiki.facepunch.com/gmod/Global.CreateSound)
  */
 interface CSoundPatch {
-
-
     /**
      * 🟨🟦 [Shared]
      *
@@ -3646,7 +3606,6 @@ interface CSoundPatch {
      * >This will not work if the entity attached to this sound patch (specified by [Global.CreateSound](https://wiki.facepunch.com/gmod/Global.CreateSound)) is invalid.
      */
     Stop(): void;
-
 }
 
 /**
@@ -3672,8 +3631,6 @@ interface CSoundPatch {
  * * [Entity:DispatchTraceAttack](https://wiki.facepunch.com/gmod/Entity:DispatchTraceAttack)
  */
 interface CTakeDamageInfo {
-
-
     /**
      * 🟨🟦 [Shared]
      *
@@ -3951,7 +3908,6 @@ interface CTakeDamageInfo {
      * @param damage - Value to subtract.
      */
     SubtractDamage(damage: number): void;
-
 }
 
 /**
@@ -3960,8 +3916,6 @@ interface CTakeDamageInfo {
  * Can be modified during [GM:CreateMove](https://wiki.facepunch.com/gmod/GM:CreateMove), [GM:StartCommand](https://wiki.facepunch.com/gmod/GM:StartCommand) and used in read only with [GM:SetupMove](https://wiki.facepunch.com/gmod/GM:SetupMove) and [Player:GetCurrentCommand](https://wiki.facepunch.com/gmod/Player:GetCurrentCommand).
  */
 interface CUserCmd {
-
-
     /**
      * 🟨🟦 [Shared]
      *
@@ -4221,7 +4175,6 @@ interface CUserCmd {
      * >Returns 0 clientside during prediction calls. If you are trying to use CUserCmd:Set*() on the client in a movement or command hook, keep doing so till TickCount returns a non-zero number to maintain prediction.
      */
     TickCount(): number;
-
 }
 
 /**
@@ -4230,8 +4183,6 @@ interface CUserCmd {
  * For a list of possible members of [Scripted Entities](https://wiki.facepunch.com/gmod/Scripted_Entities) see <page text="ENT Structure">Structures/ENT</page>
  */
 interface Entity {
-
-
     /**
      * 🟨🟦 [Shared]
      *
@@ -10718,7 +10669,6 @@ interface Entity {
      * @param ang - A worldspace angle.
      */
     WorldToLocalAngles(ang: Angle): Angle;
-
 }
 
 /**
@@ -10728,8 +10678,6 @@ interface Entity {
  * 		The object is returned by [file.Open](https://wiki.facepunch.com/gmod/file.Open).
  */
 interface File {
-
-
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
@@ -10947,15 +10895,12 @@ interface File {
      * @param uint16 - The unsigned 16-bit integer to the file.
      */
     WriteUShort(uint16: number): void;
-
 }
 
 /**
  * A sound channel returned by a callback of [sound.PlayURL](https://wiki.facepunch.com/gmod/sound.PlayURL) and [sound.PlayFile](https://wiki.facepunch.com/gmod/sound.PlayFile).
  */
 interface IGModAudioChannel {
-
-
     /**
      * 🟨 [Client]
      *
@@ -11292,7 +11237,6 @@ interface IGModAudioChannel {
      * >Calling this invalidates the IGModAudioChannel object rendering it unusable for further functions.
      */
     Stop(): void;
-
 }
 
 /**
@@ -11304,8 +11248,6 @@ interface IGModAudioChannel {
  * A material object can be created with [Global.Material](https://wiki.facepunch.com/gmod/Global.Material) or [Global.CreateMaterial](https://wiki.facepunch.com/gmod/Global.CreateMaterial).
  */
 interface IMaterial {
-
-
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
@@ -11542,7 +11484,6 @@ interface IMaterial {
      * Returns the width of the member texture set for `$basetexture`.
      */
     Width(): number;
-
 }
 
 /**
@@ -11554,8 +11495,6 @@ interface IMaterial {
  * 			See the [render.RenderFlashlights](https://wiki.facepunch.com/gmod/render.RenderFlashlights) function and example that solves this problem.
  */
 interface IMesh {
-
-
     /**
      * 🟨 [Client]
      *
@@ -11594,7 +11533,6 @@ interface IMesh {
      * Returns whether this [IMesh](https://wiki.facepunch.com/gmod/IMesh) is valid or not.
      */
     IsValid(): boolean;
-
 }
 
 /**
@@ -11603,8 +11541,6 @@ interface IMesh {
  * It allows you to read blocks directly from the save game files used by Half-Life 2 save system when such save is loaded.
  */
 interface IRestore {
-
-
     /**
      * 🟨🟦 [Shared]
      *
@@ -11669,7 +11605,6 @@ interface IRestore {
      * Loads next block of data to be read inside current block. Blocks **must** be ended with [IRestore:EndBlock](https://wiki.facepunch.com/gmod/IRestore:EndBlock).
      */
     StartBlock(): string;
-
 }
 
 /**
@@ -11678,8 +11613,6 @@ interface IRestore {
  * It allows you to write blocks directly into the save game files used by Half-Life 2 save system when such save is being saved.
  */
 interface ISave {
-
-
     /**
      * 🟨🟦 [Shared]
      *
@@ -11752,7 +11685,6 @@ interface ISave {
      * @param vec - The vector to write.
      */
     WriteVector(vec: Vector): void;
-
 }
 
 /**
@@ -11763,8 +11695,6 @@ interface ISave {
  * Returned by [IMaterial:GetTexture](https://wiki.facepunch.com/gmod/IMaterial:GetTexture)
  */
 interface ITexture {
-
-
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
@@ -11843,15 +11773,12 @@ interface ITexture {
      * Returns the modified width of the texture, this value may be affected by mipmapping and other factors.
      */
     Width(): number;
-
 }
 
 /**
  * This is returned from [video.Record](https://wiki.facepunch.com/gmod/video.Record).
  */
 interface IVideoWriter {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -11889,15 +11816,12 @@ interface IVideoWriter {
      * Returns the width of the video stream.
      */
     Width(): number;
-
 }
 
 /**
  * Object containing parsed markup for later rendering. Created by [markup.Parse](https://wiki.facepunch.com/gmod/markup.Parse).
  */
 interface MarkupObject {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -11938,7 +11862,6 @@ interface MarkupObject {
      * Gets computed the width and height of the markupobject.
      */
     Size(): LuaMultiReturn<[number, number]>;
-
 }
 
 /**
@@ -11949,8 +11872,6 @@ interface MarkupObject {
  * See [NextBot NPC Creation](https://wiki.facepunch.com/gmod/NextBot_NPC_Creation) for more information on how to create NextBot NPCs.
  */
 interface NextBot extends Entity {
-
-
     /**
      * 🟦 [Server]
      *
@@ -12138,15 +12059,12 @@ interface NextBot extends Entity {
      * @param activity - One of the [Enums/ACT](https://wiki.facepunch.com/gmod/Enums/ACT)
      */
     StartActivity(activity: ACT): void;
-
 }
 
 /**
  * This is a list of all methods only available for NPCs. It is also possible to call [Entity](https://wiki.facepunch.com/gmod/Entity) functions on NPCs.
  */
 interface NPC extends Entity {
-
-
     /**
      * 🟦 [Server]
      *
@@ -13676,7 +13594,6 @@ interface NPC extends Entity {
      * >This function only works on `ai` type [SENTs](Scripted_Entities).
      */
     UseNoBehavior(): void;
-
 }
 
 /**
@@ -13731,8 +13648,6 @@ interface NPC extends Entity {
  * ```
  */
 interface Panel {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -16605,15 +16520,12 @@ interface Panel {
      * Set to true by the [dragndrop](https://wiki.facepunch.com/gmod/dragndrop) system when the panel is being drawn for the drag'n'drop.
      */
     PaintingDragging(): boolean;
-
 }
 
 /**
  * Path object for a NextBot NPC and bots created by [player.CreateNextbot](https://wiki.facepunch.com/gmod/player.CreateNextbot). Returned by [Global.Path](https://wiki.facepunch.com/gmod/Global.Path).
  */
 interface PathFollower {
-
-
     /**
      * 🟦 [Server]
      *
@@ -16875,7 +16787,6 @@ interface PathFollower {
      * @param bot - The bot to update along the path. This can also be a nextbot player ([player.CreateNextbot](https://wiki.facepunch.com/gmod/player.CreateNextbot))
      */
     Update(bot: NextBot): void;
-
 }
 
 /**
@@ -16884,8 +16795,6 @@ interface PathFollower {
  * Created by [Global.CreatePhysCollideBox](https://wiki.facepunch.com/gmod/Global.CreatePhysCollideBox) or [Global.CreatePhysCollidesFromModel](https://wiki.facepunch.com/gmod/Global.CreatePhysCollidesFromModel).
  */
 interface PhysCollide {
-
-
     /**
      * 🟨🟦 [Shared]
      *
@@ -16914,7 +16823,6 @@ interface PhysCollide {
      * @param rayMaxs - The maxs of the trace's bounds
      */
     TraceBox(origin: Vector, angles: Angle, rayStart: Vector, rayEnd: Vector, rayMins: Vector, rayMaxs: Vector): LuaMultiReturn<[Vector, Vector, number]>;
-
 }
 
 /**
@@ -16925,8 +16833,6 @@ interface PhysCollide {
  * Physics objects are usually simulated by the physics engine and usually dictate the position of the entity, and not the other way around.
  */
 interface PhysObj {
-
-
     /**
      * 🟨🟦 [Shared]
      *
@@ -17589,7 +17495,6 @@ interface PhysObj {
      * @param vec - A worldspace vector.
      */
     WorldToLocalVector(vec: Vector): Vector;
-
 }
 
 /**
@@ -17597,17 +17502,12 @@ interface PhysObj {
  */
 interface pixelvis_handle_t {
 
-
-
-
 }
 
 /**
  * This is a list of all methods only available for players. It is also possible to call [Entity](https://wiki.facepunch.com/gmod/Entity) functions on the Player.
  */
 interface Player extends Entity {
-
-
     /**
      * 🟨🟦 [Shared]
      *
@@ -20223,15 +20123,12 @@ interface Player extends Entity {
      * Returns the players voice volume, how loud the player's voice communication currently is, as a number in range of [0,1].
      */
     VoiceVolume(): number;
-
 }
 
 /**
  * A client side projected texture, created by [Global.ProjectedTexture](https://wiki.facepunch.com/gmod/Global.ProjectedTexture).
  */
 interface ProjectedTexture {
-
-
     /**
      * 🟨 [Client]
      *
@@ -20664,15 +20561,12 @@ interface ProjectedTexture {
      * The best place to call this function is in [GM:PreDrawOpaqueRenderables](https://wiki.facepunch.com/gmod/GM:PreDrawOpaqueRenderables).
      */
     Update(): void;
-
 }
 
 /**
  * The object returned by [ai_schedule.New](https://wiki.facepunch.com/gmod/ai_schedule.New).
  */
 interface Schedule {
-
-
     /**
      * 🟦 [Server]
      *
@@ -20727,7 +20621,6 @@ interface Schedule {
      * Returns the number of tasks in the schedule.
      */
     NumTasks(): number;
-
 }
 
 /**
@@ -20738,8 +20631,6 @@ interface Schedule {
  * The Stack works like a stack of papers: the first page you put down (push) will be the last one you remove (pop). That also means that the last page you put down, will be the first to be removed.
  */
 interface Stack {
-
-
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
@@ -20777,7 +20668,6 @@ interface Stack {
      * Get the item at the top of the stack
      */
     Top(): any;
-
 }
 
 /**
@@ -20789,8 +20679,6 @@ interface Stack {
  * >This object internally uses the `SurfaceHandle_t` class, which is an alias for `msurface2_t*`.
  */
 interface SurfaceInfo {
-
-
     /**
      * 🟨🟦 [Shared]
      *
@@ -20834,15 +20722,12 @@ interface SurfaceInfo {
      * >This internally checks the SURFDRAW_WATER flag.
      */
     IsWater(): boolean;
-
 }
 
 /**
  * A single AI task. Returned by [ai_task.New](https://wiki.facepunch.com/gmod/ai_task.New).
  */
 interface Task {
-
-
     /**
      * 🟦 [Server]
      *
@@ -20914,7 +20799,6 @@ interface Task {
      * @param target - The NPC to start the task on.
      */
     Start_FName(target: NPC): void;
-
 }
 
 /**
@@ -20923,8 +20807,6 @@ interface Task {
  * You can find the hooks <page text="here">TOOL_Hooks</page>, and members <page text="here">Structures/TOOL</page>.
  */
 interface Tool {
-
-
     /**
      * 🟨🟦 [Shared]
      *
@@ -21220,7 +21102,6 @@ interface Tool {
      * This command is only used for tools that move props, such as easy weld, axis and motor. If you want to update a ghost like the thruster tool does it for example, check its [source code](https://github.com/Facepunch/garrysmod/blob/master/garrysmod/gamemodes/sandbox/entities/weapons/gmod_tool/stools/thruster.lua#L179).
      */
     UpdateGhostEntity(): void;
-
 }
 
 /**
@@ -21630,15 +21511,12 @@ interface Vector {
      * Sets x, y and z to 0.
      */
     Zero(): void;
-
 }
 
 /**
  * This is a list of all methods only available for vehicles. It is also possible to call [Entity](https://wiki.facepunch.com/gmod/Entity) functions on vehicles.
  */
 interface Vehicle extends Entity {
-
-
     /**
      * 🟦 [Server]
      *
@@ -22023,7 +21901,6 @@ interface Vehicle extends Entity {
      * @param start - True to start, false to stop.
      */
     StartEngine(start: boolean): void;
-
 }
 
 /**
@@ -22377,7 +22254,6 @@ interface VMatrix {
      * This function is more efficient than setting each element manually.
      */
     Zero(): void;
-
 }
 
 /**
@@ -22387,8 +22263,6 @@ interface VMatrix {
  * >A list of available methods has been expanded in your navigation bar.
  */
 interface Weapon extends Entity {
-
-
     /**
      * 🟨🟦 [Shared]
      *
@@ -22690,7 +22564,6 @@ interface Weapon extends Entity {
      * @param time - Time when player should be able to use secondary fire again
      */
     SetNextSecondaryFire(time: number): void;
-
 }
 
 /**
@@ -22703,8 +22576,6 @@ interface Weapon extends Entity {
  * >You need to set the `HTML` field to a [DHTML](https://wiki.facepunch.com/gmod/DHTML) panel that is set up correctly like [here](https://github.com/Facepunch/garrysmod/blob/master/garrysmod/gamemodes/sandbox/gamemode/spawnmenu/creationmenu/content/contenttypes/dupes.lua#L12), or else you might get errors.
  */
 interface WorkshopFileBase {
-
-
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
@@ -22766,7 +22637,6 @@ interface WorkshopFileBase {
      * 		</callback>
      */
     RetrieveUserName(steamid: string, callback: (name: string) => void): void;
-
 }
 
 /**
@@ -22776,18 +22646,12 @@ interface WorkshopFileBase {
  */
 interface AchievementIcon extends Panel {
 
-
-
-
 }
 
 /**
  * Used to show a player's Steam avatar. You are recommended but not limited to pick one of the following sizes: 16, 32, 64, 84, 128, 184.
  */
 interface AvatarImage extends Panel {
-
-
-
 
 }
 
@@ -22799,9 +22663,6 @@ interface AvatarImage extends Panel {
  */
 interface Awesomium extends Panel {
 
-
-
-
 }
 
 /**
@@ -22811,9 +22672,6 @@ interface Awesomium extends Panel {
  * @deprecated Only exists for backwards compatibility with [Panel:SetActionFunction](https://wiki.facepunch.com/gmod/Panel:SetActionFunction). Use [DButton](https://wiki.facepunch.com/gmod/DButton) instead.
  */
 interface Button extends DButton {
-
-
-
 
 }
 
@@ -22826,9 +22684,6 @@ interface Button extends DButton {
  */
 interface CheckButton extends Panel {
 
-
-
-
 }
 
 /**
@@ -22836,8 +22691,6 @@ interface CheckButton extends Panel {
  * 		what you're doing because you can break a few things with it.
  */
 interface ContentHeader extends DLabelEditable {
-
-
     /**
      * 🟨 [Client]
      *
@@ -22853,7 +22706,6 @@ interface ContentHeader extends DLabelEditable {
      * @param bigtable -
      */
     ToTable(bigtable: any): void;
-
 }
 
 /**
@@ -22864,8 +22716,6 @@ interface ContentHeader extends DLabelEditable {
  * 		This control only exists in Sandbox derived gamemodes.
  */
 interface ContentIcon extends Omit<DButton, "SetMaterial"> {
-
-
     /**
      * 🟨 [Client]
      *
@@ -22956,7 +22806,6 @@ interface ContentIcon extends Omit<DButton, "SetMaterial"> {
      * @param name - Internal "name" to be used when user left clicks the icon.
      */
     SetSpawnName(name: string): void;
-
 }
 
 /**
@@ -22965,8 +22814,6 @@ interface ContentIcon extends Omit<DButton, "SetMaterial"> {
  * 		When [ContentSidebar:EnableModify](https://wiki.facepunch.com/gmod/ContentSidebar:EnableModify) has been called ContentSidebar.Toolbox will return a [ContentSidebarToolbox](https://wiki.facepunch.com/gmod/ContentSidebarToolbox)
  */
 interface ContentSidebar extends DPanel {
-
-
     /**
      * 🟨 [Client]
      *
@@ -22991,7 +22838,6 @@ interface ContentSidebar extends DPanel {
      * @param [hookname = PopulateContent] - A Populate Hook like PopulateEntities
      */
     EnableSearch(style: string, hookname: string = "PopulateContent"): void;
-
 }
 
 /**
@@ -23000,17 +22846,12 @@ interface ContentSidebar extends DPanel {
  */
 interface ContentSidebarToolbox extends DDrawer {
 
-
-
-
 }
 
 /**
  * A base for all context menu panels ( The ones used for tool options in sandbox )
  */
 interface ContextBase extends Panel {
-
-
     /**
      * 🟨 [Client]
      *
@@ -23042,15 +22883,12 @@ interface ContextBase extends Panel {
      * You should override this function and use it to check whether your convar value changed.
      */
     TestForChanges(): void;
-
 }
 
 /**
  * Used by the context menu in sandbox.
  */
 interface ControlPanel extends DForm {
-
-
     /**
      * 🟨 [Client]
      *
@@ -23220,7 +23058,6 @@ interface ControlPanel extends DForm {
      * @param cvarList - A table of [convar](https://wiki.facepunch.com/gmod/convar) names as keys and their defaults as the values. Typically the output of [Tool:BuildConVarList](https://wiki.facepunch.com/gmod/Tool:BuildConVarList).
      */
     ToolPresets(group: string, cvarList: any): Panel;
-
 }
 
 /**
@@ -23229,8 +23066,6 @@ interface ControlPanel extends DForm {
  * 		This control only exists in Sandbox derived gamemodes.
  */
 interface ControlPresets extends Panel {
-
-
     /**
      * 🟨 [Client]
      *
@@ -23326,7 +23161,6 @@ interface ControlPresets extends Panel {
      * Alias of [ControlPresets:ReloadPresets](https://wiki.facepunch.com/gmod/ControlPresets:ReloadPresets)
      */
     Update(): void;
-
 }
 
 /**
@@ -23335,9 +23169,6 @@ interface ControlPresets extends Panel {
  * This control only exists in Sandbox derived gamemodes.
  */
 interface CtrlListBox extends DComboBox {
-
-
-
 
 }
 
@@ -23354,8 +23185,6 @@ interface CtrlListBox extends DComboBox {
  * To retrieve the value of the `CtrlNumPad` you can use these functions : [Player:GetInfoNum](https://wiki.facepunch.com/gmod/Player:GetInfoNum), [CtrlNumPad:GetValue1](https://wiki.facepunch.com/gmod/CtrlNumPad:GetValue1) or [CtrlNumPad:GetValue2](https://wiki.facepunch.com/gmod/CtrlNumPad:GetValue2)
  */
 interface CtrlNumPad extends Panel {
-
-
     /**
      * 🟨 [Client]
      *
@@ -23401,7 +23230,6 @@ interface CtrlNumPad extends Panel {
      * @param txt - The label for the right key binder.
      */
     SetLabel2(txt: string): void;
-
 }
 
 /**
@@ -23412,8 +23240,6 @@ interface CtrlNumPad extends Panel {
  * This is used by [IconEditor](https://wiki.facepunch.com/gmod/IconEditor) for modifying spawn icons.
  */
 interface DAdjustableModelPanel extends DModelPanel {
-
-
     /**
      * 🟨 [Client]
      *
@@ -23465,15 +23291,12 @@ interface DAdjustableModelPanel extends DModelPanel {
      * @param __unnamedArg - The movement scale, where `1` is normal, `2` is double, etc.
      */
     SetMovementScale(__unnamedArg: number): void;
-
 }
 
 /**
  * A bar to select the opacity (alpha level) of a color.
  */
 interface DAlphaBar extends DPanel {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -23511,15 +23334,12 @@ interface DAlphaBar extends DPanel {
      * @param alpha - The new alpha value to set
      */
     SetValue(alpha: number): void;
-
 }
 
 /**
  * Input which can bind a command to a key. Used for binding inputs and outputs of TOOLs.
  */
 interface DBinder extends DButton {
-
-
     /**
      * 🟨 [Client]
      *
@@ -23564,15 +23384,12 @@ interface DBinder extends DButton {
      * Used to set the text of the DBinder to the current key binding, or `NONE`.
      */
     UpdateText(): void;
-
 }
 
 /**
  * A transparent gray speech bubble panel made up of a rounded box and point coming from the bottom.
  */
 interface DBubbleContainer extends DPanel {
-
-
     /**
      * 🟨 [Client]
      *
@@ -23598,7 +23415,6 @@ interface DBubbleContainer extends DPanel {
      * @param color - The New Color
      */
     SetBackgroundColor(color: Color): void;
-
 }
 
 /**
@@ -23607,8 +23423,6 @@ interface DBubbleContainer extends DPanel {
  * By default, a [DButton](https://wiki.facepunch.com/gmod/DButton) is 22px tall.
  */
 interface DButton extends DLabel {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -23679,16 +23493,12 @@ interface DButton extends DLabel {
      * @param skin - A table supposed to contain the color values listed above.
      */
     UpdateColours(skin: any): void;
-
 }
 
 /**
  * Used by [DCollapsibleCategory](https://wiki.facepunch.com/gmod/DCollapsibleCategory)
  */
 interface DCategoryHeader extends DButton {
-
-
-
 
 }
 
@@ -23697,8 +23507,6 @@ interface DCategoryHeader extends DButton {
  * 		As the name suggests, each one of them can be collapsed or expanded on demand by the user.
  */
 interface DCategoryList extends Omit<DScrollPanel, "Add"> {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -23721,15 +23529,12 @@ interface DCategoryList extends Omit<DScrollPanel, "Add"> {
      * Calls [Panel:UnselectAll](https://wiki.facepunch.com/gmod/Panel:UnselectAll) on all child elements, if they have it.
      */
     UnselectAll(): void;
-
 }
 
 /**
  * The DCheckBox is a checkbox. It allows you to get a boolean value from the user (true/false - yes/no)
  */
 interface DCheckBox extends DButton {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -23781,7 +23586,6 @@ interface DCheckBox extends DButton {
      * Toggles the checked state of the checkbox, and calls the checkbox's [DCheckBox:OnChange](https://wiki.facepunch.com/gmod/DCheckBox:OnChange) and [Panel:ConVarChanged](https://wiki.facepunch.com/gmod/Panel:ConVarChanged) methods. [DCheckBox:DoClick](https://wiki.facepunch.com/gmod/DCheckBox:DoClick) is an alias of this function.
      */
     Toggle(): void;
-
 }
 
 /**
@@ -23789,8 +23593,6 @@ interface DCheckBox extends DButton {
  * 		It allows you to get a boolean value from the user (true/false - yes/no)
  */
 interface DCheckBoxLabel extends DPanel {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -23891,6 +23693,11 @@ interface DCheckBoxLabel extends DPanel {
      */
     Toggle(): void;
 
+    /* Manual extra from: interface/DCheckBoxLabel/Button */
+    Button: DCheckBox;
+
+    /* Manual extra from: interface/DCheckBoxLabel/Label */
+    Label: DLabel;
 }
 
 /**
@@ -23899,8 +23706,6 @@ interface DCheckBoxLabel extends DPanel {
  * 		Consider using [DCategoryList](https://wiki.facepunch.com/gmod/DCategoryList) if you plan on using more than 1 of these.
  */
 interface DCollapsibleCategory extends Omit<Panel, "Add"> {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -24103,15 +23908,12 @@ interface DCollapsibleCategory extends Omit<Panel, "Add"> {
      * Used internally to update the "AltLine" property on all "child" panels.
      */
     UpdateAltLines(): void;
-
 }
 
 /**
  * Colorful buttons. Used internally by [DColorPalette](https://wiki.facepunch.com/gmod/DColorPalette).
  */
 interface DColorButton extends Omit<DLabel, "SetColor"> {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -24175,7 +23977,6 @@ interface DColorButton extends Omit<DLabel, "SetColor"> {
      * @param id - A unique ID to give this button
      */
     SetID(id: number): void;
-
 }
 
 /**
@@ -24183,8 +23984,6 @@ interface DColorButton extends Omit<DLabel, "SetColor"> {
  * 		using [DColorMixer](https://wiki.facepunch.com/gmod/DColorMixer) or [DColorPalette](https://wiki.facepunch.com/gmod/DColorPalette) in a tabbed view.
  */
 interface DColorCombo extends DPropertySheet {
-
-
     /**
      * 🟨 [Client]
      *
@@ -24223,15 +24022,12 @@ interface DColorCombo extends DPropertySheet {
      * @param clr - A [Color](https://wiki.facepunch.com/gmod/Color).
      */
     SetColor(clr: Color): void;
-
 }
 
 /**
  * The DColorCube allows a user to select saturation and value but not hue. Uses HSV colors
  */
 interface DColorCube extends DSlider {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -24336,15 +24132,12 @@ interface DColorCube extends DSlider {
      * @param [y = nil] - The y position to set color to/the percentage of brightness or value to remove from the color (ranges from 0.0 to 1.0).
      */
     UpdateColor(x?: number, y?: number): void;
-
 }
 
 /**
  * A standard Derma color mixer
  */
 interface DColorMixer extends DPanel {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      */
@@ -24593,7 +24386,6 @@ interface DColorMixer extends DPanel {
      * @param col - The new color. See [Color](https://wiki.facepunch.com/gmod/Color)
      */
     ValueChanged(col: Color): void;
-
 }
 
 /**
@@ -24602,8 +24394,6 @@ interface DColorMixer extends DPanel {
  * 		Use [Panel:SetCookieName](https://wiki.facepunch.com/gmod/Panel:SetCookieName) to change "save files".
  */
 interface DColorPalette extends DIconLayout {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -24842,15 +24632,12 @@ interface DColorPalette extends DIconLayout {
      * @param clr - A [Color](https://wiki.facepunch.com/gmod/Color)
      */
     UpdateConVars(clr: Color): void;
-
 }
 
 /**
  * Similar to [DPropertySheet](https://wiki.facepunch.com/gmod/DPropertySheet), but with tabs on the left.
  */
 interface DColumnSheet extends Panel {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -24882,15 +24669,12 @@ interface DColumnSheet extends Panel {
      * Makes the tabs/buttons show only the image and no text.
      */
     UseButtonOnlyStyle(): void;
-
 }
 
 /**
  * A field with multiple selectable values.
  */
 interface DComboBox extends DButton {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -25053,15 +24837,12 @@ interface DComboBox extends DButton {
      * @param value - The text in the DComboBox.
      */
     SetValue(value: string): void;
-
 }
 
 /**
  * A VGUI base panel providing drag/drop functionality. Used by [DIconLayout](https://wiki.facepunch.com/gmod/DIconLayout), [DListLayout](https://wiki.facepunch.com/gmod/DListLayout) and [DTileLayout](https://wiki.facepunch.com/gmod/DTileLayout).
  */
 interface DDragBase extends DPanel {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -25186,15 +24967,12 @@ interface DDragBase extends DPanel {
      * @param pnl -
      */
     UpdateDropTarget(drop: number, pnl: Panel): void;
-
 }
 
 /**
  * A simple Derma Drawer
  */
 interface DDrawer extends Panel {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -25245,7 +25023,6 @@ interface DDrawer extends Panel {
      * Toggles the [DDrawer](https://wiki.facepunch.com/gmod/DDrawer).
      */
     Toggle(): void;
-
 }
 
 /**
@@ -25254,8 +25031,6 @@ interface DDrawer extends Panel {
  * 		A panel used by the [Editable Entities](https://wiki.facepunch.com/gmod/Editable_Entities) system.
  */
 interface DEntityProperties extends DProperties {
-
-
     /**
      * 🟨 [Client]
      *
@@ -25295,15 +25070,12 @@ interface DEntityProperties extends DProperties {
      * @param ent - The entity to edit
      */
     SetEntity(ent: Entity): void;
-
 }
 
 /**
  * The little "+" button used by [DProperties](https://wiki.facepunch.com/gmod/DProperties) and [DTree_Node](https://wiki.facepunch.com/gmod/DTree_Node).
  */
 interface DExpandButton extends DButton {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -25318,7 +25090,6 @@ interface DExpandButton extends DButton {
      * @param expanded - True to expand ( visually will show a "-" )
      */
     SetExpanded(expanded: boolean): void;
-
 }
 
 /**
@@ -25327,8 +25098,6 @@ interface DExpandButton extends DButton {
  * 		It allows filtering by folder (directory) name and file extension, and can display models as [SpawnIcon](https://wiki.facepunch.com/gmod/SpawnIcon)s.
  */
 interface DFileBrowser extends DPanel {
-
-
     /**
      * 🟨 [Client]
      *
@@ -25565,15 +25334,12 @@ interface DFileBrowser extends DPanel {
      * @param [descending = false] - The sort order. `true` for descending (z-a), `false` for ascending (a-z).
      */
     SortFiles(descending = false): void;
-
 }
 
 /**
  * An easy form with functions to quickly add form elements
  */
 interface DForm extends DCollapsibleCategory {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -25751,15 +25517,12 @@ interface DForm extends DCollapsibleCategory {
      * @param convar - The console variable to be changed when the text entry is changed
      */
     TextEntry(label: string, convar: string): LuaMultiReturn<[Panel, Panel]>;
-
 }
 
 /**
  * The DFrame is the moma of basically all VGUI elements. 98% of the time you will parent your element to this.
  */
 interface DFrame extends EditablePanel {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -25976,7 +25739,6 @@ interface DFrame extends EditablePanel {
      * @param show - `false` hides the control box; this is `true` by default.
      */
     ShowCloseButton(show: boolean): void;
-
 }
 
 /**
@@ -25987,8 +25749,6 @@ interface DFrame extends EditablePanel {
  * 		This makes it play badly with [Panel:Dock](https://wiki.facepunch.com/gmod/Panel:Dock) and cause a [PANEL:PerformLayout](https://wiki.facepunch.com/gmod/PANEL:PerformLayout) call every frame.
  */
 interface DGrid extends Panel {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -26072,15 +25832,12 @@ interface DGrid extends Panel {
      * @param [desc = true] - True for descending order, false for ascending.
      */
     SortByMember(key: string, desc = true): void;
-
 }
 
 /**
  * Creates an invisible vertical divider between two GUI elements.
  */
 interface DHorizontalDivider extends DPanel {
-
-
     /**
      * 🟨 [Client]
      *
@@ -26224,7 +25981,6 @@ interface DHorizontalDivider extends DPanel {
      * <validate>TODO Document me</validate>
      */
     StartGrab(): void;
-
 }
 
 /**
@@ -26233,8 +25989,6 @@ interface DHorizontalDivider extends DPanel {
  * 		Used internally in [DPropertySheet](https://wiki.facepunch.com/gmod/DPropertySheet).
  */
 interface DHorizontalScroller extends Panel {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -26319,7 +26073,6 @@ interface DHorizontalScroller extends Panel {
      * @param newState -
      */
     SetUseLiveDrag(newState: boolean): void;
-
 }
 
 /**
@@ -26328,8 +26081,6 @@ interface DHorizontalScroller extends Panel {
  * The scrollbar notably contains `DHScrollBar.btnLeft`, `DHScrollBar.btnRight`, and `DHScrollBar.btnGrip` which are the left button, right button, and grip respectively. Editing the paint functions of these allows custom scrollbar styling, although it is a better idea to use [Derma Skins](Derma_Skin_Creation).
  */
 interface DHScrollBar extends Panel {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -26410,7 +26161,6 @@ interface DHScrollBar extends Panel {
      * @param canvasSize - The total size of the canvas, this typically is the bigger number.
      */
     SetUp(barSize: number, canvasSize: number): void;
-
 }
 
 /**
@@ -26418,8 +26168,6 @@ interface DHScrollBar extends Panel {
  * 		as well as running Lua from within the HTML. Running Lua code is disabled by default.
  */
 interface DHTML extends HTML {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -26498,15 +26246,12 @@ interface DHTML extends HTML {
      * @param show - True if scrollbars should be visible.
      */
     SetScrollbars(show: boolean): void;
-
 }
 
 /**
  * An element providing navigation controls for a [DHTML](https://wiki.facepunch.com/gmod/DHTML) window.
  */
 interface DHTMLControls extends Omit<Panel, "SetHTML"> {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      */
@@ -26545,7 +26290,6 @@ interface DHTMLControls extends Omit<Panel, "SetHTML"> {
      * 🟨🟩 [Client and Menu]
      */
     UpdateNavButtonStatus(): void;
-
 }
 
 /**
@@ -26553,8 +26297,6 @@ interface DHTMLControls extends Omit<Panel, "SetHTML"> {
  * 		Used as a way to get the user to select an icon.
  */
 interface DIconBrowser extends DScrollPanel {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -26628,7 +26370,6 @@ interface DIconBrowser extends DScrollPanel {
      * @param str -
      */
     SetSelectedIcon(str: string): void;
-
 }
 
 /**
@@ -26639,8 +26380,6 @@ interface DIconBrowser extends DScrollPanel {
  * 		Unlike DPanelList, DIconLayout does not automatically add a scroll bar - the example below shows you how you can do this.
  */
 interface DIconLayout extends DDragBase {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -26783,7 +26522,6 @@ interface DIconLayout extends DDragBase {
      * @param stretchW -
      */
     SetStretchWidth(stretchW: boolean): void;
-
 }
 
 /**
@@ -26792,8 +26530,6 @@ interface DIconLayout extends DDragBase {
  * 		See [DImageButton](https://wiki.facepunch.com/gmod/DImageButton) for a click-able version of this panel.
  */
 interface DImage extends Omit<DPanel, "PaintAt"> {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -26944,7 +26680,6 @@ interface DImage extends Omit<DPanel, "PaintAt"> {
      * Returns true if the image is **not** yet loaded.
      */
     Unloaded(): boolean;
-
 }
 
 /**
@@ -26953,8 +26688,6 @@ interface DImage extends Omit<DPanel, "PaintAt"> {
  * 		This panel inherits all methods of [DButton](https://wiki.facepunch.com/gmod/DButton), such as [DLabel:DoClick](https://wiki.facepunch.com/gmod/DLabel:DoClick).
  */
 interface DImageButton extends Omit<DButton, "SetImage"> {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -27061,15 +26794,12 @@ interface DImageButton extends Omit<DButton, "SetImage"> {
      * @param stretch - True to stretch, false to not to stretch
      */
     SetStretchToFit(stretch: boolean): void;
-
 }
 
 /**
  * Uses the [killicon](https://wiki.facepunch.com/gmod/killicon) to persistently draw a killicon.
  */
 interface DKillIcon extends Panel {
-
-
     /**
      * 🟨 [Client]
      *
@@ -27086,15 +26816,12 @@ interface DKillIcon extends Panel {
      * @param iconName - The name of the killicon to be displayed.
      */
     SetName(iconName: string): void;
-
 }
 
 /**
  * A standard Derma text label. A lot of this panels functionality is a base for button elements, such as [DButton](https://wiki.facepunch.com/gmod/DButton)
  */
 interface DLabel extends Label {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -27499,7 +27226,6 @@ interface DLabel extends Label {
      * Called internally to update the color of the text.
      */
     UpdateFGColor(): void;
-
 }
 
 /**
@@ -27508,8 +27234,6 @@ interface DLabel extends Label {
  * 		This is used in the spawnmenu spawnlist headers.
  */
 interface DLabelEditable extends DLabel {
-
-
     /**
      * 🟨 [Client]
      *
@@ -27541,7 +27265,6 @@ interface DLabelEditable extends DLabel {
      * @param stretch - Whether the editable label should stretch to the text entered or not.
      */
     SetAutoStretch(stretch: boolean): void;
-
 }
 
 /**
@@ -27550,8 +27273,6 @@ interface DLabelEditable extends DLabel {
  * This panel uses [gui.OpenURL](https://wiki.facepunch.com/gmod/gui.OpenURL) internally and its restrictions apply.
  */
 interface DLabelURL extends URLLabel {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -27620,7 +27341,6 @@ interface DLabelURL extends URLLabel {
      * Used internally to set correct text color via [Panel:SetFGColor](https://wiki.facepunch.com/gmod/Panel:SetFGColor) and [DLabelURL:GetColor](https://wiki.facepunch.com/gmod/DLabelURL:GetColor).
      */
     UpdateFGColor(): void;
-
 }
 
 /**
@@ -27630,8 +27350,6 @@ interface DLabelURL extends URLLabel {
  * @deprecated Derived from the deprecated [DPanelList](https://wiki.facepunch.com/gmod/DPanelList).
  */
 interface DListBox extends DPanelList {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -27685,15 +27403,12 @@ interface DListBox extends DPanelList {
      * @param items - The items to select. A list of [DListBoxItem](https://wiki.facepunch.com/gmod/DListBoxItem).
      */
     SetSelectedItems(items: any): void;
-
 }
 
 /**
  * @deprecated Used Internally by [DListBox](https://wiki.facepunch.com/gmod/DListBox).
  */
 interface DListBoxItem extends DLabel {
-
-
     /**
      * 🟨 [Client]
      *
@@ -27716,7 +27431,6 @@ interface DListBoxItem extends DLabel {
      * @param parent - The "mother" panel to set.
      */
     SetMother(parent: Panel): void;
-
 }
 
 /**
@@ -27728,17 +27442,12 @@ interface DListBoxItem extends DLabel {
  */
 interface DListLayout extends DDragBase {
 
-
-
-
 }
 
 /**
  * A data view with rows and columns.
  */
 interface DListView extends DPanel {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -28049,15 +27758,12 @@ interface DListView extends DPanel {
      * @param [descrending4 = false] -
      */
     SortByColumns(column1?: number, descrending1 = false, column2?: number, descrending2 = false, column3?: number, descrending3 = false, column4?: number, descrending4 = false): void;
-
 }
 
 /**
  * A single column, used by [DListView](https://wiki.facepunch.com/gmod/DListView).
  */
 interface DListView_Column extends Panel {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -28199,16 +27905,12 @@ interface DListView_Column extends Panel {
      * @param width - The number value which will determine panel width.
      */
     SetWidth(width: number): void;
-
 }
 
 /**
  * **	**
  */
 interface DListView_ColumnPlain extends DListView_Column {
-
-
-
 
 }
 
@@ -28217,17 +27919,12 @@ interface DListView_ColumnPlain extends DListView_Column {
  */
 interface DListView_DraggerBar extends DButton {
 
-
-
-
 }
 
 /**
  * A panel used by [DListView](https://wiki.facepunch.com/gmod/DListView)
  */
 interface DListView_Line extends Panel {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -28366,16 +28063,12 @@ interface DListView_Line extends Panel {
      * @param value - Column text you want to set
      */
     SetValue(column: number, value: string): DLabel;
-
 }
 
 /**
  * **.**
  */
 interface DListViewHeaderLabel extends DLabel {
-
-
-
 
 }
 
@@ -28384,9 +28077,6 @@ interface DListViewHeaderLabel extends DLabel {
  */
 interface DListViewLabel extends DLabel {
 
-
-
-
 }
 
 /**
@@ -28394,17 +28084,12 @@ interface DListViewLabel extends DLabel {
  */
 interface DListViewLine extends Panel {
 
-
-
-
 }
 
 /**
  * A simple menu with sub menu, icon and convar support.
  */
 interface DMenu extends DScrollPanel {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -28644,15 +28329,12 @@ interface DMenu extends DScrollPanel {
      * @param item - The menu to store
      */
     SetOpenSubMenu(item: Panel): void;
-
 }
 
 /**
  * A simple menu bar.
  */
 interface DMenuBar extends DPanel {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -28731,15 +28413,12 @@ interface DMenuBar extends DPanel {
      * @param shouldPaint - Should the background be painted
      */
     SetPaintBackground(shouldPaint: boolean): void;
-
 }
 
 /**
  * Internal subpanel that represents an option used by [DMenu](https://wiki.facepunch.com/gmod/DMenu).
  */
 interface DMenuOption extends DButton {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -28835,7 +28514,6 @@ interface DMenuOption extends DButton {
      * Toggles the checked state of [DMenuOption](https://wiki.facepunch.com/gmod/DMenuOption). Does not respect [DMenuOption:GetIsCheckable](https://wiki.facepunch.com/gmod/DMenuOption:GetIsCheckable).
      */
     ToggleCheck(): void;
-
 }
 
 /**
@@ -28848,8 +28526,6 @@ interface DMenuOption extends DButton {
  * 		Use [DMenu:AddCVar](https://wiki.facepunch.com/gmod/DMenu:AddCVar) instead.
  */
 interface DMenuOptionCVar extends DMenuOption {
-
-
     /**
      * 🟨 [Client]
      *
@@ -28894,15 +28570,12 @@ interface DMenuOptionCVar extends DMenuOption {
      * @param value - The value
      */
     SetValueOn(value: string): void;
-
 }
 
 /**
  * DModelPanel is a VGUI element that projects a 3D model onto a 2D plane. See also [DAdjustableModelPanel](https://wiki.facepunch.com/gmod/DAdjustableModelPanel)
  */
 interface DModelPanel extends DButton {
-
-
     /**
      * 🟨 [Client]
      *
@@ -29127,7 +28800,6 @@ interface DModelPanel extends DButton {
      * @param path - The path to the scene file. (.vcd)
      */
     StartScene(path: string): void;
-
 }
 
 /**
@@ -29136,8 +28808,6 @@ interface DModelPanel extends DButton {
  * @deprecated This is derived from the deprecated [DPanelList](https://wiki.facepunch.com/gmod/DPanelList).
  */
 interface DModelSelect extends DPanelSelect {
-
-
     /**
      * 🟨 [Client]
      *
@@ -29158,15 +28828,12 @@ interface DModelSelect extends DPanelSelect {
      * @param dontCallListConVars - If set, only the `convar` from the 2nd argument will be set, not individual convars from the models list.
      */
     SetModelList(models: any, convar: string, dontSort: boolean, dontCallListConVars: boolean): void;
-
 }
 
 /**
  * A combination of [DModelSelect](https://wiki.facepunch.com/gmod/DModelSelect) and [DPropertySheet](https://wiki.facepunch.com/gmod/DPropertySheet).
  */
 interface DModelSelectMulti extends DPropertySheet {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -29178,15 +28845,12 @@ interface DModelSelectMulti extends DPropertySheet {
      * @param dontCallListConVars - If set, only the `convar` from the 2nd argument will be set, not individual convars from the models list.
      */
     AddModelList(name: string, models: any, convar: string, dontSort: boolean, dontCallListConVars: boolean): void;
-
 }
 
 /**
  * A panel that fades its contents in and out once, like a notification.
  */
 interface DNotify extends Panel {
-
-
     /**
      * 🟨 [Client]
      *
@@ -29255,7 +28919,6 @@ interface DNotify extends Panel {
      * Used internally to position and fade in/out its [DNotify:GetItems](https://wiki.facepunch.com/gmod/DNotify:GetItems).
      */
     Shuffle(): void;
-
 }
 
 /**
@@ -29263,8 +28926,6 @@ interface DNotify extends Panel {
  * 		Zoom in by moving your mouse forward and moving back does the opposite. Looks like a blue circle until you click and hold on it
  */
 interface DNumberScratch extends DImageButton {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -29489,15 +29150,12 @@ interface DNumberScratch extends DImageButton {
      * Forces the assigned ConVar to be updated to the value of this [DNumberScratch](https://wiki.facepunch.com/gmod/DNumberScratch)
      */
     UpdateConVar(): void;
-
 }
 
 /**
  * DNumberWang is a VGUI element that allows you to input a numeric value using up and down arrows or direct entry.
  */
 interface DNumberWang extends Omit<DTextEntry, "SetValue"> {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -29634,7 +29292,6 @@ interface DNumberWang extends Omit<DTextEntry, "SetValue"> {
      * @param val - The value to set.
      */
     SetValue(val: number): void;
-
 }
 
 /**
@@ -29644,17 +29301,12 @@ interface DNumberWang extends Omit<DTextEntry, "SetValue"> {
  */
 interface DNumPad extends DPanel {
 
-
-
-
 }
 
 /**
  * The **DNumSlider** allows you to create a slider, allowing the user to slide it to set a value, or changing the value in the box.
  */
 interface DNumSlider extends Panel {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -29824,15 +29476,12 @@ interface DNumSlider extends Panel {
      * @param value - The value the slider has been changed to.
      */
     ValueChanged(value: number): void;
-
 }
 
 /**
  * A simple rectangular box, commonly used for parenting other elements to. Pretty much all elements are based on this.
  */
 interface DPanel extends Panel {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -29945,7 +29594,6 @@ interface DPanel extends Panel {
      * Does nothing.
      */
     UpdateColours(): void;
-
 }
 
 /**
@@ -29956,8 +29604,6 @@ interface DPanel extends Panel {
  * @deprecated Use a combination of [DIconLayout](https://wiki.facepunch.com/gmod/DIconLayout), [DListLayout](https://wiki.facepunch.com/gmod/DListLayout) and [DScrollPanel](https://wiki.facepunch.com/gmod/DScrollPanel) instead.
  */
 interface DPanelList extends DPanel {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -30049,15 +29695,12 @@ interface DPanelList extends DPanel {
      * @param Distance - Distance between panels
      */
     SetSpacing(Distance: number): void;
-
 }
 
 /**
  * Adds curved corners.
  */
 interface DPanelOverlay extends DPanel {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -30111,7 +29754,6 @@ interface DPanelOverlay extends DPanel {
      * * 3 - 2 top? corners of hardcoded color, 2 other corners of given color
      */
     SetType(type: number): void;
-
 }
 
 /**
@@ -30122,8 +29764,6 @@ interface DPanelOverlay extends DPanel {
  * @deprecated This is derived from the deprecated [DPanelList](https://wiki.facepunch.com/gmod/DPanelList).
  */
 interface DPanelSelect extends DPanelList {
-
-
     /**
      * 🟨 [Client]
      *
@@ -30156,15 +29796,12 @@ interface DPanelSelect extends DPanelList {
      * @param pnl - Panel to select. It should've been added previously via [DPanelSelect:AddPanel](https://wiki.facepunch.com/gmod/DPanelSelect:AddPanel).
      */
     SelectPanel(pnl: Panel): void;
-
 }
 
 /**
  * A panel similar to [DScrollPanel](https://wiki.facepunch.com/gmod/DScrollPanel), but that allows the player to pan around, for example a zoomed in image within a small window.
  */
 interface DPanPanel extends DPanel {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -30204,15 +29841,12 @@ interface DPanPanel extends DPanel {
      * @param pnl - The canvas panel.
      */
     SetCanvas(pnl: Panel): void;
-
 }
 
 /**
  * A progressbar, works with a fraction between 0 and 1 where 0 is 0% and 1 is 100%.
  */
 interface DProgress extends Panel {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -30227,7 +29861,6 @@ interface DProgress extends Panel {
      * @param fraction - Fraction of the progress bar. Range is 0 to 1 (0% to 100%).
      */
     SetFraction(fraction: number): void;
-
 }
 
 /**
@@ -30243,8 +29876,6 @@ interface DProgress extends Panel {
  * * [DProperty_Int](https://wiki.facepunch.com/gmod/DProperty_Int)
  */
 interface DProperties extends Panel {
-
-
     /**
      * 🟨 [Client]
      *
@@ -30271,7 +29902,6 @@ interface DProperties extends Panel {
      * @param [create = false] - Create a new category if it doesn't exist.
      */
     GetCategory(name: string, create = false): Panel;
-
 }
 
 /**
@@ -30279,17 +29909,12 @@ interface DProperties extends Panel {
  */
 interface DProperty_Boolean extends DProperty_Generic {
 
-
-
-
 }
 
 /**
  * [DComboBox](https://wiki.facepunch.com/gmod/DComboBox) control for a [DProperties](https://wiki.facepunch.com/gmod/DProperties) panel.
  */
 interface DProperty_Combo extends Omit<DProperty_Generic, "SetSelected"> {
-
-
     /**
      * 🟨 [Client]
      *
@@ -30328,7 +29953,6 @@ interface DProperty_Combo extends Omit<DProperty_Generic, "SetSelected"> {
      * * [boolean](https://wiki.facepunch.com/gmod/boolean) select - The "nice" name/key of the value that should be initially selected.
      */
     Setup(data?: any): void;
-
 }
 
 /**
@@ -30336,32 +29960,24 @@ interface DProperty_Combo extends Omit<DProperty_Generic, "SetSelected"> {
  */
 interface DProperty_Entity extends DProperty_Generic {
 
-
-
-
 }
 
 /**
  * Float control for the [DProperties](https://wiki.facepunch.com/gmod/DProperties) panel.
  */
 interface DProperty_Float extends DProperty_Generic {
-
-
     /**
      * 🟨 [Client]
      *
      * Called to poll the amount of digits after the decimal point. This is used internally for [DProperty_Int](https://wiki.facepunch.com/gmod/DProperty_Int).
      */
     GetDecimals(): any;
-
 }
 
 /**
  * A base for other controls for [DProperties](https://wiki.facepunch.com/gmod/DProperties). Acts as a generic text input on its own.
  */
 interface DProperty_Generic extends Panel {
-
-
     /**
      * 🟨 [Client]
      *
@@ -30393,16 +30009,12 @@ interface DProperty_Generic extends Panel {
      * @param force - Force an update.
      */
     ValueChanged(newVal: any, force: boolean): void;
-
 }
 
 /**
  * Integer control for the [DProperties](https://wiki.facepunch.com/gmod/DProperties) panel.
  */
 interface DProperty_Int extends DProperty_Float {
-
-
-
 
 }
 
@@ -30412,8 +30024,6 @@ interface DProperty_Int extends DProperty_Float {
  * 		See [Editable Entities](https://wiki.facepunch.com/gmod/Editable_Entities) for how this is used ingame.
  */
 interface DProperty_VectorColor extends DProperty_Generic {
-
-
     /**
      * 🟨 [Client]
      *
@@ -30429,15 +30039,12 @@ interface DProperty_VectorColor extends DProperty_Generic {
      * @param color - Sets the color to use in a [DProperty_VectorColor](https://wiki.facepunch.com/gmod/DProperty_VectorColor).
      */
     SetValue(color: Vector): void;
-
 }
 
 /**
  * A tab oriented control where you can create multiple tabs with items within. Used mainly for organization.
  */
 interface DPropertySheet extends Panel {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -30574,7 +30181,6 @@ interface DPropertySheet extends Panel {
      * @param name - Case sensitive name of the tab.
      */
     SwitchToName(name: string): void;
-
 }
 
 /**
@@ -30585,8 +30191,6 @@ interface DPropertySheet extends Panel {
  * See [DColorMixer](https://wiki.facepunch.com/gmod/DColorMixer) for a color picker that allows control over hue, saturation, and brightness at once.
  */
 interface DRGBPicker extends DPanel {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -30622,16 +30226,12 @@ interface DRGBPicker extends DPanel {
      * @param color - The color to set, see [Color](https://wiki.facepunch.com/gmod/Color).
      */
     SetRGB(color: Color): void;
-
 }
 
 /**
  * An internal panel used by [DVScrollBar](https://wiki.facepunch.com/gmod/DVScrollBar) as the grip (middle) part of the scrollbar.
  */
 interface DScrollBarGrip extends DPanel {
-
-
-
 
 }
 
@@ -30646,8 +30246,6 @@ interface DScrollBarGrip extends DPanel {
  * >[Panel:DockPadding](https://wiki.facepunch.com/gmod/Panel:DockPadding) will not have an effect on children of this panel. Use the function on [DScrollPanel:GetCanvas](https://wiki.facepunch.com/gmod/DScrollPanel:GetCanvas) instead.
  */
 interface DScrollPanel extends DPanel {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -30721,15 +30319,12 @@ interface DScrollPanel extends DPanel {
      * @param padding - The padding of the DScrollPanel.
      */
     SetPadding(padding: number): void;
-
 }
 
 /**
  * Draw a shape on a derma panel. Only one kind of shape, a rectangle, is available for use.
  */
 interface DShape extends DPanel {
-
-
     /**
      * 🟨 [Client]
      *
@@ -30781,15 +30376,12 @@ interface DShape extends DPanel {
      * @param type - The render type of the DShape. Only rectangles (`Rect`) work currently. If you don't define a type immediately, the [PANEL:Paint](https://wiki.facepunch.com/gmod/PANEL:Paint) method will generate errors until you do.
      */
     SetType(type: string): void;
-
 }
 
 /**
  * A helper panel that will automatically resize itself to fit all its children using [Panel:SizeToChildren](https://wiki.facepunch.com/gmod/Panel:SizeToChildren).
  */
 interface DSizeToContents extends Panel {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -30819,15 +30411,12 @@ interface DSizeToContents extends Panel {
      * @param sizeY - Whether the panel should size to contents vertically.
      */
     SetSizeY(sizeY: boolean): void;
-
 }
 
 /**
  * Creates a slider that can be moved along the X and/or Y axis
  */
 interface DSlider extends Panel {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -31078,7 +30667,6 @@ interface DSlider extends Panel {
      * @param y - The input Y coordinate, in range of 0-1.
      */
     TranslateValues(x: number, y: number): LuaMultiReturn<[number, number]>;
-
 }
 
 /**
@@ -31087,8 +30675,6 @@ interface DSlider extends Panel {
  * A shortcut for this is [Global.CreateSprite](https://wiki.facepunch.com/gmod/Global.CreateSprite)().
  */
 interface DSprite extends DPanel {
-
-
     /**
      * 🟨 [Client]
      *
@@ -31148,15 +30734,12 @@ interface DSprite extends DPanel {
      * @param ang - The anti-clockwise rotation in degrees.
      */
     SetRotation(ang: number): void;
-
 }
 
 /**
  * This element is created within and only used in the [DPropertySheet](https://wiki.facepunch.com/gmod/DPropertySheet) file. These can be elements are stored items are stored in the `Items` subtable of the [DPropertySheet](https://wiki.facepunch.com/gmod/DPropertySheet)
  */
 interface DTab extends DButton {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -31211,7 +30794,6 @@ interface DTab extends DButton {
      * @param [icon = nil] - Icon for the tab. This will typically be a <page text="silkicon">Silkicons</page>, but any material name can be used.
      */
     Setup(label: string, sheet: Panel, pnl: Panel, icon?: string): void;
-
 }
 
 /**
@@ -31223,8 +30805,6 @@ interface DTab extends DButton {
  * You must also call [Panel:MakePopup](https://wiki.facepunch.com/gmod/Panel:MakePopup) on said panel or the `DTextEntry` will not work.
  */
 interface DTextEntry extends TextEntry {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -31643,7 +31223,6 @@ interface DTextEntry extends TextEntry {
      * Used internally to set text from the autocomplete menu.
      */
     UpdateFromMenu(): void;
-
 }
 
 /**
@@ -31668,8 +31247,6 @@ interface DTextEntry extends TextEntry {
  * 		All panels added following this will be moveable.
  */
 interface DTileLayout extends DDragBase {
-
-
     /**
      * 🟨 [Client]
      *
@@ -31841,7 +31418,6 @@ interface DTileLayout extends DDragBase {
      * @param state - The new state of the tile, normally `1` or `nil`.
      */
     SetTile(x: number, y: number, state: any): void;
-
 }
 
 /**
@@ -31850,8 +31426,6 @@ interface DTileLayout extends DDragBase {
  * 		<upload src="70c/8de029dfe107ffc.gif" size="12567" name="October03-1797-gmod.gif" />
  */
 interface DTooltip extends DLabel {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -31901,7 +31475,6 @@ interface DTooltip extends DLabel {
      * @param [delete_ = false] - If set to true, the panel in the first argument will be automatically removed when [DTooltip](https://wiki.facepunch.com/gmod/DTooltip) is closed via [DTooltip:Close](https://wiki.facepunch.com/gmod/DTooltip:Close).
      */
     SetContents(panel: Panel, delete_ = false): void;
-
 }
 
 /**
@@ -31910,8 +31483,6 @@ interface DTooltip extends DLabel {
  * See also [DTree_Node](https://wiki.facepunch.com/gmod/DTree_Node).
  */
 interface DTree extends DScrollPanel {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -32102,7 +31673,6 @@ interface DTree extends DScrollPanel {
      * Alias of [DTree:GetShowIcons](https://wiki.facepunch.com/gmod/DTree:GetShowIcons).
      */
     ShowIcons(): boolean;
-
 }
 
 /**
@@ -32110,8 +31680,6 @@ interface DTree extends DScrollPanel {
  * The root node of a [DTree](https://wiki.facepunch.com/gmod/DTree) is also a [DTree_Node](https://wiki.facepunch.com/gmod/DTree_Node) and controls much of its action. it can be accessed with [DTree:Root](https://wiki.facepunch.com/gmod/DTree:Root).
  */
 interface DTree_Node extends DPanel {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -32747,7 +32315,6 @@ interface DTree_Node extends DPanel {
      * See [DTree:ShowIcons](https://wiki.facepunch.com/gmod/DTree:ShowIcons) for more info.
      */
     ShowIcons(): number;
-
 }
 
 /**
@@ -32755,17 +32322,12 @@ interface DTree_Node extends DPanel {
  */
 interface DTree_Node_Button extends DButton {
 
-
-
-
 }
 
 /**
  * Vertical version of [DHorizontalDivider](https://wiki.facepunch.com/gmod/DHorizontalDivider).
  */
 interface DVerticalDivider extends DPanel {
-
-
     /**
      * 🟨 [Client]
      *
@@ -32931,7 +32493,6 @@ interface DVerticalDivider extends DPanel {
      * Causes the user to start dragging the divider.
      */
     StartGrab(): void;
-
 }
 
 /**
@@ -32940,8 +32501,6 @@ interface DVerticalDivider extends DPanel {
  * The scrollbar notably contains `DVScrollBar.btnUp`, `DVScrollBar.btnDown`, and `DVScrollBar.btnGrip` which are the up button, down button, and grip respectively. Editing the paint functions of these allows custom scrollbar styling (See [DScrollPanel:GetVBar](https://wiki.facepunch.com/gmod/DScrollPanel:GetVBar) for an example), although it is a better idea to use [Derma Skins](Derma_Skin_Creation).
  */
 interface DVScrollBar extends Panel {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -33022,7 +32581,6 @@ interface DVScrollBar extends Panel {
      * @param canvasSize - The total size of the canvas, this typically is the bigger number.
      */
     SetUp(barSize: number, canvasSize: number): void;
-
 }
 
 /**
@@ -33030,18 +32588,12 @@ interface DVScrollBar extends Panel {
  */
 interface EditablePanel extends Panel {
 
-
-
-
 }
 
 /**
  * A panel used by Sandbox's Finger Poser tool.
  */
 interface fingerposer extends ContextBase {
-
-
-
 
 }
 
@@ -33052,9 +32604,6 @@ interface fingerposer extends ContextBase {
  */
 interface FingerVar extends Panel {
 
-
-
-
 }
 
 /**
@@ -33063,9 +32612,6 @@ interface FingerVar extends Panel {
  * @deprecated You should use [DFrame](https://wiki.facepunch.com/gmod/DFrame) instead.
  */
 interface Frame extends Panel {
-
-
-
 
 }
 
@@ -33085,8 +32631,6 @@ interface Frame extends Panel {
  * * .swf
  */
 interface HTML extends Panel {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -33173,7 +32717,6 @@ interface HTML extends Panel {
      * @param url - The URL of the current page.
      */
     OnFinishLoadingDocument(url: string): void;
-
 }
 
 /**
@@ -33187,8 +32730,6 @@ interface HTML extends Panel {
  * >This panel is only available in Sandbox and Sandbox derived gamemodes!
  */
 interface IconEditor extends Omit<DFrame, "SetIcon"> {
-
-
     /**
      * 🟨 [Client]
      *
@@ -33292,7 +32833,6 @@ interface IconEditor extends Omit<DFrame, "SetIcon"> {
      * @param ent - The entity being rendered within the model panel.
      */
     UpdateEntity(ent: Entity): void;
-
 }
 
 /**
@@ -33304,8 +32844,6 @@ interface IconEditor extends Omit<DFrame, "SetIcon"> {
  * >Will error if no material was set.
  */
 interface ImageCheckBox extends Button {
-
-
     /**
      * 🟨 [Client]
      *
@@ -33346,7 +32884,6 @@ interface ImageCheckBox extends Button {
      * @param mat - The file path of the material to set (relative to "garrysmod/materials/").
      */
     SetMaterial(mat: string): void;
-
 }
 
 /**
@@ -33354,17 +32891,12 @@ interface ImageCheckBox extends Button {
  */
 interface Label extends Panel {
 
-
-
-
 }
 
 /**
  * Material is a VGUI element that renders a VMT material.
  */
 interface Material extends Button {
-
-
     /**
      * 🟨 [Client]
      *
@@ -33384,7 +32916,6 @@ interface Material extends Button {
      * @param matname - The file path of the material to set (relative to "garrysmod/materials/").
      */
     SetMaterial(matname: string): void;
-
 }
 
 /**
@@ -33393,8 +32924,6 @@ interface Material extends Button {
  * See also [PropSelect](https://wiki.facepunch.com/gmod/PropSelect) for the prop selecting alternative.
  */
 interface MatSelect extends ContextBase {
-
-
     /**
      * 🟨 [Client]
      *
@@ -33511,16 +33040,12 @@ interface MatSelect extends ContextBase {
      * @param rows - Amount of rows to target the height to. Default is `2`.
      */
     SetNumRows(rows: number): void;
-
 }
 
 /**
  * Panel used to display models, used by [SpawnIcon](https://wiki.facepunch.com/gmod/SpawnIcon).
  */
 interface ModelImage extends Panel {
-
-
-
 
 }
 
@@ -33531,9 +33056,6 @@ interface ModelImage extends Panel {
  */
 interface PanelList extends Panel {
 
-
-
-
 }
 
 /**
@@ -33541,9 +33063,6 @@ interface PanelList extends Panel {
  * 		This control only exists in Sandbox derived gamemodes.
  */
 interface PresetEditor extends DFrame {
-
-
-
 
 }
 
@@ -33553,8 +33072,6 @@ interface PresetEditor extends DFrame {
  * See also [MatSelect](https://wiki.facepunch.com/gmod/MatSelect) for the material selecting alternative.
  */
 interface PropSelect extends ContextBase {
-
-
     /**
      * 🟨 [Client]
      *
@@ -33627,16 +33144,12 @@ interface PropSelect extends ContextBase {
      * If 0 or below, it will automatically stretch to fit all rows.
      */
     Height(): number;
-
 }
 
 /**
  * Currently there are no functions to retrieve checked state of a Radio Button, and their visuals are seemingly broken.
  */
 interface RadioButton extends Panel {
-
-
-
 
 }
 
@@ -33651,9 +33164,6 @@ interface RadioButton extends Panel {
  */
 interface RichText extends Panel {
 
-
-
-
 }
 
 /**
@@ -33662,9 +33172,6 @@ interface RichText extends Panel {
  * @deprecated Used in deprecated  [PanelList](https://wiki.facepunch.com/gmod/PanelList). Use [DVScrollBar](https://wiki.facepunch.com/gmod/DVScrollBar) (Used in [DScrollPanel](https://wiki.facepunch.com/gmod/DScrollPanel)).
  */
 interface SlideBar extends Panel {
-
-
-
 
 }
 
@@ -33676,9 +33183,6 @@ interface SlideBar extends Panel {
  */
 interface Slider extends Panel {
 
-
-
-
 }
 
 /**
@@ -33687,8 +33191,6 @@ interface Slider extends Panel {
  * 		It uses [ModelImage](https://wiki.facepunch.com/gmod/ModelImage) internally.
  */
 interface SpawnIcon extends DButton {
-
-
     /**
      * 🟨 [Client]
      *
@@ -33753,15 +33255,12 @@ interface SpawnIcon extends DButton {
      * @param skin - Skin ID to set
      */
     SetSkinID(skin: number): void;
-
 }
 
 /**
  * The default SpawnmenuContentPanel
  */
 interface SpawnmenuContentPanel extends DPanel {
-
-
     /**
      * 🟨 [Client]
      *
@@ -33793,7 +33292,6 @@ interface SpawnmenuContentPanel extends DPanel {
      * @param panel - Panel to switch to
      */
     SwitchPanel(panel: Panel): void;
-
 }
 
 /**
@@ -33802,8 +33300,6 @@ interface SpawnmenuContentPanel extends DPanel {
  * See [DTextEntry](https://wiki.facepunch.com/gmod/DTextEntry) for a more advanced version.
  */
 interface TextEntry extends Panel {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -33822,16 +33318,12 @@ interface TextEntry extends Panel {
      * You may be looking for [DTextEntry:OnValueChange](https://wiki.facepunch.com/gmod/DTextEntry:OnValueChange) instead.
      */
     OnTextChanged(): void;
-
 }
 
 /**
  * A panel capable of loading `.tga` images.
  */
 interface TGAImage extends Panel {
-
-
-
 
 }
 
@@ -33840,8 +33332,6 @@ interface TGAImage extends Panel {
  * 	<image src="b04e5/8dc6d3d77422fbe.png" size="94866" name="image.png" />
  */
 interface UGCPublishWindow extends DFrame {
-
-
     /**
      * 🟩 [Menu]
      *
@@ -33906,7 +33396,6 @@ interface UGCPublishWindow extends DFrame {
      * updated the Workshop items list.
      */
     UpdateWorkshopItems(): void;
-
 }
 
 /**
@@ -33915,9 +33404,6 @@ interface UGCPublishWindow extends DFrame {
  * 		A panel similar to [Label](https://wiki.facepunch.com/gmod/Label), but can be clicked to open a URL in the Steam Overlay, and appears with an underline. This is used by [DLabelURL](https://wiki.facepunch.com/gmod/DLabelURL).
  */
 interface URLLabel extends Panel {
-
-
-
 
 }
 
@@ -37082,7 +36568,6 @@ interface Gamemode {
      * @param max - Total amount of subscribed addons that need their info retrieved.
      */
     WorkshopSubscriptionsProgress(num: number, max: number): void;
-
 }
 
 /**
@@ -37098,8 +36583,6 @@ interface Gamemode {
  * >The hooks listed here are also dependent on the scripted entity type. For instance, a base scripted entity will not use [ENTITY:DoSchedule](https://wiki.facepunch.com/gmod/ENTITY:DoSchedule) at all, that is only for scripted NPCs
  */
 interface ENTITY extends Entity {
-
-
     /**
      * 🟦 [Server]
      *
@@ -38149,7 +37632,6 @@ interface ENTITY extends Entity {
      * @param value - Any passed value.
      */
     Use(activator: Entity, caller: Entity, useType: USE, value: number): void;
-
 }
 
 /**
@@ -38158,8 +37640,6 @@ interface ENTITY extends Entity {
  * You can find all available SWEP fields here: [Structures/SWEP](https://wiki.facepunch.com/gmod/Structures/SWEP)
  */
 interface WEAPON extends Weapon {
-
-
     /**
      * 🟦 [Server]
      *
@@ -38748,7 +38228,6 @@ interface WEAPON extends Weapon {
      * @param ViewModel - Players view model
      */
     ViewModelDrawn(ViewModel: Entity): void;
-
 }
 
 /**
@@ -38929,7 +38408,6 @@ interface TOOL extends Tool {
      * Called when [WEAPON:Think](https://wiki.facepunch.com/gmod/WEAPON:Think) of the toolgun is called. This only happens when the tool gun is currently equipped/selected by the player and the selected tool is this tool.
      */
     Think(): void;
-
 }
 
 /**
@@ -39015,8 +38493,6 @@ interface TOOL extends Tool {
  * 	</summary>
  */
 interface EFFECT extends Entity {
-
-
     /**
      * 🟨 [Client]
      *
@@ -39084,7 +38560,6 @@ interface EFFECT extends Entity {
      * Effect alternative to [ENTITY:Touch](https://wiki.facepunch.com/gmod/ENTITY:Touch).
      */
     Touch(): void;
-
 }
 
 /**
@@ -39334,7 +38809,6 @@ interface PLAYER {
      * @param new_ - The new model
      */
     ViewModelChanged(viewmodel: Entity, old: string, new_: string): void;
-
 }
 
 /**
@@ -39353,8 +38827,6 @@ interface PLAYER {
  * >This function or feature is only available in the Sandbox gamemode and its.
  */
 interface SANDBOX extends GM {
-
-
     /**
      * 🟨 [Client]
      *
@@ -39866,7 +39338,6 @@ interface SANDBOX extends GM {
      * This hook **will** be called even if the spawnmenu doesn't actually exist, i.e. [SANDBOX:SpawnMenuEnabled](https://wiki.facepunch.com/gmod/SANDBOX:SpawnMenuEnabled) blocked its creation.
      */
     SpawnMenuOpened(): void;
-
 }
 
 /**
@@ -39957,9 +39428,6 @@ interface AmmoData {
      * @default 0
      */
     flags?: AMMO,
-
-
-
 }
 
 /**
@@ -39982,9 +39450,6 @@ interface AngPos {
      * The bone ID the attachment point is parented to.
      */
     Bone: number,
-
-
-
 }
 
 /**
@@ -40090,9 +39555,6 @@ interface AnimationData {
      * Whether or not to use easing to make the panel 'jump' at its target, slowing as it approaches. Only used by [Panel:LerpPositions](https://wiki.facepunch.com/gmod/Panel:LerpPositions).
      */
     UseGravity: boolean,
-
-
-
 }
 
 /**
@@ -40110,9 +39572,6 @@ interface AttachmentData {
      * Name of the attachment.
      */
     name: string,
-
-
-
 }
 
 /**
@@ -40140,9 +39599,6 @@ interface BalloonData {
      * @default 0
      */
     Skin?: number,
-
-
-
 }
 
 /**
@@ -40172,9 +39628,6 @@ interface BodyGroupData {
      * 			Sub Model IDs start at `0`.
      */
     submodels: string[],
-
-
-
 }
 
 /**
@@ -40194,9 +39647,6 @@ interface BoneBindPose {
      * A [VMatrix](https://wiki.facepunch.com/gmod/VMatrix) containing this bone's position and rotation in local space relative to the model's origin.
      */
     matrix: VMatrix,
-
-
-
 }
 
 /**
@@ -40229,9 +39679,6 @@ interface BoneManipulationData {
      * @default nil
      */
     p?: Vector,
-
-
-
 }
 
 /**
@@ -40255,9 +39702,6 @@ interface BoneWeight {
      * A percentage between `0` and `1` indicating how much influence this bone's [VMatrix](https://wiki.facepunch.com/gmod/VMatrix) should have on the the vertex.
      */
     weight: number,
-
-
-
 }
 
 /**
@@ -40373,9 +39817,6 @@ interface Bullet {
      * @default NULL
      */
     IgnoreEntity?: Entity,
-
-
-
 }
 
 /**
@@ -40426,9 +39867,6 @@ interface CamData {
      * @default nil
      */
     ortho?: any,
-
-
-
 }
 
 /**
@@ -40527,9 +39965,6 @@ interface CollisionData {
      * Old angular velocity of the entity we collided with
      */
     TheirOldAngularVelocity: Vector,
-
-
-
 }
 
 /**
@@ -40561,9 +39996,6 @@ interface CreationMenus {
      * The tooltip to be shown with the tab.
      */
     Tooltip: string,
-
-
-
 }
 
 /**
@@ -40618,9 +40050,6 @@ interface DateData {
      * Year
      */
     year: number,
-
-
-
 }
 
 /**
@@ -40737,9 +40166,6 @@ interface DebugInfo {
      * **Option: L**
      */
     activelines: any,
-
-
-
 }
 
 /**
@@ -40842,9 +40268,6 @@ interface DynamicLight {
      * The red part of the color
      */
     r: number,
-
-
-
 }
 
 /**
@@ -40930,9 +40353,6 @@ interface EmitSoundInfo {
      * The origin of the played sound.
      */
     Pos: Vector,
-
-
-
 }
 
 /**
@@ -41089,9 +40509,6 @@ interface ENT {
      * @default false
      */
     PhysicsSounds?: boolean,
-
-
-
 }
 
 /**
@@ -41199,9 +40616,6 @@ interface EntityCopyData {
      * Deprecated, always 0. See [Entity:GetWorkshopID](https://wiki.facepunch.com/gmod/Entity:GetWorkshopID).
      */
     WorkshopID: number,
-
-
-
 }
 
 /**
@@ -41252,9 +40666,6 @@ interface FiredBullet {
      * The [Structures/TraceResult](https://wiki.facepunch.com/gmod/Structures/TraceResult) from the <page text="Trace">util.TraceLine</page> that determined where and what the bullet hit.
      */
     Trace: TraceResult,
-
-
-
 }
 
 /**
@@ -41367,9 +40778,6 @@ interface FontData {
      * @default false
      */
     outline?: boolean,
-
-
-
 }
 
 /**
@@ -41397,9 +40805,6 @@ interface FormattedTime {
      * hours
      */
     h: number,
-
-
-
 }
 
 /**
@@ -41473,9 +40878,6 @@ interface HTTPRequest {
      * @default 60
      */
     timeout?: number,
-
-
-
 }
 
 /**
@@ -41552,9 +40954,6 @@ interface HullTrace {
      * @default false
      */
     hitclientonly?: boolean,
-
-
-
 }
 
 /**
@@ -41638,9 +41037,6 @@ interface LocalLight {
      * @default 1
      */
     constantFalloff?: number,
-
-
-
 }
 
 /**
@@ -41675,9 +41071,6 @@ interface MatProxyData {
      * </callback>
      */
     bind: Function,
-
-
-
 }
 
 /**
@@ -41775,9 +41168,6 @@ interface MeshVertex {
      * Current added exclusively by [util.GetModelMeshes](https://wiki.facepunch.com/gmod/util.GetModelMeshes)
      */
     weights: any[],
-
-
-
 }
 
 /**
@@ -41953,9 +41343,6 @@ interface ModelInfo {
      * * Bone
      */
     HitBoxSets: any[],
-
-
-
 }
 
 /**
@@ -41987,9 +41374,6 @@ interface ModelMeshData {
      * >This field has a typo in its name and should be named "vertices"
      */
     verticies: any[],
-
-
-
 }
 
 /**
@@ -42107,9 +41491,6 @@ interface NPCData {
      * @default nil
      */
     OnDuplicated?: Function,
-
-
-
 }
 
 /**
@@ -42147,9 +41528,6 @@ interface OperatingParams {
      * Wheels on ground
      */
     wheelsInContact: number,
-
-
-
 }
 
 /**
@@ -42192,9 +41570,6 @@ interface PanelPaintState {
      * Whether or not the [Panel](https://wiki.facepunch.com/gmod/Panel) currently being drawn has [render.SetScissorRect](https://wiki.facepunch.com/gmod/render.SetScissorRect) active.
      */
     scissor_enabled: boolean,
-
-
-
 }
 
 /**
@@ -42257,9 +41632,6 @@ interface PathSegment {
      * * 5 is climbing a ladder down (unused)
      */
     type: number,
-
-
-
 }
 
 /**
@@ -42337,9 +41709,6 @@ interface PhysEnvPerformanceSettings {
      * @default nil
      */
     MaxFrictionMass?: number,
-
-
-
 }
 
 /**
@@ -42379,9 +41748,6 @@ interface PhysicsObjectSave {
      * Whether the entity is dormant or not. [PhysObj:IsAsleep](https://wiki.facepunch.com/gmod/PhysObj:IsAsleep)
      */
     Sleep: boolean,
-
-
-
 }
 
 /**
@@ -42401,9 +41767,6 @@ interface PhysProperties {
      * @default nil
      */
     Material?: string,
-
-
-
 }
 
 /**
@@ -42438,9 +41801,6 @@ interface PolygonVertex {
      * The v texture coordinate of the vertex. `Can be left blank.`
      */
     v: number,
-
-
-
 }
 
 /**
@@ -42468,9 +41828,6 @@ interface Preset {
      * What to do with addons not in the preset. Can be `enable`, `disable` or nothing.
      */
     newAction: string,
-
-
-
 }
 
 /**
@@ -42506,9 +41863,6 @@ interface Problem {
      * a Function that fixes the Problem.
      */
     fix: Function,
-
-
-
 }
 
 /**
@@ -42633,9 +41987,6 @@ interface PropertyAdd {
      * </callback>
      */
     OnCreate: Function,
-
-
-
 }
 
 /**
@@ -42745,9 +42096,6 @@ interface RenderCamData {
      * @default nil
      */
     ortho?: any,
-
-
-
 }
 
 /**
@@ -42793,9 +42141,6 @@ interface RenderCaptureData {
      * @default true
      */
     alpha?: boolean,
-
-
-
 }
 
 /**
@@ -42892,9 +42237,6 @@ interface SequenceInfo {
      * A 1-based array of all animationIDs associated with this sequence. For use with [Entity:GetAnimInfo](https://wiki.facepunch.com/gmod/Entity:GetAnimInfo).
      */
     anims: number[],
-
-
-
 }
 
 /**
@@ -42955,9 +42297,6 @@ interface ServerQueryData {
      * Called when the query is finished. No arguments
      */
     Finished: Function,
-
-
-
 }
 
 /**
@@ -43029,9 +42368,6 @@ interface ShadowControlParams {
      * @default 0
      */
     teleportdistance?: number,
-
-
-
 }
 
 /**
@@ -43095,9 +42431,6 @@ interface SoundData {
      * @default 100
      */
     pitchend?: number,
-
-
-
 }
 
 /**
@@ -43145,9 +42478,6 @@ interface SoundHintData {
      * <page text="CHAN_ enums">Enums/CHAN</page>
      */
     channel: CHAN,
-
-
-
 }
 
 /**
@@ -43165,9 +42495,6 @@ interface SunInfo {
      * Indicates how obstructed the sun is, 1 not visible, 0 fully visible
      */
     obstruction: number,
-
-
-
 }
 
 /**
@@ -43305,9 +42632,6 @@ interface SurfacePropertyData {
      * Unused sound.
      */
     strainSound: string,
-
-
-
 }
 
 /**
@@ -43618,9 +42942,6 @@ interface SWEP {
      * @default entities/<ClassName>.png
      */
     IconOverride?: string,
-
-
-
 }
 
 /**
@@ -43648,9 +42969,6 @@ interface TeamData {
      * Score of the team
      */
     Score: number,
-
-
-
 }
 
 /**
@@ -43692,9 +43010,6 @@ interface TextData {
      * @default color_white
      */
     color?: Color,
-
-
-
 }
 
 /**
@@ -43733,9 +43048,6 @@ interface TextureData {
      * @default color_white
      */
     color?: Color,
-
-
-
 }
 
 /**
@@ -43758,9 +43070,6 @@ interface ToScreenData {
      * The coordinate is not behind the player. **This does not mean the coordinate is on the screen.** When this is false, it means that the coordinate would not be on the screen even if the player had a full 180 degree FOV.
      */
     visible: boolean,
-
-
-
 }
 
 /**
@@ -43829,9 +43138,6 @@ interface Trace {
      * @default false
      */
     hitclientonly?: boolean,
-
-
-
 }
 
 /**
@@ -43989,9 +43295,6 @@ interface TraceResult {
      * @default nil
      */
     HitBoxBone?: number,
-
-
-
 }
 
 /**
@@ -44136,9 +43439,6 @@ interface UGCFileInfo {
      * * `adult_only`
      */
     content_descriptors: string[],
-
-
-
 }
 
 /**
@@ -44176,9 +43476,6 @@ interface Undo {
      * A "nice" name of the undo, which will be used for the UI
      */
     NiceText: string,
-
-
-
 }
 
 /**
@@ -44216,9 +43513,6 @@ interface VehicleParams {
      * See [Structures/VehicleParamsSteering](https://wiki.facepunch.com/gmod/Structures/VehicleParamsSteering)
      */
     steering: VehicleParamsSteering,
-
-
-
 }
 
 /**
@@ -44283,9 +43577,6 @@ interface VehicleParamsAxle {
     wheels_skidMaterialIndex: number,
 
     wheels_springAdditionalLength: number,
-
-
-
 }
 
 /**
@@ -44321,9 +43612,6 @@ interface VehicleParamsBody {
     tiltForce: number,
 
     tiltForceHeight: number,
-
-
-
 }
 
 /**
@@ -44432,9 +43720,6 @@ interface VehicleParamsEngine {
     throttleTime: number,
 
     torqueBoost: boolean,
-
-
-
 }
 
 /**
@@ -44498,9 +43783,6 @@ interface VehicleParamsSteering {
     turnThrottleReduceFast: number,
 
     turnThrottleReduceSlow: number,
-
-
-
 }
 
 /**
@@ -44581,9 +43863,6 @@ interface VehicleTable {
      * A small description of the vehicle, for UI purposes.
      */
     Information: string,
-
-
-
 }
 
 /**
@@ -44647,9 +43926,6 @@ interface VideoData {
      * The videos height
      */
     height: number,
-
-
-
 }
 
 /**
@@ -44818,9 +44094,6 @@ interface ViewData {
      * Values outside the viewport are allowed, but not recommended - instead you should increase the view FOV.
      */
     offcenter: any,
-
-
-
 }
 
 /**
@@ -44944,9 +44217,6 @@ interface ViewSetup {
      * See [Structures/ViewData](https://wiki.facepunch.com/gmod/Structures/ViewData) for more info.
      */
     offcenter: any,
-
-
-
 }
 
 /**
@@ -60028,8 +59298,6 @@ declare function xpcall(func: Function, errorCallback: Function, ...arguments: a
  * This library is used internally by Garry's Mod to help keep track of achievement progress and unlock the appropriate achievements once a certain number is reached.
  */
 declare namespace achievements {
-
-
     /**
      * 🟨 [Client]
      *
@@ -60146,15 +59414,12 @@ declare namespace achievements {
      * Adds one to the count of how many times the spawnmenu has been opened. Once this count reaches 100,000, the 'Menu User' achievement is unlocked.
      */
     function SpawnMenuOpen(): void;
-
 }
 
 /**
  * The ai library.
  */
 declare namespace ai {
-
-
     /**
      * 🟦 [Server]
      *
@@ -60203,15 +59468,12 @@ declare namespace ai {
      * @param task - The task name.
      */
     function GetTaskID(task: string): number;
-
 }
 
 /**
  * Allows you to set up a schedule for NPCs to follow. This lets you dictate their actions.
  */
 declare namespace ai_schedule {
-
-
     /**
      * 🟦 [Server]
      *
@@ -60219,30 +59481,24 @@ declare namespace ai_schedule {
      * @param name - Name of the schedule.
      */
     function New(name: string): any;
-
 }
 
 /**
  * Used to create tasks for scripted NPCs.
  */
 declare namespace ai_task {
-
-
     /**
      * 🟦 [Server]
      *
      * Create a new empty task. Used by [Schedule:AddTask](https://wiki.facepunch.com/gmod/Schedule:AddTask) and [Schedule:EngTask](https://wiki.facepunch.com/gmod/Schedule:EngTask).
      */
     function New(): Task;
-
 }
 
 /**
  * The baseclass library. Used to lookup a field from a metatable.
  */
 declare namespace baseclass {
-
-
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
@@ -60282,7 +59538,6 @@ declare namespace baseclass {
      * @param tab - The base class.
      */
     function Set(name: string, tab: any): void;
-
 }
 
 /**
@@ -60290,8 +59545,6 @@ declare namespace baseclass {
  * Make sure you're familiar with [Bitwise Operators](https://code.tutsplus.com/articles/understanding-bitwise-operators--active-11301)
  */
 declare namespace bit {
-
-
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
@@ -60404,7 +59657,6 @@ declare namespace bit {
      * @param [characters = 8] - Maximum number of characters, if set. The absolute maximum is 8.
      */
     function tohex(value: number, characters = 8): string;
-
 }
 
 /**
@@ -60413,8 +59665,6 @@ declare namespace bit {
  * The matrix functions exist, but are mostly unusable unless you're familiar with the source engine's layout for each aspect.
  */
 declare namespace cam {
-
-
     /**
      * 🟨 [Client]
      *
@@ -60600,15 +59850,12 @@ declare namespace cam {
      * @param bottomOffset - The bottom plane offset.
      */
     function StartOrthoView(leftOffset: number, topOffset: number, rightOffset: number, bottomOffset: number): void;
-
 }
 
 /**
  * The chat library's purpose is to interface with the default chatbox.
  */
 declare namespace chat {
-
-
     /**
      * 🟨 [Client]
      *
@@ -60656,15 +59903,12 @@ declare namespace chat {
      * Plays the chat "tick" sound.
      */
     function PlaySound(): void;
-
 }
 
 /**
  * The cleanup library allows you to control what happens to custom entities when the clean-up buttons are pressed in the Utilities tab of the Spawn menu (default Q).
  */
 declare namespace cleanup {
-
-
     /**
      * 🟦 [Server]
      *
@@ -60734,15 +59978,12 @@ declare namespace cleanup {
      * Repopulates the clients cleanup menu
      */
     function UpdateUI(): void;
-
 }
 
 /**
  * The concommand library is used to create console commands which can be used to network (basic) information & events between the client and the server.
  */
 declare namespace concommand {
-
-
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
@@ -60819,15 +60060,12 @@ declare namespace concommand {
      * @param argumentString - string of all arguments sent to the command
      */
     function Run(ply: Player, cmd: string, args: any, argumentString: string): boolean;
-
 }
 
 /**
  * The constraint library allows you to control the constraint system built into the physics engine (rope, weld, ballsockets, etc).
  */
 declare namespace constraint {
-
-
     /**
      * 🟦 [Server]
      *
@@ -61357,15 +60595,12 @@ declare namespace constraint {
      * @param [color = color_white] - The color of the rope. See [Global.Color](https://wiki.facepunch.com/gmod/Global.Color).
      */
     function Winch(player: Player, ent1: Entity, ent2: Entity, bone1: number, bone2: number, localPos1: Vector, localPos2: Vector, width: number, fwdBind: KEY, bwdBind: KEY, fwdSpeed: number, bwdSpeed: number, material: string = "", toggle = false, color?: any): LuaMultiReturn<[Entity, Entity, Entity]>;
-
 }
 
 /**
  * The construct library is used to control the physical properties of entities.
  */
 declare namespace construct {
-
-
     /**
      * 🟦 [Server]
      *
@@ -61399,15 +60634,12 @@ declare namespace construct {
      * @param data - The table containing properties to apply. See [Structures/PhysProperties](https://wiki.facepunch.com/gmod/Structures/PhysProperties)
      */
     function SetPhysProp(ply: Player, ent: Entity, physObjID: number, physObj: PhysObj, data: PhysProperties): void;
-
 }
 
 /**
  * The controlpanel library.
  */
 declare namespace controlpanel {
-
-
     /**
      * 🟨 [Client]
      *
@@ -61423,7 +60655,6 @@ declare namespace controlpanel {
      * When you create a tool/option via [spawnmenu.AddToolMenuOption](https://wiki.facepunch.com/gmod/spawnmenu.AddToolMenuOption), the internal control panel name is `TOOL.Mode .. "_" .. tool_tab:lower() .. "_" .. tool_category:lower()`.
      */
     function Get(name: string): Panel;
-
 }
 
 /**
@@ -61439,8 +60670,6 @@ declare namespace controlpanel {
  * 		| [Menu](/gmod/States#menu) | `garrysmod/mn.db`
  */
 declare namespace cookie {
-
-
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
@@ -61477,15 +60706,12 @@ declare namespace cookie {
      * @param value - The data stored in the cookie.
      */
     function Set(key: string, value: string): void;
-
 }
 
 /**
  * Coroutines are similar to threads, however they do not run simultaneously. They offer a way to split up tasks and dynamically pause & resume functions.
  */
 declare namespace coroutine {
-
-
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
@@ -61558,15 +60784,12 @@ declare namespace coroutine {
      * @param returnValue - Arguments to be returned by the last call of [coroutine.resume](https://wiki.facepunch.com/gmod/coroutine.resume).
      */
     function yield(...returnValue: any[]): any;
-
 }
 
 /**
  * The cvars library allows you to control what happens when a cvar (console variable) is changed.
  */
 declare namespace cvars {
-
-
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
@@ -61650,15 +60873,12 @@ declare namespace cvars {
      * @param [default_ = nil] - The value to return if the console variable does not exist
      */
     function String(cvar: string, default_?: any): string;
-
 }
 
 /**
  * The debug library is intended to help you debug your scripts, however it also has several other powerful uses. Some builtin debug function were removed in GMod due to security reasons
  */
 declare namespace debug {
-
-
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
@@ -61862,7 +61082,6 @@ declare namespace debug {
      * @param n2 -
      */
     function upvaluejoin(f1: Function, n1: number, f2: Function, n2: number): void;
-
 }
 
 /**
@@ -61875,8 +61094,6 @@ declare namespace debug {
  * >These functions will not do anything unless the **developer** console variable is set to non 0.
  */
 declare namespace debugoverlay {
-
-
     /**
      * 🟨🟦 [Shared]
      *
@@ -62091,15 +61308,12 @@ declare namespace debugoverlay {
      * @param [ignoreZ = false] - If true, will draw on top of everything; ignoring the Z buffer
      */
     function Triangle(pos1: Vector, pos2: Vector, pos3: Vector, lifetime = 1, color?: Color, ignoreZ = false): void;
-
 }
 
 /**
  * The derma library allows you to add custom derma controls and create & modify derma skins.
  */
 declare namespace derma {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -62226,15 +61440,12 @@ declare namespace derma {
      * @param [fallback = nil] - What to return if we failed to retrieve the texture
      */
     function SkinTexture(name: string, pnl: Panel, fallback?: Function): Function;
-
 }
 
 /**
  * The drag'n'drop library, used internally by certain base panels to allow for drag'n'drop functionality, like spawnmenu's customizations.
  */
 declare namespace dragndrop {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -62316,15 +61527,12 @@ declare namespace dragndrop {
      * Updates the receiver to drop the panels onto. Called from [dragndrop.Think](https://wiki.facepunch.com/gmod/dragndrop.Think).
      */
     function UpdateReceiver(): void;
-
 }
 
 /**
  * The draw library's purpose is to simplify the usage of the [surface](https://wiki.facepunch.com/gmod/surface) library.
  */
 declare namespace draw {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -62491,15 +61699,12 @@ declare namespace draw {
      * @param [yalign = TEXT_ALIGN_TOP] - The alignment of the Y coordinate using [Enums/TEXT_ALIGN](https://wiki.facepunch.com/gmod/Enums/TEXT_ALIGN).
      */
     function WordBox(bordersize: number, x: number, y: number, text: string, font: string, boxcolor: Color, textcolor: Color, xalign?: TEXT_ALIGN, yalign?: TEXT_ALIGN): LuaMultiReturn<[number, number]>;
-
 }
 
 /**
  * The drive library is for adding custom control modes to the new "remote control" entity piloting system in Garry's Mod 13. See [Entity Driving](https://wiki.facepunch.com/gmod/Entity_Driving).
  */
 declare namespace drive {
-
-
     /**
      * 🟨🟦 [Shared]
      *
@@ -62606,15 +61811,12 @@ declare namespace drive {
      * @param cmd - The user command
      */
     function StartMove(ply: Player, mv: CMoveData, cmd: CUserCmd): boolean;
-
 }
 
 /**
  * The duplicator library allows you to specify what should be saved when someone attempts to duplicate your custom entity with the duplicator tool. It can also be used by 3rd party duplicator tools to make use of the built in system.
  */
 declare namespace duplicator {
-
-
     /**
      * 🟨🟦 [Shared]
      *
@@ -62977,15 +62179,12 @@ declare namespace duplicator {
      * @param Ents - A table of entity duplication datums.
      */
     function WorkoutSize(Ents: any): LuaMultiReturn<[Vector, Vector]>;
-
 }
 
 /**
  * The effects library allows you to manually add scripted effects.
  */
 declare namespace effects {
-
-
     /**
      * 🟨🟦 [Shared]
      *
@@ -63074,15 +62273,12 @@ declare namespace effects {
      * @param [soundOverride = nil] - If set, this sound will be played instead of the default sound.
      */
     function TracerSound(start: Vector, endpos: Vector, tracerType = 1, soundOverride?: string): void;
-
 }
 
 /**
  * The engine library provides functions to access various features in the game's engine, most are related to the demo and save systems.
  */
 declare namespace engine {
-
-
     /**
      * 🟨🟦 [Shared]
      *
@@ -63275,15 +62471,12 @@ declare namespace engine {
      * @param name - Name the save will have.
      */
     function WriteSave(saveData: string, name: string): void;
-
 }
 
 /**
  * The ents library provides functions for creating and finding entities in the game.
  */
 declare namespace ents {
-
-
     /**
      * 🟦 [Server]
      *
@@ -63525,7 +62718,6 @@ declare namespace ents {
      * 		Because a call operation from Lua to C++ *and* with a return back to Lua is quite costly, this function will be more efficient than [ents.GetAll](https://wiki.facepunch.com/gmod/ents.GetAll).
      */
     function Iterator(): LuaMultiReturn<[Function, Entity[], number]>;
-
 }
 
 /**
@@ -63540,8 +62732,6 @@ declare namespace ents {
  * For the full list of path values, type `path` in the console.
  */
 declare namespace file {
-
-
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
@@ -63722,15 +62912,12 @@ declare namespace file {
      * @param content - The content that will be written into the file.
      */
     function Write(fileName: string, content: string): boolean;
-
 }
 
 /**
  * The frame blending library.
  */
 declare namespace frame_blend {
-
-
     /**
      * 🟨 [Client]
      *
@@ -63786,15 +62973,12 @@ declare namespace frame_blend {
      * Returns whether we should skip frame or not
      */
     function ShouldSkipFrame(): boolean;
-
 }
 
 /**
  * The game library provides functions to access various features in the game's engine, most of it's functions are related to controlling the map.
  */
 declare namespace game {
-
-
     /**
      * 🟨🟦 [Shared]
      *
@@ -64191,7 +63375,6 @@ declare namespace game {
      * This is not the same thing as spawn points (See [GM:PlayerSelectSpawn](https://wiki.facepunch.com/gmod/GM:PlayerSelectSpawn) for that), this is used to properly transit the player between maps, and therefore will only be set after a level change via `trigger_changelevel` entity in singleplayer.
      */
     function StartSpot(): string;
-
 }
 
 /**
@@ -64204,8 +63387,6 @@ declare namespace game {
  * >All Serverside gameevents are networked and called clientside. It could happen that a gameevent is called twice because of this like.
  */
 declare namespace gameevent {
-
-
     /**
      * 🟨🟦 [Shared]
      *
@@ -64217,15 +63398,12 @@ declare namespace gameevent {
      * @param eventName - The event to listen to. List of valid events (with examples) can be found [here](gameevent).
      */
     function Listen(eventName: string): void;
-
 }
 
 /**
  * The gamemode library provides functions relating to the gamemode system in Garry's Mod. This entire library also passes through the C -> Lua bridge.
  */
 declare namespace gamemode {
-
-
     /**
      * 🟨🟦 [Shared]
      *
@@ -64256,30 +63434,24 @@ declare namespace gamemode {
      * @param derived - The gamemode name that your gamemode is derived from
      */
     function Register(gm: any, name: string, derived: string): void;
-
 }
 
 /**
  * Similar purpose to the [game](https://wiki.facepunch.com/gmod/game) and [engine](https://wiki.facepunch.com/gmod/engine), allows access to various features of the game's engine.
  */
 declare namespace gmod {
-
-
     /**
      * 🟨🟦 [Shared]
      *
      * Returns [GAMEMODE](https://wiki.facepunch.com/gmod/GAMEMODE).
      */
     function GetGamemode(): GM;
-
 }
 
 /**
  * The gmsave library provides functions relating to the singleplayer save system in Garry's Mod.
  */
 declare namespace gmsave {
-
-
     /**
      * 🟦 [Server]
      *
@@ -64323,15 +63495,12 @@ declare namespace gmsave {
      * @param t - A table containing classname key with entities classname.
      */
     function ShouldSaveEntity(ent: Entity, t: any): boolean;
-
 }
 
 /**
  * The gui library is similar to the [input](https://wiki.facepunch.com/gmod/input) but features functions that are more focused on the mouse's interaction with GUI panels.
  */
 declare namespace gui {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -64529,15 +63698,12 @@ declare namespace gui {
      * Shows console in the game UI.
      */
     function ShowConsole(): void;
-
 }
 
 /**
  * GWEN is a system that allows you to load a spritesheet and generate a skin out of it.
  */
 declare namespace GWEN {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -64592,15 +63758,12 @@ declare namespace GWEN {
      * @param y - Y position of the pixel to get the color from.
      */
     function TextureColor(x: number, y: number): Color;
-
 }
 
 /**
  * The halo library is used to draw glowing outlines around entities, an example of this can be seen by picking up props with the physgun in Garry's Mod 13.
  */
 declare namespace halo {
-
-
     /**
      * 🟨 [Client]
      *
@@ -64638,15 +63801,12 @@ declare namespace halo {
      * The main purpose of this function is to be used in [ENTITY:Draw](https://wiki.facepunch.com/gmod/ENTITY:Draw) in order not to draw certain parts of the entity when the halo is being rendered, so there's no halo around unwanted entity parts, such as lasers, 3D2D displays, etc.
      */
     function RenderedEntity(): Entity;
-
 }
 
 /**
  * The hammer library.
  */
 declare namespace hammer {
-
-
     /**
      * 🟦 [Server]
      *
@@ -64670,15 +63830,12 @@ declare namespace hammer {
      * | "nodelink_delete startNodeID endNodeID" | Removes a link between AI nodes startNodeID and endNodeID |
      */
     function SendCommand(cmd: string): string;
-
 }
 
 /**
  * The hook library allows you to add hooks called by the game engine, allowing multiple scripts to modify game function.
  */
 declare namespace hook {
-
-
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
@@ -64753,15 +63910,12 @@ declare namespace hook {
         eventName: N,
         ...args: Parameters<NoThis<ExpectedCallback<N>>>
     ): ReturnType<NoThis<ExpectedCallback<N>>> | undefined;
-
 }
 
 /**
  * The http library allows either the server or client to communicate with external websites via HTTP, both `GET` ([http.Fetch](https://wiki.facepunch.com/gmod/http.Fetch)) and `POST` ([http.Post](https://wiki.facepunch.com/gmod/http.Post)) are supported. A more powerful & advanced method can be used via the global [Global.HTTP](https://wiki.facepunch.com/gmod/Global.HTTP) function.
  */
 declare namespace http {
-
-
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
@@ -64849,15 +64003,12 @@ declare namespace http {
      * @param [headers = {}] - KeyValue table for headers.
      */
     function Post(url: string, parameters: any, onSuccess?: (body: string, size: string, headers: any, code: number) => void, onFailure?: (error: string) => void, headers?: any): void;
-
 }
 
 /**
  * The input library allows you to gather information about the clients input devices (mouse & keyboard), such as the cursor position and whether a key is pressed or not.
  */
 declare namespace input {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -65062,15 +64213,12 @@ declare namespace input {
      * @param key - The key to test, see [Enums/MOUSE](https://wiki.facepunch.com/gmod/Enums/MOUSE)
      */
     function WasMouseReleased(key: MOUSE): boolean;
-
 }
 
 /**
  * Library to work with the [LuaJIT](http://luajit.org/) functionality of gmod.
  */
 declare namespace jit {
-
-
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
@@ -65167,9 +64315,8 @@ declare namespace jit {
      * A variable containing the version number of the LuaJIT core.
      */
     function version_num(): number;
+
 namespace opt {
-
-
         /**
          * 🟨🟦🟩 [Shared and Menu]
          *
@@ -65186,12 +64333,9 @@ namespace opt {
          * @param args -
          */
         function start(...args: any[]): void;
-
     }
 
 namespace util {
-
-
         /**
          * 🟨🟦🟩 [Shared and Menu]
          *
@@ -65345,7 +64489,6 @@ namespace util {
          * @param sn - snapshot index for trace (starting from 0 to nexit - 1, nexit gotten via [jit.util.traceinfo](https://wiki.facepunch.com/gmod/jit.util.traceinfo))
          */
         function tracesnap(tr: number, sn: number): any;
-
     }
 }
 
@@ -65353,8 +64496,6 @@ namespace util {
  * The killicon library is used to add to and control the icons that appear in the top right of your screen when a player is killed.
  */
 declare namespace killicon {
-
-
     /**
      * 🟨 [Client]
      *
@@ -65442,15 +64583,12 @@ declare namespace killicon {
      * @param [dontEqualizeHeight = false] - Do not rescale the icon to match the default kill icon font.
      */
     function Render(x: number, y: number, name: string, alpha = 255, dontEqualizeHeight = false): void;
-
 }
 
 /**
  * The language library is used for translation.
  */
 declare namespace language {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -65467,7 +64605,6 @@ declare namespace language {
      * @param phrase - The phrase to translate
      */
     function GetPhrase(phrase: string): string;
-
 }
 
 /**
@@ -65478,8 +64615,6 @@ declare namespace language {
  * See [Default Lists](https://wiki.facepunch.com/gmod/Default_Lists) for a page of default Sandbox lists.
  */
 declare namespace list {
-
-
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
@@ -65575,15 +64710,12 @@ declare namespace list {
      * @param item - The item to set to the list as key
      */
     function Set(identifier: string, key: any, item: any): void;
-
 }
 
 /**
  * The markup library only contains a single function to create a [MarkupObject](https://wiki.facepunch.com/gmod/MarkupObject).
  */
 declare namespace markup {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -65612,15 +64744,12 @@ declare namespace markup {
      * @param [maxWidth = nil] - The max width of the output
      */
     function Parse(markup: string, maxWidth?: number): MarkupObject;
-
 }
 
 /**
  * The math library is a standard Lua library that provides functions for manipulating numbers. In Garry's Mod several additional math functions have been added.
  */
 declare namespace math {
-
-
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
@@ -66195,9 +65324,8 @@ declare namespace math {
      * @param [digits = 0] - The amount of digits to keep after the point.
      */
     function Truncate(num: number, digits = 0): number;
+
 namespace ease {
-
-
         /**
          * 🟨🟦🟩 [Shared and Menu]
          *
@@ -66473,7 +65601,6 @@ namespace ease {
          * @param fraction - Fraction of the progress to ease, from 0 to 1
          */
         function OutSine(fraction: number): number;
-
     }
 }
 
@@ -66485,8 +65612,6 @@ namespace ease {
  * You can find a tutorial for making colourable textures over at this [GitHub wiki](https://github.com/fgrg2801/gmod-colorable-playermodels/wiki)
  */
 declare namespace matproxy {
-
-
     /**
      * 🟨 [Client]
      *
@@ -66541,30 +65666,24 @@ declare namespace matproxy {
      * @param name - The name of proxy in question
      */
     function ShouldOverrideProxy(name: string): boolean;
-
 }
 
 /**
  * The menu library.
  */
 declare namespace menu {
-
-
     /**
      * 🟨 [Client]
      *
      * Used by "Demo to Video" to record the frame.
      */
     function RecordFrame(): void;
-
 }
 
 /**
  * The menubar library.
  */
 declare namespace menubar {
-
-
     /**
      * 🟨 [Client]
      *
@@ -66589,15 +65708,12 @@ declare namespace menubar {
      * @param pnl - The panel to parent to
      */
     function ParentTo(pnl: Panel): void;
-
 }
 
 /**
  * The mesh library allows you to create meshes. A mesh is a set of vertices that define a 3D shape, for constant meshes you should use the [IMesh](https://wiki.facepunch.com/gmod/IMesh) object instead.
  */
 declare namespace mesh {
-
-
     /**
      * 🟨 [Client]
      *
@@ -66755,7 +65871,6 @@ declare namespace mesh {
      * Returns the amount of vertices that have been pushed via [mesh.AdvanceVertex](https://wiki.facepunch.com/gmod/mesh.AdvanceVertex).
      */
     function VertexCount(): number;
-
 }
 
 /**
@@ -66765,8 +65880,6 @@ declare namespace mesh {
  * >Kinect feature works only on 32-bit version of the game.
  */
 declare namespace motionsensor {
-
-
     /**
      * 🟨🟦 [Shared]
      *
@@ -66859,7 +65972,6 @@ declare namespace motionsensor {
      * Stops the motion capture.
      */
     function Stop(): void;
-
 }
 
 /**
@@ -66868,8 +65980,6 @@ declare namespace motionsensor {
  * The navigation mesh is used by [NextBot](https://wiki.facepunch.com/gmod/NextBot) to calculate path to its target.
  */
 declare namespace navmesh {
-
-
     /**
      * 🟦 [Server]
      *
@@ -67106,7 +66216,6 @@ declare namespace navmesh {
      * @param spawnPointClass - The classname of what the player uses to spawn, automatically adds it to the walkable positions during map generation.
      */
     function SetPlayerSpawnName(spawnPointClass: string): void;
-
 }
 
 /**
@@ -67117,8 +66226,6 @@ declare namespace navmesh {
  * Refer to [Net Library Usage](https://wiki.facepunch.com/gmod/Net_Library_Usage) for a short introduction.
  */
 declare namespace net {
-
-
     /**
      * 🟨🟦 [Shared]
      *
@@ -67761,15 +66868,12 @@ declare namespace net {
      * @param vector - The vector to be sent.
      */
     function WriteVector(vector: Vector): void;
-
 }
 
 /**
  * Used to display notifications on the screen (mid-right).
  */
 declare namespace notification {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -67797,15 +66901,12 @@ declare namespace notification {
      * @param uid - The unique ID of the notification
      */
     function Kill(uid: any): void;
-
 }
 
 /**
  * The numpad module allows you to execute functions on a key press or release.
  */
 declare namespace numpad {
-
-
     /**
      * 🟦 [Server]
      *
@@ -67892,15 +66993,12 @@ declare namespace numpad {
      * @param key - The key to press, corresponding to [Enums/KEY](https://wiki.facepunch.com/gmod/Enums/KEY)
      */
     function Toggle(ply: Player, key: KEY): void;
-
 }
 
 /**
  * The os library is a standard Lua library originally intended to allow Lua access to various features of the Operating System it's running on, however many of the features and functions have been removed in Garry's Mod due to security issues. It's only used in Garry's Mod for date & time operations.
  */
 declare namespace os {
-
-
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
@@ -67967,15 +67065,12 @@ declare namespace os {
      * @param [dateData = nil] - Table to generate the time from. This table's data is interpreted as being in the local timezone. See [Structures/DateData](https://wiki.facepunch.com/gmod/Structures/DateData)
      */
     function time(dateData?: DateData): number;
-
 }
 
 /**
  * The package library is a standard Lua library, it's mainly for use with the module system built into Lua.
  */
 declare namespace package {
-
-
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
@@ -67990,15 +67085,12 @@ declare namespace package {
      * @param module - The module table to be given a metatable
      */
     function seeall(module: any): void;
-
 }
 
 /**
  * Used to ask player for various potentially dangerous permissions.
  */
 declare namespace permissions {
-
-
     /**
      * 🟨 [Client]
      *
@@ -68058,15 +67150,12 @@ declare namespace permissions {
      * @param ip - IP of the server.
      */
     function Revoke(permission: string, ip: string): void;
-
 }
 
 /**
  * The physenv library allows you to control the physics environment created by the engine, and lets you modify constants such as gravity and maximum velocity.
  */
 declare namespace physenv {
-
-
     /**
      * 🟨🟦 [Shared]
      *
@@ -68150,15 +67239,12 @@ declare namespace physenv {
      * @param pause - `true` to pause, `false` to unpause.
      */
     function SetPhysicsPaused(pause: boolean): void;
-
 }
 
 /**
  * The player library is used to get the Lua objects that represent players in-game.
  */
 declare namespace player {
-
-
     /**
      * 🟦 [Server]
      *
@@ -68308,15 +67394,12 @@ declare namespace player {
      * 		Because a call operation from Lua to C++ *and* with a return back to Lua is quite costly, this function will be more efficient than [player.GetAll](https://wiki.facepunch.com/gmod/player.GetAll).
      */
     function Iterator(): LuaMultiReturn<[Function, Player[], number]>;
-
 }
 
 /**
  * The player_manager library lets you manage players, such as setting their models or creating player classes.
  */
 declare namespace player_manager {
-
-
     /**
      * 🟨🟦 [Shared]
      *
@@ -68449,15 +67532,12 @@ declare namespace player_manager {
      * @param model - The model path to a player model
      */
     function TranslateToPlayerModelName(model: string): string;
-
 }
 
 /**
  * The presets library lets you add and modify the pre-set options for scripted tools (selected via the white bar at the top of each tools control panel).
  */
 declare namespace presets {
-
-
     /**
      * 🟨 [Client]
      *
@@ -68518,15 +67598,12 @@ declare namespace presets {
      * @param newname - New preset name
      */
     function Rename(groupname: string, oldname: string, newname: string): void;
-
 }
 
 /**
  * The properties library gives you access to the menu that shows up when right clicking entities while holding C.
  */
 declare namespace properties {
-
-
     /**
      * 🟨🟦 [Shared]
      *
@@ -68588,15 +67665,12 @@ declare namespace properties {
      * @param name - A unique name used to identify the property to be removed.
      */
     function Remove(name: string): void;
-
 }
 
 /**
  * The render library is a powerful set of functions that let you control how the world and its contents are rendered. It can also be used to draw some 3D clientside effects such as beams, boxes and spheres.
  */
 declare namespace render {
-
-
     /**
      * 🟨 [Client]
      *
@@ -70145,15 +69219,12 @@ declare namespace render {
      * @param [mat = nil] -
      */
     function WorldMaterialOverride(mat?: IMaterial): void;
-
 }
 
 /**
  * The resource library is used to control what files are sent to clients who join a server, this includes models, materials, sounds, text files but not Lua files.
  */
 declare namespace resource {
-
-
     /**
      * 🟦 [Server]
      *
@@ -70216,15 +69287,12 @@ declare namespace resource {
      * @param workshopid - The workshop id of the file. This cannot be a collection.
      */
     function AddWorkshop(workshopid: string): void;
-
 }
 
 /**
  * The saverestore library contains functions relating to the singleplayer save system built into the game.
  */
 declare namespace saverestore {
-
-
     /**
      * 🟨🟦 [Shared]
      *
@@ -70353,15 +69421,12 @@ declare namespace saverestore {
      * @param save - The save object to write the variable to.
      */
     function WriteVar(value: any, save: ISave): void;
-
 }
 
 /**
  * The scripted_ents library allows you to access information about any scripted entities loaded into the game, as well as register your own entities.
  */
 declare namespace scripted_ents {
-
-
     /**
      * 🟨🟦 [Shared]
      *
@@ -70452,15 +69517,12 @@ declare namespace scripted_ents {
      * @param classname - The classname to register.
      */
     function Register(ENT: ENT, classname: string): void;
-
 }
 
 /**
  * The search library
  */
 declare namespace search {
-
-
     /**
      * 🟨 [Client]
      *
@@ -70489,15 +69551,12 @@ declare namespace search {
      * @param [maxResults = 1024] - How many results to stop at
      */
     function GetResults(query: string, types?: string, maxResults = 1024): any;
-
 }
 
 /**
  * Menu state library to query the master server list.
  */
 declare namespace serverlist {
-
-
     /**
      * 🟩 [Menu]
      *
@@ -70571,15 +69630,12 @@ declare namespace serverlist {
      * @param address - Server Address. **IP:Port like "127.0.0.1:27015"**
      */
     function RemoveServerFromFavorites(address: string): void;
-
 }
 
 /**
  * Used primarily for adding new soundscript entries.
  */
 declare namespace sound {
-
-
     /**
      * 🟨🟦 [Shared]
      *
@@ -70750,15 +69806,12 @@ declare namespace sound {
      * @param gender - Gender to set. Only 2 options are permitted: `female` and `male`. Any other option will be ignored.
      */
     function SetActorGender(modelPath: string, gender: string): void;
-
 }
 
 /**
  * The spawnmenu library is a set of functions that allow you to control the spawn (Q) menu.
  */
 declare namespace spawnmenu {
-
-
     /**
      * 🟨 [Client]
      *
@@ -71049,7 +70102,6 @@ declare namespace spawnmenu {
      * @param id - The tab ID to open
      */
     function SwitchToolTab(id: number): void;
-
 }
 
 /**
@@ -71078,8 +70130,6 @@ declare namespace spawnmenu {
  * * No `LIMIT` and `ORDER BY` clauses in `DELETE` and `UPDATE` statements (`SQLITE_ENABLE_UPDATE_DELETE_LIMIT`)
  */
 declare namespace sql {
-
-
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
@@ -71193,15 +70243,12 @@ declare namespace sql {
      * @param tableName - The name of the table to check.
      */
     function TableExists(tableName: string): boolean;
-
 }
 
 /**
  * Steamworks related functions.
  */
 declare namespace steamworks {
-
-
     /**
      * 🟩 [Menu]
      *
@@ -71421,7 +70468,6 @@ declare namespace steamworks {
      * </callback>
      */
     function VoteInfo(workshopItemID: string, resultCallback: (data: UGCFileInfo) => void): void;
-
 }
 
 /**
@@ -71454,8 +70500,6 @@ declare namespace steamworks {
  * >Making changes to the string *metatable* is not a good idea unless you know what you are doing. Use the string *library* instead.
  */
 declare namespace string {
-
-
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
@@ -71934,15 +70978,12 @@ declare namespace string {
      * @param str - The string to convert.
      */
     function upper(str: string): string;
-
 }
 
 /**
  * The surface library allows you to draw text and shapes on the screen. Primarily used for making HUDs & custom GUI panels.
  */
 declare namespace surface {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -72360,15 +71401,12 @@ declare namespace surface {
      * @param textureID - The ID of the texture to draw with returned by [surface.GetTextureID](https://wiki.facepunch.com/gmod/surface.GetTextureID).
      */
     function SetTexture(textureID: number): void;
-
 }
 
 /**
  * The system library provides functions that allow you to gather information about the system running the game, such as operating system, uptime and battery level.
  */
 declare namespace system {
-
-
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
@@ -72466,7 +71504,6 @@ declare namespace system {
      * >This function does not work on Dedicated Servers and will instead return no value.
      */
     function UpTime(): number;
-
 }
 
 /**
@@ -72477,8 +71514,6 @@ declare namespace system {
  * This category lists the functions available in the table `library`.
  */
 declare namespace table {
-
-
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
@@ -73007,15 +72042,12 @@ declare namespace table {
      * @param niceFormatting - Adds new lines and tabs to the string.
      */
     function ToString(tbl: any, displayName: string, niceFormatting: boolean): string;
-
 }
 
 /**
  * The team library gives you access to the team system built into the Source engine, and allows you to create custom teams and get information about them.
  */
 declare namespace team {
-
-
     /**
      * 🟨🟦 [Shared]
      *
@@ -73189,15 +72221,12 @@ declare namespace team {
      * @param index - Index of the team
      */
     function Valid(index: number): boolean;
-
 }
 
 /**
  * The timer library is a very useful set of functions which allow you to run a function periodically or after a given delay.
  */
 declare namespace timer {
-
-
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
@@ -73355,7 +72384,6 @@ declare namespace timer {
      * @param identifier - Identifier of the timer.
      */
     function UnPause(identifier: any): boolean;
-
 }
 
 /**
@@ -73365,8 +72393,6 @@ declare namespace timer {
  * >Usermessages have a limit of only 256 bytes!
  */
 declare namespace umsg {
-
-
     /**
      * 🟦 [Server]
      *
@@ -73509,15 +72535,12 @@ declare namespace umsg {
      * @param normal - The vector normal to be sent.
      */
     function VectorNormal(normal: Vector): void;
-
 }
 
 /**
  * The undo library allows you to add custom entities to the undo list, allowing users to "undo" their creation with their undo (default: <key>Z</key>) key.
  */
 declare namespace undo {
-
-
     /**
      * 🟦 [Server]
      *
@@ -73616,7 +72639,6 @@ declare namespace undo {
      * Adds a hook (CPanelPaint) to the control panel paint function so we can determine when it is being drawn.
      */
     function SetupUI(): void;
-
 }
 
 /**
@@ -73626,8 +72648,6 @@ declare namespace undo {
  * >Usermessages have a limit of only 256 bytes!
  */
 declare namespace usermessage {
-
-
     /**
      * 🟨🟦 [Shared]
      *
@@ -73663,7 +72683,6 @@ declare namespace usermessage {
      * @param msg - The message.
      */
     function IncomingMessage(name: string, msg: bf_read): void;
-
 }
 
 /**
@@ -73672,8 +72691,6 @@ declare namespace usermessage {
  * Unless stated otherwise, all functions that expect a byte position as a parameter assume that the given position is either the start of a byte sequence or one plus the length of the subject string. As in the string library, negative indices count from the end of the string.
  */
 declare namespace utf8 {
-
-
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
@@ -73759,15 +72776,12 @@ declare namespace utf8 {
      * @param [EndPos = nil] - The position of the last character to be included in the sub-string. It can be negative to count from the end.
      */
     function sub(string: string, StartPos: number, EndPos?: number): string;
-
 }
 
 /**
  * This is the list of utility functions.
  */
 declare namespace util {
-
-
     /**
      * 🟦 [Server]
      *
@@ -74858,9 +73872,8 @@ declare namespace util {
      * @param input - What to convert
      */
     function TypeToString(input: any): string;
+
 namespace worldpicker {
-
-
         /**
          * 🟨 [Client]
          *
@@ -74886,7 +73899,6 @@ namespace worldpicker {
          * </callback>
          */
         function Start(callback: (tr: TraceResult) => void): void;
-
     }
 }
 
@@ -74896,8 +73908,6 @@ namespace worldpicker {
  * For an alphabetically ordered list of VGUI panels, see [VGUI Element List](https://wiki.facepunch.com/gmod/VGUI_Element_List).
  */
 declare namespace vgui {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -75052,15 +74062,12 @@ declare namespace vgui {
      * @param [base = Panel] - A base for the panel.
      */
     function RegisterTable(panel: any, base: string = "Panel"): any;
-
 }
 
 /**
  * The video library.
  */
 declare namespace video {
-
-
     /**
      * 🟨🟩 [Client and Menu]
      *
@@ -75068,15 +74075,12 @@ declare namespace video {
      * @param config - The video config. See [Structures/VideoData](https://wiki.facepunch.com/gmod/Structures/VideoData).
      */
     function Record(config: VideoData): LuaMultiReturn<[IVideoWriter, string]>;
-
 }
 
 /**
  * The weapons library allows you to access information about any scripted weapons loaded into the game, as well as register your own weapons.
  */
 declare namespace weapons {
-
-
     /**
      * 🟨🟦 [Shared]
      *
@@ -75144,7 +74148,6 @@ declare namespace weapons {
      * @param classname - Classname to assign to that swep
      */
     function Register(ENT: SWEP, classname: string): void;
-
 }
 
 /**
@@ -75153,8 +74156,6 @@ declare namespace weapons {
  * Widgets allow the player to have mouse interaction with entities, such as being able to manipulate the [bones of an NPC](https://www.youtube.com/watch?v=O3gG0t39-pQ).
  */
 declare namespace widgets {
-
-
     /**
      * 🟨🟦 [Shared]
      *
@@ -75171,5 +74172,4 @@ declare namespace widgets {
      * @param ent - Widget entity to render
      */
     function RenderMe(ent: Entity): void;
-
 }

@@ -88,3 +88,8 @@ type Metatable<T> = {
 const color_white: Color
 const color_black: Color
 const color_transparent: Color
+
+interface DCheckBoxLabel extends DPanel {
+    Button: DCheckBox;
+    Label: DLabel;
+}
