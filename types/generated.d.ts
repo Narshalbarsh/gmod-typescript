@@ -16520,6 +16520,18 @@ interface Panel {
      * Set to true by the [dragndrop](https://wiki.facepunch.com/gmod/dragndrop) system when the panel is being drawn for the drag'n'drop.
      */
     PaintingDragging(): boolean;
+
+    /* Manual extra from: interface/Panel/h */
+    h: number
+
+    /* Manual extra from: interface/Panel/w */
+    w: number
+
+    /* Manual extra from: interface/Panel/x */
+    x: number
+
+    /* Manual extra from: interface/Panel/y */
+    y: number
 }
 
 /**
