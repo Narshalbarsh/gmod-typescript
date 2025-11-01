@@ -84,3 +84,7 @@ type Metatable<T> = {
             ? (this: T, ...args: A) => R
             : T[K]
 };
+
+const color_white: Color
+const color_black: Color
+const color_transparent: Color
