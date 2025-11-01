@@ -122,4 +122,5 @@ export interface WikiFunctionCollection extends WikiAddressable, WikiElement {
     description: string;
     parent?: string;
     library: boolean;
+    isHookContainer?: boolean;
 }

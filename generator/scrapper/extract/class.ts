@@ -12,6 +12,10 @@ function textOf(v: any): string {
 export function extractClass(page: WikiPage): WikiFunctionCollection {
     const markupObj = parseMarkup(page.markup, { stopNodes: ['summary', 'description'] });
 
+    // page titles like "PANEL Hooks", "GM Hooks", etc.
+    const titleUnderscored = page.title.replace(/\s+/g, '_');
+    const hookLike = /_Hooks$/i.test(titleUnderscored);
+
     // <type ...> ... </type>
     if (markupObj.type) {
         const classObj = markupObj.type[0];
@@ -22,6 +26,7 @@ export function extractClass(page: WikiPage): WikiFunctionCollection {
             description: textOf(classObj.summary),
             library: false,
             address: page.address,
+            isHookContainer: false,
         };
     }
 
@@ -32,7 +37,7 @@ export function extractClass(page: WikiPage): WikiFunctionCollection {
         // parent can be in attr, or as <parent>Panel</parent>, or missing entirely
         const parentFromAttr = classObj.attr?.parent as string | undefined;
         const parentFromNode =
-            typeof classObj.parent === 'string' ? classObj.parent : textOf(classObj.parent); // supports array/object forms
+            typeof classObj.parent === 'string' ? classObj.parent : textOf(classObj.parent);
 
         const parent = parentFromAttr ?? (parentFromNode || 'Panel');
 
@@ -43,10 +48,10 @@ export function extractClass(page: WikiPage): WikiFunctionCollection {
             description: textOf(classObj.description),
             library: false,
             address: page.address,
+            isHookContainer: hookLike,
         };
     }
 
-    // Fallback, normalize *_Hooks containers
     let derived = page.title.replace(/\s+/g, '_');
     if (/_Hooks$/i.test(derived)) derived = derived.replace(/_Hooks$/i, '');
 
@@ -56,5 +61,6 @@ export function extractClass(page: WikiPage): WikiFunctionCollection {
         description: '',
         library: false,
         address: page.address,
+        isHookContainer: hookLike,
     };
 }

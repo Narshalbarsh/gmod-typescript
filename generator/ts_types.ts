@@ -23,6 +23,7 @@ export interface TSFunction extends TSDocumented {
     identifier: string;
     args: TSArgument[];
     ret: TSReturn;
+    optional?: boolean;
 }
 
 export interface TSArgument {

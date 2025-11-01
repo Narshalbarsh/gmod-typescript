@@ -3,7 +3,7 @@ import { printDocComent } from './util';
 import { tryLoadFunctionOverride, OverrideKind } from '../override_loader';
 
 export function printNamespaceFunction(func: TSFunction, container?: string): string {
-    return printFunction(func, true, false, { kind: 'namespace', container });
+    return printFunction(func, true, true, { kind: 'namespace', container });
 }
 
 export function printInterfaceFunction(func: TSFunction, container?: string): string {
@@ -33,6 +33,21 @@ ${override}
 
     const prefix = `${prependDeclare ? 'declare ' : ''}${prependFunction ? 'function ' : ''}`;
 
+    const firstOptionalIdx = func.args.findIndex((a) => a.default !== undefined);
+    const optionalStartsAt = firstOptionalIdx === -1 ? Number.POSITIVE_INFINITY : firstOptionalIdx;
+
+    const formatParam = (a: TSArgument, i: number, typeOverride?: string) => {
+        const isRest = a.identifier.startsWith('...');
+        const makeOptional = !isRest && i >= optionalStartsAt;
+        const name = makeOptional ? `${a.identifier}?` : a.identifier;
+        const ty = typeOverride ?? a.type;
+        return `${name}: ${ty}`;
+    };
+
+    const isInterfaceMethod = !prependFunction && !prependDeclare;
+    const nameWithOptional =
+        isInterfaceMethod && func.optional ? `${func.identifier}?` : func.identifier;
+
     // special case: for any SubModelIds parameter print some overloads
     const subIdxs = func.args
         .map((a, i) => ({ a, i }))
@@ -44,21 +59,21 @@ ${override}
         const gen1 = genNames1.length ? `<${genNames1.join(', ')}>` : '';
         const args1 = func.args.map((a, i) => {
             const pos = subIdxs.indexOf(i);
-            if (pos === -1) return `${a.identifier}: ${a.type}`;
+            if (pos === -1) return formatParam(a, i);
             const S = `S${pos}`;
-            return `${a.identifier}: (string extends ${S} ? never : _ValidatedSubModelIdsOK<${S}>)`;
+            return formatParam(a, i, `(string extends ${S} ? never : _ValidatedSubModelIdsOK<${S}>)`);
         });
-        const sig1 = `${prefix}${func.identifier}${gen1}(${args1.join(', ')}): ${func.ret.type};`;
+        const sig1 = `${prefix}${nameWithOptional}${gen1}(${args1.join(', ')}): ${func.ret.type};`;
 
         const genNames2 = subIdxs.map((_, k) => `W${k} extends string`);
         const gen2 = genNames2.length ? `<${genNames2.join(', ')}>` : '';
         const args2 = func.args.map((a, i) => {
             const pos = subIdxs.indexOf(i);
-            if (pos === -1) return `${a.identifier}: ${a.type}`;
+            if (pos === -1) return formatParam(a, i);
             const W = `W${pos}`;
-            return `${a.identifier}: string & (string extends ${W} ? ${W} : never)`;
+            return formatParam(a, i, `string & (string extends ${W} ? ${W} : never)`);
         });
-        const sig2 = `${prefix}${func.identifier}${gen2}(${args2.join(', ')}): ${func.ret.type};`;
+        const sig2 = `${prefix}${nameWithOptional}${gen2}(${args2.join(', ')}): ${func.ret.type};`;
         return `
 ${docComment}
 ${sig1}
@@ -66,31 +81,10 @@ ${sig2}
 `.trim();
     }
 
-    const mapArg = (a: TSArgument) => {
-        const hasDefault = a.default !== undefined;
-        if (!hasDefault) return `${a.identifier}: ${a.type}`;
-
-        const dRaw = String(a.default).trim();
-        const isNil = /^nil$/i.test(dRaw);
-        const isBool = dRaw === 'false' || dRaw === 'true';
-        const isNum = dRaw !== '' && !isNaN(Number(dRaw));
-        const isQuoted = /^(['"]).*\1$/.test(dRaw);
-        const isStringType = a.type === 'string';
-        const isSubModelIds = a.type === 'SubModelIds';
-
-        if (isNil) return `${a.identifier}?: ${a.type}`;
-        if (isStringType || isSubModelIds) {
-            const literal = isQuoted ? dRaw : JSON.stringify(dRaw);
-            return `${a.identifier}: ${a.type} = ${literal}`;
-        }
-        if (isBool || isNum) return `${a.identifier} = ${dRaw}`;
-        return `${a.identifier}?: ${a.type}`;
-    };
-
-    const args = func.args.map(mapArg).join(', ');
+    const args = func.args.map((a, i) => formatParam(a, i)).join(', ');
 
     return `
 ${docComment}
-${prefix}${func.identifier}(${args}): ${func.ret.type};
+${prefix}${nameWithOptional}(${args}): ${func.ret.type};
 `.trim();
 }

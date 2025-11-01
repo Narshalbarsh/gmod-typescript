@@ -13,7 +13,7 @@ import { transformFunctionCollection } from './transformer/function_collection';
 import { extractClass } from './scrapper/extract/class';
 import { extractLibrary } from './scrapper/extract/library';
 import { isWikiFunction } from './wiki_types';
-import { TSCollection, TSEnum } from './ts_types';
+import { TSCollection, TSEnum, TSField, TSFunction } from './ts_types';
 import { fetchGameEventTypeMap } from './scrapper/extract/gameevent';
 import { printTypeMap } from './printer/typemap';
 import { transformIdentifier } from './transformer/util';
@@ -41,7 +41,6 @@ import { transformIdentifier } from './transformer/util';
         ...(await GetPagesInCategory('panelfunc')),
     ];
 
-    // Explicit CLASS/PANEL container pages (e.g., Label, URLLabel, TGAImage, Slider)
     const panelClassPaths = await GetPagesInCategory('panel');
     const classTypePaths = await GetPagesInCategory('class');
     const containerPaths = Array.from(new Set([...panelClassPaths, ...classTypePaths]));
@@ -54,10 +53,10 @@ import { transformIdentifier } from './transformer/util';
         '/gmod/EFFECT_Hooks',
         '/gmod/PLAYER_Hooks',
         '/gmod/SANDBOX_Hooks',
+        '/gmod/PANEL_Hooks',
     ];
     const hookIndexPages = await Promise.all(hookIndexPaths.map(GetPage));
 
-    // Hook member pages from "hook" category (e.g., /gmod/GM%3APlayerSpawn)
     const hookPathsAll = await GetPagesInCategory('hook');
     const hookMemberPaths = hookPathsAll.filter(
         (p) => /\/gmod\/[A-Z]+%3A/.test(p) || /[A-Z]+:/.test(p),
@@ -67,7 +66,6 @@ import { transformIdentifier } from './transformer/util';
     const classFuncsPages = await Promise.all(allFuncPaths.map(GetPage));
 
     const explicitContainerPages = await Promise.all(containerPaths.map(GetPage));
-
     const classContainerPages = Array.from(
         new Set([
             ...explicitContainerPages,
@@ -80,7 +78,7 @@ import { transformIdentifier } from './transformer/util';
         .filter((p) => p.title.includes(':') || p.title.includes('.'))
         .map(extractFunction);
 
-    const transformedClasses: TSCollection[] = classContainerPages
+    const transformedClassesRaw: TSCollection[] = classContainerPages
         .map(extractClass)
         .map((wikiClass) =>
             transformFunctionCollection(
@@ -89,43 +87,135 @@ import { transformIdentifier } from './transformer/util';
             ),
         );
 
-    // Merge classes with structs sharing the same identifier
-    const structById = new Map<string, TSCollection>();
-    for (const s of transformedStructs) structById.set(s.identifier, s);
+    function aliasName(id: string): string {
+        if (id === 'GM') return 'Gamemode';
+        if (id === 'PANEL') return 'Panel';
+        return id;
+    }
 
-    const mergedClasses: TSCollection[] = transformedClasses.map((cls) => {
-        const s = structById.get(cls.identifier);
-        if (!s) return cls;
-        const merged: TSCollection = {
-            identifier: cls.identifier,
-            docComment: [s.docComment, cls.docComment].filter(Boolean).join('\n\n'),
-            fields: [...s.fields, ...cls.fields],
-            functions: cls.functions,
-            innerCollections: cls.innerCollections,
-            parent: cls.parent,
-            namespace: cls.namespace,
+    function mergeParents(a?: string, b?: string): string | undefined {
+        const parts = [
+            ...(a ? a.split(',').map((s) => s.trim()).filter(Boolean) : []),
+            ...(b ? b.split(',').map((s) => s.trim()).filter(Boolean) : []),
+        ];
+        const unique = Array.from(new Set(parts));
+        return unique.length ? unique.join(', ') : undefined;
+    }
+
+    function dedupeFields(lists: TSField[][]): TSField[] {
+        const map = new Map<string, TSField>();
+        for (const arr of lists) {
+            for (const fld of arr) {
+                const prev = map.get(fld.identifier);
+                if (!prev) {
+                    map.set(fld.identifier, { ...fld });
+                } else {
+                    if (fld.optional && !prev.optional) prev.optional = true;
+                    if (fld.docComment && prev.docComment && fld.docComment !== prev.docComment) {
+                        prev.docComment = `${prev.docComment}\n\n${fld.docComment}`;
+                    } else if (!prev.docComment && fld.docComment) {
+                        prev.docComment = fld.docComment;
+                    }
+                }
+            }
+        }
+        return Array.from(map.values());
+    }
+
+    function dedupeFunctions(lists: TSFunction[][]): TSFunction[] {
+        const map = new Map<string, TSFunction>();
+        for (const arr of lists) {
+            for (const fn of arr) {
+                const prev = map.get(fn.identifier);
+                if (!prev) {
+                    map.set(fn.identifier, { ...fn });
+                } else {
+                    if (fn.optional && !prev.optional) prev.optional = true;
+                    if (fn.docComment && prev.docComment && fn.docComment !== prev.docComment) {
+                        prev.docComment = `${prev.docComment}\n\n${fn.docComment}`;
+                    } else if (!prev.docComment && fn.docComment) {
+                        prev.docComment = fn.docComment;
+                    }
+                }
+            }
+        }
+        return Array.from(map.values());
+    }
+
+    function mergeCollections(a: TSCollection, b: TSCollection): TSCollection {
+        return {
+            identifier: a.identifier,
+            docComment: [a.docComment, b.docComment].filter(Boolean).join('\n\n'),
+            fields: dedupeFields([a.fields, b.fields]),
+            functions: dedupeFunctions([a.functions, b.functions]),
+            innerCollections: [...a.innerCollections, ...b.innerCollections],
+            parent: mergeParents(a.parent, b.parent),
+            namespace: a.namespace || b.namespace,
         };
-        structById.delete(cls.identifier);
-        return merged;
-    });
+    }
 
-    // Rename GM interface to Gamemode, expose runtime GM const
-    const remapName = (id: string) => (id === 'GM' ? 'Gamemode' : id);
+    function cleanupSelfParent(c: TSCollection): TSCollection {
+        if (!c.parent) return c;
+        const uniqueParents = Array.from(
+            new Set(
+                c.parent
+                    .split(',')
+                    .map((p) => p.trim())
+                    .filter((p) => p && p !== c.identifier),
+            ),
+        );
+        return {
+            ...c,
+            parent: uniqueParents.length ? uniqueParents.join(', ') : undefined,
+        };
+    }
 
-    const remappedClasses: TSCollection[] = mergedClasses.map((c) => ({
-        ...c,
-        identifier: remapName(c.identifier),
-    }));
+    const aliasGroupedClasses = new Map<string, TSCollection>();
+    for (const cls of transformedClassesRaw) {
+        const key = aliasName(cls.identifier);
+        const normalized: TSCollection = { ...cls, identifier: key };
 
-    const remainingStructs = Array.from(structById.values()).map((s) => ({
-        ...s,
-        identifier: remapName(s.identifier),
-    }));
+        const prev = aliasGroupedClasses.get(key);
+        if (!prev) {
+            aliasGroupedClasses.set(key, normalized);
+        } else {
+            aliasGroupedClasses.set(key, mergeCollections(prev, normalized));
+        }
+    }
 
-    // Build GMHook enum from Gamemode methods for use with things like hook.Add
+    const structById = new Map<string, TSCollection>();
+    for (const s of transformedStructs) {
+        const key = aliasName(s.identifier);
+        structById.set(key, { ...s, identifier: key });
+    }
+
+    const mergedClassesWithStructs: TSCollection[] = [];
+    for (const [key, cls] of aliasGroupedClasses.entries()) {
+        const maybeStruct = structById.get(key);
+        if (!maybeStruct) {
+            mergedClassesWithStructs.push(cls);
+        } else {
+            const merged: TSCollection = {
+                identifier: cls.identifier,
+                docComment: [maybeStruct.docComment, cls.docComment].filter(Boolean).join('\n\n'),
+                fields: dedupeFields([maybeStruct.fields, cls.fields]),
+                functions: cls.functions,
+                innerCollections: [...cls.innerCollections, ...maybeStruct.innerCollections],
+                parent: cls.parent,
+                namespace: cls.namespace,
+            };
+            mergedClassesWithStructs.push(merged);
+            structById.delete(key);
+        }
+    }
+
+    const remainingStructs: TSCollection[] = Array.from(structById.values());
+
+    const cleanedClasses: TSCollection[] = mergedClassesWithStructs.map(cleanupSelfParent);
+
     let gmHookResult = '';
     {
-        const gm = remappedClasses.find((c) => c.identifier === 'Gamemode');
+        const gm = cleanedClasses.find((c) => c.identifier === 'Gamemode');
         if (gm) {
             const seen = new Set<string>();
             const fields = gm.functions
@@ -148,9 +238,6 @@ import { transformIdentifier } from './transformer/util';
         }
     }
 
-    const classResult = remappedClasses.map(printInterface).join('\n\n');
-    const structResult = remainingStructs.map(printInterface).join('\n\n');
-
     const libraryFuncPaths = await GetPagesInCategory('libraryfunc');
     const libraryFuncPages = await Promise.all(libraryFuncPaths.map(GetPage));
     const libraryFuncs = libraryFuncPages.filter((p) => p.title.includes('.')).map(extractFunction);
@@ -168,6 +255,9 @@ import { transformIdentifier } from './transformer/util';
 
     const gameeventTypeMap = await fetchGameEventTypeMap();
     const gameeventResult = printTypeMap(gameeventTypeMap);
+
+    const classResult = cleanedClasses.map(printInterface).join('\n\n');
+    const structResult = remainingStructs.map(printInterface).join('\n\n');
 
     const result = [
         '/// <reference types="typescript-to-lua/language-extensions" />',

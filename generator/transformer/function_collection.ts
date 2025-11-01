@@ -45,6 +45,7 @@ export function transformFunctionCollection(
                 .map(transformFunction)
                 .map((f) => {
                     f.identifier = f.identifier.replace(`${mod.prefix}.`, '');
+                    if (wikiClass.isHookContainer) f.optional = true;
                     return f;
                 }),
             fields: namespaceFuncsWithoutRoot
@@ -78,6 +79,7 @@ export function transformFunctionCollection(
 
     const addFieldMods: TSField[] = mods.filter(isAddFieldModification).map((afm) => afm.field);
     const isNamespace = wikiClass.library;
+    const isHookContainer = !!wikiClass.isHookContainer;
 
     // transform members into ts
     let transformedFuncs: TSFunction[] = membersCopy
@@ -90,6 +92,9 @@ export function transformFunctionCollection(
                 const prefixDot = new RegExp(`^${esc}\\.`, 'i');
                 const prefixCol = new RegExp(`^${esc}:`, 'i');
                 f.identifier = f.identifier.replace(prefixDot, '').replace(prefixCol, '');
+            }
+            if (isHookContainer) {
+                f.optional = true;
             }
             return f;
         });

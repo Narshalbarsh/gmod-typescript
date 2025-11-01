@@ -176,7 +176,7 @@ interface Angle {
      * @param [min = -360] - The minimum value for each component.
      * @param [max = 360] - The maximum value for each component.
      */
-    Random(min = -360, max = 360): void;
+    Random(min?: number, max?: number): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -962,7 +962,7 @@ interface CLuaLocomotion {
      * Sets the acceleration speed
      * @param [speed = 400] - Speed acceleration
      */
-    SetAcceleration(speed = 400): void;
+    SetAcceleration(speed?: number): void;
 
     /**
      * 🟦 [Server]
@@ -986,7 +986,7 @@ interface CLuaLocomotion {
      * Sets the height the bot is scared to fall from.
      * @param [height = 200] - Height
      */
-    SetDeathDropHeight(height = 200): void;
+    SetDeathDropHeight(height?: number): void;
 
     /**
      * 🟦 [Server]
@@ -994,7 +994,7 @@ interface CLuaLocomotion {
      * Sets the deceleration speed.
      * @param [deceleration = 400] - New deceleration speed.
      */
-    SetDeceleration(deceleration = 400): void;
+    SetDeceleration(deceleration?: number): void;
 
     /**
      * 🟦 [Server]
@@ -1004,7 +1004,7 @@ interface CLuaLocomotion {
      * The default amount is 0. This means the bot will not move if this value has not been set.
      * @param [speed = 0] - The new desired speed
      */
-    SetDesiredSpeed(speed = 0): void;
+    SetDesiredSpeed(speed?: number): void;
 
     /**
      * 🟦 [Server]
@@ -1016,7 +1016,7 @@ interface CLuaLocomotion {
      *
      * @param [gravity = 1000] - New gravity to set.
      */
-    SetGravity(gravity = 1000): void;
+    SetGravity(gravity?: number): void;
 
     /**
      * 🟦 [Server]
@@ -1032,7 +1032,7 @@ interface CLuaLocomotion {
      * Sets the height of the bot's jump
      * @param [height = 58] - Height
      */
-    SetJumpHeight(height = 58): void;
+    SetJumpHeight(height?: number): void;
 
     /**
      * 🟦 [Server]
@@ -1040,7 +1040,7 @@ interface CLuaLocomotion {
      * Sets the max rate at which the NextBot can visually rotate. This will not affect moving or pathing.
      * @param [yawRate = 250] - Desired new maximum yaw rate
      */
-    SetMaxYawRate(yawRate = 250): void;
+    SetMaxYawRate(yawRate?: number): void;
 
     /**
      * 🟦 [Server]
@@ -1048,7 +1048,7 @@ interface CLuaLocomotion {
      * Sets the max height the bot can step up
      * @param [height = 18] - Height
      */
-    SetStepHeight(height = 18): void;
+    SetStepHeight(height?: number): void;
 
     /**
      * 🟦 [Server]
@@ -1421,7 +1421,7 @@ interface CLuaParticle {
      * Scales the velocity based on the particle speed.
      * @param [doScale = false] - Use velocity scaling.
      */
-    SetVelocityScale(doScale = false): void;
+    SetVelocityScale(doScale?: boolean): void;
 }
 
 /**
@@ -1841,7 +1841,7 @@ interface CNavArea {
      * * 8 = exposed, spot in the open, usually on a ledge or cliff
      * Values over 255 will be clamped.
      */
-    AddHidingSpot(pos: Vector, flags = 7): void;
+    AddHidingSpot(pos: Vector, flags?: number): void;
 
     /**
      * 🟦 [Server]
@@ -2063,7 +2063,7 @@ interface CNavArea {
      * * 8 = exposed, spot in the open, usually on a ledge or cliff, same as GetExposedSpots
      * * Values over 255 and below 0 will be clamped.
      */
-    GetHidingSpots(type = 1): any;
+    GetHidingSpots(type?: number): any;
 
     /**
      * 🟦 [Server]
@@ -2225,7 +2225,7 @@ interface CNavArea {
      * Only 2 actual teams are available, 0 and 1.
      * @param [ignoreNavBlockers = false] - Whether to ignore [func_nav_blocker](https://developer.valvesoftware.com/wiki/Func_nav_blocker) entities.
      */
-    IsBlocked(teamID = -2, ignoreNavBlockers = false): boolean;
+    IsBlocked(teamID?: number, ignoreNavBlockers?: boolean): boolean;
 
     /**
      * 🟦 [Server]
@@ -2318,7 +2318,7 @@ interface CNavArea {
      * @param pos - The overlapping position to test.
      * @param [tolerance = 0] - The tolerance of the overlapping, set to 0 for no tolerance.
      */
-    IsOverlapping(pos: Vector, tolerance = 0): boolean;
+    IsOverlapping(pos: Vector, tolerance?: number): boolean;
 
     /**
      * 🟦 [Server]
@@ -2380,7 +2380,7 @@ interface CNavArea {
      * Marks the area as blocked and unable to be traversed. See [CNavArea:IsBlocked](https://wiki.facepunch.com/gmod/CNavArea:IsBlocked) and [CNavArea:MarkAsUnblocked](https://wiki.facepunch.com/gmod/CNavArea:MarkAsUnblocked).
      * @param [teamID = -2] - TeamID to mark the area as blocked for. `-2` means all teams. Only 2 valid teamIDs are supported: `0` and `1`.
      */
-    MarkAsBlocked(teamID = -2): void;
+    MarkAsBlocked(teamID?: number): void;
 
     /**
      * 🟦 [Server]
@@ -2396,7 +2396,7 @@ interface CNavArea {
      * Unblocked this area if it was previously blocked by [CNavArea:MarkAsBlocked](https://wiki.facepunch.com/gmod/CNavArea:MarkAsBlocked).
      * @param [teamID = -2] - TeamID to unblock the area for. `-2` means all teams. Only 2 valid teamIDs are supported: `0` and `1`.
      */
-    MarkAsUnblocked(teamID = -2): void;
+    MarkAsUnblocked(teamID?: number): void;
 
     /**
      * 🟦 [Server]
@@ -2879,7 +2879,7 @@ interface CNewParticleEffect {
      * Starts the particle emission.
      * @param [infiniteOnly = false] -
      */
-    StartEmission(infiniteOnly = false): void;
+    StartEmission(infiniteOnly?: boolean): void;
 
     /**
      * 🟨 [Client]
@@ -2889,7 +2889,7 @@ interface CNewParticleEffect {
      * @param [removeAllParticles = false] -
      * @param [wakeOnStop = false] -
      */
-    StopEmission(infiniteOnly = false, removeAllParticles = false, wakeOnStop = false): void;
+    StopEmission(infiniteOnly?: boolean, removeAllParticles?: boolean, wakeOnStop?: boolean): void;
 
     /**
      * 🟨 [Client]
@@ -3156,7 +3156,7 @@ interface Color {
      * Converts a [Color](https://wiki.facepunch.com/gmod/Color) to its hexadecimal representation.
      * @param [__unnamedArg = false] - Whether to forcibly omit the alpha channel from the output.
      */
-    ToHex(__unnamedArg = false): string;
+    ToHex(__unnamedArg?: boolean): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -3506,7 +3506,7 @@ interface CSoundPatch {
      * @param pitch - The pitch can range from 0-255. Where 100 is the original pitch.
      * @param [deltaTime = 0] - The time to fade from previous to the new pitch.
      */
-    ChangePitch(pitch: number, deltaTime = 0): void;
+    ChangePitch(pitch: number, deltaTime?: number): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -3516,7 +3516,7 @@ interface CSoundPatch {
      * @param volume - The volume ranges from 0 to 1.
      * @param [deltaTime = 0] - Time to fade the volume from previous to new value from.
      */
-    ChangeVolume(volume: number, deltaTime = 0): void;
+    ChangeVolume(volume: number, deltaTime?: number): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -4249,7 +4249,7 @@ interface Entity {
      * @param activity - The activity to play as the gesture. See [Enums/ACT](https://wiki.facepunch.com/gmod/Enums/ACT).
      * @param [autokill = true] - Automatically remove the gesture when it fully plays ([Entity:GetLayerCycle](https://wiki.facepunch.com/gmod/Entity:GetLayerCycle) reaches 1).
      */
-    AddGesture(activity: ACT, autokill = true): ACT;
+    AddGesture(activity: ACT, autokill?: boolean): ACT;
 
     /**
      * 🟦 [Server]
@@ -4266,7 +4266,7 @@ interface Entity {
      * @param sequence - The sequence ID to play as the gesture. See [Entity:LookupSequence](https://wiki.facepunch.com/gmod/Entity:LookupSequence).
      * @param [autokill = true] - Automatically remove the gesture when it fully plays ([Entity:GetLayerCycle](https://wiki.facepunch.com/gmod/Entity:GetLayerCycle) reaches 1).
      */
-    AddGestureSequence(sequence: number, autokill = true): number;
+    AddGestureSequence(sequence: number, autokill?: boolean): number;
 
     /**
      * 🟦 [Server]
@@ -4389,7 +4389,7 @@ interface Entity {
      * @param origin - The vector of where the the attack comes from.
      * @param [noisy = false] - Decides if it should return the centered vector with a random offset to it.
      */
-    BodyTarget(origin: Vector, noisy = false): Vector;
+    BodyTarget(origin: Vector, noisy?: boolean): Vector;
 
     /**
      * 🟨🟦 [Shared]
@@ -4604,7 +4604,7 @@ interface Entity {
      * @param [magnitude = 0] - Magnitude of the dissolve effect, its effect depends on the dissolve type.
      * @param [origin = nil] - The origin for the dissolve effect, its effect depends on the dissolve type. Defaults to entity's origin.
      */
-    Dissolve(type = 0, magnitude = 0, origin?: Vector): void;
+    Dissolve(type?: number, magnitude?: number, origin?: Vector): void;
 
     /**
      * 🟦 [Server]
@@ -4664,7 +4664,7 @@ interface Entity {
      * @param [ignoreEnt = nil] - Trace ignore entity.
      * @param [maxDist = 256] - Max trace dist.
      */
-    DropToFloor(mask?: number, ignoreEnt?: Entity, maxDist = 256): void;
+    DropToFloor(mask?: number, ignoreEnt?: Entity, maxDist?: number): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -4715,7 +4715,7 @@ interface Entity {
      * @param [dsp = 1] - The DSP preset for this sound. [List of DSP presets](https://developer.valvesoftware.com/wiki/Dsp_presets)
      * @param [filter = nil] - If set serverside, the sound will only be networked to the clients in the filter.
      */
-    EmitSound(soundName: string, soundLevel = 75, pitchPercent = 100, volume = 1, channel?: CHAN, soundFlags = 0, dsp = 1, filter?: CRecipientFilter): void;
+    EmitSound(soundName: string, soundLevel?: SNDLVL, pitchPercent?: number, volume?: number, channel?: CHAN, soundFlags?: SND, dsp?: number, filter?: CRecipientFilter): void;
 
     /**
      * 🟦 [Server]
@@ -4858,7 +4858,7 @@ interface Entity {
      * @param [activator = nil] - The entity that caused this input (i.e. the player who pushed a button)
      * @param [caller = nil] - The entity that is triggering this input (i.e. the button that was pushed)
      */
-    Fire(input: string, param?: string, delay = 0, activator?: Entity, caller?: Entity): void;
+    Fire(input: string, param?: string, delay?: number, activator?: Entity, caller?: Entity): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -4875,7 +4875,7 @@ interface Entity {
      * @param bulletInfo - The bullet data to be used. See the [Structures/Bullet](https://wiki.facepunch.com/gmod/Structures/Bullet).
      * @param [suppressHostEvents = false] - Has the effect of encasing the FireBullets call in [Global.SuppressHostEvents](https://wiki.facepunch.com/gmod/Global.SuppressHostEvents), only works in multiplayer.
      */
-    FireBullets(bulletInfo: Bullet, suppressHostEvents = false): void;
+    FireBullets(bulletInfo: Bullet, suppressHostEvents?: boolean): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -4894,7 +4894,7 @@ interface Entity {
      * @param [parent = NULL] - The entity to follow the bone of. If unset, removes the FollowBone effect.
      * @param boneid - The bone to follow
      */
-    FollowBone(parent?: Entity, boneid: number): void;
+    FollowBone(parent?: Entity, boneid?: number): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -5939,7 +5939,7 @@ interface Entity {
      * @param key - The key that is associated with the value
      * @param [fallback = false] - The value to return if we failed to retrieve the value. (If it isn't set)
      */
-    GetNetworked2Bool(key: string, fallback = false): any;
+    GetNetworked2Bool(key: string, fallback?: any): any;
 
     /**
      * 🟨🟦 [Shared]
@@ -5963,7 +5963,7 @@ interface Entity {
      * @param key - The key that is associated with the value
      * @param [fallback = 0] - The value to return if we failed to retrieve the value. (If it isn't set)
      */
-    GetNetworked2Float(key: string, fallback = 0): any;
+    GetNetworked2Float(key: string, fallback?: any): any;
 
     /**
      * 🟨🟦 [Shared]
@@ -5978,7 +5978,7 @@ interface Entity {
      * @param key - The key that is associated with the value
      * @param [fallback = 0] - The value to return if we failed to retrieve the value (If it isn't set).
      */
-    GetNetworked2Int(key: string, fallback = 0): any;
+    GetNetworked2Int(key: string, fallback?: any): any;
 
     /**
      * 🟨🟦 [Shared]
@@ -6058,7 +6058,7 @@ interface Entity {
      * @param key - The key that is associated with the value
      * @param [fallback = false] - The value to return if we failed to retrieve the value. ( If it isn't set )
      */
-    GetNetworkedBool(key: string, fallback = false): boolean;
+    GetNetworkedBool(key: string, fallback?: boolean): boolean;
 
     /**
      * 🟨🟦 [Shared]
@@ -6084,7 +6084,7 @@ interface Entity {
      * @param key - The key that is associated with the value
      * @param [fallback = 0] - The value to return if we failed to retrieve the value. ( If it isn't set )
      */
-    GetNetworkedFloat(key: string, fallback = 0): number;
+    GetNetworkedFloat(key: string, fallback?: number): number;
 
     /**
      * 🟨🟦 [Shared]
@@ -6096,7 +6096,7 @@ interface Entity {
      * @param key - The key that is associated with the value
      * @param [fallback = 0] - The value to return if we failed to retrieve the value. ( If it isn't set )
      */
-    GetNetworkedInt(key: string, fallback = 0): number;
+    GetNetworkedInt(key: string, fallback?: number): number;
 
     /**
      * 🟨🟦 [Shared]
@@ -6108,7 +6108,7 @@ interface Entity {
      * @param key - The key that is associated with the value
      * @param [fallback] - The value to return if we failed to retrieve the value. ( If it isn't set )
      */
-    GetNetworkedString(key: string, fallback: string = ""): string;
+    GetNetworkedString(key: string, fallback?: string): string;
 
     /**
      * 🟨🟦 [Shared]
@@ -6216,7 +6216,7 @@ interface Entity {
      * @param key - The key that is associated with the value
      * @param [fallback = false] - The value to return if we failed to retrieve the value. (If it isn't set)
      */
-    GetNW2Bool(key: string, fallback = false): any;
+    GetNW2Bool(key: string, fallback?: any): any;
 
     /**
      * 🟨🟦 [Shared]
@@ -6234,7 +6234,7 @@ interface Entity {
      * @param key - The key that is associated with the value
      * @param [fallback = 0] - The value to return if we failed to retrieve the value. (If it isn't set)
      */
-    GetNW2Float(key: string, fallback = 0): any;
+    GetNW2Float(key: string, fallback?: any): any;
 
     /**
      * 🟨🟦 [Shared]
@@ -6247,7 +6247,7 @@ interface Entity {
      * @param key - The key that is associated with the value
      * @param [fallback = 0] - The value to return if we failed to retrieve the value (If it isn't set).
      */
-    GetNW2Int(key: string, fallback = 0): any;
+    GetNW2Int(key: string, fallback?: any): any;
 
     /**
      * 🟨🟦 [Shared]
@@ -6310,7 +6310,7 @@ interface Entity {
      * @param key - The key that is associated with the value
      * @param [fallback = false] - The value to return if we failed to retrieve the value. (If it isn't set)
      */
-    GetNWBool(key: string, fallback = false): any;
+    GetNWBool(key: string, fallback?: any): any;
 
     /**
      * 🟨🟦 [Shared]
@@ -6328,7 +6328,7 @@ interface Entity {
      * @param key - The key that is associated with the value
      * @param [fallback = 0] - The value to return if we failed to retrieve the value. (If it isn't set)
      */
-    GetNWFloat(key: string, fallback = 0): any;
+    GetNWFloat(key: string, fallback?: any): any;
 
     /**
      * 🟨🟦 [Shared]
@@ -6341,7 +6341,7 @@ interface Entity {
      * @param key - The key that is associated with the value
      * @param [fallback = 0] - The value to return if we failed to retrieve the value (If it isn't set).
      */
-    GetNWInt(key: string, fallback = 0): any;
+    GetNWInt(key: string, fallback?: any): any;
 
     /**
      * 🟨🟦 [Shared]
@@ -6434,7 +6434,7 @@ interface Entity {
      * **Note:**
      * >Some entities such as the Combine Ball disregard the time limit and always return the physics attacker.
      */
-    GetPhysicsAttacker(timeLimit = 1): Player;
+    GetPhysicsAttacker(timeLimit?: number): Player;
 
     /**
      * 🟨🟦 [Shared]
@@ -6716,7 +6716,7 @@ interface Entity {
      * @param [startCycle = 0] - The sequence start cycle. 0 is the start of the animation, 1 is the end.
      * @param [endCyclnde = 1] - The sequence end cycle. 0 is the start of the animation, 1 is the end. Values like 2, etc are allowed.
      */
-    GetSequenceMovement(sequenceId: number, startCycle = 0, endCyclnde = 1): LuaMultiReturn<[boolean, Vector, Angle]>;
+    GetSequenceMovement(sequenceId: number, startCycle?: number, endCyclnde?: number): LuaMultiReturn<[boolean, Vector, Angle]>;
 
     /**
      * 🟦 [Server]
@@ -7009,7 +7009,7 @@ interface Entity {
      * @param length - How long to keep the entity ignited, in seconds.
      * @param [radius = 0] - The radius of the ignition, will ignite everything around the entity that is in this radius.
      */
-    Ignite(length: number, radius = 0): void;
+    Ignite(length: number, radius?: number): void;
 
     /**
      * 🟨 [Client]
@@ -7392,7 +7392,7 @@ interface Entity {
      * @param [allowPhysicsMovement = true] - Whether to allow the physics shadow to move under stress.
      * @param [allowPhysicsRotation = true] - Whether to allow the physics shadow to rotate under stress.
      */
-    MakePhysicsObjectAShadow(allowPhysicsMovement = true, allowPhysicsRotation = true): void;
+    MakePhysicsObjectAShadow(allowPhysicsMovement?: boolean, allowPhysicsRotation?: boolean): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -7409,7 +7409,7 @@ interface Entity {
      * The angle is relative to the original bone angle, not relative to the world or the entity.
      * @param [networking = true] - boolean to network these changes (if called from server)
      */
-    ManipulateBoneAngles(boneID: number, ang: Angle, networking = true): void;
+    ManipulateBoneAngles(boneID: number, ang: Angle, networking?: boolean): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -7431,7 +7431,7 @@ interface Entity {
      * @param pos - Position vector to apply. Note that the position is relative to the original bone position, not relative to the world or the entity.
      * @param [networking = true] - boolean to network these changes (if called from server)
      */
-    ManipulateBonePosition(boneID: number, pos: Vector, networking = true): void;
+    ManipulateBonePosition(boneID: number, pos: Vector, networking?: boolean): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -7694,7 +7694,7 @@ interface Entity {
      * @param [surfaceprop = default] - Physical material from [surfaceproperties.txt](https://github.com/Facepunch/garrysmod/blob/master/garrysmod/scripts/surfaceproperties.txt) or added with [physenv.AddSurfaceData](https://wiki.facepunch.com/gmod/physenv.AddSurfaceData).
      * @param [massCenterOveride = nil] - If set, overwrites the center of mass for the created physics object.
      */
-    PhysicsFromMesh(vertices: MeshVertex, surfaceprop: string = "default", massCenterOveride?: Vector): boolean;
+    PhysicsFromMesh(vertices: MeshVertex, surfaceprop?: string, massCenterOveride?: Vector): boolean;
 
     /**
      * 🟨🟦 [Shared]
@@ -7744,7 +7744,7 @@ interface Entity {
      * @param [surfaceprop = default] - Physical material from [surfaceproperties.txt](https://github.com/Facepunch/garrysmod/blob/master/garrysmod/scripts/surfaceproperties.txt) or added with [physenv.AddSurfaceData](https://wiki.facepunch.com/gmod/physenv.AddSurfaceData).
      * @param [massCenterOverride = nil] - If set, overwrites the center of mass for the created physics object.
      */
-    PhysicsInitBox(mins: Vector, maxs: Vector, surfaceprop: string = "default", massCenterOverride?: Vector): boolean;
+    PhysicsInitBox(mins: Vector, maxs: Vector, surfaceprop?: string, massCenterOverride?: Vector): boolean;
 
     /**
      * 🟨🟦 [Shared]
@@ -7776,7 +7776,7 @@ interface Entity {
      * @param [surfaceprop = default] - Physical material from [surfaceproperties.txt](https://github.com/Facepunch/garrysmod/blob/master/garrysmod/scripts/surfaceproperties.txt) or added with [physenv.AddSurfaceData](https://wiki.facepunch.com/gmod/physenv.AddSurfaceData).
      * @param [massCenterOverride = nil] - If set, overwrites the center of mass for the created physics object.
      */
-    PhysicsInitConvex(points: any, surfaceprop: string = "default", massCenterOverride?: Vector): boolean;
+    PhysicsInitConvex(points: any, surfaceprop?: string, massCenterOverride?: Vector): boolean;
 
     /**
      * 🟨🟦 [Shared]
@@ -7796,7 +7796,7 @@ interface Entity {
      * @param [surfaceprop = default] - Physical material from [surfaceproperties.txt](https://github.com/Facepunch/garrysmod/blob/master/garrysmod/scripts/surfaceproperties.txt) or added with [physenv.AddSurfaceData](https://wiki.facepunch.com/gmod/physenv.AddSurfaceData).
      * @param [massCenterOverride = nil] - If set, overwrites the center of mass for the created physics object.
      */
-    PhysicsInitMultiConvex(vertices: any, surfaceprop: string = "default", massCenterOverride?: Vector): boolean;
+    PhysicsInitMultiConvex(vertices: any, surfaceprop?: string, massCenterOverride?: Vector): boolean;
 
     /**
      * 🟨🟦 [Shared]
@@ -7815,7 +7815,7 @@ interface Entity {
      * @param [allowPhysicsMovement = true] - Whether to allow the physics shadow to move under stress.
      * @param [allowPhysicsRotation = true] - Whether to allow the physics shadow to rotate under stress.
      */
-    PhysicsInitShadow(allowPhysicsMovement = true, allowPhysicsRotation = true): boolean;
+    PhysicsInitShadow(allowPhysicsMovement?: boolean, allowPhysicsRotation?: boolean): boolean;
 
     /**
      * 🟨🟦 [Shared]
@@ -7834,7 +7834,7 @@ interface Entity {
      * @param radius - The radius of the sphere.
      * @param [physmat = default] - Physical material from [surfaceproperties.txt](https://github.com/Facepunch/garrysmod/blob/master/garrysmod/scripts/surfaceproperties.txt) or added with [physenv.AddSurfaceData](https://wiki.facepunch.com/gmod/physenv.AddSurfaceData).
      */
-    PhysicsInitSphere(radius: number, physmat: string = "default"): boolean;
+    PhysicsInitSphere(radius: number, physmat?: string): boolean;
 
     /**
      * 🟨🟦 [Shared]
@@ -7871,7 +7871,7 @@ interface Entity {
      * @param scene - Filepath to scene.
      * @param [delay = 0] - Delay in seconds until the scene starts playing.
      */
-    PlayScene(scene: string, delay = 0): LuaMultiReturn<[number, Entity]>;
+    PlayScene(scene: string, delay?: number): LuaMultiReturn<[number, Entity]>;
 
     /**
      * 🟦 [Server]
@@ -8018,7 +8018,7 @@ interface Entity {
      * The visual mesh will still stretch as if it was properly connected unless the ragdoll model is specifically designed to avoid that.
      * @param [num = -1] - Which constraint to break, values below 0 mean break them all
      */
-    RemoveInternalConstraint(num = -1): void;
+    RemoveInternalConstraint(num?: number): void;
 
     /**
      * 🟦 [Server]
@@ -8109,7 +8109,7 @@ interface Entity {
      * @param [addIfMissing = true] - Add/start the gesture to if it has not been yet started.
      * @param [autokill = true] -
      */
-    RestartGesture(activity: ACT, addIfMissing = true, autokill = true): void;
+    RestartGesture(activity: ACT, addIfMissing?: boolean, autokill?: boolean): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -8603,7 +8603,7 @@ interface Entity {
      *
      * @param [useIK = false] - The state of the IK.
      */
-    SetIK(useIK = false): void;
+    SetIK(useIK?: boolean): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -8848,7 +8848,7 @@ interface Entity {
      * @param [lod = -1] - The Level Of Detail model ID to use. -1 leaves the engine to automatically set the Level of Detail.
      * The Level Of Detail may range from 0 to 8, with 0 being the highest quality and 8 the lowest.
      */
-    SetLOD(lod = -1): void;
+    SetLOD(lod?: number): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -8923,7 +8923,7 @@ interface Entity {
      * @param scale - A float to scale the model by. 0 will not draw anything. A number less than 0 will draw the model inverted.
      * @param [deltaTime = 0] - Transition time of the scale change, set to 0 to modify the scale right away. To avoid issues with client-side trace detection this must be set, and can be an extremely low number to mimic a value of 0 such as .000001.
      */
-    SetModelScale(scale: number, deltaTime = 0): void;
+    SetModelScale(scale: number, deltaTime?: number): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -9204,7 +9204,7 @@ interface Entity {
      * @param key - The key to associate the value with
      * @param [value = false] - The value to set
      */
-    SetNetworkedBool(key: string, value = false): void;
+    SetNetworkedBool(key: string, value?: boolean): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -9230,7 +9230,7 @@ interface Entity {
      * @param key - The key to associate the value with
      * @param [value = 0] - The value to set
      */
-    SetNetworkedFloat(key: string, value = 0): void;
+    SetNetworkedFloat(key: string, value?: number): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -9243,7 +9243,7 @@ interface Entity {
      * @param key - The key to associate the value with
      * @param [value = 0] - The value to set
      */
-    SetNetworkedInt(key: string, value = 0): void;
+    SetNetworkedInt(key: string, value?: number): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -9268,7 +9268,7 @@ interface Entity {
      * @param key - The key to associate the value with
      * @param [value] - The value to set
      */
-    SetNetworkedString(key: string, value: string = ""): void;
+    SetNetworkedString(key: string, value?: string): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -9807,7 +9807,7 @@ interface Entity {
      * **Note:**
      * >You must call [Entity:SetMoveType](https://wiki.facepunch.com/gmod/Entity:SetMoveType)( MOVETYPE_NONE ) on the child for this argument to have any effect!
      */
-    SetParent(parent?: Entity, attachmentOrBoneId = -1): void;
+    SetParent(parent?: Entity, attachmentOrBoneId?: number): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -9857,7 +9857,7 @@ interface Entity {
      * @param ent - Player who gets the kills. Setting this to a non-player entity will not work.
      * @param [timeLimit = 5] - Time in seconds until the entity forgets its physics attacker and prevents it from getting the kill credit.
      */
-    SetPhysicsAttacker(ent: Player, timeLimit = 5): void;
+    SetPhysicsAttacker(ent: Player, timeLimit?: number): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -10082,7 +10082,7 @@ interface Entity {
      * Sets whether or not the entity should make a physics contact sound when it's been picked up by a player.
      * @param [playsound = false] - True to play the pickup sound, false otherwise.
      */
-    SetShouldPlayPickupSound(playsound = false): void;
+    SetShouldPlayPickupSound(playsound?: boolean): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -10230,7 +10230,7 @@ interface Entity {
      * Sets whether an entity can be unfrozen, meaning that it cannot be unfrozen using the physgun.
      * @param [freezable = false] - True to make the entity unfreezable, false otherwise.
      */
-    SetUnFreezable(freezable = false): void;
+    SetUnFreezable(freezable?: boolean): void;
 
     /**
      * 🟨 [Client]
@@ -10540,7 +10540,7 @@ interface Entity {
      * @param [useType = USE_ON] - Use type, see [Enums/USE](https://wiki.facepunch.com/gmod/Enums/USE).
      * @param [value = 0] - Any value.
      */
-    Use(activator: Entity, caller?: Entity, useType?: USE, value = 0): void;
+    Use(activator: Entity, caller?: Entity, useType?: USE, value?: number): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -10570,7 +10570,7 @@ interface Entity {
      * @param enable - Enable or disable the bounds.
      * @param [boundSize = 0] - The distance/size of the trigger bounds.
      */
-    UseTriggerBounds(enable: boolean, boundSize = 0): void;
+    UseTriggerBounds(enable: boolean, boundSize?: number): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -11218,7 +11218,7 @@ interface IGModAudioChannel {
      * @param secs - The time to set the stream to, in seconds.
      * @param [dont_decode = false] - Set to true to skip decoding to set time, and instead just seek to it which is faster. Certain streams do not support seeking and have to decode to the given position.
      */
-    SetTime(secs: number, dont_decode = false): void;
+    SetTime(secs: number, dont_decode?: boolean): void;
 
     /**
      * 🟨 [Client]
@@ -11833,7 +11833,7 @@ interface MarkupObject {
      * @param [alphaoverride = 255] - Sets the alpha of all drawn objects to this value.
      * @param [textAlign = TEXT_ALIGN_LEFT] - The alignment of the text horizontally using [Enums/TEXT_ALIGN](https://wiki.facepunch.com/gmod/Enums/TEXT_ALIGN)
      */
-    Draw(xOffset: number, yOffset: number, xAlign?: TEXT_ALIGN, yAlign?: TEXT_ALIGN, alphaoverride = 255, textAlign?: TEXT_ALIGN): void;
+    Draw(xOffset: number, yOffset: number, xAlign?: TEXT_ALIGN, yAlign?: TEXT_ALIGN, alphaoverride?: number, textAlign?: TEXT_ALIGN): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -11999,7 +11999,7 @@ interface NextBot extends Entity {
      * @param ent - The entity to test if we can see
      * @param [useFOV = true] - Whether to use the Field of View of the Nextbot
      */
-    IsAbleToSee(ent: Entity, useFOV = true): boolean;
+    IsAbleToSee(ent: Entity, useFOV?: number): boolean;
 
     /**
      * 🟦 [Server]
@@ -12022,7 +12022,7 @@ interface NextBot extends Entity {
      * @param name - The sequence name
      * @param [speed = 1] - Playback Rate of that sequence
      */
-    PlaySequenceAndWait(name: string, speed = 1): void;
+    PlaySequenceAndWait(name: string, speed?: number): void;
 
     /**
      * 🟦 [Server]
@@ -12077,7 +12077,7 @@ interface NPC extends Entity {
      * @param disposition - A [Enums/D](https://wiki.facepunch.com/gmod/Enums/D) representing the relationship type.
      * @param [priority = 0] - How strong the relationship is. Higher values mean higher priority over relationships with lower priority.
      */
-    AddEntityRelationship(target: Entity, disposition: D, priority = 0): void;
+    AddEntityRelationship(target: Entity, disposition: D, priority?: number): void;
 
     /**
      * 🟦 [Server]
@@ -12566,7 +12566,7 @@ interface NPC extends Entity {
      * Returns how far before the NPC can come to a complete stop.
      * @param [minResult = 10] - The minimum value that will be returned by this function.
      */
-    GetMinMoveStopDist(minResult = 10): number;
+    GetMinMoveStopDist(minResult?: number): number;
 
     /**
      * 🟦 [Server]
@@ -12945,7 +12945,7 @@ interface NPC extends Entity {
      * @param [asFarAsCan = true] - Whether to move as far as possible.
      * @param [testZ = true] - Also test the Z axis of the target position and NPC position to decide success.
      */
-    MoveGroundStep(pos: Vector, targetEntity?: Entity, yaw = -1, asFarAsCan = true, testZ = true): number;
+    MoveGroundStep(pos: Vector, targetEntity?: Entity, yaw?: number, asFarAsCan?: boolean, testZ?: boolean): number;
 
     /**
      * 🟦 [Server]
@@ -13092,7 +13092,7 @@ interface NPC extends Entity {
      * @param ent - The entity to mark as unreachable.
      * @param [time = 3] - For how long to remember the entity as unreachable. Negative values will act as `3` seconds.
      */
-    RememberUnreachable(ent: Entity, time = 3): void;
+    RememberUnreachable(ent: Entity, time?: number): void;
 
     /**
      * 🟦 [Server]
@@ -13217,7 +13217,7 @@ interface NPC extends Entity {
      * @param enemy - The enemy that the NPC should target
      * @param [newenemy = true] - Calls [NPC:SetCondition](https://wiki.facepunch.com/gmod/NPC:SetCondition)(COND.NEW_ENEMY) if the new enemy is valid and not equal to the last enemy.
      */
-    SetEnemy(enemy: Entity, newenemy = true): void;
+    SetEnemy(enemy: Entity, newenemy?: boolean): void;
 
     /**
      * 🟦 [Server]
@@ -13291,7 +13291,7 @@ interface NPC extends Entity {
      * * `-1` - Calculate automatically
      * * `-2` - Keep the previous yaw speed
      */
-    SetIdealYawAndUpdate(angle: number, speed = -1): void;
+    SetIdealYawAndUpdate(angle: number, speed?: number): void;
 
     /**
      * 🟦 [Server]
@@ -13453,7 +13453,7 @@ interface NPC extends Entity {
      * @param enemy - The enemy entity to set.
      * @param [set = true] - The entity to set.
      */
-    SetUnforgettable(enemy: Entity, set = true): void;
+    SetUnforgettable(enemy: Entity, set?: boolean): void;
 
     /**
      * 🟦 [Server]
@@ -13480,7 +13480,7 @@ interface NPC extends Entity {
      * Resets the NPC's movement animation and velocity. Does not actually stop the NPC from moving.
      * @param [immediate = true] - Whether to stop moving even when currently active goal doesn't want us to.
      */
-    StopMoving(immediate = true): void;
+    StopMoving(immediate?: boolean): void;
 
     /**
      * 🟦 [Server]
@@ -13537,7 +13537,7 @@ interface NPC extends Entity {
      * * `-1` - Calculate automatically
      * * `-2` - Keep the previous yaw speed
      */
-    UpdateYaw(speed = -1): void;
+    UpdateYaw(speed?: number): void;
 
     /**
      * 🟦 [Server]
@@ -13646,6 +13646,13 @@ interface NPC extends Entity {
  *
  * vgui.Register( "NewPanel", PANEL, "DLabel" )
  * ```
+ *
+ * This is a list of hooks that are available on all panels.
+ *
+ * Specific panels can have their own hooks, they are listed on their category.
+ *
+ * **Note:**
+ * >These hooks are called on your panel. They can't be
  */
 interface Panel {
     /**
@@ -13671,7 +13678,7 @@ interface Panel {
      * Aligns the panel on the bottom of its parent with the specified offset.
      * @param [offset = 0] - The align offset.
      */
-    AlignBottom(offset = 0): void;
+    AlignBottom(offset?: number): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -13679,7 +13686,7 @@ interface Panel {
      * Aligns the panel on the left of its parent with the specified offset.
      * @param [offset = 0] - The align offset.
      */
-    AlignLeft(offset = 0): void;
+    AlignLeft(offset?: number): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -13687,7 +13694,7 @@ interface Panel {
      * Aligns the panel on the right of its parent with the specified offset.
      * @param [offset = 0] - The align offset.
      */
-    AlignRight(offset = 0): void;
+    AlignRight(offset?: number): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -13695,7 +13702,7 @@ interface Panel {
      * Aligns the panel on the top of its parent with the specified offset.
      * @param [offset = 0] - The align offset.
      */
-    AlignTop(offset = 0): void;
+    AlignTop(offset?: number): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -13710,7 +13717,7 @@ interface Panel {
      * <arg type="Panel" name="targetPanel">The panel object that was animated.</arg>
      * </callback>
      */
-    AlphaTo(alpha: number, duration: number, delay = 0, callback?: (animData: AnimationData, targetPanel: Panel) => void): void;
+    AlphaTo(alpha: number, duration: number, delay?: number, callback?: (animData: AnimationData, targetPanel: Panel) => void): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -13770,7 +13777,7 @@ interface Panel {
      * Centers the panel horizontally with specified fraction.
      * @param [fraction = 0.5] - The center fraction.
      */
-    CenterHorizontal(fraction = 0.5): void;
+    CenterHorizontal(fraction?: number): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -13778,7 +13785,7 @@ interface Panel {
      * Centers the panel vertically with specified fraction.
      * @param [fraction = 0.5] - The center fraction.
      */
-    CenterVertical(fraction = 0.5): void;
+    CenterVertical(fraction?: number): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -13818,7 +13825,7 @@ interface Panel {
      * <arg type="Panel" name="targetPanel">The panel object that was animated.</arg>
      * </callback>
      */
-    ColorTo(color: Color, length: number, delay = 0, callback?: (animData: AnimationData, targetPanel: Panel) => void): void;
+    ColorTo(color: Color, length: number, delay?: number, callback?: (animData: AnimationData, targetPanel: Panel) => void): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -14779,7 +14786,7 @@ interface Panel {
      * Invalidates the layout of this panel object and all its children. This will cause these objects to re-layout immediately, calling [PANEL:PerformLayout](https://wiki.facepunch.com/gmod/PANEL:PerformLayout). If you want to perform the layout in the next frame, you will have loop manually through all children, and call [Panel:InvalidateLayout](https://wiki.facepunch.com/gmod/Panel:InvalidateLayout) on each.
      * @param [recursive = false] - If `true`, the method will recursively invalidate the layout of all children. Otherwise, only immediate children are affected.
      */
-    InvalidateChildren(recursive = false): void;
+    InvalidateChildren(recursive?: boolean): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -14793,7 +14800,7 @@ interface Panel {
      *
      * @param [layoutNow = false] - If true the panel will re-layout instantly and not wait for the next frame.
      */
-    InvalidateLayout(layoutNow = false): void;
+    InvalidateLayout(layoutNow?: boolean): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -14805,7 +14812,7 @@ interface Panel {
      * Internally sets `LayingOutParent` to `true` on this panel, and will silently fail if it is already set.
      * @param [layoutNow = false] - If `true`, the re-layout will occur immediately, otherwise it will be performed in the next frame.
      */
-    InvalidateParent(layoutNow = false): void;
+    InvalidateParent(layoutNow?: boolean): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -14813,7 +14820,7 @@ interface Panel {
      * Determines whether the mouse cursor is hovered over one of this panel object's children. This is a reverse process using [vgui.GetHoveredPanel](https://wiki.facepunch.com/gmod/vgui.GetHoveredPanel), and looks upward to find the parent.
      * @param [immediate = false] - Set to true to check only the immediate children of given panel ( first level )
      */
-    IsChildHovered(immediate = false): boolean;
+    IsChildHovered(immediate?: boolean): boolean;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -15005,7 +15012,7 @@ interface Panel {
      * * "DATA" Data folder (garrysmod/data)
      * * "MOD" Strictly the game folder (garrysmod/), ignores mounting.
      */
-    LoadGWENFile(filename: string, path: string = "GAME"): void;
+    LoadGWENFile(filename: string, path?: string): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -15079,7 +15086,7 @@ interface Panel {
      * @param panel - Panel to position relatively to.
      * @param [offset = 0] - The align offset.
      */
-    MoveAbove(panel: Panel, offset = 0): void;
+    MoveAbove(panel: Panel, offset?: number): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -15088,7 +15095,7 @@ interface Panel {
      * @param panel - Panel to position relatively to.
      * @param [offset = 0] - The align offset.
      */
-    MoveBelow(panel: Panel, offset = 0): void;
+    MoveBelow(panel: Panel, offset?: number): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -15105,7 +15112,7 @@ interface Panel {
      * <arg type="Panel" name="targetPanel">The panel object that was animated.</arg>
      * </callback>
      */
-    MoveBy(moveX: number, moveY: number, time: number, delay = 0, ease = -1, callback?: (animData: AnimationData, targetPanel: Panel) => void): void;
+    MoveBy(moveX: number, moveY: number, time: number, delay?: number, ease?: number, callback?: (animData: AnimationData, targetPanel: Panel) => void): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -15114,7 +15121,7 @@ interface Panel {
      * @param panel - Panel to position relatively to.
      * @param [offset = 0] - The align offset.
      */
-    MoveLeftOf(panel: Panel, offset = 0): void;
+    MoveLeftOf(panel: Panel, offset?: number): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -15123,7 +15130,7 @@ interface Panel {
      * @param panel - Panel to position relatively to.
      * @param [offset = 0] - The align offset.
      */
-    MoveRightOf(panel: Panel, offset = 0): void;
+    MoveRightOf(panel: Panel, offset?: number): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -15144,7 +15151,7 @@ interface Panel {
      * <arg type="Panel" name="targetPanel">The panel object that was animated.</arg>
      * </callback>
      */
-    MoveTo(posX: number, posY: number, time: number, delay = 0, ease = -1, callback?: (animData: AnimationData, targetPanel: Panel) => void): void;
+    MoveTo(posX: number, posY: number, time: number, delay?: number, ease?: number, callback?: (animData: AnimationData, targetPanel: Panel) => void): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -15204,7 +15211,7 @@ interface Panel {
      * <arg type="Panel" name="targetPanel">The panel object that was animated.</arg>
      * </callback>
      */
-    NewAnimation(length: number, delay = 0, ease = -1, callback?: (animData: AnimationData, targetPanel: Panel) => void): AnimationData;
+    NewAnimation(length: number, delay?: number, ease?: number, callback?: (animData: AnimationData, targetPanel: Panel) => void): AnimationData;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -15278,7 +15285,7 @@ interface Panel {
      * Paints the panel at its current position. To use this you must call [Panel:SetPaintedManually](https://wiki.facepunch.com/gmod/Panel:SetPaintedManually)(true).
      * @param [unclamp = false] - If set, overrides panels' clipping so that it can render fully when its size is larger than the game's resolution.
      */
-    PaintManual(unclamp = false): void;
+    PaintManual(unclamp?: boolean): void;
 
     /**
      * 🟨 [Client]
@@ -15374,7 +15381,7 @@ interface Panel {
      * Refreshes the HTML panel's current page.
      * @param [ignoreCache = false] - If true, the refresh will ignore cached content similar to "ctrl+f5" in most browsers.
      */
-    Refresh(ignoreCache = false): void;
+    Refresh(ignoreCache?: boolean): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -15710,7 +15717,7 @@ interface Panel {
      *
      * @param [drawOnTop = false] - Whether or not to draw the panel in front of all others.
      */
-    SetDrawOnTop(drawOnTop = false): void;
+    SetDrawOnTop(drawOnTop?: boolean): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -15891,7 +15898,7 @@ interface Panel {
      * @param [skin = 0] - The skin to set
      * @param [bodygroups = nil] - The body groups to set. Each single-digit number in the string represents a separate bodygroup, **This argument must be 9 characters in total**.
      */
-    SetModel(ModelPath: string, skin = 0, bodygroups?: string): void;
+    SetModel(ModelPath: string, skin?: number, bodygroups?: string): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -15972,7 +15979,7 @@ interface Panel {
      * @param player - The player to use avatar of.
      * @param [size = 32] - The size of the avatar to use. Acceptable sizes are `32`, `64`, `184`. Non matching sizes will be clamped down to the highest valid number.
      */
-    SetPlayer(player: Player, size = 32): void;
+    SetPlayer(player: Player, size?: number): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -16021,7 +16028,7 @@ interface Panel {
      * Sets the selected state of a selectable panel object. This functionality is set with [Panel:SetSelectable](https://wiki.facepunch.com/gmod/Panel:SetSelectable) and checked with [Panel:IsSelectable](https://wiki.facepunch.com/gmod/Panel:IsSelectable).
      * @param [selected = false] - Whether the object should be selected or deselected. [Panel:IsSelected](https://wiki.facepunch.com/gmod/Panel:IsSelected) can be used to determine the selected state of the object.
      */
-    SetSelected(selected = false): void;
+    SetSelected(selected?: boolean): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -16234,7 +16241,7 @@ interface Panel {
      * Works for [RichText](https://wiki.facepunch.com/gmod/RichText) and [TextEntry](https://wiki.facepunch.com/gmod/TextEntry).
      * @param [display = false] - True to display the vertical text scroll bar, false to hide it.
      */
-    SetVerticalScrollbarEnabled(display = false): void;
+    SetVerticalScrollbarEnabled(display?: boolean): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -16337,7 +16344,7 @@ interface Panel {
      * <arg type="Panel" name="targetPanel">The panel object that was animated.</arg>
      * </callback>
      */
-    SizeTo(sizeW = 0, sizeH = 0, time: number, delay = 0, ease = -1, callback?: (animData: AnimationData, targetPanel: Panel) => void): void;
+    SizeTo(sizeW?: number, sizeH?: number, time?: number, delay?: number, ease?: number, callback?: (animData: AnimationData, targetPanel: Panel) => void): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -16353,7 +16360,7 @@ interface Panel {
      * @param [sizeW = false] - Resize with width of the panel.
      * @param [sizeH = false] - Resize the height of the panel.
      */
-    SizeToChildren(sizeW = false, sizeH = false): void;
+    SizeToChildren(sizeW?: boolean, sizeH?: boolean): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -16380,7 +16387,7 @@ interface Panel {
      *
      * @param [addVal = 0] - The number of extra pixels to add to the width. Can be a negative number, to reduce the width.
      */
-    SizeToContentsX(addVal = 0): void;
+    SizeToContentsX(addVal?: number): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -16394,7 +16401,7 @@ interface Panel {
      *
      * @param [addVal = 0] - The number of extra pixels to add to the height.
      */
-    SizeToContentsY(addVal = 0): void;
+    SizeToContentsY(addVal?: number): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -16440,7 +16447,7 @@ interface Panel {
      * @param tgtPanel - The panel to align the bottom of this one with.
      * @param [offset = 0] - The gap to leave between this and the passed panel. Negative values will cause the panel's height to increase, forming an overlap.
      */
-    StretchBottomTo(tgtPanel: Panel, offset = 0): void;
+    StretchBottomTo(tgtPanel: Panel, offset?: number): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -16449,7 +16456,7 @@ interface Panel {
      * @param tgtPanel - The panel to align the right edge of this one with.
      * @param [offset = 0] - The gap to leave between this and the passed panel. Negative values will cause the panel's width to increase, forming an overlap.
      */
-    StretchRightTo(tgtPanel: Panel, offset = 0): void;
+    StretchRightTo(tgtPanel: Panel, offset?: number): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -16520,6 +16527,367 @@ interface Panel {
      * Set to true by the [dragndrop](https://wiki.facepunch.com/gmod/dragndrop) system when the panel is being drawn for the drag'n'drop.
      */
     PaintingDragging(): boolean;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Called every frame unless the panel is not visible ([Panel:IsVisible](https://wiki.facepunch.com/gmod/Panel:IsVisible)). Similar to [PANEL:Think](https://wiki.facepunch.com/gmod/PANEL:Think), but can be disabled by [Panel:SetAnimationEnabled](https://wiki.facepunch.com/gmod/Panel:SetAnimationEnabled) as explained below.
+     *
+     * If you are overriding this, you must call [Panel:AnimationThinkInternal](https://wiki.facepunch.com/gmod/Panel:AnimationThinkInternal) every frame, else animations will cease to work.
+     *
+     * If you want to "disable" this hook with [Panel:SetAnimationEnabled](https://wiki.facepunch.com/gmod/Panel:SetAnimationEnabled), you must call it after defining this hook. Once disabled, a custom hook **will not** be re-enabled by [Panel:SetAnimationEnabled](https://wiki.facepunch.com/gmod/Panel:SetAnimationEnabled) again - the hook will have to be re-defined.
+     */
+    AnimationThink(): void;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Called whenever the panel should apply its scheme (colors, fonts, style).
+     *
+     * It is called a few frames after panel's creation once.
+     *
+     * The engine will overwrite [Panel:SetFGColor](https://wiki.facepunch.com/gmod/Panel:SetFGColor) and [Panel:SetBGColor](https://wiki.facepunch.com/gmod/Panel:SetBGColor) (from the engine panel theme/scheme) for most panels just before this hook is called in Lua.
+     */
+    ApplySchemeSettings(): void;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Called when an object is dragged and hovered over this panel for 0.1 seconds.
+     *
+     * This is used by [DPropertySheet](https://wiki.facepunch.com/gmod/DPropertySheet) and [DTree](https://wiki.facepunch.com/gmod/DTree), for example to open a tab or expand a node when an object is hovered over it.
+     * @param hoverTime - The time the object was hovered over this panel.
+     */
+    DragHoverClick(hoverTime: number): void;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Called when this panel is dropped onto another panel.
+     *
+     * Only works for panels derived from [DDragBase](https://wiki.facepunch.com/gmod/DDragBase).
+     * @param pnl - The panel we are dropped onto
+     */
+    DroppedOn(pnl: Panel): void;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Called when the panel should generate example use case / example code to use for this panel. Used in the panel opened by **derma_controls** console command.
+     * @param class_ - The classname of the panel to generate example for. This will be the class name of your panel.
+     * @param dpropertysheet - A [DPropertySheet](https://wiki.facepunch.com/gmod/DPropertySheet) to add your example to. See examples below.
+     * @param width - Width of the property sheet?
+     * @param height - Width of the property sheet?
+     */
+    GenerateExample(class_: string, dpropertysheet: Panel, width: number, height: number): void;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Called when the panel is created. This is called for each base type that the panel has.
+     */
+    Init(): void;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Called after [Panel:SetCookieName](https://wiki.facepunch.com/gmod/Panel:SetCookieName) is called on this panel to apply the just loaded cookie values for this panel.
+     */
+    LoadCookies(): void;
+
+    /**
+     * 🟨🟩 [Client and Menu]
+     *
+     * Called when we are activated during level load. Used by the loading screen panel.
+     */
+    OnActivate(): void;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Called whenever a child was parented to the panel.
+     *
+     * **Bug [#2759](https://github.com/Facepunch/garrysmod-issues/issues/2759):**
+     * >This is called before the panel's metatable is set.
+     *
+     * @param child - The child which was added.
+     */
+    OnChildAdded(child: Panel): void;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Called whenever a child of the panel is about to removed.
+     * @param child - The child which is about to be removed.
+     */
+    OnChildRemoved(child: Panel): void;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Called whenever the cursor entered the panels bounds.
+     */
+    OnCursorEntered(): void;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Called whenever the cursor left the panels bounds.
+     */
+    OnCursorExited(): void;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Called whenever the cursor was moved with the panels bounds.
+     * @param cursorX - The new x position of the cursor relative to the panels origin.
+     * @param cursorY - The new y position of the cursor relative to the panels origin.
+     */
+    OnCursorMoved(cursorX: number, cursorY: number): boolean;
+
+    /**
+     * 🟨🟩 [Client and Menu]
+     *
+     * Called when we are deactivated during level load. Used by the loading screen panel.
+     */
+    OnDeactivate(): void;
+
+    /**
+     * 🟨 [Client]
+     *
+     * We're being dropped on something
+     * We can create a new panel here and return it, so that instead of dropping us - it drops the new panel instead! We remain where we are!
+     *
+     * Only works for panels derived from [DDragBase](https://wiki.facepunch.com/gmod/DDragBase).
+     */
+    OnDrop(): Panel;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Called whenever the panel gained or lost focus.
+     *
+     * **Note:**
+     * >[Panel:HasFocus](https://wiki.facepunch.com/gmod/Panel:HasFocus) will only be updated on the next frame and will return the "old" value at the time this hook is run. Same goes for [vgui.GetKeyboardFocus](https://wiki.facepunch.com/gmod/vgui.GetKeyboardFocus).
+     *
+     * @param gained - If the focus was gained (`true`) or lost (`false`).
+     */
+    OnFocusChanged(gained: boolean): void;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Called when the panel a child [DHScrollBar](https://wiki.facepunch.com/gmod/DHScrollBar) is scrolled.
+     * @param offset - The new horizontal scroll offset.
+     */
+    OnHScroll(offset: number): void;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Called whenever a keyboard key was pressed while the panel is focused.
+     *
+     * **Bug [#2886](https://github.com/Facepunch/garrysmod-issues/issues/2886):**
+     * >This is not run for ESC/"cancelselect" binding.
+     *
+     * @param keyCode - The key code of the pressed key, see [Enums/KEY](https://wiki.facepunch.com/gmod/Enums/KEY).
+     */
+    OnKeyCodePressed(keyCode: KEY): boolean;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Called whenever a keyboard key was released while the panel is focused.
+     *
+     * **Bug [#2886](https://github.com/Facepunch/garrysmod-issues/issues/2886):**
+     * >This is not run for TILDE/"toggleconsole" binding.
+     *
+     * @param keyCode - The key code of the released key, see [Enums/KEY](https://wiki.facepunch.com/gmod/Enums/KEY).
+     */
+    OnKeyCodeReleased(keyCode: KEY): boolean;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Called whenever a mouse key was pressed while the panel is focused.
+     * @param keyCode - They key code of the key pressed, see [Enums/MOUSE](https://wiki.facepunch.com/gmod/Enums/MOUSE).
+     */
+    OnMousePressed(keyCode: MOUSE): boolean;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Called whenever a mouse key was released while the panel is focused.
+     * @param keyCode - They key code of the key released, see [Enums/MOUSE](https://wiki.facepunch.com/gmod/Enums/MOUSE).
+     */
+    OnMouseReleased(keyCode: MOUSE): boolean;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Called whenever the mouse wheel was used.
+     * @param scrollDelta - The scroll delta, indicating how much the user turned the mouse wheel.
+     */
+    OnMouseWheeled(scrollDelta: number): boolean;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Called when the panel is about to be removed.
+     */
+    OnRemove(): void;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Called when the player's screen resolution of the game changes.
+     *
+     * [Global.ScrW](https://wiki.facepunch.com/gmod/Global.ScrW) and [Global.ScrH](https://wiki.facepunch.com/gmod/Global.ScrH) will return the new values when this hook is called.
+     * @param oldWidth - The previous width  of the game's window
+     * @param oldHeight - The previous height of the game's window
+     * @param newWidth - The new/current width of the game's window.
+     * @param newHeight - The new/current height of the game's window.
+     */
+    OnScreenSizeChanged(oldWidth: number, oldHeight: number, newWidth: number, newHeight: number): void;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Called when the panel a child [DVScrollBar](https://wiki.facepunch.com/gmod/DVScrollBar) or [DHScrollBar](https://wiki.facepunch.com/gmod/DHScrollBar) becomes visible.
+     */
+    OnScrollbarAppear(): void;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Called just after the panel size changes.
+     *
+     * All size functions will return the new values when this hook is called.
+     *
+     * **Warning:**
+     * >Changing the panel size in this hook will cause an infinite loop!
+     *
+     * @param newWidth - The new width of the panel
+     * @param newHeight - The new height of the panel
+     */
+    OnSizeChanged(newWidth: number, newHeight: number): void;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Called by [dragndrop.StartDragging](https://wiki.facepunch.com/gmod/dragndrop.StartDragging) when the panel starts being dragged.
+     */
+    OnStartDragging(): void;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Called by [Panel:DragMouseRelease](https://wiki.facepunch.com/gmod/Panel:DragMouseRelease) when the panel object is released after being dragged.
+     */
+    OnStopDragging(): void;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Called whenever clickable text is clicked within a [RichText](https://wiki.facepunch.com/gmod/RichText).
+     * @param id - The identifier of the text clicked. The one passed to [Panel:InsertClickableTextStart](https://wiki.facepunch.com/gmod/Panel:InsertClickableTextStart).
+     */
+    OnTextClicked(id: string): void;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Called when the panel a child [DVScrollBar](https://wiki.facepunch.com/gmod/DVScrollBar) is scrolled.
+     * @param offset - The new vertical scroll offset.
+     */
+    OnVScroll(offset: number): void;
+
+    /**
+     * 🟨🟩 [Client and Menu]
+     *
+     * Called whenever the panel should be drawn.
+     *
+     * This hook will not run if the panel is completely off the screen, and will still run if any parts of the panel are still on screen.
+     *
+     * You can create panels with a customized appearance by overriding their `Paint()` function, which will prevent the default appearance from being drawn.
+     *
+     * See also [PANEL:PaintOver](https://wiki.facepunch.com/gmod/PANEL:PaintOver).
+     *
+     * **Note:**
+     * >Render operations from the [surface](https://wiki.facepunch.com/gmod/surface) library (and consequentially the [draw](https://wiki.facepunch.com/gmod/draw) library) are always offset by the global position of this panel, as seen in the example below
+     *
+     * @param width - The panel's width.
+     * @param height - The panel's height.
+     */
+    Paint(width: number, height: number): boolean;
+
+    /**
+     * 🟨🟩 [Client and Menu]
+     *
+     * Called whenever the panel and all its children were drawn, return true to override the default drawing.
+     *
+     * This is useful to draw content over the panel without having to overwrite it's [PANEL:Paint](https://wiki.facepunch.com/gmod/PANEL:Paint) hook, for example as an indicator that a panel is selected in [PropSelect](https://wiki.facepunch.com/gmod/PropSelect)
+     * @param width - The panels current width.
+     * @param height - The panels current height.
+     */
+    PaintOver(width: number, height: number): boolean;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Called whenever the panels' layout needs to be performed again. This means all child panels must be re-positioned to fit the possibly new size of this panel.
+     *
+     * This can be triggered in numerous ways:
+     * * [Panel:InvalidateLayout](https://wiki.facepunch.com/gmod/Panel:InvalidateLayout) was called this or previous frame (depending on the argument)
+     * * [Panel:SetPos](https://wiki.facepunch.com/gmod/Panel:SetPos) called more than once on the same panel ([Issue](https://github.com/Facepunch/garrysmod-issues/issues/5519))
+     * * A child element was added to this panel (TODO: Verify me)
+     * * The size of this panel has changed
+     *
+     * You should not call this function directly. Use [Panel:InvalidateLayout](https://wiki.facepunch.com/gmod/Panel:InvalidateLayout) instead.
+     *
+     * You can use `vgui_visualizelayout 1` to visualize panel layouts as they happen for debugging purposes. Panels should not be doing this every frame.
+     * @param width - The panels current width.
+     * @param height - The panels current height.
+     */
+    PerformLayout(width: number, height: number): void;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Only works on elements defined with [derma.DefineControl](https://wiki.facepunch.com/gmod/derma.DefineControl) and only if the panel has **AllowAutoRefresh** set to true.
+     *
+     * Called after [derma.DefineControl](https://wiki.facepunch.com/gmod/derma.DefineControl) is called with panel's class name.
+     *
+     * See also [PANEL:PreAutoRefresh](https://wiki.facepunch.com/gmod/PANEL:PreAutoRefresh)
+     */
+    PostAutoRefresh(): void;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Only works on elements defined with [derma.DefineControl](https://wiki.facepunch.com/gmod/derma.DefineControl) and only if the panel has **AllowAutoRefresh** set to true.
+     *
+     * Called when [derma.DefineControl](https://wiki.facepunch.com/gmod/derma.DefineControl) is called with this panel's class name before applying changes to this panel.
+     *
+     * See also [PANEL:PostAutoRefresh](https://wiki.facepunch.com/gmod/PANEL:PostAutoRefresh)
+     */
+    PreAutoRefresh(): void;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Called to test if the panel is being `hovered` by the mouse. This will only be called if the panel's parent is being hovered.
+     * @param x - The x coordinate of the cursor, in screen space.
+     * @param y - The y coordinate of the cursor, in screen space.
+     */
+    TestHover(x: number, y: number): boolean;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Called every frame while [Panel:IsVisible](https://wiki.facepunch.com/gmod/Panel:IsVisible) is true.
+     */
+    Think(): void;
 
     /* Manual extra from: interface/Panel/h */
     h: number
@@ -16735,7 +17103,7 @@ interface PathFollower {
      * 2 = SEEK_BEHIND - Search from current cursor position backward toward path start
      * @param [alongLimit = 0] -
      */
-    MoveCursorToClosestPosition(pos: Vector, type = 0, alongLimit = 0): void;
+    MoveCursorToClosestPosition(pos: Vector, type?: number, alongLimit?: number): void;
 
     /**
      * 🟦 [Server]
@@ -17438,7 +17806,7 @@ interface PhysObj {
      *
      * @param [teleport = false] - If `true`, temporarily disables collisions of the physics objects just before moving it, then enables collisions back again.
      */
-    SetPos(position: Vector, teleport = false): void;
+    SetPos(position: Vector, teleport?: boolean): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -17617,7 +17985,7 @@ interface Player extends Entity {
      * @param cycle - The cycle to start the animation at, ranges from 0 to 1.
      * @param [autokill = false] - If the animation should not loop. true = stops the animation, false = the animation keeps playing.
      */
-    AddVCDSequenceToGestureSlot(slot: GESTURE_SLOT, sequenceId: number, cycle: number, autokill = false): void;
+    AddVCDSequenceToGestureSlot(slot: GESTURE_SLOT, sequenceId: number, cycle: number, autokill?: boolean): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -17666,7 +18034,7 @@ interface Player extends Entity {
      * @param activity - The activity ( see [Enums/ACT](https://wiki.facepunch.com/gmod/Enums/ACT) ) or sequence that should be played
      * @param [autokill = false] - Whether the animation should be automatically stopped. true = stops the animation, false = the animation keeps playing/looping
      */
-    AnimRestartGesture(slot: GESTURE_SLOT, activity: ACT, autokill = false): void;
+    AnimRestartGesture(slot: GESTURE_SLOT, activity: ACT, autokill?: boolean): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -17707,7 +18075,7 @@ interface Player extends Entity {
      * @param minutes - Duration of the ban in minutes (0 is permanent)
      * @param [kick = false] - Whether to kick the player after banning them or not
      */
-    Ban(minutes: number, kick = false): void;
+    Ban(minutes: number, kick?: boolean): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -17894,7 +18262,7 @@ interface Player extends Entity {
      * @param draw - Should draw
      * @param [vm = 0] - Which view model to show/hide, 0-2.
      */
-    DrawViewModel(draw: boolean, vm = 0): void;
+    DrawViewModel(draw: boolean, vm?: number): void;
 
     /**
      * 🟦 [Server]
@@ -18006,7 +18374,7 @@ interface Player extends Entity {
      * Adds or removes the <page text="FL_FROZEN">Enums/FL</page> flag from the player.
      * @param [frozen = false] - Whether the player should be frozen.
      */
-    Freeze(frozen = false): void;
+    Freeze(frozen?: boolean): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -18119,7 +18487,7 @@ interface Player extends Entity {
      * @param type - Type to get entity count of.
      * @param [minus = 0] - If specified, it will reduce the counter by this value. Works only serverside.
      */
-    GetCount(type: string, minus = 0): number;
+    GetCount(type: string, minus?: number): number;
 
     /**
      * 🟨🟦 [Shared]
@@ -18557,7 +18925,7 @@ interface Player extends Entity {
      *
      * @param [index = 0] - optional index of the view model to return, can range from 0 to 2
      */
-    GetViewModel(index = 0): Entity;
+    GetViewModel(index?: number): Entity;
 
     /**
      * 🟨🟦 [Shared]
@@ -18649,7 +19017,7 @@ interface Player extends Entity {
      * @param weaponClassName - Class name of weapon to give the player
      * @param [bNoAmmo = false] - Set to true to not give any ammo on weapon spawn. (Reserve ammo set by DefaultClip)
      */
-    Give(weaponClassName: string, bNoAmmo = false): Weapon;
+    Give(weaponClassName: string, bNoAmmo?: boolean): Weapon;
 
     /**
      * 🟦 [Server]
@@ -18661,7 +19029,7 @@ interface Player extends Entity {
      * You can find a list of default ammo types <page text="here">Default_Ammo_Types</page>.
      * @param [hidePopup = false] - Hide display popup when giving the ammo
      */
-    GiveAmmo(amount: number, type: string, hidePopup = false): number;
+    GiveAmmo(amount: number, type: string, hidePopup?: boolean): number;
 
     /**
      * 🟦 [Server]
@@ -18909,7 +19277,7 @@ interface Player extends Entity {
      * **Warning:**
      * >This will be shortened to ~512 chars, though this includes the command itself and the player index so will realistically be more around ~498. It is recommended to avoid going near the limit to avoid truncation.
      */
-    Kick(reason: string = "No reason given"): void;
+    Kick(reason?: string): void;
 
     /**
      * 🟦 [Server]
@@ -19060,7 +19428,7 @@ interface Player extends Entity {
      * @param wep - The weapon to try to pick up.
      * @param [ammoOnly = false] - If set to true, the player will only attempt to pick up the ammo from the weapon. The weapon will not be picked up even if the player doesn't have a weapon of this type, and the weapon will be removed if the player picks up any ammo from it.
      */
-    PickupWeapon(wep: Weapon, ammoOnly = false): boolean;
+    PickupWeapon(wep: Weapon, ammoOnly?: boolean): boolean;
 
     /**
      * 🟨🟦 [Shared]
@@ -19160,7 +19528,7 @@ interface Player extends Entity {
      * @param text - The text to force the player to say.
      * @param [teamOnly = false] - Whether to send this message to our own team only.
      */
-    Say(text: string, teamOnly = false): void;
+    Say(text: string, teamOnly?: boolean): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -19173,7 +19541,7 @@ interface Player extends Entity {
      * @param fadeHold - Fade effect hold time.
      * This is limited to 7 bits integer part and 9 bits fractional part.
      */
-    ScreenFade(flags: SCREENFADE, color?: Color, fadeTime: number, fadeHold: number): void;
+    ScreenFade(flags: SCREENFADE, color?: Color, fadeTime?: number, fadeHold?: number): void;
 
     /**
      * 🟦 [Server]
@@ -19354,7 +19722,7 @@ interface Player extends Entity {
      * @param [drivingEntity = NULL] - The entity the player should drive.
      * @param drivingMode - The driving mode index.
      */
-    SetDrivingEntity(drivingEntity?: Entity, drivingMode: number): void;
+    SetDrivingEntity(drivingEntity?: Entity, drivingMode?: number): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -19405,7 +19773,7 @@ interface Player extends Entity {
      * @param [time = 0] - the time it takes to transition to the FOV expressed in a floating point.
      * @param [requester = self] - The requester or "owner" of the zoom event. Only this entity will be able to change the player's FOV until it is set back to 0.
      */
-    SetFOV(fov: number, time = 0, requester?: Entity): void;
+    SetFOV(fov: number, time?: number, requester?: Entity): void;
 
     /**
      * 🟦 [Server]
@@ -19825,7 +20193,7 @@ interface Player extends Entity {
      * @param ent - The entity picked up
      * @param [lightning = false] - Whether or not to show lightning effects around the entity
      */
-    SimulateGravGunPickup(ent: Entity, lightning = false): void;
+    SimulateGravGunPickup(ent: Entity, lightning?: boolean): void;
 
     /**
      * 🟦 [Server]
@@ -20127,7 +20495,7 @@ interface Player extends Entity {
      * Resets the player's view punch (and the view punch velocity, read more at [Player:ViewPunch](https://wiki.facepunch.com/gmod/Player:ViewPunch)) effect back to normal.
      * @param [tolerance = 0] - Reset all ViewPunch below this threshold.
      */
-    ViewPunchReset(tolerance = 0): void;
+    ViewPunchReset(tolerance?: number): void;
 
     /**
      * 🟨 [Client]
@@ -20649,7 +21017,7 @@ interface Stack {
      * Pop an item from the stack
      * @param [amount = 1] - Amount of items you want to pop.
      */
-    Pop(amount = 1): any;
+    Pop(amount?: number): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -20657,7 +21025,7 @@ interface Stack {
      * Pop an item from the stack
      * @param [amount = 1] - Amount of items you want to pop.
      */
-    PopMulti(amount = 1): any;
+    PopMulti(amount?: number): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -20883,7 +21251,7 @@ interface Tool {
      * @param name - Name of the [ConVar](https://wiki.facepunch.com/gmod/ConVar) to retrieve. The function will automatically add the `mytoolfilename_` part to it.
      * @param [default_ = false] - The default value to return in case the lookup fails.
      */
-    GetClientBool(name: string, default_ = false): number;
+    GetClientBool(name: string, default_?: boolean): number;
 
     /**
      * 🟨🟦 [Shared]
@@ -20900,7 +21268,7 @@ interface Tool {
      * @param name - Name of the convar to retrieve. The function will automatically add the `mytoolfilename_` part to it.
      * @param [default_ = 0] - The default value to return in case the lookup fails.
      */
-    GetClientNumber(name: string, default_ = 0): number;
+    GetClientNumber(name: string, default_?: number): number;
 
     /**
      * 🟨🟦 [Shared]
@@ -21426,7 +21794,7 @@ interface Vector {
      * @param [min = -1] - The minimum value for each component.
      * @param [max = 1] - The maximum value for each component.
      */
-    Random(min = -1, max = 1): void;
+    Random(min?: number, max?: number): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -21673,7 +22041,7 @@ interface Vehicle extends Entity {
      * Returns the view position and forward angle of a given passenger seat.
      * @param [role = 0] - The passenger role. 0 is the driver. This parameter seems to be ignored by the game engine and is therefore optional.
      */
-    GetVehicleViewPosition(role = 0): LuaMultiReturn<[Vector, Angle, number]>;
+    GetVehicleViewPosition(role?: number): LuaMultiReturn<[Vector, Angle, number]>;
 
     /**
      * 🟦 [Server]
@@ -22300,7 +22668,7 @@ interface Weapon extends Entity {
      * @param functionName - Name of function to call. If you want to call `SWEP:MyFunc()` on client, you type in `"MyFunc"`
      * @param [data] - Custom data to be passed to the target SWEP function as the first argument.
      */
-    CallOnClient(functionName: string, data: string = ""): void;
+    CallOnClient(functionName: string, data?: string): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -22710,7 +23078,7 @@ interface ContentHeader extends DLabelEditable {
      * @param style -
      * @param [hookname = PopulateContent] - A Populate Hook like PopulateEntities
      */
-    OpenMenu(style: string, hookname: string = "PopulateContent"): void;
+    OpenMenu(style: string, hookname?: string): void;
 
     /**
      * 🟨 [Client]
@@ -22833,7 +23201,7 @@ interface ContentSidebar extends DPanel {
      * @param style -
      * @param [hookname = PopulateContent] - A Populate Hook like PopulateEntities
      */
-    CreateSaveNotification(style: string, hookname: string = "PopulateContent"): void;
+    CreateSaveNotification(style: string, hookname?: string): void;
 
     /**
      * 🟨 [Client]
@@ -22849,7 +23217,7 @@ interface ContentSidebar extends DPanel {
      * @param style -
      * @param [hookname = PopulateContent] - A Populate Hook like PopulateEntities
      */
-    EnableSearch(style: string, hookname: string = "PopulateContent"): void;
+    EnableSearch(style: string, hookname?: string): void;
 }
 
 /**
@@ -23851,7 +24219,7 @@ interface DCollapsibleCategory extends Omit<Panel, "Add"> {
      * You should use [DCollapsibleCategory:Toggle](https://wiki.facepunch.com/gmod/DCollapsibleCategory:Toggle) or [DCollapsibleCategory:DoExpansion](https://wiki.facepunch.com/gmod/DCollapsibleCategory:DoExpansion) instead.
      * @param [expanded = true] - Whether it shall be expanded or not by default
      */
-    SetExpanded(expanded = true): void;
+    SetExpanded(expanded?: boolean): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -23970,7 +24338,7 @@ interface DColorButton extends Omit<DLabel, "SetColor"> {
      * @param color - A [Color](https://wiki.facepunch.com/gmod/Color) to set the color as
      * @param [noTooltip = false] - If true, the tooltip will not be reset to display the selected color.
      */
-    SetColor(color: Color, noTooltip = false): void;
+    SetColor(color: Color, noTooltip?: boolean): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -24697,7 +25065,7 @@ interface DComboBox extends DButton {
      * @param [select = false] - Should this be the default selected text show to the user or not.
      * @param [icon = nil] - Adds an icon for this choice.
      */
-    AddChoice(value: string, data?: any, select = false, icon?: string): number;
+    AddChoice(value: string, data?: any, select?: boolean, icon?: string): number;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -24953,7 +25321,7 @@ interface DDragBase extends DPanel {
      * "2" for bottom
      * @param [pos = 5] - Where you're allowed to drop things.
      */
-    SetDropPos(pos: string = "5"): void;
+    SetDropPos(pos?: string): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -25249,7 +25617,7 @@ interface DFileBrowser extends DPanel {
      * "*.lua *.txt *.mdl"
      * ```
      */
-    SetFileTypes(fileTypes: string = "*.*"): void;
+    SetFileTypes(fileTypes?: string): void;
 
     /**
      * 🟨 [Client]
@@ -25261,7 +25629,7 @@ interface DFileBrowser extends DPanel {
      *
      * @param [showModels = false] - Whether or not to display files using [SpawnIcon](https://wiki.facepunch.com/gmod/SpawnIcon)s.
      */
-    SetModels(showModels = false): void;
+    SetModels(showModels?: boolean): void;
 
     /**
      * 🟨 [Client]
@@ -25278,7 +25646,7 @@ interface DFileBrowser extends DPanel {
      * @param [open = false] - `true` to open the tree, `false` to close it.
      * @param [useAnim = false] - If `true`, the [DTree](https://wiki.facepunch.com/gmod/DTree)'s open/close animation is used.
      */
-    SetOpen(open = false, useAnim = false): void;
+    SetOpen(open?: boolean, useAnim?: boolean): void;
 
     /**
      * 🟨 [Client]
@@ -25298,7 +25666,7 @@ interface DFileBrowser extends DPanel {
      * This accepts the same wildcards as [file.Find](https://wiki.facepunch.com/gmod/file.Find).
      * @param [filter = *] - The filter to use on the file tree.
      */
-    SetSearch(filter: string = "*"): void;
+    SetSearch(filter?: string): void;
 
     /**
      * 🟨 [Client]
@@ -25345,7 +25713,7 @@ interface DFileBrowser extends DPanel {
      *
      * @param [descending = false] - The sort order. `true` for descending (z-a), `false` for ascending (a-z).
      */
-    SortFiles(descending = false): void;
+    SortFiles(descending?: boolean): void;
 }
 
 /**
@@ -25372,7 +25740,7 @@ interface DForm extends DCollapsibleCategory {
      * @param [concommand] - The concommand to run when the button is clicked
      * @param [args = nil] - The arguments to pass on to the concommand when the button is clicked
      */
-    Button(text: string, concommand: string = "", ...args?: any[]): Panel;
+    Button(text: string, concommand?: string, ...args: any[]): Panel;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -25459,7 +25827,7 @@ interface DForm extends DCollapsibleCategory {
      * @param max - The maximum value of the slider
      * @param [decimals = 2] - The number of decimals to allow for the slider value.
      */
-    NumSlider(label: string, convar: string, min: number, max: number, decimals = 2): Panel;
+    NumSlider(label: string, convar: string, min: number, max: number, decimals?: number): Panel;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -25485,7 +25853,7 @@ interface DForm extends DCollapsibleCategory {
      * * The key of the table is the value of the convar.
      * @param [height = 2] - The height of the prop select panel, in 64px icon increments.
      */
-    PropSelect(label: string, convar: string, models: any, height = 2): Panel;
+    PropSelect(label: string, convar: string, models: any, height?: number): Panel;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -25804,7 +26172,7 @@ interface DGrid extends Panel {
      * @param item - Item to remove from the grid
      * @param [bDontDelete = false] - If set to true, the actual panel will not be removed via [Panel:Remove](https://wiki.facepunch.com/gmod/Panel:Remove).
      */
-    RemoveItem(item: Panel, bDontDelete = false): void;
+    RemoveItem(item: Panel, bDontDelete?: boolean): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -25843,7 +26211,7 @@ interface DGrid extends Panel {
      * @param key - A key in the panel from [DGrid:GetItems](https://wiki.facepunch.com/gmod/DGrid:GetItems). The key's value must be numeric.
      * @param [desc = true] - True for descending order, false for ascending.
      */
-    SortByMember(key: string, desc = true): void;
+    SortByMember(key: string, desc?: boolean): void;
 }
 
 /**
@@ -26110,7 +26478,7 @@ interface DHScrollBar extends Panel {
      * @param [delay = 0] - Delay of the animation in seconds
      * @param [ease = -1] - See [Panel:NewAnimation](https://wiki.facepunch.com/gmod/Panel:NewAnimation) for explanation.
      */
-    AnimateTo(scroll: number, length: number, delay = 0, ease = -1): void;
+    AnimateTo(scroll: number, length: number, delay?: number, ease?: number): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -26246,7 +26614,7 @@ interface DHTML extends HTML {
      * Determines whether the loaded page can run Lua code or not. See [DHTML](https://wiki.facepunch.com/gmod/DHTML) for how to run Lua from a DHTML window.
      * @param [allow = false] - Whether or not to allow Lua.
      */
-    SetAllowLua(allow = false): void;
+    SetAllowLua(allow?: boolean): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -27794,7 +28162,7 @@ interface DListView extends DPanel {
      * @param columnIndex - The index of the column that should be sorted.
      * @param [descending = false] - Whether the items should be sorted in descending order or not.
      */
-    SortByColumn(columnIndex: number, descending = false): void;
+    SortByColumn(columnIndex: number, descending?: boolean): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -27811,7 +28179,7 @@ interface DListView extends DPanel {
      * @param [column4 = nil] -
      * @param [descrending4 = false] -
      */
-    SortByColumns(column1?: number, descrending1 = false, column2?: number, descrending2 = false, column3?: number, descrending3 = false, column4?: number, descrending4 = false): void;
+    SortByColumns(column1?: number, descrending1?: boolean, column2?: number, descrending2?: boolean, column3?: number, descrending3?: boolean, column4?: number, descrending4?: boolean): void;
 }
 
 /**
@@ -28870,7 +29238,7 @@ interface DModelSelect extends DPanelSelect {
      * Overrides [Panel:SetHeight](https://wiki.facepunch.com/gmod/Panel:SetHeight).
      * @param [num = 2] - Basically how many rows of 64x64 px spawnicons should fit in this DModelSelect
      */
-    SetHeight(num = 2): void;
+    SetHeight(num?: number): void;
 
     /**
      * 🟨 [Client]
@@ -29958,7 +30326,7 @@ interface DProperties extends Panel {
      * @param name - Name of the category
      * @param [create = false] - Create a new category if it doesn't exist.
      */
-    GetCategory(name: string, create = false): Panel;
+    GetCategory(name: string, create?: boolean): Panel;
 }
 
 /**
@@ -29980,7 +30348,7 @@ interface DProperty_Combo extends Omit<DProperty_Generic, "SetSelected"> {
      * @param data - Stored Data.
      * @param [select = false] - Select this element?
      */
-    AddChoice(Text: string, data: any, select = false): void;
+    AddChoice(Text: string, data: any, select?: boolean): void;
 
     /**
      * 🟨 [Client]
@@ -30113,7 +30481,7 @@ interface DPropertySheet extends Panel {
      * @param [noStretchY = false] - Should [DPropertySheet](https://wiki.facepunch.com/gmod/DPropertySheet) try to fill itself with given panel vertically.
      * @param [tooltip = nil] - Tooltip for the tab when user hovers over it with his cursor
      */
-    AddSheet(name: string, pnl: Panel, icon?: string, noStretchX = false, noStretchY = false, tooltip?: string): any;
+    AddSheet(name: string, pnl: Panel, icon?: string, noStretchX?: boolean, noStretchY?: boolean, tooltip?: string): any;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -30198,7 +30566,7 @@ interface DPropertySheet extends Panel {
      * Sets the amount of time (in seconds) it takes to fade between tabs.
      * @param [time = 0.1] - The amount of time it takes (in seconds) to fade between tabs.
      */
-    SetFadeTime(time = 0.1): void;
+    SetFadeTime(time?: number): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -30206,7 +30574,7 @@ interface DPropertySheet extends Panel {
      * Sets the padding from parent panel to children panel.
      * @param [padding = 8] - Amount of padding
      */
-    SetPadding(padding = 8): void;
+    SetPadding(padding?: number): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -31531,7 +31899,7 @@ interface DTooltip extends DLabel {
      * @param panel - Contents
      * @param [delete_ = false] - If set to true, the panel in the first argument will be automatically removed when [DTooltip](https://wiki.facepunch.com/gmod/DTooltip) is closed via [DTooltip:Close](https://wiki.facepunch.com/gmod/DTooltip:Close).
      */
-    SetContents(panel: Panel, delete_ = false): void;
+    SetContents(panel: Panel, delete_?: boolean): void;
 }
 
 /**
@@ -31547,7 +31915,7 @@ interface DTree extends DScrollPanel {
      * @param name - Name of the option.
      * @param [icon = icon16/folder.png] - The icon that will show nexto the node in the DTree.
      */
-    AddNode(name: string, icon: string = "icon16/folder.png"): Panel;
+    AddNode(name: string, icon?: string): Panel;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -31748,7 +32116,7 @@ interface DTree_Node extends DPanel {
      * @param [wildcard = *] - The wildcard to use when searching for files.
      * @param [bDontForceExpandable = false] -
      */
-    AddFolder(name: string, folder: string, path: string, showFiles = false, wildcard: string = "*", bDontForceExpandable = false): Panel;
+    AddFolder(name: string, folder: string, path: string, showFiles?: boolean, wildcard?: string, bDontForceExpandable?: boolean): Panel;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -31757,7 +32125,7 @@ interface DTree_Node extends DPanel {
      * @param name - Name of the node.
      * @param [icon = icon16/folder.png] - The icon that will show next to the node in the DTree.
      */
-    AddNode(name: string, icon: string = "icon16/folder.png"): Panel;
+    AddNode(name: string, icon?: string): Panel;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -32125,7 +32493,7 @@ interface DTree_Node extends DPanel {
      * @param [wildcard = *] - The wildcard to use when searching for files.
      * @param [dontForceExpandable = false] - If set to true, don't show the expand buttons on empty nodes.
      */
-    MakeFolder(folder: string, path: string, showFiles = false, wildcard: string = "*", dontForceExpandable = false): void;
+    MakeFolder(folder: string, path: string, showFiles?: boolean, wildcard?: string, dontForceExpandable?: boolean): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -32230,7 +32598,7 @@ interface DTree_Node extends DPanel {
      * @param expand - Whether to expand (true) or collapse (false)
      * @param [surpressAnimation = false] - Whether to play animation (false) or not (true)
      */
-    SetExpanded(expand: boolean, surpressAnimation = false): void;
+    SetExpanded(expand: boolean, surpressAnimation?: boolean): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -32575,7 +32943,7 @@ interface DVScrollBar extends Panel {
      * @param [delay = 0] - Delay of the animation in seconds
      * @param [ease = -1] - See [Panel:NewAnimation](https://wiki.facepunch.com/gmod/Panel:NewAnimation) for explanation.
      */
-    AnimateTo(scroll: number, length: number, delay = 0, ease = -1): void;
+    AnimateTo(scroll: number, length: number, delay?: number, ease?: number): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -33848,7 +34216,7 @@ interface Gamemode {
      * @param event - Animation event. See [Enums/PLAYERANIMEVENT](https://wiki.facepunch.com/gmod/Enums/PLAYERANIMEVENT)
      * @param [data = 0] - The data for the event. This is interpreted as an [Enums/ACT](https://wiki.facepunch.com/gmod/Enums/ACT) by `PLAYERANIMEVENT_CUSTOM` and `PLAYERANIMEVENT_CUSTOM_GESTURE`, or a sequence by `PLAYERANIMEVENT_CUSTOM_SEQUENCE`.
      */
-    DoAnimationEvent(ply: Player, event: PLAYERANIMEVENT, data = 0): ACT;
+    DoAnimationEvent(ply: Player, event: PLAYERANIMEVENT, data?: ACT): ACT;
 
     /**
      * 🟦 [Server]
@@ -38185,7 +38553,7 @@ interface WEAPON extends Weapon {
      * @param [force = 1] - Force of the bullets
      * @param [tracer = 5] - Show a tracer on every x bullets
      */
-    ShootBullet(damage: number, num_bullets: number, aimcone: number, ammo_type: string = "self.Primary.Ammo", force = 1, tracer = 5): void;
+    ShootBullet(damage: number, num_bullets: number, aimcone: number, ammo_type?: string, force?: number, tracer?: number): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -55399,7 +55767,7 @@ declare function AddConsoleCommand(name: string, helpText: string, flags: FCVAR)
  * **Note:**
  * >Please make sure your file names are unique, the filesystem is shared across all addons, so a file named `lua/config.lua` in your addon may be overwritten by the same file in another addon.
  */
-declare function AddCSLuaFile(file: string = "current file"): void;
+declare function AddCSLuaFile(file?: string): void;
 
 /**
  * 🟨🟩 [Client and Menu]
@@ -55456,7 +55824,7 @@ declare function AddPropsOfParent(pnlContent: Panel, node: Panel, parentid: numb
  * @param [pos = ent:GetPos()] - Where in the world you want the World Tip to be drawn. If you add a valid Entity in the next argument, this argument will have no effect on the actual World Tip.
  * @param [ent = nil] - Which entity you want to associate with the World Tip. This argument is optional. If set to a valid entity, this will override the position set in `pos` with the Entity's position.
  */
-declare function AddWorldTip(entindex?: number, text: string, dieTime?: number, pos?: Vector, ent?: Entity): void;
+declare function AddWorldTip(entindex?: number, text?: string, dieTime?: number, pos?: Vector, ent?: Entity): void;
 
 /**
  * 🟨🟦🟩 [Shared and Menu]
@@ -55472,7 +55840,7 @@ declare function AddWorldTip(entindex?: number, text: string, dieTime?: number, 
  * @param [yaw = 0] - The yaw value of the angle, in degrees.
  * @param [roll = 0] - The roll value of the angle, in degrees.
  */
-declare function Angle(pitch = 0, yaw = 0, roll = 0): Angle;
+declare function Angle(pitch?: number, yaw?: number, roll?: number): Angle;
 
 /**
  * 🟨🟦🟩 [Shared and Menu]
@@ -55491,7 +55859,7 @@ declare function AngleRand(min?: number, max?: number): Angle;
  * @param [errorMessage = assertion failed!] - The error message to throw when assertion fails. This is only type-checked if the assertion fails.
  * @param [returns = nil] - Any arguments past the error message will be returned by a successful assert.
  */
-declare function assert(expression: any, errorMessage: string = "assertion failed!", ...returns?: any[]): LuaMultiReturn<[any, any, any[]]>;
+declare function assert(expression: any, errorMessage?: string, ...returns: any[]): LuaMultiReturn<[any, any, any[]]>;
 
 /**
  * 🟨🟦🟩 [Shared and Menu]
@@ -55649,7 +56017,7 @@ declare function CloseDermaMenus(): void;
  *
  * @param arg - The argument of the specified action, only applicable for `step`, `setpause` and `setstepmul`.
  */
-declare function collectgarbage(action: string = "collect", arg: number): any;
+declare function collectgarbage(action?: string, arg?: number): any;
 
 /**
  * 🟨🟦🟩 [Shared and Menu]
@@ -55667,7 +56035,7 @@ declare function collectgarbage(action: string = "collect", arg: number): any;
  * @param b - An integer from `0-255` describing the blue value of the color.
  * @param [a = 255] - An integer from `0-255` describing the alpha (transparency) of the color.(default 255)
  */
-declare function Color(r: number, g: number, b: number, a = 255): Color;
+declare function Color(r: number, g: number, b: number, a?: number): Color;
 
 /**
  * 🟨🟦🟩 [Shared and Menu]
@@ -55684,7 +56052,7 @@ declare function ColorAlpha(color: Color, alpha: number): Color;
  * Creates a [Color](https://wiki.facepunch.com/gmod/Color) with randomized red, green, and blue components. If the alpha argument is true, alpha will also be randomized.
  * @param [a = false] - Should alpha be randomized.
  */
-declare function ColorRand(a = false): Color;
+declare function ColorRand(a?: boolean): Color;
 
 /**
  * 🟨🟦🟩 [Shared and Menu]
@@ -55709,7 +56077,7 @@ declare function ColorToHSV(color: Color): LuaMultiReturn<[number, number, numbe
  * @param path - Path to the file, relative to the `garrysmod/lua/` directory.
  * @param [showError = true] - Decides whether or not a non-halting error should be thrown on compile failure.
  */
-declare function CompileFile(path: string, showError = true): Function;
+declare function CompileFile(path: string, showError?: boolean): Function;
 
 /**
  * 🟨🟦 [Shared]
@@ -55721,7 +56089,7 @@ declare function CompileFile(path: string, showError = true): Function;
  * @param identifier - An identifier in case an error is thrown. (The same identifier can be used multiple times)
  * @param [handleError = true] - If false this function will return an error string instead of throwing an error.
  */
-declare function CompileString(code: string, identifier: string, handleError = true): Function;
+declare function CompileString(code: string, identifier: string, handleError?: boolean): Function;
 
 /**
  * 🟨🟦🟩 [Shared and Menu]
@@ -55750,7 +56118,7 @@ declare function ConVarExists(name: string): boolean;
  * @param [min = nil] - If set, the convar cannot be changed to a number lower than this value.
  * @param [max = nil] - If set, the convar cannot be changed to a number higher than this value.
  */
-declare function CreateClientConVar(name: string, default_: string, shouldsave = true, userinfo = false, helptext: string = "", min?: number, max?: number): ConVar;
+declare function CreateClientConVar(name: string, default_: string, shouldsave?: boolean, userinfo?: boolean, helptext?: string, min?: number, max?: number): ConVar;
 
 /**
  * 🟨 [Client]
@@ -55777,7 +56145,7 @@ declare function CreateContextMenu(): void;
  * @param [min = nil] - If set, the ConVar cannot be changed to a number lower than this value.
  * @param [max = nil] - If set, the ConVar cannot be changed to a number higher than this value.
  */
-declare function CreateConVar(name: string, value: string, flags?: FCVAR|number[], helptext: string = "", min?: number, max?: number): ConVar;
+declare function CreateConVar(name: string, value: string, flags?: FCVAR|number[], helptext?: string, min?: number, max?: number): ConVar;
 
 /**
  * 🟨🟩 [Client and Menu]
@@ -55826,7 +56194,7 @@ declare function CreateNewAddonPreset(data: Preset): void;
  * @param [entAttachment = 0] - The attachment ID on the entity to attach the particle system to
  * @param [offset = Vector( 0, 0, 0 )] - The offset from the [Entity:GetPos](https://wiki.facepunch.com/gmod/Entity:GetPos) of the entity we are attaching this CP to.
  */
-declare function CreateParticleSystem(ent: Entity, effect: string, partAttachment: PATTACH, entAttachment = 0, offset?: Vector): CNewParticleEffect;
+declare function CreateParticleSystem(ent: Entity, effect: string, partAttachment: PATTACH, entAttachment?: number, offset?: Vector): CNewParticleEffect;
 
 /**
  * 🟨 [Client]
@@ -56057,7 +56425,7 @@ declare function Derma_Message(Text: string, Title: string, Button: string): Pan
  * @param [btn4text = nil] - The text to display on the fourth button
  * @param [btn4func = nil] - The function to run if the user clicks the fourth button.
  */
-declare function Derma_Query(text: string = "Message Text (Second Parameter)", title: string = "Message Title (First Parameter)", btn1text: string, btn1func?: Function, btn2text?: string, btn2func?: Function, btn3text?: string, btn3func?: Function, btn4text?: string, btn4func?: Function): Panel;
+declare function Derma_Query(text?: string, title?: string, btn1text?: string, btn1func?: Function, btn2text?: string, btn2func?: Function, btn3text?: string, btn3func?: Function, btn4text?: string, btn4func?: Function): Panel;
 
 /**
  * 🟨🟩 [Client and Menu]
@@ -56077,7 +56445,7 @@ declare function Derma_Query(text: string = "Message Text (Second Parameter)", t
  * @param [confirmText = OK] - Allows you to override text of the "OK" button
  * @param [cancelText = Cancel] - Allows you to override text of the "Cancel" button
  */
-declare function Derma_StringRequest(title: string, subtitle: string, default_: string, confirm: (text: string) => void, cancel?: (text: string) => void, confirmText: string = "OK", cancelText: string = "Cancel"): Panel;
+declare function Derma_StringRequest(title: string, subtitle: string, default_: string, confirm: (text: string) => void, cancel?: (text: string) => void, confirmText?: string, cancelText?: string): Panel;
 
 /**
  * 🟨🟩 [Client and Menu]
@@ -56086,7 +56454,7 @@ declare function Derma_StringRequest(title: string, subtitle: string, default_: 
  * @param [keepOpen = false] - If we should keep other [DMenu](https://wiki.facepunch.com/gmod/DMenu)s open (`true`) or not (`false`).
  * @param [parent = nil] - The panel to parent the created menu to.
  */
-declare function DermaMenu(keepOpen = false, parent?: Panel): Panel;
+declare function DermaMenu(keepOpen?: boolean, parent?: Panel): Panel;
 
 /**
  * 🟨🟩 [Client and Menu]
@@ -56289,7 +56657,7 @@ declare function DTVar_ReceiveProxyGL(entity: Entity, Type: string, index: numbe
  * @param index - An unsigned Integer. Usually an <page text="entity index">Entity:EntIndex</page> is used here.
  * @param [elight = false] - Allocates an elight instead of a dlight. Elights have a higher light limit and do not light the world (making the "noworld" parameter have no effect).
  */
-declare function DynamicLight(index: number, elight = false): DynamicLight;
+declare function DynamicLight(index: number, elight?: boolean): DynamicLight;
 
 /**
  * 🟩 [Menu]
@@ -56366,7 +56734,7 @@ declare function Either(condition: any, truevar: any, falsevar: any): any;
  * @param [soundFlags = 0] - The flags of the sound, see [Enums/SND](https://wiki.facepunch.com/gmod/Enums/SND)
  * @param [pitch = 100] - The pitch of the sound, 0-255
  */
-declare function EmitSentence(soundName: string, position: Vector, entity: number, channel?: CHAN, volume = 1, soundLevel = 75, soundFlags = 0, pitch = 100): void;
+declare function EmitSentence(soundName: string, position: Vector, entity: number, channel?: CHAN, volume?: number, soundLevel?: SNDLVL, soundFlags?: SND, pitch?: number): void;
 
 /**
  * 🟨🟦 [Shared]
@@ -56394,7 +56762,7 @@ declare function EmitSentence(soundName: string, position: Vector, entity: numbe
  * @param [dsp = 1] - The DSP preset for this sound. [List of DSP presets](https://developer.valvesoftware.com/wiki/Dsp_presets)
  * @param [filter = nil] - If set serverside, the sound will only be networked to the clients in the filter.
  */
-declare function EmitSound(soundName: string, position: Vector, entity = 0, channel?: CHAN, volume = 1, soundLevel = 75, soundFlags = 0, pitch = 100, dsp = 1, filter?: CRecipientFilter): void;
+declare function EmitSound(soundName: string, position: Vector, entity?: number, channel?: CHAN, volume?: number, soundLevel?: SNDLVL, soundFlags?: SND, pitch?: number, dsp?: number, filter?: CRecipientFilter): void;
 
 /**
  * 🟨🟩 [Client and Menu]
@@ -56425,7 +56793,7 @@ declare function Entity(entityIndex: number): Entity;
  * @param message - The error message to throw.
  * @param [errorLevel = 1] - The level to throw the error at.
  */
-declare function error(message: string, errorLevel = 1): void;
+declare function error(message: string, errorLevel?: number): void;
 
 /**
  * 🟨🟦🟩 [Shared and Menu]
@@ -56605,7 +56973,7 @@ declare function gcinfo(): number;
  * @param [icon = icon16/page.png] - The Spawnmenu Category Icon to use
  * @param appid - The AppID which is needed for the Content
  */
-declare function GenerateSpawnlistFromPath(folder: string, path: string, name: string, icon: string = "icon16/page.png", appid: number): void;
+declare function GenerateSpawnlistFromPath(folder: string, path: string, name: string, icon?: string, appid?: number): void;
 
 /**
  * 🟩 [Menu]
@@ -56747,7 +57115,7 @@ declare function GetDownloadables(): string[];
  * Returns the environment table of either the stack level or the function specified.
  * @param [location = 1] - The object to get the enviroment from. Can also be a number that specifies the function at that stack level: Level 1 is the function calling getfenv. Level 0 is the base Garry's Mod environment (_G).
  */
-declare function getfenv(location = 1): any;
+declare function getfenv(location?: Function): any;
 
 /**
  * 🟨🟦 [Shared]
@@ -56765,7 +57133,7 @@ declare function GetGlobal2Angle(index: string, default_?: Angle): Angle;
  * @param index - The unique index to identify the global value with.
  * @param [default_ = false] - The value to return if the global value is not set.
  */
-declare function GetGlobal2Bool(index: string, default_ = false): boolean;
+declare function GetGlobal2Bool(index: string, default_?: boolean): boolean;
 
 /**
  * 🟨🟦 [Shared]
@@ -56783,7 +57151,7 @@ declare function GetGlobal2Entity(index: string, default_?: Entity): Entity;
  * @param index - The unique index to identify the global value with.
  * @param [default_ = 0] - The value to return if the global value is not set.
  */
-declare function GetGlobal2Float(index: string, default_ = 0): number;
+declare function GetGlobal2Float(index: string, default_?: number): number;
 
 /**
  * 🟨🟦 [Shared]
@@ -56796,7 +57164,7 @@ declare function GetGlobal2Float(index: string, default_ = 0): number;
  * @param index - The unique index to identify the global value with.
  * @param [default_ = 0] - The value to return if the global value is not set.
  */
-declare function GetGlobal2Int(index: string, default_ = 0): number;
+declare function GetGlobal2Int(index: string, default_?: number): number;
 
 /**
  * 🟨🟦 [Shared]
@@ -56805,7 +57173,7 @@ declare function GetGlobal2Int(index: string, default_ = 0): number;
  * @param index - The unique index to identify the global value with.
  * @param [default_] - The value to return if the global value is not set.
  */
-declare function GetGlobal2String(index: string, default_: string = ""): string;
+declare function GetGlobal2String(index: string, default_?: string): string;
 
 /**
  * 🟨🟦 [Shared]
@@ -56841,7 +57209,7 @@ declare function GetGlobalAngle(index: string, default_: Angle): Angle;
  * @param index - The unique index to identify the global value with.
  * @param [default_ = false] - The value to return if the global value is not set.
  */
-declare function GetGlobalBool(index: string, default_ = false): boolean;
+declare function GetGlobalBool(index: string, default_?: boolean): boolean;
 
 /**
  * 🟨🟦 [Shared]
@@ -56859,7 +57227,7 @@ declare function GetGlobalEntity(index: string, default_?: Entity): Entity;
  * @param index - The unique index to identify the global value with.
  * @param [default_ = 0] - The value to return if the global value is not set.
  */
-declare function GetGlobalFloat(index: string, default_ = 0): number;
+declare function GetGlobalFloat(index: string, default_?: number): number;
 
 /**
  * 🟨🟦 [Shared]
@@ -56872,7 +57240,7 @@ declare function GetGlobalFloat(index: string, default_ = 0): number;
  * @param index - The unique index to identify the global value with.
  * @param [default_ = 0] - The value to return if the global value is not set.
  */
-declare function GetGlobalInt(index: string, default_ = 0): number;
+declare function GetGlobalInt(index: string, default_?: number): number;
 
 /**
  * 🟨🟦 [Shared]
@@ -56881,7 +57249,7 @@ declare function GetGlobalInt(index: string, default_ = 0): number;
  * @param index - The unique index to identify the global value with.
  * @param [default_] - The value to return if the global value is not set.
  */
-declare function GetGlobalString(index: string, default_: string = ""): string;
+declare function GetGlobalString(index: string, default_?: string): string;
 
 /**
  * 🟨🟦 [Shared]
@@ -57693,7 +58061,7 @@ declare function MainEyePos(): Vector;
  * @param data - Data applied to the balloon. This data is required for correctly spawning the balloon.
  * For more information, please see: [Structures/BalloonData](https://wiki.facepunch.com/gmod/Structures/BalloonData)
  */
-declare function MakeBalloon(ply: player, r = 255, g = 255, b = 255, force = 0, data: BalloonData): Entity;
+declare function MakeBalloon(ply: player, r?: number, g?: number, b?: number, force?: number, data?: BalloonData): Entity;
 
 /**
  * 🟨🟦🟩 [Shared and Menu]
@@ -57831,7 +58199,7 @@ declare function NamedColor(name: string): Color;
  *
  * @param [addMetatable = false] - If true, the created [userdata](https://wiki.facepunch.com/gmod/userdata) will be given its own metatable.
  */
-declare function newproxy(addMetatable = false): userdata;
+declare function newproxy(addMetatable?: boolean): userdata;
 
 /**
  * 🟨🟦🟩 [Shared and Menu]
@@ -57987,7 +58355,7 @@ declare function ParticleEffectAttach(particleName: string, attachType: PATTACH,
  * This is only used to determine particle drawing order for translucent particles.
  * @param [use3D = false] - Whenever to render the particles in 2D or 3D mode. Supplying "true" will enable 3D (non-billboarded), otherwise it will default to 2D.
  */
-declare function ParticleEmitter(position: Vector, use3D = false): CLuaEmitter;
+declare function ParticleEmitter(position: Vector, use3D?: boolean): CLuaEmitter;
 
 /**
  * 🟦 [Server]
@@ -58115,7 +58483,7 @@ declare function PrintMessage(type: HUD, message: string): void;
  * @param [indent = 0] - Number of tabs to start indenting at. Increases by 2 when entering another table.
  * @param [done = {}] - Internal argument, you shouldn't normally change this. Used to check if a nested table has already been printed so it doesn't get caught in a loop.
  */
-declare function PrintTable(tableToPrint: any, indent = 0, done?: any): void;
+declare function PrintTable(tableToPrint: any, indent?: number, done?: any): void;
 
 /**
  * 🟨 [Client]
@@ -58207,7 +58575,7 @@ declare function RealTime(): number;
  * @param [unreliable = false] - If set to true, makes the filter unreliable.
  * This means, when sending over the network in cases like [Global.CreateSound](https://wiki.facepunch.com/gmod/Global.CreateSound) (and its subsequent updates), the message is not guaranteed to reach all clients.
  */
-declare function RecipientFilter(unreliable = false): CRecipientFilter;
+declare function RecipientFilter(unreliable?: boolean): CRecipientFilter;
 
 /**
  * 🟩 [Menu]
@@ -58410,7 +58778,7 @@ declare function RunGameUICommand(command: string): void;
  * @param [identifier = RunString] - The name that should appear in any error messages caused by this code.
  * @param [handleError = true] - If false, this function will return a string containing any error messages instead of throwing an error.
  */
-declare function RunString(code: string, identifier: string = "RunString", handleError = true): string;
+declare function RunString(code: string, identifier?: string, handleError?: boolean): string;
 
 /**
  * 🟨🟦🟩 [Shared and Menu]
@@ -58990,7 +59358,7 @@ declare function SoundDuration(soundName: string): number;
  * @param input - String to be escaped
  * @param [noQuotes = false] - Set this as `true`, and the function will not wrap the input string in apostrophes.
  */
-declare function SQLStr(input: string, noQuotes = false): string;
+declare function SQLStr(input: string, noQuotes?: boolean): string;
 
 /**
  * 🟨 [Client]
@@ -59089,7 +59457,7 @@ declare function ToggleFavourite(map: string): void;
  * @param value - The value to convert. Can be a number or string.
  * @param [base = 10] - The base used in the string. Can be any integer between 2 and 36, inclusive.
  */
-declare function tonumber(value: any, base = 10): number;
+declare function tonumber(value: any, base?: number): number;
 
 /**
  * 🟨🟦🟩 [Shared and Menu]
@@ -59149,7 +59517,7 @@ declare function TypeID(variable: any): TYPE;
  * @param [startIndex = 1] - Which index to start from. Optional.
  * @param [endIndex = #tbl] - Which index to end at. Optional, even if you set StartIndex.
  */
-declare function unpack(tbl: any, startIndex = 1, endIndex?: number): any;
+declare function unpack(tbl: any, startIndex?: number, endIndex?: number): any;
 
 /**
  * 🟨🟦🟩 [Shared and Menu]
@@ -59271,7 +59639,7 @@ declare function ValidPanel(panel: Panel): void;
  * @param [y = 0] - The y component of the vector.
  * @param [z = 0] - The z component of the vector.
  */
-declare function Vector(x = 0, y = 0, z = 0): Vector;
+declare function Vector(x?: number, y?: number, z?: number): Vector;
 
 /**
  * 🟨🟦🟩 [Shared and Menu]
@@ -59280,7 +59648,7 @@ declare function Vector(x = 0, y = 0, z = 0): Vector;
  * @param [min = -1] - Min bound inclusive.
  * @param [max = 1] - Max bound exclusive.
  */
-declare function VectorRand(min = -1, max = 1): Vector;
+declare function VectorRand(min?: number, max?: number): Vector;
 
 /**
  * 🟨🟦🟩 [Shared and Menu]
@@ -59360,21 +59728,21 @@ declare namespace achievements {
      *
      * Adds one to the count of balloons burst. Once this count reaches 1000, the 'Popper' achievement is unlocked.
      */
-    function BalloonPopped(): void;
+    declare function BalloonPopped(): void;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * Returns the amount of achievements in Garry's Mod.
      */
-    function Count(): number;
+    declare function Count(): number;
 
     /**
      * 🟨 [Client]
      *
      * Adds one to the count of balls eaten. Once this count reaches 200, the 'Ball Eater' achievement is unlocked.
      */
-    function EatBall(): void;
+    declare function EatBall(): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -59382,7 +59750,7 @@ declare namespace achievements {
      * Retrieves progress of given achievement
      * @param achievementID - The ID of achievement to retrieve progress of. Note: IDs start from 0, not 1.
      */
-    function GetCount(achievementID: number): void;
+    declare function GetCount(achievementID: number): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -59390,7 +59758,7 @@ declare namespace achievements {
      * Retrieves description of given achievement
      * @param achievementID - The ID of achievement to retrieve description of. Note: IDs start from 0, not 1.
      */
-    function GetDesc(achievementID: number): string;
+    declare function GetDesc(achievementID: number): string;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -59398,7 +59766,7 @@ declare namespace achievements {
      * Retrieves progress goal of given achievement
      * @param achievementID - The ID of achievement to retrieve goal of. Note: IDs start from 0, not 1.
      */
-    function GetGoal(achievementID: number): number;
+    declare function GetGoal(achievementID: number): number;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -59406,28 +59774,28 @@ declare namespace achievements {
      * Retrieves name of given achievement
      * @param achievementID - The ID of achievement to retrieve name of. Note: IDs start from 0, not 1.
      */
-    function GetName(achievementID: number): string;
+    declare function GetName(achievementID: number): string;
 
     /**
      * 🟨 [Client]
      *
      * Adds one to the count of baddies killed. Once this count reaches 1000, the 'War Zone' achievement is unlocked.
      */
-    function IncBaddies(): void;
+    declare function IncBaddies(): void;
 
     /**
      * 🟨 [Client]
      *
      * Adds one to the count of innocent animals killed. Once this count reaches 1000, the 'Innocent Bystander' achievement is unlocked.
      */
-    function IncBystander(): void;
+    declare function IncBystander(): void;
 
     /**
      * 🟨 [Client]
      *
      * Adds one to the count of friendly NPCs killed. Once this count reaches 1000, the 'Bad Friend' achievement is unlocked.
      */
-    function IncGoodies(): void;
+    declare function IncGoodies(): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -59435,42 +59803,42 @@ declare namespace achievements {
      * Used in GMod 12 in the achievements menu to show the user if they have unlocked certain achievements.
      * @param AchievementID - Internal Achievement ID number
      */
-    function IsAchieved(AchievementID: number): boolean;
+    declare function IsAchieved(AchievementID: number): boolean;
 
     /**
      * 🟨 [Client]
      *
      * Adds one to the count of things removed. Once this count reaches 5000, the 'Destroyer' achievement is unlocked.
      */
-    function Remover(): void;
+    declare function Remover(): void;
 
     /**
      * 🟨 [Client]
      *
      * Adds one to the count of NPCs spawned. Once this count reaches 1000, the 'Procreator' achievement is unlocked.
      */
-    function SpawnedNPC(): void;
+    declare function SpawnedNPC(): void;
 
     /**
      * 🟨 [Client]
      *
      * Adds one to the count of props spawned. Once this count reaches 5000, the 'Creator' achievement is unlocked.
      */
-    function SpawnedProp(): void;
+    declare function SpawnedProp(): void;
 
     /**
      * 🟨 [Client]
      *
      * Adds one to the count of ragdolls spawned. Once this count reaches 2000, the 'Dollhouse' achievement is unlocked.
      */
-    function SpawnedRagdoll(): void;
+    declare function SpawnedRagdoll(): void;
 
     /**
      * 🟨 [Client]
      *
      * Adds one to the count of how many times the spawnmenu has been opened. Once this count reaches 100,000, the 'Menu User' achievement is unlocked.
      */
-    function SpawnMenuOpen(): void;
+    declare function SpawnMenuOpen(): void;
 }
 
 /**
@@ -59484,7 +59852,7 @@ declare namespace ai {
      *
      * For nextbots, see [navmesh](https://wiki.facepunch.com/gmod/navmesh).
      */
-    function GetNodeCount(): number;
+    declare function GetNodeCount(): number;
 
     /**
      * 🟦 [Server]
@@ -59492,7 +59860,7 @@ declare namespace ai {
      * Translates a schedule name to its corresponding ID.
      * @param sched - Then schedule name. In most cases, this will be the same as the [Enums/SCHED](https://wiki.facepunch.com/gmod/Enums/SCHED) name.
      */
-    function GetScheduleID(sched: SCHED): SCHED;
+    declare function GetScheduleID(sched: SCHED): SCHED;
 
     /**
      * 🟦 [Server]
@@ -59500,7 +59868,7 @@ declare namespace ai {
      * Returns the squad leader of the given squad.
      * @param squad - The squad name.
      */
-    function GetSquadLeader(squad: string): NPC;
+    declare function GetSquadLeader(squad: string): NPC;
 
     /**
      * 🟦 [Server]
@@ -59508,7 +59876,7 @@ declare namespace ai {
      * Returns the amount of members a given squad has. See also [ai.GetSquadMembers](https://wiki.facepunch.com/gmod/ai.GetSquadMembers).
      * @param squad - The squad name.
      */
-    function GetSquadMemberCount(squad: string): number;
+    declare function GetSquadMemberCount(squad: string): number;
 
     /**
      * 🟦 [Server]
@@ -59516,7 +59884,7 @@ declare namespace ai {
      * Returns all members of a given squad. See also [ai.GetSquadMemberCount](https://wiki.facepunch.com/gmod/ai.GetSquadMemberCount) and [NPC:GetSquad](https://wiki.facepunch.com/gmod/NPC:GetSquad).
      * @param squad - The squad name.
      */
-    function GetSquadMembers(squad: string): any;
+    declare function GetSquadMembers(squad: string): any;
 
     /**
      * 🟦 [Server]
@@ -59524,7 +59892,7 @@ declare namespace ai {
      * Translates a task name to its corresponding ID.
      * @param task - The task name.
      */
-    function GetTaskID(task: string): number;
+    declare function GetTaskID(task: string): number;
 }
 
 /**
@@ -59537,7 +59905,7 @@ declare namespace ai_schedule {
      * Creates a schedule for scripted NPC.
      * @param name - Name of the schedule.
      */
-    function New(name: string): any;
+    declare function New(name: string): any;
 }
 
 /**
@@ -59549,7 +59917,7 @@ declare namespace ai_task {
      *
      * Create a new empty task. Used by [Schedule:AddTask](https://wiki.facepunch.com/gmod/Schedule:AddTask) and [Schedule:EngTask](https://wiki.facepunch.com/gmod/Schedule:EngTask).
      */
-    function New(): Task;
+    declare function New(): Task;
 }
 
 /**
@@ -59578,7 +59946,7 @@ declare namespace baseclass {
      *
      * @param name - The child class.
      */
-    function Get(name: string): any;
+    declare function Get(name: string): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -59594,7 +59962,7 @@ declare namespace baseclass {
      * @param name - The name of this base class. Must be completely unique.
      * @param tab - The base class.
      */
-    function Set(name: string, tab: any): void;
+    declare function Set(name: string, tab: any): void;
 }
 
 /**
@@ -59609,7 +59977,7 @@ declare namespace bit {
      * @param value - The value to be manipulated.
      * @param shiftCount - Amounts of bits to shift.
      */
-    function arshift(value: number, shiftCount: number): number;
+    declare function arshift(value: number, shiftCount: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -59618,7 +59986,7 @@ declare namespace bit {
      * @param value - The value to be manipulated.
      * @param vararg - Values bit to perform bitwise "and" with. Optional.
      */
-    function band(value: number, ...vararg: any[]): number;
+    declare function band(value: number, ...vararg: any[]): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -59626,7 +59994,7 @@ declare namespace bit {
      * Returns the bitwise not of the value. Inverts every bit of the 32bit integer.
      * @param value - The value to be inverted.
      */
-    function bnot(value: number): number;
+    declare function bnot(value: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -59635,7 +60003,7 @@ declare namespace bit {
      * @param value1 - The first value.
      * @param vararg - Extra values to be evaluated. (must all be numbers)
      */
-    function bor(value1: number, ...vararg: any[]): number;
+    declare function bor(value1: number, ...vararg: any[]): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -59643,7 +60011,7 @@ declare namespace bit {
      * Swaps the byte order.
      * @param value - The value to be byte swapped.
      */
-    function bswap(value: number): number;
+    declare function bswap(value: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -59652,7 +60020,7 @@ declare namespace bit {
      * @param value - The value to be manipulated.
      * @param [otherValues = nil] - Values bit xor with. Optional.
      */
-    function bxor(value: number, otherValues?: number): number;
+    declare function bxor(value: number, otherValues?: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -59665,7 +60033,7 @@ declare namespace bit {
      * @param value - The value to be manipulated.
      * @param shiftCount - Amounts of bits to shift left by.
      */
-    function lshift(value: number, shiftCount: number): number;
+    declare function lshift(value: number, shiftCount: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -59674,7 +60042,7 @@ declare namespace bit {
      * @param value - The value to be manipulated.
      * @param shiftCount - Amounts of bits to rotate left by.
      */
-    function rol(value: number, shiftCount: number): number;
+    declare function rol(value: number, shiftCount: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -59683,7 +60051,7 @@ declare namespace bit {
      * @param value - The value to be manipulated.
      * @param shiftCount - Amounts of bits to rotate right by.
      */
-    function ror(value: number, shiftCount: number): number;
+    declare function ror(value: number, shiftCount: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -59696,7 +60064,7 @@ declare namespace bit {
      * @param value - The value to be manipulated.
      * @param shiftCount - Amounts of bits to shift right by.
      */
-    function rshift(value: number, shiftCount: number): number;
+    declare function rshift(value: number, shiftCount: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -59704,7 +60072,7 @@ declare namespace bit {
      * Normalizes the specified value and clamps it in the range of a signed 32bit integer.
      * @param value - The value to be normalized.
      */
-    function tobit(value: number): number;
+    declare function tobit(value: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -59713,7 +60081,7 @@ declare namespace bit {
      * @param value - The value to be normalized.
      * @param [characters = 8] - Maximum number of characters, if set. The absolute maximum is 8.
      */
-    function tohex(value: number, characters = 8): string;
+    declare function tohex(value: number, characters?: number): string;
 }
 
 /**
@@ -59730,7 +60098,7 @@ declare namespace cam {
      * @param angles - Angles of the shake.
      * @param factor - The shake factor.
      */
-    function ApplyShake(pos: Vector, angles: Angle, factor: number): void;
+    declare function ApplyShake(pos: Vector, angles: Angle, factor: number): void;
 
     /**
      * 🟨 [Client]
@@ -59739,35 +60107,35 @@ declare namespace cam {
      *
      * This function is an alias of [cam.End3D](https://wiki.facepunch.com/gmod/cam.End3D).
      */
-    function End(): void;
+    declare function End(): void;
 
     /**
      * 🟨 [Client]
      *
      * Switches the renderer back to the previous drawing mode from a 2D context.
      */
-    function End2D(): void;
+    declare function End2D(): void;
 
     /**
      * 🟨 [Client]
      *
      * Switches the renderer back to the previous drawing mode from a 3D context.
      */
-    function End3D(): void;
+    declare function End3D(): void;
 
     /**
      * 🟨 [Client]
      *
      * Switches the renderer back to the previous drawing mode from a 3D2D context.
      */
-    function End3D2D(): void;
+    declare function End3D2D(): void;
 
     /**
      * 🟨 [Client]
      *
      * Switches the renderer back to the previous drawing mode from a 3D orthographic rendering context.
      */
-    function EndOrthoView(): void;
+    declare function EndOrthoView(): void;
 
     /**
      * 🟨 [Client]
@@ -59777,7 +60145,7 @@ declare namespace cam {
      * **Note:**
      * >Editing the matrix **will not** edit the current view. To do so, you will have to use [cam.PushModelMatrix](https://wiki.facepunch.com/gmod/cam.PushModelMatrix).
      */
-    function GetModelMatrix(): VMatrix;
+    declare function GetModelMatrix(): VMatrix;
 
     /**
      * 🟨 [Client]
@@ -59787,14 +60155,14 @@ declare namespace cam {
      * This is identical to calling `render.DepthRange( 0, 0.01 )` for `true` and  `render.DepthRange( 0, 1 )` for `false`. See [render.DepthRange](https://wiki.facepunch.com/gmod/render.DepthRange).
      * @param ignoreZ - Determines whenever to ignore the depth buffer or not.
      */
-    function IgnoreZ(ignoreZ: boolean): void;
+    declare function IgnoreZ(ignoreZ: boolean): void;
 
     /**
      * 🟨 [Client]
      *
      * Pops the current active rendering matrix from the stack and reinstates the previous one.
      */
-    function PopModelMatrix(): void;
+    declare function PopModelMatrix(): void;
 
     /**
      * 🟨 [Client]
@@ -59810,7 +60178,7 @@ declare namespace cam {
      * @param matrix - The matrix to push.
      * @param [multiply = false] - If set, multiplies given matrix with currently active matrix ([cam.GetModelMatrix](https://wiki.facepunch.com/gmod/cam.GetModelMatrix)) before pushing.
      */
-    function PushModelMatrix(matrix: VMatrix, multiply = false): void;
+    declare function PushModelMatrix(matrix: VMatrix, multiply?: boolean): void;
 
     /**
      * 🟨 [Client]
@@ -59822,7 +60190,7 @@ declare namespace cam {
      *
      * @param dataTbl - Render context config. See [Structures/RenderCamData](https://wiki.facepunch.com/gmod/Structures/RenderCamData)
      */
-    function Start(dataTbl: RenderCamData): void;
+    declare function Start(dataTbl: RenderCamData): void;
 
     /**
      * 🟨 [Client]
@@ -59836,7 +60204,7 @@ declare namespace cam {
      * **Note:**
      * >This will put an identity matrix at the top of the model matrix stack. If you are trying to use [cam.PushModelMatrix](https://wiki.facepunch.com/gmod/cam.PushModelMatrix), call it after this function and not before.
      */
-    function Start2D(): void;
+    declare function Start2D(): void;
 
     /**
      * 🟨 [Client]
@@ -59867,7 +60235,7 @@ declare namespace cam {
      *
      * @param [zFar = <current view zFar>] - Distance to far clipping plane.
      */
-    function Start3D(pos?: Vector, angles?: Angle, fov?: number, x?: number, y?: number, w?: number, h?: number, zNear?: number, zFar?: number): void;
+    declare function Start3D(pos?: Vector, angles?: Angle, fov?: number, x?: number, y?: number, w?: number, h?: number, zNear?: number, zFar?: number): void;
 
     /**
      * 🟨 [Client]
@@ -59895,7 +60263,7 @@ declare namespace cam {
      * @param scale - The scale of the render context.
      * If scale is 1 then 1 pixel in 2D context will equal to 1 unit in 3D context.
      */
-    function Start3D2D(pos: Vector, angles: Angle, scale: number): void;
+    declare function Start3D2D(pos: Vector, angles: Angle, scale: number): void;
 
     /**
      * 🟨 [Client]
@@ -59906,7 +60274,7 @@ declare namespace cam {
      * @param rightOffset - The right plane offset.
      * @param bottomOffset - The bottom plane offset.
      */
-    function StartOrthoView(leftOffset: number, topOffset: number, rightOffset: number, bottomOffset: number): void;
+    declare function StartOrthoView(leftOffset: number, topOffset: number, rightOffset: number, bottomOffset: number): void;
 }
 
 /**
@@ -59923,28 +60291,28 @@ declare namespace chat {
      * * [Player](https://wiki.facepunch.com/gmod/Player) - Adds the name of the player in the player's team color to the chat box.
      * * [any](https://wiki.facepunch.com/gmod/any) - Any other type, such as [Entity](https://wiki.facepunch.com/gmod/Entity) will be converted to string and added as text.
      */
-    function AddText(...arguments: any[]): void;
+    declare function AddText(...arguments: any[]): void;
 
     /**
      * 🟨 [Client]
      *
      * Closes the chat window.
      */
-    function Close(): void;
+    declare function Close(): void;
 
     /**
      * 🟨 [Client]
      *
      * Returns the chatbox position.
      */
-    function GetChatBoxPos(): LuaMultiReturn<[number, number]>;
+    declare function GetChatBoxPos(): LuaMultiReturn<[number, number]>;
 
     /**
      * 🟨 [Client]
      *
      * Returns the chatbox size.
      */
-    function GetChatBoxSize(): LuaMultiReturn<[number, number]>;
+    declare function GetChatBoxSize(): LuaMultiReturn<[number, number]>;
 
     /**
      * 🟨 [Client]
@@ -59952,14 +60320,14 @@ declare namespace chat {
      * Opens the chat window.
      * @param mode - If equals 1, opens public chat, otherwise opens team chat
      */
-    function Open(mode: number): void;
+    declare function Open(mode: number): void;
 
     /**
      * 🟨 [Client]
      *
      * Plays the chat "tick" sound.
      */
-    function PlaySound(): void;
+    declare function PlaySound(): void;
 }
 
 /**
@@ -59974,7 +60342,7 @@ declare namespace cleanup {
      * @param type - The type of cleanup.
      * @param ent - The entity to add to the player's cleanup list.
      */
-    function Add(pl: Player, type: string, ent: Entity): void;
+    declare function Add(pl: Player, type: string, ent: Entity): void;
 
     /**
      * 🟦 [Server]
@@ -59984,7 +60352,7 @@ declare namespace cleanup {
      * @param command - The console command that called this function.
      * @param args - First and only arg is the cleanup type.
      */
-    function CC_AdminCleanup(pl: Player, command: string, args: any): void;
+    declare function CC_AdminCleanup(pl: Player, command: string, args: any): void;
 
     /**
      * 🟦 [Server]
@@ -59994,21 +60362,21 @@ declare namespace cleanup {
      * @param command - The console command that called this function.
      * @param args - First and only argument is the cleanup type.
      */
-    function CC_Cleanup(pl: Player, command: string, args: any): void;
+    declare function CC_Cleanup(pl: Player, command: string, args: any): void;
 
     /**
      * 🟦 [Server]
      *
      * Gets the cleanup list.
      */
-    function GetList(): void;
+    declare function GetList(): void;
 
     /**
      * 🟨🟦 [Shared]
      *
      * Gets the table of cleanup types.
      */
-    function GetTable(): any;
+    declare function GetTable(): any;
 
     /**
      * 🟨🟦 [Shared]
@@ -60016,7 +60384,7 @@ declare namespace cleanup {
      * Registers a new cleanup type.
      * @param type - Name of type.
      */
-    function Register(type: string): void;
+    declare function Register(type: string): void;
 
     /**
      * 🟦 [Server]
@@ -60027,14 +60395,14 @@ declare namespace cleanup {
      * @param from - Old entity
      * @param to - New entity. Can be a `NULL` entity to remove the old entity from the cleanup system.
      */
-    function ReplaceEntity(from: Entity, to: Entity): boolean;
+    declare function ReplaceEntity(from: Entity, to: Entity): boolean;
 
     /**
      * 🟨 [Client]
      *
      * Repopulates the clients cleanup menu
      */
-    function UpdateUI(): void;
+    declare function UpdateUI(): void;
 }
 
 /**
@@ -60072,7 +60440,7 @@ declare namespace concommand {
      * @param [helpText = nil] - The text to display should a user run 'help cmdName'.
      * @param [flags = 0] - Console command modifier flags. Either a bitflag, or a table of enums. See [Enums/FCVAR](https://wiki.facepunch.com/gmod/Enums/FCVAR).
      */
-    function Add(name: string, callback: (ply: Player, cmd: string, args: any, argStr: string) => void, autoComplete?: (cmd: string, argStr: string, args: any) => any, helpText?: string, flags = 0): void;
+    declare function Add(name: string, callback: (ply: Player, cmd: string, args: any, argStr: string) => void, autoComplete?: (cmd: string, argStr: string, args: any) => any, helpText?: string, flags?: FCVAR|number[]): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -60081,14 +60449,14 @@ declare namespace concommand {
      * @param command - Name of command
      * @param arguments - Arguments given to the command
      */
-    function AutoComplete(command: string, arguments: string): any;
+    declare function AutoComplete(command: string, arguments: string): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns the tables of all console command callbacks, and autocomplete functions, that were added to the game with [concommand.Add](https://wiki.facepunch.com/gmod/concommand.Add).
      */
-    function GetTable(): LuaMultiReturn<[Record<string, Function>, Record<string, Function>]>;
+    declare function GetTable(): LuaMultiReturn<[Record<string, Function>, Record<string, Function>]>;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -60100,7 +60468,7 @@ declare namespace concommand {
      *
      * @param name - The name of the command to be removed.
      */
-    function Remove(name: string): void;
+    declare function Remove(name: string): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -60116,7 +60484,7 @@ declare namespace concommand {
      * Can be table or string
      * @param argumentString - string of all arguments sent to the command
      */
-    function Run(ply: Player, cmd: string, args: any, argumentString: string): boolean;
+    declare function Run(ply: Player, cmd: string, args: any, argumentString: string): boolean;
 }
 
 /**
@@ -60133,7 +60501,7 @@ declare namespace constraint {
      * @param [ent3 = nil] - Optional. Same as `ent2`.
      * @param [ent4 = nil] - Optional. Same as `ent2`.
      */
-    function AddConstraintTable(ent1: Entity, constrt: Entity, ent2?: Entity, ent3?: Entity, ent4?: Entity): void;
+    declare function AddConstraintTable(ent1: Entity, constrt: Entity, ent2?: Entity, ent3?: Entity, ent4?: Entity): void;
 
     /**
      * 🟦 [Server]
@@ -60147,7 +60515,7 @@ declare namespace constraint {
      * @param [ent3 = nil] - Optional. Same as `ent2`.
      * @param [ent4 = nil] - Optional. Same as `ent2`.
      */
-    function AddConstraintTableNoDelete(ent1: Entity, constrt: Entity, ent2?: Entity, ent3?: Entity, ent4?: Entity): void;
+    declare function AddConstraintTableNoDelete(ent1: Entity, constrt: Entity, ent2?: Entity, ent3?: Entity, ent4?: Entity): void;
 
     /**
      * 🟦 [Server]
@@ -60178,7 +60546,7 @@ declare namespace constraint {
      * @param [onlyRotation = 0] - Only limit rotation, free movement.
      * @param [noCollide = 0] - Whether the entities should be no-collided.
      */
-    function AdvBallsocket(ent1: Entity, ent2: Entity, bone1: number, bone2: number, localPos1: Vector, localPos2?: Vector, forceLimit = 0, torqueLimit = 0, xMin: number, yMin: number, zMin: number, xMax: number, yMax: number, zMax: number, xFric = 0, yFric = 0, zFric = 0, onlyRotation = 0, noCollide = 0): Entity;
+    declare function AdvBallsocket(ent1: Entity, ent2: Entity, bone1: number, bone2: number, localPos1: Vector, localPos2?: Vector, forceLimit?: number, torqueLimit?: number, xMin?: number, yMin?: number, zMin?: number, xMax?: number, yMax?: number, zMax?: number, xFric?: number, yFric?: number, zFric?: number, onlyRotation?: number, noCollide?: number): Entity;
 
     /**
      * 🟦 [Server]
@@ -60199,7 +60567,7 @@ declare namespace constraint {
      * @param [localAxis = nil] - If you include the LocalAxis then LPos2 will not be used in the final constraint. However, LPos2 is still a required argument.
      * @param [dontAddTable = false] - Whether or not to add the constraint info on the entity table. See [constraint.AddConstraintTable](https://wiki.facepunch.com/gmod/constraint.AddConstraintTable).
      */
-    function Axis(ent1: Entity, ent2: Entity, bone1: number, bone2: number, localPos1: Vector, localPos2: Vector, forceLimit = 0, torqueLimit = 0, friction = 0, noCollide = 0, localAxis?: Vector, dontAddTable = false): Entity;
+    declare function Axis(ent1: Entity, ent2: Entity, bone1: number, bone2: number, localPos1: Vector, localPos2: Vector, forceLimit?: number, torqueLimit?: number, friction?: number, noCollide?: number, localAxis?: Vector, dontAddTable?: boolean): Entity;
 
     /**
      * 🟦 [Server]
@@ -60216,7 +60584,7 @@ declare namespace constraint {
      * @param [torquelimit = 0] - Amount of torque (rotation speed) until it breaks (0 = unbreakable)
      * @param [nocollide = 0] - Whether the constrained entities should collided with each other or not.
      */
-    function Ballsocket(ent1: Entity, ent2: Entity, bone1: number, bone2: number, localPos: Vector, forcelimit = 0, torquelimit = 0, nocollide = 0): Entity;
+    declare function Ballsocket(ent1: Entity, ent2: Entity, bone1: number, bone2: number, localPos: Vector, forcelimit?: number, torquelimit?: number, nocollide?: number): Entity;
 
     /**
      * 🟦 [Server]
@@ -60225,7 +60593,7 @@ declare namespace constraint {
      * @param ent - The entity to check
      * @param bone - The bone of the entity to check (use 0 for mono boned ents)
      */
-    function CanConstrain(ent: Entity, bone: number): boolean;
+    declare function CanConstrain(ent: Entity, bone: number): boolean;
 
     /**
      * 🟦 [Server]
@@ -60245,7 +60613,7 @@ declare namespace constraint {
      * See [Entity:TranslateBoneToPhysBone](https://wiki.facepunch.com/gmod/Entity:TranslateBoneToPhysBone).
      * @param [keyValues = nil] - Any additional key/values to be set on the rope.
      */
-    function CreateKeyframeRope(pos: Vector, width: number, material?: string, constraint?: Entity, ent1: Entity, localPos1: Vector, bone1: number, ent2: Entity, localPos2: Vector, bone2: number, keyValues?: any): Entity;
+    declare function CreateKeyframeRope(pos: Vector, width: number, material?: string, constraint?: Entity, ent1?: Entity, localPos1?: Vector, bone1?: number, ent2?: Entity, localPos2?: Vector, bone2?: number, keyValues?: any): Entity;
 
     /**
      * 🟦 [Server]
@@ -60259,7 +60627,7 @@ declare namespace constraint {
      *
      * @param pos - The position to spawn the anchor at
      */
-    function CreateStaticAnchorPoint(pos: Vector): LuaMultiReturn<[Entity, PhysObj, number, Vector]>;
+    declare function CreateStaticAnchorPoint(pos: Vector): LuaMultiReturn<[Entity, PhysObj, number, Vector]>;
 
     /**
      * 🟦 [Server]
@@ -60281,7 +60649,7 @@ declare namespace constraint {
      * @param [stretchOnly = false] - Apply physics forces only on stretch.
      * @param [color = color_white] - The color of the rope. See [Global.Color](https://wiki.facepunch.com/gmod/Global.Color).
      */
-    function Elastic(ent1: Entity, ent2: Entity, bone1: number, bone2: number, localPos1: Vector, localPos2: Vector, constant: number, damping: number, relDamping: number, material: string = "", width: number, stretchOnly = false, color?: any): LuaMultiReturn<[Entity, Entity]>;
+    declare function Elastic(ent1: Entity, ent2: Entity, bone1: number, bone2: number, localPos1: Vector, localPos2: Vector, constant: number, damping: number, relDamping: number, material?: string, width?: number, stretchOnly?: boolean, color?: any): LuaMultiReturn<[Entity, Entity]>;
 
     /**
      * 🟦 [Server]
@@ -60307,7 +60675,7 @@ declare namespace constraint {
      * @param bone1 - The bone number for the first entity (0 for monoboned entities)
      * @param bone2 - The bone number for the second entity
      */
-    function Find(ent1: Entity, ent2: Entity, type: string, bone1: number, bone2: number): Entity;
+    declare function Find(ent1: Entity, ent2: Entity, type: string, bone1: number, bone2: number): Entity;
 
     /**
      * 🟦 [Server]
@@ -60330,7 +60698,7 @@ declare namespace constraint {
      * * `Keepupright`
      * * `Slider`
      */
-    function FindConstraint(ent: Entity, type: string): any;
+    declare function FindConstraint(ent: Entity, type: string): any;
 
     /**
      * 🟦 [Server]
@@ -60353,7 +60721,7 @@ declare namespace constraint {
      * * `Keepupright`
      * * `Slider`
      */
-    function FindConstraintEntity(ent: Entity, type: string): Entity;
+    declare function FindConstraintEntity(ent: Entity, type: string): Entity;
 
     /**
      * 🟦 [Server]
@@ -60378,7 +60746,7 @@ declare namespace constraint {
      * * `Keepupright`
      * * `Slider`
      */
-    function FindConstraints(ent: Entity, type: string): any;
+    declare function FindConstraints(ent: Entity, type: string): any;
 
     /**
      * 🟦 [Server]
@@ -60386,7 +60754,7 @@ declare namespace constraint {
      * Make this entity forget any constraints it knows about. Note that this will not actually remove the constraints.
      * @param ent - The entity that will forget its constraints.
      */
-    function ForgetConstraints(ent: Entity): void;
+    declare function ForgetConstraints(ent: Entity): void;
 
     /**
      * 🟦 [Server]
@@ -60395,7 +60763,7 @@ declare namespace constraint {
      * @param ent - The entity to check
      * @param [resultTable = nil] - Table used to return result. Optional.
      */
-    function GetAllConstrainedEntities(ent: Entity, resultTable?: any): any;
+    declare function GetAllConstrainedEntities(ent: Entity, resultTable?: any): any;
 
     /**
      * 🟦 [Server]
@@ -60405,7 +60773,7 @@ declare namespace constraint {
      * If you are looking for a list of specific constraint(s), use [constraint.FindConstraints](https://wiki.facepunch.com/gmod/constraint.FindConstraints).
      * @param ent - The entity to check
      */
-    function GetTable(ent: Entity): any;
+    declare function GetTable(ent: Entity): any;
 
     /**
      * 🟦 [Server]
@@ -60413,7 +60781,7 @@ declare namespace constraint {
      * Returns true if the entity has constraints attached to it
      * @param ent - The entity to check
      */
-    function HasConstraints(ent: Entity): boolean;
+    declare function HasConstraints(ent: Entity): boolean;
 
     /**
      * 🟦 [Server]
@@ -60438,7 +60806,7 @@ declare namespace constraint {
      * @param [toggle = true] - Whether the hydraulic should be a toggle, not a "hold key to extend" action.
      * @param [color = color_white] - The color of the rope. See [Global.Color](https://wiki.facepunch.com/gmod/Global.Color).
      */
-    function Hydraulic(player: Player, ent1: Entity, ent2: Entity, bone1: number, bone2: number, localPos1: Vector, localPos2: Vector, length1: number, length2: number, width: number, key: KEY, slider: number, speed: number, material: string = "", toggle = true, color?: any): LuaMultiReturn<[Entity, Entity, Entity, Entity]>;
+    declare function Hydraulic(player: Player, ent1: Entity, ent2: Entity, bone1: number, bone2: number, localPos1: Vector, localPos2: Vector, length1: number, length2: number, width: number, key: KEY, slider: number, speed: number, material?: string, toggle?: boolean, color?: any): LuaMultiReturn<[Entity, Entity, Entity, Entity]>;
 
     /**
      * 🟦 [Server]
@@ -60449,7 +60817,7 @@ declare namespace constraint {
      * @param bone - The bone of the entity to constrain (0 for boneless)
      * @param angularLimit - Basically, the strength of the constraint. Must be above 0.
      */
-    function Keepupright(ent: Entity, ang: Angle, bone: number, angularLimit: number): Entity;
+    declare function Keepupright(ent: Entity, ang: Angle, bone: number, angularLimit: number): Entity;
 
     /**
      * 🟦 [Server]
@@ -60476,7 +60844,7 @@ declare namespace constraint {
      * @param [localAxis = nil] - Overrides axis of rotation?
      * <validate></validate>
      */
-    function Motor(ent1: Entity, ent2: Entity, bone1: number, bone2: number, localPos1: Vector, localPos2: Vector, friction: number, torque: number, forcetime: number, nocollide = 0, toggle = false, player?: Player, forcelimit = 0, key_fwd?: KEY, key_bwd?: KEY, direction = 1, localAxis?: Vector): LuaMultiReturn<[Entity, Entity]>;
+    declare function Motor(ent1: Entity, ent2: Entity, bone1: number, bone2: number, localPos1: Vector, localPos2: Vector, friction: number, torque: number, forcetime: number, nocollide?: number, toggle?: number, player?: Player, forcelimit?: number, key_fwd?: KEY, key_bwd?: KEY, direction?: number, localAxis?: Vector): LuaMultiReturn<[Entity, Entity]>;
 
     /**
      * 🟦 [Server]
@@ -60504,7 +60872,7 @@ declare namespace constraint {
      * @param [material] - Material of the rope. If left unset, will be solid black.
      * @param [color = color_white] - The color of the rope. See [Global.Color](https://wiki.facepunch.com/gmod/Global.Color).
      */
-    function Muscle(player: Player, ent1: Entity, ent2: Entity, bone1: number, bone2: number, localPos1: Vector, localPos2: Vector, length1: number, length2: number, width: number, key: KEY, fixed: number, period: number, amplitude: number, startOn = false, material: string = "", color?: any): LuaMultiReturn<[Entity, Entity, Entity, Entity]>;
+    declare function Muscle(player: Player, ent1: Entity, ent2: Entity, bone1: number, bone2: number, localPos1: Vector, localPos2: Vector, length1: number, length2: number, width: number, key: KEY, fixed: number, period: number, amplitude: number, startOn?: boolean, material?: string, color?: any): LuaMultiReturn<[Entity, Entity, Entity, Entity]>;
 
     /**
      * 🟦 [Server]
@@ -60522,7 +60890,7 @@ declare namespace constraint {
      * See [Entity:TranslateBoneToPhysBone](https://wiki.facepunch.com/gmod/Entity:TranslateBoneToPhysBone).
      * @param [disableOnRemove = false] - If set, the nocollide will be reversed if the constraint is removed.
      */
-    function NoCollide(ent1: Entity, ent2: Entity, bone1: number, bone2: number, disableOnRemove = false): Entity;
+    declare function NoCollide(ent1: Entity, ent2: Entity, bone1: number, bone2: number, disableOnRemove?: boolean): Entity;
 
     /**
      * 🟦 [Server]
@@ -60554,7 +60922,7 @@ declare namespace constraint {
      * @param [material] - Material of the rope. If unset, will be solid black.
      * @param [color = color_white] - The color of the rope. See [Global.Color](https://wiki.facepunch.com/gmod/Global.Color).
      */
-    function Pulley(ent1: Entity, ent4: Entity, bone1: number, bone4: number, localPos1: Vector, localPos4: Vector, worldPos2: Vector, worldPos3: Vector, forceLimit: number, rigid = false, width: number, material: string = "", color?: any): LuaMultiReturn<[Entity, Entity, Entity, Entity]>;
+    declare function Pulley(ent1: Entity, ent4: Entity, bone1: number, bone4: number, localPos1: Vector, localPos4: Vector, worldPos2: Vector, worldPos3: Vector, forceLimit: number, rigid?: boolean, width?: number, material?: string, color?: any): LuaMultiReturn<[Entity, Entity, Entity, Entity]>;
 
     /**
      * 🟦 [Server]
@@ -60562,7 +60930,7 @@ declare namespace constraint {
      * Attempts to remove all constraints associated with an entity
      * @param ent - The entity to remove constraints from
      */
-    function RemoveAll(ent: Entity): LuaMultiReturn<[boolean, number]>;
+    declare function RemoveAll(ent: Entity): LuaMultiReturn<[boolean, number]>;
 
     /**
      * 🟦 [Server]
@@ -60571,7 +60939,7 @@ declare namespace constraint {
      * @param ent - The entity to check
      * @param type - The constraint type to remove (eg. `"Weld"`, `"Elastic"`, `"NoCollide"`)
      */
-    function RemoveConstraints(ent: Entity, type: string): LuaMultiReturn<[boolean, number]>;
+    declare function RemoveConstraints(ent: Entity, type: string): LuaMultiReturn<[boolean, number]>;
 
     /**
      * 🟦 [Server]
@@ -60593,7 +60961,7 @@ declare namespace constraint {
      * @param [rigid = false] - Whether the constraint is rigid.
      * @param [color = color_white] - The color of the rope. See [Global.Color](https://wiki.facepunch.com/gmod/Global.Color).
      */
-    function Rope(ent1: Entity, ent2: Entity, bone1: number, bone2: number, localPos1: Vector, localPos2: Vector, length: number, addLength = 0, forceLimit = 0, width: number, material: string = "", rigid = false, color?: any): LuaMultiReturn<[Entity, Entity]>;
+    declare function Rope(ent1: Entity, ent2: Entity, bone1: number, bone2: number, localPos1: Vector, localPos2: Vector, length: number, addLength?: number, forceLimit?: number, width?: number, material?: string, rigid?: boolean, color?: any): LuaMultiReturn<[Entity, Entity]>;
 
     /**
      * 🟦 [Server]
@@ -60611,7 +60979,7 @@ declare namespace constraint {
      * @param [material] - The material of the rope. If unset, will be solid black.
      * @param [color = color_white] - The color of the rope. See [Global.Color](https://wiki.facepunch.com/gmod/Global.Color).
      */
-    function Slider(ent1: Entity, ent2: Entity, bone1: number, bone2: number, localPos1: Vector, localPos2: Vector, width: number, material: string = "", color?: any): LuaMultiReturn<[Entity, Entity]>;
+    declare function Slider(ent1: Entity, ent2: Entity, bone1: number, bone2: number, localPos1: Vector, localPos2: Vector, width: number, material?: string, color?: any): LuaMultiReturn<[Entity, Entity]>;
 
     /**
      * 🟦 [Server]
@@ -60627,7 +60995,7 @@ declare namespace constraint {
      * @param [noCollide = false] - Should `ent1` be nocollided to `ent2` via this constraint
      * @param [deleteEnt1OnBreak = false] - If true, when `ent2` is removed, `ent1` will also be removed
      */
-    function Weld(ent1: Entity, ent2: Entity, bone1: number, bone2: number, forceLimit = 0, noCollide = false, deleteEnt1OnBreak = false): Entity;
+    declare function Weld(ent1: Entity, ent2: Entity, bone1: number, bone2: number, forceLimit?: number, noCollide?: boolean, deleteEnt1OnBreak?: boolean): Entity;
 
     /**
      * 🟦 [Server]
@@ -60651,7 +61019,7 @@ declare namespace constraint {
      * @param [toggle = false] - Whether the winch should be on toggle.
      * @param [color = color_white] - The color of the rope. See [Global.Color](https://wiki.facepunch.com/gmod/Global.Color).
      */
-    function Winch(player: Player, ent1: Entity, ent2: Entity, bone1: number, bone2: number, localPos1: Vector, localPos2: Vector, width: number, fwdBind: KEY, bwdBind: KEY, fwdSpeed: number, bwdSpeed: number, material: string = "", toggle = false, color?: any): LuaMultiReturn<[Entity, Entity, Entity]>;
+    declare function Winch(player: Player, ent1: Entity, ent2: Entity, bone1: number, bone2: number, localPos1: Vector, localPos2: Vector, width: number, fwdBind: KEY, bwdBind: KEY, fwdSpeed: number, bwdSpeed: number, material?: string, toggle?: boolean, color?: any): LuaMultiReturn<[Entity, Entity, Entity]>;
 }
 
 /**
@@ -60678,7 +61046,7 @@ declare namespace construct {
      * @param [aVel = Angle( 0, 0, 0 )] - Angular velocity to set on spawn
      * @param [frozen = false] - Freeze the magnet on start
      */
-    function Magnet(ply: Player, pos: Vector, ang: Angle, model: string, material: string, key: KEY, maxObjects: number, strength: number, nopull = 0, allowrot = 0, startOn = 0, toggle: number, vel?: Vector, aVel?: Angle, frozen = false): Entity;
+    declare function Magnet(ply: Player, pos: Vector, ang: Angle, model: string, material: string, key: KEY, maxObjects: number, strength: number, nopull?: number, allowrot?: number, startOn?: number, toggle?: number, vel?: Vector, aVel?: Angle, frozen?: boolean): Entity;
 
     /**
      * 🟦 [Server]
@@ -60690,7 +61058,7 @@ declare namespace construct {
      * @param physObj - The physics object to apply the properties to
      * @param data - The table containing properties to apply. See [Structures/PhysProperties](https://wiki.facepunch.com/gmod/Structures/PhysProperties)
      */
-    function SetPhysProp(ply: Player, ent: Entity, physObjID: number, physObj: PhysObj, data: PhysProperties): void;
+    declare function SetPhysProp(ply: Player, ent: Entity, physObjID: number, physObj: PhysObj, data: PhysProperties): void;
 }
 
 /**
@@ -60702,7 +61070,7 @@ declare namespace controlpanel {
      *
      * Clears ALL the control panels ( for tools )
      */
-    function Clear(): void;
+    declare function Clear(): void;
 
     /**
      * 🟨 [Client]
@@ -60711,7 +61079,7 @@ declare namespace controlpanel {
      * @param name - The name of the panel. For normal tools this will be equal to `TOOL.Mode` (the tool's filename without the extension).
      * When you create a tool/option via [spawnmenu.AddToolMenuOption](https://wiki.facepunch.com/gmod/spawnmenu.AddToolMenuOption), the internal control panel name is `TOOL.Mode .. "_" .. tool_tab:lower() .. "_" .. tool_category:lower()`.
      */
-    function Get(name: string): Panel;
+    declare function Get(name: string): Panel;
 }
 
 /**
@@ -60735,7 +61103,7 @@ declare namespace cookie {
      * 		Does nothing if the cookie doesn't exist.
      * @param key - The name of the cookie that you want to delete.
      */
-    function Delete(key: string): void;
+    declare function Delete(key: string): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -60744,7 +61112,7 @@ declare namespace cookie {
      * @param name - The name of the cookie that you want to get.
      * @param [default_ = nil] - Value to return if the cookie does not exist.
      */
-    function GetNumber(name: string, default_?: any): number;
+    declare function GetNumber(name: string, default_?: any): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -60753,7 +61121,7 @@ declare namespace cookie {
      * @param name - The name of the cookie that you want to get.
      * @param [default_ = nil] - Value to return if the cookie does not exist.
      */
-    function GetString(name: string, default_?: any): string;
+    declare function GetString(name: string, default_?: any): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -60762,7 +61130,7 @@ declare namespace cookie {
      * @param key - The name of the cookie.
      * @param value - The data stored in the cookie.
      */
-    function Set(key: string, value: string): void;
+    declare function Set(key: string, value: string): void;
 }
 
 /**
@@ -60775,7 +61143,7 @@ declare namespace coroutine {
      * Creates a coroutine of the given function.
      * @param func - The function for the coroutine to use.
      */
-    function create(func: Function): thread;
+    declare function create(func: Function): thread;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -60786,7 +61154,7 @@ declare namespace coroutine {
      * **Note:**
      * >This is only available on the x86-64 versions, because of the difference in the LuaJIT version. [See here](jit.version)
      */
-    function isyieldable(): boolean;
+    declare function isyieldable(): boolean;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -60795,14 +61163,14 @@ declare namespace coroutine {
      * @param coroutine - Coroutine to resume.
      * @param args - Arguments to be returned by [coroutine.yield](https://wiki.facepunch.com/gmod/coroutine.yield).
      */
-    function resume(coroutine: thread, ...args: any[]): LuaMultiReturn<[boolean, any[]]>;
+    declare function resume(coroutine: thread, ...args: any[]): LuaMultiReturn<[boolean, any[]]>;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns the active coroutine or nil if we are not within a coroutine.
      */
-    function running(): thread;
+    declare function running(): thread;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -60810,7 +61178,7 @@ declare namespace coroutine {
      * Returns the status of the coroutine passed to it, the possible statuses are "suspended", "running", and "dead".
      * @param coroutine - Coroutine to check the status of.
      */
-    function status(coroutine: thread): string;
+    declare function status(coroutine: thread): string;
 
     /**
      * 🟨🟦 [Shared]
@@ -60822,7 +61190,7 @@ declare namespace coroutine {
      * This function uses [Global.CurTime](https://wiki.facepunch.com/gmod/Global.CurTime) instead of [Global.RealTime](https://wiki.facepunch.com/gmod/Global.RealTime).
      * @param duration - The number of seconds to wait
      */
-    function wait(duration: number): void;
+    declare function wait(duration: number): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -60832,7 +61200,7 @@ declare namespace coroutine {
      * The values returned by the returned function only contain the values passed to the inner [coroutine.yield](https://wiki.facepunch.com/gmod/coroutine.yield) call and do not include the *no error* status that [coroutine.resume](https://wiki.facepunch.com/gmod/coroutine.resume) provides. In case of failure, an error is thrown instead.
      * @param coroutine - Coroutine to resume.
      */
-    function wrap(coroutine: Function): Function;
+    declare function wrap(coroutine: Function): Function;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -60840,7 +61208,7 @@ declare namespace coroutine {
      * Pauses the active coroutine and passes all additional variables to the call of [coroutine.resume](https://wiki.facepunch.com/gmod/coroutine.resume) that resumed the coroutine last time, and returns all additional variables that were passed to the previous call of resume.
      * @param returnValue - Arguments to be returned by the last call of [coroutine.resume](https://wiki.facepunch.com/gmod/coroutine.resume).
      */
-    function yield(...returnValue: any[]): any;
+    declare function yield(...returnValue: any[]): any;
 }
 
 /**
@@ -60871,7 +61239,7 @@ declare namespace cvars {
      * @param [identifier = nil] - If set, you will be able to remove the callback using [cvars.RemoveChangeCallback](https://wiki.facepunch.com/gmod/cvars.RemoveChangeCallback).
      *  The identifier is not required to be globally unique, as it's paired with the actual name of the convar.
      */
-    function AddChangeCallback(name: string, callback: (convar: string, oldValue: string, newValue: string) => void, identifier?: string): void;
+    declare function AddChangeCallback(name: string, callback: (convar: string, oldValue: string, newValue: string) => void, identifier?: string): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -60880,7 +61248,7 @@ declare namespace cvars {
      * @param cvar - Name of console variable
      * @param [default_ = false] - The value to return if the console variable does not exist
      */
-    function Bool(cvar: string, default_ = false): boolean;
+    declare function Bool(cvar: string, default_?: boolean): boolean;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -60890,7 +61258,7 @@ declare namespace cvars {
      * @param [createIfNotFound = false] - Whether or not to create the internal callback table for given [ConVar](https://wiki.facepunch.com/gmod/ConVar) if there isn't one yet.
      * This argument is internal and should not be used.
      */
-    function GetConVarCallbacks(name: string, createIfNotFound = false): any;
+    declare function GetConVarCallbacks(name: string, createIfNotFound?: boolean): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -60899,7 +61267,7 @@ declare namespace cvars {
      * @param cvar - Name of console variable
      * @param [default_ = nil] - The value to return if the console variable does not exist
      */
-    function Number(cvar: string, default_?: any): number;
+    declare function Number(cvar: string, default_?: any): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -60911,7 +61279,7 @@ declare namespace cvars {
      * @param oldVal - The old value of the convar
      * @param newVal - The new value of the convar
      */
-    function OnConVarChanged(name: string, oldVal: string, newVal: string): void;
+    declare function OnConVarChanged(name: string, oldVal: string, newVal: string): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -60920,7 +61288,7 @@ declare namespace cvars {
      * @param name - The name of the convar to remove the callback from.
      * @param indentifier - The callback's identifier.
      */
-    function RemoveChangeCallback(name: string, indentifier: string): void;
+    declare function RemoveChangeCallback(name: string, indentifier: string): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -60929,7 +61297,7 @@ declare namespace cvars {
      * @param cvar - Name of console variable
      * @param [default_ = nil] - The value to return if the console variable does not exist
      */
-    function String(cvar: string, default_?: any): string;
+    declare function String(cvar: string, default_?: any): string;
 }
 
 /**
@@ -60947,7 +61315,7 @@ declare namespace debug {
      * **Note:**
      * >This only works on the source dedicated server.
      */
-    function debug(): void;
+    declare function debug(): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -60955,7 +61323,7 @@ declare namespace debug {
      * Returns the environment of the passed object. This can be set with [debug.setfenv](https://wiki.facepunch.com/gmod/debug.setfenv)
      * @param object - Object to get environment of
      */
-    function getfenv(object: any): any;
+    declare function getfenv(object: any): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -60963,7 +61331,7 @@ declare namespace debug {
      * Returns the current hook settings of the passed thread. The thread argument can be omitted. This is completely different to gamemode hooks. More information on hooks can be found at http://www.lua.org/pil/23.2.html. This function will simply return the function, mask, and count of the last called [debug.sethook](https://wiki.facepunch.com/gmod/debug.sethook).
      * @param [thread = nil] - Which thread to retrieve it's hook from, doesn't seem to actually work.
      */
-    function gethook(thread?: thread): LuaMultiReturn<[Function, string, number]>;
+    declare function gethook(thread?: thread): LuaMultiReturn<[Function, string, number]>;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -60981,7 +61349,7 @@ declare namespace debug {
      * * `>` - Causes this function to use the last argument to get the data from
      * @param function_ - Function to use. (Only used by the `>` field)
      */
-    function getinfo(funcOrStackLevel: Function, fields: string = ">flnSu", function_: Function|nil): DebugInfo;
+    declare function getinfo(funcOrStackLevel: Function, fields?: string, function_?: Function|nil): DebugInfo;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -61000,7 +61368,7 @@ declare namespace debug {
      * * 2 = the second local defined in the thread
      * * etc...
      */
-    function getlocal(thread?: thread, level: number, index: number): LuaMultiReturn<[string, any]>;
+    declare function getlocal(thread?: thread, level?: number, index?: number): LuaMultiReturn<[string, any]>;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -61008,7 +61376,7 @@ declare namespace debug {
      * Returns the metatable of an object. This function ignores the metatable's __metatable field.
      * @param object - The object to retrieve the metatable from.
      */
-    function getmetatable(object: any): any;
+    declare function getmetatable(object: any): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -61019,7 +61387,7 @@ declare namespace debug {
      * **Warning:**
      * >Improper editing of the registry can result in unintended side effects, including crashing the game.
      */
-    function getregistry(): any;
+    declare function getregistry(): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -61028,7 +61396,7 @@ declare namespace debug {
      * @param func - Function to get the upvalue indexed from.
      * @param index - The index in the upvalue array. The max number of entries can be found in [debug.getinfo](https://wiki.facepunch.com/gmod/debug.getinfo)'s "<page text="nups">Structures/DebugInfo</page>" key.
      */
-    function getupvalue(func: Function, index: number): LuaMultiReturn<[string, any]>;
+    declare function getupvalue(func: Function, index: number): LuaMultiReturn<[string, any]>;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -61041,7 +61409,7 @@ declare namespace debug {
      * @param object - Object to set environment of. Valid types: userdata, thread, function.
      * @param env - Environment to set
      */
-    function setfenv(object: any, env: any): any;
+    declare function setfenv(object: any, env: any): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -61057,7 +61425,7 @@ declare namespace debug {
      * * l - Triggers the hook on each line compiled of code.
      * @param count - How often to call the hook (in instructions). 0 for every instruction. Can be omitted.
      */
-    function sethook(thread: thread, hook: Function, mask: string, count: number): void;
+    declare function sethook(thread: thread, hook: Function, mask: string, count: number): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -61075,7 +61443,7 @@ declare namespace debug {
      * 2 = the second local defined in the thread
      * @param [value = nil] - The value to set the local to
      */
-    function setlocal(thread?: thread, level: number, index: number, value?: any): string;
+    declare function setlocal(thread?: thread, level?: number, index?: number, value?: any): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -61085,7 +61453,7 @@ declare namespace debug {
      * @param metatable - The metatable to set for the object.
      * If this argument is nil, then the object's metatable is removed.
      */
-    function setmetatable(object: any, metatable: any): boolean;
+    declare function setmetatable(object: any, metatable: any): boolean;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -61097,14 +61465,14 @@ declare namespace debug {
      * @param index - The index from func
      * @param [val = nil] - The value to set the upvalue to.
      */
-    function setupvalue(func: Function, index: number, val?: any): string;
+    declare function setupvalue(func: Function, index: number, val?: any): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Prints out the lua function call stack to the console.
      */
-    function Trace(): void;
+    declare function Trace(): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -61114,7 +61482,7 @@ declare namespace debug {
      * @param [message = nil] - Appended at the beginning of the traceback.
      * @param [level = 1] - Which level to start the traceback.
      */
-    function traceback(thread?: thread, message?: string, level = 1): string;
+    declare function traceback(thread?: thread, message?: string, level?: number): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -61125,7 +61493,7 @@ declare namespace debug {
      * @param func - The function to index the upvalue from
      * @param index - The index from func
      */
-    function upvalueid(func: Function, index: number): number;
+    declare function upvalueid(func: Function, index: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -61138,7 +61506,7 @@ declare namespace debug {
      * @param f2 -
      * @param n2 -
      */
-    function upvaluejoin(f1: Function, n1: number, f2: Function, n2: number): void;
+    declare function upvaluejoin(f1: Function, n1: number, f2: Function, n2: number): void;
 }
 
 /**
@@ -61167,7 +61535,7 @@ declare namespace debugoverlay {
      * @param [lifetime = 1] - Number of seconds to appear
      * @param [ignoreZ = false] - If true, will draw on top of everything; ignoring the Z buffer
      */
-    function Axis(origin: Vector, ang: Angle, size: number, lifetime = 1, ignoreZ = false): void;
+    declare function Axis(origin: Vector, ang: Angle, size: number, lifetime?: number, ignoreZ?: boolean): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -61185,7 +61553,7 @@ declare namespace debugoverlay {
      * @param [lifetime = 1] - Number of seconds to appear
      * @param [color = Color( 255, 255, 255, 255 )] - The color of the box. Uses the [Color](https://wiki.facepunch.com/gmod/Color)
      */
-    function Box(origin: Vector, mins: Vector, maxs: Vector, lifetime = 1, color?: Color): void;
+    declare function Box(origin: Vector, mins: Vector, maxs: Vector, lifetime?: number, color?: Color): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -61204,7 +61572,7 @@ declare namespace debugoverlay {
      * @param [lifetime = 1] - Amount of seconds to show the box
      * @param [color = Color( 255, 255, 255, 255 )] - The color of the box. Uses the [Color](https://wiki.facepunch.com/gmod/Color)
      */
-    function BoxAngles(pos: Vector, mins: Vector, maxs: Vector, ang: Angle, lifetime = 1, color?: Color): void;
+    declare function BoxAngles(pos: Vector, mins: Vector, maxs: Vector, ang: Angle, lifetime?: number, color?: Color): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -61222,7 +61590,7 @@ declare namespace debugoverlay {
      * @param [color = Color( 255, 255, 255 )] - The color of the cross. Uses the [Color](https://wiki.facepunch.com/gmod/Color)
      * @param [ignoreZ = false] - If true, will draw on top of everything; ignoring the Z buffer
      */
-    function Cross(position: Vector, size: number, lifetime = 1, color?: Color, ignoreZ = false): void;
+    declare function Cross(position: Vector, size: number, lifetime?: number, color?: Color, ignoreZ?: boolean): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -61240,7 +61608,7 @@ declare namespace debugoverlay {
      * @param [lifetime = 1] - Number of seconds to appear
      * @param [color = Color( 255, 255, 255 )] - The color of the box. Uses the [Color](https://wiki.facepunch.com/gmod/Color)
      */
-    function EntityTextAtPosition(pos: Vector, line: number, text: string, lifetime = 1, color?: Color): void;
+    declare function EntityTextAtPosition(pos: Vector, line: number, text: string, lifetime?: number, color?: Color): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -61254,7 +61622,7 @@ declare namespace debugoverlay {
      *
      * @param position -
      */
-    function Grid(position: Vector): void;
+    declare function Grid(position: Vector): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -61272,7 +61640,7 @@ declare namespace debugoverlay {
      * @param [color = Color( 255, 255, 255 )] - The color of the line. Uses the [Color](https://wiki.facepunch.com/gmod/Color)
      * @param [ignoreZ = false] - If true, will draw on top of everything; ignoring the Z buffer
      */
-    function Line(pos1: Vector, pos2: Vector, lifetime = 1, color?: Color, ignoreZ = false): void;
+    declare function Line(pos1: Vector, pos2: Vector, lifetime?: number, color?: Color, ignoreZ?: boolean): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -61290,7 +61658,7 @@ declare namespace debugoverlay {
      * @param [lifetime = 1] - Number of seconds to appear
      * @param [color = Color( 255, 255, 255 )] - The color of the box. Uses the [Color](https://wiki.facepunch.com/gmod/Color)
      */
-    function ScreenText(x: number, y: number, text: string, lifetime = 1, color?: Color): void;
+    declare function ScreenText(x: number, y: number, text: string, lifetime?: number, color?: Color): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -61308,7 +61676,7 @@ declare namespace debugoverlay {
      * @param [color = Color( 255, 255, 255 )] - The color of the sphere. Uses the [Color](https://wiki.facepunch.com/gmod/Color)
      * @param [ignoreZ = false] - If true, will draw on top of everything; ignoring the Z buffer
      */
-    function Sphere(origin: Vector, size: number, lifetime = 1, color?: Color, ignoreZ = false): void;
+    declare function Sphere(origin: Vector, size: number, lifetime?: number, color?: Color, ignoreZ?: boolean): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -61328,7 +61696,7 @@ declare namespace debugoverlay {
      * @param [lifetime = 1] - Number of seconds to appear
      * @param [color = Color( 255, 255, 255 )] - The color of the box. Uses the [Color](https://wiki.facepunch.com/gmod/Color)
      */
-    function SweptBox(vStart: Vector, vEnd: Vector, vMins: Vector, vMaxs: Vector, ang: Angle, lifetime = 1, color?: Color): void;
+    declare function SweptBox(vStart: Vector, vEnd: Vector, vMins: Vector, vMaxs: Vector, ang: Angle, lifetime?: number, color?: Color): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -61345,7 +61713,7 @@ declare namespace debugoverlay {
      * @param [lifetime = 1] - Number of seconds to appear
      * @param [viewCheck = false] - Clip text that is obscured
      */
-    function Text(origin: Vector, text: string, lifetime = 1, viewCheck = false): void;
+    declare function Text(origin: Vector, text: string, lifetime?: number, viewCheck?: boolean): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -61364,7 +61732,7 @@ declare namespace debugoverlay {
      * @param [color = Color( 255, 255, 255 )] - The color of the box. Uses the [Color](https://wiki.facepunch.com/gmod/Color)
      * @param [ignoreZ = false] - If true, will draw on top of everything; ignoring the Z buffer
      */
-    function Triangle(pos1: Vector, pos2: Vector, pos3: Vector, lifetime = 1, color?: Color, ignoreZ = false): void;
+    declare function Triangle(pos1: Vector, pos2: Vector, pos3: Vector, lifetime?: number, color?: Color, ignoreZ?: boolean): void;
 }
 
 /**
@@ -61379,7 +61747,7 @@ declare namespace derma {
      * @param pnl -
      * @param default_ - The default color in case of failure.
      */
-    function Color(name: string, pnl: Panel, default_: any): void;
+    declare function Color(name: string, pnl: Panel, default_: any): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -61393,7 +61761,7 @@ declare namespace derma {
      * * [string](https://wiki.facepunch.com/gmod/string) Description - The description of the panel
      * * [string](https://wiki.facepunch.com/gmod/string) BaseClass - The base class of the panel
      */
-    function Controls(): any;
+    declare function Controls(): any;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -61410,7 +61778,7 @@ declare namespace derma {
      * @param tab - Table containing control methods and properties
      * @param base - Derma control to base the new control off of
      */
-    function DefineControl(name: string, description: string, tab: any, base: string): any;
+    declare function DefineControl(name: string, description: string, tab: any, base: string): any;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -61420,21 +61788,21 @@ declare namespace derma {
      * @param descriptions - Description of the skin
      * @param skin - Table containing skin data
      */
-    function DefineSkin(name: string, descriptions: string, skin: any): void;
+    declare function DefineSkin(name: string, descriptions: string, skin: any): void;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * Returns the [derma.Controls](https://wiki.facepunch.com/gmod/derma.Controls) table, a list of all derma controls registered with [derma.DefineControl](https://wiki.facepunch.com/gmod/derma.DefineControl).
      */
-    function GetControlList(): any;
+    declare function GetControlList(): any;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * Returns the default skin table, which can be changed with the hook [GM:ForceDermaSkin](https://wiki.facepunch.com/gmod/GM:ForceDermaSkin)
      */
-    function GetDefaultSkin(): any;
+    declare function GetDefaultSkin(): any;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -61442,28 +61810,28 @@ declare namespace derma {
      * Returns the skin table of the skin with the supplied name
      * @param name - Name of skin
      */
-    function GetNamedSkin(name: string): any;
+    declare function GetNamedSkin(name: string): any;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * Returns a copy of the table containing every Derma skin
      */
-    function GetSkinTable(): any;
+    declare function GetSkinTable(): any;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * Clears all cached panels so that they reassess which skin they should be using.
      */
-    function RefreshSkins(): void;
+    declare function RefreshSkins(): void;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * Returns how many times [derma.RefreshSkins](https://wiki.facepunch.com/gmod/derma.RefreshSkins) has been called.
      */
-    function SkinChangeIndex(): number;
+    declare function SkinChangeIndex(): number;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -61477,14 +61845,14 @@ declare namespace derma {
      * @param [vararg1 = nil] - First parameter for the panel hook. i.e. width of the panel for <page text="Paint">PANEL:Paint</page> hooks.
      * @param [vararg2 = nil] - Second parameter for the panel hook. i.e. height of the panel for <page text="Paint">PANEL:Paint</page> hooks.
      */
-    function SkinHook(type: string, name: string, panel: Panel, vararg1?: any, vararg2?: any): any;
+    declare function SkinHook(type: string, name: string, panel: Panel, vararg1?: any, vararg2?: any): any;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * This is NOT a function, it's a variable containing all registered via [derma.DefineSkin](https://wiki.facepunch.com/gmod/derma.DefineSkin) derma skins.
      */
-    function SkinList(): any;
+    declare function SkinList(): any;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -61496,7 +61864,7 @@ declare namespace derma {
      * @param pnl - Panel to get the skin of.
      * @param [fallback = nil] - What to return if we failed to retrieve the texture
      */
-    function SkinTexture(name: string, pnl: Panel, fallback?: Function): Function;
+    declare function SkinTexture(name: string, pnl: Panel, fallback?: Function): Function;
 }
 
 /**
@@ -61512,21 +61880,21 @@ declare namespace dragndrop {
      * @param mx - The local to the panel mouse cursor X position when the click happened.
      * @param my - The local to the panel  mouse cursor Y position when the click happened.
      */
-    function CallReceiverFunction(bDoDrop: boolean, command: number, mx: number, my: number): void;
+    declare function CallReceiverFunction(bDoDrop: boolean, command: number, mx: number, my: number): void;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * Clears all the internal drag'n'drop variables.
      */
-    function Clear(): void;
+    declare function Clear(): void;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * Handles the drop action of drag'n'drop library.
      */
-    function Drop(): void;
+    declare function Drop(): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -61534,56 +61902,56 @@ declare namespace dragndrop {
      * Returns a table of currently dragged panels.
      * @param [name = nil] - If set, the function will return only the panels with this [Panel:Droppable](https://wiki.facepunch.com/gmod/Panel:Droppable) name.
      */
-    function GetDroppable(name?: string): any;
+    declare function GetDroppable(name?: string): any;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * Allows you to capture the panel that was dropped into the game (dropped onto the root panel). This function is meant to be overridden.
      */
-    function HandleDroppedInGame(): void;
+    declare function HandleDroppedInGame(): void;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * Handles the hover think. Called from [dragndrop.Think](https://wiki.facepunch.com/gmod/dragndrop.Think).
      */
-    function HoverThink(): void;
+    declare function HoverThink(): void;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether the user is dragging something with the drag'n'drop system.
      */
-    function IsDragging(): boolean;
+    declare function IsDragging(): boolean;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * Starts the drag'n'drop.
      */
-    function StartDragging(): void;
+    declare function StartDragging(): void;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * Stops the drag'n'drop and calls [dragndrop.Clear](https://wiki.facepunch.com/gmod/dragndrop.Clear).
      */
-    function StopDragging(): void;
+    declare function StopDragging(): void;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * Handles all the drag'n'drop processes. Calls [dragndrop.UpdateReceiver](https://wiki.facepunch.com/gmod/dragndrop.UpdateReceiver) and [dragndrop.HoverThink](https://wiki.facepunch.com/gmod/dragndrop.HoverThink).
      */
-    function Think(): void;
+    declare function Think(): void;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * Updates the receiver to drop the panels onto. Called from [dragndrop.Think](https://wiki.facepunch.com/gmod/dragndrop.Think).
      */
-    function UpdateReceiver(): void;
+    declare function UpdateReceiver(): void;
 }
 
 /**
@@ -61605,7 +61973,7 @@ declare namespace draw {
      * @param [color = Color( 255, 255, 255, 255 )] - Color to draw the text in. Uses the [Color](https://wiki.facepunch.com/gmod/Color).
      * @param [xAlign = TEXT_ALIGN_LEFT] - Where to align the text horizontally. Uses the [Enums/TEXT_ALIGN](https://wiki.facepunch.com/gmod/Enums/TEXT_ALIGN).
      */
-    function DrawText(text: string, font: string = "DermaDefault", x = 0, y = 0, color?: Color, xAlign?: TEXT_ALIGN): void;
+    declare function DrawText(text: string, font?: string, x?: number, y?: number, color?: Color, xAlign?: TEXT_ALIGN): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -61615,7 +61983,7 @@ declare namespace draw {
      * <rendercontext hook="false" type="2D"></rendercontext>
      * @param font - Name of the font to get the height of.
      */
-    function GetFontHeight(font: string): number;
+    declare function GetFontHeight(font: string): number;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -61624,7 +61992,7 @@ declare namespace draw {
      *
      * <rendercontext hook="false" type="2D"></rendercontext>
      */
-    function NoTexture(): void;
+    declare function NoTexture(): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -61644,7 +62012,7 @@ declare namespace draw {
      * @param height - The height of the rectangle.
      * @param color - The color to fill the rectangle with. Uses the [Color](https://wiki.facepunch.com/gmod/Color).
      */
-    function RoundedBox(cornerRadius: number, x: number, y: number, width: number, height: number, color: Color): void;
+    declare function RoundedBox(cornerRadius: number, x: number, y: number, width: number, height: number, color: Color): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -61667,7 +62035,7 @@ declare namespace draw {
      * @param [roundBottomLeft = false] - Whether the bottom left corner should be rounded.
      * @param [roundBottomRight = false] - Whether the bottom right corner should be rounded.
      */
-    function RoundedBoxEx(cornerRadius: number, x: number, y: number, width: number, height: number, color: Color, roundTopLeft = false, roundTopRight = false, roundBottomLeft = false, roundBottomRight = false): void;
+    declare function RoundedBoxEx(cornerRadius: number, x: number, y: number, width: number, height: number, color: Color, roundTopLeft?: boolean, roundTopRight?: boolean, roundBottomLeft?: boolean, roundBottomRight?: boolean): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -61687,7 +62055,7 @@ declare namespace draw {
      * @param [xAlign = TEXT_ALIGN_LEFT] - The alignment of the X coordinate using [Enums/TEXT_ALIGN](https://wiki.facepunch.com/gmod/Enums/TEXT_ALIGN).
      * @param [yAlign = TEXT_ALIGN_TOP] - The alignment of the Y coordinate using [Enums/TEXT_ALIGN](https://wiki.facepunch.com/gmod/Enums/TEXT_ALIGN).
      */
-    function SimpleText(text: string, font: string = "DermaDefault", x = 0, y = 0, color?: Color, xAlign?: TEXT_ALIGN, yAlign?: TEXT_ALIGN): LuaMultiReturn<[number, number]>;
+    declare function SimpleText(text: string, font?: string, x?: number, y?: number, color?: Color, xAlign?: TEXT_ALIGN, yAlign?: TEXT_ALIGN): LuaMultiReturn<[number, number]>;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -61705,7 +62073,7 @@ declare namespace draw {
      * @param outlinewidth - Width of the outline.
      * @param [outlinecolor = Color( 255, 255, 255, 255 )] - Color of the outline. Uses the [Color](https://wiki.facepunch.com/gmod/Color).
      */
-    function SimpleTextOutlined(Text: string, font: string = "DermaDefault", x = 0, y = 0, color?: Color, xAlign?: TEXT_ALIGN, yAlign?: TEXT_ALIGN, outlinewidth: number, outlinecolor?: Color): LuaMultiReturn<[number, number]>;
+    declare function SimpleTextOutlined(Text: string, font?: string, x?: number, y?: number, color?: Color, xAlign?: TEXT_ALIGN, yAlign?: TEXT_ALIGN, outlinewidth?: number, outlinecolor?: Color): LuaMultiReturn<[number, number]>;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -61715,7 +62083,7 @@ declare namespace draw {
      * <rendercontext hook="false" type="2D"></rendercontext>
      * @param textdata - The text properties. See the [Structures/TextData](https://wiki.facepunch.com/gmod/Structures/TextData)
      */
-    function Text(textdata: TextData): LuaMultiReturn<[number, number]>;
+    declare function Text(textdata: TextData): LuaMultiReturn<[number, number]>;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -61727,7 +62095,7 @@ declare namespace draw {
      * @param distance - How far away the shadow appears.
      * @param [alpha = 200] - How visible the shadow is (0-255).
      */
-    function TextShadow(textdata: TextData, distance: number, alpha = 200): LuaMultiReturn<[number, number]>;
+    declare function TextShadow(textdata: TextData, distance: number, alpha?: number): LuaMultiReturn<[number, number]>;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -61737,7 +62105,7 @@ declare namespace draw {
      * <rendercontext hook="false" type="2D"></rendercontext>
      * @param texturedata - The texture properties. See [Structures/TextureData](https://wiki.facepunch.com/gmod/Structures/TextureData).
      */
-    function TexturedQuad(texturedata: TextureData): void;
+    declare function TexturedQuad(texturedata: TextureData): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -61755,7 +62123,7 @@ declare namespace draw {
      * @param [xalign = TEXT_ALIGN_LEFT] - The alignment of the X coordinate using [Enums/TEXT_ALIGN](https://wiki.facepunch.com/gmod/Enums/TEXT_ALIGN).
      * @param [yalign = TEXT_ALIGN_TOP] - The alignment of the Y coordinate using [Enums/TEXT_ALIGN](https://wiki.facepunch.com/gmod/Enums/TEXT_ALIGN).
      */
-    function WordBox(bordersize: number, x: number, y: number, text: string, font: string, boxcolor: Color, textcolor: Color, xalign?: TEXT_ALIGN, yalign?: TEXT_ALIGN): LuaMultiReturn<[number, number]>;
+    declare function WordBox(bordersize: number, x: number, y: number, text: string, font: string, boxcolor: Color, textcolor: Color, xalign?: TEXT_ALIGN, yalign?: TEXT_ALIGN): LuaMultiReturn<[number, number]>;
 }
 
 /**
@@ -61769,7 +62137,7 @@ declare namespace drive {
      * @param ply - The player
      * @param view - The view, see [Structures/ViewData](https://wiki.facepunch.com/gmod/Structures/ViewData)
      */
-    function CalcView(ply: Player, view: ViewData): boolean;
+    declare function CalcView(ply: Player, view: ViewData): boolean;
 
     /**
      * 🟨🟦 [Shared]
@@ -61777,7 +62145,7 @@ declare namespace drive {
      * Clientside, the client creates the cmd (usercommand) from their input device (mouse, keyboard) and then it's sent to the server. Restrict view angles here.
      * @param cmd - The user command
      */
-    function CreateMove(cmd: CUserCmd): boolean;
+    declare function CreateMove(cmd: CUserCmd): boolean;
 
     /**
      * 🟨🟦 [Shared]
@@ -61785,7 +62153,7 @@ declare namespace drive {
      * Destroys players current driving method.
      * @param ply - The player to affect
      */
-    function DestroyMethod(ply: Player): void;
+    declare function DestroyMethod(ply: Player): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -61794,7 +62162,7 @@ declare namespace drive {
      * @param ply - The player
      * @param ent - The entity
      */
-    function End(ply: Player, ent: Entity): void;
+    declare function End(ply: Player, ent: Entity): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -61803,7 +62171,7 @@ declare namespace drive {
      * @param ply - The player
      * @param mv - The move data
      */
-    function FinishMove(ply: Player, mv: CMoveData): boolean;
+    declare function FinishMove(ply: Player, mv: CMoveData): boolean;
 
     /**
      * 🟨🟦 [Shared]
@@ -61811,7 +62179,7 @@ declare namespace drive {
      * Returns ( or creates if inexistent ) a driving method.
      * @param ply - The player
      */
-    function GetMethod(ply: Player): any;
+    declare function GetMethod(ply: Player): any;
 
     /**
      * 🟨🟦 [Shared]
@@ -61820,7 +62188,7 @@ declare namespace drive {
      * @param ply - The player
      * @param mv - The move data
      */
-    function Move(ply: Player, mv: CMoveData): boolean;
+    declare function Move(ply: Player, mv: CMoveData): boolean;
 
     /**
      * 🟨🟦 [Shared]
@@ -61830,7 +62198,7 @@ declare namespace drive {
      * @param ent - The entity to drive
      * @param mode - The driving mode
      */
-    function PlayerStartDriving(ply: Player, ent: Entity, mode: string): void;
+    declare function PlayerStartDriving(ply: Player, ent: Entity, mode: string): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -61838,7 +62206,7 @@ declare namespace drive {
      * Stops the player from driving anything. ( For example a prop in sandbox )
      * @param ply - The player to affect
      */
-    function PlayerStopDriving(ply: Player): void;
+    declare function PlayerStopDriving(ply: Player): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -61848,7 +62216,7 @@ declare namespace drive {
      * @param data - The data required to create the drive mode/method. This includes the functions used by the drive. See [DRIVE_Hooks](https://wiki.facepunch.com/gmod/DRIVE_Hooks).
      * @param [base = nil] - The name of a drive mode/method to inherit code from.
      */
-    function Register(name: string, data: any, base?: string): void;
+    declare function Register(name: string, data: any, base?: string): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -61857,7 +62225,7 @@ declare namespace drive {
      * @param ply - The player
      * @param ent - The entity
      */
-    function Start(ply: Player, ent: Entity): void;
+    declare function Start(ply: Player, ent: Entity): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -61867,7 +62235,7 @@ declare namespace drive {
      * @param mv - The move data
      * @param cmd - The user command
      */
-    function StartMove(ply: Player, mv: CMoveData, cmd: CUserCmd): boolean;
+    declare function StartMove(ply: Player, mv: CMoveData, cmd: CUserCmd): boolean;
 }
 
 /**
@@ -61888,7 +62256,7 @@ declare namespace duplicator {
      * In addition to that most spawnmenu content, such as engine weapons and pickup-ables, as well as most engine NPCs in Sandbox-derived gamemodes are also allowed by default.
      * @param classname - An entity's classname to allow duplicating.
      */
-    function Allow(classname: string): void;
+    declare function Allow(classname: string): void;
 
     /**
      * 🟦 [Server]
@@ -61897,7 +62265,7 @@ declare namespace duplicator {
      * @param ply - The player whose entity this is
      * @param ent - The entity in question
      */
-    function ApplyBoneModifiers(ply: Player, ent: Entity): void;
+    declare function ApplyBoneModifiers(ply: Player, ent: Entity): void;
 
     /**
      * 🟦 [Server]
@@ -61906,14 +62274,14 @@ declare namespace duplicator {
      * @param ply - The player whose entity this is
      * @param ent - The entity in question
      */
-    function ApplyEntityModifiers(ply: Player, ent: Entity): void;
+    declare function ApplyEntityModifiers(ply: Player, ent: Entity): void;
 
     /**
      * 🟨🟦 [Shared]
      *
      * A list of all entity bone modifiers registered with [duplicator.RegisterBoneModifier](https://wiki.facepunch.com/gmod/duplicator.RegisterBoneModifier).
      */
-    function BoneModifiers(): any;
+    declare function BoneModifiers(): any;
 
     /**
      * 🟦 [Server]
@@ -61922,14 +62290,14 @@ declare namespace duplicator {
      * @param ent - The entity the modification is stored on
      * @param key - The key of the stored entity modifier
      */
-    function ClearEntityModifier(ent: Entity, key: any): void;
+    declare function ClearEntityModifier(ent: Entity, key: any): void;
 
     /**
      * 🟨🟦 [Shared]
      *
      * A list of all [constraint](https://wiki.facepunch.com/gmod/constraint)s that can be duplicated. Registered with [duplicator.RegisterConstraint](https://wiki.facepunch.com/gmod/duplicator.RegisterConstraint).
      */
-    function ConstraintType(): any;
+    declare function ConstraintType(): any;
 
     /**
      * 🟦 [Server]
@@ -61939,7 +62307,7 @@ declare namespace duplicator {
      * @param [tableToAdd = {}] - A preexisting table to add entities and constraints in from.
      * Uses the same table format as the table returned from this function.
      */
-    function Copy(ent: Entity, tableToAdd?: any): any;
+    declare function Copy(ent: Entity, tableToAdd?: any): any;
 
     /**
      * 🟦 [Server]
@@ -61947,7 +62315,7 @@ declare namespace duplicator {
      * Copies the passed table of entities to save for later.
      * @param ents - A table of entities to save/copy.
      */
-    function CopyEnts(ents: any): any;
+    declare function CopyEnts(ents: any): any;
 
     /**
      * 🟦 [Server]
@@ -61955,7 +62323,7 @@ declare namespace duplicator {
      * Returns a table with some entity data that can be used to create a new entity with [duplicator.CreateEntityFromTable](https://wiki.facepunch.com/gmod/duplicator.CreateEntityFromTable)
      * @param ent - The entity table to save
      */
-    function CopyEntTable(ent: Entity): EntityCopyData;
+    declare function CopyEntTable(ent: Entity): EntityCopyData;
 
     /**
      * 🟦 [Server]
@@ -61964,7 +62332,7 @@ declare namespace duplicator {
      * @param constraint - Saved/copied constraint table
      * @param entityList - The list of entities that are to be constrained
      */
-    function CreateConstraintFromTable(constraint: any, entityList: any): Entity;
+    declare function CreateConstraintFromTable(constraint: any, entityList: any): Entity;
 
     /**
      * 🟦 [Server]
@@ -61979,7 +62347,7 @@ declare namespace duplicator {
      * @param ply - The player who wants to create something
      * @param entTable - The duplication data to build the entity with. See [Structures/EntityCopyData](https://wiki.facepunch.com/gmod/Structures/EntityCopyData)
      */
-    function CreateEntityFromTable(ply: Player, entTable: EntityCopyData): Entity;
+    declare function CreateEntityFromTable(ply: Player, entTable: EntityCopyData): Entity;
 
     /**
      * 🟨🟦 [Shared]
@@ -61989,7 +62357,7 @@ declare namespace duplicator {
      * This function is useful for temporarily disabling duplication of certain entity classes that may have been previously allowed.
      * @param classname - An entity's classname to disallow duplicating.
      */
-    function Disallow(classname: string): void;
+    declare function Disallow(classname: string): void;
 
     /**
      * 🟦 [Server]
@@ -62000,7 +62368,7 @@ declare namespace duplicator {
      * @param ent - The entity to be bone manipulated
      * @param bones - Table with a [Structures/BoneManipulationData](https://wiki.facepunch.com/gmod/Structures/BoneManipulationData) for every bone (that has manipulations applied) using the bone ID as the table index.
      */
-    function DoBoneManipulator(ent: Entity, bones: BoneManipulationData): void;
+    declare function DoBoneManipulator(ent: Entity, bones: BoneManipulationData): void;
 
     /**
      * 🟦 [Server]
@@ -62010,7 +62378,7 @@ declare namespace duplicator {
      * @param flex - The flexes to restore
      * @param [scale = nil] - The flex scale to apply. (Flex scale is unchanged if omitted)
      */
-    function DoFlex(ent: Entity, flex: any, scale?: number): void;
+    declare function DoFlex(ent: Entity, flex: any, scale?: number): void;
 
     /**
      * 🟦 [Server]
@@ -62023,7 +62391,7 @@ declare namespace duplicator {
      * @param ent - The entity to be applied upon
      * @param data - The data to be applied onto the entity
      */
-    function DoGeneric(ent: Entity, data: any): void;
+    declare function DoGeneric(ent: Entity, data: any): void;
 
     /**
      * 🟦 [Server]
@@ -62035,7 +62403,7 @@ declare namespace duplicator {
      * @param [ply = nil] - The player who owns the entity. Unused in function as of early 2013
      * @param data - The data to be applied onto the entity
      */
-    function DoGenericPhysics(ent: Entity, ply?: Player, data: any): void;
+    declare function DoGenericPhysics(ent: Entity, ply?: Player, data?: any): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -62044,14 +62412,14 @@ declare namespace duplicator {
      *
      * If you wish to get a specific entity class table, use [duplicator.FindEntityClass](https://wiki.facepunch.com/gmod/duplicator.FindEntityClass).
      */
-    function EntityClasses(): any;
+    declare function EntityClasses(): any;
 
     /**
      * 🟨🟦 [Shared]
      *
      * A list of all entity modifiers registered with [duplicator.RegisterEntityModifier](https://wiki.facepunch.com/gmod/duplicator.RegisterEntityModifier).
      */
-    function EntityModifiers(): any;
+    declare function EntityModifiers(): any;
 
     /**
      * 🟨🟦 [Shared]
@@ -62060,7 +62428,7 @@ declare namespace duplicator {
      * @param dupe - The duplication table to process, for example from [duplicator.Copy](https://wiki.facepunch.com/gmod/duplicator.Copy).
      * The provided table will have `RequiredAddons` key added.
      */
-    function FigureOutRequiredAddons(dupe: any): void;
+    declare function FigureOutRequiredAddons(dupe: any): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -62068,7 +62436,7 @@ declare namespace duplicator {
      * Returns the entity class factory registered with [duplicator.RegisterEntityClass](https://wiki.facepunch.com/gmod/duplicator.RegisterEntityClass).
      * @param name - The name of the entity class factory
      */
-    function FindEntityClass(name: string): any;
+    declare function FindEntityClass(name: string): any;
 
     /**
      * 🟦 [Server]
@@ -62079,7 +62447,7 @@ declare namespace duplicator {
      * @param ply - The player who wants to create something
      * @param data - The duplication data to build the entity with
      */
-    function GenericDuplicatorFunction(ply: Player, data: any): Entity;
+    declare function GenericDuplicatorFunction(ply: Player, data: any): Entity;
 
     /**
      * 🟦 [Server]
@@ -62089,7 +62457,7 @@ declare namespace duplicator {
      * @param entStorageTable - The table the entities will be inserted into
      * @param constraintStorageTable - The table the constraints will be inserted into
      */
-    function GetAllConstrainedEntitiesAndConstraints(ent: Entity, entStorageTable: any, constraintStorageTable: any): LuaMultiReturn<[any, any]>;
+    declare function GetAllConstrainedEntitiesAndConstraints(ent: Entity, entStorageTable: any, constraintStorageTable: any): LuaMultiReturn<[any, any]>;
 
     /**
      * 🟨🟦 [Shared]
@@ -62097,7 +62465,7 @@ declare namespace duplicator {
      * Returns whether the entity can be duplicated or not
      * @param classname - An entity's classname
      */
-    function IsAllowed(classname: string): boolean;
+    declare function IsAllowed(classname: string): boolean;
 
     /**
      * 🟦 [Server]
@@ -62111,7 +62479,7 @@ declare namespace duplicator {
      * @param EntityList - A table of duplicator data to create the entities from
      * @param ConstraintList - A table of duplicator data to create the constraints from
      */
-    function Paste(Player: Player, EntityList: any, ConstraintList: any): LuaMultiReturn<[any, any]>;
+    declare function Paste(Player: Player, EntityList: any, ConstraintList: any): LuaMultiReturn<[any, any]>;
 
     /**
      * 🟨🟦 [Shared]
@@ -62131,7 +62499,7 @@ declare namespace duplicator {
      * <arg type="table" name="data">What you pass to [duplicator.StoreBoneModifier](https://wiki.facepunch.com/gmod/duplicator.StoreBoneModifier).</arg>
      * </callback>
      */
-    function RegisterBoneModifier(key: any, boneModifier: (ply: Player, ent: Entity, boneID: number, bone: PhysObj, data: any) => void): void;
+    declare function RegisterBoneModifier(key: any, boneModifier: (ply: Player, ent: Entity, boneID: number, bone: PhysObj, data: any) => void): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -62141,7 +62509,7 @@ declare namespace duplicator {
      * @param callback - Function to be called when this constraint is created
      * @param customData - Arguments passed to the callback function
      */
-    function RegisterConstraint(name: string, callback: Function, ...customData: any[]): void;
+    declare function RegisterConstraint(name: string, callback: Function, ...customData: any[]): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -62160,7 +62528,7 @@ declare namespace duplicator {
      * </callback>
      * @param args - Strings of the names of arguments you want passed to function the from the [Structures/EntityCopyData](https://wiki.facepunch.com/gmod/Structures/EntityCopyData). As a special case, "Data" will pass the whole structure.
      */
-    function RegisterEntityClass(name: string, function_: (ply: Player, ...args: any[]) => Entity, ...args: any[]): void;
+    declare function RegisterEntityClass(name: string, function_: (ply: Player, ...args: any[]) => Entity, ...args: any[]): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -62178,7 +62546,7 @@ declare namespace duplicator {
      * <arg type="table" name="data">What you pass to [duplicator.StoreEntityModifier](https://wiki.facepunch.com/gmod/duplicator.StoreEntityModifier).</arg>
      * </callback>
      */
-    function RegisterEntityModifier(name: string, func: (ply: Player, ent: Entity, data: any) => void): void;
+    declare function RegisterEntityModifier(name: string, func: (ply: Player, ent: Entity, data: any) => void): void;
 
     /**
      * 🟦 [Server]
@@ -62187,7 +62555,7 @@ declare namespace duplicator {
      * This is obviously so we don't get duplicate props everywhere.
      * It should be called before calling Paste.
      */
-    function RemoveMapCreatedEntities(): void;
+    declare function RemoveMapCreatedEntities(): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -62196,7 +62564,7 @@ declare namespace duplicator {
      * If you set them - make sure to set them back to 0 0 0!"
      * @param v - The angle to offset all pastes from
      */
-    function SetLocalAng(v: Angle): void;
+    declare function SetLocalAng(v: Angle): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -62205,7 +62573,7 @@ declare namespace duplicator {
      * If you set them - make sure to set them back to 0 0 0!"
      * @param v - The position to offset all pastes from
      */
-    function SetLocalPos(v: Vector): void;
+    declare function SetLocalPos(v: Vector): void;
 
     /**
      * 🟦 [Server]
@@ -62217,7 +62585,7 @@ declare namespace duplicator {
      * @param key - The key for the bone modification
      * @param data - The bone modification data that is passed to the bone modification function
      */
-    function StoreBoneModifier(ent: Entity, boneID: number, key: any, data: any): void;
+    declare function StoreBoneModifier(ent: Entity, boneID: number, key: any, data: any): void;
 
     /**
      * 🟦 [Server]
@@ -62227,7 +62595,7 @@ declare namespace duplicator {
      * @param name - Unique modifier name as defined in [duplicator.RegisterEntityModifier](https://wiki.facepunch.com/gmod/duplicator.RegisterEntityModifier)
      * @param data - Modifier data
      */
-    function StoreEntityModifier(entity: Entity, name: string, data: any): void;
+    declare function StoreEntityModifier(entity: Entity, name: string, data: any): void;
 
     /**
      * 🟦 [Server]
@@ -62235,7 +62603,7 @@ declare namespace duplicator {
      * Works out the AABB size of the duplication
      * @param Ents - A table of entity duplication datums.
      */
-    function WorkoutSize(Ents: any): LuaMultiReturn<[Vector, Vector]>;
+    declare function WorkoutSize(Ents: any): LuaMultiReturn<[Vector, Vector]>;
 }
 
 /**
@@ -62261,7 +62629,7 @@ declare namespace effects {
      * * [number](https://wiki.facepunch.com/gmod/number) framerate - texture framerate.
      * * [string](https://wiki.facepunch.com/gmod/string) material - The material to use instead of the default one.
      */
-    function BeamRingPoint(pos: Vector, lifetime: number, startRad: number, endRad: number, width: number, amplitude: number, color: any, extra: any): void;
+    declare function BeamRingPoint(pos: Vector, lifetime: number, startRad: number, endRad: number, width: number, amplitude: number, color: any, extra: any): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -62274,7 +62642,7 @@ declare namespace effects {
      * @param [speed = 0] - How quickly the bubbles move.
      * @param [delay = 0] - Delay in seconds after the function call and before the effect actually spawns.
      */
-    function Bubbles(mins: Vector, maxs: Vector, count: number, height: number, speed = 0, delay = 0): void;
+    declare function Bubbles(mins: Vector, maxs: Vector, count: number, height: number, speed?: number, delay?: number): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -62287,7 +62655,7 @@ declare namespace effects {
      * @param [speed = 0] - How quickly the bubbles move.
      * @param [delay = 0] - Delay in seconds after the function call and before the effect actually spawns.
      */
-    function BubbleTrail(startPos: Vector, endPos: Vector, count: number, height: number, speed = 0, delay = 0): void;
+    declare function BubbleTrail(startPos: Vector, endPos: Vector, count: number, height: number, speed?: number, delay?: number): void;
 
     /**
      * 🟨 [Client]
@@ -62295,14 +62663,14 @@ declare namespace effects {
      * **.**Returns the table of the effect specified.
      * @param name - Effect name.
      */
-    function Create(name: string): any;
+    declare function Create(name: string): any;
 
     /**
      * 🟨 [Client]
      *
      * Returns a list of all Lua-defined effects.
      */
-    function GetList(): any;
+    declare function GetList(): any;
 
     /**
      * 🟨 [Client]
@@ -62311,7 +62679,7 @@ declare namespace effects {
      * @param effect_table - Effect table.
      * @param name - Effect name.
      */
-    function Register(effect_table: any, name: string): void;
+    declare function Register(effect_table: any, name: string): void;
 
     /**
      * 🟨 [Client]
@@ -62329,7 +62697,7 @@ declare namespace effects {
      * This affects the default sound, as well as the distance from which the sound can be heard compared to the closest point on the tracer line to the <page text="player's eyes">Player:GetShootPos</page>.
      * @param [soundOverride = nil] - If set, this sound will be played instead of the default sound.
      */
-    function TracerSound(start: Vector, endpos: Vector, tracerType = 1, soundOverride?: string): void;
+    declare function TracerSound(start: Vector, endpos: Vector, tracerType?: number, soundOverride?: string): void;
 }
 
 /**
@@ -62341,14 +62709,14 @@ declare namespace engine {
      *
      * Returns non paused [Global.FrameTime](https://wiki.facepunch.com/gmod/Global.FrameTime).
      */
-    function AbsoluteFrameTime(): number;
+    declare function AbsoluteFrameTime(): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns the name of the currently running gamemode.
      */
-    function ActiveGamemode(): string;
+    declare function ActiveGamemode(): string;
 
     /**
      * 🟦 [Server]
@@ -62359,7 +62727,7 @@ declare namespace engine {
      *
      * This is also available when running in server test mode (launch option `-systemtest`). Server test mode is used internally at Facepunch as part of the build process to make sure that the dedicated servers aren't crashing on startup.
      */
-    function CloseServer(): void;
+    declare function CloseServer(): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -62368,14 +62736,14 @@ declare namespace engine {
      *
      * This list will also include "Floating" .gma addons that are mounted by the game, but not the folder addons.
      */
-    function GetAddons(): any;
+    declare function GetAddons(): any;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * When starting playing a demo, [engine.GetDemoPlaybackTick](https://wiki.facepunch.com/gmod/engine.GetDemoPlaybackTick) will be reset and its old value will be added to this functions return value.
      */
-    function GetDemoPlaybackStartTick(): number;
+    declare function GetDemoPlaybackStartTick(): number;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -62384,7 +62752,7 @@ declare namespace engine {
      *
      * If not playing a demo, it will return amount of ticks since last demo playback.
      */
-    function GetDemoPlaybackTick(): number;
+    declare function GetDemoPlaybackTick(): number;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -62393,7 +62761,7 @@ declare namespace engine {
      *
      * If not during demo playback, returns 1.
      */
-    function GetDemoPlaybackTimeScale(): number;
+    declare function GetDemoPlaybackTimeScale(): number;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -62402,21 +62770,21 @@ declare namespace engine {
      *
      * If not playing a demo, returns 0 or the value of last played demo.
      */
-    function GetDemoPlaybackTotalTicks(): number;
+    declare function GetDemoPlaybackTotalTicks(): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns a table containing info for all installed gamemodes
      */
-    function GetGamemodes(): any;
+    declare function GetGamemodes(): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns an array of tables corresponding to all games from which Garry's Mod supports mounting content.
      */
-    function GetGames(): any;
+    declare function GetGames(): any;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -62425,7 +62793,7 @@ declare namespace engine {
      *
      * @deprecated Used internally for in-game menus, may be merged in the future into [engine.GetAddons](https://wiki.facepunch.com/gmod/engine.GetAddons).
      */
-    function GetUserContent(): any;
+    declare function GetUserContent(): any;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -62434,14 +62802,14 @@ declare namespace engine {
      *
      * You will notice that there's no server-side version of this. That's because there is no server when playing a demo. Demos are both recorded and played back purely clientside.
      */
-    function IsPlayingDemo(): boolean;
+    declare function IsPlayingDemo(): boolean;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * Returns true if the game is currently recording a demo file (.dem) using gm_demo
      */
-    function IsRecordingDemo(): boolean;
+    declare function IsRecordingDemo(): boolean;
 
     /**
      * 🟦 [Server]
@@ -62454,7 +62822,7 @@ declare namespace engine {
      * @param lightstyle - The lightstyle to edit. 0 to 63. If you want to edit map lighting, you want to set this to 0.
      * @param pattern - The pattern to change the lightstyle to. `a` is the darkest, `z` is the brightest. You can use stuff like "abcxyz" to make flashing patterns. The normal brightness for a map is `m`. Values over `z` are allowed, `~` for instance.
      */
-    function LightStyle(lightstyle: number, pattern: string): void;
+    declare function LightStyle(lightstyle: number, pattern: string): void;
 
     /**
      * 🟨 [Client]
@@ -62462,14 +62830,14 @@ declare namespace engine {
      * Loads a duplication from the local filesystem.
      * @param dupeName - Name of the file. e.g, `engine.OpenDupe("dupes/8b809dd7a1a9a375e75be01cdc12e61f.dupe")`
      */
-    function OpenDupe(dupeName: string): any;
+    declare function OpenDupe(dupeName: string): any;
 
     /**
      * 🟨 [Client]
      *
      * Returns an estimate of the server's performance. Equivalent to calling [Global.FrameTime](https://wiki.facepunch.com/gmod/Global.FrameTime) from the server, according to source code.
      */
-    function ServerFrameTime(): LuaMultiReturn<[number, number]>;
+    declare function ServerFrameTime(): LuaMultiReturn<[number, number]>;
 
     /**
      * 🟩 [Menu]
@@ -62478,14 +62846,14 @@ declare namespace engine {
      * @param depotID - The depot id of the game to mount.
      * @param doMount - The mount state, true to mount, false to unmount
      */
-    function SetMounted(depotID: string, doMount: boolean): void;
+    declare function SetMounted(depotID: string, doMount: boolean): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns the number of ticks since the game server started.
      */
-    function TickCount(): number;
+    declare function TickCount(): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -62499,14 +62867,14 @@ declare namespace engine {
      * The default tickrate is `66.6666`, aka `15` milliseconds interval between each game tick.
      * The tickrate can be adjusted via the `-tickrate` [command line option](Command_Line_Parameters).
      */
-    function TickInterval(): number;
+    declare function TickInterval(): number;
 
     /**
      * 🟨 [Client]
      *
      * Returns video recording settings set by [video.Record](https://wiki.facepunch.com/gmod/video.Record). Used by Demo-To-Video feature.
      */
-    function VideoSettings(): VideoData;
+    declare function VideoSettings(): VideoData;
 
     /**
      * 🟨 [Client]
@@ -62517,7 +62885,7 @@ declare namespace engine {
      * @param dupe - Dupe table, encoded by [util.TableToJSON](https://wiki.facepunch.com/gmod/util.TableToJSON) and compressed by [util.Compress](https://wiki.facepunch.com/gmod/util.Compress)
      * @param jpeg - The dupe icon, created by [render.Capture](https://wiki.facepunch.com/gmod/render.Capture)
      */
-    function WriteDupe(dupe: string, jpeg: string): void;
+    declare function WriteDupe(dupe: string, jpeg: string): void;
 
     /**
      * 🟨 [Client]
@@ -62527,7 +62895,7 @@ declare namespace engine {
      * @param saveData - Data generated by [gmsave.SaveMap](https://wiki.facepunch.com/gmod/gmsave.SaveMap).
      * @param name - Name the save will have.
      */
-    function WriteSave(saveData: string, name: string): void;
+    declare function WriteSave(saveData: string, name: string): void;
 }
 
 /**
@@ -62545,7 +62913,7 @@ declare namespace ents {
      *
      * @param class_ - The classname of the entity to create.
      */
-    function Create(class_: string): Entity;
+    declare function Create(class_: string): Entity;
 
     /**
      * 🟨 [Client]
@@ -62559,7 +62927,7 @@ declare namespace ents {
      *
      * @param [model = models/error.mdl] - The model for the entity to be created.
      */
-    function CreateClientProp(model: string = "models/error.mdl"): Entity;
+    declare function CreateClientProp(model?: string): Entity;
 
     /**
      * 🟨 [Client]
@@ -62578,7 +62946,7 @@ declare namespace ents {
      * * material - Which material should the rope have (default: `"cable/cable"`)
      * * nogravity - If set, the rope should have no gravity. (default: 0)
      */
-    function CreateClientRope(ent1: Entity, ent1attach: number|Vector, ent2: Entity, ent2attach: number|Vector, extra?: any): Entity;
+    declare function CreateClientRope(ent1: Entity, ent1attach: number|Vector, ent2: Entity, ent2attach: number|Vector, extra?: any): Entity;
 
     /**
      * 🟨 [Client]
@@ -62586,7 +62954,7 @@ declare namespace ents {
      * Creates a clientside only scripted entity. The scripted entity must be of "anim" type.
      * @param class_ - The class name of the entity to create.
      */
-    function CreateClientside(class_: string): Entity;
+    declare function CreateClientside(class_: string): Entity;
 
     /**
      * 🟨🟦 [Shared]
@@ -62601,7 +62969,7 @@ declare namespace ents {
      * @param [mins = nil] - The mins corner of the ray
      * @param [maxs = nil] - The maxs corner of the ray
      */
-    function FindAlongRay(start: Vector, end: Vector, mins?: Vector, maxs?: Vector): Entity[];
+    declare function FindAlongRay(start: Vector, end: Vector, mins?: Vector, maxs?: Vector): Entity[];
 
     /**
      * 🟨🟦 [Shared]
@@ -62614,7 +62982,7 @@ declare namespace ents {
      * @param class_ - The class of the entities to find, supports wildcards.
      * Asterisks (`*`) are the only wildcard supported.
      */
-    function FindByClass(class_: string): Entity[];
+    declare function FindByClass(class_: string): Entity[];
 
     /**
      * 🟨🟦 [Shared]
@@ -62623,7 +62991,7 @@ declare namespace ents {
      * @param class_ - The class of entities to search for
      * @param parent - Parent of entities that are being searched for
      */
-    function FindByClassAndParent(class_: string, parent: Entity): Entity[];
+    declare function FindByClassAndParent(class_: string, parent: Entity): Entity[];
 
     /**
      * 🟨🟦 [Shared]
@@ -62633,7 +63001,7 @@ declare namespace ents {
      * This works internally by iterating over [ents.GetAll](https://wiki.facepunch.com/gmod/ents.GetAll).
      * @param model - The model of the entities to find.
      */
-    function FindByModel(model: string): Entity[];
+    declare function FindByModel(model: string): Entity[];
 
     /**
      * 🟨🟦 [Shared]
@@ -62643,7 +63011,7 @@ declare namespace ents {
      * Doesn't do anything on client.
      * @param name - The targetname to look for
      */
-    function FindByName(name: string): Entity[];
+    declare function FindByName(name: string): Entity[];
 
     /**
      * 🟨🟦 [Shared]
@@ -62658,7 +63026,7 @@ declare namespace ents {
      * @param boxMins - The box minimum coordinates.
      * @param boxMaxs - The box maximum coordinates.
      */
-    function FindInBox(boxMins: Vector, boxMaxs: Vector): Entity[];
+    declare function FindInBox(boxMins: Vector, boxMaxs: Vector): Entity[];
 
     /**
      * 🟨🟦 [Shared]
@@ -62681,7 +63049,7 @@ declare namespace ents {
      * @param angle_cos - The <page text="cosine">math.cos</page> of the angle between the center of the cone to its edges, which is half the overall angle of the cone.
      * 1 makes a 0° cone, 0.707 makes approximately 90°, 0 makes 180°, and so on.
      */
-    function FindInCone(origin: Vector, normal: Vector, range: number, angle_cos: number): Entity[];
+    declare function FindInCone(origin: Vector, normal: Vector, range: number, angle_cos: number): Entity[];
 
     /**
      * 🟦 [Server]
@@ -62693,7 +63061,7 @@ declare namespace ents {
      *
      * @param viewPoint - [Entity](https://wiki.facepunch.com/gmod/Entity) or [Vector](https://wiki.facepunch.com/gmod/Vector) to find entities within the PVS of. If a player is given, this function will use the player's view entity.
      */
-    function FindInPVS(viewPoint: Entity|Vector): Entity[];
+    declare function FindInPVS(viewPoint: Entity|Vector): Entity[];
 
     /**
      * 🟨🟦 [Shared]
@@ -62704,7 +63072,7 @@ declare namespace ents {
      * @param origin - Center of the sphere.
      * @param radius - Radius of the sphere.
      */
-    function FindInSphere(origin: Vector, radius: number): Entity[];
+    declare function FindInSphere(origin: Vector, radius: number): Entity[];
 
     /**
      * 🟦 [Server]
@@ -62716,7 +63084,7 @@ declare namespace ents {
      * @param usetype - Use type. See the [Enums/USE](https://wiki.facepunch.com/gmod/Enums/USE).
      * @param value - This value is passed to [ENTITY:Use](https://wiki.facepunch.com/gmod/ENTITY:Use), but isn't used by any default entities in the engine.
      */
-    function FireTargets(target: string, activator: Entity, caller: Entity, usetype: USE, value: number): void;
+    declare function FireTargets(target: string, activator: Entity, caller: Entity, usetype: USE, value: number): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -62727,7 +63095,7 @@ declare namespace ents {
      *
      * This function returns a sequential table, meaning it should be looped with [Global.ipairs](https://wiki.facepunch.com/gmod/Global.ipairs) instead of [Global.pairs](https://wiki.facepunch.com/gmod/Global.pairs) for efficiency reasons.
      */
-    function GetAll(): Entity[];
+    declare function GetAll(): Entity[];
 
     /**
      * 🟨🟦 [Shared]
@@ -62735,7 +63103,7 @@ declare namespace ents {
      * Returns an entity by its index. Same as [Global.Entity](https://wiki.facepunch.com/gmod/Global.Entity).
      * @param entIdx - The index of the entity.
      */
-    function GetByIndex(entIdx: number): Entity;
+    declare function GetByIndex(entIdx: number): Entity;
 
     /**
      * 🟨🟦 [Shared]
@@ -62746,14 +63114,14 @@ declare namespace ents {
      * If [ents.GetAll](https://wiki.facepunch.com/gmod/ents.GetAll) is already being called for iteration, than using the **#** operator on the table will be faster than calling this function since it is JITted.
      * @param [IncludeKillMe = false] - Include entities with the FL_KILLME flag. This will skip an internal loop, and the function will be more efficient as a byproduct.
      */
-    function GetCount(IncludeKillMe = false): number;
+    declare function GetCount(IncludeKillMe?: boolean): number;
 
     /**
      * 🟦 [Server]
      *
      * Returns the amount of networked entities, which is limited to 8192. [ents.Create](https://wiki.facepunch.com/gmod/ents.Create) will fail somewhere between 8064 and 8176 - this can vary based on the amount of existing temp ents.
      */
-    function GetEdictCount(): number;
+    declare function GetEdictCount(): number;
 
     /**
      * 🟨🟦 [Shared]
@@ -62761,7 +63129,7 @@ declare namespace ents {
      * Returns entity that has given [Entity:MapCreationID](https://wiki.facepunch.com/gmod/Entity:MapCreationID).
      * @param id - Entity's creation id.
      */
-    function GetMapCreatedEntity(id: number): Entity|nil;
+    declare function GetMapCreatedEntity(id: number): Entity|nil;
 
     /**
      * 🟨🟦 [Shared]
@@ -62774,7 +63142,7 @@ declare namespace ents {
      * >Internally, this function uses cached values that are stored in Lua, as opposed to [ents.GetAll](https://wiki.facepunch.com/gmod/ents.GetAll), which is a C++ function.
      * 		Because a call operation from Lua to C++ *and* with a return back to Lua is quite costly, this function will be more efficient than [ents.GetAll](https://wiki.facepunch.com/gmod/ents.GetAll).
      */
-    function Iterator(): LuaMultiReturn<[Function, Entity[], number]>;
+    declare function Iterator(): LuaMultiReturn<[Function, Entity[], number]>;
 }
 
 /**
@@ -62796,7 +63164,7 @@ declare namespace file {
      * @param name - The file's name.
      * @param content - The content which should be appended to the file.
      */
-    function Append(name: string, content: string): boolean;
+    declare function Append(name: string, content: string): boolean;
 
     /**
      * 🟨🟦 [Shared]
@@ -62815,7 +63183,7 @@ declare namespace file {
      * </callback>
      * @param [sync = false] - If `true` the file will be read synchronously.
      */
-    function AsyncRead(fileName: string, gamePath: string, callback: (fileName: string, gamePath: string, status: FSASYNC, data: string) => void, sync = false): FSASYNC;
+    declare function AsyncRead(fileName: string, gamePath: string, callback: (fileName: string, gamePath: string, status: FSASYNC, data: string) => void, sync?: boolean): FSASYNC;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -62823,7 +63191,7 @@ declare namespace file {
      * Creates a directory that is relative to the `data` folder.
      * @param name - The directory's name.
      */
-    function CreateDir(name: string): void;
+    declare function CreateDir(name: string): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -62838,7 +63206,7 @@ declare namespace file {
      * **Note:**
      * >This is only available in the menu state.
      */
-    function Delete(name: string, path?: string): boolean;
+    declare function Delete(name: string, path?: string): boolean;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -62848,7 +63216,7 @@ declare namespace file {
      * @param name - The file or directory's name. ( You must include the file extension for files, for example "data.txt" )
      * @param gamePath - The path to look for the files and directories in. See <page text="this list">File_Search_Paths</page> for a list of valid paths.
      */
-    function Exists(name: string, gamePath: string): boolean;
+    declare function Exists(name: string, gamePath: string): boolean;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -62866,7 +63234,7 @@ declare namespace file {
      * * `dateasc` sort the files ascending by date.
      * * `datedesc` sort the files descending by date.
      */
-    function Find(name: string, path: string, sorting: string = "nameasc"): LuaMultiReturn<[any, any]>;
+    declare function Find(name: string, path: string, sorting?: string): LuaMultiReturn<[any, any]>;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -62875,7 +63243,7 @@ declare namespace file {
      * @param fileName - The file or directory's name.
      * @param gamePath - The path to look for the files and directories in. See <page text="this list">File_Search_Paths</page> for a list of valid paths.
      */
-    function IsDir(fileName: string, gamePath: string): boolean;
+    declare function IsDir(fileName: string, gamePath: string): boolean;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -62891,7 +63259,7 @@ declare namespace file {
      * * **ab** - binary append mode
      * @param gamePath - The path to look for the files and directories in. See <page text="this list">File_Search_Paths</page> for a list of valid paths.
      */
-    function Open(fileName: string, fileMode: string, gamePath: string): File;
+    declare function Open(fileName: string, fileMode: string, gamePath: string): File;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -62904,7 +63272,7 @@ declare namespace file {
      * @param fileName - The name of the file.
      * @param [gamePath = DATA] - The path to look for the files and directories in. See <page text="this list">File_Search_Paths</page> for a list of valid paths.
      */
-    function Read(fileName: string, gamePath: string = "DATA"): string;
+    declare function Read(fileName: string, gamePath?: string): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -62917,7 +63285,7 @@ declare namespace file {
      * @param targetFileName - The target file or folder name. See [file.Write](https://wiki.facepunch.com/gmod/file.Write) for details on filename restrictions when writing to files.
      * **This argument will be forced lowercase.**
      */
-    function Rename(orignalFileName: string, targetFileName: string): boolean;
+    declare function Rename(orignalFileName: string, targetFileName: string): boolean;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -62926,7 +63294,7 @@ declare namespace file {
      * @param fileName - The file's name.
      * @param gamePath - The path to look for the files and directories in. See <page text="this list">File_Search_Paths</page> for a list of valid paths.
      */
-    function Size(fileName: string, gamePath: string): number;
+    declare function Size(fileName: string, gamePath: string): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -62935,7 +63303,7 @@ declare namespace file {
      * @param path - The **file** or **folder** path.
      * @param gamePath - The path to look for the files and directories in. See <page text="this list">File_Search_Paths</page> for a list of valid paths.
      */
-    function Time(path: string, gamePath: string): number;
+    declare function Time(path: string, gamePath: string): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -62968,7 +63336,7 @@ declare namespace file {
      * Restricted symbols are: `":`, and multiple consecutive spaces, as well as pretty much every other non Latin (a-Z) character
      * @param content - The content that will be written into the file.
      */
-    function Write(fileName: string, content: string): boolean;
+    declare function Write(fileName: string, content: string): boolean;
 }
 
 /**
@@ -62980,56 +63348,56 @@ declare namespace frame_blend {
      *
      * Adds a frame to the blend. Calls [frame_blend.CompleteFrame](https://wiki.facepunch.com/gmod/frame_blend.CompleteFrame) once enough frames have passed since last [frame_blend.CompleteFrame](https://wiki.facepunch.com/gmod/frame_blend.CompleteFrame) call.
      */
-    function AddFrame(): void;
+    declare function AddFrame(): void;
 
     /**
      * 🟨 [Client]
      *
      * Blends the frame(s).
      */
-    function BlendFrame(): void;
+    declare function BlendFrame(): void;
 
     /**
      * 🟨 [Client]
      *
      * Renders the frame onto internal render target.
      */
-    function CompleteFrame(): void;
+    declare function CompleteFrame(): void;
 
     /**
      * 🟨 [Client]
      *
      * Actually draws the frame blend effect.
      */
-    function DrawPreview(): void;
+    declare function DrawPreview(): void;
 
     /**
      * 🟨 [Client]
      *
      * Returns whether frame blend post processing effect is enabled or not.
      */
-    function IsActive(): boolean;
+    declare function IsActive(): boolean;
 
     /**
      * 🟨 [Client]
      *
      * Returns whether the current frame is the last frame?
      */
-    function IsLastFrame(): boolean;
+    declare function IsLastFrame(): boolean;
 
     /**
      * 🟨 [Client]
      *
      * Returns amount of frames needed to render?
      */
-    function RenderableFrames(): number;
+    declare function RenderableFrames(): number;
 
     /**
      * 🟨 [Client]
      *
      * Returns whether we should skip frame or not
      */
-    function ShouldSkipFrame(): boolean;
+    declare function ShouldSkipFrame(): boolean;
 }
 
 /**
@@ -63051,7 +63419,7 @@ declare namespace game {
      *
      * @param ammoData - The attributes of the ammo. See the [Structures/AmmoData](https://wiki.facepunch.com/gmod/Structures/AmmoData).
      */
-    function AddAmmoType(ammoData: AmmoData): void;
+    declare function AddAmmoType(ammoData: AmmoData): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -63064,7 +63432,7 @@ declare namespace game {
      * @param decalName - The name of the decal.
      * @param materialName - The material to be used for the decal. May also be a list of material names, in which case a random material from that list will be chosen every time the decal is placed.
      */
-    function AddDecal(decalName: string, materialName: string): void;
+    declare function AddDecal(decalName: string, materialName: string): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -63076,7 +63444,7 @@ declare namespace game {
      *
      * @param particleFileName - The path of the file to add. Must be `(file).pcf`.
      */
-    function AddParticles(particleFileName: string): void;
+    declare function AddParticles(particleFileName: string): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -63084,7 +63452,7 @@ declare namespace game {
      * **.**
      * Called by the engine to retrieve the ammo types.
      */
-    function BuildAmmoTypes(): any;
+    declare function BuildAmmoTypes(): any;
 
     /**
      * 🟨🟦 [Shared]
@@ -63114,7 +63482,7 @@ declare namespace game {
      * @param [callback = nil] - If set, delays the map cleanup until the end of a server tick, allowing bypassing the entity limit on maps with large amounts of them. Otherwise the entities will not be cleaned up until the end of the server tick.
      * The callback function will be called after the map cleanup has been performed.
      */
-    function CleanUpMap(dontSendToClients = false, extraFilters?: any, callback?: Function): void;
+    declare function CleanUpMap(dontSendToClients?: boolean, extraFilters?: any, callback?: Function): void;
 
     /**
      * 🟦 [Server]
@@ -63129,7 +63497,7 @@ declare namespace game {
      *
      * @param stringCommand - String containing the command and arguments to be ran.
      */
-    function ConsoleCommand(stringCommand: string): void;
+    declare function ConsoleCommand(stringCommand: string): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -63137,7 +63505,7 @@ declare namespace game {
      * Returns the damage type of given ammo type.
      * @param id - Ammo ID to retrieve the damage type of. Starts from 1.
      */
-    function GetAmmoDamageType(id: number): DMG;
+    declare function GetAmmoDamageType(id: number): DMG;
 
     /**
      * 🟨🟦 [Shared]
@@ -63145,7 +63513,7 @@ declare namespace game {
      * Returns the [Structures/AmmoData](https://wiki.facepunch.com/gmod/Structures/AmmoData) for given ID.
      * @param id - ID of the ammo type to look up the data for
      */
-    function GetAmmoData(id: number): AmmoData;
+    declare function GetAmmoData(id: number): AmmoData;
 
     /**
      * 🟨🟦 [Shared]
@@ -63153,7 +63521,7 @@ declare namespace game {
      * Returns the ammo bullet force that is applied when an entity is hit by a bullet of given ammo type.
      * @param id - Ammo ID to retrieve the force of. Starts from 1.
      */
-    function GetAmmoForce(id: number): number;
+    declare function GetAmmoForce(id: number): number;
 
     /**
      * 🟨🟦 [Shared]
@@ -63163,7 +63531,7 @@ declare namespace game {
      * See [game.GetAmmoName](https://wiki.facepunch.com/gmod/game.GetAmmoName) for reverse.
      * @param name - Name of the ammo type to look up ID of
      */
-    function GetAmmoID(name: string): number;
+    declare function GetAmmoID(name: string): number;
 
     /**
      * 🟨🟦 [Shared]
@@ -63171,7 +63539,7 @@ declare namespace game {
      * Returns the real maximum amount of ammo of given ammo ID, regardless of the setting of `gmod_maxammo` convar.
      * @param id - Ammo type ID
      */
-    function GetAmmoMax(id: number): number;
+    declare function GetAmmoMax(id: number): number;
 
     /**
      * 🟨🟦 [Shared]
@@ -63181,7 +63549,7 @@ declare namespace game {
      * See [game.GetAmmoID](https://wiki.facepunch.com/gmod/game.GetAmmoID) for reverse.
      * @param id - Ammo ID to retrieve the name of. Starts from 1.
      */
-    function GetAmmoName(id: number): string;
+    declare function GetAmmoName(id: number): string;
 
     /**
      * 🟨🟦 [Shared]
@@ -63189,7 +63557,7 @@ declare namespace game {
      * Returns the damage given ammo type should do to NPCs.
      * @param id - Ammo ID to retrieve the damage info of. Starts from 1.
      */
-    function GetAmmoNPCDamage(id: number): number;
+    declare function GetAmmoNPCDamage(id: number): number;
 
     /**
      * 🟨🟦 [Shared]
@@ -63197,14 +63565,14 @@ declare namespace game {
      * Returns the damage given ammo type should do to players.
      * @param id - Ammo ID to retrieve the damage info of. Starts from 1.
      */
-    function GetAmmoPlayerDamage(id: number): number;
+    declare function GetAmmoPlayerDamage(id: number): number;
 
     /**
      * 🟨🟦 [Shared]
      *
      * Returns a list of all ammo types currently registered.
      */
-    function GetAmmoTypes(): Record<number, string>;
+    declare function GetAmmoTypes(): Record<number, string>;
 
     /**
      * 🟦 [Server]
@@ -63216,7 +63584,7 @@ declare namespace game {
      * If the Global State by that name does not exist, it will be created.
      * See [Global States](https://wiki.facepunch.com/gmod/Global_States) for a list of default global states.
      */
-    function GetGlobalCounter(name: string): number;
+    declare function GetGlobalCounter(name: string): number;
 
     /**
      * 🟦 [Server]
@@ -63228,7 +63596,7 @@ declare namespace game {
      * If the Global State by that name does not exist, **GLOBAL_DEAD** will be returned.
      * See [Global States](https://wiki.facepunch.com/gmod/Global_States) for a list of default global states.
      */
-    function GetGlobalState(name: string): GLOBAL;
+    declare function GetGlobalState(name: string): GLOBAL;
 
     /**
      * 🟨🟦 [Shared]
@@ -63241,7 +63609,7 @@ declare namespace game {
      * **Note:**
      * >Returns "loopback" in singleplayer.
      */
-    function GetIPAddress(): string;
+    declare function GetIPAddress(): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -63252,21 +63620,21 @@ declare namespace game {
      * **Warning:**
      * >In Multiplayer this does not return the current map in the CLIENT realm before [GM:Initialize](https://wiki.facepunch.com/gmod/GM:Initialize).
      */
-    function GetMap(): string;
+    declare function GetMap(): string;
 
     /**
      * 🟦 [Server]
      *
      * Returns the next map that would be loaded according to the file that is set by the mapcyclefile convar.
      */
-    function GetMapNext(): string;
+    declare function GetMapNext(): string;
 
     /**
      * 🟦 [Server]
      *
      * Returns the revision (Not to be confused with [VBSP Version](https://developer.valvesoftware.com/wiki/Source_BSP_File_Format#Versions)) of the current map.
      */
-    function GetMapVersion(): number;
+    declare function GetMapVersion(): number;
 
     /**
      * 🟨🟦 [Shared]
@@ -63278,7 +63646,7 @@ declare namespace game {
      * **Note:**
      * >Internally this is tied to the gamerules entity, so you'll have to wait until [GM:InitPostEntity](https://wiki.facepunch.com/gmod/GM:InitPostEntity) is called to return the skill level
      */
-    function GetSkillLevel(): number;
+    declare function GetSkillLevel(): number;
 
     /**
      * 🟨🟦 [Shared]
@@ -63290,21 +63658,21 @@ declare namespace game {
      * local timescale = GetConVar( "host_timescale" ):GetFloat()
      * 		```
      */
-    function GetTimeScale(): number;
+    declare function GetTimeScale(): number;
 
     /**
      * 🟨🟦 [Shared]
      *
      * Returns the worldspawn entity.
      */
-    function GetWorld(): Entity;
+    declare function GetWorld(): Entity;
 
     /**
      * 🟨🟦 [Shared]
      *
      * Returns true if the server is a dedicated server, false if it is a listen server or a singleplayer game.
      */
-    function IsDedicated(): boolean;
+    declare function IsDedicated(): boolean;
 
     /**
      * 🟦 [Server]
@@ -63315,14 +63683,14 @@ declare namespace game {
      * **Warning:**
      * >This will be shortened to ~512 chars, though this includes the command itself and the player index so will realistically be more around ~483. It is recommended to avoid going near the limit to avoid truncation.
      */
-    function KickID(id: string, reason: string = "No reason given"): void;
+    declare function KickID(id: string, reason?: string): void;
 
     /**
      * 🟦 [Server]
      *
      * Loads the next map according to the `nextlevel` convar, or from the current `mapcyclefile` set by the respective convar.
      */
-    function LoadNextMap(): void;
+    declare function LoadNextMap(): void;
 
     /**
      * 🟦 [Server]
@@ -63331,14 +63699,14 @@ declare namespace game {
      *
      * After changing the map with the console command `changelevel`, "newgame" is returned. With `changelevel2` (single player only), "transition" is returned.
      */
-    function MapLoadType(): string;
+    declare function MapLoadType(): string;
 
     /**
      * 🟨🟦 [Shared]
      *
      * Returns the maximum amount of players (including bots) that the server can have.
      */
-    function MaxPlayers(): number;
+    declare function MaxPlayers(): number;
 
     /**
      * 🟨🟦 [Shared]
@@ -63353,14 +63721,14 @@ declare namespace game {
      *
      * @param path - Location of the GMA file to mount, retrieved from [steamworks.DownloadUGC](https://wiki.facepunch.com/gmod/steamworks.DownloadUGC) or relative to the `garrysmod/` directory (ignores mounting). This file does not have to end with the .gma extension, but will be interpreted as a GMA.
      */
-    function MountGMA(path: string): LuaMultiReturn<[boolean, any]>;
+    declare function MountGMA(path: string): LuaMultiReturn<[boolean, any]>;
 
     /**
      * 🟨🟦 [Shared]
      *
      * Removes all the clientside ragdolls. On server, it will remove all `prop_ragdolls` that have the `SF_RAGDOLLPROP_USE_LRU_RETIREMENT` (4096) spawnflag.
      */
-    function RemoveRagdolls(): void;
+    declare function RemoveRagdolls(): void;
 
     /**
      * 🟦 [Server]
@@ -63373,7 +63741,7 @@ declare namespace game {
      * See [Global States](https://wiki.facepunch.com/gmod/Global_States) for a list of default global states.
      * @param count - The value to set for that Global State.
      */
-    function SetGlobalCounter(name: string, count: number): void;
+    declare function SetGlobalCounter(name: string, count: number): void;
 
     /**
      * 🟦 [Server]
@@ -63386,7 +63754,7 @@ declare namespace game {
      * See [Global States](https://wiki.facepunch.com/gmod/Global_States) for a list of default global states.
      * @param state - The state of the Global State. See [Enums/GLOBAL](https://wiki.facepunch.com/gmod/Enums/GLOBAL)
      */
-    function SetGlobalState(name: string, state: GLOBAL): void;
+    declare function SetGlobalState(name: string, state: GLOBAL): void;
 
     /**
      * 🟦 [Server]
@@ -63396,7 +63764,7 @@ declare namespace game {
      * This will automatically change whenever the "skill" convar is modified serverside.
      * @param level - The difficulty level, Easy( 1 ), Normal( 2 ), Hard( 3 ).
      */
-    function SetSkillLevel(level: number): void;
+    declare function SetSkillLevel(level: number): void;
 
     /**
      * 🟦 [Server]
@@ -63415,14 +63783,14 @@ declare namespace game {
      *
      * @param timeScale - The new timescale, minimum value is 0.001 and maximum is 5.
      */
-    function SetTimeScale(timeScale: number): void;
+    declare function SetTimeScale(timeScale: number): void;
 
     /**
      * 🟨🟦 [Shared]
      *
      * Returns whether the current session is a single player game.
      */
-    function SinglePlayer(): boolean;
+    declare function SinglePlayer(): boolean;
 
     /**
      * 🟦 [Server]
@@ -63431,7 +63799,7 @@ declare namespace game {
      *
      * This is not the same thing as spawn points (See [GM:PlayerSelectSpawn](https://wiki.facepunch.com/gmod/GM:PlayerSelectSpawn) for that), this is used to properly transit the player between maps, and therefore will only be set after a level change via `trigger_changelevel` entity in singleplayer.
      */
-    function StartSpot(): string;
+    declare function StartSpot(): string;
 }
 
 /**
@@ -63454,7 +63822,7 @@ declare namespace gameevent {
      *
      * @param eventName - The event to listen to. List of valid events (with examples) can be found [here](gameevent).
      */
-    function Listen(eventName: string): void;
+    declare function Listen(eventName: string): void;
 }
 
 /**
@@ -63472,7 +63840,7 @@ declare namespace gamemode {
      * @param name - The name of the hook to call.
      * @param args - The arguments
      */
-    function Call(name: string, ...args: any[]): any;
+    declare function Call(name: string, ...args: any[]): any;
 
     /**
      * 🟨🟦 [Shared]
@@ -63480,7 +63848,7 @@ declare namespace gamemode {
      * This returns the internally stored gamemode table.
      * @param name - The name of the gamemode you want to get
      */
-    function Get(name: string): any;
+    declare function Get(name: string): any;
 
     /**
      * 🟨🟦 [Shared]
@@ -63490,7 +63858,7 @@ declare namespace gamemode {
      * @param name - Name of your gamemode, lowercase, no spaces.
      * @param derived - The gamemode name that your gamemode is derived from
      */
-    function Register(gm: any, name: string, derived: string): void;
+    declare function Register(gm: any, name: string, derived: string): void;
 }
 
 /**
@@ -63502,7 +63870,7 @@ declare namespace gmod {
      *
      * Returns [GAMEMODE](https://wiki.facepunch.com/gmod/GAMEMODE).
      */
-    function GetGamemode(): GM;
+    declare function GetGamemode(): GM;
 }
 
 /**
@@ -63517,7 +63885,7 @@ declare namespace gmsave {
      * @param [ply = NULL] - The player to load positions for.
      * @param [callback = nil] - A function to be called after all the entities have been placed.
      */
-    function LoadMap(mapData: string, ply?: Player, callback?: Function): void;
+    declare function LoadMap(mapData: string, ply?: Player, callback?: Function): void;
 
     /**
      * 🟦 [Server]
@@ -63526,7 +63894,7 @@ declare namespace gmsave {
      * @param ply - The player to "load" values for
      * @param data - A table containing Origin and Angle keys for position and angles to set.
      */
-    function PlayerLoad(ply: Player, data: any): void;
+    declare function PlayerLoad(ply: Player, data: any): void;
 
     /**
      * 🟦 [Server]
@@ -63534,7 +63902,7 @@ declare namespace gmsave {
      * Returns a table containing player position and angles. Used by [gmsave.SaveMap](https://wiki.facepunch.com/gmod/gmsave.SaveMap).
      * @param ply - The player to "save"
      */
-    function PlayerSave(ply: Player): any;
+    declare function PlayerSave(ply: Player): any;
 
     /**
      * 🟦 [Server]
@@ -63542,7 +63910,7 @@ declare namespace gmsave {
      * Saves the map
      * @param ply - The player, whose position should be saved for loading the save
      */
-    function SaveMap(ply: Player): string;
+    declare function SaveMap(ply: Player): string;
 
     /**
      * 🟦 [Server]
@@ -63551,7 +63919,7 @@ declare namespace gmsave {
      * @param ent - The entity
      * @param t - A table containing classname key with entities classname.
      */
-    function ShouldSaveEntity(ent: Entity, t: any): boolean;
+    declare function ShouldSaveEntity(ent: Entity, t: any): boolean;
 }
 
 /**
@@ -63563,7 +63931,7 @@ declare namespace gui {
      *
      * Opens the game menu overlay.
      */
-    function ActivateGameUI(): void;
+    declare function ActivateGameUI(): void;
 
     /**
      * 🟨 [Client]
@@ -63579,7 +63947,7 @@ declare namespace gui {
      * 		<arg name="fromPlayer" type="boolean" default="false">Is this caption coming from the player?
      * This is used to give different colors to the caption to differentiate, for example, whether the SMG is fired by the player or an NPC.</arg>
      */
-    function AddCaption(captionStream: string): void;
+    declare function AddCaption(captionStream: string): void;
 
     /**
      * 🟨 [Client]
@@ -63591,7 +63959,7 @@ declare namespace gui {
      *
      * @param enabled - Whether the cursor should be enabled or not. (true = enable, false = disable)
      */
-    function EnableScreenClicker(enabled: boolean): void;
+    declare function EnableScreenClicker(enabled: boolean): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -63600,7 +63968,7 @@ declare namespace gui {
      *
      * @deprecated Will be disabled in a future patch. Use [GM:OnPauseMenuShow](https://wiki.facepunch.com/gmod/GM:OnPauseMenuShow) instead.
      */
-    function HideGameUI(): void;
+    declare function HideGameUI(): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -63609,7 +63977,7 @@ declare namespace gui {
      * @param deltaX - The movement delta on the x axis.
      * @param deltaY - The movement delta on the y axis.
      */
-    function InternalCursorMoved(deltaX: number, deltaY: number): void;
+    declare function InternalCursorMoved(deltaX: number, deltaY: number): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -63617,7 +63985,7 @@ declare namespace gui {
      * Simulates a key press for the given key.
      * @param key - The key, see [Enums/KEY](https://wiki.facepunch.com/gmod/Enums/KEY).
      */
-    function InternalKeyCodePressed(key: KEY): void;
+    declare function InternalKeyCodePressed(key: KEY): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -63625,7 +63993,7 @@ declare namespace gui {
      * Simulates a key release for the given key.
      * @param key - The key, see [Enums/KEY](https://wiki.facepunch.com/gmod/Enums/KEY).
      */
-    function InternalKeyCodeReleased(key: KEY): void;
+    declare function InternalKeyCodeReleased(key: KEY): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -63633,7 +64001,7 @@ declare namespace gui {
      * Simulates a key type typing to the specified key.
      * @param key - The key, see [Enums/KEY](https://wiki.facepunch.com/gmod/Enums/KEY).
      */
-    function InternalKeyCodeTyped(key: KEY): void;
+    declare function InternalKeyCodeTyped(key: KEY): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -63643,7 +64011,7 @@ declare namespace gui {
      * Doesn't work while the main menu is open!
      * @param code - ASCII code of symbol, see [this chart](https://files.facepunch.com/wiki/files/ab571/8dc389806d65b98.gif).
      */
-    function InternalKeyTyped(code: number): void;
+    declare function InternalKeyTyped(code: number): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -63651,7 +64019,7 @@ declare namespace gui {
      * Simulates a double mouse key press for the given mouse key.
      * @param key - The key, see [Enums/MOUSE](https://wiki.facepunch.com/gmod/Enums/MOUSE).
      */
-    function InternalMouseDoublePressed(key: MOUSE): void;
+    declare function InternalMouseDoublePressed(key: MOUSE): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -63659,7 +64027,7 @@ declare namespace gui {
      * Simulates a mouse key press for the given mouse key.
      * @param key - The key, see [Enums/MOUSE](https://wiki.facepunch.com/gmod/Enums/MOUSE).
      */
-    function InternalMousePressed(key: MOUSE): void;
+    declare function InternalMousePressed(key: MOUSE): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -63667,7 +64035,7 @@ declare namespace gui {
      * Simulates a mouse key release for the given mouse key.
      * @param key - The key, see [Enums/MOUSE](https://wiki.facepunch.com/gmod/Enums/MOUSE).
      */
-    function InternalMouseReleased(key: MOUSE): void;
+    declare function InternalMouseReleased(key: MOUSE): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -63675,21 +64043,21 @@ declare namespace gui {
      * Simulates a mouse wheel scroll with the given delta.
      * @param delta - The amount of scrolling to simulate.
      */
-    function InternalMouseWheeled(delta: number): void;
+    declare function InternalMouseWheeled(delta: number): void;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether the console is visible or not.
      */
-    function IsConsoleVisible(): boolean;
+    declare function IsConsoleVisible(): boolean;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether the game menu overlay ( main menu ) is open or not.
      */
-    function IsGameUIVisible(): boolean;
+    declare function IsGameUIVisible(): boolean;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -63698,21 +64066,21 @@ declare namespace gui {
      *
      * @deprecated Use [input.GetCursorPos](https://wiki.facepunch.com/gmod/input.GetCursorPos) instead.
      */
-    function MousePos(): LuaMultiReturn<[number, number]>;
+    declare function MousePos(): LuaMultiReturn<[number, number]>;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * Returns x component of the mouse position.
      */
-    function MouseX(): number;
+    declare function MouseX(): number;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * Returns y component of the mouse position.
      */
-    function MouseY(): number;
+    declare function MouseY(): number;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -63724,7 +64092,7 @@ declare namespace gui {
      *
      * @param url - URL to open, it has to start with either `http://` or `https://`.
      */
-    function OpenURL(url: string): void;
+    declare function OpenURL(url: string): void;
 
     /**
      * 🟨 [Client]
@@ -63735,7 +64103,7 @@ declare namespace gui {
      * @param x - X coordinate on the screen.
      * @param y - Y coordinate on the screen.
      */
-    function ScreenToVector(x: number, y: number): Vector;
+    declare function ScreenToVector(x: number, y: number): Vector;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -63747,14 +64115,14 @@ declare namespace gui {
      * @param mouseX - The X coordinate to move the cursor to.
      * @param mouseY - The Y coordinate to move the cursor to.
      */
-    function SetMousePos(mouseX: number, mouseY: number): void;
+    declare function SetMousePos(mouseX: number, mouseY: number): void;
 
     /**
      * 🟩 [Menu]
      *
      * Shows console in the game UI.
      */
-    function ShowConsole(): void;
+    declare function ShowConsole(): void;
 }
 
 /**
@@ -63777,7 +64145,7 @@ declare namespace GWEN {
      * @param bottom - Bottom width of border.
      * @param [material = nil] - If set, given material will be used over the SKIN's default material, which is `SKIN.GwenTexture`.
      */
-    function CreateTextureBorder(x: number, y: number, w: number, h: number, left: number, top: number, right: number, bottom: number, material?: IMaterial): Color;
+    declare function CreateTextureBorder(x: number, y: number, w: number, h: number, left: number, top: number, right: number, bottom: number, material?: IMaterial): Color;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -63791,7 +64159,7 @@ declare namespace GWEN {
      * @param h - Height of the area on texture
      * @param [material = nil] - If set, given material will be used over the SKIN's default material, which is `SKIN.GwenTexture`.
      */
-    function CreateTextureCentered(x: number, y: number, w: number, h: number, material?: IMaterial): Color;
+    declare function CreateTextureCentered(x: number, y: number, w: number, h: number, material?: IMaterial): Color;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -63805,7 +64173,7 @@ declare namespace GWEN {
      * @param h - Height of the area on texture
      * @param [material = nil] - If set, given material will be used over the SKIN's default material, which is `SKIN.GwenTexture`.
      */
-    function CreateTextureNormal(x: number, y: number, w: number, h: number, material?: IMaterial): Color;
+    declare function CreateTextureNormal(x: number, y: number, w: number, h: number, material?: IMaterial): Color;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -63814,7 +64182,7 @@ declare namespace GWEN {
      * @param x - X position of the pixel to get the color from.
      * @param y - Y position of the pixel to get the color from.
      */
-    function TextureColor(x: number, y: number): Color;
+    declare function TextureColor(x: number, y: number): Color;
 }
 
 /**
@@ -63840,7 +64208,7 @@ declare namespace halo {
      * @param [additive = true] - Sets the render mode of the halo to additive.
      * @param [ignoreZ = false] - Renders the halo through anything when set to `true`.
      */
-    function Add(entities: any, color: Color, blurX = 2, blurY = 2, passes = 1, additive = true, ignoreZ = false): void;
+    declare function Add(entities: any, color: Color, blurX?: number, blurY?: number, passes?: number, additive?: boolean, ignoreZ?: boolean): void;
 
     /**
      * 🟨 [Client]
@@ -63848,7 +64216,7 @@ declare namespace halo {
      * Renders a halo according to the specified table, only used internally, called from a [GM:PostDrawEffects](https://wiki.facepunch.com/gmod/GM:PostDrawEffects) hook added by the halo library.
      * @param entry - Table with info about the halo to draw.
      */
-    function Render(entry: any): void;
+    declare function Render(entry: any): void;
 
     /**
      * 🟨 [Client]
@@ -63857,7 +64225,7 @@ declare namespace halo {
      *
      * The main purpose of this function is to be used in [ENTITY:Draw](https://wiki.facepunch.com/gmod/ENTITY:Draw) in order not to draw certain parts of the entity when the halo is being rendered, so there's no halo around unwanted entity parts, such as lasers, 3D2D displays, etc.
      */
-    function RenderedEntity(): Entity;
+    declare function RenderedEntity(): Entity;
 }
 
 /**
@@ -63886,7 +64254,7 @@ declare namespace hammer {
      * | "nodelink_create startNodeID endNodeID" | Creates a link between AI nodes startNodeID and endNodeID |
      * | "nodelink_delete startNodeID endNodeID" | Removes a link between AI nodes startNodeID and endNodeID |
      */
-    function SendCommand(cmd: string): string;
+    declare function SendCommand(cmd: string): string;
 }
 
 /**
@@ -63940,7 +64308,7 @@ declare namespace hook {
      *
      * Returns a list of all the hooks registered with [hook.Add](https://wiki.facepunch.com/gmod/hook.Add).
      */
-    function GetTable(): any;
+    declare function GetTable(): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -63949,7 +64317,7 @@ declare namespace hook {
      * @param eventName - The event name.
      * @param identifier - The unique identifier of the hook to remove, usually a string.
      */
-    function Remove(eventName: string, identifier: any): void;
+    declare function Remove(eventName: string, identifier: any): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -64024,7 +64392,7 @@ declare namespace http {
      * </callback>
      * @param [headers = {}] - KeyValue table for headers.
      */
-    function Fetch(url: string, onSuccess?: (body: string, size: number, headers: any, code: number) => void, onFailure?: (error: string) => void, headers?: any): void;
+    declare function Fetch(url: string, onSuccess?: (body: string, size: number, headers: any, code: number) => void, onFailure?: (error: string) => void, headers?: any): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -64059,7 +64427,7 @@ declare namespace http {
      * </callback>
      * @param [headers = {}] - KeyValue table for headers.
      */
-    function Post(url: string, parameters: any, onSuccess?: (body: string, size: string, headers: any, code: number) => void, onFailure?: (error: string) => void, headers?: any): void;
+    declare function Post(url: string, parameters: any, onSuccess?: (body: string, size: string, headers: any, code: number) => void, onFailure?: (error: string) => void, headers?: any): void;
 }
 
 /**
@@ -64071,7 +64439,7 @@ declare namespace input {
      *
      * Returns the last key captured by key trapping.
      */
-    function CheckKeyTrapping(): KEY;
+    declare function CheckKeyTrapping(): KEY;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -64079,7 +64447,7 @@ declare namespace input {
      * Returns the digital value of an analog stick on the current (set up via convars) controller.
      * @param axis - The analog axis to poll. See [Enums/ANALOG](https://wiki.facepunch.com/gmod/Enums/ANALOG).
      */
-    function GetAnalogValue(axis: ANALOG): number;
+    declare function GetAnalogValue(axis: ANALOG): number;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -64089,7 +64457,7 @@ declare namespace input {
      * **Bug [#4964](https://github.com/Facepunch/garrysmod-issues/issues/4964):**
      * >On macOS, the cursor isn't locked on the middle of the screen which causes a significant offset of the positions returned by this function.
      */
-    function GetCursorPos(): LuaMultiReturn<[number, number]>;
+    declare function GetCursorPos(): LuaMultiReturn<[number, number]>;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -64097,7 +64465,7 @@ declare namespace input {
      * Gets the button code from a button name. This is opposite of [input.GetKeyName](https://wiki.facepunch.com/gmod/input.GetKeyName).
      * @param button - The internal button name, such as <key>E</key> or <key>SHIFT</key>.
      */
-    function GetKeyCode(button: string): BUTTON_CODE;
+    declare function GetKeyCode(button: string): BUTTON_CODE;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -64109,7 +64477,7 @@ declare namespace input {
      *
      * @param button - The button, see [Enums/BUTTON_CODE](https://wiki.facepunch.com/gmod/Enums/BUTTON_CODE).
      */
-    function GetKeyName(button: BUTTON_CODE): string;
+    declare function GetKeyName(button: BUTTON_CODE): string;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -64119,14 +64487,14 @@ declare namespace input {
      * Unlike [input.IsKeyDown](https://wiki.facepunch.com/gmod/input.IsKeyDown) this can also detect joystick presses from [Enums/JOYSTICK](https://wiki.facepunch.com/gmod/Enums/JOYSTICK)
      * @param button - The button, valid values are in the range of [Enums/BUTTON_CODE](https://wiki.facepunch.com/gmod/Enums/BUTTON_CODE).
      */
-    function IsButtonDown(button: BUTTON_CODE): boolean;
+    declare function IsButtonDown(button: BUTTON_CODE): boolean;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether a control key is being pressed
      */
-    function IsControlDown(): boolean;
+    declare function IsControlDown(): boolean;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -64134,14 +64502,14 @@ declare namespace input {
      * Gets whether a key is down.
      * @param key - The key, see [Enums/KEY](https://wiki.facepunch.com/gmod/Enums/KEY).
      */
-    function IsKeyDown(key: KEY): boolean;
+    declare function IsKeyDown(key: KEY): boolean;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether key trapping is activate and the next key press will be captured.
      */
-    function IsKeyTrapping(): boolean;
+    declare function IsKeyTrapping(): boolean;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -64149,14 +64517,14 @@ declare namespace input {
      * Gets whether a mouse button is down
      * @param mouseKey - The key, see [Enums/MOUSE](https://wiki.facepunch.com/gmod/Enums/MOUSE)
      */
-    function IsMouseDown(mouseKey: MOUSE): boolean;
+    declare function IsMouseDown(mouseKey: MOUSE): boolean;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * Gets whether a shift key is being pressed
      */
-    function IsShiftDown(): boolean;
+    declare function IsShiftDown(): boolean;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -64165,7 +64533,7 @@ declare namespace input {
      * @param binding - The binding name
      * @param [exact = false] - True to disable automatic stripping of a single leading `+` character
      */
-    function LookupBinding(binding: string, exact = false): string;
+    declare function LookupBinding(binding: string, exact?: boolean): string;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -64173,7 +64541,7 @@ declare namespace input {
      * Returns the bind string that the given key is bound to.
      * @param key - Key from [Enums/BUTTON_CODE](https://wiki.facepunch.com/gmod/Enums/BUTTON_CODE)
      */
-    function LookupKeyBinding(key: BUTTON_CODE): string;
+    declare function LookupKeyBinding(key: BUTTON_CODE): string;
 
     /**
      * 🟨 [Client]
@@ -64181,7 +64549,7 @@ declare namespace input {
      * Switches to the provided weapon on the next CUserCmd generation/CreateMove call. Direct binding to [CInput::MakeWeaponSelection](https://github.com/ValveSoftware/source-sdk-2013/blob/39f6dde8fbc238727c020d13b05ecadd31bda4c0/src/game/client/in_main.cpp#L989-L992).
      * @param weapon - The weapon entity to switch to.
      */
-    function SelectWeapon(weapon: Weapon): void;
+    declare function SelectWeapon(weapon: Weapon): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -64190,14 +64558,14 @@ declare namespace input {
      * @param mouseX - X coordinate for mouse position
      * @param mouseY - Y coordinate for mouse position
      */
-    function SetCursorPos(mouseX: number, mouseY: number): void;
+    declare function SetCursorPos(mouseX: number, mouseY: number): void;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * Begins waiting for a key to be pressed so we can save it for [input.CheckKeyTrapping](https://wiki.facepunch.com/gmod/input.CheckKeyTrapping). Used by the [DBinder](https://wiki.facepunch.com/gmod/DBinder).
      */
-    function StartKeyTrapping(): void;
+    declare function StartKeyTrapping(): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -64205,7 +64573,7 @@ declare namespace input {
      * Translates a console command alias, basically reverse of the `alias` console command.
      * @param command - The alias to lookup.
      */
-    function TranslateAlias(command: string): string;
+    declare function TranslateAlias(command: string): string;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -64215,7 +64583,7 @@ declare namespace input {
      * This function only works in Move hooks, and will detect key presses even in main menu or when a typing in a text field.
      * @param key - The key, see [Enums/KEY](https://wiki.facepunch.com/gmod/Enums/KEY).
      */
-    function WasKeyPressed(key: KEY): boolean;
+    declare function WasKeyPressed(key: KEY): boolean;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -64225,7 +64593,7 @@ declare namespace input {
      * This function only works in Move hooks, and will detect key releases even in main menu or when a typing in a text field.
      * @param key - The key, see [Enums/KEY](https://wiki.facepunch.com/gmod/Enums/KEY).
      */
-    function WasKeyReleased(key: KEY): boolean;
+    declare function WasKeyReleased(key: KEY): boolean;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -64235,7 +64603,7 @@ declare namespace input {
      * This function only works in Move hooks, and will detect key events even in main menu or when a typing in a text field.
      * @param key - The key to test, see [Enums/KEY](https://wiki.facepunch.com/gmod/Enums/KEY)
      */
-    function WasKeyTyped(key: KEY): boolean;
+    declare function WasKeyTyped(key: KEY): boolean;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -64247,7 +64615,7 @@ declare namespace input {
      * This function only works in Move hooks, and will detect mouse events even in main menu or when a typing in a text field.
      * @param button - The mouse button to test, see [Enums/MOUSE](https://wiki.facepunch.com/gmod/Enums/MOUSE)
      */
-    function WasMouseDoublePressed(button: MOUSE): boolean;
+    declare function WasMouseDoublePressed(button: MOUSE): boolean;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -64259,7 +64627,7 @@ declare namespace input {
      * This function only works in Move hooks, and will detect mouse events even in main menu or when a typing in a text field.
      * @param key - The key, see [Enums/MOUSE](https://wiki.facepunch.com/gmod/Enums/MOUSE)
      */
-    function WasMousePressed(key: MOUSE): boolean;
+    declare function WasMousePressed(key: MOUSE): boolean;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -64269,7 +64637,7 @@ declare namespace input {
      * This function only works in Move hooks, and will detect mouse events even in main menu or when a typing in a text field.
      * @param key - The key to test, see [Enums/MOUSE](https://wiki.facepunch.com/gmod/Enums/MOUSE)
      */
-    function WasMouseReleased(key: MOUSE): boolean;
+    declare function WasMouseReleased(key: MOUSE): boolean;
 }
 
 /**
@@ -64281,7 +64649,7 @@ declare namespace jit {
      *
      * A variable containing the target architecture name: `x86`, `x64`, `arm`, `ppc`, `ppcspe`, or `mips`. This will be `x86` or `x64` in GMod.
      */
-    function arch(): string;
+    declare function arch(): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -64322,56 +64690,56 @@ declare namespace jit {
      *   * [number](https://wiki.facepunch.com/gmod/number) **nfpr** - The number of general-purpose and floating point registers that are active at the exit.
      * @param event - The event to hook into.
      */
-    function attach(callback: Function, event: string): void;
+    declare function attach(callback: Function, event: string): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Flushes the whole cache of compiled code.
      */
-    function flush(): void;
+    declare function flush(): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Disables LuaJIT Lua compilation.
      */
-    function off(): void;
+    declare function off(): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Enables LuaJIT Lua compilation.
      */
-    function on(): void;
+    declare function on(): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
      * This is NOT a function, it's a variable containing the target OS name: `Windows`, `Linux`, `OSX`, `BSD`, `POSIX` or `Other`.
      */
-    function os(): string;
+    declare function os(): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns the status of the JIT compiler and the current optimizations enabled.
      */
-    function status(): LuaMultiReturn<[boolean, any]>;
+    declare function status(): LuaMultiReturn<[boolean, any]>;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
      * A variable containing the LuaJIT version string. This is `LuaJIT 2.0.4` in GMod, and `LuaJIT 2.1.0-beta3` on the x86-64 branch of GMod.
      */
-    function version(): string;
+    declare function version(): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
      * A variable containing the version number of the LuaJIT core.
      */
-    function version_num(): number;
+    declare function version_num(): number;
 
 namespace opt {
         /**
@@ -64389,7 +64757,7 @@ namespace opt {
          * 	A list of LuaJIT -O command line options can be found here(a table of various optimization levels are displayed towards the bottom of the page along with exactly which optimization options are enabled for each level): http://luajit.org/running.html
          * @param args -
          */
-        function start(...args: any[]): void;
+        declare function start(...args: any[]): void;
     }
 
 namespace util {
@@ -64404,7 +64772,7 @@ namespace util {
          * @param func - Function to retrieve bytecode from.
          * @param pos - Position of the bytecode to retrieve.
          */
-        function funcbc(func: Function, pos: number): LuaMultiReturn<[number, number]>;
+        declare function funcbc(func: Function, pos: number): LuaMultiReturn<[number, number]>;
 
         /**
          * 🟨🟦🟩 [Shared and Menu]
@@ -64428,7 +64796,7 @@ namespace util {
          * @param func - Function or Proto to retrieve info about.
          * @param [pos = 0] -
          */
-        function funcinfo(func: Function, pos = 0): any;
+        declare function funcinfo(func: Function, pos?: number): any;
 
         /**
          * 🟨🟦🟩 [Shared and Menu]
@@ -64449,7 +64817,7 @@ namespace util {
          * @param func - Function to get constant from
          * @param index - Constant index (counting down from the top of the function at -1)
          */
-        function funck(func: Function, index: number): any;
+        declare function funck(func: Function, index: number): any;
 
         /**
          * 🟨🟦🟩 [Shared and Menu]
@@ -64462,7 +64830,7 @@ namespace util {
          * @param func - Function to get the upvalue indexed from
          * @param index - The upvalue index, starting from 0
          */
-        function funcuvname(func: Function, index: number): string;
+        declare function funcuvname(func: Function, index: number): string;
 
         /**
          * 🟨🟦🟩 [Shared and Menu]
@@ -64473,7 +64841,7 @@ namespace util {
          *
          * @param index - This argument is ignored.
          */
-        function ircalladdr(index: number): number;
+        declare function ircalladdr(index: number): number;
 
         /**
          * 🟨🟦🟩 [Shared and Menu]
@@ -64484,7 +64852,7 @@ namespace util {
          *
          * @param exitno - exit number to retrieve exit stub address from (gotten via [jit.attach](https://wiki.facepunch.com/gmod/jit.attach) with the texit event)
          */
-        function traceexitstub(exitno: number): number;
+        declare function traceexitstub(exitno: number): number;
 
         /**
          * 🟨🟦🟩 [Shared and Menu]
@@ -64500,7 +64868,7 @@ namespace util {
          *
          * @param trace - trace index to retrieve info for (gotten via [jit.attach](https://wiki.facepunch.com/gmod/jit.attach))
          */
-        function traceinfo(trace: number): any;
+        declare function traceinfo(trace: number): any;
 
         /**
          * 🟨🟦🟩 [Shared and Menu]
@@ -64510,7 +64878,7 @@ namespace util {
          * @param tr -
          * @param index -
          */
-        function traceir(tr: number, index: number): LuaMultiReturn<[number, number, number, number, number]>;
+        declare function traceir(tr: number, index: number): LuaMultiReturn<[number, number, number, number, number]>;
 
         /**
          * 🟨🟦🟩 [Shared and Menu]
@@ -64520,7 +64888,7 @@ namespace util {
          * @param tr -
          * @param index -
          */
-        function tracek(tr: number, index: number): LuaMultiReturn<[any, number, number]>;
+        declare function tracek(tr: number, index: number): LuaMultiReturn<[any, number, number]>;
 
         /**
          * 🟨🟦🟩 [Shared and Menu]
@@ -64529,7 +64897,7 @@ namespace util {
          *
          * @param tr -
          */
-        function tracemc(tr: number): LuaMultiReturn<[string, number, number]>;
+        declare function tracemc(tr: number): LuaMultiReturn<[string, number, number]>;
 
         /**
          * 🟨🟦🟩 [Shared and Menu]
@@ -64545,7 +64913,7 @@ namespace util {
          * @param tr - trace index to retrieve snapshot for (gotten via [jit.attach](https://wiki.facepunch.com/gmod/jit.attach))
          * @param sn - snapshot index for trace (starting from 0 to nexit - 1, nexit gotten via [jit.util.traceinfo](https://wiki.facepunch.com/gmod/jit.util.traceinfo))
          */
-        function tracesnap(tr: number, sn: number): any;
+        declare function tracesnap(tr: number, sn: number): any;
     }
 }
 
@@ -64561,7 +64929,7 @@ declare namespace killicon {
      * @param texture - Path to the texture
      * @param color - Color of the kill icon
      */
-    function Add(class_: string, texture: string, color: any): void;
+    declare function Add(class_: string, texture: string, color: any): void;
 
     /**
      * 🟨 [Client]
@@ -64570,7 +64938,7 @@ declare namespace killicon {
      * @param new_class - New class of the kill icon
      * @param existing_class - Already existing kill icon class
      */
-    function AddAlias(new_class: string, existing_class: string): void;
+    declare function AddAlias(new_class: string, existing_class: string): void;
 
     /**
      * 🟨 [Client]
@@ -64582,7 +64950,7 @@ declare namespace killicon {
      * @param color - Color of the killicon.
      * @param [heightScale = 1] - Used internally to correct certain killicons to more closely match their visual size.
      */
-    function AddFont(class_: string, font: string, symbol: string, color: any, heightScale = 1): void;
+    declare function AddFont(class_: string, font: string, symbol: string, color: any, heightScale?: number): void;
 
     /**
      * 🟨 [Client]
@@ -64596,7 +64964,7 @@ declare namespace killicon {
      * @param w - The width of the rectangle on the given texture. This is in texture coordinates.
      * @param h - The height of the rectangle on the given texture. This is in texture coordinates.
      */
-    function AddTexCoord(class_: string, texture: string, color: any, x: number, y: number, w: number, h: number): void;
+    declare function AddTexCoord(class_: string, texture: string, color: any, x: number, y: number, w: number, h: number): void;
 
     /**
      * 🟨 [Client]
@@ -64610,7 +64978,7 @@ declare namespace killicon {
      * @param name - Classname of the kill icon
      * @param [alpha = 255] - Alpha/transparency value ( 0 - 255 ) of the icon
      */
-    function Draw(x: number, y: number, name: string, alpha = 255): void;
+    declare function Draw(x: number, y: number, name: string, alpha?: number): void;
 
     /**
      * 🟨 [Client]
@@ -64618,7 +64986,7 @@ declare namespace killicon {
      * Checks if kill icon exists for given class.
      * @param class_ - The class to test
      */
-    function Exists(class_: string): boolean;
+    declare function Exists(class_: string): boolean;
 
     /**
      * 🟨 [Client]
@@ -64627,7 +64995,7 @@ declare namespace killicon {
      * @param name - Classname of the kill icon
      * @param [dontEqualizeHeight = false] - If set to `true`, returns the real size of the kill icon, without trying to equalize the height to match the default kill icon font.
      */
-    function GetSize(name: string, dontEqualizeHeight = false): LuaMultiReturn<[number, number]>;
+    declare function GetSize(name: string, dontEqualizeHeight?: boolean): LuaMultiReturn<[number, number]>;
 
     /**
      * 🟨 [Client]
@@ -64639,7 +65007,7 @@ declare namespace killicon {
      * @param [alpha = 255] - Alpha/transparency value ( 0 - 255 ) of the icon
      * @param [dontEqualizeHeight = false] - Do not rescale the icon to match the default kill icon font.
      */
-    function Render(x: number, y: number, name: string, alpha = 255, dontEqualizeHeight = false): void;
+    declare function Render(x: number, y: number, name: string, alpha?: number, dontEqualizeHeight?: number): void;
 }
 
 /**
@@ -64653,7 +65021,7 @@ declare namespace language {
      * @param placeholder - The key for this phrase, without the preceding "#".
      * @param fulltext - The phrase that should be displayed whenever this key is used.
      */
-    function Add(placeholder: string, fulltext: string): void;
+    declare function Add(placeholder: string, fulltext: string): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -64661,7 +65029,7 @@ declare namespace language {
      * Retrieves the translated version of inputted string. Useful for concentrating multiple translated strings.
      * @param phrase - The phrase to translate
      */
-    function GetPhrase(phrase: string): string;
+    declare function GetPhrase(phrase: string): string;
 }
 
 /**
@@ -64679,7 +65047,7 @@ declare namespace list {
      * @param identifier - The list identifier
      * @param item - The item to add to the list
      */
-    function Add(identifier: string, item: any): number;
+    declare function Add(identifier: string, item: any): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -64690,7 +65058,7 @@ declare namespace list {
      * @param list - List to search through
      * @param value - The value to test
      */
-    function Contains(list: string, value: any): boolean;
+    declare function Contains(list: string, value: any): boolean;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -64709,7 +65077,7 @@ declare namespace list {
      *
      * @param identifier - The list identifier
      */
-    function Get(identifier: string): any;
+    declare function Get(identifier: string): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -64718,7 +65086,7 @@ declare namespace list {
      * @param list - List to search through
      * @param key - The key to search for
      */
-    function GetEntry(list: string, key: string): any|nil;
+    declare function GetEntry(list: string, key: string): any|nil;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -64727,14 +65095,14 @@ declare namespace list {
      * @param identifier - The list identifier
      * @param [dontCreate = false] - If the list at given identifier does not exist, do **not** create it.
      */
-    function GetForEdit(identifier: string, dontCreate = false): any;
+    declare function GetForEdit(identifier: string, dontCreate?: boolean): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns a list of all lists currently in use.
      */
-    function GetTable(): any;
+    declare function GetTable(): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -64745,7 +65113,7 @@ declare namespace list {
      * @param list - List to search through
      * @param key - The key to test
      */
-    function HasEntry(list: string, key: any): boolean;
+    declare function HasEntry(list: string, key: any): boolean;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -64756,7 +65124,7 @@ declare namespace list {
      * @param list - List to remove an entry in.
      * @param key - The key for the entry to remove.
      */
-    function RemoveEntry(list: string, key: string): void;
+    declare function RemoveEntry(list: string, key: string): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -64766,7 +65134,7 @@ declare namespace list {
      * @param key - The key in the list to set
      * @param item - The item to set to the list as key
      */
-    function Set(identifier: string, key: any, item: any): void;
+    declare function Set(identifier: string, key: any, item: any): void;
 }
 
 /**
@@ -64779,7 +65147,7 @@ declare namespace markup {
      * A convenience function that converts a [Color](https://wiki.facepunch.com/gmod/Color) into its markup ready string representation.
      * @param col - The [Color](https://wiki.facepunch.com/gmod/Color) to convert.
      */
-    function Color(col: Color): string;
+    declare function Color(col: Color): string;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -64787,7 +65155,7 @@ declare namespace markup {
      * Converts a string to its escaped, markup-safe equivalent.
      * @param text - The string to sanitize.
      */
-    function Escape(text: string): string;
+    declare function Escape(text: string): string;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -64800,7 +65168,7 @@ declare namespace markup {
      * @param markup - The markup to be parsed.
      * @param [maxWidth = nil] - The max width of the output
      */
-    function Parse(markup: string, maxWidth?: number): MarkupObject;
+    declare function Parse(markup: string, maxWidth?: number): MarkupObject;
 }
 
 /**
@@ -64813,7 +65181,7 @@ declare namespace math {
      * Calculates the absolute value of a number (effectively removes any negative sign).
      * @param x - The number to get the absolute value of.
      */
-    function abs(x: number): number;
+    declare function abs(x: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -64821,7 +65189,7 @@ declare namespace math {
      * Returns the [arccosine](https://en.wikipedia.org/wiki/Arccosine) of the given number.
      * @param cos - Cosine value in range of -1 to 1.
      */
-    function acos(cos: number): number;
+    declare function acos(cos: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -64830,7 +65198,7 @@ declare namespace math {
      * @param a - The first angle.
      * @param b - The second angle.
      */
-    function AngleDifference(a: number, b: number): number;
+    declare function AngleDifference(a: number, b: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -64840,7 +65208,7 @@ declare namespace math {
      * @param target - The target value. This function will never overshoot this value.
      * @param change - The amount that the current value is allowed to change by to approach the target. (It makes no difference whether this is positive or negative.)
      */
-    function Approach(current: number, target: number, change: number): number;
+    declare function Approach(current: number, target: number, change: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -64854,7 +65222,7 @@ declare namespace math {
      * @param targetAngle - The angle to increase towards
      * @param rate - The amount to approach the target angle by
      */
-    function ApproachAngle(currentAngle: number, targetAngle: number, rate: number): number;
+    declare function ApproachAngle(currentAngle: number, targetAngle: number, rate: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -64862,7 +65230,7 @@ declare namespace math {
      * Returns the [arcsine](https://en.wikipedia.org/wiki/Inverse_trigonometric_functions) of the given number.
      * @param normal - Sine value in the range of -1 to 1.
      */
-    function asin(normal: number): number;
+    declare function asin(normal: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -64870,7 +65238,7 @@ declare namespace math {
      * Returns the [arctangent](https://en.wikipedia.org/wiki/Inverse_trigonometric_functions) of the given number.
      * @param normal - Tangent value.
      */
-    function atan(normal: number): number;
+    declare function atan(normal: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -64883,7 +65251,7 @@ declare namespace math {
      * @param y - Y coordinate.
      * @param x - X coordinate.
      */
-    function atan2(y: number, x: number): number;
+    declare function atan2(y: number, x: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -64891,7 +65259,7 @@ declare namespace math {
      * Converts a binary string into a number.
      * @param string - Binary string to convert
      */
-    function BinToInt(string: string): number;
+    declare function BinToInt(string: string): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -64903,7 +65271,7 @@ declare namespace math {
      * @param fractionMax - The maximum value of the `fraction` argument.
      * 			The most common value for this is `1`.
      */
-    function BSplinePoint(fraction: number, points: any, fractionMax: number): Vector;
+    declare function BSplinePoint(fraction: number, points: any, fractionMax: number): Vector;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -64919,7 +65287,7 @@ declare namespace math {
      * @param t -
      * @param tinc -
      */
-    function calcBSplineN(i: number, k: number, t: number, tinc: number): number;
+    declare function calcBSplineN(i: number, k: number, t: number, tinc: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -64929,7 +65297,7 @@ declare namespace math {
      * 	See [math.floor](https://wiki.facepunch.com/gmod/math.floor) for the inverse of this function.
      * @param number - The number to be rounded up.
      */
-    function ceil(number: number): number;
+    declare function ceil(number: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -64941,7 +65309,7 @@ declare namespace math {
      * @param point1 - Second point for the spline.
      * @param tan1 - Tangent for the second point for the spline.
      */
-    function CHSpline(frac: number, point0: Vector, tan0: Vector, point1: Vector, tan1: Vector): Vector;
+    declare function CHSpline(frac: number, point0: Vector, tan0: Vector, point1: Vector, tan1: Vector): Vector;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -64951,7 +65319,7 @@ declare namespace math {
      * @param min - The minimum value.
      * @param max - The maximum value, this function will **never** return a number greater than this.
      */
-    function Clamp(input: number, min: number, max: number): number;
+    declare function Clamp(input: number, min: number, max: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -64959,7 +65327,7 @@ declare namespace math {
      * Returns the [cosine](https://en.wikipedia.org/wiki/Trigonometric_functions#cos) of given angle.
      * @param number - Angle in radians
      */
-    function cos(number: number): number;
+    declare function cos(number: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -64967,7 +65335,7 @@ declare namespace math {
      * Returns the [hyperbolic cosine](https://en.wikipedia.org/wiki/Cosh_(mathematical_function)) of the given angle.
      * @param number - Angle in radians.
      */
-    function cosh(number: number): number;
+    declare function cosh(number: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -64981,7 +65349,7 @@ declare namespace math {
      * @param p2 - Second tangent
      * @param p3 - Second control point
      */
-    function CubicBezier(frac: number, p0: Vector, p1: Vector, p2: Vector, p3: Vector): Vector;
+    declare function CubicBezier(frac: number, p0: Vector, p1: Vector, p2: Vector, p3: Vector): Vector;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -64989,7 +65357,7 @@ declare namespace math {
      * Converts radians to degrees.
      * @param radians - Value to be converted to degrees.
      */
-    function deg(radians: number): number;
+    declare function deg(radians: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -65003,7 +65371,7 @@ declare namespace math {
      * @param x2 - X position of second point
      * @param y2 - Y position of second point
      */
-    function Dist(x1: number, y1: number, x2: number, y2: number): number;
+    declare function Dist(x1: number, y1: number, x2: number, y2: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -65014,7 +65382,7 @@ declare namespace math {
      * @param x2 - X position of second point
      * @param y2 - Y position of second point
      */
-    function Distance(x1: number, y1: number, x2: number, y2: number): number;
+    declare function Distance(x1: number, y1: number, x2: number, y2: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -65025,7 +65393,7 @@ declare namespace math {
      * @param x2 - X position of second point
      * @param y2 - Y position of second point
      */
-    function DistanceSqr(x1: number, y1: number, x2: number, y2: number): number;
+    declare function DistanceSqr(x1: number, y1: number, x2: number, y2: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -65035,7 +65403,7 @@ declare namespace math {
      * @param [easeIn = 0] - Fraction of how much easing to begin with, from 0 to 1.
      * @param [easeOut = 1] - Fraction of how much easing to end with, from 0 to 1.
      */
-    function EaseInOut(progress: number, easeIn = 0, easeOut = 1): number;
+    declare function EaseInOut(progress: number, easeIn?: number, easeOut?: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -65043,7 +65411,7 @@ declare namespace math {
      * Returns the x power of the Euler constant.
      * @param exponent - The exponent for the function.
      */
-    function exp(exponent: number): number;
+    declare function exp(exponent: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -65051,7 +65419,7 @@ declare namespace math {
      * Simple function that calculates [factorial](https://en.wikipedia.org/wiki/Factorial) of a whole number.
      * @param val_in - An whole number to get a factorial of. Decimal numbers will be treated as whole numbers.
      */
-    function Factorial(val_in: number): number;
+    declare function Factorial(val_in: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -65061,7 +65429,7 @@ declare namespace math {
      * 	See [math.ceil](https://wiki.facepunch.com/gmod/math.ceil) for the inverse of this function.
      * @param number - The number to be rounded down.
      */
-    function floor(number: number): number;
+    declare function floor(number: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -65074,7 +65442,7 @@ declare namespace math {
      * @param base - The base value.
      * @param modulator - The modulator.
      */
-    function fmod(base: number, modulator: number): number;
+    declare function fmod(base: number, modulator: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -65086,7 +65454,7 @@ declare namespace math {
      * The result is such that `x = m*2^e`.
      * @param x - The value to get the normalized fraction and the exponent from.
      */
-    function frexp(x: number): LuaMultiReturn<[number, number]>;
+    declare function frexp(x: number): LuaMultiReturn<[number, number]>;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -65097,7 +65465,7 @@ declare namespace math {
      *
      * Lua will consider any number greater than or equal to `2^1024` (the exponent limit of a [double](http://en.wikipedia.org/wiki/Double-precision_floating-point_format)) as `inf` and hence equal to this.
      */
-    function huge(): number;
+    declare function huge(): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -65105,7 +65473,7 @@ declare namespace math {
      * Converts an integer to a binary (base-2) string.
      * @param int - Number to be converted.
      */
-    function IntToBin(int: number): string;
+    declare function IntToBin(int: number): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -65117,7 +65485,7 @@ declare namespace math {
      * @param b - The second number to compare.
      * @param [tolerance = 1e-8] - The maximum difference between the two numbers to consider them equal.
      */
-    function IsNearlyEqual(a: number, b: number, tolerance = 1e-8): boolean;
+    declare function IsNearlyEqual(a: number, b: number, tolerance?: number): boolean;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -65128,7 +65496,7 @@ declare namespace math {
      * @param normalizedFraction - The value to get the normalized fraction and the exponent from.
      * @param exponent - The value to get the normalized fraction and the exponent from.
      */
-    function ldexp(normalizedFraction: number, exponent: number): number;
+    declare function ldexp(normalizedFraction: number, exponent: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -65139,7 +65507,7 @@ declare namespace math {
      * @param x - The value to get the base from exponent from.
      * @param [base = e] - The logarithmic base.
      */
-    function log(x: number, base?: number): number;
+    declare function log(x: number, base?: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -65147,7 +65515,7 @@ declare namespace math {
      * Returns the base-10 logarithm of x. This is usually more accurate than math.log(x, 10).
      * @param x - The value to get the base from exponent from.
      */
-    function log10(x: number): number;
+    declare function log10(x: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -65155,7 +65523,7 @@ declare namespace math {
      * Returns the largest value of all arguments.
      * @param numbers - Numbers to get the largest from
      */
-    function max(...numbers: any[]): number;
+    declare function max(...numbers: any[]): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -65163,7 +65531,7 @@ declare namespace math {
      * Returns the smallest value of all arguments.
      * @param numbers - Numbers to get the smallest from.
      */
-    function min(...numbers: any[]): number;
+    declare function min(...numbers: any[]): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -65175,7 +65543,7 @@ declare namespace math {
      * @param base - The base value
      * @param modulator - Modulator
      */
-    function mod(base: number, modulator: number): number;
+    declare function mod(base: number, modulator: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -65183,7 +65551,7 @@ declare namespace math {
      * Returns the integral and fractional component of the modulo operation.
      * @param base - The base value.
      */
-    function modf(base: number): LuaMultiReturn<[number, number]>;
+    declare function modf(base: number): LuaMultiReturn<[number, number]>;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -65191,7 +65559,7 @@ declare namespace math {
      * Normalizes angle, so it returns value between -180 and 180.
      * @param angle - The angle to normalize, in degrees.
      */
-    function NormalizeAngle(angle: number): number;
+    declare function NormalizeAngle(angle: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -65203,7 +65571,7 @@ declare namespace math {
      * **Note:**
      * >It should be noted that due to the nature of floating point numbers, results of calculations with `math.pi` may not be what you expect. See second example below.
      */
-    function pi(): number;
+    declare function pi(): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -65213,7 +65581,7 @@ declare namespace math {
      * @param x - Base.
      * @param y - Exponent.
      */
-    function pow(x: number, y: number): number;
+    declare function pow(x: number, y: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -65226,7 +65594,7 @@ declare namespace math {
      * @param p1 - Tangent
      * @param p2 - Second control point
      */
-    function QuadraticBezier(frac: number, p0: Vector, p1: Vector, p2: Vector): Vector;
+    declare function QuadraticBezier(frac: number, p0: Vector, p1: Vector, p2: Vector): Vector;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -65234,7 +65602,7 @@ declare namespace math {
      * Converts an angle in degrees to it's equivalent in radians.
      * @param degrees - The angle measured in degrees.
      */
-    function rad(degrees: number): number;
+    declare function rad(degrees: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -65245,7 +65613,7 @@ declare namespace math {
      * @param min - The minimum value.
      * @param max - The maximum value.
      */
-    function Rand(min: number, max: number): number;
+    declare function Rand(min: number, max: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -65263,7 +65631,7 @@ declare namespace math {
      * @param [n = nil] - Upper limit.
      * If provided, this must be an integer.
      */
-    function random(m?: number, n?: number): number;
+    declare function random(m?: number, n?: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -65279,7 +65647,7 @@ declare namespace math {
      *
      * @param seed - The new seed
      */
-    function randomseed(seed: number): void;
+    declare function randomseed(seed: number): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -65291,7 +65659,7 @@ declare namespace math {
      * @param outMin - The minimum of new range
      * @param outMax - The maximum of new range
      */
-    function Remap(value: number, inMin: number, inMax: number, outMin: number, outMax: number): number;
+    declare function Remap(value: number, inMin: number, inMax: number, outMin: number, outMax: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -65300,7 +65668,7 @@ declare namespace math {
      * @param value - The value to round.
      * @param [decimals = 0] - The decimal places to round to.
      */
-    function Round(value: number, decimals = 0): number;
+    declare function Round(value: number, decimals?: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -65308,7 +65676,7 @@ declare namespace math {
      * Returns the [sine](https://en.wikipedia.org/wiki/Trigonometric_functions) of given angle.
      * @param number - Angle in radians
      */
-    function sin(number: number): number;
+    declare function sin(number: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -65316,7 +65684,7 @@ declare namespace math {
      * Returns the [hyperbolic sine](https://en.wikipedia.org/wiki/Hyperbolic_functions) of the given angle.
      * @param number - Angle in radians.
      */
-    function sinh(number: number): number;
+    declare function sinh(number: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -65325,7 +65693,7 @@ declare namespace math {
      * @param input - The number to snap.
      * @param snapTo - What to snap the input number to.
      */
-    function SnapTo(input: number, snapTo: number): number;
+    declare function SnapTo(input: number, snapTo: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -65333,7 +65701,7 @@ declare namespace math {
      * Returns the square root of the number.
      * @param value - Value to get the square root of.
      */
-    function sqrt(value: number): number;
+    declare function sqrt(value: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -65341,7 +65709,7 @@ declare namespace math {
      * Returns the tangent of the given angle.
      * @param value - Angle in radians
      */
-    function tan(value: number): number;
+    declare function tan(value: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -65349,7 +65717,7 @@ declare namespace math {
      * Returns the [hyperbolic tangent](https://en.wikipedia.org/wiki/Hyperbolic_functions) of the given number.
      * @param number - Angle in radians.
      */
-    function tanh(number: number): number;
+    declare function tanh(number: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -65361,7 +65729,7 @@ declare namespace math {
      * **Note:**
      * >It should be noted that due to the nature of floating point numbers, results of calculations with `math.tau` may not be what you expect. See the second example on [math.pi](https://wiki.facepunch.com/gmod/math.pi) page.
      */
-    function tau(): number;
+    declare function tau(): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -65371,7 +65739,7 @@ declare namespace math {
      * @param end - End time in seconds
      * @param current - Current time in seconds
      */
-    function TimeFraction(start: number, end: number, current: number): number;
+    declare function TimeFraction(start: number, end: number, current: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -65380,7 +65748,7 @@ declare namespace math {
      * @param num - The number to truncate
      * @param [digits = 0] - The amount of digits to keep after the point.
      */
-    function Truncate(num: number, digits = 0): number;
+    declare function Truncate(num: number, digits?: number): number;
 
 namespace ease {
         /**
@@ -65393,7 +65761,7 @@ namespace ease {
          *
          * @param fraction - Fraction of the progress to ease, from 0 to 1
          */
-        function InBack(fraction: number): number;
+        declare function InBack(fraction: number): number;
 
         /**
          * 🟨🟦🟩 [Shared and Menu]
@@ -65405,7 +65773,7 @@ namespace ease {
          *
          * @param fraction - Fraction of the progress to ease, from 0 to 1
          */
-        function InBounce(fraction: number): number;
+        declare function InBounce(fraction: number): number;
 
         /**
          * 🟨🟦🟩 [Shared and Menu]
@@ -65413,7 +65781,7 @@ namespace ease {
          * Eases in using a circular function.
          * @param fraction - Fraction of the progress to ease, from 0 to 1
          */
-        function InCirc(fraction: number): number;
+        declare function InCirc(fraction: number): number;
 
         /**
          * 🟨🟦🟩 [Shared and Menu]
@@ -65421,7 +65789,7 @@ namespace ease {
          * Eases in by cubing the fraction.
          * @param fraction - Fraction of the progress to ease, from 0 to 1
          */
-        function InCubic(fraction: number): number;
+        declare function InCubic(fraction: number): number;
 
         /**
          * 🟨🟦🟩 [Shared and Menu]
@@ -65433,7 +65801,7 @@ namespace ease {
          *
          * @param fraction - Fraction of the progress to ease, from 0 to 1
          */
-        function InElastic(fraction: number): number;
+        declare function InElastic(fraction: number): number;
 
         /**
          * 🟨🟦🟩 [Shared and Menu]
@@ -65441,7 +65809,7 @@ namespace ease {
          * Eases in using an exponential equation with a base of 2 and where the fraction is used in the exponent.
          * @param fraction - Fraction of the progress to ease, from 0 to 1
          */
-        function InExpo(fraction: number): number;
+        declare function InExpo(fraction: number): number;
 
         /**
          * 🟨🟦🟩 [Shared and Menu]
@@ -65453,7 +65821,7 @@ namespace ease {
          *
          * @param fraction - Fraction of the progress to ease, from 0 to 1
          */
-        function InOutBack(fraction: number): number;
+        declare function InOutBack(fraction: number): number;
 
         /**
          * 🟨🟦🟩 [Shared and Menu]
@@ -65465,7 +65833,7 @@ namespace ease {
          *
          * @param fraction - Fraction of the progress to ease, from 0 to 1
          */
-        function InOutBounce(fraction: number): number;
+        declare function InOutBounce(fraction: number): number;
 
         /**
          * 🟨🟦🟩 [Shared and Menu]
@@ -65473,7 +65841,7 @@ namespace ease {
          * Eases in and out using a circular function.
          * @param fraction - Fraction of the progress to ease, from 0 to 1
          */
-        function InOutCirc(fraction: number): number;
+        declare function InOutCirc(fraction: number): number;
 
         /**
          * 🟨🟦🟩 [Shared and Menu]
@@ -65481,7 +65849,7 @@ namespace ease {
          * Eases in and out by cubing the fraction.
          * @param fraction - Fraction of the progress to ease, from 0 to 1
          */
-        function InOutCubic(fraction: number): number;
+        declare function InOutCubic(fraction: number): number;
 
         /**
          * 🟨🟦🟩 [Shared and Menu]
@@ -65493,7 +65861,7 @@ namespace ease {
          *
          * @param fraction - Fraction of the progress to ease, from 0 to 1
          */
-        function InOutElastic(fraction: number): number;
+        declare function InOutElastic(fraction: number): number;
 
         /**
          * 🟨🟦🟩 [Shared and Menu]
@@ -65501,7 +65869,7 @@ namespace ease {
          * Eases in and out using an exponential equation with a base of 2 and where the fraction is used in the exponent.
          * @param fraction - Fraction of the progress to ease, from 0 to 1
          */
-        function InOutExpo(fraction: number): number;
+        declare function InOutExpo(fraction: number): number;
 
         /**
          * 🟨🟦🟩 [Shared and Menu]
@@ -65509,7 +65877,7 @@ namespace ease {
          * Eases in and out by squaring the fraction.
          * @param fraction - Fraction of the progress to ease, from 0 to 1
          */
-        function InOutQuad(fraction: number): number;
+        declare function InOutQuad(fraction: number): number;
 
         /**
          * 🟨🟦🟩 [Shared and Menu]
@@ -65517,7 +65885,7 @@ namespace ease {
          * Eases in and out by raising the fraction to the power of 4.
          * @param fraction - Fraction of the progress to ease, from 0 to 1
          */
-        function InOutQuart(fraction: number): number;
+        declare function InOutQuart(fraction: number): number;
 
         /**
          * 🟨🟦🟩 [Shared and Menu]
@@ -65525,7 +65893,7 @@ namespace ease {
          * Eases in and out by raising the fraction to the power of 5.
          * @param fraction - Fraction of the progress to ease, from 0 to 1
          */
-        function InOutQuint(fraction: number): number;
+        declare function InOutQuint(fraction: number): number;
 
         /**
          * 🟨🟦🟩 [Shared and Menu]
@@ -65533,7 +65901,7 @@ namespace ease {
          * Eases in and out using [math.sin](https://wiki.facepunch.com/gmod/math.sin).
          * @param fraction - Fraction of the progress to ease, from 0 to 1
          */
-        function InOutSine(fraction: number): number;
+        declare function InOutSine(fraction: number): number;
 
         /**
          * 🟨🟦🟩 [Shared and Menu]
@@ -65541,7 +65909,7 @@ namespace ease {
          * Eases in by squaring the fraction.
          * @param fraction - Fraction of the progress to ease, from 0 to 1
          */
-        function InQuad(fraction: number): number;
+        declare function InQuad(fraction: number): number;
 
         /**
          * 🟨🟦🟩 [Shared and Menu]
@@ -65549,7 +65917,7 @@ namespace ease {
          * Eases in by raising the fraction to the power of 4.
          * @param fraction - Fraction of the progress to ease, from 0 to 1
          */
-        function InQuart(fraction: number): number;
+        declare function InQuart(fraction: number): number;
 
         /**
          * 🟨🟦🟩 [Shared and Menu]
@@ -65557,7 +65925,7 @@ namespace ease {
          * Eases in by raising the fraction to the power of 5.
          * @param fraction - Fraction of the progress to ease, from 0 to 1
          */
-        function InQuint(fraction: number): number;
+        declare function InQuint(fraction: number): number;
 
         /**
          * 🟨🟦🟩 [Shared and Menu]
@@ -65565,7 +65933,7 @@ namespace ease {
          * Eases in using [math.sin](https://wiki.facepunch.com/gmod/math.sin).
          * @param fraction - Fraction of the progress to ease, from 0 to 1
          */
-        function InSine(fraction: number): number;
+        declare function InSine(fraction: number): number;
 
         /**
          * 🟨🟦🟩 [Shared and Menu]
@@ -65577,7 +65945,7 @@ namespace ease {
          *
          * @param fraction - Fraction of the progress to ease, from 0 to 1
          */
-        function OutBack(fraction: number): number;
+        declare function OutBack(fraction: number): number;
 
         /**
          * 🟨🟦🟩 [Shared and Menu]
@@ -65589,7 +65957,7 @@ namespace ease {
          *
          * @param fraction - Fraction of the progress to ease, from 0 to 1
          */
-        function OutBounce(fraction: number): number;
+        declare function OutBounce(fraction: number): number;
 
         /**
          * 🟨🟦🟩 [Shared and Menu]
@@ -65597,7 +65965,7 @@ namespace ease {
          * Eases out using a circular function.
          * @param fraction - Fraction of the progress to ease, from 0 to 1
          */
-        function OutCirc(fraction: number): number;
+        declare function OutCirc(fraction: number): number;
 
         /**
          * 🟨🟦🟩 [Shared and Menu]
@@ -65605,7 +65973,7 @@ namespace ease {
          * Eases out by cubing the fraction.
          * @param fraction - Fraction of the progress to ease, from 0 to 1
          */
-        function OutCubic(fraction: number): number;
+        declare function OutCubic(fraction: number): number;
 
         /**
          * 🟨🟦🟩 [Shared and Menu]
@@ -65617,7 +65985,7 @@ namespace ease {
          *
          * @param fraction - Fraction of the progress to ease, from 0 to 1
          */
-        function OutElastic(fraction: number): number;
+        declare function OutElastic(fraction: number): number;
 
         /**
          * 🟨🟦🟩 [Shared and Menu]
@@ -65625,7 +65993,7 @@ namespace ease {
          * Eases out using an exponential equation with a base of 2 and where the fraction is used in the exponent.
          * @param fraction - Fraction of the progress to ease, from 0 to 1
          */
-        function OutExpo(fraction: number): number;
+        declare function OutExpo(fraction: number): number;
 
         /**
          * 🟨🟦🟩 [Shared and Menu]
@@ -65633,7 +66001,7 @@ namespace ease {
          * Eases out by squaring the fraction.
          * @param fraction - Fraction of the progress to ease, from 0 to 1
          */
-        function OutQuad(fraction: number): number;
+        declare function OutQuad(fraction: number): number;
 
         /**
          * 🟨🟦🟩 [Shared and Menu]
@@ -65641,7 +66009,7 @@ namespace ease {
          * Eases out by raising the fraction to the power of 4.
          * @param fraction - Fraction of the progress to ease, from 0 to 1
          */
-        function OutQuart(fraction: number): number;
+        declare function OutQuart(fraction: number): number;
 
         /**
          * 🟨🟦🟩 [Shared and Menu]
@@ -65649,7 +66017,7 @@ namespace ease {
          * Eases out by raising the fraction to the power of 5.
          * @param fraction - Fraction of the progress to ease, from 0 to 1
          */
-        function OutQuint(fraction: number): number;
+        declare function OutQuint(fraction: number): number;
 
         /**
          * 🟨🟦🟩 [Shared and Menu]
@@ -65657,7 +66025,7 @@ namespace ease {
          * Eases out using [math.sin](https://wiki.facepunch.com/gmod/math.sin).
          * @param fraction - Fraction of the progress to ease, from 0 to 1
          */
-        function OutSine(fraction: number): number;
+        declare function OutSine(fraction: number): number;
     }
 }
 
@@ -65674,7 +66042,7 @@ declare namespace matproxy {
      *
      * A list of all **active** material proxies.
      */
-    function ActiveList(): any;
+    declare function ActiveList(): any;
 
     /**
      * 🟨 [Client]
@@ -65686,7 +66054,7 @@ declare namespace matproxy {
      *
      * @param matProxyData - The information about the proxy. See [Structures/MatProxyData](https://wiki.facepunch.com/gmod/Structures/MatProxyData)
      */
-    function Add(matProxyData: MatProxyData): void;
+    declare function Add(matProxyData: MatProxyData): void;
 
     /**
      * 🟨 [Client]
@@ -65696,7 +66064,7 @@ declare namespace matproxy {
      * @param mat - The material the proxy is being applied to.
      * @param ent - The entity the material is applied to.
      */
-    function Call(uname: string, mat: IMaterial, ent: Entity): void;
+    declare function Call(uname: string, mat: IMaterial, ent: Entity): void;
 
     /**
      * 🟨 [Client]
@@ -65707,14 +66075,14 @@ declare namespace matproxy {
      * @param mat - Material the material proxy is applied to.
      * @param values - `.vmt` shader parameters of the material.
      */
-    function Init(name: string, uname: string, mat: IMaterial, values: any): void;
+    declare function Init(name: string, uname: string, mat: IMaterial, values: any): void;
 
     /**
      * 🟨 [Client]
      *
      * A list of all material proxies registered with [matproxy.Add](https://wiki.facepunch.com/gmod/matproxy.Add).
      */
-    function ProxyList(): any;
+    declare function ProxyList(): any;
 
     /**
      * 🟨 [Client]
@@ -65722,7 +66090,7 @@ declare namespace matproxy {
      * Called by engine to determine if a certain material proxy is registered in Lua.
      * @param name - The name of proxy in question
      */
-    function ShouldOverrideProxy(name: string): boolean;
+    declare function ShouldOverrideProxy(name: string): boolean;
 }
 
 /**
@@ -65734,7 +66102,7 @@ declare namespace menu {
      *
      * Used by "Demo to Video" to record the frame.
      */
-    function RecordFrame(): void;
+    declare function RecordFrame(): void;
 }
 
 /**
@@ -65748,7 +66116,7 @@ declare namespace menubar {
      *
      * Calling this multiple times will **NOT** remove previous panel.
      */
-    function Init(): void;
+    declare function Init(): void;
 
     /**
      * 🟨 [Client]
@@ -65756,7 +66124,7 @@ declare namespace menubar {
      * Checks if the supplied panel is parent to the menubar
      * @param pnl - The panel to check
      */
-    function IsParent(pnl: Panel): boolean;
+    declare function IsParent(pnl: Panel): boolean;
 
     /**
      * 🟨 [Client]
@@ -65764,7 +66132,7 @@ declare namespace menubar {
      * Parents the menubar to the panel and displays the menubar.
      * @param pnl - The panel to parent to
      */
-    function ParentTo(pnl: Panel): void;
+    declare function ParentTo(pnl: Panel): void;
 }
 
 /**
@@ -65776,7 +66144,7 @@ declare namespace mesh {
      *
      * Pushes the currently set vertex data (via other `mesh.*` functions) into the mesh stack. See example on [mesh.Begin](https://wiki.facepunch.com/gmod/mesh.Begin).
      */
-    function AdvanceVertex(): void;
+    declare function AdvanceVertex(): void;
 
     /**
      * 🟨 [Client]
@@ -65795,7 +66163,7 @@ declare namespace mesh {
      * 			The expected value of this argument is dependent on the primitive type used.
      * 			For a full list of the primitive counts expected by each primitive type, see [Enums/MATERIAL](https://wiki.facepunch.com/gmod/Enums/MATERIAL).
      */
-    function Begin(mesh: IMesh, primitiveType: MATERIAL, primitiveCount: MATERIAL): void;
+    declare function Begin(mesh: IMesh, primitiveType: MATERIAL, primitiveCount: MATERIAL): void;
 
     /**
      * 🟨 [Client]
@@ -65807,14 +66175,14 @@ declare namespace mesh {
      * @param b - Blue component.
      * @param a - Alpha component.
      */
-    function Color(r: number, g: number, b: number, a: number): void;
+    declare function Color(r: number, g: number, b: number, a: number): void;
 
     /**
      * 🟨 [Client]
      *
      * Ends the mesh (Started with [mesh.Begin](https://wiki.facepunch.com/gmod/mesh.Begin)) and renders it.
      */
-    function End(): void;
+    declare function End(): void;
 
     /**
      * 🟨 [Client]
@@ -65822,7 +66190,7 @@ declare namespace mesh {
      * Sets the normal to be used for the next vertex. See [mesh.Begin](https://wiki.facepunch.com/gmod/mesh.Begin).
      * @param normal - The normal of the vertex.
      */
-    function Normal(normal: Vector): void;
+    declare function Normal(normal: Vector): void;
 
     /**
      * 🟨 [Client]
@@ -65830,7 +66198,7 @@ declare namespace mesh {
      * Sets the position to be used for the next vertex. See [mesh.Begin](https://wiki.facepunch.com/gmod/mesh.Begin).
      * @param position - The position of the vertex.
      */
-    function Position(position: Vector): void;
+    declare function Position(position: Vector): void;
 
     /**
      * 🟨 [Client]
@@ -65842,7 +66210,7 @@ declare namespace mesh {
      * @param vertex4 - The fourth vertex.
      * @param color - The color for the vertices.
      */
-    function Quad(vertex1: Vector, vertex2: Vector, vertex3: Vector, vertex4: Vector, color: any): void;
+    declare function Quad(vertex1: Vector, vertex2: Vector, vertex3: Vector, vertex4: Vector, color: any): void;
 
     /**
      * 🟨 [Client]
@@ -65856,7 +66224,7 @@ declare namespace mesh {
      * @param sizeY - Y size in pixels.
      * @param color - The color for the vertices.
      */
-    function QuadEasy(position: Vector, normal: Vector, sizeX: number, sizeY: number, color: any): void;
+    declare function QuadEasy(position: Vector, normal: Vector, sizeX: number, sizeY: number, color: any): void;
 
     /**
      * 🟨 [Client]
@@ -65871,7 +66239,7 @@ declare namespace mesh {
      * @param b - The blue channel multiplier of the specular map.
      * @param a - The alpha channel multiplier of the specular map.
      */
-    function Specular(r: number, g: number, b: number, a: number): void;
+    declare function Specular(r: number, g: number, b: number, a: number): void;
 
     /**
      * 🟨 [Client]
@@ -65883,7 +66251,7 @@ declare namespace mesh {
      * See also [mesh.TangentT](https://wiki.facepunch.com/gmod/mesh.TangentT) and [mesh.Begin](https://wiki.facepunch.com/gmod/mesh.Begin).
      * @param tangentS - The S tangent.
      */
-    function TangentS(tangentS: Vector): void;
+    declare function TangentS(tangentS: Vector): void;
 
     /**
      * 🟨 [Client]
@@ -65895,7 +66263,7 @@ declare namespace mesh {
      * See also [mesh.TangentS](https://wiki.facepunch.com/gmod/mesh.TangentS) and [mesh.Begin](https://wiki.facepunch.com/gmod/mesh.Begin).
      * @param tangentT - The T tangent.
      */
-    function TangentT(tangentT: Vector): void;
+    declare function TangentT(tangentT: Vector): void;
 
     /**
      * 🟨 [Client]
@@ -65908,7 +66276,7 @@ declare namespace mesh {
      * @param [u = nil] - U coordinate.
      * @param [v = nil] - V coordinate.
      */
-    function TexCoord(set: number, s: number, t: number, u?: number, v?: number): void;
+    declare function TexCoord(set: number, s: number, t: number, u?: number, v?: number): void;
 
     /**
      * 🟨 [Client]
@@ -65920,14 +66288,14 @@ declare namespace mesh {
      * @param tangentZ -
      * @param tangentHandedness -
      */
-    function UserData(tangentX: number, tangentY: number, tangentZ: number, tangentHandedness: number): void;
+    declare function UserData(tangentX: number, tangentY: number, tangentZ: number, tangentHandedness: number): void;
 
     /**
      * 🟨 [Client]
      *
      * Returns the amount of vertices that have been pushed via [mesh.AdvanceVertex](https://wiki.facepunch.com/gmod/mesh.AdvanceVertex).
      */
-    function VertexCount(): number;
+    declare function VertexCount(): number;
 }
 
 /**
@@ -65945,42 +66313,42 @@ declare namespace motionsensor {
      * @param player - The player to get motion sensor positions from.
      * @param rotation - Global rotation of the player?
      */
-    function BuildSkeleton(translator: any, player: Player, rotation: Angle): LuaMultiReturn<[Vector, Angle, any]>;
+    declare function BuildSkeleton(translator: any, player: Player, rotation: Angle): LuaMultiReturn<[Vector, Angle, any]>;
 
     /**
      * 🟨🟦 [Shared]
      *
      * @param ent - Entity to choose builder for
      */
-    function ChooseBuilderFromEntity(ent: Entity): string;
+    declare function ChooseBuilderFromEntity(ent: Entity): string;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * Returns the depth map material.
      */
-    function GetColourMaterial(): IMaterial;
+    declare function GetColourMaterial(): IMaterial;
 
     /**
      * 🟨 [Client]
      *
      * Returns players skeletal data if they are using Kinect. See [Using The Kinect](https://wiki.facepunch.com/gmod/Using_The_Kinect) and [Kinect developing](https://wiki.facepunch.com/gmod/Kinect_developing).
      */
-    function GetSkeleton(): any;
+    declare function GetSkeleton(): any;
 
     /**
      * 🟨 [Client]
      *
      * Return whether a kinect is connected - and active (ie - Start has been called).
      */
-    function IsActive(): boolean;
+    declare function IsActive(): boolean;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * Returns true if we have detected that there's a kinect connected to the PC
      */
-    function IsAvailable(): boolean;
+    declare function IsAvailable(): boolean;
 
     /**
      * 🟨🟦 [Shared]
@@ -65994,7 +66362,7 @@ declare namespace motionsensor {
      * @param boneid -
      * @param v -
      */
-    function ProcessAngle(translator: any, sensor: any, pos: Vector, ang: Angle, special_vectors: any, boneid: number, v: any): boolean;
+    declare function ProcessAngle(translator: any, sensor: any, pos: Vector, ang: Angle, special_vectors: any, boneid: number, v: any): boolean;
 
     /**
      * 🟨🟦 [Shared]
@@ -66005,7 +66373,7 @@ declare namespace motionsensor {
      * @param pos -
      * @param rotation -
      */
-    function ProcessAnglesTable(translator: any, sensor: any, pos: Vector, rotation: Angle): any;
+    declare function ProcessAnglesTable(translator: any, sensor: any, pos: Vector, rotation: Angle): any;
 
     /**
      * 🟨🟦 [Shared]
@@ -66014,21 +66382,21 @@ declare namespace motionsensor {
      * @param translator -
      * @param sensor -
      */
-    function ProcessPositionTable(translator: any, sensor: any): any;
+    declare function ProcessPositionTable(translator: any, sensor: any): any;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * This starts access to the kinect sensor. Note that this usually freezes the game for a couple of seconds.
      */
-    function Start(): boolean;
+    declare function Start(): boolean;
 
     /**
      * 🟨 [Client]
      *
      * Stops the motion capture.
      */
-    function Stop(): void;
+    declare function Stop(): void;
 }
 
 /**
@@ -66044,7 +66412,7 @@ declare namespace navmesh {
      * @param pos - The terrain position.
      * @param dir - The normal of this terrain position.
      */
-    function AddWalkableSeed(pos: Vector, dir: Vector): void;
+    declare function AddWalkableSeed(pos: Vector, dir: Vector): void;
 
     /**
      * 🟦 [Server]
@@ -66054,14 +66422,14 @@ declare namespace navmesh {
      * **Note:**
      * >This process is highly resource intensive and it's not wise to use during normal gameplay
      */
-    function BeginGeneration(): void;
+    declare function BeginGeneration(): void;
 
     /**
      * 🟦 [Server]
      *
      * Clears all the walkable positions, used before calling [navmesh.BeginGeneration](https://wiki.facepunch.com/gmod/navmesh.BeginGeneration).
      */
-    function ClearWalkableSeeds(): void;
+    declare function ClearWalkableSeeds(): void;
 
     /**
      * 🟦 [Server]
@@ -66070,7 +66438,7 @@ declare namespace navmesh {
      * @param corner - The first corner of the new [CNavArea](https://wiki.facepunch.com/gmod/CNavArea)
      * @param opposite_corner - The opposite (diagonally) corner of the new [CNavArea](https://wiki.facepunch.com/gmod/CNavArea)
      */
-    function CreateNavArea(corner: Vector, opposite_corner: Vector): CNavArea;
+    declare function CreateNavArea(corner: Vector, opposite_corner: Vector): CNavArea;
 
     /**
      * 🟦 [Server]
@@ -66082,7 +66450,7 @@ declare namespace navmesh {
      * @param dir - Directional vector in which way the ladder should be facing. Please note that ladders can only face in the 4 cardinal directions - NORTH, SOUTH, WEST, EAST.
      * @param [maxHeightAboveTopArea = 0] - If above 0, will limit how much the top of the ladder can be adjusted to the closest [CNavArea](https://wiki.facepunch.com/gmod/CNavArea) when automatically connecting the newly created ladder to pre-existing nav areas.
      */
-    function CreateNavLadder(top: Vector, bottom: Vector, width: number, dir: Vector, maxHeightAboveTopArea = 0): CNavLadder;
+    declare function CreateNavLadder(top: Vector, bottom: Vector, width: number, dir: Vector, maxHeightAboveTopArea?: number): CNavLadder;
 
     /**
      * 🟦 [Server]
@@ -66093,7 +66461,7 @@ declare namespace navmesh {
      * @param stepHeight - Maximum step up height allowed
      * @param dropHeight - Maximum step down (fall distance) allowed
      */
-    function Find(pos: Vector, radius: number, stepHeight: number, dropHeight: number): any;
+    declare function Find(pos: Vector, radius: number, stepHeight: number, dropHeight: number): any;
 
     /**
      * 🟦 [Server]
@@ -66102,28 +66470,28 @@ declare namespace navmesh {
      * @param pos1 - The start position of the cube to search in.
      * @param pos2 - The "end" position of the cube to search in. This is the opposite corner of the cube, diagonally.
      */
-    function FindInBox(pos1: Vector, pos2: Vector): any;
+    declare function FindInBox(pos1: Vector, pos2: Vector): any;
 
     /**
      * 🟦 [Server]
      *
      * Returns an integer indexed table of all [CNavArea](https://wiki.facepunch.com/gmod/CNavArea)s on the current map. If the map doesn't have a navmesh generated then this will return an empty table.
      */
-    function GetAllNavAreas(): CNavArea[];
+    declare function GetAllNavAreas(): CNavArea[];
 
     /**
      * 🟦 [Server]
      *
      * Returns a table of all blocked [CNavArea](https://wiki.facepunch.com/gmod/CNavArea)s on the current map. See [CNavArea:MarkAsBlocked](https://wiki.facepunch.com/gmod/CNavArea:MarkAsBlocked).
      */
-    function GetBlockedAreas(): any;
+    declare function GetBlockedAreas(): any;
 
     /**
      * 🟦 [Server]
      *
      * Returns the position of the edit cursor when nav_edit is set to 1.
      */
-    function GetEditCursorPosition(): Vector;
+    declare function GetEditCursorPosition(): Vector;
 
     /**
      * 🟦 [Server]
@@ -66135,21 +66503,21 @@ declare namespace navmesh {
      *
      * @param pos - Position to find the closest ground for.
      */
-    function GetGroundHeight(pos: Vector): LuaMultiReturn<[number, Vector]>;
+    declare function GetGroundHeight(pos: Vector): LuaMultiReturn<[number, Vector]>;
 
     /**
      * 🟦 [Server]
      *
      * Returns the currently marked [CNavArea](https://wiki.facepunch.com/gmod/CNavArea), for use with editing console commands.
      */
-    function GetMarkedArea(): CNavArea;
+    declare function GetMarkedArea(): CNavArea;
 
     /**
      * 🟦 [Server]
      *
      * Returns the currently marked [CNavLadder](https://wiki.facepunch.com/gmod/CNavLadder), for use with editing console commands.
      */
-    function GetMarkedLadder(): CNavLadder;
+    declare function GetMarkedLadder(): CNavLadder;
 
     /**
      * 🟦 [Server]
@@ -66160,7 +66528,7 @@ declare namespace navmesh {
      * @param pos - The position to search for.
      * @param beneathLimit - The elevation limit at which the Nav Area will be searched.
      */
-    function GetNavArea(pos: Vector, beneathLimit: number): CNavArea;
+    declare function GetNavArea(pos: Vector, beneathLimit: number): CNavArea;
 
     /**
      * 🟦 [Server]
@@ -66172,14 +66540,14 @@ declare namespace navmesh {
      *
      * @param id - ID of the [CNavArea](https://wiki.facepunch.com/gmod/CNavArea) to get. Starts with 1.
      */
-    function GetNavAreaByID(id: number): CNavArea;
+    declare function GetNavAreaByID(id: number): CNavArea;
 
     /**
      * 🟦 [Server]
      *
      * Returns the total count of nav areas on the map. If you want to get all nav areas, use [navmesh.GetAllNavAreas](https://wiki.facepunch.com/gmod/navmesh.GetAllNavAreas) instead as nav areas IDs are not always sequential.
      */
-    function GetNavAreaCount(): number;
+    declare function GetNavAreaCount(): number;
 
     /**
      * 🟦 [Server]
@@ -66187,7 +66555,7 @@ declare namespace navmesh {
      * Returns a [CNavLadder](https://wiki.facepunch.com/gmod/CNavLadder) by the given ID.
      * @param id - ID of the [CNavLadder](https://wiki.facepunch.com/gmod/CNavLadder) to get. Starts with 1.
      */
-    function GetNavLadderByID(id: number): CNavLadder;
+    declare function GetNavLadderByID(id: number): CNavLadder;
 
     /**
      * 🟦 [Server]
@@ -66203,28 +66571,28 @@ declare namespace navmesh {
      * @param [checkGround = true] - If checkGround is true then this function will internally call [navmesh.GetNavArea](https://wiki.facepunch.com/gmod/navmesh.GetNavArea) to check if there is a [CNavArea](https://wiki.facepunch.com/gmod/CNavArea) directly below the position, and return it if so, before checking anywhere else.
      * @param [team = TEAM_ANY=-2] - This will internally call [CNavArea:IsBlocked](https://wiki.facepunch.com/gmod/CNavArea:IsBlocked) to check if the target [CNavArea](https://wiki.facepunch.com/gmod/CNavArea) is not to be navigated by the given team. Currently this appears to do nothing.
      */
-    function GetNearestNavArea(pos: Vector, anyZ = false, maxDist = 10000, checkLOS = false, checkGround = true, team?: number): CNavArea;
+    declare function GetNearestNavArea(pos: Vector, anyZ?: boolean, maxDist?: number, checkLOS?: boolean, checkGround?: boolean, team?: number): CNavArea;
 
     /**
      * 🟦 [Server]
      *
      * Returns the classname of the player spawn entity.
      */
-    function GetPlayerSpawnName(): string;
+    declare function GetPlayerSpawnName(): string;
 
     /**
      * 🟦 [Server]
      *
      * Whether we're currently generating a new navmesh with [navmesh.BeginGeneration](https://wiki.facepunch.com/gmod/navmesh.BeginGeneration).
      */
-    function IsGenerating(): boolean;
+    declare function IsGenerating(): boolean;
 
     /**
      * 🟦 [Server]
      *
      * Returns true if a navmesh has been loaded when loading the map.
      */
-    function IsLoaded(): boolean;
+    declare function IsLoaded(): boolean;
 
     /**
      * 🟦 [Server]
@@ -66234,21 +66602,21 @@ declare namespace navmesh {
      * **Warning:**
      * >Calling this function too soon, causes the Server to crash!
      */
-    function Load(): void;
+    declare function Load(): void;
 
     /**
      * 🟦 [Server]
      *
      * Deletes every [CNavArea](https://wiki.facepunch.com/gmod/CNavArea) and [CNavLadder](https://wiki.facepunch.com/gmod/CNavLadder) on the map **without saving the changes**.
      */
-    function Reset(): void;
+    declare function Reset(): void;
 
     /**
      * 🟦 [Server]
      *
      * Saves any changes made to navmesh to the .nav file.
      */
-    function Save(): void;
+    declare function Save(): void;
 
     /**
      * 🟦 [Server]
@@ -66256,7 +66624,7 @@ declare namespace navmesh {
      * Sets the [CNavArea](https://wiki.facepunch.com/gmod/CNavArea) as marked, so it can be used with editing console commands.
      * @param area - The [CNavArea](https://wiki.facepunch.com/gmod/CNavArea) to set as the marked area.
      */
-    function SetMarkedArea(area: CNavArea): void;
+    declare function SetMarkedArea(area: CNavArea): void;
 
     /**
      * 🟦 [Server]
@@ -66264,7 +66632,7 @@ declare namespace navmesh {
      * Sets the [CNavLadder](https://wiki.facepunch.com/gmod/CNavLadder) as marked, so it can be used with editing console commands.
      * @param area - The [CNavLadder](https://wiki.facepunch.com/gmod/CNavLadder) to set as the marked ladder.
      */
-    function SetMarkedLadder(area: CNavLadder): void;
+    declare function SetMarkedLadder(area: CNavLadder): void;
 
     /**
      * 🟦 [Server]
@@ -66272,7 +66640,7 @@ declare namespace navmesh {
      * Sets the classname of the default spawn point entity, used before generating a new navmesh with [navmesh.BeginGeneration](https://wiki.facepunch.com/gmod/navmesh.BeginGeneration).
      * @param spawnPointClass - The classname of what the player uses to spawn, automatically adds it to the walkable positions during map generation.
      */
-    function SetPlayerSpawnName(spawnPointClass: string): void;
+    declare function SetPlayerSpawnName(spawnPointClass: string): void;
 }
 
 /**
@@ -66288,7 +66656,7 @@ declare namespace net {
      *
      * Cancels a net message started by [net.Start](https://wiki.facepunch.com/gmod/net.Start), so you can immediately start a new one without any errors.
      */
-    function Abort(): void;
+    declare function Abort(): void;
 
     /**
      * 🟦 [Server]
@@ -66296,7 +66664,7 @@ declare namespace net {
      * Sends the currently built net message (see [net.Start](https://wiki.facepunch.com/gmod/net.Start)) to all connected players.
      * More information can be found in [Net Library Usage](https://wiki.facepunch.com/gmod/Net_Library_Usage).
      */
-    function Broadcast(): void;
+    declare function Broadcast(): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -66306,7 +66674,7 @@ declare namespace net {
      * **Note:**
      * >This will include 6 extra bits (or 1 byte rounded-up) used by the engine internally.
      */
-    function BytesLeft(): LuaMultiReturn<[number, number]>;
+    declare function BytesLeft(): LuaMultiReturn<[number, number]>;
 
     /**
      * 🟨🟦 [Shared]
@@ -66316,7 +66684,7 @@ declare namespace net {
      * **Note:**
      * >This will include 3 extra bytes (24 bits) used by the engine internally to send the data over the network.
      */
-    function BytesWritten(): LuaMultiReturn<[number, number]>;
+    declare function BytesWritten(): LuaMultiReturn<[number, number]>;
 
     /**
      * 🟨🟦 [Shared]
@@ -66327,7 +66695,7 @@ declare namespace net {
      * @param length - The message length, in **bits**.
      * @param client - The player that sent the message. This will be `nil` in the client state.
      */
-    function Incoming(length: number, client: Player): void;
+    declare function Incoming(length: number, client: Player): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -66337,7 +66705,7 @@ declare namespace net {
      * **Warning:**
      * >You **must** read information in same order as you write it.
      */
-    function ReadAngle(): Angle;
+    declare function ReadAngle(): Angle;
 
     /**
      * 🟨🟦 [Shared]
@@ -66347,7 +66715,7 @@ declare namespace net {
      * **Warning:**
      * >You **must** read information in same order as you write it.
      */
-    function ReadBit(): number;
+    declare function ReadBit(): number;
 
     /**
      * 🟨🟦 [Shared]
@@ -66357,7 +66725,7 @@ declare namespace net {
      * **Warning:**
      * >You **must** read information in same order as you write it.
      */
-    function ReadBool(): boolean;
+    declare function ReadBool(): boolean;
 
     /**
      * 🟨🟦 [Shared]
@@ -66369,7 +66737,7 @@ declare namespace net {
      *
      * @param [hasAlpha = true] - If the color has alpha written or not. **Must match what was given to [net.WriteColor](https://wiki.facepunch.com/gmod/net.WriteColor).**
      */
-    function ReadColor(hasAlpha = true): Color;
+    declare function ReadColor(hasAlpha?: boolean): Color;
 
     /**
      * 🟨🟦 [Shared]
@@ -66381,7 +66749,7 @@ declare namespace net {
      *
      * @param length - The length of the data to be read, in **bytes**.
      */
-    function ReadData(length: number): string;
+    declare function ReadData(length: number): string;
 
     /**
      * 🟨🟦 [Shared]
@@ -66391,7 +66759,7 @@ declare namespace net {
      * **Warning:**
      * >You **must** read information in same order as you write it.
      */
-    function ReadDouble(): number;
+    declare function ReadDouble(): number;
 
     /**
      * 🟨🟦 [Shared]
@@ -66401,7 +66769,7 @@ declare namespace net {
      * **Warning:**
      * >You **must** read information in same order as you write it.
      */
-    function ReadEntity(): Entity;
+    declare function ReadEntity(): Entity;
 
     /**
      * 🟨🟦 [Shared]
@@ -66411,14 +66779,14 @@ declare namespace net {
      * **Warning:**
      * >You **must** read information in same order as you write it.
      */
-    function ReadFloat(): number;
+    declare function ReadFloat(): number;
 
     /**
      * 🟨🟦 [Shared]
      *
      * Reads a word, basically unsigned short. This is used internally to read the "header" of the message which is an unsigned short which can be converted to the corresponding message name via [util.NetworkIDToString](https://wiki.facepunch.com/gmod/util.NetworkIDToString).
      */
-    function ReadHeader(): number;
+    declare function ReadHeader(): number;
 
     /**
      * 🟨🟦 [Shared]
@@ -66431,7 +66799,7 @@ declare namespace net {
      * @param bitCount - The amount of bits to be read.
      * This must be set to what you set to [net.WriteInt](https://wiki.facepunch.com/gmod/net.WriteInt). Read more information at [net.WriteInt](https://wiki.facepunch.com/gmod/net.WriteInt).
      */
-    function ReadInt(bitCount: number): number;
+    declare function ReadInt(bitCount: number): number;
 
     /**
      * 🟨🟦 [Shared]
@@ -66441,7 +66809,7 @@ declare namespace net {
      * **Warning:**
      * >You **must** read information in same order as you write it.
      */
-    function ReadMatrix(): VMatrix;
+    declare function ReadMatrix(): VMatrix;
 
     /**
      * 🟨🟦 [Shared]
@@ -66451,7 +66819,7 @@ declare namespace net {
      * **Warning:**
      * >You **must** read information in same order as you write it.
      */
-    function ReadNormal(): Vector;
+    declare function ReadNormal(): Vector;
 
     /**
      * 🟨🟦 [Shared]
@@ -66463,7 +66831,7 @@ declare namespace net {
      * **Warning:**
      * >You **must** read information in same order as you write it.
      */
-    function ReadPlayer(): Player;
+    declare function ReadPlayer(): Player;
 
     /**
      * 🟨🟦 [Shared]
@@ -66473,7 +66841,7 @@ declare namespace net {
      * **Warning:**
      * >You **must** read information in same order as you write it.
      */
-    function ReadString(): string;
+    declare function ReadString(): string;
 
     /**
      * 🟨🟦 [Shared]
@@ -66492,7 +66860,7 @@ declare namespace net {
      *
      * @param [sequential = false] - Set to `true` if the input table is sequential. This saves on bandwidth.
      */
-    function ReadTable(sequential = false): any;
+    declare function ReadTable(sequential?: boolean): any;
 
     /**
      * 🟨🟦 [Shared]
@@ -66506,7 +66874,7 @@ declare namespace net {
      *
      * @param [typeID = net.ReadUInt(8)] - The type of value to be read, using [Enums/TYPE](https://wiki.facepunch.com/gmod/Enums/TYPE).
      */
-    function ReadType(typeID?: TYPE): any;
+    declare function ReadType(typeID?: TYPE): any;
 
     /**
      * 🟨🟦 [Shared]
@@ -66519,7 +66887,7 @@ declare namespace net {
      * @param bitCount - The size of the integer to be read, in bits.
      * This must be set to what you set to [net.WriteUInt](https://wiki.facepunch.com/gmod/net.WriteUInt). Read more information at [net.WriteUInt](https://wiki.facepunch.com/gmod/net.WriteUInt).
      */
-    function ReadUInt(bitCount: number): number;
+    declare function ReadUInt(bitCount: number): number;
 
     /**
      * 🟨🟦 [Shared]
@@ -66529,14 +66897,14 @@ declare namespace net {
      * **Warning:**
      * >You **must** read information in same order as you write it.
      */
-    function ReadUInt64(): string;
+    declare function ReadUInt64(): string;
 
     /**
      * 🟨🟦 [Shared]
      *
      * A list of types that can be sent over the network via [net.ReadType](https://wiki.facepunch.com/gmod/net.ReadType).
      */
-    function ReadVars(): any;
+    declare function ReadVars(): any;
 
     /**
      * 🟨🟦 [Shared]
@@ -66546,7 +66914,7 @@ declare namespace net {
      * **Warning:**
      * >You **must** read information in same order as you write it.
      */
-    function ReadVector(): Vector;
+    declare function ReadVector(): Vector;
 
     /**
      * 🟨🟦 [Shared]
@@ -66572,7 +66940,7 @@ declare namespace net {
      * <arg type="Player" name="ply">The player that sent the message, works **only** server-side.</arg>
      * </callback>
      */
-    function Receive(messageName: string, callback: (len: number, ply: Player) => void): void;
+    declare function Receive(messageName: string, callback: (len: number, ply: Player) => void): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -66584,7 +66952,7 @@ declare namespace net {
      * **Note:**
      * >Modifying [net.Receivers](https://wiki.facepunch.com/gmod/net.Receivers) won't affect the net string pool used in [util.AddNetworkString](https://wiki.facepunch.com/gmod/util.AddNetworkString).
      */
-    function Receivers(): any;
+    declare function Receivers(): any;
 
     /**
      * 🟦 [Server]
@@ -66592,7 +66960,7 @@ declare namespace net {
      * Sends the current net message to the specified player(s)
      * @param ply - The player to send the message to.
      */
-    function Send(ply: Player): void;
+    declare function Send(ply: Player): void;
 
     /**
      * 🟦 [Server]
@@ -66600,7 +66968,7 @@ declare namespace net {
      * Sends the current message (see [net.Start](https://wiki.facepunch.com/gmod/net.Start)) to all except the player or players specified.
      * @param ply - The player to **NOT** send the message to.
      */
-    function SendOmit(ply: Player): void;
+    declare function SendOmit(ply: Player): void;
 
     /**
      * 🟦 [Server]
@@ -66608,7 +66976,7 @@ declare namespace net {
      * Sends current net message (see [net.Start](https://wiki.facepunch.com/gmod/net.Start)) to all players that are in the same [Potentially Audible Set (PAS)](https://developer.valvesoftware.com/wiki/PAS) as the position, or simply said, it adds all players that can potentially hear sounds from this position.
      * @param position - PAS position.
      */
-    function SendPAS(position: Vector): void;
+    declare function SendPAS(position: Vector): void;
 
     /**
      * 🟦 [Server]
@@ -66616,7 +66984,7 @@ declare namespace net {
      * Sends current net message (see [net.Start](https://wiki.facepunch.com/gmod/net.Start)) to all players in the [PVS (Potential Visibility Set)](https://developer.valvesoftware.com/wiki/PVS "PVS - Valve Developer Community") of the position, or, more simply said, sends the message to players that can potentially see this position.
      * @param position - Position that must be in players' visibility set.
      */
-    function SendPVS(position: Vector): void;
+    declare function SendPVS(position: Vector): void;
 
     /**
      * 🟨 [Client]
@@ -66628,7 +66996,7 @@ declare namespace net {
      *
      * The message name must be pooled with [util.AddNetworkString](https://wiki.facepunch.com/gmod/util.AddNetworkString) beforehand!
      */
-    function SendToServer(): void;
+    declare function SendToServer(): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -66653,7 +67021,7 @@ declare namespace net {
      * @param messageName - The name of the message to send
      * @param [unreliable = false] - If set to `true`, the message is not guaranteed to reach its destination
      */
-    function Start(messageName: string, unreliable = false): boolean;
+    declare function Start(messageName: string, unreliable?: boolean): boolean;
 
     /**
      * 🟨🟦 [Shared]
@@ -66661,7 +67029,7 @@ declare namespace net {
      * Writes an angle to the current net message.
      * @param angle - The angle to be sent.
      */
-    function WriteAngle(angle: Angle): void;
+    declare function WriteAngle(angle: Angle): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -66671,7 +67039,7 @@ declare namespace net {
      * Please note that the bit is written here from a [boolean](https://wiki.facepunch.com/gmod/boolean) (`true/false`) but [net.ReadBit](https://wiki.facepunch.com/gmod/net.ReadBit) returns a number.
      * @param boolean - Bit status (false = `0`, true = `1`).
      */
-    function WriteBit(boolean: boolean): void;
+    declare function WriteBit(boolean: boolean): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -66679,7 +67047,7 @@ declare namespace net {
      * Appends a boolean to the current net message. Alias of [net.WriteBit](https://wiki.facepunch.com/gmod/net.WriteBit).
      * @param boolean - Boolean value to write.
      */
-    function WriteBool(boolean: boolean): void;
+    declare function WriteBool(boolean: boolean): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -66688,7 +67056,7 @@ declare namespace net {
      * @param Color - The [Color](https://wiki.facepunch.com/gmod/Color) you want to append to the net message.
      * @param [writeAlpha = true] - If we should write the alpha of the color or not.
      */
-    function WriteColor(Color: Color, writeAlpha = true): void;
+    declare function WriteColor(Color: Color, writeAlpha?: boolean): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -66697,7 +67065,7 @@ declare namespace net {
      * @param binaryData - The binary data to be sent.
      * @param [length = #binaryData] - The length of the binary data to be sent, in bytes.
      */
-    function WriteData(binaryData: string, length?: number): void;
+    declare function WriteData(binaryData: string, length?: number): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -66705,7 +67073,7 @@ declare namespace net {
      * Appends a double-precision number to the current net message.
      * @param double - The double to be sent
      */
-    function WriteDouble(double: number): void;
+    declare function WriteDouble(double: number): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -66715,7 +67083,7 @@ declare namespace net {
      * See [net.ReadEntity](https://wiki.facepunch.com/gmod/net.ReadEntity) for the function to read the entity.
      * @param entity - The entity to be sent.
      */
-    function WriteEntity(entity: Entity): void;
+    declare function WriteEntity(entity: Entity): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -66723,7 +67091,7 @@ declare namespace net {
      * Appends a float (number with decimals) to the current net message.
      * @param float - The float to be sent.
      */
-    function WriteFloat(float: number): void;
+    declare function WriteFloat(float: number): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -66768,7 +67136,7 @@ declare namespace net {
      * | 31 | -1,073,741,824 | 1,073,741,823 |
      * | 32 | -2,147,483,648 | 2,147,483,647 |
      */
-    function WriteInt(integer: number, bitCount: number): void;
+    declare function WriteInt(integer: number, bitCount: number): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -66776,7 +67144,7 @@ declare namespace net {
      * Writes a [VMatrix](https://wiki.facepunch.com/gmod/VMatrix) to the current net message.
      * @param matrix - The matrix to be sent.
      */
-    function WriteMatrix(matrix: VMatrix): void;
+    declare function WriteMatrix(matrix: VMatrix): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -66786,7 +67154,7 @@ declare namespace net {
      * This function uses less bandwidth compared to [net.WriteVector](https://wiki.facepunch.com/gmod/net.WriteVector) and will not send vectors with length of > 1 properly.
      * @param normal - The normalized/direction vector to be send.
      */
-    function WriteNormal(normal: Vector): void;
+    declare function WriteNormal(normal: Vector): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -66796,7 +67164,7 @@ declare namespace net {
      * See [net.ReadPlayer](https://wiki.facepunch.com/gmod/net.ReadPlayer) for the function to read the entity.
      * @param ply - The player to be sent.
      */
-    function WritePlayer(ply: Player): void;
+    declare function WritePlayer(ply: Player): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -66807,7 +67175,7 @@ declare namespace net {
      * @param string - The string to be sent.
      * The input will be terminated at the first null byte if one is present. See [net.WriteData](https://wiki.facepunch.com/gmod/net.WriteData) if you wish to write binary data.
      */
-    function WriteString(string: string): void;
+    declare function WriteString(string: string): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -66824,7 +67192,7 @@ declare namespace net {
      * Not all objects can be sent over the network. Things like functions, [IMaterial](https://wiki.facepunch.com/gmod/IMaterial)s, etc will cause errors when reading the table from a net message.
      * Each element is also limited by the constraint of the `net.Write
      */
-    function WriteTable(table: any): void;
+    declare function WriteTable(table: any): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -66838,7 +67206,7 @@ declare namespace net {
      *
      * @param Data - The data to be sent.
      */
-    function WriteType(Data: any): void;
+    declare function WriteType(Data: any): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -66889,7 +67257,7 @@ declare namespace net {
      * | 31 | 2,147,483,647 |
      * | 32 | 4,294,967,295 |
      */
-    function WriteUInt(unsignedInteger: number, bitCount: number): void;
+    declare function WriteUInt(unsignedInteger: number, bitCount: number): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -66908,14 +67276,14 @@ declare namespace net {
      * 				You can do something like this to convert it to a string: `string.format("%.0f", number)`.
      * 				If you try to use [Global.tostring](https://wiki.facepunch.com/gmod/Global.tostring) it will fail because it will create a result something like `1e+14` which doesn't work.
      */
-    function WriteUInt64(uint64: string): void;
+    declare function WriteUInt64(uint64: string): void;
 
     /**
      * 🟨🟦 [Shared]
      *
      * A list of types that can be sent over the network via [net.WriteType](https://wiki.facepunch.com/gmod/net.WriteType).
      */
-    function WriteVars(): any;
+    declare function WriteVars(): any;
 
     /**
      * 🟨🟦 [Shared]
@@ -66924,7 +67292,7 @@ declare namespace net {
      * Vectors sent by this function are compressed, which may result in precision loss. XYZ components greater than `16384` or less than `-16384` are irrecoverably altered (most significant bits are trimmed) and precision after the decimal point is low.
      * @param vector - The vector to be sent.
      */
-    function WriteVector(vector: Vector): void;
+    declare function WriteVector(vector: Vector): void;
 }
 
 /**
@@ -66939,7 +67307,7 @@ declare namespace notification {
      * @param type - Determines the notification method (e.g. icon) for displaying the notification. See the [Enums/NOTIFY](https://wiki.facepunch.com/gmod/Enums/NOTIFY).
      * @param length - The number of seconds to display the notification for.
      */
-    function AddLegacy(text: string, type: NOTIFY, length: number): void;
+    declare function AddLegacy(text: string, type: NOTIFY, length: number): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -66949,7 +67317,7 @@ declare namespace notification {
      * @param strText - The text to show
      * @param [frac = nil] - If set, overrides the progress bar animation with given percentage. Range is 0 to 1.
      */
-    function AddProgress(id: any, strText: string, frac?: number): void;
+    declare function AddProgress(id: any, strText: string, frac?: number): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -66957,7 +67325,7 @@ declare namespace notification {
      * Removes the notification after 0.8 seconds.
      * @param uid - The unique ID of the notification
      */
-    function Kill(uid: any): void;
+    declare function Kill(uid: any): void;
 }
 
 /**
@@ -66972,7 +67340,7 @@ declare namespace numpad {
      * @param key - The key to press, see [Enums/KEY](https://wiki.facepunch.com/gmod/Enums/KEY)
      * @param [isButton = false] - Should this keypress pretend to be a from a `gmod_button`? (causes [numpad.FromButton](https://wiki.facepunch.com/gmod/numpad.FromButton) to return `true`)
      */
-    function Activate(ply: Player, key: KEY, isButton = false): void;
+    declare function Activate(ply: Player, key: KEY, isButton?: boolean): void;
 
     /**
      * 🟦 [Server]
@@ -66982,7 +67350,7 @@ declare namespace numpad {
      * @param key - The key to press, corresponding to [Enums/KEY](https://wiki.facepunch.com/gmod/Enums/KEY)
      * @param [isButton = false] - Should this keypress pretend to be a from a `gmod_button`? (causes [numpad.FromButton](https://wiki.facepunch.com/gmod/numpad.FromButton) to return `true`)
      */
-    function Deactivate(ply: Player, key: KEY, isButton = false): void;
+    declare function Deactivate(ply: Player, key: KEY, isButton?: boolean): void;
 
     /**
      * 🟦 [Server]
@@ -66991,7 +67359,7 @@ declare namespace numpad {
      *
      * This is caused when a numpad function is triggered by a button SENT being used.
      */
-    function FromButton(): boolean;
+    declare function FromButton(): boolean;
 
     /**
      * 🟦 [Server]
@@ -67004,7 +67372,7 @@ declare namespace numpad {
      * @param name - The name of the function to run, corresponding with the one used in [numpad.Register](https://wiki.facepunch.com/gmod/numpad.Register)
      * @param vararg - Arguments to pass to the function passed to [numpad.Register](https://wiki.facepunch.com/gmod/numpad.Register).
      */
-    function OnDown(ply: Player, key: KEY, name: string, ...vararg: any[]): number;
+    declare function OnDown(ply: Player, key: KEY, name: string, ...vararg: any[]): number;
 
     /**
      * 🟦 [Server]
@@ -67017,7 +67385,7 @@ declare namespace numpad {
      * @param name - The name of the function to run, corresponding with the one used in [numpad.Register](https://wiki.facepunch.com/gmod/numpad.Register)
      * @param vararg - Arguments to pass to the function passed to [numpad.Register](https://wiki.facepunch.com/gmod/numpad.Register).
      */
-    function OnUp(ply: Player, key: KEY, name: string, ...vararg: any[]): number;
+    declare function OnUp(ply: Player, key: KEY, name: string, ...vararg: any[]): number;
 
     /**
      * 🟦 [Server]
@@ -67032,7 +67400,7 @@ declare namespace numpad {
      * (example: return `false` if one of your varargs is an entity which is no longer valid)</ret>
      * </callback>
      */
-    function Register(id: string, func: (ply: Player, ...args: any[]) => boolean): void;
+    declare function Register(id: string, func: (ply: Player, ...args: any[]) => boolean): void;
 
     /**
      * 🟦 [Server]
@@ -67040,7 +67408,7 @@ declare namespace numpad {
      * Removes a function added by either [numpad.OnUp](https://wiki.facepunch.com/gmod/numpad.OnUp) or [numpad.OnDown](https://wiki.facepunch.com/gmod/numpad.OnDown)
      * @param ID - The impulse ID returned by [numpad.OnUp](https://wiki.facepunch.com/gmod/numpad.OnUp) or [numpad.OnDown](https://wiki.facepunch.com/gmod/numpad.OnDown)
      */
-    function Remove(ID: number): void;
+    declare function Remove(ID: number): void;
 
     /**
      * 🟦 [Server]
@@ -67049,7 +67417,7 @@ declare namespace numpad {
      * @param ply - The player whose numpad should be simulated
      * @param key - The key to press, corresponding to [Enums/KEY](https://wiki.facepunch.com/gmod/Enums/KEY)
      */
-    function Toggle(ply: Player, key: KEY): void;
+    declare function Toggle(ply: Player, key: KEY): void;
 }
 
 /**
@@ -67065,7 +67433,7 @@ declare namespace os {
      * **Note:**
      * >This function has different precision on Linux (1/100).
      */
-    function clock(): number;
+    declare function clock(): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -67104,7 +67472,7 @@ declare namespace os {
      *
      * @param [time = os.time()] - Time to use for the format.
      */
-    function date(format: DateData, time?: number): DateData;
+    declare function date(format: DateData, time?: number): DateData;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -67113,7 +67481,7 @@ declare namespace os {
      * @param timeA - The first value.
      * @param timeB - The value to subtract.
      */
-    function difftime(timeA: number, timeB: number): number;
+    declare function difftime(timeA: number, timeB: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -67121,7 +67489,7 @@ declare namespace os {
      * Returns the system time in seconds past the unix epoch. If a table is supplied, the function attempts to build a system time with the specified table members.
      * @param [dateData = nil] - Table to generate the time from. This table's data is interpreted as being in the local timezone. See [Structures/DateData](https://wiki.facepunch.com/gmod/Structures/DateData)
      */
-    function time(dateData?: DateData): number;
+    declare function time(dateData?: DateData): number;
 }
 
 /**
@@ -67133,7 +67501,7 @@ declare namespace package {
      *
      * A list of all loaded packages.
      */
-    function loaded(): any;
+    declare function loaded(): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -67141,7 +67509,7 @@ declare namespace package {
      * Sets a metatable for module with its __index field referring to the global environment, so that this module inherits values from the global environment. To be used as an option to [Global.module](https://wiki.facepunch.com/gmod/Global.module).
      * @param module - The module table to be given a metatable
      */
-    function seeall(module: any): void;
+    declare function seeall(module: any): void;
 }
 
 /**
@@ -67154,7 +67522,7 @@ declare namespace permissions {
      * Requests the player to connect to a specified server. The player will be prompted with a confirmation window.
      * @param address - The address to ask to connect to. If a port is not given, the default `:27015` port will be added.
      */
-    function AskToConnect(address: string): void;
+    declare function AskToConnect(address: string): void;
 
     /**
      * 🟩 [Menu]
@@ -67162,7 +67530,7 @@ declare namespace permissions {
      * Connects player to the server. This is what [permissions.AskToConnect](https://wiki.facepunch.com/gmod/permissions.AskToConnect) uses internally.
      * @param ip - IP address to connect.
      */
-    function Connect(ip: string): void;
+    declare function Connect(ip: string): void;
 
     /**
      * 🟨 [Client]
@@ -67171,14 +67539,14 @@ declare namespace permissions {
      * This is used for TTT's traitor voice channel.
      * @param enable - Enable or disable voice activity. `true` will run `+voicerecord` command, anything else `-voicerecord`.
      */
-    function EnableVoiceChat(enable: boolean): void;
+    declare function EnableVoiceChat(enable: boolean): void;
 
     /**
      * 🟩 [Menu]
      *
      * Returns all permissions per server. Permanent permissions are stored in `settings/permissions.bin`.
      */
-    function GetAll(): Record<string, any>;
+    declare function GetAll(): Record<string, any>;
 
     /**
      * 🟩 [Menu]
@@ -67187,7 +67555,7 @@ declare namespace permissions {
      * @param permission - Permission to grant for the server the player is currently connected.
      * @param temporary - `true` if the permission should be granted temporary.
      */
-    function Grant(permission: string, temporary: boolean): void;
+    declare function Grant(permission: string, temporary: boolean): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -67197,7 +67565,7 @@ declare namespace permissions {
      * * `"connect"`
      * * `"voicerecord"`
      */
-    function IsGranted(permission: string): boolean;
+    declare function IsGranted(permission: string): boolean;
 
     /**
      * 🟩 [Menu]
@@ -67206,7 +67574,7 @@ declare namespace permissions {
      * @param permission - Permission to revoke from the server.
      * @param ip - IP of the server.
      */
-    function Revoke(permission: string, ip: string): void;
+    declare function Revoke(permission: string, ip: string): void;
 }
 
 /**
@@ -67227,7 +67595,7 @@ declare namespace physenv {
      *
      * @param properties - The properties to add. Each one should include `"base"` or the game will crash due to some values being missing.
      */
-    function AddSurfaceData(properties: string): void;
+    declare function AddSurfaceData(properties: string): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -67235,35 +67603,35 @@ declare namespace physenv {
      * Returns the air density used to calculate drag on physics objects.
      * 		<validate>The unit is in `kg/m³`.</validate>
      */
-    function GetAirDensity(): number;
+    declare function GetAirDensity(): number;
 
     /**
      * 🟨🟦 [Shared]
      *
      * Gets the gravitational acceleration used for physics objects in `source_unit/s^2`.
      */
-    function GetGravity(): Vector;
+    declare function GetGravity(): Vector;
 
     /**
      * 🟨🟦 [Shared]
      *
      * Returns the last simulation duration of the in-game physics.
      */
-    function GetLastSimulationTime(): number;
+    declare function GetLastSimulationTime(): number;
 
     /**
      * 🟨🟦 [Shared]
      *
      * Gets the current performance settings in table form.
      */
-    function GetPerformanceSettings(): any;
+    declare function GetPerformanceSettings(): any;
 
     /**
      * 🟨🟦 [Shared]
      *
      * Returns the pause status of global physics simulation. See [physenv.SetPhysicsPaused](https://wiki.facepunch.com/gmod/physenv.SetPhysicsPaused) for the setter.
      */
-    function GetPhysicsPaused(): boolean;
+    declare function GetPhysicsPaused(): boolean;
 
     /**
      * 🟨🟦 [Shared]
@@ -67271,7 +67639,7 @@ declare namespace physenv {
      * Sets the air density.
      * @param airDensity - The new air density.
      */
-    function SetAirDensity(airDensity: number): void;
+    declare function SetAirDensity(airDensity: number): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -67279,7 +67647,7 @@ declare namespace physenv {
      * Sets the gravitational acceleration used for physics objects. Does not affect players.
      * @param gravAccel - The new gravity in `source_unit/s^2`.
      */
-    function SetGravity(gravAccel: Vector): void;
+    declare function SetGravity(gravAccel: Vector): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -67287,7 +67655,7 @@ declare namespace physenv {
      * Sets the performance settings.
      * @param performanceSettings - The new performance settings. See [Structures/PhysEnvPerformanceSettings](https://wiki.facepunch.com/gmod/Structures/PhysEnvPerformanceSettings)
      */
-    function SetPerformanceSettings(performanceSettings: PhysEnvPerformanceSettings): void;
+    declare function SetPerformanceSettings(performanceSettings: PhysEnvPerformanceSettings): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -67295,7 +67663,7 @@ declare namespace physenv {
      * Pauses or unpauses the physics simulation globally. See [physenv.GetPhysicsPaused](https://wiki.facepunch.com/gmod/physenv.GetPhysicsPaused) for the getter.
      * @param pause - `true` to pause, `false` to unpause.
      */
-    function SetPhysicsPaused(pause: boolean): void;
+    declare function SetPhysicsPaused(pause: boolean): void;
 }
 
 /**
@@ -67319,7 +67687,7 @@ declare namespace player {
      * @param botName - The name of the bot, using an already existing name will append brackets at the end of it with a number pertaining it.
      * Example: "Bot name test", "Bot name test(1)".
      */
-    function CreateNextBot(botName: string): Player;
+    declare function CreateNextBot(botName: string): Player;
 
     /**
      * 🟨🟦 [Shared]
@@ -67331,14 +67699,14 @@ declare namespace player {
      * **Note:**
      * >This function returns a sequential table, meaning it should be looped with [Global.ipairs](https://wiki.facepunch.com/gmod/Global.ipairs) instead of [Global.pairs](https://wiki.facepunch.com/gmod/Global.pairs) for efficiency reasons.
      */
-    function GetAll(): Player[];
+    declare function GetAll(): Player[];
 
     /**
      * 🟨🟦 [Shared]
      *
      * Returns a table of all bots on the server.
      */
-    function GetBots(): Player[];
+    declare function GetBots(): Player[];
 
     /**
      * 🟨🟦 [Shared]
@@ -67350,7 +67718,7 @@ declare namespace player {
      *
      * @param accountID - The [Player:AccountID](https://wiki.facepunch.com/gmod/Player:AccountID) to find the player by.
      */
-    function GetByAccountID(accountID: number): Player|boolean;
+    declare function GetByAccountID(accountID: number): Player|boolean;
 
     /**
      * 🟨🟦 [Shared]
@@ -67364,7 +67732,7 @@ declare namespace player {
      * For a function that returns a player based on their [Player:UserID](https://wiki.facepunch.com/gmod/Player:UserID), see [Global.Player](https://wiki.facepunch.com/gmod/Global.Player).
      * @param connectionID - The connection ID to find the player by.
      */
-    function GetByID(connectionID: number): Player|NULL;
+    declare function GetByID(connectionID: number): Player|NULL;
 
     /**
      * 🟨🟦 [Shared]
@@ -67376,7 +67744,7 @@ declare namespace player {
      *
      * @param steamID - The [Player:SteamID](https://wiki.facepunch.com/gmod/Player:SteamID) to find the player by.
      */
-    function GetBySteamID(steamID: string): Player|boolean;
+    declare function GetBySteamID(steamID: string): Player|boolean;
 
     /**
      * 🟨🟦 [Shared]
@@ -67388,7 +67756,7 @@ declare namespace player {
      *
      * @param steamID64 - The [Player:SteamID64](https://wiki.facepunch.com/gmod/Player:SteamID64) to find the player by.
      */
-    function GetBySteamID64(steamID64: string): Player|boolean;
+    declare function GetBySteamID64(steamID64: string): Player|boolean;
 
     /**
      * 🟨🟦 [Shared]
@@ -67403,7 +67771,7 @@ declare namespace player {
      *
      * @param uniqueID - The [Player:UniqueID](https://wiki.facepunch.com/gmod/Player:UniqueID) to find the player by.
      */
-    function GetByUniqueID(uniqueID: string): Player|boolean;
+    declare function GetByUniqueID(uniqueID: string): Player|boolean;
 
     /**
      * 🟨🟦 [Shared]
@@ -67416,7 +67784,7 @@ declare namespace player {
      * **Note:**
      * >Players who are currently connecting to the server will not be counted. See function: [player.GetCountConnecting](https://wiki.facepunch.com/gmod/player.GetCountConnecting)
      */
-    function GetCount(): number;
+    declare function GetCount(): number;
 
     /**
      * 🟦 [Server]
@@ -67425,7 +67793,7 @@ declare namespace player {
      *
      * `player.GetCountConnecting() + player.GetCount()` would result in the total player count on this server.
      */
-    function GetCountConnecting(): number;
+    declare function GetCountConnecting(): number;
 
     /**
      * 🟨🟦 [Shared]
@@ -67437,7 +67805,7 @@ declare namespace player {
      * **Note:**
      * >This function returns a sequential table, meaning it should be looped with [Global.ipairs](https://wiki.facepunch.com/gmod/Global.ipairs) instead of [Global.pairs](https://wiki.facepunch.com/gmod/Global.pairs) for efficiency reasons.
      */
-    function GetHumans(): Player[];
+    declare function GetHumans(): Player[];
 
     /**
      * 🟨🟦 [Shared]
@@ -67450,7 +67818,7 @@ declare namespace player {
      * >Internally, this function uses cached values that are stored in Lua, as opposed to [player.GetAll](https://wiki.facepunch.com/gmod/player.GetAll), which is a C++ function.
      * 		Because a call operation from Lua to C++ *and* with a return back to Lua is quite costly, this function will be more efficient than [player.GetAll](https://wiki.facepunch.com/gmod/player.GetAll).
      */
-    function Iterator(): LuaMultiReturn<[Function, Player[], number]>;
+    declare function Iterator(): LuaMultiReturn<[Function, Player[], number]>;
 }
 
 /**
@@ -67468,8 +67836,8 @@ declare namespace player_manager {
      * @param [matchBodySkin = false] - If set to `true`, the skin of the hands will be set to the skin of the playermodel.
      *  This is useful when player models have multiple user-selectable skins.
      */
-    function AddValidHands<S0 extends string>(name: string, model: string, skin: number, bodygroups: (string extends S0 ? never : _ValidatedSubModelIdsOK<S0>), matchBodySkin: boolean): void;
-    function AddValidHands<W0 extends string>(name: string, model: string, skin: number, bodygroups: string & (string extends W0 ? W0 : never), matchBodySkin: boolean): void;
+    declare function AddValidHands<S0 extends string>(name: string, model: string, skin?: number, bodygroups?: (string extends S0 ? never : _ValidatedSubModelIdsOK<S0>), matchBodySkin?: boolean): void;
+    declare function AddValidHands<W0 extends string>(name: string, model: string, skin?: number, bodygroups?: string & (string extends W0 ? W0 : never), matchBodySkin?: boolean): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -67480,14 +67848,14 @@ declare namespace player_manager {
      * @param name - Simplified name
      * @param model - Valid PlayerModel path
      */
-    function AddValidModel(name: string, model: string): void;
+    declare function AddValidModel(name: string, model: string): void;
 
     /**
      * 🟨🟦 [Shared]
      *
      * Returns the entire list of valid player models.
      */
-    function AllValidModels(): any;
+    declare function AllValidModels(): any;
 
     /**
      * 🟨🟦 [Shared]
@@ -67495,7 +67863,7 @@ declare namespace player_manager {
      * Clears a player's class association by setting their ClassID to 0
      * @param ply - Player to clear class from
      */
-    function ClearPlayerClass(ply: Player): void;
+    declare function ClearPlayerClass(ply: Player): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -67503,14 +67871,14 @@ declare namespace player_manager {
      * Gets a players class
      * @param ply - Player to get class
      */
-    function GetPlayerClass(ply: Player): string;
+    declare function GetPlayerClass(ply: Player): string;
 
     /**
      * 🟨🟦 [Shared]
      *
      * Retrieves a copy of all registered player classes.
      */
-    function GetPlayerClasses(): any;
+    declare function GetPlayerClasses(): any;
 
     /**
      * 🟨🟦 [Shared]
@@ -67518,7 +67886,7 @@ declare namespace player_manager {
      * Gets a players' class table
      * @param ply - Player to get class of
      */
-    function GetPlayerClassTable(ply: Player): any;
+    declare function GetPlayerClassTable(ply: Player): any;
 
     /**
      * 🟨🟦 [Shared]
@@ -67529,7 +67897,7 @@ declare namespace player_manager {
      * @param ply - Player to setup.
      * @param transiton - If true, the player just spawned from a map transition. You probably want to not touch player's weapons or position if this is set to `true`.
      */
-    function OnPlayerSpawn(ply: Player, transiton: boolean): void;
+    declare function OnPlayerSpawn(ply: Player, transiton: boolean): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -67539,7 +67907,7 @@ declare namespace player_manager {
      * @param table - Class metatable, see [Structures/PLAYER](https://wiki.facepunch.com/gmod/Structures/PLAYER)
      * @param [base = nil] - Base class name
      */
-    function RegisterClass(name: string, table: PLAYER, base?: string): void;
+    declare function RegisterClass(name: string, table: PLAYER, base?: string): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -67549,7 +67917,7 @@ declare namespace player_manager {
      * @param funcName - Name of function.
      * @param arguments - Optional arguments. Can be of any type.
      */
-    function RunClass(ply: Player, funcName: string, ...arguments: any[]): any;
+    declare function RunClass(ply: Player, funcName: string, ...arguments: any[]): any;
 
     /**
      * 🟨🟦 [Shared]
@@ -67558,7 +67926,7 @@ declare namespace player_manager {
      * @param ply - Player to set class
      * @param className - Name of class to set
      */
-    function SetPlayerClass(ply: Player, className: string): void;
+    declare function SetPlayerClass(ply: Player, className: string): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -67570,7 +67938,7 @@ declare namespace player_manager {
      *
      * @param name - Player model name
      */
-    function TranslatePlayerHands(name: string): any;
+    declare function TranslatePlayerHands(name: string): any;
 
     /**
      * 🟨🟦 [Shared]
@@ -67578,7 +67946,7 @@ declare namespace player_manager {
      * Returns the valid model path for a simplified name.
      * @param shortName - The short name of the model.
      */
-    function TranslatePlayerModel(shortName: string): string;
+    declare function TranslatePlayerModel(shortName: string): string;
 
     /**
      * 🟨🟦 [Shared]
@@ -67588,7 +67956,7 @@ declare namespace player_manager {
      * Opposite of [player_manager.TranslatePlayerModel](https://wiki.facepunch.com/gmod/player_manager.TranslatePlayerModel).
      * @param model - The model path to a player model
      */
-    function TranslateToPlayerModelName(model: string): string;
+    declare function TranslateToPlayerModelName(model: string): string;
 }
 
 /**
@@ -67603,14 +67971,14 @@ declare namespace presets {
      * @param name - Preset name, must be unique.
      * @param values - A table of preset console commands.
      */
-    function Add(groupname: string, name: string, values: any): void;
+    declare function Add(groupname: string, name: string, values: any): void;
 
     /**
      * 🟨 [Client]
      *
      * Used internally to tell the player that the name they tried to use in their preset is not acceptable.
      */
-    function BadNameAlert(): void;
+    declare function BadNameAlert(): void;
 
     /**
      * 🟨 [Client]
@@ -67619,7 +67987,7 @@ declare namespace presets {
      * @param type - The preset group name, usually it's tool class name.
      * @param name - Name of the preset to test
      */
-    function Exists(type: string, name: string): boolean;
+    declare function Exists(type: string, name: string): boolean;
 
     /**
      * 🟨 [Client]
@@ -67627,7 +67995,7 @@ declare namespace presets {
      * Returns a table with preset names and values from a single preset group.
      * @param groupname - Preset group name.
      */
-    function GetTable(groupname: string): any;
+    declare function GetTable(groupname: string): any;
 
     /**
      * 🟨 [Client]
@@ -67635,7 +68003,7 @@ declare namespace presets {
      * Used internally to ask the player if they want to override an already existing preset.
      * @param callback -
      */
-    function OverwritePresetPrompt(callback: Function): void;
+    declare function OverwritePresetPrompt(callback: Function): void;
 
     /**
      * 🟨 [Client]
@@ -67644,7 +68012,7 @@ declare namespace presets {
      * @param groupname - Preset group to remove from
      * @param name - Name of preset to remove
      */
-    function Remove(groupname: string, name: string): void;
+    declare function Remove(groupname: string, name: string): void;
 
     /**
      * 🟨 [Client]
@@ -67654,7 +68022,7 @@ declare namespace presets {
      * @param oldname - Old preset name
      * @param newname - New preset name
      */
-    function Rename(groupname: string, oldname: string, newname: string): void;
+    declare function Rename(groupname: string, oldname: string, newname: string): void;
 }
 
 /**
@@ -67668,7 +68036,7 @@ declare namespace properties {
      * @param name - A unique name used to identify the property
      * @param propertyData - A table that defines the property. Uses the [Structures/PropertyAdd](https://wiki.facepunch.com/gmod/Structures/PropertyAdd).
      */
-    function Add(name: string, propertyData: PropertyAdd): void;
+    declare function Add(name: string, propertyData: PropertyAdd): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -67679,7 +68047,7 @@ declare namespace properties {
      * @param ent - The entity to test
      * @param ply - If given, will also perform a distance check based on the entity's Orientated Bounding Box.
      */
-    function CanBeTargeted(ent: Entity, ply: Player): boolean;
+    declare function CanBeTargeted(ent: Entity, ply: Player): boolean;
 
     /**
      * 🟨 [Client]
@@ -67688,14 +68056,14 @@ declare namespace properties {
      * @param pos - Eye position of local player, [Entity:EyePos](https://wiki.facepunch.com/gmod/Entity:EyePos)
      * @param aimVec - Aim vector of local player, [Player:GetAimVector](https://wiki.facepunch.com/gmod/Player:GetAimVector)
      */
-    function GetHovered(pos: Vector, aimVec: Vector): Entity;
+    declare function GetHovered(pos: Vector, aimVec: Vector): Entity;
 
     /**
      * 🟨🟦 [Shared]
      *
      * A list of all properties registered with [properties.Add](https://wiki.facepunch.com/gmod/properties.Add).
      */
-    function List(): any;
+    declare function List(): any;
 
     /**
      * 🟨🟦 [Shared]
@@ -67704,7 +68072,7 @@ declare namespace properties {
      * @param eyepos - The eye pos of a player
      * @param eyevec - The aim vector of a player
      */
-    function OnScreenClick(eyepos: Vector, eyevec: Vector): void;
+    declare function OnScreenClick(eyepos: Vector, eyevec: Vector): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -67713,7 +68081,7 @@ declare namespace properties {
      * @param ent - The entity to open menu for
      * @param tr - The trace that is passed as second argument to Action callback of a property
      */
-    function OpenEntityMenu(ent: Entity, tr: any): void;
+    declare function OpenEntityMenu(ent: Entity, tr: any): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -67721,7 +68089,7 @@ declare namespace properties {
      * Remove an entity right-click property. See [properties.Add](https://wiki.facepunch.com/gmod/properties.Add) for details.
      * @param name - A unique name used to identify the property to be removed.
      */
-    function Remove(name: string): void;
+    declare function Remove(name: string): void;
 }
 
 /**
@@ -67739,7 +68107,7 @@ declare namespace render {
      * @param textureEnd - The end coordinate of the texture used.
      * @param color - The color to be used. Uses the [Color](https://wiki.facepunch.com/gmod/Color).
      */
-    function AddBeam(startPos: Vector, width: number, textureEnd: number, color: Color): void;
+    declare function AddBeam(startPos: Vector, width: number, textureEnd: number, color: Color): void;
 
     /**
      * 🟨 [Client]
@@ -67754,7 +68122,7 @@ declare namespace render {
      * @param blury - Vertical amount of blur
      * @param passes - Amount of passes to go through
      */
-    function BlurRenderTarget(rendertarget: ITexture, blurx: number, blury: number, passes: number): void;
+    declare function BlurRenderTarget(rendertarget: ITexture, blurx: number, blury: number, passes: number): void;
 
     /**
      * 🟨 [Client]
@@ -67762,7 +68130,7 @@ declare namespace render {
      * This function overrides the brush material for next render operations. It can be used with [Entity:DrawModel](https://wiki.facepunch.com/gmod/Entity:DrawModel).
      * @param [mat = nil] -
      */
-    function BrushMaterialOverride(mat?: IMaterial): void;
+    declare function BrushMaterialOverride(mat?: IMaterial): void;
 
     /**
      * 🟨 [Client]
@@ -67780,7 +68148,7 @@ declare namespace render {
      *
      * @param captureData - Parameters of the capture. See [Structures/RenderCaptureData](https://wiki.facepunch.com/gmod/Structures/RenderCaptureData).
      */
-    function Capture(captureData: RenderCaptureData): string;
+    declare function Capture(captureData: RenderCaptureData): string;
 
     /**
      * 🟨 [Client]
@@ -67790,7 +68158,7 @@ declare namespace render {
      *
      * 	Capturing outside a render hook will return 0 0 0 255
      */
-    function CapturePixels(): void;
+    declare function CapturePixels(): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -67807,7 +68175,7 @@ declare namespace render {
      * @param [clearDepth = false] - Clear the depth.
      * @param [clearStencil = false] - Clear the stencil.
      */
-    function Clear(r: number, g: number, b: number, a: number, clearDepth = false, clearStencil = false): void;
+    declare function Clear(r: number, g: number, b: number, a: number, clearDepth?: boolean, clearStencil?: boolean): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -67830,7 +68198,7 @@ declare namespace render {
      * 			Must be an integer value in the range 0-255 (`byte`)
      * @param clearDepth - If true, reset the Depth Buffer values.
      */
-    function ClearBuffersObeyStencil(red: number, green: number, blue: number, alpha: number, clearDepth: boolean): void;
+    declare function ClearBuffersObeyStencil(red: number, green: number, blue: number, alpha: number, clearDepth: boolean): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -67838,7 +68206,7 @@ declare namespace render {
      * Resets the depth buffer.
      * @param [clearStencil = true] - Whether to also clear the stencil buffer.
      */
-    function ClearDepth(clearStencil = true): void;
+    declare function ClearDepth(clearStencil?: boolean): void;
 
     /**
      * 🟨 [Client]
@@ -67849,7 +68217,7 @@ declare namespace render {
      * @param texture -
      * @param color - The color, see [Color](https://wiki.facepunch.com/gmod/Color)
      */
-    function ClearRenderTarget(texture: ITexture, color: Color): void;
+    declare function ClearRenderTarget(texture: ITexture, color: Color): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -67858,7 +68226,7 @@ declare namespace render {
      *
      * 		For more detailed information on the Stencil system, including usage examples, see the <page text="Stencils Render Reference">render_stencils</page> page
      */
-    function ClearStencil(): void;
+    declare function ClearStencil(): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -67876,7 +68244,7 @@ declare namespace render {
      * 			**Note:** Unlike some other rectangle-based functions, this is **not** the height of the rectangle.
      * @param stencilBufferValue - The Stencil Buffer value that all pixels within the rectangle will be set to.
      */
-    function ClearStencilBufferRectangle(startX: number, startY: number, endX: number, endY: number, stencilBufferValue: number): void;
+    declare function ClearStencilBufferRectangle(startX: number, startY: number, endX: number, endY: number, stencilBufferValue: number): void;
 
     /**
      * 🟨 [Client]
@@ -67885,7 +68253,7 @@ declare namespace render {
      * @param position - The position to sample from.
      * @param normal - The normal of the surface.
      */
-    function ComputeDynamicLighting(position: Vector, normal: Vector): Vector;
+    declare function ComputeDynamicLighting(position: Vector, normal: Vector): Vector;
 
     /**
      * 🟨 [Client]
@@ -67894,7 +68262,7 @@ declare namespace render {
      * @param position - The position of the surface to get the light from.
      * @param normal - The normal of the surface to get the light from.
      */
-    function ComputeLighting(position: Vector, normal: Vector): Vector;
+    declare function ComputeLighting(position: Vector, normal: Vector): Vector;
 
     /**
      * 🟨 [Client]
@@ -67905,7 +68273,7 @@ declare namespace render {
      * @param point - The position of the sphere in 3D space.
      * @param radius - The radius of the sphere in 3D space.
      */
-    function ComputePixelDiameterOfSphere(point: Vector, radius: number): number;
+    declare function ComputePixelDiameterOfSphere(point: Vector, radius: number): number;
 
     /**
      * 🟨 [Client]
@@ -67917,7 +68285,7 @@ declare namespace render {
      *
      * @param Target - The texture to copy to
      */
-    function CopyRenderTargetToTexture(Target: ITexture): void;
+    declare function CopyRenderTargetToTexture(Target: ITexture): void;
 
     /**
      * 🟨 [Client]
@@ -67930,7 +68298,7 @@ declare namespace render {
      * @param texture_from -
      * @param texture_to -
      */
-    function CopyTexture(texture_from: ITexture, texture_to: ITexture): void;
+    declare function CopyTexture(texture_from: ITexture, texture_to: ITexture): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -67938,7 +68306,7 @@ declare namespace render {
      * Sets the cull mode. The culling mode defines how back faces are culled when rendering geometry.
      * @param cullMode - Cullmode, see [Enums/MATERIAL_CULLMODE](https://wiki.facepunch.com/gmod/Enums/MATERIAL_CULLMODE)
      */
-    function CullMode(cullMode: MATERIAL_CULLMODE): void;
+    declare function CullMode(cullMode: MATERIAL_CULLMODE): void;
 
     /**
      * 🟨 [Client]
@@ -67947,7 +68315,7 @@ declare namespace render {
      * @param depthmin - The minimum depth of the upcoming render. `0.0` = render normally; `1.0` = render nothing.
      * @param depthmax - The maximum depth of the upcoming render. `0.0` = render everything (through walls); `1.0` = render normally.
      */
-    function DepthRange(depthmin: number, depthmax: number): void;
+    declare function DepthRange(depthmin: number, depthmax: number): void;
 
     /**
      * 🟨 [Client]
@@ -67964,7 +68332,7 @@ declare namespace render {
      * @param textureEnd - The end coordinate of the Beam's texture.
      * @param [color = Color( 255, 255, 255 )] - What [Color](https://wiki.facepunch.com/gmod/Color) to tint the Beam.
      */
-    function DrawBeam(startPos: Vector, endPos: Vector, width: number, textureStart: number, textureEnd: number, color?: Color): void;
+    declare function DrawBeam(startPos: Vector, endPos: Vector, width: number, textureStart: number, textureEnd: number, color?: Color): void;
 
     /**
      * 🟨 [Client]
@@ -67978,7 +68346,7 @@ declare namespace render {
      * @param maxs - End position of the box, relative to origin.
      * @param [color = Color( 255, 255, 255 )] - The color of the box. Uses the [Color](https://wiki.facepunch.com/gmod/Color).
      */
-    function DrawBox(position: Vector, angles: Angle, mins: Vector, maxs: Vector, color?: Color): void;
+    declare function DrawBox(position: Vector, angles: Angle, mins: Vector, maxs: Vector, color?: Color): void;
 
     /**
      * 🟨 [Client]
@@ -67993,7 +68361,7 @@ declare namespace render {
      * **Bug [#1086](https://github.com/Facepunch/garrysmod-issues/issues/1086):**
      * >Enabling this option will cause the line to ignore the color's alpha.
      */
-    function DrawLine(startPos: Vector, endPos: Vector, color?: Color, writeZ = false): void;
+    declare function DrawLine(startPos: Vector, endPos: Vector, color?: Color, writeZ?: boolean): void;
 
     /**
      * 🟨 [Client]
@@ -68007,7 +68375,7 @@ declare namespace render {
      * @param vert4 - The fourth vertex.
      * @param [color = Color( 255, 255, 255 )] - The color of the quad. See [Global.Color](https://wiki.facepunch.com/gmod/Global.Color)
      */
-    function DrawQuad(vert1: Vector, vert2: Vector, vert3: Vector, vert4: Vector, color?: any): void;
+    declare function DrawQuad(vert1: Vector, vert2: Vector, vert3: Vector, vert4: Vector, color?: any): void;
 
     /**
      * 🟨 [Client]
@@ -68022,7 +68390,7 @@ declare namespace render {
      * @param color - The color of the quad. Uses the [Color](https://wiki.facepunch.com/gmod/Color).
      * @param [rotation = 0] - The rotation of the quad counter-clockwise in degrees around the normal axis. In other words, the quad will always face the same way but this will rotate its corners.
      */
-    function DrawQuadEasy(position: Vector, normal: Vector, width: number, height: number, color: Color, rotation = 0): void;
+    declare function DrawQuadEasy(position: Vector, normal: Vector, width: number, height: number, color: Color, rotation?: number): void;
 
     /**
      * 🟨 [Client]
@@ -68034,7 +68402,7 @@ declare namespace render {
      * <rendercontext hook="false" type="2D"></rendercontext>
      * @param [applyPoster = false] - If set to true, when rendering a poster the quad will be properly drawn in parts in the poster. This is used internally by some Post Processing effects. Certain special textures (frame buffer like textures) do not need this adjustment.
      */
-    function DrawScreenQuad(applyPoster = false): void;
+    declare function DrawScreenQuad(applyPoster?: boolean): void;
 
     /**
      * 🟨 [Client]
@@ -68049,7 +68417,7 @@ declare namespace render {
      * @param width - Width of the rect.
      * @param height - Height of the rect.
      */
-    function DrawScreenQuadEx(startX: number, startY: number, width: number, height: number): void;
+    declare function DrawScreenQuadEx(startX: number, startY: number, width: number, height: number): void;
 
     /**
      * 🟨 [Client]
@@ -68065,7 +68433,7 @@ declare namespace render {
      * @param latitudeSteps - The number of latitude steps. This controls the quality of the sphere. Higher quality will lower performance significantly. 50 is a good number to start with.
      * @param [color = Color( 255, 255, 255 )] - The color of the sphere. Uses the [Color](https://wiki.facepunch.com/gmod/Color).
      */
-    function DrawSphere(position: Vector, radius: number, longitudeSteps: number, latitudeSteps: number, color?: Color): void;
+    declare function DrawSphere(position: Vector, radius: number, longitudeSteps: number, latitudeSteps: number, color?: Color): void;
 
     /**
      * 🟨 [Client]
@@ -68078,7 +68446,7 @@ declare namespace render {
      * @param height - Height of the sprite.
      * @param [color = Color( 255, 255, 255 )] - Color of the sprite. Uses the [Color](https://wiki.facepunch.com/gmod/Color).
      */
-    function DrawSprite(position: Vector, width: number, height: number, color?: Color): void;
+    declare function DrawSprite(position: Vector, width: number, height: number, color?: Color): void;
 
     /**
      * 🟨 [Client]
@@ -68088,7 +68456,7 @@ declare namespace render {
      * <rendercontext hook="false" type="2D"></rendercontext>
      * @param tex - The texture to draw
      */
-    function DrawTextureToScreen(tex: ITexture): void;
+    declare function DrawTextureToScreen(tex: ITexture): void;
 
     /**
      * 🟨 [Client]
@@ -68102,7 +68470,7 @@ declare namespace render {
      * @param width - The width of the rectangle to draw.
      * @param height - The height of the rectangle to draw.
      */
-    function DrawTextureToScreenRect(tex: ITexture, x: number, y: number, width: number, height: number): void;
+    declare function DrawTextureToScreenRect(tex: ITexture, x: number, y: number, width: number, height: number): void;
 
     /**
      * 🟨 [Client]
@@ -68117,7 +68485,7 @@ declare namespace render {
      * @param [color = Color( 255, 255, 255 )] - The color of the box. Uses the [Color](https://wiki.facepunch.com/gmod/Color).
      * @param [writeZ = false] - Sets whenever to write to the zBuffer.
      */
-    function DrawWireframeBox(position: Vector, angle: Angle, mins: Vector, maxs: Vector, color?: Color, writeZ = false): void;
+    declare function DrawWireframeBox(position: Vector, angle: Angle, mins: Vector, maxs: Vector, color?: Color, writeZ?: boolean): void;
 
     /**
      * 🟨 [Client]
@@ -68134,7 +68502,7 @@ declare namespace render {
      * @param [color = Color( 255, 255, 255 )] - The color of the wireframe. Uses the [Color](https://wiki.facepunch.com/gmod/Color).
      * @param [writeZ = false] - Whether or not to consider the Z buffer. If false, the wireframe will be drawn over everything currently drawn. If true, it will be drawn with depth considered, as if it were a regular object in 3D space.
      */
-    function DrawWireframeSphere(position: Vector, radius: number, longitudeSteps: number, latitudeSteps: number, color?: Color, writeZ = false): void;
+    declare function DrawWireframeSphere(position: Vector, radius: number, longitudeSteps: number, latitudeSteps: number, color?: Color, writeZ?: boolean): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -68146,7 +68514,7 @@ declare namespace render {
      *
      * @param state - New clipping state.
      */
-    function EnableClipping(state: boolean): boolean;
+    declare function EnableClipping(state: boolean): boolean;
 
     /**
      * 🟨 [Client]
@@ -68155,7 +68523,7 @@ declare namespace render {
      *
      * 		For more detailed information on Beams, as well as usage examples, see the <page text="Beams Render Reference">render_beams</page>
      */
-    function EndBeam(): void;
+    declare function EndBeam(): void;
 
     /**
      * 🟨 [Client]
@@ -68165,7 +68533,7 @@ declare namespace render {
      * @param green - Green channel of the fog color, 0 - 255.
      * @param blue - Blue channel of the fog color, 0 - 255.
      */
-    function FogColor(red: number, green: number, blue: number): void;
+    declare function FogColor(red: number, green: number, blue: number): void;
 
     /**
      * 🟨 [Client]
@@ -68175,7 +68543,7 @@ declare namespace render {
      * **Note:**
      * >If used in [GM:SetupSkyboxFog](https://wiki.facepunch.com/gmod/GM:SetupSkyboxFog), this value **must** be scaled by the first argument of the hook
      */
-    function FogEnd(distance: number): void;
+    declare function FogEnd(distance: number): void;
 
     /**
      * 🟨 [Client]
@@ -68183,7 +68551,7 @@ declare namespace render {
      * Sets the maximum density of the fog.
      * @param maxDensity - The maximum density of the fog, 0-1.
      */
-    function FogMaxDensity(maxDensity: number): void;
+    declare function FogMaxDensity(maxDensity: number): void;
 
     /**
      * 🟨 [Client]
@@ -68191,7 +68559,7 @@ declare namespace render {
      * Sets the mode of fog.
      * @param fogMode - Fog mode, see [Enums/MATERIAL_FOG](https://wiki.facepunch.com/gmod/Enums/MATERIAL_FOG).
      */
-    function FogMode(fogMode: MATERIAL_FOG): void;
+    declare function FogMode(fogMode: MATERIAL_FOG): void;
 
     /**
      * 🟨 [Client]
@@ -68201,21 +68569,21 @@ declare namespace render {
      * **Note:**
      * >If used in [GM:SetupSkyboxFog](https://wiki.facepunch.com/gmod/GM:SetupSkyboxFog), this value **must** be scaled by the first argument of the hook
      */
-    function FogStart(fogStart: number): void;
+    declare function FogStart(fogStart: number): void;
 
     /**
      * 🟨 [Client]
      *
      * Returns the ambient color of the map.
      */
-    function GetAmbientLightColor(): Vector;
+    declare function GetAmbientLightColor(): Vector;
 
     /**
      * 🟨 [Client]
      *
      * Returns the current alpha blending.
      */
-    function GetBlend(): number;
+    declare function GetBlend(): number;
 
     /**
      * 🟨 [Client]
@@ -68223,7 +68591,7 @@ declare namespace render {
      * **t**
      * Returns the Render Target texture that is used internally for the <page text="Bloom">Global.DrawBloom</page> <page text="Post Processing">Post-Processing_Materials</page> effect.
      */
-    function GetBloomTex0(): ITexture;
+    declare function GetBloomTex0(): ITexture;
 
     /**
      * 🟨 [Client]
@@ -68234,63 +68602,63 @@ declare namespace render {
      *
      * Despite its name, this function is not used for the <page text="Bloom">Global.DrawBloom</page> effect.
      */
-    function GetBloomTex1(): ITexture;
+    declare function GetBloomTex1(): ITexture;
 
     /**
      * 🟨 [Client]
      *
      * Returns the current color modulation values as normals.
      */
-    function GetColorModulation(): LuaMultiReturn<[number, number, number]>;
+    declare function GetColorModulation(): LuaMultiReturn<[number, number, number]>;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * Returns the maximum available directX version.
      */
-    function GetDXLevel(): number;
+    declare function GetDXLevel(): number;
 
     /**
      * 🟨 [Client]
      *
      * Returns the current fog color.
      */
-    function GetFogColor(): LuaMultiReturn<[number, number, number]>;
+    declare function GetFogColor(): LuaMultiReturn<[number, number, number]>;
 
     /**
      * 🟨 [Client]
      *
      * Returns the fog start and end distance.
      */
-    function GetFogDistances(): LuaMultiReturn<[number, number, number]>;
+    declare function GetFogDistances(): LuaMultiReturn<[number, number, number]>;
 
     /**
      * 🟨 [Client]
      *
      * Get the maximum density of the fog.
      */
-    function GetFogMaxDensity(): number;
+    declare function GetFogMaxDensity(): number;
 
     /**
      * 🟨 [Client]
      *
      * Returns the fog mode.
      */
-    function GetFogMode(): MATERIAL_FOG;
+    declare function GetFogMode(): MATERIAL_FOG;
 
     /**
      * 🟨 [Client]
      *
      * Returns the full screen depth texture.
      */
-    function GetFullScreenDepthTexture(): ITexture;
+    declare function GetFullScreenDepthTexture(): ITexture;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether HDR is currently enabled or not. This takes into account hardware support, current map and current client settings.
      */
-    function GetHDREnabled(): boolean;
+    declare function GetHDREnabled(): boolean;
 
     /**
      * 🟨 [Client]
@@ -68298,7 +68666,7 @@ declare namespace render {
      * Gets the light exposure on the specified position.
      * @param position - The position of the surface to get the light from.
      */
-    function GetLightColor(position: Vector): Vector;
+    declare function GetLightColor(position: Vector): Vector;
 
     /**
      * 🟨 [Client]
@@ -68307,7 +68675,7 @@ declare namespace render {
      *
      * Returns the first render target texture that is used internally for Motion Blur and Frame Blend post processing effects.
      */
-    function GetMoBlurTex0(): ITexture;
+    declare function GetMoBlurTex0(): ITexture;
 
     /**
      * 🟨 [Client]
@@ -68316,7 +68684,7 @@ declare namespace render {
      *
      * Returns the second render target texture that is used internally for Motion Blur and Frame Blend post processing effects.
      */
-    function GetMoBlurTex1(): ITexture;
+    declare function GetMoBlurTex1(): ITexture;
 
     /**
      * 🟨 [Client]
@@ -68327,7 +68695,7 @@ declare namespace render {
      *
      * The post processing effect was removed from the base game at some point during development of Garry's Mod 13, but can still be found as a community mod: https://steamcommunity.com/sharedfiles/filedetails/?id=501088470
      */
-    function GetMorphTex0(): ITexture;
+    declare function GetMorphTex0(): ITexture;
 
     /**
      * 🟨 [Client]
@@ -68338,14 +68706,14 @@ declare namespace render {
      *
      * See [render.GetMorphTex0](https://wiki.facepunch.com/gmod/render.GetMorphTex0) for more information..
      */
-    function GetMorphTex1(): ITexture;
+    declare function GetMorphTex1(): ITexture;
 
     /**
      * 🟨 [Client]
      *
      * Returns the Power Of Two Frame Buffer texture.
      */
-    function GetPowerOfTwoTexture(): ITexture;
+    declare function GetPowerOfTwoTexture(): ITexture;
 
     /**
      * 🟨 [Client]
@@ -68354,7 +68722,7 @@ declare namespace render {
      *
      * @deprecated Alias of [render.GetPowerOfTwoTexture](https://wiki.facepunch.com/gmod/render.GetPowerOfTwoTexture).
      */
-    function GetRefractTexture(): ITexture;
+    declare function GetRefractTexture(): ITexture;
 
     /**
      * 🟨 [Client]
@@ -68363,14 +68731,14 @@ declare namespace render {
      *
      * Instead of saving the current render target using this function and restoring to it later, it is generally better practice to use [render.PushRenderTarget](https://wiki.facepunch.com/gmod/render.PushRenderTarget) and [render.PopRenderTarget](https://wiki.facepunch.com/gmod/render.PopRenderTarget).
      */
-    function GetRenderTarget(): ITexture;
+    declare function GetRenderTarget(): ITexture;
 
     /**
      * 🟨 [Client]
      *
      * Returns the `_rt_ResolvedFullFrameDepth` texture for SSAO depth. It will only be updated if [GM:NeedsDepthPass](https://wiki.facepunch.com/gmod/GM:NeedsDepthPass) returns true. Depth is written using the [Shaders/DepthWrite](https://wiki.facepunch.com/gmod/Shaders/DepthWrite).
      */
-    function GetResolvedFullFrameDepth(): ITexture;
+    declare function GetResolvedFullFrameDepth(): ITexture;
 
     /**
      * 🟨 [Client]
@@ -68380,21 +68748,21 @@ declare namespace render {
      * This texture is mainly used within [GM:RenderScreenspaceEffects](https://wiki.facepunch.com/gmod/GM:RenderScreenspaceEffects)
      * @param [textureIndex = 0] - Max index is 3, but engine only creates the first two for you.
      */
-    function GetScreenEffectTexture(textureIndex = 0): ITexture;
+    declare function GetScreenEffectTexture(textureIndex?: number): ITexture;
 
     /**
      * 🟨 [Client]
      *
      * Returns the first quarter sized frame buffer texture.
      */
-    function GetSmallTex0(): ITexture;
+    declare function GetSmallTex0(): ITexture;
 
     /**
      * 🟨 [Client]
      *
      * Returns the second quarter sized frame buffer texture.
      */
-    function GetSmallTex1(): ITexture;
+    declare function GetSmallTex1(): ITexture;
 
     /**
      * 🟨 [Client]
@@ -68404,14 +68772,14 @@ declare namespace render {
      * **Note:**
      * >The [gmodscreenspace](https://wiki.facepunch.com/gmod/gmodscreenspace) doesn't behave as expected when drawing a floating-point texture to an integer texture (e.g. the default render target). Use an UnlitGeneric material instead
      */
-    function GetSuperFPTex(): ITexture;
+    declare function GetSuperFPTex(): ITexture;
 
     /**
      * 🟨 [Client]
      *
      * See [render.GetSuperFPTex](https://wiki.facepunch.com/gmod/render.GetSuperFPTex)
      */
-    function GetSuperFPTex2(): ITexture;
+    declare function GetSuperFPTex2(): ITexture;
 
     /**
      * 🟨 [Client]
@@ -68420,14 +68788,14 @@ declare namespace render {
      * @param startPos - The start position to trace from.
      * @param endPos - The end position of the trace.
      */
-    function GetSurfaceColor(startPos: Vector, endPos: Vector): Vector;
+    declare function GetSurfaceColor(startPos: Vector, endPos: Vector): Vector;
 
     /**
      * 🟨 [Client]
      *
      * Returns a vector representing linear tone mapping scale.
      */
-    function GetToneMappingScaleLinear(): Vector;
+    declare function GetToneMappingScaleLinear(): Vector;
 
     /**
      * 🟨 [Client]
@@ -68435,7 +68803,7 @@ declare namespace render {
      * Returns the current view setup.
      * @param [noPlayer = false] - If `true`, returns the `view->GetViewSetup`, if `false` - returns `view->GetPlayerViewSetup`
      */
-    function GetViewSetup(noPlayer = false): ViewSetup;
+    declare function GetViewSetup(noPlayer?: boolean): ViewSetup;
 
     /**
      * 🟨 [Client]
@@ -68443,7 +68811,7 @@ declare namespace render {
      * Sets the render material override for all next calls of [Entity:DrawModel](https://wiki.facepunch.com/gmod/Entity:DrawModel). Also overrides [render.MaterialOverrideByIndex](https://wiki.facepunch.com/gmod/render.MaterialOverrideByIndex).
      * @param [material = nil] - The material to use as override, use `nil` to disable.
      */
-    function MaterialOverride(material?: IMaterial|nil): void;
+    declare function MaterialOverride(material?: IMaterial|nil): void;
 
     /**
      * 🟨 [Client]
@@ -68454,21 +68822,21 @@ declare namespace render {
      * @param [index = nil] - The index of the material to override, in range of 0 to 31. `nil` will reset all overrides.
      * @param [material = nil] - The material to override with, `nil` will reset the override for given index.
      */
-    function MaterialOverrideByIndex(index?: number, material?: IMaterial): void;
+    declare function MaterialOverrideByIndex(index?: number, material?: IMaterial): void;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * Returns the maximum texture height the renderer can handle.
      */
-    function MaxTextureHeight(): number;
+    declare function MaxTextureHeight(): number;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * Returns the maximum texture width the renderer can handle.
      */
-    function MaxTextureWidth(): number;
+    declare function MaxTextureWidth(): number;
 
     /**
      * 🟨 [Client]
@@ -68487,7 +68855,7 @@ declare namespace render {
      * * [Angle](https://wiki.facepunch.com/gmod/Angle) angle - The angles to draw the model at
      * @param [ent = nil] - If provided, this entity will be reused instead of creating a new one with [Global.ClientsideModel](https://wiki.facepunch.com/gmod/Global.ClientsideModel). Note that the ent's model, position and angles will be changed, and [Entity:SetNoDraw](https://wiki.facepunch.com/gmod/Entity:SetNoDraw) will be set to true.
      */
-    function Model(settings: any, ent?: CSEnt): void;
+    declare function Model(settings: any, ent?: CSEnt): void;
 
     /**
      * 🟨 [Client]
@@ -68497,7 +68865,7 @@ declare namespace render {
      * 		Because this is independent of a specific [Entity](https://wiki.facepunch.com/gmod/Entity), it can be used to change materials on static models that are part of maps.
      * @param material - The [IMaterial](https://wiki.facepunch.com/gmod/IMaterial) that will be used for all upcoming draw operations, or `nil` to stop overriding.
      */
-    function ModelMaterialOverride(material: IMaterial|nil): void;
+    declare function ModelMaterialOverride(material: IMaterial|nil): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -68512,7 +68880,7 @@ declare namespace render {
      * @param enable - Enable or disable the override.
      * @param [shouldWrite = nil] - If the previous argument is true, sets whether the next rendering operations should write to the alpha channel or not. Has no effect if the previous argument is false.
      */
-    function OverrideAlphaWriteEnable(enable: boolean, shouldWrite?: boolean): void;
+    declare function OverrideAlphaWriteEnable(enable: boolean, shouldWrite?: boolean): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -68532,7 +68900,7 @@ declare namespace render {
      * @param blendingFunction - After the Source and Destination color and alpha have been multiplied against their corresponding multipliers, they are passed to the Blending Function which combines them into the final color and alpha for the pixel.
      * 			One of the [Enums/BLENDFUNC](https://wiki.facepunch.com/gmod/Enums/BLENDFUNC) enums.
      */
-    function OverrideBlend(enabled: boolean, sourceMultiplier: BLEND, destinationMultiplier: BLEND, blendingFunction: BLENDFUNC): void;
+    declare function OverrideBlend(enabled: boolean, sourceMultiplier: BLEND, destinationMultiplier: BLEND, blendingFunction: BLENDFUNC): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -68548,7 +68916,7 @@ declare namespace render {
      * @param [srcBlendAlpha = nil] - The source alpha blend function [Enums/BLEND](https://wiki.facepunch.com/gmod/Enums/BLEND). Determines how a rendered texture's final alpha should be calculated.
      * @param [destBlendAlpha = nil] -
      */
-    function OverrideBlendFunc(enabled: boolean, srcBlend: BLEND, destBlend: number, srcBlendAlpha?: BLEND, destBlendAlpha?: number): void;
+    declare function OverrideBlendFunc(enabled: boolean, srcBlend: BLEND, destBlend: number, srcBlendAlpha?: BLEND, destBlendAlpha?: number): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -68557,7 +68925,7 @@ declare namespace render {
      * @param enable - Enable or disable the override.
      * @param shouldWrite - If the previous argument is true, sets whether the next rendering operations should write to the color channel or not. Has no effect if the previous argument is false.
      */
-    function OverrideColorWriteEnable(enable: boolean, shouldWrite: boolean): void;
+    declare function OverrideColorWriteEnable(enable: boolean, shouldWrite: boolean): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -68566,7 +68934,7 @@ declare namespace render {
      * @param enable - Enable or disable the override.
      * @param shouldWrite - If the previous argument is true, sets whether the next rendering operations should write to the depth buffer or not. Has no effect if the previous argument is false.
      */
-    function OverrideDepthEnable(enable: boolean, shouldWrite: boolean): void;
+    declare function OverrideDepthEnable(enable: boolean, shouldWrite: boolean): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -68575,14 +68943,14 @@ declare namespace render {
      *
      * 		For more detailed information on the Stencil system, including usage examples, see the <page text="Stencils Render Reference">render_stencils</page> page
      */
-    function PerformFullScreenStencilOperation(): void;
+    declare function PerformFullScreenStencilOperation(): void;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * Removes the current active clipping plane from the clip plane stack.
      */
-    function PopCustomClipPlane(): void;
+    declare function PopCustomClipPlane(): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -68593,7 +68961,7 @@ declare namespace render {
      *
      * 		For more detailed information and a usage example, see <page text="the texture minification and magnification render reference.">render_min_mag_filters</page>
      */
-    function PopFilterMag(): void;
+    declare function PopFilterMag(): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -68604,14 +68972,14 @@ declare namespace render {
      *
      * 		For more detailed information and a usage example, see <page text="the texture minification and magnification render reference.">render_min_mag_filters</page>
      */
-    function PopFilterMin(): void;
+    declare function PopFilterMin(): void;
 
     /**
      * 🟨 [Client]
      *
      * Pops the current flashlight mode from the flashlight mode stack.
      */
-    function PopFlashlightMode(): void;
+    declare function PopFlashlightMode(): void;
 
     /**
      * 🟨 [Client]
@@ -68620,7 +68988,7 @@ declare namespace render {
      *
      * This is should be called to restore the previous render target and viewport after a call to [render.PushRenderTarget](https://wiki.facepunch.com/gmod/render.PushRenderTarget).
      */
-    function PopRenderTarget(): void;
+    declare function PopRenderTarget(): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -68633,7 +69001,7 @@ declare namespace render {
      * @param normal - The normal of the clipping plane.
      * @param distance - The distance of the plane from the world origin. You can use [Vector:Dot](https://wiki.facepunch.com/gmod/Vector:Dot) between the normal and any point on the plane to find this.
      */
-    function PushCustomClipPlane(normal: Vector, distance: number): void;
+    declare function PushCustomClipPlane(normal: Vector, distance: number): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -68649,7 +69017,7 @@ declare namespace render {
      * If current texture has more than 1 mipmap, this also sets the mipmap filter.
      * @param texFilterType - The texture filter to use. For available options, see [Enums/TEXFILTER](https://wiki.facepunch.com/gmod/Enums/TEXFILTER)
      */
-    function PushFilterMag(texFilterType: TEXFILTER): void;
+    declare function PushFilterMag(texFilterType: TEXFILTER): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -68663,7 +69031,7 @@ declare namespace render {
      * 		For more detailed information and a usage example, see <page text="the texture minification and magnification render reference.">render_min_mag_filters</page>
      * @param texFilterType - The texture filter to use. For available options, see [Enums/TEXFILTER](https://wiki.facepunch.com/gmod/Enums/TEXFILTER)
      */
-    function PushFilterMin(texFilterType: TEXFILTER): void;
+    declare function PushFilterMin(texFilterType: TEXFILTER): void;
 
     /**
      * 🟨 [Client]
@@ -68674,7 +69042,7 @@ declare namespace render {
      *
      * @param [enable = false] - Whether the flashlight mode should be enabled or disabled.
      */
-    function PushFlashlightMode(enable = false): void;
+    declare function PushFlashlightMode(enable?: boolean): void;
 
     /**
      * 🟨 [Client]
@@ -68698,7 +69066,7 @@ declare namespace render {
      * @param [w = texture:Width()] - Width of the viewport.
      * @param [h = texture:Height()] - Height of the viewport
      */
-    function PushRenderTarget(texture?: ITexture, x = 0, y = 0, w?: number, h?: number): void;
+    declare function PushRenderTarget(texture?: ITexture, x?: number, y?: number, w?: number, h?: number): void;
 
     /**
      * 🟨 [Client]
@@ -68707,7 +69075,7 @@ declare namespace render {
      * @param x - The x coordinate.
      * @param y - The y coordinate.
      */
-    function ReadPixel(x: number, y: number): LuaMultiReturn<[number, number, number, number]>;
+    declare function ReadPixel(x: number, y: number): LuaMultiReturn<[number, number, number, number]>;
 
     /**
      * 🟨 [Client]
@@ -68716,7 +69084,7 @@ declare namespace render {
      * @param [DoStaticProps = false] - When true, this will also apply lighting changes to static props. This is really slow on large maps.
      * @param [UpdateStaticLighting = false] - Forces all props to update their static lighting. Can be slow.
      */
-    function RedownloadAllLightmaps(DoStaticProps = false, UpdateStaticLighting = false): void;
+    declare function RedownloadAllLightmaps(DoStaticProps?: boolean, UpdateStaticLighting?: boolean): void;
 
     /**
      * 🟨 [Client]
@@ -68724,7 +69092,7 @@ declare namespace render {
      * Renders additive flashlights on an [IMesh](https://wiki.facepunch.com/gmod/IMesh), a direct replacement for [render.PushFlashlightMode](https://wiki.facepunch.com/gmod/render.PushFlashlightMode).
      * @param renderFunc - The function that renders the [IMesh](https://wiki.facepunch.com/gmod/IMesh), or a model.
      */
-    function RenderFlashlights(renderFunc: Function): void;
+    declare function RenderFlashlights(renderFunc: Function): void;
 
     /**
      * 🟨 [Client]
@@ -68735,7 +69103,7 @@ declare namespace render {
      * @param w - Width of the HUD draw.
      * @param h - Height of the HUD draw.
      */
-    function RenderHUD(x: number, y: number, w: number, h: number): void;
+    declare function RenderHUD(x: number, y: number, w: number, h: number): void;
 
     /**
      * 🟨 [Client]
@@ -68750,7 +69118,7 @@ declare namespace render {
      *
      * @param [view = nil] - The view data to be used in the rendering. See [Structures/ViewData](https://wiki.facepunch.com/gmod/Structures/ViewData). Any missing value is assumed to be that of the current view. Similarly, you can make a normal render by simply not passing this table at all.
      */
-    function RenderView(view?: ViewData): void;
+    declare function RenderView(view?: ViewData): void;
 
     /**
      * 🟨 [Client]
@@ -68762,7 +69130,7 @@ declare namespace render {
      * @param g - The green part of the color, 0-1
      * @param b - The blue part of the color, 0-1
      */
-    function ResetModelLighting(r: number, g: number, b: number): void;
+    declare function ResetModelLighting(r: number, g: number, b: number): void;
 
     /**
      * 🟨 [Client]
@@ -68772,7 +69140,7 @@ declare namespace render {
      * This will only work on HDR maps, and the value will automatically fade to what it was ( or whatever [render.SetGoalToneMappingScale](https://wiki.facepunch.com/gmod/render.SetGoalToneMappingScale) is ) if called only once.
      * @param scale - The value which should be used as multiplier.
      */
-    function ResetToneMappingScale(scale: number): void;
+    declare function ResetToneMappingScale(scale: number): void;
 
     /**
      * 🟨 [Client]
@@ -68782,7 +69150,7 @@ declare namespace render {
      * @param g - The green part of the color, 0-1.
      * @param b - The blue part of the color, 0-1.
      */
-    function SetAmbientLight(r: number, g: number, b: number): void;
+    declare function SetAmbientLight(r: number, g: number, b: number): void;
 
     /**
      * 🟨 [Client]
@@ -68803,7 +69171,7 @@ declare namespace render {
      * @param blending - The alpha (transparency) for upcoming draw operations.
      * 			A value in the range `(0-1)` where `0` is fully transparent, `0.5` is 50% visible, and `1` is fully opaque.
      */
-    function SetBlend(blending: number): void;
+    declare function SetBlend(blending: number): void;
 
     /**
      * 🟨 [Client]
@@ -68823,7 +69191,7 @@ declare namespace render {
      *  }
      * ```
      */
-    function SetColorMaterial(): void;
+    declare function SetColorMaterial(): void;
 
     /**
      * 🟨 [Client]
@@ -68844,7 +69212,7 @@ declare namespace render {
      *  }
      * ```
      */
-    function SetColorMaterialIgnoreZ(): void;
+    declare function SetColorMaterialIgnoreZ(): void;
 
     /**
      * 🟨 [Client]
@@ -68858,7 +69226,7 @@ declare namespace render {
      * @param g - The green channel multiplier normal ranging from 0-1.
      * @param b - The blue channel multiplier normal ranging from 0-1.
      */
-    function SetColorModulation(r: number, g: number, b: number): void;
+    declare function SetColorModulation(r: number, g: number, b: number): void;
 
     /**
      * 🟨 [Client]
@@ -68866,7 +69234,7 @@ declare namespace render {
      * If the <page text="fog mode">render.FogMode</page> is set to <page text="MATERIAL_FOG_LINEAR_BELOW_FOG_Z">Enums/MATERIAL_FOG</page>, the fog will only be rendered below the specified height.
      * @param fogZ - The fog Z.
      */
-    function SetFogZ(fogZ: number): void;
+    declare function SetFogZ(fogZ: number): void;
 
     /**
      * 🟨 [Client]
@@ -68876,7 +69244,7 @@ declare namespace render {
      * Use this in a rendering/think hook as it is reset every frame.
      * @param scale - The target scale.
      */
-    function SetGoalToneMappingScale(scale: number): void;
+    declare function SetGoalToneMappingScale(scale: number): void;
 
     /**
      * 🟨 [Client]
@@ -68892,7 +69260,7 @@ declare namespace render {
      * * 1 - Total fullbright, similar to `mat_fullbright 1` but excluding some weapon view models
      * * 2 - Increased brightness(?), models look fullbright
      */
-    function SetLightingMode(Mode: number): void;
+    declare function SetLightingMode(Mode: number): void;
 
     /**
      * 🟨 [Client]
@@ -68904,7 +69272,7 @@ declare namespace render {
      *
      * @param lightingOrigin - The position which will be used to calculate lighting for the current model.
      */
-    function SetLightingOrigin(lightingOrigin: Vector): void;
+    declare function SetLightingOrigin(lightingOrigin: Vector): void;
 
     /**
      * 🟨 [Client]
@@ -68912,7 +69280,7 @@ declare namespace render {
      * Sets the texture to be used as the lightmap in upcoming rendering operations. This is required when rendering meshes using a material with a lightmapped shader such as LightmappedGeneric.
      * @param tex - The texture to be used as the lightmap.
      */
-    function SetLightmapTexture(tex: ITexture): void;
+    declare function SetLightmapTexture(tex: ITexture): void;
 
     /**
      * 🟨 [Client]
@@ -68922,7 +69290,7 @@ declare namespace render {
      * Disables all local lights if called with no arguments.
      * @param [lights = {}] - A table containing up to 4 tables for each light source that should be set up. Each of these tables should contain the properties of its associated light source, see [Structures/LocalLight](https://wiki.facepunch.com/gmod/Structures/LocalLight).
      */
-    function SetLocalModelLights(lights?: LocalLight): void;
+    declare function SetLocalModelLights(lights?: LocalLight): void;
 
     /**
      * 🟨 [Client]
@@ -68932,7 +69300,7 @@ declare namespace render {
      * Not to be confused with [surface.SetMaterial](https://wiki.facepunch.com/gmod/surface.SetMaterial).
      * @param mat - The material to be used.
      */
-    function SetMaterial(mat: IMaterial): void;
+    declare function SetMaterial(mat: IMaterial): void;
 
     /**
      * 🟨 [Client]
@@ -68945,7 +69313,7 @@ declare namespace render {
      * @param green - The green component of the light color.
      * @param blue - The blue component of the light color.
      */
-    function SetModelLighting(lightDirection: BOX, red: number, green: number, blue: number): void;
+    declare function SetModelLighting(lightDirection: BOX, red: number, green: number, blue: number): void;
 
     /**
      * 🟨 [Client]
@@ -68953,7 +69321,7 @@ declare namespace render {
      * Sets the render target to the specified rt.
      * @param texture - The new render target to be used.
      */
-    function SetRenderTarget(texture: ITexture): void;
+    declare function SetRenderTarget(texture: ITexture): void;
 
     /**
      * 🟨 [Client]
@@ -68974,7 +69342,7 @@ declare namespace render {
      * @param rtIndex - The index of output `COLOR[n]` [semantics](https://learn.microsoft.com/en-us/windows/win32/direct3dhlsl/dx-graphics-hlsl-semantics) from pixel-shader. Min: `0`, max: `3`.
      * @param [texture = nil] - The new render target to be used.
      */
-    function SetRenderTargetEx(rtIndex: number, texture?: ITexture): void;
+    declare function SetRenderTargetEx(rtIndex: number, texture?: ITexture): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -68986,7 +69354,7 @@ declare namespace render {
      * @param endY - Y end coordinate of the scissor rectangle in screen-space coordinates.
      * @param enable - Enable or disable the scissor rect.
      */
-    function SetScissorRect(startX: number, startY: number, endX: number, endY: number, enable: boolean): void;
+    declare function SetScissorRect(startX: number, startY: number, endX: number, endY: number, enable: boolean): void;
 
     /**
      * 🟨 [Client]
@@ -68996,7 +69364,7 @@ declare namespace render {
      * @param green - The green channel of the shadow color.
      * @param blue - The blue channel of the shadow color.
      */
-    function SetShadowColor(red: number, green: number, blue: number): void;
+    declare function SetShadowColor(red: number, green: number, blue: number): void;
 
     /**
      * 🟨 [Client]
@@ -69004,7 +69372,7 @@ declare namespace render {
      * Sets the shadow projection direction.
      * @param shadowDirections - The new shadow direction.
      */
-    function SetShadowDirection(shadowDirections: Vector): void;
+    declare function SetShadowDirection(shadowDirections: Vector): void;
 
     /**
      * 🟨 [Client]
@@ -69012,7 +69380,7 @@ declare namespace render {
      * Sets the maximum shadow projection range.
      * @param shadowDistance - The new maximum shadow distance.
      */
-    function SetShadowDistance(shadowDistance: number): void;
+    declare function SetShadowDistance(shadowDistance: number): void;
 
     /**
      * 🟨 [Client]
@@ -69026,7 +69394,7 @@ declare namespace render {
      *
      * @param disable - `true` to disable shadows, `false` to enable.
      */
-    function SetShadowsDisabled(disable: boolean): void;
+    declare function SetShadowsDisabled(disable: boolean): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -69042,7 +69410,7 @@ declare namespace render {
      * For more detailed information on the Stencil system, including usage examples, see the <page text="Stencils Render Reference">render_stencils</page> page
      * @param compareFunction - The Compare Function that each affected pixel's Stencil Buffer value will be evaluated against during a draw operation.
      */
-    function SetStencilCompareFunction(compareFunction: STENCILCOMPARISONFUNCTION): void;
+    declare function SetStencilCompareFunction(compareFunction: STENCILCOMPARISONFUNCTION): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -69061,7 +69429,7 @@ declare namespace render {
      *
      * @param newState - The new state.
      */
-    function SetStencilEnable(newState: boolean): void;
+    declare function SetStencilEnable(newState: boolean): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -69071,7 +69439,7 @@ declare namespace render {
      * 		For more detailed information on the Stencil system, including usage examples, see the <page text="Stencils Render Reference">render_stencils</page> page
      * @param failOperation - The Stencil Operation to be performed if the Compare Function does not Pass a pixel.
      */
-    function SetStencilFailOperation(failOperation: STENCILOPERATION): void;
+    declare function SetStencilFailOperation(failOperation: STENCILOPERATION): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -69081,7 +69449,7 @@ declare namespace render {
      * 		For more detailed information on the Stencil system, including usage examples, see the <page text="Stencils Render Reference">render_stencils</page> page
      * @param passOperation - The Stencil Operation to be performed if the Compare Function Passes a pixel.
      */
-    function SetStencilPassOperation(passOperation: STENCILOPERATION): void;
+    declare function SetStencilPassOperation(passOperation: STENCILOPERATION): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -69092,7 +69460,7 @@ declare namespace render {
      * @param referenceValue - The value that the Compare function and the pass, fail, and z-fail operations will use.
      * 			This is an 8-bit (`byte`) unsigned integer value in the range [`0-255`]
      */
-    function SetStencilReferenceValue(referenceValue: number): void;
+    declare function SetStencilReferenceValue(referenceValue: number): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -69107,7 +69475,7 @@ declare namespace render {
      * @param bitMask - The 8-bit (`byte`) mask
      * 			Set to `255` to make no change to read Stencil Buffer values.
      */
-    function SetStencilTestMask(bitMask: number): void;
+    declare function SetStencilTestMask(bitMask: number): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -69122,7 +69490,7 @@ declare namespace render {
      * @param bitMask - The 8-bit (`byte`) mask
      * 			Set to `255` to make no change to written Stencil Buffer values.
      */
-    function SetStencilWriteMask(bitMask: number): void;
+    declare function SetStencilWriteMask(bitMask: number): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -69132,7 +69500,7 @@ declare namespace render {
      * 		For more detailed information on the Stencil system, including usage examples, see the <page text="Stencils Render Reference">render_stencils</page> page
      * @param zFailOperation - The Stencil Operation to be performed if the Compare Function Passes a pixel, but the pixel fails the Depth Test.
      */
-    function SetStencilZFailOperation(zFailOperation: STENCILOPERATION): void;
+    declare function SetStencilZFailOperation(zFailOperation: STENCILOPERATION): void;
 
     /**
      * 🟨 [Client]
@@ -69143,7 +69511,7 @@ declare namespace render {
      * * Y - Lightmap scale
      * * Z - Reflection map scale
      */
-    function SetToneMappingScaleLinear(scales: Vector): void;
+    declare function SetToneMappingScaleLinear(scales: Vector): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -69160,7 +69528,7 @@ declare namespace render {
      * @param w - Width of the view port.
      * @param h - Height of the view port.
      */
-    function SetViewPort(x: number, y: number, w: number, h: number): void;
+    declare function SetViewPort(x: number, y: number, w: number, h: number): void;
 
     /**
      * 🟨 [Client]
@@ -69168,7 +69536,7 @@ declare namespace render {
      * Sets the internal parameter **INT_RENDERPARM_WRITE_DEPTH_TO_DESTALPHA**
      * @param enable -
      */
-    function SetWriteDepthToDestAlpha(enable: boolean): void;
+    declare function SetWriteDepthToDestAlpha(enable: boolean): void;
 
     /**
      * 🟨 [Client]
@@ -69177,7 +69545,7 @@ declare namespace render {
      *
      * If you take a really long time during a single frame render, it is a good idea to use this and let the user know that the game isn't stuck.
      */
-    function Spin(): void;
+    declare function Spin(): void;
 
     /**
      * 🟨 [Client]
@@ -69189,35 +69557,35 @@ declare namespace render {
      * 			For more detailed information on Beams, as well as usage examples, see the <page text="Beams Render Reference">render_beams</page>
      * @param segmentCount - The number of Beam Segments that this multi-segment Beam will contain
      */
-    function StartBeam(segmentCount: number): void;
+    declare function StartBeam(segmentCount: number): void;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether the player's hardware supports HDR. (High Dynamic Range) HDR can still be disabled by the `mat_hdr_level` console variable or just not be supported by the map.
      */
-    function SupportsHDR(): boolean;
+    declare function SupportsHDR(): boolean;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * Returns if the current settings and the system allow the usage of pixel shaders 1.4.
      */
-    function SupportsPixelShaders_1_4(): boolean;
+    declare function SupportsPixelShaders_1_4(): boolean;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * Returns if the current settings and the system allow the usage of pixel shaders 2.0.
      */
-    function SupportsPixelShaders_2_0(): boolean;
+    declare function SupportsPixelShaders_2_0(): boolean;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * Returns if the current settings and the system allow the usage of vertex shaders 2.0.
      */
-    function SupportsVertexShaders_2_0(): boolean;
+    declare function SupportsVertexShaders_2_0(): boolean;
 
     /**
      * 🟨 [Client]
@@ -69229,14 +69597,14 @@ declare namespace render {
      *
      * @param suppressLighting - True to suppress false to enable.
      */
-    function SuppressEngineLighting(suppressLighting: boolean): void;
+    declare function SuppressEngineLighting(suppressLighting: boolean): void;
 
     /**
      * 🟨 [Client]
      *
      * Enables HDR tone mapping which influences the brightness.
      */
-    function TurnOnToneMapping(): void;
+    declare function TurnOnToneMapping(): void;
 
     /**
      * 🟨 [Client]
@@ -69245,21 +69613,21 @@ declare namespace render {
      *
      * Silently fails if [render.SupportsPixelShaders_2_0](https://wiki.facepunch.com/gmod/render.SupportsPixelShaders_2_0) returns false.
      */
-    function UpdateFullScreenDepthTexture(): void;
+    declare function UpdateFullScreenDepthTexture(): void;
 
     /**
      * 🟨 [Client]
      *
      * Updates the power of two texture.
      */
-    function UpdatePowerOfTwoTexture(): ITexture;
+    declare function UpdatePowerOfTwoTexture(): ITexture;
 
     /**
      * 🟨 [Client]
      *
      * Pretty much alias of [render.UpdatePowerOfTwoTexture](https://wiki.facepunch.com/gmod/render.UpdatePowerOfTwoTexture) but does not return the texture.
      */
-    function UpdateRefractTexture(): void;
+    declare function UpdateRefractTexture(): void;
 
     /**
      * 🟨 [Client]
@@ -69267,7 +69635,7 @@ declare namespace render {
      * Copies the entire screen to the screen effect texture, which can be acquired via [render.GetScreenEffectTexture](https://wiki.facepunch.com/gmod/render.GetScreenEffectTexture). This function is mainly intended to be used in [GM:RenderScreenspaceEffects](https://wiki.facepunch.com/gmod/GM:RenderScreenspaceEffects)
      * @param [textureIndex = 0] - Texture index to update. Max index is 3, but engine only creates the first two for you.
      */
-    function UpdateScreenEffectTexture(textureIndex = 0): void;
+    declare function UpdateScreenEffectTexture(textureIndex?: number): void;
 
     /**
      * 🟨 [Client]
@@ -69275,7 +69643,7 @@ declare namespace render {
      * This function overrides all map materials for one frame.
      * @param [mat = nil] -
      */
-    function WorldMaterialOverride(mat?: IMaterial): void;
+    declare function WorldMaterialOverride(mat?: IMaterial): void;
 }
 
 /**
@@ -69303,7 +69671,7 @@ declare namespace resource {
      * Do not add `.bz2` to the filepath.
      * Do not add `gamemodes/gamemodename\content/` or `addons/addonname\` to the path, since those paths are mounted virtually as if they are in the root `garrysmod/`.
      */
-    function AddFile(path: string): void;
+    declare function AddFile(path: string): void;
 
     /**
      * 🟦 [Server]
@@ -69322,7 +69690,7 @@ declare namespace resource {
      *
      * @param path - Path of the file to be added, relative to garrysmod/
      */
-    function AddSingleFile(path: string): void;
+    declare function AddSingleFile(path: string): void;
 
     /**
      * 🟦 [Server]
@@ -69343,7 +69711,7 @@ declare namespace resource {
      *
      * @param workshopid - The workshop id of the file. This cannot be a collection.
      */
-    function AddWorkshop(workshopid: string): void;
+    declare function AddWorkshop(workshopid: string): void;
 }
 
 /**
@@ -69364,7 +69732,7 @@ declare namespace saverestore {
      * * [saverestore.ReadTable](https://wiki.facepunch.com/gmod/saverestore.ReadTable)
      * * [saverestore.LoadEntity](https://wiki.facepunch.com/gmod/saverestore.LoadEntity)
      */
-    function AddRestoreHook(identifier: string, callback: (save: IRestore) => void): void;
+    declare function AddRestoreHook(identifier: string, callback: (save: IRestore) => void): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -69380,7 +69748,7 @@ declare namespace saverestore {
      * * [saverestore.WriteTable](https://wiki.facepunch.com/gmod/saverestore.WriteTable)
      * * [saverestore.SaveEntity](https://wiki.facepunch.com/gmod/saverestore.SaveEntity)
      */
-    function AddSaveHook(identifier: string, callback: (save: ISave) => void): void;
+    declare function AddSaveHook(identifier: string, callback: (save: ISave) => void): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -69389,7 +69757,7 @@ declare namespace saverestore {
      * @param ent - The entity which will receive the loaded values from the save.
      * @param save - The restore object to read the [Entity:GetTable](https://wiki.facepunch.com/gmod/Entity:GetTable) from.
      */
-    function LoadEntity(ent: Entity, save: IRestore): void;
+    declare function LoadEntity(ent: Entity, save: IRestore): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -69399,21 +69767,21 @@ declare namespace saverestore {
      * This handles loading gamemode and calls all of the hooks added with [saverestore.AddRestoreHook](https://wiki.facepunch.com/gmod/saverestore.AddRestoreHook).
      * @param save - The restore object to read data from the save file with.
      */
-    function LoadGlobal(save: IRestore): void;
+    declare function LoadGlobal(save: IRestore): void;
 
     /**
      * 🟨🟦 [Shared]
      *
      * Called by the engine just before [saverestore.LoadGlobal](https://wiki.facepunch.com/gmod/saverestore.LoadGlobal) is.
      */
-    function PreRestore(): void;
+    declare function PreRestore(): void;
 
     /**
      * 🟨🟦 [Shared]
      *
      * Called by the engine just before [saverestore.SaveGlobal](https://wiki.facepunch.com/gmod/saverestore.SaveGlobal) is.
      */
-    function PreSave(): void;
+    declare function PreSave(): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -69421,7 +69789,7 @@ declare namespace saverestore {
      * Reads a table from the save game file that is being loaded.
      * @param save - The restore object to read the table from.
      */
-    function ReadTable(save: IRestore): any;
+    declare function ReadTable(save: IRestore): any;
 
     /**
      * 🟨🟦 [Shared]
@@ -69431,7 +69799,7 @@ declare namespace saverestore {
      * Variables will be read in the save order you have saved them.
      * @param save - The restore object to read variables from.
      */
-    function ReadVar(save: IRestore): any;
+    declare function ReadVar(save: IRestore): any;
 
     /**
      * 🟨🟦 [Shared]
@@ -69440,7 +69808,7 @@ declare namespace saverestore {
      * @param ent - The entity to save [Entity:GetTable](https://wiki.facepunch.com/gmod/Entity:GetTable) of.
      * @param save - The save object to save [Entity:GetTable](https://wiki.facepunch.com/gmod/Entity:GetTable) to.
      */
-    function SaveEntity(ent: Entity, save: ISave): void;
+    declare function SaveEntity(ent: Entity, save: ISave): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -69450,7 +69818,7 @@ declare namespace saverestore {
      * This handles saving gamemode and calls all of the hooks added with [saverestore.AddSaveHook](https://wiki.facepunch.com/gmod/saverestore.AddSaveHook).
      * @param save - The save object to write data into the save file.
      */
-    function SaveGlobal(save: ISave): void;
+    declare function SaveGlobal(save: ISave): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -69458,7 +69826,7 @@ declare namespace saverestore {
      * Returns how many writable keys are in the given table.
      * @param table - The table to test.
      */
-    function WritableKeysInTable(table: any): number;
+    declare function WritableKeysInTable(table: any): number;
 
     /**
      * 🟨🟦 [Shared]
@@ -69467,7 +69835,7 @@ declare namespace saverestore {
      * @param table - The table to write
      * @param save - The save object to write the table to.
      */
-    function WriteTable(table: any, save: ISave): void;
+    declare function WriteTable(table: any, save: ISave): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -69477,7 +69845,7 @@ declare namespace saverestore {
      * It can be one of the following types: [number](https://wiki.facepunch.com/gmod/number), [boolean](https://wiki.facepunch.com/gmod/boolean), [string](https://wiki.facepunch.com/gmod/string), [Entity](https://wiki.facepunch.com/gmod/Entity), [Angle](https://wiki.facepunch.com/gmod/Angle), [Vector](https://wiki.facepunch.com/gmod/Vector) or [table](https://wiki.facepunch.com/gmod/table).
      * @param save - The save object to write the variable to.
      */
-    function WriteVar(value: any, save: ISave): void;
+    declare function WriteVar(value: any, save: ISave): void;
 }
 
 /**
@@ -69491,7 +69859,7 @@ declare namespace scripted_ents {
      * @param alias - A new string which can be used to refer to another classname
      * @param classname - The classname the alias should refer to
      */
-    function Alias(alias: string, classname: string): void;
+    declare function Alias(alias: string, classname: string): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -69499,14 +69867,14 @@ declare namespace scripted_ents {
      * Returns a copy of the ENT table for a class, including functions defined by the base class
      * @param classname - The classname of the ENT table to return, can be an alias
      */
-    function Get(classname: string): any;
+    declare function Get(classname: string): any;
 
     /**
      * 🟨🟦 [Shared]
      *
      * Returns a copy of the list of all ENT tables registered
      */
-    function GetList(): any;
+    declare function GetList(): any;
 
     /**
      * 🟨🟦 [Shared]
@@ -69515,14 +69883,14 @@ declare namespace scripted_ents {
      * @param class_ - Entity's class name
      * @param name - Name of member to retrieve
      */
-    function GetMember(class_: string, name: string): any;
+    declare function GetMember(class_: string, name: string): any;
 
     /**
      * 🟨🟦 [Shared]
      *
      * Returns a list of all ENT tables which contain ENT.Spawnable
      */
-    function GetSpawnable(): ENT;
+    declare function GetSpawnable(): ENT;
 
     /**
      * 🟨🟦 [Shared]
@@ -69530,7 +69898,7 @@ declare namespace scripted_ents {
      * Returns the actual ENT table for a class. Modifying functions/variables in this table will change newly spawned entities
      * @param classname - The classname of the ENT table to return
      */
-    function GetStored(classname: string): any;
+    declare function GetStored(classname: string): any;
 
     /**
      * 🟨🟦 [Shared]
@@ -69538,7 +69906,7 @@ declare namespace scripted_ents {
      * Returns the 'type' of a class, this will one of the following: 'anim', 'ai', 'brush', 'point'.
      * @param classname - The classname to check
      */
-    function GetType(classname: string): string;
+    declare function GetType(classname: string): string;
 
     /**
      * 🟨🟦 [Shared]
@@ -69547,7 +69915,7 @@ declare namespace scripted_ents {
      * @param name - Entity's class name to be checked
      * @param base - Base class name to be checked
      */
-    function IsBasedOn(name: string, base: string): boolean;
+    declare function IsBasedOn(name: string, base: string): boolean;
 
     /**
      * 🟨🟦 [Shared]
@@ -69559,7 +69927,7 @@ declare namespace scripted_ents {
      * **Note:**
      * >This is not called after an ENT auto refresh, and thus the inherited baseclass functions retrieved with [baseclass.Get](https://wiki.facepunch.com/gmod/baseclass.Get) will not be updated
      */
-    function OnLoaded(): void;
+    declare function OnLoaded(): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -69573,7 +69941,7 @@ declare namespace scripted_ents {
      * 			For the table's format and available options see the [Structures/ENT](https://wiki.facepunch.com/gmod/Structures/ENT) page.
      * @param classname - The classname to register.
      */
-    function Register(ENT: ENT, classname: string): void;
+    declare function Register(ENT: ENT, classname: string): void;
 }
 
 /**
@@ -69597,7 +69965,7 @@ declare namespace search {
      * </callback>
      * @param [id = nil] - If provided, ensures that only one provider exists with the given ID at a time.
      */
-    function AddProvider(provider: (searchQuery: string) => any, id?: string): void;
+    declare function AddProvider(provider: (searchQuery: string) => any, id?: string): void;
 
     /**
      * 🟨 [Client]
@@ -69607,7 +69975,7 @@ declare namespace search {
      * @param [types = nil] - If set, only searches given provider type(s), instead of everything. For example `"tool"` will only search tools in Sandbox. Can be a table for multiple types.
      * @param [maxResults = 1024] - How many results to stop at
      */
-    function GetResults(query: string, types?: string, maxResults = 1024): any;
+    declare function GetResults(query: string, types?: string, maxResults?: number): any;
 }
 
 /**
@@ -69620,7 +69988,7 @@ declare namespace serverlist {
      * Adds current server the player is on to their favorites.
      * @param addOrRemove - `true` if to add, or `false` if to remove from favorites.
      */
-    function AddCurrentServerToFavorites(addOrRemove: boolean): void;
+    declare function AddCurrentServerToFavorites(addOrRemove: boolean): void;
 
     /**
      * 🟩 [Menu]
@@ -69628,14 +69996,14 @@ declare namespace serverlist {
      * Adds the given server address to their favorites.
      * @param address - Server Address. **IP:Port like "127.0.0.1:27015"**
      */
-    function AddServerToFavorites(address: string): void;
+    declare function AddServerToFavorites(address: string): void;
 
     /**
      * 🟩 [Menu]
      *
      * Returns true if the current server address is in their favorites.
      */
-    function IsCurrentServerFavorite(): boolean;
+    declare function IsCurrentServerFavorite(): boolean;
 
     /**
      * 🟩 [Menu]
@@ -69643,7 +70011,7 @@ declare namespace serverlist {
      * Returns true if the given server address is in their favorites.
      * @param address - Server Address. **IP:Port like "127.0.0.1:27015"**
      */
-    function IsServerFavorite(address: string): boolean;
+    declare function IsServerFavorite(address: string): boolean;
 
     /**
      * 🟩 [Menu]
@@ -69653,7 +70021,7 @@ declare namespace serverlist {
      * @param callback - The function to be called if and when the request finishes.
      * Callback has arguments described here: [Structures/ServerQueryData](https://wiki.facepunch.com/gmod/Structures/ServerQueryData).
      */
-    function PingServer(ip: string, callback: ServerQueryData): void;
+    declare function PingServer(ip: string, callback: ServerQueryData): void;
 
     /**
      * 🟩 [Menu]
@@ -69670,7 +70038,7 @@ declare namespace serverlist {
      * </arg>
      * </callback>
      */
-    function PlayerList(ip: string, callback: (data: any) => void): void;
+    declare function PlayerList(ip: string, callback: (data: any) => void): void;
 
     /**
      * 🟩 [Menu]
@@ -69678,7 +70046,7 @@ declare namespace serverlist {
      * Queries the master server for server list.
      * @param data - The information about what kind of servers we want. See [Structures/ServerQueryData](https://wiki.facepunch.com/gmod/Structures/ServerQueryData)
      */
-    function Query(data: ServerQueryData): void;
+    declare function Query(data: ServerQueryData): void;
 
     /**
      * 🟩 [Menu]
@@ -69686,7 +70054,7 @@ declare namespace serverlist {
      * Removes the given server address from their favorites.
      * @param address - Server Address. **IP:Port like "127.0.0.1:27015"**
      */
-    function RemoveServerFromFavorites(address: string): void;
+    declare function RemoveServerFromFavorites(address: string): void;
 }
 
 /**
@@ -69703,7 +70071,7 @@ declare namespace sound {
      * A list of sound scripts can be retrieved with [sound.GetTable](https://wiki.facepunch.com/gmod/sound.GetTable).
      * @param soundData - The sounds properties. See [Structures/SoundData](https://wiki.facepunch.com/gmod/Structures/SoundData)
      */
-    function Add(soundData: SoundData): void;
+    declare function Add(soundData: SoundData): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -69711,7 +70079,7 @@ declare namespace sound {
      * Overrides sounds defined inside of a txt file; typically used for adding map-specific sounds.
      * @param filepath - Path to the script file to load.
      */
-    function AddSoundOverrides(filepath: string): void;
+    declare function AddSoundOverrides(filepath: string): void;
 
     /**
      * 🟦 [Server]
@@ -69723,7 +70091,7 @@ declare namespace sound {
      * @param duration - The duration of the hint in seconds
      * @param [owner = NULL] - If set, the sound hint will be ignored/deleted when the given entity is destroyed.
      */
-    function EmitHint(hint: SOUND, pos: Vector, volume: number, duration: number, owner?: Entity): void;
+    declare function EmitHint(hint: SOUND, pos: Vector, volume: number, duration: number, owner?: Entity): void;
 
     /**
      * 🟨 [Client]
@@ -69746,7 +70114,7 @@ declare namespace sound {
      * 		This argument can also be a string of raw 16bit binary data, (each sample is unsigned short).
      * @param [loopStart = nil] - Sample ID of the loop start. If given, the sound will be looping and will restart playing at given position after reaching its end.
      */
-    function Generate(identifier: string, samplerate: number, length: number, callbackOrData: (sampleIndex: number) => number, loopStart?: number): void;
+    declare function Generate(identifier: string, samplerate: number, length: number, callbackOrData: (sampleIndex: number) => number, loopStart?: number): void;
 
     /**
      * 🟦 [Server]
@@ -69755,7 +70123,7 @@ declare namespace sound {
      * @param types - The types of sounds to choose from. See <page text="SOUND_ enums">Enums/SOUND</page>.
      * @param pos - The position to sense sounds at.
      */
-    function GetLoudestSoundHint(types: SOUND, pos: Vector): SoundHintData;
+    declare function GetLoudestSoundHint(types: SOUND, pos: Vector): SoundHintData;
 
     /**
      * 🟨🟦 [Shared]
@@ -69763,7 +70131,7 @@ declare namespace sound {
      * Returns properties of the soundscript.
      * @param name - The name of the sound script
      */
-    function GetProperties(name: string): SoundData;
+    declare function GetProperties(name: string): SoundData;
 
     /**
      * 🟨🟦 [Shared]
@@ -69772,7 +70140,7 @@ declare namespace sound {
      *
      * New ones can be registered using [sound.Add](https://wiki.facepunch.com/gmod/sound.Add), and detailed information about each one can be retrieved via [sound.GetProperties](https://wiki.facepunch.com/gmod/sound.GetProperties).
      */
-    function GetTable(): string[];
+    declare function GetTable(): string[];
 
     /**
      * 🟨🟦 [Shared]
@@ -69788,7 +70156,7 @@ declare namespace sound {
      * @param [volume = 1] - Output volume of the sound in range 0 to 1.
      * @param [dsp = 0] - The DSP preset for this sound. [List of DSP presets](https://developer.valvesoftware.com/wiki/Dsp_presets)
      */
-    function Play(snd: string, pos: Vector, level = 75, pitch = 100, volume = 1, dsp = 0): void;
+    declare function Play(snd: string, pos: Vector, level?: SNDLVL, pitch?: number, volume?: number, dsp?: number): void;
 
     /**
      * 🟨 [Client]
@@ -69818,7 +70186,7 @@ declare namespace sound {
      * <arg type="string" name="errorName">Name of an error if an error has occurred. Will be nil, otherwise.</arg>
      * </callback>
      */
-    function PlayFile(path: string, flags: string, callback: (channel: IGModAudioChannel, errorID: number, errorName: string) => void): void;
+    declare function PlayFile(path: string, flags: string, callback: (channel: IGModAudioChannel, errorID: number, errorName: string) => void): void;
 
     /**
      * 🟨 [Client]
@@ -69845,7 +70213,7 @@ declare namespace sound {
      * <arg type="string" name="errorName">Name of an error if an error has occurred. Will be nil, otherwise.</arg>
      * </callback>
      */
-    function PlayURL(url: string, flags: string, callback: (channel: IGModAudioChannel, errorID: number, errorName: string) => void): void;
+    declare function PlayURL(url: string, flags: string, callback: (channel: IGModAudioChannel, errorID: number, errorName: string) => void): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -69862,7 +70230,7 @@ declare namespace sound {
      * @param modelPath - Path to the model file to set the gender of.
      * @param gender - Gender to set. Only 2 options are permitted: `female` and `male`. Any other option will be ignored.
      */
-    function SetActorGender(modelPath: string, gender: string): void;
+    declare function SetActorGender(modelPath: string, gender: string): void;
 }
 
 /**
@@ -69876,7 +70244,7 @@ declare namespace spawnmenu {
      * @param tool - Tool class/file name
      * @param [menu_only = false] - Should we activate this tool in the menu only or also the toolgun? `true` = menu only,`false` = toolgun aswell
      */
-    function ActivateTool(tool: string, menu_only = false): void;
+    declare function ActivateTool(tool: string, menu_only?: boolean): void;
 
     /**
      * 🟨 [Client]
@@ -69885,14 +70253,14 @@ declare namespace spawnmenu {
      * @param tab - The tabID of the tab to open the context menu in
      * @param cp - The control panel to open
      */
-    function ActivateToolPanel(tab: number, cp: Panel): void;
+    declare function ActivateToolPanel(tab: number, cp: Panel): void;
 
     /**
      * 🟨 [Client]
      *
      * Returns currently opened control panel of a tool, post process effect or some other menu in spawnmenu.
      */
-    function ActiveControlPanel(): Panel;
+    declare function ActiveControlPanel(): Panel;
 
     /**
      * 🟨 [Client]
@@ -69907,7 +70275,7 @@ declare namespace spawnmenu {
      * <ret type="Panel" name="pnl">The created panel</ret>
      * </callback>
      */
-    function AddContentType(name: string, constructor: (container: Panel, data: any) => Panel): void;
+    declare function AddContentType(name: string, constructor: (container: Panel, data: any) => Panel): void;
 
     /**
      * 🟨 [Client]
@@ -69922,7 +70290,7 @@ declare namespace spawnmenu {
      * @param [order = 1000] - The order in which this tab should be shown relative to the other tabs on the creation menu.
      * @param [tooltip = nil] - The tooltip to be shown for this tab.
      */
-    function AddCreationTab(name: string, function_: () => Panel, material: string = "icon16/exclamation.png", order = 1000, tooltip?: string): void;
+    declare function AddCreationTab(name: string, function_: () => Panel, material?: string, order?: number, tooltip?: string): void;
 
     /**
      * 🟨 [Client]
@@ -69952,7 +70320,7 @@ declare namespace spawnmenu {
      * @param [parentID = 0] - The unique ID of the parent category. This will make the created category a subcategory of category with given unique ID. `0` makes this a base category (such as `Builder`).
      * @param [needsApp] - The needed game for this prop category, if one is needed. If the specified game is not mounted, the category isn't shown. This uses the shortcut name, e.g. `cstrike`, and not the Steam AppID.
      */
-    function AddPropCategory(classname: string, name: string, contents: any, icon: string, id = 1000, parentID = 0, needsApp: string = ""): void;
+    declare function AddPropCategory(classname: string, name: string, contents: any, icon: string, id?: number, parentID?: number, needsApp?: string): void;
 
     /**
      * 🟨 [Client]
@@ -69968,7 +70336,7 @@ declare namespace spawnmenu {
      * @param className - The unique identifier name, which will be used to add tool option to this category.
      * @param printName - The nice name to be displayed to the player. See [Addon Localization](https://wiki.facepunch.com/gmod/Addon_Localization).
      */
-    function AddToolCategory(tabName: string, className: string, printName: string): void;
+    declare function AddToolCategory(tabName: string, className: string, printName: string): void;
 
     /**
      * 🟨 [Client]
@@ -69990,7 +70358,7 @@ declare namespace spawnmenu {
      * </callback>
      * @param [table = {}] - Allows to override the table that will be added to the tool list. Some of the fields will be overwritten by this function.
      */
-    function AddToolMenuOption(tab: string, category: string, class_: string, name: string, cmd?: string, config?: string, cpanel: (pnl: Panel) => void, table?: any): void;
+    declare function AddToolMenuOption(tab: string, category: string, class_: string, name: string, cmd?: string, config?: string, cpanel?: (pnl: Panel) => void, table?: any): void;
 
     /**
      * 🟨 [Client]
@@ -70007,7 +70375,7 @@ declare namespace spawnmenu {
      * @param [label = name] - The 'nice' name of the tab that is displayed to the player. See [Addon Localization](https://wiki.facepunch.com/gmod/Addon_Localization).
      * @param [icon = icon16/wrench.png] - The file path to the icon of the tab. Should be a `.png` file. See [Silkicons](https://wiki.facepunch.com/gmod/Silkicons).
      */
-    function AddToolTab(name: string, label: string = "name", icon: string = "icon16/wrench.png"): void;
+    declare function AddToolTab(name: string, label?: string, icon?: string): void;
 
     /**
      * 🟨 [Client]
@@ -70016,7 +70384,7 @@ declare namespace spawnmenu {
      *
      * Seems to only work when ran at initialization.
      */
-    function ClearToolMenus(): void;
+    declare function ClearToolMenus(): void;
 
     /**
      * 🟨 [Client]
@@ -70036,7 +70404,7 @@ declare namespace spawnmenu {
      * @param [parent = nil] - The parent to add the [ContentIcon](https://wiki.facepunch.com/gmod/ContentIcon) to.
      * @param data - The data to send to the content icon in [spawnmenu.AddContentType](https://wiki.facepunch.com/gmod/spawnmenu.AddContentType). Data required will depend on the content type.
      */
-    function CreateContentIcon(type: string, parent?: Panel, data: any): Panel;
+    declare function CreateContentIcon(type: string, parent?: Panel, data?: any): Panel;
 
     /**
      * 🟨 [Client]
@@ -70044,7 +70412,7 @@ declare namespace spawnmenu {
      * Calls [spawnmenu.SaveToTextFiles](https://wiki.facepunch.com/gmod/spawnmenu.SaveToTextFiles).
      * @param spawnlists - A table containing spawnlists.
      */
-    function DoSaveToTextFiles(spawnlists: any): void;
+    declare function DoSaveToTextFiles(spawnlists: any): void;
 
     /**
      * 🟨 [Client]
@@ -70056,14 +70424,14 @@ declare namespace spawnmenu {
      * You probably want to use [spawnmenu.CreateContentIcon](https://wiki.facepunch.com/gmod/spawnmenu.CreateContentIcon) to create icons.
      * @param contentType - The content type name.
      */
-    function GetContentType(contentType: string): Function;
+    declare function GetContentType(contentType: string): Function;
 
     /**
      * 🟨 [Client]
      *
      * Returns the list of Creation tabs. Creation tabs are added via [spawnmenu.AddCreationTab](https://wiki.facepunch.com/gmod/spawnmenu.AddCreationTab).
      */
-    function GetCreationTabs(): CreationMenus;
+    declare function GetCreationTabs(): CreationMenus;
 
     /**
      * 🟨 [Client]
@@ -70072,7 +70440,7 @@ declare namespace spawnmenu {
      *
      * These spawnlists are shown in a separate menu in-game.
      */
-    function GetCustomPropTable(): any;
+    declare function GetCustomPropTable(): any;
 
     /**
      * 🟨 [Client]
@@ -70083,7 +70451,7 @@ declare namespace spawnmenu {
      *
      * This will not return spawnlists created by addons, see  [spawnmenu.GetCustomPropTable](https://wiki.facepunch.com/gmod/spawnmenu.GetCustomPropTable) for that.
      */
-    function GetPropTable(): any;
+    declare function GetPropTable(): any;
 
     /**
      * 🟨 [Client]
@@ -70095,21 +70463,21 @@ declare namespace spawnmenu {
      * @param [label = name] - The 'nice' name of the tab
      * @param [icon = icon16/wrench.png] - The file path to the icon of the tab. Should be a `.png` file. See [Silkicons](https://wiki.facepunch.com/gmod/Silkicons).
      */
-    function GetToolMenu(name: string, label: string = "name", icon: string = "icon16/wrench.png"): any;
+    declare function GetToolMenu(name: string, label?: string, icon?: string): any;
 
     /**
      * 🟨 [Client]
      *
      * Gets a table of tools on the client.
      */
-    function GetTools(): any;
+    declare function GetTools(): any;
 
     /**
      * 🟨 [Client]
      *
      * Calls [spawnmenu.PopulateFromTextFiles](https://wiki.facepunch.com/gmod/spawnmenu.PopulateFromTextFiles).
      */
-    function PopulateFromEngineTextFiles(): void;
+    declare function PopulateFromEngineTextFiles(): void;
 
     /**
      * 🟨 [Client]
@@ -70126,7 +70494,7 @@ declare namespace spawnmenu {
      * <arg type="string" name="needsapp">If not empty, the internal folder name of an mountable game that is required for this spawnlist to show up.</arg>
      * </callback>
      */
-    function PopulateFromTextFiles(callback: (strFilename: string, strName: string, tabContents: any, icon: string, id: number, parentid: number, needsapp: string) => void): void;
+    declare function PopulateFromTextFiles(callback: (strFilename: string, strName: string, tabContents: any, icon: string, id: number, parentid: number, needsapp: string) => void): void;
 
     /**
      * 🟨 [Client]
@@ -70134,7 +70502,7 @@ declare namespace spawnmenu {
      * Saves a table of spawnlists to files.
      * @param spawnlists - A table containing spawnlists.
      */
-    function SaveToTextFiles(spawnlists: any): void;
+    declare function SaveToTextFiles(spawnlists: any): void;
 
     /**
      * 🟨 [Client]
@@ -70142,7 +70510,7 @@ declare namespace spawnmenu {
      * Sets currently active control panel to be returned by [spawnmenu.ActiveControlPanel](https://wiki.facepunch.com/gmod/spawnmenu.ActiveControlPanel).
      * @param pnl - The panel to set.
      */
-    function SetActiveControlPanel(pnl: Panel): void;
+    declare function SetActiveControlPanel(pnl: Panel): void;
 
     /**
      * 🟨 [Client]
@@ -70150,7 +70518,7 @@ declare namespace spawnmenu {
      * Switches the creation tab (left side of the spawnmenu) on the spawnmenu to the given tab.
      * @param id - The tab ID to open
      */
-    function SwitchCreationTab(id: string): void;
+    declare function SwitchCreationTab(id: string): void;
 
     /**
      * 🟨 [Client]
@@ -70158,7 +70526,7 @@ declare namespace spawnmenu {
      * Opens specified tool tab in spawnmenu.
      * @param id - The tab ID to open
      */
-    function SwitchToolTab(id: number): void;
+    declare function SwitchToolTab(id: number): void;
 }
 
 /**
@@ -70197,7 +70565,7 @@ declare namespace sql {
      * sql.Query( "BEGIN;" )
      * ```
      */
-    function Begin(): void;
+    declare function Begin(): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70206,7 +70574,7 @@ declare namespace sql {
      *
      * This is equivalent to `sql.Query( "COMMIT;" )`.
      */
-    function Commit(): void;
+    declare function Commit(): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70214,14 +70582,14 @@ declare namespace sql {
      * Returns true if the index with the specified name exists.
      * @param indexName - The name of the index to check.
      */
-    function IndexExists(indexName: string): boolean;
+    declare function IndexExists(indexName: string): boolean;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns the last error from a SQLite query.
      */
-    function LastError(): string;
+    declare function LastError(): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70235,7 +70603,7 @@ declare namespace sql {
      *
      * @param query - The query to execute.
      */
-    function Query(query: string): any|boolean|nil;
+    declare function Query(query: string): any|boolean|nil;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70249,7 +70617,7 @@ declare namespace sql {
      * @param query - The query as used in sql.Query
      * @param [row = 1] - The row number.
      */
-    function QueryRow(query: string, row = 1): any;
+    declare function QueryRow(query: string, row?: number): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70268,7 +70636,7 @@ declare namespace sql {
      * @param queryParams - Parameters to bind to the query placeholders. Supports [nil](https://wiki.facepunch.com/gmod/nil), [boolean](https://wiki.facepunch.com/gmod/boolean), [number](https://wiki.facepunch.com/gmod/number), and [string](https://wiki.facepunch.com/gmod/string) types.
      * The number of query parameters must match the number of `?` placeholders, or the query will fail. See examples.
      */
-    function QueryTyped(query: string, ...queryParams: any[]): any|boolean;
+    declare function QueryTyped(query: string, ...queryParams: any[]): any|boolean;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70276,7 +70644,7 @@ declare namespace sql {
      * Performs the query like [sql.QueryRow](https://wiki.facepunch.com/gmod/sql.QueryRow), but returns the first value found.
      * @param query - The input query.
      */
-    function QueryValue(query: string): string;
+    declare function QueryValue(query: string): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70291,7 +70659,7 @@ declare namespace sql {
      * @param string - The string to be escaped.
      * @param [bNoQuotes = false] - Set this as `true`, and the function will not wrap the input string in apostrophes.
      */
-    function SQLStr(string: string, bNoQuotes = false): string;
+    declare function SQLStr(string: string, bNoQuotes?: boolean): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70299,7 +70667,7 @@ declare namespace sql {
      * Returns true if the table with the specified name exists.
      * @param tableName - The name of the table to check.
      */
-    function TableExists(tableName: string): boolean;
+    declare function TableExists(tableName: string): boolean;
 }
 
 /**
@@ -70311,7 +70679,7 @@ declare namespace steamworks {
      *
      * Refreshes clients addons.
      */
-    function ApplyAddons(): void;
+    declare function ApplyAddons(): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -70333,7 +70701,7 @@ declare namespace steamworks {
      * <arg type="string" name="path">Path to the downloaded file.</arg>
      * </callback>
      */
-    function Download(workshopPreviewID: string, uncompress: boolean, resultCallback: (path: string) => void): void;
+    declare function Download(workshopPreviewID: string, uncompress: boolean, resultCallback: (path: string) => void): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -70345,7 +70713,7 @@ declare namespace steamworks {
      * <arg type="file_class" name="file">A file object pointing to the downloaded .gma file. The file handle will be closed after the function exits.</arg>
      * </callback>
      */
-    function DownloadUGC(workshopID: string, resultCallback: (path: string, file: file_class) => void): void;
+    declare function DownloadUGC(workshopID: string, resultCallback: (path: string, file: file_class) => void): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70357,7 +70725,7 @@ declare namespace steamworks {
      * 	<arg type="table" name="data">The data about the item, if the request succeeded, `nil` otherwise. See [Structures/UGCFileInfo](https://wiki.facepunch.com/gmod/Structures/UGCFileInfo).</arg>
      * </callback>
      */
-    function FileInfo(workshopItemID: string, resultCallback: (data: UGCFileInfo) => void): void;
+    declare function FileInfo(workshopItemID: string, resultCallback: (data: UGCFileInfo) => void): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70381,7 +70749,7 @@ declare namespace steamworks {
      * <arg type="table" name="data">The list of items, or nil in case of error.</arg>
      * </callback>
      */
-    function GetList(type: string, tags: any, offset: number, numRetrieve: number, days: number, userID: string, resultCallback: (data: any) => void): void;
+    declare function GetList(type: string, tags: any, offset: number, numRetrieve: number, days: number, userID: string, resultCallback: (data: any) => void): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -70394,7 +70762,7 @@ declare namespace steamworks {
      *
      * @param steamID64 - The 64bit Steam ID ( aka Community ID ) of the player
      */
-    function GetPlayerName(steamID64: string): string;
+    declare function GetPlayerName(steamID64: string): string;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -70402,14 +70770,14 @@ declare namespace steamworks {
      * Returns whenever the client is subscribed to the specified Steam Workshop item.
      * @param workshopItemID - The ID of the Steam Workshop item.
      */
-    function IsSubscribed(workshopItemID: string): boolean;
+    declare function IsSubscribed(workshopItemID: string): boolean;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * Opens the workshop website in the steam overlay browser.
      */
-    function OpenWorkshop(): void;
+    declare function OpenWorkshop(): void;
 
     /**
      * 🟩 [Menu]
@@ -70428,7 +70796,7 @@ declare namespace steamworks {
      * @param [fileid = nil] - If set, the file ID to update
      * @param [changelist = None given.] - List of changes when updating an item.
      */
-    function Publish(filename: string, image: string, name: string, desc: string, tags: any, callback: (fileID: number, error: string) => void, fileid?: number, changelist: string = "None given."): void;
+    declare function Publish(filename: string, image: string, name: string, desc: string, tags: any, callback: (fileID: number, error: string) => void, fileid?: number, changelist?: string): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -70440,7 +70808,7 @@ declare namespace steamworks {
      * 	<arg type="string" name="name">The player's name.</arg>
      * </callback>
      */
-    function RequestPlayerInfo(steamID64: string, callback: (name: string) => void): void;
+    declare function RequestPlayerInfo(steamID64: string, callback: (name: string) => void): void;
 
     /**
      * 🟩 [Menu]
@@ -70448,7 +70816,7 @@ declare namespace steamworks {
      * Sets the workshop item as "completed" by the player. There will be a visual indicator on the Steam Workshop for completed items.
      * @param workshopid - The Steam Workshop item id
      */
-    function SetFileCompleted(workshopid: string): string;
+    declare function SetFileCompleted(workshopid: string): string;
 
     /**
      * 🟩 [Menu]
@@ -70457,7 +70825,7 @@ declare namespace steamworks {
      * <image src="steamworksSetFilePlayedExample.png"/>
      * @param workshopid - The Steam Workshop item ID
      */
-    function SetFilePlayed(workshopid: string): string;
+    declare function SetFilePlayed(workshopid: string): string;
 
     /**
      * 🟩 [Menu]
@@ -70466,7 +70834,7 @@ declare namespace steamworks {
      * @param workshopItemID - The ID of the Steam Workshop item we should enable/disable
      * @param shouldMount - true to enable the item, false to disable.
      */
-    function SetShouldMountAddon(workshopItemID: string, shouldMount: boolean): void;
+    declare function SetShouldMountAddon(workshopItemID: string, shouldMount: boolean): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -70474,7 +70842,7 @@ declare namespace steamworks {
      * Returns whenever the specified Steam Workshop addon will be mounted or not.
      * @param workshopItemID - The ID of the Steam Workshop
      */
-    function ShouldMountAddon(workshopItemID: string): boolean;
+    declare function ShouldMountAddon(workshopItemID: string): boolean;
 
     /**
      * 🟩 [Menu]
@@ -70482,7 +70850,7 @@ declare namespace steamworks {
      * Subscribes to the specified workshop addon. Call [steamworks.ApplyAddons](https://wiki.facepunch.com/gmod/steamworks.ApplyAddons) afterwards to update.
      * @param workshopItemID - The ID of the Steam Workshop item we should subscribe to
      */
-    function Subscribe(workshopItemID: string): void;
+    declare function Subscribe(workshopItemID: string): void;
 
     /**
      * 🟩 [Menu]
@@ -70492,7 +70860,7 @@ declare namespace steamworks {
      * This function should `never` be called without a user's consent and should not be called if the addon is currently in use (aka: the user is not in the main menu) as it may result in unexpected behaviour.
      * @param workshopItemID - The ID of the Steam Workshop item we should unsubscribe from.
      */
-    function Unsubscribe(workshopItemID: string): void;
+    declare function Unsubscribe(workshopItemID: string): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -70500,7 +70868,7 @@ declare namespace steamworks {
      * Opens the workshop website for specified Steam Workshop item in the Steam overlay browser.
      * @param workshopItemID - The ID of workshop item.
      */
-    function ViewFile(workshopItemID: string): void;
+    declare function ViewFile(workshopItemID: string): void;
 
     /**
      * 🟩 [Menu]
@@ -70509,7 +70877,7 @@ declare namespace steamworks {
      * @param workshopItemID - The ID of workshop item.
      * @param upOrDown - Sets if the user should vote up/down. True makes them upvote, false down
      */
-    function Vote(workshopItemID: string, upOrDown: boolean): void;
+    declare function Vote(workshopItemID: string, upOrDown: boolean): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -70524,7 +70892,7 @@ declare namespace steamworks {
      * 	<arg type="table" name="data">The vote information. See [Structures/UGCFileInfo](https://wiki.facepunch.com/gmod/Structures/UGCFileInfo).</arg>
      * </callback>
      */
-    function VoteInfo(workshopItemID: string, resultCallback: (data: UGCFileInfo) => void): void;
+    declare function VoteInfo(workshopItemID: string, resultCallback: (data: UGCFileInfo) => void): void;
 }
 
 /**
@@ -70569,7 +70937,7 @@ declare namespace string {
      * @param [startPos = 1] - The first character of the string to get the byte of.
      * @param [endPos = startPos] - The last character of the string to get the byte of.
      */
-    function byte(string: string, startPos = 1, endPos?: number): any;
+    declare function byte(string: string, startPos?: number, endPos?: number): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70579,7 +70947,7 @@ declare namespace string {
      * See also [Global.STNDRD](https://wiki.facepunch.com/gmod/Global.STNDRD) for a function that returns just the suffix.
      * @param input - A number to convert to ordinal.
      */
-    function CardinalToOrdinal(input: number): string;
+    declare function CardinalToOrdinal(input: number): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70587,7 +70955,7 @@ declare namespace string {
      * Takes the given numerical bytes and converts them to a string.
      * @param bytes - The bytes to create the string from.
      */
-    function char(...bytes: any[]): string;
+    declare function char(...bytes: any[]): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70596,7 +70964,7 @@ declare namespace string {
      * @param value - The input number to commafy
      * @param [separator] - An optional string that will be used instead of the default comma.
      */
-    function Comma(value: number, separator: string = ""): string;
+    declare function Comma(value: number, separator?: string): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70609,7 +70977,7 @@ declare namespace string {
      * @param func - The function to get the bytecode of
      * @param [stripDebugInfo = false] - True to strip the debug data, false to keep it
      */
-    function dump(func: Function, stripDebugInfo = false): string;
+    declare function dump(func: Function, stripDebugInfo?: boolean): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70618,7 +70986,7 @@ declare namespace string {
      * @param str - The string whose end is to be checked.
      * @param end - The string to be matched with the end of the first.
      */
-    function EndsWith(str: string, end: string): boolean;
+    declare function EndsWith(str: string, end: string): boolean;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70632,7 +71000,7 @@ declare namespace string {
      * @param str - The string to split up.
      * @param [withpattern = false] - Set this to true if your separator is a <page text="pattern">Patterns</page>.
      */
-    function Explode(separator: string, str: string, withpattern = false): any;
+    declare function Explode(separator: string, str: string, withpattern?: boolean): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70647,7 +71015,7 @@ declare namespace string {
      * @param [startPos = 1] - The position to start the search from, can be negative start position will be relative to the end position.
      * @param [noPatterns = false] - Disable patterns.
      */
-    function find(haystack: string, needle: string, startPos = 1, noPatterns = false): LuaMultiReturn<[number, number, string]>;
+    declare function find(haystack: string, needle: string, startPos?: number, noPatterns?: boolean): LuaMultiReturn<[number, number, string]>;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70667,7 +71035,7 @@ declare namespace string {
      * | %q | Formats a string between double quotes, using escape sequences when necessary to ensure that it can safely be read back by the Lua interpreter | `"test\1\2test"` |
      * @param formatParameters - Values to be formatted into the string.
      */
-    function format(format: string, ...formatParameters: any[]): string;
+    declare function format(format: string, ...formatParameters: any[]): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70676,7 +71044,7 @@ declare namespace string {
      * @param float - The time in seconds to format.
      * @param [format = nil] - An optional formatting to use. If no format it specified, a table will be returned instead.
      */
-    function FormattedTime(float: number, format?: string): string|FormattedTime;
+    declare function FormattedTime(float: number, format?: string): string|FormattedTime;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70684,7 +71052,7 @@ declare namespace string {
      * Creates a string from a Color variable.
      * @param color - The [Color](https://wiki.facepunch.com/gmod/Color) to put in the string.
      */
-    function FromColor(color: Color): string;
+    declare function FromColor(color: Color): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70696,7 +71064,7 @@ declare namespace string {
      * @param str - The string that you will be searching with the supplied index.
      * @param index - The index's value of the string to be returned.
      */
-    function GetChar(str: string, index: number): string;
+    declare function GetChar(str: string, index: number): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70708,7 +71076,7 @@ declare namespace string {
      *
      * @param path - The string eg. file-path to get the file extension from.
      */
-    function GetExtensionFromFilename(path: string): string;
+    declare function GetExtensionFromFilename(path: string): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70716,7 +71084,7 @@ declare namespace string {
      * Returns file name and extension.
      * @param path - The string eg. file-path to get the file-name from.
      */
-    function GetFileFromFilename(path: string): string;
+    declare function GetFileFromFilename(path: string): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70724,7 +71092,7 @@ declare namespace string {
      * Returns the path only from a file's path.
      * @param path - The string eg. file-path to get the path from.
      */
-    function GetPathFromFilename(path: string): string;
+    declare function GetPathFromFilename(path: string): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70736,7 +71104,7 @@ declare namespace string {
      * @param data - The string to search in
      * @param pattern - The pattern to search for
      */
-    function gfind(data: string, pattern: string): Function;
+    declare function gfind(data: string, pattern: string): Function;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70745,7 +71113,7 @@ declare namespace string {
      * @param data - The string to search in
      * @param pattern - The pattern to search for
      */
-    function gmatch(data: string, pattern: string): Function;
+    declare function gmatch(data: string, pattern: string): Function;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70758,7 +71126,7 @@ declare namespace string {
      * In case of a function all matches will be passed as parameters to the function, the return value(s) of the function will then be used as replacement.
      * @param [maxReplaces = nil] - Maximum number of replacements to be made.
      */
-    function gsub(string: string, pattern: string, replacement: string, maxReplaces?: number): LuaMultiReturn<[string, number]>;
+    declare function gsub(string: string, pattern: string, replacement: string, maxReplaces?: number): LuaMultiReturn<[string, number]>;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70772,7 +71140,7 @@ declare namespace string {
      * @param [separator] - The separator to insert between each piece.
      * @param pieces - The table of pieces to concatenate. The keys for these must be numeric and sequential.
      */
-    function Implode(separator: string = "", pieces: any): string;
+    declare function Implode(separator?: string, pieces?: any): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70781,7 +71149,7 @@ declare namespace string {
      * @param str - The string that should be interpolated.
      * @param lookuptable - The table to search in.
      */
-    function Interpolate(str: string, lookuptable: any): string;
+    declare function Interpolate(str: string, lookuptable: any): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70789,7 +71157,7 @@ declare namespace string {
      * Escapes special characters for JavaScript in a string, making the string safe for inclusion in to JavaScript strings.
      * @param str - The string that should be escaped.
      */
-    function JavascriptSafe(str: string): string;
+    declare function JavascriptSafe(str: string): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70798,7 +71166,7 @@ declare namespace string {
      * @param str - The string to extract from.
      * @param num - Amount of chars relative to the beginning (starting from 1).
      */
-    function Left(str: string, num: number): string;
+    declare function Left(str: string, num: number): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70806,7 +71174,7 @@ declare namespace string {
      * Counts the number of characters in the string (length). This is equivalent to using the length operator (#).
      * @param str - The string to find the length of.
      */
-    function len(str: string): number;
+    declare function len(str: string): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70818,7 +71186,7 @@ declare namespace string {
      *
      * @param str - The string to convert.
      */
-    function lower(str: string): string;
+    declare function lower(str: string): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70828,7 +71196,7 @@ declare namespace string {
      * @param pattern - The pattern that defines what should be matched.
      * @param [startPosition = 1] - The start index to start the matching from, can be negative to start the match from a position relative to the end.
      */
-    function match(string: string, pattern: string, startPosition = 1): any;
+    declare function match(string: string, pattern: string, startPosition?: number): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70838,7 +71206,7 @@ declare namespace string {
      * This is used internally by Faceposer and other code to transform flex and bodygroup names to a more friendly format.
      * @param text - The name to transform.
      */
-    function NiceName(text: string): string;
+    declare function NiceName(text: string): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70846,7 +71214,7 @@ declare namespace string {
      * Converts a digital filesize to human-readable text.
      * @param bytes - The filesize in bytes.
      */
-    function NiceSize(bytes: number): string;
+    declare function NiceSize(bytes: number): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70854,7 +71222,7 @@ declare namespace string {
      * Formats the supplied number (in seconds) to the highest possible time unit.
      * @param num - The number to format, in seconds.
      */
-    function NiceTime(num: number): string;
+    declare function NiceTime(num: number): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70862,7 +71230,7 @@ declare namespace string {
      * Escapes all special characters within a string, making the string safe for inclusion in a Lua pattern.
      * @param str - The string to be sanitized
      */
-    function PatternSafe(str: string): string;
+    declare function PatternSafe(str: string): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70872,7 +71240,7 @@ declare namespace string {
      * @param repetitions - Times to repeat, this value gets rounded internally.
      * @param [separator] - String that will separate the repeated piece. Notice that it doesn't add this string to the start or the end of the result, only between the repeated parts.
      */
-    function rep(str: string, repetitions: number, separator: string = ""): string;
+    declare function rep(str: string, repetitions: number, separator?: string): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70882,7 +71250,7 @@ declare namespace string {
      * @param find - What we are seeking to replace.
      * @param replace - What to replace find with.
      */
-    function Replace(str: string, find: string, replace: string): string;
+    declare function Replace(str: string, find: string, replace: string): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70890,7 +71258,7 @@ declare namespace string {
      * Reverses a string.
      * @param str - The string to be reversed.
      */
-    function reverse(str: string): string;
+    declare function reverse(str: string): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70899,7 +71267,7 @@ declare namespace string {
      * @param str - The string to extract from.
      * @param num - Amount of chars relative to the end (starting from 1).
      */
-    function Right(str: string, num: number): string;
+    declare function Right(str: string, num: number): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70909,7 +71277,7 @@ declare namespace string {
      * @param Index - The character index, 1 is the first from left.
      * @param ReplacementChar - String to replace with.
      */
-    function SetChar(InputString: string, Index: number, ReplacementChar: string): string;
+    declare function SetChar(InputString: string, Index: number, ReplacementChar: string): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70920,7 +71288,7 @@ declare namespace string {
      * @param Inputstring - String to split
      * @param Separator - Character(s) to split with.
      */
-    function Split(Inputstring: string, Separator: string): any;
+    declare function Split(Inputstring: string, Separator: string): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70929,7 +71297,7 @@ declare namespace string {
      * @param inputStr - String to check.
      * @param start - String to check with.
      */
-    function StartsWith(inputStr: string, start: string): boolean;
+    declare function StartsWith(inputStr: string, start: string): boolean;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70941,7 +71309,7 @@ declare namespace string {
      * @param inputStr - String to check.
      * @param start - String to check with.
      */
-    function StartWith(inputStr: string, start: string): boolean;
+    declare function StartWith(inputStr: string, start: string): boolean;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70949,7 +71317,7 @@ declare namespace string {
      * Removes the extension of a path.
      * @param path - The string eg. file-path to strip the extension.
      */
-    function StripExtension(path: string): string;
+    declare function StripExtension(path: string): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70959,7 +71327,7 @@ declare namespace string {
      * @param StartPos - The position of the first character that will be included in the sub-string. It can be negative to count from the end.
      * @param [EndPos = nil] - The position of the last character to be included in the sub-string. It can be negative to count from the end.
      */
-    function sub(string: string, StartPos: number, EndPos?: number): string;
+    declare function sub(string: string, StartPos: number, EndPos?: number): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70967,7 +71335,7 @@ declare namespace string {
      * Fetches a Color type from a string.
      * @param Inputstring - The string to convert from.
      */
-    function ToColor(Inputstring: string): Color;
+    declare function ToColor(Inputstring: string): Color;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70975,7 +71343,7 @@ declare namespace string {
      * Returns given time in "MM:SS" format.
      * @param time - Time in seconds
      */
-    function ToMinutesSeconds(time: number): string;
+    declare function ToMinutesSeconds(time: number): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70983,7 +71351,7 @@ declare namespace string {
      * Returns given time in "MM:SS:MS" format.
      * @param time - Time in seconds
      */
-    function ToMinutesSecondsMilliseconds(time: number): string;
+    declare function ToMinutesSecondsMilliseconds(time: number): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -70995,7 +71363,7 @@ declare namespace string {
      *
      * @param str - The string you'll turn into a table.
      */
-    function ToTable(str: string): any;
+    declare function ToTable(str: string): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -71004,7 +71372,7 @@ declare namespace string {
      * @param Inputstring - The string to trim.
      * @param [Char = %s] - String to match - can be multiple characters. Matches spaces by default.
      */
-    function Trim(Inputstring: string, Char: string = "%s"): string;
+    declare function Trim(Inputstring: string, Char?: string): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -71013,7 +71381,7 @@ declare namespace string {
      * @param str - String to trim
      * @param [char = %s] - Custom character to remove
      */
-    function TrimLeft(str: string, char: string = "%s"): string;
+    declare function TrimLeft(str: string, char?: string): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -71022,7 +71390,7 @@ declare namespace string {
      * @param str - String to remove from
      * @param [char = %s] - Custom character to remove, default is a space
      */
-    function TrimRight(str: string, char: string = "%s"): string;
+    declare function TrimRight(str: string, char?: string): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -71034,7 +71402,7 @@ declare namespace string {
      *
      * @param str - The string to convert.
      */
-    function upper(str: string): string;
+    declare function upper(str: string): string;
 }
 
 /**
@@ -71060,7 +71428,7 @@ declare namespace surface {
      * @param fontName - The new font name.
      * @param fontData - The font properties. See the [Structures/FontData](https://wiki.facepunch.com/gmod/Structures/FontData).
      */
-    function CreateFont(fontName: string, fontData: FontData): void;
+    declare function CreateFont(fontName: string, fontData: FontData): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -71073,7 +71441,7 @@ declare namespace surface {
      *
      * @param disable - True to disable, false to enable the clipping
      */
-    function DisableClipping(disable: boolean): boolean;
+    declare function DisableClipping(disable: boolean): boolean;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -71089,7 +71457,7 @@ declare namespace surface {
      * @param b - The blue value of the color to draw the circle with.
      * @param [a = 255] - The alpha value of the color to draw the circle with.
      */
-    function DrawCircle(originX: number, originY: number, radius: number, r: number, g: number, b: number, a = 255): void;
+    declare function DrawCircle(originX: number, originY: number, radius: number, r: number, g: number, b: number, a?: number): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -71102,7 +71470,7 @@ declare namespace surface {
      * @param endX - The end x float coordinate.
      * @param endY - The end y float coordinate.
      */
-    function DrawLine(startX: number, startY: number, endX: number, endY: number): void;
+    declare function DrawLine(startX: number, startY: number, endX: number, endY: number): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -71116,7 +71484,7 @@ declare namespace surface {
      * @param h - The integer height.
      * @param [thickness = 1] - The thickness of the outlined box border.
      */
-    function DrawOutlinedRect(x: number, y: number, w: number, h: number, thickness = 1): void;
+    declare function DrawOutlinedRect(x: number, y: number, w: number, h: number, thickness?: number): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -71134,7 +71502,7 @@ declare namespace surface {
      * @param vertices - A table containing integer vertices. See the [Structures/PolygonVertex](https://wiki.facepunch.com/gmod/Structures/PolygonVertex).
      * **The vertices must be in clockwise order.**
      */
-    function DrawPoly(vertices: PolygonVertex): void;
+    declare function DrawPoly(vertices: PolygonVertex): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -71147,7 +71515,7 @@ declare namespace surface {
      * @param width - The integer width of the rectangle.
      * @param height - The integer height of the rectangle.
      */
-    function DrawRect(x: number, y: number, width: number, height: number): void;
+    declare function DrawRect(x: number, y: number, width: number, height: number): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -71162,7 +71530,7 @@ declare namespace surface {
      * When additive rendering is enabled, the rendered text pixels will be added to the existing screen pixels, rather than replacing them outright. This means black text will be invisible, and drawing on a pure white background will be impossible.
      * <upload src="70c/8db6ce804200a43.png" size="21270" name="image.png" />
      */
-    function DrawText(text: string, forceAdditive?: boolean): void;
+    declare function DrawText(text: string, forceAdditive?: boolean): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -71178,7 +71546,7 @@ declare namespace surface {
      * @param width - The integer width of the rectangle.
      * @param height - The integer height of the rectangle.
      */
-    function DrawTexturedRect(x: number, y: number, width: number, height: number): void;
+    declare function DrawTexturedRect(x: number, y: number, width: number, height: number): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -71194,7 +71562,7 @@ declare namespace surface {
      * @param height - The integer height of the rectangle.
      * @param rotation - The rotation of the rectangle, in degrees.
      */
-    function DrawTexturedRectRotated(x: number, y: number, width: number, height: number, rotation: number): void;
+    declare function DrawTexturedRectRotated(x: number, y: number, width: number, height: number, rotation: number): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -71242,21 +71610,21 @@ declare namespace surface {
      * @param endU - The U texture mapping of the rectangle end.
      * @param endV - The V texture mapping of the rectangle end.
      */
-    function DrawTexturedRectUV(x: number, y: number, width: number, height: number, startU: number, startV: number, endU: number, endV: number): void;
+    declare function DrawTexturedRectUV(x: number, y: number, width: number, height: number, startU: number, startV: number, endU: number, endV: number): void;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * Returns the current alpha multiplier affecting drawing operations. This is set by [surface.SetAlphaMultiplier](https://wiki.facepunch.com/gmod/surface.SetAlphaMultiplier) or by the game engine in certain other cases.
      */
-    function GetAlphaMultiplier(): number;
+    declare function GetAlphaMultiplier(): number;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * Returns the current color affecting draw operations.
      */
-    function GetDrawColor(): Color;
+    declare function GetDrawColor(): Color;
 
     /**
      * 🟨 [Client]
@@ -71266,7 +71634,7 @@ declare namespace surface {
      * You probably want to use [Global.Material](https://wiki.facepunch.com/gmod/Global.Material) and [surface.SetMaterial](https://wiki.facepunch.com/gmod/surface.SetMaterial).
      * @param name - The name of the texture.
      */
-    function GetHUDTexture(name: string): number;
+    declare function GetHUDTexture(name: string): number;
 
     /**
      * 🟨 [Client]
@@ -71275,21 +71643,21 @@ declare namespace surface {
      *
      * When using the [surface](https://wiki.facepunch.com/gmod/surface) library (and, by extension, the [draw](https://wiki.facepunch.com/gmod/draw) library) inside of the [PANEL:Paint](https://wiki.facepunch.com/gmod/PANEL:Paint) function, the origin (The on-screen position of `(0,0)`) is automatically shifted to the top-left corner of the panel to make it easier to draw the panel's contents.  Additionally, [render.SetScissorRect](https://wiki.facepunch.com/gmod/render.SetScissorRect) is used to clip (or "mask") all drawn content to within the boundaries of the panel.  This function returns the information used by the [surface](https://wiki.facepunch.com/gmod/surface) library about the current panel's origin and <page text="ScissorRect">render.SetScissorRect</page>.
      */
-    function GetPanelPaintState(): any;
+    declare function GetPanelPaintState(): any;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * Returns the current color affecting text draw operations.
      */
-    function GetTextColor(): Color;
+    declare function GetTextColor(): Color;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * Returns the X and Y co-ordinate that has been set with [surface.SetTextPos](https://wiki.facepunch.com/gmod/surface.SetTextPos) or changed by [surface.DrawText](https://wiki.facepunch.com/gmod/surface.DrawText).
      */
-    function GetTextPos(): LuaMultiReturn<[number, number]>;
+    declare function GetTextPos(): LuaMultiReturn<[number, number]>;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -71300,7 +71668,7 @@ declare namespace surface {
      * Does not take into account new lines, the returned height is for the entire font (as specified by the font), not maximum of individual characters.</validate>
      * @param text - The string to check the size of.
      */
-    function GetTextSize(text: string): LuaMultiReturn<[number, number]>;
+    declare function GetTextSize(text: string): LuaMultiReturn<[number, number]>;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -71314,7 +71682,7 @@ declare namespace surface {
      *
      * @param name_path - Name or path of the texture. The path must be to a `.vmt` file (a material), not to `.vtf` (a texture)!
      */
-    function GetTextureID(name_path: string): number;
+    declare function GetTextureID(name_path: string): number;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -71322,7 +71690,7 @@ declare namespace surface {
      * Returns name/path of texture by ID. Opposite version of this function is [surface.GetTextureID](https://wiki.facepunch.com/gmod/surface.GetTextureID).
      * @param id - ID of texture.
      */
-    function GetTextureNameByID(id: number): string;
+    declare function GetTextureNameByID(id: number): string;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -71332,7 +71700,7 @@ declare namespace surface {
      * For `.png/.jpg` textures loaded with [Global.Material](https://wiki.facepunch.com/gmod/Global.Material) you can use the `$realheight` and `$realwidth` material parameters ([IMaterial:GetInt](https://wiki.facepunch.com/gmod/IMaterial:GetInt)) to get the size of the image.
      * @param textureID - The texture ID, returned by [surface.GetTextureID](https://wiki.facepunch.com/gmod/surface.GetTextureID).
      */
-    function GetTextureSize(textureID: number): LuaMultiReturn<[number, number]>;
+    declare function GetTextureSize(textureID: number): LuaMultiReturn<[number, number]>;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -71348,7 +71716,7 @@ declare namespace surface {
      * @param soundfile - The path to the sound file.
      * This should either be a sound script name ([sound.Add](https://wiki.facepunch.com/gmod/sound.Add)) or a file path relative to the `sound/` folder. (Make note that it's not sound**s**)
      */
-    function PlaySound(soundfile: string): void;
+    declare function PlaySound(soundfile: string): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -71357,7 +71725,7 @@ declare namespace surface {
      *
      * @deprecated You should use [Global.ScrH](https://wiki.facepunch.com/gmod/Global.ScrH) instead.
      */
-    function ScreenHeight(): number;
+    declare function ScreenHeight(): number;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -71366,7 +71734,7 @@ declare namespace surface {
      *
      * @deprecated You should use [Global.ScrW](https://wiki.facepunch.com/gmod/Global.ScrW) instead.
      */
-    function ScreenWidth(): number;
+    declare function ScreenWidth(): number;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -71375,7 +71743,7 @@ declare namespace surface {
      * See also [render.SetBlend](https://wiki.facepunch.com/gmod/render.SetBlend).
      * @param multiplier - The multiplier ranging from 0 to 1.
      */
-    function SetAlphaMultiplier(multiplier: number): void;
+    declare function SetAlphaMultiplier(multiplier: number): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -71405,7 +71773,7 @@ declare namespace surface {
      * The fonts must first be created with [surface.CreateFont](https://wiki.facepunch.com/gmod/surface.CreateFont) or be one of the [Default Fonts](https://wiki.facepunch.com/gmod/Default_Fonts).
      * @param fontName - The name of the font to use.
      */
-    function SetFont(fontName: string): void;
+    declare function SetFont(fontName: string): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -71427,7 +71795,7 @@ declare namespace surface {
      * ```
      * If using [Global.Material](https://wiki.facepunch.com/gmod/Global.Material), simply use the `ignorez` parameter.
      */
-    function SetMaterial(material: IMaterial): void;
+    declare function SetMaterial(material: IMaterial): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -71438,7 +71806,7 @@ declare namespace surface {
      * @param b - The blue value of color
      * @param [a = 255] - The alpha value of color
      */
-    function SetTextColor(r: number, g: number, b: number, a = 255): void;
+    declare function SetTextColor(r: number, g: number, b: number, a?: number): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -71447,7 +71815,7 @@ declare namespace surface {
      * @param x - The X integer co-ordinate.
      * @param y - The Y integer co-ordinate.
      */
-    function SetTextPos(x: number, y: number): void;
+    declare function SetTextPos(x: number, y: number): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -71457,7 +71825,7 @@ declare namespace surface {
      * This is a legacy method, and should probably not be used, see [surface.SetMaterial](https://wiki.facepunch.com/gmod/surface.SetMaterial) and [IMaterial](https://wiki.facepunch.com/gmod/IMaterial) for a better alternative.
      * @param textureID - The ID of the texture to draw with returned by [surface.GetTextureID](https://wiki.facepunch.com/gmod/surface.GetTextureID).
      */
-    function SetTexture(textureID: number): void;
+    declare function SetTexture(textureID: number): void;
 }
 
 /**
@@ -71474,21 +71842,21 @@ declare namespace system {
      * **Note:**
      * >This function does not work on Dedicated Servers and will instead return no value.
      */
-    function AppTime(): number;
+    declare function AppTime(): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns the current battery power.
      */
-    function BatteryPower(): number;
+    declare function BatteryPower(): number;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * Flashes the window, turning the border to white briefly
      */
-    function FlashWindow(): void;
+    declare function FlashWindow(): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -71498,7 +71866,7 @@ declare namespace system {
      * **Note:**
      * >This function does not work on Dedicated Servers and will instead return no value.
      */
-    function GetCountry(): string;
+    declare function GetCountry(): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -71508,21 +71876,21 @@ declare namespace system {
      * **Note:**
      * >This function does not work on dedicated servers and will instead return no value.
      */
-    function HasFocus(): boolean;
+    declare function HasFocus(): boolean;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns whether the current OS is Linux.
      */
-    function IsLinux(): boolean;
+    declare function IsLinux(): boolean;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns whether the current OS is OSX.
      */
-    function IsOSX(): boolean;
+    declare function IsOSX(): boolean;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -71531,14 +71899,14 @@ declare namespace system {
      *
      * <image src="DisplayModeDropdown.jpeg"/>
      */
-    function IsWindowed(): boolean;
+    declare function IsWindowed(): boolean;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns whether the current OS is Windows.
      */
-    function IsWindows(): boolean;
+    declare function IsWindows(): boolean;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -71548,7 +71916,7 @@ declare namespace system {
      * **Note:**
      * >This function does not work on Dedicated Servers and will instead return no value.
      */
-    function SteamTime(): number;
+    declare function SteamTime(): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -71560,7 +71928,7 @@ declare namespace system {
      * **Note:**
      * >This function does not work on Dedicated Servers and will instead return no value.
      */
-    function UpTime(): number;
+    declare function UpTime(): number;
 }
 
 /**
@@ -71580,7 +71948,7 @@ declare namespace table {
      * @param target - The table to insert the new values into.
      * @param source - The table to retrieve the values from.
      */
-    function Add(target: any, source: any): any;
+    declare function Add(target: any, source: any): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -71589,7 +71957,7 @@ declare namespace table {
      * @param table - The original table to modify.
      * @param [saveKeys = false] - Save the keys within each member table. This will insert a new field `__key` into each value, and should not be used if the table contains non-table values.
      */
-    function ClearKeys(table: any, saveKeys = false): any;
+    declare function ClearKeys(table: any, saveKeys?: boolean): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -71597,7 +71965,7 @@ declare namespace table {
      * Collapses a table with keyvalue structure
      * @param input - Input table
      */
-    function CollapseKeyValue(input: any): any;
+    declare function CollapseKeyValue(input: any): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -71608,7 +71976,7 @@ declare namespace table {
      * @param [startPos = 1] - The key to start at
      * @param [endPos = #tbl] - The key to end at
      */
-    function concat(tbl: any, concatenator: string = "", startPos = 1, endPos?: number): string;
+    declare function concat(tbl: any, concatenator?: string, startPos?: number, endPos?: number): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -71623,7 +71991,7 @@ declare namespace table {
      *
      * @param originalTable - The table to be copied.
      */
-    function Copy(originalTable: any): any;
+    declare function Copy(originalTable: any): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -71632,7 +72000,7 @@ declare namespace table {
      * @param source - The table to copy from.
      * @param target - The table to write to.
      */
-    function CopyFromTo(source: any, target: any): void;
+    declare function CopyFromTo(source: any, target: any): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -71642,7 +72010,7 @@ declare namespace table {
      * If you only want to test if the table is empty or not, use [table.IsEmpty](https://wiki.facepunch.com/gmod/table.IsEmpty) instead as it is a lot faster.
      * @param tbl - The table to count the keys of.
      */
-    function Count(tbl: any): number;
+    declare function Count(tbl: any): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -71650,7 +72018,7 @@ declare namespace table {
      * Converts a table that has been sanitised with [table.Sanitise](https://wiki.facepunch.com/gmod/table.Sanitise) back to its original form
      * @param tbl - Table to be de-sanitised
      */
-    function DeSanitise(tbl: any): any;
+    declare function DeSanitise(tbl: any): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -71658,7 +72026,7 @@ declare namespace table {
      * Removes all values from a table. If your table is not a metatable, it is almost always better to use `tab = {}` to preserve performance.
      * @param tbl - The table to empty.
      */
-    function Empty(tbl: any): void;
+    declare function Empty(tbl: any): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -71670,7 +72038,7 @@ declare namespace table {
      * @param tbl - Table to search
      * @param value - Value to return element after
      */
-    function FindNext(tbl: any, value: any): any;
+    declare function FindNext(tbl: any, value: any): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -71682,7 +72050,7 @@ declare namespace table {
      * @param tbl - Table to search
      * @param value - Value to return element before
      */
-    function FindPrev(tbl: any, value: any): any;
+    declare function FindPrev(tbl: any, value: any): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -71701,7 +72069,7 @@ declare namespace table {
      *
      * @param input - The table to flip items of.
      */
-    function Flip(input: any): any;
+    declare function Flip(input: any): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -71710,7 +72078,7 @@ declare namespace table {
      * @param [tab = {}] - Table to insert value in to
      * @param value - Value to insert
      */
-    function ForceInsert(tab?: any, value: any): any;
+    declare function ForceInsert(tab?: any, value?: any): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -71728,7 +72096,7 @@ declare namespace table {
      * <arg name="val" type="any">The value of a key-value pair for this iteration.</arg>
      * </callback>
      */
-    function foreach(tbl: any, callback: (key: any, val: any) => void): void;
+    declare function foreach(tbl: any, callback: (key: any, val: any) => void): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -71742,7 +72110,7 @@ declare namespace table {
      * @param table - The table to iterate over.
      * @param func - The function to run for each index.
      */
-    function foreachi(table: any, func: Function): void;
+    declare function foreachi(table: any, func: Function): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -71755,7 +72123,7 @@ declare namespace table {
      *
      * @param tab - Table to retrieve key from
      */
-    function GetFirstKey(tab: any): any;
+    declare function GetFirstKey(tab: any): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -71768,7 +72136,7 @@ declare namespace table {
      *
      * @param tab - Table to retrieve value from
      */
-    function GetFirstValue(tab: any): any;
+    declare function GetFirstValue(tab: any): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -71776,7 +72144,7 @@ declare namespace table {
      * Returns all keys of a table.
      * @param tabl - The table to get keys of
      */
-    function GetKeys(tabl: any): any;
+    declare function GetKeys(tabl: any): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -71787,7 +72155,7 @@ declare namespace table {
      *
      * @param tab - Table to retrieve key from
      */
-    function GetLastKey(tab: any): any;
+    declare function GetLastKey(tab: any): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -71798,7 +72166,7 @@ declare namespace table {
      *
      * @param tab - Table to retrieve value from
      */
-    function GetLastValue(tab: any): any;
+    declare function GetLastValue(tab: any): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -71809,7 +72177,7 @@ declare namespace table {
      *
      * @param tbl - The table to check.
      */
-    function getn(tbl: any): number;
+    declare function getn(tbl: any): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -71817,7 +72185,7 @@ declare namespace table {
      * Returns a key of the supplied table with the highest number value.
      * @param inputTable - The table to search in.
      */
-    function GetWinningKey(inputTable: any): any;
+    declare function GetWinningKey(inputTable: any): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -71833,7 +72201,7 @@ declare namespace table {
      * @param tbl - Table to check
      * @param value - Value to search for
      */
-    function HasValue(tbl: any, value: any): boolean;
+    declare function HasValue(tbl: any, value: any): boolean;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -71850,7 +72218,7 @@ declare namespace table {
      * @param target - Table to copy data to
      * @param base - Table to copy data from
      */
-    function Inherit(target: any, base: any): any;
+    declare function Inherit(target: any, base: any): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -71878,7 +72246,7 @@ declare namespace table {
      * For sequential tables it is better to use `tab[1] == nil`.
      * @param tab - Table to check.
      */
-    function IsEmpty(tab: any): boolean;
+    declare function IsEmpty(tab: any): boolean;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -71886,7 +72254,7 @@ declare namespace table {
      * Returns whether or not the table's keys are sequential
      * @param tab - Table to check
      */
-    function IsSequential(tab: any): boolean;
+    declare function IsSequential(tab: any): boolean;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -71895,7 +72263,7 @@ declare namespace table {
      * @param tab - Table to search
      * @param value - Value to search for
      */
-    function KeyFromValue(tab: any, value: any): any;
+    declare function KeyFromValue(tab: any, value: any): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -71904,7 +72272,7 @@ declare namespace table {
      * @param tab - Table to search
      * @param value - Value to search for
      */
-    function KeysFromValue(tab: any, value: any): any;
+    declare function KeysFromValue(tab: any, value: any): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -71912,7 +72280,7 @@ declare namespace table {
      * Returns a copy of the input table with all string keys converted to be lowercase recursively
      * @param tbl - Table to convert
      */
-    function LowerKeyNames(tbl: any): any;
+    declare function LowerKeyNames(tbl: any): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -71920,7 +72288,7 @@ declare namespace table {
      * Returns the highest numerical key.
      * @param tbl - The table to search.
      */
-    function maxn(tbl: any): number;
+    declare function maxn(tbl: any): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -71931,7 +72299,7 @@ declare namespace table {
      * @param inputTable - The table to search in.
      * @param keyName - The key to lookup.
      */
-    function MemberValuesFromKey(inputTable: any, keyName: any): any;
+    declare function MemberValuesFromKey(inputTable: any, keyName: any): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -71949,7 +72317,7 @@ declare namespace table {
      * @param source - The table you want to merge with the destination table.
      * @param [forceOverride = false] - If `true`, does not recursively merge sub-tables, and simply replaces them.
      */
-    function Merge(destination: any, source: any, forceOverride = false): any;
+    declare function Merge(destination: any, source: any, forceOverride?: boolean): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -71961,7 +72329,7 @@ declare namespace table {
      * @param dest - The index within the destination table where the moved elements should be inserted.
      * @param [destTbl = sourceTbl] - The destination table to which the elements are to be moved. By default, this is the same as the source table.
      */
-    function move(sourceTbl: any, from: number, to: number, dest: number, destTbl?: any): any;
+    declare function move(sourceTbl: any, from: number, to: number, dest: number, destTbl?: any): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -71969,7 +72337,7 @@ declare namespace table {
      * Packs a set of items into a table and returns the new table. It is meant as an alternative implementation of `table.pack` from newer versions of Lua.
      * @param items - The items to pack into a table.
      */
-    function Pack(...items: any[]): LuaMultiReturn<[any, number]>;
+    declare function Pack(...items: any[]): LuaMultiReturn<[any, number]>;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -71985,7 +72353,7 @@ declare namespace table {
      *
      * @param haystack - The table to choose from.
      */
-    function Random(haystack: any): LuaMultiReturn<[any, any]>;
+    declare function Random(haystack: any): LuaMultiReturn<[any, any]>;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -71998,7 +72366,7 @@ declare namespace table {
      * @param tbl - The table to remove the value from.
      * @param [index = #tbl] - The index of the value to remove.
      */
-    function remove(tbl: any, index?: number): any;
+    declare function remove(tbl: any, index?: number): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -72011,7 +72379,7 @@ declare namespace table {
      * @param tbl - The table that will be searched.
      * @param val - The value to find within the table.
      */
-    function RemoveByValue(tbl: any, val: any): any;
+    declare function RemoveByValue(tbl: any, val: any): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -72019,7 +72387,7 @@ declare namespace table {
      * Returns a reversed copy of a sequential table. Any non-sequential and non-numeric keyvalue pairs will not be copied.
      * @param tbl - Table to reverse.
      */
-    function Reverse(tbl: any): any;
+    declare function Reverse(tbl: any): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -72029,7 +72397,7 @@ declare namespace table {
      * [table.DeSanitise](https://wiki.facepunch.com/gmod/table.DeSanitise) performs the opposite transformation.
      * @param tab - Table to sanitise
      */
-    function Sanitise(tab: any): any;
+    declare function Sanitise(tab: any): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -72037,7 +72405,7 @@ declare namespace table {
      * Performs an inline [Fisher-Yates shuffle](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle) on the table in `O(n)` time
      * @param target - The table to shuffle.
      */
-    function Shuffle(target: any): void;
+    declare function Shuffle(target: any): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -72055,7 +72423,7 @@ declare namespace table {
      * 	<ret name="result" type="boolean">Result of the comparison. Return true in this function if you want the first parameter to come first in the sorted array.</ret>
      * </callback>
      */
-    function sort(tbl: any, sorter?: (a: any, b: any) => boolean): void;
+    declare function sort(tbl: any, sorter?: (a: any, b: any) => boolean): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -72066,7 +72434,7 @@ declare namespace table {
      * @param tab - Table to sort. All values of this table must be of same type.
      * @param [descending = false] - Should the order be descending?
      */
-    function SortByKey(tab: any, descending = false): any;
+    declare function SortByKey(tab: any, descending?: boolean): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -72076,7 +72444,7 @@ declare namespace table {
      * @param memberKey - The key used to identify the member.
      * @param [ascending = false] - Whether or not the order should be ascending.
      */
-    function SortByMember(tab: any, memberKey: any, ascending = false): void;
+    declare function SortByMember(tab: any, memberKey: any, ascending?: boolean): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -72088,7 +72456,7 @@ declare namespace table {
      *
      * @param tbl - The table to sort in descending order.
      */
-    function SortDesc(tbl: any): void;
+    declare function SortDesc(tbl: any): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -72098,7 +72466,7 @@ declare namespace table {
      * @param displayName - Optional. A name for the table.
      * @param niceFormatting - Adds new lines and tabs to the string.
      */
-    function ToString(tbl: any, displayName: string, niceFormatting: boolean): string;
+    declare function ToString(tbl: any, displayName: string, niceFormatting: boolean): string;
 }
 
 /**
@@ -72112,21 +72480,21 @@ declare namespace team {
      * @param index - Index of the team
      * @param increment - Amount to increase the team's score by
      */
-    function AddScore(index: number, increment: number): void;
+    declare function AddScore(index: number, increment: number): void;
 
     /**
      * 🟨🟦 [Shared]
      *
      * Returns the team index of the team with the least players. Falls back to TEAM_UNASSIGNED
      */
-    function BestAutoJoinTeam(): number;
+    declare function BestAutoJoinTeam(): number;
 
     /**
      * 🟨🟦 [Shared]
      *
      * Returns the real table consisting of information on every defined team
      */
-    function GetAllTeams(): any;
+    declare function GetAllTeams(): any;
 
     /**
      * 🟨🟦 [Shared]
@@ -72134,7 +72502,7 @@ declare namespace team {
      * Returns the selectable classes for the given team. This can be added to with [team.SetClass](https://wiki.facepunch.com/gmod/team.SetClass)
      * @param index - Index of the team
      */
-    function GetClass(index: number): any;
+    declare function GetClass(index: number): any;
 
     /**
      * 🟨🟦 [Shared]
@@ -72142,7 +72510,7 @@ declare namespace team {
      * Returns the team's color.
      * @param teamIndex - The team index.
      */
-    function GetColor(teamIndex: number): Color;
+    declare function GetColor(teamIndex: number): Color;
 
     /**
      * 🟨🟦 [Shared]
@@ -72150,7 +72518,7 @@ declare namespace team {
      * Returns the name of the team.
      * @param teamIndex - The team index.
      */
-    function GetName(teamIndex: number): string;
+    declare function GetName(teamIndex: number): string;
 
     /**
      * 🟨🟦 [Shared]
@@ -72162,7 +72530,7 @@ declare namespace team {
      *
      * @param teamIndex - The team index.
      */
-    function GetPlayers(teamIndex: number): any;
+    declare function GetPlayers(teamIndex: number): any;
 
     /**
      * 🟨🟦 [Shared]
@@ -72170,7 +72538,7 @@ declare namespace team {
      * Returns the score of the team.
      * @param teamIndex - The team index.
      */
-    function GetScore(teamIndex: number): number;
+    declare function GetScore(teamIndex: number): number;
 
     /**
      * 🟨🟦 [Shared]
@@ -72178,7 +72546,7 @@ declare namespace team {
      * Returns a table of valid spawnpoint classes the team can use. These are set with [team.SetSpawnPoint](https://wiki.facepunch.com/gmod/team.SetSpawnPoint).
      * @param index - Index of the team
      */
-    function GetSpawnPoint(index: number): any;
+    declare function GetSpawnPoint(index: number): any;
 
     /**
      * 🟨🟦 [Shared]
@@ -72186,7 +72554,7 @@ declare namespace team {
      * Returns a table of valid spawnpoint entities the team can use. These are set with  [team.SetSpawnPoint](https://wiki.facepunch.com/gmod/team.SetSpawnPoint).
      * @param index - Index of the team
      */
-    function GetSpawnPoints(index: number): any;
+    declare function GetSpawnPoints(index: number): any;
 
     /**
      * 🟨🟦 [Shared]
@@ -72194,7 +72562,7 @@ declare namespace team {
      * Returns if a team is joinable or not. This is set in [team.SetUp](https://wiki.facepunch.com/gmod/team.SetUp).
      * @param index - The index of the team.
      */
-    function Joinable(index: number): boolean;
+    declare function Joinable(index: number): boolean;
 
     /**
      * 🟨🟦 [Shared]
@@ -72202,7 +72570,7 @@ declare namespace team {
      * Returns the amount of players in a team.
      * @param teamIndex - The team index.
      */
-    function NumPlayers(teamIndex: number): number;
+    declare function NumPlayers(teamIndex: number): number;
 
     /**
      * 🟨🟦 [Shared]
@@ -72211,7 +72579,7 @@ declare namespace team {
      * @param index - Index of the team
      * @param classes - A class ID or table of class IDs
      */
-    function SetClass(index: number, classes: any): void;
+    declare function SetClass(index: number, classes: any): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -72220,7 +72588,7 @@ declare namespace team {
      * @param teamIndex - The team index.
      * @param color - The team's new color as a [Color](https://wiki.facepunch.com/gmod/Color).
      */
-    function SetColor(teamIndex: number, color: Color): void;
+    declare function SetColor(teamIndex: number, color: Color): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -72229,7 +72597,7 @@ declare namespace team {
      * @param index - Index of the team
      * @param score - The team's new score
      */
-    function SetScore(index: number, score: number): void;
+    declare function SetScore(index: number, score: number): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -72242,7 +72610,7 @@ declare namespace team {
      * @param index - Index of the team
      * @param classes - A spawnpoint classname or table of spawnpoint classnames
      */
-    function SetSpawnPoint(index: number, classes: any): void;
+    declare function SetSpawnPoint(index: number, classes: any): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -72253,7 +72621,7 @@ declare namespace team {
      * @param teamColor - The team color. Uses the [Color](https://wiki.facepunch.com/gmod/Color).
      * @param [isJoinable = true] - Whether the team is joinable or not.
      */
-    function SetUp(teamIndex: number, teamName: string, teamColor: Color, isJoinable = true): void;
+    declare function SetUp(teamIndex: number, teamName: string, teamColor: Color, isJoinable?: boolean): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -72261,7 +72629,7 @@ declare namespace team {
      * Returns the total number of deaths of all players in the team.
      * @param index - The team index.
      */
-    function TotalDeaths(index: number): number;
+    declare function TotalDeaths(index: number): number;
 
     /**
      * 🟨🟦 [Shared]
@@ -72269,7 +72637,7 @@ declare namespace team {
      * Get's the total frags in a team.
      * @param Entity_or_number - Entity or number.
      */
-    function TotalFrags(Entity_or_number: Entity): number;
+    declare function TotalFrags(Entity_or_number: Entity): number;
 
     /**
      * 🟨🟦 [Shared]
@@ -72277,7 +72645,7 @@ declare namespace team {
      * Returns true if the given team index is valid
      * @param index - Index of the team
      */
-    function Valid(index: number): boolean;
+    declare function Valid(index: number): boolean;
 }
 
 /**
@@ -72293,7 +72661,7 @@ declare namespace timer {
      * @param [repetitions = nil] - Repetitions. Use `0` for infinite or `nil` to keep previous value.
      * @param [func = nil] - The new function. Use `nil` to keep previous value.
      */
-    function Adjust(identifier: any, delay: number, repetitions?: number, func?: Function): boolean;
+    declare function Adjust(identifier: any, delay: number, repetitions?: number, func?: Function): boolean;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -72302,7 +72670,7 @@ declare namespace timer {
      *
      * @deprecated If you want to check if whether or not a timer exists, use [timer.Exists](https://wiki.facepunch.com/gmod/timer.Exists).
      */
-    function Check(): void;
+    declare function Check(): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -72320,7 +72688,7 @@ declare namespace timer {
      * @param repetitions - The number of times to repeat the timer. Enter `0` or any value below `0` for infinite repetitions.
      * @param func - Function called when timer has finished the countdown.
      */
-    function Create(identifier: string, delay: number, repetitions: number, func: Function): void;
+    declare function Create(identifier: string, delay: number, repetitions: number, func: Function): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -72331,7 +72699,7 @@ declare namespace timer {
      *
      * @param identifier - Identifier of the timer to destroy.
      */
-    function Destroy(identifier: string): void;
+    declare function Destroy(identifier: string): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -72346,7 +72714,7 @@ declare namespace timer {
      * These will list all active timers in each realm.
      * @param identifier - Identifier of the timer.
      */
-    function Exists(identifier: string): boolean;
+    declare function Exists(identifier: string): boolean;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -72354,7 +72722,7 @@ declare namespace timer {
      * Pauses the given timer.
      * @param identifier - Identifier of the timer.
      */
-    function Pause(identifier: any): boolean;
+    declare function Pause(identifier: any): boolean;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -72366,7 +72734,7 @@ declare namespace timer {
      *
      * @param identifier - Identifier of the timer to remove.
      */
-    function Remove(identifier: string): void;
+    declare function Remove(identifier: string): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -72374,7 +72742,7 @@ declare namespace timer {
      * Returns amount of repetitions/executions left before the timer destroys itself.
      * @param identifier - Identifier of the timer.
      */
-    function RepsLeft(identifier: any): number;
+    declare function RepsLeft(identifier: any): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -72389,7 +72757,7 @@ declare namespace timer {
      * @param delay - How long until the function should be ran (in seconds). Use `0` to have the function run in the next [GM:Tick](https://wiki.facepunch.com/gmod/GM:Tick).
      * @param func - The function to run after the specified delay.
      */
-    function Simple(delay: number, func: Function): void;
+    declare function Simple(delay: number, func: Function): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -72404,7 +72772,7 @@ declare namespace timer {
      *
      * @param identifier - Identifier of the timer.
      */
-    function Start(identifier: any): boolean;
+    declare function Start(identifier: any): boolean;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -72412,7 +72780,7 @@ declare namespace timer {
      * Stops the given timer and rewinds it.
      * @param identifier - Identifier of the timer.
      */
-    function Stop(identifier: any): boolean;
+    declare function Stop(identifier: any): boolean;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -72424,7 +72792,7 @@ declare namespace timer {
      *
      * @param identifier - Identifier of the timer.
      */
-    function TimeLeft(identifier: any): number;
+    declare function TimeLeft(identifier: any): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -72432,7 +72800,7 @@ declare namespace timer {
      * Runs either [timer.Pause](https://wiki.facepunch.com/gmod/timer.Pause) or [timer.UnPause](https://wiki.facepunch.com/gmod/timer.UnPause) based on the timer's current status.
      * @param identifier - Identifier of the timer.
      */
-    function Toggle(identifier: any): boolean;
+    declare function Toggle(identifier: any): boolean;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -72440,7 +72808,7 @@ declare namespace timer {
      * Unpauses the timer.
      * @param identifier - Identifier of the timer.
      */
-    function UnPause(identifier: any): boolean;
+    declare function UnPause(identifier: any): boolean;
 }
 
 /**
@@ -72459,7 +72827,7 @@ declare namespace umsg {
      *
      * @param angle - The angle to be sent.
      */
-    function Angle(angle: Angle): void;
+    declare function Angle(angle: Angle): void;
 
     /**
      * 🟦 [Server]
@@ -72470,7 +72838,7 @@ declare namespace umsg {
      *
      * @param bool - The bool to be sent.
      */
-    function Bool(bool: boolean): void;
+    declare function Bool(bool: boolean): void;
 
     /**
      * 🟦 [Server]
@@ -72481,7 +72849,7 @@ declare namespace umsg {
      *
      * @param char - The char to be sent.
      */
-    function Char(char: number): void;
+    declare function Char(char: number): void;
 
     /**
      * 🟦 [Server]
@@ -72490,7 +72858,7 @@ declare namespace umsg {
      *
      * @deprecated You should be using the [net](https://wiki.facepunch.com/gmod/net) instead
      */
-    function End(): void;
+    declare function End(): void;
 
     /**
      * 🟦 [Server]
@@ -72501,7 +72869,7 @@ declare namespace umsg {
      *
      * @param entity - The entity to be sent.
      */
-    function Entity(entity: Entity): void;
+    declare function Entity(entity: Entity): void;
 
     /**
      * 🟦 [Server]
@@ -72512,7 +72880,7 @@ declare namespace umsg {
      *
      * @param float - The float to be sent.
      */
-    function Float(float: number): void;
+    declare function Float(float: number): void;
 
     /**
      * 🟦 [Server]
@@ -72523,7 +72891,7 @@ declare namespace umsg {
      *
      * @param int - The int to be sent.
      */
-    function Long(int: number): void;
+    declare function Long(int: number): void;
 
     /**
      * 🟦 [Server]
@@ -72534,7 +72902,7 @@ declare namespace umsg {
      *
      * @param string - The string to be pooled.
      */
-    function PoolString(string: string): void;
+    declare function PoolString(string: string): void;
 
     /**
      * 🟦 [Server]
@@ -72545,7 +72913,7 @@ declare namespace umsg {
      *
      * @param short - The short to be sent.
      */
-    function Short(short: number): void;
+    declare function Short(short: number): void;
 
     /**
      * 🟦 [Server]
@@ -72558,7 +72926,7 @@ declare namespace umsg {
      * @param name - The name of the message to be sent.
      * @param [filter = nil] - If passed a player object, it will only be sent to the player, if passed a [CRecipientFilter](https://wiki.facepunch.com/gmod/CRecipientFilter) of players, it will be sent to all specified players, if passed `nil` (or another invalid value), the message will be sent to all players.
      */
-    function Start(name: string, filter?: Player): void;
+    declare function Start(name: string, filter?: Player): void;
 
     /**
      * 🟦 [Server]
@@ -72569,7 +72937,7 @@ declare namespace umsg {
      *
      * @param string - The string to be sent.
      */
-    function String(string: string): void;
+    declare function String(string: string): void;
 
     /**
      * 🟦 [Server]
@@ -72580,7 +72948,7 @@ declare namespace umsg {
      *
      * @param vector - The vector to be sent.
      */
-    function Vector(vector: Vector): void;
+    declare function Vector(vector: Vector): void;
 
     /**
      * 🟦 [Server]
@@ -72591,7 +72959,7 @@ declare namespace umsg {
      *
      * @param normal - The vector normal to be sent.
      */
-    function VectorNormal(normal: Vector): void;
+    declare function VectorNormal(normal: Vector): void;
 }
 
 /**
@@ -72604,7 +72972,7 @@ declare namespace undo {
      * Adds an entity to the current undo block
      * @param ent - The entity to add
      */
-    function AddEntity(ent: Entity): void;
+    declare function AddEntity(ent: Entity): void;
 
     /**
      * 🟦 [Server]
@@ -72618,7 +72986,7 @@ declare namespace undo {
      * </callback>
      * @param arguments - Arguments to pass to the function (after the undo info table)
      */
-    function AddFunction(func: (undo: Undo, ...args: any[]) => boolean, ...arguments: any[]): void;
+    declare function AddFunction(func: (undo: Undo, ...args: any[]) => boolean, ...arguments: any[]): void;
 
     /**
      * 🟦 [Server]
@@ -72626,7 +72994,7 @@ declare namespace undo {
      * Begins a new undo entry
      * @param name - Name of the undo message to show to players
      */
-    function Create(name: string): void;
+    declare function Create(name: string): void;
 
     /**
      * 🟦 [Server]
@@ -72636,7 +73004,7 @@ declare namespace undo {
      * You should use `gmod_undo` or `gmod_undonum *num*` console commands instead of calling this function directly.
      * @param tab - The undo block to process as an [Structures/Undo](https://wiki.facepunch.com/gmod/Structures/Undo)
      */
-    function Do_Undo(tab: Undo): number;
+    declare function Do_Undo(tab: Undo): number;
 
     /**
      * 🟦 [Server]
@@ -72644,7 +73012,7 @@ declare namespace undo {
      * Completes an undo entry, and registers it with the player's client
      * @param [NiceText = nil] - Text that appears in the player's undo history. If unset, is set to undo's name.
      */
-    function Finish(NiceText?: string): void;
+    declare function Finish(NiceText?: string): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -72654,14 +73022,14 @@ declare namespace undo {
      * **Note:**
      * >Serverside, this table's keys use [Player:UniqueID](https://wiki.facepunch.com/gmod/Player:UniqueID) to store a player's undo blocks.
      */
-    function GetTable(): Undo[];
+    declare function GetTable(): Undo[];
 
     /**
      * 🟨 [Client]
      *
      * Makes the UI dirty - it will re-create the controls the next time it is viewed.
      */
-    function MakeUIDirty(): void;
+    declare function MakeUIDirty(): void;
 
     /**
      * 🟦 [Server]
@@ -72672,7 +73040,7 @@ declare namespace undo {
      * @param from - The old entity
      * @param to - The new entity to replace the old one. Can also be a `NULL` to remove the entity from the undo system.
      */
-    function ReplaceEntity(from: Entity, to: Entity): boolean;
+    declare function ReplaceEntity(from: Entity, to: Entity): boolean;
 
     /**
      * 🟦 [Server]
@@ -72680,7 +73048,7 @@ declare namespace undo {
      * Sets a custom undo text for the current undo block
      * @param customText - The text to display when the undo block is undone
      */
-    function SetCustomUndoText(customText: string): void;
+    declare function SetCustomUndoText(customText: string): void;
 
     /**
      * 🟦 [Server]
@@ -72688,14 +73056,14 @@ declare namespace undo {
      * Sets the player which the current undo block belongs to
      * @param ply - The player responsible for undoing the block
      */
-    function SetPlayer(ply: Player): void;
+    declare function SetPlayer(ply: Player): void;
 
     /**
      * 🟨 [Client]
      *
      * Adds a hook (CPanelPaint) to the control panel paint function so we can determine when it is being drawn.
      */
-    function SetupUI(): void;
+    declare function SetupUI(): void;
 }
 
 /**
@@ -72712,7 +73080,7 @@ declare namespace usermessage {
      *
      * @deprecated You should be using [net](https://wiki.facepunch.com/gmod/net) instead
      */
-    function GetTable(): any;
+    declare function GetTable(): any;
 
     /**
      * 🟨🟦 [Shared]
@@ -72730,7 +73098,7 @@ declare namespace usermessage {
      * </callback>
      * @param [preArgs = nil] - Arguments that are passed to the callback function when the hook is called.
      */
-    function Hook(name: string, callback: (msg: bf_read, ...args: any[]) => void, ...preArgs?: any[]): void;
+    declare function Hook(name: string, callback: (msg: bf_read, ...args: any[]) => void, ...preArgs: any[]): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -72739,7 +73107,7 @@ declare namespace usermessage {
      * @param name - The message name.
      * @param msg - The message.
      */
-    function IncomingMessage(name: string, msg: bf_read): void;
+    declare function IncomingMessage(name: string, msg: bf_read): void;
 }
 
 /**
@@ -72754,14 +73122,14 @@ declare namespace utf8 {
      * Receives zero or more integers, converts each one to its corresponding UTF-8 byte sequence and returns a string with the concatenation of all these sequences.
      * @param codepoints - Unicode code points to be converted in to a UTF-8 string.
      */
-    function char(...codepoints: any[]): string;
+    declare function char(...codepoints: any[]): string;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * This is NOT a function, it's a <page text="pattern">Patterns</page> (a string, not a function) which matches exactly one UTF-8 byte sequence, assuming that the subject is a valid UTF-8 string.
      */
-    function charpattern(): string;
+    declare function charpattern(): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -72771,7 +73139,7 @@ declare namespace utf8 {
      * @param [startPos = 1] - The starting byte of the string to get the codepoint of.
      * @param [endPos = 1] - The ending byte of the string to get the codepoint of.
      */
-    function codepoint(string: string, startPos = 1, endPos = 1): any;
+    declare function codepoint(string: string, startPos?: number, endPos?: number): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -72779,7 +73147,7 @@ declare namespace utf8 {
      * Returns an iterator (like [string.gmatch](https://wiki.facepunch.com/gmod/string.gmatch)) which returns both the position and codepoint of each utf8 character in the string. It raises an error if it meets any invalid byte sequence.
      * @param string - The string that you will get the codes from.
      */
-    function codes(string: string): Function;
+    declare function codes(string: string): Function;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -72789,7 +73157,7 @@ declare namespace utf8 {
      * This is a lazy way for users to ensure a string contains only valid UTF-8 data.
      * @param string - The string that will become a valid UTF-8 string.
      */
-    function force(string: string): string;
+    declare function force(string: string): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -72798,7 +73166,7 @@ declare namespace utf8 {
      * @param str - The string that you will be searching with the supplied index.
      * @param index - The index's value of the string to be returned.
      */
-    function GetChar(str: string, index: number): string;
+    declare function GetChar(str: string, index: number): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -72808,7 +73176,7 @@ declare namespace utf8 {
      * @param [startPos = 1] - The starting position to get the length from.
      * @param [endPos = -1] - The ending position to get the length from.
      */
-    function len(string: string, startPos = 1, endPos = -1): LuaMultiReturn<[number, number]>;
+    declare function len(string: string, startPos?: number, endPos?: number): LuaMultiReturn<[number, number]>;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -72818,7 +73186,7 @@ declare namespace utf8 {
      * @param n - The position to get the beginning byte position from.
      * @param [startPos = 1 when n>=0, -1 otherwise] - The offset for n.
      */
-    function offset(string: string, n: number, startPos?: number): number;
+    declare function offset(string: string, n: number, startPos?: number): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -72832,7 +73200,7 @@ declare namespace utf8 {
      * @param StartPos - The position of the first character that will be included in the sub-string.
      * @param [EndPos = nil] - The position of the last character to be included in the sub-string. It can be negative to count from the end.
      */
-    function sub(string: string, StartPos: number, EndPos?: number): string;
+    declare function sub(string: string, StartPos: number, EndPos?: number): string;
 }
 
 /**
@@ -72858,7 +73226,7 @@ declare namespace util {
      *
      * @param str - Adds the specified string to the string table.
      */
-    function AddNetworkString(str: string): number;
+    declare function AddNetworkString(str: string): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -72873,7 +73241,7 @@ declare namespace util {
      * @param scrWidth - Screen width
      * @param scrHeight - Screen height
      */
-    function AimVector(ViewAngles: Angle, ViewFOV: number, x: number, y: number, scrWidth: number, scrHeight: number): Vector;
+    declare function AimVector(ViewAngles: Angle, ViewFOV: number, x: number, y: number, scrWidth: number, scrHeight: number): Vector;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -72881,7 +73249,7 @@ declare namespace util {
      * Decodes the specified string from base64.
      * @param str - String to decode.
      */
-    function Base64Decode(str: string): string;
+    declare function Base64Decode(str: string): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -72894,7 +73262,7 @@ declare namespace util {
      * @param str - String to encode.
      * @param [inline = false] - `true` to disable RFC 2045 compliance (newline every 76th character)
      */
-    function Base64Encode(str: string, inline = false): string;
+    declare function Base64Encode(str: string, inline?: boolean): string;
 
     /**
      * 🟦 [Server]
@@ -72906,7 +73274,7 @@ declare namespace util {
      * @param damageRadius - The radius in which entities will be damaged.
      * @param damage - The amount of damage to be applied.
      */
-    function BlastDamage(inflictor: Entity, attacker: Entity, damageOrigin: Vector, damageRadius: number, damage: number): void;
+    declare function BlastDamage(inflictor: Entity, attacker: Entity, damageOrigin: Vector, damageRadius: number, damage: number): void;
 
     /**
      * 🟦 [Server]
@@ -72916,7 +73284,7 @@ declare namespace util {
      * @param damageOrigin - Center of the spherical damage
      * @param damageRadius - The radius in which entities will be damaged.
      */
-    function BlastDamageInfo(dmg: CTakeDamageInfo, damageOrigin: Vector, damageRadius: number): void;
+    declare function BlastDamageInfo(dmg: CTakeDamageInfo, damageOrigin: Vector, damageRadius: number): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -72932,7 +73300,7 @@ declare namespace util {
      *
      * @param str - String to compress.
      */
-    function Compress(str: string): string;
+    declare function Compress(str: string): string;
 
     /**
      * 🟨🟦 [Shared]
@@ -72944,14 +73312,14 @@ declare namespace util {
      *
      * @param stringToChecksum - The string to calculate the checksum of.
      */
-    function CRC(stringToChecksum: string): string;
+    declare function CRC(stringToChecksum: string): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns the current date formatted like '2012-10-31 18-00-00'
      */
-    function DateStamp(): string;
+    declare function DateStamp(): string;
 
     /**
      * 🟨🟦 [Shared]
@@ -72962,7 +73330,7 @@ declare namespace util {
      * @param end - The end of the trace.
      * @param [filter = NULL] - If set, the decal will not be able to be placed on given entity. Can also be a table of entities.
      */
-    function Decal(name: string, start: Vector, end: Vector, filter?: Entity): void;
+    declare function Decal(name: string, start: Vector, end: Vector, filter?: Entity): void;
 
     /**
      * 🟨 [Client]
@@ -72981,7 +73349,7 @@ declare namespace util {
      * @param w - The width scale of the decal.
      * @param h - The height scale of the decal.
      */
-    function DecalEx(material: IMaterial, ent: Entity, position: Vector, normal: Vector, color: Color, w: number, h: number): void;
+    declare function DecalEx(material: IMaterial, ent: Entity, position: Vector, normal: Vector, color: Color, w: number, h: number): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -72991,7 +73359,7 @@ declare namespace util {
      * If decal specifies multiple materials, a random one will be chosen.
      * @param decalName - Name of the decal.
      */
-    function DecalMaterial(decalName: string): string;
+    declare function DecalMaterial(decalName: string): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -73008,7 +73376,7 @@ declare namespace util {
      * @param compressedString - The compressed string to decompress.
      * @param [maxSize = nil] - The maximum size of uncompressed data in bytes, if greater it fails.
      */
-    function Decompress(compressedString: string, maxSize?: number): string|nil;
+    declare function Decompress(compressedString: string, maxSize?: number): string|nil;
 
     /**
      * 🟨🟦 [Shared]
@@ -73018,7 +73386,7 @@ declare namespace util {
      * @param lineEnd - End of the line.
      * @param pointPos - The position of the point.
      */
-    function DistanceToLine(lineStart: Vector, lineEnd: Vector, pointPos: Vector): LuaMultiReturn<[number, Vector, number]>;
+    declare function DistanceToLine(lineStart: Vector, lineEnd: Vector, pointPos: Vector): LuaMultiReturn<[number, Vector, number]>;
 
     /**
      * 🟨🟦 [Shared]
@@ -73039,7 +73407,7 @@ declare namespace util {
      * @param [ignorePredictionOrRecipientFilter = nil] - Can either be a boolean to ignore the prediction filter or a [CRecipientFilter](https://wiki.facepunch.com/gmod/CRecipientFilter).
      * Set this to true if you wish to call this function in multiplayer from server.
      */
-    function Effect(effectName: string, effectData: CEffectData, allowOverride = true, ignorePredictionOrRecipientFilter?: boolean|CRecipientFilter): void;
+    declare function Effect(effectName: string, effectData: CEffectData, allowOverride?: boolean, ignorePredictionOrRecipientFilter?: boolean|CRecipientFilter): void;
 
     /**
      * 🟨 [Client]
@@ -73055,7 +73423,7 @@ declare namespace util {
      * @param [context = TEXT_FILTER_UNKNOWN] - Filtering context. See [Enums/TEXT_FILTER](https://wiki.facepunch.com/gmod/Enums/TEXT_FILTER).
      * @param [player = nil] - Used to determine if the text should be filtered according to local user's Steam chat filtering settings.
      */
-    function FilterText(str: string, context?: TEXT_FILTER, player?: Player): string;
+    declare function FilterText(str: string, context?: TEXT_FILTER, player?: Player): string;
 
     /**
      * 🟩 [Menu]
@@ -73065,7 +73433,7 @@ declare namespace util {
      * @param fullPath - The **full** path to a file.
      * @param [fsPath = MOD] - The path to look for the files and directories in. See <page text="this list">File_Search_Paths</page> for a list of valid paths.
      */
-    function FullPathToRelative_Menu(fullPath: string, fsPath: string = "MOD"): string;
+    declare function FullPathToRelative_Menu(fullPath: string, fsPath?: string): string;
 
     /**
      * 🟨🟦 [Shared]
@@ -73075,7 +73443,7 @@ declare namespace util {
      * See [util.GetActivityNameByID](https://wiki.facepunch.com/gmod/util.GetActivityNameByID) for a function that does the opposite.
      * @param __unnamedArg - The name of an activity, as defined in the model's `.qc` at compile time.
      */
-    function GetActivityIDByName(__unnamedArg: string): ACT;
+    declare function GetActivityIDByName(__unnamedArg: string): ACT;
 
     /**
      * 🟨🟦 [Shared]
@@ -73085,7 +73453,7 @@ declare namespace util {
      * See [util.GetActivityIDByName](https://wiki.facepunch.com/gmod/util.GetActivityIDByName) for a function that does the opposite.
      * @param id - The ID of an activity from some hook. See also [Enums/ACT](https://wiki.facepunch.com/gmod/Enums/ACT).
      */
-    function GetActivityNameByID(id: ACT): string;
+    declare function GetActivityNameByID(id: ACT): string;
 
     /**
      * 🟨🟦 [Shared]
@@ -73095,7 +73463,7 @@ declare namespace util {
      * See [util.GetAnimEventNameByID](https://wiki.facepunch.com/gmod/util.GetAnimEventNameByID) for a function that does the opposite.
      * @param __unnamedArg - The name of an model animation event, as defined in the model's `.qc` at compile time.
      */
-    function GetAnimEventIDByName(__unnamedArg: string): number;
+    declare function GetAnimEventIDByName(__unnamedArg: string): number;
 
     /**
      * 🟨🟦 [Shared]
@@ -73105,7 +73473,7 @@ declare namespace util {
      * See [util.GetAnimEventIDByName](https://wiki.facepunch.com/gmod/util.GetAnimEventIDByName) for a function that does the opposite.
      * @param id - The ID of an animation event, typically from [ENTITY:HandleAnimEvent](https://wiki.facepunch.com/gmod/ENTITY:HandleAnimEvent).
      */
-    function GetAnimEventNameByID(id: number): string;
+    declare function GetAnimEventNameByID(id: number): string;
 
     /**
      * 🟨🟦 [Shared]
@@ -73130,7 +73498,7 @@ declare namespace util {
      *
      * @param mdl - The model path to retrieve information about.
      */
-    function GetModelInfo(mdl: string): ModelInfo;
+    declare function GetModelInfo(mdl: string): ModelInfo;
 
     /**
      * 🟨🟦 [Shared]
@@ -73150,7 +73518,7 @@ declare namespace util {
      *
      * 			For more information, see [Entity:GetSkin](https://wiki.facepunch.com/gmod/Entity:GetSkin).
      */
-    function GetModelMeshes(model: string, lod = 0, bodygroupMask = 0, skin = 0): LuaMultiReturn<[ModelMeshData[], BoneBindPose[]]>;
+    declare function GetModelMeshes(model: string, lod?: number, bodygroupMask?: string|number, skin?: ModelMeshData): LuaMultiReturn<[ModelMeshData[], BoneBindPose[]]>;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -73167,14 +73535,14 @@ declare namespace util {
      * @param name - Variable name to get the value of
      * @param default_ - The default value, in case there's nothing stored
      */
-    function GetPData(steamID: string, name: string, default_: any): string;
+    declare function GetPData(steamID: string, name: string, default_: any): string;
 
     /**
      * 🟨 [Client]
      *
      * Creates a new PixVis handle. See [util.PixelVisible](https://wiki.facepunch.com/gmod/util.PixelVisible).
      */
-    function GetPixelVisibleHandle(): pixelvis_handle_t;
+    declare function GetPixelVisibleHandle(): pixelvis_handle_t;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -73185,14 +73553,14 @@ declare namespace util {
      * @param ply - The player the trace should be based on
      * @param [dir = ply:GetAimVector()] - The direction of the trace. By default falls back to the direction the player is looking in.
      */
-    function GetPlayerTrace(ply: Player, dir?: Vector): Trace;
+    declare function GetPlayerTrace(ply: Player, dir?: Vector): Trace;
 
     /**
      * 🟨 [Client]
      *
      * Gets information about the sun position and obstruction or nil if there is no sun.
      */
-    function GetSunInfo(): SunInfo;
+    declare function GetSunInfo(): SunInfo;
 
     /**
      * 🟨🟦 [Shared]
@@ -73200,7 +73568,7 @@ declare namespace util {
      * Returns data of a [surface property](https://developer.valvesoftware.com/wiki/Material_surface_properties) at given ID. New surface properties can be added via [physenv.AddSurfaceData](https://wiki.facepunch.com/gmod/physenv.AddSurfaceData).
      * @param id - Surface property ID. You can get it from [Structures/TraceResult](https://wiki.facepunch.com/gmod/Structures/TraceResult) or using [util.GetSurfaceIndex](https://wiki.facepunch.com/gmod/util.GetSurfaceIndex).
      */
-    function GetSurfaceData(id: TraceResult): SurfacePropertyData;
+    declare function GetSurfaceData(id: TraceResult): SurfacePropertyData;
 
     /**
      * 🟨🟦 [Shared]
@@ -73210,7 +73578,7 @@ declare namespace util {
      * See also [util.GetSurfaceData](https://wiki.facepunch.com/gmod/util.GetSurfaceData) and [util.GetSurfacePropName](https://wiki.facepunch.com/gmod/util.GetSurfacePropName) for opposite function.
      * @param surfaceName - The name of the surface.
      */
-    function GetSurfaceIndex(surfaceName: string): number;
+    declare function GetSurfaceIndex(surfaceName: string): number;
 
     /**
      * 🟨🟦 [Shared]
@@ -73220,7 +73588,7 @@ declare namespace util {
      * See also [util.GetSurfaceData](https://wiki.facepunch.com/gmod/util.GetSurfaceData) and [util.GetSurfaceIndex](https://wiki.facepunch.com/gmod/util.GetSurfaceIndex) for opposite function.
      * @param id - Surface property ID. You can get it from [Structures/TraceResult](https://wiki.facepunch.com/gmod/Structures/TraceResult).
      */
-    function GetSurfacePropName(id: TraceResult): string;
+    declare function GetSurfacePropName(id: TraceResult): string;
 
     /**
      * 🟦 [Server]
@@ -73235,7 +73603,7 @@ declare namespace util {
      *
      * In order to get the usergroup of a connected player, please use [Player:GetUserGroup](https://wiki.facepunch.com/gmod/Player:GetUserGroup) instead.
      */
-    function GetUserGroups(): any;
+    declare function GetUserGroups(): any;
 
     /**
      * 🟨🟦 [Shared]
@@ -73249,7 +73617,7 @@ declare namespace util {
      * @param boxMins - The min position of the box.
      * @param boxMaxs - The max position of the box.
      */
-    function IntersectRayWithOBB(rayStart: Vector, rayDelta: Vector, boxOrigin: Vector, boxAngles: Angle, boxMins: Vector, boxMaxs: Vector): LuaMultiReturn<[Vector, Vector, number]>;
+    declare function IntersectRayWithOBB(rayStart: Vector, rayDelta: Vector, boxOrigin: Vector, boxAngles: Angle, boxMins: Vector, boxMaxs: Vector): LuaMultiReturn<[Vector, Vector, number]>;
 
     /**
      * 🟨🟦 [Shared]
@@ -73260,7 +73628,7 @@ declare namespace util {
      * @param planePosition - Any position of the plane.
      * @param planeNormal - The normal vector of the plane.
      */
-    function IntersectRayWithPlane(rayOrigin: Vector, rayDirection: Vector, planePosition: Vector, planeNormal: Vector): Vector;
+    declare function IntersectRayWithPlane(rayOrigin: Vector, rayDirection: Vector, planePosition: Vector, planeNormal: Vector): Vector;
 
     /**
      * 🟨🟦 [Shared]
@@ -73271,7 +73639,7 @@ declare namespace util {
      * @param spherePosition - Any position of the sphere.
      * @param sphereRadius - The radius of the sphere.
      */
-    function IntersectRayWithSphere(rayOrigin: Vector, rayDelta: Vector, spherePosition: Vector, sphereRadius: number): LuaMultiReturn<[number, number]>;
+    declare function IntersectRayWithSphere(rayOrigin: Vector, rayDelta: Vector, spherePosition: Vector, sphereRadius: number): LuaMultiReturn<[number, number]>;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -73279,7 +73647,7 @@ declare namespace util {
      * Returns whether a binary module is installed and is resolvable by [Global.require](https://wiki.facepunch.com/gmod/Global.require).
      * @param name - Name of the binary module, exactly the same as you would enter it as the argument to [Global.require](https://wiki.facepunch.com/gmod/Global.require).
      */
-    function IsBinaryModuleInstalled(name: string): boolean;
+    declare function IsBinaryModuleInstalled(name: string): boolean;
 
     /**
      * 🟨🟦 [Shared]
@@ -73290,7 +73658,7 @@ declare namespace util {
      * @param box2Min - The minimum extents of the second Axis-Aligned box.
      * @param box2Max - The maximum extents of the second Axis-Aligned box.
      */
-    function IsBoxIntersectingBox(boxMin: Vector, boxMax: Vector, box2Min: Vector, box2Max: Vector): boolean;
+    declare function IsBoxIntersectingBox(boxMin: Vector, boxMax: Vector, box2Min: Vector, box2Max: Vector): boolean;
 
     /**
      * 🟨🟦 [Shared]
@@ -73301,7 +73669,7 @@ declare namespace util {
      * @param shpere2Position - Any position of the sphere.
      * @param sphere2Radius - The radius of the sphere.
      */
-    function IsBoxIntersectingSphere(boxMin: Vector, boxMax: Vector, shpere2Position: Vector, sphere2Radius: number): boolean;
+    declare function IsBoxIntersectingSphere(boxMin: Vector, boxMax: Vector, shpere2Position: Vector, sphere2Radius: number): boolean;
 
     /**
      * 🟦 [Server]
@@ -73309,7 +73677,7 @@ declare namespace util {
      * Checks if a certain position is within the world bounds.
      * @param position - Position to check.
      */
-    function IsInWorld(position: Vector): boolean;
+    declare function IsInWorld(position: Vector): boolean;
 
     /**
      * 🟨🟦 [Shared]
@@ -73317,7 +73685,7 @@ declare namespace util {
      * Checks if the model is loaded in the game.
      * @param modelName - Name/Path of the model to check.
      */
-    function IsModelLoaded(modelName: string): boolean;
+    declare function IsModelLoaded(modelName: string): boolean;
 
     /**
      * 🟨🟦 [Shared]
@@ -73333,7 +73701,7 @@ declare namespace util {
      * @param box2Maxs - The max position of the second box.
      * @param tolerance - Tolerance for error. Leave at 0 if unsure.
      */
-    function IsOBBIntersectingOBB(box1Origin: Vector, box1Angles: Angle, box1Mins: Vector, box1Maxs: Vector, box2Origin: Vector, box2Angles: Angle, box2Mins: Vector, box2Maxs: Vector, tolerance: number): boolean;
+    declare function IsOBBIntersectingOBB(box1Origin: Vector, box1Angles: Angle, box1Mins: Vector, box1Maxs: Vector, box2Origin: Vector, box2Angles: Angle, box2Mins: Vector, box2Maxs: Vector, tolerance: number): boolean;
 
     /**
      * 🟨🟦 [Shared]
@@ -73345,7 +73713,7 @@ declare namespace util {
      * @param coneSine - The sine of the cone's angle.
      * @param coneLength - Length of the cone's axis.
      */
-    function IsPointInCone(point: Vector, coneOrigin: Vector, coneAxis: Vector, coneSine: number, coneLength: number): boolean;
+    declare function IsPointInCone(point: Vector, coneOrigin: Vector, coneAxis: Vector, coneSine: number, coneLength: number): boolean;
 
     /**
      * 🟨🟦 [Shared]
@@ -73356,7 +73724,7 @@ declare namespace util {
      * @param ray2Start - Start position of the second ray.
      * @param ray2End - End position of the second ray.
      */
-    function IsRayIntersectingRay(ray1Start: Vector, ray1End: Vector, ray2Start: Vector, ray2End: Vector): LuaMultiReturn<[boolean, number, number]>;
+    declare function IsRayIntersectingRay(ray1Start: Vector, ray1End: Vector, ray2Start: Vector, ray2End: Vector): LuaMultiReturn<[boolean, number, number]>;
 
     /**
      * 🟨 [Client]
@@ -73368,7 +73736,7 @@ declare namespace util {
      *
      * @param position - The position to check the skybox visibility from.
      */
-    function IsSkyboxVisibleFromPoint(position: Vector): boolean;
+    declare function IsSkyboxVisibleFromPoint(position: Vector): boolean;
 
     /**
      * 🟨🟦 [Shared]
@@ -73381,7 +73749,7 @@ declare namespace util {
      * @param coneSine - The <page test="sine">math.sin</page> of the cone's angle.
      * @param coneCosine - The <page test="cosine">math.cos</page> of the cone's angle.
      */
-    function IsSphereIntersectingCone(sphereCenter: Vector, sphereRadius: number, coneOrigin: Vector, coneAxis: Vector, coneSine: number, coneCosine: number): boolean;
+    declare function IsSphereIntersectingCone(sphereCenter: Vector, sphereRadius: number, coneOrigin: Vector, coneAxis: Vector, coneSine: number, coneCosine: number): boolean;
 
     /**
      * 🟨🟦 [Shared]
@@ -73392,7 +73760,7 @@ declare namespace util {
      * @param sphere2Position - Any position of the second sphere.
      * @param sphere2Radius - The radius of the second sphere.
      */
-    function IsSphereIntersectingSphere(sphere1Position: Vector, sphere1Radius: number, sphere2Position: Vector, sphere2Radius: number): boolean;
+    declare function IsSphereIntersectingSphere(sphere1Position: Vector, sphere1Radius: number, sphere2Position: Vector, sphere2Radius: number): boolean;
 
     /**
      * 🟨🟦 [Shared]
@@ -73421,7 +73789,7 @@ declare namespace util {
      * Running this function will also precache the model.
      * @param modelName - Name/Path of the model to check.
      */
-    function IsValidModel(modelName: string): boolean;
+    declare function IsValidModel(modelName: string): boolean;
 
     /**
      * 🟨🟦 [Shared]
@@ -73430,7 +73798,7 @@ declare namespace util {
      * @param ent - The entity to take.
      * @param physobj - Number of the physics object to test.
      */
-    function IsValidPhysicsObject(ent: Entity, physobj: number): boolean;
+    declare function IsValidPhysicsObject(ent: Entity, physobj: number): boolean;
 
     /**
      * 🟨🟦 [Shared]
@@ -73438,7 +73806,7 @@ declare namespace util {
      * Checks if the specified prop is valid (has valid physics object).
      * @param modelName - Name/Path of the model to check.
      */
-    function IsValidProp(modelName: string): boolean;
+    declare function IsValidProp(modelName: string): boolean;
 
     /**
      * 🟨🟦 [Shared]
@@ -73446,7 +73814,7 @@ declare namespace util {
      * Checks if the specified model name points to a valid ragdoll.
      * @param ragdollName - Name/Path of the ragdoll model to check.
      */
-    function IsValidRagdoll(ragdollName: string): boolean;
+    declare function IsValidRagdoll(ragdollName: string): boolean;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -73467,7 +73835,7 @@ declare namespace util {
      * **Warning:**
      * >if this is false, keys are converted to numbers wherever possible. This means using [Player:SteamID64](https://wiki.facepunch.com/gmod/Player:SteamID64) as keys won't work.
      */
-    function JSONToTable(json: string, ignoreLimits = false, ignoreConversions = false): any|nil;
+    declare function JSONToTable(json: string, ignoreLimits?: boolean, ignoreConversions?: boolean): any|nil;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -73481,7 +73849,7 @@ declare namespace util {
      * @param [usesEscapeSequences = false] - If set to true, will replace `\t`, `\n`, `\"` and `\\` in the input text with their escaped variants
      * @param [preserveKeyCase = false] - Whether we should preserve key case (may fail) or not (always lowercase)
      */
-    function KeyValuesToTable(keyValues: string, usesEscapeSequences = false, preserveKeyCase = false): any;
+    declare function KeyValuesToTable(keyValues: string, usesEscapeSequences?: boolean, preserveKeyCase?: boolean): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -73491,7 +73859,7 @@ declare namespace util {
      * @param [usesEscapeSequences = false] - If set to true, will replace `\t`, `\n`, `\"` and `\\` in the input text with their escaped variants
      * @param [preserveKeyCase = false] - Whether we should preserve key case (may fail) or not (always lowercase)
      */
-    function KeyValuesToTablePreserveOrder(keyvals: string, usesEscapeSequences = false, preserveKeyCase = false): any;
+    declare function KeyValuesToTablePreserveOrder(keyvals: string, usesEscapeSequences?: boolean, preserveKeyCase?: boolean): any;
 
     /**
      * 🟨🟦 [Shared]
@@ -73507,7 +73875,7 @@ declare namespace util {
      * If that specific physics object is valid, then [PhysObj:LocalToWorld](https://wiki.facepunch.com/gmod/PhysObj:LocalToWorld) is used.
      * Otherwise, [Entity:LocalToWorld](https://wiki.facepunch.com/gmod/Entity:LocalToWorld).
      */
-    function LocalToWorld(ent: Entity, lpos: Vector, bone = 0): Vector;
+    declare function LocalToWorld(ent: Entity, lpos: Vector, bone?: number): Vector;
 
     /**
      * 🟨🟦 [Shared]
@@ -73519,7 +73887,7 @@ declare namespace util {
      *
      * @param stringToHash - The string to calculate the MD5 hash of.
      */
-    function MD5(stringToHash: string): string;
+    declare function MD5(stringToHash: string): string;
 
     /**
      * 🟨🟦 [Shared]
@@ -73527,7 +73895,7 @@ declare namespace util {
      * Returns the networked string associated with the given ID from the string table.
      * @param stringTableID - ID to get the associated string from.
      */
-    function NetworkIDToString(stringTableID: number): string;
+    declare function NetworkIDToString(stringTableID: number): string;
 
     /**
      * 🟨🟦 [Shared]
@@ -73535,7 +73903,7 @@ declare namespace util {
      * Returns the networked ID associated with the given string from the string table.
      * @param networkString - String to get the associated networked ID from.
      */
-    function NetworkStringToID(networkString: string): number;
+    declare function NetworkStringToID(networkString: string): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -73543,7 +73911,7 @@ declare namespace util {
      * Formats a float by stripping off extra `0's` and `.'s`.
      * @param float - The float to format.
      */
-    function NiceFloat(float: number): string;
+    declare function NiceFloat(float: number): string;
 
     /**
      * 🟨🟦 [Shared]
@@ -73554,7 +73922,7 @@ declare namespace util {
      * @param endPos - The end position of the tracer.
      * @param doWhiz - Play the hit miss(whiz) sound.
      */
-    function ParticleTracer(name: string, startPos: Vector, endPos: Vector, doWhiz: boolean): void;
+    declare function ParticleTracer(name: string, startPos: Vector, endPos: Vector, doWhiz: boolean): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -73567,7 +73935,7 @@ declare namespace util {
      * @param entityIndex - Entity index of the emitting entity.
      * @param attachmentIndex - Attachment index to be used as origin.
      */
-    function ParticleTracerEx(name: string, startPos: Vector, endPos: Vector, doWhiz: boolean, entityIndex: number, attachmentIndex: number): void;
+    declare function ParticleTracerEx(name: string, startPos: Vector, endPos: Vector, doWhiz: boolean, entityIndex: number, attachmentIndex: number): void;
 
     /**
      * 🟨 [Client]
@@ -73581,7 +73949,7 @@ declare namespace util {
      * **Warning:**
      * >Don't use the same handle twice per tick or it will give unpredictable results.
      */
-    function PixelVisible(position: Vector, size: number, PixVis: pixelvis_handle_t): number;
+    declare function PixelVisible(position: Vector, size: number, PixVis: pixelvis_handle_t): number;
 
     /**
      * 🟨🟦 [Shared]
@@ -73593,7 +73961,7 @@ declare namespace util {
      *
      * @param position - Position to get the contents sample from.
      */
-    function PointContents(position: Vector): CONTENTS;
+    declare function PointContents(position: Vector): CONTENTS;
 
     /**
      * 🟨🟦 [Shared]
@@ -73608,7 +73976,7 @@ declare namespace util {
      *
      * @param modelName - The model to precache.
      */
-    function PrecacheModel(modelName: string): void;
+    declare function PrecacheModel(modelName: string): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -73626,7 +73994,7 @@ declare namespace util {
      *
      * @param soundName - The sound to precache.
      */
-    function PrecacheSound(soundName: string): void;
+    declare function PrecacheSound(soundName: string): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -73640,7 +74008,7 @@ declare namespace util {
      * @param dir - The direction of the trace times the distance of the trace. This is added to the origin to determine the endpos.
      * @param [filter = nil] - Entity which should be ignored by the trace. Can also be a table of entities or a function - see [Structures/Trace](https://wiki.facepunch.com/gmod/Structures/Trace).
      */
-    function QuickTrace(origin: Vector, dir: Vector, filter?: Entity|Entity[]|string[]|Function): TraceResult;
+    declare function QuickTrace(origin: Vector, dir: Vector, filter?: Entity|Entity[]|string[]|Function): TraceResult;
 
     /**
      * 🟩 [Menu]
@@ -73650,7 +74018,7 @@ declare namespace util {
      * @param filePath - The relative path of a file, for example: `addons/[Name].gma`
      * @param [mountPath = MOD] - The path to look for the files and directories in. See <page text="this list">File_Search_Paths</page> for a list of valid paths.
      */
-    function RelativePathToFull_Menu(filePath: string, mountPath: string = "MOD"): string;
+    declare function RelativePathToFull_Menu(filePath: string, mountPath?: string): string;
 
     /**
      * 🟩 [Menu]
@@ -73658,7 +74026,7 @@ declare namespace util {
      * Returns which Workshop addon the given file belongs to.
      * @param filePath - The relative path to a file, such as `materials/myMaterial.vmt`.
      */
-    function RelativePathToGMA_Menu(filePath: string): any;
+    declare function RelativePathToGMA_Menu(filePath: string): any;
 
     /**
      * 🟨 [Client]
@@ -73670,7 +74038,7 @@ declare namespace util {
      * @param [permanent = false] - Whether to remove map-spawned decals (`true`), or only gameplay-spawned decals
      *  such as bullet holes or anything placed by [util.Decal](https://wiki.facepunch.com/gmod/util.Decal) and similar(`false`)
      */
-    function RemoveDecalsAt(pos: Vector, distance: number, limit = 0, permanent = false): number;
+    declare function RemoveDecalsAt(pos: Vector, distance: number, limit?: number, permanent?: boolean): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -73686,7 +74054,7 @@ declare namespace util {
      * @param steamID - SteamID of the player to remove data of, in the `STEAM_0:0:0` format. See [Player:SteamID](https://wiki.facepunch.com/gmod/Player:SteamID).
      * @param name - Variable name to remove
      */
-    function RemovePData(steamID: string, name: string): void;
+    declare function RemovePData(steamID: string, name: string): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -73708,7 +74076,7 @@ declare namespace util {
      * Used serverside only to determine which clients to send the event to.
      * @param [filter = nil] - If set, will only network the screen shake event to players present in the filter.
      */
-    function ScreenShake(pos: Vector, amplitude: number, frequency: number, duration: number, radius: number, airshake = false, filter?: CRecipientFilter): void;
+    declare function ScreenShake(pos: Vector, amplitude: number, frequency: number, duration: number, radius: number, airshake?: boolean, filter?: CRecipientFilter): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -73725,7 +74093,7 @@ declare namespace util {
      * @param name - Variable name to store the value in.
      * @param value - The value to store.
      */
-    function SetPData(steamID: string, name: string, value: any): void;
+    declare function SetPData(steamID: string, name: string, value: any): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -73737,7 +74105,7 @@ declare namespace util {
      *
      * @param stringToHash - The string to calculate the SHA-1 hash of.
      */
-    function SHA1(stringToHash: string): string;
+    declare function SHA1(stringToHash: string): string;
 
     /**
      * 🟨🟦 [Shared]
@@ -73745,7 +74113,7 @@ declare namespace util {
      * Generates the [SHA-256 hash](https://en.wikipedia.org/wiki/SHA-2) of the specified string. This is unique and will never return the same hash for a different string unlike [util.CRC](https://wiki.facepunch.com/gmod/util.CRC) or [util.MD5](https://wiki.facepunch.com/gmod/util.MD5) which are both vulnerable to duplicate returns.
      * @param stringToHash - The string to calculate the SHA-256 hash of.
      */
-    function SHA256(stringToHash: string): string;
+    declare function SHA256(stringToHash: string): string;
 
     /**
      * 🟨🟦 [Shared]
@@ -73760,7 +74128,7 @@ declare namespace util {
      * @param max - The maximum value of the random range
      * @param [additionalSeed = 0] - The additional seed
      */
-    function SharedRandom(uniqueName: string, min: number, max: number, additionalSeed = 0): number;
+    declare function SharedRandom(uniqueName: string, min: number, max: number, additionalSeed?: number): number;
 
     /**
      * 🟦 [Server]
@@ -73776,14 +74144,14 @@ declare namespace util {
      * @param textureRes - The resolution of trails texture. A good value can be calculated using this formula: 1 / ( startWidth + endWidth ) * 0.5
      * @param texture - Path to the texture to use as a trail.
      */
-    function SpriteTrail(ent: Entity, attachmentID: number, color: any, additive: boolean, startWidth: number, endWidth: number, lifetime: number, textureRes: number, texture: string): Entity;
+    declare function SpriteTrail(ent: Entity, attachmentID: number, color: any, additive: boolean, startWidth: number, endWidth: number, lifetime: number, textureRes: number, texture: string): Entity;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns a new [Stack](https://wiki.facepunch.com/gmod/Stack) object.
      */
-    function Stack(): Stack;
+    declare function Stack(): Stack;
 
     /**
      * 🟨🟦 [Shared]
@@ -73795,7 +74163,7 @@ declare namespace util {
      *
      * @param id - The 64 bit Steam ID
      */
-    function SteamIDFrom64(id: string): string;
+    declare function SteamIDFrom64(id: string): string;
 
     /**
      * 🟨🟦 [Shared]
@@ -73803,7 +74171,7 @@ declare namespace util {
      * Converts a <page text="STEAM_0:0:0">Player:SteamID</page> style SteamID to a <page text="64bit SteamID">Player:SteamID64</page>.
      * @param id - The <page text="STEAM_0:0:0">Player:SteamID</page> format SteamID
      */
-    function SteamIDTo64(id: string): string;
+    declare function SteamIDTo64(id: string): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -73814,7 +74182,7 @@ declare namespace util {
      * @param str - The string to convert
      * @param typename - The type to attempt to convert the string to. This can be `vector`, `angle`, `float`, `int`, `bool`, or `string` (case insensitive).
      */
-    function StringToType(str: string, typename: string): any;
+    declare function StringToType(str: string, typename: string): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -73830,7 +74198,7 @@ declare namespace util {
      * @param table - Table to convert.
      * @param [prettyPrint = false] - Format and indent the JSON.
      */
-    function TableToJSON(table: any, prettyPrint = false): string;
+    declare function TableToJSON(table: any, prettyPrint?: boolean): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -73843,7 +74211,7 @@ declare namespace util {
      * @param table - The table to convert.
      * @param [rootKey = TableToKeyValues] - The root key name for the output KV table.
      */
-    function TableToKeyValues(table: any, rootKey: string = "TableToKeyValues"): string;
+    declare function TableToKeyValues(table: any, rootKey?: string): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -73851,14 +74219,14 @@ declare namespace util {
      * Creates a timer object. The returned timer will be already started with given duration.
      * @param [duration = 0] - How long you want the timer to be. `Elapsed()` will return true only after this much time has passed.
      */
-    function Timer(duration = 0): any;
+    declare function Timer(duration?: number): any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns the time since this function has been last called
      */
-    function TimerCycle(): number;
+    declare function TimerCycle(): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -73869,7 +74237,7 @@ declare namespace util {
      *
      * @param input - A string or a number to convert.
      */
-    function tobool(input: any): boolean;
+    declare function tobool(input: any): boolean;
 
     /**
      * 🟨🟦 [Shared]
@@ -73878,7 +74246,7 @@ declare namespace util {
      * @param tracedata - Trace data. See [Structures/Trace](https://wiki.facepunch.com/gmod/Structures/Trace)
      * @param ent - The entity to use
      */
-    function TraceEntity(tracedata: Trace, ent: Entity): TraceResult;
+    declare function TraceEntity(tracedata: Trace, ent: Entity): TraceResult;
 
     /**
      * 🟨🟦 [Shared]
@@ -73887,7 +74255,7 @@ declare namespace util {
      * @param tracedata - Trace data. See [Structures/HullTrace](https://wiki.facepunch.com/gmod/Structures/HullTrace)
      * @param ent - The entity to use mins/maxs of for the hull trace.
      */
-    function TraceEntityHull(tracedata: HullTrace, ent: Entity): TraceResult;
+    declare function TraceEntityHull(tracedata: HullTrace, ent: Entity): TraceResult;
 
     /**
      * 🟨🟦 [Shared]
@@ -73903,7 +74271,7 @@ declare namespace util {
      *
      * @param TraceData - The trace data to use. See [Structures/HullTrace](https://wiki.facepunch.com/gmod/Structures/HullTrace)
      */
-    function TraceHull(TraceData: HullTrace): TraceResult;
+    declare function TraceHull(TraceData: HullTrace): TraceResult;
 
     /**
      * 🟨🟦 [Shared]
@@ -73920,7 +74288,7 @@ declare namespace util {
      * You can use `r_visualizetraces` set to `1` (requires `sv_cheats` set to `1`) to visualize traces in real time for debugging purposes.
      * @param traceConfig - A table of data that configures the trace. See [Structures/Trace](https://wiki.facepunch.com/gmod/Structures/Trace) for available options.
      */
-    function TraceLine(traceConfig: Trace): TraceResult;
+    declare function TraceLine(traceConfig: Trace): TraceResult;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -73928,7 +74296,7 @@ declare namespace util {
      * Converts a type to a (nice, but still parsable) string
      * @param input - What to convert
      */
-    function TypeToString(input: any): string;
+    declare function TypeToString(input: any): string;
 
 namespace worldpicker {
         /**
@@ -73936,7 +74304,7 @@ namespace worldpicker {
          *
          * Returns if the user is currently picking an entity.
          */
-        function Active(): boolean;
+        declare function Active(): boolean;
 
         /**
          * 🟨 [Client]
@@ -73944,7 +74312,7 @@ namespace worldpicker {
          * Finishes the world picking. This is called when a user presses their mouse after calling [util.worldpicker.Start](https://wiki.facepunch.com/gmod/util.worldpicker.Start).
          * @param tr - [Structures/TraceResult](https://wiki.facepunch.com/gmod/Structures/TraceResult) from the mouse press
          */
-        function Finish(tr: TraceResult): void;
+        declare function Finish(tr: TraceResult): void;
 
         /**
          * 🟨 [Client]
@@ -73955,7 +74323,7 @@ namespace worldpicker {
          * <arg type="table" name="tr"><page text="TraceResult">Structures/TraceResult</page> from the mouse press. `tr.Entity` will return the entity clicked</arg>
          * </callback>
          */
-        function Start(callback: (tr: TraceResult) => void): void;
+        declare function Start(callback: (tr: TraceResult) => void): void;
     }
 }
 
@@ -73979,7 +74347,7 @@ declare namespace vgui {
      * @param [parent = nil] - Panel to parent to.
      * @param [name = nil] - Custom name of the created panel for scripting/debugging purposes. Can be retrieved with [Panel:GetName](https://wiki.facepunch.com/gmod/Panel:GetName).
      */
-    function Create(classname: string, parent?: Panel, name?: string): Panel;
+    declare function Create(classname: string, parent?: Panel, name?: string): Panel;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -73989,7 +74357,7 @@ declare namespace vgui {
      * @param [parent = nil] - Which panel to parent the newly created panel to.
      * @param [name = nil] - Custom name of the created panel for scripting/debugging purposes. Can be retrieved with [Panel:GetName](https://wiki.facepunch.com/gmod/Panel:GetName).
      */
-    function CreateFromTable(metatable: any, parent?: Panel, name?: string): Panel;
+    declare function CreateFromTable(metatable: any, parent?: Panel, name?: string): Panel;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -73999,14 +74367,14 @@ declare namespace vgui {
      * @param [parent = nil] - If specified, parents created panel to given one
      * @param [name = nil] - Name of the created panel
      */
-    function CreateX(class_: string, parent?: Panel, name?: string): Panel;
+    declare function CreateX(class_: string, parent?: Panel, name?: string): Panel;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * Returns whenever the cursor is currently active and visible.
      */
-    function CursorVisible(): boolean;
+    declare function CursorVisible(): boolean;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -74014,7 +74382,7 @@ declare namespace vgui {
      * Returns true if Lua-defined panel exists by name. Uses [vgui.GetControlTable](https://wiki.facepunch.com/gmod/vgui.GetControlTable) internally.
      * @param Panelname - The name of the panel to get test.
      */
-    function Exists(Panelname: string): boolean;
+    declare function Exists(Panelname: string): boolean;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -74022,7 +74390,7 @@ declare namespace vgui {
      * Returns whether the currently focused panel is a child of the given one.
      * @param parent - The parent panel to check the currently focused one against. This doesn't need to be a direct parent (focused panel can be a child of a child and so on).
      */
-    function FocusedHasParent(parent: Panel): boolean;
+    declare function FocusedHasParent(parent: Panel): boolean;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -74031,7 +74399,7 @@ declare namespace vgui {
      *
      * Used internally for [PANEL:PreAutoRefresh](https://wiki.facepunch.com/gmod/PANEL:PreAutoRefresh) and [PANEL:PostAutoRefresh](https://wiki.facepunch.com/gmod/PANEL:PostAutoRefresh).
      */
-    function GetAll(): Panel[];
+    declare function GetAll(): Panel[];
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -74039,7 +74407,7 @@ declare namespace vgui {
      * Returns the table of a Lua-defined panel by name. Does not return parent members of the table!
      * @param Panelname - The name of the panel to get the table of.
      */
-    function GetControlTable(Panelname: string): any;
+    declare function GetControlTable(Panelname: string): any;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -74051,14 +74419,14 @@ declare namespace vgui {
      *
      * ie. it lags one frame behind panel layout and is completely unhelpful for [PANEL:Paint](https://wiki.facepunch.com/gmod/PANEL:Paint) if your panels are moving around under the mouse a lot every frame.
      */
-    function GetHoveredPanel(): Panel;
+    declare function GetHoveredPanel(): Panel;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * Returns the panel which is currently receiving keyboard input.
      */
-    function GetKeyboardFocus(): Panel;
+    declare function GetKeyboardFocus(): Panel;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -74067,14 +74435,14 @@ declare namespace vgui {
      *
      * See also [Global.GetHUDPanel](https://wiki.facepunch.com/gmod/Global.GetHUDPanel).
      */
-    function GetWorldPanel(): Panel;
+    declare function GetWorldPanel(): Panel;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * Returns whenever the cursor is hovering the world panel.
      */
-    function IsHoveringWorld(): boolean;
+    declare function IsHoveringWorld(): boolean;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -74085,7 +74453,7 @@ declare namespace vgui {
      * @param panelTable - The table containing the panel information.
      * @param [baseName = Panel] - Classname of a panel to inherit functionality from. Functions with same names will be overwritten preferring the panel that is being registered.
      */
-    function Register(classname: string, panelTable: any, baseName: string = "Panel"): any;
+    declare function Register(classname: string, panelTable: any, baseName?: string): any;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -74107,7 +74475,7 @@ declare namespace vgui {
      * ```
      * @param file - The file to register
      */
-    function RegisterFile(file: string): any;
+    declare function RegisterFile(file: string): any;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -74118,7 +74486,7 @@ declare namespace vgui {
      * @param panel - The [PANEL](https://wiki.facepunch.com/gmod/PANEL) table.
      * @param [base = Panel] - A base for the panel.
      */
-    function RegisterTable(panel: any, base: string = "Panel"): any;
+    declare function RegisterTable(panel: any, base?: string): any;
 }
 
 /**
@@ -74131,7 +74499,7 @@ declare namespace video {
      * Attempts to create an [IVideoWriter](https://wiki.facepunch.com/gmod/IVideoWriter).
      * @param config - The video config. See [Structures/VideoData](https://wiki.facepunch.com/gmod/Structures/VideoData).
      */
-    function Record(config: VideoData): LuaMultiReturn<[IVideoWriter, string]>;
+    declare function Record(config: VideoData): LuaMultiReturn<[IVideoWriter, string]>;
 }
 
 /**
@@ -74148,14 +74516,14 @@ declare namespace weapons {
      *
      * @param classname - Class name of weapon to retrieve
      */
-    function Get(classname: string): any;
+    declare function Get(classname: string): any;
 
     /**
      * 🟨🟦 [Shared]
      *
      * Get a list of all the registered SWEPs. This does not include weapons added to spawnmenu manually.
      */
-    function GetList(): any;
+    declare function GetList(): any;
 
     /**
      * 🟨🟦 [Shared]
@@ -74167,7 +74535,7 @@ declare namespace weapons {
      *
      * @param weapon_class - Weapon class to retrieve weapon table of
      */
-    function GetStored(weapon_class: string): any;
+    declare function GetStored(weapon_class: string): any;
 
     /**
      * 🟨🟦 [Shared]
@@ -74176,7 +74544,7 @@ declare namespace weapons {
      * @param name - Entity's class name to be checked
      * @param base - Base class name to be checked
      */
-    function IsBasedOn(name: string, base: string): boolean;
+    declare function IsBasedOn(name: string, base: string): boolean;
 
     /**
      * 🟨🟦 [Shared]
@@ -74188,7 +74556,7 @@ declare namespace weapons {
      * **Note:**
      * >This is not called after a SWEP auto refresh, and thus the inherited baseclass functions retrieved with [baseclass.Get](https://wiki.facepunch.com/gmod/baseclass.Get) will not be updated
      */
-    function OnLoaded(): void;
+    declare function OnLoaded(): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -74204,7 +74572,7 @@ declare namespace weapons {
      * 			For the table's format and available options see the [Structures/SWEP](https://wiki.facepunch.com/gmod/Structures/SWEP) page.
      * @param classname - Classname to assign to that swep
      */
-    function Register(ENT: SWEP, classname: string): void;
+    declare function Register(ENT: SWEP, classname: string): void;
 }
 
 /**
@@ -74220,7 +74588,7 @@ declare namespace widgets {
      * @param ply - The player
      * @param mv - Player move data
      */
-    function PlayerTick(ply: Player, mv: CMoveData): void;
+    declare function PlayerTick(ply: Player, mv: CMoveData): void;
 
     /**
      * 🟨 [Client]
@@ -74228,5 +74596,5 @@ declare namespace widgets {
      * Renders a widget. Normally you won't need to call this.
      * @param ent - Widget entity to render
      */
-    function RenderMe(ent: Entity): void;
+    declare function RenderMe(ent: Entity): void;
 }
