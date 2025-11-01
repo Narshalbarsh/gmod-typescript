@@ -71088,7 +71088,10 @@ declare namespace string {
      * In case of a function all matches will be passed as parameters to the function, the return value(s) of the function will then be used as replacement.
      * @param [maxReplaces = nil] - Maximum number of replacements to be made.
      */
-    declare function gsub(string: string, pattern: string, replacement: string, maxReplaces?: number): LuaMultiReturn<[string, number]>;
+    /* Manual override from: namespace/string/gsub */
+    declare function gsub(input: string, pattern: string, replacement: string, maxReplaces?: number): LuaMultiReturn<[string, number]>;
+    declare function gsub(input: string, pattern: string, replacement: Record<string, string>, maxReplaces?: number): LuaMultiReturn<[string, number]>;
+    declare function gsub(input: string, pattern: string, replacement: (...matches: string[]) => string | number | null | undefined, maxReplaces?: number): LuaMultiReturn<[string, number]>;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
