@@ -29707,6 +29707,9 @@ interface DPanelList extends DPanel {
      * @param Distance - Distance between panels
      */
     SetSpacing(Distance: number): void;
+
+    /* Manual extra from: interface/DPanelList/VBar */
+    VBar: DBScollBar
 }
 
 /**
