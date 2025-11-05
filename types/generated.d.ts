@@ -4451,7 +4451,7 @@ interface Entity {
      * </callback>
      * @param args - Optional arguments to pass to removeFunc. Do note that the first argument passed to the function will always be the entity being removed, and the arguments passed on here start after that.
      */
-    CallOnRemove(identifier: string, removeFunc: (ent: Entity, ...args: any[]) => void, ...args: any[]): void;
+    CallOnRemove(identifier: any, removeFunc: (ent: Entity, ...args: any[]) => void, ...args: any[]): void;
 
     /**
      * 🟦 [Server]
@@ -7955,7 +7955,7 @@ interface Entity {
      * Removes a function previously added via [Entity:CallOnRemove](https://wiki.facepunch.com/gmod/Entity:CallOnRemove).
      * @param identifier - Identifier of the function given to [Entity:CallOnRemove](https://wiki.facepunch.com/gmod/Entity:CallOnRemove).
      */
-    RemoveCallOnRemove(identifier: string): void;
+    RemoveCallOnRemove(identifier: any): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -9794,6 +9794,8 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Sets the parent of this entity, making it move with its parent. This will make the child entity non solid, nothing can interact with them, including traces.
+     *
+     * All children of the parent get removed whenever it gets removed.
      *
      * **Warning:**
      * >This can cause undefined physics behavior when used on entities that don't support parenting. See the [Valve developer wiki](https://developer.valvesoftware.com/wiki/Entity_Hierarchy_(parenting)) for more information.
@@ -41229,7 +41231,8 @@ interface HTTPRequest {
      * * OPTIONS
      * @default GET
      */
-    method?: string,
+    /* Manual override from: interface/HTTPRequest/method */
+    method?: Uppercase<"get" | "post" | "head" | "put" | "delete" | "patch" | "options"> | Lowercase<"get" | "post" | "head" | "put" | "delete" | "patch" | "options">,
 
     /**
      * The target url
@@ -41242,7 +41245,8 @@ interface HTTPRequest {
      * * POST
      * * HEAD
      */
-    parameters: any,
+    /* Manual override from: interface/HTTPRequest/parameters */
+    parameters?: LuaTable<string, string>,
 
     /**
      * KeyValue table for headers
@@ -41252,7 +41256,8 @@ interface HTTPRequest {
     /**
      * Body string for POST data. If set, will override parameters
      */
-    body: string,
+    /* Manual override from: interface/HTTPRequest/body */
+    body?: string,
 
     /**
      * Content type for body.
@@ -56151,12 +56156,12 @@ declare function CreateNewAddonPreset(data: Preset): void;
  * >The particle effect must be precached with [Global.PrecacheParticleSystem](https://wiki.facepunch.com/gmod/Global.PrecacheParticleSystem) and the file its from must be added via [game.AddParticles](https://wiki.facepunch.com/gmod/game.AddParticles) before it can be used!
  *
  * @param ent - The entity to attach the control point to.
- * @param effect - The name of the effect to create. It must be precached.
- * @param partAttachment - See [Enums/PATTACH](https://wiki.facepunch.com/gmod/Enums/PATTACH).
- * @param [entAttachment = 0] - The attachment ID on the entity to attach the particle system to
+ * @param effect - The name of the effect to create. It must be precached via [Global.PrecacheParticleSystem](https://wiki.facepunch.com/gmod/Global.PrecacheParticleSystem) beforehand.
+ * @param partAtt - See [Enums/PATTACH](https://wiki.facepunch.com/gmod/Enums/PATTACH).
+ * @param [entAtt = 0] - The attachment ID on the entity to attach the particle system to
  * @param [offset = Vector( 0, 0, 0 )] - The offset from the [Entity:GetPos](https://wiki.facepunch.com/gmod/Entity:GetPos) of the entity we are attaching this CP to.
  */
-declare function CreateParticleSystem(ent: Entity, effect: string, partAttachment: PATTACH, entAttachment?: number, offset?: Vector): CNewParticleEffect;
+declare function CreateParticleSystem(ent: Entity, effect: string, partAtt: PATTACH, entAtt?: number, offset?: Vector): CNewParticleEffect;
 
 /**
  * 🟨 [Client]
@@ -56166,7 +56171,7 @@ declare function CreateParticleSystem(ent: Entity, effect: string, partAttachmen
  * **Note:**
  * >The particle effect must be precached with [Global.PrecacheParticleSystem](https://wiki.facepunch.com/gmod/Global.PrecacheParticleSystem) and the file its from must be added via [game.AddParticles](https://wiki.facepunch.com/gmod/game.AddParticles) before it can be used!
  *
- * @param effect - The name of the effect to create. It must be precached.
+ * @param effect - The name of the effect to create. It must be precached via [Global.PrecacheParticleSystem](https://wiki.facepunch.com/gmod/Global.PrecacheParticleSystem) beforehand.
  * @param pos - The position for the particle system.
  * @param [ang = Angle( 0, 0, 0 )] - The orientation of the particle system.
  */
@@ -63082,6 +63087,8 @@ declare namespace ents {
      * 🟦 [Server]
      *
      * Returns the amount of networked entities, which is limited to 8192. [ents.Create](https://wiki.facepunch.com/gmod/ents.Create) will fail somewhere between 8064 and 8176 - this can vary based on the amount of existing temp ents.
+     *
+     * See also [MAX_EDICT_BITS](https://wiki.facepunch.com/gmod/Global_Variables#maxedictbits) global variable.
      */
     declare function GetEdictCount(): number;
 

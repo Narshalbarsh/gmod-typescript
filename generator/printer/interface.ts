@@ -1,7 +1,7 @@
 import { TSCollection, TSField } from '../ts_types';
 import { printInterfaceFunction, printNamespaceFunction } from './function';
 import { indentStr, printDocComent } from './util';
-import { tryLoadFunctionOverride } from '../override_loader';
+import { tryLoadFunctionOverride, tryLoadFieldOverride } from '../override_loader';
 import { loadExtras } from '../extras_loader';
 
 export function printInterface(tsInterface: TSCollection): string {
@@ -46,16 +46,26 @@ ${override}
     } else {
         const parent = tsInterface.parent ? `extends ${tsInterface.parent} ` : '';
         head = `interface ${tsInterface.identifier} ${parent}{`;
+
         functions = indentStr(
             tsInterface.functions
                 .map((f) => printInterfaceFunction(f, tsInterface.identifier))
                 .join('\n\n'),
             indent,
         );
-        fields = indentStr(
-            tsInterface.fields.map((f) => printInterfaceField(f)).join('\n\n'),
-            indent,
-        );
+
+        const renderedFields = tsInterface.fields.map((fld) => {
+            const override = tryLoadFieldOverride('interface', tsInterface.identifier, fld.identifier);
+            if (override) {
+                return `
+${printDocComent(fld.docComment)}
+${override}
+`.trim();
+            }
+            return printInterfaceField(fld);
+        });
+
+        fields = indentStr(renderedFields.join('\n\n'), indent);
     }
 
     const extrasKind = tsInterface.namespace ? 'namespace' : 'interface';
