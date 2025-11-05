@@ -39871,7 +39871,7 @@ interface AnimationData {
      * <arg type="Panel" name="tgtPanel">The panel the animation was run on.</arg>
      * </callback>
      */
-    OnEnd: Function,
+    OnEnd: (animData: any, tgtPanel: Panel) => void,
 
     /**
      * The `think` function called every frame that will animate the panel object. This varies based on the animation. You can create a custom function for this if you aren't using the stock panel methods.
@@ -39882,7 +39882,7 @@ interface AnimationData {
      * </callback>
      * <arg type="number" name="fraction">The progress fraction of the animation, between 0 and 1. The change rate of this number will not be linear if you are easing.</arg>
      */
-    Think: Function,
+    Think: (animData: any, tgtPanel: Panel) => void,
 
     /**
      * The target position, or target translation of the panel object. Used by [Panel:MoveTo](https://wiki.facepunch.com/gmod/Panel:MoveTo) and [Panel:MoveBy](https://wiki.facepunch.com/gmod/Panel:MoveBy) respectively.
@@ -40130,7 +40130,7 @@ interface Bullet {
      * </callback>
      * @default nil
      */
-    Callback?: Function,
+    Callback?: (attacker: Entity, tr: TraceResult, dmgInfo: CTakeDamageInfo) => any,
 
     /**
      * The damage dealt by the bullet.
@@ -40369,7 +40369,7 @@ interface CreationMenus {
      * <ret type="Panel" name="content">A container panel that holds all of the content for the new tab.</ret>
      * </callback>
      */
-    Function: Function,
+    Function: () => Panel,
 
     /**
      * The icon material that will accompany the title of the tab.
@@ -41208,7 +41208,7 @@ interface HTTPRequest {
      * <arg type="string" name="reason">Reason for the failure.</arg>
      * </callback>
      */
-    failed: Function,
+    failed: (reason: string) => void,
 
     /**
      * Function to be called on success.
@@ -41218,7 +41218,7 @@ interface HTTPRequest {
      * <arg type="table" name="headers">List of headers the server provided.</arg>
      * </callback>
      */
-    success: Function,
+    success: (code: number, body: string, headers: any) => void,
 
     /**
      * Request method, case insensitive. Possible values are:
@@ -41309,7 +41309,7 @@ interface HullTrace {
      * 	Using a function here is super slow. Try to avoid it.
      * @default nil
      */
-    filter?: Entity|Entity[]|string[]|Function,
+    filter?: Entity | Entity[] | string[] | (ent: Entity) => boolean,
 
     /**
      * The trace mask [Enums/MASK](https://wiki.facepunch.com/gmod/Enums/MASK). This determines what the trace should hit and what it shouldn't hit.
@@ -41451,7 +41451,7 @@ interface MatProxyData {
      * <arg type="table" name="values">The material key values</arg>
      * </callback>
      */
-    init: Function,
+    init: (self: any, name: string, values: any) => void,
 
     /**
      * The function used to apply the proxy. This is called every frame while any materials with this proxy are used in world.
@@ -41462,7 +41462,7 @@ interface MatProxyData {
      * <arg type="Entity" name="ent">The entity the material instance is applied to, if any.</arg>
      * </callback>
      */
-    bind: Function,
+    bind: (self: any, name: string, ent: Entity) => void,
 }
 
 /**
@@ -42320,7 +42320,7 @@ interface PropertyAdd {
      * <ret type="boolean" name="check">Return true if the property should be shown for this entity.</ret>
      * </callback>
      */
-    Filter: Function,
+    Filter: (self: any, ent: Entity, player: Player) => boolean,
 
     /**
      * Required for toggle properties (clientside).
@@ -42332,7 +42332,7 @@ interface PropertyAdd {
      * <ret type="boolean" name="check">Return true if the property should appear checked in the UI.</ret>
      * </callback>
      */
-    Checked: Function,
+    Checked: (self: any, ent: Entity, tr: any) => boolean,
 
     /**
      * Called **clientside** when the property is clicked
@@ -42344,7 +42344,7 @@ interface PropertyAdd {
      *
      * When appropriate, within this function you can call `self:MsgStart()`, write data with the [net](https://wiki.facepunch.com/gmod/net).`Write*` functions, and finish with `self:MsgEnd()`. This will activate the `Receive` function on the server. In most cases, you will want to send the entity to the server, as it's not done by default.
      */
-    Action: Function,
+    Action: (self: any, ent: Entity, tr: any) => void,
 
     /**
      * Called **serverside** if the client sends a message in the `Action` function (see above).
@@ -42357,7 +42357,7 @@ interface PropertyAdd {
      *
      * You can read data received from the client with the [net](https://wiki.facepunch.com/gmod/net).`Read*` functions. It's good practice to check [GM:CanProperty](https://wiki.facepunch.com/gmod/GM:CanProperty) here via [gamemode.Call](https://wiki.facepunch.com/gmod/gamemode.Call) or [hook.Run](https://wiki.facepunch.com/gmod/hook.Run).
      */
-    Receive: Function,
+    Receive: (self: any, len: number, ply: Player) => void,
 
     /**
      * Called **clientside** when the property option has been created in the right-click menu. This is not called for toggle properties!
@@ -42368,7 +42368,7 @@ interface PropertyAdd {
      * <arg type="table" name="tr">the player's eye trace</arg>
      * </callback>
      */
-    MenuOpen: Function,
+    MenuOpen: (self: any, option: DMenuOption, ent: Entity, tr: any) => void,
 
     /**
      * Same as `MenuOpen`, but also called for toggle properties and has different arguments. This is called immediately after `MenuOpen`, but nothing happens in between so you should only ever use one or the other.
@@ -42378,7 +42378,7 @@ interface PropertyAdd {
      * <arg type="DMenuOption" name="option">the menu option</arg>
      * </callback>
      */
-    OnCreate: Function,
+    OnCreate: (self: any, menu: DMenu, option: DMenuOption) => void,
 }
 
 /**
@@ -42678,7 +42678,7 @@ interface ServerQueryData {
      * <ret type="boolean" name="stop">Return `false` to stop the query.</ret>
      * </callback>
      */
-    Callback: Function,
+    Callback: (ping: number, name: string, desc: string, map: string, players: number, maxplayers: number, botplayers: number, pass: boolean, lastplayed: number, address: string, gamemode: string, workshopid: number, isanon: boolean, version: string, localization: string, gmcategory: string) => boolean,
 
     /**
      * Called if the query has failed, called with the servers IP Address
@@ -43493,7 +43493,7 @@ interface Trace {
      * 	Using a function here is super slow. Try to avoid it.
      * @default nil
      */
-    filter?: Entity|Entity[]|string[]|Function,
+    filter?: Entity | Entity[] | string[] | (ent: Entity) => boolean,
 
     /**
      * The trace mask [Enums/MASK](https://wiki.facepunch.com/gmod/Enums/MASK). This determines what the trace should hit and what it shouldn't hit. A mask is a combination of [Enums/CONTENTS](https://wiki.facepunch.com/gmod/Enums/CONTENTS) - you can use these for more advanced masks.

@@ -68,3 +68,4 @@ export function transformIdentifier(id: string) {
             ?.replace(/[\/ ]/g, '_')
     );
 }
+
