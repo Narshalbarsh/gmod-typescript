@@ -3500,9 +3500,11 @@ interface CSoundPatch {
     /**
      * 🟨🟦 [Shared]
      *
-     * Adjust the pitch, alias the speed at which the sound is being played.
+     * Adjust the pitch, also known as the speed at which the sound is being played.
      *
-     * This invokes the [GM:EntityEmitSound](https://wiki.facepunch.com/gmod/GM:EntityEmitSound).
+     * Appears to only work while the sound is being played. See also [CSoundPatch:PlayEx](https://wiki.facepunch.com/gmod/CSoundPatch:PlayEx).
+     *
+     * This invokes [GM:EntityEmitSound](https://wiki.facepunch.com/gmod/GM:EntityEmitSound).
      * @param pitch - The pitch can range from 0-255. Where 100 is the original pitch.
      * @param [deltaTime = 0] - The time to fade from previous to the new pitch.
      */
@@ -3511,8 +3513,9 @@ interface CSoundPatch {
     /**
      * 🟨🟦 [Shared]
      *
-     * Adjusts the volume of the sound played.<br/>
-     * Appears to only work while the sound is being played.
+     * Adjusts the volume of the sound played.
+     *
+     * Appears to only work while the sound is being played. See also [CSoundPatch:PlayEx](https://wiki.facepunch.com/gmod/CSoundPatch:PlayEx).
      * @param volume - The volume ranges from 0 to 1.
      * @param [deltaTime = 0] - Time to fade the volume from previous to new value from.
      */
@@ -13019,7 +13022,7 @@ interface NPC extends Entity {
     /**
      * 🟦 [Server]
      *
-     * Works similarly to [NPC:NavSetRandomGoal](https://wiki.facepunch.com/gmod/NPC:NavSetRandomGoal).
+     * Picks random node around given vector, around specified length, using dir as search direction start. Works similarly to [NPC:NavSetRandomGoal](https://wiki.facepunch.com/gmod/NPC:NavSetRandomGoal), but you can decide any position you want as a search starting point rather than your NPC.
      * @param pos - The origin to calculate a path from.
      * @param length - The target length of the path to calculate.
      * @param dir - The direction in which to look for a new path end goal.
@@ -27838,7 +27841,8 @@ interface DListView extends DPanel {
      * @param [position = nil] - At which position to insert the new column compared to the other columns. Set to 1 to add the new column before all other columns.
      * By default the column will be placed after all columns.
      */
-    AddColumn(column: string, position?: number): Panel;
+    /* Manual override from: interface/DListView/AddColumn */
+    AddColumn(column: string, position?: number): DListView_Column;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -41309,7 +41313,7 @@ interface HullTrace {
      * 	Using a function here is super slow. Try to avoid it.
      * @default nil
      */
-    filter?: Entity | Entity[] | string[] | (ent: Entity) => boolean,
+    filter?: Entity | Entity[] | string[] | ((ent: Entity) => boolean),
 
     /**
      * The trace mask [Enums/MASK](https://wiki.facepunch.com/gmod/Enums/MASK). This determines what the trace should hit and what it shouldn't hit.
@@ -43493,7 +43497,7 @@ interface Trace {
      * 	Using a function here is super slow. Try to avoid it.
      * @default nil
      */
-    filter?: Entity | Entity[] | string[] | (ent: Entity) => boolean,
+    filter?: Entity | Entity[] | string[] | ((ent: Entity) => boolean),
 
     /**
      * The trace mask [Enums/MASK](https://wiki.facepunch.com/gmod/Enums/MASK). This determines what the trace should hit and what it shouldn't hit. A mask is a combination of [Enums/CONTENTS](https://wiki.facepunch.com/gmod/Enums/CONTENTS) - you can use these for more advanced masks.
