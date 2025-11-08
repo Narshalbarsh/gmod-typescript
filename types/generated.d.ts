@@ -13514,9 +13514,9 @@ interface NPC extends Entity {
      * Marks the current NPC task as failed.
      *
      * This is meant to be used alongside [NPC:TaskComplete](https://wiki.facepunch.com/gmod/NPC:TaskComplete) to complete or fail custom Lua defined tasks. ([Schedule:AddTask](https://wiki.facepunch.com/gmod/Schedule:AddTask))
-     * @param task - A string most likely defined as a Source Task, for more information on Tasks go to https://developer.valvesoftware.com/wiki/Task
+     * @param failReason - Fail reason to be passed onto [ENTITY:OnTaskFailed](https://wiki.facepunch.com/gmod/ENTITY:OnTaskFailed). The fail reason can also be seen when the NPC's `ent_text` is active.
      */
-    TaskFail(task: string): void;
+    TaskFail(failReason: string): void;
 
     /**
      * 🟦 [Server]
@@ -36971,6 +36971,19 @@ interface Gamemode {
 }
 
 /**
+ * 🟨🟦 [Shared]
+ *
+ * Information about the ENT structure, which represents a Scripted Entity class definition.
+ *
+ * To learn more about scripted entities, <page text="see this page">Scripted_Entities</page>.
+ *
+ * See also [ENTITY Hooks](https://wiki.facepunch.com/gmod/ENTITY_Hooks) for a list of events scripted entities can have. See [Custom Entity Fields](https://wiki.facepunch.com/gmod/Custom_Entity_Fields) for a list of events and fields all entities can have.
+ *
+ * While some of the fields may be serverside or clientside only, it is recommended to provide them on both so addons could use their values.
+ *
+ * **Note:**
+ * >Values defined in ENT table can't be changed per instance. Initialize default values in [ENTITY:Initialize](https://wiki.facepunch.com/gmod/ENTITY:Initialize) or other hook.
+ *
  * A list of hooks **only** available for [Scripted Entities](https://wiki.facepunch.com/gmod/Scripted_Entities).
  *
  * The exceptions to this rule are documented at [Custom Entity Fields](https://wiki.facepunch.com/gmod/Custom_Entity_Fields), which can be applied to all entities.
@@ -36983,6 +36996,146 @@ interface Gamemode {
  * >The hooks listed here are also dependent on the scripted entity type. For instance, a base scripted entity will not use [ENTITY:DoSchedule](https://wiki.facepunch.com/gmod/ENTITY:DoSchedule) at all, that is only for scripted NPCs
  */
 interface ENTITY extends Entity {
+    /**
+     * The base entity to derive from. This **must** be a valid Lua entity
+     */
+    Base: string,
+
+    /**
+     * Type of the entity. This **must** be one of these:
+     * * **anim**
+     * * **brush**
+     * * **point**
+     * * **ai**
+     * * **nextbot**
+     * * **filter**
+     *
+     * See [Scripted Entities](https://wiki.facepunch.com/gmod/Scripted_Entities) for a more detailed explanation of what each one is.
+     */
+    Type: string,
+
+    /**
+     * The class name of the entity (File or folder name of your entity).
+     * **This is set automatically _after_ the entity file is loaded.**
+     */
+    ClassName: string,
+
+    /**
+     * If set, overrides the classname of the SWEP.
+     */
+    ClassNameOverride: string,
+
+    /**
+     * The folder from where the entity was loaded. This should always be "entity/ent_myentity", regardless whether your entity is stored as a file, or multiple files in a folder. **This is set automatically _before_ the entity file is loaded.**
+     */
+    Folder: string,
+
+    /**
+     * Set this to true if your entity has animations. You should also apply changes to the [ENTITY:Think](https://wiki.facepunch.com/gmod/ENTITY:Think) function from the example on that page.
+     * @default false
+     */
+    AutomaticFrameAdvance?: boolean,
+
+    /**
+     * Spawnmenu category to put the entity into
+     * @default Other
+     */
+    Category?: string,
+
+    /**
+     * Whether this entity should be displayed and is spawnable in the spawn menu
+     * @default false
+     */
+    Spawnable?: boolean,
+
+    /**
+     * Whether the entity supports Editing. See [Editable Entities](https://wiki.facepunch.com/gmod/Editable_Entities) for more info.
+     * @default false
+     */
+    Editable?: boolean,
+
+    /**
+     * Whether or not only admins can spawn the entity from their spawn menu
+     * @default false
+     */
+    AdminOnly?: boolean,
+
+    /**
+     * Nice name of the entity to appear in the spawn menu
+     */
+    PrintName: string,
+
+    /**
+     * The author of the entity
+     */
+    Author: string,
+
+    /**
+     * The contacts of the entity creator
+     */
+    Contact: string,
+
+    /**
+     * The purpose of the entity creation
+     */
+    Purpose: string,
+
+    /**
+     * How to use your entity
+     */
+    Instructions: string,
+
+    /**
+     * The entity's render group, see [Enums/RENDERGROUP](https://wiki.facepunch.com/gmod/Enums/RENDERGROUP). If unset, the engine will decide the render group based on the entity's model.
+     */
+    RenderGroup: number,
+
+    /**
+     * If set and `RenderGroup` is not, will switch the render group to <page text="RENDERGROUP_BOTH">Enums/RENDERGROUP#RENDERGROUP_BOTH</page> when appropriate.
+     *
+     * Basically, when the default render group of the entity's model is opaque, [ENTITY:DrawTranslucent](https://wiki.facepunch.com/gmod/ENTITY:DrawTranslucent) will still be called, for example to render effects and such. This is preferable to forcing translucent models to render in the opaque pass by setting `RenderGroup` to `RENDERGROUP_BOTH` at all times, causing graphical issues.
+     * @default false
+     */
+    WantsTranslucency?: boolean,
+
+    /**
+     * Disable the ability for players to duplicate this entity.
+     * @default false
+     */
+    DisableDuplicator?: boolean,
+
+    /**
+     * Sets the spawnmenu content icon type for the entity, used by spawnmenu in the Sandbox-derived gamemodes.
+     * See [spawnmenu.AddContentType](https://wiki.facepunch.com/gmod/spawnmenu.AddContentType) for more information.
+     */
+    ScriptedEntityType: string,
+
+    /**
+     * If set, overrides the icon path to be displayed in the Spawnmenu for this entity.
+     *
+     * Like many functions, this expects a path relative to the `materials/` folder, do not include `materials/` in the provided string.
+     * @default entities/<ClassName>.png
+     */
+    IconOverride?: string,
+
+    /**
+     * If set, a bitflag for the physics solidity of the entity. See [Enums/CONTENTS](https://wiki.facepunch.com/gmod/Enums/CONTENTS).
+     *
+     * Can be used to make the entity pass though certain otherwise solid meshes, such as grates, or special clip brushes.
+     *
+     * **Note:**
+     * >This only works for `nextbot`, `anim` and `ai` type SENTs.
+     *
+     * @default nil
+     */
+    PhysicsSolidMask?: number,
+
+    /**
+     * For `anim` type entities, if set, enables physics collision sounds.
+     * @default false
+     */
+    PhysicsSounds?: boolean,
+
     /**
      * 🟦 [Server]
      *
@@ -40753,162 +40906,6 @@ interface EmitSoundInfo {
      * The origin of the played sound.
      */
     Pos: Vector,
-}
-
-/**
- * 🟨🟦 [Shared]
- *
- * Information about the ENT structure, which represents a Scripted Entity class definition.
- *
- * To learn more about scripted entities, <page text="see this page">Scripted_Entities</page>.
- *
- * See also [ENTITY Hooks](https://wiki.facepunch.com/gmod/ENTITY_Hooks) for a list of events scripted entities can have. See [Custom Entity Fields](https://wiki.facepunch.com/gmod/Custom_Entity_Fields) for a list of events and fields all entities can have.
- *
- * While some of the fields may be serverside or clientside only, it is recommended to provide them on both so addons could use their values.
- *
- * **Note:**
- * >Values defined in ENT table can't be changed per instance. Initialize default values in [ENTITY:Initialize](https://wiki.facepunch.com/gmod/ENTITY:Initialize) or other hook.
- */
-interface ENT {
-    /**
-     * The base entity to derive from. This **must** be a valid Lua entity
-     */
-    Base: string,
-
-    /**
-     * Type of the entity. This **must** be one of these:
-     * * **anim**
-     * * **brush**
-     * * **point**
-     * * **ai**
-     * * **nextbot**
-     * * **filter**
-     *
-     * See [Scripted Entities](https://wiki.facepunch.com/gmod/Scripted_Entities) for a more detailed explanation of what each one is.
-     */
-    Type: string,
-
-    /**
-     * The class name of the entity (File or folder name of your entity).
-     * **This is set automatically _after_ the entity file is loaded.**
-     */
-    ClassName: string,
-
-    /**
-     * If set, overrides the classname of the SWEP.
-     */
-    ClassNameOverride: string,
-
-    /**
-     * The folder from where the entity was loaded. This should always be "entity/ent_myentity", regardless whether your entity is stored as a file, or multiple files in a folder. **This is set automatically _before_ the entity file is loaded.**
-     */
-    Folder: string,
-
-    /**
-     * Set this to true if your entity has animations. You should also apply changes to the [ENTITY:Think](https://wiki.facepunch.com/gmod/ENTITY:Think) function from the example on that page.
-     * @default false
-     */
-    AutomaticFrameAdvance?: boolean,
-
-    /**
-     * Spawnmenu category to put the entity into
-     * @default Other
-     */
-    Category?: string,
-
-    /**
-     * Whether this entity should be displayed and is spawnable in the spawn menu
-     * @default false
-     */
-    Spawnable?: boolean,
-
-    /**
-     * Whether the entity supports Editing. See [Editable Entities](https://wiki.facepunch.com/gmod/Editable_Entities) for more info.
-     * @default false
-     */
-    Editable?: boolean,
-
-    /**
-     * Whether or not only admins can spawn the entity from their spawn menu
-     * @default false
-     */
-    AdminOnly?: boolean,
-
-    /**
-     * Nice name of the entity to appear in the spawn menu
-     */
-    PrintName: string,
-
-    /**
-     * The author of the entity
-     */
-    Author: string,
-
-    /**
-     * The contacts of the entity creator
-     */
-    Contact: string,
-
-    /**
-     * The purpose of the entity creation
-     */
-    Purpose: string,
-
-    /**
-     * How to use your entity
-     */
-    Instructions: string,
-
-    /**
-     * The entity's render group, see [Enums/RENDERGROUP](https://wiki.facepunch.com/gmod/Enums/RENDERGROUP). If unset, the engine will decide the render group based on the entity's model.
-     */
-    RenderGroup: number,
-
-    /**
-     * If set and `RenderGroup` is not, will switch the render group to <page text="RENDERGROUP_BOTH">Enums/RENDERGROUP#RENDERGROUP_BOTH</page> when appropriate.
-     *
-     * Basically, when the default render group of the entity's model is opaque, [ENTITY:DrawTranslucent](https://wiki.facepunch.com/gmod/ENTITY:DrawTranslucent) will still be called, for example to render effects and such. This is preferable to forcing translucent models to render in the opaque pass by setting `RenderGroup` to `RENDERGROUP_BOTH` at all times, causing graphical issues.
-     * @default false
-     */
-    WantsTranslucency?: boolean,
-
-    /**
-     * Disable the ability for players to duplicate this entity.
-     * @default false
-     */
-    DisableDuplicator?: boolean,
-
-    /**
-     * Sets the spawnmenu content icon type for the entity, used by spawnmenu in the Sandbox-derived gamemodes.
-     * See [spawnmenu.AddContentType](https://wiki.facepunch.com/gmod/spawnmenu.AddContentType) for more information.
-     */
-    ScriptedEntityType: string,
-
-    /**
-     * If set, overrides the icon path to be displayed in the Spawnmenu for this entity.
-     *
-     * Like many functions, this expects a path relative to the `materials/` folder, do not include `materials/` in the provided string.
-     * @default entities/<ClassName>.png
-     */
-    IconOverride?: string,
-
-    /**
-     * If set, a bitflag for the physics solidity of the entity. See [Enums/CONTENTS](https://wiki.facepunch.com/gmod/Enums/CONTENTS).
-     *
-     * Can be used to make the entity pass though certain otherwise solid meshes, such as grates, or special clip brushes.
-     *
-     * **Note:**
-     * >This only works for `nextbot`, `anim` and `ai` type SENTs.
-     *
-     * @default nil
-     */
-    PhysicsSolidMask?: number,
-
-    /**
-     * For `anim` type entities, if set, enables physics collision sounds.
-     * @default false
-     */
-    PhysicsSounds?: boolean,
 }
 
 /**
@@ -60405,7 +60402,7 @@ declare namespace concommand {
      * 				<arg name="ply" type="Player">The player that ran the concommand. NULL entity if command was entered with the dedicated server console.</arg>
      * 				<arg name="cmd" type="string">The concommand string (if one callback is used for several concommands).</arg>
      * 				<arg name="args" type="table">A table of all string arguments.</arg>
-     * 				<arg name="argStr" type="string">The arguments as a string.</arg>
+     * 				<arg name="argStr" type="string">The arguments as a string (including double quotes if there were any).</arg>
      * 			</callback>
      * @param [autoComplete = nil] - The function to call which should return a table of options for autocompletion. (<page text="Autocompletion Tutorial">Console_Command_Auto-completion</page>)
      * This only properly works on the client since it is **not** networked.
@@ -66940,7 +66937,8 @@ declare namespace net {
      * Sends the current net message to the specified player(s)
      * @param ply - The player to send the message to.
      */
-    declare function Send(ply: Player): void;
+    /* Manual override from: namespace/net/Send */
+    declare function Send(ply: Player | Player[]): void;
 
     /**
      * 🟦 [Server]
@@ -66948,7 +66946,8 @@ declare namespace net {
      * Sends the current message (see [net.Start](https://wiki.facepunch.com/gmod/net.Start)) to all except the player or players specified.
      * @param ply - The player to **NOT** send the message to.
      */
-    declare function SendOmit(ply: Player): void;
+    /* Manual override from: namespace/net/SendOmit */
+    declare function SendOmit(ply: Player | Player[]): void;
 
     /**
      * 🟦 [Server]

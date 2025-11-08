@@ -90,6 +90,7 @@ import { transformIdentifier } from './transformer/util';
     function aliasName(id: string): string {
         if (id === 'GM') return 'Gamemode';
         if (id === 'PANEL') return 'Panel';
+        if (id === 'ENT') return 'ENTITY';
         return id;
     }
 

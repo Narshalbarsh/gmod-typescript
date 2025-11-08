@@ -7,6 +7,7 @@ declare const CLIENT: boolean;
 declare const MENU: boolean;
 declare const GAMEMODE: Gamemode;
 declare const GM: Gamemode;
+declare const ENT: ENTITY;
 
 /**
  * SubModelIds
