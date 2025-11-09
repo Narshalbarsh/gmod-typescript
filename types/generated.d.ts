@@ -30092,7 +30092,7 @@ interface DPanelList extends DPanel {
 
     /* Manual extra from: interface/DPanelList/extra */
     // These aren't on the wiki for some reason
-    VBar: DBScollBar
+    VBar: DVScrollBar;
     pnlCanvas: DPanel;
     Items: Panel[];
 
@@ -30112,16 +30112,17 @@ interface DPanelList extends DPanel {
     SetDraggableName(name: string): void;
 
     // methods
-    OnModified(): void;
-    SizeToContents(): void;
     EnableHorizontal(enabled: boolean): void;
     GetCanvas(): DPanel;
-    InsertBefore(before: Panel, insert: Panel, strLineState?: string): void;
     InsertAfter(before: Panel, insert: Panel, strLineState?: string): void;
+    InsertBefore(before: Panel, insert: Panel, strLineState?: string): void;
+    OnChildRemoved(): void;
+    OnModified(): void;
     OnMouseWheeled(delta: number): any;
     OnVScroll(offset: number): void;
-    OnChildRemoved(): void;
+    RemoveItem(pnl: Panel, dontDelete?: boolean): void;
     ScrollToChild(panel: Panel): void;
+    SizeToContents(): void;
     SortByMember(key: string, desc?: boolean): void;
 
     // table-style function
