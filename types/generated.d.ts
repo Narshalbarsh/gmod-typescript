@@ -16894,16 +16894,16 @@ interface Panel {
      */
     Think(): void;
 
-    /* Manual extra from: interface/Panel/h */
+    /* Manual extra from: interface/Panel/extra */
+    /** Set by engine when cursor is over the panel. Many skins read this. */
+    Hovered?: boolean;
+
+    /** Toggled by SetEnabled/IsEnabled. Controls often read/write it directly. */
+    Enabled?: boolean;
+
     h: number
-
-    /* Manual extra from: interface/Panel/w */
     w: number
-
-    /* Manual extra from: interface/Panel/x */
     x: number
-
-    /* Manual extra from: interface/Panel/y */
     y: number
 }
 
@@ -23885,6 +23885,19 @@ interface DButton extends DLabel {
      * @param skin - A table supposed to contain the color values listed above.
      */
     UpdateColours(skin: any): void;
+
+    /* Manual extra from: interface/DButton/extra */
+    /** True while the button is held down. Used by skins and IsDown(). */
+    Depressed?: boolean;
+
+    /** Internal selected state read by UpdateColours. Prefer SetSelected/IsSelected. */
+    m_bSelected?: boolean;
+
+    /** Image child created by SetImage/SetMaterial. */
+    m_Image?: DImage;
+
+    /** Click callback; commonly overridden or assigned. */
+    DoClick?: (this: DButton, val?: any) => void;
 }
 
 /**
@@ -30664,7 +30677,9 @@ interface DRGBPicker extends DPanel {
  * An internal panel used by [DVScrollBar](https://wiki.facepunch.com/gmod/DVScrollBar) as the grip (middle) part of the scrollbar.
  */
 interface DScrollBarGrip extends DPanel {
-
+    /* Manual extra from: interface/DScrollBarGrip/extra */
+    /** Set true while the grip is being dragged. Used by skins. */
+    Depressed?: boolean;
 }
 
 /**
@@ -33016,6 +33031,20 @@ interface DVScrollBar extends Panel {
      * @param canvasSize - The total size of the canvas, this typically is the bigger number.
      */
     SetUp(barSize: number, canvasSize: number): void;
+
+    /* Manual extra from: interface/DVScrollBar/extra */
+    btnUp: DButton;
+    btnDown: DButton;
+    btnGrip: DScrollBarGrip;
+    Enabled: boolean;
+    Offset: number;
+    Scroll: number;
+    CanvasSize: number;
+    BarSize: number;
+    HasChanged?: boolean;
+    Dragging?: boolean;
+    DraggingCanvas?: Panel | undefined;
+    HoldPos?: number;
 }
 
 /**

@@ -1,0 +1,12 @@
+btnUp: DButton;
+btnDown: DButton;
+btnGrip: DScrollBarGrip;
+Enabled: boolean;
+Offset: number;
+Scroll: number;
+CanvasSize: number;
+BarSize: number;
+HasChanged?: boolean;
+Dragging?: boolean;
+DraggingCanvas?: Panel | undefined;
+HoldPos?: number;
