@@ -8,21 +8,31 @@ declare function SortedPairsByMemberValue<
 ): LuaIterable<LuaMultiReturn<[number, V]>>;
 
 declare function SortedPairsByMemberValue<
+    K extends string | number,
+    V extends object,
+    M extends keyof V
+>(
+    t: LuaMap<K, V> | Readonly<LuaMap<K, V>>,
+    memberKey: M,
+    desc?: boolean
+): LuaIterable<LuaMultiReturn<[K, NonNullable<V>]>>;
+
+declare function SortedPairsByMemberValue<
     K,
     V extends object,
     M extends keyof V
 >(
-    t: LuaTable<K, V>,
+    t: LuaTable<K, V> | Readonly<LuaTable<K, V>>,
     memberKey: M,
     desc?: boolean
-): LuaIterable<LuaMultiReturn<[K, V]>>;
+): LuaIterable<LuaMultiReturn<[K, NonNullable<V>]>>;
 
 declare function SortedPairsByMemberValue<
     K extends string | number,
     V extends object,
     M extends keyof V
 >(
-    t: Record<K, V>,
+    t: Record<K, V> | Readonly<Record<K, V>>,
     memberKey: M,
     desc?: boolean
 ): LuaIterable<LuaMultiReturn<[K, V]>>;
