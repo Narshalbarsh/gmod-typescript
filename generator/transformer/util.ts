@@ -30,6 +30,10 @@ export function transformType(type: string) {
     });
 
     t = t.replace(/\btable\b/gi, 'any').replace(/\bfunction\b/gi, 'Function');
+
+    // Lua `nil` => TypeScript `undefined`
+    t = t.replace(/\bnil\b/gi, 'undefined');
+
     t = t.replace(/ or /gi, ' | ');
     t = t.replace(/(\w) (\w)/g, '$1_$2');
 
@@ -68,4 +72,3 @@ export function transformIdentifier(id: string) {
             ?.replace(/[\/ ]/g, '_')
     );
 }
-

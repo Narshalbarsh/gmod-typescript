@@ -526,14 +526,7 @@ interface CEffectData {
     /**
      * 🟨🟦 [Shared]
      *
-     * Sets the flags of the effect. Can be used to change the appearance of a MuzzleFlash effect.
-     *
-     * ## Example values for MuzzleFlash effect
-     * Flags |  Description |
-     * ------|--------------|
-     * 1 | Regular muzzleflash|
-     * 5 | Combine muzzleflash|
-     * 7 | Regular muzzle but bigger|
+     * Sets the flags for the effect. What flags do depends entirely on the effect. See [Default Effects](https://wiki.facepunch.com/gmod/Default_Effects).
      *
      * **Note:**
      * >Internally stored as an integer, but only first 8 bits are networked, effectively limiting this function to `0-255` range.
@@ -4967,7 +4960,7 @@ interface Entity {
      *
      * @param animIndex - The animation ID to look up, starting at 0.
      */
-    GetAnimInfo(animIndex: number): any|nil;
+    GetAnimInfo(animIndex: number): any|undefined;
 
     /**
      * 🟨 [Client]
@@ -4998,7 +4991,7 @@ interface Entity {
      *
      * @param attachmentId - The internal ID of the attachment.
      */
-    GetAttachment(attachmentId: number): AngPos|nil;
+    GetAttachment(attachmentId: number): AngPos|undefined;
 
     /**
      * 🟨🟦 [Shared]
@@ -5819,7 +5812,7 @@ interface Entity {
      *
      * This also affects certain models that are edited by 3rd party programs after being compiled.
      */
-    GetModel(): string|nil;
+    GetModel(): string|undefined;
 
     /**
      * 🟨🟦 [Shared]
@@ -6442,7 +6435,7 @@ interface Entity {
     /**
      * 🟨🟦 [Shared]
      *
-     * Returns the entity's physics object, if the entity has physics.
+     * Returns the entity's physics object, if the entity has physics. Same as `ent:GetPhysicsObjectNum( 0 )`
      *
      * **Note:**
      * >Entities don't have clientside physics objects by default, so this will return `[NULL PHYSOBJ]` on the client in most cases.
@@ -7360,7 +7353,7 @@ interface Entity {
      * * ValveBiped.Bip01_R_Shoulder
      * * ValveBiped.Bip01_R_Elbow
      */
-    LookupBone(boneName: string): number|nil;
+    LookupBone(boneName: string): number|undefined;
 
     /**
      * 🟨🟦 [Shared]
@@ -17550,7 +17543,7 @@ interface PhysObj {
      *
      * Returns the surface area of the physics object in source-units². Or nil if the PhysObj is a generated sphere or box.
      */
-    GetSurfaceArea(): number|nil;
+    GetSurfaceArea(): number|undefined;
 
     /**
      * 🟨🟦 [Shared]
@@ -17572,7 +17565,7 @@ interface PhysObj {
      *
      * Returns the volume in source units³. Or nil if the PhysObj is a generated sphere or box.
      */
-    GetVolume(): number|nil;
+    GetVolume(): number|undefined;
 
     /**
      * 🟨🟦 [Shared]
@@ -17783,7 +17776,9 @@ interface PhysObj {
      * Sets the mass of the physics object.
      *
      * **Warning:**
-     * >This resets [PhysObj:SetBuoyancyRatio](https://wiki.facepunch.com/gmod/PhysObj:SetBuoyancyRatio) (Recalculated based materials' and the physics objects' densities, latter of which is dependent on mass). This is a physics engine limitation.
+     * >This resets [PhysObj:SetBuoyancyRatio](https://wiki.facepunch.com/gmod/PhysObj:SetBuoyancyRatio) (Recalculated based materials' and the physics objects' densities, latter of which is dependent on mass).
+     *
+     * If you used a custom ratio, you will have to re-set it again after `SetMass`.
      *
      * @param mass - The mass in kilograms, in range `[0, 50000]`
      */
@@ -27631,6 +27626,9 @@ interface DLabel extends Label {
      * Called internally to update the color of the text.
      */
     UpdateFGColor(): void;
+
+    /* Manual extra from: interface/DLabel/extra */
+    LastClickTime: number;
 }
 
 /**
@@ -36611,7 +36609,7 @@ interface Gamemode {
      * @param victim - The entity that died.
      * @param flags - Death notice flags. 1 = Friendly victim (to the player), 2 = friendly attacker (to the player)
      */
-    SendDeathNotice(attacker: Entity|string|nil, inflictor: string, victim: Entity|string, flags: number): void;
+    SendDeathNotice(attacker: Entity|string|undefined, inflictor: string, victim: Entity|string, flags: number): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -56009,7 +56007,7 @@ declare function ClearProblem(id: string): void;
  * @param model - The file path to the model.
  * @param [renderGroup = RENDERGROUP_OTHER] - The render group of the entity for the clientside leaf system, see [Enums/RENDERGROUP](https://wiki.facepunch.com/gmod/Enums/RENDERGROUP).
  */
-declare function ClientsideModel(model: string, renderGroup?: RENDERGROUP): CSEnt|nil;
+declare function ClientsideModel(model: string, renderGroup?: RENDERGROUP): CSEnt|undefined;
 
 /**
  * 🟨 [Client]
@@ -56184,7 +56182,8 @@ declare function CreateContextMenu(): void;
  * @param [min = nil] - If set, the ConVar cannot be changed to a number lower than this value.
  * @param [max = nil] - If set, the ConVar cannot be changed to a number higher than this value.
  */
-declare function CreateConVar(name: string, value: string, flags?: FCVAR|number[], helptext?: string, min?: number, max?: number): ConVar;
+/* Manual override from: global/CreateConVar */
+declare function CreateConVar(name: string, value: string|number, flags?: FCVAR[], helptext?: string, min?: number, max?: number): ConVar;
 
 /**
  * 🟨🟩 [Client and Menu]
@@ -56908,7 +56907,7 @@ declare function EyeVector(): Vector;
  * Custom meta tables should be registered via [Global.RegisterMetaTable](https://wiki.facepunch.com/gmod/Global.RegisterMetaTable).
  * @param metaName - The object type to retrieve the meta table of.
  */
-declare function FindMetaTable(metaName: string): any|nil;
+declare function FindMetaTable(metaName: string): any|undefined;
 
 /**
  * 🟨🟩 [Client and Menu]
@@ -61431,7 +61430,7 @@ declare namespace debug {
      * * `>` - Causes this function to use the last argument to get the data from
      * @param function_ - Function to use. (Only used by the `>` field)
      */
-    declare function getinfo(funcOrStackLevel: Function, fields?: string, function_?: Function|nil): DebugInfo;
+    declare function getinfo(funcOrStackLevel: Function, fields?: string, function_?: Function|undefined): DebugInfo;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -63002,7 +63001,7 @@ declare namespace ents {
      *
      * Creates a clientside only prop with optional physics. See also [Global.ClientsideModel](https://wiki.facepunch.com/gmod/Global.ClientsideModel) if physics is not needed.
      *
-     * For physics to work you **must** use the _model_ argument, a simple `SetModel` call will not be enough.
+     * For physics to work you're expected to use the `model` argument. A simple [Entity:SetModel](https://wiki.facepunch.com/gmod/Entity:SetModel) will not be enough — the [Entity:PhysicsInit](https://wiki.facepunch.com/gmod/Entity:PhysicsInit)* function will be needed.
      *
      * **Bug [#861](https://github.com/Facepunch/garrysmod-issues/issues/861):**
      * >Parented clientside prop will become detached if the parent entity leaves the PVS. **A workaround is available on its github page.**
@@ -63213,7 +63212,7 @@ declare namespace ents {
      * Returns entity that has given [Entity:MapCreationID](https://wiki.facepunch.com/gmod/Entity:MapCreationID).
      * @param id - Entity's creation id.
      */
-    declare function GetMapCreatedEntity(id: number): Entity|nil;
+    declare function GetMapCreatedEntity(id: number): Entity|undefined;
 
     /**
      * 🟨🟦 [Shared]
@@ -64738,15 +64737,7 @@ declare namespace jit {
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
-     * You can attach callbacks to a number of compiler events with jit.attach. The callback can be called:
-     *
-     * * when a function has been compiled to bytecode (`"bc"`);
-     * * when trace recording starts or stops (`"trace"`);
-     * * as a trace is being recorded (`"record"`);
-     * * or when a trace exits through a side exit (`"texit"`).
-     *
-     * Set a callback with `jit.attach(callback, "event")` and clear the same callback with `jit.attach(callback)`.
-     * Only one callback can be active per event.
+     * @deprecated This function was disabled due to security concerns.
      *
      * **Warning:**
      * >This function isn't officially documented on LuaJIT wiki, use it at your own risk.
@@ -65170,7 +65161,7 @@ declare namespace list {
      * @param list - List to search through
      * @param key - The key to search for
      */
-    declare function GetEntry(list: string, key: string): any|nil;
+    declare function GetEntry(list: string, key: string): any|undefined;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -68897,7 +68888,7 @@ declare namespace render {
      * Sets the render material override for all next calls of [Entity:DrawModel](https://wiki.facepunch.com/gmod/Entity:DrawModel). Also overrides [render.MaterialOverrideByIndex](https://wiki.facepunch.com/gmod/render.MaterialOverrideByIndex).
      * @param [material = nil] - The material to use as override, use `nil` to disable.
      */
-    declare function MaterialOverride(material?: IMaterial|nil): void;
+    declare function MaterialOverride(material?: IMaterial|undefined): void;
 
     /**
      * 🟨 [Client]
@@ -68951,7 +68942,7 @@ declare namespace render {
      * 		Because this is independent of a specific [Entity](https://wiki.facepunch.com/gmod/Entity), it can be used to change materials on static models that are part of maps.
      * @param material - The [IMaterial](https://wiki.facepunch.com/gmod/IMaterial) that will be used for all upcoming draw operations, or `nil` to stop overriding.
      */
-    declare function ModelMaterialOverride(material: IMaterial|nil): void;
+    declare function ModelMaterialOverride(material: IMaterial|undefined): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -70689,7 +70680,7 @@ declare namespace sql {
      *
      * @param query - The query to execute.
      */
-    declare function Query(query: string): any|boolean|nil;
+    declare function Query(query: string): any|boolean|undefined;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -73465,7 +73456,7 @@ declare namespace util {
      * @param compressedString - The compressed string to decompress.
      * @param [maxSize = nil] - The maximum size of uncompressed data in bytes, if greater it fails.
      */
-    declare function Decompress(compressedString: string, maxSize?: number): string|nil;
+    declare function Decompress(compressedString: string, maxSize?: number): string|undefined;
 
     /**
      * 🟨🟦 [Shared]
@@ -73924,7 +73915,7 @@ declare namespace util {
      * **Warning:**
      * >if this is false, keys are converted to numbers wherever possible. This means using [Player:SteamID64](https://wiki.facepunch.com/gmod/Player:SteamID64) as keys won't work.
      */
-    declare function JSONToTable(json: string, ignoreLimits?: boolean, ignoreConversions?: boolean): any|nil;
+    declare function JSONToTable(json: string, ignoreLimits?: boolean, ignoreConversions?: boolean): any|undefined;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
