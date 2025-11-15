@@ -56155,7 +56155,8 @@ declare function ConVarExists(name: string): boolean;
  * @param [min = nil] - If set, the convar cannot be changed to a number lower than this value.
  * @param [max = nil] - If set, the convar cannot be changed to a number higher than this value.
  */
-declare function CreateClientConVar(name: string, default_: string, shouldsave?: boolean, userinfo?: boolean, helptext?: string, min?: number, max?: number): ConVar;
+/* Manual override from: global/CreateClientConVar */
+declare function CreateClientConVar(name: string, default_: string|number, shouldsave?: boolean, userinfo?: boolean, helptext?: string, min?: number, max?: number): ConVar;
 
 /**
  * 🟨 [Client]
