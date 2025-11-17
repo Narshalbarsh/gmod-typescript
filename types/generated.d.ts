@@ -21891,13 +21891,6 @@ interface Vector {
      * Sets x, y and z to 0.
      */
     Zero(): void;
-
-    /* Manual extra from: interface/Vector/operator-methods */
-    /** a + b */ add: LuaAdditionMethod<Vector, Vector>;
-    /** a - b */ sub: LuaSubtractionMethod<Vector, Vector>;
-    /** a * (b|n) */ mul: LuaMultiplicationMethod<number | Vector, Vector>;
-    /** a / (b|n) */ div: LuaDivisionMethod<number | Vector, Vector>;
-    /** -a */ unm: LuaNegationMethod<Vector>;
 }
 
 /**
@@ -22648,6 +22641,10 @@ interface VMatrix {
  *
  * **Note:**
  * >A list of available methods has been expanded in your navigation bar.
+ *
+ * Default weapon methods, that are available for use in SWEPs. These hooks **will not work** on non-scripted weapons, such as the Half-Life 2 weapons.
+ *
+ * You can find all available SWEP fields here: [Structures/SWEP](https://wiki.facepunch.com/gmod/Structures/SWEP)
  */
 interface Weapon extends Entity {
     /**
@@ -22951,6 +22948,595 @@ interface Weapon extends Entity {
      * @param time - Time when player should be able to use secondary fire again
      */
     SetNextSecondaryFire(time: number): void;
+
+    /**
+     * 🟦 [Server]
+     *
+     * Called when another entity fires an event to this entity.
+     * @param inputName - The name of the input that was triggered.
+     * @param activator - The initial cause for the input getting triggered.
+     * @param called - The entity that directly trigger the input.
+     * @param data - The data passed.
+     */
+    AcceptInput(inputName: string, activator: Entity, called: Entity, data: string): boolean;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Allows you to adjust the mouse sensitivity. This hook only works if you haven't overridden [GM:AdjustMouseSensitivity](https://wiki.facepunch.com/gmod/GM:AdjustMouseSensitivity).
+     */
+    AdjustMouseSensitivity(): number;
+
+    /**
+     * 🟨🟦 [Shared]
+     *
+     * Returns how much of primary ammo the player has.
+     */
+    Ammo1(): number;
+
+    /**
+     * 🟨🟦 [Shared]
+     *
+     * Returns how much of secondary ammo the player has.
+     */
+    Ammo2(): number;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Allows you to adjust player view while this weapon in use.
+     *
+     * This hook is called from the default implementation of [GM:CalcView](https://wiki.facepunch.com/gmod/GM:CalcView) which is [here](https://github.com/Facepunch/garrysmod/blob/master/garrysmod/gamemodes/base/gamemode/cl_init.lua#L387-L395). Therefore, it will not be called if any other hook added to `CalcView` returns any value, or if the current gamemode overrides the default hook and does not call the SWEP function.
+     * @param ply - The owner of weapon
+     * @param pos - Current position of players view
+     * @param ang - Current angles of players view
+     * @param fov - Current FOV of players view
+     */
+    CalcView(ply: Player, pos: Vector, ang: Angle, fov: number): LuaMultiReturn<[Vector, Angle, number]>;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Allows overriding the position and angle of the viewmodel. This hook only works if you haven't overridden [GM:CalcViewModelView](https://wiki.facepunch.com/gmod/GM:CalcViewModelView).
+     * @param ViewModel - The viewmodel entity
+     * @param OldEyePos - Original position (before viewmodel bobbing and swaying)
+     * @param OldEyeAng - Original angle (before viewmodel bobbing and swaying)
+     * @param EyePos - Current position
+     * @param EyeAng - Current angle
+     */
+    CalcViewModelView(ViewModel: Entity, OldEyePos: Vector, OldEyeAng: Angle, EyePos: Vector, EyeAng: Angle): LuaMultiReturn<[Vector, Angle]>;
+
+    /**
+     * 🟦 [Server]
+     *
+     * Called when a Citizen NPC is looking around to a (better) weapon to pickup.
+     */
+    CanBePickedUpByNPCs(): boolean;
+
+    /**
+     * 🟨🟦 [Shared]
+     *
+     * Helper function for checking for no ammo.
+     */
+    CanPrimaryAttack(): boolean;
+
+    /**
+     * 🟨🟦 [Shared]
+     *
+     * Helper function for checking for no ammo.
+     */
+    CanSecondaryAttack(): boolean;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Allows you to use any numbers you want for the ammo display on the HUD.
+     *
+     * Can be useful for weapons that don't use standard ammo.
+     */
+    CustomAmmoDisplay(): any;
+
+    /**
+     * 🟨🟦 [Shared]
+     *
+     * Called when player has just switched to this weapon.
+     *
+     * **Note:**
+     * >Due to this hook being predicted, it is not called clientside in singleplayer at all, and in multiplayer it will not be called clientside if the weapon is switched with [Player:SelectWeapon](https://wiki.facepunch.com/gmod/Player:SelectWeapon) or the "use" console command, however it will be called clientside with the default weapon selection menu and when using [CUserCmd:SelectWeapon](https://wiki.facepunch.com/gmod/CUserCmd:SelectWeapon)
+     */
+    Deploy(): boolean;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Called when the crosshair is about to get drawn, and allows you to override it.
+     *
+     * This function will **not** be called if `SWEP.DrawCrosshair` is set to false or if player is affected by [Player:CrosshairDisable](https://wiki.facepunch.com/gmod/Player:CrosshairDisable).
+     * @param x - X coordinate of the crosshair.
+     * @param y - Y coordinate of the crosshair.
+     */
+    DoDrawCrosshair(x: number, y: number): boolean;
+
+    /**
+     * 🟨🟦 [Shared]
+     *
+     * Called so the weapon can override the impact effects it makes.
+     *
+     * **Note:**
+     * >If the bullet was fired in a predicted environment, the hook will not be called on the `CLIENT` realm.
+     *
+     * **Note:**
+     * >This hook will also be called when `WEAPON:GetOwner():FireBullets` is called. While in `MULTIPLAYER`, this hook will be called on the respective state, but in `SINGLEPLAYER`, this hook will always be called on the `CLIENT` realm even if `FireBullets` was called on the `SERVER`.
+     *
+     * @param tr - A [Structures/TraceResult](https://wiki.facepunch.com/gmod/Structures/TraceResult) from player's eyes to the impact point
+     * @param damageType - The damage type of bullet. See [Enums/DMG](https://wiki.facepunch.com/gmod/Enums/DMG)
+     */
+    DoImpactEffect(tr: TraceResult, damageType: DMG): boolean;
+
+    /**
+     * 🟨 [Client]
+     *
+     * This hook allows you to draw on screen while this weapon is in use.
+     *
+     * If you want to draw a custom crosshair, consider using [WEAPON:DoDrawCrosshair](https://wiki.facepunch.com/gmod/WEAPON:DoDrawCrosshair) instead.
+     */
+    DrawHUD(): void;
+
+    /**
+     * 🟨 [Client]
+     *
+     * This hook allows you to draw on screen while this weapon is in use. This hook is called **before** [WEAPON:DrawHUD](https://wiki.facepunch.com/gmod/WEAPON:DrawHUD) and is equivalent of [GM:HUDPaintBackground](https://wiki.facepunch.com/gmod/GM:HUDPaintBackground).
+     */
+    DrawHUDBackground(): void;
+
+    /**
+     * 🟨 [Client]
+     *
+     * This hook draws the selection icon in the weapon selection menu.
+     * @param x - X coordinate of the selection panel
+     * @param y - Y coordinate of the selection panel
+     * @param width - Width of the selection panel
+     * @param height - Height of the selection panel
+     * @param alpha - Alpha value of the selection panel
+     */
+    DrawWeaponSelection(x: number, y: number, width: number, height: number, alpha: number): void;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Called when we are about to draw the world model.
+     * @param flags - The <page text="STUDIO_">Enums/STUDIO</page> flags for this render operation.
+     */
+    DrawWorldModel(flags: STUDIO): void;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Called when we are about to draw the translucent world model.
+     * @param flags - The <page text="STUDIO_">Enums/STUDIO</page> flags for this render operation.
+     */
+    DrawWorldModelTranslucent(flags: STUDIO): void;
+
+    /**
+     * 🟦 [Server]
+     *
+     * Called when a player or NPC has picked the weapon up.
+     * @param NewOwner - The one who picked the weapon up. Can be [Player](https://wiki.facepunch.com/gmod/Player) or [NPC](https://wiki.facepunch.com/gmod/NPC).
+     */
+    Equip(NewOwner: Entity): void;
+
+    /**
+     * 🟦 [Server]
+     *
+     * The player has picked up the weapon and has taken the ammo from it.
+     * The weapon will be removed immediately after this call.
+     * @param ply - The player who picked up the weapon
+     */
+    EquipAmmo(ply: Player): void;
+
+    /**
+     * 🟨🟦 [Shared]
+     *
+     * Called before executing an animation event, such as a muzzle flash appearing or a shell ejecting.
+     *
+     * This will only be called serverside for 3000-range events, and clientside for 5000-range and other events.
+     * @param pos - Position of the effect.
+     * @param ang - Angle of the effect.
+     * @param event - The event ID of the happened event. See [this page](http://developer.valvesoftware.com/wiki/Animation_Events).
+     * @param options - Name or options of the event.
+     * @param source - The source entity. This will be a viewmodel on the client and the weapon itself on the server
+     */
+    FireAnimationEvent(pos: Vector, ang: Angle, event: number, options: string, source: Entity): boolean;
+
+    /**
+     * 🟨 [Client]
+     *
+     * This hook allows you to freeze players screen.
+     *
+     * **Note:**
+     * >Player will still be able to move or shoot
+     */
+    FreezeMovement(): boolean;
+
+    /**
+     * 🟦 [Server]
+     *
+     * This hook is for NPCs, you return what they should try to do with it.
+     *
+     * **Warning:**
+     * >Calling [NPC:CapabilitiesGet](https://wiki.facepunch.com/gmod/NPC:CapabilitiesGet) in this hook on the same entity can cause infinite loops since that function adds the result of [WEAPON:GetCapabilities](https://wiki.facepunch.com/gmod/WEAPON:GetCapabilities) on top of the return value.
+     */
+    GetCapabilities(): CAP;
+
+    /**
+     * 🟦 [Server]
+     *
+     * Called when the weapon is used by NPCs to determine how accurate the bullets fired should be.
+     *
+     * The inaccuracy is simulated by changing the [NPC:GetAimVector](https://wiki.facepunch.com/gmod/NPC:GetAimVector) based on the value returned from this hook.
+     * @param proficiency - How proficient the NPC is with this gun. See [Enums/WEAPON_PROFICIENCY](https://wiki.facepunch.com/gmod/Enums/WEAPON_PROFICIENCY)
+     */
+    GetNPCBulletSpread(proficiency: WEAPON_PROFICIENCY): number;
+
+    /**
+     * 🟦 [Server]
+     *
+     * Called when the weapon is used by NPCs to tell the NPC how to use this weapon. Controls how long the NPC can or should shoot continuously.
+     */
+    GetNPCBurstSettings(): LuaMultiReturn<[number, number, number]>;
+
+    /**
+     * 🟦 [Server]
+     *
+     * Called when the weapon is used by NPCs to tell the NPC how to use this weapon. Controls amount of time the NPC can rest (not shoot) between bursts.
+     */
+    GetNPCRestTimes(): LuaMultiReturn<[number, number]>;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Allows you to override where the tracer effect comes from. ( Visual bullets )
+     */
+    GetTracerOrigin(): Vector;
+
+    /**
+     * 🟨 [Client]
+     *
+     * This hook allows you to adjust view model position and angles.
+     * @param EyePos - Current position
+     * @param EyeAng - Current angle
+     */
+    GetViewModelPosition(EyePos: Vector, EyeAng: Angle): LuaMultiReturn<[Vector, Angle]>;
+
+    /**
+     * 🟨🟦 [Shared]
+     *
+     * Called when weapon tries to holster.
+     *
+     * **Bug [#2854](https://github.com/Facepunch/garrysmod-issues/issues/2854):**
+     * >This is called twice for every holster clientside, one in [Prediction](https://wiki.facepunch.com/gmod/Prediction) and one not.
+     *
+     * **Bug [#3133](https://github.com/Facepunch/garrysmod-issues/issues/3133):**
+     * >Before [WEAPON:OnRemove](https://wiki.facepunch.com/gmod/WEAPON:OnRemove) is called, this function is only called serverside.
+     *
+     * **Note:**
+     * >This will only be called serverside when using [Player:SelectWeapon](https://wiki.facepunch.com/gmod/Player:SelectWeapon) as that function immediately switches the weapon out of prediction.
+     *
+     * @param weapon - The weapon we are trying switch to.
+     */
+    Holster(weapon: Entity): boolean;
+
+    /**
+     * 🟨 [Client]
+     *
+     * This hook determines which parts of the HUD to draw.
+     * @param element - The HUD element in question
+     */
+    HUDShouldDraw(element: string): boolean;
+
+    /**
+     * 🟨🟦 [Shared]
+     *
+     * Called when the weapon entity is created.
+     *
+     * **Bug [#3015](https://github.com/Facepunch/garrysmod-issues/issues/3015):**
+     * >This is not called serverside after a quicksave.
+     *
+     * **Note:**
+     * >[Entity:GetOwner](https://wiki.facepunch.com/gmod/Entity:GetOwner) will return NULL at this point because the weapon is not equpped by a player or NPC yet. Use [WEAPON:Equip](https://wiki.facepunch.com/gmod/WEAPON:Equip) or [WEAPON:Deploy](https://wiki.facepunch.com/gmod/WEAPON:Deploy) if you need the owner to be valid.
+     */
+    Initialize(): void;
+
+    /**
+     * 🟦 [Server]
+     *
+     * Called when the engine sets a value for this scripted weapon.
+     *
+     * See [GM:EntityKeyValue](https://wiki.facepunch.com/gmod/GM:EntityKeyValue) for a hook that works for all entities.
+     *
+     * See [ENTITY:KeyValue](https://wiki.facepunch.com/gmod/ENTITY:KeyValue) for an  hook that works for scripted entities.
+     * @param key - The key that was affected.
+     * @param value - The new value.
+     */
+    KeyValue(key: string, value: string): boolean;
+
+    /**
+     * 🟦 [Server]
+     *
+     * Called internally during `TASK_RANGE_ATTACK1 --> OnRangeAttack1`. This allows you to separate your SWEPs primary firing function from players and NPCs.
+     *
+     * To get the delay the NPC will fire again, you can call `self:GetOwner():GetInternalVariable("m_flNextAttack")`
+     *
+     * **Note:**
+     * >This hook is called internally only for NPCs that has `CAP_USE_SHOT_REGULATOR` set.
+     *
+     * @param [shootPos = GetShootPos()] - The world position the NPC will use as attack starting position. You can create your projectiles here.
+     * @param [shootDir = GetAimVector()] - The direction the NPC wants to shoot at.
+     */
+    NPCShoot_Primary(shootPos?: Vector, shootDir?: Vector): void;
+
+    /**
+     * 🟦 [Server]
+     *
+     * A utility function to seperate your SWEPs secondary firing from players.
+     *
+     * Unlike [WEAPON:NPCShoot_Primary](https://wiki.facepunch.com/gmod/WEAPON:NPCShoot_Primary), this won't be called by the engine for `TASK_RANGE_ATTACK2`.
+     * @param [shootPos = GetShootPos()] - The world position the NPC will use as attack starting position. You can create your projectiles here.
+     * @param [shootDir = GetAimVector()] - The direction the NPC wants to shoot at.
+     */
+    NPCShoot_Secondary(shootPos?: Vector, shootDir?: Vector): void;
+
+    /**
+     * 🟦 [Server]
+     *
+     * Called when weapon is dropped by [Player:DropWeapon](https://wiki.facepunch.com/gmod/Player:DropWeapon).
+     *
+     * See also [WEAPON:OwnerChanged](https://wiki.facepunch.com/gmod/WEAPON:OwnerChanged).
+     * @param owner - The entity that dropped the weapon.
+     */
+    OnDrop(owner: Entity): void;
+
+    /**
+     * 🟨🟦 [Shared]
+     *
+     * Called whenever the weapons Lua script is reloaded.
+     */
+    OnReloaded(): void;
+
+    /**
+     * 🟨🟦 [Shared]
+     *
+     * Called when the <page text="Scripted Weapon">Scripted Entities</page> is about to be removed.
+     *
+     * [Entity:GetOwner](https://wiki.facepunch.com/gmod/Entity:GetOwner) may be unset at this point, see [WEAPON:OnDrop](https://wiki.facepunch.com/gmod/WEAPON:OnDrop) and [WEAPON:OwnerChanged](https://wiki.facepunch.com/gmod/WEAPON:OwnerChanged).
+     */
+    OnRemove(): void;
+
+    /**
+     * 🟨🟦 [Shared]
+     *
+     * Called when the weapon entity is reloaded from a Source Engine save (not the Sandbox saves or dupes) or on a changelevel (for example Half-Life 2 campaign level transitions).
+     *
+     * For the [duplicator](https://wiki.facepunch.com/gmod/duplicator) callbacks, see [ENTITY:OnDuplicated](https://wiki.facepunch.com/gmod/ENTITY:OnDuplicated).
+     *
+     * See also [saverestore](https://wiki.facepunch.com/gmod/saverestore) for relevant functions.
+     */
+    OnRestore(): void;
+
+    /**
+     * 🟨🟦 [Shared]
+     *
+     * Called when weapon is dropped or picked up by a new player. This can be called clientside for all players on the server if the weapon has no owner and is picked up.
+     *
+     * See also [WEAPON:OnDrop](https://wiki.facepunch.com/gmod/WEAPON:OnDrop).
+     */
+    OwnerChanged(): void;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Called after the view model has been drawn while the weapon in use. This hook is called from the default implementation of [GM:PostDrawViewModel](https://wiki.facepunch.com/gmod/GM:PostDrawViewModel), and as such, will not occur if it has been overridden.
+     *
+     * [WEAPON:ViewModelDrawn](https://wiki.facepunch.com/gmod/WEAPON:ViewModelDrawn) is an alternative hook which is always called before [GM:PostDrawViewModel](https://wiki.facepunch.com/gmod/GM:PostDrawViewModel).
+     * @param vm - This is the view model entity after it is drawn
+     * @param weapon - This is the weapon that is from the view model (same as self)
+     * @param ply - The owner of the view model
+     */
+    PostDrawViewModel(vm: Entity, weapon: Weapon, ply: Player): void;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Allows you to modify viewmodel while the weapon in use before it is drawn. This hook only works if you haven't overridden [GM:PreDrawViewModel](https://wiki.facepunch.com/gmod/GM:PreDrawViewModel).
+     * @param vm - This is the view model entity before it is drawn.
+     * @param weapon - This is the weapon that is from the view model.
+     * @param ply - The the owner of the view model.
+     */
+    PreDrawViewModel(vm: Entity, weapon: Weapon, ply: Player): boolean;
+
+    /**
+     * 🟨🟦 [Shared]
+     *
+     * Called when primary attack button ( +attack ) is pressed.
+     *
+     * When in singleplayer, this function is only called in the server realm. When in multiplayer, the hook will be called on both the server and the client in order to allow for [Prediction](https://wiki.facepunch.com/gmod/Prediction).
+     *
+     * You can force the hook to always be called on client like this:
+     *
+     * ```
+     * if ( game.SinglePlayer() ) then self:CallOnClient( "PrimaryAttack" ) end
+     * ```
+     *
+     * Note that due to prediction, in multiplayer SWEP:PrimaryAttack is called multiple times per one "shot" with the gun. To work around that, use [Global.IsFirstTimePredicted](https://wiki.facepunch.com/gmod/Global.IsFirstTimePredicted).
+     */
+    PrimaryAttack(): void;
+
+    /**
+     * 🟨 [Client]
+     *
+     * A convenience function that draws the weapon info box, used in [WEAPON:DrawWeaponSelection](https://wiki.facepunch.com/gmod/WEAPON:DrawWeaponSelection).
+     * @param x - The x co-ordinate of box position
+     * @param y - The y co-ordinate of box position
+     * @param alpha - Alpha value for the box
+     */
+    PrintWeaponInfo(x: number, y: number, alpha: number): void;
+
+    /**
+     * 🟨🟦 [Shared]
+     *
+     * Called when the reload key ( +reload ) is pressed.
+     */
+    Reload(): void;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Called every frame just before [GM:RenderScene](https://wiki.facepunch.com/gmod/GM:RenderScene).
+     *
+     * Used by the Tool Gun to render view model screens ([TOOL:DrawToolScreen](https://wiki.facepunch.com/gmod/TOOL:DrawToolScreen)).
+     *
+     * **Note:**
+     * >Materials rendered in this hook require $ignorez parameter to draw properly.
+     */
+    RenderScreen(): void;
+
+    /**
+     * 🟨🟦 [Shared]
+     *
+     * Called when secondary attack button ( +attack2 ) is pressed.
+     *
+     * For issues with this hook being called rapidly on the client side, see the global function [Global.IsFirstTimePredicted](https://wiki.facepunch.com/gmod/Global.IsFirstTimePredicted).
+     */
+    SecondaryAttack(): void;
+
+    /**
+     * 🟨🟦 [Shared]
+     *
+     * Called when the SWEP should set up its <page text=" Data Tables">Networking_Entities</page>.
+     */
+    SetupDataTables(): void;
+
+    /**
+     * 🟨🟦 [Shared]
+     *
+     * Sets the hold type of the weapon. This must be called on **both** the server and the client to work properly.
+     *
+     * **NOTE:** You should avoid calling this function and call [Weapon:SetHoldType](https://wiki.facepunch.com/gmod/Weapon:SetHoldType) now.
+     * @param name - Name of the hold type. You can find all default hold types <page text="here">Hold_Types</page>
+     */
+    SetWeaponHoldType(name: string): void;
+
+    /**
+     * 🟨🟦 [Shared]
+     *
+     * A convenient function to shoot bullets.
+     * @param damage - The damage of the bullet
+     * @param num_bullets - Amount of bullets to shoot
+     * @param aimcone - Spread of bullets
+     * @param [ammo_type = self.Primary.Ammo] - Ammo type of the bullets
+     * @param [force = 1] - Force of the bullets
+     * @param [tracer = 5] - Show a tracer on every x bullets
+     */
+    ShootBullet(damage: number, num_bullets: number, aimcone: number, ammo_type?: string, force?: number, tracer?: number): void;
+
+    /**
+     * 🟨🟦 [Shared]
+     *
+     * A convenience function to create shoot effects.
+     */
+    ShootEffects(): void;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Called to determine if the view model should be drawn or not.
+     */
+    ShouldDrawViewModel(): boolean;
+
+    /**
+     * 🟦 [Server]
+     *
+     * Should this weapon be dropped when its owner dies?
+     *
+     * This only works if the player has [Player:ShouldDropWeapon](https://wiki.facepunch.com/gmod/Player:ShouldDropWeapon) set to true.
+     */
+    ShouldDropOnDie(): boolean;
+
+    /**
+     * 🟨🟦 [Shared]
+     *
+     * A convenience function to remove primary ammo from clip.
+     * @param amount - Amount of primary ammo to remove
+     */
+    TakePrimaryAmmo(amount: number): void;
+
+    /**
+     * 🟨🟦 [Shared]
+     *
+     * A convenience function to remove secondary ammo from clip.
+     * @param amount - How much of secondary ammo to remove
+     */
+    TakeSecondaryAmmo(amount: number): void;
+
+    /**
+     * 🟨🟦 [Shared]
+     *
+     * Called when the weapon thinks.
+     *
+     * This hook won't be called during the deploy animation and when using [Weapon:DefaultReload](https://wiki.facepunch.com/gmod/Weapon:DefaultReload).
+     *
+     * Despite being a predicted hook, this hook is called clientside in single player (for your convenience), however it will not be recognized as a predicted hook via [Player:GetCurrentCommand](https://wiki.facepunch.com/gmod/Player:GetCurrentCommand), and will run more often in this case.
+     *
+     * This hook will be called before Player movement is processed on the client, and after on the server.
+     *
+     * **Bug [#2855](https://github.com/Facepunch/garrysmod-issues/issues/2855):**
+     * >This will not be run during deploy animations after a serverside-only deploy. This usually happens after picking up and dropping an object with +use.
+     *
+     * **Note:**
+     * >This hook only runs while the weapon is in players hands. It does not run while it is carried by an NPC.
+     */
+    Think(): void;
+
+    /**
+     * 🟨🟦 [Shared]
+     *
+     * Alias of [Weapon:Think](https://wiki.facepunch.com/gmod/Weapon:Think).
+     *
+     * @deprecated Use [Weapon:Think](https://wiki.facepunch.com/gmod/Weapon:Think) instead.
+     */
+    Tick(): void;
+
+    /**
+     * 🟨🟦 [Shared]
+     *
+     * Translate a generic activity into a more specific activity, such as holdtype-specific activities.
+     *
+     * The translated activity is then used to request animations from the owner's model via [Entity:SelectWeightedSequence](https://wiki.facepunch.com/gmod/Entity:SelectWeightedSequence) and similar functions.
+     *
+     * For example, `ACT_MP_RUN` becomes `ACT_HL2MP_RUN_PISTOL`.
+     * @param act - The activity to translate
+     */
+    TranslateActivity(act: ACT): ACT;
+
+    /**
+     * 🟨🟦 [Shared]
+     *
+     * Allows to change players field of view while player holds the weapon.
+     *
+     * **Note:**
+     * >This hook must be defined shared and return same value on both to properly affect Area Portals.
+     *
+     * @param fov - The current/default FOV.
+     */
+    TranslateFOV(fov: number): number;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Called straight after the view model has been drawn. This is called before [GM:PostDrawViewModel](https://wiki.facepunch.com/gmod/GM:PostDrawViewModel) and [WEAPON:PostDrawViewModel](https://wiki.facepunch.com/gmod/WEAPON:PostDrawViewModel).
+     * @param ViewModel - Players view model
+     */
+    ViewModelDrawn(ViewModel: Entity): void;
 }
 
 /**
@@ -38250,602 +38836,6 @@ interface ENTITY extends Entity {
 }
 
 /**
- * Default weapon methods, that are available for use in SWEPs. These hooks **will not work** on non-scripted weapons, such as the Half-Life 2 weapons.
- *
- * You can find all available SWEP fields here: [Structures/SWEP](https://wiki.facepunch.com/gmod/Structures/SWEP)
- */
-interface WEAPON extends Weapon {
-    /**
-     * 🟦 [Server]
-     *
-     * Called when another entity fires an event to this entity.
-     * @param inputName - The name of the input that was triggered.
-     * @param activator - The initial cause for the input getting triggered.
-     * @param called - The entity that directly trigger the input.
-     * @param data - The data passed.
-     */
-    AcceptInput(inputName: string, activator: Entity, called: Entity, data: string): boolean;
-
-    /**
-     * 🟨 [Client]
-     *
-     * Allows you to adjust the mouse sensitivity. This hook only works if you haven't overridden [GM:AdjustMouseSensitivity](https://wiki.facepunch.com/gmod/GM:AdjustMouseSensitivity).
-     */
-    AdjustMouseSensitivity(): number;
-
-    /**
-     * 🟨🟦 [Shared]
-     *
-     * Returns how much of primary ammo the player has.
-     */
-    Ammo1(): number;
-
-    /**
-     * 🟨🟦 [Shared]
-     *
-     * Returns how much of secondary ammo the player has.
-     */
-    Ammo2(): number;
-
-    /**
-     * 🟨 [Client]
-     *
-     * Allows you to adjust player view while this weapon in use.
-     *
-     * This hook is called from the default implementation of [GM:CalcView](https://wiki.facepunch.com/gmod/GM:CalcView) which is [here](https://github.com/Facepunch/garrysmod/blob/master/garrysmod/gamemodes/base/gamemode/cl_init.lua#L387-L395). Therefore, it will not be called if any other hook added to `CalcView` returns any value, or if the current gamemode overrides the default hook and does not call the SWEP function.
-     * @param ply - The owner of weapon
-     * @param pos - Current position of players view
-     * @param ang - Current angles of players view
-     * @param fov - Current FOV of players view
-     */
-    CalcView(ply: Player, pos: Vector, ang: Angle, fov: number): LuaMultiReturn<[Vector, Angle, number]>;
-
-    /**
-     * 🟨 [Client]
-     *
-     * Allows overriding the position and angle of the viewmodel. This hook only works if you haven't overridden [GM:CalcViewModelView](https://wiki.facepunch.com/gmod/GM:CalcViewModelView).
-     * @param ViewModel - The viewmodel entity
-     * @param OldEyePos - Original position (before viewmodel bobbing and swaying)
-     * @param OldEyeAng - Original angle (before viewmodel bobbing and swaying)
-     * @param EyePos - Current position
-     * @param EyeAng - Current angle
-     */
-    CalcViewModelView(ViewModel: Entity, OldEyePos: Vector, OldEyeAng: Angle, EyePos: Vector, EyeAng: Angle): LuaMultiReturn<[Vector, Angle]>;
-
-    /**
-     * 🟦 [Server]
-     *
-     * Called when a Citizen NPC is looking around to a (better) weapon to pickup.
-     */
-    CanBePickedUpByNPCs(): boolean;
-
-    /**
-     * 🟨🟦 [Shared]
-     *
-     * Helper function for checking for no ammo.
-     */
-    CanPrimaryAttack(): boolean;
-
-    /**
-     * 🟨🟦 [Shared]
-     *
-     * Helper function for checking for no ammo.
-     */
-    CanSecondaryAttack(): boolean;
-
-    /**
-     * 🟨 [Client]
-     *
-     * Allows you to use any numbers you want for the ammo display on the HUD.
-     *
-     * Can be useful for weapons that don't use standard ammo.
-     */
-    CustomAmmoDisplay(): any;
-
-    /**
-     * 🟨🟦 [Shared]
-     *
-     * Called when player has just switched to this weapon.
-     *
-     * **Note:**
-     * >Due to this hook being predicted, it is not called clientside in singleplayer at all, and in multiplayer it will not be called clientside if the weapon is switched with [Player:SelectWeapon](https://wiki.facepunch.com/gmod/Player:SelectWeapon) or the "use" console command, however it will be called clientside with the default weapon selection menu and when using [CUserCmd:SelectWeapon](https://wiki.facepunch.com/gmod/CUserCmd:SelectWeapon)
-     */
-    Deploy(): boolean;
-
-    /**
-     * 🟨 [Client]
-     *
-     * Called when the crosshair is about to get drawn, and allows you to override it.
-     *
-     * This function will **not** be called if `SWEP.DrawCrosshair` is set to false or if player is affected by [Player:CrosshairDisable](https://wiki.facepunch.com/gmod/Player:CrosshairDisable).
-     * @param x - X coordinate of the crosshair.
-     * @param y - Y coordinate of the crosshair.
-     */
-    DoDrawCrosshair(x: number, y: number): boolean;
-
-    /**
-     * 🟨🟦 [Shared]
-     *
-     * Called so the weapon can override the impact effects it makes.
-     *
-     * **Note:**
-     * >If the bullet was fired in a predicted environment, the hook will not be called on the `CLIENT` realm.
-     *
-     * **Note:**
-     * >This hook will also be called when `WEAPON:GetOwner():FireBullets` is called. While in `MULTIPLAYER`, this hook will be called on the respective state, but in `SINGLEPLAYER`, this hook will always be called on the `CLIENT` realm even if `FireBullets` was called on the `SERVER`.
-     *
-     * @param tr - A [Structures/TraceResult](https://wiki.facepunch.com/gmod/Structures/TraceResult) from player's eyes to the impact point
-     * @param damageType - The damage type of bullet. See [Enums/DMG](https://wiki.facepunch.com/gmod/Enums/DMG)
-     */
-    DoImpactEffect(tr: TraceResult, damageType: DMG): boolean;
-
-    /**
-     * 🟨 [Client]
-     *
-     * This hook allows you to draw on screen while this weapon is in use.
-     *
-     * If you want to draw a custom crosshair, consider using [WEAPON:DoDrawCrosshair](https://wiki.facepunch.com/gmod/WEAPON:DoDrawCrosshair) instead.
-     */
-    DrawHUD(): void;
-
-    /**
-     * 🟨 [Client]
-     *
-     * This hook allows you to draw on screen while this weapon is in use. This hook is called **before** [WEAPON:DrawHUD](https://wiki.facepunch.com/gmod/WEAPON:DrawHUD) and is equivalent of [GM:HUDPaintBackground](https://wiki.facepunch.com/gmod/GM:HUDPaintBackground).
-     */
-    DrawHUDBackground(): void;
-
-    /**
-     * 🟨 [Client]
-     *
-     * This hook draws the selection icon in the weapon selection menu.
-     * @param x - X coordinate of the selection panel
-     * @param y - Y coordinate of the selection panel
-     * @param width - Width of the selection panel
-     * @param height - Height of the selection panel
-     * @param alpha - Alpha value of the selection panel
-     */
-    DrawWeaponSelection(x: number, y: number, width: number, height: number, alpha: number): void;
-
-    /**
-     * 🟨 [Client]
-     *
-     * Called when we are about to draw the world model.
-     * @param flags - The <page text="STUDIO_">Enums/STUDIO</page> flags for this render operation.
-     */
-    DrawWorldModel(flags: STUDIO): void;
-
-    /**
-     * 🟨 [Client]
-     *
-     * Called when we are about to draw the translucent world model.
-     * @param flags - The <page text="STUDIO_">Enums/STUDIO</page> flags for this render operation.
-     */
-    DrawWorldModelTranslucent(flags: STUDIO): void;
-
-    /**
-     * 🟦 [Server]
-     *
-     * Called when a player or NPC has picked the weapon up.
-     * @param NewOwner - The one who picked the weapon up. Can be [Player](https://wiki.facepunch.com/gmod/Player) or [NPC](https://wiki.facepunch.com/gmod/NPC).
-     */
-    Equip(NewOwner: Entity): void;
-
-    /**
-     * 🟦 [Server]
-     *
-     * The player has picked up the weapon and has taken the ammo from it.
-     * The weapon will be removed immediately after this call.
-     * @param ply - The player who picked up the weapon
-     */
-    EquipAmmo(ply: Player): void;
-
-    /**
-     * 🟨🟦 [Shared]
-     *
-     * Called before executing an animation event, such as a muzzle flash appearing or a shell ejecting.
-     *
-     * This will only be called serverside for 3000-range events, and clientside for 5000-range and other events.
-     * @param pos - Position of the effect.
-     * @param ang - Angle of the effect.
-     * @param event - The event ID of the happened event. See [this page](http://developer.valvesoftware.com/wiki/Animation_Events).
-     * @param options - Name or options of the event.
-     * @param source - The source entity. This will be a viewmodel on the client and the weapon itself on the server
-     */
-    FireAnimationEvent(pos: Vector, ang: Angle, event: number, options: string, source: Entity): boolean;
-
-    /**
-     * 🟨 [Client]
-     *
-     * This hook allows you to freeze players screen.
-     *
-     * **Note:**
-     * >Player will still be able to move or shoot
-     */
-    FreezeMovement(): boolean;
-
-    /**
-     * 🟦 [Server]
-     *
-     * This hook is for NPCs, you return what they should try to do with it.
-     *
-     * **Warning:**
-     * >Calling [NPC:CapabilitiesGet](https://wiki.facepunch.com/gmod/NPC:CapabilitiesGet) in this hook on the same entity can cause infinite loops since that function adds the result of [WEAPON:GetCapabilities](https://wiki.facepunch.com/gmod/WEAPON:GetCapabilities) on top of the return value.
-     */
-    GetCapabilities(): CAP;
-
-    /**
-     * 🟦 [Server]
-     *
-     * Called when the weapon is used by NPCs to determine how accurate the bullets fired should be.
-     *
-     * The inaccuracy is simulated by changing the [NPC:GetAimVector](https://wiki.facepunch.com/gmod/NPC:GetAimVector) based on the value returned from this hook.
-     * @param proficiency - How proficient the NPC is with this gun. See [Enums/WEAPON_PROFICIENCY](https://wiki.facepunch.com/gmod/Enums/WEAPON_PROFICIENCY)
-     */
-    GetNPCBulletSpread(proficiency: WEAPON_PROFICIENCY): number;
-
-    /**
-     * 🟦 [Server]
-     *
-     * Called when the weapon is used by NPCs to tell the NPC how to use this weapon. Controls how long the NPC can or should shoot continuously.
-     */
-    GetNPCBurstSettings(): LuaMultiReturn<[number, number, number]>;
-
-    /**
-     * 🟦 [Server]
-     *
-     * Called when the weapon is used by NPCs to tell the NPC how to use this weapon. Controls amount of time the NPC can rest (not shoot) between bursts.
-     */
-    GetNPCRestTimes(): LuaMultiReturn<[number, number]>;
-
-    /**
-     * 🟨 [Client]
-     *
-     * Allows you to override where the tracer effect comes from. ( Visual bullets )
-     */
-    GetTracerOrigin(): Vector;
-
-    /**
-     * 🟨 [Client]
-     *
-     * This hook allows you to adjust view model position and angles.
-     * @param EyePos - Current position
-     * @param EyeAng - Current angle
-     */
-    GetViewModelPosition(EyePos: Vector, EyeAng: Angle): LuaMultiReturn<[Vector, Angle]>;
-
-    /**
-     * 🟨🟦 [Shared]
-     *
-     * Called when weapon tries to holster.
-     *
-     * **Bug [#2854](https://github.com/Facepunch/garrysmod-issues/issues/2854):**
-     * >This is called twice for every holster clientside, one in [Prediction](https://wiki.facepunch.com/gmod/Prediction) and one not.
-     *
-     * **Bug [#3133](https://github.com/Facepunch/garrysmod-issues/issues/3133):**
-     * >Before [WEAPON:OnRemove](https://wiki.facepunch.com/gmod/WEAPON:OnRemove) is called, this function is only called serverside.
-     *
-     * **Note:**
-     * >This will only be called serverside when using [Player:SelectWeapon](https://wiki.facepunch.com/gmod/Player:SelectWeapon) as that function immediately switches the weapon out of prediction.
-     *
-     * @param weapon - The weapon we are trying switch to.
-     */
-    Holster(weapon: Entity): boolean;
-
-    /**
-     * 🟨 [Client]
-     *
-     * This hook determines which parts of the HUD to draw.
-     * @param element - The HUD element in question
-     */
-    HUDShouldDraw(element: string): boolean;
-
-    /**
-     * 🟨🟦 [Shared]
-     *
-     * Called when the weapon entity is created.
-     *
-     * **Bug [#3015](https://github.com/Facepunch/garrysmod-issues/issues/3015):**
-     * >This is not called serverside after a quicksave.
-     *
-     * **Note:**
-     * >[Entity:GetOwner](https://wiki.facepunch.com/gmod/Entity:GetOwner) will return NULL at this point because the weapon is not equpped by a player or NPC yet. Use [WEAPON:Equip](https://wiki.facepunch.com/gmod/WEAPON:Equip) or [WEAPON:Deploy](https://wiki.facepunch.com/gmod/WEAPON:Deploy) if you need the owner to be valid.
-     */
-    Initialize(): void;
-
-    /**
-     * 🟦 [Server]
-     *
-     * Called when the engine sets a value for this scripted weapon.
-     *
-     * See [GM:EntityKeyValue](https://wiki.facepunch.com/gmod/GM:EntityKeyValue) for a hook that works for all entities.
-     *
-     * See [ENTITY:KeyValue](https://wiki.facepunch.com/gmod/ENTITY:KeyValue) for an  hook that works for scripted entities.
-     * @param key - The key that was affected.
-     * @param value - The new value.
-     */
-    KeyValue(key: string, value: string): boolean;
-
-    /**
-     * 🟦 [Server]
-     *
-     * Called internally during `TASK_RANGE_ATTACK1 --> OnRangeAttack1`. This allows you to separate your SWEPs primary firing function from players and NPCs.
-     *
-     * To get the delay the NPC will fire again, you can call `self:GetOwner():GetInternalVariable("m_flNextAttack")`
-     *
-     * **Note:**
-     * >This hook is called internally only for NPCs that has `CAP_USE_SHOT_REGULATOR` set.
-     *
-     * @param [shootPos = GetShootPos()] - The world position the NPC will use as attack starting position. You can create your projectiles here.
-     * @param [shootDir = GetAimVector()] - The direction the NPC wants to shoot at.
-     */
-    NPCShoot_Primary(shootPos?: Vector, shootDir?: Vector): void;
-
-    /**
-     * 🟦 [Server]
-     *
-     * A utility function to seperate your SWEPs secondary firing from players.
-     *
-     * Unlike [WEAPON:NPCShoot_Primary](https://wiki.facepunch.com/gmod/WEAPON:NPCShoot_Primary), this won't be called by the engine for `TASK_RANGE_ATTACK2`.
-     * @param [shootPos = GetShootPos()] - The world position the NPC will use as attack starting position. You can create your projectiles here.
-     * @param [shootDir = GetAimVector()] - The direction the NPC wants to shoot at.
-     */
-    NPCShoot_Secondary(shootPos?: Vector, shootDir?: Vector): void;
-
-    /**
-     * 🟦 [Server]
-     *
-     * Called when weapon is dropped by [Player:DropWeapon](https://wiki.facepunch.com/gmod/Player:DropWeapon).
-     *
-     * See also [WEAPON:OwnerChanged](https://wiki.facepunch.com/gmod/WEAPON:OwnerChanged).
-     * @param owner - The entity that dropped the weapon.
-     */
-    OnDrop(owner: Entity): void;
-
-    /**
-     * 🟨🟦 [Shared]
-     *
-     * Called whenever the weapons Lua script is reloaded.
-     */
-    OnReloaded(): void;
-
-    /**
-     * 🟨🟦 [Shared]
-     *
-     * Called when the <page text="Scripted Weapon">Scripted Entities</page> is about to be removed.
-     *
-     * [Entity:GetOwner](https://wiki.facepunch.com/gmod/Entity:GetOwner) may be unset at this point, see [WEAPON:OnDrop](https://wiki.facepunch.com/gmod/WEAPON:OnDrop) and [WEAPON:OwnerChanged](https://wiki.facepunch.com/gmod/WEAPON:OwnerChanged).
-     */
-    OnRemove(): void;
-
-    /**
-     * 🟨🟦 [Shared]
-     *
-     * Called when the weapon entity is reloaded from a Source Engine save (not the Sandbox saves or dupes) or on a changelevel (for example Half-Life 2 campaign level transitions).
-     *
-     * For the [duplicator](https://wiki.facepunch.com/gmod/duplicator) callbacks, see [ENTITY:OnDuplicated](https://wiki.facepunch.com/gmod/ENTITY:OnDuplicated).
-     *
-     * See also [saverestore](https://wiki.facepunch.com/gmod/saverestore) for relevant functions.
-     */
-    OnRestore(): void;
-
-    /**
-     * 🟨🟦 [Shared]
-     *
-     * Called when weapon is dropped or picked up by a new player. This can be called clientside for all players on the server if the weapon has no owner and is picked up.
-     *
-     * See also [WEAPON:OnDrop](https://wiki.facepunch.com/gmod/WEAPON:OnDrop).
-     */
-    OwnerChanged(): void;
-
-    /**
-     * 🟨 [Client]
-     *
-     * Called after the view model has been drawn while the weapon in use. This hook is called from the default implementation of [GM:PostDrawViewModel](https://wiki.facepunch.com/gmod/GM:PostDrawViewModel), and as such, will not occur if it has been overridden.
-     *
-     * [WEAPON:ViewModelDrawn](https://wiki.facepunch.com/gmod/WEAPON:ViewModelDrawn) is an alternative hook which is always called before [GM:PostDrawViewModel](https://wiki.facepunch.com/gmod/GM:PostDrawViewModel).
-     * @param vm - This is the view model entity after it is drawn
-     * @param weapon - This is the weapon that is from the view model (same as self)
-     * @param ply - The owner of the view model
-     */
-    PostDrawViewModel(vm: Entity, weapon: Weapon, ply: Player): void;
-
-    /**
-     * 🟨 [Client]
-     *
-     * Allows you to modify viewmodel while the weapon in use before it is drawn. This hook only works if you haven't overridden [GM:PreDrawViewModel](https://wiki.facepunch.com/gmod/GM:PreDrawViewModel).
-     * @param vm - This is the view model entity before it is drawn.
-     * @param weapon - This is the weapon that is from the view model.
-     * @param ply - The the owner of the view model.
-     */
-    PreDrawViewModel(vm: Entity, weapon: Weapon, ply: Player): boolean;
-
-    /**
-     * 🟨🟦 [Shared]
-     *
-     * Called when primary attack button ( +attack ) is pressed.
-     *
-     * When in singleplayer, this function is only called in the server realm. When in multiplayer, the hook will be called on both the server and the client in order to allow for [Prediction](https://wiki.facepunch.com/gmod/Prediction).
-     *
-     * You can force the hook to always be called on client like this:
-     *
-     * ```
-     * if ( game.SinglePlayer() ) then self:CallOnClient( "PrimaryAttack" ) end
-     * ```
-     *
-     * Note that due to prediction, in multiplayer SWEP:PrimaryAttack is called multiple times per one "shot" with the gun. To work around that, use [Global.IsFirstTimePredicted](https://wiki.facepunch.com/gmod/Global.IsFirstTimePredicted).
-     */
-    PrimaryAttack(): void;
-
-    /**
-     * 🟨 [Client]
-     *
-     * A convenience function that draws the weapon info box, used in [WEAPON:DrawWeaponSelection](https://wiki.facepunch.com/gmod/WEAPON:DrawWeaponSelection).
-     * @param x - The x co-ordinate of box position
-     * @param y - The y co-ordinate of box position
-     * @param alpha - Alpha value for the box
-     */
-    PrintWeaponInfo(x: number, y: number, alpha: number): void;
-
-    /**
-     * 🟨🟦 [Shared]
-     *
-     * Called when the reload key ( +reload ) is pressed.
-     */
-    Reload(): void;
-
-    /**
-     * 🟨 [Client]
-     *
-     * Called every frame just before [GM:RenderScene](https://wiki.facepunch.com/gmod/GM:RenderScene).
-     *
-     * Used by the Tool Gun to render view model screens ([TOOL:DrawToolScreen](https://wiki.facepunch.com/gmod/TOOL:DrawToolScreen)).
-     *
-     * **Note:**
-     * >Materials rendered in this hook require $ignorez parameter to draw properly.
-     */
-    RenderScreen(): void;
-
-    /**
-     * 🟨🟦 [Shared]
-     *
-     * Called when secondary attack button ( +attack2 ) is pressed.
-     *
-     * For issues with this hook being called rapidly on the client side, see the global function [Global.IsFirstTimePredicted](https://wiki.facepunch.com/gmod/Global.IsFirstTimePredicted).
-     */
-    SecondaryAttack(): void;
-
-    /**
-     * 🟨🟦 [Shared]
-     *
-     * Called when the SWEP should set up its <page text=" Data Tables">Networking_Entities</page>.
-     */
-    SetupDataTables(): void;
-
-    /**
-     * 🟨🟦 [Shared]
-     *
-     * Sets the hold type of the weapon. This must be called on **both** the server and the client to work properly.
-     *
-     * **NOTE:** You should avoid calling this function and call [Weapon:SetHoldType](https://wiki.facepunch.com/gmod/Weapon:SetHoldType) now.
-     * @param name - Name of the hold type. You can find all default hold types <page text="here">Hold_Types</page>
-     */
-    SetWeaponHoldType(name: string): void;
-
-    /**
-     * 🟨🟦 [Shared]
-     *
-     * A convenient function to shoot bullets.
-     * @param damage - The damage of the bullet
-     * @param num_bullets - Amount of bullets to shoot
-     * @param aimcone - Spread of bullets
-     * @param [ammo_type = self.Primary.Ammo] - Ammo type of the bullets
-     * @param [force = 1] - Force of the bullets
-     * @param [tracer = 5] - Show a tracer on every x bullets
-     */
-    ShootBullet(damage: number, num_bullets: number, aimcone: number, ammo_type?: string, force?: number, tracer?: number): void;
-
-    /**
-     * 🟨🟦 [Shared]
-     *
-     * A convenience function to create shoot effects.
-     */
-    ShootEffects(): void;
-
-    /**
-     * 🟨 [Client]
-     *
-     * Called to determine if the view model should be drawn or not.
-     */
-    ShouldDrawViewModel(): boolean;
-
-    /**
-     * 🟦 [Server]
-     *
-     * Should this weapon be dropped when its owner dies?
-     *
-     * This only works if the player has [Player:ShouldDropWeapon](https://wiki.facepunch.com/gmod/Player:ShouldDropWeapon) set to true.
-     */
-    ShouldDropOnDie(): boolean;
-
-    /**
-     * 🟨🟦 [Shared]
-     *
-     * A convenience function to remove primary ammo from clip.
-     * @param amount - Amount of primary ammo to remove
-     */
-    TakePrimaryAmmo(amount: number): void;
-
-    /**
-     * 🟨🟦 [Shared]
-     *
-     * A convenience function to remove secondary ammo from clip.
-     * @param amount - How much of secondary ammo to remove
-     */
-    TakeSecondaryAmmo(amount: number): void;
-
-    /**
-     * 🟨🟦 [Shared]
-     *
-     * Called when the weapon thinks.
-     *
-     * This hook won't be called during the deploy animation and when using [Weapon:DefaultReload](https://wiki.facepunch.com/gmod/Weapon:DefaultReload).
-     *
-     * Despite being a predicted hook, this hook is called clientside in single player (for your convenience), however it will not be recognized as a predicted hook via [Player:GetCurrentCommand](https://wiki.facepunch.com/gmod/Player:GetCurrentCommand), and will run more often in this case.
-     *
-     * This hook will be called before Player movement is processed on the client, and after on the server.
-     *
-     * **Bug [#2855](https://github.com/Facepunch/garrysmod-issues/issues/2855):**
-     * >This will not be run during deploy animations after a serverside-only deploy. This usually happens after picking up and dropping an object with +use.
-     *
-     * **Note:**
-     * >This hook only runs while the weapon is in players hands. It does not run while it is carried by an NPC.
-     */
-    Think(): void;
-
-    /**
-     * 🟨🟦 [Shared]
-     *
-     * Alias of [Weapon:Think](https://wiki.facepunch.com/gmod/Weapon:Think).
-     *
-     * @deprecated Use [Weapon:Think](https://wiki.facepunch.com/gmod/Weapon:Think) instead.
-     */
-    Tick(): void;
-
-    /**
-     * 🟨🟦 [Shared]
-     *
-     * Translate a generic activity into a more specific activity, such as holdtype-specific activities.
-     *
-     * The translated activity is then used to request animations from the owner's model via [Entity:SelectWeightedSequence](https://wiki.facepunch.com/gmod/Entity:SelectWeightedSequence) and similar functions.
-     *
-     * For example, `ACT_MP_RUN` becomes `ACT_HL2MP_RUN_PISTOL`.
-     * @param act - The activity to translate
-     */
-    TranslateActivity(act: ACT): ACT;
-
-    /**
-     * 🟨🟦 [Shared]
-     *
-     * Allows to change players field of view while player holds the weapon.
-     *
-     * **Note:**
-     * >This hook must be defined shared and return same value on both to properly affect Area Portals.
-     *
-     * @param fov - The current/default FOV.
-     */
-    TranslateFOV(fov: number): number;
-
-    /**
-     * 🟨 [Client]
-     *
-     * Called straight after the view model has been drawn. This is called before [GM:PostDrawViewModel](https://wiki.facepunch.com/gmod/GM:PostDrawViewModel) and [WEAPON:PostDrawViewModel](https://wiki.facepunch.com/gmod/WEAPON:PostDrawViewModel).
-     * @param ViewModel - Players view model
-     */
-    ViewModelDrawn(ViewModel: Entity): void;
-}
-
-/**
  * 🟨🟦 [Shared]
  *
  * The **TOOL** table is used in Sandbox tool creation. You can find a list of callbacks on the  page and a list of methods on the  page. Do note that some of the fields below have no effect on server-side operations.
@@ -39424,6 +39414,9 @@ interface PLAYER {
      * @param new_ - The new model
      */
     ViewModelChanged(viewmodel: Entity, old: string, new_: string): void;
+
+    /* Manual extra from: interface/PLAYER/extra */
+    readonly Player: Player;
 }
 
 /**
@@ -49623,22 +49616,24 @@ declare const enum EF {
     EF_BONEMERGE_FASTCULL = 128,
 
     /**
-     * DLIGHT centered at entity origin
+     * DLIGHT centered at entity origin.
      */
     EF_BRIGHTLIGHT = 2,
 
     /**
-     * Player flashlight
+     * Player flashlight.
      */
     EF_DIMLIGHT = 4,
 
     /**
-     * Don't interpolate the next frame
+     * Don't interpolate the next frame.
+     *
+     * @deprecated Seems to have no effect. Has been replaced with [C_BaseEntity::IsNoInterpolationFrame()](https://github.com/ValveSoftware/source-sdk-2013/blob/master/src/game/client/c_baseentity.h#L1331-L1332).
      */
     EF_NOINTERP = 8,
 
     /**
-     * Disables shadow
+     * Disables shadow.
      */
     EF_NOSHADOW = 16,
 
@@ -49648,12 +49643,12 @@ declare const enum EF {
     EF_NODRAW = 32,
 
     /**
-     * Don't receive shadows
+     * Don't receive shadows.
      */
     EF_NORECEIVESHADOW = 64,
 
     /**
-     * Makes the entity blink
+     * Makes the entity blink.
      */
     EF_ITEM_BLINK = 256,
 
@@ -49668,7 +49663,7 @@ declare const enum EF {
     EF_FOLLOWBONE = 1024,
 
     /**
-     * Makes the entity not accept being lit by projected textures, including the player's flashlight.
+     * GMod-specific. Makes the entity not accept being lit by projected textures, including the player's flashlight.
      */
     EF_NOFLASHLIGHT = 8192,
 }
@@ -59535,11 +59530,19 @@ declare function ToggleFavourite(map: string): void;
 /**
  * 🟨🟦🟩 [Shared and Menu]
  *
- * Attempts to convert the value to a number.
- * @param value - The value to convert. Can be a number or string.
- * @param [base = 10] - The base used in the string. Can be any integer between 2 and 36, inclusive.
+ * Converts strings containing numbers into numbers.
+ *
+ * Can also convert numbers in other bases to base `10`.
+ *
+ * To learn more about numerical bases, [click here.](https://www.mathsisfun.com/numbers/bases.html)
+ * @param value - The value that will be converted.
+ * 			This string can contain digits from `0` to `9` (inclusive) for bases from `2` to `10` (inclusive)
+ * 			For bases greater than `10`, digits can be values from `0` to `z`, depending on the specific base value provided.
+ * @param [base = 10] - The base of the digits in the input value.
+ * 			Must be an integer between `2` and `36` (inclusive)
+ * 			For most situations, the default value of `10` is correct and this argument can be left empty.
  */
-declare function tonumber(value: any, base?: number): number;
+declare function tonumber(value: string, base?: number): number|undefined;
 
 /**
  * 🟨🟦🟩 [Shared and Menu]
@@ -61039,7 +61042,7 @@ declare namespace constraint {
      * @param [addLength = 0] - Amount to add to the length of the rope. Works as it does in the Rope tool.
      * @param [forceLimit = 0] - Amount of force until it breaks (0 = unbreakable).
      * @param width - Width of the rope.
-     * @param [material] - Material of the rope. If unset, will be solid black.
+     * @param [material = nil] - Material of the rope. If unset, will be solid black.
      * @param [rigid = false] - Whether the constraint is rigid.
      * @param [color = color_white] - The color of the rope. See [Global.Color](https://wiki.facepunch.com/gmod/Global.Color).
      */
@@ -63286,7 +63289,7 @@ declare namespace file {
      * >You are able to delete **any** file in the Menu state.
      *
      * @param name - The file name.
-     * @param [path = nil] - The path to look for the files and directories in. See <page text="this list">File_Search_Paths</page> for a list of valid paths.
+     * @param [path = DATA] - The path to look for the files and directories in. See <page text="this list">File_Search_Paths</page> for a list of valid paths.
      * **Note:**
      * >This is only available in the menu state.
      */

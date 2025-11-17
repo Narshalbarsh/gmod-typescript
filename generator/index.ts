@@ -91,6 +91,7 @@ import { transformIdentifier } from './transformer/util';
         if (id === 'GM') return 'Gamemode';
         if (id === 'PANEL') return 'Panel';
         if (id === 'ENT') return 'ENTITY';
+        if (id === 'WEAPON') return 'Weapon';
         return id;
     }
 
