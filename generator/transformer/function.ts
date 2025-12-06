@@ -4,7 +4,7 @@ import {
     getPageMods,
 } from './modification_db';
 import { TSArgument, TSFunction, TSReturn } from '../ts_types';
-import { WikiArgument, WikiFunction } from '../wiki_types';
+import { WikiArgument, WikiFunction, WikiReturn } from '../wiki_types';
 import { createRealmString, transformDescription } from './description';
 import { transformIdentifier, transformType } from './util';
 import { inferType, parseFirstCallbackSigFrom, preferCallbackType } from './type_utils';
@@ -25,12 +25,27 @@ export function transformFunction(wikiFunc: WikiFunction): TSFunction {
         return `@param ${argName} - ${description}`;
     };
 
+    const retToDocComment = (r: WikiReturn, i: number) => {
+        const inferred = inferType(r.type, r.description);
+        const t = transformType(inferred || r.type || '').trim() || 'void';
+
+        const description = transformDescription(r.description).replace(/\n{2,}/g, '\n').trim();
+        if (!description && (!t || t === 'void') && wikiFunc.rets.length === 0) {
+            return '';
+        }
+        const prefix = wikiFunc.rets.length > 1 ? `@returns [${i + 1}] ${t}` : `@returns ${t}`;
+        return description ? `${prefix} - ${description}` : prefix;
+    };
+
+    const paramsDoc = wikiFunc.args.map(argToDocComment).filter(Boolean).join('\n');
+    const returnsDoc = wikiFunc.rets.map(retToDocComment).filter(Boolean).join('\n');
+
     const docComment =
         createRealmString(wikiFunc.realm) +
         '\n\n' +
         transformDescription(wikiFunc.description) +
-        '\n' +
-        wikiFunc.args.map(argToDocComment).join('\n');
+        (paramsDoc ? '\n' + paramsDoc : '') +
+        (returnsDoc ? '\n' + returnsDoc : '');
 
     return {
         identifier: wikiFunc.name,
