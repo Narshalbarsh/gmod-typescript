@@ -2956,6 +2956,14 @@ interface CNewParticleEffect {
     /**
      * 🟨 [Client]
      *
+     * Returns whether the particle system simulation was paused by [CNewParticleEffect:SetShouldSimulate](https://wiki.facepunch.com/gmod/CNewParticleEffect:SetShouldSimulate).
+     * @returns boolean - Whether the simulation is running (`true`) or not (`false`).
+     */
+    GetShouldSimulate(): boolean;
+
+    /**
+     * 🟨 [Client]
+     *
      * Returns whether the particle system has finished emitting particles or not.
      * @returns boolean - Whether the particle system has finished emitting particles or not.
      */
@@ -3078,6 +3086,14 @@ interface CNewParticleEffect {
      * @param should - Whether to automatically draw the particle effect or not.
      */
     SetShouldDraw(should: boolean): void;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Sets whether the particle system should continue simulation or not. If simulation is paused, all currently active particles will be frozen in place.
+     * @param simulate - Whether the simulation should run (`true`) or not (`false`).
+     */
+    SetShouldSimulate(simulate: boolean): void;
 
     /**
      * 🟨 [Client]
@@ -4794,6 +4810,17 @@ interface Entity {
     CollisionRulesChanged(): void;
 
     /**
+     * 🟨🟦 [Shared]
+     *
+     * Same as [Entity:GetBoneMatrix](https://wiki.facepunch.com/gmod/Entity:GetBoneMatrix), but instead of returning a new matrix object, it copies the data to a given matrix.
+     *
+     * This is measurably faster when accessing bone matrices a lot.
+     * @param boneID - The bone ID to retrieve matrix of, starting at index 0.
+     * @param data - The matrix to copy the bone matrix to.
+     */
+    CopyBoneMatrix(boneID: number, data: VMatrix): void;
+
+    /**
      * 🟦 [Server]
      *
      * Creates bone followers based on the current entity model.
@@ -5458,6 +5485,8 @@ interface Entity {
      * Returns the transformation matrix of a given bone on the entity's model. The matrix contains the transformation used to position the bone in the world. It is not relative to the parent bone.
      *
      * This is equivalent to constructing a [VMatrix](https://wiki.facepunch.com/gmod/VMatrix) using [Entity:GetBonePosition](https://wiki.facepunch.com/gmod/Entity:GetBonePosition).
+     *
+     * See [Entity:CopyBoneMatrix](https://wiki.facepunch.com/gmod/Entity:CopyBoneMatrix) for a more performant version.
      *
      * **Bug [#884](https://github.com/Facepunch/garrysmod-issues/issues/884):**
      * >This can return the server's matrix during server lag.
@@ -8833,7 +8862,7 @@ interface Entity {
      *
      * Similar to [Entity:LookupSequence](https://wiki.facepunch.com/gmod/Entity:LookupSequence).
      * @param act - The activity ID, see [Enums/ACT](https://wiki.facepunch.com/gmod/Enums/ACT).
-     * @returns number - The sequence ID
+     * @returns number - The sequence ID, or `-1` if not found.
      */
     SelectWeightedSequence(act: ACT): number;
 
@@ -8845,7 +8874,7 @@ interface Entity {
      * See [Entity:SelectWeightedSequence](https://wiki.facepunch.com/gmod/Entity:SelectWeightedSequence) for a provided-seed version of this function.
      * @param act - The activity ID, see [Enums/ACT](https://wiki.facepunch.com/gmod/Enums/ACT).
      * @param seed - The seed to use for randomly selecting a sequence in the case the activity ID has multiple sequences bound to it. [Entity:SelectWeightedSequence](https://wiki.facepunch.com/gmod/Entity:SelectWeightedSequence) uses the same seed as [util.SharedRandom](https://wiki.facepunch.com/gmod/util.SharedRandom) internally for this.
-     * @returns number - The sequence ID
+     * @returns number - The sequence ID, or `-1` if not found.
      */
     SelectWeightedSequenceSeeded(act: ACT, seed: number): number;
 
@@ -13025,7 +13054,9 @@ interface NPC extends Entity {
     /**
      * 🟦 [Server]
      *
-     * Returns the NPC class. Do not confuse with [Entity:GetClass](https://wiki.facepunch.com/gmod/Entity:GetClass)!
+     * Returns the NPC relationship class. This is mostly used to tell NPCs who should be attacking who.
+     *
+     * Do not confuse with [Entity:GetClass](https://wiki.facepunch.com/gmod/Entity:GetClass)!
      * @returns CLASS - See [Enums/CLASS](https://wiki.facepunch.com/gmod/Enums/CLASS)
      */
     Classify(): CLASS;
@@ -16079,6 +16110,9 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Similar to [Panel:LoadControlsFromString](https://wiki.facepunch.com/gmod/Panel:LoadControlsFromString) but loads controls from a file.
+     *
+     * @deprecated No longer does anything.
+     *
      * @param path - The path to load the controls from.
      */
     LoadControlsFromFile(path: string): void;
@@ -16087,6 +16121,9 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Loads controls(positions, etc) from given data. This is what the default options menu uses.
+     *
+     * @deprecated No longer does anything.
+     *
      * @param data - The data to load controls from. Format unknown.
      */
     LoadControlsFromString(data: string): void;
@@ -16842,7 +16879,9 @@ interface Panel {
     /**
      * 🟨🟩 [Client and Menu]
      *
-     * Sets the enabled state of a disable-able panel object, such as a [DButton](https://wiki.facepunch.com/gmod/DButton) or [DTextEntry](https://wiki.facepunch.com/gmod/DTextEntry).
+     * Sets the enabled state of a panel object that supports being disabled, such as a [DButton](https://wiki.facepunch.com/gmod/DButton) or [DTextEntry](https://wiki.facepunch.com/gmod/DTextEntry).
+     *
+     * Disabled panels cannot be interacted with, and have a different appearance to indicate this.
      *
      * See [Panel:IsEnabled](https://wiki.facepunch.com/gmod/Panel:IsEnabled) for a function that retrieves the "enabled" state of a panel.
      * @param enable - Whether to enable or disable the panel object.
@@ -19850,7 +19889,7 @@ interface Player extends Entity {
      * 🟨 [Client]
      *
      * Returns the steam "relationship" towards the player.
-     * @returns string - Should return one of four different things depending on their status on your friends list: "friend", "blocked", "none" or "requested".
+     * @returns string - Should return one of four different things depending on their status on your friends list: "friend", "blocked", "none", "requested" or "error_nofriendid" for bots.
      */
     GetFriendStatus(): string;
 
@@ -23474,8 +23513,8 @@ interface Vehicle extends Entity {
      *
      * Returns the seat position and angle of a given passenger seat.
      * @param role - The passenger role. ( 0 is the driver )
-     * @returns [1] Vector - The seat position
-     * @returns [2] Angle - The seat angle
+     * @returns [1] Vector - The seat position world
+     * @returns [2] Angle - The seat angle world
      */
     GetPassengerSeatPoint(role: number): LuaMultiReturn<[Vector, Angle]>;
 
@@ -24968,8 +25007,9 @@ interface Weapon extends Entity {
      * @param vm - This is the view model entity after it is drawn
      * @param weapon - This is the weapon that is from the view model (same as self)
      * @param ply - The owner of the view model
+     * @param flags - The <page text="STUDIO_">Enums/STUDIO</page> flags for this render operation.
      */
-    PostDrawViewModel(vm: Entity, weapon: Weapon, ply: Player): void;
+    PostDrawViewModel(vm: Entity, weapon: Weapon, ply: Player, flags: STUDIO): void;
 
     /**
      * 🟨 [Client]
@@ -24978,9 +25018,10 @@ interface Weapon extends Entity {
      * @param vm - This is the view model entity before it is drawn.
      * @param weapon - This is the weapon that is from the view model.
      * @param ply - The the owner of the view model.
+     * @param flags - The <page text="STUDIO_">Enums/STUDIO</page> flags for this render operation.
      * @returns boolean - Return `true` to prevent the default action of rendering the view model. `PostDrawViewModel` will NOT be called in this scenario.
      */
-    PreDrawViewModel(vm: Entity, weapon: Weapon, ply: Player): boolean;
+    PreDrawViewModel(vm: Entity, weapon: Weapon, ply: Player, flags: STUDIO): boolean;
 
     /**
      * 🟨🟦 [Shared]
@@ -25167,8 +25208,9 @@ interface Weapon extends Entity {
      *
      * Called straight after the view model has been drawn. This is called before [GM:PostDrawViewModel](https://wiki.facepunch.com/gmod/GM:PostDrawViewModel) and [WEAPON:PostDrawViewModel](https://wiki.facepunch.com/gmod/WEAPON:PostDrawViewModel).
      * @param ViewModel - Players view model
+     * @param flags - The <page text="STUDIO_">Enums/STUDIO</page> flags for this render operation.
      */
-    ViewModelDrawn(ViewModel: Entity): void;
+    ViewModelDrawn(ViewModel: Entity, flags: STUDIO): void;
 }
 
 /**
@@ -29527,8 +29569,10 @@ interface DImageButton extends Omit<DButton, "SetImage"> {
      * 🟨🟩 [Client and Menu]
      *
      * Alias of [DImageButton:SetImage](https://wiki.facepunch.com/gmod/DImageButton:SetImage).
+     * @param strImage -
+     * @param [strBackup = nil] -
      */
-    SetIcon(): void;
+    SetIcon(strImage: string, strBackup?: string): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -32423,7 +32467,10 @@ interface DPanel extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether or not the panel is disabled.
-     * @returns boolean - True if the panel is disabled (mouse input disabled and background alpha set to 75), false if its enabled (mouse input enabled and background alpha set to 255).
+     *
+     * @deprecated Use [Panel:IsEnabled](https://wiki.facepunch.com/gmod/Panel:IsEnabled).
+     *
+     * @returns boolean - `true` if the panel is disabled (mouse input disabled and background alpha set to 75), `false` if its enabled (mouse input enabled and background alpha set to 255).
      */
     GetDisabled(): boolean;
 
@@ -32478,6 +32525,9 @@ interface DPanel extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Sets whether or not to disable the panel.
+     *
+     * @deprecated Use [Panel:SetEnabled](https://wiki.facepunch.com/gmod/Panel:SetEnabled) instead.
+     *
      * @param disabled - True to disable the panel (mouse input disabled and background alpha set to 75), false to enable it (mouse input enabled and background alpha set to 255).
      */
     SetDisabled(disabled: boolean): void;
@@ -38251,7 +38301,7 @@ interface Gamemode {
      * Decides whether a player can hear another player using voice chat.
      *
      * **Warning:**
-     * >This hook is called **players count * speaking players count** times every 0.3 seconds if at least 1 player is talking, if no one is talking its called every 5 seconds.
+     * >This hook is called **players count * speaking players count** times every 0.3 seconds if at least 1 player is talking or every 5 seconds if no one is talking.
      * 	You should ensure that your code is efficient, or this will definitely influence performance.
      *
      * @param listener - The listening player.
@@ -38968,8 +39018,9 @@ interface Gamemode {
      * @param vm - This is the view model entity.
      * @param ply - The the owner of the view model.
      * @param weapon - This is the weapon that is from the view model.
+     * @param flags - The <page text="STUDIO_">Enums/STUDIO</page> flags for this render operation.
      */
-    PostDrawPlayerHands(hands: Entity, vm: Entity, ply: Player, weapon: Weapon): void;
+    PostDrawPlayerHands(hands: Entity, vm: Entity, ply: Player, weapon: Weapon, flags: STUDIO): void;
 
     /**
      * 🟨 [Client]
@@ -39019,8 +39070,9 @@ interface Gamemode {
      * @param viewmodel - Players view model
      * @param player - The owner of the weapon/view model
      * @param weapon - The weapon the player is currently holding
+     * @param flags - The <page text="STUDIO_">Enums/STUDIO</page> flags for this render operation.
      */
-    PostDrawViewModel(viewmodel: Entity, player: Player, weapon: Weapon): void;
+    PostDrawViewModel(viewmodel: Entity, player: Player, weapon: Weapon, flags: STUDIO): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -39183,9 +39235,10 @@ interface Gamemode {
      * @param vm - This is the view model entity before it is drawn.
      * @param ply - The the owner of the view model.
      * @param weapon - This is the weapon that is from the view model.
+     * @param flags - The <page text="STUDIO_">Enums/STUDIO</page> flags for this render operation.
      * @returns boolean - Return true to prevent the viewmodel hands from rendering
      */
-    PreDrawPlayerHands(hands: Entity, vm: Entity, ply: Player, weapon: Weapon): boolean;
+    PreDrawPlayerHands(hands: Entity, vm: Entity, ply: Player, weapon: Weapon, flags: STUDIO): boolean;
 
     /**
      * 🟨 [Client]
@@ -39238,9 +39291,10 @@ interface Gamemode {
      * @param vm - This is the view model entity before it is drawn. On server-side, this entity is the predicted view model.
      * @param ply - The owner of the view model.
      * @param weapon - This is the weapon that is from the view model.
+     * @param flags - The <page text="STUDIO_">Enums/STUDIO</page> flags for this render operation.
      * @returns boolean - Return true to prevent the default view model rendering. This also affects [GM:PostDrawViewModel](https://wiki.facepunch.com/gmod/GM:PostDrawViewModel).
      */
-    PreDrawViewModel(vm: Entity, ply: Player, weapon: Weapon): boolean;
+    PreDrawViewModel(vm: Entity, ply: Player, weapon: Weapon, flags: STUDIO): boolean;
 
     /**
      * 🟨 [Client]
@@ -43159,7 +43213,7 @@ interface DynamicLight {
     outerangle?: number,
 
     /**
-     * Makes the light brighter and flicker? Changing the value does not seem to affect anything.
+     * The entity index the light belongs to. Set automatically by [Global.DynamicLight](https://wiki.facepunch.com/gmod/Global.DynamicLight). Probably don't touch it.
      */
     key: number,
 
@@ -43637,9 +43691,9 @@ interface HTTPRequest {
     url: string,
 
     /**
-     * KeyValue table for parameters. This is only applicable to the following request methods:
+     * KeyValue table for [URL parameters](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams). This is only applicable to the following request methods:
      * * GET
-     * * POST
+     * * POST (sent in body, so if `body` is set, parameters are ignored)
      * * HEAD
      */
     /* Manual override from: interface/HTTPRequest/parameters */
@@ -44973,12 +45027,12 @@ interface SequenceInfo {
     /**
      * Mins part of the bounding box for this sequence
      */
-    bbmin: number,
+    bbmin: vector,
 
     /**
      * Maxs part of the bounding box for this sequence
      */
-    bbmax: number,
+    bbmax: vector,
 
     /**
      * ideal cross fade in time (0.2 default)
@@ -51292,6 +51346,11 @@ declare const enum COLLISION_GROUP {
      * Amount of COLLISION_GROUP_ enumerations
      */
     LAST_SHARED_COLLISION_GROUP = 21,
+
+    /**
+     * Half-Life 2 exclusive collision group, acts similarly to `COLLISION_GROUP_PROJECTILE` but is also ignored by player movement.
+     */
+    COLLISION_GROUP_HL2_SPIT = 22,
 }
 
 /**
@@ -53683,7 +53742,7 @@ declare const enum kRenderFx {
     kRenderFxPulseFastWide = 4,
 
     /**
-     * Slowly fades away the entity, making it completely invisible.
+     * Slowly fades away the entity, making it completely invisible over 3 seconds.
      *
      * Starts from whatever alpha the entity currently has set.
      */
@@ -56413,7 +56472,7 @@ declare const enum STEPSOUNDTIME {
 /**
  * 🟨 [Client]
  *
- * Used by [ENTITY:Draw](https://wiki.facepunch.com/gmod/ENTITY:Draw), [ENTITY:DrawTranslucent](https://wiki.facepunch.com/gmod/ENTITY:DrawTranslucent), [GM:PostPlayerDraw](https://wiki.facepunch.com/gmod/GM:PostPlayerDraw), [GM:PrePlayerDraw](https://wiki.facepunch.com/gmod/GM:PrePlayerDraw) and [Entity:DrawModel](https://wiki.facepunch.com/gmod/Entity:DrawModel).
+ * Used by [ENTITY:Draw](https://wiki.facepunch.com/gmod/ENTITY:Draw), [ENTITY:DrawTranslucent](https://wiki.facepunch.com/gmod/ENTITY:DrawTranslucent), [GM:PostPlayerDraw](https://wiki.facepunch.com/gmod/GM:PostPlayerDraw), [GM:PrePlayerDraw](https://wiki.facepunch.com/gmod/GM:PrePlayerDraw), [Entity:DrawModel](https://wiki.facepunch.com/gmod/Entity:DrawModel), [WEAPON:ViewModelDrawn](https://wiki.facepunch.com/gmod/WEAPON:ViewModelDrawn), [WEAPON:PreDrawViewModel](https://wiki.facepunch.com/gmod/WEAPON:PreDrawViewModel), [WEAPON:PostDrawViewModel](https://wiki.facepunch.com/gmod/WEAPON:PostDrawViewModel), [GM:PreDrawViewModel](https://wiki.facepunch.com/gmod/GM:PreDrawViewModel), [GM:PostDrawViewModel](https://wiki.facepunch.com/gmod/GM:PostDrawViewModel), [GM:PreDrawPlayerHands](https://wiki.facepunch.com/gmod/GM:PreDrawPlayerHands) and [GM:PostDrawPlayerHands](https://wiki.facepunch.com/gmod/GM:PostDrawPlayerHands).
  * @compileMembersOnly
  */
 declare const enum STUDIO {
@@ -57885,7 +57944,7 @@ type gameevent = {
     hide_freezepanel: {
 
     };
-    /** Called when a Client becomes the Cameraman */
+    /** Called when a Client becomes the Cameraman. */
     hltv_cameraman: {
         index: number;
     };
@@ -57901,7 +57960,7 @@ type gameevent = {
         obs_target: number;
         old_target: number;
     };
-    /** Called when the view changes */
+    /** Called when the view changes. */
     hltv_chase: {
         distance: number;
         inertia: number;
@@ -57911,7 +57970,7 @@ type gameevent = {
         target2: number;
         theta: number;
     };
-    /** Called when the fixed view changes */
+    /** Called when the fixed view changes. */
     hltv_fixed: {
         posx: number;
         posy: number;
@@ -57921,17 +57980,17 @@ type gameevent = {
         theta: number;
         fov: number;
     };
-    /** Called when a message is sent with `tv_msg` */
+    /** Called when a message is sent with `tv_msg`. */
     hltv_message: {
         text: string;
     };
-    /** Called when the HLTV ranks all cameras */
+    /** Called when the HLTV ranks all cameras. */
     hltv_rank_camera: {
         index: number;
         rank: number;
         target: number;
     };
-    /** Called when the HLTV ranks all players */
+    /** Called when the HLTV ranks all players. */
     hltv_rank_entity: {
         index: number;
         rank: number;
@@ -57944,7 +58003,7 @@ type gameevent = {
         slots: number;
         proxies: number;
     };
-    /** Called when the SourceTV client is spawned */
+    /** Called when the SourceTV client is spawned. */
     hltv_title: {
         text: string;
     };
@@ -57959,7 +58018,7 @@ type gameevent = {
         userid: number;
         index: number;
     };
-    /** Called when a player has entered the game (connected and loaded). From this point you can use Global.Player(userid) (serverside or in singleplayer) This is called almost directly after GM:PlayerInitialSpawn in the same tick, so you could just use that hook serverside. Just like GM:PlayerInitialSpawn, players may not have finished loading when its called. See the warning in GM:PlayerInitialSpawn for more details about possible issues */
+    /** Called when a player has entered the game (connected and loaded). From this point you can use Global.Player(userid) (serverside or in singleplayer). This is called almost directly after GM:PlayerInitialSpawn in the same tick, so you could just use that hook serverside. Just like GM:PlayerInitialSpawn, players may not have finished loading when its called. See the warning in GM:PlayerInitialSpawn for more details about possible issues */
     player_activate: {
         userid: number;
     };
@@ -58063,7 +58122,7 @@ type gameevent = {
     show_freezepanel: {
         killer: number;
     };
-    /** Called when the Achievement Manager received the steam user stat data. As soon as this is called, all achievement data should be valid Trying to access any achievement data before this may return in inaccurate data. */
+    /** Called when the Achievement Manager received the steam user stat data. As soon as this is called, all achievement data should be valid. Trying to access any achievement data before this may return in inaccurate data. */
     user_data_downloaded: {
 
     };
@@ -58103,7 +58162,7 @@ declare function AddBackgroundImage(path: string): void;
  * **.**Tells the engine to register a console command. If the command was ran, the engine calls [concommand.Run](https://wiki.facepunch.com/gmod/concommand.Run).
  * @param name - The name of the console command to add.
  * @param helpText - The help text.
- * @param flags - Concommand flags using [Enums/FCVAR](https://wiki.facepunch.com/gmod/Enums/FCVAR)
+ * @param flags - Concommand flags using [Enums/FCVAR](https://wiki.facepunch.com/gmod/Enums/FCVAR).
  */
 declare function AddConsoleCommand(name: string, helpText: string, flags: FCVAR): void;
 
@@ -58239,16 +58298,15 @@ declare function assert(expression: any, errorMessage?: string, ...returns: any[
  *
  * A variable containing a string indicating which (Beta) Branch of the game you are using.
  *
- * 		While this variable is always available in the <page text="Client">States#client</page> & <page text="Menu">States#menu</page>
- *  		realms, it is only defined in the <page text="Server">States#server</page>  realm on local servers.
+ * 		While this variable is always available in the <page text="Client">States#client</page> & <page text="Menu">States#menu</page> realms, it is only defined in the <page text="Server">States#server</page>  realm on local servers.
  *
- * 		For more information on beta branches, see <page text="this page">Dev_Branch</page>
+ * 		For more information on beta branches, see <page text="this page">Dev_Branch</page>.
  *  <br/><br/>
  * 		Branch List :
- * * unknown **(No beta program)**
- * * dev
- * * prerelease
- * * x86-64
+ * * unknown **(No beta program)**.
+ * * dev.
+ * * prerelease.
+ * * x86-64.
  * @returns string - The current branch.
  */
 declare function BRANCH(): string;
@@ -59111,6 +59169,8 @@ declare function DynamicMaterial(materialPath: string, flags?: string): IMateria
  * **Bug [#2771](https://github.com/Facepunch/garrysmod-issues/issues/2771):**
  * >This does not create a unique object, but instead returns a shared reference. That means you cannot use two or more of these objects at once.
  *
+ * This also means that any values previously set will carry over to all future calls of this functions, and may unexpectedly affect effects created via [util.Effect](https://wiki.facepunch.com/gmod/util.Effect).
+ *
  * @returns CEffectData - The [CEffectData](https://wiki.facepunch.com/gmod/CEffectData) object.
  */
 declare function EffectData(): CEffectData;
@@ -59369,7 +59429,8 @@ declare function Format(format: string, ...formatParameters: any[]): string;
  *
  * Returns the number of frames rendered since the game was launched.
  */
-declare function FrameNumber(): void;
+/* Manual override from: global/FrameNumber */
+declare function FrameNumber(): number;
 
 /**
  * 🟨🟦🟩 [Shared and Menu]
@@ -62412,7 +62473,7 @@ declare namespace achievements {
     /**
      * 🟨🟩 [Client and Menu]
      *
-     * Retrieves progress of given achievement
+     * Retrieves progress of given achievement.
      * @param achievementID - The ID of achievement to retrieve progress of. Note: IDs start from 0, not 1.
      */
     declare function GetCount(achievementID: number): void;
@@ -62420,27 +62481,27 @@ declare namespace achievements {
     /**
      * 🟨🟩 [Client and Menu]
      *
-     * Retrieves description of given achievement
+     * Retrieves description of given achievement.
      * @param achievementID - The ID of achievement to retrieve description of. Note: IDs start from 0, not 1.
-     * @returns string - Description of an achievement
+     * @returns string - Description of an achievement.
      */
     declare function GetDesc(achievementID: number): string;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
-     * Retrieves progress goal of given achievement
+     * Retrieves progress goal of given achievement.
      * @param achievementID - The ID of achievement to retrieve goal of. Note: IDs start from 0, not 1.
-     * @returns number - Progress goal of an achievement
+     * @returns number - Progress goal of an achievement.
      */
     declare function GetGoal(achievementID: number): number;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
-     * Retrieves name of given achievement
+     * Retrieves name of given achievement.
      * @param achievementID - The ID of achievement to retrieve name of. Note: IDs start from 0, not 1.
-     * @returns string - Name of an achievement
+     * @returns string - Name of an achievement.
      */
     declare function GetName(achievementID: number): string;
 
@@ -62469,7 +62530,7 @@ declare namespace achievements {
      * 🟨🟩 [Client and Menu]
      *
      * Used in GMod 12 in the achievements menu to show the user if they have unlocked certain achievements.
-     * @param AchievementID - Internal Achievement ID number
+     * @param AchievementID - Internal Achievement ID number.
      * @returns boolean - Returns true if the given achievementID is achieved.
      */
     declare function IsAchieved(AchievementID: number): boolean;
@@ -62654,7 +62715,7 @@ declare namespace bit {
      * Returns the arithmetically shifted value.
      * @param value - The value to be manipulated.
      * @param shiftCount - Amounts of bits to shift.
-     * @returns number - shiftedValue
+     * @returns number - The shifted value.
      */
     declare function arshift(value: number, shiftCount: number): number;
 
@@ -62692,7 +62753,7 @@ declare namespace bit {
      *
      * Swaps the byte order.
      * @param value - The value to be byte swapped.
-     * @returns number - swapped
+     * @returns number - The resulting swapped value.
      */
     declare function bswap(value: number): number;
 
@@ -62702,7 +62763,7 @@ declare namespace bit {
      * Returns the bitwise xor of all values specified.
      * @param value - The value to be manipulated.
      * @param [otherValues = nil] - Values bit xor with. Optional.
-     * @returns number - bitwiseXOr
+     * @returns number - The XORed value.
      */
     declare function bxor(value: number, otherValues?: number): number;
 
@@ -62726,7 +62787,7 @@ declare namespace bit {
      * Returns the left rotated value.
      * @param value - The value to be manipulated.
      * @param shiftCount - Amounts of bits to rotate left by.
-     * @returns number - shiftedValue
+     * @returns number - The shifted value.
      */
     declare function rol(value: number, shiftCount: number): number;
 
@@ -62736,7 +62797,7 @@ declare namespace bit {
      * Returns the right rotated value.
      * @param value - The value to be manipulated.
      * @param shiftCount - Amounts of bits to rotate right by.
-     * @returns number - shiftedValue
+     * @returns number - The shifted value.
      */
     declare function ror(value: number, shiftCount: number): number;
 
@@ -62750,7 +62811,7 @@ declare namespace bit {
      *
      * @param value - The value to be manipulated.
      * @param shiftCount - Amounts of bits to shift right by.
-     * @returns number - shiftedValue
+     * @returns number - The shifted value.
      */
     declare function rshift(value: number, shiftCount: number): number;
 
@@ -62880,7 +62941,7 @@ declare namespace cam {
      * **Bug [#2682](https://github.com/Facepunch/garrysmod-issues/issues/2682):**
      * >This will not update current view properties for 3D contexts.
      *
-     * @param dataTbl - Render context config. See [Structures/RenderCamData](https://wiki.facepunch.com/gmod/Structures/RenderCamData)
+     * @param dataTbl - Render context config. See [Structures/RenderCamData](https://wiki.facepunch.com/gmod/Structures/RenderCamData).
      */
     declare function Start(dataTbl: RenderCamData): void;
 
@@ -62905,6 +62966,8 @@ declare namespace cam {
      *
      * For more advanced settings such as an orthographic view, use [cam.Start](https://wiki.facepunch.com/gmod/cam.Start) instead, which this is an alias of basically.
      *
+     * All parameters are optional, and fall back parameters that of the "current" or "last" render operation.
+     *
      * <rendercontext hook="true" type="3D"></rendercontext>
      *
      * **Bug [#1995](https://github.com/Facepunch/garrysmod-issues/issues/1995):**
@@ -62913,19 +62976,19 @@ declare namespace cam {
      * **Bug [#2682](https://github.com/Facepunch/garrysmod-issues/issues/2682):**
      * >This will not update current view properties.
      *
-     * @param [pos = <current view pos>] - Render cam position.
-     * @param [angles = <current view angles>] - Render cam angles.
-     * @param [fov = <current view FOV>] - Field of view.
-     * @param [x = <current view X>] - X coordinate of where to start the new view port.
-     * @param [y = <current view Y>] - Y coordinate of where to start the new view port.
-     * @param [w = <current view width>] - Width of the new viewport.
-     * @param [h = <current view height>] - Height of the new viewport.
-     * @param [zNear = <current view zNear>] - Distance to near clipping plane.
+     * @param [pos = nil] - Render cam position.
+     * @param [angles = nil] - Render cam angles.
+     * @param [fov = nil] - Field of view.
+     * @param [x = nil] - X coordinate of where to start the new view port.
+     * @param [y = nil] - Y coordinate of where to start the new view port.
+     * @param [w = nil] - Width of the new viewport.
+     * @param [h = nil] - Height of the new viewport.
+     * @param [zNear = nil] - Distance to near clipping plane.
      * **Note:**
      * >Both `zNear` and `zFar` need a value before any of them work.
      * zNear also requires a value higher than 0.
      *
-     * @param [zFar = <current view zFar>] - Distance to far clipping plane.
+     * @param [zFar = nil] - Distance to far clipping plane.
      */
     declare function Start3D(pos?: Vector, angles?: Angle, fov?: number, x?: number, y?: number, w?: number, h?: number, zNear?: number, zFar?: number): void;
 
@@ -63014,7 +63077,7 @@ declare namespace chat {
      * 🟨 [Client]
      *
      * Opens the chat window.
-     * @param mode - If equals 1, opens public chat, otherwise opens team chat
+     * @param mode - If equals 1, opens public chat, otherwise opens team chat.
      */
     declare function Open(mode: number): void;
 
@@ -63089,8 +63152,8 @@ declare namespace cleanup {
      * Replaces one entity in the cleanup module with another.
      *
      * You very likely want to call [undo.ReplaceEntity](https://wiki.facepunch.com/gmod/undo.ReplaceEntity) with the same entities as well.
-     * @param from - Old entity
-     * @param to - New entity. Can be a `NULL` entity to remove the old entity from the cleanup system.
+     * @param from - The old entity.
+     * @param to - The new entity. Can be a `NULL` entity to remove the old entity from the cleanup system.
      * @returns boolean - Whether any action was taken.
      */
     declare function ReplaceEntity(from: Entity, to: Entity): boolean;
@@ -63098,7 +63161,7 @@ declare namespace cleanup {
     /**
      * 🟨 [Client]
      *
-     * Repopulates the clients cleanup menu
+     * Repopulates the clients cleanup menu.
      */
     declare function UpdateUI(): void;
 }
@@ -63113,7 +63176,7 @@ declare namespace concommand {
      * Creates a console command that runs a function in lua with optional autocompletion function and help text.
      *
      * **Warning:**
-     * >Clients can still run commands created only on the server. Always check permissions in the callback
+     * >Clients can still run commands created only on the server. Always check permissions in the callback.
      *
      * **Bug [#1183](https://github.com/Facepunch/garrysmod-issues/issues/1183):**
      * >This will fail if the concommand was previously removed with [concommand.Remove](https://wiki.facepunch.com/gmod/concommand.Remove) in a different realm (creating a command on the client that was removed from the server and vice-versa).
@@ -63144,8 +63207,8 @@ declare namespace concommand {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Used by the engine to call the autocomplete function for a console command, and retrieve returned options.
-     * @param command - Name of command
-     * @param arguments - Arguments given to the command
+     * @param command - Name of command.
+     * @param arguments - Arguments given to the command.
      * @returns any - Possibilities for auto-completion. This is the return value of the auto-complete callback.
      */
     declare function AutoComplete(command: string, arguments: string): any;
@@ -63179,11 +63242,11 @@ declare namespace concommand {
      * Used by the engine to run a console command's callback function. This will only be called for commands that were added with [Global.AddConsoleCommand](https://wiki.facepunch.com/gmod/Global.AddConsoleCommand), which [concommand.Add](https://wiki.facepunch.com/gmod/concommand.Add) calls internally. An error is sent to the player's console if no callback is found.
      *
      * This will still be called for concommands removed with [concommand.Remove](https://wiki.facepunch.com/gmod/concommand.Remove) but will return false. This will not be called for concommands added by the engine, only those made from Lua.
-     * @param ply - Player to run concommand on
-     * @param cmd - Command name
+     * @param ply - Player to run concommand on.
+     * @param cmd - Command name.
      * @param args - Command arguments.
-     * Can be table or string
-     * @param argumentString - string of all arguments sent to the command
+     * Can be table or string.
+     * @param argumentString - string of all arguments sent to the command.
      * @returns boolean - `true` if the console command with the given name exists, and `false` if it doesn't.
      */
     declare function Run(ply: Player, cmd: string, args: any, argumentString: string): boolean;
@@ -63237,8 +63300,8 @@ declare namespace constraint {
      * **Warning:**
      * >Does nothing!
      *
-     * @param [forceLimit = 0] - Amount of force until it breaks (0 = unbreakable)
-     * @param [torqueLimit = 0] - Amount of torque (rotation speed) until it breaks (0 = unbreakable)
+     * @param [forceLimit = 0] - Amount of force until it breaks (0 = unbreakable).
+     * @param [torqueLimit = 0] - Amount of torque (rotation speed) until it breaks (0 = unbreakable).
      * @param xMin - Minimum angle in rotations around the X axis local to the constraint.
      * @param yMin - Minimum angle in rotations around the Y axis local to the constraint.
      * @param zMin - Minimum angle in rotations around the Z axis local to the constraint.
@@ -63266,8 +63329,8 @@ declare namespace constraint {
      * See [Entity:TranslateBoneToPhysBone](https://wiki.facepunch.com/gmod/Entity:TranslateBoneToPhysBone).
      * @param localPos1 - Position relative to the the first physics object to constrain to.
      * @param localPos2 - Position relative to the the second physics object to constrain to.
-     * @param [forceLimit = 0] - Amount of force until it breaks (0 = unbreakable)
-     * @param [torqueLimit = 0] - Amount of torque (rotational force) until it breaks (0 = unbreakable)
+     * @param [forceLimit = 0] - Amount of force until it breaks (0 = unbreakable).
+     * @param [torqueLimit = 0] - Amount of torque (rotational force) until it breaks (0 = unbreakable).
      * @param [friction = 0] - Constraint friction.
      * @param [noCollide = 0] - Whether the entities should be no-collided.
      * @param [localAxis = nil] - If you include the LocalAxis then LPos2 will not be used in the final constraint. However, LPos2 is still a required argument.
@@ -63287,19 +63350,19 @@ declare namespace constraint {
      * @param bone2 - [PhysObj](https://wiki.facepunch.com/gmod/PhysObj) number of second entity to constrain to. (0 for non-ragdolls).
      * See [Entity:TranslateBoneToPhysBone](https://wiki.facepunch.com/gmod/Entity:TranslateBoneToPhysBone).
      * @param localPos - Center position of the joint, relative to the **second** entity's physics object.
-     * @param [forcelimit = 0] - Amount of force until it breaks (0 = unbreakable)
-     * @param [torquelimit = 0] - Amount of torque (rotation speed) until it breaks (0 = unbreakable)
+     * @param [forceLimit = 0] - Amount of force until it breaks (0 = unbreakable).
+     * @param [torqueLimit = 0] - Amount of torque (rotational force) until it breaks (0 = unbreakable).
      * @param [nocollide = 0] - Whether the constrained entities should collided with each other or not.
      * @returns Entity - The created constraint. ([phys_ballsocket](https://developer.valvesoftware.com/wiki/Phys_ballsocket)) Will return `false` if the constraint could not be created.
      */
-    declare function Ballsocket(ent1: Entity, ent2: Entity, bone1: number, bone2: number, localPos: Vector, forcelimit?: number, torquelimit?: number, nocollide?: number): Entity;
+    declare function Ballsocket(ent1: Entity, ent2: Entity, bone1: number, bone2: number, localPos: Vector, forceLimit?: number, torqueLimit?: number, nocollide?: number): Entity;
 
     /**
      * 🟦 [Server]
      *
      * Basic checks to make sure that the specified entity and bone are valid. Returns false if we should not be constraining the entity.
-     * @param ent - The entity to check
-     * @param bone - The bone of the entity to check (use 0 for mono boned ents)
+     * @param ent - The entity to check.
+     * @param bone - The bone of the entity to check (use 0 for mono boned ents).
      * @returns boolean - Whether a constraint can or should be created.
      */
     declare function CanConstrain(ent: Entity, bone: number): boolean;
@@ -63371,8 +63434,8 @@ declare namespace constraint {
      * 🟦 [Server]
      *
      * Returns the constraint of a specified type between two entities, if it exists
-     * @param ent1 - The first entity to check
-     * @param ent2 - The second entity to check
+     * @param ent1 - The first entity to check.
+     * @param ent2 - The second entity to check.
      * @param type - The type of constraint, case sensitive. List of default constrains is as follows:
      * * `Weld`
      * * `Axis`
@@ -63388,17 +63451,17 @@ declare namespace constraint {
      * * `Muscle`
      * * `Keepupright`
      * * `Slider`
-     * @param bone1 - The bone number for the first entity (0 for monoboned entities)
-     * @param bone2 - The bone number for the second entity
-     * @returns Entity - constraint
+     * @param bone1 - The bone number for the first entity (0 for monoboned entities).
+     * @param bone2 - The bone number for the second entity.
+     * @returns Entity - The constraint found.
      */
     declare function Find(ent1: Entity, ent2: Entity, type: string, bone1: number, bone2: number): Entity;
 
     /**
      * 🟦 [Server]
      *
-     * Returns the first constraint of a specific type directly connected to the entity found
-     * @param ent - The entity to check
+     * Returns the first constraint of a specific type directly connected to the entity found.
+     * @param ent - The entity to check.
      * @param type - The type of constraint, case sensitive. List of default constrains is as follows:
      * * `Weld`
      * * `Axis`
@@ -63421,8 +63484,8 @@ declare namespace constraint {
     /**
      * 🟦 [Server]
      *
-     * Returns the other entity involved in the first constraint of a specific type directly connected to the entity
-     * @param ent - The entity to check
+     * Returns the other entity involved in the first constraint of a specific type directly connected to the entity.
+     * @param ent - The entity to check.
      * @param type - The type of constraint, case sensitive. List of default constrains is as follows:
      * * `Weld`
      * * `Axis`
@@ -63448,7 +63511,7 @@ declare namespace constraint {
      * Returns a table of all constraints of a specific type directly connected to the entity.
      *
      * If you are looking for a list of all constraints, use [constraint.GetTable](https://wiki.facepunch.com/gmod/constraint.GetTable).
-     * @param ent - The entity to check
+     * @param ent - The entity to check.
      * @param type - The type of constraint, case sensitive. List of default constrains is as follows:
      * * `Weld`
      * * `Axis`
@@ -63479,8 +63542,8 @@ declare namespace constraint {
     /**
      * 🟦 [Server]
      *
-     * Returns a table of all entities recursively constrained to an entitiy.
-     * @param ent - The entity to check
+     * Returns a table of all entities recursively constrained to an entity.
+     * @param ent - The entity to check.
      * @param [resultTable = nil] - Table used to return result. Optional.
      * @returns any - A table containing all of the constrained entities. This includes all entities constrained to entities constrained to the supplied entity, etc.
      */
@@ -63492,7 +63555,7 @@ declare namespace constraint {
      * Returns a table of all constraints directly connected to the entity.
      *
      * If you are looking for a list of specific constraint(s), use [constraint.FindConstraints](https://wiki.facepunch.com/gmod/constraint.FindConstraints).
-     * @param ent - The entity to check
+     * @param ent - The entity to check.
      * @returns any - A list of all constraints connected to the entity.
      */
     declare function GetTable(ent: Entity): any;
@@ -63501,7 +63564,7 @@ declare namespace constraint {
      * 🟦 [Server]
      *
      * Returns true if the entity has constraints attached to it
-     * @param ent - The entity to check
+     * @param ent - The entity to check.
      * @returns boolean - Whether the entity has any constraints or not.
      */
     declare function HasConstraints(ent: Entity): boolean;
@@ -63522,7 +63585,7 @@ declare namespace constraint {
      * @param length1 - Minimum length of the constraint.
      * @param length2 - Maximum length of the constraint.
      * @param width - The width of the rope.
-     * @param key - The key binding, corresponding to an [Enums/KEY](https://wiki.facepunch.com/gmod/Enums/KEY)
+     * @param key - The key binding, corresponding to an [Enums/KEY](https://wiki.facepunch.com/gmod/Enums/KEY).
      * @param slider - Whether the hydraulic is fixed, i.e. cannot bend. Must be `1` to act as `true`.
      * @param speed - How fast it changes the length from `length1` to `length2` and backwards.
      * @param [material] - The material of the rope. If unset, will be solid black.
@@ -63539,11 +63602,11 @@ declare namespace constraint {
      * 🟦 [Server]
      *
      * Creates a keep upright constraint.
-     * @param ent - The entity to keep upright
-     * @param ang - The angle defined as "upright"
-     * @param bone - The bone of the entity to constrain (0 for boneless)
+     * @param ent - The entity to keep upright.
+     * @param ang - The angle defined as "upright".
+     * @param bone - The bone of the entity to constrain (0 for boneless).
      * @param angularLimit - Basically, the strength of the constraint. Must be above 0.
-     * @returns Entity - The created constraint, if any or false if the constraint failed to set
+     * @returns Entity - The created constraint, if any or false if the constraint failed to set.
      */
     declare function Keepupright(ent: Entity, ang: Angle, bone: number, angularLimit: number): Entity;
 
@@ -63565,9 +63628,9 @@ declare namespace constraint {
      * @param [nocollide = 0] - Whether the entities should be no-collided.
      * @param [toggle = false] - Whether the constraint is on toggle.
      * @param [player = NULL] - The player that will control the motor. Used to to call [numpad.OnDown](https://wiki.facepunch.com/gmod/numpad.OnDown) and [numpad.OnUp](https://wiki.facepunch.com/gmod/numpad.OnUp).
-     * @param [forcelimit = 0] - Amount of force until it breaks (0 = unbreakable)
-     * @param [key_fwd = nil] - The key binding for "forward", corresponding to an [Enums/KEY](https://wiki.facepunch.com/gmod/Enums/KEY)
-     * @param [key_bwd = nil] - The key binding for "backwards", corresponding to an [Enums/KEY](https://wiki.facepunch.com/gmod/Enums/KEY)
+     * @param [forcelimit = 0] - Amount of force until it breaks (0 = unbreakable).
+     * @param [key_fwd = nil] - The key binding for "forward", corresponding to an [Enums/KEY](https://wiki.facepunch.com/gmod/Enums/KEY).
+     * @param [key_bwd = nil] - The key binding for "backwards", corresponding to an [Enums/KEY](https://wiki.facepunch.com/gmod/Enums/KEY).
      * @param [direction = 1] - Either `1` or `-1` signifying which direction the motor should spin.
      * @param [localAxis = nil] - Overrides axis of rotation?
      * <validate></validate>
@@ -63598,7 +63661,7 @@ declare namespace constraint {
      * @param fixed - Whether the constraint is fixed, i.e. cannot bend. Must be `1` to act as `true`.
      * @param period - How often the "contractions" should happen.
      * @param amplitude - Amplification of the "contractions"?
-     * @param [startOn = false] - Whether the constraint should start activated. (i.e. spazzing)
+     * @param [startOn = false] - Whether the constraint should start activated. (i.e. spazzing).
      * @param [material] - Material of the rope. If left unset, will be solid black.
      * @param [color = color_white] - The color of the rope. See [Global.Color](https://wiki.facepunch.com/gmod/Global.Color).
      * @returns [1] Entity - The created constraint. ([phys_spring](https://developer.valvesoftware.com/wiki/Phys_spring)) Will return `false` if the constraint could not be created.
@@ -63634,7 +63697,7 @@ declare namespace constraint {
      *
      * It consists of 3 rope segments, 2 of which have variable length, visually connected by a 3rd. Reducing length of one end will increase the length of the other end.
      *
-     * You can visualize the pulley like so
+     * You can visualize the pulley like so:
      * ```
      * WPos2 --- WPos3
      *   |			|
@@ -63651,7 +63714,7 @@ declare namespace constraint {
      * @param localPos4 - Position relative to the the second physics object to constrain to.
      * @param worldPos2 - World position constrain the first entity to. This point will be static.
      * @param worldPos3 - World position constrain the second entity to. This point will be static.
-     * @param forceLimit - Amount of force until it breaks (0 = unbreakable)
+     * @param forceLimit - Amount of force until it breaks (0 = unbreakable).
      * @param [rigid = false] - Whether the constraint is rigid, i.e. cannot bend.
      * @param width - Width of the rope. If below or at `0`, visual rope segments will not be created.
      * @param [material] - Material of the rope. If unset, will be solid black.
@@ -63666,10 +63729,10 @@ declare namespace constraint {
     /**
      * 🟦 [Server]
      *
-     * Attempts to remove all constraints associated with an entity
-     * @param ent - The entity to remove constraints from
-     * @returns [1] boolean - Whether any constraints were removed
-     * @returns [2] number - Number of constraints removed
+     * Attempts to remove all constraints associated with an entity.
+     * @param ent - The entity to remove constraints from.
+     * @returns [1] boolean - Whether any constraints were removed.
+     * @returns [2] number - Number of constraints removed.
      */
     declare function RemoveAll(ent: Entity): LuaMultiReturn<[boolean, number]>;
 
@@ -63677,10 +63740,10 @@ declare namespace constraint {
      * 🟦 [Server]
      *
      * Attempts to remove all constraints of a specified type associated with an entity
-     * @param ent - The entity to check
-     * @param type - The constraint type to remove (eg. `"Weld"`, `"Elastic"`, `"NoCollide"`)
-     * @returns [1] boolean - Whether we removed any constraints or not
-     * @returns [2] number - The amount of constraints removed
+     * @param ent - The entity to check.
+     * @param type - The constraint type to remove (eg. `"Weld"`, `"Elastic"`, `"NoCollide"`).
+     * @returns [1] boolean - Whether we removed any constraints or not.
+     * @returns [2] number - The amount of constraints removed.
      */
     declare function RemoveConstraints(ent: Entity, type: string): LuaMultiReturn<[boolean, number]>;
 
@@ -63688,8 +63751,8 @@ declare namespace constraint {
      * 🟦 [Server]
      *
      * Creates a simple rope (length) based constraint.
-     * @param ent1 - First entity
-     * @param ent2 - Second entity
+     * @param ent1 - First entity.
+     * @param ent2 - Second entity.
      * @param bone1 - [PhysObj](https://wiki.facepunch.com/gmod/PhysObj) number of first entity to constrain to. (0 for non-ragdolls).
      * See [Entity:TranslateBoneToPhysBone](https://wiki.facepunch.com/gmod/Entity:TranslateBoneToPhysBone).
      * @param bone2 - [PhysObj](https://wiki.facepunch.com/gmod/PhysObj) number of second entity to constrain to. (0 for non-ragdolls).
@@ -63733,15 +63796,15 @@ declare namespace constraint {
      * 🟦 [Server]
      *
      * Creates a weld constraint.
-     * @param ent1 - The first entity
-     * @param ent2 - The second entity
+     * @param ent1 - The first entity.
+     * @param ent2 - The second entity.
      * @param bone1 - [PhysObj](https://wiki.facepunch.com/gmod/PhysObj) number of first entity to constrain to. (0 for non-ragdolls).
      * See [Entity:TranslateBoneToPhysBone](https://wiki.facepunch.com/gmod/Entity:TranslateBoneToPhysBone).
      * @param bone2 - [PhysObj](https://wiki.facepunch.com/gmod/PhysObj) number of second entity to constrain to. (0 for non-ragdolls).
      * See [Entity:TranslateBoneToPhysBone](https://wiki.facepunch.com/gmod/Entity:TranslateBoneToPhysBone).
-     * @param [forceLimit = 0] - The amount of force appliable to the constraint before it will break (0 is never)
-     * @param [noCollide = false] - Should `ent1` be nocollided to `ent2` via this constraint
-     * @param [deleteEnt1OnBreak = false] - If true, when `ent2` is removed, `ent1` will also be removed
+     * @param [forceLimit = 0] - The amount of force appliable to the constraint before it will break (0 is never).
+     * @param [noCollide = false] - Should `ent1` be nocollided to `ent2` via this constraint.
+     * @param [deleteEnt1OnBreak = false] - If true, when `ent2` is removed, `ent1` will also be removed.
      * @returns Entity - The created constraint entity. ([phys_constraint](https://developer.valvesoftware.com/wiki/Phys_constraint))
      */
     declare function Weld(ent1: Entity, ent2: Entity, bone1: number, bone2: number, forceLimit?: number, noCollide?: boolean, deleteEnt1OnBreak?: boolean): Entity;
@@ -63760,8 +63823,8 @@ declare namespace constraint {
      * @param localPos1 - Position relative to the the first physics object to constrain to.
      * @param localPos2 - Position relative to the the second physics object to constrain to.
      * @param width - The width of the rope.
-     * @param fwdBind - The key binding for "forward", corresponding to an [Enums/KEY](https://wiki.facepunch.com/gmod/Enums/KEY)
-     * @param bwdBind - The key binding for "backwards", corresponding to an [Enums/KEY](https://wiki.facepunch.com/gmod/Enums/KEY)
+     * @param fwdBind - The key binding for "forward", corresponding to an [Enums/KEY](https://wiki.facepunch.com/gmod/Enums/KEY).
+     * @param bwdBind - The key binding for "backwards", corresponding to an [Enums/KEY](https://wiki.facepunch.com/gmod/Enums/KEY).
      * @param fwdSpeed - Forward speed.
      * @param bwdSpeed - Backwards speed.
      * @param [material] - The material of the rope. If unset, will be solid black.
@@ -63782,22 +63845,22 @@ declare namespace construct {
      * 🟦 [Server]
      *
      * Creates a magnet.
-     * @param ply - Player that will have the numpad control over the magnet
-     * @param pos - The position of the magnet
-     * @param ang - The angles of the magnet
-     * @param model - The model of the maget
-     * @param material - Material of the magnet ( texture )
-     * @param key - The key to toggle the magnet, see [Enums/KEY](https://wiki.facepunch.com/gmod/Enums/KEY)
-     * @param maxObjects - Maximum amount of objects the magnet can hold
-     * @param strength - Strength of the magnet
-     * @param [nopull = 0] - If > 0, disallows the magnet to pull objects towards it
-     * @param [allowrot = 0] - If > 0, allows rotation of the objects attached
-     * @param [startOn = 0] - If > 0, enabled from spawn
-     * @param toggle - If != 0, pressing the key toggles the magnet, otherwise you'll have to hold the key to keep it enabled
-     * @param [vel = Vector( 0, 0, 0 )] - Velocity to set on spawn
-     * @param [aVel = Angle( 0, 0, 0 )] - Angular velocity to set on spawn
-     * @param [frozen = false] - Freeze the magnet on start
-     * @returns Entity - The magnet
+     * @param ply - Player that will have the numpad control over the magnet.
+     * @param pos - The position of the magnet.
+     * @param ang - The angles of the magnet.
+     * @param model - The model of the magnet.
+     * @param material - Material of the magnet ( texture ).
+     * @param key - The key to toggle the magnet, see [Enums/KEY](https://wiki.facepunch.com/gmod/Enums/KEY).
+     * @param maxObjects - Maximum amount of objects the magnet can hold.
+     * @param strength - Strength of the magnet.
+     * @param [nopull = 0] - If > 0, disallows the magnet to pull objects towards it.
+     * @param [allowrot = 0] - If > 0, allows rotation of the objects attached.
+     * @param [startOn = 0] - If > 0, enabled from spawn.
+     * @param toggle - If != 0, pressing the key toggles the magnet, otherwise you'll have to hold the key to keep it enabled.
+     * @param [vel = Vector( 0, 0, 0 )] - Velocity to set on spawn.
+     * @param [aVel = Angle( 0, 0, 0 )] - Angular velocity to set on spawn.
+     * @param [frozen = false] - Freeze the magnet on start.
+     * @returns Entity - The magnet.
      */
     declare function Magnet(ply: Player, pos: Vector, ang: Angle, model: string, material: string, key: KEY, maxObjects: number, strength: number, nopull?: number, allowrot?: number, startOn?: number, toggle?: number, vel?: Vector, aVel?: Angle, frozen?: boolean): Entity;
 
@@ -63806,10 +63869,10 @@ declare namespace construct {
      *
      * Sets props physical properties.
      * @param ply - The player. This variable is not used and can be left out.
-     * @param ent - The entity to apply properties to
+     * @param ent - The entity to apply properties to.
      * @param physObjID - You can use this or the argument below. This will be used in case you don't provide argument below.
-     * @param physObj - The physics object to apply the properties to
-     * @param data - The table containing properties to apply. See [Structures/PhysProperties](https://wiki.facepunch.com/gmod/Structures/PhysProperties)
+     * @param physObj - The physics object to apply the properties to.
+     * @param data - The table containing properties to apply. See [Structures/PhysProperties](https://wiki.facepunch.com/gmod/Structures/PhysProperties).
      */
     declare function SetPhysProp(ply: Player, ent: Entity, physObjID: number, physObj: PhysObj, data: PhysProperties): void;
 }
@@ -63821,7 +63884,7 @@ declare namespace controlpanel {
     /**
      * 🟨 [Client]
      *
-     * Clears ALL the control panels ( for tools )
+     * Clears ALL the control panels ( for tools ).
      */
     declare function Clear(): void;
 
@@ -63865,7 +63928,7 @@ declare namespace cookie {
      * Gets the value of a cookie on the client as a number.
      * @param name - The name of the cookie that you want to get.
      * @param [default_ = nil] - Value to return if the cookie does not exist.
-     * @returns number - The cookie value
+     * @returns number - The cookie value.
      */
     declare function GetNumber(name: string, default_?: any): number;
 
@@ -63875,7 +63938,7 @@ declare namespace cookie {
      * Gets the value of a cookie on the client as a string.
      * @param name - The name of the cookie that you want to get.
      * @param [default_ = nil] - Value to return if the cookie does not exist.
-     * @returns string - The cookie value
+     * @returns string - The cookie value.
      */
     declare function GetString(name: string, default_?: any): string;
 
@@ -63898,7 +63961,7 @@ declare namespace coroutine {
      *
      * Creates a coroutine of the given function.
      * @param func - The function for the coroutine to use.
-     * @returns thread - coroutine
+     * @returns thread - The created coroutine.
      */
     declare function create(func: Function): thread;
 
@@ -63930,7 +63993,7 @@ declare namespace coroutine {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns the active coroutine or nil if we are not within a coroutine.
-     * @returns thread - coroutine
+     * @returns thread - The active coroutine.
      */
     declare function running(): thread;
 
@@ -63939,7 +64002,7 @@ declare namespace coroutine {
      *
      * Returns the status of the coroutine passed to it, the possible statuses are "suspended", "running", and "dead".
      * @param coroutine - Coroutine to check the status of.
-     * @returns string - status
+     * @returns string - The coroutine's status.
      */
     declare function status(coroutine: thread): string;
 
@@ -63951,7 +64014,7 @@ declare namespace coroutine {
      * Only works inside a coroutine. Only useful in nextbot coroutine think function.
      *
      * This function uses [Global.CurTime](https://wiki.facepunch.com/gmod/Global.CurTime) instead of [Global.RealTime](https://wiki.facepunch.com/gmod/Global.RealTime).
-     * @param duration - The number of seconds to wait
+     * @param duration - The number of seconds to wait.
      */
     declare function wait(duration: number): void;
 
@@ -64010,9 +64073,9 @@ declare namespace cvars {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Retrieves console variable as a boolean.
-     * @param cvar - Name of console variable
-     * @param [default_ = false] - The value to return if the console variable does not exist
-     * @returns boolean - Retrieved value
+     * @param cvar - Name of console variable.
+     * @param [default_ = false] - The value to return if the console variable does not exist.
+     * @returns boolean - Retrieved value.
      */
     declare function Bool(cvar: string, default_?: boolean): boolean;
 
@@ -64031,8 +64094,8 @@ declare namespace cvars {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Retrieves console variable as a number.
-     * @param cvar - Name of console variable
-     * @param [default_ = nil] - The value to return if the console variable does not exist
+     * @param cvar - Name of console variable.
+     * @param [default_ = nil] - The value to return if the console variable does not exist.
      * @returns number - Retrieved value or the second argument if the console variable does not exist. Will return 0 if the console variable exists and has a string value.
      */
     declare function Number(cvar: string, default_?: any): number;
@@ -64043,9 +64106,9 @@ declare namespace cvars {
      * **.**
      *
      * Called by the engine when a convar value changes.
-     * @param name - Convar name
-     * @param oldVal - The old value of the convar
-     * @param newVal - The new value of the convar
+     * @param name - Convar name.
+     * @param oldVal - The old value of the convar.
+     * @param newVal - The new value of the convar.
      */
     declare function OnConVarChanged(name: string, oldVal: string, newVal: string): void;
 
@@ -64062,9 +64125,9 @@ declare namespace cvars {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Retrieves console variable as a string.
-     * @param cvar - Name of console variable
-     * @param [default_ = nil] - The value to return if the console variable does not exist
-     * @returns string - Retrieved value
+     * @param cvar - Name of console variable.
+     * @param [default_ = nil] - The value to return if the console variable does not exist.
+     * @returns string - Retrieved value.
      */
     declare function String(cvar: string, default_?: any): string;
 }
@@ -64089,9 +64152,9 @@ declare namespace debug {
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
-     * Returns the environment of the passed object. This can be set with [debug.setfenv](https://wiki.facepunch.com/gmod/debug.setfenv)
-     * @param object - Object to get environment of
-     * @returns any - Environment
+     * Returns the environment of the passed object. This can be set with [debug.setfenv](https://wiki.facepunch.com/gmod/debug.setfenv).
+     * @param object - Object to get environment of.
+     * @returns any - The environment.
      */
     declare function getfenv(object: any): any;
 
@@ -64119,7 +64182,7 @@ declare namespace debug {
      * * `n` - Populates the name and namewhat fields - only works if stack level is passed rather than function pointer.
      * * `S` - Populates the location fields (lastlinedefined, linedefined, short_src, source and what).
      * * `u` - Populates the argument and upvalue fields (isvararg, nparams, nups).
-     * * `>` - Causes this function to use the last argument to get the data from
+     * * `>` - Causes this function to use the last argument to get the data from.
      * @param function_ - Function to use. (Only used by the `>` field)
      * @returns DebugInfo - A table as a [Structures/DebugInfo](https://wiki.facepunch.com/gmod/Structures/DebugInfo) containing information about the function you passed. Can return nil if the stack level didn't point to a valid stack frame.
      */
@@ -64131,15 +64194,15 @@ declare namespace debug {
      * **Warning:**
      * >When a function has a tailcall return, you cannot access the locals of this function.
      *
-     * @param [thread = Current thread] - The thread
+     * @param [thread = Current thread] - The thread.
      * @param level - The level above the thread.
-     * * 0 = the function that was called (most always this function)'s arguments
+     * * 0 = the function that was called (most always this function)'s arguments.
      * * 1 = the thread that had called this function.
      * * 2 = the thread that had called the function that started the thread that called this function.
      * A function defined in Lua can also be passed as the level. The index will specify the parameter's name to be returned (a parameter will have a value of nil).
      * @param index - The variable's index you want to get.
-     * * 1 = the first local defined in the thread
-     * * 2 = the second local defined in the thread
+     * * 1 = the first local defined in the thread.
+     * * 2 = the second local defined in the thread.
      * * etc...
      * @returns [1] string - The name of the variable.
      * Sometimes this will be `(*temporary)` if the local variable had no name.
@@ -64161,13 +64224,12 @@ declare namespace debug {
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
-     * @deprecated This function **will** return an empty table.
-     * 	If you get an error because of this see the example below for a workaround
+     * @deprecated This function now returns a table that serves as a proxy to [Global.FindMetaTable](https://wiki.facepunch.com/gmod/Global.FindMetaTable) and [Global.RegisterMetaTable](https://wiki.facepunch.com/gmod/Global.RegisterMetaTable). If you previously used the registry to get/add metatables, you should use those functions directly instead.
      *
      * **Warning:**
      * >Improper editing of the registry can result in unintended side effects, including crashing the game.
      *
-     * @returns any - The Lua registry
+     * @returns any - The Lua registry.
      */
     declare function getregistry(): any;
 
@@ -64191,8 +64253,8 @@ declare namespace debug {
      * Userdata seem to intentionally support this & setting/changing it does not affect anything (though unused by gmod / Entities and such don't this)
      * This can be useful when trying to store data on a [IGModAudioChannel](https://wiki.facepunch.com/gmod/IGModAudioChannel), [Vector](https://wiki.facepunch.com/gmod/Vector), [Angle](https://wiki.facepunch.com/gmod/Angle) or any other that doesn't already allow you to store data on it.
      * @param object - Object to set environment of. Valid types: userdata, thread, function.
-     * @param env - Environment to set
-     * @returns any - The object
+     * @param env - Environment to set.
+     * @returns any - The object.
      */
     declare function setfenv(object: any, env: any): any;
 
@@ -64202,7 +64264,7 @@ declare namespace debug {
      * Sets the given function as a Lua hook. This is completely different to gamemode hooks. The thread argument can be completely omitted and calling this function with no arguments will remove the current hook. This is used by default for infinite loop detection. More information on hooks can be found at http://www.lua.org/pil/23.2.html and https://www.gammon.com.au/scripts/doc.php?lua=debug.sethook
      *
      * Hooks are not always ran when code that has been compiled by LuaJIT's JIT compiler is being executed, this is due to Intermediate Representation internally storing constantly running bytecode for performance reasons.
-     * @param thread - Thread to set the hook on. This argument can be omited
+     * @param thread - Thread to set the hook on. This argument can be omitted.
      * @param hook - Function for the hook to call. First argument in this function will be the mask event that called the hook as a full string (not as 'c' but instead as 'call').
      * @param mask - The hook's mask. Can be one or more of the following events:
      * * c - Triggers the hook on each function call made from Lua.
@@ -64218,15 +64280,15 @@ declare namespace debug {
      * <removed>This function was removed due to security concerns.</removed>
      *
      * Sets a local variable's value.
-     * @param [thread = Current Thread] - The thread
+     * @param [thread = Current Thread] - The thread.
      * @param level - The level above the thread.
-     * 0 is the function that was called (most always this function)'s arguments
+     * 0 is the function that was called (most always this function)'s arguments.
      * 1 is the thread that had called this function.
      * 2 is the thread that had called the function that started the thread that called this function.
      * @param index - The variable's index you want to get.
-     * 1 = the first local defined in the thread
-     * 2 = the second local defined in the thread
-     * @param [value = nil] - The value to set the local to
+     * 1 = the first local defined in the thread.
+     * 2 = the second local defined in the thread.
+     * @param [value = nil] - The value to set the local to.
      * @returns string - The name of the local variable if the local at the index exists, otherwise nil is returned.
      */
     declare function setlocal(thread?: thread, level?: number, index?: number, value?: any): string;
@@ -64247,9 +64309,9 @@ declare namespace debug {
      *
      * <removed>This function was removed due to security concerns.</removed>
      *
-     * Sets the variable indexed from func
-     * @param func - The function to index the upvalue from
-     * @param index - The index from func
+     * Sets the variable indexed from func.
+     * @param func - The function to index the upvalue from.
+     * @param index - The index from func.
      * @param [val = nil] - The value to set the upvalue to.
      * @returns string - Returns nil if there is no upvalue with the given index, otherwise it returns the upvalue's name.
      */
@@ -64278,10 +64340,10 @@ declare namespace debug {
      *
      * <removed>This function was removed due to security concerns.</removed>
      *
-     * Returns an unique identifier for the upvalue indexed from func
-     * @param func - The function to index the upvalue from
-     * @param index - The index from func
-     * @returns number - A unique identifier
+     * Returns an unique identifier for the upvalue indexed from func.
+     * @param func - The function to index the upvalue from.
+     * @param index - The index from func.
+     * @returns number - A unique identifier.
      */
     declare function upvalueid(func: Function, index: number): number;
 
@@ -64290,13 +64352,13 @@ declare namespace debug {
      *
      * <removed>This function was removed due to security concerns.</removed>
      *
-     * Make the n1-th upvalue of the Lua closure f1 refer to the n2-th upvalue of the Lua closure f2.
-     * @param f1 -
-     * @param n1 -
-     * @param f2 -
-     * @param n2 -
+     * Makes an upvalue of `func1` refer to an upvalue of `func2`. Both functions provided must be Lua-defined, otherwise an error is thrown.
+     * @param func1 -
+     * @param upvalueIndex1 - The index of the upvalue in `func1`.
+     * @param func2 -
+     * @param upvalueIndex2 - The index of the upvalue in `func2`.
      */
-    declare function upvaluejoin(f1: Function, n1: number, f2: Function, n2: number): void;
+    declare function upvaluejoin(func1: Function, upvalueIndex1: number, func2: Function, upvalueIndex2: number): void;
 }
 
 /**
@@ -64319,11 +64381,11 @@ declare namespace debugoverlay {
      * It is not networked to clients, except for the.
      * It will not work when the game is paused.
      *
-     * @param origin - Position origin
-     * @param ang - Angle of the axis
-     * @param size - Size of the axis
-     * @param [lifetime = 1] - Number of seconds to appear
-     * @param [ignoreZ = false] - If true, will draw on top of everything; ignoring the Z buffer
+     * @param origin - Position origin.
+     * @param ang - Angle of the axis.
+     * @param size - Size of the axis.
+     * @param [lifetime = 1] - Number of seconds to appear.
+     * @param [ignoreZ = false] - If true, will draw on top of everything; ignoring the Z buffer.
      */
     declare function Axis(origin: Vector, ang: Angle, size: number, lifetime?: number, ignoreZ?: boolean): void;
 
@@ -64337,11 +64399,11 @@ declare namespace debugoverlay {
      * It is not networked to clients, except for the.
      * It will not work when the game is paused.
      *
-     * @param origin - Position origin
-     * @param mins - Minimum bounds of the box
-     * @param maxs - Maximum bounds of the box
-     * @param [lifetime = 1] - Number of seconds to appear
-     * @param [color = Color( 255, 255, 255, 255 )] - The color of the box. Uses the [Color](https://wiki.facepunch.com/gmod/Color)
+     * @param origin - Position origin.
+     * @param mins - Minimum bounds of the box.
+     * @param maxs - Maximum bounds of the box.
+     * @param [lifetime = 1] - Number of seconds to appear.
+     * @param [color = Color( 255, 255, 255, 255 )] - The color of the box. Uses the [Color](https://wiki.facepunch.com/gmod/Color).
      */
     declare function Box(origin: Vector, mins: Vector, maxs: Vector, lifetime?: number, color?: Color): void;
 
@@ -64355,12 +64417,12 @@ declare namespace debugoverlay {
      * It is not networked to clients, except for the.
      * It will not work when the game is paused.
      *
-     * @param pos - World position
-     * @param mins - The mins of the box (lowest corner)
-     * @param maxs - The maxs of the box (highest corner)
-     * @param ang - The angle to draw the box at
-     * @param [lifetime = 1] - Amount of seconds to show the box
-     * @param [color = Color( 255, 255, 255, 255 )] - The color of the box. Uses the [Color](https://wiki.facepunch.com/gmod/Color)
+     * @param pos - World position.
+     * @param mins - The mins of the box (lowest corner).
+     * @param maxs - The maxs of the box (highest corner).
+     * @param ang - The angle to draw the box at.
+     * @param [lifetime = 1] - Amount of seconds to show the box.
+     * @param [color = Color( 255, 255, 255, 255 )] - The color of the box. Uses the [Color](https://wiki.facepunch.com/gmod/Color).
      */
     declare function BoxAngles(pos: Vector, mins: Vector, maxs: Vector, ang: Angle, lifetime?: number, color?: Color): void;
 
@@ -64374,11 +64436,11 @@ declare namespace debugoverlay {
      * It is not networked to clients, except for the.
      * It will not work when the game is paused.
      *
-     * @param position - Position origin
-     * @param size - Size of the cross
-     * @param [lifetime = 1] - Number of seconds the cross will appear for
-     * @param [color = Color( 255, 255, 255 )] - The color of the cross. Uses the [Color](https://wiki.facepunch.com/gmod/Color)
-     * @param [ignoreZ = false] - If true, will draw on top of everything; ignoring the Z buffer
+     * @param position - Position origin.
+     * @param size - Size of the cross.
+     * @param [lifetime = 1] - Number of seconds the cross will appear for.
+     * @param [color = Color( 255, 255, 255 )] - The color of the cross. Uses the [Color](https://wiki.facepunch.com/gmod/Color).
+     * @param [ignoreZ = false] - If true, will draw on top of everything; ignoring the Z buffer.
      */
     declare function Cross(position: Vector, size: number, lifetime?: number, color?: Color, ignoreZ?: boolean): void;
 
@@ -64393,10 +64455,10 @@ declare namespace debugoverlay {
      * It will not work when the game is paused.
      *
      * @param pos - The position in 3D to display the text.
-     * @param line - Line of text, will offset text on the to display the new line unobstructed
-     * @param text - The text to display
-     * @param [lifetime = 1] - Number of seconds to appear
-     * @param [color = Color( 255, 255, 255 )] - The color of the box. Uses the [Color](https://wiki.facepunch.com/gmod/Color)
+     * @param line - Line of text, will offset text on the to display the new line unobstructed.
+     * @param text - The text to display.
+     * @param [lifetime = 1] - Number of seconds to appear.
+     * @param [color = Color( 255, 255, 255 )] - The color of the box. Uses the [Color](https://wiki.facepunch.com/gmod/Color).
      */
     declare function EntityTextAtPosition(pos: Vector, line: number, text: string, lifetime?: number, color?: Color): void;
 
@@ -64424,11 +64486,11 @@ declare namespace debugoverlay {
      * It is not networked to clients, except for the.
      * It will not work when the game is paused.
      *
-     * @param pos1 - First position of the line
-     * @param pos2 - Second position of the line
-     * @param [lifetime = 1] - Number of seconds to appear
-     * @param [color = Color( 255, 255, 255 )] - The color of the line. Uses the [Color](https://wiki.facepunch.com/gmod/Color)
-     * @param [ignoreZ = false] - If true, will draw on top of everything; ignoring the Z buffer
+     * @param pos1 - First position of the line.
+     * @param pos2 - Second position of the line.
+     * @param [lifetime = 1] - Number of seconds to appear.
+     * @param [color = Color( 255, 255, 255 )] - The color of the line. Uses the [Color](https://wiki.facepunch.com/gmod/Color).
+     * @param [ignoreZ = false] - If true, will draw on top of everything; ignoring the Z buffer.
      */
     declare function Line(pos1: Vector, pos2: Vector, lifetime?: number, color?: Color, ignoreZ?: boolean): void;
 
@@ -64444,9 +64506,9 @@ declare namespace debugoverlay {
      *
      * @param x - The position of the text, from 0 ( left ) to 1 ( right ).
      * @param y - The position of the text, from 0 ( top ) to 1 ( bottom ).
-     * @param text - The text to display
-     * @param [lifetime = 1] - Number of seconds to appear
-     * @param [color = Color( 255, 255, 255 )] - The color of the box. Uses the [Color](https://wiki.facepunch.com/gmod/Color)
+     * @param text - The text to display.
+     * @param [lifetime = 1] - Number of seconds to appear.
+     * @param [color = Color( 255, 255, 255 )] - The color of the box. Uses the [Color](https://wiki.facepunch.com/gmod/Color).
      */
     declare function ScreenText(x: number, y: number, text: string, lifetime?: number, color?: Color): void;
 
@@ -64460,11 +64522,11 @@ declare namespace debugoverlay {
      * It is not networked to clients, except for the.
      * It will not work when the game is paused.
      *
-     * @param origin - Position origin
-     * @param size - Size of the sphere
-     * @param [lifetime = 1] - Number of seconds to appear
-     * @param [color = Color( 255, 255, 255 )] - The color of the sphere. Uses the [Color](https://wiki.facepunch.com/gmod/Color)
-     * @param [ignoreZ = false] - If true, will draw on top of everything; ignoring the Z buffer
+     * @param origin - Position origin.
+     * @param size - Size of the sphere.
+     * @param [lifetime = 1] - Number of seconds to appear.
+     * @param [color = Color( 255, 255, 255 )] - The color of the sphere. Uses the [Color](https://wiki.facepunch.com/gmod/Color).
+     * @param [ignoreZ = false] - If true, will draw on top of everything; ignoring the Z buffer.
      */
     declare function Sphere(origin: Vector, size: number, lifetime?: number, color?: Color, ignoreZ?: boolean): void;
 
@@ -64482,9 +64544,9 @@ declare namespace debugoverlay {
      * @param vEnd - The end position of the box.
      * @param vMins - The "minimum" edge of the box.
      * @param vMaxs - The "maximum" edge of the box.
-     * @param ang -
-     * @param [lifetime = 1] - Number of seconds to appear
-     * @param [color = Color( 255, 255, 255 )] - The color of the box. Uses the [Color](https://wiki.facepunch.com/gmod/Color)
+     * @param ang - The angle to draw the box at.
+     * @param [lifetime = 1] - Number of seconds to appear.
+     * @param [color = Color( 255, 255, 255 )] - The color of the box. Uses the [Color](https://wiki.facepunch.com/gmod/Color).
      */
     declare function SweptBox(vStart: Vector, vEnd: Vector, vMins: Vector, vMaxs: Vector, ang: Angle, lifetime?: number, color?: Color): void;
 
@@ -64498,10 +64560,10 @@ declare namespace debugoverlay {
      * It is not networked to clients, except for the.
      * It will not work when the game is paused.
      *
-     * @param origin - Position origin
-     * @param text - String message to display
-     * @param [lifetime = 1] - Number of seconds to appear
-     * @param [viewCheck = false] - Clip text that is obscured
+     * @param origin - Position origin.
+     * @param text - String message to display.
+     * @param [lifetime = 1] - Number of seconds to appear.
+     * @param [viewCheck = false] - Clip text that is obscured.
      */
     declare function Text(origin: Vector, text: string, lifetime?: number, viewCheck?: boolean): void;
 
@@ -64515,12 +64577,12 @@ declare namespace debugoverlay {
      * It is not networked to clients, except for the.
      * It will not work when the game is paused.
      *
-     * @param pos1 - First point of the triangle
-     * @param pos2 - Second point of the triangle
-     * @param pos3 - Third point of the triangle
-     * @param [lifetime = 1] - Number of seconds to appear
-     * @param [color = Color( 255, 255, 255 )] - The color of the box. Uses the [Color](https://wiki.facepunch.com/gmod/Color)
-     * @param [ignoreZ = false] - If true, will draw on top of everything; ignoring the Z buffer
+     * @param pos1 - First point of the triangle.
+     * @param pos2 - Second point of the triangle.
+     * @param pos3 - Third point of the triangle.
+     * @param [lifetime = 1] - Number of seconds to appear.
+     * @param [color = Color( 255, 255, 255 )] - The color of the box. Uses the [Color](https://wiki.facepunch.com/gmod/Color).
+     * @param [ignoreZ = false] - If true, will draw on top of everything; ignoring the Z buffer.
      */
     declare function Triangle(pos1: Vector, pos2: Vector, pos3: Vector, lifetime?: number, color?: Color, ignoreZ?: boolean): void;
 }
@@ -64532,7 +64594,7 @@ declare namespace derma {
     /**
      * 🟨🟩 [Client and Menu]
      *
-     * Gets the color from a Derma skin of a panel and returns default color if not found
+     * Gets the color from a Derma skin of a panel and returns default color if not found.
      * @param name -
      * @param pnl -
      * @param default_ - The default color in case of failure.
@@ -64547,9 +64609,9 @@ declare namespace derma {
      * Use [derma.GetControlList](https://wiki.facepunch.com/gmod/derma.GetControlList) to retrieve this list.
      *
      * It's a list of tables, each having 3 keys, all from [derma.DefineControl](https://wiki.facepunch.com/gmod/derma.DefineControl) arguments:
-     * * [string](https://wiki.facepunch.com/gmod/string) ClassName - The class name of the panel
-     * * [string](https://wiki.facepunch.com/gmod/string) Description - The description of the panel
-     * * [string](https://wiki.facepunch.com/gmod/string) BaseClass - The base class of the panel
+     * * [string](https://wiki.facepunch.com/gmod/string) ClassName - The class name of the panel.
+     * * [string](https://wiki.facepunch.com/gmod/string) Description - The description of the panel.
+     * * [string](https://wiki.facepunch.com/gmod/string) BaseClass - The base class of the panel.
      * @returns any - The list of all registered derma controls.
      */
     declare function Controls(): any;
@@ -64564,21 +64626,21 @@ declare namespace derma {
      * * Adds a key "Derma" - This is returned by [derma.GetControlList](https://wiki.facepunch.com/gmod/derma.GetControlList)
      * * Makes a global table with the name of the control (This is technically deprecated and should not be relied upon)
      * * If reloading (i.e. called this function with name of an existing panel), updates all existing instances of panels with this name. (Updates functions, calls [PANEL:PreAutoRefresh](https://wiki.facepunch.com/gmod/PANEL:PreAutoRefresh) and [PANEL:PostAutoRefresh](https://wiki.facepunch.com/gmod/PANEL:PostAutoRefresh), etc.)
-     * @param name - Name of the newly created control
-     * @param description - Description of the control
-     * @param tab - Table containing control methods and properties
-     * @param base - Derma control to base the new control off of
-     * @returns any - A table containing the new control's methods and properties
+     * @param name - Name of the newly created control.
+     * @param description - Description of the control.
+     * @param tab - Table containing control methods and properties.
+     * @param base - Derma control to base the new control off of.
+     * @returns any - A table containing the new control's methods and properties.
      */
     declare function DefineControl(name: string, description: string, tab: any, base: string): any;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
-     * Defines a new skin so that it is usable by Derma. The default skin can be found in `garrysmod/lua/skins/default.lua`
-     * @param name - Name of the skin
-     * @param descriptions - Description of the skin
-     * @param skin - Table containing skin data
+     * Defines a new skin so that it is usable by Derma. The default skin can be found in `garrysmod/lua/skins/default.lua`.
+     * @param name - Name of the skin.
+     * @param descriptions - Description of the skin.
+     * @param skin - Table containing skin data.
      */
     declare function DefineSkin(name: string, descriptions: string, skin: any): void;
 
@@ -64593,25 +64655,25 @@ declare namespace derma {
     /**
      * 🟨🟩 [Client and Menu]
      *
-     * Returns the default skin table, which can be changed with the hook [GM:ForceDermaSkin](https://wiki.facepunch.com/gmod/GM:ForceDermaSkin)
-     * @returns any - Skin table
+     * Returns the default skin table, which can be changed with the hook [GM:ForceDermaSkin](https://wiki.facepunch.com/gmod/GM:ForceDermaSkin).
+     * @returns any - The default skin table.
      */
     declare function GetDefaultSkin(): any;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
-     * Returns the skin table of the skin with the supplied name
-     * @param name - Name of skin
-     * @returns any - Skin table
+     * Returns the skin table of the skin with the supplied name.
+     * @param name - Name of skin.
+     * @returns any - The skin table.
      */
     declare function GetNamedSkin(name: string): any;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
-     * Returns a copy of the table containing every Derma skin
-     * @returns any - Table of every Derma skin
+     * Returns a copy of the table containing every Derma skin.
+     * @returns any - Table of every Derma skin.
      */
     declare function GetSkinTable(): any;
 
@@ -64633,15 +64695,15 @@ declare namespace derma {
     /**
      * 🟨🟩 [Client and Menu]
      *
-     * Checks if a matching hook function exists in the skin _(based on the concatenation of type and name args)_, Then calls it.
+     * Checks if a matching hook function exists in the skin _(based on the concatenation of type and name args)_, then calls it.
      *
-     * This function is used dynamically inside [Global.Derma_Hook](https://wiki.facepunch.com/gmod/Global.Derma_Hook)
+     * This function is used dynamically inside [Global.Derma_Hook](https://wiki.facepunch.com/gmod/Global.Derma_Hook).
      * @param type - The type of hook to run, usually `Paint`.
      * @param name - The name of the hook/panel to run. Example: `Button`.
-     * @param panel - The panel to call the hook for
-     * @param [vararg1 = nil] - First parameter for the panel hook. i.e. width of the panel for <page text="Paint">PANEL:Paint</page> hooks.
-     * @param [vararg2 = nil] - Second parameter for the panel hook. i.e. height of the panel for <page text="Paint">PANEL:Paint</page> hooks.
-     * @returns any - The returned variable from the skin hook
+     * @param panel - The panel to call the hook for.
+     * @param [vararg1 = nil] - First parameter for the panel hook. i.e. width of the panel for.<page text="Paint">PANEL:Paint</page> hooks.
+     * @param [vararg2 = nil] - Second parameter for the panel hook. i.e. height of the panel for.<page text="Paint">PANEL:Paint</page> hooks.
+     * @returns any - The returned variable from the skin hook.
      */
     declare function SkinHook(type: string, name: string, panel: Panel, vararg1?: any, vararg2?: any): any;
 
@@ -64659,9 +64721,9 @@ declare namespace derma {
      * Returns a function to draw a specified texture of panels skin.
      *
      * These are usually generated via [GWEN.CreateTextureBorder](https://wiki.facepunch.com/gmod/GWEN.CreateTextureBorder) and similar.
-     * @param name - The identifier of the texture
+     * @param name - The identifier of the texture.
      * @param pnl - Panel to get the skin of.
-     * @param [fallback = nil] - What to return if we failed to retrieve the texture
+     * @param [fallback = nil] - What to return if we failed to retrieve the texture.
      * @returns Function - A function that is created with the [GWEN](https://wiki.facepunch.com/gmod/GWEN) library to draw a texture.
      * <callback>
      * 	<arg name="x" type="number">X coordinate for the box.</arg>
@@ -64683,7 +64745,7 @@ declare namespace dragndrop {
      *
      * Calls the receiver function of hovered panel.
      * @param bDoDrop - true if the mouse was released, false if we right clicked.
-     * @param command - The command value. This should be the ID of the clicked dropdown menu ( if right clicked, or nil )
+     * @param command - The command value. This should be the ID of the clicked dropdown menu ( if right clicked, or nil ).
      * @param mx - The local to the panel mouse cursor X position when the click happened.
      * @param my - The local to the panel  mouse cursor Y position when the click happened.
      */
@@ -64791,7 +64853,7 @@ declare namespace draw {
      *
      * <rendercontext hook="false" type="2D"></rendercontext>
      * @param font - Name of the font to get the height of.
-     * @returns number - The font height
+     * @returns number - The font height.
      */
     declare function GetFontHeight(font: string): number;
 
@@ -64896,8 +64958,8 @@ declare namespace draw {
      *
      * <rendercontext hook="false" type="2D"></rendercontext>
      * @param textdata - The text properties. See the [Structures/TextData](https://wiki.facepunch.com/gmod/Structures/TextData)
-     * @returns [1] number - Width of drawn text
-     * @returns [2] number - Height of drawn text
+     * @returns [1] number - Width of drawn text.
+     * @returns [2] number - Height of drawn text.
      */
     declare function Text(textdata: TextData): LuaMultiReturn<[number, number]>;
 
@@ -64907,7 +64969,7 @@ declare namespace draw {
      * Works like [draw.Text](https://wiki.facepunch.com/gmod/draw.Text), but draws the text with a shadow.
      *
      * <rendercontext hook="false" type="2D"></rendercontext>
-     * @param textdata - The text properties. See [Structures/TextData](https://wiki.facepunch.com/gmod/Structures/TextData)
+     * @param textdata - The text properties. See [Structures/TextData](https://wiki.facepunch.com/gmod/Structures/TextData).
      * @param distance - How far away the shadow appears.
      * @param [alpha = 200] - How visible the shadow is (0-255).
      * @returns [1] number - The width of drawn text.
@@ -64954,9 +65016,9 @@ declare namespace drive {
      * 🟨🟦 [Shared]
      *
      * Used internally to make [DRIVE:CalcView](https://wiki.facepunch.com/gmod/DRIVE:CalcView) work, called by default from `base` gamemode's [GM:CalcView](https://wiki.facepunch.com/gmod/GM:CalcView) hook.
-     * @param ply - The player
-     * @param view - The view, see [Structures/ViewData](https://wiki.facepunch.com/gmod/Structures/ViewData)
-     * @returns boolean - true if succeeded
+     * @param ply - The player.
+     * @param view - The view, see [Structures/ViewData](https://wiki.facepunch.com/gmod/Structures/ViewData).
+     * @returns boolean - True if succeeded.
      */
     declare function CalcView(ply: Player, view: ViewData): boolean;
 
@@ -64964,8 +65026,8 @@ declare namespace drive {
      * 🟨🟦 [Shared]
      *
      * Clientside, the client creates the cmd (usercommand) from their input device (mouse, keyboard) and then it's sent to the server. Restrict view angles here.
-     * @param cmd - The user command
-     * @returns boolean - true if succeeded
+     * @param cmd - The user command.
+     * @returns boolean - True if succeeded.
      */
     declare function CreateMove(cmd: CUserCmd): boolean;
 
@@ -64973,7 +65035,7 @@ declare namespace drive {
      * 🟨🟦 [Shared]
      *
      * Destroys players current driving method.
-     * @param ply - The player to affect
+     * @param ply - The player to affect.
      */
     declare function DestroyMethod(ply: Player): void;
 
@@ -64981,8 +65043,8 @@ declare namespace drive {
      * 🟨🟦 [Shared]
      *
      * Player has stopped driving the entity.
-     * @param ply - The player
-     * @param ent - The entity
+     * @param ply - The player.
+     * @param ent - The entity.
      */
     declare function End(ply: Player, ent: Entity): void;
 
@@ -64990,9 +65052,9 @@ declare namespace drive {
      * 🟨🟦 [Shared]
      *
      * The move is finished. Copy mv back into the target.
-     * @param ply - The player
-     * @param mv - The move data
-     * @returns boolean - true if succeeded
+     * @param ply - The player.
+     * @param mv - The move data.
+     * @returns boolean - True if succeeded.
      */
     declare function FinishMove(ply: Player, mv: CMoveData): boolean;
 
@@ -65000,7 +65062,7 @@ declare namespace drive {
      * 🟨🟦 [Shared]
      *
      * Returns ( or creates if inexistent ) a driving method.
-     * @param ply - The player
+     * @param ply - The player.
      * @returns any - A method object.
      */
     declare function GetMethod(ply: Player): any;
@@ -65009,9 +65071,9 @@ declare namespace drive {
      * 🟨🟦 [Shared]
      *
      * The move is executed here.
-     * @param ply - The player
-     * @param mv - The move data
-     * @returns boolean - true if succeeded
+     * @param ply - The player.
+     * @param mv - The move data.
+     * @returns boolean - True if succeeded.
      */
     declare function Move(ply: Player, mv: CMoveData): boolean;
 
@@ -65019,9 +65081,9 @@ declare namespace drive {
      * 🟨🟦 [Shared]
      *
      * Starts driving for the player.
-     * @param ply - The player to affect
-     * @param ent - The entity to drive
-     * @param mode - The driving mode
+     * @param ply - The player to affect.
+     * @param ent - The entity to drive.
+     * @param mode - The driving mode.
      */
     declare function PlayerStartDriving(ply: Player, ent: Entity, mode: string): void;
 
@@ -65029,7 +65091,7 @@ declare namespace drive {
      * 🟨🟦 [Shared]
      *
      * Stops the player from driving anything. ( For example a prop in sandbox )
-     * @param ply - The player to affect
+     * @param ply - The player to affect.
      */
     declare function PlayerStopDriving(ply: Player): void;
 
@@ -65046,9 +65108,9 @@ declare namespace drive {
     /**
      * 🟨🟦 [Shared]
      *
-     * Called when the player first starts driving this entity
-     * @param ply - The player
-     * @param ent - The entity
+     * Called when the player first starts driving this entity.
+     * @param ply - The player.
+     * @param ent - The entity.
      */
     declare function Start(ply: Player, ent: Entity): void;
 
@@ -65056,10 +65118,10 @@ declare namespace drive {
      * 🟨🟦 [Shared]
      *
      * The user command is received by the server and then converted into a move. This is also run clientside when in multiplayer, for prediction to work.
-     * @param ply - The player
-     * @param mv - The move data
-     * @param cmd - The user command
-     * @returns boolean - true if succeeded
+     * @param ply - The player.
+     * @param mv - The move data.
+     * @param cmd - The user command.
+     * @returns boolean - True if succeeded.
      */
     declare function StartMove(ply: Player, mv: CMoveData, cmd: CUserCmd): boolean;
 }
@@ -65088,8 +65150,8 @@ declare namespace duplicator {
      * 🟦 [Server]
      *
      * Calls every function registered with [duplicator.RegisterBoneModifier](https://wiki.facepunch.com/gmod/duplicator.RegisterBoneModifier) on each bone the ent has.
-     * @param ply - The player whose entity this is
-     * @param ent - The entity in question
+     * @param ply - The player whose entity this is.
+     * @param ent - The entity in question.
      */
     declare function ApplyBoneModifiers(ply: Player, ent: Entity): void;
 
@@ -65097,8 +65159,8 @@ declare namespace duplicator {
      * 🟦 [Server]
      *
      * Calls every function registered with [duplicator.RegisterEntityModifier](https://wiki.facepunch.com/gmod/duplicator.RegisterEntityModifier) on the entity.
-     * @param ply - The player whose entity this is
-     * @param ent - The entity in question
+     * @param ply - The player whose entity this is.
+     * @param ent - The entity in question.
      */
     declare function ApplyEntityModifiers(ply: Player, ent: Entity): void;
 
@@ -65114,8 +65176,8 @@ declare namespace duplicator {
      * 🟦 [Server]
      *
      * Clears/removes the chosen entity modifier from the entity.
-     * @param ent - The entity the modification is stored on
-     * @param key - The key of the stored entity modifier
+     * @param ent - The entity the modification is stored on.
+     * @param key - The key of the stored entity modifier.
      */
     declare function ClearEntityModifier(ent: Entity, key: any): void;
 
@@ -65139,7 +65201,7 @@ declare namespace duplicator {
      * * [table](https://wiki.facepunch.com/gmod/table) Constraints
      * * [Vector](https://wiki.facepunch.com/gmod/Vector) Mins
      * * [Vector](https://wiki.facepunch.com/gmod/Vector) Maxs
-     * The values of Mins & Maxs from the table are returned from [duplicator.WorkoutSize](https://wiki.facepunch.com/gmod/duplicator.WorkoutSize)
+     * The values of Mins & Maxs from the table are returned from [duplicator.WorkoutSize](https://wiki.facepunch.com/gmod/duplicator.WorkoutSize).
      */
     declare function Copy(ent: Entity, tableToAdd?: any): any;
 
@@ -65159,9 +65221,9 @@ declare namespace duplicator {
     /**
      * 🟦 [Server]
      *
-     * Returns a table with some entity data that can be used to create a new entity with [duplicator.CreateEntityFromTable](https://wiki.facepunch.com/gmod/duplicator.CreateEntityFromTable)
-     * @param ent - The entity table to save
-     * @returns EntityCopyData - See [Structures/EntityCopyData](https://wiki.facepunch.com/gmod/Structures/EntityCopyData)
+     * Returns a table with some entity data that can be used to create a new entity with [duplicator.CreateEntityFromTable](https://wiki.facepunch.com/gmod/duplicator.CreateEntityFromTable).
+     * @param ent - The entity table to save.
+     * @returns EntityCopyData - See [Structures/EntityCopyData](https://wiki.facepunch.com/gmod/Structures/EntityCopyData).
      */
     declare function CopyEntTable(ent: Entity): EntityCopyData;
 
@@ -65169,8 +65231,8 @@ declare namespace duplicator {
      * 🟦 [Server]
      *
      * Creates a constraint from a saved/copied constraint table.
-     * @param constraint - Saved/copied constraint table
-     * @param entityList - The list of entities that are to be constrained
+     * @param constraint - Saved/copied constraint table.
+     * @param entityList - The list of entities that are to be constrained.
      * @returns [1] Entity - The newly created constraint entity, if any.
      * For example, an entity of class `phys_pulleyconstraint` or `phys_spring`, etc., the functional entity of the constraint.
      * @returns [2] Entity - The second constraint related entity, if any.
@@ -65192,9 +65254,9 @@ declare namespace duplicator {
      * If an entity factory has been registered for the entity's Class, it will be called.
      *
      * Otherwise, [duplicator.GenericDuplicatorFunction](https://wiki.facepunch.com/gmod/duplicator.GenericDuplicatorFunction) will be called instead.
-     * @param ply - The player who wants to create something
-     * @param entTable - The duplication data to build the entity with. See [Structures/EntityCopyData](https://wiki.facepunch.com/gmod/Structures/EntityCopyData)
-     * @returns Entity - The newly created entity
+     * @param ply - The player who wants to create something.
+     * @param entTable - The duplication data to build the entity with. See [Structures/EntityCopyData](https://wiki.facepunch.com/gmod/Structures/EntityCopyData).
+     * @returns Entity - The newly created entity.
      */
     declare function CreateEntityFromTable(ply: Player, entTable: EntityCopyData): Entity;
 
@@ -65214,7 +65276,7 @@ declare namespace duplicator {
      * "Restores the bone's data."
      *
      * Loops through Bones and calls [Entity:ManipulateBoneScale](https://wiki.facepunch.com/gmod/Entity:ManipulateBoneScale), [Entity:ManipulateBoneAngles](https://wiki.facepunch.com/gmod/Entity:ManipulateBoneAngles) and [Entity:ManipulateBonePosition](https://wiki.facepunch.com/gmod/Entity:ManipulateBonePosition) on ent with the table keys and the subtable values s, a and p respectively.
-     * @param ent - The entity to be bone manipulated
+     * @param ent - The entity to be bone manipulated.
      * @param bones - Table with a [Structures/BoneManipulationData](https://wiki.facepunch.com/gmod/Structures/BoneManipulationData) for every bone (that has manipulations applied) using the bone ID as the table index.
      */
     declare function DoBoneManipulator(ent: Entity, bones: BoneManipulationData): void;
@@ -65222,9 +65284,9 @@ declare namespace duplicator {
     /**
      * 🟦 [Server]
      *
-     * Restores the flex data using [Entity:SetFlexWeight](https://wiki.facepunch.com/gmod/Entity:SetFlexWeight) and [Entity:SetFlexScale](https://wiki.facepunch.com/gmod/Entity:SetFlexScale)
-     * @param ent - The entity to restore the flexes on
-     * @param flex - The flexes to restore
+     * Restores the flex data using [Entity:SetFlexWeight](https://wiki.facepunch.com/gmod/Entity:SetFlexWeight) and [Entity:SetFlexScale](https://wiki.facepunch.com/gmod/Entity:SetFlexScale).
+     * @param ent - The entity to restore the flexes on.
+     * @param flex - The flexes to restore.
      * @param [scale = nil] - The flex scale to apply. (Flex scale is unchanged if omitted)
      */
     declare function DoFlex(ent: Entity, flex: any, scale?: number): void;
@@ -65237,8 +65299,8 @@ declare namespace duplicator {
      * Depending on the values of Model, Angle, Pos, Skin, Flex, Bonemanip, ModelScale, ColGroup, Name, and BodyG ([table](https://wiki.facepunch.com/gmod/table) of multiple values) in the data table, this calls [Entity:SetModel](https://wiki.facepunch.com/gmod/Entity:SetModel), [Entity:SetAngles](https://wiki.facepunch.com/gmod/Entity:SetAngles), [Entity:SetPos](https://wiki.facepunch.com/gmod/Entity:SetPos), [Entity:SetSkin](https://wiki.facepunch.com/gmod/Entity:SetSkin), [duplicator.DoFlex](https://wiki.facepunch.com/gmod/duplicator.DoFlex), [duplicator.DoBoneManipulator](https://wiki.facepunch.com/gmod/duplicator.DoBoneManipulator), [Entity:SetModelScale](https://wiki.facepunch.com/gmod/Entity:SetModelScale), [Entity:SetCollisionGroup](https://wiki.facepunch.com/gmod/Entity:SetCollisionGroup), [Entity:SetName](https://wiki.facepunch.com/gmod/Entity:SetName), [Entity:SetBodygroup](https://wiki.facepunch.com/gmod/Entity:SetBodygroup) on ent.
      *
      * If ent has a RestoreNetworkVars function, it is called with data.DT.
-     * @param ent - The entity to be applied upon
-     * @param data - The data to be applied onto the entity
+     * @param ent - The entity to be applied upon.
+     * @param data - The data to be applied onto the entity.
      */
     declare function DoGeneric(ent: Entity, data: any): void;
 
@@ -65248,9 +65310,9 @@ declare namespace duplicator {
      * "Applies bone data, generically."
      *
      * If data contains a PhysicsObjects table, it moves, re-angles and if relevent freezes all specified bones, first converting from local coordinates to world coordinates.
-     * @param ent - The entity to be applied upon
-     * @param [ply = nil] - The player who owns the entity. Unused in function as of early 2013
-     * @param data - The data to be applied onto the entity
+     * @param ent - The entity to be applied upon.
+     * @param [ply = nil] - The player who owns the entity. Unused in function as of early 2013.
+     * @param data - The data to be applied onto the entity.
      */
     declare function DoGenericPhysics(ent: Entity, ply?: Player, data?: any): void;
 
@@ -65285,10 +65347,10 @@ declare namespace duplicator {
      * 🟨🟦 [Shared]
      *
      * Returns the entity class factory registered with [duplicator.RegisterEntityClass](https://wiki.facepunch.com/gmod/duplicator.RegisterEntityClass).
-     * @param name - The name of the entity class factory
+     * @param name - The name of the entity class factory.
      * @returns any - Is compromised of the following members:
-     * * [function](https://wiki.facepunch.com/gmod/function) Func - The function that creates the entity
-     * * [table](https://wiki.facepunch.com/gmod/table) Args - Arguments to pass to the function
+     * * [function](https://wiki.facepunch.com/gmod/function) Func - The function that creates the entity.
+     * * [table](https://wiki.facepunch.com/gmod/table) Args - Arguments to pass to the function.
      */
     declare function FindEntityClass(name: string): any;
 
@@ -65298,19 +65360,19 @@ declare namespace duplicator {
      * "Generic function for duplicating stuff"
      *
      * This is called when [duplicator.CreateEntityFromTable](https://wiki.facepunch.com/gmod/duplicator.CreateEntityFromTable) can't find an entity factory to build with. It calls [duplicator.DoGeneric](https://wiki.facepunch.com/gmod/duplicator.DoGeneric) and [duplicator.DoGenericPhysics](https://wiki.facepunch.com/gmod/duplicator.DoGenericPhysics) to apply standard duplicator stored things such as the model and position.
-     * @param ply - The player who wants to create something
-     * @param data - The duplication data to build the entity with
-     * @returns Entity - The newly created entity
+     * @param ply - The player who wants to create something.
+     * @param data - The duplication data to build the entity with.
+     * @returns Entity - The newly created entity.
      */
     declare function GenericDuplicatorFunction(ply: Player, data: any): Entity;
 
     /**
      * 🟦 [Server]
      *
-     * Fills entStorageTable with all of the entities in a group connected with constraints. Fills constraintStorageTable with all of the constrains constraining the group.
+     * Fills entStorageTable with all of the entities in a group connected with constraints. Fills constraintStorageTable with all of the constraints constraining the group.
      * @param ent - The entity to start from
-     * @param entStorageTable - The table the entities will be inserted into
-     * @param constraintStorageTable - The table the constraints will be inserted into
+     * @param entStorageTable - The table the entities will be inserted into.
+     * @param constraintStorageTable - The table the constraints will be inserted into.
      * @returns [1] any - entStorageTable
      * @returns [2] any - constraintStorageTable
      */
@@ -65319,9 +65381,9 @@ declare namespace duplicator {
     /**
      * 🟨🟦 [Shared]
      *
-     * Returns whether the entity can be duplicated or not
-     * @param classname - An entity's classname
-     * @returns boolean - Returns true if the entity can be duplicated (nil otherwise)
+     * Returns whether the entity can be duplicated or not.
+     * @param classname - An entity's classname.
+     * @returns boolean - Returns true if the entity can be duplicated (nil otherwise).
      */
     declare function IsAllowed(classname: string): boolean;
 
@@ -65333,11 +65395,11 @@ declare namespace duplicator {
      * Calls [duplicator.CreateEntityFromTable](https://wiki.facepunch.com/gmod/duplicator.CreateEntityFromTable) on each sub-table of EntityList. If an entity is actually created, it calls [ENTITY:OnDuplicated](https://wiki.facepunch.com/gmod/ENTITY:OnDuplicated) with the entity's duplicator data, then [duplicator.ApplyEntityModifiers](https://wiki.facepunch.com/gmod/duplicator.ApplyEntityModifiers), [duplicator.ApplyBoneModifiers](https://wiki.facepunch.com/gmod/duplicator.ApplyBoneModifiers) and finally  [ENTITY:PostEntityPaste](https://wiki.facepunch.com/gmod/ENTITY:PostEntityPaste) is called.
      *
      * The constraints are then created with [duplicator.CreateConstraintFromTable](https://wiki.facepunch.com/gmod/duplicator.CreateConstraintFromTable).
-     * @param Player - The player who wants to create something
-     * @param EntityList - A table of duplicator data to create the entities from
-     * @param ConstraintList - A table of duplicator data to create the constraints from
-     * @returns [1] any - List of created entities
-     * @returns [2] any - List of created constraints
+     * @param Player - The player who wants to create something.
+     * @param EntityList - A table of duplicator data to create the entities from.
+     * @param ConstraintList - A table of duplicator data to create the constraints from.
+     * @returns [1] any - List of created entities.
+     * @returns [2] any - List of created constraints.
      */
     declare function Paste(Player: Player, EntityList: any, ConstraintList: any): LuaMultiReturn<[any, any]>;
 
@@ -65388,7 +65450,7 @@ declare namespace duplicator {
      * **Note:**
      * >Automatically calls [duplicator.Allow](https://wiki.facepunch.com/gmod/duplicator.Allow) for the entity class.
      *
-     * @param name - The ClassName of the entity you wish to register a factory for
+     * @param name - The ClassName of the entity you wish to register a factory for.
      * @param function_ - The factory function you want to have called.
      * <callback>
      * <arg type="Player" name="ply">The player that is spawning the entity.</arg>
@@ -65407,7 +65469,7 @@ declare namespace duplicator {
      * This function registers a piece of generic code that is run on all entities with this modifier. In order to have it actually run, use [duplicator.StoreEntityModifier](https://wiki.facepunch.com/gmod/duplicator.StoreEntityModifier).
      *
      * This function does nothing when run clientside.
-     * @param name - An identifier for your modification. This is not limited, so be verbose. `Person's 'Unbreakable' mod` is far less likely to cause conflicts than `unbreakable`
+     * @param name - An identifier for your modification. This is not limited, so be verbose. `Person's 'Unbreakable' mod` is far less likely to cause conflicts than `unbreakable`.
      * @param func - The function to be called for your modification.
      * <callback>
      * <arg type="Player" name="ply">The player that is spawning the entity.</arg>
@@ -65431,7 +65493,7 @@ declare namespace duplicator {
      *
      * "When a copy is copied it will be translated according to these.
      * If you set them - make sure to set them back to 0 0 0!"
-     * @param v - The angle to offset all pastes from
+     * @param v - The angle to offset all pastes from.
      */
     declare function SetLocalAng(v: Angle): void;
 
@@ -65440,39 +65502,39 @@ declare namespace duplicator {
      *
      * "When a copy is copied it will be translated according to these.
      * If you set them - make sure to set them back to 0 0 0!"
-     * @param v - The position to offset all pastes from
+     * @param v - The position to offset all pastes from.
      */
     declare function SetLocalPos(v: Vector): void;
 
     /**
      * 🟦 [Server]
      *
-     * Stores bone mod data for a registered bone modification function
-     * @param ent - The entity to add bone mod data to
+     * Stores bone mod data for a registered bone modification function.
+     * @param ent - The entity to add bone mod data to.
      * @param boneID - The bone ID.
-     * See [Entity:GetPhysicsObjectNum](https://wiki.facepunch.com/gmod/Entity:GetPhysicsObjectNum)
-     * @param key - The key for the bone modification
-     * @param data - The bone modification data that is passed to the bone modification function
+     * See [Entity:GetPhysicsObjectNum](https://wiki.facepunch.com/gmod/Entity:GetPhysicsObjectNum).
+     * @param key - The key for the bone modification.
+     * @param data - The bone modification data that is passed to the bone modification function.
      */
     declare function StoreBoneModifier(ent: Entity, boneID: number, key: any, data: any): void;
 
     /**
      * 🟦 [Server]
      *
-     * Stores an entity modifier into an entity for saving
-     * @param entity - The entity to store modifier in
-     * @param name - Unique modifier name as defined in [duplicator.RegisterEntityModifier](https://wiki.facepunch.com/gmod/duplicator.RegisterEntityModifier)
-     * @param data - Modifier data
+     * Stores an entity modifier into an entity for saving.
+     * @param entity - The entity to store modifier in.
+     * @param name - Unique modifier name as defined in [duplicator.RegisterEntityModifier](https://wiki.facepunch.com/gmod/duplicator.RegisterEntityModifier).
+     * @param data - Modifier data.
      */
     declare function StoreEntityModifier(entity: Entity, name: string, data: any): void;
 
     /**
      * 🟦 [Server]
      *
-     * Works out the AABB size of the duplication
+     * Works out the AABB size of the duplication.
      * @param Ents - A table of entity duplication datums.
-     * @returns [1] Vector - AABB mins vector
-     * @returns [2] Vector - AABB maxs vector
+     * @returns [1] Vector - AABB mins vector.
+     * @returns [2] Vector - AABB maxs vector.
      */
     declare function WorkoutSize(Ents: any): LuaMultiReturn<[Vector, Vector]>;
 }
@@ -65533,7 +65595,7 @@ declare namespace effects {
      *
      * **.**Returns the table of the effect specified.
      * @param name - Effect name.
-     * @returns any - Effect table.
+     * @returns any - The effect table.
      */
     declare function Create(name: string): any;
 
@@ -65561,12 +65623,12 @@ declare namespace effects {
      *
      * The frequency of the sound is limited internally, as to not overwhelm the player. (same as normal tracers)
      * @param start - Start position of the tracer.
-     * @param endpos - End position of the tracer
+     * @param endpos - End position of the tracer.
      * @param [tracerType = 1] - Tracer type. Acceptable values are:
-     * * 1 - Normal bullet
-     * * 2 - Gunship bullet
-     * * 4 - Strider bullet
-     * * 8 - Underwater bullet
+     * * 1 - Normal bullet.
+     * * 2 - Gunship bullet.
+     * * 4 - Strider bullet.
+     * * 8 - Underwater bullet.
      * This affects the default sound, as well as the distance from which the sound can be heard compared to the closest point on the tracer line to the <page text="player's eyes">Player:GetShootPos</page>.
      * @param [soundOverride = nil] - If set, this sound will be played instead of the default sound.
      */
@@ -65655,8 +65717,8 @@ declare namespace engine {
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
-     * Returns a table containing info for all installed gamemodes
-     * @returns any - gamemodes
+     * Returns a table containing info for all installed gamemodes.
+     * @returns any - The gamemodes.
      */
     declare function GetGamemodes(): any;
 
@@ -65664,7 +65726,7 @@ declare namespace engine {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns an array of tables corresponding to all games from which Garry's Mod supports mounting content.
-     * @returns any - A table of tables containing all mountable games
+     * @returns any - A table of tables containing all mountable games.
      */
     declare function GetGames(): any;
 
@@ -65675,7 +65737,7 @@ declare namespace engine {
      *
      * @deprecated Used internally for in-game menus, may be merged in the future into [engine.GetAddons](https://wiki.facepunch.com/gmod/engine.GetAddons).
      *
-     * @returns any - Returns a table with 5 keys (title, type, tags, wsid, timeadded)
+     * @returns any - Returns a table with 5 keys (title, type, tags, wsid, timeadded).
      */
     declare function GetUserContent(): any;
 
@@ -65692,7 +65754,7 @@ declare namespace engine {
     /**
      * 🟨🟩 [Client and Menu]
      *
-     * Returns true if the game is currently recording a demo file (.dem) using gm_demo
+     * Returns true if the game is currently recording a demo file (.dem) using gm_demo.
      * @returns boolean - Whether the game is currently recording a demo or not.
      */
     declare function IsRecordingDemo(): boolean;
@@ -65714,7 +65776,7 @@ declare namespace engine {
      * 🟨 [Client]
      *
      * Loads a duplication from the local filesystem.
-     * @param dupeName - Name of the file. e.g, `engine.OpenDupe("dupes/8b809dd7a1a9a375e75be01cdc12e61f.dupe")`
+     * @param dupeName - Name of the file. (e.g, `engine.OpenDupe("dupes/8b809dd7a1a9a375e75be01cdc12e61f.dupe")`).
      * @returns any - A table with a simple field:
      * * [string](https://wiki.facepunch.com/gmod/string) `data` - Compressed dupe data. Use util.JSONToTable to make it into a format useable by the duplicator tool.
      */
@@ -65775,8 +65837,8 @@ declare namespace engine {
      * **.**
      *
      * Saves a duplication as a file.
-     * @param dupe - Dupe table, encoded by [util.TableToJSON](https://wiki.facepunch.com/gmod/util.TableToJSON) and compressed by [util.Compress](https://wiki.facepunch.com/gmod/util.Compress)
-     * @param jpeg - The dupe icon, created by [render.Capture](https://wiki.facepunch.com/gmod/render.Capture)
+     * @param dupe - Dupe table, encoded by [util.TableToJSON](https://wiki.facepunch.com/gmod/util.TableToJSON) and compressed by [util.Compress](https://wiki.facepunch.com/gmod/util.Compress).
+     * @param jpeg - The dupe icon, created by [render.Capture](https://wiki.facepunch.com/gmod/render.Capture).
      */
     declare function WriteDupe(dupe: string, jpeg: string): void;
 
@@ -65784,7 +65846,7 @@ declare namespace engine {
      * 🟨 [Client]
      *
      * **.**
-     * Stores savedata into the game (can be loaded using the LoadGame menu)
+     * Stores savedata into the game. (can be loaded using the LoadGame menu)
      * @param saveData - Data generated by [gmsave.SaveMap](https://wiki.facepunch.com/gmod/gmsave.SaveMap).
      * @param name - Name the save will have.
      */
@@ -65835,10 +65897,10 @@ declare namespace ents {
      * @param ent2 - The second entity to attach the rope to.
      * @param ent2attach - The attachment ID on the second entity to attach the rope to, or a local Vector relative to the second entity.
      * @param [extra = nil] - Extra optional settings for the rope. Possible values are:
-     * * slack - How much extra rope to add to the length (default: 0)
-     * * width - Width of the rope (default: 2)
+     * * slack - How much extra rope to add to the length. (default: 0)
+     * * width - Width of the rope. (default: 2)
      * * segments - How many segments the rope should have (default: 8, valid range is [2,10])
-     * * material - Which material should the rope have (default: `"cable/cable"`)
+     * * material - Which material should the rope have. (default: `"cable/cable"`)
      * * nogravity - If set, the rope should have no gravity. (default: 0)
      * @returns Entity - Created entity (`C_RopeKeyframe`).
      */
@@ -65861,10 +65923,10 @@ declare namespace ents {
      * This function is capable of detecting clientside only entities by default.
      *
      * This internally uses [spatial partitioning](https://en.wikipedia.org/wiki/Space_partitioning) to avoid looping through all entities.
-     * @param start - The start position of the ray
-     * @param end - The end position of the ray
-     * @param [mins = nil] - The mins corner of the ray
-     * @param [maxs = nil] - The maxs corner of the ray
+     * @param start - The start position of the ray.
+     * @param end - The end position of the ray.
+     * @param [mins = nil] - The mins corner of the ray.
+     * @param [maxs = nil] - The maxs corner of the ray.
      * @returns Entity[] - Table of the found entities. There's a limit of 1024 entities.
      */
     declare function FindAlongRay(start: Vector, end: Vector, mins?: Vector, maxs?: Vector): Entity[];
@@ -65879,7 +65941,7 @@ declare namespace ents {
      * This works internally by iterating over [ents.GetAll](https://wiki.facepunch.com/gmod/ents.GetAll). `ents.FindByClass` is always faster than [ents.GetAll](https://wiki.facepunch.com/gmod/ents.GetAll) or [ents.Iterator](https://wiki.facepunch.com/gmod/ents.Iterator).
      * @param class_ - The class of the entities to find, supports wildcards.
      * Asterisks (`*`) are the only wildcard supported.
-     * @returns Entity[] - A table containing all found entities
+     * @returns Entity[] - A table containing all found entities.
      */
     declare function FindByClass(class_: string): Entity[];
 
@@ -65887,9 +65949,9 @@ declare namespace ents {
      * 🟨🟦 [Shared]
      *
      * Finds all entities that are of given class and are children of given entity. This works internally by iterating over [ents.FindByClass](https://wiki.facepunch.com/gmod/ents.FindByClass).
-     * @param class_ - The class of entities to search for
-     * @param parent - Parent of entities that are being searched for
-     * @returns Entity[] - A table of found entities or nil if none are found
+     * @param class_ - The class of entities to search for.
+     * @param parent - Parent of entities that are being searched for.
+     * @returns Entity[] - A table of found entities or nil if none are found.
      */
     declare function FindByClassAndParent(class_: string, parent: Entity): Entity[];
 
@@ -65910,8 +65972,8 @@ declare namespace ents {
      * Gets all entities with the given hammer targetname. This works internally by iterating over [ents.GetAll](https://wiki.facepunch.com/gmod/ents.GetAll).
      *
      * Doesn't do anything on client.
-     * @param name - The targetname to look for
-     * @returns Entity[] - A table of all found entities
+     * @param name - The targetname to look for.
+     * @returns Entity[] - A table of all found entities.
      */
     declare function FindByName(name: string): Entity[];
 
@@ -66021,7 +66083,7 @@ declare namespace ents {
      * Similar to **#**[ents.GetAll](https://wiki.facepunch.com/gmod/ents.GetAll)() but with better performance since the entity table doesn't have to be generated.
      * If [ents.GetAll](https://wiki.facepunch.com/gmod/ents.GetAll) is already being called for iteration, than using the **#** operator on the table will be faster than calling this function since it is JITted.
      * @param [IncludeKillMe = false] - Include entities with the FL_KILLME flag. This will skip an internal loop, and the function will be more efficient as a byproduct.
-     * @returns number - Number of entities
+     * @returns number - Number of entities.
      */
     declare function GetCount(IncludeKillMe?: boolean): number;
 
@@ -66031,7 +66093,7 @@ declare namespace ents {
      * Returns the amount of networked entities, which is limited to 8192. [ents.Create](https://wiki.facepunch.com/gmod/ents.Create) will fail somewhere between 8064 and 8176 - this can vary based on the amount of existing temp ents.
      *
      * See also [MAX_EDICT_BITS](https://wiki.facepunch.com/gmod/Global_Variables#maxedictbits) global variable.
-     * @returns number - Number of networked entities
+     * @returns number - Number of networked entities.
      */
     declare function GetEdictCount(): number;
 
@@ -66084,7 +66146,7 @@ declare namespace file {
      * Appends a file relative to the `data` folder.
      * @param name - The file's name.
      * @param content - The content which should be appended to the file.
-     * @returns boolean - If the operation was successful
+     * @returns boolean - If the operation was successful.
      */
     declare function Append(name: string, content: string): boolean;
 
@@ -66159,8 +66221,8 @@ declare namespace file {
      * * `namedesc` sort the files descending by name.
      * * `dateasc` sort the files ascending by date.
      * * `datedesc` sort the files descending by date.
-     * @returns [1] any - A table of found files, or `nil` if the path is invalid
-     * @returns [2] any - A table of found directories, or `nil` if the path is invalid
+     * @returns [1] any - A table of found files, or `nil` if the path is invalid.
+     * @returns [2] any - A table of found directories, or `nil` if the path is invalid.
      */
     declare function Find(name: string, path: string, sorting?: string): LuaMultiReturn<[any, any]>;
 
@@ -66180,12 +66242,12 @@ declare namespace file {
      * Attempts to open a file with the given mode.
      * @param fileName - The files name. See [file.Write](https://wiki.facepunch.com/gmod/file.Write) for details on filename restrictions when writing to files.
      * @param fileMode - The mode to open the file in. Possible values are:
-     * * **r** - read mode
-     * * **w** - write mode
-     * * **a** - append mode
-     * * **rb** - binary read mode
-     * * **wb** - binary write mode
-     * * **ab** - binary append mode
+     * * **r** - read mode.
+     * * **w** - write mode.
+     * * **a** - append mode.
+     * * **rb** - binary read mode.
+     * * **wb** - binary write mode.
+     * * **ab** - binary append mode.
      * @param gamePath - The path to look for the files and directories in. See <page text="this list">File_Search_Paths</page> for a list of valid paths.
      * @returns file_class - The opened file object, or `nil` if it failed to open due to it not existing or being used by another process.
      */
@@ -66269,7 +66331,7 @@ declare namespace file {
      * * .ogg
      * Restricted symbols are: `":`, and multiple consecutive spaces, as well as pretty much every other non Latin (a-Z) character
      * @param content - The content that will be written into the file.
-     * @returns boolean - If the operation was successful
+     * @returns boolean - If the operation was successful.
      */
     declare function Write(fileName: string, content: string): boolean;
 }
@@ -66310,7 +66372,7 @@ declare namespace frame_blend {
      * 🟨 [Client]
      *
      * Returns whether frame blend post processing effect is enabled or not.
-     * @returns boolean - Is frame blend enabled or not
+     * @returns boolean - Is frame blend enabled or not.
      */
     declare function IsActive(): boolean;
 
@@ -66333,8 +66395,8 @@ declare namespace frame_blend {
     /**
      * 🟨 [Client]
      *
-     * Returns whether we should skip frame or not
-     * @returns boolean - Should the frame be skipped or not
+     * Returns whether we should skip frame or not.
+     * @returns boolean - Should the frame be skipped or not.
      */
     declare function ShouldSkipFrame(): boolean;
 }
@@ -66444,7 +66506,7 @@ declare namespace game {
      *
      * Returns the damage type of given ammo type.
      * @param id - Ammo ID to retrieve the damage type of. Starts from 1.
-     * @returns DMG - See [Enums/DMG](https://wiki.facepunch.com/gmod/Enums/DMG)
+     * @returns DMG - See [Enums/DMG](https://wiki.facepunch.com/gmod/Enums/DMG).
      */
     declare function GetAmmoDamageType(id: number): DMG;
 
@@ -66452,8 +66514,8 @@ declare namespace game {
      * 🟨🟦 [Shared]
      *
      * Returns the [Structures/AmmoData](https://wiki.facepunch.com/gmod/Structures/AmmoData) for given ID.
-     * @param id - ID of the ammo type to look up the data for
-     * @returns AmmoData - The [Structures/AmmoData](https://wiki.facepunch.com/gmod/Structures/AmmoData) containing all ammo data
+     * @param id - ID of the ammo type to look up the data for.
+     * @returns AmmoData - The [Structures/AmmoData](https://wiki.facepunch.com/gmod/Structures/AmmoData) containing all ammo data.
      */
     declare function GetAmmoData(id: number): AmmoData;
 
@@ -66462,7 +66524,7 @@ declare namespace game {
      *
      * Returns the ammo bullet force that is applied when an entity is hit by a bullet of given ammo type.
      * @param id - Ammo ID to retrieve the force of. Starts from 1.
-     * @returns number
+     * @returns number - The ammo force.
      */
     declare function GetAmmoForce(id: number): number;
 
@@ -66472,8 +66534,8 @@ declare namespace game {
      * Returns the ammo type ID for given ammo type name.
      *
      * See [game.GetAmmoName](https://wiki.facepunch.com/gmod/game.GetAmmoName) for reverse.
-     * @param name - Name of the ammo type to look up ID of
-     * @returns number - The ammo type ID of given ammo type name, or -1 if not found
+     * @param name - Name of the ammo type to look up ID of.
+     * @returns number - The ammo type ID of given ammo type name, or -1 if not found.
      */
     declare function GetAmmoID(name: string): number;
 
@@ -66481,7 +66543,7 @@ declare namespace game {
      * 🟨🟦 [Shared]
      *
      * Returns the real maximum amount of ammo of given ammo ID, regardless of the setting of `gmod_maxammo` convar.
-     * @param id - Ammo type ID
+     * @param id - Ammo type ID.
      * @returns number - The maximum amount of reserve ammo a player can hold of this ammo type.
      */
     declare function GetAmmoMax(id: number): number;
@@ -66539,13 +66601,13 @@ declare namespace game {
     /**
      * 🟦 [Server]
      *
-     * Returns whether a Global State is off, active or dead ( inactive )
+     * Returns whether a Global State is off, active or dead ( inactive ).
      *
      * See [Global States](https://wiki.facepunch.com/gmod/Global_States) for more information.
      * @param name - The name of the Global State to retrieve the state of.
      * If the Global State by that name does not exist, **GLOBAL_DEAD** will be returned.
      * See [Global States](https://wiki.facepunch.com/gmod/Global_States) for a list of default global states.
-     * @returns GLOBAL - The state of the Global State. See [Enums/GLOBAL](https://wiki.facepunch.com/gmod/Enums/GLOBAL)
+     * @returns GLOBAL - The state of the Global State. See [Enums/GLOBAL](https://wiki.facepunch.com/gmod/Enums/GLOBAL).
      */
     declare function GetGlobalState(name: string): GLOBAL;
 
@@ -66560,7 +66622,7 @@ declare namespace game {
      * **Note:**
      * >Returns "loopback" in singleplayer.
      *
-     * @returns string - The IP address and port in the format "x.x.x.x:x"
+     * @returns string - The IP address and port in the format "x.x.x.x:x".
      */
     declare function GetIPAddress(): string;
 
@@ -66580,8 +66642,18 @@ declare namespace game {
     /**
      * 🟦 [Server]
      *
+     * Returns the current map change count for the server.
+     *
+     * This is useful to determine whether the current map is the initial map, or whether a `changelevel` (using `map` command is also detected) has occurred at any point in the server's session.
+     * @returns number - The current map change count. Will start at `1`.
+     */
+    declare function GetMapChangeCount(): number;
+
+    /**
+     * 🟦 [Server]
+     *
      * Returns the next map that would be loaded according to the file that is set by the mapcyclefile convar.
-     * @returns string - nextMap or nil if called too early
+     * @returns string - nextMap or nil if called too early.
      */
     declare function GetMapNext(): string;
 
@@ -66601,7 +66673,7 @@ declare namespace game {
      * **TIP:** You can use this function in your scripted NPCs or Nextbots to make them stronger, however, it is a good idea to lock powerful attacks behind the highest difficulty instead of just increasing the health.
      *
      * **Note:**
-     * >Internally this is tied to the gamerules entity, so you'll have to wait until [GM:InitPostEntity](https://wiki.facepunch.com/gmod/GM:InitPostEntity) is called to return the skill level
+     * >Internally this is tied to the gamerules entity, so you'll have to wait until [GM:InitPostEntity](https://wiki.facepunch.com/gmod/GM:InitPostEntity) is called to return the skill level.
      *
      * @returns number - The difficulty level, Easy (1), Normal (2), Hard (3).
      */
@@ -66612,11 +66684,11 @@ declare namespace game {
      *
      * Returns the time scale set with [game.SetTimeScale](https://wiki.facepunch.com/gmod/game.SetTimeScale).
      *
-     * 		If you want to get the value of `host_timescale` use
+     * 		If you want to get the value of `host_timescale`, use:
      * 		```lua
      * local timescale = GetConVar( "host_timescale" ):GetFloat()
      * 		```
-     * @returns number - The time scale
+     * @returns number - The time scale.
      */
     declare function GetTimeScale(): number;
 
@@ -66624,7 +66696,7 @@ declare namespace game {
      * 🟨🟦 [Shared]
      *
      * Returns the worldspawn entity.
-     * @returns Entity - The world
+     * @returns Entity - The world.
      */
     declare function GetWorld(): Entity;
 
@@ -66640,7 +66712,7 @@ declare namespace game {
      * 🟦 [Server]
      *
      * Kicks a player from the server. This can be ran before the player has spawned.
-     * @param id - <page text="UserID">Player:UserID</page>, <page text="SteamID">Player:SteamID</page> or <page text="SteamID64">Player:SteamID64</page> of the player to kick. Uses SteamID32 eg STEAM_0:0:00000000
+     * @param id - <page text="UserID">Player:UserID</page>, <page text="SteamID">Player:SteamID</page> or <page text="SteamID64">Player:SteamID64</page> of the player to kick. Uses SteamID32 eg STEAM_0:0:00000000.
      * @param [reason = No reason given] - Reason to display to the player. This can span across multiple lines.
      * **Warning:**
      * >This will be shortened to ~512 chars, though this includes the command itself and the player index so will realistically be more around ~483. It is recommended to avoid going near the limit to avoid truncation.
@@ -66668,7 +66740,7 @@ declare namespace game {
      * 🟨🟦 [Shared]
      *
      * Returns the maximum amount of players (including bots) that the server can have.
-     * @returns number - The maximum amount of players
+     * @returns number - The maximum amount of players.
      */
     declare function MaxPlayers(): number;
 
@@ -66676,7 +66748,7 @@ declare namespace game {
      * 🟨🟦 [Shared]
      *
      * Mounts a GMA addon from the disk.
-     * Can be used with [steamworks.DownloadUGC](https://wiki.facepunch.com/gmod/steamworks.DownloadUGC)
+     * Can be used with [steamworks.DownloadUGC](https://wiki.facepunch.com/gmod/steamworks.DownloadUGC).
      *
      * **Note:**
      * >Any error models currently loaded that the mounted addon provides will be reloaded.
@@ -66684,8 +66756,8 @@ declare namespace game {
      * Any error materials currently loaded that the mounted addon provides will NOT be reloaded. That means that this cannot be used to fix missing map materials, as the map materials are loaded before you are able to call this.
      *
      * @param path - Location of the GMA file to mount, retrieved from [steamworks.DownloadUGC](https://wiki.facepunch.com/gmod/steamworks.DownloadUGC) or relative to the `garrysmod/` directory (ignores mounting). This file does not have to end with the .gma extension, but will be interpreted as a GMA.
-     * @returns [1] boolean - success
-     * @returns [2] any - If successful, a table of files that have been mounted
+     * @returns [1] boolean - success.
+     * @returns [2] any - If successful, a table of files that have been mounted.
      */
     declare function MountGMA(path: string): LuaMultiReturn<[boolean, any]>;
 
@@ -66712,13 +66784,13 @@ declare namespace game {
     /**
      * 🟦 [Server]
      *
-     * Sets whether a Global State is off, active or dead ( inactive )
+     * Sets whether a Global State is off, active or dead ( inactive ).
      *
      * See [Global States](https://wiki.facepunch.com/gmod/Global_States) for more information.
      * @param name - The name of the Global State to set.
      * If the Global State by that name does not exist, it will be created.
      * See [Global States](https://wiki.facepunch.com/gmod/Global_States) for a list of default global states.
-     * @param state - The state of the Global State. See [Enums/GLOBAL](https://wiki.facepunch.com/gmod/Enums/GLOBAL)
+     * @param state - The state of the Global State. See [Enums/GLOBAL](https://wiki.facepunch.com/gmod/Enums/GLOBAL).
      */
     declare function SetGlobalState(name: string, state: GLOBAL): void;
 
@@ -66745,7 +66817,7 @@ declare namespace game {
      * >Like host_timescale, this method does not affect sounds, if you wish to change that, look into [GM:EntityEmitSound](https://wiki.facepunch.com/gmod/GM:EntityEmitSound).
      *
      * **Note:**
-     * >The true timescale will be `host_timescale` multiplied by [game.GetTimeScale](https://wiki.facepunch.com/gmod/game.GetTimeScale)
+     * >The true timescale will be `host_timescale` multiplied by [game.GetTimeScale](https://wiki.facepunch.com/gmod/game.GetTimeScale).
      *
      * @param timeScale - The new timescale, minimum value is 0.001 and maximum is 5.
      */
@@ -66755,7 +66827,7 @@ declare namespace game {
      * 🟨🟦 [Shared]
      *
      * Returns whether the current session is a single player game.
-     * @returns boolean - isSinglePlayer
+     * @returns boolean - isSinglePlayer.
      */
     declare function SinglePlayer(): boolean;
 
@@ -66806,7 +66878,7 @@ declare namespace gamemode {
      *
      * This is similar to [hook.Run](https://wiki.facepunch.com/gmod/hook.Run) and [hook.Call](https://wiki.facepunch.com/gmod/hook.Call), except the hook library will call hooks created with hook.Add even if there is no corresponding gamemode function.
      * @param name - The name of the hook to call.
-     * @param args - The arguments
+     * @param args - The arguments.
      * @returns any - The result of the hook function - can be up to 6 values. Returns false if the gamemode function doesn't exist (i.e. nothing happened), but remember - a hook can also return false.
      */
     declare function Call(name: string, ...args: any[]): any;
@@ -66815,8 +66887,8 @@ declare namespace gamemode {
      * 🟨🟦 [Shared]
      *
      * This returns the internally stored gamemode table.
-     * @param name - The name of the gamemode you want to get
-     * @returns any - The gamemode's table
+     * @param name - The name of the gamemode you want to get.
+     * @returns any - The gamemode's table.
      */
     declare function Get(name: string): any;
 
@@ -66824,9 +66896,9 @@ declare namespace gamemode {
      * 🟨🟦 [Shared]
      *
      * Called by the engine when a gamemode is being loaded.
-     * @param gm - Your GM table
+     * @param gm - Your GM table.
      * @param name - Name of your gamemode, lowercase, no spaces.
-     * @param derived - The gamemode name that your gamemode is derived from
+     * @param derived - The gamemode name that your gamemode is derived from.
      */
     declare function Register(gm: any, name: string, derived: string): void;
 }
@@ -66839,7 +66911,7 @@ declare namespace gmod {
      * 🟨🟦 [Shared]
      *
      * Returns [GAMEMODE](https://wiki.facepunch.com/gmod/GAMEMODE).
-     * @returns GM - GAMEMODE
+     * @returns GM - GAMEMODE.
      */
     declare function GetGamemode(): GM;
 }
@@ -66861,8 +66933,8 @@ declare namespace gmsave {
     /**
      * 🟦 [Server]
      *
-     * Sets player position and angles from supplied table
-     * @param ply - The player to "load" values for
+     * Sets player position and angles from supplied table.
+     * @param ply - The player to "load" values for.
      * @param data - A table containing Origin and Angle keys for position and angles to set.
      */
     declare function PlayerLoad(ply: Player, data: any): void;
@@ -66871,17 +66943,17 @@ declare namespace gmsave {
      * 🟦 [Server]
      *
      * Returns a table containing player position and angles. Used by [gmsave.SaveMap](https://wiki.facepunch.com/gmod/gmsave.SaveMap).
-     * @param ply - The player to "save"
-     * @returns any - A table containing player position ( Origin ) and angles ( Angle )
+     * @param ply - The player to "save".
+     * @returns any - A table containing player position ( Origin ) and angles ( Angle ).
      */
     declare function PlayerSave(ply: Player): any;
 
     /**
      * 🟦 [Server]
      *
-     * Saves the map
-     * @param ply - The player, whose position should be saved for loading the save
-     * @returns string - The encoded to JSON string containing save data
+     * Saves the map.
+     * @param ply - The player, whose position should be saved for loading the save.
+     * @returns string - The encoded to JSON string containing save data.
      */
     declare function SaveMap(ply: Player): string;
 
@@ -66889,9 +66961,9 @@ declare namespace gmsave {
      * 🟦 [Server]
      *
      * Returns if we should save this entity in a duplication or a map save or not.
-     * @param ent - The entity
+     * @param ent - The entity.
      * @param t - A table containing classname key with entities classname.
-     * @returns boolean - Should save entity or not
+     * @returns boolean - Should save entity or not.
      */
     declare function ShouldSaveEntity(ent: Entity, t: any): boolean;
 }
@@ -67143,10 +67215,10 @@ declare namespace GWEN {
      * Used in derma skins to create a fixed scale rectangle drawing function from an image. it will be drawn in the center of the box.
      *
      * The texture is taken from `SKIN.GwenTexture` when the `material` is not supplied.
-     * @param x - The X coordinate on the texture
-     * @param y - The Y coordinate on the texture
-     * @param w - Width of the area on texture
-     * @param h - Height of the area on texture
+     * @param x - The X coordinate on the texture.
+     * @param y - The Y coordinate on the texture.
+     * @param w - Width of the area on texture.
+     * @param h - Height of the area on texture.
      * @param [material = nil] - If set, given material will be used over the SKIN's default material, which is `SKIN.GwenTexture`.
      * @returns Color - The drawing function.
      * <callback>
@@ -67165,10 +67237,10 @@ declare namespace GWEN {
      * Helper function that returns a specialized drawing function for rendering a texture that scales freely to fit the given area.
      *
      * The texture is taken from `SKIN.GwenTexture` when the `material` is not supplied.
-     * @param x - The X coordinate on the texture
-     * @param y - The Y coordinate on the texture
-     * @param w - Width of the area on texture
-     * @param h - Height of the area on texture
+     * @param x - The X coordinate on the texture.
+     * @param y - The Y coordinate on the texture.
+     * @param w - Width of the area on texture.
+     * @param h - Height of the area on texture.
      * @param [material = nil] - If set, given material will be used over the SKIN's default material, which is `SKIN.GwenTexture`.
      * @returns Color - The drawing function.
      * <callback>
@@ -67244,23 +67316,23 @@ declare namespace hammer {
      * 🟦 [Server]
      *
      * Sends command to Hammer, if Hammer is running with the current map loaded.
-     * @param cmd - Command to send including arguments
-     * All commands are in the format "command var1 var2 etc"
-     * All commands that pick an entity with x y z , must use the exact position including decimals. i.e. -354.4523 123.4
+     * @param cmd - Command to send including arguments.
+     * All commands are in the format "command var1 var2 etc".
+     * All commands that pick an entity with x y z , must use the exact position including decimals (i.e. -354.4523 123.4).
      * # List of commands
      * | Command       | Description   |
      * | ------------- | ------------- |
      * | "session_begin mapName mapVersion" | Starts a hammer edit, locking the editor. mapName is the current map without path or suffix, mapVersion is the current version in the .vmf file |
      * | "session_end" | Ends a hammer edit, unlocking the editor. |
      * | "map_check_version mapName mapVersion" | This only works after session_begin, so you'd know the right version already and this only returns ok, this function is apparently useless. |
-     * | "entity_create entityClass x y z" | Creates an entity of entityClass at position x y z |
-     * | "entity_delete entityClass x y z" | Deletes an entity of entityClass at position x y z |
+     * | "entity_create entityClass x y z" | Creates an entity of entityClass at position x y z. |
+     * | "entity_delete entityClass x y z" | Deletes an entity of entityClass at position x y z. |
      * | "entity_set_keyvalue entityClass x y z "key" "value"" | Set's the KeyValue pair of an entity of entityClass at x y z. The Key name and Value String must be in quotes. |
-     * | "entity_rotate_incremental entityClass x y z incX incY incZ" | Rotates an entity of entityClass at x y z by incX incY incZ |
-     * | "node_create nodeClass nodeID x y z" | Creates an AI node of nodeClass with nodeID at x y z you should keep nodeID unique or you will have issues |
-     * | "node_delete nodeID" | Deletes node(s) with nodeID, this will delete multiple nodes if they have the same nodeID |
-     * | "nodelink_create startNodeID endNodeID" | Creates a link between AI nodes startNodeID and endNodeID |
-     * | "nodelink_delete startNodeID endNodeID" | Removes a link between AI nodes startNodeID and endNodeID |
+     * | "entity_rotate_incremental entityClass x y z incX incY incZ" | Rotates an entity of entityClass at x y z by incX incY incZ. |
+     * | "node_create nodeClass nodeID x y z" | Creates an AI node of nodeClass with nodeID at x y z you should keep nodeID unique or you will have issues. |
+     * | "node_delete nodeID" | Deletes node(s) with nodeID, this will delete multiple nodes if they have the same nodeID. |
+     * | "nodelink_create startNodeID endNodeID" | Creates a link between AI nodes startNodeID and endNodeID. |
+     * | "nodelink_delete startNodeID endNodeID" | Removes a link between AI nodes startNodeID and endNodeID. |
      * @returns string - Returns "ok" if command succeeded otherwise returns "badcommand"
      * **All changes only happen in hammer, there is *NO* in game representation/feedback**
      */
@@ -67364,10 +67436,10 @@ declare namespace http {
      * The <page text="onFailure">Structures/HTTPRequest</page> callback is usually only called on DNS or TCP errors (e.g. the website is unavailable or the domain does not exist).
      *
      * A rough overview of possible <page text="onFailure">Structures/HTTPRequest</page> messages:
-     * * `invalid url` - Invalid/empty url ( no request was attempted )
-     * * `invalid request` - Steam HTTP lib failed to create a HTTP request
-     * * `error` - OnComplete callback's second argument, `bError`, is `true`
-     * * `unsuccessful` - OnComplete's first argument, `pResult->m_bRequestSuccessful`, returned `false`
+     * * `invalid url` - Invalid/empty url. ( no request was attempted )
+     * * `invalid request` - Steam HTTP lib failed to create a HTTP request.
+     * * `error` - OnComplete callback's second argument, `bError`, is `true`.
+     * * `unsuccessful` - OnComplete's first argument, `pResult->m_bRequestSuccessful`, returned `false`.
      *
      * **Not all headers are allowed in the client realm, here is a list of known blacklisted headers inside the client realm:**
      * ```
@@ -67986,9 +68058,9 @@ declare namespace killicon {
      * 🟨 [Client]
      *
      * Creates new kill icon using a texture.
-     * @param class_ - Weapon or entity class
-     * @param texture - Path to the texture
-     * @param color - Color of the kill icon
+     * @param class_ - Weapon or entity class.
+     * @param texture - Path to the texture.
+     * @param color - Color of the kill icon.
      */
     declare function Add(class_: string, texture: string, color: any): void;
 
@@ -67996,8 +68068,8 @@ declare namespace killicon {
      * 🟨 [Client]
      *
      * Creates kill icon from existing one.
-     * @param new_class - New class of the kill icon
-     * @param existing_class - Already existing kill icon class
+     * @param new_class - New class of the kill icon.
+     * @param existing_class - Already existing kill icon class.
      */
     declare function AddAlias(new_class: string, existing_class: string): void;
 
@@ -68034,10 +68106,10 @@ declare namespace killicon {
      *
      * @deprecated This function applies unpredictable vertical offsets, you should use [killicon.Render](https://wiki.facepunch.com/gmod/killicon.Render) instead, which does not suffer from this issue.
      *
-     * @param x - X coordinate of the icon
-     * @param y - Y coordinate of the icon
-     * @param name - Classname of the kill icon
-     * @param [alpha = 255] - Alpha/transparency value ( 0 - 255 ) of the icon
+     * @param x - X coordinate of the icon.
+     * @param y - Y coordinate of the icon.
+     * @param name - Classname of the kill icon.
+     * @param [alpha = 255] - Alpha/transparency value ( 0 - 255 ) of the icon.
      */
     declare function Draw(x: number, y: number, name: string, alpha?: number): void;
 
@@ -68045,8 +68117,8 @@ declare namespace killicon {
      * 🟨 [Client]
      *
      * Checks if kill icon exists for given class.
-     * @param class_ - The class to test
-     * @returns boolean - Returns true if kill icon exists
+     * @param class_ - The class to test.
+     * @returns boolean - Returns true if kill icon exists.
      */
     declare function Exists(class_: string): boolean;
 
@@ -68054,10 +68126,10 @@ declare namespace killicon {
      * 🟨 [Client]
      *
      * Returns the size of a kill icon.
-     * @param name - Classname of the kill icon
+     * @param name - Classname of the kill icon.
      * @param [dontEqualizeHeight = false] - If set to `true`, returns the real size of the kill icon, without trying to equalize the height to match the default kill icon font.
-     * @returns [1] number - Width of the kill icon
-     * @returns [2] number - Height of the kill icon
+     * @returns [1] number - Width of the kill icon.
+     * @returns [2] number - Height of the kill icon.
      */
     declare function GetSize(name: string, dontEqualizeHeight?: boolean): LuaMultiReturn<[number, number]>;
 
@@ -68065,10 +68137,10 @@ declare namespace killicon {
      * 🟨 [Client]
      *
      * Renders a kill icon.
-     * @param x - X coordinate of the icon
-     * @param y - Y coordinate of the icon
-     * @param name - Classname of the kill icon
-     * @param [alpha = 255] - Alpha/transparency value ( 0 - 255 ) of the icon
+     * @param x - X coordinate of the icon.
+     * @param y - Y coordinate of the icon.
+     * @param name - Classname of the kill icon.
+     * @param [alpha = 255] - Alpha/transparency value ( 0 - 255 ) of the icon.
      * @param [dontEqualizeHeight = false] - Do not rescale the icon to match the default kill icon font.
      */
     declare function Render(x: number, y: number, name: string, alpha?: number, dontEqualizeHeight?: number): void;
@@ -68108,9 +68180,9 @@ declare namespace list {
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
-     * Adds an item to a named list
-     * @param identifier - The list identifier
-     * @param item - The item to add to the list
+     * Adds an item to a named list.
+     * @param identifier - The list identifier.
+     * @param item - The item to add to the list.
      * @returns number - The index at which the item was added.
      */
     declare function Add(identifier: string, item: any): number;
@@ -68121,29 +68193,29 @@ declare namespace list {
      * Returns true if the list contains the value. (as a value - not a key)
      *
      * For a function that looks for a key and not a value see [list.HasEntry](https://wiki.facepunch.com/gmod/list.HasEntry).
-     * @param list - List to search through
-     * @param value - The value to test
-     * @returns boolean - Returns true if the list contains the value, false otherwise
+     * @param list - List to search through.
+     * @param value - The value to test.
+     * @returns boolean - Returns true if the list contains the value, false otherwise.
      */
     declare function Contains(list: string, value: any): boolean;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
-     * Returns a copy of the list stored at identifier
+     * Returns a copy of the list stored at identifier.
      *
      * 	Where possible you should use the much faster helper functions:
      * 	  [list.Contains](https://wiki.facepunch.com/gmod/list.Contains),
      * 	  [list.HasEntry](https://wiki.facepunch.com/gmod/list.HasEntry), or
-     * 	  [list.GetEntry](https://wiki.facepunch.com/gmod/list.GetEntry)
+     * 	  [list.GetEntry](https://wiki.facepunch.com/gmod/list.GetEntry).
      *
      * 	There is also the more dangerous option of calling [list.GetForEdit](https://wiki.facepunch.com/gmod/list.GetForEdit) to get the unprotected list if you absolutely must iterate through it in a think hook.
      *
      * **Warning:**
      * >This function uses [table.Copy](https://wiki.facepunch.com/gmod/table.Copy) which can be very slow for larger lists. You should avoid calling it repeatedly or in performance sensitive hooks such as [GM:Think](https://wiki.facepunch.com/gmod/GM:Think).
      *
-     * @param identifier - The list identifier
-     * @returns any - The copy of the list
+     * @param identifier - The list identifier.
+     * @returns any - The copy of the list.
      */
     declare function Get(identifier: string): any;
 
@@ -68151,19 +68223,19 @@ declare namespace list {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns a copy of the entry in the list `list` with key `key`.
-     * @param list - List to search through
-     * @param key - The key to search for
-     * @returns any|undefined - Returns the  value if the list contains the key, nil otherwise
+     * @param list - List to search through.
+     * @param key - The key to search for.
+     * @returns any|undefined - Returns the  value if the list contains the key, nil otherwise.
      */
     declare function GetEntry(list: string, key: string): any|undefined;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
-     * Returns the actual table of the list stored at identifier. Modifying this will affect the stored list
-     * @param identifier - The list identifier
+     * Returns the actual table of the list stored at identifier. Modifying this will affect the stored list.
+     * @param identifier - The list identifier.
      * @param [dontCreate = false] - If the list at given identifier does not exist, do **not** create it.
-     * @returns any - The actual list
+     * @returns any - The actual list.
      */
     declare function GetForEdit(identifier: string, dontCreate?: boolean): any;
 
@@ -68181,9 +68253,9 @@ declare namespace list {
      * Returns true if the list contains the given key.
      *
      * For a function that looks for values and not keys see [list.Contains](https://wiki.facepunch.com/gmod/list.Contains).
-     * @param list - List to search through
-     * @param key - The key to test
-     * @returns boolean - Returns true if the list contains the key, false otherwise
+     * @param list - List to search through.
+     * @param key - The key to test.
+     * @returns boolean - Returns true if the list contains the key, false otherwise.
      */
     declare function HasEntry(list: string, key: any): boolean;
 
@@ -68202,9 +68274,9 @@ declare namespace list {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Sets a specific position in the named list to a value.
-     * @param identifier - The list identifier
-     * @param key - The key in the list to set
-     * @param item - The item to set to the list as key
+     * @param identifier - The list identifier.
+     * @param key - The key in the list to set.
+     * @param item - The item to set to the list as key.
      */
     declare function Set(identifier: string, key: any, item: any): void;
 }
@@ -68237,10 +68309,10 @@ declare namespace markup {
      * Parses markup into a [MarkupObject](https://wiki.facepunch.com/gmod/MarkupObject). Currently, this only supports fonts and colors as demonstrated in the example.
      *
      * **Warning:**
-     * >This function is very slow! Always cache its result
+     * >This function is very slow! Always cache its result.
      *
      * @param markup - The markup to be parsed.
-     * @param [maxWidth = nil] - The max width of the output
+     * @param [maxWidth = nil] - The max width of the output.
      * @returns MarkupObject - The parsed markup object ready to be drawn via [MarkupObject:Draw](https://wiki.facepunch.com/gmod/MarkupObject:Draw).
      */
     declare function Parse(markup: string, maxWidth?: number): MarkupObject;
@@ -71072,7 +71144,7 @@ declare namespace player {
      * **Note:**
      * >Players who are currently connecting to the server will not be counted. See function: [player.GetCountConnecting](https://wiki.facepunch.com/gmod/player.GetCountConnecting)
      *
-     * @returns number - Number of players
+     * @returns number - Number of players.
      */
     declare function GetCount(): number;
 
@@ -71139,9 +71211,9 @@ declare namespace player_manager {
      * 🟨🟦 [Shared]
      *
      * Assigns view model hands to player model.
-     * @param name - Player model name
-     * @param model - Hands model
-     * @param [skin = 0] - Skin to apply to the hands
+     * @param name - Player model name.
+     * @param model - Hands model.
+     * @param [skin = 0] - Skin to apply to the hands.
      * @param [bodygroups = 0000000] - Bodygroups to apply to the hands. See [Entity:SetBodyGroups](https://wiki.facepunch.com/gmod/Entity:SetBodyGroups) for help with the format.
      * @param [matchBodySkin = false] - If set to `true`, the skin of the hands will be set to the skin of the playermodel.
      *  This is useful when player models have multiple user-selectable skins.
@@ -71155,8 +71227,8 @@ declare namespace player_manager {
      * Associates a simplified name with a path to a valid player model.
      *
      * Only used internally.
-     * @param name - Simplified name
-     * @param model - Valid PlayerModel path
+     * @param name - Simplified name.
+     * @param model - Valid PlayerModel path.
      */
     declare function AddValidModel(name: string, model: string): void;
 
@@ -71171,17 +71243,17 @@ declare namespace player_manager {
     /**
      * 🟨🟦 [Shared]
      *
-     * Clears a player's class association by setting their ClassID to 0
-     * @param ply - Player to clear class from
+     * Clears a player's class association by setting their ClassID to 0.
+     * @param ply - Player to clear class from.
      */
     declare function ClearPlayerClass(ply: Player): void;
 
     /**
      * 🟨🟦 [Shared]
      *
-     * Gets a players class
-     * @param ply - Player to get class
-     * @returns string - The players class
+     * Gets a players class.
+     * @param ply - Player to get class.
+     * @returns string - The players class.
      */
     declare function GetPlayerClass(ply: Player): string;
 
@@ -71196,9 +71268,9 @@ declare namespace player_manager {
     /**
      * 🟨🟦 [Shared]
      *
-     * Gets a players' class table
-     * @param ply - Player to get class of
-     * @returns any - The players class table
+     * Gets a players' class table.
+     * @param ply - Player to get class of.
+     * @returns any - The players class table.
      */
     declare function GetPlayerClassTable(ply: Player): any;
 
@@ -71216,17 +71288,17 @@ declare namespace player_manager {
     /**
      * 🟨🟦 [Shared]
      *
-     * Register a class metatable to be assigned to players later
-     * @param name - Class name
-     * @param table - Class metatable, see [Structures/PLAYER](https://wiki.facepunch.com/gmod/Structures/PLAYER)
-     * @param [base = nil] - Base class name
+     * Register a class metatable to be assigned to players later.
+     * @param name - Class name.
+     * @param table - Class metatable, see [Structures/PLAYER](https://wiki.facepunch.com/gmod/Structures/PLAYER).
+     * @param [base = nil] - Base class name.
      */
     declare function RegisterClass(name: string, table: PLAYER, base?: string): void;
 
     /**
      * 🟨🟦 [Shared]
      *
-     * Execute a named function within the player's set class
+     * Execute a named function within the player's set class.
      * @param ply - Player to execute function on.
      * @param funcName - Name of function.
      * @param arguments - Optional arguments. Can be of any type.
@@ -71237,9 +71309,9 @@ declare namespace player_manager {
     /**
      * 🟨🟦 [Shared]
      *
-     * Sets a player's class
-     * @param ply - Player to set class
-     * @param className - Name of class to set
+     * Sets a player's class.
+     * @param ply - Player to set class.
+     * @param className - Name of class to set.
      */
     declare function SetPlayerClass(ply: Player, className: string): void;
 
@@ -71251,11 +71323,11 @@ declare namespace player_manager {
      * **Note:**
      * >See [player_manager.AddValidHands](https://wiki.facepunch.com/gmod/player_manager.AddValidHands) for defining/linking hands to a model - this must be defined somewhere otherwise the model will return citizen hands here.
      *
-     * @param name - Player model name
+     * @param name - Player model name.
      * @returns any - A table with following contents:
-     * * [string](https://wiki.facepunch.com/gmod/string) model - Model of hands
-     * * [number](https://wiki.facepunch.com/gmod/number) skin - Skin of hands
-     * * [string](https://wiki.facepunch.com/gmod/string) body - Bodygroups of hands
+     * * [string](https://wiki.facepunch.com/gmod/string) model - Model of hands.
+     * * [number](https://wiki.facepunch.com/gmod/number) skin - Skin of hands.
+     * * [string](https://wiki.facepunch.com/gmod/string) body - Bodygroups of hands.
      */
     declare function TranslatePlayerHands(name: string): any;
 
@@ -71274,8 +71346,8 @@ declare namespace player_manager {
      * Returns the simplified name for a valid model path of a player model.
      *
      * Opposite of [player_manager.TranslatePlayerModel](https://wiki.facepunch.com/gmod/player_manager.TranslatePlayerModel).
-     * @param model - The model path to a player model
-     * @returns string - The simplified name for that model
+     * @param model - The model path to a player model.
+     * @returns string - The simplified name for that model.
      */
     declare function TranslateToPlayerModelName(model: string): string;
 }
@@ -71427,7 +71499,7 @@ declare namespace render {
      *
      * Adds a Beam Segment to the Beam started by [render.StartBeam](https://wiki.facepunch.com/gmod/render.StartBeam).
      *
-     * 		For more detailed information on Beams, as well as usage examples, see the <page text="Beams Render Reference">render_beams</page>
+     * 		For more detailed information on Beams, as well as usage examples, see the <page text="Beams Render Reference">render_beams</page>.
      * @param startPos - Beam start position.
      * @param width - The width of the beam.
      * @param textureEnd - The end coordinate of the texture used.
@@ -71438,15 +71510,15 @@ declare namespace render {
     /**
      * 🟨 [Client]
      *
-     * Blurs the render target ( or a given texture )
+     * Blurs the render target ( or a given texture ).
      *
      * **Warning:**
      * >Calling this on a RenderTarget created with TEXTUREFLAGS_POINTSAMPLE will result in strange visual glitching.
      *
-     * @param rendertarget - The texture to blur
-     * @param blurx - Horizontal amount of blur
-     * @param blury - Vertical amount of blur
-     * @param passes - Amount of passes to go through
+     * @param rendertarget - The texture to blur.
+     * @param blurx - Horizontal amount of blur.
+     * @param blury - Vertical amount of blur.
+     * @param passes - Amount of passes to go through.
      */
     declare function BlurRenderTarget(rendertarget: ITexture, blurx: number, blury: number, passes: number): void;
 
@@ -71473,7 +71545,7 @@ declare namespace render {
      * This is caused by [render.SetWriteDepthToDestAlpha](https://wiki.facepunch.com/gmod/render.SetWriteDepthToDestAlpha) set to `true` when doing most of render operations, including rendering in `_rt_fullframefb`. If you want to capture render target's content as PNG image only for output quality, set [Structures/RenderCaptureData](https://wiki.facepunch.com/gmod/Structures/RenderCaptureData)'s `alpha` to `false` when capturing render targets with [render.SetWriteDepthToDestAlpha](https://wiki.facepunch.com/gmod/render.SetWriteDepthToDestAlpha) set to `true`.
      *
      * @param captureData - Parameters of the capture. See [Structures/RenderCaptureData](https://wiki.facepunch.com/gmod/Structures/RenderCaptureData).
-     * @returns string - binaryData
+     * @returns string - The binary data.
      */
     declare function Capture(captureData: RenderCaptureData): string;
 
@@ -71483,7 +71555,7 @@ declare namespace render {
      * <rendercontext hook="false" type="2D"></rendercontext>
      * 	Dumps the current render target and allows the pixels to be accessed by [render.ReadPixel](https://wiki.facepunch.com/gmod/render.ReadPixel).
      *
-     * 	Capturing outside a render hook will return 0 0 0 255
+     * 	Capturing outside a render hook will return 0 0 0 255.
      */
     declare function CapturePixels(): void;
 
@@ -71516,13 +71588,13 @@ declare namespace render {
      * 			If you would like to clear the Stencil Buffer, you can use [render.ClearStencil](https://wiki.facepunch.com/gmod/render.ClearStencil)
      *
      * @param red - The red Color Channel value for each pixel that is cleared.
-     * 			Must be an integer value in the range 0-255 (`byte`)
+     * 			Must be an integer value in the range 0-255 (`byte`).
      * @param green - The green Color Channel value for each pixel that is cleared.
-     * 			Must be an integer value in the range 0-255 (`byte`)
+     * 			Must be an integer value in the range 0-255 (`byte`).
      * @param blue - The blue Color Channel value for each pixel that is cleared.
-     * 			Must be an integer value in the range 0-255 (`byte`)
+     * 			Must be an integer value in the range 0-255 (`byte`).
      * @param alpha - The alpha (translucency) Color Channel value for each pixel that is cleared.
-     * 			Must be an integer value in the range 0-255 (`byte`)
+     * 			Must be an integer value in the range 0-255 (`byte`).
      * @param clearDepth - If true, reset the Depth Buffer values.
      */
     declare function ClearBuffersObeyStencil(red: number, green: number, blue: number, alpha: number, clearDepth: boolean): void;
@@ -71538,11 +71610,11 @@ declare namespace render {
     /**
      * 🟨 [Client]
      *
-     * Clears a render target
+     * Clears a render target.
      *
      * It uses [render.Clear](https://wiki.facepunch.com/gmod/render.Clear) then [render.SetRenderTarget](https://wiki.facepunch.com/gmod/render.SetRenderTarget) on the modified render target.
      * @param texture -
-     * @param color - The color, see [Color](https://wiki.facepunch.com/gmod/Color)
+     * @param color - The color, see [Color](https://wiki.facepunch.com/gmod/Color).
      */
     declare function ClearRenderTarget(texture: ITexture, color: Color): void;
 
@@ -71551,7 +71623,7 @@ declare namespace render {
      *
      * Sets the Stencil Buffer value to `0` for all pixels in the currently active <page text="Render Target">render_rendertargets</page>.
      *
-     * 		For more detailed information on the Stencil system, including usage examples, see the <page text="Stencils Render Reference">render_stencils</page> page
+     * 		For more detailed information on the Stencil system, including usage examples, see the <page text="Stencils Render Reference">render_stencils</page> page.
      */
     declare function ClearStencil(): void;
 
@@ -71560,9 +71632,9 @@ declare namespace render {
      *
      * Sets the Stencil Buffer value for every pixel in a given rectangle to a given value.
      *
-     * This is **not** affected by [render.SetStencilWriteMask](https://wiki.facepunch.com/gmod/render.SetStencilWriteMask)
+     * This is **not** affected by [render.SetStencilWriteMask](https://wiki.facepunch.com/gmod/render.SetStencilWriteMask).
      *
-     * For more detailed information on the Stencil system, including usage examples, see the <page text="Stencils Render Reference">render_stencils</page> page
+     * For more detailed information on the Stencil system, including usage examples, see the <page text="Stencils Render Reference">render_stencils</page> page.
      * @param startX - The X coordinate of the top left corner of the rectangle to be cleared.
      * @param startY - The Y coordinate of the top left corner of the rectangle to be cleared.
      * @param endX - The X coordinate of the bottom right corner of the rectangle to be cleared.
@@ -71613,7 +71685,7 @@ declare namespace render {
      * **Warning:**
      * >This does not copy the Depth buffer, no method for that is known at this moment so a common workaround is to store the source texture somewhere else, perform your drawing operations, save the result somewhere else and reapply the source texture.
      *
-     * @param Target - The texture to copy to
+     * @param Target - The texture to copy to.
      */
     declare function CopyRenderTargetToTexture(Target: ITexture): void;
 
@@ -71625,8 +71697,8 @@ declare namespace render {
      * **Warning:**
      * >This does not copy the Depth buffer, no method for that is known at this moment so a common workaround is to store the source texture somewhere else, perform your drawing operations, save the result somewhere else and reapply the source texture.
      *
-     * @param texture_from -
-     * @param texture_to -
+     * @param texture_from - The texture to copy from.
+     * @param texture_to - The texture being copied to.
      */
     declare function CopyTexture(texture_from: ITexture, texture_to: ITexture): void;
 
@@ -71634,7 +71706,7 @@ declare namespace render {
      * 🟨🟩 [Client and Menu]
      *
      * Sets the cull mode. The culling mode defines how back faces are culled when rendering geometry.
-     * @param cullMode - Cullmode, see [Enums/MATERIAL_CULLMODE](https://wiki.facepunch.com/gmod/Enums/MATERIAL_CULLMODE)
+     * @param cullMode - Cullmode, see [Enums/MATERIAL_CULLMODE](https://wiki.facepunch.com/gmod/Enums/MATERIAL_CULLMODE).
      */
     declare function CullMode(cullMode: MATERIAL_CULLMODE): void;
 
@@ -71654,7 +71726,7 @@ declare namespace render {
      *
      * 		Draws a single-segment Beam made out of a textured, billboarded quad stretching between two points.
      *
-     * 		For more detailed information, including usage examples, see the <page text="Beams Render Reference">render_beams</page>
+     * 		For more detailed information, including usage examples, see the <page text="Beams Render Reference">render_beams</page>.
      * @param startPos - The Beam's start position.
      * @param endPos - The Beam's end position.
      * @param width - The width of the Beam.
@@ -71784,7 +71856,7 @@ declare namespace render {
      * Draws a texture over the whole screen.
      *
      * <rendercontext hook="false" type="2D"></rendercontext>
-     * @param tex - The texture to draw
+     * @param tex - The texture to draw.
      */
     declare function DrawTextureToScreen(tex: ITexture): void;
 
@@ -71794,7 +71866,7 @@ declare namespace render {
      * Draws a textured rectangle.
      *
      * <rendercontext hook="false" type="2D"></rendercontext>
-     * @param tex - The texture to draw
+     * @param tex - The texture to draw.
      * @param x - The x coordinate of the rectangle to draw.
      * @param y - The y coordinate of the rectangle to draw.
      * @param width - The width of the rectangle to draw.
@@ -71852,7 +71924,7 @@ declare namespace render {
      *
      * Ends the beam mesh of a beam started with [render.StartBeam](https://wiki.facepunch.com/gmod/render.StartBeam).
      *
-     * 		For more detailed information on Beams, as well as usage examples, see the <page text="Beams Render Reference">render_beams</page>
+     * 		For more detailed information on Beams, as well as usage examples, see the <page text="Beams Render Reference">render_beams</page>.
      */
     declare function EndBeam(): void;
 
@@ -71906,7 +71978,7 @@ declare namespace render {
      * 🟨 [Client]
      *
      * Returns the ambient color of the map.
-     * @returns Vector - color
+     * @returns Vector - The ambient color of the map.
      */
     declare function GetAmbientLightColor(): Vector;
 
@@ -71943,9 +72015,9 @@ declare namespace render {
      * 🟨 [Client]
      *
      * Returns the current color modulation values as normals.
-     * @returns [1] number - r
-     * @returns [2] number - g
-     * @returns [3] number - b
+     * @returns [1] number - Red part of the color.
+     * @returns [2] number - Green part of the color.
+     * @returns [3] number - Blue part of the color.
      */
     declare function GetColorModulation(): LuaMultiReturn<[number, number, number]>;
 
@@ -71953,7 +72025,7 @@ declare namespace render {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the maximum available directX version.
-     * @returns number - dxLevel
+     * @returns number - The directX version.
      */
     declare function GetDXLevel(): number;
 
@@ -71971,9 +72043,9 @@ declare namespace render {
      * 🟨 [Client]
      *
      * Returns the fog start and end distance.
-     * @returns [1] number - Fog start distance set by [render.FogStart](https://wiki.facepunch.com/gmod/render.FogStart)
-     * @returns [2] number - For end distance set by [render.FogEnd](https://wiki.facepunch.com/gmod/render.FogEnd)
-     * @returns [3] number - Fog Z distance set by [render.SetFogZ](https://wiki.facepunch.com/gmod/render.SetFogZ)
+     * @returns [1] number - Fog start distance set by [render.FogStart](https://wiki.facepunch.com/gmod/render.FogStart).
+     * @returns [2] number - For end distance set by [render.FogEnd](https://wiki.facepunch.com/gmod/render.FogEnd).
+     * @returns [3] number - Fog Z distance set by [render.SetFogZ](https://wiki.facepunch.com/gmod/render.SetFogZ).
      */
     declare function GetFogDistances(): LuaMultiReturn<[number, number, number]>;
 
@@ -71989,7 +72061,7 @@ declare namespace render {
      * 🟨 [Client]
      *
      * Returns the fog mode.
-     * @returns MATERIAL_FOG - Fog mode, see [Enums/MATERIAL_FOG](https://wiki.facepunch.com/gmod/Enums/MATERIAL_FOG)
+     * @returns MATERIAL_FOG - Fog mode, see [Enums/MATERIAL_FOG](https://wiki.facepunch.com/gmod/Enums/MATERIAL_FOG).
      */
     declare function GetFogMode(): MATERIAL_FOG;
 
@@ -72014,7 +72086,7 @@ declare namespace render {
      *
      * Gets the light exposure on the specified position.
      * @param position - The position of the surface to get the light from.
-     * @returns Vector - lightColor
+     * @returns Vector - The light color.
      */
     declare function GetLightColor(position: Vector): Vector;
 
@@ -72087,7 +72159,7 @@ declare namespace render {
      * Returns the currently active render target.
      *
      * Instead of saving the current render target using this function and restoring to it later, it is generally better practice to use [render.PushRenderTarget](https://wiki.facepunch.com/gmod/render.PushRenderTarget) and [render.PopRenderTarget](https://wiki.facepunch.com/gmod/render.PopRenderTarget).
-     * @returns ITexture - The currently active Render Target
+     * @returns ITexture - The currently active Render Target.
      */
     declare function GetRenderTarget(): ITexture;
 
@@ -72104,7 +72176,7 @@ declare namespace render {
      *
      * Obtain an [ITexture](https://wiki.facepunch.com/gmod/ITexture) of the screen. You must call [render.UpdateScreenEffectTexture](https://wiki.facepunch.com/gmod/render.UpdateScreenEffectTexture) in order to update this texture with the currently rendered scene.
      *
-     * This texture is mainly used within [GM:RenderScreenspaceEffects](https://wiki.facepunch.com/gmod/GM:RenderScreenspaceEffects)
+     * This texture is mainly used within [GM:RenderScreenspaceEffects](https://wiki.facepunch.com/gmod/GM:RenderScreenspaceEffects).
      * @param [textureIndex = 0] - Max index is 3, but engine only creates the first two for you.
      * @returns ITexture - The requested texture.
      */
@@ -72132,16 +72204,16 @@ declare namespace render {
      * Returns a floating point texture (RGBA16161616F format) the same resolution as the screen.
      *
      * **Note:**
-     * >The [gmodscreenspace](https://wiki.facepunch.com/gmod/gmodscreenspace) doesn't behave as expected when drawing a floating-point texture to an integer texture (e.g. the default render target). Use an UnlitGeneric material instead
+     * >Thedoesn't behave as expected when drawing a floating-point texture to an integer texture (e.g. the default render target). Use an UnlitGeneric material instead
      *
-     * @returns ITexture - Render target named `__rt_SuperTexture1`
+     * @returns ITexture - Render target named `__rt_SuperTexture1`.
      */
     declare function GetSuperFPTex(): ITexture;
 
     /**
      * 🟨 [Client]
      *
-     * See [render.GetSuperFPTex](https://wiki.facepunch.com/gmod/render.GetSuperFPTex)
+     * See [render.GetSuperFPTex](https://wiki.facepunch.com/gmod/render.GetSuperFPTex).
      * @returns ITexture - Render target named `__rt_SuperTexture2`.
      */
     declare function GetSuperFPTex2(): ITexture;
@@ -72152,7 +72224,7 @@ declare namespace render {
      * Performs a render trace and returns the color of the surface hit, this uses a low res version of the texture.
      * @param startPos - The start position to trace from.
      * @param endPos - The end position of the trace.
-     * @returns Vector - color
+     * @returns Vector - The surface color.
      */
     declare function GetSurfaceColor(startPos: Vector, endPos: Vector): Vector;
 
@@ -72168,8 +72240,8 @@ declare namespace render {
      * 🟨 [Client]
      *
      * Returns the current view setup.
-     * @param [noPlayer = false] - If `true`, returns the `view->GetViewSetup`, if `false` - returns `view->GetPlayerViewSetup`
-     * @returns ViewSetup - Current current view setup. See [Structures/ViewSetup](https://wiki.facepunch.com/gmod/Structures/ViewSetup)
+     * @param [noPlayer = false] - If `true`, returns the `view->GetViewSetup`, if `false` - returns `view->GetPlayerViewSetup`.
+     * @returns ViewSetup - Current current view setup. See [Structures/ViewSetup](https://wiki.facepunch.com/gmod/Structures/ViewSetup).
      */
     declare function GetViewSetup(noPlayer?: boolean): ViewSetup;
 
@@ -72212,7 +72284,7 @@ declare namespace render {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the maximum texture height the renderer can handle.
-     * @returns number - maxTextureHeight
+     * @returns number - The max height.
      */
     declare function MaxTextureHeight(): number;
 
@@ -72220,7 +72292,7 @@ declare namespace render {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the maximum texture width the renderer can handle.
-     * @returns number - maxTextureWidth
+     * @returns number - The max width.
      */
     declare function MaxTextureWidth(): number;
 
@@ -72236,9 +72308,9 @@ declare namespace render {
      * >This function is only meant to be used in a single render pass kind of scenario, if you need to render a model continuously, use a cached [Global.ClientsideModel](https://wiki.facepunch.com/gmod/Global.ClientsideModel) and provide it as a second argument.
      *
      * @param settings - Requires:
-     * * [string](https://wiki.facepunch.com/gmod/string) model - The model to draw
-     * * [Vector](https://wiki.facepunch.com/gmod/Vector) pos - The position to draw the model at
-     * * [Angle](https://wiki.facepunch.com/gmod/Angle) angle - The angles to draw the model at
+     * * [string](https://wiki.facepunch.com/gmod/string) model - The model to draw.
+     * * [Vector](https://wiki.facepunch.com/gmod/Vector) pos - The position to draw the model at.
+     * * [Angle](https://wiki.facepunch.com/gmod/Angle) angle - The angles to draw the model at.
      * @param [ent = nil] - If provided, this entity will be reused instead of creating a new one with [Global.ClientsideModel](https://wiki.facepunch.com/gmod/Global.ClientsideModel). Note that the ent's model, position and angles will be changed, and [Entity:SetNoDraw](https://wiki.facepunch.com/gmod/Entity:SetNoDraw) will be set to true.
      */
     declare function Model(settings: any, ent?: CSEnt): void;
@@ -72331,7 +72403,7 @@ declare namespace render {
      *
      * Performs a Stencil operation on every pixel in the active <page text="Render Target">render_rendertargets</page> without performing a draw operation.
      *
-     * 		For more detailed information on the Stencil system, including usage examples, see the <page text="Stencils Render Reference">render_stencils</page> page
+     * 		For more detailed information on the Stencil system, including usage examples, see the <page text="Stencils Render Reference">render_stencils</page> page.
      */
     declare function PerformFullScreenStencilOperation(): void;
 
@@ -72347,7 +72419,7 @@ declare namespace render {
      *
      * Pops (Removes) the texture filter most recently pushed (Added) onto the magnification texture filter stack.
      *
-     * 		This function should only be called *after* a magnification filter has been pushed via <page text="render.PushFilterMag()">render.PushFilterMag</page>
+     * 		This function should only be called *after* a magnification filter has been pushed via <page text="render.PushFilterMag()">render.PushFilterMag</page>.
      *
      * 		For more detailed information and a usage example, see <page text="the texture minification and magnification render reference.">render_min_mag_filters</page>
      */
@@ -72358,7 +72430,7 @@ declare namespace render {
      *
      * Pops (Removes) the texture filter most recently pushed (Added) onto the minification texture filter stack.
      *
-     * 		This function should only be called *after* a minification filter has been pushed via <page text="render.PushFilterMin()">render.PushFilterMin</page>
+     * 		This function should only be called *after* a minification filter has been pushed via <page text="render.PushFilterMin()">render.PushFilterMin</page>.
      *
      * 		For more detailed information and a usage example, see <page text="the texture minification and magnification render reference.">render_min_mag_filters</page>
      */
@@ -72405,7 +72477,7 @@ declare namespace render {
      * 		For more detailed information and a usage example, see <page text="the texture minification and magnification render reference.">render_min_mag_filters</page>
      *
      * If current texture has more than 1 mipmap, this also sets the mipmap filter.
-     * @param texFilterType - The texture filter to use. For available options, see [Enums/TEXFILTER](https://wiki.facepunch.com/gmod/Enums/TEXFILTER)
+     * @param texFilterType - The texture filter to use. For available options, see [Enums/TEXFILTER](https://wiki.facepunch.com/gmod/Enums/TEXFILTER).
      */
     declare function PushFilterMag(texFilterType: TEXFILTER): void;
 
@@ -72419,7 +72491,7 @@ declare namespace render {
      * 		Always be sure to call <page text="render.PopFilterMin()">render.PopFilterMin</page> afterwards to avoid texture filtering problems.
      *
      * 		For more detailed information and a usage example, see <page text="the texture minification and magnification render reference.">render_min_mag_filters</page>
-     * @param texFilterType - The texture filter to use. For available options, see [Enums/TEXFILTER](https://wiki.facepunch.com/gmod/Enums/TEXFILTER)
+     * @param texFilterType - The texture filter to use. For available options, see [Enums/TEXFILTER](https://wiki.facepunch.com/gmod/Enums/TEXFILTER).
      */
     declare function PushFilterMin(texFilterType: TEXFILTER): void;
 
@@ -72454,7 +72526,7 @@ declare namespace render {
      * @param [x = 0] - X origin of the viewport.
      * @param [y = 0] - Y origin of the viewport.
      * @param [w = texture:Width()] - Width of the viewport.
-     * @param [h = texture:Height()] - Height of the viewport
+     * @param [h = texture:Height()] - Height of the viewport.
      */
     declare function PushRenderTarget(texture?: ITexture, x?: number, y?: number, w?: number, h?: number): void;
 
@@ -72508,7 +72580,7 @@ declare namespace render {
      * >Static props and LODs are rendered improperly due to incorrectly perceived distance.
      *
      * **Bug :**
-     * >Using render.RenderView on a RenderTarget texture in a 3d context like SWEP:PostDrawViewModel() while drawing the RenderTarget texture causes screen flickers
+     * >Using render.RenderView on a RenderTarget texture in a 3d context like SWEP:PostDrawViewModel() while drawing the RenderTarget texture causes screen flickers.
      *
      * @param [view = nil] - The view data to be used in the rendering. See [Structures/ViewData](https://wiki.facepunch.com/gmod/Structures/ViewData). Any missing value is assumed to be that of the current view. Similarly, you can make a normal render by simply not passing this table at all.
      */
@@ -72520,9 +72592,9 @@ declare namespace render {
      * Resets the model lighting to the specified color.
      *
      * Calls [render.SetModelLighting](https://wiki.facepunch.com/gmod/render.SetModelLighting) for every direction with given color.
-     * @param r - The red part of the color, 0-1
-     * @param g - The green part of the color, 0-1
-     * @param b - The blue part of the color, 0-1
+     * @param r - The red part of the color, 0-1.
+     * @param g - The green part of the color, 0-1.
+     * @param b - The blue part of the color, 0-1.
      */
     declare function ResetModelLighting(r: number, g: number, b: number): void;
 
@@ -72646,13 +72718,13 @@ declare namespace render {
      * Sets lighting mode when rendering something.
      *
      * **Note:**
-     * >**Do not forget to restore the default value** to avoid unexpected behavior, like the world and the HUD/UI being affected
+     * >**Do not forget to restore the default value** to avoid unexpected behavior, like the world and the HUD/UI being affected.
      *
-     * @param Mode - Lighting render mode
+     * @param Mode - Lighting render mode.
      * Possible values are:
-     * * 0 - Default
-     * * 1 - Total fullbright, similar to `mat_fullbright 1` but excluding some weapon view models
-     * * 2 - Increased brightness(?), models look fullbright
+     * * 0 - Default.
+     * * 1 - Total fullbright, similar to `mat_fullbright 1` but excluding some weapon view models.
+     * * 2 - Increased brightness(?), models look fullbright.
      */
     declare function SetLightingMode(Mode: number): void;
 
@@ -72660,10 +72732,6 @@ declare namespace render {
      * 🟨 [Client]
      *
      * Sets lighting origin for the current model.
-     *
-     * **Bug [#2804](https://github.com/Facepunch/garrysmod-issues/issues/2804):**
-     * >This does not work for prop_physics.
-     *
      * @param lightingOrigin - The position which will be used to calculate lighting for the current model.
      */
     declare function SetLightingOrigin(lightingOrigin: Vector): void;
@@ -72801,7 +72869,7 @@ declare namespace render {
      *
      * Pixels that **Fail** the Compare Function check have the <page text="Fail Operation">render.SetStencilFailOperation</page> performed on their Stencil Buffer value and do **not** have any of their Render Target layers modified by the draw operation.
      *
-     * For more detailed information on the Stencil system, including usage examples, see the <page text="Stencils Render Reference">render_stencils</page> page
+     * For more detailed information on the Stencil system, including usage examples, see the <page text="Stencils Render Reference">render_stencils</page> page.
      * @param compareFunction - The Compare Function that each affected pixel's Stencil Buffer value will be evaluated against during a draw operation.
      */
     declare function SetStencilCompareFunction(compareFunction: STENCILCOMPARISONFUNCTION): void;
@@ -72815,7 +72883,7 @@ declare namespace render {
      * Depending on the outcomes of these comparisons, one of either the <page text="Pass">render.SetStencilPassOperation</page>, <page text="Fail">render.SetStencilFailOperation</page>, or <page text="Z-Fail">render.SetStencilZFailOperation</page> operations is performed on the pixel's Stencil Buffer value.
      * A pixel will only be updated in the active <page text="Render Target">render_rendertargets</page> if the <page text="Pass Operation">render.SetStencilPassOperation</page> is performed.
      *
-     * For more detailed information on the Stencil system, including usage examples, see the <page text="Stencils Render Reference">render_stencils</page> page
+     * For more detailed information on the Stencil system, including usage examples, see the <page text="Stencils Render Reference">render_stencils</page> page.
      *
      * **Note:**
      * >The Stencil system's configuration does **not** reset automatically.
@@ -72830,7 +72898,7 @@ declare namespace render {
      *
      * Sets the <page text="Stencil Operation">Enums/STENCILOPERATION</page> that will be performed on the Stencil Buffer values of pixels affected by draw operations if the <page text="Compare Function">render.SetStencilCompareFunction</page> did **not** <page text="Pass">render.SetStencilPassOperation</page> the pixel.
      *
-     * 		For more detailed information on the Stencil system, including usage examples, see the <page text="Stencils Render Reference">render_stencils</page> page
+     * 		For more detailed information on the Stencil system, including usage examples, see the <page text="Stencils Render Reference">render_stencils</page> page.
      * @param failOperation - The Stencil Operation to be performed if the Compare Function does not Pass a pixel.
      */
     declare function SetStencilFailOperation(failOperation: STENCILOPERATION): void;
@@ -72840,7 +72908,7 @@ declare namespace render {
      *
      * Sets the <page text="Stencil Operation">Enums/STENCILOPERATION</page> that will be performed on the Stencil Buffer values of pixels affected by draw operations if the <page text="Compare Function">render.SetStencilCompareFunction</page> Passes the pixel.
      *
-     * 		For more detailed information on the Stencil system, including usage examples, see the <page text="Stencils Render Reference">render_stencils</page> page
+     * 		For more detailed information on the Stencil system, including usage examples, see the <page text="Stencils Render Reference">render_stencils</page> page.
      * @param passOperation - The Stencil Operation to be performed if the Compare Function Passes a pixel.
      */
     declare function SetStencilPassOperation(passOperation: STENCILOPERATION): void;
@@ -72850,9 +72918,9 @@ declare namespace render {
      *
      * Sets the Stencil system's Reference Value which is compared against each pixel's corresponding Stencil Buffer value in the <page text="Compare Function">render.SetStencilCompareFunction</page> and can be used to modify the Stencil Buffer value of those same pixels in the <page text="Pass">render.SetStencilPassOperation</page>, <page text="Fail">render.SetStencilFailOperation</page>, and <page text="Z Fail">render.SetStencilZFailOperation</page> operations.
      *
-     * 		For more detailed information on the Stencil system, including usage examples, see the <page text="Stencils Render Reference">render_stencils</page> page
+     * 		For more detailed information on the Stencil system, including usage examples, see the <page text="Stencils Render Reference">render_stencils</page> page.
      * @param referenceValue - The value that the Compare function and the pass, fail, and z-fail operations will use.
-     * 			This is an 8-bit (`byte`) unsigned integer value in the range [`0-255`]
+     * 			This is an 8-bit (`byte`) unsigned integer value in the range [`0-255`].
      */
     declare function SetStencilReferenceValue(referenceValue: number): void;
 
@@ -72865,8 +72933,8 @@ declare namespace render {
      *
      * 		This is a companion function to [render.SetStencilWriteMask](https://wiki.facepunch.com/gmod/render.SetStencilWriteMask) which modifies Stencil Buffer values as they are written.
      *
-     * 		For more detailed information on the Stencil system, including usage examples, see the <page text="Stencils Render Reference">render_stencils</page> page
-     * @param bitMask - The 8-bit (`byte`) mask
+     * 		For more detailed information on the Stencil system, including usage examples, see the <page text="Stencils Render Reference">render_stencils</page> page.
+     * @param bitMask - The 8-bit (`byte`) mask.
      * 			Set to `255` to make no change to read Stencil Buffer values.
      */
     declare function SetStencilTestMask(bitMask: number): void;
@@ -72880,8 +72948,8 @@ declare namespace render {
      *
      * 		This is a companion function to [render.SetStencilTestMask](https://wiki.facepunch.com/gmod/render.SetStencilTestMask) which modifies Stencil Buffer values as they are read.
      *
-     * 		For more detailed information on the Stencil system, including usage examples, see the <page text="Stencils Render Reference">render_stencils</page> page
-     * @param bitMask - The 8-bit (`byte`) mask
+     * 		For more detailed information on the Stencil system, including usage examples, see the <page text="Stencils Render Reference">render_stencils</page> page.
+     * @param bitMask - The 8-bit (`byte`) mask.
      * 			Set to `255` to make no change to written Stencil Buffer values.
      */
     declare function SetStencilWriteMask(bitMask: number): void;
@@ -72891,7 +72959,7 @@ declare namespace render {
      *
      * Sets the <page text="Stencil Operation">Enums/STENCILOPERATION</page> that will be performed on the Stencil Buffer values of pixels affected by draw operations if the <page text="Compare Function">render.SetStencilCompareFunction</page> Passed a given pixel, but it did **not** Pass the Depth Test.
      *
-     * 		For more detailed information on the Stencil system, including usage examples, see the <page text="Stencils Render Reference">render_stencils</page> page
+     * 		For more detailed information on the Stencil system, including usage examples, see the <page text="Stencils Render Reference">render_stencils</page> page.
      * @param zFailOperation - The Stencil Operation to be performed if the Compare Function Passes a pixel, but the pixel fails the Depth Test.
      */
     declare function SetStencilZFailOperation(zFailOperation: STENCILOPERATION): void;
@@ -72901,9 +72969,9 @@ declare namespace render {
      *
      * Sets the tone mapping scale for upcoming rendering operations.
      * @param scales - The tonemapping scales.
-     * * X - Output scale
-     * * Y - Lightmap scale
-     * * Z - Reflection map scale
+     * * X - Output scale.
+     * * Y - Lightmap scale.
+     * * Z - Reflection map scale.
      */
     declare function SetToneMappingScaleLinear(scales: Vector): void;
 
@@ -72927,7 +72995,7 @@ declare namespace render {
     /**
      * 🟨 [Client]
      *
-     * Sets the internal parameter **INT_RENDERPARM_WRITE_DEPTH_TO_DESTALPHA**
+     * Sets the internal parameter **INT_RENDERPARM_WRITE_DEPTH_TO_DESTALPHA**.
      * @param enable -
      */
     declare function SetWriteDepthToDestAlpha(enable: boolean): void;
@@ -72948,8 +73016,8 @@ declare namespace render {
      *
      * 	Begin drawing a multi-segment Beam.
      *
-     * 			For more detailed information on Beams, as well as usage examples, see the <page text="Beams Render Reference">render_beams</page>
-     * @param segmentCount - The number of Beam Segments that this multi-segment Beam will contain
+     * 			For more detailed information on Beams, as well as usage examples, see the <page text="Beams Render Reference">render_beams</page>.
+     * @param segmentCount - The number of Beam Segments that this multi-segment Beam will contain.
      */
     declare function StartBeam(segmentCount: number): void;
 
@@ -73031,7 +73099,7 @@ declare namespace render {
     /**
      * 🟨 [Client]
      *
-     * Copies the entire screen to the screen effect texture, which can be acquired via [render.GetScreenEffectTexture](https://wiki.facepunch.com/gmod/render.GetScreenEffectTexture). This function is mainly intended to be used in [GM:RenderScreenspaceEffects](https://wiki.facepunch.com/gmod/GM:RenderScreenspaceEffects)
+     * Copies the entire screen to the screen effect texture, which can be acquired via [render.GetScreenEffectTexture](https://wiki.facepunch.com/gmod/render.GetScreenEffectTexture). This function is mainly intended to be used in [GM:RenderScreenspaceEffects](https://wiki.facepunch.com/gmod/GM:RenderScreenspaceEffects).
      * @param [textureIndex = 0] - Texture index to update. Max index is 3, but engine only creates the first two for you.
      */
     declare function UpdateScreenEffectTexture(textureIndex?: number): void;
@@ -73136,7 +73204,7 @@ declare namespace saverestore {
     /**
      * 🟨🟦 [Shared]
      *
-     * Adds a save hook for the Half-Life 2 save system. You can this to carry data through level transitions in Half-Life 2.
+     * Adds a save hook for the Half-Life 2 save system. You can use this to carry data through level transitions in Half-Life 2.
      * @param identifier - The unique identifier for this hook.
      * @param callback - The function to be called when an engine save is being saved.
      * <callback>
@@ -76365,7 +76433,18 @@ declare namespace timer {
      * **Warning:**
      * >Timers use [Global.CurTime](https://wiki.facepunch.com/gmod/Global.CurTime) internally. Due to this, they won't advance while the client is timing out from the server or on an empty dedicated server due to hibernation. (unless `sv_hibernate_think` is set to `1`).
      *
-     * @param delay - How long until the function should be ran (in seconds). Use `0` to have the function run in the next [GM:Tick](https://wiki.facepunch.com/gmod/GM:Tick).
+     * **Warning:**
+     * >A previous message on this page stated that a delay of 0 would run the function on the next tick. This was partially an invalid assumption, and the true behavior is dependent on where `timer.Simple(0, func)` is called relative to `GarrysMod::Lua::Libraries::Timer::DoSimpleTimers`.
+     *
+     * - If called *before* `DoSimpleTimers`, the callback will be executed on the same frame.
+     *
+     * - If called *during* `DoSimpleTimers`, the callback will be executed on the same frame. **Note that calling timer.Simple(0, func) recursively (ie. a function that calls **`timer.simple(0, itself)`**) can lead to a hang!**
+     *
+     * - If called *after* `DoSimpleTimers`, the callback will be executed on the next frame.
+     *
+     * For more information on hook execution order, see [Lua Hooks Order](https://wiki.facepunch.com/gmod/Lua_Hooks_Order).
+     *
+     * @param delay - How long until the function should be ran (in seconds). A value of `0` differs in behavior, depending on where you're calling this function.
      * @param func - The function to run after the specified delay.
      */
     declare function Simple(delay: number, func: Function): void;
@@ -77070,6 +77149,7 @@ declare namespace util {
      * @param [context = TEXT_FILTER_UNKNOWN] - Filtering context. See [Enums/TEXT_FILTER](https://wiki.facepunch.com/gmod/Enums/TEXT_FILTER).
      * @param [player = nil] - Used to determine if the text should be filtered according to local user's Steam chat filtering settings.
      * @returns string - The filtered text based on given settings.
+     * The maximum length of the string is 4095 bytes.
      */
     declare function FilterText(str: string, context?: TEXT_FILTER, player?: Player): string;
 
@@ -78252,8 +78332,8 @@ declare namespace video {
      *
      * Attempts to create an [IVideoWriter](https://wiki.facepunch.com/gmod/IVideoWriter).
      * @param config - The video config. See [Structures/VideoData](https://wiki.facepunch.com/gmod/Structures/VideoData).
-     * @returns [1] IVideoWriter - The video object (returns **false** if there is an error)
-     * @returns [2] string - The error string, if there is an error
+     * @returns [1] IVideoWriter - The video object. (returns **false** if there is an error)
+     * @returns [2] string - The error string, if there is an error.
      */
     declare function Record(config: VideoData): LuaMultiReturn<[IVideoWriter, string]>;
 }
