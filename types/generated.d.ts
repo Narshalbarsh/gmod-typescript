@@ -168,7 +168,7 @@ interface Angle {
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
-     * Normalizes the angles by applying a module with 360 to pitch, yaw and roll.
+     * Normalizes the angles by applying a modulo with 360 to pitch, yaw and roll.
      */
     Normalize(): void;
 
@@ -3156,22 +3156,22 @@ interface CNewParticleEffect {
  */
 interface Color {
     /**
-     * The red channel
+     * The red channel.
      */
     r: number,
 
     /**
-     * The green channel
+     * The green channel.
      */
     g: number,
 
     /**
-     * The blue channel
+     * The blue channel.
      */
     b: number,
 
     /**
-     * The alpha channel
+     * The alpha channel.
      */
     a: number,
 
@@ -4492,7 +4492,7 @@ interface CUserCmd {
 /**
  * This is a list of all available methods for all entities, which includes <page text="Players">Player</page>, <page text="Weapons">Weapon</page>, <page text="NPCs">NPC</page> and <page text="Vehicles">Vehicle</page>.
  *
- * For a list of possible members of [Scripted Entities](https://wiki.facepunch.com/gmod/Scripted_Entities) see <page text="ENT Structure">Structures/ENT</page>
+ * For a list of possible members of [Scripted Entities](https://wiki.facepunch.com/gmod/Scripted_Entities) see <page text="ENT Structure">Structures/ENT</page>.
  */
 interface Entity {
     /**
@@ -9237,7 +9237,8 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Sets the position an entity's eyes look toward. This works as an override for default behavior. Set to `0,0,0` to disable the override.
-     * @param pos - If NPC, the **world position** for the entity to look towards, for Ragdolls, a **local position** in front of their `eyes` attachment.
+     * @param pos - For NPCs and all other entities except ragdolls - the **world position** for the entity to look towards
+     * For ragdolls specifically - a **local position** in front of their `eyes` attachment.
      */
     SetEyeTarget(pos: Vector): void;
 
@@ -9255,9 +9256,6 @@ interface Entity {
      * Sets the weight/value of given flex controller.
      *
      * Setting flex weights spawns an internal networked entity (one per entity face posed) to accommodate networking to clients.
-     *
-     * **Warning:**
-     * >This function must be called at every tick, otherwise you will not see any changes.
      *
      * **Note:**
      * >Only `96` flex controllers can be set! Flex controllers on models with higher amounts will not be accessible.
@@ -9285,10 +9283,6 @@ interface Entity {
      * Sets the gravity multiplier of the entity.
      *
      * This may not affect affect all entities, but does affect players, and entities with <page text="MOVETYPE_FLYGRAVITY">Enums/MOVETYPE#MOVETYPE_FLYGRAVITY</page>, such as projectiles.
-     *
-     * **Bug [#3648](https://github.com/Facepunch/garrysmod-issues/issues/3648):**
-     * >This function is not predicted or networked.
-     *
      * @param multiplier - By how much to multiply the gravity. `1` is normal gravity, `0.5` is half-gravity, etc.
      */
     SetGravity(multiplier: number): void;
@@ -9341,11 +9335,9 @@ interface Entity {
      *
      * Sets Hammer key values on an entity.
      *
-     * You can look up which entities have what key values on the [Valve Developer Community](https://developer.valvesoftware.com/wiki/) on entity pages.
+     * You can look up which entities have what key values on the [Valve Developer Community](https://developer.valvesoftware.com/wiki/) on entity pages. A  list of basic entities can be found [here](https://developer.valvesoftware.com/wiki/List_of_entities).
      *
-     * A  list of basic entities can be found [here](https://developer.valvesoftware.com/wiki/List_of_entities).
-     *
-     * Alternatively you can look at the .fgd files shipped with Garry's Mod in the bin/ folder with a text editor to see the key values as they appear in Hammer.
+     * Alternatively you can look at the `.fgd` files shipped with Garry's Mod in the `bin/` folder with a text editor to see the key values as they appear in Hammer.
      * @param key - The internal key name
      * @param value - The value to set
      */
@@ -9633,20 +9625,17 @@ interface Entity {
     /**
      * 🟨🟦 [Shared]
      *
-     * Scales the model of the entity, if the entity is a [Player](https://wiki.facepunch.com/gmod/Player) or an [NPC](https://wiki.facepunch.com/gmod/NPC) the hitboxes will be scaled as well.
+     * Uniformly scales the model of the entity, if the entity is a [Player](https://wiki.facepunch.com/gmod/Player) or an [NPC](https://wiki.facepunch.com/gmod/NPC) the hitboxes will be scaled as well.
      *
-     * For some entities, calling [Entity:Activate](https://wiki.facepunch.com/gmod/Entity:Activate) after this will scale the collision bounds and [PhysObj](https://wiki.facepunch.com/gmod/PhysObj) as well; be wary as there's no optimization being done internally and highly complex collision models might crash the server.
+     * To resize the entity non-uniformly, along any axis, use [Entity:EnableMatrix](https://wiki.facepunch.com/gmod/Entity:EnableMatrix) instead.
      *
-     * This is the same system used in TF2 for the Mann Vs Machine robots.
+     * For some entities (Such as `prop_physics` and `anim` type [Scripted Entities](https://wiki.facepunch.com/gmod/Scripted_Entities)), calling [Entity:Activate](https://wiki.facepunch.com/gmod/Entity:Activate) after this will scale the collision bounds and [PhysObj](https://wiki.facepunch.com/gmod/PhysObj) as well; be wary as there's no optimization being done internally and highly complex collision models might crash the server.
      *
-     * To resize the entity along any axis, use [Entity:EnableMatrix](https://wiki.facepunch.com/gmod/Entity:EnableMatrix) instead.
-     *
-     * Client-side trace detection seems to mess up if deltaTime is set to anything but zero. A very small decimal can be used instead of zero to solve this issue.
+     * Client-side trace detection seems to mess up if `deltaTime` is set to anything but zero. A very small decimal can be used instead of zero to solve this issue.
      *
      * If your old scales are wrong, use [Entity:SetLegacyTransform](https://wiki.facepunch.com/gmod/Entity:SetLegacyTransform) as a quick fix.
      *
-     * **Bug [#3502](https://github.com/Facepunch/garrysmod-issues/issues/3502):**
-     * >This does not scale procedural bones and disables IK.
+     * <validate>This disables IK.</validate>
      *
      * **Note:**
      * >If you do not want the physics to be affected by [Entity:Activate](https://wiki.facepunch.com/gmod/Entity:Activate), you can use [Entity:ManipulateBoneScale](https://wiki.facepunch.com/gmod/Entity:ManipulateBoneScale)`( 0, Vector( scale, scale, scale ) )` instead.
@@ -12137,9 +12126,12 @@ interface IMaterial {
      * Returns the name of the materials shader.
      *
      * **Bug [#3256](https://github.com/Facepunch/garrysmod-issues/issues/3256):**
-     * >This function does not work serverside on Linux SRCDS.
+     * >This function does not work serverside on Linux SRCDS and always returns `shader_error`.
      *
-     * @returns string - shaderName
+     * This bug is fixed on `dev` beta and in the next update.
+     *
+     * @returns string - Name of the currently loaded shader for this material, or `shader_error` if the material has no loaded shader.
+     * It is not guaranteed to be in any specific capitalization, so case insensitive checks are advised.
      */
     GetShader(): string;
 
@@ -16567,7 +16559,7 @@ interface Panel {
      * **Note:**
      * >The Awesomium web renderer automatically delays the code execution if the document is not ready, but the Chromium web renderer does not!
      *
-     * This means that with Chromium, you cannot JavaScript run code immediatly after calling [Panel:SetHTML](https://wiki.facepunch.com/gmod/Panel:SetHTML) or [Panel:OpenURL](https://wiki.facepunch.com/gmod/Panel:OpenURL). You should wait for the events [PANEL:OnDocumentReady](https://wiki.facepunch.com/gmod/PANEL:OnDocumentReady) or [PANEL:OnFinishLoadingDocument](https://wiki.facepunch.com/gmod/PANEL:OnFinishLoadingDocument) to be triggered before proceeding, otherwise you may manipulate an empty / incomplete document.
+     * This means that with Chromium, you cannot JavaScript run code immediatly after calling [Panel:SetHTML](https://wiki.facepunch.com/gmod/Panel:SetHTML) or [Panel:OpenURL](https://wiki.facepunch.com/gmod/Panel:OpenURL). You should wait for the events [HTML:OnDocumentReady](https://wiki.facepunch.com/gmod/HTML:OnDocumentReady) or [HTML:OnFinishLoadingDocument](https://wiki.facepunch.com/gmod/HTML:OnFinishLoadingDocument) to be triggered before proceeding, otherwise you may manipulate an empty / incomplete document.
      *
      * @param js - Specify JavaScript code to be executed.
      */
@@ -23470,7 +23462,7 @@ interface Vehicle extends Entity {
     /**
      * 🟨🟦 [Shared]
      *
-     * Gets the driver of the vehicle, returns `NULL` if no driver is present.
+     * Gets the driver of the vehicle, returns [NULL](https://wiki.facepunch.com/gmod/NULL) if no driver is present.
      * @returns Entity - The driver of the vehicle.
      */
     GetDriver(): Entity;
@@ -23502,8 +23494,8 @@ interface Vehicle extends Entity {
     /**
      * 🟨🟦 [Shared]
      *
-     * Gets the passenger of the vehicle, returns NULL if no drivers is present.
-     * @param passenger - The index of the passenger
+     * Gets the passenger of the vehicle, returns [NULL](https://wiki.facepunch.com/gmod/NULL) if no drivers is present.
+     * @param passenger - The index of the passenger ( 0 is the driver )
      * @returns Entity - The passenger
      */
     GetPassenger(passenger: number): Entity;
@@ -23513,8 +23505,8 @@ interface Vehicle extends Entity {
      *
      * Returns the seat position and angle of a given passenger seat.
      * @param role - The passenger role. ( 0 is the driver )
-     * @returns [1] Vector - The seat position world
-     * @returns [2] Angle - The seat angle world
+     * @returns [1] Vector - The seat position in worldspace coordinates.
+     * @returns [2] Angle - The seat angle in worldspace coordinates.
      */
     GetPassengerSeatPoint(role: number): LuaMultiReturn<[Vector, Angle]>;
 
@@ -23554,7 +23546,7 @@ interface Vehicle extends Entity {
      * 🟨🟦 [Shared]
      *
      * Returns if vehicle has thirdperson mode enabled or not.
-     * @returns boolean - Returns true if third person mode enabled, false otherwise
+     * @returns boolean - Returns `true` if third person mode enabled, `false` otherwise
      */
     GetThirdPersonMode(): boolean;
 
@@ -28118,9 +28110,9 @@ interface DForm extends DCollapsibleCategory {
      * @param text - The text on the button
      * @param [concommand] - The concommand to run when the button is clicked
      * @param [args = nil] - The arguments to pass on to the concommand when the button is clicked
-     * @returns Panel - The created [DButton](https://wiki.facepunch.com/gmod/DButton)
+     * @returns DButton - The created [DButton](https://wiki.facepunch.com/gmod/DButton)
      */
-    Button(text: string, concommand?: string, ...args: any[]): Panel;
+    Button(text: string, concommand?: string, ...args: any[]): DButton;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -28132,9 +28124,9 @@ interface DForm extends DCollapsibleCategory {
      *
      * @param label - The label to be set next to the check box
      * @param convar - The console variable to change when this is changed
-     * @returns Panel - The created [DCheckBoxLabel](https://wiki.facepunch.com/gmod/DCheckBoxLabel)
+     * @returns DCheckBoxLabel - The created [DCheckBoxLabel](https://wiki.facepunch.com/gmod/DCheckBoxLabel)
      */
-    CheckBox(label: string, convar: string): Panel;
+    CheckBox(label: string, convar: string): DCheckBoxLabel;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -28142,19 +28134,19 @@ interface DForm extends DCollapsibleCategory {
      * Adds a [DComboBox](https://wiki.facepunch.com/gmod/DComboBox) onto the [DForm](https://wiki.facepunch.com/gmod/DForm)
      * @param title - Text to the left of the combo box
      * @param convar - Console variable to change when the user selects something from the dropdown.
-     * @returns [1] Panel - The created [DComboBox](https://wiki.facepunch.com/gmod/DComboBox)
-     * @returns [2] Panel - The created [DLabel](https://wiki.facepunch.com/gmod/DLabel)
+     * @returns [1] DComboBox - The created [DComboBox](https://wiki.facepunch.com/gmod/DComboBox)
+     * @returns [2] DLabel - The created [DLabel](https://wiki.facepunch.com/gmod/DLabel)
      */
-    ComboBox(title: string, convar: string): LuaMultiReturn<[Panel, Panel]>;
+    ComboBox(title: string, convar: string): LuaMultiReturn<[DComboBox, DLabel]>;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * Adds a [DLabel](https://wiki.facepunch.com/gmod/DLabel) onto the [DForm](https://wiki.facepunch.com/gmod/DForm). Unlike [DForm:Help](https://wiki.facepunch.com/gmod/DForm:Help), this is indented and is colored blue, depending on the derma skin.
      * @param help - The help message to be displayed.
-     * @returns Panel - The created [DLabel](https://wiki.facepunch.com/gmod/DLabel)
+     * @returns DLabel - The created [DLabel](https://wiki.facepunch.com/gmod/DLabel)
      */
-    ControlHelp(help: string): Panel;
+    ControlHelp(help: string): DLabel;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -28177,9 +28169,9 @@ interface DForm extends DCollapsibleCategory {
      *
      * Adds a [DLabel](https://wiki.facepunch.com/gmod/DLabel) onto the [DForm](https://wiki.facepunch.com/gmod/DForm) as a helper
      * @param help - The help message to be displayed
-     * @returns Panel - The created [DLabel](https://wiki.facepunch.com/gmod/DLabel)
+     * @returns DLabel - The created [DLabel](https://wiki.facepunch.com/gmod/DLabel)
      */
-    Help(help: string): Panel;
+    Help(help: string): DLabel;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -28188,11 +28180,11 @@ interface DForm extends DCollapsibleCategory {
      *
      * @deprecated Use [DListView](https://wiki.facepunch.com/gmod/DListView) with [DForm:AddItem](https://wiki.facepunch.com/gmod/DForm:AddItem) instead.
      *
-     * @param label - The label to set on the DListBox
-     * @returns [1] Panel - The created [DListBox](https://wiki.facepunch.com/gmod/DListBox)
-     * @returns [2] Panel - The created [DLabel](https://wiki.facepunch.com/gmod/DLabel)
+     * @param [label = nil] - The label to set on the DListBox
+     * @returns [1] DListBox - The created [DListBox](https://wiki.facepunch.com/gmod/DListBox)
+     * @returns [2] DLabel - The created [DLabel](https://wiki.facepunch.com/gmod/DLabel) if label string was specified
      */
-    ListBox(label: string): LuaMultiReturn<[Panel, Panel]>;
+    ListBox(label?: string): LuaMultiReturn<[DListBox, DLabel]>;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -28203,10 +28195,10 @@ interface DForm extends DCollapsibleCategory {
      * @param min - The minimum value of the slider
      * @param max - The maximum value of the slider
      * @param [decimals = nil] - The number of decimals to allow in the slider (Optional)
-     * @returns [1] Panel - The created [DNumberWang](https://wiki.facepunch.com/gmod/DNumberWang)
-     * @returns [2] Panel - The created [DLabel](https://wiki.facepunch.com/gmod/DLabel)
+     * @returns [1] DNumberWang - The created [DNumberWang](https://wiki.facepunch.com/gmod/DNumberWang)
+     * @returns [2] DLabel - The created [DLabel](https://wiki.facepunch.com/gmod/DLabel)
      */
-    NumberWang(label: string, convar: string, min: number, max: number, decimals?: number): LuaMultiReturn<[Panel, Panel]>;
+    NumberWang(label: string, convar: string, min: number, max: number, decimals?: number): LuaMultiReturn<[DNumberWang, DLabel]>;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -28217,9 +28209,9 @@ interface DForm extends DCollapsibleCategory {
      * @param min - The minimum value of the slider
      * @param max - The maximum value of the slider
      * @param [decimals = 2] - The number of decimals to allow for the slider value.
-     * @returns Panel - The created [DNumSlider](https://wiki.facepunch.com/gmod/DNumSlider).
+     * @returns DNumSlider - The created [DNumSlider](https://wiki.facepunch.com/gmod/DNumSlider).
      */
-    NumSlider(label: string, convar: string, min: number, max: number, decimals?: number): Panel;
+    NumSlider(label: string, convar: string, min: number, max: number, decimals?: number): DNumSlider;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -28228,9 +28220,9 @@ interface DForm extends DCollapsibleCategory {
      *
      * @deprecated This is derived from the deprecated [DPanelSelect](https://wiki.facepunch.com/gmod/DPanelSelect).
      *
-     * @returns Panel - The created DPanelSelect.
+     * @returns DPanelSelect - The created [DPanelSelect](https://wiki.facepunch.com/gmod/DPanelSelect).
      */
-    PanelSelect(): Panel;
+    PanelSelect(): DPanelSelect;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -28246,9 +28238,9 @@ interface DForm extends DCollapsibleCategory {
      * * [string](https://wiki.facepunch.com/gmod/string) tooltip - Displayed when user hovers over the model. Defaults to the model path.
      * * The key of the table is the value of the convar.
      * @param [height = 2] - The height of the prop select panel, in 64px icon increments.
-     * @returns Panel - The created [PropSelect](https://wiki.facepunch.com/gmod/PropSelect) panel.
+     * @returns PropSelect - The created [PropSelect](https://wiki.facepunch.com/gmod/PropSelect) panel.
      */
-    PropSelect(label: string, convar: string, models: any, height?: number): Panel;
+    PropSelect(label: string, convar: string, models: any, height?: number): PropSelect;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -28290,10 +28282,10 @@ interface DForm extends DCollapsibleCategory {
      * Adds a [DTextEntry](https://wiki.facepunch.com/gmod/DTextEntry) to a [DForm](https://wiki.facepunch.com/gmod/DForm)
      * @param label - The label to be next to the text entry
      * @param convar - The console variable to be changed when the text entry is changed
-     * @returns [1] Panel - The created [DTextEntry](https://wiki.facepunch.com/gmod/DTextEntry)
-     * @returns [2] Panel - The created [DLabel](https://wiki.facepunch.com/gmod/DLabel)
+     * @returns [1] DTextEntry - The created [DTextEntry](https://wiki.facepunch.com/gmod/DTextEntry)
+     * @returns [2] DLabel - The created [DLabel](https://wiki.facepunch.com/gmod/DLabel)
      */
-    TextEntry(label: string, convar: string): LuaMultiReturn<[Panel, Panel]>;
+    TextEntry(label: string, convar: string): LuaMultiReturn<[DTextEntry, DLabel]>;
 }
 
 /**
@@ -37158,8 +37150,8 @@ interface Gamemode {
      * 	This hook gets called for all NW2Vars on all Entities in a full update. The old value will be nil in this case.
      * 	If this hook seems to be called for no apparent reason, check if it's caused by a full update.
      *
-     * @param ent - The owner entity of changed NW2Var
-     * @param name - The name if changed NW2Var
+     * @param ent - The owner entity of the changed NW2Var
+     * @param name - The name of the changed NW2Var
      * @param oldval - The old value of the NW2Var
      * @param newval - The new value of the NW2Var
      */
@@ -42433,12 +42425,12 @@ interface AmmoData {
  */
 interface AngPos {
     /**
-     * Angle object
+     * An Angle object.
      */
     Ang: Angle,
 
     /**
-     * Vector object
+     * An Vector object.
      */
     Pos: Vector,
 
@@ -42575,23 +42567,23 @@ interface AttachmentData {
  *
  * Table structure used as balloon spawn data. Default values are applied when the trace hits nothing. This data is required for correctly spawning the balloon.
  *
- * See [MakeBalloon](https://wiki.facepunch.com/gmod/MakeBalloon)
+ * See [MakeBalloon](https://wiki.facepunch.com/gmod/MakeBalloon).
  */
 interface BalloonData {
     /**
-     * Where the balloon will spawn
+     * Where the balloon will spawn.
      * @default Vector(0, 0, 0)
      */
     Pos?: Vector,
 
     /**
-     * The balloon’s model
+     * The balloon’s model.
      * @default models/error.mdl
      */
     Model?: string,
 
     /**
-     * The balloon’s skin
+     * The balloon’s skin.
      * @default 0
      */
     Skin?: number,
@@ -42659,19 +42651,19 @@ interface BoneBindPose {
  */
 interface BoneManipulationData {
     /**
-     * The entity's scale manipulation of the bone
+     * The entity's scale manipulation of the bone.
      * @default nil
      */
     s?: Vector,
 
     /**
-     * The entity's angle manipulation of the bone
+     * The entity's angle manipulation of the bone.
      * @default nil
      */
     a?: Angle,
 
     /**
-     * The entity's position manipulation of the given bone
+     * The entity's position manipulation of the given bone.
      * @default nil
      */
     p?: Vector,
@@ -42684,9 +42676,9 @@ interface BoneManipulationData {
  *
  * A single vertex may have multiple BoneWeight structures affecting it, but each BoneWeight structure belongs to only one vertex.
  *
- * Added to the [Structures/MeshVertex](https://wiki.facepunch.com/gmod/Structures/MeshVertex) by [util.GetModelMeshes](https://wiki.facepunch.com/gmod/util.GetModelMeshes)
+ * Added to the [Structures/MeshVertex](https://wiki.facepunch.com/gmod/Structures/MeshVertex) by [util.GetModelMeshes](https://wiki.facepunch.com/gmod/util.GetModelMeshes).
  *
- * To find a bone's transformation [VMatrix](https://wiki.facepunch.com/gmod/VMatrix), see [Entity:GetBoneMatrix](https://wiki.facepunch.com/gmod/Entity:GetBoneMatrix)
+ * To find a bone's transformation [VMatrix](https://wiki.facepunch.com/gmod/VMatrix), see [Entity:GetBoneMatrix](https://wiki.facepunch.com/gmod/Entity:GetBoneMatrix).
  */
 interface BoneWeight {
     /**
@@ -42707,7 +42699,7 @@ interface BoneWeight {
  */
 interface Bullet {
     /**
-     * The entity that should be reported as attacker eg. a player
+     * The entity that should be reported as attacker. (eg. a player)
      *
      * By default this would be set to the entity [Entity:FireBullets](https://wiki.facepunch.com/gmod/Entity:FireBullets) is called on.
      * @default self
@@ -42715,7 +42707,7 @@ interface Bullet {
     Attacker?: Entity,
 
     /**
-     * The entity that should be reported as inflictor eg. a weapon or something similar
+     * The entity that should be reported as inflictor eg. a weapon or something similar.
      *
      * Also defines [CTakeDamageInfo:GetWeapon](https://wiki.facepunch.com/gmod/CTakeDamageInfo:GetWeapon) for [Weapon](https://wiki.facepunch.com/gmod/Weapon).
      * @default NULL
@@ -42749,13 +42741,13 @@ interface Bullet {
     Damage?: number,
 
     /**
-     * The force of the bullets
+     * The force of the bullets.
      * @default 1
      */
     Force?: number,
 
     /**
-     * Maximum distance the bullet can travel
+     * Maximum distance the bullet can travel.
      * @default 56756
      */
     Distance?: number,
@@ -42767,19 +42759,19 @@ interface Bullet {
     HullSize?: number,
 
     /**
-     * The amount of bullets to fire
+     * The amount of bullets to fire.
      * @default 1
      */
     Num?: number,
 
     /**
-     * Show tracer for every x bullets
+     * Show tracer for every x bullets.
      * @default 1
      */
     Tracer?: number,
 
     /**
-     * The ammunition name
+     * The ammunition name.
      * @default <empty string>
      */
     AmmoType?: string,
@@ -42791,19 +42783,19 @@ interface Bullet {
     TracerName?: string,
 
     /**
-     * The fire direction
+     * The fire direction.
      * @default Vector( 0, 0, 0 )
      */
     Dir?: Vector,
 
     /**
-     * The spread, only x and y are needed
+     * The spread, only x and y are needed.
      * @default Vector( 0, 0, 0 )
      */
     Spread?: Vector,
 
     /**
-     * The position to fire the bullets from
+     * The position to fire the bullets from.
      * @default Vector( 0, 0, 0 )
      */
     Src?: Vector,
@@ -42822,27 +42814,27 @@ interface Bullet {
  */
 interface CamData {
     /**
-     * The camera's position
+     * The camera's position.
      */
     origin: Vector,
 
     /**
-     * The camera's angles
+     * The camera's angles.
      */
     angles: Angle,
 
     /**
-     * The camera's FOV
+     * The camera's FOV.
      */
     fov: number,
 
     /**
-     * Distance to near clipping plane
+     * Distance to near clipping plane.
      */
     znear: number,
 
     /**
-     * Distance to far clipping plane
+     * Distance to far clipping plane.
      */
     zfar: number,
 
@@ -42854,10 +42846,10 @@ interface CamData {
 
     /**
      * If set, enables orthographic mode. The table has following arguments:
-     * * [number](https://wiki.facepunch.com/gmod/number) left
-     * * [number](https://wiki.facepunch.com/gmod/number) right
-     * * [number](https://wiki.facepunch.com/gmod/number) top
-     * * [number](https://wiki.facepunch.com/gmod/number) bottom
+     * * [number](https://wiki.facepunch.com/gmod/number) left.
+     * * [number](https://wiki.facepunch.com/gmod/number) right.
+     * * [number](https://wiki.facepunch.com/gmod/number) top.
+     * * [number](https://wiki.facepunch.com/gmod/number) bottom.
      *
      * Each describes where their border starts, (`left`+`right`) and (`top`+`bottom`) should equal `0` to center on the view position.
      * @default nil
@@ -42883,82 +42875,82 @@ interface CamData {
  */
 interface CollisionData {
     /**
-     * The collision position
+     * The collision position.
      */
     HitPos: Vector,
 
     /**
-     * The other collision entity
+     * The other collision entity.
      */
     HitEntity: Entity,
 
     /**
-     * The entity's velocity before the collision
+     * The entity's velocity before the collision.
      */
     OurOldVelocity: Vector,
 
     /**
-     * Other entity's physics object
+     * Other entity's physics object.
      */
     HitObject: PhysObj,
 
     /**
-     * Time since the last collision with the `HitEntity`
+     * Time since the last collision with the `HitEntity`.
      */
     DeltaTime: number,
 
     /**
-     * Speed of the other entity before the collision
+     * Speed of the other entity before the collision.
      */
     TheirOldVelocity: Vector,
 
     /**
-     * The speed of the entity before the collision
+     * The speed of the entity before the collision.
      */
     Speed: number,
 
     /**
-     * Normal of the surface that hit the other entity
+     * Normal of the surface that hit the other entity.
      */
     HitNormal: Vector,
 
     /**
-     * Entity's physics object
+     * Entity's physics object.
      */
     PhysObject: PhysObj,
 
     /**
-     * Surface Property ID of `this` entity
+     * Surface Property ID of `this` entity.
      */
     OurSurfaceProps: number,
 
     /**
-     * Surface Property ID of the entity we collided with
+     * Surface Property ID of the entity we collided with.
      */
     TheirSurfaceProps: number,
 
     /**
-     * The speed at which the impact happened
+     * The speed at which the impact happened.
      */
     HitSpeed: Vector,
 
     /**
-     * Our new velocity after the impact
+     * Our new velocity after the impact.
      */
     OurNewVelocity: Vector,
 
     /**
-     * The new velocity after the impact of the entity we collided with
+     * The new velocity after the impact of the entity we collided with.
      */
     TheirNewVelocity: Vector,
 
     /**
-     * Old angular velocity of this entity
+     * Old angular velocity of this entity.
      */
     OurOldAngularVelocity: Vector,
 
     /**
-     * Old angular velocity of the entity we collided with
+     * Old angular velocity of the entity we collided with.
      */
     TheirOldAngularVelocity: Vector,
 }
@@ -43697,12 +43689,13 @@ interface HTTPRequest {
      * * HEAD
      */
     /* Manual override from: interface/HTTPRequest/parameters */
-    parameters?: LuaTable<string, string>,
+    parameters?: LuaTable<string, string> | Record<string, string>,
 
     /**
      * KeyValue table for headers
      */
-    headers: any,
+    /* Manual override from: interface/HTTPRequest/headers */
+    headers: LuaTable<string, string> | Record<string, string>,
 
     /**
      * Body string for POST data. If set, will override parameters
@@ -45330,14 +45323,49 @@ interface SoundHintData {
  */
 interface SunInfo {
     /**
-     * The suns direction relative to 0,0,0
+     * The sun's direction relative to 0,0,0.
      */
     direction: Vector,
 
     /**
-     * Indicates how obstructed the sun is, 1 not visible, 0 fully visible
+     * Indicates how obstructed the sun is, 1 not visible, 0 fully visible.
      */
     obstruction: number,
+
+    /**
+     * Color of sun's overlay in `0`-`255` range as [Color](https://wiki.facepunch.com/gmod/Color) structure.
+     */
+    overlayColor: Color,
+
+    /**
+     * The sun's overlay name of material. For example: `sprites/light_glow02_add_noz.vmt`.
+     */
+    overlayMaterial: string,
+
+    /**
+     * Size of sun's overlay.
+     */
+    overlaySize: number,
+
+    /**
+     * Color of sun in `0`-`255` range as [Color](https://wiki.facepunch.com/gmod/Color) structure.
+     */
+    sunColor: Color,
+
+    /**
+     * The sun's name of material.
+     */
+    sunMaterial: string,
+
+    /**
+     * Size of sun.
+     */
+    sunSize: number,
+
+    /**
+     * State of sun.
+     */
+    enabled: boolean,
 }
 
 /**
@@ -46340,7 +46368,7 @@ interface VehicleParams {
     /**
      * A table of [Structures/VehicleParamsAxle](https://wiki.facepunch.com/gmod/Structures/VehicleParamsAxle) tables.
      */
-    axles: VehicleParamsAxle[],
+    axles: VehicleParamsAxle,
 
     /**
      * See [Structures/VehicleParamsBody](https://wiki.facepunch.com/gmod/Structures/VehicleParamsBody)
@@ -46671,11 +46699,15 @@ interface VehicleTable {
     /**
      * A list of key-value pairs to apply to the vehicle entity.
      * Possible valid keys that can be set are:
-     * * `vehiclescript`
-     * * `limitview`
-     * * `vehiclelocked`
-     * * `cargovisible`
-     * * `enablegun`
+     *
+     * | Key | Description |
+     * |:-------:|:------------|
+     * | `vehiclescript` | The vehicle script files contained in scripts\vehicles\ define the behaviour and handling of a vehicle.
+     * | `limitview` | Limit vertical view of the vehicles to +/-70 degrees (90 for unlimited)
+     * | `vehiclelocked` | Players cannot enter vehicle until it is unlocked.
+     * | `cargovisible` | Is the Magnusson cargo hopper visible?
+     * | `EnableGun` | Whether the Tau Cannon is enabled or disabled. Doesn't work correctly with the Episode Two jalopy model.
+     * | `NoHazardLights`| Stops the jalopy's hazard lights from turning on and flashing when the player exits the vehicle.
      */
     KeyValues: any,
 
@@ -52252,14 +52284,14 @@ declare const enum FCVAR {
     FCVAR_ARCHIVE_XBOX = 16777216,
 
     /**
-     * Requires sv_cheats to be enabled to change the [ConVar](https://wiki.facepunch.com/gmod/ConVar) or run the command
+     * Requires `sv_cheats` to be enabled to change the [ConVar](https://wiki.facepunch.com/gmod/ConVar) or run the command
      *
      * Reported as "cheat" by `cvarlist`
      */
     FCVAR_CHEAT = 16384,
 
     /**
-     * IVEngineClient::ClientCmd is allowed to execute this command
+     * `IVEngineClient::ClientCmd` is allowed to execute this command
      *
      * Reported as "clientcmd_can_execute" by `cvarlist`
      */
@@ -52282,7 +52314,7 @@ declare const enum FCVAR {
     FCVAR_DEMO = 65536,
 
     /**
-     * Opposite of FCVAR_DEMO, ensures the [ConVar](https://wiki.facepunch.com/gmod/ConVar) is not recorded in demos
+     * Opposite of [FCVAR_DEMO](#FCVAR_DEMO), ensures the [ConVar](https://wiki.facepunch.com/gmod/ConVar) is not recorded in demos
      *
      * Reported as "norecord" by `cvarlist`
      */
@@ -52336,21 +52368,21 @@ declare const enum FCVAR {
     FCVAR_NOT_CONNECTED = 4194304,
 
     /**
-     * Forces the [ConVar](https://wiki.facepunch.com/gmod/ConVar) to only have printable characters ( No control characters )
+     * Forces the [ConVar](https://wiki.facepunch.com/gmod/ConVar) to only have printable characters (No control characters)
      *
      * Reported as "print" by `cvarlist`
      */
     FCVAR_PRINTABLEONLY = 1024,
 
     /**
-     * Makes the [ConVar](https://wiki.facepunch.com/gmod/ConVar) value hidden from all clients ( For example sv_password )
+     * Makes the [ConVar](https://wiki.facepunch.com/gmod/ConVar) value hidden from all clients (For example `sv_password`)
      *
      * Reported as "prot" by `cvarlist`
      */
     FCVAR_PROTECTED = 32,
 
     /**
-     * For serverside [ConVar](https://wiki.facepunch.com/gmod/ConVar)s, it will send its value to all clients. The [ConVar](https://wiki.facepunch.com/gmod/ConVar) with the same name must also exist on the client!
+     * For serverside [ConVar](https://wiki.facepunch.com/gmod/ConVar)s, it will enforce its value on all clients. The [ConVar](https://wiki.facepunch.com/gmod/ConVar) with the same name must also exist on the client!
      *
      * Reported as "rep" by `cvarlist`
      */
@@ -52383,7 +52415,7 @@ declare const enum FCVAR {
     FCVAR_UNLOGGED = 2048,
 
     /**
-     * If this is set, the convar will become anonymous and won't show up in the 'find' results.
+     * If this is set, the convar will become anonymous and won't show up in the `find` results.
      */
     FCVAR_UNREGISTERED = 1,
 
@@ -53091,11 +53123,7 @@ declare const enum HULL {
 /**
  * 🟨 [Client]
  *
- * Enumerations used by [Global.GetRenderTargetEx](https://wiki.facepunch.com/gmod/Global.GetRenderTargetEx). Clientside only.
- *
- * **Note:**
- * >Some additional image formats are accepted by GetRenderTargetEx, but don't currently have enums in Lua and aren't listed here. See [VTF Enumerations.](https://developer.valvesoftware.com/wiki/Valve_Texture_Format#VTF_enumerations)
- *
+ * Enumerations used by [Global.GetRenderTargetEx](https://wiki.facepunch.com/gmod/Global.GetRenderTargetEx) to determine the byte format of each pixel in the <page text="Render Target">render_rendertargets</page>.
  * @compileMembersOnly
  */
 declare const enum IMAGE_FORMAT {
@@ -55660,7 +55688,7 @@ declare enum SENSORBONE {
  *
  * Enumerations describing certain spawnflags. Everything except for SF_PHYS* and SF_WEAPON* is serverside only.
  *
- * Spawnflags are set using [Entity:SetKeyValue](https://wiki.facepunch.com/gmod/Entity:SetKeyValue) with **"spawnflags"** as the key.
+ * Spawnflags are set using [Entity:SetKeyValue](https://wiki.facepunch.com/gmod/Entity:SetKeyValue) with **"spawnflags"** as the key, or using [Entity:SetSpawnFlags](https://wiki.facepunch.com/gmod/Entity:SetSpawnFlags), [Entity:AddSpawnFlags](https://wiki.facepunch.com/gmod/Entity:AddSpawnFlags), [Entity:RemoveSpawnFlags](https://wiki.facepunch.com/gmod/Entity:RemoveSpawnFlags).
  *
  * * SF_CITIZEN_* spawnflags represent spawnflags only usable on [npc_citizen](https://developer.valvesoftware.com/wiki/Npc_citizen).
  * * SF_NPC_* - Usable on all NPCs
@@ -59428,6 +59456,7 @@ declare function Format(format: string, ...formatParameters: any[]): string;
  * 🟨🟦 [Shared]
  *
  * Returns the number of frames rendered since the game was launched.
+ * @returns number - frame count
  */
 /* Manual override from: global/FrameNumber */
 declare function FrameNumber(): number;
@@ -59583,7 +59612,7 @@ declare function GetConVar_Internal(name: string): ConVar;
  *
  * Gets the numeric value ConVar with the specified name.
  *
- * @deprecated Store the [ConVar](https://wiki.facepunch.com/gmod/ConVar) object retrieved with [Global.GetConVar](https://wiki.facepunch.com/gmod/Global.GetConVar) and call [ConVar:GetInt](https://wiki.facepunch.com/gmod/ConVar:GetInt) or [ConVar:GetFloat](https://wiki.facepunch.com/gmod/ConVar:GetFloat) on it.
+ * @deprecated Store the [ConVar](https://wiki.facepunch.com/gmod/ConVar) object retrieved with [Global.GetConVar](https://wiki.facepunch.com/gmod/Global.GetConVar) or use [cvars.Number](https://wiki.facepunch.com/gmod/cvars.Number)
  *
  * @param name - Name of the ConVar to get.
  * @returns number - The ConVar's value.
@@ -59595,7 +59624,7 @@ declare function GetConVarNumber(name: string): number;
  *
  * Gets the string value ConVar with the specified name.
  *
- * @deprecated Store the [ConVar](https://wiki.facepunch.com/gmod/ConVar) object retrieved with [Global.GetConVar](https://wiki.facepunch.com/gmod/Global.GetConVar) and call [ConVar:GetString](https://wiki.facepunch.com/gmod/ConVar:GetString) on it.
+ * @deprecated Store the [ConVar](https://wiki.facepunch.com/gmod/ConVar) object retrieved with [Global.GetConVar](https://wiki.facepunch.com/gmod/Global.GetConVar) or use [cvars.String](https://wiki.facepunch.com/gmod/cvars.String).
  *
  * @param name - Name of the ConVar to get.
  * @returns string - The ConVar's value.
@@ -61085,6 +61114,8 @@ declare function PrecacheSentenceGroup(group: string): void;
  * Separates arguments with a tab character (`"\t"`).
  *
  * Can only print up to `4096` characters at a time, and will stop at NULL character. (`"\0"`)
+ *
+ * See [Global.Msg](https://wiki.facepunch.com/gmod/Global.Msg) for alternative that doesn't force add a new line, and [Global.MsgC](https://wiki.facepunch.com/gmod/Global.MsgC) for adding colored text to the console.
  * @param args - List of values to print.
  */
 declare function print(...args: any[]): void;
@@ -61425,13 +61456,18 @@ declare function RunString(code: string, identifier?: string, handleError?: bool
  * Alias of [Global.RunString](https://wiki.facepunch.com/gmod/Global.RunString).
  *
  * @deprecated Use [Global.RunString](https://wiki.facepunch.com/gmod/Global.RunString) instead.
+ *
+ * @param code - The code to execute.
+ * @param [identifier = RunString] - The name that should appear in any error messages caused by this code.
+ * @param [handleError = true] - If false, this function will return a string containing any error messages instead of throwing an error.
+ * @returns string - If handleError is false, the error message (if any).
  */
-declare function RunStringEx(): void;
+declare function RunStringEx(code: string, identifier?: string, handleError?: boolean): string;
 
 /**
  * 🟨🟦🟩 [Shared and Menu]
  *
- * Removes the given entity unless it is a player or the world entity
+ * Removes the given entity unless it is a player or the world entity.
  * @param ent - Entity to safely remove.
  */
 declare function SafeRemoveEntity(ent: Entity): void;
@@ -61439,9 +61475,9 @@ declare function SafeRemoveEntity(ent: Entity): void;
 /**
  * 🟨🟦🟩 [Shared and Menu]
  *
- * Removes entity after delay using [Global.SafeRemoveEntity](https://wiki.facepunch.com/gmod/Global.SafeRemoveEntity)
- * @param entity - Entity to be removed
- * @param delay - Delay for entity removal in seconds
+ * Removes entity after delay using [Global.SafeRemoveEntity](https://wiki.facepunch.com/gmod/Global.SafeRemoveEntity).
+ * @param entity - Entity to be removed.
+ * @param delay - Delay for entity removal in seconds.
  */
 declare function SafeRemoveEntityDelayed(entity: Entity, delay: number): void;
 
@@ -62372,7 +62408,7 @@ declare function VectorRand(min?: number, max?: number): Vector;
 /**
  * 🟨🟦🟩 [Shared and Menu]
  *
- * Identical to [Global.SysTime](https://wiki.facepunch.com/gmod/Global.SysTime).
+ * Identical to [Global.SysTime](https://wiki.facepunch.com/gmod/Global.SysTime). On Windows, will be the previous value of [Global.SysTime](https://wiki.facepunch.com/gmod/Global.SysTime).
  *
  * @deprecated Use the function [Global.SysTime](https://wiki.facepunch.com/gmod/Global.SysTime) instead.
  */
@@ -65892,6 +65928,10 @@ declare namespace ents {
      * Creates a clientside only rope, similar to those used by the Dog and Fast Zombie models from Half-Life 2.
      *
      * Created ropes will be automatically cleaned up when one of the attached entities is removed.
+     *
+     * **Warning:**
+     * >It doesn’t work exactly the same way as [constraint.CreateKeyframeRope](https://wiki.facepunch.com/gmod/constraint.CreateKeyframeRope) or [constraint.Rope](https://wiki.facepunch.com/gmod/constraint.Rope), you can see it when you try to use Slack with [constraint.CreateKeyframeRope](https://wiki.facepunch.com/gmod/constraint.CreateKeyframeRope) or addlength on [constraint.Rope](https://wiki.facepunch.com/gmod/constraint.Rope).
+     *
      * @param ent1 - The first entity to attach the rope to.
      * @param ent1attach - The attachment ID on the first entity to attach the rope to, or a local Vector relative to the first entity.
      * @param ent2 - The second entity to attach the rope to.
@@ -66691,6 +66731,18 @@ declare namespace game {
      * @returns number - The time scale.
      */
     declare function GetTimeScale(): number;
+
+    /**
+     * 🟨🟦 [Shared]
+     *
+     * Return wind direction multiplied on speed of [env_wind](https://developer.valvesoftware.com/wiki/Env_wind) entity.
+     * @param [pos = nil] - Optional arg that takes into account wind controllers with radius above `-1`.  Without arg should use only the global controller (if one exists).
+     * **Note:**
+     * >Position argument unfortunately will not do anything on `CLIENT` yet because the `env_wind` position is never networked to the clients.
+     *
+     * @returns Vector - Return value is basically `windDir * windSpeed`.
+     */
+    declare function GetWindSpeed(pos?: Vector): Vector;
 
     /**
      * 🟨🟦 [Shared]
@@ -67523,7 +67575,7 @@ declare namespace input {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the last key captured by key trapping.
-     * @returns KEY - The key, see [Enums/KEY](https://wiki.facepunch.com/gmod/Enums/KEY)
+     * @returns KEY - The key, see [Enums/KEY](https://wiki.facepunch.com/gmod/Enums/KEY).
      */
     declare function CheckKeyTrapping(): KEY;
 
@@ -67581,17 +67633,17 @@ declare namespace input {
      *
      * Gets whether the specified button code is down.
      *
-     * Unlike [input.IsKeyDown](https://wiki.facepunch.com/gmod/input.IsKeyDown) this can also detect joystick presses from [Enums/JOYSTICK](https://wiki.facepunch.com/gmod/Enums/JOYSTICK)
+     * Unlike [input.IsKeyDown](https://wiki.facepunch.com/gmod/input.IsKeyDown) this can also detect joystick presses from [Enums/JOYSTICK](https://wiki.facepunch.com/gmod/Enums/JOYSTICK).
      * @param button - The button, valid values are in the range of [Enums/BUTTON_CODE](https://wiki.facepunch.com/gmod/Enums/BUTTON_CODE).
-     * @returns boolean - Is the button down
+     * @returns boolean - Is the button down?
      */
     declare function IsButtonDown(button: BUTTON_CODE): boolean;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
-     * Returns whether a control key is being pressed
-     * @returns boolean - Is Ctrl key down or not
+     * Returns whether a control key is being pressed.
+     * @returns boolean - Is Ctrl key down or not?
      */
     declare function IsControlDown(): boolean;
 
@@ -67600,7 +67652,7 @@ declare namespace input {
      *
      * Gets whether a key is down.
      * @param key - The key, see [Enums/KEY](https://wiki.facepunch.com/gmod/Enums/KEY).
-     * @returns boolean - Is the key down
+     * @returns boolean - Is the key down?
      */
     declare function IsKeyDown(key: KEY): boolean;
 
@@ -67608,16 +67660,16 @@ declare namespace input {
      * 🟨🟩 [Client and Menu]
      *
      * Returns whether key trapping is activate and the next key press will be captured.
-     * @returns boolean - Whether key trapping active or not
+     * @returns boolean - Whether key trapping active or not.
      */
     declare function IsKeyTrapping(): boolean;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
-     * Gets whether a mouse button is down
-     * @param mouseKey - The key, see [Enums/MOUSE](https://wiki.facepunch.com/gmod/Enums/MOUSE)
-     * @returns boolean - Is the key down
+     * Gets whether a mouse button is down.
+     * @param mouseKey - The key, see [Enums/MOUSE](https://wiki.facepunch.com/gmod/Enums/MOUSE).
+     * @returns boolean - Is the key down?
      */
     declare function IsMouseDown(mouseKey: MOUSE): boolean;
 
@@ -68579,7 +68631,7 @@ declare namespace math {
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
-     * Returns the x power of the Euler constant.
+     * Returns e to the power of the input.
      * @param exponent - The exponent for the function.
      * @returns number - e to the specified power
      */
@@ -72069,7 +72121,10 @@ declare namespace render {
      * 🟨 [Client]
      *
      * Returns the full screen depth texture.
-     * @returns ITexture - The `_rt_FullFrameDepth` texture.
+     *
+     * @deprecated Alias of [render.GetPowerOfTwoTexture](https://wiki.facepunch.com/gmod/render.GetPowerOfTwoTexture) in practice.
+     *
+     * @returns ITexture - The `_rt_FullFrameDepth` texture, which is an alias of `_rt_PowerOfTwoFB` on PC.
      */
     declare function GetFullScreenDepthTexture(): ITexture;
 
@@ -75470,7 +75525,7 @@ declare namespace system {
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
-     * Returns the country code of this computer, determined by the localisation settings of the OS.
+     * Returns the country code of this computer, determined by the IP of the client. Uses the steamworks API function `SteamUtils()->GetIPCountry()`.
      *
      * **Note:**
      * >This function does not work on Dedicated Servers and will instead return no value.
@@ -76443,6 +76498,8 @@ declare namespace timer {
      * - If called *after* `DoSimpleTimers`, the callback will be executed on the next frame.
      *
      * For more information on hook execution order, see [Lua Hooks Order](https://wiki.facepunch.com/gmod/Lua_Hooks_Order).
+     *
+     * As of a commit on [2026.1.5](https://commits.facepunch.com/574654), simple timers are queued to the next frame, but as it is a recent change, it might only be available on the [Dev Branch](https://wiki.facepunch.com/gmod/Dev_Branch) right now.
      *
      * @param delay - How long until the function should be ran (in seconds). A value of `0` differs in behavior, depending on where you're calling this function.
      * @param func - The function to run after the specified delay.

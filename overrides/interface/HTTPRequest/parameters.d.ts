@@ -1,1 +1,1 @@
-parameters?: LuaTable<string, string>,
+parameters?: LuaTable<string, string> | Record<string, string>,
