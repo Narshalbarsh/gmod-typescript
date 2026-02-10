@@ -4014,8 +4014,10 @@ interface CTakeDamageInfo {
     /**
      * 🟨🟦 [Shared]
      *
-     * Returns the maximum damage. See [CTakeDamageInfo:SetMaxDamage](https://wiki.facepunch.com/gmod/CTakeDamageInfo:SetMaxDamage)
-     * @returns number - maxDmg
+     * Returns the maximum damage. See [CTakeDamageInfo:SetMaxDamage](https://wiki.facepunch.com/gmod/CTakeDamageInfo:SetMaxDamage).
+     *
+     * This is only set by "multi damage" instances in the engine, and is only checked by the strider NPC when receiving explosive damage.
+     * @returns number - The maximum amount of damage in the "multi damage" instance.
      */
     GetMaxDamage(): number;
 
@@ -4175,7 +4177,7 @@ interface CTakeDamageInfo {
     /**
      * 🟨🟦 [Shared]
      *
-     * Sets the maximum damage this damage event can cause.
+     * Sets the "maximum damage" for this damage event. See [CTakeDamageInfo:GetMaxDamage](https://wiki.facepunch.com/gmod/CTakeDamageInfo:GetMaxDamage) for details.
      * @param maxDamage - Maximum damage value.
      */
     SetMaxDamage(maxDamage: number): void;
@@ -5063,7 +5065,7 @@ interface Entity {
      *
      * Toggles the constraints of this ragdoll entity on and off.
      * @param toggleConstraints - Set to true to enable the constraints and false to disable them.
-     * Disabling constraints will delete the constraint entities.
+     * Disabling constraints will delete the constraints.
      */
     EnableConstraints(toggleConstraints: boolean): void;
 
@@ -5719,6 +5721,10 @@ interface Entity {
      * Returns entity's creation ID. Unlike [Entity:EntIndex](https://wiki.facepunch.com/gmod/Entity:EntIndex) or [Entity:MapCreationID](https://wiki.facepunch.com/gmod/Entity:MapCreationID).
      *
      * It will increase up until value of `10 000 000`, at which point it will reset back to `0`.
+     *
+     * **Bug :**
+     * >This returns `0` for clientside only entities, such as `class CLuaEffect`.
+     *
      * @returns number - The creation ID
      */
     GetCreationID(): number;
@@ -5727,6 +5733,10 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Returns the time the entity was created on, relative to [Global.CurTime](https://wiki.facepunch.com/gmod/Global.CurTime).
+     *
+     * **Bug :**
+     * >This returns `0` for clientside only entities, such as `class CLuaEffect`.
+     *
      * @returns number - The time the entity was created on.
      */
     GetCreationTime(): number;
@@ -9261,7 +9271,9 @@ interface Entity {
      * >Only `96` flex controllers can be set! Flex controllers on models with higher amounts will not be accessible.
      *
      * @param flex - The ID of the flex to modify weight of.  The range is between `0` and [Entity:GetFlexNum](https://wiki.facepunch.com/gmod/Entity:GetFlexNum) - 1.
-     * @param weight - The new weight to set. See [Entity:GetFlexBounds](https://wiki.facepunch.com/gmod/Entity:GetFlexBounds) for the model-defined input range.
+     * @param weight - The new weight to set.
+     * The range is [0,1] for entities with [Entity:HasFlexManipulatior](https://wiki.facepunch.com/gmod/Entity:HasFlexManipulatior), and the model-defined input range otherwise ([Entity:GetFlexBounds](https://wiki.facepunch.com/gmod/Entity:GetFlexBounds))
+     * Exceeding the range is allowed, and will amplify the effect (to possibly bad results), exactly like [Entity:SetFlexScale](https://wiki.facepunch.com/gmod/Entity:SetFlexScale) does.
      */
     SetFlexWeight(flex: number, weight: number): void;
 
@@ -10515,7 +10527,7 @@ interface Entity {
     /**
      * 🟨🟦 [Shared]
      *
-     * Sets the parent of this entity, making it move with its parent. This will make the child entity non solid, nothing can interact with them, including traces.
+     * Sets the parent of this entity, making it move with its parent. This will make the child entity non solid, nothing can interact with them, including traces (but [util.TraceHull](https://wiki.facepunch.com/gmod/util.TraceHull) will work).
      *
      * All children of the parent get removed whenever it gets removed.
      *
@@ -10586,7 +10598,13 @@ interface Entity {
     /**
      * 🟨🟦 [Shared]
      *
-     * Allows you to set how fast an entity's animation will play, with 1.0 being the default speed.
+     * Allows you to set how fast an entity's animation will play,
+     * 		with 1.0 being the default speed.
+     *
+     * **Note:**
+     * >This function does not affect gestures.
+     * 			Use [Entity:SetLayerPlaybackRate](https://wiki.facepunch.com/gmod/Entity:SetLayerPlaybackRate) instead.
+     *
      * @param fSpeed - How fast the animation will play.
      */
     SetPlaybackRate(fSpeed: number): void;
@@ -10887,6 +10905,8 @@ interface Entity {
      * Overrides a single material on the model of this entity.
      *
      * To set a Lua material created with [Global.CreateMaterial](https://wiki.facepunch.com/gmod/Global.CreateMaterial), just prepend a `!` to the material name.
+     *
+     * 	<validate>The index argument limit seems to be larger than 0 to 31.</validate>
      *
      * **Bug [#3362](https://github.com/Facepunch/garrysmod-issues/issues/3362):**
      * >The server's value takes priority on the client.
@@ -14761,8 +14781,14 @@ interface Panel {
      *
      * Centers the panel on its parent.
      *
+     * See [Panel:CenterHorizontal](https://wiki.facepunch.com/gmod/Panel:CenterHorizontal) and [Panel:CenterVertical](https://wiki.facepunch.com/gmod/Panel:CenterVertical) for more specialized functions.
+     *
      * **Note:**
-     * >This will center the panel using the current size of the panel so should be called AFTER setting or adjusting the size of the 	panel
+     * >This will center the panel using the current size of the panel, so it should be called **AFTER** setting or adjusting the size of the panel.
+     *
+     * Take special care when using [Panel:Dock](https://wiki.facepunch.com/gmod/Panel:Dock) as it will not update the size immediately.
+     *
+     * You may want to use [Panel:PerformLayout](https://wiki.facepunch.com/gmod/Panel:PerformLayout) to set positions of child panels.
      */
     Center(): void;
 
@@ -14770,6 +14796,8 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Centers the panel horizontally with specified fraction.
+     *
+     * See [Panel:CenterVertical](https://wiki.facepunch.com/gmod/Panel:CenterVertical) for vertical only centering, and  [Panel:Center](https://wiki.facepunch.com/gmod/Panel:Center) for a function that does both axes.
      * @param [fraction = 0.5] - The center fraction.
      */
     CenterHorizontal(fraction?: number): void;
@@ -14778,6 +14806,8 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Centers the panel vertically with specified fraction.
+     *
+     * See [Panel:CenterHorizontal](https://wiki.facepunch.com/gmod/Panel:CenterHorizontal) for horizontal only centering, and  [Panel:Center](https://wiki.facepunch.com/gmod/Panel:Center) for a function that does both axes.
      * @param [fraction = 0.5] - The center fraction.
      */
     CenterVertical(fraction?: number): void;
@@ -15511,8 +15541,8 @@ interface Panel {
      * Returns the size of the panel.
      *
      * If you require both the panel's position and size, consider using [Panel:GetBounds](https://wiki.facepunch.com/gmod/Panel:GetBounds) instead.
-     * @returns [1] number - width
-     * @returns [2] number - height
+     * @returns [1] number - The panel's width. ([Panel:GetWide](https://wiki.facepunch.com/gmod/Panel:GetWide))
+     * @returns [2] number - The panel's height ([Panel:GetTall](https://wiki.facepunch.com/gmod/Panel:GetTall))
      */
     GetSize(): LuaMultiReturn<[number, number]>;
 
@@ -17999,7 +18029,7 @@ interface Panel {
      *
      * You should not call this function directly. Use [Panel:InvalidateLayout](https://wiki.facepunch.com/gmod/Panel:InvalidateLayout) instead.
      *
-     * You can use `vgui_visualizelayout 1` to visualize panel layouts as they happen for debugging purposes. Panels should not be doing this every frame.
+     * You should also be careful to not cause layout loops. You can use `vgui_visualizelayout 1` to visualize panel layouts as they happen for debugging purposes. Panels should not be doing this every frame for performance reasons.
      * @param width - The panels current width.
      * @param height - The panels current height.
      */
@@ -18553,10 +18583,10 @@ interface PhysObj {
      * 🟨🟦 [Shared]
      *
      * Returns the mins and max of the physics object Axis-Aligned Bounding Box.
-     * @returns [1] Vector - The minimum extents of the bounding box.
+     * @returns [1] Vector|undefined - The minimum extents of the bounding box, or `nil` for runtime generated physics object.
      * @returns [2] Vector - The maximum extents of the bounding box.
      */
-    GetAABB(): LuaMultiReturn<[Vector, Vector]>;
+    GetAABB(): LuaMultiReturn<[Vector|undefined, Vector]>;
 
     /**
      * 🟨🟦 [Shared]
@@ -18684,10 +18714,10 @@ interface PhysObj {
     /**
      * 🟨🟦 [Shared]
      *
-     * Returns the [physical material](https://developer.valvesoftware.com/wiki/Material_surface_properties) of the physics object.
+     * Returns the [physical material](https://developer.valvesoftware.com/wiki/Material_surface_properties) ($surfaceprop) of the physics object.
      *
      * See [util.GetSurfaceData](https://wiki.facepunch.com/gmod/util.GetSurfaceData) for a function that adds these types as well as further explanation of what they are.
-     * @returns string - The physical material name.
+     * @returns string - The physical material name. ($surfaceprop)
      */
     GetMaterial(): string;
 
@@ -19802,9 +19832,9 @@ interface Player extends Entity {
     /**
      * 🟨🟦 [Shared]
      *
-     * Gets the **actual** view offset which equals the difference between the players actual position and their view when standing.
+     * Gets the current applied view offset, which transitions between the player's standing and ducked view offset depending on their duck state.
      *
-     * Do not confuse with [Player:GetViewOffset](https://wiki.facepunch.com/gmod/Player:GetViewOffset) and [Player:GetViewOffsetDucked](https://wiki.facepunch.com/gmod/Player:GetViewOffsetDucked)
+     * Do not confuse with [Player:GetViewOffset](https://wiki.facepunch.com/gmod/Player:GetViewOffset) and [Player:GetViewOffsetDucked](https://wiki.facepunch.com/gmod/Player:GetViewOffsetDucked), which always return the standing or ducked offset respectively.
      * @returns Vector - The actual view offset.
      */
     GetCurrentViewOffset(): Vector;
@@ -20281,20 +20311,20 @@ interface Player extends Entity {
     /**
      * 🟨🟦 [Shared]
      *
-     * Returns the view offset of the player which equals the difference between the players actual position and their view.
+     * Returns the view offset of the player, which equals the difference between the player's actual position and their view when standing.
      *
      * See also [Player:GetViewOffsetDucked](https://wiki.facepunch.com/gmod/Player:GetViewOffsetDucked).
-     * @returns Vector - New view offset, must be local vector to players [Entity:GetPos](https://wiki.facepunch.com/gmod/Entity:GetPos)
+     * @returns Vector - New view offset, must be local vector to player's [Entity:GetPos](https://wiki.facepunch.com/gmod/Entity:GetPos)
      */
     GetViewOffset(): Vector;
 
     /**
      * 🟨🟦 [Shared]
      *
-     * Returns the view offset of the player which equals the difference between the players actual position and their view when ducked.
+     * Returns the ducked view offset of the player, which equals the difference between the player's actual position and their view when ducked.
      *
      * See also [Player:GetViewOffset](https://wiki.facepunch.com/gmod/Player:GetViewOffset).
-     * @returns Vector - New crouching view offset, must be local vector to players [Entity:GetPos](https://wiki.facepunch.com/gmod/Entity:GetPos)
+     * @returns Vector - New crouching view offset, must be local vector to player's [Entity:GetPos](https://wiki.facepunch.com/gmod/Entity:GetPos)
      */
     GetViewOffsetDucked(): Vector;
 
@@ -21864,7 +21894,7 @@ interface Player extends Entity {
     /**
      * 🟨🟦 [Shared]
      *
-     * Returns a table that will stay allocated for the specific player serverside between connects until the server shuts down. On client it has no such special behavior.
+     * Returns a table that will stay allocated for the specific player serverside between connects until the server shuts down or change map. On client it has no such special behavior.
      *
      * **Note:**
      * >This table is not synchronized (networked) between client and server.
@@ -37230,6 +37260,9 @@ interface Gamemode {
      * **Note:**
      * >This hook is only called on Lua start up, changing its value (or adding new hooks) after it has been already called will not have any effect.
      *
+     * **Note:**
+     * >You can [Panel:SetSkin](https://wiki.facepunch.com/gmod/Panel:SetSkin) "Default" (or other skins) on the frame/base panel and they will still take priority
+     *
      * @returns string - A **case sensitive** Derma skin name to be used as default, registered previously via [derma.DefineSkin](https://wiki.facepunch.com/gmod/derma.DefineSkin).
      * Returning nothing, nil or invalid name will make it fallback to the "Default" skin.
      */
@@ -37580,7 +37613,7 @@ interface Gamemode {
      * Called when the Gamemode is about to draw a given element on the client's HUD (heads-up display).
      *
      * **Warning:**
-     * >This hook is called HUNDREDS of times per second (more than 5 times per frame on average). You shouldn't be performing any computationally intensive operations.
+     * >This hook is called HUNDREDS of times per second (more than 5 times per frame on average). You shouldn't be performing any computationally intensive operations. For Weapons you SHOULD use [WEAPON:HUDShouldDraw](https://wiki.facepunch.com/gmod/WEAPON:HUDShouldDraw) instead.
      *
      * @param name - The name of the HUD element. You can find a full list of HUD elements for this hook <page text="here">HUD_Element_List</page>.
      * @returns boolean - Return false to prevent the given element from being drawn on the client's screen.
@@ -38128,7 +38161,7 @@ interface Gamemode {
     /**
      * 🟨 [Client]
      *
-     * Called when a player releases the `+menu` bind on their keyboard, which is bound to Q by default.
+     * Called when a player releases the `+menu` bind on their keyboard, which is bound to <key>Q</key> by default.
      */
     OnSpawnMenuClose(): void;
 
@@ -38601,19 +38634,53 @@ interface Gamemode {
     PlayerHurt(victim: Player, attacker: Entity, healthRemaining: number, damageTaken: number): void;
 
     /**
-     * 🟦 [Server]
+     * 🟨🟦 [Shared]
      *
      * Called when the player spawns for the first time.
      *
      * See [GM:PlayerSpawn](https://wiki.facepunch.com/gmod/GM:PlayerSpawn) for a hook called every player spawn.
      *
+     * **Warning:**
+     * >Sending [net](https://wiki.facepunch.com/gmod/net) messages to the spawned player in this hook may cause them to be received before the player finishes loading, for example [Global.LocalPlayer](https://wiki.facepunch.com/gmod/Global.LocalPlayer) might return NULL since [GM:InitPostEntity](https://wiki.facepunch.com/gmod/GM:InitPostEntity) may have not been called yet clientside though the net message **won't** be lost and the client still should receive it (more information here: https://github.com/Facepunch/garrysmod-requests/issues/718).
+     *
+     * Workaround without networking:
+     * ```
+     * local load_queue = {}
+     *
+     * hook.Add( "PlayerInitialSpawn", "myAddonName/Load", function( ply )
+     * 	load_queue[ ply ] = true
+     * end )
+     *
+     * hook.Add( "StartCommand", "myAddonName/Load", function( ply, cmd )
+     * 	if load_queue[ ply ] and not cmd:IsForced() then
+     * 		load_queue[ ply ] = nil
+     *
+     * 		-- Send what you need here if it requires the client to be fully loaded!
+     * 	end
+     * end )
+     * ```
+     *
+     * With networking:
+     * ```
+     * -- CLIENT
+     * hook.Add( "InitPostEntity", "Ready", function()
+     * 	net.Start( "cool_addon_client_ready" )
+     * 	net.SendToServer()
+     * end )
+     * ```
+     * ```
+     * -- SERVER
+     * util.AddNetworkString( "cool_addon_client_ready" )
+     *
+     * net.Receive( "cool_addon_client_ready", function( len, ply )
+     * 	-- Send what you need here!
+     * end )
+     * ```
+     *
      * **Note:**
      * >This hook is called before the player has fully loaded, when the player is still in seeing the `Starting Lua` screen. For example, trying to use the [Entity:GetModel](https://wiki.facepunch.com/gmod/Entity:GetModel) function will return the default model (`models/player.mdl`).
-     *
-     * @param player - The player who spawned.
-     * @param transition - If `true`, the player just spawned from a [map transition](https://developer.valvesoftware.com/wiki/Level_Transitions). (Specifically via `trigger_changelevel` or `point_changelevel` entities)
      */
-    PlayerInitialSpawn(player: Player, transition: boolean): void;
+    PlayerInitialSpawn(): void;
 
     /**
      * 🟦 [Server]
@@ -38655,6 +38722,8 @@ interface Gamemode {
      * 🟨🟦 [Shared]
      *
      * Called when a player tries to switch noclip mode.
+     *
+     * <page text="MOVETYPE_NOCLIP">Enums/MOVETYPE#MOVETYPE_NOCLIP</page> can be used to determine if a player is currently in noclip mode.
      * @param ply - The person who entered/exited noclip
      * @param desiredState - Represents the noclip state (on/off) the user will enter if this hook allows them to.
      * @returns boolean - Return false to disallow the switch.
@@ -38967,7 +39036,9 @@ interface Gamemode {
     /**
      * 🟨 [Client]
      *
-     * Called after rendering effects. This is where halos are drawn. Called just before [GM:PreDrawHUD](https://wiki.facepunch.com/gmod/GM:PreDrawHUD).
+     * Called after rendering effects. This is where halos are drawn. Called just before [GM:PreDrawHUD](https://wiki.facepunch.com/gmod/GM:PreDrawHUD) (The two hooks are basically identical).
+     *
+     * See [GM:PreDrawEffects](https://wiki.facepunch.com/gmod/GM:PreDrawEffects) for the associated hook.
      *
      * <rendercontext hook="true" type="2D"></rendercontext>
      */
@@ -39178,7 +39249,9 @@ interface Gamemode {
     /**
      * 🟨 [Client]
      *
-     * Called just after [GM:PreDrawViewModel](https://wiki.facepunch.com/gmod/GM:PreDrawViewModel) and can technically be considered "PostDrawAllViewModels".
+     * Called just after [GM:PreDrawViewModel](https://wiki.facepunch.com/gmod/GM:PreDrawViewModel) and can technically be considered as a "PostDrawAllViewModels".
+     *
+     * See [GM:PostDrawEffects](https://wiki.facepunch.com/gmod/GM:PostDrawEffects) for the associated hook.
      *
      * <rendercontext hook="true" type="3D"></rendercontext>
      */
@@ -39196,7 +39269,9 @@ interface Gamemode {
     /**
      * 🟨 [Client]
      *
-     * Called just after [GM:PostDrawEffects](https://wiki.facepunch.com/gmod/GM:PostDrawEffects). Drawing anything in it seems to work incorrectly.
+     * Called just after [GM:PostDrawEffects](https://wiki.facepunch.com/gmod/GM:PostDrawEffects) (duplicate of it). Drawing anything in it seems to work incorrectly.
+     *
+     * See [GM:PostDrawHUD](https://wiki.facepunch.com/gmod/GM:PostDrawHUD) for the associated hook.
      */
     PreDrawHUD(): void;
 
@@ -40826,9 +40901,6 @@ interface ENTITY extends Entity {
      * **Bug [#3299](https://github.com/Facepunch/garrysmod-issues/issues/3299):**
      * >This is called before PrePlayerDraw for players. If this function exists at all on a player, their worldmodel will always be rendered regardless of PrePlayerDraw's return.
      *
-     * **Note:**
-     * >As a downside of this implementation, only one RenderOverride may be applied at a time.
-     *
      * @param flags - The <page text="STUDIO_">Enums/STUDIO</page> flags for this render operation.
      */
     RenderOverride(flags: STUDIO): void;
@@ -41082,7 +41154,7 @@ interface ENTITY extends Entity {
      *
      * You can force it to run at servers tickrate using the example below.
      *
-     * @returns boolean - Return `true` if you used [Entity:NextThink](https://wiki.facepunch.com/gmod/Entity:NextThink) to override the next execution time.
+     * @returns boolean - Return `true` if you used [Entity:NextThink](https://wiki.facepunch.com/gmod/Entity:NextThink) to override the next execution time. Otherwise it will be reset to `CurTime() + 0.2`.
      */
     Think(): boolean;
 
@@ -43651,7 +43723,8 @@ interface HTTPRequest {
      * <arg type="string" name="reason">Reason for the failure.</arg>
      * </callback>
      */
-    failed: (reason: string) => void,
+    /* Manual override from: interface/HTTPRequest/failed */
+    failed: (this: void, reason: string) => void,
 
     /**
      * Function to be called on success.
@@ -43661,7 +43734,8 @@ interface HTTPRequest {
      * <arg type="table" name="headers">List of headers the server provided.</arg>
      * </callback>
      */
-    success: (code: number, body: string, headers: any) => void,
+    /* Manual override from: interface/HTTPRequest/success */
+    success: (this: void, code: number, body: string, headers: any) => void,
 
     /**
      * Request method, case insensitive. Possible values are:
@@ -58200,12 +58274,12 @@ declare function AddConsoleCommand(name: string, helpText: string, flags: FCVAR)
  * Marks a Lua file to be sent to clients when they join the server. Doesn't do anything on the client - this means you can use it in a shared file without problems.
  *
  * **Warning:**
- * >If the file trying to be added is empty, an error will occur, and the file will not be sent to the client
+ * >If the file trying to be added is empty, an error will occur, and the file will not be sent to the client.
  *
  * 		The string cannot have whitespace.
  *
  * **Note:**
- * >This function is not needed for scripts located in these paths because they are automatically sent to clients.
+ * >This function is not needed for scripts located in these paths because they are automatically sent to clients:
  * 			**lua/matproxy/*
  * 			**lua/postprocess/*
  * 			**lua/vgui/*
@@ -58213,7 +58287,7 @@ declare function AddConsoleCommand(name: string, helpText: string, flags: FCVAR)
  * 			**lua/autorun/*
  * 			**lua/autorun/client/*
  *
- * 			You can add up to **8192** files. Each file can be up to **64KB** compressed (LZMA)
+ * 			You can add up to **8192** files. Each file can be up to **64KB** compressed (LZMA).
  *
  * @param [file = current file] - The name/path to the Lua file that should be sent, **relative to the garrysmod/lua folder**. If no parameter is specified, it sends the current file.
  * The file path can be relative to the script it's ran from. For example, if your script is in `lua/myfolder/stuff.lua`, calling [Global.AddCSLuaFile](https://wiki.facepunch.com/gmod/Global.AddCSLuaFile)("otherstuff.lua") and [Global.AddCSLuaFile](https://wiki.facepunch.com/gmod/Global.AddCSLuaFile)("myfolder/otherstuff.lua") is the same thing.
@@ -58249,12 +58323,12 @@ declare function AddOriginToPVS(position: Vector): void;
  * This function creates a Custom Category in the Spawnlist. Use [Global.GenerateSpawnlistFromPath](https://wiki.facepunch.com/gmod/Global.GenerateSpawnlistFromPath) if you want to create a category with the contents of a folder.
  *
  * **Warning:**
- * >Using this function before [SANDBOX:PopulateContent](https://wiki.facepunch.com/gmod/SANDBOX:PopulateContent) has been called will result in an error
+ * >Using this function before [SANDBOX:PopulateContent](https://wiki.facepunch.com/gmod/SANDBOX:PopulateContent) has been called will result in an error.
  *
- * @param pnlContent - The SMContentPanel of the Node
- * @param node - The Node
- * @param parentid - The ParentID to use
- * @param customProps - The Table with the Contents of the new Category
+ * @param pnlContent - The SMContentPanel of the Node.
+ * @param node - The Node.
+ * @param parentid - The ParentID to use.
+ * @param customProps - The Table with the Contents of the new Category.
  */
 declare function AddPropsOfParent(pnlContent: Panel, node: Panel, parentid: number, customProps: any): void;
 
@@ -58270,7 +58344,7 @@ declare function AddPropsOfParent(pnlContent: Panel, node: Panel, parentid: numb
  * See [SANDBOX:PaintWorldTips](https://wiki.facepunch.com/gmod/SANDBOX:PaintWorldTips) for more information.
  *
  * **Note:**
- * >This function is only available in Sandbox and its derivatives
+ * >This function is only available in Sandbox and its derivatives.
  *
  * @param [entindex = nil] - **This argument is no longer used**; it has no effect on anything. You can use nil in this argument.
  * @param text - The text for the world tip to display.
@@ -58293,7 +58367,7 @@ declare function AddWorldTip(entindex?: number, text?: string, dieTime?: number,
  * @param [pitch = 0] - The pitch value of the angle, in degrees.
  * @param [yaw = 0] - The yaw value of the angle, in degrees.
  * @param [roll = 0] - The roll value of the angle, in degrees.
- * @returns Angle - The newly created [Angle](https://wiki.facepunch.com/gmod/Angle)
+ * @returns Angle - The newly created [Angle](https://wiki.facepunch.com/gmod/Angle).
  */
 declare function Angle(pitch?: number, yaw?: number, roll?: number): Angle;
 
@@ -58358,10 +58432,10 @@ declare function BroadcastLua(code: string): void;
  *
  * Dumps the networked variables of all entities into one table and returns it.
  * @returns any - Format:
- * * key = [Entity](https://wiki.facepunch.com/gmod/Entity) for NWVars or [number](https://wiki.facepunch.com/gmod/number) (always 0) for global vars
+ * * key = [Entity](https://wiki.facepunch.com/gmod/Entity) for NWVars or [number](https://wiki.facepunch.com/gmod/number) (always 0) for global vars.
  * * value = [table](https://wiki.facepunch.com/gmod/table) formatted as:
- *   * key = [string](https://wiki.facepunch.com/gmod/string) var name
- *   * value = any type var value
+ *   * key = [string](https://wiki.facepunch.com/gmod/string) var name.
+ *   * value = any type var value.
  */
 declare function BuildNetworkedVarsTable(): any;
 
@@ -58369,7 +58443,7 @@ declare function BuildNetworkedVarsTable(): any;
  * 🟩 [Menu]
  *
  * Used internally to check if the current server the player is on can be added to favorites or not. Does not check if the server is ALREADY in the favorites.
- * @returns boolean - Can add to favorites
+ * @returns boolean - Can add to favorites?
  */
 declare function CanAddServerToFavorites(): boolean;
 
@@ -59194,10 +59268,11 @@ declare function DynamicMaterial(materialPath: string, flags?: string): IMateria
  *
  * Returns a [CEffectData](https://wiki.facepunch.com/gmod/CEffectData) object to be used with [util.Effect](https://wiki.facepunch.com/gmod/util.Effect).
  *
+ * **Warning:**
+ * >Any values previously set (Origin, Magnitude, Scale etc) will carry over to all future calls of this function, and may unexpectedly affect effects created via [util.Effect](https://wiki.facepunch.com/gmod/util.Effect).
+ *
  * **Bug [#2771](https://github.com/Facepunch/garrysmod-issues/issues/2771):**
  * >This does not create a unique object, but instead returns a shared reference. That means you cannot use two or more of these objects at once.
- *
- * This also means that any values previously set will carry over to all future calls of this functions, and may unexpectedly affect effects created via [util.Effect](https://wiki.facepunch.com/gmod/util.Effect).
  *
  * @returns CEffectData - The [CEffectData](https://wiki.facepunch.com/gmod/CEffectData) object.
  */
@@ -59663,7 +59738,8 @@ declare function GetDownloadables(): string[];
  * @param [location = 1] - The object to get the enviroment from. Can also be a number that specifies the function at that stack level: Level 1 is the function calling getfenv. Level 0 is the base Garry's Mod environment (_G).
  * @returns any - The environment.
  */
-declare function getfenv(location?: Function): any;
+/* Manual override from: global/getfenv */
+declare function getfenv(location?: Function | number): any;
 
 /**
  * 🟨🟦 [Shared]
@@ -64222,7 +64298,8 @@ declare namespace debug {
      * @param function_ - Function to use. (Only used by the `>` field)
      * @returns DebugInfo - A table as a [Structures/DebugInfo](https://wiki.facepunch.com/gmod/Structures/DebugInfo) containing information about the function you passed. Can return nil if the stack level didn't point to a valid stack frame.
      */
-    declare function getinfo(funcOrStackLevel: Function, fields?: string, function_?: Function|undefined): DebugInfo;
+    /* Manual override from: namespace/debug/getinfo */
+    declare function getinfo(funcOrStackLevel: Function | number, fields?: string, function_?: Function|undefined): DebugInfo;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -66183,7 +66260,7 @@ declare namespace file {
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
-     * Appends a file relative to the `data` folder.
+     * Appends data to a file in the `data/` folder.
      * @param name - The file's name.
      * @param content - The content which should be appended to the file.
      * @returns boolean - If the operation was successful.
@@ -66700,10 +66777,13 @@ declare namespace game {
     /**
      * 🟦 [Server]
      *
-     * Returns the revision (Not to be confused with [VBSP Version](https://developer.valvesoftware.com/wiki/Source_BSP_File_Format#Versions)) of the current map.
-     * @returns number - Revision of the currently loaded map.
+     * Returns the revision (Not to be confused with [VBSP Version](https://developer.valvesoftware.com/wiki/Source_BSP_File_Format#Versions)) and BSP version of the current map.
+     *
+     * Map revision is the amount of times the map file was saved in Hammer at the time of the map being compiled. This is useful to detect when a map has changed.
+     * @returns [1] number - Revision of the currently loaded map.
+     * @returns [2] number - BSP version.
      */
-    declare function GetMapVersion(): number;
+    declare function GetMapVersion(): LuaMultiReturn<[number, number]>;
 
     /**
      * 🟨🟦 [Shared]
@@ -66735,12 +66815,15 @@ declare namespace game {
     /**
      * 🟨🟦 [Shared]
      *
-     * Return wind direction multiplied on speed of [env_wind](https://developer.valvesoftware.com/wiki/Env_wind) entity.
-     * @param [pos = nil] - Optional arg that takes into account wind controllers with radius above `-1`.  Without arg should use only the global controller (if one exists).
+     * Returns the wind's velocity at a given position, as influenced by current map's [env_wind](https://developer.valvesoftware.com/wiki/Env_wind) entities.
+     * @param [pos = nil] - The point to get wind speed at.
+     * If specified, wind controllers with `windradius` other than `-1` will be taken into account, if the point is within their radius.
+     * If omitted, only the global wind controller will be used (if one exists).
      * **Note:**
-     * >Position argument unfortunately will not do anything on `CLIENT` yet because the `env_wind` position is never networked to the clients.
+     * >This argument will be ignored on the `CLIENT`and will be treated as `nil` because the position of `env_wind` is not currently networked to clients.
      *
-     * @returns Vector - Return value is basically `windDir * windSpeed`.
+     * @returns Vector - `windDir * windSpeed` — the current wind direction multiplied by the current total wind speed.
+     * See [env_wind_shared.cpp#L255-L258](https://github.com/ValveSoftware/source-sdk-2013/blob/master/src/game/shared/env_wind_shared.cpp#L255-L258) for how it's calculated.
      */
     declare function GetWindSpeed(pos?: Vector): Vector;
 
@@ -70322,7 +70405,7 @@ declare namespace net {
      * **Note:**
      * >Modifying [net.Receivers](https://wiki.facepunch.com/gmod/net.Receivers) won't affect the net string pool used in [util.AddNetworkString](https://wiki.facepunch.com/gmod/util.AddNetworkString).
      *
-     * @returns any - The list of all registered derma controls.
+     * @returns any - The list of all registered net receivers.
      */
     declare function Receivers(): any;
 
@@ -70856,7 +70939,8 @@ declare namespace os {
      * **Note:**
      * >This will be a [Structures/DateData](https://wiki.facepunch.com/gmod/Structures/DateData) if the first argument equals to `*t` or `!*t`
      */
-    declare function date(format: DateData, time?: number): DateData;
+    /* Manual override from: namespace/os/date */
+    declare function date(format: string, time?: number): DateData;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -72221,7 +72305,7 @@ declare namespace render {
     /**
      * 🟨 [Client]
      *
-     * Returns the `_rt_ResolvedFullFrameDepth` texture for SSAO depth. It will only be updated if [GM:NeedsDepthPass](https://wiki.facepunch.com/gmod/GM:NeedsDepthPass) returns true. Depth is written using the [Shaders/DepthWrite](https://wiki.facepunch.com/gmod/Shaders/DepthWrite).
+     * Returns the `_rt_ResolvedFullFrameDepth` texture for SSAO depth. It will only be updated if [GM:NeedsDepthPass](https://wiki.facepunch.com/gmod/GM:NeedsDepthPass) returns true. Depth is written using the [Shaders/DepthWrite](https://wiki.facepunch.com/gmod/Shaders/DepthWrite) by rendering scene a second time, using [SSAO_DepthPass function](https://github.com/ValveSoftware/source-sdk-2013/blob/11a677c349b149b2f77184dc903e6bb17f8df69b/src/game/client/viewrender.cpp#L5576).
      * @returns ITexture - The depth texture.
      */
     declare function GetResolvedFullFrameDepth(): ITexture;
@@ -72440,7 +72524,7 @@ declare namespace render {
      *
      * Overrides the write behaviour of all next rendering operations towards the color channel of the current render target.
      * @param enable - Enable or disable the override.
-     * @param shouldWrite - If the previous argument is true, sets whether the next rendering operations should write to the color channel or not. Has no effect if the previous argument is false.
+     * @param shouldWrite - If the previous argument is true, sets whether the next rendering operations should write to the color channel or not. Anything drawn after will still write to depth if enabled and shouldWrite is false.
      */
     declare function OverrideColorWriteEnable(enable: boolean, shouldWrite: boolean): void;
 
@@ -74673,6 +74757,9 @@ declare namespace string {
      *
      * Returns extension of the file.
      *
+     * See [string.StripExtension](https://wiki.facepunch.com/gmod/string.StripExtension) for a function to remove the extension.
+     * See [string.GetFileFromFilename](https://wiki.facepunch.com/gmod/string.GetFileFromFilename) and [string.GetPathFromFilename](https://wiki.facepunch.com/gmod/string.GetPathFromFilename) for related functions.
+     *
      * **Note:**
      * >Make sure there are no trailing whitespaces in your `path` argument
      *
@@ -74685,6 +74772,9 @@ declare namespace string {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns file name and extension.
+     *
+     * See [string.GetPathFromFilename](https://wiki.facepunch.com/gmod/string.GetPathFromFilename) for the opposite function.
+     * See [string.GetExtensionFromFilename](https://wiki.facepunch.com/gmod/string.GetExtensionFromFilename) for thefile extension version.
      * @param path - The string eg. file-path to get the file-name from.
      * @returns string - File name or unmodified string.
      */
@@ -74693,7 +74783,10 @@ declare namespace string {
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
-     * Returns the path only from a file's path.
+     * Returns the path part of a full file path.
+     *
+     * See [string.GetFileFromFilename](https://wiki.facepunch.com/gmod/string.GetFileFromFilename) for the opposite function.
+     * See [string.GetExtensionFromFilename](https://wiki.facepunch.com/gmod/string.GetExtensionFromFilename) for thefile extension version.
      * @param path - The string eg. file-path to get the path from.
      * @returns string - Path or empty string.
      */
@@ -74946,6 +75039,8 @@ declare namespace string {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Removes the extension of a path.
+     *
+     * See [string.GetExtensionFromFilename](https://wiki.facepunch.com/gmod/string.GetExtensionFromFilename) for a function to retrieve the extension instead.
      * @param path - The string eg. file-path to strip the extension.
      * @returns string - File-path without extension or unmodified string.
      */
