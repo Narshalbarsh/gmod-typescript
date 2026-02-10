@@ -38680,7 +38680,9 @@ interface Gamemode {
      * **Note:**
      * >This hook is called before the player has fully loaded, when the player is still in seeing the `Starting Lua` screen. For example, trying to use the [Entity:GetModel](https://wiki.facepunch.com/gmod/Entity:GetModel) function will return the default model (`models/player.mdl`).
      */
-    PlayerInitialSpawn(): void;
+    /* Manual override from: interface/Gamemode/PlayerInitialSpawn */
+    // TODO figure out why this broke
+    PlayerInitialSpawn(player: Player, transition: boolean): void;
 
     /**
      * 🟦 [Server]
