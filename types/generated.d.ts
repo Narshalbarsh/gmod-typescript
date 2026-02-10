@@ -38634,7 +38634,7 @@ interface Gamemode {
     PlayerHurt(victim: Player, attacker: Entity, healthRemaining: number, damageTaken: number): void;
 
     /**
-     * 🟨🟦 [Shared]
+     * 🟦 [Server]
      *
      * Called when the player spawns for the first time.
      *
@@ -38679,9 +38679,10 @@ interface Gamemode {
      *
      * **Note:**
      * >This hook is called before the player has fully loaded, when the player is still in seeing the `Starting Lua` screen. For example, trying to use the [Entity:GetModel](https://wiki.facepunch.com/gmod/Entity:GetModel) function will return the default model (`models/player.mdl`).
+     *
+     * @param player - The player who spawned.
+     * @param transition - If `true`, the player just spawned from a map transition.
      */
-    /* Manual override from: interface/Gamemode/PlayerInitialSpawn */
-    // TODO figure out why this broke
     PlayerInitialSpawn(player: Player, transition: boolean): void;
 
     /**
