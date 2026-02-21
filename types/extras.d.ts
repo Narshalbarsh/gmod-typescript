@@ -94,3 +94,9 @@ interface DCheckBoxLabel extends DPanel {
     Button: DCheckBox;
     Label: DLabel;
 }
+
+type PanelDef<T> = {
+    [K in keyof T]?: NonNullable<T[K]> extends (this: any, ...args: infer A) => infer R
+        ? (this: T, ...args: A) => R
+        : T[K];
+};
