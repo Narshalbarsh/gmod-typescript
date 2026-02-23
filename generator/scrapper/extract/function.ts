@@ -73,6 +73,20 @@ export function extractFunction(page: WikiPage): WikiFunction | WikiStructItem {
         const parent: string = fromTitle.parent ?? fnNode.attr.parent ?? '';
         const name: string = (fromTitle.name ?? fnNode.attr.name) as string;
 
+        // Some wiki pages (e.g. math.pi) are encoded as <function ... type="libraryfield">
+        // but are actually namespace fields/constants, not callable functions.
+        const fnType = String(fnNode.attr?.type ?? '').toLowerCase();
+        if (fnType === 'libraryfield') {
+            return {
+                kind: WikiElementKind.StructItem,
+                name,
+                parent,
+                description: textOf(fnNode.description),
+                address: page.address,
+                type: rets[0]?.type || 'any',
+            };
+        }
+
         return {
             name,
             parent,

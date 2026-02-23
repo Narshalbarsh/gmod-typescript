@@ -4981,7 +4981,7 @@ interface Entity {
      * >Using this with a map model ([game.GetWorld](https://wiki.facepunch.com/gmod/game.GetWorld)():()) crashes the game.
      *
      * **Bug [#4116](https://github.com/Facepunch/garrysmod-issues/issues/4116):**
-     * >Calling this in [GM:PrePlayerDraw](https://wiki.facepunch.com/gmod/GM:PrePlayerDraw) will cause infinite recursion and crash the game.
+     * >Calling this on a player during that player's [GM:PrePlayerDraw](https://wiki.facepunch.com/gmod/GM:PrePlayerDraw) hook call will cause infinite recursion and crash the game.
      *
      * @param [flags = STUDIO_RENDER] - The optional <page text="STUDIO_">Enums/STUDIO</page> flags, usually taken from [ENTITY:Draw](https://wiki.facepunch.com/gmod/ENTITY:Draw) and similar hooks.
      */
@@ -5032,10 +5032,18 @@ interface Entity {
     /**
      * 🟨🟦 [Shared]
      *
-     * Plays a sound on an entity.
+     * Plays a sound on an entity. See also [Global.EmitSound](https://wiki.facepunch.com/gmod/Global.EmitSound) if you wish to play sounds without an entity.
      *
      * If run clientside, the sound will only be heard locally.
      * If used on a player or NPC character with the mouth rigged, the character will "lip-sync" if the sound file contains lipsync data. See [this page](https://developer.valvesoftware.com/wiki/Choreography_creation/Lip_syncing) for more information.
+     *
+     * **Warning:**
+     * >Due to engine quirks, [sound scripts](https://developer.valvesoftware.com/wiki/Soundscripts) can't have their soundlevel, pitch, volume, or channel changed when played from an entity—the sound script parameters will override whatever you pass to this function.
+     *
+     * You can do one of these instead:
+     * * Use [sound.GetProperties](https://wiki.facepunch.com/gmod/sound.GetProperties) to select a sound from the script, and play the sound file directly.
+     * * For single-use sounds, you can pass theorsound flags. However, this will change the volume or pitch of the sound if it's already playing, instead of starting the sound over or playing another instance.
+     * * Use [Global.EmitSound](https://wiki.facepunch.com/gmod/Global.EmitSound) with the entity parameter set to the [Entity:EntIndex](https://wiki.facepunch.com/gmod/Entity:EntIndex) of the entity you want to play the sound on.
      *
      * **Bug [#2651](https://github.com/Facepunch/garrysmod-issues/issues/2651):**
      * >This does not respond to [Global.SuppressHostEvents](https://wiki.facepunch.com/gmod/Global.SuppressHostEvents).
@@ -5049,13 +5057,11 @@ interface Entity {
      * >The string cannot have whitespace at the start or end. You can remove this with [string.Trim](https://wiki.facepunch.com/gmod/string.Trim).
      *
      * @param [soundLevel = 75] - A modifier for the distance this sound will reach, acceptable range is 0 to 511. 100 means no adjustment to the level. See [Enums/SNDLVL](https://wiki.facepunch.com/gmod/Enums/SNDLVL)
-     * Will not work if a [sound script](https://developer.valvesoftware.com/wiki/Soundscripts) is used.
      * @param [pitchPercent = 100] - The pitch applied to the sound. The acceptable range is from 0 to 255. 100 means the pitch is not changed.
      * @param [volume = 1] - The volume, from 0 to 1.
      * @param [channel = CHAN_AUTO, CHAN_WEAPON for weapons] - The sound channel, see [Enums/CHAN](https://wiki.facepunch.com/gmod/Enums/CHAN).
-     * Will not work if a [sound script](https://developer.valvesoftware.com/wiki/Soundscripts) is used.
      * @param [soundFlags = 0] - The flags of the sound, see [Enums/SND](https://wiki.facepunch.com/gmod/Enums/SND)
-     * @param [dsp = 1] - The DSP preset for this sound. [List of DSP presets](https://developer.valvesoftware.com/wiki/Dsp_presets)
+     * @param [dsp = 1] - The DSP preset for this sound. <page text="DSP Presets">DSP_Presets</page>
      * @param [filter = nil] - If set serverside, the sound will only be networked to the clients in the filter.
      */
     EmitSound(soundName: string, soundLevel?: SNDLVL, pitchPercent?: number, volume?: number, channel?: CHAN, soundFlags?: SND, dsp?: number, filter?: CRecipientFilter): void;
@@ -5222,7 +5228,7 @@ interface Entity {
      *
      * Lag compensation will not work if this function is called in a timer, regardless if the timer was made in a predicted hook.
      *
-     * Due to how `Entity:FireBullets` is set up internally, bullet tracers will always originate from attachment 1. This can be avoided by supplying your own tracer effect.
+     * Due to how `Entity:FireBullets` is set up internally, bullet tracers will always originate from the first attachment/index 1. This can be avoided by supplying your own tracer effect.
      *
      * When firing bullets from a [Weapon](https://wiki.facepunch.com/gmod/Weapon), it is recommended to fire bullets from the weapon owner entity ([Player](https://wiki.facepunch.com/gmod/Player) or [NPC](https://wiki.facepunch.com/gmod/NPC)), not the [Weapon](https://wiki.facepunch.com/gmod/Weapon) itself.
      * @param bulletInfo - The bullet data to be used. See the [Structures/Bullet](https://wiki.facepunch.com/gmod/Structures/Bullet).
@@ -6271,7 +6277,7 @@ interface Entity {
      * >The table returned by this function will not contain materials if they are missing from the disk/repository. This means that if you are attempting to find the ID of a material to replace with [Entity:SetSubMaterial](https://wiki.facepunch.com/gmod/Entity:SetSubMaterial) and there are missing materials on the model, all subsequent materials will be offset in the table, meaning that the ID you are trying to get will be incorrect.
      *
      * @returns any - A table containing full paths to the materials of the model.
-     * For models, it's limited to 128 materials.
+     * For models, it's limited to `128` materials.
      */
     GetMaterials(): any;
 
@@ -8044,6 +8050,10 @@ interface Entity {
      * Gets the bone index of the given bone name, returns `nil` if the bone does not exist.
      *
      * See [Entity:GetBoneName](https://wiki.facepunch.com/gmod/Entity:GetBoneName) for the inverse of this function.
+     *
+     * **Note:**
+     * >When called on [Weapon](https://wiki.facepunch.com/gmod/Weapon)s equipped by any Player, this will return their viewmodel's bone index instead of worldmodel.
+     *
      * @param boneName - The name of the bone.
      * Common generic bones ( for player models and some HL2 models ):
      * * ValveBiped.Bip01_Head1
@@ -8057,7 +8067,7 @@ interface Entity {
      * * ValveBiped.Bip01_R_Calf
      * * ValveBiped.Bip01_R_Shoulder
      * * ValveBiped.Bip01_R_Elbow
-     * @returns number|undefined - Index of the given bone name, or `nil` if the bone doesn't exist on the Entity
+     * @returns number|undefined - Index of the given bone name, or `nil` if the bone doesn't exist on the Entity.
      */
     LookupBone(boneName: string): number|undefined;
 
@@ -10598,8 +10608,9 @@ interface Entity {
     /**
      * 🟨🟦 [Shared]
      *
-     * Allows you to set how fast an entity's animation will play,
-     * 		with 1.0 being the default speed.
+     * Allows you to set how fast an entity's animation will play, with 1.0 being the default speed.
+     *
+     * 		It is networked to clients, but limited to [-4,12] range when networking.
      *
      * **Note:**
      * >This function does not affect gestures.
@@ -10911,10 +10922,12 @@ interface Entity {
      * **Bug [#3362](https://github.com/Facepunch/garrysmod-issues/issues/3362):**
      * >The server's value takes priority on the client.
      *
-     * @param [index = nil] - Index of the material to override, acceptable values are from 0 to 31.
-     * Indexes are by [Entity:GetMaterials](https://wiki.facepunch.com/gmod/Entity:GetMaterials), but you have to subtract 1 from them.
-     * If called with no arguments, all sub materials will be reset.
-     * @param [material = nil] - The material to override the default one with. Set to nil to revert to default material.
+     * @param [index = nil] - Index of the material to override, acceptable values are from `0` to `31`.
+     * Indexes are by [Entity:GetMaterials](https://wiki.facepunch.com/gmod/Entity:GetMaterials), but you have to subtract `1` from them.
+     * **Note:**
+     * >If called with no arguments, all sub materials will be reset.
+     *
+     * @param [material = nil] - The material to override the default one with. Set to [nil](https://wiki.facepunch.com/gmod/nil) to revert to default material.
      */
     SetSubMaterial(index?: number, material?: string): void;
 
@@ -11179,6 +11192,8 @@ interface Entity {
      * 🟨🟦 [Shared]
      *
      * Stops emitting the given sound from the entity, especially useful for looping sounds.
+     *
+     * Internally plays the sound with the <page text="SND_STOP">Enums/SND#SND_STOP</page> flag to stop the sound.
      * @param sound - The name of the sound script or the filepath to stop playback of.
      */
     StopSound(sound: string): void;
@@ -13454,7 +13469,7 @@ interface NPC extends Entity {
     /**
      * 🟦 [Server]
      *
-     * Returns all known enemies this NPC has.
+     * Returns all known enemies this NPC has. The enemy table is updated with [NPC:UpdateEnemyMemory](https://wiki.facepunch.com/gmod/NPC:UpdateEnemyMemory) and [NPC:ClearEnemyMemory](https://wiki.facepunch.com/gmod/NPC:ClearEnemyMemory), meaning other entities may be in enemies list even though your NPC doesn't hate it.
      *
      * See also [NPC:GetKnownEnemyCount](https://wiki.facepunch.com/gmod/NPC:GetKnownEnemyCount)
      * @returns any - Table of entities that this NPC knows as enemies.
@@ -16177,6 +16192,9 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Sets a new image to be loaded by a [TGAImage](https://wiki.facepunch.com/gmod/TGAImage).
+     *
+     * @deprecated [DImage](https://wiki.facepunch.com/gmod/DImage) should be used instead (with `.png` or `.jpg` images). `TGAImage` panel has no advantages.
+     *
      * @param imageName - The file path.
      * @param strPath - The PATH to search in. See [File Search Paths](https://wiki.facepunch.com/gmod/File_Search_Paths).
      * This isn't used internally.
@@ -18603,6 +18621,18 @@ interface PhysObj {
      * @returns Vector - The angular velocity
      */
     GetAngleVelocity(): Vector;
+
+    /**
+     * 🟨🟦 [Shared]
+     *
+     * Returns the buoyancy ratio of the physics object. (How well it floats in water).
+     *
+     * **Warning:**
+     * >Currently only works on Windows
+     *
+     * @returns number - Buoyancy ratio, where 0 is not buoyant at all (like a rock), and 1 is very buoyant (like wood)
+     */
+    GetBuoyancyRatio(): number;
 
     /**
      * 🟨🟦 [Shared]
@@ -24569,7 +24599,9 @@ interface Weapon extends Entity {
     /**
      * 🟨🟦 [Shared]
      *
-     * Sets the time since this weapon last fired in seconds. Used in conjunction with [Weapon:LastShootTime](https://wiki.facepunch.com/gmod/Weapon:LastShootTime)
+     * Sets the time since this weapon last fired in seconds. Used in conjunction with [Weapon:LastShootTime](https://wiki.facepunch.com/gmod/Weapon:LastShootTime).
+     *
+     * This value is **not** networked to the client if set from server.
      * @param [time = CurTime()] - The time in seconds when the last time the weapon was fired.
      */
     SetLastShootTime(time?: number): void;
@@ -25178,12 +25210,11 @@ interface Weapon extends Entity {
      *
      * This hook won't be called during the deploy animation and when using [Weapon:DefaultReload](https://wiki.facepunch.com/gmod/Weapon:DefaultReload).
      *
-     * Despite being a predicted hook, this hook is called clientside in single player (for your convenience), however it will not be recognized as a predicted hook via [Player:GetCurrentCommand](https://wiki.facepunch.com/gmod/Player:GetCurrentCommand), and will run more often in this case.
-     *
-     * This hook will be called before Player movement is processed on the client, and after on the server.
-     *
      * **Bug [#2855](https://github.com/Facepunch/garrysmod-issues/issues/2855):**
      * >This will not be run during deploy animations after a serverside-only deploy. This usually happens after picking up and dropping an object with +use.
+     *
+     * **Note:**
+     * >If you wish for this hook to be called during the deploy animation, add the following to the model's **ACT_VM_DRAW** sequence: `node "Ready"`
      *
      * **Note:**
      * >This hook only runs while the weapon is in players hands. It does not run while it is carried by an NPC.
@@ -36549,6 +36580,8 @@ interface TextEntry extends Panel {
 
 /**
  * A panel capable of loading `.tga` images.
+ *
+ * @deprecated [DImage](https://wiki.facepunch.com/gmod/DImage) should be used instead (with `.png` or `.jpg` images). `TGAImage` panel has no advantages.
  */
 interface TGAImage extends Panel {
 
@@ -38148,7 +38181,7 @@ interface Gamemode {
     /**
      * 🟨 [Client]
      *
-     * Called when the player's screen resolution of the game changes.
+     * Called when the player's screen resolution of the game changes. This also called when changing MSAA settings.
      *
      * [Global.ScrW](https://wiki.facepunch.com/gmod/Global.ScrW) and [Global.ScrH](https://wiki.facepunch.com/gmod/Global.ScrH) will return the new values when this hook is called.
      * @param oldWidth - The previous width of the game's window.
@@ -43370,7 +43403,7 @@ interface EmitSoundInfo {
      *
      * There are approximately 134 different presets defined by the Source engine between 0 and 133. These presets represent different types of 'rooms' or environments.
      *
-     * [List of DSP's](https://developer.valvesoftware.com/wiki/Dsp_presets)
+     * <page text="DSP Presets">DSP_Presets</page>
      * @default 0
      */
     DSP?: number,
@@ -44213,9 +44246,11 @@ interface ModelInfo {
      * Each sequence is a table with the following info:
      * * [string](https://wiki.facepunch.com/gmod/string) Name
      * * [string](https://wiki.facepunch.com/gmod/string) Activity
+     * * <page added="2026.02.17">number</page> ActivityID
+     * * <page added="2026.02.17">number</page> ActivityWeight
      * * [table](https://wiki.facepunch.com/gmod/table) Events
      *
-     * `Events` table is a list of tables with following memebers:
+     * `Events` table is a list of tables with following members:
      * * [number](https://wiki.facepunch.com/gmod/number) Cycle
      * * [number](https://wiki.facepunch.com/gmod/number) Event
      * * [string](https://wiki.facepunch.com/gmod/string) Name
@@ -45281,6 +45316,25 @@ interface ShadowControlParams {
      * @default 0
      */
     teleportdistance?: number,
+}
+
+/**
+ * 🟨🟦 [Shared]
+ *
+ * A [table](https://wiki.facepunch.com/gmod/table) structure containing the information of 3D skybox.
+ *
+ * 		Returned by [game.Get3DSkyboxInfo](https://wiki.facepunch.com/gmod/game.Get3DSkyboxInfo).
+ */
+interface Sky3DParams {
+    /**
+     * Position of the [sky_camera](https://developer.valvesoftware.com/wiki/Sky_camera) entity.
+     */
+    origin: Vector,
+
+    /**
+     * Scale of the 3D skybox.
+     */
+    scale: number,
 }
 
 /**
@@ -54050,7 +54104,19 @@ declare const enum MASK {
 /**
  * 🟨🟦 [Shared]
  *
- * Enumerations used in [Structures/TraceResult](https://wiki.facepunch.com/gmod/Structures/TraceResult) and by [Entity:GetMaterialType](https://wiki.facepunch.com/gmod/Entity:GetMaterialType).
+ * Enumerations used in [Structures/TraceResult](https://wiki.facepunch.com/gmod/Structures/TraceResult) and [Structures/SurfacePropertyData](https://wiki.facepunch.com/gmod/Structures/SurfacePropertyData), and by [Entity:GetMaterialType](https://wiki.facepunch.com/gmod/Entity:GetMaterialType).
+ *
+ * # These aren't VMT materials!
+ *
+ * [Material types](https://developer.valvesoftware.com/wiki/Material_Types) are a [holdover from GoldSrc](https://developer.valvesoftware.com/wiki/Material_surface_properties) and Quake before it. They were previously used to classify textures and entities into categories, defining their physical properties. In practice, this really only changed impact sounds and effects, and player footstep sounds. For example, `func_breakable` (in GoldSrc) used it to select which gibs to spawn when broken. Raw texture files were given these properties by assigning them to a material. These were tracked in the single file `materials.txt`, which contained mappings of material types to texture names. Materials are indexed using a letter—for example `MAT_METAL` was indexed in `materials.txt` with the letter "M". The value of `MAT_METAL` is 77, because the ASCII value for M is 77. Some entities could also be assigned materials directly in their <page text="keyvalues">Entity:GetSaveTable</page> using the same system.
+ *
+ * In Source, materials were moved out of the single `materials.txt` file; now every texture has its own associated <page text="material">Materials_and_Textures</page> file, called [VMT](https://developer.valvesoftware.com/wiki/VMT) (**V**alve **M**aterial **T**ype). VMTs contain all the information legacy materials used to provide and more, including including shader, transparency, physical properties, animations...
+ *
+ * Rather than place the properties directly inside the VMT (which would prevent them from being assigned directly to entities like legacy materials could), <page text="surface properties">Structures/SurfacePropertyData</page> were added, which can be selected in the VMT using the `$surfaceprop` key. Surface properties are what determine impact sounds, buoyancy, friction, and other such properties. These do not use letters as identifiers and instead use <page text="string names">util.GetSurfaceIndex</page>. You can view the surface properties Garry's Mod loads by looking in the `GarrysMod/sourceengine/scripts/surfaceproperties.txt` file.
+ *
+ * However, legacy materials still exist in Source. They are called game materials or <page text="material types">Entity:GetMaterialType</page> to separate them from the new material system where confusion between the two is a concern. For example, surface property definitions contain a `gamematerial` parameter; this field assigns a legacy game material to a surface property, which is then assigned to VMTs and entities.
+ *
+ * The main thing legacy game materials are used for nowadays are picking impact effects and decals, like in GoldSrc. Otherwise, surface properties and VMTs replace most other functionality.
  * @compileMembersOnly
  */
 declare const enum MAT {
@@ -54806,7 +54872,7 @@ declare const enum NavTraverseType {
 /**
  * 🟨🟩 [Client and Menu]
  *
- * Enumerations used by [notification.AddLegacy](https://wiki.facepunch.com/gmod/notification.AddLegacy). Clientside & Menu only.
+ * Enumerations used by [notification.AddLegacy](https://wiki.facepunch.com/gmod/notification.AddLegacy). Clientside only.
  * @compileMembersOnly
  */
 declare const enum NOTIFY {
@@ -56020,17 +56086,17 @@ declare const enum SND {
     SND_NOFLAGS = 0,
 
     /**
-     * Change sound volume
+     * Change sound volume. If the sound is already being emitted by the entity, its volume will be changed, instead of playing another sound.
      */
     SND_CHANGE_VOL = 1,
 
     /**
-     * Change sound pitch
+     * Change sound pitch. If the sound is already being emitted by the entity, its pitch will be changed, instead of playing another sound.
      */
     SND_CHANGE_PITCH = 2,
 
     /**
-     * Stop the sound
+     * Stop the sound. Used internally for [Entity:StopSound](https://wiki.facepunch.com/gmod/Entity:StopSound).
      */
     SND_STOP = 4,
 
@@ -56040,7 +56106,7 @@ declare const enum SND {
     SND_SPAWNING = 8,
 
     /**
-     * Sound has an initial delay
+     * Sound has an initial delay.
      */
     SND_DELAY = 16,
 
@@ -56050,7 +56116,7 @@ declare const enum SND {
     SND_STOP_LOOPING = 32,
 
     /**
-     * This sound should be paused if the game is paused
+     * This sound should be paused if the game is paused.
      */
     SND_SHOULDPAUSE = 128,
 
@@ -56060,7 +56126,7 @@ declare const enum SND {
     SND_IGNORE_PHONEMES = 256,
 
     /**
-     * Used to change all sounds emitted by an entity, regardless of scriptname
+     * Used to change all sounds (e.g. with SND_CHANGE_VOL) emitted by an entity, regardless of scriptname.
      */
     SND_IGNORE_NAME = 512,
 
@@ -58399,24 +58465,6 @@ declare function AngleRand(min?: number, max?: number): Angle;
 declare function assert(expression: any, errorMessage?: string, ...returns: any[]): LuaMultiReturn<[any, any, any[]]>;
 
 /**
- * 🟨🟦🟩 [Shared and Menu]
- *
- * A variable containing a string indicating which (Beta) Branch of the game you are using.
- *
- * 		While this variable is always available in the <page text="Client">States#client</page> & <page text="Menu">States#menu</page> realms, it is only defined in the <page text="Server">States#server</page>  realm on local servers.
- *
- * 		For more information on beta branches, see <page text="this page">Dev_Branch</page>.
- *  <br/><br/>
- * 		Branch List :
- * * unknown **(No beta program)**.
- * * dev.
- * * prerelease.
- * * x86-64.
- * @returns string - The current branch.
- */
-declare function BRANCH(): string;
-
-/**
  * 🟨🟦 [Shared]
  *
  * Sends the specified Lua code to all connected clients and executes it.
@@ -59332,8 +59380,9 @@ declare function Either(condition: any, truevar: any, falsevar: any): any;
  * @param [soundLevel = 75] - The sound level of the sound, see [Enums/SNDLVL](https://wiki.facepunch.com/gmod/Enums/SNDLVL)
  * @param [soundFlags = 0] - The flags of the sound, see [Enums/SND](https://wiki.facepunch.com/gmod/Enums/SND)
  * @param [pitch = 100] - The pitch of the sound, 0-255
+ * @param [DSP = 0] - Digital Sound Processor for this sound. <page text="DSP Presets">DSP_Presets</page>
  */
-declare function EmitSentence(soundName: string, position: Vector, entity: number, channel?: CHAN, volume?: number, soundLevel?: SNDLVL, soundFlags?: SND, pitch?: number): void;
+declare function EmitSentence(soundName: string, position: Vector, entity: number, channel?: CHAN, volume?: number, soundLevel?: SNDLVL, soundFlags?: SND, pitch?: number, DSP?: number): void;
 
 /**
  * 🟨🟦 [Shared]
@@ -59350,7 +59399,7 @@ declare function EmitSentence(soundName: string, position: Vector, entity: numbe
  * This should either be a sound script name ([sound.Add](https://wiki.facepunch.com/gmod/sound.Add)) or a file path relative to the `sound/` folder. (Make note that it's not sound**s**)
  * @param position - The position where the sound is meant to play, which is also used for a network filter (`CPASAttenuationFilter`) to decide which players will hear the sound.
  * @param [entity = 0] - The entity to emit the sound from. Can be an [Entity:EntIndex](https://wiki.facepunch.com/gmod/Entity:EntIndex) or one of the following:
- * * `0` - Plays sound on the world (position set to `0,0,0`)
+ * * `0` - Plays sound on the world
  * * `-1` - Plays sound on the local player (on server acts as `0`)
  * * `-2` - Plays UI sound (position set to `0,0,0`, no spatial sound, on server acts as `0`)
  * @param [channel = CHAN_AUTO] - The sound channel, see [Enums/CHAN](https://wiki.facepunch.com/gmod/Enums/CHAN).
@@ -59358,7 +59407,7 @@ declare function EmitSentence(soundName: string, position: Vector, entity: numbe
  * @param [soundLevel = 75] - The sound level of the sound, see [Enums/SNDLVL](https://wiki.facepunch.com/gmod/Enums/SNDLVL)
  * @param [soundFlags = 0] - The flags of the sound, see [Enums/SND](https://wiki.facepunch.com/gmod/Enums/SND)
  * @param [pitch = 100] - The pitch of the sound, 0-255
- * @param [dsp = 1] - The DSP preset for this sound. [List of DSP presets](https://developer.valvesoftware.com/wiki/Dsp_presets)
+ * @param [dsp = 1] - The DSP preset for this sound. <page text="DSP Presets">DSP_Presets</page>
  * @param [filter = nil] - If set serverside, the sound will only be networked to the clients in the filter.
  */
 declare function EmitSound(soundName: string, position: Vector, entity?: number, channel?: CHAN, volume?: number, soundLevel?: SNDLVL, soundFlags?: SND, pitch?: number, dsp?: number, filter?: CRecipientFilter): void;
@@ -63271,7 +63320,7 @@ declare namespace cleanup {
      * @param to - The new entity. Can be a `NULL` entity to remove the old entity from the cleanup system.
      * @returns boolean - Whether any action was taken.
      */
-    declare function ReplaceEntity(from: Entity, to: Entity): boolean;
+    declare function ReplaceEntity(from: Entity, to: Entity|undefined): boolean;
 
     /**
      * 🟨 [Client]
@@ -64708,18 +64757,6 @@ declare namespace debugoverlay {
  */
 declare namespace derma {
     /**
-     * 🟨🟩 [Client and Menu]
-     *
-     * Gets the color from a Derma skin of a panel and returns default color if not found.
-     * @param name -
-     * @param pnl -
-     * @param default_ - The default color in case of failure.
-     */
-    declare function Color(name: string, pnl: Panel, default_: any): void;
-
-    /**
-     * 🟨🟩 [Client and Menu]
-     *
      * This is NOT a function, it's a variable containing all derma controls, registered with [derma.DefineControl](https://wiki.facepunch.com/gmod/derma.DefineControl).
      *
      * Use [derma.GetControlList](https://wiki.facepunch.com/gmod/derma.GetControlList) to retrieve this list.
@@ -64728,9 +64765,23 @@ declare namespace derma {
      * * [string](https://wiki.facepunch.com/gmod/string) ClassName - The class name of the panel.
      * * [string](https://wiki.facepunch.com/gmod/string) Description - The description of the panel.
      * * [string](https://wiki.facepunch.com/gmod/string) BaseClass - The base class of the panel.
-     * @returns any - The list of all registered derma controls.
      */
-    declare function Controls(): any;
+    const Controls: any;
+
+    /**
+     * This is NOT a function, it's a variable containing all registered via [derma.DefineSkin](https://wiki.facepunch.com/gmod/derma.DefineSkin) derma skins.
+     */
+    const SkinList: any;
+
+    /**
+     * 🟨🟩 [Client and Menu]
+     *
+     * Gets the color from a Derma skin of a panel and returns default color if not found.
+     * @param name -
+     * @param pnl -
+     * @param default_ - The default color in case of failure.
+     */
+    declare function Color(name: string, pnl: Panel, default_: any): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -64822,14 +64873,6 @@ declare namespace derma {
      * @returns any - The returned variable from the skin hook.
      */
     declare function SkinHook(type: string, name: string, panel: Panel, vararg1?: any, vararg2?: any): any;
-
-    /**
-     * 🟨🟩 [Client and Menu]
-     *
-     * This is NOT a function, it's a variable containing all registered via [derma.DefineSkin](https://wiki.facepunch.com/gmod/derma.DefineSkin) derma skins.
-     * @returns any - The list of all registered derma skins.
-     */
-    declare function SkinList(): any;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -65247,6 +65290,28 @@ declare namespace drive {
  */
 declare namespace duplicator {
     /**
+     * A list of all entity bone modifiers registered with [duplicator.RegisterBoneModifier](https://wiki.facepunch.com/gmod/duplicator.RegisterBoneModifier).
+     */
+    const BoneModifiers: any;
+
+    /**
+     * A list of all [constraint](https://wiki.facepunch.com/gmod/constraint)s that can be duplicated. Registered with [duplicator.RegisterConstraint](https://wiki.facepunch.com/gmod/duplicator.RegisterConstraint).
+     */
+    const ConstraintType: any;
+
+    /**
+     * A list of all entity classes have a custom duplication spawn function. Registered with [duplicator.RegisterEntityClass](https://wiki.facepunch.com/gmod/duplicator.RegisterEntityClass).
+     *
+     * If you wish to get a specific entity class table, use [duplicator.FindEntityClass](https://wiki.facepunch.com/gmod/duplicator.FindEntityClass).
+     */
+    const EntityClasses: any;
+
+    /**
+     * A list of all entity modifiers registered with [duplicator.RegisterEntityModifier](https://wiki.facepunch.com/gmod/duplicator.RegisterEntityModifier).
+     */
+    const EntityModifiers: any;
+
+    /**
      * 🟨🟦 [Shared]
      *
      * Allow entities with given class name to be duplicated. See [duplicator.Disallow](https://wiki.facepunch.com/gmod/duplicator.Disallow) for the opposite effect.
@@ -65281,14 +65346,6 @@ declare namespace duplicator {
     declare function ApplyEntityModifiers(ply: Player, ent: Entity): void;
 
     /**
-     * 🟨🟦 [Shared]
-     *
-     * A list of all entity bone modifiers registered with [duplicator.RegisterBoneModifier](https://wiki.facepunch.com/gmod/duplicator.RegisterBoneModifier).
-     * @returns any - The list of all entity bone modifiers.
-     */
-    declare function BoneModifiers(): any;
-
-    /**
      * 🟦 [Server]
      *
      * Clears/removes the chosen entity modifier from the entity.
@@ -65296,14 +65353,6 @@ declare namespace duplicator {
      * @param key - The key of the stored entity modifier.
      */
     declare function ClearEntityModifier(ent: Entity, key: any): void;
-
-    /**
-     * 🟨🟦 [Shared]
-     *
-     * A list of all [constraint](https://wiki.facepunch.com/gmod/constraint)s that can be duplicated. Registered with [duplicator.RegisterConstraint](https://wiki.facepunch.com/gmod/duplicator.RegisterConstraint).
-     * @returns any - The list of all constraints that can be duplicated. Key = classname, Value = table.
-     */
-    declare function ConstraintType(): any;
 
     /**
      * 🟦 [Server]
@@ -65431,24 +65480,6 @@ declare namespace duplicator {
      * @param data - The data to be applied onto the entity.
      */
     declare function DoGenericPhysics(ent: Entity, ply?: Player, data?: any): void;
-
-    /**
-     * 🟨🟦 [Shared]
-     *
-     * A list of all entity classes have a custom duplication spawn function. Registered with [duplicator.RegisterEntityClass](https://wiki.facepunch.com/gmod/duplicator.RegisterEntityClass).
-     *
-     * If you wish to get a specific entity class table, use [duplicator.FindEntityClass](https://wiki.facepunch.com/gmod/duplicator.FindEntityClass).
-     * @returns any - The list of all entity classes with a custom duplication handler. Key = classname, Value = table.
-     */
-    declare function EntityClasses(): any;
-
-    /**
-     * 🟨🟦 [Shared]
-     *
-     * A list of all entity modifiers registered with [duplicator.RegisterEntityModifier](https://wiki.facepunch.com/gmod/duplicator.RegisterEntityModifier).
-     * @returns any - The list of all entity modifiers.
-     */
-    declare function EntityModifiers(): any;
 
     /**
      * 🟨🟦 [Shared]
@@ -66593,9 +66624,6 @@ declare namespace game {
      * **Bug [#2874](https://github.com/Facepunch/garrysmod-issues/issues/2874):**
      * >Calling this destroys all BASS streams.
      *
-     * **Bug [#3637](https://github.com/Facepunch/garrysmod-issues/issues/3637):**
-     * >This can crash when removing `_firesmoke` entities. **You can use the example below to workaround this issue.**
-     *
      * **Bug [#6105](https://github.com/Facepunch/garrysmod-issues/issues/6105):**
      * >The EFL_KEEP_ON_RECREATE_ENTITIES flag doesn't prevent an entity from being recreated, which means flagged entities will be duplicated since they are both kept and recreated.
      *
@@ -66620,6 +66648,14 @@ declare namespace game {
      * @param stringCommand - String containing the command and arguments to be ran.
      */
     declare function ConsoleCommand(stringCommand: string): void;
+
+    /**
+     * 🟨🟦 [Shared]
+     *
+     * Returns information about the currently active 3D skybox.
+     * @returns Sky3DParams[] - The 3D skybox info, or `nil` if the map has no 3d skybox or the function is called too soon during server start up.
+     */
+    declare function Get3DSkyboxInfo(): Sky3DParams[];
 
     /**
      * 🟨🟦 [Shared]
@@ -67896,12 +67932,24 @@ declare namespace input {
  */
 declare namespace jit {
     /**
-     * 🟨🟦🟩 [Shared and Menu]
-     *
      * A variable containing the target architecture name: `x86`, `x64`, `arm`, `ppc`, `ppcspe`, or `mips`. This will be `x86` or `x64` in GMod.
-     * @returns string - The system architecture.
      */
-    declare function arch(): string;
+    const arch: string;
+
+    /**
+     * This is NOT a function, it's a variable containing the target OS name: `Windows`, `Linux`, `OSX`, `BSD`, `POSIX` or `Other`.
+     */
+    const os: string;
+
+    /**
+     * A variable containing the LuaJIT version string. This is `LuaJIT 2.0.4` in GMod, and `LuaJIT 2.1.0-beta3` on the x86-64 branch of GMod.
+     */
+    const version: string;
+
+    /**
+     * A variable containing the version number of the LuaJIT core.
+     */
+    const version_num: number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -67960,35 +68008,11 @@ declare namespace jit {
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
-     * This is NOT a function, it's a variable containing the target OS name: `Windows`, `Linux`, `OSX`, `BSD`, `POSIX` or `Other`.
-     * @returns string - The operating system.
-     */
-    declare function os(): string;
-
-    /**
-     * 🟨🟦🟩 [Shared and Menu]
-     *
      * Returns the status of the JIT compiler and the current optimizations enabled.
      * @returns [1] boolean - Is JIT enabled
      * @returns [2] any - Strings for CPU-specific features and enabled optimizations
      */
     declare function status(): LuaMultiReturn<[boolean, any]>;
-
-    /**
-     * 🟨🟦🟩 [Shared and Menu]
-     *
-     * A variable containing the LuaJIT version string. This is `LuaJIT 2.0.4` in GMod, and `LuaJIT 2.1.0-beta3` on the x86-64 branch of GMod.
-     * @returns string - The version string.
-     */
-    declare function version(): string;
-
-    /**
-     * 🟨🟦🟩 [Shared and Menu]
-     *
-     * A variable containing the version number of the LuaJIT core.
-     * @returns number - The version number.  Version `xx.yy.zz` is represented by the decimal number `xxyyzz`. In GMod this is `20004`. On x86-64 branch it's `20100`.
-     */
-    declare function version_num(): number;
 
 namespace opt {
         /**
@@ -68461,6 +68485,35 @@ declare namespace markup {
  */
 declare namespace math {
     /**
+     * A variable that effectively represents infinity, in the sense that in any numerical comparison every number will be less than this.
+     *
+     * For example, if `x` is a number, `x > math.huge` will **NEVER** be `true` except in the case of overflow (see below).
+     *
+     * Lua will consider any number greater than or equal to `2^1024` (the exponent limit of a [double](http://en.wikipedia.org/wiki/Double-precision_floating-point_format)) as `inf` and hence equal to this.
+     */
+    const huge: number;
+
+    /**
+     * A variable containing the mathematical constant pi. (`3.1415926535898`)
+     *
+     * See also: [Trigonometry](https://wiki.facepunch.com/gmod/Trigonometry)
+     *
+     * **Note:**
+     * >It should be noted that due to the nature of floating point numbers, results of calculations with `math.pi` may not be what you expect. See second example below.
+     */
+    const pi: number;
+
+    /**
+     * A variable containing the mathematical constant tau, which is equivalent to 2*[math.pi](https://wiki.facepunch.com/gmod/math.pi). (`6.28318530718`)
+     *
+     * See also: [Trigonometry](https://wiki.facepunch.com/gmod/Trigonometry)
+     *
+     * **Note:**
+     * >It should be noted that due to the nature of floating point numbers, results of calculations with `math.tau` may not be what you expect. See the second example on [math.pi](https://wiki.facepunch.com/gmod/math.pi) page.
+     */
+    const tau: number;
+
+    /**
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Calculates the absolute value of a number (effectively removes any negative sign).
@@ -68774,18 +68827,6 @@ declare namespace math {
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
-     * A variable that effectively represents infinity, in the sense that in any numerical comparison every number will be less than this.
-     *
-     * For example, if `x` is a number, `x > math.huge` will **NEVER** be `true` except in the case of overflow (see below).
-     *
-     * Lua will consider any number greater than or equal to `2^1024` (the exponent limit of a [double](http://en.wikipedia.org/wiki/Double-precision_floating-point_format)) as `inf` and hence equal to this.
-     * @returns number - The effective infinity.
-     */
-    declare function huge(): number;
-
-    /**
-     * 🟨🟦🟩 [Shared and Menu]
-     *
      * Converts an integer to a binary (base-2) string.
      * @param int - Number to be converted.
      * @returns string - Binary number string. The length of this will always be a multiple of 3.
@@ -68887,20 +68928,6 @@ declare namespace math {
      * @returns number - The normalized angle, in the range of -180 to 180 degrees.
      */
     declare function NormalizeAngle(angle: number): number;
-
-    /**
-     * 🟨🟦🟩 [Shared and Menu]
-     *
-     * A variable containing the mathematical constant pi. (`3.1415926535898`)
-     *
-     * See also: [Trigonometry](https://wiki.facepunch.com/gmod/Trigonometry)
-     *
-     * **Note:**
-     * >It should be noted that due to the nature of floating point numbers, results of calculations with `math.pi` may not be what you expect. See second example below.
-     *
-     * @returns number - The mathematical constant, Pi.
-     */
-    declare function pi(): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -69060,20 +69087,6 @@ declare namespace math {
      * @returns number - The hyperbolic tangent of the given angle.
      */
     declare function tanh(number: number): number;
-
-    /**
-     * 🟨🟦🟩 [Shared and Menu]
-     *
-     * A variable containing the mathematical constant tau, which is equivalent to 2*[math.pi](https://wiki.facepunch.com/gmod/math.pi). (`6.28318530718`)
-     *
-     * See also: [Trigonometry](https://wiki.facepunch.com/gmod/Trigonometry)
-     *
-     * **Note:**
-     * >It should be noted that due to the nature of floating point numbers, results of calculations with `math.tau` may not be what you expect. See the second example on [math.pi](https://wiki.facepunch.com/gmod/math.pi) page.
-     *
-     * @returns number - The mathematical constant, Tau.
-     */
-    declare function tau(): number;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -69414,12 +69427,14 @@ namespace ease {
  */
 declare namespace matproxy {
     /**
-     * 🟨 [Client]
-     *
      * A list of all **active** material proxies.
-     * @returns any - The list of all active material proxies.
      */
-    declare function ActiveList(): any;
+    const ActiveList: any;
+
+    /**
+     * A list of all material proxies registered with [matproxy.Add](https://wiki.facepunch.com/gmod/matproxy.Add).
+     */
+    const ProxyList: any;
 
     /**
      * 🟨 [Client]
@@ -69453,14 +69468,6 @@ declare namespace matproxy {
      * @param values - `.vmt` shader parameters of the material.
      */
     declare function Init(name: string, uname: string, mat: IMaterial, values: any): void;
-
-    /**
-     * 🟨 [Client]
-     *
-     * A list of all material proxies registered with [matproxy.Add](https://wiki.facepunch.com/gmod/matproxy.Add).
-     * @returns any - The list of all material proxies.
-     */
-    declare function ProxyList(): any;
 
     /**
      * 🟨 [Client]
@@ -70064,6 +70071,26 @@ declare namespace navmesh {
  */
 declare namespace net {
     /**
+     * A list of types that can be sent over the network via [net.ReadType](https://wiki.facepunch.com/gmod/net.ReadType).
+     */
+    const ReadVars: any;
+
+    /**
+     * This is NOT a function, it's a table used internally by the net library to store net receivers added with [net.Receive](https://wiki.facepunch.com/gmod/net.Receive).
+     *
+     * The key is the lowercase net message name and the value is the message's callback function.
+     *
+     * **Note:**
+     * >Modifying [net.Receivers](https://wiki.facepunch.com/gmod/net.Receivers) won't affect the net string pool used in [util.AddNetworkString](https://wiki.facepunch.com/gmod/util.AddNetworkString).
+     */
+    const Receivers: any;
+
+    /**
+     * A list of types that can be sent over the network via [net.WriteType](https://wiki.facepunch.com/gmod/net.WriteType).
+     */
+    const WriteVars: any;
+
+    /**
      * 🟨🟦 [Shared]
      *
      * Cancels a net message started by [net.Start](https://wiki.facepunch.com/gmod/net.Start), so you can immediately start a new one without any errors.
@@ -70355,14 +70382,6 @@ declare namespace net {
     /**
      * 🟨🟦 [Shared]
      *
-     * A list of types that can be sent over the network via [net.ReadType](https://wiki.facepunch.com/gmod/net.ReadType).
-     * @returns any - Key = type ID ([Global.TypeID](https://wiki.facepunch.com/gmod/Global.TypeID)), Value = function to send the data over the net.
-     */
-    declare function ReadVars(): any;
-
-    /**
-     * 🟨🟦 [Shared]
-     *
      * Reads a vector from the received net message. Vectors sent by this function are **compressed**, which may result in precision loss. See [net.WriteVector](https://wiki.facepunch.com/gmod/net.WriteVector) for more information.
      *
      * **Warning:**
@@ -70397,20 +70416,6 @@ declare namespace net {
      * </callback>
      */
     declare function Receive(messageName: string, callback: (len: number, ply: Player) => void): void;
-
-    /**
-     * 🟨🟦 [Shared]
-     *
-     * This is NOT a function, it's a table used internally by the net library to store net receivers added with [net.Receive](https://wiki.facepunch.com/gmod/net.Receive).
-     *
-     * The key is the lowercase net message name and the value is the message's callback function.
-     *
-     * **Note:**
-     * >Modifying [net.Receivers](https://wiki.facepunch.com/gmod/net.Receivers) won't affect the net string pool used in [util.AddNetworkString](https://wiki.facepunch.com/gmod/util.AddNetworkString).
-     *
-     * @returns any - The list of all registered net receivers.
-     */
-    declare function Receivers(): any;
 
     /**
      * 🟦 [Server]
@@ -70742,14 +70747,6 @@ declare namespace net {
     /**
      * 🟨🟦 [Shared]
      *
-     * A list of types that can be sent over the network via [net.WriteType](https://wiki.facepunch.com/gmod/net.WriteType).
-     * @returns any - Key = type ID ([Global.TypeID](https://wiki.facepunch.com/gmod/Global.TypeID)), Value = function to send the data over the net.
-     */
-    declare function WriteVars(): any;
-
-    /**
-     * 🟨🟦 [Shared]
-     *
      * Appends a vector to the current net message.
      * Vectors sent by this function are compressed, which may result in precision loss. XYZ components greater than `16384` or less than `-16384` are irrecoverably altered (most significant bits are trimmed) and precision after the decimal point is low.
      * @param vector - The vector to be sent.
@@ -70762,7 +70759,7 @@ declare namespace net {
  */
 declare namespace notification {
     /**
-     * 🟨🟩 [Client and Menu]
+     * 🟨 [Client]
      *
      * Adds a standard notification to your screen.
      * @param text - The text to display.
@@ -70772,7 +70769,7 @@ declare namespace notification {
     declare function AddLegacy(text: string, type: NOTIFY, length: number): void;
 
     /**
-     * 🟨🟩 [Client and Menu]
+     * 🟨 [Client]
      *
      * Adds a notification with an animated progress bar.
      * @param id - Can be any type. It's used as an index.
@@ -70782,7 +70779,7 @@ declare namespace notification {
     declare function AddProgress(id: any, strText: string, frac?: number): void;
 
     /**
-     * 🟨🟩 [Client and Menu]
+     * 🟨 [Client]
      *
      * Removes the notification after 0.8 seconds.
      * @param uid - The unique ID of the notification
@@ -70970,12 +70967,9 @@ declare namespace os {
  */
 declare namespace package {
     /**
-     * 🟨🟦🟩 [Shared and Menu]
-     *
      * A list of all loaded packages.
-     * @returns any - The list of all loaded packages.
      */
-    declare function loaded(): any;
+    const loaded: any;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -71564,6 +71558,11 @@ declare namespace presets {
  */
 declare namespace properties {
     /**
+     * A list of all properties registered with [properties.Add](https://wiki.facepunch.com/gmod/properties.Add).
+     */
+    const List: any;
+
+    /**
      * 🟨🟦 [Shared]
      *
      * Add properties to the properties module. Properties can be blocked via [GM:CanProperty](https://wiki.facepunch.com/gmod/GM:CanProperty).
@@ -71593,14 +71592,6 @@ declare namespace properties {
      * @returns Entity - The hovered entity
      */
     declare function GetHovered(pos: Vector, aimVec: Vector): Entity;
-
-    /**
-     * 🟨🟦 [Shared]
-     *
-     * A list of all properties registered with [properties.Add](https://wiki.facepunch.com/gmod/properties.Add).
-     * @returns any - The list of all properties. The keys will be the first argument passed to [properties.Add](https://wiki.facepunch.com/gmod/properties.Add), the values will be the second argument.
-     */
-    declare function List(): any;
 
     /**
      * 🟨🟦 [Shared]
@@ -73783,7 +73774,7 @@ declare namespace sound {
      * @param [level = 75] - Sound level in decibels. 75 is normal. Ranges from 20 to 180, where 180 is super loud. This affects how far away the sound will be heard, see [Enums/SNDLVL](https://wiki.facepunch.com/gmod/Enums/SNDLVL).
      * @param [pitch = 100] - The sound pitch. Range is from 0 to 255. 100 is normal pitch.
      * @param [volume = 1] - Output volume of the sound in range 0 to 1.
-     * @param [dsp = 0] - The DSP preset for this sound. [List of DSP presets](https://developer.valvesoftware.com/wiki/Dsp_presets)
+     * @param [dsp = 0] - The DSP preset for this sound. <page text="DSP Presets">DSP_Presets</page>
      */
     declare function Play(snd: string, pos: Vector, level?: SNDLVL, pitch?: number, volume?: number, dsp?: number): void;
 
@@ -76894,7 +76885,7 @@ declare namespace undo {
      * @param to - The new entity to replace the old one. Can also be a `NULL` to remove the entity from the undo system.
      * @returns boolean - Whether the entity was replaced
      */
-    declare function ReplaceEntity(from: Entity, to: Entity): boolean;
+    declare function ReplaceEntity(from: Entity, to: Entity|undefined): boolean;
 
     /**
      * 🟦 [Server]
@@ -76973,6 +76964,11 @@ declare namespace usermessage {
  */
 declare namespace utf8 {
     /**
+     * This is NOT a function, it's a <page text="pattern">Patterns</page> (a string, not a function) which matches exactly one UTF-8 byte sequence, assuming that the subject is a valid UTF-8 string.
+     */
+    const charpattern: string;
+
+    /**
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Receives zero or more integers, converts each one to its corresponding UTF-8 byte sequence and returns a string with the concatenation of all these sequences.
@@ -76980,16 +76976,6 @@ declare namespace utf8 {
      * @returns string - UTF-8 string generated from given arguments.
      */
     declare function char(...codepoints: any[]): string;
-
-    /**
-     * 🟨🟩 [Client and Menu]
-     *
-     * This is NOT a function, it's a <page text="pattern">Patterns</page> (a string, not a function) which matches exactly one UTF-8 byte sequence, assuming that the subject is a valid UTF-8 string.
-     * @returns string - ```
-     * "[%z\x01-\x7F\xC2-\xF4][\x80-\xBF]*"
-     * ```
-     */
-    declare function charpattern(): string;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
