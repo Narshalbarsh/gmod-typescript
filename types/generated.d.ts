@@ -12400,6 +12400,14 @@ interface IMesh {
     /**
      * 🟨 [Client]
      *
+     * Renders the mesh with the active matrix and given bone matrices.
+     * @param bones - A list of matrices to use as bones. Up to 52 of them.
+     */
+    DrawSkinned(bones: VMatrix[]): void;
+
+    /**
+     * 🟨 [Client]
+     *
      * Returns whether this [IMesh](https://wiki.facepunch.com/gmod/IMesh) is valid or not.
      * @returns boolean - Whether this [IMesh](https://wiki.facepunch.com/gmod/IMesh) is valid or not.
      */
@@ -15233,9 +15241,9 @@ interface Panel {
      * **Note:**
      * >This doesn't apply to all VGUI elements and its function varies between them
      *
-     * @returns number - The [Color](https://wiki.facepunch.com/gmod/Color) structure
+     * @returns Color - The [Color](https://wiki.facepunch.com/gmod/Color) structure
      */
-    GetBGColor(): number;
+    GetBGColor(): Color;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -16733,12 +16741,12 @@ interface Panel {
      * **Note:**
      * >This doesn't apply to all VGUI elements and its function varies between them
      *
-     * @param r_or_color - The red channel of the color, or a [Color](https://wiki.facepunch.com/gmod/Color). If you pass the latter, the following three arguments are ignored.
+     * @param r - The red channel of the color.
      * @param g - The green channel of the color.
      * @param b - The blue channel of the color.
      * @param a - The alpha channel of the color.
      */
-    SetBGColor(r_or_color: number, g: number, b: number, a: number): void;
+    SetBGColor(r: number, g: number, b: number, a: number): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -37315,7 +37323,7 @@ interface Gamemode {
      * @param name - The name of the entity.
      * @returns string - The untranslated name for given NPC. The translation/localization would happen on the client.
      */
-    GetDeathNoticeEntityName(name: String): string;
+    GetDeathNoticeEntityName(name: string|Entity): string;
 
     /**
      * 🟦 [Server]
@@ -37749,10 +37757,10 @@ interface Gamemode {
      * 🟩 [Menu]
      *
      * Called while an addon from the Steam workshop is downloading. Used by default to update details on the fancy workshop download panel.
-     * @returns [1] string - Failure Reason.
-     * @returns [2] string - the workshop ID of the missing map (if found). Can be an empty string
+     * @param reason - Failure Reason.
+     * @param workshopid - the workshop ID of the missing map (if found). Can be an empty string
      */
-    LoadGModSaveFailed(): LuaMultiReturn<[string, string]>;
+    LoadGModSaveFailed(reason: string, workshopid: string): void;
 
     /**
      * 🟩 [Menu]
@@ -60878,9 +60886,10 @@ declare function MenuGetAddonData(workshopItemID: string): void;
  *
  * Returns a new static mesh object.
  * @param [mat = nil] - The material the mesh is intended to be rendered with. It's merely a hint that tells that mesh what vertex format it should use.
+ * @param [boneWeights = 0] - Number of bone weights per vertex. This value can be set to 2 to enable skinning and rendering via [IMesh:DrawSkinned](https://wiki.facepunch.com/gmod/IMesh:DrawSkinned). This was recently added and is only available on the [Dev Branch](https://wiki.facepunch.com/gmod/Dev_Branch) right now.
  * @returns IMesh - The created object.
  */
-declare function Mesh(mat?: IMaterial): IMesh;
+declare function Mesh(mat?: IMaterial, boneWeights?: number): IMesh;
 
 /**
  * 🟨🟦🟩 [Shared and Menu]
@@ -67448,10 +67457,7 @@ declare namespace halo {
     /**
      * 🟨 [Client]
      *
-     * Applies a [halo](https://wiki.facepunch.com/gmod/halo) glow effect to one or multiple entities.
-     *
-     * **Warning:**
-     * >Using this function outside of the [GM:PreDrawHalos](https://wiki.facepunch.com/gmod/GM:PreDrawHalos) hook can cause instability or crashes.
+     * Applies a [halo](https://wiki.facepunch.com/gmod/halo) glow effect to one or multiple entities. It is preferable to add them in [GM:PreDrawHalos](https://wiki.facepunch.com/gmod/GM:PreDrawHalos), but they can be added at any time.
      *
      * **Note:**
      * >The ignoreZ parameter will cause the halos to draw over the player's viewmodel. You can work around this using [render.DepthRange](https://wiki.facepunch.com/gmod/render.DepthRange) in the [GM:PreDrawViewModel](https://wiki.facepunch.com/gmod/GM:PreDrawViewModel), [GM:PostDrawViewModel](https://wiki.facepunch.com/gmod/GM:PostDrawViewModel), [GM:PreDrawPlayerHands](https://wiki.facepunch.com/gmod/GM:PreDrawPlayerHands) and [GM:PostDrawPlayerHands](https://wiki.facepunch.com/gmod/GM:PostDrawPlayerHands) hooks.
@@ -69553,7 +69559,19 @@ declare namespace mesh {
      * 			The expected value of this argument is dependent on the primitive type used.
      * 			For a full list of the primitive counts expected by each primitive type, see [Enums/MATERIAL](https://wiki.facepunch.com/gmod/Enums/MATERIAL).
      */
-    declare function Begin(mesh: IMesh, primitiveType: MATERIAL, primitiveCount: MATERIAL): void;
+    /* Manual override from: namespace/mesh/Begin */
+    function Begin(mesh: IMesh, primitiveType: MATERIAL, primitiveCount: number): void;
+    function Begin(primitiveType: MATERIAL, primitiveCount: number): void;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Sets the bone matrix ID and bone weight to be used for the next vertex. See [mesh.Begin](https://wiki.facepunch.com/gmod/mesh.Begin).
+     * @param index - The slot index for the vertex, either 0 or 1.
+     * @param matrixId - The matrix index for the vertex, in the range of 0 -> 52. This is the index into [IMesh:DrawSkinned](https://wiki.facepunch.com/gmod/IMesh:DrawSkinned)'s ``bones`` argument, minus 1.
+     * @param weight - How much influence that matrix will have on this vertex, in the range of 0 -> 1.
+     */
+    declare function BoneData(index: number, matrixId: number, weight: number): void;
 
     /**
      * 🟨 [Client]
@@ -76270,11 +76288,11 @@ declare namespace table {
      *
      * Converts a table into a string
      * @param tbl - The table to iterate over.
-     * @param displayName - Optional. A name for the table.
-     * @param niceFormatting - Adds new lines and tabs to the string.
+     * @param [displayName = nil] - A name for the table.
+     * @param [niceFormatting = false] - Adds new lines and tabs to the string.
      * @returns string - The table formatted as a string.
      */
-    declare function ToString(tbl: any, displayName: string, niceFormatting: boolean): string;
+    declare function ToString(tbl: any, displayName?: string, niceFormatting?: boolean): string;
 }
 
 /**
