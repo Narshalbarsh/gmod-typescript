@@ -581,7 +581,7 @@ interface CEffectData {
      *
      * @param hitBoxIndex - The hit box index of the effect, for example from [Structures/TraceResult#HitBox](https://wiki.facepunch.com/gmod/Structures/TraceResult#HitBox)
      */
-    SetHitBox(hitBoxIndex: TraceResult): void;
+    SetHitBox(hitBoxIndex: number): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -5163,9 +5163,9 @@ interface Entity {
      * >Weapons will return results from their viewmodels.
      *
      * @param name - The name to search for.
-     * @returns BodyGroupData - The <page text="Body Group's ID">Structures/BodyGroupData#id</page> or `-1` if no Body Group has the provided name.
+     * @returns number - The <page text="Body Group's ID">Structures/BodyGroupData#id</page> or `-1` if no Body Group has the provided name.
      */
-    FindBodygroupByName(name: string): BodyGroupData;
+    FindBodygroupByName(name: string): number;
 
     /**
      * 🟦 [Server]
@@ -7292,9 +7292,9 @@ interface Entity {
      *
      * Returns the activity name for the given sequence id.
      * @param sequenceId - The sequence id.
-     * @returns ACT - The [Enums/ACT](https://wiki.facepunch.com/gmod/Enums/ACT) as a string, returns "Not Found!" with an invalid sequence and "No model!" when no model is set.
+     * @returns string - The [Enums/ACT](https://wiki.facepunch.com/gmod/Enums/ACT) as a string, returns "Not Found!" with an invalid sequence and "No model!" when no model is set.
      */
-    GetSequenceActivityName(sequenceId: number): ACT;
+    GetSequenceActivityName(sequenceId: number): string;
 
     /**
      * 🟨🟦 [Shared]
@@ -13000,7 +13000,7 @@ interface NPC extends Entity {
      * @param relationstring - A string representing how the relationship should be set up.
      * Should be formatted as `"npc_class `[Enums/D](https://wiki.facepunch.com/gmod/Enums/D)` numberPriority"`.
      */
-    AddRelationship(relationstring: D): void;
+    AddRelationship(relationstring: string): void;
 
     /**
      * 🟦 [Server]
@@ -15233,9 +15233,9 @@ interface Panel {
      * **Note:**
      * >This doesn't apply to all VGUI elements and its function varies between them
      *
-     * @returns Color - The [Color](https://wiki.facepunch.com/gmod/Color) structure
+     * @returns number - The [Color](https://wiki.facepunch.com/gmod/Color) structure
      */
-    GetBGColor(): Color;
+    GetBGColor(): number;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -15765,7 +15765,7 @@ interface Panel {
      * * `Top`: Dock at the top.
      * * `Fill`: Fill the parent panel.
      */
-    GWEN_SetDock(dockState: DOCK): void;
+    GWEN_SetDock(dockState: string): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -16738,7 +16738,7 @@ interface Panel {
      * @param b - The blue channel of the color.
      * @param a - The alpha channel of the color.
      */
-    SetBGColor(r_or_color: Color, g: number, b: number, a: number): void;
+    SetBGColor(r_or_color: number, g: number, b: number, a: number): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -20910,9 +20910,9 @@ interface Player extends Entity {
      * 🟦 [Server]
      *
      * Plays the correct step sound according to what the player is staying on.
-     * @param volume - Volume for the sound, in range from 0 to 1
+     * @param [volume = 1] - Volume for the sound, in range from 0 to 1
      */
-    PlayStepSound(volume: number): void;
+    PlayStepSound(volume?: number): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -58796,7 +58796,7 @@ declare function CreateMaterial(name: string, shaderName: string, materialData: 
  * @param data - A JSON string containing all necessary information.
  * 			JSON structue should be [Structures/Preset](https://wiki.facepunch.com/gmod/Structures/Preset)
  */
-declare function CreateNewAddonPreset(data: Preset): void;
+declare function CreateNewAddonPreset(data: string): void;
 
 /**
  * 🟨 [Client]
@@ -60576,6 +60576,9 @@ declare function IsUselessModel(modelName: string): boolean;
  * Returns whether an object is valid or not. (Such as <page text="entities">Entity</page>, [Panel](https://wiki.facepunch.com/gmod/Panel)s, custom [table](https://wiki.facepunch.com/gmod/table) objects and more).
  *
  * Checks that an object is not [nil](https://wiki.facepunch.com/gmod/nil), has an `IsValid` method and if this method returns `true`. If the object has no `IsValid` method, it will return `false`.
+ *
+ * **Warning:**
+ * >Putting a number in the argument will cause an error.
  *
  * **Note:**
  * >If you are sure that the object you are about to check is not `nil` and has the `IsValid` method, it would be more faster to call it directly rather than using `IsValid`.
@@ -62756,7 +62759,7 @@ declare namespace ai {
      * @param sched - Then schedule name. In most cases, this will be the same as the [Enums/SCHED](https://wiki.facepunch.com/gmod/Enums/SCHED) name.
      * @returns SCHED - The schedule ID, see [Enums/SCHED](https://wiki.facepunch.com/gmod/Enums/SCHED). Returns -1 if the schedule name isn't valid.
      */
-    declare function GetScheduleID(sched: SCHED): SCHED;
+    declare function GetScheduleID(sched: string): SCHED;
 
     /**
      * 🟦 [Server]
@@ -70935,7 +70938,7 @@ declare namespace os {
      * >**Not all flags are available on all operating systems** and the result of using an invalid flag is undefined. This currently crashes the game on Windows. Most or all flags are available on OS X and Linux but considerably fewer are available on Windows. See http://msdn.microsoft.com/en-us/library/fe06s4ak.aspx for a list of available flags on Windows. Note that the **#** flags also crashes the game on Windows.
      *
      * @param [time = os.time()] - Time to use for the format.
-     * @returns DateData - Formatted date
+     * @returns string - Formatted date
      * **Note:**
      * >This will be a [Structures/DateData](https://wiki.facepunch.com/gmod/Structures/DateData) if the first argument equals to `*t` or `!*t`
      */
@@ -75376,10 +75379,10 @@ declare namespace surface {
      * Retrieves the position and <page text="ScissorRect">render.SetScissorRect</page> information for the [Panel](https://wiki.facepunch.com/gmod/Panel) that is currently being drawn.
      *
      * When using the [surface](https://wiki.facepunch.com/gmod/surface) library (and, by extension, the [draw](https://wiki.facepunch.com/gmod/draw) library) inside of the [PANEL:Paint](https://wiki.facepunch.com/gmod/PANEL:Paint) function, the origin (The on-screen position of `(0,0)`) is automatically shifted to the top-left corner of the panel to make it easier to draw the panel's contents.  Additionally, [render.SetScissorRect](https://wiki.facepunch.com/gmod/render.SetScissorRect) is used to clip (or "mask") all drawn content to within the boundaries of the panel.  This function returns the information used by the [surface](https://wiki.facepunch.com/gmod/surface) library about the current panel's origin and <page text="ScissorRect">render.SetScissorRect</page>.
-     * @returns any - A table containing the position and <page text="ScissorRect">render.SetScissorRect</page> boundaries for the [Panel](https://wiki.facepunch.com/gmod/Panel) currently being drawn.
+     * @returns PanelPaintState - A table containing the position and <page text="ScissorRect">render.SetScissorRect</page> boundaries for the [Panel](https://wiki.facepunch.com/gmod/Panel) currently being drawn.
      * 			For the table's format and available options see the [Structures/PanelPaintState](https://wiki.facepunch.com/gmod/Structures/PanelPaintState) page.
      */
-    declare function GetPanelPaintState(): any;
+    declare function GetPanelPaintState(): PanelPaintState;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -77396,7 +77399,7 @@ declare namespace util {
      * The mesh data is raw, and is not transformed via bone transformations. That's what the second return value is for.
      * @returns [2] BoneBindPose[] - This tables indices are bone IDs for the [Structures/BoneBindPose](https://wiki.facepunch.com/gmod/Structures/BoneBindPose) stored at each index.
      */
-    declare function GetModelMeshes(model: string, lod?: number, bodygroupMask?: string|number, skin?: ModelMeshData): LuaMultiReturn<[ModelMeshData[], BoneBindPose[]]>;
+    declare function GetModelMeshes(model: string, lod?: number, bodygroupMask?: string|number, skin?: number): LuaMultiReturn<[ModelMeshData[], BoneBindPose[]]>;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -77451,7 +77454,7 @@ declare namespace util {
      * @param id - Surface property ID. You can get it from [Structures/TraceResult](https://wiki.facepunch.com/gmod/Structures/TraceResult) or using [util.GetSurfaceIndex](https://wiki.facepunch.com/gmod/util.GetSurfaceIndex).
      * @returns SurfacePropertyData - The data or no value if there is no valid surface property at given index.
      */
-    declare function GetSurfaceData(id: TraceResult): SurfacePropertyData;
+    declare function GetSurfaceData(id: number): SurfacePropertyData;
 
     /**
      * 🟨🟦 [Shared]
@@ -77473,7 +77476,7 @@ declare namespace util {
      * @param id - Surface property ID. You can get it from [Structures/TraceResult](https://wiki.facepunch.com/gmod/Structures/TraceResult).
      * @returns string - The name or an empty string if there is no valid surface property at given index.
      */
-    declare function GetSurfacePropName(id: TraceResult): string;
+    declare function GetSurfacePropName(id: number): string;
 
     /**
      * 🟦 [Server]

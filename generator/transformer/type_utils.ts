@@ -29,11 +29,21 @@ export function inferType(type: string, desc: string) {
     const isStructLink =
         /^(structure|structures)$/i.test(cat) || /\/(structure|structures)\//i.test(rawPage);
 
-    const isVague = /^(number|string|any|table|function)$/i.test(t) || t === '';
+    // Split "vague" by what we're inferring into
+    const isEmpty = t === '';
+    const isObjectVague = /^(any|table|function)$/i.test(t) || isEmpty;
 
-    if (isEnumLink && (isVague || /^number(\s*\{.*\})?$/i.test(t))) return leaf;
-    if (isStructLink && isVague) return leaf;
-    if ((/\/Color$/i.test(rawPage) || leaf === 'Color') && isVague) return 'Color';
+    // Keep number->enum inference (this is the useful one)
+    const isEnumCandidate =
+        /^number(\s*\{.*\})?$/i.test(t) || /^(any|table)$/i.test(t) || isEmpty;
+
+    if (isEnumLink && isEnumCandidate) return leaf;
+
+    // IMPORTANT: do NOT upgrade number/string -> struct
+    if (isStructLink && isObjectVague) return leaf;
+
+    // Color is object-like in practice; don't upgrade number/string here either
+    if ((/\/Color$/i.test(rawPage) || leaf === 'Color') && isObjectVague) return 'Color';
 
     return t;
 }
