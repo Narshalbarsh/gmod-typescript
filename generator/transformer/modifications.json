@@ -387,5 +387,23 @@
                 "type": "(pnl: Panel, tbl: any) => void"
             }
         }
+    ],
+    "GM:OnClientLuaError": [
+        {
+            "kind": "ModifiyArgument",
+            "arg": {
+                "identifier": "stack",
+                "type": "LuaErrorStackEntry[]"
+            }
+        }
+    ],
+    "GM:OnLuaError": [
+        {
+            "kind": "ModifiyArgument",
+            "arg": {
+                "identifier": "stack",
+                "type": "LuaErrorStackEntry[]"
+            }
+        }
     ]
 }

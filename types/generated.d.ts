@@ -8286,7 +8286,7 @@ interface Entity {
      * <arg type="any" name="new">New variable value that it was set to.</arg>
      * </callback>
      */
-    NetworkVarNotify(name: string, callback: (entity: Entity, name: string, old: any, new: any) => void): void;
+    NetworkVarNotify(name: string, callback: (entity: Entity, name: string, old: any, new_: any) => void): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -37907,7 +37907,7 @@ interface Gamemode {
      * @param stack - The Lua error stack trace
      * @param name - Title of the addon that is creating the Lua errors, or "ERROR" if addon is not found.
      */
-    OnClientLuaError(error: string, ply: Player, stack: any, name: string): void;
+    OnClientLuaError(error: string, ply: Player, stack: LuaErrorStackEntry[], name: string): void;
 
     /**
      * 🟨 [Client]
@@ -38017,7 +38017,7 @@ interface Gamemode {
      * @param name - Title of the addon that is creating the Lua errors, or nil if addon is not found.
      * @param id - Steam Workshop ID of the addon creating Lua errors, if it is an addon.
      */
-    OnLuaError(error: string, realm: string, stack: any, name: string, id: string): void;
+    OnLuaError(error: string, realm: string, stack: LuaErrorStackEntry[], name: string, id: string): void;
 
     /**
      * 🟩 [Menu]

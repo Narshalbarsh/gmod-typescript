@@ -100,3 +100,12 @@ type PanelDef<T> = {
         ? (this: T, ...args: A) => R
         : T[K];
 };
+
+interface LuaErrorStackEntry {
+    /** The file path where the error occurred, or `[C]` for C functions. */
+    File: string;
+    /** The function name, or an empty string if unavailable. */
+    Function: string;
+    /** The line number, or `-1` for C functions. */
+    Line: number;
+}

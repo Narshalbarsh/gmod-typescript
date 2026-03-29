@@ -1,4 +1,4 @@
-import { transformType } from './util';
+import { transformType, transformIdentifier } from './util';
 import { getPageMods, isRenameIndentifierModification } from './modification_db';
 
 /** Lift vague/wiki types using inline <page> links and rename mods. */
@@ -71,7 +71,8 @@ export function parseFirstCallbackSigFrom(desc: string): string | undefined {
         } else {
             const resolved = inferType(rawType, inner);
             const tsType = transformType(resolved);
-            args.push(`${rawName.replace(/[^\w$]/g, '_')}: ${tsType}`);
+            const safeName = transformIdentifier(rawName.replace(/[^\w$]/g, '_'));
+            args.push(`${safeName}: ${tsType}`);
         }
     }
 
