@@ -4999,10 +4999,6 @@ interface Entity {
      * 🟦 [Server]
      *
      * Move an entity down until it collides with something.
-     *
-     * **Warning:**
-     * >The entity needs to already have something below it within 256 units.
-     *
      * @param [mask = MASK_SOLID] - Trace mask.
      * @param [ignoreEnt = nil] - Trace ignore entity.
      * @param [maxDist = 256] - Max trace dist.
@@ -5189,9 +5185,9 @@ interface Entity {
      * >This function only works on [BaseAnimatingOverlay](https://wiki.facepunch.com/gmod/BaseAnimatingOverlay) entites!
      *
      * @param sequenceID - The sequence ID to search for. See [Entity:LookupSequence](https://wiki.facepunch.com/gmod/Entity:LookupSequence).
-     * @returns number - A layer ID for given activity, or `-1` if not found.
+     * @returns number - A layer ID for given sequence, or `-1` if not found.
      */
-    FindGestureLayer(sequenceID: number): number;
+    FindGestureSequenceLayer(sequenceID: number): number;
 
     /**
      * 🟨🟦 [Shared]
@@ -5381,7 +5377,8 @@ interface Entity {
      * @returns AttachmentData - Attachment data. See [Structures/AttachmentData](https://wiki.facepunch.com/gmod/Structures/AttachmentData).
      * Returns an empty table in case its model has no attachments or there's a some kind of other issue.
      */
-    GetAttachments(): AttachmentData;
+    /* Manual override from: interface/Entity/GetAttachments */
+    GetAttachments(): AttachmentData[];
 
     /**
      * 🟨🟦 [Shared]
@@ -5451,7 +5448,8 @@ interface Entity {
      *
      * @returns BodyGroupData - A table of Body Group information where each value is a [Structures/BodyGroupData](https://wiki.facepunch.com/gmod/Structures/BodyGroupData).
      */
-    GetBodyGroups(): BodyGroupData;
+    /* Manual override from: interface/Entity/GetBodyGroups */
+    GetBodyGroups(): BodyGroupData[];
 
     /**
      * 🟨🟦 [Shared]
@@ -7845,7 +7843,7 @@ interface Entity {
     /**
      * 🟨🟦 [Shared]
      *
-     * Checks if the entity is an NPC or not.
+     * Checks if the entity is an [NPC](https://wiki.facepunch.com/gmod/NPC) or not.
      *
      * This will return false for [NextBot](https://wiki.facepunch.com/gmod/NextBot)s, see [Entity:IsNextBot](https://wiki.facepunch.com/gmod/Entity:IsNextBot) for that.
      * @returns boolean - Whether the entity is an NPC.
@@ -8276,23 +8274,19 @@ interface Entity {
      *
      * It's therefore safest to only use this in [ENTITY:SetupDataTables](https://wiki.facepunch.com/gmod/ENTITY:SetupDataTables).
      *
-     * 	</description>
-     * 	<realm>Shared</realm>
-     * 	<file line="315-L325">lua/includes/extensions/entity.lua</file>
-     * 	<args>
-     * 		<arg name="name" type="string">Name of variable to track changes of.</arg>
-     * 		<arg name="callback" type="function">The function to call when the variable changes.
+     * **Bug :**
+     * >The callback will not be called clientside if the var is changed right after entity spawn.
      *
+     * @param name - Name of variable to track changes of.
+     * @param callback - The function to call when the variable changes.
      * <callback>
      * <arg type="Entity" name="entity">Entity whos variable changed.</arg>
      * <arg type="string" name="name">Name of changed variable.</arg>
      * <arg type="any" name="old">Old/current variable value.</arg>
      * <arg type="any" name="new">New variable value that it was set to.</arg>
      * </callback>
-     * </arg>
-     * 	</args>
      */
-    NetworkVarNotify(): void;
+    NetworkVarNotify(name: string, callback: (entity: Entity, name: string, old: any, new: any) => void): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -9657,7 +9651,12 @@ interface Entity {
      *
      * If your old scales are wrong, use [Entity:SetLegacyTransform](https://wiki.facepunch.com/gmod/Entity:SetLegacyTransform) as a quick fix.
      *
+     *
+     *
      * <validate>This disables IK.</validate>
+     *
+     * **Bug [#6405](https://github.com/Facepunch/garrysmod-issues/issues/6405):**
+     * >On the client, `anim` types' collision testing prediction fails for changed model scales: you can use `cl_showerror 2` to see by how much. Essentially, the client will freak out when you stand/run past on a Scripted Entity or prop that has been modified using this method.
      *
      * **Note:**
      * >If you do not want the physics to be affected by [Entity:Activate](https://wiki.facepunch.com/gmod/Entity:Activate), you can use [Entity:ManipulateBoneScale](https://wiki.facepunch.com/gmod/Entity:ManipulateBoneScale)`( 0, Vector( scale, scale, scale ) )` instead.
@@ -10552,6 +10551,8 @@ interface Entity {
      * Use [Entity:AddEffects](https://wiki.facepunch.com/gmod/Entity:AddEffects)( EF_FOLLOWBONE ) to treat this argument as a Bone ID instead of an Attachment ID. Similar to [Entity:FollowBone](https://wiki.facepunch.com/gmod/Entity:FollowBone).
      * **Note:**
      * >You must call [Entity:SetMoveType](https://wiki.facepunch.com/gmod/Entity:SetMoveType)( MOVETYPE_NONE ) on the child for this argument to have any effect!
+     * **Note:**
+     * >Parenting to attachment IDs more than `255` is unsupported and will output a LUA error.
      */
     SetParent(parent?: Entity, attachmentOrBoneId?: number): void;
 
@@ -10728,10 +10729,12 @@ interface Entity {
     /**
      * 🟨 [Client]
      *
-     * Sets the render angle override for the Entity.
+     * Sets the render angles override for the entity. [Entity:GetAngles](https://wiki.facepunch.com/gmod/Entity:GetAngles) will return the value set by this function until the override is disabled. (This is all this does internally)
+     *
+     * See [Entity:SetRenderOrigin](https://wiki.facepunch.com/gmod/Entity:SetRenderOrigin) for the function to manipulate origin.
      * @param [newAngles = nil] - The new render angles to be set to. To disable the override, set to [nil](https://wiki.facepunch.com/gmod/nil).
      */
-    SetRenderAngles(newAngles?: Angle): void;
+    SetRenderAngles(newAngles?: Angle|undefined): void;
 
     /**
      * 🟨 [Client]
@@ -10791,10 +10794,12 @@ interface Entity {
     /**
      * 🟨 [Client]
      *
-     * Set the render origin override, a position where the Entity will be rendered at.
-     * @param [newOrigin = nil] - The new origin in world coordinates where the Entity's model will now be rendered at. To disable the override, set to [nil](https://wiki.facepunch.com/gmod/nil).
+     * Sets the render origin override, a position where the entity will be rendered at. [Entity:GetPos](https://wiki.facepunch.com/gmod/Entity:GetPos) will return the value set by this function until the override is disabled. (This is all this does internally)
+     *
+     * See [Entity:SetRenderAngles](https://wiki.facepunch.com/gmod/Entity:SetRenderAngles) for the function to manipulate angles.
+     * @param [newOrigin = nil] - The new origin in world coordinates where the entity's model will now be rendered at. To disable the override, set to [nil](https://wiki.facepunch.com/gmod/nil).
      */
-    SetRenderOrigin(newOrigin?: Vector): void;
+    SetRenderOrigin(newOrigin?: Vector|undefined): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -12262,6 +12267,8 @@ interface IMaterial {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Sets the specified material float to the specified float, does nothing on a type mismatch.
+     *
+     * Unlike [IMaterial:SetInt](https://wiki.facepunch.com/gmod/IMaterial:SetInt), this function **does not** call [IMaterial:Recompute](https://wiki.facepunch.com/gmod/IMaterial:Recompute) internally.
      * @param materialFloat - The name of the material float.
      * @param float - The new float value.
      */
@@ -12271,6 +12278,8 @@ interface IMaterial {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Sets the specified material value to the specified int, does nothing on a type mismatch.
+     *
+     * Calls [IMaterial:Recompute](https://wiki.facepunch.com/gmod/IMaterial:Recompute) internally.
      *
      * **Note:**
      * >Please note that certain material flags such as `$model` are stored in the `$flags` variable and cannot be directly set with this function. See the full list here: [Material Flags](https://wiki.facepunch.com/gmod/Material_Flags)
@@ -12313,6 +12322,8 @@ interface IMaterial {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Sets the specified material texture to the specified texture, does nothing on a type mismatch.
+     *
+     * Calls [IMaterial:Recompute](https://wiki.facepunch.com/gmod/IMaterial:Recompute) internally.
      * @param materialTexture - The name of the keyvalue on the material to store the texture on.
      * @param texture - The new texture. This can also be a string, the name of the new texture.
      */
@@ -12402,8 +12413,9 @@ interface IMesh {
      *
      * Renders the mesh with the active matrix and given bone matrices.
      * @param bones - A list of matrices to use as bones. Up to 52 of them.
+     * @param [multiply = false] - If set, multiplies given matrices with currently active matrix ([cam.GetModelMatrix](https://wiki.facepunch.com/gmod/cam.GetModelMatrix)).
      */
-    DrawSkinned(bones: VMatrix[]): void;
+    DrawSkinned(bones: VMatrix[], multiply?: boolean): void;
 
     /**
      * 🟨 [Client]
@@ -16965,7 +16977,7 @@ interface Panel {
      * **Note:**
      * >This doesn't apply to all VGUI elements (such as [DLabel](https://wiki.facepunch.com/gmod/DLabel)) and its function varies between them
      *
-     * @param r_or_color - The red channel of the color, or a [Color](https://wiki.facepunch.com/gmod/Color). If you pass the latter, the following three arguments are ignored.
+     * @param r - The red channel of the color.
      * @param g - The green channel of the color.
      * @param b - The blue channel of the color.
      * @param a - The alpha channel of the color.
@@ -18634,10 +18646,6 @@ interface PhysObj {
      * 🟨🟦 [Shared]
      *
      * Returns the buoyancy ratio of the physics object. (How well it floats in water).
-     *
-     * **Warning:**
-     * >Currently only works on Windows
-     *
      * @returns number - Buoyancy ratio, where 0 is not buoyant at all (like a rock), and 1 is very buoyant (like wood)
      */
     GetBuoyancyRatio(): number;
@@ -21917,7 +21925,8 @@ interface Player extends Entity {
     /**
      * 🟨🟦 [Shared]
      *
-     * @deprecated **This function has collisions,** where more than one player can have the same UniqueID. It is **highly** recommended to use [Player:SteamID64](https://wiki.facepunch.com/gmod/Player:SteamID64), [Player:SteamID](https://wiki.facepunch.com/gmod/Player:SteamID) or [Player:AccountID](https://wiki.facepunch.com/gmod/Player:AccountID) instead, which are guaranteed to be unique to each player.
+     * @deprecated <br/>
+     * **This function has collisions,** where more than one player can have the same UniqueID. It is **highly** recommended to use [Player:SteamID64](https://wiki.facepunch.com/gmod/Player:SteamID64), [Player:SteamID](https://wiki.facepunch.com/gmod/Player:SteamID) or [Player:AccountID](https://wiki.facepunch.com/gmod/Player:AccountID) instead, which are guaranteed to be unique to each player.
      *
      * **Bug [#6389](https://github.com/Facepunch/garrysmod-issues/issues/6389):**
      * >In a `-multirun` environment, the value returned is different on the serverside and clientside.
@@ -22260,7 +22269,7 @@ interface ProjectedTexture {
      * You must call [ProjectedTexture:Update](https://wiki.facepunch.com/gmod/ProjectedTexture:Update) after using this function for it to take effect.
      *
      * **Note:**
-     * >As with all types of projected textures (including the player's flashlight and env_projectedtexture), there can only be 8 projected textures with shadows enabled in total.This limit can be increased with the launch parameter `-numshadowtextures LIMIT` where `LIMIT` is the new limit.Naturally, many projected lights with shadows enabled will drastically decrease framerate.
+     * >As with all types of projected textures (including the player's flashlight and env_projectedtexture), there can only be 8 projected textures with shadows enabled in total.<br/><br/>This limit can be increased with the launch parameter `-numshadowtextures LIMIT` where `LIMIT` is the new limit.<br/><br/>Naturally, many projected lights with shadows enabled will drastically decrease framerate.
      *
      * @param newState -
      */
@@ -23347,7 +23356,7 @@ interface Vector {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Scales the vector by the given [number](https://wiki.facepunch.com/gmod/number) (that means x, y and z are multiplied by that value), a [Vector](https://wiki.facepunch.com/gmod/Vector) (X, Y, and Z of each vector are multiplied) or a [VMatrix](https://wiki.facepunch.com/gmod/VMatrix) (Transforms the vector by the matrix's rotation/translation).
-     * @param multiplier - The value to scale the vector with.
+     * @param multiplier - The value to multiply the vector with.
      */
     Mul(multiplier: number): void;
 
@@ -24652,10 +24661,14 @@ interface Weapon extends Entity {
     /**
      * 🟨 [Client]
      *
-     * Allows you to adjust the mouse sensitivity. This hook only works if you haven't overridden [GM:AdjustMouseSensitivity](https://wiki.facepunch.com/gmod/GM:AdjustMouseSensitivity).
-     * @returns number - Sensitivity scale
+     * Allows you to adjust the weapon's mouse sensitivity. This hook only works if you haven't overridden [GM:AdjustMouseSensitivity](https://wiki.facepunch.com/gmod/GM:AdjustMouseSensitivity).
+     * @param defaultSensitivity - The old sensitivity
+     * In general this will be 0, which is equivalent to a sensitivity of 1.
+     * @param localFOV - The player's current FOV.
+     * @param defaultFOV - The player's default FOV.
+     * @returns number - A multiplier of the player's normal sensitivity (0.5 would be half as sensitive, 2 would be twice as sensitive).
      */
-    AdjustMouseSensitivity(): number;
+    AdjustMouseSensitivity(defaultSensitivity: number, localFOV: number, defaultFOV: number): number;
 
     /**
      * 🟨🟦 [Shared]
@@ -29058,7 +29071,7 @@ interface DHTML extends HTML {
      * Runs/Executes a string as JavaScript code in a panel.
      *
      * **Note:**
-     * >This function does **NOT** evaluate expression (i.e. allow you to pass variables from JavaScript (JS) to Lua context).Because a return value is nil/no value (a.k.a. void).If you wish to pass/return values from JS to Lua, you may want to use [DHTML:AddFunction](https://wiki.facepunch.com/gmod/DHTML:AddFunction) function to accomplish that job.
+     * >This function does **NOT** evaluate expression (i.e. allow you to pass variables from JavaScript (JS) to Lua context).<br/>Because a return value is nil/no value (a.k.a. void).<br/>If you wish to pass/return values from JS to Lua, you may want to use [DHTML:AddFunction](https://wiki.facepunch.com/gmod/DHTML:AddFunction) function to accomplish that job.
      *
      * **Note:**
      * >This function is an alias of [DHTML:QueueJavascript](https://wiki.facepunch.com/gmod/DHTML:QueueJavascript) ([source](https://github.com/Facepunch/garrysmod/blob/master/garrysmod/lua/vgui/dhtml.lua#L62)).
@@ -29092,10 +29105,10 @@ interface DHTML extends HTML {
      * Runs/Executes a string as JavaScript code in a panel.
      *
      * **Note:**
-     * >This function does **NOT** evaluate expression (i.e. allow you to pass variables from JavaScript (JS) to Lua context).Because a return value is nil/no value (a.k.a. void).If you wish to pass/return values from JS to Lua, you may want to use [DHTML:AddFunction](https://wiki.facepunch.com/gmod/DHTML:AddFunction) function to accomplish that job.
+     * >This function does **NOT** evaluate expression (i.e. allow you to pass variables from JavaScript (JS) to Lua context).<br/>Because a return value is nil/no value (a.k.a. void).<br/>If you wish to pass/return values from JS to Lua, you may want to use [DHTML:AddFunction](https://wiki.facepunch.com/gmod/DHTML:AddFunction) function to accomplish that job.
      *
      * **Note:**
-     * >If [Panel:IsVisible](https://wiki.facepunch.com/gmod/Panel:IsVisible) is `false`, [PANEL:Think](https://wiki.facepunch.com/gmod/PANEL:Think) will **NOT** run, meaning the Javascript Queue will not be processed.Consider overriding [PANEL:Paint](https://wiki.facepunch.com/gmod/PANEL:Paint) to stop the panel from drawing instead.
+     * >If [Panel:IsVisible](https://wiki.facepunch.com/gmod/Panel:IsVisible) is `false`, [PANEL:Think](https://wiki.facepunch.com/gmod/PANEL:Think) will **NOT** run, meaning the Javascript Queue will not be processed.<br/><br/>Consider overriding [PANEL:Paint](https://wiki.facepunch.com/gmod/PANEL:Paint) to stop the panel from drawing instead.
      *
      * @param js - Specify JavaScript code to be executed.
      */
@@ -32645,7 +32658,7 @@ interface DPanel extends Panel {
  * 		You can get its vertical bar via `DPanelList.VBar`.
  * 		[DPanelList](https://wiki.facepunch.com/gmod/DPanelList) was succeeded in version 13 by more specialised layout elements.
  *
- * @deprecated Use a combination of [DIconLayout](https://wiki.facepunch.com/gmod/DIconLayout), [DListLayout](https://wiki.facepunch.com/gmod/DListLayout) and [DScrollPanel](https://wiki.facepunch.com/gmod/DScrollPanel) instead.
+ * @deprecated <br/> Use a combination of [DIconLayout](https://wiki.facepunch.com/gmod/DIconLayout), [DListLayout](https://wiki.facepunch.com/gmod/DListLayout) and [DScrollPanel](https://wiki.facepunch.com/gmod/DScrollPanel) instead.
  */
 interface DPanelList extends DPanel {
     /**
@@ -37890,12 +37903,11 @@ interface Gamemode {
      *
      * @param error - The error that occurred. As well as the path and line of the error. Example:
      * `addons/test/lua/autorun/client/test_error.lua:4: 'then' expected near '<eof>'`
-     * </arg>
-     * 		<arg name="ply" type="Player">The player whose client caused the error.</arg>
-     * 		<arg name="stack" type="table">The Lua error stack trace</arg>
-     * 		<arg name="name" type="string">Title of the addon that is creating the Lua errors, or "ERROR" if addon is not found.</arg>
+     * @param ply - The player whose client caused the error.
+     * @param stack - The Lua error stack trace
+     * @param name - Title of the addon that is creating the Lua errors, or "ERROR" if addon is not found.
      */
-    OnClientLuaError(error: string): void;
+    OnClientLuaError(error: string, ply: Player, stack: any, name: string): void;
 
     /**
      * 🟨 [Client]
@@ -37984,7 +37996,7 @@ interface Gamemode {
     /**
      * 🟨🟦 [Shared]
      *
-     * Called when the gamemode is loaded.
+     * Called when the gamemode is loaded. [gmod.GetGamemode](https://wiki.facepunch.com/gmod/gmod.GetGamemode) will be functional at this point.
      *
      * [Global.LocalPlayer](https://wiki.facepunch.com/gmod/Global.LocalPlayer)() returns NULL at the time this is run.
      */
@@ -38465,9 +38477,10 @@ interface Gamemode {
      * @param ply - The player who is trying to spawn something.
      * @param limitName - The limit's name.
      * @param current - The amount of whatever player is trying to spawn that the player already has spawned.
-     * @param defaultMax - The default maximum count, as dictated by the `sbox_max<limitName>` convar on the server. This is the amount that will be used if nothing is returned from this hook.</arg>
+     * @param defaultMax - The default maximum count, as dictated by the `sbox_max<limitName>` convar on the server. This is the amount that will be used if nothing is returned from this hook.
+     * @returns boolean - Return `false` to indicate the limit was hit, or nothing otherwise
      */
-    PlayerCheckLimit(ply: Player, limitName: string, current: number, defaultMax: number): void;
+    PlayerCheckLimit(ply: Player, limitName: string, current: number, defaultMax: number): boolean;
 
     /**
      * 🟨 [Client]
@@ -40317,16 +40330,21 @@ interface ENTITY extends Entity {
      * >This hook will work on ALL entities, not just the scripted ones (SENTs)
      *
      * @param ply - Player, that tried to use the tool
-     * @param tr - The trace of the tool. See <page text="TraceResult">Structures/TraceResult</page>.
+     * @param tr - The trace of the tool.
+     * **Warning:**
+     * >Returns onlywhen the 5th argument returns `4`
+     *
      * @param toolname - Class of the tool that is tried to use, for example - `weld`
      * @param tool - The tool mode table the player currently has selected.
      * @param button - The tool button pressed.
      * * 1 - left click
      * * 2 - right click
      * * 3 - reload
-     * @returns boolean - Return `false` to disallow using that tool on this entity, return `true` to allow.
+     * * 4 - Menu (No interaction with the toolgun)
+     * **Warning:**
+     * >The number `4` is a test that Rubat is conducting to implement the CanTool in the SpawnMenu. It may disappear.
      */
-    CanTool(ply: Player, tr: TraceResult, toolname: string, tool: any, button: number): boolean;
+    CanTool(ply: Player, tr: TraceResult, toolname: string, tool: any, button: number): void;
 
     /**
      * 🟦 [Server]
@@ -41564,7 +41582,6 @@ interface TOOL extends Tool {
  * 	</code>
  *
  * </example>
- * 	</summary>
  */
 interface EFFECT extends Entity {
     /**
@@ -41968,10 +41985,20 @@ interface SANDBOX extends GM {
      *
      * Called when a player attempts to fire their tool gun. Return true to specifically allow the attempt, false to block it.
      * @param ply - The player who attempted to use their toolgun.
-     * @param tr - A trace from the players eye to where in the world their crosshair/cursor is pointing. See [Structures/TraceResult](https://wiki.facepunch.com/gmod/Structures/TraceResult)
+     * @param tr - A trace from the players eye to where in the world their crosshair/cursor is pointing.
+     * **Warning:**
+     * >Returns onlywhen the 5th argument returns `4`
+     *
      * @param toolname - The tool mode the player currently has selected.
      * @param tool - The tool mode table the player currently has selected.
      * @param button - The tool button pressed.
+     * * 1 - left click
+     * * 2 - right click
+     * * 3 - reload
+     * * 4 - Menu (No interaction with the toolgun)
+     * **Warning:**
+     * >The number `4` is a test that Rubat is conducting to implement the CanTool in the SpawnMenu. It may disappear.
+     *
      * @returns boolean - Can use toolgun or not.
      */
     CanTool(ply: Player, tr: TraceResult, toolname: string, tool: any, button: number): boolean;
@@ -42387,6 +42414,7 @@ interface SANDBOX extends GM {
     /**
      * 🟨 [Client]
      *
+     * **.**
      * Called when there's one or more items selected in the spawnmenu by the player, to open the multi selection right click menu ([DMenu](https://wiki.facepunch.com/gmod/DMenu))
      * @param canvas - The canvas that has the selection. ([Panel:GetSelectionCanvas](https://wiki.facepunch.com/gmod/Panel:GetSelectionCanvas))
      */
@@ -44040,7 +44068,7 @@ interface MatProxyData {
  *
  * Used by:
  * * [IMesh:BuildFromTriangles](https://wiki.facepunch.com/gmod/IMesh:BuildFromTriangles)
- * * [Entity:PhysicsFromMesh](https://wiki.facepunch.com/gmod/Entity:PhysicsFromMesh)
+ * * [Entity:PhysicsFromMesh](https://wiki.facepunch.com/gmod/Entity:PhysicsFromMesh) (only uses `pos` field)
  *
  * **Note:**
  * >Not all MeshVertex will contain all fields and not all fields are used by all shaders
@@ -44119,7 +44147,7 @@ interface MeshVertex {
      *
      * The total sum of their `weight` values should be `1`
      *
-     * Current added exclusively by [util.GetModelMeshes](https://wiki.facepunch.com/gmod/util.GetModelMeshes)
+     * Currently added exclusively by [util.GetModelMeshes](https://wiki.facepunch.com/gmod/util.GetModelMeshes)
      */
     weights: any[],
 }
@@ -53279,7 +53307,7 @@ declare const enum IMAGE_FORMAT {
     IMAGE_FORMAT_ABGR8888 = 1,
 
     /**
-     * Red, Green, Blue, 8 bit per pixel.
+     * Legacy format. Red, Green, Blue, 8 bit per pixel. `D3DFMT_R8G8B8` is invalid for most modern video cards. Thats why `IMAGE_FORMAT_RGB888` and `IMAGE_FORMAT_BGR888` is legacy formats. It have fallback to `IMAGE_FORMAT_BGRX8888`. `X` means «any».
      */
     IMAGE_FORMAT_RGB888 = 2,
 
@@ -53304,7 +53332,7 @@ declare const enum IMAGE_FORMAT {
     IMAGE_FORMAT_BGRA8888 = 12,
 
     /**
-     * RGBA, but 16 bits per pixel. Was meant to be used for "Integer mode" for HDR. Probably legacy format.
+     * RGBA, but 16 bits per pixel. Was meant to be used for "Integer mode" for HDR.
      */
     IMAGE_FORMAT_RGBA16161616 = 25,
 
@@ -59747,6 +59775,8 @@ declare function GetConVar_Internal(name: string): ConVar;
  *
  * Gets the numeric value ConVar with the specified name.
  *
+ * Returns the value of [game.MaxPlayers](https://wiki.facepunch.com/gmod/game.MaxPlayers) if `maxplayers` is specified as the convar name, even though `maxplayers` is not a convar. (it is a console **command**) You should be using aforementioned Lua function instead.
+ *
  * @deprecated Store the [ConVar](https://wiki.facepunch.com/gmod/ConVar) object retrieved with [Global.GetConVar](https://wiki.facepunch.com/gmod/Global.GetConVar) or use [cvars.Number](https://wiki.facepunch.com/gmod/cvars.Number)
  *
  * @param name - Name of the ConVar to get.
@@ -59758,6 +59788,8 @@ declare function GetConVarNumber(name: string): number;
  * 🟨🟦🟩 [Shared and Menu]
  *
  * Gets the string value ConVar with the specified name.
+ *
+ * Returns the value of [game.MaxPlayers](https://wiki.facepunch.com/gmod/game.MaxPlayers) if `maxplayers` is specified as the convar name, even though `maxplayers` is not a convar. (it is a console **command**) You should be using aforementioned Lua function instead.
  *
  * @deprecated Store the [ConVar](https://wiki.facepunch.com/gmod/ConVar) object retrieved with [Global.GetConVar](https://wiki.facepunch.com/gmod/Global.GetConVar) or use [cvars.String](https://wiki.facepunch.com/gmod/cvars.String).
  *
@@ -60096,7 +60128,7 @@ declare function GetRenderTarget(name: string, width: number, height: number): I
  * See also [render.PushRenderTarget](https://wiki.facepunch.com/gmod/render.PushRenderTarget) and [render.SetRenderTarget](https://wiki.facepunch.com/gmod/render.SetRenderTarget).
  * @param name - The internal name of the render target.
  * **Warning:**
- * >The name is treated like a path and gets its extension discarded."name.1" and "name.2" are considered the same name and will result in the same render target being reused.
+ * >The name is treated like a path and gets its extension discarded.<br/>"name.1" and "name.2" are considered the same name and will result in the same render target being reused.
  *
  * @param width - The width of the render target, must be power of 2.
  * @param height - The height of the render target, must be power of 2.
@@ -60209,7 +60241,9 @@ declare function HSVToColor(hue: number, saturation: number, value: number): Col
  * >HTTP-requests that respond with a large body may return an `unsuccessful` error. Try using the [Range](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Range) header to download the file in chunks.
  *
  * **Note:**
- * >HTTP-requests to destinations on private networks (such as `192.168.0.1`, or `127.0.0.1`) won't work.To enable HTTP-requests to destinations on private networks use [Command Line Parameters](https://wiki.facepunch.com/gmod/Command_Line_Parameters) `-allowlocalhttp`. (Dedicated servers only)
+ * >HTTP-requests to destinations on private networks (such as `192.168.0.1`, or `127.0.0.1`) won't work.
+ * 	<br/>
+ * 	To enable HTTP-requests to destinations on private networks use [Command Line Parameters](https://wiki.facepunch.com/gmod/Command_Line_Parameters) `-allowlocalhttp`. (Dedicated servers only)
  *
  * @param parameters - The request parameters. See [Structures/HTTPRequest](https://wiki.facepunch.com/gmod/Structures/HTTPRequest).
  * @returns boolean - `true` if a request is queued, `false` if a request could not be queued. (i.e. When not giving a `table` or the game is ran with `-disablehttp`)
@@ -60589,7 +60623,7 @@ declare function IsUselessModel(modelName: string): boolean;
  * >Putting a number in the argument will cause an error.
  *
  * **Note:**
- * >If you are sure that the object you are about to check is not `nil` and has the `IsValid` method, it would be more faster to call it directly rather than using `IsValid`.
+ * >If you are sure that the object you are about to check is not `nil` and has the `IsValid` method, it would be faster to call it directly rather than using `IsValid`.
  *
  * **Note:**
  * >Due to vehicles being technically valid the moment they're spawned, also use [Vehicle:IsValidVehicle](https://wiki.facepunch.com/gmod/Vehicle:IsValidVehicle) to make sure they're fully initialized.
@@ -62210,6 +62244,9 @@ declare function Sound(soundPath: string): string;
  * **Bug :**
  * >This function only works on mp3 files if the file is encoded with constant bitrate.
  *
+ * **Note:**
+ * >This function will not work with sound files prepended with a [sound character](https://developer.valvesoftware.com/wiki/Soundscripts#Sound_Characters).
+ *
  * @param soundName - The sound file path.
  * @returns number - Sound duration in seconds.
  */
@@ -62754,9 +62791,9 @@ declare namespace ai {
     /**
      * 🟦 [Server]
      *
-     * Returns the number of AI nodes on the map, used by the base game NPCs.
+     * Returns the number of AI nodes on the map, used by the base game [NPC](https://wiki.facepunch.com/gmod/NPC)s.
      *
-     * For nextbots, see [navmesh](https://wiki.facepunch.com/gmod/navmesh).
+     * For [NextBot](https://wiki.facepunch.com/gmod/NextBot)s, see [navmesh](https://wiki.facepunch.com/gmod/navmesh).
      * @returns number - The node count.
      */
     declare function GetNodeCount(): number;
@@ -64250,7 +64287,7 @@ declare namespace cvars {
      *
      * Retrieves console variable as a boolean.
      * @param cvar - Name of console variable.
-     * @param [default_ = false] - The value to return if the console variable does not exist.
+     * @param [default_ = nil] - The value to return if the console variable does not exist.
      * @returns boolean - Retrieved value.
      */
     declare function Bool(cvar: string, default_?: boolean): boolean;
@@ -64555,8 +64592,8 @@ declare namespace debugoverlay {
      *
      * **Note:**
      * >This function will silently fail if the `developer` [ConVar](https://wiki.facepunch.com/gmod/ConVar) is set to `0`.
-     * It is not networked to clients, except for the.
-     * It will not work when the game is paused.
+     * 		It is not networked to clients, except for the.
+     * 		It will not work when the game is paused.
      *
      * @param origin - Position origin.
      * @param ang - Angle of the axis.
@@ -66253,7 +66290,9 @@ declare namespace ents {
     /**
      * 🟦 [Server]
      *
-     * Returns the amount of networked entities, which is limited to 8192. [ents.Create](https://wiki.facepunch.com/gmod/ents.Create) will fail somewhere between 8064 and 8176 - this can vary based on the amount of existing temp ents.
+     * Returns the amount of networked entities, which is limited to 8192.
+     *
+     * [ents.Create](https://wiki.facepunch.com/gmod/ents.Create) will fail somewhere between 8064 and 8176 - this can vary based on the amount of player slots on the server and other entities.
      *
      * See also [MAX_EDICT_BITS](https://wiki.facepunch.com/gmod/Global_Variables#maxedictbits) global variable.
      * @returns number - Number of networked entities.
@@ -67096,8 +67135,10 @@ declare namespace gmod {
     /**
      * 🟨🟦 [Shared]
      *
-     * Returns [GAMEMODE](https://wiki.facepunch.com/gmod/GAMEMODE).
-     * @returns GM - GAMEMODE.
+     * Returns the [GAMEMODE](https://wiki.facepunch.com/gmod/GAMEMODE) table.
+     *
+     * You will want to wait until [GM:OnGamemodeLoaded](https://wiki.facepunch.com/gmod/GM:OnGamemodeLoaded) for it to return a valid value.
+     * @returns GM - The `GAMEMODE` table.
      */
     declare function GetGamemode(): GM;
 }
@@ -67174,12 +67215,12 @@ declare namespace gui {
      * >The function will not work, if the console command variable `closecaption` is set to 0.
      *
      * @param captionStream - The caption to emit. See [Closed Captions](https://developer.valvesoftware.com/wiki/Closed_Captions) for more info.
-     * Note the ability to add special commands to captions, such as `<sfx>` to mark the caption as a sound effect caption, which would be hidden if `cc_subtitles` is set to 1. (To only show dialogue subtitles)</arg>
-     * 		<arg name="duration" type="number">How long the caption should stay for</arg>
-     * 		<arg name="fromPlayer" type="boolean" default="false">Is this caption coming from the player?
-     * This is used to give different colors to the caption to differentiate, for example, whether the SMG is fired by the player or an NPC.</arg>
+     * Note the ability to add special commands to captions, such as `<sfx>` to mark the caption as a sound effect caption, which would be hidden if `cc_subtitles` is set to 1. (To only show dialogue subtitles)
+     * @param duration - How long the caption should stay for
+     * @param [fromPlayer = false] - Is this caption coming from the player?
+     * This is used to give different colors to the caption to differentiate, for example, whether the SMG is fired by the player or an NPC.
      */
-    declare function AddCaption(captionStream: string): void;
+    declare function AddCaption(captionStream: string, duration: number, fromPlayer?: boolean): void;
 
     /**
      * 🟨 [Client]
@@ -67589,7 +67630,7 @@ declare namespace hook {
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
-     * Calls all hooks associated with the given event **until** one returns something other than `nil` and then returns that data. If no hook returns any data, it will try to call the `:<eventName>` alternative, if one exists.
+     * Calls all hooks associated with the given event **until** one returns something other than `nil` and then returns that data. If no hook returns any data, it will try to call the `GAMEMODE:<eventName>` alternative, if one exists.
      *
      * This function internally calls [hook.Call](https://wiki.facepunch.com/gmod/hook.Call).
      *
@@ -67644,7 +67685,9 @@ declare namespace http {
      * >HTTP-requests that respond with a large body may return an `unsuccessful` error. Try using the [Range](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Range) header to download the file in chunks.
      *
      * **Note:**
-     * >HTTP-requests to destinations on private networks (such as `192.168.0.1`, or `127.0.0.1`) won't work.To enable HTTP-requests to destinations on private networks use [Command Line Parameters](https://wiki.facepunch.com/gmod/Command_Line_Parameters) `-allowlocalhttp`. (Dedicated servers only)
+     * >HTTP-requests to destinations on private networks (such as `192.168.0.1`, or `127.0.0.1`) won't work.
+     * 	<br/>
+     * 	To enable HTTP-requests to destinations on private networks use [Command Line Parameters](https://wiki.facepunch.com/gmod/Command_Line_Parameters) `-allowlocalhttp`. (Dedicated servers only)
      *
      * @param url - The URL of the website to fetch.
      * @param [onSuccess = nil] - Function to be called on success.
@@ -67678,7 +67721,9 @@ declare namespace http {
      * >HTTP-requests that respond with a large body may return an `unsuccessful` error. Try using the [Range](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Range) header to download the file in chunks.
      *
      * **Note:**
-     * >HTTP-requests to destinations on private networks (such as `192.168.0.1`, or `127.0.0.1`) won't work.To enable HTTP-requests to destinations on private networks use [Command Line Parameters](https://wiki.facepunch.com/gmod/Command_Line_Parameters) `-allowlocalhttp`. (Dedicated servers only)
+     * >HTTP-requests to destinations on private networks (such as `192.168.0.1`, or `127.0.0.1`) won't work.
+     * 	<br/>
+     * 	To enable HTTP-requests to destinations on private networks use [Command Line Parameters](https://wiki.facepunch.com/gmod/Command_Line_Parameters) `-allowlocalhttp`. (Dedicated servers only)
      *
      * @param url - The url to of the website to post.
      * @param parameters - The post parameters (x-www-form-urlencoded) to be send to the server. **Keys and values must be strings**.
@@ -69637,11 +69682,7 @@ declare namespace mesh {
     /**
      * 🟨 [Client]
      *
-     * Sets the specular map values. This is `COLOR1` semantic of Vertex Shader.
-     *
-     * **Note:**
-     * >This doesn't currently work, even though `COLOR0` can be successfully passed to the Vertex Shader using [mesh.Color](https://wiki.facepunch.com/gmod/mesh.Color), unlike `COLOR1`, ​​using this function.
-     *
+     * Sets the specular map values. This is `COLOR1` semantic of Vertex Shader. Allows to blend textures of [Lightmapped_4WayBlend](https://developer.valvesoftware.com/wiki/Lightmapped_4WayBlend). Requires the `VERTEX_SPECULAR` flag to be set in the C++ code of a shader.
      * @param r - The red channel multiplier of the specular map.
      * @param g - The green channel multiplier of the specular map.
      * @param b - The blue channel multiplier of the specular map.
@@ -70673,13 +70714,16 @@ declare namespace net {
      * >All net messages have a **64kb** buffer. This function will not check or error when that buffer is overflown. You might want to consider using [util.TableToJSON](https://wiki.facepunch.com/gmod/util.TableToJSON) and [util.Compress](https://wiki.facepunch.com/gmod/util.Compress) and send the resulting string in **60kb** chunks, doing the opposite on the receiving end.
      *
      * @param table - The table to be sent.
-     * 		</arg>
      * **Warning:**
      * >If the table contains a `nil` key the table may not be read correctly.
      * Not all objects can be sent over the network. Things like functions, [IMaterial](https://wiki.facepunch.com/gmod/IMaterial)s, etc will cause errors when reading the table from a net message.
-     * Each element is also limited by the constraint of the `net.Write
+     * Each element is also limited by the constraint of the `net.Write<LuaType>` function for the element type.
+     *
+     * @param [sequential = false] - Set to `true` if the input table is sequential. This saves on bandwidth, adding **8 extra bits** per key/value pair instead of 16 bits.
+     * **Note:**
+     * >To read the table you need to give [net.ReadTable](https://wiki.facepunch.com/gmod/net.ReadTable) the same value!
      */
-    declare function WriteTable(table: any): void;
+    declare function WriteTable(table: any, sequential?: boolean): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -70769,7 +70813,7 @@ declare namespace net {
      * 🟨🟦 [Shared]
      *
      * Appends a vector to the current net message.
-     * Vectors sent by this function are compressed, which may result in precision loss. XYZ components greater than `16384` or less than `-16384` are irrecoverably altered (most significant bits are trimmed) and precision after the decimal point is low.
+     * Vectors sent by this function are compressed, which may result in precision loss. XYZ components greater than `16384` or less than `-16384` are irrecoverably altered (most significant bits are trimmed) and precision after the decimal point is 1 digit (5 bits).
      * @param vector - The vector to be sent.
      */
     declare function WriteVector(vector: Vector): void;
@@ -72385,8 +72429,11 @@ declare namespace render {
     /**
      * 🟨 [Client]
      *
-     * Returns a vector representing linear tone mapping scale.
-     * @returns Vector - The vector representing linear tone mapping scale.
+     * Returns a vector representing linear tone mapping scale. See [render.SetToneMappingScaleLinear](https://wiki.facepunch.com/gmod/render.SetToneMappingScaleLinear) for details.
+     * @returns Vector - The tonemapping scales.
+     * * X - Output scale.
+     * * Y - Lightmap scale.
+     * * Z - Reflection map scale.
      */
     declare function GetToneMappingScaleLinear(): Vector;
 
@@ -75188,7 +75235,7 @@ declare namespace surface {
      *
      * Identical to [Global.DisableClipping](https://wiki.facepunch.com/gmod/Global.DisableClipping). See also [Panel:NoClipping](https://wiki.facepunch.com/gmod/Panel:NoClipping).
      *
-     * @deprecated Alias of [Global.DisableClipping](https://wiki.facepunch.com/gmod/Global.DisableClipping) so use that instead.
+     * @deprecated <br/>Alias of [Global.DisableClipping](https://wiki.facepunch.com/gmod/Global.DisableClipping) so use that instead.
      *
      * @param disable - True to disable, false to enable the clipping
      * @returns boolean - Whether the clipping was enabled or not before this function call
@@ -75424,8 +75471,9 @@ declare namespace surface {
      *
      * Returns the width and height (in pixels) of the given text with the font that has been set with [surface.SetFont](https://wiki.facepunch.com/gmod/surface.SetFont).
      *
-     * <validate>
-     * Does not take into account new lines, the returned height is for the entire font (as specified by the font), not maximum of individual characters.</validate>
+     * **Note:**
+     * >Takes into account new lines, the returned height is for the entire text, but [surface.DrawText](https://wiki.facepunch.com/gmod/surface.DrawText) does not!
+     *
      * @param text - The string to check the size of.
      * @returns [1] number - Width of the provided text.
      * @returns [2] number - Height of the provided text.
@@ -76609,7 +76657,11 @@ declare namespace timer {
      *
      * For more information on hook execution order, see [Lua Hooks Order](https://wiki.facepunch.com/gmod/Lua_Hooks_Order).
      *
-     * As of a commit on [2026.1.5](https://commits.facepunch.com/574654), simple timers are queued to the next frame, but as it is a recent change, it might only be available on the [Dev Branch](https://wiki.facepunch.com/gmod/Dev_Branch) right now.
+     * As of a commit on [2026.1.5](https://commits.facepunch.com/574654), simple timers are queued to the next frame.
+     *
+     * As of a commit on [2026.1.8](https://commits.facepunch.com/575132), only timers with the same callback function are queued to the next frame. [Source](https://github.com/Facepunch/garrysmod-issues/issues/6668#issuecomment-3725044829)
+     *
+     * These are recent changes, it might only be available on the [Dev Branch](https://wiki.facepunch.com/gmod/Dev_Branch) right now.
      *
      * @param delay - How long until the function should be ran (in seconds). A value of `0` differs in behavior, depending on where you're calling this function.
      * @param func - The function to run after the specified delay.
@@ -77752,7 +77804,7 @@ declare namespace util {
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
-     * Converts a JSON string to a Lua table.
+     * Converts a JSON string to a Lua table. It supports comments and trailing commas.
      *
      * See [util.TableToJSON](https://wiki.facepunch.com/gmod/util.TableToJSON) for the opposite function.
      *
@@ -78077,8 +78129,10 @@ declare namespace util {
      *
      * Generates a random float value that should be the same on client and server.
      *
+     * This uses a different method of obtaining random numbers and is unaffected by [math.randomseed](https://wiki.facepunch.com/gmod/math.randomseed). Instead it uses an internal seed that is based on the player's current predicted command and is fixed to a value of -1 outside of prediction.
+     *
      * **Note:**
-     * >This function is best used in a
+     * >This function is best used in a.
      *
      * @param uniqueName - The seed for the random value
      * @param min - The minimum value of the random range
@@ -78507,7 +78561,7 @@ declare namespace weapons {
     /**
      * 🟨🟦 [Shared]
      *
-     * Get a `copy` of weapon table by name. This function also inherits fields from the weapon's base class, unlike [weapons.GetStored](https://wiki.facepunch.com/gmod/weapons.GetStored).
+     * Get a `copy` of weapon table by name. This function also inherits fields from the weapon's base class, unlike [weapons.GetStored](https://wiki.facepunch.com/gmod/weapons.GetStored) or [weapons.GetList](https://wiki.facepunch.com/gmod/weapons.GetList).
      *
      * **Note:**
      * >This will only work on SWEP's, this means that this will not return anything for HL2/HL:S weapons.
@@ -78521,6 +78575,10 @@ declare namespace weapons {
      * 🟨🟦 [Shared]
      *
      * Get a list of all the registered SWEPs. This does not include weapons added to spawnmenu manually.
+     *
+     * **Note:**
+     * >This function does not inherit fields from the weapon's base class, unlike [weapons.Get](https://wiki.facepunch.com/gmod/weapons.Get)
+     *
      * @returns any - List of all the registered SWEPs
      */
     declare function GetList(): any;
