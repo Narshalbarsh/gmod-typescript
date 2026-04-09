@@ -1499,7 +1499,7 @@ interface CLuaParticle {
     /**
      * 🟨 [Client]
      *
-     * Scales the velocity based on the particle speed.
+     * Automatically scales the length of the particle based on the particle speed, multiplied with [CLuaParticle:SetStartLength](https://wiki.facepunch.com/gmod/CLuaParticle:SetStartLength) and [CLuaParticle:SetEndLength](https://wiki.facepunch.com/gmod/CLuaParticle:SetEndLength). Width remains the same as [CLuaParticle:SetStartSize](https://wiki.facepunch.com/gmod/CLuaParticle:SetStartSize) and [CLuaParticle:SetEndSize](https://wiki.facepunch.com/gmod/CLuaParticle:SetEndSize).
      * @param [doScale = false] - Use velocity scaling.
      */
     SetVelocityScale(doScale?: boolean): void;
@@ -6274,10 +6274,10 @@ interface Entity {
      * **Bug :**
      * >The table returned by this function will not contain materials if they are missing from the disk/repository. This means that if you are attempting to find the ID of a material to replace with [Entity:SetSubMaterial](https://wiki.facepunch.com/gmod/Entity:SetSubMaterial) and there are missing materials on the model, all subsequent materials will be offset in the table, meaning that the ID you are trying to get will be incorrect.
      *
-     * @returns any - A table containing full paths to the materials of the model.
+     * @returns string[] - A table containing full paths to the materials of the model.
      * For models, it's limited to `128` materials.
      */
-    GetMaterials(): any;
+    GetMaterials(): string[];
 
     /**
      * 🟦 [Server]
@@ -7262,11 +7262,11 @@ interface Entity {
      * **Note:**
      * >It is highly recommended to use [Entity:GetInternalVariable](https://wiki.facepunch.com/gmod/Entity:GetInternalVariable) for retrieving a single key of the save table for performance reasons.
      *
-     * @param showAll - If set, shows all variables, not just the ones marked for save/load system.
+     * @param [showAll = false] - If set, shows all variables, not just the ones marked for save/load system.
      * @returns any - A table containing all save values in key/value format.
      * The value may be a sequential table (starting with **1**) if the field in question is an array in engine.
      */
-    GetSaveTable(showAll: boolean): any;
+    GetSaveTable(showAll?: boolean): any;
 
     /**
      * 🟨🟦 [Shared]
@@ -12413,7 +12413,7 @@ interface IMesh {
      *
      * Renders the mesh with the active matrix and given bone matrices.
      * @param bones - A list of matrices to use as bones. Up to 52 of them.
-     * @param [multiply = false] - If set, multiplies given matrices with currently active matrix ([cam.GetModelMatrix](https://wiki.facepunch.com/gmod/cam.GetModelMatrix)).
+     * @param [multiply = false] - If set, multiplies given matrices with currently active model matrix ([cam.GetModelMatrix](https://wiki.facepunch.com/gmod/cam.GetModelMatrix)). This incurs a performance hit.
      */
     DrawSkinned(bones: VMatrix[], multiply?: boolean): void;
 
@@ -14178,7 +14178,7 @@ interface NPC extends Entity {
     /**
      * 🟦 [Server]
      *
-     * Stops any sounds (speech) the NPC is currently palying.
+     * Stops any sounds (speech) the NPC is currently playing.
      *
      * Equivalent to `Entity:EmitSound( "AI_BaseNPC.SentenceStop" )`
      */
@@ -22348,6 +22348,8 @@ interface ProjectedTexture {
      * 🟨 [Client]
      *
      * Allows disabling of projected texture view-frustum culling for cases where said culling creates unwanted side effects. Disabling culling will have a negative effect on performance.
+     *
+     * Culling makes projected textures off screen to stop rendering/updating.
      * @param enable - `false` to enable culling (default), `true` to disable.
      */
     SetNoCull(enable: boolean): void;
@@ -24827,7 +24829,12 @@ interface Weapon extends Entity {
     /**
      * 🟨 [Client]
      *
-     * Called when we are about to draw the world model.
+     * Called when we are about to draw the opaque parts of the weapon's world model.
+     *
+     * See [WEAPON:DrawWorldModelTranslucent](https://wiki.facepunch.com/gmod/WEAPON:DrawWorldModelTranslucent) for translucent pass callback.
+     * See [WEAPON:ViewModelDrawn](https://wiki.facepunch.com/gmod/WEAPON:ViewModelDrawn) for view model rendering.
+     *
+     * <rendercontext hook="true" type="3D"></rendercontext>
      * @param flags - The <page text="STUDIO_">Enums/STUDIO</page> flags for this render operation.
      */
     DrawWorldModel(flags: STUDIO): void;
@@ -24835,7 +24842,12 @@ interface Weapon extends Entity {
     /**
      * 🟨 [Client]
      *
-     * Called when we are about to draw the translucent world model.
+     * Called when we are about to draw the translucent parts of the weapon's world model.
+     *
+     * See [WEAPON:DrawWorldModel](https://wiki.facepunch.com/gmod/WEAPON:DrawWorldModel) for opaque pass callback.
+     * See [WEAPON:ViewModelDrawn](https://wiki.facepunch.com/gmod/WEAPON:ViewModelDrawn) for view model rendering.
+     *
+     * <rendercontext hook="true" type="3D"></rendercontext>
      * @param flags - The <page text="STUDIO_">Enums/STUDIO</page> flags for this render operation.
      */
     DrawWorldModelTranslucent(flags: STUDIO): void;
@@ -25076,9 +25088,15 @@ interface Weapon extends Entity {
     /**
      * 🟨 [Client]
      *
-     * Called after the view model has been drawn while the weapon in use. This hook is called from the default implementation of [GM:PostDrawViewModel](https://wiki.facepunch.com/gmod/GM:PostDrawViewModel), and as such, will not occur if it has been overridden.
+     * Called after the view model has been drawn while the weapon in use.
+     *
+     * This hook relies on default implementation of [GM:PostDrawViewModel](https://wiki.facepunch.com/gmod/GM:PostDrawViewModel). If it appears to not work, it may have been overwritten/broken by the currently active gamemode or other addons.
      *
      * [WEAPON:ViewModelDrawn](https://wiki.facepunch.com/gmod/WEAPON:ViewModelDrawn) is an alternative hook which is always called before [GM:PostDrawViewModel](https://wiki.facepunch.com/gmod/GM:PostDrawViewModel).
+     *
+     * See also [WEAPON:PreDrawViewModel](https://wiki.facepunch.com/gmod/WEAPON:PreDrawViewModel).
+     *
+     * <rendercontext hook="true" type="3D"></rendercontext>
      * @param vm - This is the view model entity after it is drawn
      * @param weapon - This is the weapon that is from the view model (same as self)
      * @param ply - The owner of the view model
@@ -25089,7 +25107,13 @@ interface Weapon extends Entity {
     /**
      * 🟨 [Client]
      *
-     * Allows you to modify viewmodel while the weapon in use before it is drawn. This hook only works if you haven't overridden [GM:PreDrawViewModel](https://wiki.facepunch.com/gmod/GM:PreDrawViewModel).
+     * Allows you to modify viewmodel while the weapon in use before it is drawn.
+     *
+     * This hook relies on default implementation of [GM:PreDrawViewModel](https://wiki.facepunch.com/gmod/GM:PreDrawViewModel). If it appears to not work, it may have been overwritten/broken by the currently active gamemode or other addons.
+     *
+     * See also [WEAPON:ViewModelDrawn](https://wiki.facepunch.com/gmod/WEAPON:ViewModelDrawn) and [WEAPON:PostDrawViewModel](https://wiki.facepunch.com/gmod/WEAPON:PostDrawViewModel).
+     *
+     * <rendercontext hook="true" type="3D"></rendercontext>
      * @param vm - This is the view model entity before it is drawn.
      * @param weapon - This is the weapon that is from the view model.
      * @param ply - The the owner of the view model.
@@ -25165,7 +25189,9 @@ interface Weapon extends Entity {
      *
      * Sets the hold type of the weapon. This must be called on **both** the server and the client to work properly.
      *
-     * **NOTE:** You should avoid calling this function and call [Weapon:SetHoldType](https://wiki.facepunch.com/gmod/Weapon:SetHoldType) now.
+     * **Note:**
+     * >You should avoid calling this function and call [Weapon:SetHoldType](https://wiki.facepunch.com/gmod/Weapon:SetHoldType) now.
+     *
      * @param name - Name of the hold type. You can find all default hold types <page text="here">Hold_Types</page>
      */
     SetWeaponHoldType(name: string): void;
@@ -25281,6 +25307,12 @@ interface Weapon extends Entity {
      * 🟨 [Client]
      *
      * Called straight after the view model has been drawn. This is called before [GM:PostDrawViewModel](https://wiki.facepunch.com/gmod/GM:PostDrawViewModel) and [WEAPON:PostDrawViewModel](https://wiki.facepunch.com/gmod/WEAPON:PostDrawViewModel).
+     *
+     * See [WEAPON:DrawWorldModel](https://wiki.facepunch.com/gmod/WEAPON:DrawWorldModel) for world model rendering.
+     *
+     * See also [WEAPON:PreDrawViewModel](https://wiki.facepunch.com/gmod/WEAPON:PreDrawViewModel) and [WEAPON:PostDrawViewModel](https://wiki.facepunch.com/gmod/WEAPON:PostDrawViewModel).
+     *
+     * <rendercontext hook="true" type="3D"></rendercontext>
      * @param ViewModel - Players view model
      * @param flags - The <page text="STUDIO_">Enums/STUDIO</page> flags for this render operation.
      */
@@ -38966,10 +38998,10 @@ interface Gamemode {
      * >Set mp_show_voice_icons to 0, if you want disable icons above player.
      *
      * @param ply - Player who started using voice chat.
-     * @param plyIndex - The player index. Only appears when non-local player speaks for the first time.
+     * @param [plyIndex = nil] - The player index. Only appears when non-local player speaks for the first time.
      * @returns boolean - Set true to hide player's `CHudVoiceStatus`.
      */
-    PlayerStartVoice(ply: Player, plyIndex: number): boolean;
+    PlayerStartVoice(ply: Player, plyIndex?: number): boolean;
 
     /**
      * 🟨🟦 [Shared]
@@ -40966,6 +40998,22 @@ interface ENTITY extends Entity {
      * @param flags - The <page text="STUDIO_">Enums/STUDIO</page> flags for this render operation.
      */
     RenderOverride(flags: STUDIO): void;
+
+    /**
+     * 🟦 [Server]
+     *
+     * Called during a non-VPhysics collision event for flying entities.
+     *
+     * This is best used to make projectiles bounce off from surfaces in their own way. For this to be triggered, this entity must be the one that's colliding, have some velocity, [Entity:GetMoveType](https://wiki.facepunch.com/gmod/Entity:GetMoveType) must be either <page text="MOVETYPE_FLY">Enums/MOVETYPE#MOVETYPE_FLY</page> or <page text="MOVETYPE_FLYGRAVITY">Enums/MOVETYPE#MOVETYPE_FLYGRAVITY</page>, and [Entity:GetMoveCollide](https://wiki.facepunch.com/gmod/Entity:GetMoveCollide) must be <page text="MOVECOLLIDE_FLY_CUSTOM">Enums/MOVECOLLIDE#MOVECOLLIDE_FLY_CUSTOM</page>.
+     *
+     * **Note:**
+     * >This works only on `anim` type entities.
+     *
+     * @param traceResult - The [Structures/TraceResult](https://wiki.facepunch.com/gmod/Structures/TraceResult) where the collision occured.
+     * @param vel - The calculated velocity after calculations such as bounciness, elasticity, ground sliding etc...
+     * @returns boolean - Return `true` to prevent default action.
+     */
+    ResolveCustomFlyCollision(traceResult: TraceResult, vel: vector): boolean;
 
     /**
      * 🟦 [Server]
@@ -43666,6 +43714,10 @@ interface FontData {
 
     /**
      * Allow the font to display glyphs that are outside of the Latin-1 range. Unicode code points above 0xFFFF are not supported.
+     *
+     * **Note:**
+     * >This currently has no effect on Linux, the value is capped at just 0xFF on the Linux client
+     *
      * @default false
      */
     extended?: boolean,
@@ -54553,7 +54605,7 @@ declare const enum MOVECOLLIDE {
     MOVECOLLIDE_FLY_BOUNCE = 1,
 
     /**
-     * [ENTITY:Touch](https://wiki.facepunch.com/gmod/ENTITY:Touch) will modify the velocity however it likes
+     * [ENTITY:ResolveCustomFlyCollision](https://wiki.facepunch.com/gmod/ENTITY:ResolveCustomFlyCollision) will modify the velocity however it likes
      */
     MOVECOLLIDE_FLY_CUSTOM = 2,
 
@@ -58937,7 +58989,7 @@ declare function CreateSprite(material: IMaterial): Panel;
  * **Note:**
  * >This is internally defined as a float, and as such it will be affected by precision loss if your server uptime is more than 6 hours, which will cause jittery movement of players and props and inaccuracy of timers, it is highly encouraged to refresh or change the map when that happens (a server restart is not necessary).
  *
- * This is **NOT** easy as it sounds to fix in the engine, so please refrain from posting issues about this
+ * This is **NOT** easy as it sounds to fix in the engine. Currently there is work going on to fix this in the **nextwork_test** branch.
  *
  * @returns number - Time synced with the game server.
  */
@@ -59355,11 +59407,10 @@ declare function DynamicMaterial(materialPath: string, flags?: string): IMateria
  *
  * Returns a [CEffectData](https://wiki.facepunch.com/gmod/CEffectData) object to be used with [util.Effect](https://wiki.facepunch.com/gmod/util.Effect).
  *
- * **Warning:**
- * >Any values previously set (Origin, Magnitude, Scale etc) will carry over to all future calls of this function, and may unexpectedly affect effects created via [util.Effect](https://wiki.facepunch.com/gmod/util.Effect).
- *
  * **Bug [#2771](https://github.com/Facepunch/garrysmod-issues/issues/2771):**
  * >This does not create a unique object, but instead returns a shared reference. That means you cannot use two or more of these objects at once.
+ *
+ * As a result any values previously set (Origin, Magnitude, Scale etc) will carry over to all future calls of this function, and may unexpectedly affect effects created via [util.Effect](https://wiki.facepunch.com/gmod/util.Effect).
  *
  * @returns CEffectData - The [CEffectData](https://wiki.facepunch.com/gmod/CEffectData) object.
  */
@@ -60653,24 +60704,24 @@ declare function JoinServer(IP: string): void;
 /**
  * 🟨🟩 [Client and Menu]
  *
- * Adds javascript function 'language.Update' to an HTML panel as a method to call Lua's [language.GetPhrase](https://wiki.facepunch.com/gmod/language.GetPhrase) function.
- * @param htmlPanel - Panel to add javascript function 'language.Update' to.
+ * Adds JavaScript function 'language.Update' to an HTML panel as a method to call Lua's [language.GetPhrase](https://wiki.facepunch.com/gmod/language.GetPhrase) function.
+ * @param htmlPanel - Panel to add JavaScript function 'language.Update' to.
  */
 declare function JS_Language(htmlPanel: Panel): void;
 
 /**
  * 🟨🟩 [Client and Menu]
  *
- * Adds javascript function 'util.MotionSensorAvailable' to an HTML panel as a method to call Lua's [motionsensor.IsAvailable](https://wiki.facepunch.com/gmod/motionsensor.IsAvailable) function.
- * @param htmlPanel - Panel to add javascript function 'util.MotionSensorAvailable' to.
+ * Adds JavaScript function 'util.MotionSensorAvailable' to an HTML panel as a method to call Lua's [motionsensor.IsAvailable](https://wiki.facepunch.com/gmod/motionsensor.IsAvailable) function.
+ * @param htmlPanel - Panel to add JavaScript function 'util.MotionSensorAvailable' to.
  */
 declare function JS_Utility(htmlPanel: Panel): void;
 
 /**
  * 🟨🟩 [Client and Menu]
  *
- * Adds workshop related javascript functions to an HTML panel, used by the "Dupes" and "Saves" tabs in the spawnmenu.
- * @param htmlPanel - Panel to add javascript functions to.
+ * Adds workshop related JavaScript functions to an HTML panel, used by the "Dupes" and "Saves" tabs in the spawnmenu.
+ * @param htmlPanel - Panel to add JavaScript functions to.
  */
 declare function JS_Workshop(htmlPanel: Panel): void;
 
@@ -60783,15 +60834,15 @@ declare function LoadPresets(): any;
 /**
  * 🟨🟩 [Client and Menu]
  *
- * Returns a localisation for the given token, if none is found it will return the default (second) parameter.
+ * Returns a localization for the given token, if none is found it will return the default (second) parameter.
  *
  * @deprecated Use [language.GetPhrase](https://wiki.facepunch.com/gmod/language.GetPhrase) instead.
  *
- * @param localisationToken - The token to find a translation for.
+ * @param localizationToken - The token to find a translation for.
  * @param default_ - The default value to be returned if no translation was found.
  * @returns string - The localized string, 128 char limit.
  */
-declare function Localize(localisationToken: string, default_: string): string;
+declare function Localize(localizationToken: string, default_: string): string;
 
 /**
  * 🟨 [Client]
@@ -64588,7 +64639,7 @@ declare namespace debugoverlay {
     /**
      * 🟨🟦 [Shared]
      *
-     * Displays an axis indicator at the specified position.
+     * Displays an axis indicator at the specified position, with 3 lines pointing in the positive direction (i.e. direction in which the values increase) of each axis.
      *
      * **Note:**
      * >This function will silently fail if the `developer` [ConVar](https://wiki.facepunch.com/gmod/ConVar) is set to `0`.
@@ -66201,10 +66252,6 @@ declare namespace ents {
      * The "cone" is actually a conical "slice" of an axis-aligned box (see: [ents.FindInBox](https://wiki.facepunch.com/gmod/ents.FindInBox)). The image to the right shows approximately how this function would look in 2D. Due to this, the entity may be farther than the specified range!
      *
      * <image src="ents.FindInCone.png" alt="2D_visualization_of_the_actual_shape_of_the_cone,_click_to_enlarge"/>
-     *
-     * **Note:**
-     * >Clientside entities will not be returned by this function.
-     *
      * @param origin - The tip of the cone.
      * @param normal - Direction of the cone.
      * @param range - The range of the cone/box around the origin.
@@ -75450,6 +75497,22 @@ declare namespace surface {
     declare function GetPanelPaintState(): PanelPaintState;
 
     /**
+     * 🟨 [Client]
+     *
+     * Retrieves the currently active scissor rect for the surface library. A faster, narrower version of [surface.GetPanelPaintState](https://wiki.facepunch.com/gmod/surface.GetPanelPaintState).
+     *
+     * Useful for panel retrieving current panel's culling from [PANEL:Paint](https://wiki.facepunch.com/gmod/PANEL:Paint).
+     *
+     * This does **NOT** return values set by [render.SetScissorRect](https://wiki.facepunch.com/gmod/render.SetScissorRect).
+     * @returns [1] boolean - Whether the scissor rect is active or not. If `false`, the following values should be ignored.
+     * @returns [2] number - Left edge of the scissor rect.
+     * @returns [3] number - Top edge of the scissor rect.
+     * @returns [4] number - Right edge of the scissor rect.
+     * @returns [5] number - Bottom edge of the scissor rect.
+     */
+    declare function GetScissorRect(): LuaMultiReturn<[boolean, number, number, number, number]>;
+
+    /**
      * 🟨🟩 [Client and Menu]
      *
      * Returns the current color affecting text draw operations.
@@ -77910,18 +77973,25 @@ declare namespace util {
     /**
      * 🟨🟦 [Shared]
      *
-     * Creates a tracer effect with the given parameters.
-     * @param name - The name of the tracer effect.
+     * Creates an orange box (.pcf) tracer effect with the given parameters. See [util.ParticleTracerEx](https://wiki.facepunch.com/gmod/util.ParticleTracerEx) for version with additional arguments.
+     *
+     * Internally uses `ParticleTracer` engine effect. ([util.Effect](https://wiki.facepunch.com/gmod/util.Effect)) which then spawns in `ParticleEffect` effect.
+     *
+     * **Note:**
+     * >The default bullet effect is not in .pcf format, therefore it is not used with util.ParticleTracer.  Consider utilizing [util.Effect](https://wiki.facepunch.com/gmod/util.Effect) instead
+     *
+     * @param name - The name of the .pcf particle effect to use for the tracer.
+     * Control Point 0 is the start location. Control Point 1 is the end pos.
      * @param startPos - The start position of the tracer.
      * @param endPos - The end position of the tracer.
-     * @param doWhiz - Play the hit miss(whiz) sound.
+     * @param doWhiz - Whether to play the hit near-miss (whiz) sound.
      */
     declare function ParticleTracer(name: string, startPos: Vector, endPos: Vector, doWhiz: boolean): void;
 
     /**
      * 🟨🟦 [Shared]
      *
-     * Creates a tracer effect with the given parameters.
+     * Creates a tracer effect with the given parameters. Expanded version of [util.ParticleTracer](https://wiki.facepunch.com/gmod/util.ParticleTracer).
      * @param name - The name of the tracer effect.
      * @param startPos - The start position of the tracer.
      * @param endPos - The end position of the tracer.
