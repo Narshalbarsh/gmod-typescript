@@ -11490,7 +11490,7 @@ interface File {
      *
      * Reads the specified amount of chars and returns them as a binary string.
      * @param [length = nil] - Reads the specified amount of chars. If not set, will read the entire file.
-     * @returns string
+     * @returns string - The read data.
      */
     Read(length?: number): string;
 
@@ -18646,6 +18646,10 @@ interface PhysObj {
      * 🟨🟦 [Shared]
      *
      * Returns the buoyancy ratio of the physics object. (How well it floats in water).
+     *
+     * **Note:**
+     * >This feature is not available on x86-64 beta and on MacOS version of the game.
+     *
      * @returns number - Buoyancy ratio, where 0 is not buoyant at all (like a rock), and 1 is very buoyant (like wood)
      */
     GetBuoyancyRatio(): number;
@@ -21066,10 +21070,7 @@ interface Player extends Entity {
      * **Note:**
      * >If you need to use this function more than once consider using [net](https://wiki.facepunch.com/gmod/net) library. Send net message and make the entire code you want to execute in [net.Receive](https://wiki.facepunch.com/gmod/net.Receive) on client.
      *
-     * **Note:**
-     * >The string is limited to 254 bytes. Consider using thefor more advanced server-client interaction.
-     *
-     * @param script - The script to execute.
+     * @param script - The script to execute, limited to 6000 bytes.
      */
     SendLua(script: string): void;
 
@@ -22166,6 +22167,14 @@ interface ProjectedTexture {
     /**
      * 🟨 [Client]
      *
+     * Returns whether shadow updates are disabled for this ProjectedTexture, which was previously set by [ProjectedTexture:SetSkipShadowUpdates](https://wiki.facepunch.com/gmod/ProjectedTexture:SetSkipShadowUpdates).
+     * @returns boolean - Whether shadow updates are disabled.
+     */
+    GetSkipShadowUpdates(): boolean;
+
+    /**
+     * 🟨 [Client]
+     *
      * Returns the target entity of this projected texture.
      * @returns Entity - The current target entity.
      */
@@ -22425,6 +22434,14 @@ interface ProjectedTexture {
      * @param bias - The shadow depth slope scale bias to set.
      */
     SetShadowSlopeScaleDepthBias(bias: number): void;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Sets whether shadow updates are disabled for this ProjectedTexture. This can be useful to save up on performance, but it will inevitably cause graphical glitches if left not updating for long.
+     * @param enable - Whether future shadow updates should be skipped.
+     */
+    SetSkipShadowUpdates(enable: boolean): void;
 
     /**
      * 🟨 [Client]
@@ -40375,8 +40392,10 @@ interface ENTITY extends Entity {
      * * 4 - Menu (No interaction with the toolgun)
      * **Warning:**
      * >The number `4` is a test that Rubat is conducting to implement the CanTool in the SpawnMenu. It may disappear.
+     *
+     * @returns boolean - Return `false` to disallow using that tool on this entity, return `true` to allow.
      */
-    CanTool(ply: Player, tr: TraceResult, toolname: string, tool: any, button: number): void;
+    CanTool(ply: Player, tr: TraceResult, toolname: string, tool: any, button: number): boolean;
 
     /**
      * 🟦 [Server]
@@ -56731,7 +56750,19 @@ declare const enum STEPSOUNDTIME {
 /**
  * 🟨 [Client]
  *
- * Used by [ENTITY:Draw](https://wiki.facepunch.com/gmod/ENTITY:Draw), [ENTITY:DrawTranslucent](https://wiki.facepunch.com/gmod/ENTITY:DrawTranslucent), [GM:PostPlayerDraw](https://wiki.facepunch.com/gmod/GM:PostPlayerDraw), [GM:PrePlayerDraw](https://wiki.facepunch.com/gmod/GM:PrePlayerDraw), [Entity:DrawModel](https://wiki.facepunch.com/gmod/Entity:DrawModel), [WEAPON:ViewModelDrawn](https://wiki.facepunch.com/gmod/WEAPON:ViewModelDrawn), [WEAPON:PreDrawViewModel](https://wiki.facepunch.com/gmod/WEAPON:PreDrawViewModel), [WEAPON:PostDrawViewModel](https://wiki.facepunch.com/gmod/WEAPON:PostDrawViewModel), [GM:PreDrawViewModel](https://wiki.facepunch.com/gmod/GM:PreDrawViewModel), [GM:PostDrawViewModel](https://wiki.facepunch.com/gmod/GM:PostDrawViewModel), [GM:PreDrawPlayerHands](https://wiki.facepunch.com/gmod/GM:PreDrawPlayerHands) and [GM:PostDrawPlayerHands](https://wiki.facepunch.com/gmod/GM:PostDrawPlayerHands).
+ * Used by:
+ * * [Entity:DrawModel](https://wiki.facepunch.com/gmod/Entity:DrawModel)
+ * * [ENTITY:Draw](https://wiki.facepunch.com/gmod/ENTITY:Draw)
+ * * [ENTITY:DrawTranslucent](https://wiki.facepunch.com/gmod/ENTITY:DrawTranslucent)
+ * * [WEAPON:PreDrawViewModel](https://wiki.facepunch.com/gmod/WEAPON:PreDrawViewModel)
+ * * [WEAPON:PostDrawViewModel](https://wiki.facepunch.com/gmod/WEAPON:PostDrawViewModel)
+ * * [WEAPON:ViewModelDrawn](https://wiki.facepunch.com/gmod/WEAPON:ViewModelDrawn)
+ * * [GM:PreDrawPlayerHands](https://wiki.facepunch.com/gmod/GM:PreDrawPlayerHands)
+ * * [GM:PostDrawPlayerHands](https://wiki.facepunch.com/gmod/GM:PostDrawPlayerHands)
+ * * [GM:PreDrawViewModel](https://wiki.facepunch.com/gmod/GM:PreDrawViewModel)
+ * * [GM:PostDrawViewModel](https://wiki.facepunch.com/gmod/GM:PostDrawViewModel)
+ * * [GM:PrePlayerDraw](https://wiki.facepunch.com/gmod/GM:PrePlayerDraw)
+ * * [GM:PostPlayerDraw](https://wiki.facepunch.com/gmod/GM:PostPlayerDraw)
  * @compileMembersOnly
  */
 declare const enum STUDIO {
@@ -58560,9 +58591,10 @@ declare function assert(expression: any, errorMessage?: string, ...returns: any[
  * **Note:**
  * >If you need to use this function more than once, consider using [net](https://wiki.facepunch.com/gmod/net) library.
  * 			Send net message and make the entire code you want to execute in [net.Receive](https://wiki.facepunch.com/gmod/net.Receive) on client.
- * 			If executed **clientside** it won't do anything.
  *
- * @param code - The code to be executed. Capped at length of 254 characters.
+ * 			If executed **clientside**, this function won't do anything.
+ *
+ * @param code - The code to be executed. Capped at length of 6000 characters.
  */
 declare function BroadcastLua(code: string): void;
 
@@ -58985,12 +59017,6 @@ declare function CreateSprite(material: IMaterial): Panel;
  * You should use this function for timing in-game events but not for real-world events.
  *
  * See also: [Global.RealTime](https://wiki.facepunch.com/gmod/Global.RealTime), [Global.SysTime](https://wiki.facepunch.com/gmod/Global.SysTime)
- *
- * **Note:**
- * >This is internally defined as a float, and as such it will be affected by precision loss if your server uptime is more than 6 hours, which will cause jittery movement of players and props and inaccuracy of timers, it is highly encouraged to refresh or change the map when that happens (a server restart is not necessary).
- *
- * This is **NOT** easy as it sounds to fix in the engine. Currently there is work going on to fix this in the **nextwork_test** branch.
- *
  * @returns number - Time synced with the game server.
  */
 declare function CurTime(): number;
@@ -59396,8 +59422,7 @@ declare function DynamicLight(index: number, elight?: boolean): DynamicLight;
  * >This function should never be used in a Rendering Hook because it creates a new dynamic material every time and can fill up your vram.
  *
  * @param materialPath - The material with path. The path is relative to the `materials/` folder.
- * @param [flags = nil] - Some bind of bits / byte.
- * 		<validate>What does this argument do / use.</validate> Currently working value: "0100010" --nocull smooth
+ * @param [flags = nil] - Flags, same as [Global.Material](https://wiki.facepunch.com/gmod/Global.Material).
  * @returns IMaterial - Generated material.
  */
 declare function DynamicMaterial(materialPath: string, flags?: string): IMaterial;
@@ -62340,7 +62365,9 @@ declare function STNDRD(number: number): string;
 /**
  * 🟦 [Server]
  *
- * Suppress any networking from the server to the specified player. This is automatically called by the engine before/after a player fires their weapon, reloads, or causes any other similar shared-predicted event to occur.
+ * Suppress any networking from the server to the specified player. Set this to [NULL](https://wiki.facepunch.com/gmod/NULL) to stop suppressing network events.
+ *
+ * This is automatically called by the engine before/after a player fires their weapon, reloads, or causes any other similar shared-predicted event to occur.
  * @param suppressPlayer - The player to suppress any networking to.
  */
 declare function SuppressHostEvents(suppressPlayer: Player): void;
@@ -62722,8 +62749,9 @@ declare namespace achievements {
     /**
      * 🟨🟩 [Client and Menu]
      *
-     * Returns the amount of achievements in Garry's Mod.
+     * Returns the amount of achievements currently in Garry's Mod.
      * @returns number - The amount of achievements available.
+     * This will include 1 extra hidden/non functional achievement at index 0.
      */
     declare function Count(): number;
 
@@ -62738,34 +62766,36 @@ declare namespace achievements {
      * 🟨🟩 [Client and Menu]
      *
      * Retrieves progress of given achievement.
-     * @param achievementID - The ID of achievement to retrieve progress of. Note: IDs start from 0, not 1.
+     * @param achievementID - The ID of the achievement.
+     * @returns number - The numerical progress.
+     * One-time achievements **always** have the progress of 0.
      */
-    declare function GetCount(achievementID: number): void;
+    declare function GetCount(achievementID: number): number;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
-     * Retrieves description of given achievement.
-     * @param achievementID - The ID of achievement to retrieve description of. Note: IDs start from 0, not 1.
-     * @returns string - Description of an achievement.
+     * Retrieves the description of the given achievement.
+     * @param achievementID - The ID of the achievement.
+     * @returns string - The description.
      */
     declare function GetDesc(achievementID: number): string;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
-     * Retrieves progress goal of given achievement.
-     * @param achievementID - The ID of achievement to retrieve goal of. Note: IDs start from 0, not 1.
-     * @returns number - Progress goal of an achievement.
+     * Retrieves the end progress goal of the given achievement.
+     * @param achievementID - The ID of the achievement.
+     * @returns number - The end progress goal.
      */
     declare function GetGoal(achievementID: number): number;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
-     * Retrieves name of given achievement.
-     * @param achievementID - The ID of achievement to retrieve name of. Note: IDs start from 0, not 1.
-     * @returns string - Name of an achievement.
+     * Retrieves the name of the given achievement.
+     * @param achievementID - The ID of the achievement.
+     * @returns string - The name.
      */
     declare function GetName(achievementID: number): string;
 
@@ -62793,11 +62823,11 @@ declare namespace achievements {
     /**
      * 🟨🟩 [Client and Menu]
      *
-     * Used in GMod 12 in the achievements menu to show the user if they have unlocked certain achievements.
-     * @param AchievementID - Internal Achievement ID number.
-     * @returns boolean - Returns true if the given achievementID is achieved.
+     * Returns whether the given achievement is obtained or not.
+     * @param achievementID - The ID of the achievement.
+     * @returns boolean - The state.
      */
-    declare function IsAchieved(AchievementID: number): boolean;
+    declare function IsAchieved(achievementID: number): boolean;
 
     /**
      * 🟨 [Client]
@@ -63177,21 +63207,18 @@ declare namespace cam {
     /**
      * 🟨 [Client]
      *
-     * Pops the current active rendering matrix from the stack and reinstates the previous one.
+     * Removes the currently active model matrix (pushed previously with [cam.PushModelMatrix](https://wiki.facepunch.com/gmod/cam.PushModelMatrix)) from the stack and reinstates the previous one.
      */
     declare function PopModelMatrix(): void;
 
     /**
      * 🟨 [Client]
      *
-     * Pushes the specified matrix onto the render matrix stack. Unlike opengl, this will replace the current model matrix.
+     * Pushes the specified matrix onto the render matrix stack. Each pushed matrix must be popped via [cam.PopModelMatrix](https://wiki.facepunch.com/gmod/cam.PopModelMatrix).
      *
-     * **Warning:**
-     * >When used in the Paint function of a panel, if you want to rely on the top-left position of the panel, you must use [VMatrix:Translate](https://wiki.facepunch.com/gmod/VMatrix:Translate) with the (0, 0) position of the panel relative to the screen.
+     * When used in [PANEL:Paint](https://wiki.facepunch.com/gmod/PANEL:Paint), if you want to rely on the top-left position of the panel, you must use [VMatrix:Translate](https://wiki.facepunch.com/gmod/VMatrix:Translate) with the (0, 0) position of the panel relative to the screen.
      *
-     * **Note:**
-     * >This does not work with [cam.Start3D2D](https://wiki.facepunch.com/gmod/cam.Start3D2D) if `multiply` is false.
-     *
+     * If trying to use it with with [cam.Start3D2D](https://wiki.facepunch.com/gmod/cam.Start3D2D), set `multiply` to `true`, since **cam.Start3D2D** pushes its own model matrix.
      * @param matrix - The matrix to push.
      * @param [multiply = false] - If set, multiplies given matrix with currently active matrix ([cam.GetModelMatrix](https://wiki.facepunch.com/gmod/cam.GetModelMatrix)) before pushing.
      */
@@ -63304,11 +63331,13 @@ declare namespace chat {
      * 🟨 [Client]
      *
      * Adds text to the local player's chat box (which only they can read).
-     * @param arguments - The arguments. Arguments can be:
+     * @param arguments - The message to be added to the chat box.
+     * Arguments can be:
      * * [table](https://wiki.facepunch.com/gmod/table) - [Color](https://wiki.facepunch.com/gmod/Color). Will set the color for all following strings until the next Color argument.
      * * [string](https://wiki.facepunch.com/gmod/string) - Text to be added to the chat box.
      * * [Player](https://wiki.facepunch.com/gmod/Player) - Adds the name of the player in the player's team color to the chat box.
      * * [any](https://wiki.facepunch.com/gmod/any) - Any other type, such as [Entity](https://wiki.facepunch.com/gmod/Entity) will be converted to string and added as text.
+     * These argument types can be combined to create formatted messages.
      */
     declare function AddText(...arguments: any[]): void;
 
@@ -64069,7 +64098,7 @@ declare namespace constraint {
      * @param [forceLimit = 0] - The amount of force appliable to the constraint before it will break (0 is never).
      * @param [noCollide = false] - Should `ent1` be nocollided to `ent2` via this constraint.
      * @param [deleteEnt1OnBreak = false] - If true, when `ent2` is removed, `ent1` will also be removed.
-     * @returns Entity - The created constraint entity. ([phys_constraint](https://developer.valvesoftware.com/wiki/Phys_constraint))
+     * @returns Entity - The created constraint entity, or false if the constraint failed. ([phys_constraint](https://developer.valvesoftware.com/wiki/Phys_constraint))
      */
     declare function Weld(ent1: Entity, ent2: Entity, bone1: number, bone2: number, forceLimit?: number, noCollide?: boolean, deleteEnt1OnBreak?: boolean): Entity;
 
@@ -71526,9 +71555,9 @@ declare namespace player_manager {
      *
      * Called from [GM:PlayerSpawn](https://wiki.facepunch.com/gmod/GM:PlayerSpawn) in the base gamemode.
      * @param ply - Player to setup.
-     * @param transiton - If true, the player just spawned from a map transition. You probably want to not touch player's weapons or position if this is set to `true`.
+     * @param transition - If true, the player just spawned from a map transition. You probably want to not touch player's weapons or position if this is set to `true`.
      */
-    declare function OnPlayerSpawn(ply: Player, transiton: boolean): void;
+    declare function OnPlayerSpawn(ply: Player, transition: boolean): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -72302,8 +72331,9 @@ declare namespace render {
     /**
      * 🟨 [Client]
      *
-     * Returns the fog mode.
+     * Returns the current fog mode.
      * @returns MATERIAL_FOG - Fog mode, see [Enums/MATERIAL_FOG](https://wiki.facepunch.com/gmod/Enums/MATERIAL_FOG).
+     * 			In 2D post-processing hooks, starting with [GM:PreDrawEffects](https://wiki.facepunch.com/gmod/GM:PreDrawEffects), this will always return <page text="MATERIAL_FOG_NONE">Enums/MATERIAL_FOG#MATERIAL_FOG_NONE</page>
      */
     declare function GetFogMode(): MATERIAL_FOG;
 
@@ -72667,7 +72697,7 @@ declare namespace render {
      *
      * Pops (Removes) the texture filter most recently pushed (Added) onto the magnification texture filter stack.
      *
-     * 		This function should only be called *after* a magnification filter has been pushed via <page text="render.PushFilterMag()">render.PushFilterMag</page>.
+     * 		This function should only be called *after* a magnification filter has been pushed via [render.PushFilterMag](https://wiki.facepunch.com/gmod/render.PushFilterMag).
      *
      * 		For more detailed information and a usage example, see <page text="the texture minification and magnification render reference.">render_min_mag_filters</page>
      */
@@ -74785,9 +74815,9 @@ declare namespace string {
      * @param separator - The string will be separated wherever this sequence is found.
      * @param str - The string to split up.
      * @param [withpattern = false] - Set this to true if your separator is a <page text="pattern">Patterns</page>.
-     * @returns any - Exploded string as a numerical sequential table.
+     * @returns string[] - Exploded string as a numerical sequential table.
      */
-    declare function Explode(separator: string, str: string, withpattern?: boolean): any;
+    declare function Explode(separator: string, str: string, withpattern?: boolean): string[];
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -74883,7 +74913,7 @@ declare namespace string {
      * Returns file name and extension.
      *
      * See [string.GetPathFromFilename](https://wiki.facepunch.com/gmod/string.GetPathFromFilename) for the opposite function.
-     * See [string.GetExtensionFromFilename](https://wiki.facepunch.com/gmod/string.GetExtensionFromFilename) for thefile extension version.
+     * See [string.GetExtensionFromFilename](https://wiki.facepunch.com/gmod/string.GetExtensionFromFilename) for the file extension version.
      * @param path - The string eg. file-path to get the file-name from.
      * @returns string - File name or unmodified string.
      */
@@ -75017,7 +75047,21 @@ declare namespace string {
      * @param [startPosition = 1] - The start index to start the matching from, can be negative to start the match from a position relative to the end.
      * @returns any[] - Matched text(s)
      */
-    declare function match(string: string, pattern: string, startPosition?: number): any;
+    /* Manual override from: namespace/string/match */
+    declare function match(
+        s: string,
+        pattern: string,
+        startPosition?: number,
+    ): LuaMultiReturn<[
+        string | undefined, string | undefined, string | undefined, string | undefined,
+        string | undefined, string | undefined, string | undefined, string | undefined,
+        string | undefined, string | undefined, string | undefined, string | undefined,
+        string | undefined, string | undefined, string | undefined, string | undefined,
+        string | undefined, string | undefined, string | undefined, string | undefined,
+        string | undefined, string | undefined, string | undefined, string | undefined,
+        string | undefined, string | undefined, string | undefined, string | undefined,
+        string | undefined, string | undefined, string | undefined, string | undefined,
+    ]>;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -75117,9 +75161,9 @@ declare namespace string {
      * This is an alias of [string.Explode](https://wiki.facepunch.com/gmod/string.Explode), but with flipped arguments.
      * @param Inputstring - String to split
      * @param Separator - Character(s) to split with.
-     * @returns any - Split table
+     * @returns string[] - Split table
      */
-    declare function Split(Inputstring: string, Separator: string): any;
+    declare function Split(Inputstring: string, Separator: string): string[];
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -76840,7 +76884,7 @@ declare namespace umsg {
     /**
      * 🟦 [Server]
      *
-     * Writes an entity object to the usermessage.
+     * Writes an entity object to the usermessage. (As an entity handle, which means the entity index + its serial number)
      *
      * @deprecated You should be using the [net](https://wiki.facepunch.com/gmod/net) instead
      *
@@ -78188,7 +78232,7 @@ declare namespace util {
     /**
      * 🟨🟦 [Shared]
      *
-     * Generates the [SHA-256 hash](https://en.wikipedia.org/wiki/SHA-2) of the specified string. This is unique and will never return the same hash for a different string unlike [util.CRC](https://wiki.facepunch.com/gmod/util.CRC) or [util.MD5](https://wiki.facepunch.com/gmod/util.MD5) which are both vulnerable to duplicate returns.
+     * Generates the [SHA-256 hash](https://en.wikipedia.org/wiki/SHA-2) of the specified string. This is mostly unique and is astronomically unlikely to return the same hash for a different string unlike [util.CRC](https://wiki.facepunch.com/gmod/util.CRC) or [util.MD5](https://wiki.facepunch.com/gmod/util.MD5) which are both much more vulnerable to duplicate returns.
      * @param stringToHash - The string to calculate the SHA-256 hash of.
      * @returns string - The SHA-256 hash of the string in hexadecimal form.
      */
