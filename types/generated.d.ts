@@ -2040,7 +2040,7 @@ interface CNavArea {
     /**
      * 🟦 [Server]
      *
-     * Draws this navarea on debug overlay.
+     * Draws this navarea on debug overlay. (So limitations of [debugoverlay](https://wiki.facepunch.com/gmod/debugoverlay) library apply)
      */
     Draw(): void;
 
@@ -4101,8 +4101,12 @@ interface CTakeDamageInfo {
     /**
      * 🟨🟦 [Shared]
      *
-     * Sets the initial unmodified by skill level ( [game.GetSkillLevel](https://wiki.facepunch.com/gmod/game.GetSkillLevel) ) damage. This function will not update or touch [CTakeDamageInfo:GetDamage](https://wiki.facepunch.com/gmod/CTakeDamageInfo:GetDamage).
-     * @param __unnamedArg - baseDamage
+     * Sets the initial damage, unmodified by the current skill level ([game.GetSkillLevel](https://wiki.facepunch.com/gmod/game.GetSkillLevel)). This is usually set automatically by the game when dealing damage.
+     *
+     * This function will not modify the real damage that will be dealt ([CTakeDamageInfo:GetDamage](https://wiki.facepunch.com/gmod/CTakeDamageInfo:GetDamage)).
+     *
+     * Use this only if you know what you are doing. Otherwise use [CTakeDamageInfo:SetDamage](https://wiki.facepunch.com/gmod/CTakeDamageInfo:SetDamage).
+     * @param __unnamedArg - The base damage.
      */
     SetBaseDamage(__unnamedArg: number): void;
 
@@ -4828,7 +4832,7 @@ interface Entity {
      * Creates bone followers based on the current entity model.
      *
      * Bone followers are <page text="Entities">Entity</page> whose <page text="Physics Object">PhysObj</page> follows a specific bone on another Entity's model.
-     * This is what is used by `prop_dynamic` for things like big combine doors for vehicles with multiple physics objects which follow the visual mesh of the door when it animates.
+     * This is what is used by `prop_dynamic` for things like big combine doors with multiple physics objects which follow the visual mesh of the door when it animates.
      *
      * Be mindful that bone followers create a separate entity (`phys_bone_follower`) for each physics object.
      *
@@ -4936,7 +4940,7 @@ interface Entity {
      *
      * Dissolves the entity.
      *
-     * This function creates an `env_entity_dissolver` entity internally, which seems to be deleted in the same frame. Calling this function on an entity that is already dissolving will not create another `env_entity_dissolver` entity.
+     * This function creates an `env_entity_dissolver` entity internally, which is parented to the target entity and remains until the entity is fully dissolved. Calling this function on an entity that is already dissolving will not create another `env_entity_dissolver` entity.
      * @param [type = 0] - Dissolve type. Should be one of the following values:
      * | ID | Description |
      * |||
@@ -4946,8 +4950,9 @@ interface Entity {
      * | 3 | ENTITY_DISSOLVE_CORE |
      * @param [magnitude = 0] - Magnitude of the dissolve effect, its effect depends on the dissolve type.
      * @param [origin = nil] - The origin for the dissolve effect, its effect depends on the dissolve type. Defaults to entity's origin.
+     * @param [delay = 0] - Delay until starting the dissolve, in seconds. There will be some particles produced during this time.
      */
-    Dissolve(type?: number, magnitude?: number, origin?: Vector): void;
+    Dissolve(type?: number, magnitude?: number, origin?: Vector, delay?: number): void;
 
     /**
      * 🟦 [Server]
@@ -7090,7 +7095,7 @@ interface Entity {
      * **Warning:**
      * >This value will be from 0 - 1 on the client and from minimum range to maximum range on the server! You'll have tothis value clientside to [Entity:GetPoseParameterRange](https://wiki.facepunch.com/gmod/Entity:GetPoseParameterRange)'s returns if you want get the actual pose parameter value. See [Entity:SetPoseParameter](https://wiki.facepunch.com/gmod/Entity:SetPoseParameter)'s example.
      */
-    GetPoseParameter(name: string): number;
+    GetPoseParameter(name: string | number): number;
 
     /**
      * 🟨🟦 [Shared]
@@ -7109,7 +7114,7 @@ interface Entity {
      * @returns [1] number - The minimum value
      * @returns [2] number - The maximum value
      */
-    GetPoseParameterRange(id: number): LuaMultiReturn<[number, number]>;
+    GetPoseParameterRange(id: number | string): LuaMultiReturn<[number, number]>;
 
     /**
      * 🟨 [Client]
@@ -7588,7 +7593,7 @@ interface Entity {
      * @param force - The force to apply to the created gibs.
      * @param [clr = nil] - If set, this will be color of the broken gibs instead of the entity's color.
      */
-    GibBreakClient(force: Vector, clr?: any): void;
+    GibBreakClient(force: Vector, clr?: Color): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -8414,7 +8419,8 @@ interface Entity {
      * While this is very useful for static geometry such as terrain displacements, it is advised to use [Entity:PhysicsInitConvex](https://wiki.facepunch.com/gmod/Entity:PhysicsInitConvex) or [Entity:PhysicsInitMultiConvex](https://wiki.facepunch.com/gmod/Entity:PhysicsInitMultiConvex) for moving solid objects instead.
      *
      * [Entity:EnableCustomCollisions](https://wiki.facepunch.com/gmod/Entity:EnableCustomCollisions) needs to be called if you want players to collide with the entity correctly.
-     * @param vertices - A table consisting of [Structures/MeshVertex](https://wiki.facepunch.com/gmod/Structures/MeshVertex) (only the `pos` element is taken into account). Every 3 vertices define a triangle in the physics mesh.
+     * @param vertices - A table of Vectors. Every 3 vertices define a triangle in the physics mesh
+     * Alternatively, you can input a table consisting of [Structures/MeshVertex](https://wiki.facepunch.com/gmod/Structures/MeshVertex) (only the `pos` element is taken into account).
      * @param [surfaceprop = default] - Physical material from [surfaceproperties.txt](https://github.com/Facepunch/garrysmod/blob/master/garrysmod/scripts/surfaceproperties.txt) or added with [physenv.AddSurfaceData](https://wiki.facepunch.com/gmod/physenv.AddSurfaceData).
      * @param [massCenterOveride = nil] - If set, overwrites the center of mass for the created physics object.
      * @returns boolean - Returns `true` on success, `nil` otherwise.
@@ -8530,11 +8536,15 @@ interface Entity {
     /**
      * 🟨🟦 [Shared]
      *
-     * Initializes the entity's physics object as a physics shadow. Removes the previous physics object if successful. This is used internally for the Player's and NPC's physics object, and certain HL2 entities such as the crane.
+     * Initializes the entity's <page text="physics object">PhysObj</page> as a *physics shadow*. Physics shadows can react to the environment physically (see the arguments to the function), and can push other physics objects around, but are ultimately constrained to the entity's position and angles: the physics object will attempt to return to the entity's coordinates every simulation tick.
      *
-     * A physics shadow can be used to have static entities that never move by setting both arguments to false.
+     * Internally, this creates a new physics object, copies the properties of the current physics object to it if one exists, and replaces the entity's physics object with the shadow. This is used internally for Player and NPC physics objects, certain HL2 entities such as the crane and barnacle tongue, parented physics entities, etc.
+     *
+     * A physics shadow can be used to have static physics entities that never move by setting both arguments to false.
      *
      * The created physics object will depend on the entity's solidity `SOLID_NONE` will not create a physics object, `SOLID_BBOX` will create a Axis-Aligned BBox one, `SOLID_OBB` will create Orientated Bounding Box one, and anything else will use the models' physics mesh.
+     *
+     * See also [Structures/ShadowControlParams](https://wiki.facepunch.com/gmod/Structures/ShadowControlParams).
      *
      * **Bug [#5060](https://github.com/Facepunch/garrysmod-issues/issues/5060):**
      * >Clientside physics objects on serverside entities do not move properly in some cases. Physics objects should only created on the server or you will experience incorrect physgun beam position, prediction issues, and other unexpected behavior.
@@ -8543,7 +8553,7 @@ interface Entity {
      *
      * @param [allowPhysicsMovement = true] - Whether to allow the physics shadow to move under stress.
      * @param [allowPhysicsRotation = true] - Whether to allow the physics shadow to rotate under stress.
-     * @returns boolean - Return `true` on success, `nil` otherwise.
+     * @returns boolean - Return `true` on success, `false` otherwise.
      */
     PhysicsInitShadow(allowPhysicsMovement?: boolean, allowPhysicsRotation?: boolean): boolean;
 
@@ -8817,7 +8827,7 @@ interface Entity {
      * **Note:**
      * >If set to a string, the function will automatically call [Entity:LookupSequence](https://wiki.facepunch.com/gmod/Entity:LookupSequence) to retrieve the sequence ID as a number.
      */
-    ResetSequence(sequence: number): void;
+    ResetSequence(sequence: number | string): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -9357,7 +9367,7 @@ interface Entity {
      * @param key - The internal key name
      * @param value - The value to set
      */
-    SetKeyValue(key: string, value: string): void;
+    SetKeyValue(key: string, value: string | number): void;
 
     /**
      * 🟦 [Server]
@@ -10655,7 +10665,7 @@ interface Entity {
      * Can also be a pose parameter ID.
      * @param poseValue - The value to set the pose to.
      */
-    SetPoseParameter(poseName: string, poseValue: number): void;
+    SetPoseParameter(poseName: string | number, poseValue: number): void;
 
     /**
      * 🟨 [Client]
@@ -10732,6 +10742,8 @@ interface Entity {
      * Sets the render angles override for the entity. [Entity:GetAngles](https://wiki.facepunch.com/gmod/Entity:GetAngles) will return the value set by this function until the override is disabled. (This is all this does internally)
      *
      * See [Entity:SetRenderOrigin](https://wiki.facepunch.com/gmod/Entity:SetRenderOrigin) for the function to manipulate origin.
+     *
+     * Not to be confused with [Player:SetRenderAngles](https://wiki.facepunch.com/gmod/Player:SetRenderAngles).
      * @param [newAngles = nil] - The new render angles to be set to. To disable the override, set to [nil](https://wiki.facepunch.com/gmod/nil).
      */
     SetRenderAngles(newAngles?: Angle|undefined): void;
@@ -10833,7 +10845,7 @@ interface Entity {
      * If set to a number, the input is treated as the sequence ID.
      * If set to a string, the function will automatically call [Entity:LookupSequence](https://wiki.facepunch.com/gmod/Entity:LookupSequence) to retrieve the sequence ID.
      */
-    SetSequence(sequence: number): void;
+    SetSequence(sequence: number | string): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -11412,9 +11424,11 @@ interface Entity {
     /**
      * 🟨🟦 [Shared]
      *
-     * Calls and returns [WEAPON:TranslateActivity](https://wiki.facepunch.com/gmod/WEAPON:TranslateActivity) on the weapon the entity ( player or NPC ) carries.
+     * Calls and returns [WEAPON:TranslateActivity](https://wiki.facepunch.com/gmod/WEAPON:TranslateActivity) on the weapon the entity (player or NPC) carries.
      *
-     * Despite existing on client, it doesn't actually do anything on client.
+     * **Note:**
+     * >Doesn't return anything on client, despite existing there.
+     *
      * @param act - The NPC activity to translate
      * @returns number - The translated activity. Defaults to `act` input when a translation doesn't exist.
      */
@@ -12605,10 +12619,6 @@ interface ITexture {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Returns the color of the specified pixel, only works for textures created from PNG files.
-     *
-     * **Bug [#2407](https://github.com/Facepunch/garrysmod-issues/issues/2407):**
-     * >The returned color will not have the color metatable.
-     *
      * @param x - The X coordinate.
      * @param y - The Y coordinate.
      * @returns Color - The color of the pixel as a [Color](https://wiki.facepunch.com/gmod/Color).
@@ -15253,7 +15263,7 @@ interface Panel {
      * **Note:**
      * >This doesn't apply to all VGUI elements and its function varies between them
      *
-     * @returns Color - The [Color](https://wiki.facepunch.com/gmod/Color) structure
+     * @returns Color - The [Color](https://wiki.facepunch.com/gmod/Color).
      */
     GetBGColor(): Color;
 
@@ -15447,7 +15457,7 @@ interface Panel {
      * **Note:**
      * >This doesn't apply to all VGUI elements (such as [DLabel](https://wiki.facepunch.com/gmod/DLabel)) and its function varies between them
      *
-     * @returns Color - A color structure. See [Color](https://wiki.facepunch.com/gmod/Color)
+     * @returns Color - The [Color](https://wiki.facepunch.com/gmod/Color).
      */
     GetFGColor(): Color;
 
@@ -16957,7 +16967,7 @@ interface Panel {
      * >This works only on  panels that derive from [Label](https://wiki.facepunch.com/gmod/Label).
      *
      * @param distance - The distance of the shadow from the panel.
-     * @param Color - The color of the shadow. Uses the [Color](https://wiki.facepunch.com/gmod/Color).
+     * @param Color - The color of the shadow. Uses [Color](https://wiki.facepunch.com/gmod/Color).
      */
     SetExpensiveShadow(distance: number, Color: Color): void;
 
@@ -17359,10 +17369,10 @@ interface Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Sets text selection colors of a [RichText](https://wiki.facepunch.com/gmod/RichText) element.
-     * @param textColor - The [Global.Color](https://wiki.facepunch.com/gmod/Global.Color) to set for selected text.
-     * @param backgroundColor - The [Global.Color](https://wiki.facepunch.com/gmod/Global.Color) to set for selected text background.
+     * @param textColor - The [Color](https://wiki.facepunch.com/gmod/Color) to set for selected text.
+     * @param backgroundColor - The [Color](https://wiki.facepunch.com/gmod/Color) to set for selected text background.
      */
-    SetTextSelectionColors(textColor: any, backgroundColor: any): void;
+    SetTextSelectionColors(textColor: Color, backgroundColor: Color): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -17958,7 +17968,7 @@ interface Panel {
     OnRemove(): void;
 
     /**
-     * 🟨 [Client]
+     * 🟨🟩 [Client and Menu]
      *
      * Called when the player's screen resolution of the game changes.
      *
@@ -18106,7 +18116,7 @@ interface Panel {
     TestHover(x: number, y: number): boolean;
 
     /**
-     * 🟨 [Client]
+     * 🟨🟩 [Client and Menu]
      *
      * Called every frame while [Panel:IsVisible](https://wiki.facepunch.com/gmod/Panel:IsVisible) is true.
      */
@@ -19950,6 +19960,14 @@ interface Player extends Entity {
     GetEyeTraceNoCursor(): TraceResult;
 
     /**
+     * 🟨 [Client]
+     *
+     * Returns the color of a player's flashlight.
+     * @returns Color - Flashlight color
+     */
+    GetFlashlightColor(): Color;
+
+    /**
      * 🟨🟦 [Shared]
      *
      * Returns the FOV of the player.
@@ -20014,7 +20032,7 @@ interface Player extends Entity {
      * @param cVarName - The name of the client-side [ConVar](https://wiki.facepunch.com/gmod/ConVar).
      * @returns string - The value of the [ConVar](https://wiki.facepunch.com/gmod/ConVar). Or an empty string if the convar doesn't exist.
      * **Warning:**
-     * >The returned value is truncated to 31 bytes.
+     * >The returned value is truncated to 259 bytes.
      */
     GetInfo(cVarName: string): string;
 
@@ -20472,7 +20490,7 @@ interface Player extends Entity {
      * @param [hidePopup = false] - Hide display popup when giving the ammo
      * @returns number - Ammo given.
      */
-    GiveAmmo(amount: number, type: string, hidePopup?: boolean): number;
+    GiveAmmo(amount: number, type: string | number, hidePopup?: boolean): number;
 
     /**
      * 🟦 [Server]
@@ -20970,7 +20988,7 @@ interface Player extends Entity {
      * @param ammoCount - The amount of ammunition to remove.
      * @param ammoName - The name of the ammunition to remove from. This can also be a [number](https://wiki.facepunch.com/gmod/number) ammoID.
      */
-    RemoveAmmo(ammoCount: number, ammoName: string): void;
+    RemoveAmmo(ammoCount: number, ammoName: string | number): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -21249,6 +21267,15 @@ interface Player extends Entity {
      * @param angle - Angle to set the view to
      */
     SetEyeAngles(angle: Angle): void;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Sets the color of a player's flashlight.
+     * 		Can be used on other players.
+     * @param [color = Color(255,255,255)] - Flashlight color
+     */
+    SetFlashlightColor(color?: Color): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -21689,8 +21716,10 @@ interface Player extends Entity {
      *
      * Starts spectate mode for given player. This will also affect the players movetype in some cases.
      *
-     * **Warning:**
-     * >The player must be respawned, otherwise they will be able to walk through doors and become invincible.
+     * [Player:UnSpectate](https://wiki.facepunch.com/gmod/Player:UnSpectate) should be used to remove the player from spectate mode, or call this with `OBS_MODE_NONE`.
+     *
+     * **Bug :**
+     * >The player must be respawned, otherwise they will be able to walk through doors and become invincible. This will be fixed in a future update.
      *
      * @param mode - Spectate mode, see [Enums/OBS_MODE](https://wiki.facepunch.com/gmod/Enums/OBS_MODE).
      */
@@ -21702,10 +21731,6 @@ interface Player extends Entity {
      * Makes the player spectate the entity.
      *
      * To get the applied spectated entity, use [Player:GetObserverTarget](https://wiki.facepunch.com/gmod/Player:GetObserverTarget).
-     *
-     * **Warning:**
-     * >The player must be respawned, otherwise they will be able to walk through doors and become invincible.
-     *
      * @param entity - Entity to spectate.
      */
     SpectateEntity(entity: Entity): void;
@@ -21964,10 +21989,10 @@ interface Player extends Entity {
     /**
      * 🟦 [Server]
      *
-     * Stops the player from spectating another entity.
+     * Removes the player from the spectate mode entirely.
      *
-     * **Warning:**
-     * >The player must be respawned, otherwise they will be able to walk through doors and become invincible.
+     * **Bug :**
+     * >The player must be respawned, otherwise they will be able to walk through doors and become invincible. This will be fixed in a future update.
      */
     UnSpectate(): void;
 
@@ -22034,11 +22059,7 @@ interface ProjectedTexture {
      * 🟨 [Client]
      *
      * Returns the color of the ProjectedTexture, which was previously set by [ProjectedTexture:SetColor](https://wiki.facepunch.com/gmod/ProjectedTexture:SetColor).
-     *
-     * **Bug [#2407](https://github.com/Facepunch/garrysmod-issues/issues/2407):**
-     * >The returned color will not have the color metatable.
-     *
-     * @returns Color - [Color](https://wiki.facepunch.com/gmod/Color), the color of the ProjectedTexture.
+     * @returns Color - The [Color](https://wiki.facepunch.com/gmod/Color) of the ProjectedTexture.
      */
     GetColor(): Color;
 
@@ -22253,8 +22274,7 @@ interface ProjectedTexture {
      * Sets the color of the projected texture.
      *
      * You must call [ProjectedTexture:Update](https://wiki.facepunch.com/gmod/ProjectedTexture:Update) after using this function for it to take effect.
-     * @param color - Must be a [Color](https://wiki.facepunch.com/gmod/Color).
-     * Unlike other projected textures, this color can only go up to 255.
+     * @param color - Unlike other projected textures, this color can only go up to 255.
      */
     SetColor(color: Color): void;
 
@@ -24207,9 +24227,9 @@ interface VMatrix {
      * Sets the right direction of the matrix.
      *
      * ie. The second column of the matrix, negated, excluding the w coordinate.
-     * @param forward - The right direction of the matrix.
+     * @param right - The right direction of the matrix.
      */
-    SetRight(forward: Vector): void;
+    SetRight(right: Vector): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -24256,9 +24276,9 @@ interface VMatrix {
      * Sets the up direction of the matrix.
      *
      * ie. The third column of the matrix, excluding the w coordinate.
-     * @param forward - The up direction of the matrix.
+     * @param up - The up direction of the matrix.
      */
-    SetUp(forward: Vector): void;
+    SetUp(up: Vector): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -24765,12 +24785,12 @@ interface Weapon extends Entity {
      * Allows you to use any numbers you want for the ammo display on the HUD.
      *
      * Can be useful for weapons that don't use standard ammo.
-     * @returns any - The new ammo display settings. A table with 4 possible keys:
+     * @returns any - The new ammo display settings. A table with 4 possible keys: (All default to -1)
      * * [boolean](https://wiki.facepunch.com/gmod/boolean) Draw - Whether to draw the ammo display or not
      * * [number](https://wiki.facepunch.com/gmod/number) PrimaryClip - Amount of primary ammo in the clip
      * * [number](https://wiki.facepunch.com/gmod/number) PrimaryAmmo - Amount of primary ammo in the reserves
      * * [number](https://wiki.facepunch.com/gmod/number) SecondaryAmmo - Amount of secondary ammo. It is shown like alt-fire for SMG1 and AR2 are shown.
-     * There is **no** SecondaryClip!
+     * * [number](https://wiki.facepunch.com/gmod/number) SecondaryClip - Amount of secondary ammo in the clip. If set, the secondary ammo display will have clips and reserve ammo dispalyed.
      */
     CustomAmmoDisplay(): any;
 
@@ -26087,9 +26107,9 @@ interface DAlphaBar extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the base color of the alpha bar. This is the color for which the alpha channel is being modified. An [Global.AccessorFunc](https://wiki.facepunch.com/gmod/Global.AccessorFunc)
-     * @returns any - The current base color.
+     * @returns Color - The current base [Color](https://wiki.facepunch.com/gmod/Color).
      */
-    GetBarColor(): any;
+    GetBarColor(): Color;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -26840,7 +26860,7 @@ interface DColorCombo extends DPropertySheet {
      * Called when the value (color) of this panel was changed. For override
      * @param newcol -
      */
-    OnValueChanged(newcol: any): void;
+    OnValueChanged(newcol: Color): void;
 
     /**
      * 🟨 [Client]
@@ -27099,7 +27119,7 @@ interface DColorMixer extends DPanel {
      * An [Global.AccessorFunc](https://wiki.facepunch.com/gmod/Global.AccessorFunc) that sets the color of the [DColorMixer](https://wiki.facepunch.com/gmod/DColorMixer). See also [DColorMixer:GetColor](https://wiki.facepunch.com/gmod/DColorMixer:GetColor)
      * @param color - The color to set. See [Global.Color](https://wiki.facepunch.com/gmod/Global.Color)
      */
-    SetColor(color: any): void;
+    SetColor(color: Color): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -27192,7 +27212,7 @@ interface DColorMixer extends DPanel {
      * Use [DColorMixer:SetColor](https://wiki.facepunch.com/gmod/DColorMixer:SetColor) instead!
      * @param clr -
      */
-    UpdateColor(clr: any): void;
+    UpdateColor(clr: Color): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -27336,7 +27356,7 @@ interface DColorPalette extends DIconLayout {
      * Called when the color is changed after clicking a new value. For Override
      * @param newcol - The new color of the [DColorPalette](https://wiki.facepunch.com/gmod/DColorPalette)
      */
-    OnValueChanged(newcol: any): void;
+    OnValueChanged(newcol: Color): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -27365,7 +27385,7 @@ interface DColorPalette extends DIconLayout {
      * @param btn - The button to save the color of. Used to get the ID of the button.
      * @param clr - The color to save to this button's index
      */
-    SaveColor(btn: Panel, clr: any): void;
+    SaveColor(btn: Panel, clr: Color): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -27386,7 +27406,7 @@ interface DColorPalette extends DIconLayout {
      * Currently does nothing. Intended to "select" the color.
      * @param clr -
      */
-    SetColor(clr: any): void;
+    SetColor(clr: Color): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -28572,7 +28592,7 @@ interface DFrame extends EditablePanel {
      * 🟨🟩 [Client and Menu]
      *
      * Adds or removes an icon on the left of the [DFrame](https://wiki.facepunch.com/gmod/DFrame)'s title.
-     * @param path - Set to nil to remove the icon.
+     * @param path - Set to empty string ("") to remove the icon.
      * Otherwise, set to file path to create the icon.
      */
     SetIcon(path: string): void;
@@ -29510,7 +29530,7 @@ interface DImage extends Omit<DPanel, "PaintAt"> {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the color override of the image panel.
-     * @returns Color - The color override of the image. Uses the [Color](https://wiki.facepunch.com/gmod/Color).
+     * @returns Color - The color override of the image. Uses [Color](https://wiki.facepunch.com/gmod/Color).
      */
     GetImageColor(): Color;
 
@@ -29583,7 +29603,7 @@ interface DImage extends Omit<DPanel, "PaintAt"> {
      * 🟨🟩 [Client and Menu]
      *
      * Sets the image's color override.
-     * @param col - The color override of the image. Uses the [Color](https://wiki.facepunch.com/gmod/Color).
+     * @param col - The color override of the image. Uses [Color](https://wiki.facepunch.com/gmod/Color).
      */
     SetImageColor(col: Color): void;
 
@@ -29676,9 +29696,9 @@ interface DImageButton extends Omit<DButton, "SetImage"> {
      * 🟨🟩 [Client and Menu]
      *
      * Sets the color of the image. Equivalent of [DImage:SetImageColor](https://wiki.facepunch.com/gmod/DImage:SetImageColor)
-     * @param color - The [Global.Color](https://wiki.facepunch.com/gmod/Global.Color) to set
+     * @param color - The [Color](https://wiki.facepunch.com/gmod/Color) to set
      */
-    SetColor(color: any): void;
+    SetColor(color: Color): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -29869,9 +29889,9 @@ interface DLabel extends Label {
      * Returns the actual color of the text.
      *
      * See also [DLabel:GetTextColor](https://wiki.facepunch.com/gmod/DLabel:GetTextColor) and [DLabel:GetTextStyleColor](https://wiki.facepunch.com/gmod/DLabel:GetTextStyleColor).
-     * @returns any - The the actual color of the text.
+     * @returns Color - The the actual [Color](https://wiki.facepunch.com/gmod/Color) of the text.
      */
-    GetColor(): any;
+    GetColor(): Color;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -29965,9 +29985,9 @@ interface DLabel extends Label {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the "override" text color, set by [DLabel:SetTextColor](https://wiki.facepunch.com/gmod/DLabel:SetTextColor).
-     * @returns any - The color of the text, or nil.
+     * @returns Color - The [Color](https://wiki.facepunch.com/gmod/Color) of the text, or nil.
      */
-    GetTextColor(): any;
+    GetTextColor(): Color;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -29975,9 +29995,9 @@ interface DLabel extends Label {
      * Returns the "internal" or fallback color of the text.
      *
      * See also [DLabel:GetTextColor](https://wiki.facepunch.com/gmod/DLabel:GetTextColor) and [DLabel:SetTextStyleColor](https://wiki.facepunch.com/gmod/DLabel:SetTextStyleColor).
-     * @returns any - The "internal" color of the text
+     * @returns Color - The "internal" [Color](https://wiki.facepunch.com/gmod/Color) of the text
      */
-    GetTextStyleColor(): any;
+    GetTextStyleColor(): Color;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -30045,9 +30065,9 @@ interface DLabel extends Label {
      * 🟨🟩 [Client and Menu]
      *
      * Changes color of label. Alias of [DLabel:SetTextColor](https://wiki.facepunch.com/gmod/DLabel:SetTextColor).
-     * @param color - The color to set. Uses the Color structure.
+     * @param color - The color to set. Uses [Color](https://wiki.facepunch.com/gmod/Color).
      */
-    SetColor(color: any): void;
+    SetColor(color: Color): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -30153,7 +30173,7 @@ interface DLabel extends Label {
      * 🟨🟩 [Client and Menu]
      *
      * Sets the text color of the [DLabel](https://wiki.facepunch.com/gmod/DLabel). This will take precedence over [DLabel:SetTextStyleColor](https://wiki.facepunch.com/gmod/DLabel:SetTextStyleColor).
-     * @param color - The text color. Uses the [Color](https://wiki.facepunch.com/gmod/Color).
+     * @param color - The text color. Uses [Color](https://wiki.facepunch.com/gmod/Color).
      */
     SetTextColor(color: Color): void;
 
@@ -30265,17 +30285,17 @@ interface DLabelURL extends URLLabel {
      * 🟨🟩 [Client and Menu]
      *
      * Gets the current text color of the [DLabelURL](https://wiki.facepunch.com/gmod/DLabelURL). Returns either [DLabelURL:GetTextColor](https://wiki.facepunch.com/gmod/DLabelURL:GetTextColor) or if that is unset -  [DLabelURL:GetTextStyleColor](https://wiki.facepunch.com/gmod/DLabelURL:GetTextStyleColor).
-     * @returns any - The current text [Global.Color](https://wiki.facepunch.com/gmod/Global.Color).
+     * @returns Color - The current text [Color](https://wiki.facepunch.com/gmod/Color).
      */
-    GetColor(): any;
+    GetColor(): Color;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * Gets the current text color of the [DLabelURL](https://wiki.facepunch.com/gmod/DLabelURL) set by [DLabelURL:SetTextColor](https://wiki.facepunch.com/gmod/DLabelURL:SetTextColor).
-     * @returns any - The current text [Global.Color](https://wiki.facepunch.com/gmod/Global.Color).
+     * @returns Color - The current text [Color](https://wiki.facepunch.com/gmod/Color).
      */
-    GetTextColor(): any;
+    GetTextColor(): Color;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -30297,9 +30317,9 @@ interface DLabelURL extends URLLabel {
      * 🟨🟩 [Client and Menu]
      *
      * Alias of [DLabelURL:SetTextColor](https://wiki.facepunch.com/gmod/DLabelURL:SetTextColor).
-     * @param col - The [Global.Color](https://wiki.facepunch.com/gmod/Global.Color) to use.
+     * @param col - The [Color](https://wiki.facepunch.com/gmod/Color) to use.
      */
-    SetColor(col: any): void;
+    SetColor(col: Color): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -30307,17 +30327,17 @@ interface DLabelURL extends URLLabel {
      * Sets the text color of the [DLabelURL](https://wiki.facepunch.com/gmod/DLabelURL). Overrides [DLabelURL:SetTextStyleColor](https://wiki.facepunch.com/gmod/DLabelURL:SetTextStyleColor).
      *
      * This should only be used immediately after it is created, and otherwise [Panel:SetFGColor](https://wiki.facepunch.com/gmod/Panel:SetFGColor).
-     * @param col - The [Global.Color](https://wiki.facepunch.com/gmod/Global.Color) to use.
+     * @param col - The [Color](https://wiki.facepunch.com/gmod/Color) to use.
      */
-    SetTextColor(col: any): void;
+    SetTextColor(col: Color): void;
 
     /**
      * 🟨🟩 [Client and Menu]
      *
      * Sets the base text color of the [DLabelURL](https://wiki.facepunch.com/gmod/DLabelURL). This is overridden by [DLabelURL:SetTextColor](https://wiki.facepunch.com/gmod/DLabelURL:SetTextColor).
-     * @param color - The [Global.Color](https://wiki.facepunch.com/gmod/Global.Color) to set
+     * @param color - The [Color](https://wiki.facepunch.com/gmod/Color) to set
      */
-    SetTextStyleColor(color: any): void;
+    SetTextStyleColor(color: Color): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -31635,9 +31655,9 @@ interface DModelPanel extends DButton {
      * 🟨 [Client]
      *
      * Returns the ambient lighting used on the rendered entity.
-     * @returns any - The color of the ambient lighting.
+     * @returns Color - The color of the ambient lighting.
      */
-    GetAmbientLight(): any;
+    GetAmbientLight(): Color;
 
     /**
      * 🟨 [Client]
@@ -31667,7 +31687,7 @@ interface DModelPanel extends DButton {
      * 🟨 [Client]
      *
      * Returns the color of the rendered entity.
-     * @returns Color - The color of the entity, see [Color](https://wiki.facepunch.com/gmod/Color).
+     * @returns Color - The color of the entity.
      */
     GetColor(): Color;
 
@@ -31753,7 +31773,7 @@ interface DModelPanel extends DButton {
      * Sets the ambient lighting used on the rendered entity.
      * @param color - The color of the ambient lighting.
      */
-    SetAmbientLight(color: any): void;
+    SetAmbientLight(color: Color): void;
 
     /**
      * 🟨 [Client]
@@ -31793,16 +31813,16 @@ interface DModelPanel extends DButton {
      *
      * @param color - The render color of the entity.
      */
-    SetColor(color: any): void;
+    SetColor(color: Color): void;
 
     /**
      * 🟨 [Client]
      *
      * Sets the directional lighting used on the rendered entity.
      * @param direction - The light direction, see [Enums/BOX](https://wiki.facepunch.com/gmod/Enums/BOX).
-     * @param color - The color of the directional lighting.
+     * @param color - The [Color](https://wiki.facepunch.com/gmod/Color) of the directional lighting.
      */
-    SetDirectionalLight(direction: BOX, color: any): void;
+    SetDirectionalLight(direction: BOX, color: Color): void;
 
     /**
      * 🟨 [Client]
@@ -32582,9 +32602,9 @@ interface DPanel extends Panel {
      * **Note:**
      * >By default this returns **nil** even though the default background color is white
      *
-     * @returns any - Color of the panel's background.
+     * @returns Color - Color of the panel's background.
      */
-    GetBackgroundColor(): any;
+    GetBackgroundColor(): Color;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -32640,9 +32660,9 @@ interface DPanel extends Panel {
      * 🟨🟩 [Client and Menu]
      *
      * Sets the background color of the panel.
-     * @param color - The background color.
+     * @param color - The background [Color](https://wiki.facepunch.com/gmod/Color).
      */
-    SetBackgroundColor(color: any): void;
+    SetBackgroundColor(color: Color): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -32853,7 +32873,7 @@ interface DPanelOverlay extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the border color of the [DPanelOverlay](https://wiki.facepunch.com/gmod/DPanelOverlay) set by [DPanelOverlay:SetColor](https://wiki.facepunch.com/gmod/DPanelOverlay:SetColor).
-     * @returns Color - The set color. Uses the [Color](https://wiki.facepunch.com/gmod/Color).
+     * @returns Color - The set color. Uses [Color](https://wiki.facepunch.com/gmod/Color).
      */
     GetColor(): Color;
 
@@ -32889,7 +32909,7 @@ interface DPanelOverlay extends DPanel {
      * 🟨🟩 [Client and Menu]
      *
      * Sets the border color of the [DPanelOverlay](https://wiki.facepunch.com/gmod/DPanelOverlay).
-     * @param color - The color to set. Uses the [Color](https://wiki.facepunch.com/gmod/Color).
+     * @param color - The color to set. Uses [Color](https://wiki.facepunch.com/gmod/Color).
      */
     SetColor(color: Color): void;
 
@@ -33375,7 +33395,7 @@ interface DRGBPicker extends DPanel {
      * Returns the color at given position on the internal texture.
      * @param x - The X coordinate on the texture to get the color from
      * @param y - The Y coordinate on the texture to get the color from
-     * @returns [1] Color - [Color](https://wiki.facepunch.com/gmod/Color)
+     * @returns [1] Color - The [Color](https://wiki.facepunch.com/gmod/Color)
      * @returns [2] number - The X-coordinate clamped to the texture's width.
      * @returns [3] number - The Y-coordinate clamped to the texture's height.
      */
@@ -33547,8 +33567,7 @@ interface DShape extends DPanel {
      * Sets the border color of the shape.
      *
      * Currently does nothing.
-     * @param clr - The desired border color.
-     * See [Color](https://wiki.facepunch.com/gmod/Color)
+     * @param clr - The desired border color. See [Color](https://wiki.facepunch.com/gmod/Color)
      */
     SetBorderColor(clr: Color): void;
 
@@ -33888,9 +33907,9 @@ interface DSprite extends DPanel {
      * 🟨 [Client]
      *
      * Gets the color the sprite is using as a modifier.
-     * @returns any - The [Global.Color](https://wiki.facepunch.com/gmod/Global.Color) being used.
+     * @returns Color - The [Color](https://wiki.facepunch.com/gmod/Color) being used.
      */
-    GetColor(): any;
+    GetColor(): Color;
 
     /**
      * 🟨 [Client]
@@ -33920,9 +33939,9 @@ interface DSprite extends DPanel {
      * 🟨 [Client]
      *
      * Sets the color modifier for the sprite.
-     * @param color - The [Global.Color](https://wiki.facepunch.com/gmod/Global.Color) to use.
+     * @param color - The [Color](https://wiki.facepunch.com/gmod/Color) to use.
      */
-    SetColor(color: any): void;
+    SetColor(color: Color): void;
 
     /**
      * 🟨 [Client]
@@ -34125,9 +34144,9 @@ interface DTextEntry extends TextEntry {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the highlight/text selection color of the text entry. If it was not overwritten, it will return the derma skin value. (`colTextEntryTextHighlight`)
-     * @returns any - The highlight [Global.Color](https://wiki.facepunch.com/gmod/Global.Color).
+     * @returns Color - The highlight [Global.Color](https://wiki.facepunch.com/gmod/Global.Color).
      */
-    GetHighlightColor(): any;
+    GetHighlightColor(): Color;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -34165,9 +34184,9 @@ interface DTextEntry extends TextEntry {
      * 🟨🟩 [Client and Menu]
      *
      * Return current color of panel placeholder
-     * @returns any - Current placeholder color
+     * @returns Color - Current placeholder color
      */
-    GetPlaceholderColor(): any;
+    GetPlaceholderColor(): Color;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -34294,7 +34313,7 @@ interface DTextEntry extends TextEntry {
      * Sets the cursor's color in  DTextEntry (the blinking line).
      * @param color - The color to set the cursor to.
      */
-    SetCursorColor(color: any): void;
+    SetCursorColor(color: Color): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -34351,9 +34370,9 @@ interface DTextEntry extends TextEntry {
      * 🟨🟩 [Client and Menu]
      *
      * Sets/overrides the default highlight/text selection color of the text entry.
-     * @param color - The new highlight [Global.Color](https://wiki.facepunch.com/gmod/Global.Color).
+     * @param color - The new highlight [Color](https://wiki.facepunch.com/gmod/Color).
      */
-    SetHighlightColor(color: any): void;
+    SetHighlightColor(color: Color): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -34389,7 +34408,7 @@ interface DTextEntry extends TextEntry {
      * Allow you to set placeholder color.
      * @param [color = Color(128, 128, 128)] - The color of the placeholder.
      */
-    SetPlaceholderColor(color?: any): void;
+    SetPlaceholderColor(color?: Color): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -37448,18 +37467,18 @@ interface Gamemode {
      *
      * Returns the color for the given entity's team. This is used in chat and deathnotice text.
      * @param ent - Entity
-     * @returns any - Team [Global.Color](https://wiki.facepunch.com/gmod/Global.Color)
+     * @returns Color - Team [Color](https://wiki.facepunch.com/gmod/Color)
      */
-    GetTeamColor(ent: Entity): any;
+    GetTeamColor(ent: Entity): Color;
 
     /**
      * 🟨 [Client]
      *
      * Returns the team color for the given team index.
      * @param team - Team index
-     * @returns any - Team [Global.Color](https://wiki.facepunch.com/gmod/Global.Color)
+     * @returns Color - Team [Color](https://wiki.facepunch.com/gmod/Color)
      */
-    GetTeamNumColor(team: number): any;
+    GetTeamNumColor(team: number): Color;
 
     /**
      * 🟨🟦 [Shared]
@@ -39852,7 +39871,7 @@ interface Gamemode {
      *
      * Called every rendered frame on client, except when the game is paused.
      *
-     * Called every  game tick on the server. This will be the same as [GM:Tick](https://wiki.facepunch.com/gmod/GM:Tick) on the server when there is no lag, but will only be called once every processed server frame during lag.
+     * Called every game tick on the server, including when the game is paused. This will be the same as [GM:Tick](https://wiki.facepunch.com/gmod/GM:Tick) on the server when there is no lag, but will only be called once every processed server frame during lag.
      * [Global.CurTime](https://wiki.facepunch.com/gmod/Global.CurTime) is guaranteed to be different with each call to this hook on the server.
      *
      * See [GM:Tick](https://wiki.facepunch.com/gmod/GM:Tick) for a hook that runs every tick on both the client and server.
@@ -40543,6 +40562,10 @@ interface ENTITY extends Entity {
      * 🟦 [Server]
      *
      * Called when scripted NPC needs to check how he "feels" against another entity, such as when [NPC:Disposition](https://wiki.facepunch.com/gmod/NPC:Disposition) is called.
+     *
+     * **Note:**
+     * >Scripted NPCs will not select other entities using same [Entity:GetModel](https://wiki.facepunch.com/gmod/Entity:GetModel) as this Scripted NPC's [Entity:GetModel](https://wiki.facepunch.com/gmod/Entity:GetModel) as enemy, unless [NPC:AddEntityRelationship](https://wiki.facepunch.com/gmod/NPC:AddEntityRelationship) is cast.
+     *
      * @param ent - The entity in question
      * @returns D - How our scripter NPC "feels" towards the entity in question. See [Enums/D](https://wiki.facepunch.com/gmod/Enums/D). Not returning any value will make [NPC:Disposition](https://wiki.facepunch.com/gmod/NPC:Disposition) return the default disposition for this SNPC's given `m_iClass` by the engine.
      */
@@ -44744,7 +44767,7 @@ interface PhysEnvPerformanceSettings {
     /**
      * Maximum world-space rotational velocity in degrees per second.
      *
-     * Default value for this setting is `7200`.
+     * Default value for this setting is `7272.7280273438`.
      * @default nil
      */
     MaxAngularVelocity?: number,
@@ -45480,7 +45503,7 @@ interface SoundData {
      * **Warning:** Volume of `0` will act as volume of `1`
      * @default 1.0
      */
-    volume?: number,
+    volume?: number|number[],
 
     /**
      * The pitch of the sound. Can be a table of two numbers, a minimum and a maximum value.
@@ -53057,7 +53080,7 @@ declare const enum FVPHYSICS {
     FVPHYSICS_NO_IMPACT_DMG = 1024,
 
     /**
-     * Like FVPHYSICS_NO_NPC_IMPACT_DMG, but only checks for NPCs. Usually set on Combine Balls fired by Combine Soldiers.
+     * Like FVPHYSICS_NO_IMPACT_DMG, but only checks for NPCs. Usually set on Combine Balls fired by Combine Soldiers.
      */
     FVPHYSICS_NO_NPC_IMPACT_DMG = 2048,
 
@@ -55098,7 +55121,7 @@ declare const enum OBS_MODE {
     OBS_MODE_DEATHCAM = 1,
 
     /**
-     * TF2-like freezecam
+     * TF2-like freeze-cam, then acts like `OBS_MODE_FIXED`.
      */
     OBS_MODE_FREEZECAM = 2,
 
@@ -55108,7 +55131,7 @@ declare const enum OBS_MODE {
     OBS_MODE_FIXED = 3,
 
     /**
-     * First person cam
+     * Spectate a specific player from first person view.
      */
     OBS_MODE_IN_EYE = 4,
 
@@ -56246,12 +56269,12 @@ declare const enum SND {
 /**
  * 🟨🟦 [Shared]
  *
- * The sound's attenuation; how fast it drops away, enumerations used by [Global.EmitSound](https://wiki.facepunch.com/gmod/Global.EmitSound) and [Entity:EmitSound](https://wiki.facepunch.com/gmod/Entity:EmitSound). Information taken from [soundflags.h in Source SDK 2013](https://github.com/ValveSoftware/source-sdk-2013/blob/0d8dceea4310fde5706b3ce1c70609d72a38efdf/sp/src/public/soundflags.h#L53)
+ * The sound's attenuation, or how fast it drops away. Enumerations used by [Global.EmitSound](https://wiki.facepunch.com/gmod/Global.EmitSound) and [Entity:EmitSound](https://wiki.facepunch.com/gmod/Entity:EmitSound). Information taken from [soundflags.h in Source SDK 2013](https://github.com/ValveSoftware/source-sdk-2013/blob/0d8dceea4310fde5706b3ce1c70609d72a38efdf/sp/src/public/soundflags.h#L53)
  *
  * The engine starts running into trouble below 60dB.
  *
  * **Warning:**
- * >These enumerations do not exist in game and are listed here only for reference
+ * >These enumerations are not provided in Garry's Mod Lua and are listed here only for reference. Use the raw number values instead.
  *
  * @compileMembersOnly
  */
@@ -56812,6 +56835,16 @@ declare const enum STUDIO {
      * Not a studio flag, but used to flag model as a non-sorting brush model
      */
     STUDIO_TRANSPARENCY = 2147483648,
+
+    /**
+     * Do not update/apply flexes. ([Entity:SetFlexWeight](https://wiki.facepunch.com/gmod/Entity:SetFlexWeight))
+     */
+    STUDIO_SKIP_FLEXES = 1024,
+
+    /**
+     * Do not render decals.
+     */
+    STUDIO_SKIP_DECALS = 268435456,
 }
 
 /**
@@ -58850,8 +58883,7 @@ declare function ConVarExists(name: string): boolean;
  * @param [max = nil] - If set, the convar cannot be changed to a number higher than this value.
  * @returns ConVar - Created convar.
  */
-/* Manual override from: global/CreateClientConVar */
-declare function CreateClientConVar(name: string, default_: string|number, shouldsave?: boolean, userinfo?: boolean, helptext?: string, min?: number, max?: number): ConVar;
+declare function CreateClientConVar(name: string, default_: string | number, shouldsave?: boolean, userinfo?: boolean, helptext?: string, min?: number, max?: number): ConVar;
 
 /**
  * 🟨 [Client]
@@ -59849,13 +59881,14 @@ declare function GetConVar_Internal(name: string): ConVar;
 /**
  * 🟨🟦🟩 [Shared and Menu]
  *
- * Gets the numeric value ConVar with the specified name.
+ * Returns the numeric value [ConVar](https://wiki.facepunch.com/gmod/ConVar) (converted from the ConVar's string value) with the specified name.
  *
- * Returns the value of [game.MaxPlayers](https://wiki.facepunch.com/gmod/game.MaxPlayers) if `maxplayers` is specified as the convar name, even though `maxplayers` is not a convar. (it is a console **command**) You should be using aforementioned Lua function instead.
+ * This function will return `0` if the ConVar does not exist. Use [cvars.Number](https://wiki.facepunch.com/gmod/cvars.Number) to specify your own default.
  *
- * @deprecated Store the [ConVar](https://wiki.facepunch.com/gmod/ConVar) object retrieved with [Global.GetConVar](https://wiki.facepunch.com/gmod/Global.GetConVar) or use [cvars.Number](https://wiki.facepunch.com/gmod/cvars.Number)
+ * Will return the value of [game.MaxPlayers](https://wiki.facepunch.com/gmod/game.MaxPlayers) if `maxplayers` is specified as the ConVar name, even though `maxplayers` is not a ConVar. (it is a console **command**) You should be using aforementioned Lua function instead for that case.
  *
- * @param name - Name of the ConVar to get.
+ * In performance intensive places such as think and rendering callbacks/hooks, it is advised to use [ConVar:GetFloat](https://wiki.facepunch.com/gmod/ConVar:GetFloat) on a [ConVar](https://wiki.facepunch.com/gmod/ConVar) object directly, which be retrieved via [Global.GetConVar](https://wiki.facepunch.com/gmod/Global.GetConVar), or from existing [Global.CreateConVar](https://wiki.facepunch.com/gmod/Global.CreateConVar) call.
+ * @param name - Name of the ConVar to get the value of.
  * @returns number - The ConVar's value.
  */
 declare function GetConVarNumber(name: string): number;
@@ -59863,13 +59896,14 @@ declare function GetConVarNumber(name: string): number;
 /**
  * 🟨🟦🟩 [Shared and Menu]
  *
- * Gets the string value ConVar with the specified name.
+ * Returns the string value [ConVar](https://wiki.facepunch.com/gmod/ConVar) with the specified name.
  *
- * Returns the value of [game.MaxPlayers](https://wiki.facepunch.com/gmod/game.MaxPlayers) if `maxplayers` is specified as the convar name, even though `maxplayers` is not a convar. (it is a console **command**) You should be using aforementioned Lua function instead.
+ * This function will return an empty string if the ConVar does not exist. Use [cvars.String](https://wiki.facepunch.com/gmod/cvars.String) to specify your own default.
  *
- * @deprecated Store the [ConVar](https://wiki.facepunch.com/gmod/ConVar) object retrieved with [Global.GetConVar](https://wiki.facepunch.com/gmod/Global.GetConVar) or use [cvars.String](https://wiki.facepunch.com/gmod/cvars.String).
+ * Will return the value of [game.MaxPlayers](https://wiki.facepunch.com/gmod/game.MaxPlayers) (as a string) if `maxplayers` is specified as the ConVar name, even though `maxplayers` is not a ConVar. (it is a console **command**) You should be using aforementioned Lua function instead for that case.
  *
- * @param name - Name of the ConVar to get.
+ * In performance intensive places such as think and rendering callbacks/hooks, it is advised to use [ConVar:GetString](https://wiki.facepunch.com/gmod/ConVar:GetString) on a [ConVar](https://wiki.facepunch.com/gmod/ConVar) object directly, which be retrieved via [Global.GetConVar](https://wiki.facepunch.com/gmod/Global.GetConVar), or from existing [Global.CreateConVar](https://wiki.facepunch.com/gmod/Global.CreateConVar) call.
+ * @param name - Name of the ConVar to get the value of.
  * @returns string - The ConVar's value.
  */
 declare function GetConVarString(name: string): string;
@@ -59906,7 +59940,6 @@ declare function GetDownloadables(): string[];
  * @param [location = 1] - The object to get the enviroment from. Can also be a number that specifies the function at that stack level: Level 1 is the function calling getfenv. Level 0 is the base Garry's Mod environment (_G).
  * @returns any - The environment.
  */
-/* Manual override from: global/getfenv */
 declare function getfenv(location?: Function | number): any;
 
 /**
@@ -60645,7 +60678,7 @@ declare function isstring(variable: any): boolean;
  * Returns if the passed object is a [table](https://wiki.facepunch.com/gmod/table).
  *
  * **Note:**
- * >Will return TRUE for variables of type [Color](https://wiki.facepunch.com/gmod/Color)
+ * >Will return `true` if the argument has a metatable. It will return `true` for variables of type [Color](https://wiki.facepunch.com/gmod/Color) as well.
  *
  * @param variable - The variable to perform the type check for.
  * @returns boolean - True if the variable is a [table](https://wiki.facepunch.com/gmod/table).
@@ -61775,7 +61808,7 @@ declare function SavePresets(presets: any): void;
  *
  * Returns a number based on the `size` argument and the players' screen width. This is used to scale user interface (UI) elements to be consistently sized and positioned across all screen resolutions.
  *
- * The width is scaled in relation to `640x480` resolution, and does **not** take into account non the aspect ratio. See example below for how to adjust or that.
+ * The width is scaled in relation to `640x480` resolution, and does **not** take into account non the aspect ratio. See example below for how to adjust for that.
  *
  * This function can also be used for scaling font sizes.
  *
@@ -63190,9 +63223,29 @@ declare namespace cam {
      * **Note:**
      * >Editing the matrix **will not** edit the current view. To do so, you will have to use [cam.PushModelMatrix](https://wiki.facepunch.com/gmod/cam.PushModelMatrix).
      *
-     * @returns VMatrix - The currently active matrix.
+     * @returns VMatrix - The currently active model matrix.
      */
     declare function GetModelMatrix(): VMatrix;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Returns a copy of the projection matrix. Also see [cam.GetViewMatrix](https://wiki.facepunch.com/gmod/cam.GetViewMatrix).
+     *
+     * Will return Identity matrix in 2D Render context. In this case use [cam.Start3D](https://wiki.facepunch.com/gmod/cam.Start3D). See <page text="Render Hook Order">Render_Order</page>.
+     * @returns VMatrix - The currently active projection matrix.
+     */
+    declare function GetProjectionMatrix(): VMatrix;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Returns a copy of the view matrix. Also see [cam.GetProjectionMatrix](https://wiki.facepunch.com/gmod/cam.GetProjectionMatrix).
+     *
+     * Will return Identity matrix in 2D Render context. In this case use [cam.Start3D](https://wiki.facepunch.com/gmod/cam.Start3D). See <page text="Render Hook Order">Render_Order</page>.
+     * @returns VMatrix - The currently active view matrix.
+     */
+    declare function GetViewMatrix(): VMatrix;
 
     /**
      * 🟨 [Client]
@@ -63333,7 +63386,7 @@ declare namespace chat {
      * Adds text to the local player's chat box (which only they can read).
      * @param arguments - The message to be added to the chat box.
      * Arguments can be:
-     * * [table](https://wiki.facepunch.com/gmod/table) - [Color](https://wiki.facepunch.com/gmod/Color). Will set the color for all following strings until the next Color argument.
+     * * [Color](https://wiki.facepunch.com/gmod/Color) - Will set the color for all following strings until the next Color argument.
      * * [string](https://wiki.facepunch.com/gmod/string) - Text to be added to the chat box.
      * * [Player](https://wiki.facepunch.com/gmod/Player) - Adds the name of the player in the player's team color to the chat box.
      * * [any](https://wiki.facepunch.com/gmod/any) - Any other type, such as [Entity](https://wiki.facepunch.com/gmod/Entity) will be converted to string and added as text.
@@ -63717,11 +63770,11 @@ declare namespace constraint {
      * @param [material] - The material of the rope. If unset, will be solid black.
      * @param width - Width of rope.
      * @param [stretchOnly = false] - Apply physics forces only on stretch.
-     * @param [color = color_white] - The color of the rope. See [Global.Color](https://wiki.facepunch.com/gmod/Global.Color).
+     * @param [color = color_white] - The color of the rope. See [Color](https://wiki.facepunch.com/gmod/Color).
      * @returns [1] Entity - The created constraint. ([phys_spring](https://developer.valvesoftware.com/wiki/Phys_spring)) Will return `false` if the constraint could not be created.
      * @returns [2] Entity - The created rope. ([keyframe_rope](https://developer.valvesoftware.com/wiki/Keyframe_rope)) Will return `nil` if the constraint could not be created.
      */
-    declare function Elastic(ent1: Entity, ent2: Entity, bone1: number, bone2: number, localPos1: Vector, localPos2: Vector, constant: number, damping: number, relDamping: number, material?: string, width?: number, stretchOnly?: boolean, color?: any): LuaMultiReturn<[Entity, Entity]>;
+    declare function Elastic(ent1: Entity, ent2: Entity, bone1: number, bone2: number, localPos1: Vector, localPos2: Vector, constant: number, damping: number, relDamping: number, material?: string, width?: number, stretchOnly?: boolean, color?: Color): LuaMultiReturn<[Entity, Entity]>;
 
     /**
      * 🟦 [Server]
@@ -63883,13 +63936,13 @@ declare namespace constraint {
      * @param speed - How fast it changes the length from `length1` to `length2` and backwards.
      * @param [material] - The material of the rope. If unset, will be solid black.
      * @param [toggle = true] - Whether the hydraulic should be a toggle, not a "hold key to extend" action.
-     * @param [color = color_white] - The color of the rope. See [Global.Color](https://wiki.facepunch.com/gmod/Global.Color).
+     * @param [color = color_white] - The color of the rope.
      * @returns [1] Entity - The created constraint. ([phys_spring](https://developer.valvesoftware.com/wiki/Phys_spring)) Will return `false` if the constraint could not be created.
      * @returns [2] Entity - The created rope. ([keyframe_rope](https://developer.valvesoftware.com/wiki/Keyframe_rope)) Will return `nil` if the constraint could not be created.
      * @returns [3] Entity - The muscle controller. (`gmod_winch_controller`) Will return `nil` if the constraint could not be created.
      * @returns [4] Entity - The slider ([phys_slideconstraint](https://developer.valvesoftware.com/wiki/Phys_slideconstraint)) if `fixed` was exactly `1`. Will return nil otherwise, or if the constraint could not be created.
      */
-    declare function Hydraulic(player: Player, ent1: Entity, ent2: Entity, bone1: number, bone2: number, localPos1: Vector, localPos2: Vector, length1: number, length2: number, width: number, key: KEY, slider: number, speed: number, material?: string, toggle?: boolean, color?: any): LuaMultiReturn<[Entity, Entity, Entity, Entity]>;
+    declare function Hydraulic(player: Player, ent1: Entity, ent2: Entity, bone1: number, bone2: number, localPos1: Vector, localPos2: Vector, length1: number, length2: number, width: number, key: KEY, slider: number, speed: number, material?: string, toggle?: boolean, color?: Color): LuaMultiReturn<[Entity, Entity, Entity, Entity]>;
 
     /**
      * 🟦 [Server]
@@ -63956,13 +64009,13 @@ declare namespace constraint {
      * @param amplitude - Amplification of the "contractions"?
      * @param [startOn = false] - Whether the constraint should start activated. (i.e. spazzing).
      * @param [material] - Material of the rope. If left unset, will be solid black.
-     * @param [color = color_white] - The color of the rope. See [Global.Color](https://wiki.facepunch.com/gmod/Global.Color).
+     * @param [color = color_white] - The color of the rope.
      * @returns [1] Entity - The created constraint. ([phys_spring](https://developer.valvesoftware.com/wiki/Phys_spring)) Will return `false` if the constraint could not be created.
      * @returns [2] Entity - The created rope. ([keyframe_rope](https://developer.valvesoftware.com/wiki/Keyframe_rope)) Will return `nil` if the constraint could not be created.
      * @returns [3] Entity - The muscle controller. (`gmod_winch_controller`) Will return `nil` if the constraint could not be created.
      * @returns [4] Entity - The slider ([phys_slideconstraint](https://developer.valvesoftware.com/wiki/Phys_slideconstraint)) if `fixed` was exactly `1`. Will return nil otherwise, or if the constraint could not be created.
      */
-    declare function Muscle(player: Player, ent1: Entity, ent2: Entity, bone1: number, bone2: number, localPos1: Vector, localPos2: Vector, length1: number, length2: number, width: number, key: KEY, fixed: number, period: number, amplitude: number, startOn?: boolean, material?: string, color?: any): LuaMultiReturn<[Entity, Entity, Entity, Entity]>;
+    declare function Muscle(player: Player, ent1: Entity, ent2: Entity, bone1: number, bone2: number, localPos1: Vector, localPos2: Vector, length1: number, length2: number, width: number, key: KEY, fixed: number, period: number, amplitude: number, startOn?: boolean, material?: string, color?: Color): LuaMultiReturn<[Entity, Entity, Entity, Entity]>;
 
     /**
      * 🟦 [Server]
@@ -64011,13 +64064,13 @@ declare namespace constraint {
      * @param [rigid = false] - Whether the constraint is rigid, i.e. cannot bend.
      * @param width - Width of the rope. If below or at `0`, visual rope segments will not be created.
      * @param [material] - Material of the rope. If unset, will be solid black.
-     * @param [color = color_white] - The color of the rope. See [Global.Color](https://wiki.facepunch.com/gmod/Global.Color).
+     * @param [color = color_white] - The color of the rope.
      * @returns [1] Entity - The created constraint. ([phys_pulleyconstraint](https://developer.valvesoftware.com/wiki/Phys_pulleyconstraint)) Will return `false` if the constraint could not be created.
      * @returns [2] Entity - The first rope segment. ([keyframe_rope](https://developer.valvesoftware.com/wiki/Keyframe_rope)) Will return `nil` if the constraint or this rope segment could not be created.
      * @returns [3] Entity - The second rope segment. ([keyframe_rope](https://developer.valvesoftware.com/wiki/Keyframe_rope)) Will return `nil` if the constraint or this rope segment could not be created.
      * @returns [4] Entity - The third rope segment. ([keyframe_rope](https://developer.valvesoftware.com/wiki/Keyframe_rope)) Will return `nil` if the constraint or this rope segment could not be created.
      */
-    declare function Pulley(ent1: Entity, ent4: Entity, bone1: number, bone4: number, localPos1: Vector, localPos4: Vector, worldPos2: Vector, worldPos3: Vector, forceLimit: number, rigid?: boolean, width?: number, material?: string, color?: any): LuaMultiReturn<[Entity, Entity, Entity, Entity]>;
+    declare function Pulley(ent1: Entity, ent4: Entity, bone1: number, bone4: number, localPos1: Vector, localPos4: Vector, worldPos2: Vector, worldPos3: Vector, forceLimit: number, rigid?: boolean, width?: number, material?: string, color?: Color): LuaMultiReturn<[Entity, Entity, Entity, Entity]>;
 
     /**
      * 🟦 [Server]
@@ -64058,12 +64111,12 @@ declare namespace constraint {
      * @param width - Width of the rope.
      * @param [material = nil] - Material of the rope. If unset, will be solid black.
      * @param [rigid = false] - Whether the constraint is rigid.
-     * @param [color = color_white] - The color of the rope. See [Global.Color](https://wiki.facepunch.com/gmod/Global.Color).
+     * @param [color = color_white] - The color of the rope.
      * @returns [1] Entity - The constraint entity ([phys_lengthconstraint](https://developer.valvesoftware.com/wiki/Phys_lengthconstraint)).
      * Will be a `keyframe_rope` if you are roping to the same bone on the same entity. Will return `false` if the constraint could not be created.
      * @returns [2] Entity - The rope entity. Will return `nil` if `constraint` return value is a [keyframe_rope](https://developer.valvesoftware.com/wiki/Keyframe_rope) or if the constraint could not be created.
      */
-    declare function Rope(ent1: Entity, ent2: Entity, bone1: number, bone2: number, localPos1: Vector, localPos2: Vector, length: number, addLength?: number, forceLimit?: number, width?: number, material?: string, rigid?: boolean, color?: any): LuaMultiReturn<[Entity, Entity]>;
+    declare function Rope(ent1: Entity, ent2: Entity, bone1: number, bone2: number, localPos1: Vector, localPos2: Vector, length: number, addLength?: number, forceLimit?: number, width?: number, material?: string, rigid?: boolean, color?: Color): LuaMultiReturn<[Entity, Entity]>;
 
     /**
      * 🟦 [Server]
@@ -64079,11 +64132,11 @@ declare namespace constraint {
      * @param localPos2 - Position relative to the the second physics object to constrain to.
      * @param width - The width of the rope.
      * @param [material] - The material of the rope. If unset, will be solid black.
-     * @param [color = color_white] - The color of the rope. See [Global.Color](https://wiki.facepunch.com/gmod/Global.Color).
+     * @param [color = color_white] - The color of the rope. See [Color](https://wiki.facepunch.com/gmod/Color).
      * @returns [1] Entity - The created constraint entity. ([phys_slideconstraint](https://developer.valvesoftware.com/wiki/Phys_slideconstraint)) Will return `false` if the constraint could not be created.
      * @returns [2] Entity - The created rope. ([keyframe_rope](https://developer.valvesoftware.com/wiki/Keyframe_rope)) Will return `nil` if the constraint or the rope could not be created.
      */
-    declare function Slider(ent1: Entity, ent2: Entity, bone1: number, bone2: number, localPos1: Vector, localPos2: Vector, width: number, material?: string, color?: any): LuaMultiReturn<[Entity, Entity]>;
+    declare function Slider(ent1: Entity, ent2: Entity, bone1: number, bone2: number, localPos1: Vector, localPos2: Vector, width: number, material?: string, color?: Color): LuaMultiReturn<[Entity, Entity]>;
 
     /**
      * 🟦 [Server]
@@ -64122,12 +64175,12 @@ declare namespace constraint {
      * @param bwdSpeed - Backwards speed.
      * @param [material] - The material of the rope. If unset, will be solid black.
      * @param [toggle = false] - Whether the winch should be on toggle.
-     * @param [color = color_white] - The color of the rope. See [Global.Color](https://wiki.facepunch.com/gmod/Global.Color).
+     * @param [color = color_white] - The color of the rope.
      * @returns [1] Entity - The created constraint. ([phys_spring](https://developer.valvesoftware.com/wiki/Phys_spring)) Can return `nil`. Will return `false` if the constraint could not be created.
      * @returns [2] Entity - The created rope. ([keyframe_rope](https://developer.valvesoftware.com/wiki/Keyframe_rope)) Will return `nil` if the constraint could not be created.
      * @returns [3] Entity - The winch controller. (`gmod_winch_controller`) Can return `nil`.
      */
-    declare function Winch(player: Player, ent1: Entity, ent2: Entity, bone1: number, bone2: number, localPos1: Vector, localPos2: Vector, width: number, fwdBind: KEY, bwdBind: KEY, fwdSpeed: number, bwdSpeed: number, material?: string, toggle?: boolean, color?: any): LuaMultiReturn<[Entity, Entity, Entity]>;
+    declare function Winch(player: Player, ent1: Entity, ent2: Entity, bone1: number, bone2: number, localPos1: Vector, localPos2: Vector, width: number, fwdBind: KEY, bwdBind: KEY, fwdSpeed: number, bwdSpeed: number, material?: string, toggle?: boolean, color?: Color): LuaMultiReturn<[Entity, Entity, Entity]>;
 }
 
 /**
@@ -64479,7 +64532,6 @@ declare namespace debug {
      * @param function_ - Function to use. (Only used by the `>` field)
      * @returns DebugInfo - A table as a [Structures/DebugInfo](https://wiki.facepunch.com/gmod/Structures/DebugInfo) containing information about the function you passed. Can return nil if the stack level didn't point to a valid stack frame.
      */
-    /* Manual override from: namespace/debug/getinfo */
     declare function getinfo(funcOrStackLevel: Function | number, fields?: string, function_?: Function|undefined): DebugInfo;
 
     /**
@@ -64662,7 +64714,7 @@ declare namespace debug {
  * >There's some code that prevents debugoverlay from being added if the game is paused, i.e. when console is open in singleplayer.
  *
  * **Note:**
- * >These functions will not do anything unless the **developer** console variable is set to non 0.
+ * >These functions will not do anything unless the `developer` console variable is set to non 0.
  */
 declare namespace debugoverlay {
     /**
@@ -64697,7 +64749,7 @@ declare namespace debugoverlay {
      * @param mins - Minimum bounds of the box.
      * @param maxs - Maximum bounds of the box.
      * @param [lifetime = 1] - Number of seconds to appear.
-     * @param [color = Color( 255, 255, 255, 255 )] - The color of the box. Uses the [Color](https://wiki.facepunch.com/gmod/Color).
+     * @param [color = Color( 255, 255, 255, 255 )] - The color of the box.
      */
     declare function Box(origin: Vector, mins: Vector, maxs: Vector, lifetime?: number, color?: Color): void;
 
@@ -64716,7 +64768,7 @@ declare namespace debugoverlay {
      * @param maxs - The maxs of the box (highest corner).
      * @param ang - The angle to draw the box at.
      * @param [lifetime = 1] - Amount of seconds to show the box.
-     * @param [color = Color( 255, 255, 255, 255 )] - The color of the box. Uses the [Color](https://wiki.facepunch.com/gmod/Color).
+     * @param [color = Color( 255, 255, 255, 255 )] - The color of the box.
      */
     declare function BoxAngles(pos: Vector, mins: Vector, maxs: Vector, ang: Angle, lifetime?: number, color?: Color): void;
 
@@ -64733,7 +64785,7 @@ declare namespace debugoverlay {
      * @param position - Position origin.
      * @param size - Size of the cross.
      * @param [lifetime = 1] - Number of seconds the cross will appear for.
-     * @param [color = Color( 255, 255, 255 )] - The color of the cross. Uses the [Color](https://wiki.facepunch.com/gmod/Color).
+     * @param [color = Color( 255, 255, 255 )] - The color of the cross.
      * @param [ignoreZ = false] - If true, will draw on top of everything; ignoring the Z buffer.
      */
     declare function Cross(position: Vector, size: number, lifetime?: number, color?: Color, ignoreZ?: boolean): void;
@@ -64752,7 +64804,7 @@ declare namespace debugoverlay {
      * @param line - Line of text, will offset text on the to display the new line unobstructed.
      * @param text - The text to display.
      * @param [lifetime = 1] - Number of seconds to appear.
-     * @param [color = Color( 255, 255, 255 )] - The color of the box. Uses the [Color](https://wiki.facepunch.com/gmod/Color).
+     * @param [color = Color( 255, 255, 255 )] - The color of the box.
      */
     declare function EntityTextAtPosition(pos: Vector, line: number, text: string, lifetime?: number, color?: Color): void;
 
@@ -64783,7 +64835,7 @@ declare namespace debugoverlay {
      * @param pos1 - First position of the line.
      * @param pos2 - Second position of the line.
      * @param [lifetime = 1] - Number of seconds to appear.
-     * @param [color = Color( 255, 255, 255 )] - The color of the line. Uses the [Color](https://wiki.facepunch.com/gmod/Color).
+     * @param [color = Color( 255, 255, 255 )] - The color of the line.
      * @param [ignoreZ = false] - If true, will draw on top of everything; ignoring the Z buffer.
      */
     declare function Line(pos1: Vector, pos2: Vector, lifetime?: number, color?: Color, ignoreZ?: boolean): void;
@@ -64802,7 +64854,7 @@ declare namespace debugoverlay {
      * @param y - The position of the text, from 0 ( top ) to 1 ( bottom ).
      * @param text - The text to display.
      * @param [lifetime = 1] - Number of seconds to appear.
-     * @param [color = Color( 255, 255, 255 )] - The color of the box. Uses the [Color](https://wiki.facepunch.com/gmod/Color).
+     * @param [color = Color( 255, 255, 255 )] - The color of the box.
      */
     declare function ScreenText(x: number, y: number, text: string, lifetime?: number, color?: Color): void;
 
@@ -64819,7 +64871,7 @@ declare namespace debugoverlay {
      * @param origin - Position origin.
      * @param size - Size of the sphere.
      * @param [lifetime = 1] - Number of seconds to appear.
-     * @param [color = Color( 255, 255, 255 )] - The color of the sphere. Uses the [Color](https://wiki.facepunch.com/gmod/Color).
+     * @param [color = Color( 255, 255, 255 )] - The color of the sphere.
      * @param [ignoreZ = false] - If true, will draw on top of everything; ignoring the Z buffer.
      */
     declare function Sphere(origin: Vector, size: number, lifetime?: number, color?: Color, ignoreZ?: boolean): void;
@@ -64840,7 +64892,7 @@ declare namespace debugoverlay {
      * @param vMaxs - The "maximum" edge of the box.
      * @param ang - The angle to draw the box at.
      * @param [lifetime = 1] - Number of seconds to appear.
-     * @param [color = Color( 255, 255, 255 )] - The color of the box. Uses the [Color](https://wiki.facepunch.com/gmod/Color).
+     * @param [color = Color( 255, 255, 255 )] - The color of the box.
      */
     declare function SweptBox(vStart: Vector, vEnd: Vector, vMins: Vector, vMaxs: Vector, ang: Angle, lifetime?: number, color?: Color): void;
 
@@ -64875,7 +64927,7 @@ declare namespace debugoverlay {
      * @param pos2 - Second point of the triangle.
      * @param pos3 - Third point of the triangle.
      * @param [lifetime = 1] - Number of seconds to appear.
-     * @param [color = Color( 255, 255, 255 )] - The color of the box. Uses the [Color](https://wiki.facepunch.com/gmod/Color).
+     * @param [color = Color( 255, 255, 255 )] - The color of the box.
      * @param [ignoreZ = false] - If true, will draw on top of everything; ignoring the Z buffer.
      */
     declare function Triangle(pos1: Vector, pos2: Vector, pos3: Vector, lifetime?: number, color?: Color, ignoreZ?: boolean): void;
@@ -64908,9 +64960,9 @@ declare namespace derma {
      * Gets the color from a Derma skin of a panel and returns default color if not found.
      * @param name -
      * @param pnl -
-     * @param default_ - The default color in case of failure.
+     * @param default_ - The default [Color](https://wiki.facepunch.com/gmod/Color) in case of failure.
      */
-    declare function Color(name: string, pnl: Panel, default_: any): void;
+    declare function Color(name: string, pnl: Panel, default_: Color): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -65018,10 +65070,10 @@ declare namespace derma {
      * 	<arg name="y" type="number">Y coordinate for the box.</arg>
      * 	<arg name="w" type="number">Width of the box.</arg>
      * 	<arg name="h" type="number">Height of the box.</arg>
-     * 	<arg name="clr" type="table" default="color_white">Optional color, default is white. Uses the [Color](https://wiki.facepunch.com/gmod/Color).</arg>
+     * 	<arg name="clr" type="Color" default="color_white">Optional color, default is white.</arg>
      * </callback>
      */
-    declare function SkinTexture(name: string, pnl: Panel, fallback?: Function): Function;
+    declare function SkinTexture(name: string, pnl: Panel, fallback?: Function | any): Function;
 }
 
 /**
@@ -65129,7 +65181,7 @@ declare namespace draw {
      * @param [font = DermaDefault] - Name of font to draw the text in. See [surface.CreateFont](https://wiki.facepunch.com/gmod/surface.CreateFont) to create your own, or [Default Fonts](https://wiki.facepunch.com/gmod/Default_Fonts) for a list of default fonts.
      * @param [x = 0] - The X Coordinate.
      * @param [y = 0] - The Y Coordinate.
-     * @param [color = Color( 255, 255, 255, 255 )] - Color to draw the text in. Uses the [Color](https://wiki.facepunch.com/gmod/Color).
+     * @param [color = Color( 255, 255, 255, 255 )] - Color to draw the text in. Uses [Color](https://wiki.facepunch.com/gmod/Color).
      * @param [xAlign = TEXT_ALIGN_LEFT] - Where to align the text horizontally. Uses the [Enums/TEXT_ALIGN](https://wiki.facepunch.com/gmod/Enums/TEXT_ALIGN).
      */
     declare function DrawText(text: string, font?: string, x?: number, y?: number, color?: Color, xAlign?: TEXT_ALIGN): void;
@@ -65211,7 +65263,7 @@ declare namespace draw {
      * @param [font = DermaDefault] - The font. See [surface.CreateFont](https://wiki.facepunch.com/gmod/surface.CreateFont) to create your own, or see [Default Fonts](https://wiki.facepunch.com/gmod/Default_Fonts) for a list of default fonts.
      * @param [x = 0] - The X Coordinate.
      * @param [y = 0] - The Y Coordinate.
-     * @param [color = Color( 255, 255, 255, 255 )] - The color of the text. Uses the [Color](https://wiki.facepunch.com/gmod/Color).
+     * @param [color = Color( 255, 255, 255, 255 )] - The color of the text.
      * @param [xAlign = TEXT_ALIGN_LEFT] - The alignment of the X coordinate using [Enums/TEXT_ALIGN](https://wiki.facepunch.com/gmod/Enums/TEXT_ALIGN).
      * @param [yAlign = TEXT_ALIGN_TOP] - The alignment of the Y coordinate using [Enums/TEXT_ALIGN](https://wiki.facepunch.com/gmod/Enums/TEXT_ALIGN).
      * @returns [1] number - The width of the text. Same value as if you were calling [surface.GetTextSize](https://wiki.facepunch.com/gmod/surface.GetTextSize).
@@ -65229,7 +65281,7 @@ declare namespace draw {
      * @param [font = DermaDefault] - The font name to draw with. See [surface.CreateFont](https://wiki.facepunch.com/gmod/surface.CreateFont) to create your own, or <page text="here">Default_Fonts</page> for a list of default fonts.
      * @param [x = 0] - The X Coordinate.
      * @param [y = 0] - The Y Coordinate.
-     * @param [color = Color( 255, 255, 255, 255 )] - The color of the text. Uses the [Color](https://wiki.facepunch.com/gmod/Color).
+     * @param [color = Color( 255, 255, 255, 255 )] - The color of the text.
      * @param [xAlign = TEXT_ALIGN_LEFT] - The alignment of the X Coordinate using [Enums/TEXT_ALIGN](https://wiki.facepunch.com/gmod/Enums/TEXT_ALIGN).
      * @param [yAlign = TEXT_ALIGN_TOP] - The alignment of the Y Coordinate using [Enums/TEXT_ALIGN](https://wiki.facepunch.com/gmod/Enums/TEXT_ALIGN).
      * @param outlinewidth - Width of the outline.
@@ -65286,8 +65338,8 @@ declare namespace draw {
      * @param y - The Y Coordinate.
      * @param text - Text to draw.
      * @param font - Font to draw in. See [surface.CreateFont](https://wiki.facepunch.com/gmod/surface.CreateFont) to create your own, or <page text="here">Default_Fonts</page> for a list of default fonts.
-     * @param boxcolor - The box color. Uses the [Color](https://wiki.facepunch.com/gmod/Color).
-     * @param textcolor - The text color. Uses the [Color](https://wiki.facepunch.com/gmod/Color).
+     * @param boxcolor - The box color. Uses [Color](https://wiki.facepunch.com/gmod/Color).
+     * @param textcolor - The text color. Uses [Color](https://wiki.facepunch.com/gmod/Color).
      * @param [xalign = TEXT_ALIGN_LEFT] - The alignment of the X coordinate using [Enums/TEXT_ALIGN](https://wiki.facepunch.com/gmod/Enums/TEXT_ALIGN).
      * @param [yalign = TEXT_ALIGN_TOP] - The alignment of the Y coordinate using [Enums/TEXT_ALIGN](https://wiki.facepunch.com/gmod/Enums/TEXT_ALIGN).
      * @returns [1] number - The width of the word box.
@@ -65829,7 +65881,7 @@ declare namespace effects {
      * @param endRad - Final radius of the effect, at the end of the effect's lifetime.
      * @param width - How thick the beam should be.
      * @param amplitude - How noisy the beam should be.
-     * @param color - Beam's [Global.Color](https://wiki.facepunch.com/gmod/Global.Color).
+     * @param color - Beam's [Color](https://wiki.facepunch.com/gmod/Color).
      * @param extra - Extra info, all optional. A table with the following keys: (any combination)
      * * [number](https://wiki.facepunch.com/gmod/number) speed - ?
      * * [number](https://wiki.facepunch.com/gmod/number) spread - ?
@@ -65838,7 +65890,7 @@ declare namespace effects {
      * * [number](https://wiki.facepunch.com/gmod/number) framerate - texture framerate.
      * * [string](https://wiki.facepunch.com/gmod/string) material - The material to use instead of the default one.
      */
-    declare function BeamRingPoint(pos: Vector, lifetime: number, startRad: number, endRad: number, width: number, amplitude: number, color: any, extra: any): void;
+    declare function BeamRingPoint(pos: Vector, lifetime: number, startRad: number, endRad: number, width: number, amplitude: number, color: Color, extra: any): void;
 
     /**
      * 🟨🟦 [Shared]
@@ -66379,6 +66431,8 @@ declare namespace ents {
      * 🟨🟦 [Shared]
      *
      * Returns entity that has given [Entity:MapCreationID](https://wiki.facepunch.com/gmod/Entity:MapCreationID).
+     *
+     * 	This works internally by iterating over [ents.GetAll](https://wiki.facepunch.com/gmod/ents.GetAll).
      * @param id - Entity's creation id.
      * @returns Entity|undefined - Found entity, `nil` otherwise.
      */
@@ -66518,6 +66572,13 @@ declare namespace file {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Attempts to open a file with the given mode.
+     *
+     * **Warning:**
+     * >When trying to open files with the following characteristics, it returns nil:
+     *
+     * the file extension is ".db; .mdmp; .dmp" or
+     * the file is "server.cfg; autoexec.cfg; config.cfg; listenserver.cfg; mount.cfg"
+     *
      * @param fileName - The files name. See [file.Write](https://wiki.facepunch.com/gmod/file.Write) for details on filename restrictions when writing to files.
      * @param fileMode - The mode to open the file in. Possible values are:
      * * **r** - read mode.
@@ -67108,18 +67169,16 @@ declare namespace game {
     /**
      * 🟦 [Server]
      *
-     * Sets the time scale of the game.
-     *
-     * This function is supposed to remove the need of using the host_timescale convar, which is cheat protected.
+     * Sets the time scale of the game logic.
      *
      * To slow down or speed up the movement of a specific player, use [Player:SetLaggedMovementValue](https://wiki.facepunch.com/gmod/Player:SetLaggedMovementValue) instead.
      *
-     * **Note:**
-     * >Like host_timescale, this method does not affect sounds, if you wish to change that, look into [GM:EntityEmitSound](https://wiki.facepunch.com/gmod/GM:EntityEmitSound).
+     * See [physenv.SetTimeScale](https://wiki.facepunch.com/gmod/physenv.SetTimeScale) if you wish to only scale the physics timescale.
      *
-     * **Note:**
-     * >The true timescale will be `host_timescale` multiplied by [game.GetTimeScale](https://wiki.facepunch.com/gmod/game.GetTimeScale).
+     * This function is meant to remove the need of using the `host_timescale` convar, which is cheat protected.
+     * The true timescale will be `host_timescale` multiplied by [game.GetTimeScale](https://wiki.facepunch.com/gmod/game.GetTimeScale).
      *
+     * Like `host_timescale`, this method does not affect sounds, if you wish to change that, look into [GM:EntityEmitSound](https://wiki.facepunch.com/gmod/GM:EntityEmitSound).
      * @param timeScale - The new timescale, minimum value is 0.001 and maximum is 5.
      */
     declare function SetTimeScale(timeScale: number): void;
@@ -67278,7 +67337,7 @@ declare namespace gui {
     /**
      * 🟨🟩 [Client and Menu]
      *
-     * Opens the game menu overlay.
+     * Opens the game main menu as if the player pressed their Escape key.
      */
     declare function ActivateGameUI(): void;
 
@@ -67313,9 +67372,11 @@ declare namespace gui {
     /**
      * 🟨🟩 [Client and Menu]
      *
-     * Hides the game menu overlay.
+     * Hides the game main menu if it is currently open.
      *
-     * @deprecated Will be disabled in a future patch. Use [GM:OnPauseMenuShow](https://wiki.facepunch.com/gmod/GM:OnPauseMenuShow) instead.
+     * This can only be ran a certain amount of times per second to prevent main menu being completely inaccessible by the player.
+     *
+     * Use [GM:OnPauseMenuShow](https://wiki.facepunch.com/gmod/GM:OnPauseMenuShow) to prevent opening the main menu without a one frame flash.
      */
     declare function HideGameUI(): void;
 
@@ -67501,16 +67562,16 @@ declare namespace GWEN {
      * @param right - Right width of border.
      * @param bottom - Bottom width of border.
      * @param [material = nil] - If set, given material will be used over the SKIN's default material, which is `SKIN.GwenTexture`.
-     * @returns Color - The drawing function.
+     * @returns Function - The drawing function.
      * <callback>
      * 	<arg name="x" type="number">X coordinate for the box.</arg>
      * 	<arg name="y" type="number">Y coordinate for the box.</arg>
      * 	<arg name="w" type="number">Width of the box.</arg>
      * 	<arg name="h" type="number">Height of the box.</arg>
-     * 	<arg name="clr" type="table" default="color_white">Optional color, default is white. Uses the [Color](https://wiki.facepunch.com/gmod/Color).</arg>
+     * 	<arg name="clr" type="Color" default="color_white">Optional color, default is color_white.</arg>
      * </callback>
      */
-    declare function CreateTextureBorder(x: number, y: number, w: number, h: number, left: number, top: number, right: number, bottom: number, material?: IMaterial): Color;
+    declare function CreateTextureBorder(x: number, y: number, w: number, h: number, left: number, top: number, right: number, bottom: number, material?: IMaterial): Function;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -67523,16 +67584,16 @@ declare namespace GWEN {
      * @param w - Width of the area on texture.
      * @param h - Height of the area on texture.
      * @param [material = nil] - If set, given material will be used over the SKIN's default material, which is `SKIN.GwenTexture`.
-     * @returns Color - The drawing function.
+     * @returns Function - The drawing function.
      * <callback>
      * 	<arg name="x" type="number">X coordinate for the box.</arg>
      * 	<arg name="y" type="number">Y coordinate for the box.</arg>
      * 	<arg name="w" type="number">Width of the box.</arg>
      * 	<arg name="h" type="number">Height of the box.</arg>
-     * 	<arg name="clr" type="table" default="color_white">Optional color, default is white. Uses the [Color](https://wiki.facepunch.com/gmod/Color).</arg>
+     * 	<arg name="clr" type="Color" default="color_white">Optional color, default is white.</arg>
      * </callback>
      */
-    declare function CreateTextureCentered(x: number, y: number, w: number, h: number, material?: IMaterial): Color;
+    declare function CreateTextureCentered(x: number, y: number, w: number, h: number, material?: IMaterial): Function;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -67545,16 +67606,16 @@ declare namespace GWEN {
      * @param w - Width of the area on texture.
      * @param h - Height of the area on texture.
      * @param [material = nil] - If set, given material will be used over the SKIN's default material, which is `SKIN.GwenTexture`.
-     * @returns Color - The drawing function.
+     * @returns Function - The drawing function.
      * <callback>
      * 	<arg name="x" type="number">X coordinate for the box.</arg>
      * 	<arg name="y" type="number">Y coordinate for the box.</arg>
      * 	<arg name="w" type="number">Width of the box.</arg>
      * 	<arg name="h" type="number">Height of the box.</arg>
-     * 	<arg name="clr" type="table" default="color_white">Optional color, default is white. Uses the [Color](https://wiki.facepunch.com/gmod/Color).</arg>
+     * 	<arg name="clr" type="Color" default="color_white">Optional color, default is white.</arg>
      * </callback>
      */
-    declare function CreateTextureNormal(x: number, y: number, w: number, h: number, material?: IMaterial): Color;
+    declare function CreateTextureNormal(x: number, y: number, w: number, h: number, material?: IMaterial): Function;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -67562,7 +67623,7 @@ declare namespace GWEN {
      * Retrieves the color from a materials texture at the provided UV coordinates
      * @param x - X position of the pixel to get the color from.
      * @param y - Y position of the pixel to get the color from.
-     * @returns Color - The color of the point on the skin as a [Color](https://wiki.facepunch.com/gmod/Color).
+     * @returns Color - The color of the point on the skin.
      */
     declare function TextureColor(x: number, y: number): Color;
 }
@@ -67580,7 +67641,7 @@ declare namespace halo {
      * >The ignoreZ parameter will cause the halos to draw over the player's viewmodel. You can work around this using [render.DepthRange](https://wiki.facepunch.com/gmod/render.DepthRange) in the [GM:PreDrawViewModel](https://wiki.facepunch.com/gmod/GM:PreDrawViewModel), [GM:PostDrawViewModel](https://wiki.facepunch.com/gmod/GM:PostDrawViewModel), [GM:PreDrawPlayerHands](https://wiki.facepunch.com/gmod/GM:PreDrawPlayerHands) and [GM:PostDrawPlayerHands](https://wiki.facepunch.com/gmod/GM:PostDrawPlayerHands) hooks.
      *
      * @param entities - A table of entities to add the halo effect to.
-     * @param color - The desired color of the halo. See [Color](https://wiki.facepunch.com/gmod/Color).
+     * @param color - The desired color of the halo.
      * @param [blurX = 2] - The strength of the halo's blur on the x axis.
      * @param [blurY = 2] - The strength of the halo's blur on the y axis.
      * @param [passes = 1] - The number of times the halo should be drawn per frame. **Increasing this may hinder player FPS**.
@@ -68352,9 +68413,9 @@ declare namespace killicon {
      * Creates new kill icon using a texture.
      * @param class_ - Weapon or entity class.
      * @param texture - Path to the texture.
-     * @param color - Color of the kill icon.
+     * @param color - [Color](https://wiki.facepunch.com/gmod/Color) of the kill icon.
      */
-    declare function Add(class_: string, texture: string, color: any): void;
+    declare function Add(class_: string, texture: string, color: Color): void;
 
     /**
      * 🟨 [Client]
@@ -68375,7 +68436,7 @@ declare namespace killicon {
      * @param color - Color of the killicon.
      * @param [heightScale = 1] - Used internally to correct certain killicons to more closely match their visual size.
      */
-    declare function AddFont(class_: string, font: string, symbol: string, color: any, heightScale?: number): void;
+    declare function AddFont(class_: string, font: string, symbol: string, color: Color, heightScale?: number): void;
 
     /**
      * 🟨 [Client]
@@ -68383,13 +68444,13 @@ declare namespace killicon {
      * Creates new kill icon using a sub-rectangle of a texture.
      * @param class_ - Weapon or entity class this killicon is for.
      * @param texture - Path to the texture.
-     * @param color - Color of the kill icon.
+     * @param color - [Color](https://wiki.facepunch.com/gmod/Color) of the kill icon.
      * @param x - The start position (X axis) of the rectangle on the given texture. This is in texture coordinates.
      * @param y - The start position (Y axis) of the rectangle on the given texture. This is in texture coordinates.
      * @param w - The width of the rectangle on the given texture. This is in texture coordinates.
      * @param h - The height of the rectangle on the given texture. This is in texture coordinates.
      */
-    declare function AddTexCoord(class_: string, texture: string, color: any, x: number, y: number, w: number, h: number): void;
+    declare function AddTexCoord(class_: string, texture: string, color: Color, x: number, y: number, w: number, h: number): void;
 
     /**
      * 🟨 [Client]
@@ -69166,6 +69227,15 @@ declare namespace math {
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
+     * Returns the mathematical negative/positive sign of the input number.
+     * @param value - The input number.
+     * @returns number - `-1` for inputs of less than 0, `0` if given a 0, `1` for inputs above 0.
+     */
+    declare function Sign(value: number): number;
+
+    /**
+     * 🟨🟦🟩 [Shared and Menu]
+     *
      * Returns the [sine](https://en.wikipedia.org/wiki/Trigonometric_functions) of given angle.
      * @param number - Angle in radians
      * @returns number - Sine for given angle in the range (-1, 1)
@@ -69671,11 +69741,11 @@ declare namespace mesh {
      * 		The resulting mesh can be stored in an [IMesh](https://wiki.facepunch.com/gmod/IMesh) if it is intended to be drawn multiple times or on multiple frames.
      * @param mesh - The [IMesh](https://wiki.facepunch.com/gmod/IMesh) that the created mesh will be stored in.
      *
-     * 			If the mesh has already been built, it will instead have its existing verticies modified but cannot have the quantity of vertices changed.
+     * 			If the mesh has already been built, it will instead have its existing vertices modified but cannot have the quantity of vertices changed.
      * @param primitiveType - An enum that indicates what the format of the mesh's primitives will be.
      * 			For a full list of the available options, see the [Enums/MATERIAL](https://wiki.facepunch.com/gmod/Enums/MATERIAL).
      * @param primitiveCount - The quantity of primitives this mesh will contain as a whole integer number.
-     * 			The total number of vertices must not exceed the limit of `32768`.
+     * 			The total number of vertices must not exceed the limit of `65535`.
      * 			The number of vertices created by each primitive will depend on the type of primitive used to construct the mesh.
      * 			The expected value of this argument is dependent on the primitive type used.
      * 			For a full list of the primitive counts expected by each primitive type, see [Enums/MATERIAL](https://wiki.facepunch.com/gmod/Enums/MATERIAL).
@@ -69737,9 +69807,9 @@ declare namespace mesh {
      * @param vertex2 - The second vertex.
      * @param vertex3 - The third vertex.
      * @param vertex4 - The fourth vertex.
-     * @param color - The color for the vertices.
+     * @param color - The [Color](https://wiki.facepunch.com/gmod/Color) for the vertices.
      */
-    declare function Quad(vertex1: Vector, vertex2: Vector, vertex3: Vector, vertex4: Vector, color: any): void;
+    declare function Quad(vertex1: Vector, vertex2: Vector, vertex3: Vector, vertex4: Vector, color: Color): void;
 
     /**
      * 🟨 [Client]
@@ -69751,9 +69821,9 @@ declare namespace mesh {
      * @param normal - The normal of the quad.
      * @param sizeX - X size in pixels.
      * @param sizeY - Y size in pixels.
-     * @param color - The color for the vertices.
+     * @param color - The [Color](https://wiki.facepunch.com/gmod/Color) for the vertices.
      */
-    declare function QuadEasy(position: Vector, normal: Vector, sizeX: number, sizeY: number, color: any): void;
+    declare function QuadEasy(position: Vector, normal: Vector, sizeX: number, sizeY: number, color: Color): void;
 
     /**
      * 🟨 [Client]
@@ -71261,6 +71331,14 @@ declare namespace physenv {
     /**
      * 🟨🟦 [Shared]
      *
+     * Returns the physics time scale set with [physenv.SetTimeScale](https://wiki.facepunch.com/gmod/physenv.SetTimeScale).
+     * @returns number - The current physics time scale.
+     */
+    declare function GetTimeScale(): number;
+
+    /**
+     * 🟨🟦 [Shared]
+     *
      * Sets the air density.
      * @param airDensity - The new air density.
      */
@@ -71289,6 +71367,20 @@ declare namespace physenv {
      * @param pause - `true` to pause, `false` to unpause.
      */
     declare function SetPhysicsPaused(pause: boolean): void;
+
+    /**
+     * 🟨🟦 [Shared]
+     *
+     * Sets the time scale of the physics simulation.
+     *
+     * This will affect serverside-only physics if called on server, and clientside-only physics if used on the client.
+     *
+     * See [game.SetTimeScale](https://wiki.facepunch.com/gmod/game.SetTimeScale) for a function that also affects all game logic.
+     *
+     * The true timescale will be `phys_timescale` (`cl_phys_timescale` on client) multiplied by [physenv.GetTimeScale](https://wiki.facepunch.com/gmod/physenv.GetTimeScale).
+     * @param timeScale - The new timescale, minimum value is 0.001 and maximum is 5.
+     */
+    declare function SetTimeScale(timeScale: number): void;
 }
 
 /**
@@ -71602,6 +71694,7 @@ declare namespace player_manager {
      * * [string](https://wiki.facepunch.com/gmod/string) model - Model of hands.
      * * [number](https://wiki.facepunch.com/gmod/number) skin - Skin of hands.
      * * [string](https://wiki.facepunch.com/gmod/string) body - Bodygroups of hands.
+     * * [boolean](https://wiki.facepunch.com/gmod/boolean) matchBodySkin - Use player skinIndex.
      */
     declare function TranslatePlayerHands(name: string): any;
 
@@ -71774,7 +71867,7 @@ declare namespace render {
      * @param startPos - Beam start position.
      * @param width - The width of the beam.
      * @param textureEnd - The end coordinate of the texture used.
-     * @param color - The color to be used. Uses the [Color](https://wiki.facepunch.com/gmod/Color).
+     * @param color - The color to be used.
      */
     declare function AddBeam(startPos: Vector, width: number, textureEnd: number, color: Color): void;
 
@@ -71809,11 +71902,11 @@ declare namespace render {
      * Since the pixel buffer clears itself every frame, this will return a black screen outside of render hooks. To capture the user's final view, use [GM:PostRender](https://wiki.facepunch.com/gmod/GM:PostRender). This will not capture the Steam overlay or third-party injections (such as the Discord overlay, Overwolf, and advanced cheats) on the user's screen.
      *
      * **Warning:**
-     * >This function will return nil if escape menu is open
-     *
-     * **Bug [#2571](https://github.com/Facepunch/garrysmod-issues/issues/2571):**
      * >In PNG mode, this function can produce unexpected result where foreground is rendered as transparent.
      * This is caused by [render.SetWriteDepthToDestAlpha](https://wiki.facepunch.com/gmod/render.SetWriteDepthToDestAlpha) set to `true` when doing most of render operations, including rendering in `_rt_fullframefb`. If you want to capture render target's content as PNG image only for output quality, set [Structures/RenderCaptureData](https://wiki.facepunch.com/gmod/Structures/RenderCaptureData)'s `alpha` to `false` when capturing render targets with [render.SetWriteDepthToDestAlpha](https://wiki.facepunch.com/gmod/render.SetWriteDepthToDestAlpha) set to `true`.
+     *
+     * **Warning:**
+     * >This function will return nil if escape menu is open
      *
      * @param captureData - Parameters of the capture. See [Structures/RenderCaptureData](https://wiki.facepunch.com/gmod/Structures/RenderCaptureData).
      * @returns string - The binary data.
@@ -71826,7 +71919,9 @@ declare namespace render {
      * <rendercontext hook="false" type="2D"></rendercontext>
      * 	Dumps the current render target and allows the pixels to be accessed by [render.ReadPixel](https://wiki.facepunch.com/gmod/render.ReadPixel).
      *
-     * 	Capturing outside a render hook will return 0 0 0 255.
+     * 	Capturing outside a render hook will return an image filled with `0 0 0 255`.
+     *
+     * 	See also [render.Capture](https://wiki.facepunch.com/gmod/render.Capture).
      */
     declare function CapturePixels(): void;
 
@@ -71885,9 +71980,9 @@ declare namespace render {
      *
      * It uses [render.Clear](https://wiki.facepunch.com/gmod/render.Clear) then [render.SetRenderTarget](https://wiki.facepunch.com/gmod/render.SetRenderTarget) on the modified render target.
      * @param texture -
-     * @param color - The color, see [Color](https://wiki.facepunch.com/gmod/Color).
+     * @param color - The color.
      */
-    declare function ClearRenderTarget(texture: ITexture, color: Color): void;
+    declare function ClearRenderTarget(texture: ITexture, color: color): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -72017,7 +72112,7 @@ declare namespace render {
      * @param angles - Orientation of the box.
      * @param mins - Start position of the box, relative to origin.
      * @param maxs - End position of the box, relative to origin.
-     * @param [color = Color( 255, 255, 255 )] - The color of the box. Uses the [Color](https://wiki.facepunch.com/gmod/Color).
+     * @param [color = Color( 255, 255, 255 )] - The color of the box.
      */
     declare function DrawBox(position: Vector, angles: Angle, mins: Vector, maxs: Vector, color?: Color): void;
 
@@ -72029,7 +72124,7 @@ declare namespace render {
      * <rendercontext hook="false" type="3D"></rendercontext>
      * @param startPos - Line start position in world coordinates.
      * @param endPos - Line end position in world coordinates.
-     * @param [color = Color( 255, 255, 255 )] - The color to be used. Uses the [Color](https://wiki.facepunch.com/gmod/Color).
+     * @param [color = Color( 255, 255, 255 )] - The color to be used. Uses [Color](https://wiki.facepunch.com/gmod/Color).
      * @param [writeZ = false] - Whether or not to consider the Z buffer. If false, the line will be drawn over everything currently drawn, if true, the line will be drawn with depth considered, as if it were a regular object in 3D space.
      * **Bug [#1086](https://github.com/Facepunch/garrysmod-issues/issues/1086):**
      * >Enabling this option will cause the line to ignore the color's alpha.
@@ -72046,9 +72141,9 @@ declare namespace render {
      * @param vert2 - The second vertex.
      * @param vert3 - The third vertex.
      * @param vert4 - The fourth vertex.
-     * @param [color = Color( 255, 255, 255 )] - The color of the quad. See [Global.Color](https://wiki.facepunch.com/gmod/Global.Color)
+     * @param [color = Color( 255, 255, 255 )] - The color of the quad.
      */
-    declare function DrawQuad(vert1: Vector, vert2: Vector, vert3: Vector, vert4: Vector, color?: any): void;
+    declare function DrawQuad(vert1: Vector, vert2: Vector, vert3: Vector, vert4: Vector, color?: Color): void;
 
     /**
      * 🟨 [Client]
@@ -72060,7 +72155,7 @@ declare namespace render {
      * @param normal - The face direction of the quad.
      * @param width - The width of the quad.
      * @param height - The height of the quad.
-     * @param color - The color of the quad. Uses the [Color](https://wiki.facepunch.com/gmod/Color).
+     * @param color - The color of the quad.
      * @param [rotation = 0] - The rotation of the quad counter-clockwise in degrees around the normal axis. In other words, the quad will always face the same way but this will rotate its corners.
      */
     declare function DrawQuadEasy(position: Vector, normal: Vector, width: number, height: number, color: Color, rotation?: number): void;
@@ -72104,7 +72199,7 @@ declare namespace render {
      * @param radius - Radius of the sphere. Negative radius will make the sphere render inwards rather than outwards.
      * @param longitudeSteps - The number of longitude steps. This controls the quality of the sphere. Higher quality will lower performance significantly. 50 is a good number to start with.
      * @param latitudeSteps - The number of latitude steps. This controls the quality of the sphere. Higher quality will lower performance significantly. 50 is a good number to start with.
-     * @param [color = Color( 255, 255, 255 )] - The color of the sphere. Uses the [Color](https://wiki.facepunch.com/gmod/Color).
+     * @param [color = Color( 255, 255, 255 )] - The color of the sphere.
      */
     declare function DrawSphere(position: Vector, radius: number, longitudeSteps: number, latitudeSteps: number, color?: Color): void;
 
@@ -72117,7 +72212,7 @@ declare namespace render {
      * @param position - Position of the sprite.
      * @param width - Width of the sprite.
      * @param height - Height of the sprite.
-     * @param [color = Color( 255, 255, 255 )] - Color of the sprite. Uses the [Color](https://wiki.facepunch.com/gmod/Color).
+     * @param [color = Color( 255, 255, 255 )] - Color of the sprite.
      */
     declare function DrawSprite(position: Vector, width: number, height: number, color?: Color): void;
 
@@ -72155,7 +72250,7 @@ declare namespace render {
      * @param angle - Angles of the box.
      * @param mins - The lowest corner of the box.
      * @param maxs - The highest corner of the box.
-     * @param [color = Color( 255, 255, 255 )] - The color of the box. Uses the [Color](https://wiki.facepunch.com/gmod/Color).
+     * @param [color = Color( 255, 255, 255 )] - The color of the box.
      * @param [writeZ = false] - Sets whenever to write to the zBuffer.
      */
     declare function DrawWireframeBox(position: Vector, angle: Angle, mins: Vector, maxs: Vector, color?: Color, writeZ?: boolean): void;
@@ -72172,7 +72267,7 @@ declare namespace render {
      * The larger this number is, the smoother the sphere is.
      * @param latitudeSteps - The amount of latitude steps.
      * The larger this number is, the smoother the sphere is.
-     * @param [color = Color( 255, 255, 255 )] - The color of the wireframe. Uses the [Color](https://wiki.facepunch.com/gmod/Color).
+     * @param [color = Color( 255, 255, 255 )] - The color of the wireframe.
      * @param [writeZ = false] - Whether or not to consider the Z buffer. If false, the wireframe will be drawn over everything currently drawn. If true, it will be drawn with depth considered, as if it were a regular object in 3D space.
      */
     declare function DrawWireframeSphere(position: Vector, radius: number, longitudeSteps: number, latitudeSteps: number, color?: Color, writeZ?: boolean): void;
@@ -73826,7 +73921,7 @@ declare namespace sound {
     /**
      * 🟨🟦 [Shared]
      *
-     * Creates a sound script. It can also override sounds, which seems to only work when set on the server.
+     * Creates a [sound scripts](https://developer.valvesoftware.com/wiki/Soundscripts). It can also override sounds, which seems to only work when set on the server.
      *
      * You can find a list of common sound scripts that are shipped with the game by default here: [Common Sounds](https://wiki.facepunch.com/gmod/Common_Sounds).
      *
@@ -73838,7 +73933,7 @@ declare namespace sound {
     /**
      * 🟨🟦 [Shared]
      *
-     * Overrides sounds defined inside of a txt file; typically used for adding map-specific sounds.
+     * Overrides [sound scripts](https://developer.valvesoftware.com/wiki/Soundscripts) defined inside of a `.txt` file; typically used for adding map-specific sounds.
      * @param filepath - Path to the script file to load.
      */
     declare function AddSoundOverrides(filepath: string): void;
@@ -73876,7 +73971,7 @@ declare namespace sound {
      * 		This argument can also be a string of raw 16bit binary data, (each sample is unsigned short).
      * @param [loopStart = nil] - Sample ID of the loop start. If given, the sound will be looping and will restart playing at given position after reaching its end.
      */
-    declare function Generate(identifier: string, samplerate: number, length: number, callbackOrData: (sampleIndex: number) => number, loopStart?: number): void;
+    declare function Generate(identifier: string, samplerate: number, length: number, callbackOrData: ((sampleIndex: number) => number) | any, loopStart?: number): void;
 
     /**
      * 🟦 [Server]
@@ -73891,7 +73986,7 @@ declare namespace sound {
     /**
      * 🟨🟦 [Shared]
      *
-     * Returns properties of the soundscript.
+     * Returns properties of a [sound script](https://developer.valvesoftware.com/wiki/Soundscripts).
      * @param name - The name of the sound script
      * @returns SoundData - The properties of the soundscript. See [Structures/SoundData](https://wiki.facepunch.com/gmod/Structures/SoundData)
      */
@@ -73900,7 +73995,7 @@ declare namespace sound {
     /**
      * 🟨🟦 [Shared]
      *
-     * Returns a list of all registered sound scripts.
+     * Returns a list of all registered [sound scripts](https://developer.valvesoftware.com/wiki/Soundscripts).
      *
      * New ones can be registered using [sound.Add](https://wiki.facepunch.com/gmod/sound.Add), and detailed information about each one can be retrieved via [sound.GetProperties](https://wiki.facepunch.com/gmod/sound.GetProperties).
      * @returns string[] - The list/array of all registered sound scripts ( No other information is provided )
@@ -74548,13 +74643,14 @@ declare namespace steamworks {
      * @param offset - How much of results to skip from first one. This is useful for pagination. Negative values are invalid.
      * @param numRetrieve - How many items to retrieve, up to `50` at a time. Negative values are invalid.
      * @param days - When getting `popular` or `trending` content from Steam, this determines a time period, in range of days from `0` to `365`. ( `7` = most popular addons in last 7 days, `30` = most popular addons in the last month, etc ). If given a zero, will automatically choose a value, which is `7` for `trending`.
-     * @param userID - `"0"` to retrieve all addons, `"1"` to retrieve addons only published by you, or a valid SteamID64 of a user to get workshop items of.
+     * @param [userID = 0] - `"0"` to retrieve all addons, `"1"` to retrieve addons only published by you, or a valid SteamID64 of a user to get workshop items of.
      * @param resultCallback - The function to process retrieved data.
      * <callback>
      * <arg type="table" name="data">The list of items, or nil in case of error.</arg>
      * </callback>
+     * @param [searchText = nil] - If given, will use the text to filter results.
      */
-    declare function GetList(type: string, tags: any, offset: number, numRetrieve: number, days: number, userID: string, resultCallback: (data: any) => void): void;
+    declare function GetList(type: string, tags: any, offset: number, numRetrieve: number, days: number, userID?: string, resultCallback?: (data: any) => void, searchText?: string): void;
 
     /**
      * 🟨🟩 [Client and Menu]
@@ -75514,7 +75610,7 @@ declare namespace surface {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the current color affecting draw operations.
-     * @returns Color - The color that drawing operations will use as a [Color](https://wiki.facepunch.com/gmod/Color).
+     * @returns Color - The color that drawing operations will use.
      */
     declare function GetDrawColor(): Color;
 
@@ -75560,7 +75656,7 @@ declare namespace surface {
      * 🟨🟩 [Client and Menu]
      *
      * Returns the current color affecting text draw operations.
-     * @returns Color - The color that text drawing operations will use as a [Color](https://wiki.facepunch.com/gmod/Color).
+     * @returns Color - The color that text drawing operations will use.
      */
     declare function GetTextColor(): Color;
 
@@ -76048,7 +76144,7 @@ declare namespace table {
      * <arg name="val" type="any">The value of a key-value pair for this iteration.</arg>
      * </callback>
      */
-    declare function foreach(tbl: any, callback: (key: any, val: any) => void): void;
+    declare function ForEach(tbl: any, callback: (key: any, val: any) => void): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -76718,9 +76814,8 @@ declare namespace timer {
      *
      * Pauses the given timer.
      * @param identifier - Identifier of the timer.
-     * @returns boolean - false if the timer didn't exist or was already paused, true otherwise.
      */
-    declare function Pause(identifier: any): boolean;
+    declare function Pause(identifier: any): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -76767,8 +76862,6 @@ declare namespace timer {
      * As of a commit on [2026.1.5](https://commits.facepunch.com/574654), simple timers are queued to the next frame.
      *
      * As of a commit on [2026.1.8](https://commits.facepunch.com/575132), only timers with the same callback function are queued to the next frame. [Source](https://github.com/Facepunch/garrysmod-issues/issues/6668#issuecomment-3725044829)
-     *
-     * These are recent changes, it might only be available on the [Dev Branch](https://wiki.facepunch.com/gmod/Dev_Branch) right now.
      *
      * @param delay - How long until the function should be ran (in seconds). A value of `0` differs in behavior, depending on where you're calling this function.
      * @param func - The function to run after the specified delay.
@@ -76827,9 +76920,8 @@ declare namespace timer {
      *
      * Unpauses the timer.
      * @param identifier - Identifier of the timer.
-     * @returns boolean - false if the timer didn't exist or was already running, true otherwise.
      */
-    declare function UnPause(identifier: any): boolean;
+    declare function UnPause(identifier: any): void;
 }
 
 /**
@@ -77386,7 +77478,7 @@ declare namespace util {
      * @param ent - The entity to apply the decal to
      * @param position - The position of the decal.
      * @param normal - The direction of the decal.
-     * @param color - The color of the decal. Uses the [Color](https://wiki.facepunch.com/gmod/Color).
+     * @param color - The color of the decal. Uses [Color](https://wiki.facepunch.com/gmod/Color).
      * This only works when used on a brush model and only if the decal material has set `$vertexcolor` to `1`.
      * @param w - The width scale of the decal.
      * @param h - The height scale of the decal.
@@ -77408,6 +77500,9 @@ declare namespace util {
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Decompresses the given string using [LZMA](https://en.wikipedia.org/wiki/LZMA) algorithm. Used to decompress strings previously compressed with [util.Compress](https://wiki.facepunch.com/gmod/util.Compress).
+     *
+     * **Warning:**
+     * >When reading user data, always try to specify `maxSize` argument, otherwise the server can be [decompression bombed](https://en.wikipedia.org/wiki/Zip_bomb) with bad data that will fill up all Lua memory
      *
      * **Note:**
      * >This function expects the compressed input data to have the uncompressed size of the data prepended to it as an 8-byte little-endian integer. [Source](https://github.com/garrynewman/bootil/blob/beb4cec8ad29533965491b767b177dc549e62d23/src/Bootil/Utility/CompressionLZMA.cpp#L101)
@@ -77448,7 +77543,11 @@ declare namespace util {
      * You will need to couple this function with [Global.IsFirstTimePredicted](https://wiki.facepunch.com/gmod/Global.IsFirstTimePredicted) if you want to use it in a.
      *
      * @param effectName - The name of the effect to create.
-     * You can find a list of <page text="built-in engine effects here">Default_Effects</page>. You can create your own, [example effects can be found here](https://github.com/Facepunch/garrysmod/tree/master/garrysmod/gamemodes/sandbox/entities/effects) and [here](https://github.com/Facepunch/garrysmod/tree/master/garrysmod/gamemodes/base/entities/effects).
+     * You can find a list of <page text="built-in engine effects here">Default_Effects</page>. You can create your own in LUA, [example effects can be found here](https://github.com/Facepunch/garrysmod/tree/master/garrysmod/gamemodes/sandbox/entities/effects) and [here](https://github.com/Facepunch/garrysmod/tree/master/garrysmod/gamemodes/base/entities/effects).
+     * **Warning:**
+     * >If you use this function with Lua effects more than 2048 times in a single frame,
+     * you will get errors: `Broke possible Lua Effect creation infinite loop` and `Too many Lua Effects (2049)! Are you killing them properly?`.
+     *
      * @param effectData - The effect data describing the effect.
      * @param [allowOverride = true] - Whether Lua-defined effects should override engine-defined effects with the same name for this/single function call.
      * @param [ignorePredictionOrRecipientFilter = nil] - Can either be a boolean to ignore the prediction filter or a [CRecipientFilter](https://wiki.facepunch.com/gmod/CRecipientFilter).
@@ -77949,13 +78048,13 @@ declare namespace util {
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
-     * Similar to [util.KeyValuesToTable](https://wiki.facepunch.com/gmod/util.KeyValuesToTable) but it also preserves order of keys.
-     * @param keyvals - The key value string
+     * Similar to [util.KeyValuesToTable](https://wiki.facepunch.com/gmod/util.KeyValuesToTable), but it also preserves order of keys (since Lua dictionary-style tables do not guarantee a specific order), and allows handling of repeated keys. (since each key can only appear once in a dictionary data structure)
+     * @param keyValues - The Valve KeyValue formatted text.
      * @param [usesEscapeSequences = false] - If set to true, will replace `\t`, `\n`, `\"` and `\\` in the input text with their escaped variants
      * @param [preserveKeyCase = false] - Whether we should preserve key case (may fail) or not (always lowercase)
      * @returns any - The output table
      */
-    declare function KeyValuesToTablePreserveOrder(keyvals: string, usesEscapeSequences?: boolean, preserveKeyCase?: boolean): any;
+    declare function KeyValuesToTablePreserveOrder(keyValues: string, usesEscapeSequences?: boolean, preserveKeyCase?: boolean): any;
 
     /**
      * 🟨🟦 [Shared]
@@ -78095,13 +78194,10 @@ declare namespace util {
      * Precaches a sound for later use. Sound is cached after being loaded once.
      *
      * **Bug :**
-     * >Broken on purpose because hitting the limit above causes the server to shutdown
-     *
-     * **Bug :**
      * >Ultimately does nothing on client, and only works with sound scripts, not direct paths.
      *
      * **Note:**
-     * >Soundcache is limited to 16384 unique sounds on the server.
+     * >Soundcache is limited to 16384 unique sounds on the server. Due to this fact this function is disabled on purpose, as exceeding the limit causes the server to shutdown.
      *
      * @param soundName - The sound to precache.
      */
@@ -78262,7 +78358,7 @@ declare namespace util {
      * Adds a trail to the specified entity.
      * @param ent - Entity to attach trail to
      * @param attachmentID - Attachment ID of the entities model to attach trail to. If you are not sure, set this to 0
-     * @param color - Color of the trail, use [Global.Color](https://wiki.facepunch.com/gmod/Global.Color)
+     * @param color - Color of the trail
      * @param additive - Should the trail be additive or not
      * @param startWidth - Start width of the trail
      * @param endWidth - End width of the trail
@@ -78271,7 +78367,7 @@ declare namespace util {
      * @param texture - Path to the texture to use as a trail.
      * @returns Entity - Entity of created trail ([env_spritetrail](https://developer.valvesoftware.com/wiki/Env_spritetrail))
      */
-    declare function SpriteTrail(ent: Entity, attachmentID: number, color: any, additive: boolean, startWidth: number, endWidth: number, lifetime: number, textureRes: number, texture: string): Entity;
+    declare function SpriteTrail(ent: Entity, attachmentID: number, color: Color, additive: boolean, startWidth: number, endWidth: number, lifetime: number, textureRes: number, texture: string): Entity;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -78335,11 +78431,11 @@ declare namespace util {
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
-     * Converts the given table into a Valve key value string.
+     * Converts the given table into a Valve keyValue formatted string.
      *
      * Use [util.KeyValuesToTable](https://wiki.facepunch.com/gmod/util.KeyValuesToTable) to perform the opposite transformation.
      *
-     * You should consider using [util.TableToJSON](https://wiki.facepunch.com/gmod/util.TableToJSON) instead.
+     * [util.TableToJSON](https://wiki.facepunch.com/gmod/util.TableToJSON) can be used as an alternative.
      * @param table - The table to convert.
      * @param [rootKey = TableToKeyValues] - The root key name for the output KV table.
      * @returns string - The output.

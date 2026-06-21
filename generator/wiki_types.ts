@@ -72,6 +72,11 @@ export interface WikiArgument extends WikiElement {
     description: string;
     name: string;
     type: string;
+    /**
+     * Optional secondary type the argument also accepts (Facepunch wiki `alttype`
+     * attribute). e.g. Player:GiveAmmo's `type` arg is `string` with `alttype="number"`.
+     */
+    alttype?: string;
     default?: string;
 }
 
@@ -79,6 +84,8 @@ export interface WikiReturn extends WikiElement {
     kind: WikiElementKind.Return;
     description: string;
     type: string;
+    /** Optional secondary return type (Facepunch wiki `alttype` attribute). */
+    alttype?: string;
 }
 
 export interface WikiEnum extends WikiAddressable, WikiElement {
@@ -109,6 +116,8 @@ export interface WikiStructItem extends WikiAddressable, WikiElement {
     parent: string;
     name: string;
     type: string;
+    /** Optional secondary type the field also accepts (Facepunch wiki `alttype` attribute). */
+    alttype?: string;
     default?: string;
 }
 

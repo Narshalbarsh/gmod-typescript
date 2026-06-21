@@ -7,7 +7,12 @@ import { TSArgument, TSFunction, TSReturn } from '../ts_types';
 import { WikiArgument, WikiFunction, WikiReturn } from '../wiki_types';
 import { createRealmString, transformDescription } from './description';
 import { transformIdentifier, transformType } from './util';
-import { inferType, parseFirstCallbackSigFrom, preferCallbackType } from './type_utils';
+import {
+    inferType,
+    parseFirstCallbackSigFrom,
+    preferCallbackType,
+    unionWithAltType,
+} from './type_utils';
 
 export function transformFunction(wikiFunc: WikiFunction): TSFunction {
     const args: TSArgument[] = transformArgs(wikiFunc);
@@ -20,16 +25,21 @@ export function transformFunction(wikiFunc: WikiFunction): TSFunction {
         const d = typeof a.default === 'string' ? unescapeEntities(a.default) : undefined;
         const isOptional = a.default !== undefined;
 
-        const argName = isOptional ? (d ? `[${identifier} = ${d}]` : `[${identifier}]`) : identifier;
+        const argName = isOptional
+            ? d
+                ? `[${identifier} = ${d}]`
+                : `[${identifier}]`
+            : identifier;
 
         return `@param ${argName} - ${description}`;
     };
 
     const retToDocComment = (r: WikiReturn, i: number) => {
-        const inferred = inferType(r.type, r.description);
-        const t = transformType(inferred || r.type || '').trim() || 'void';
+        const t = resolveReturnType(r).trim() || 'void';
 
-        const description = transformDescription(r.description).replace(/\n{2,}/g, '\n').trim();
+        const description = transformDescription(r.description)
+            .replace(/\n{2,}/g, '\n')
+            .trim();
         if (!description && (!t || t === 'void') && wikiFunc.rets.length === 0) {
             return '';
         }
@@ -74,6 +84,7 @@ function transformArgs(func: WikiFunction): TSArgument[] {
         let type = inferType(rawWikiType, arg.description);
         const argMod = argMods.find((a) => a.arg.identifier === arg.name);
         let defaultValue = arg.default;
+        let typeOverriddenByMod = false;
 
         // special-cases
         const isEntitySetBodyGroups =
@@ -85,7 +96,10 @@ function transformArgs(func: WikiFunction): TSArgument[] {
         if (isEntitySetBodyGroups || isPMAddValidHands) type = 'SubModelIds';
 
         if (argMod) {
-            if (argMod.arg.type) type = argMod.arg.type;
+            if (argMod.arg.type) {
+                type = argMod.arg.type;
+                typeOverriddenByMod = true;
+            }
             if (argMod.arg.default) defaultValue = argMod.arg.default;
         }
 
@@ -103,7 +117,16 @@ function transformArgs(func: WikiFunction): TSArgument[] {
             type = preferCallbackType(rawWikiType, cb);
         }
 
-        const outType = /\)\s*=>/.test(type) ? type : transformType(type);
+        let outType = /\)\s*=>/.test(type) ? type : transformType(type);
+
+        // The wiki `alttype` attribute records a secondary accepted type (e.g.
+        // Player:GiveAmmo's `type` arg is string | number). Fold it into a union.
+        // Skipped when a manual modification dictates the type, for varargs, and for
+        // the SubModelIds special-case (which the printer keys on by exact type).
+        if (arg.alttype && !typeOverriddenByMod && type !== 'vararg' && type !== 'SubModelIds') {
+            const altType = transformType(inferType(arg.alttype, arg.description));
+            outType = unionWithAltType(outType, altType);
+        }
 
         return {
             identifier: (type == 'vararg' ? '...' : '') + transformIdentifier(arg.name),
@@ -111,6 +134,18 @@ function transformArgs(func: WikiFunction): TSArgument[] {
             type: outType,
         } as TSArgument;
     });
+}
+
+/**
+ * Resolve a single wiki return into its final TS type, folding in the secondary
+ * `alttype` as a union when present. Mirrors the argument pipeline so a return
+ * documented as e.g. `string` with `alttype="number"` becomes `string | number`.
+ */
+function resolveReturnType(r: WikiReturn): string {
+    const primary = transformType(inferType(r.type, r.description));
+    if (!r.alttype) return primary;
+    const alt = transformType(inferType(r.alttype, r.description));
+    return unionWithAltType(primary, alt);
 }
 
 function transformReturns(func: WikiFunction): TSReturn {
@@ -128,11 +163,9 @@ function transformReturns(func: WikiFunction): TSReturn {
     if (rets.length === 1) {
         const t = inferType(rets[0].type, rets[0].description);
         if (t.trim().toLowerCase() === 'vararg') return { type: 'any' };
-        return { type: transformType(t) };
+        return { type: resolveReturnType(rets[0]) };
     }
     return {
-        type: `LuaMultiReturn<[${rets
-            .map((r) => transformType(inferType(r.type, r.description)))
-            .join(', ')}]>`,
+        type: `LuaMultiReturn<[${rets.map(resolveReturnType).join(', ')}]>`,
     };
 }

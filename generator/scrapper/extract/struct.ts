@@ -25,6 +25,7 @@ function itemObjToStructObj(itemObj: any): WikiStructItem {
         parent: '',
         address: '',
         type: itemObj.attr.type,
+        alttype: itemObj.attr.alttype,
         description: itemObj.__text ? itemObj.__text.trim() : '',
         default:
             itemObj.attr && itemObj.attr.default !== undefined

@@ -34,8 +34,7 @@ export function inferType(type: string, desc: string) {
     const isObjectVague = /^(any|table|function)$/i.test(t) || isEmpty;
 
     // Keep number->enum inference (this is the useful one)
-    const isEnumCandidate =
-        /^number(\s*\{.*\})?$/i.test(t) || /^(any|table)$/i.test(t) || isEmpty;
+    const isEnumCandidate = /^number(\s*\{.*\})?$/i.test(t) || /^(any|table)$/i.test(t) || isEmpty;
 
     if (isEnumLink && isEnumCandidate) return leaf;
 
@@ -77,7 +76,7 @@ export function parseFirstCallbackSigFrom(desc: string): string | undefined {
     }
 
     const retTypes = Array.from(block.matchAll(/<ret\b[^>]*type="([^"]*)"/gi)).map((mm) =>
-        transformType((mm[1] || 'void').trim()),
+        transformType((mm[1] || 'void').trim())
     );
     let retType = 'void';
     if (retTypes.length === 1) retType = retTypes[0];
@@ -94,13 +93,11 @@ export function mergeCallbackIntoType(rawType: string, cbSig: string): string {
     const isFunc = t === 'Function' || /^function$/i.test(t);
 
     if (isComposite) {
-        const parts = t.split(/[|&]/).map(s => s.trim());
+        const parts = t.split(/[|&]/).map((s) => s.trim());
         const joiner = t.includes('|') ? ' | ' : ' & ';
         const wrapped = cbSig.startsWith('(') && cbSig.endsWith(')') ? cbSig : `(${cbSig})`;
 
-        const mapped = parts.map(p =>
-            p === 'Function' || /^function$/i.test(p) ? wrapped : p
-        );
+        const mapped = parts.map((p) => (p === 'Function' || /^function$/i.test(p) ? wrapped : p));
 
         return mapped.join(joiner);
     }
@@ -118,4 +115,74 @@ export function preferCallbackType(rawType: string, cbSig: string): string {
     if (/\bFunction\b/i.test(t)) return mergeCallbackIntoType(rawType, cbSig);
     if (/^(any|Function)?$/i.test(t) || t === '') return cbSig; // upgrade vague, no extra parens
     return t;
+}
+
+/**
+ * Split a TS type string on top-level `|`, ignoring separators nested inside
+ * generics (`<>`), parentheses (`()`), object/mapped types (`{}`), array/tuple
+ * (`[]`), or function arrows (`=>`).
+ */
+export function splitTopLevelUnion(type: string): string[] {
+    const parts: string[] = [];
+    let depth = 0;
+    let start = 0;
+    for (let i = 0; i < type.length; i++) {
+        const c = type[i];
+        // Skip arrow tokens so the `>` of `=>` isn't treated as a bracket close.
+        if (c === '=' && type[i + 1] === '>') {
+            i++;
+            continue;
+        }
+        if (c === '<' || c === '(' || c === '{' || c === '[') depth++;
+        else if (c === '>' || c === ')' || c === '}' || c === ']') depth--;
+        else if (c === '|' && depth === 0) {
+            parts.push(type.slice(start, i));
+            start = i + 1;
+        }
+    }
+    parts.push(type.slice(start));
+    return parts.map((s) => s.trim()).filter((s) => s.length > 0);
+}
+
+/** True when `type` is itself a function type at the top level, e.g. `(a: x) => y`. */
+function isTopLevelArrow(type: string): boolean {
+    let depth = 0;
+    for (let i = 0; i < type.length - 1; i++) {
+        const c = type[i];
+        if (c === '=' && type[i + 1] === '>') {
+            if (depth === 0) return true;
+            i++; // skip the `>` of a nested arrow
+            continue;
+        }
+        if (c === '<' || c === '(' || c === '{' || c === '[') depth++;
+        else if (c === '>' || c === ')' || c === '}' || c === ']') depth--;
+    }
+    return false;
+}
+
+/**
+ * Combine an already-transformed primary TS type with an alternative one (derived
+ * from the wiki `alttype` attribute) into a single de-duplicated union.
+ *
+ * - Identical/empty alt types are a no-op, so callers without an `alttype` keep
+ *   their exact previous output.
+ * - Function-type members are parenthesised so they stay valid inside the union
+ *   (`(() => void) | number`).
+ */
+export function unionWithAltType(primary: string, alt: string): string {
+    const primaryTrimmed = (primary || '').trim();
+    const primaryParts = splitTopLevelUnion(primaryTrimmed);
+    const altParts = splitTopLevelUnion(alt || '');
+
+    const seen = new Set<string>();
+    const parts: string[] = [];
+    for (const p of [...primaryParts, ...altParts]) {
+        if (!seen.has(p)) {
+            seen.add(p);
+            parts.push(p);
+        }
+    }
+
+    if (parts.length <= 1) return primaryTrimmed;
+    return parts.map((p) => (isTopLevelArrow(p) ? `(${p})` : p)).join(' | ');
 }

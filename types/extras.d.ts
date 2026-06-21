@@ -1,6 +1,6 @@
-type thread = { readonly __internal__: unique symbol };
-type userdata = { readonly __internal__: unique symbol };
-type sensor = { readonly __internal__: unique symbol };
+interface thread { readonly __internal__: unique symbol }
+interface userdata { readonly __internal__: unique symbol }
+interface sensor { readonly __internal__: unique symbol }
 
 declare const SERVER: boolean;
 declare const CLIENT: boolean;
@@ -8,6 +8,10 @@ declare const MENU: boolean;
 declare const GAMEMODE: Gamemode;
 declare const GM: Gamemode;
 declare const ENT: ENTITY;
+
+// Needed where the engine wants an Entity meaning "none", e.g. Player:SetActiveWeapon(NULL)
+// not the same thing as nil or undefined
+declare const NULL: Entity;
 
 /**
  * SubModelIds

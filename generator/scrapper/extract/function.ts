@@ -61,7 +61,8 @@ export function extractFunction(page: WikiPage): WikiFunction | WikiStructItem {
         ({
             description: textOf(retObj),
             type: retObj.attr.type,
-        }) as WikiReturn;
+            alttype: retObj.attr.alttype,
+        } as WikiReturn);
 
     const fromTitle = parentNameFromTitle(page.title);
 
