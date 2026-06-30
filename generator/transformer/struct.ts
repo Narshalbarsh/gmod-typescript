@@ -26,15 +26,20 @@ export function transformStruct(wikiStruct: WikiStruct): TSCollection {
     const fields = wikiStruct.items.map((item) => {
         const field = transformStructField(item);
 
-        // Only upgrade vague (`any`) fields; never override a concrete type.
-        if (field.type === 'any' || field.type === '') {
-            const own = inlineTableTypes.get(item.name);
-            if (own) {
-                field.type = own;
-            } else {
+        // Upgrade fields that resolved to a vague `any` (a single `table`) or
+        // `any[]` (a `table<table>` list) when their shape is described by an
+        // inline bullet list. For the list form the bullets describe the
+        // *element*, so the parsed object type is wrapped in `[]`.
+        const isVagueObject = field.type === 'any' || field.type === '';
+        const isVagueList = field.type === 'any[]';
+        if (isVagueObject || isVagueList) {
+            let shape = inlineTableTypes.get(item.name);
+            if (!shape) {
                 const ref = findSameFieldsReference(item.description);
-                const refType = ref ? inlineTableTypes.get(ref) : undefined;
-                if (refType) field.type = refType;
+                shape = ref ? inlineTableTypes.get(ref) : undefined;
+            }
+            if (shape) {
+                field.type = isVagueList ? `${shape}[]` : shape;
             }
         }
 

@@ -46600,7 +46600,7 @@ interface UGCFileInfo {
      * * [number](https://wiki.facepunch.com/gmod/number) `type` - type of additional preview. 0 = is normal image, 1=YouTube video ID
      * * [string](https://wiki.facepunch.com/gmod/string) `url` - URL to the additional preview. Format depends on the type.
      */
-    extra_previews: any[],
+    extra_previews: { type: number; url: string }[],
 }
 
 /**
