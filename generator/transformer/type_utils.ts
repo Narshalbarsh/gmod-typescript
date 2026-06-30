@@ -47,6 +47,58 @@ export function inferType(type: string, desc: string) {
     return t;
 }
 
+/**
+ * Parse an inline "the table contains these fields" bullet list into a TS
+ * object-literal type. Mirrors `parseFirstCallbackSigFrom`, but for fields that
+ * the wiki documents as a generic `table` whose shape is only described by a
+ * markdown bullet list in the body (e.g. `SWEP.Primary`/`Secondary`), rather
+ * than as a dedicated `Structures/X` page.
+ *
+ * Each recognised bullet looks like (backticks may be the literal char or the
+ * `&grave;` entity the scraper escapes them to):
+ *
+ *     * <page>string</page> `Ammo` - Ammo type ...
+ *     * <page>number</page> `ClipSize` - ...
+ *
+ * Returns e.g. `{ Ammo: string; ClipSize: number; DefaultClip: number; Automatic: boolean }`
+ * or `undefined` when no field bullets are present.
+ */
+export function parseInlineTableType(desc: string): string | undefined {
+    const text = desc || '';
+
+    // Bullet line: leading * or -, a <page ...>TYPE</page> link, a `Name` in
+    // backticks (literal or &grave; entity), then a separator (-, –, —, or :).
+    const bulletRe =
+        /^[ \t]*[*\-][ \t]*<page\b[^>]*>([^<]+)<\/page>[ \t]*(?:`|&grave;)\s*([A-Za-z_]\w*)\s*(?:`|&grave;)[ \t]*[-–—:]/gim;
+
+    const seen = new Set<string>();
+    const fields: string[] = [];
+    let m: RegExpExecArray | null;
+    while ((m = bulletRe.exec(text))) {
+        const rawType = (m[1] || '').trim();
+        const name = (m[2] || '').trim();
+        if (!name || seen.has(name)) continue;
+        seen.add(name);
+        const tsType = transformType(rawType) || 'any';
+        fields.push(`${transformIdentifier(name)}: ${tsType}`);
+    }
+
+    if (fields.length === 0) return undefined;
+    return `{ ${fields.join('; ')} }`;
+}
+
+/**
+ * Detect cross-references of the form "(has) the same fields as Primary" and
+ * return the referenced sibling field name. Used so `Secondary`, documented only
+ * as "has same fields as Primary attack settings", reuses `Primary`'s shape.
+ */
+export function findSameFieldsReference(desc: string): string | undefined {
+    const m = /same\s+(?:fields|settings|structure|table)\s+as\s+(?:the\s+)?([A-Za-z_]\w*)/i.exec(
+        desc || ''
+    );
+    return m ? m[1] : undefined;
+}
+
 /** Parse the first `<callback>` block into a TS function type. */
 export function parseFirstCallbackSigFrom(desc: string): string | undefined {
     const m = /<callback>([\s\S]*?)<\/callback>/i.exec(desc || '');

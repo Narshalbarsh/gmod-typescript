@@ -3828,6 +3828,14 @@ interface CSoundPatch {
     /**
      * 🟨🟦 [Shared]
      *
+     * Returns the sound name of this sound patch. This may be name of a sound script ([sound.Add](https://wiki.facepunch.com/gmod/sound.Add)) or a file path.
+     * @returns string - The sound name.
+     */
+    GetSoundName(): string;
+
+    /**
+     * 🟨🟦 [Shared]
+     *
      * Returns the current volume.
      * @returns number - The current volume, ranging from 0 to 1.
      */
@@ -4831,7 +4839,7 @@ interface Entity {
      *
      * Creates bone followers based on the current entity model.
      *
-     * Bone followers are <page text="Entities">Entity</page> whose <page text="Physics Object">PhysObj</page> follows a specific bone on another Entity's model.
+     * Bone followers are <page text="Entities">Entity</page> whose <page text="Physics Objects">PhysObj</page> follow a specific bone on another Entity's model.
      * This is what is used by `prop_dynamic` for things like big combine doors with multiple physics objects which follow the visual mesh of the door when it animates.
      *
      * Be mindful that bone followers create a separate entity (`phys_bone_follower`) for each physics object.
@@ -19703,6 +19711,12 @@ interface Player extends Entity {
      *
      * [Player:CanUseFlashlight](https://wiki.facepunch.com/gmod/Player:CanUseFlashlight) must be true in order for the player's flashlight to be changed.
      * [GM:PlayerSwitchFlashlight](https://wiki.facepunch.com/gmod/GM:PlayerSwitchFlashlight) can block this function.
+     *
+     * **Note:**
+     * >Added in [2025.11.12](https://gmod.facepunch.com/changelist/4026), the `gmod_flashlight` attachment is used as a source for the player's flashlight. In thirdperson, the playermodel and weapon worldmodel are checked; in firstperson, the viewmodel is checked. If the attachment isn't found, default engine functionality is used.
+     *
+     * The light sprite attached to the playermodel when the flashlight is on will also follow the playermodel's `gmod_flashlight` attachment if it exists.
+     *
      * @param isOn - Turns the flashlight on/off
      */
     Flashlight(isOn: boolean): void;
@@ -45186,6 +45200,11 @@ interface RenderCaptureData {
      * Format of the capture. Valid formats are:
      * * `jpeg` or `jpg`
      * * `png`
+     *
+     * As of version 2026.06.19:
+     * * `rgba`, `rgb` and `bgra` - Raw image data in given byte order.
+     * Expected data size is `ImgWidth * ImgHeight * 4` (`ImgWidth * ImgHeight * 3` for `rgb`)
+     * Each 4 (or 3 for `rgb`) bytes  is one pixel, top to bottom left to right.
      */
     format: string,
 
@@ -45215,7 +45234,7 @@ interface RenderCaptureData {
     quality: number,
 
     /**
-     * Set to false to capture an image with alpha channel set to fully opaque. Affects png only.
+     * Set to false to capture an image with alpha channel set to fully opaque. Affects any format with alpha channel support, so not `jpg`.
      * @default true
      */
     alpha?: boolean,
@@ -46012,12 +46031,12 @@ interface SWEP {
      * * [number](https://wiki.facepunch.com/gmod/number) `DefaultClip` - Default ammo in the clip, making it higher than ClipSize will give player additional ammo on spawn
      * * [boolean](https://wiki.facepunch.com/gmod/boolean) `Automatic` - If true makes the weapon shoot automatically as long as the player has primary attack button held down
      */
-    Primary: any,
+    Primary: { Ammo: string; ClipSize: number; DefaultClip: number; Automatic: boolean },
 
     /**
      * Secondary attack settings, has same fields as Primary attack settings
      */
-    Secondary: any,
+    Secondary: { Ammo: string; ClipSize: number; DefaultClip: number; Automatic: boolean },
 
     /**
      * Makes the player models hands bonemerged onto
@@ -46305,7 +46324,7 @@ interface TraceResult {
     Hit?: boolean,
 
     /**
-     * The ID of the hitbox hit by the trace.
+     * The ID of the hitbox hit by the trace, or ID of the static prop hit in case of hitting the world.
      * @default 0
      */
     HitBox?: number,
@@ -46446,7 +46465,7 @@ interface UGCFileInfo {
     title: string,
 
     /**
-     * The description of the Workshop item
+     * The description of the Workshop item. It will be limited to 255 characters (by Steam) unless [steamworks.FileInfo](https://wiki.facepunch.com/gmod/steamworks.FileInfo) is called with the `extraInfo` parameter set.
      */
     description: string,
 
@@ -46571,6 +46590,17 @@ interface UGCFileInfo {
      * * `adult_only`
      */
     content_descriptors: string[],
+
+    /**
+     * If present, a list of additional previews for this Workshop item.
+     *
+     * [steamworks.FileInfo](https://wiki.facepunch.com/gmod/steamworks.FileInfo) must be called with `extraInfo` parameter.
+     *
+     * It will be a table of tables with the following keys:
+     * * [number](https://wiki.facepunch.com/gmod/number) `type` - type of additional preview. 0 = is normal image, 1=YouTube video ID
+     * * [string](https://wiki.facepunch.com/gmod/string) `url` - URL to the additional preview. Format depends on the type.
+     */
+    extra_previews: any[],
 }
 
 /**
@@ -54236,17 +54266,19 @@ declare const enum MASK {
  *
  * Enumerations used in [Structures/TraceResult](https://wiki.facepunch.com/gmod/Structures/TraceResult) and [Structures/SurfacePropertyData](https://wiki.facepunch.com/gmod/Structures/SurfacePropertyData), and by [Entity:GetMaterialType](https://wiki.facepunch.com/gmod/Entity:GetMaterialType).
  *
- * # These aren't VMT materials!
+ * **Note:**
+ * >These aren't!
  *
- * [Material types](https://developer.valvesoftware.com/wiki/Material_Types) are a [holdover from GoldSrc](https://developer.valvesoftware.com/wiki/Material_surface_properties) and Quake before it. They were previously used to classify textures and entities into categories, defining their physical properties. In practice, this really only changed impact sounds and effects, and player footstep sounds. For example, `func_breakable` (in GoldSrc) used it to select which gibs to spawn when broken. Raw texture files were given these properties by assigning them to a material. These were tracked in the single file `materials.txt`, which contained mappings of material types to texture names. Materials are indexed using a letter—for example `MAT_METAL` was indexed in `materials.txt` with the letter "M". The value of `MAT_METAL` is 77, because the ASCII value for M is 77. Some entities could also be assigned materials directly in their <page text="keyvalues">Entity:GetSaveTable</page> using the same system.
+ * [Material types](https://developer.valvesoftware.com/wiki/Material_Types) are a [holdover from GoldSrc](https://developer.valvesoftware.com/wiki/Material_surface_properties) and Quake before it. They were previously used to classify textures and entities into categories, defining their physical properties. In practice, this really only changed impact sounds and effects, and player footstep sounds. For example, `func_breakable` (in GoldSrc) used it to select which gibs to spawn when broken. Raw texture files were given these properties by assigning them to a material. These were tracked in the single file `materials.txt`, which contained mappings of material types to texture names. Materials are indexed using a letter—for example `MAT_METAL` was indexed in `materials.txt` with the letter "M". The value of `MAT_METAL` is 77, because the ASCII value for M is 77. Some entities could also be assigned materials directly in theirusing the same system.
  *
- * In Source, materials were moved out of the single `materials.txt` file; now every texture has its own associated <page text="material">Materials_and_Textures</page> file, called [VMT](https://developer.valvesoftware.com/wiki/VMT) (**V**alve **M**aterial **T**ype). VMTs contain all the information legacy materials used to provide and more, including including shader, transparency, physical properties, animations...
+ * In Source, materials were moved out of the single `materials.txt` file; now every texture has its own associatedfile, called [VMT](https://developer.valvesoftware.com/wiki/VMT) (**V**alve **M**aterial **T**ype). VMTs contain all the information legacy materials used to provide and more, including including shader, transparency, physical properties, animations...
  *
- * Rather than place the properties directly inside the VMT (which would prevent them from being assigned directly to entities like legacy materials could), <page text="surface properties">Structures/SurfacePropertyData</page> were added, which can be selected in the VMT using the `$surfaceprop` key. Surface properties are what determine impact sounds, buoyancy, friction, and other such properties. These do not use letters as identifiers and instead use <page text="string names">util.GetSurfaceIndex</page>. You can view the surface properties Garry's Mod loads by looking in the `GarrysMod/sourceengine/scripts/surfaceproperties.txt` file.
+ * Rather than place the properties directly inside the VMT (which would prevent them from being assigned directly to entities like legacy materials could),were added, which can be selected in the VMT using the `$surfaceprop` key. Surface properties are what determine impact sounds, buoyancy, friction, and other such properties. These do not use letters as identifiers and instead use. You can view the surface properties Garry's Mod loads by looking in the [`GarrysMod/sourceengine/scripts/surfaceproperties.txt`](https://github.com/Facepunch/garrysmod/blob/master/garrysmod/scripts/surfaceproperties.txt) file.
  *
- * However, legacy materials still exist in Source. They are called game materials or <page text="material types">Entity:GetMaterialType</page> to separate them from the new material system where confusion between the two is a concern. For example, surface property definitions contain a `gamematerial` parameter; this field assigns a legacy game material to a surface property, which is then assigned to VMTs and entities.
+ * However, legacy materials still exist in Source. They are called game materials orto separate them from the new material system where confusion between the two is a concern. For example, surface property definitions contain a `gamematerial` parameter; this field assigns a legacy game material to a surface property, which is then assigned to VMTs and entities.
  *
  * The main thing legacy game materials are used for nowadays are picking impact effects and decals, like in GoldSrc. Otherwise, surface properties and VMTs replace most other functionality.
+ *
  * @compileMembersOnly
  */
 declare const enum MAT {
@@ -59433,8 +59465,8 @@ declare function DTVar_ReceiveProxyGL(entity: Entity, Type: string, index: numbe
  * **Warning:**
  * >It is not safe to hold a reference to this object after creation since its data can be replaced by another dlight at any time.
  *
- * **Bug [#3798](https://github.com/Facepunch/garrysmod-issues/issues/3798):**
- * >The minlight parameter affects the world and entities differently.
+ * **Bug [#4649](https://github.com/Facepunch/garrysmod-issues/issues/4649):**
+ * >Dynamic lights affect the world (brushwork, static props) and entities (dynamic props, etc.) differently.
  *
  * **Note:**
  * >Only 32 dlights and 64 elights can be active at once.
@@ -61501,7 +61533,7 @@ declare function RealFrameTime(): number;
 /**
  * 🟨🟦 [Shared]
  *
- * Returns the uptime of the game/server in seconds (to at least **4** decimal places). This value updates itself once every time the realm thinks. For servers, this is the server tickrate. For clients, its their current FPS.
+ * Returns the uptime of the game/server in seconds (to at least **4** decimal places). This value updates itself once every time the realm thinks. For servers, this is the server tickrate. For clients, this is once per frame.
  *
  * You should use this function (or [Global.SysTime](https://wiki.facepunch.com/gmod/Global.SysTime)) for timing real-world events such as user interaction, but not for timing game events such as animations.
  *
@@ -74624,8 +74656,9 @@ declare namespace steamworks {
      * <callback>
      * 	<arg type="table" name="data">The data about the item, if the request succeeded, `nil` otherwise. See [Structures/UGCFileInfo](https://wiki.facepunch.com/gmod/Structures/UGCFileInfo).</arg>
      * </callback>
+     * @param [extraInfo = false] - If set, the function will retrieve more info about the workshop item, such as longer description and additional preview images. Only use this if absolutely necessary.
      */
-    declare function FileInfo(workshopItemID: string, resultCallback: (data: UGCFileInfo) => void): void;
+    declare function FileInfo(workshopItemID: string, resultCallback: (data: UGCFileInfo) => void, extraInfo?: boolean): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -76812,6 +76845,15 @@ declare namespace timer {
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
+     * Returns whenever the given timer is paused or not. ([timer.Pause](https://wiki.facepunch.com/gmod/timer.Pause))
+     * @param identifier - Identifier of the timer. ([timer.Create](https://wiki.facepunch.com/gmod/timer.Create))
+     * @returns boolean - Returns true if the timer is paused, false if it isn't, `nil` if it doesn't exist.
+     */
+    declare function IsPaused(identifier: string): boolean;
+
+    /**
+     * 🟨🟦🟩 [Shared and Menu]
+     *
      * Pauses the given timer.
      * @param identifier - Identifier of the timer.
      */
@@ -76876,22 +76918,17 @@ declare namespace timer {
      * **Warning:**
      * >Timers won't advance while the client is timing out from the server.
      *
-     * **Note:**
-     * >Timers use [Global.CurTime](https://wiki.facepunch.com/gmod/Global.CurTime) for timing.
-     *
      * @param identifier - Identifier of the timer.
-     * @returns boolean - true if the timer exists, false if it doesn't.
      */
-    declare function Start(identifier: any): boolean;
+    declare function Start(identifier: any): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
      *
      * Stops the given timer and rewinds it.
      * @param identifier - Identifier of the timer.
-     * @returns boolean - false if the timer didn't exist or was already stopped, true otherwise.
      */
-    declare function Stop(identifier: any): boolean;
+    declare function Stop(identifier: any): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -76911,9 +76948,8 @@ declare namespace timer {
      *
      * Runs either [timer.Pause](https://wiki.facepunch.com/gmod/timer.Pause) or [timer.UnPause](https://wiki.facepunch.com/gmod/timer.UnPause) based on the timer's current status.
      * @param identifier - Identifier of the timer.
-     * @returns boolean - status of the timer.
      */
-    declare function Toggle(identifier: any): boolean;
+    declare function Toggle(identifier: any): void;
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
