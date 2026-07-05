@@ -2176,11 +2176,11 @@ interface CNavArea {
      *
      * Returns size info about the nav area.
      * @returns any - Returns a table containing the following keys:
-     * * [Vector](https://wiki.facepunch.com/gmod/Vector) hi|
-     * * [Vector](https://wiki.facepunch.com/gmod/Vector) lo|
-     * * [number](https://wiki.facepunch.com/gmod/number) SizeX|
-     * * [number](https://wiki.facepunch.com/gmod/number) SizeY|
-     * * [number](https://wiki.facepunch.com/gmod/number) SizeZ|
+     * * [Vector](https://wiki.facepunch.com/gmod/Vector) hi - "Maxs" of the nav area in world space
+     * * [Vector](https://wiki.facepunch.com/gmod/Vector) lo - "Mins" of the nav area in world space
+     * * [number](https://wiki.facepunch.com/gmod/number) SizeX - Size on the X axis
+     * * [number](https://wiki.facepunch.com/gmod/number) SizeY - Size on the Y axis
+     * * [number](https://wiki.facepunch.com/gmod/number) SizeZ - Size of the Z axis
      */
     GetExtentInfo(): any;
 
@@ -7769,8 +7769,9 @@ interface Entity {
      *
      * Returns whether the entity is dormant or not.
      *
-     * Client/server entities become dormant when they leave the PVS on the server. Client side entities can decide for themselves whether to become dormant.
-     * This mainly applies to [PVS (Potential Visibility Set)](https://developer.valvesoftware.com/wiki/PVS "PVS - Valve Developer Community").
+     * Networked entities become dormant clientside when they leave the [PVS (Potential Visibility Set)](https://developer.valvesoftware.com/wiki/PVS "PVS - Valve Developer Community"). This typically means they are no longer visible by the local player, and will not receive updates from the server.
+     *
+     * Server side, entities can only be dormant during level transitions by default.
      * @returns boolean - Whether the entity is dormant or not.
      */
     IsDormant(): boolean;
@@ -8613,6 +8614,15 @@ interface Entity {
      * Wakes up the entity's physics object
      */
     PhysWake(): void;
+
+    /**
+     * 🟨 [Client]
+     *
+     * Plays a sound of a step depending on the surface below. If the entity has attachments "RightFoot" or "LeftFoot" the surface check will be performed below them.
+     * @param isLeftFoot - Determines whether the step is a right foot or a left foot.
+     * @param volume - The volume, from 0 to 1.
+     */
+    PlayFootstepSound(isLeftFoot: boolean, volume: number): void;
 
     /**
      * 🟦 [Server]
@@ -18275,7 +18285,11 @@ interface PathFollower {
     /**
      * 🟦 [Server]
      *
-     * @returns Entity
+     * Returns the entity the bot is currently trying to avoid.
+     *
+     * @deprecated Currently always returns NULL due to internal implementation of Lua Nextbots, where nothing is considered a hindrance, so do not try to use.
+     *
+     * @returns Entity - The current path hindrance, if any.
      */
     GetHindrance(): Entity;
 
@@ -40904,6 +40918,22 @@ interface ENTITY extends Entity {
     /**
      * 🟦 [Server]
      *
+     * Called when a trace attack is done against the entity, allowing override of the damage being dealt by altering the [CTakeDamageInfo](https://wiki.facepunch.com/gmod/CTakeDamageInfo).
+     *
+     * This is called before [ENTITY:OnTakeDamage](https://wiki.facepunch.com/gmod/ENTITY:OnTakeDamage).
+     *
+     * **Note:**
+     * >This hook is only called for `ai`, `nextbot` and `anim` type entities.
+     *
+     * @param info - The damage info
+     * @param dir - The direction the damage goes in
+     * @param trace - The [Structures/TraceResult](https://wiki.facepunch.com/gmod/Structures/TraceResult) of the attack, containing the hitgroup.
+     */
+    OnTraceAttack(info: CTakeDamageInfo, dir: Vector, trace: TraceResult): void;
+
+    /**
+     * 🟦 [Server]
+     *
      * Called to completely override NPC movement. This can be used for example for flying NPCs.
      *
      * **Note:**
@@ -59801,22 +59831,6 @@ declare function GameDetails(servername: string, serverurl: string, mapname: str
 declare function gcinfo(): number;
 
 /**
- * 🟨 [Client]
- *
- * @deprecated This function is only available locally and cannot be used outside the gameprops.lua file.
- *
- * **Warning:**
- * >Using this function before [SANDBOX:PopulateContent](https://wiki.facepunch.com/gmod/SANDBOX:PopulateContent) has been called will result in an error
- *
- * @param folder - the folder to search for models
- * @param path - The path to look for the files and directories in. See <page text="this list">File_Search_Paths</page> for a list of valid paths.
- * @param name - The Spawnmenu Category name
- * @param [icon = icon16/page.png] - The Spawnmenu Category Icon to use
- * @param appid - The AppID which is needed for the Content
- */
-declare function GenerateSpawnlistFromPath(folder: string, path: string, name: string, icon?: string, appid?: number): void;
-
-/**
  * 🟩 [Menu]
  *
  * Returns if the game was started with either -noaddons or -noworkshop
@@ -72046,7 +72060,9 @@ declare namespace render {
     /**
      * 🟨 [Client]
      *
-     * Calculates the lighting caused by dynamic lights for the specified surface.
+     * Calculates the lighting caused by dynamic lights (such as [Global.DynamicLight](https://wiki.facepunch.com/gmod/Global.DynamicLight) and the Light Sandbox tool) for the specified surface. This will not include map ambient light.
+     *
+     * See also [render.ComputeLighting](https://wiki.facepunch.com/gmod/render.ComputeLighting) for a function that also includes map's ambient lighting.
      * @param position - The position to sample from.
      * @param normal - The normal of the surface.
      * @returns Vector - A vector representing the light at that point.
@@ -72056,9 +72072,16 @@ declare namespace render {
     /**
      * 🟨 [Client]
      *
-     * Calculates the light color of a certain surface.
-     * @param position - The position of the surface to get the light from.
-     * @param normal - The normal of the surface to get the light from.
+     * Calculates the light color at a certain position.
+     *
+     * This includes both ambient light and dynamic light.
+     *
+     * See [render.ComputeDynamicLighting](https://wiki.facepunch.com/gmod/render.ComputeDynamicLighting) for dynamic light only.
+     *
+     * See [render.GetAmbientLightColor](https://wiki.facepunch.com/gmod/render.GetAmbientLightColor) for map-wide ambient color.
+     * @param position - The position to get the light at.
+     * @param normal - The direction of an imaginary surface to get the light at.
+     * Pointing away from walls will get the lighting the wall receives. Pointing towards walls will not.
      * @returns Vector - A vector representing the light at that point.
      */
     declare function ComputeLighting(position: Vector, normal: Vector): Vector;
@@ -72375,8 +72398,13 @@ declare namespace render {
     /**
      * 🟨 [Client]
      *
-     * Returns the ambient color of the map.
-     * @returns Vector - The ambient color of the map.
+     * Returns the ambient color intensity of the map, basically the color the sky emits.
+     *
+     * This is used by the engine to calculate shadow color using the following formula: `ambientLight * 3 + Vector( 0.3, 0.3, 0.3 )`
+     *
+     * See also [render.ComputeLighting](https://wiki.facepunch.com/gmod/render.ComputeLighting).
+     * @returns Vector - The ambient color intensity of the map.
+     * This is computed at map compile time and is stored in "linear color space".
      */
     declare function GetAmbientLightColor(): Vector;
 
@@ -72487,6 +72515,11 @@ declare namespace render {
      * 🟨 [Client]
      *
      * Gets the light exposure on the specified position.
+     *
+     * This is effectively the same as [render.ComputeLighting](https://wiki.facepunch.com/gmod/render.ComputeLighting) without the `normal` argument provided.
+     *
+     * @deprecated Same as [render.ComputeLighting](https://wiki.facepunch.com/gmod/render.ComputeLighting) without the `normal` argument provided, so just use that
+     *
      * @param position - The position of the surface to get the light from.
      * @returns Vector - The light color.
      */
@@ -73144,7 +73177,7 @@ declare namespace render {
     /**
      * 🟨 [Client]
      *
-     * Sets the texture to be used as the lightmap in upcoming rendering operations. This is required when rendering meshes using a material with a lightmapped shader such as LightmappedGeneric.
+     * Sets the texture to be used as the lightmap in upcoming rendering operations. This is required when rendering meshes using a material with a lightmapped shader such as `LightmappedGeneric`.
      * @param tex - The texture to be used as the lightmap.
      */
     declare function SetLightmapTexture(tex: ITexture): void;
@@ -75288,11 +75321,11 @@ declare namespace string {
      * Splits the string into a table of strings, separated by the second argument.
      *
      * This is an alias of [string.Explode](https://wiki.facepunch.com/gmod/string.Explode), but with flipped arguments.
-     * @param Inputstring - String to split
-     * @param Separator - Character(s) to split with.
+     * @param input - String to split
+     * @param separator - Character(s) to split with.
      * @returns string[] - Split table
      */
-    declare function Split(Inputstring: string, Separator: string): string[];
+    declare function Split(input: string, separator: string): string[];
 
     /**
      * 🟨🟦🟩 [Shared and Menu]
@@ -77500,7 +77533,7 @@ declare namespace util {
      * @param end - The end of the trace.
      * @param [filter = NULL] - If set, the decal will not be able to be placed on given entity. Can also be a table of entities.
      */
-    declare function Decal(name: string, start: Vector, end: Vector, filter?: Entity): void;
+    declare function Decal(name: string, start: Vector, end: Vector, filter?: Entity | Entity[]): void;
 
     /**
      * 🟨 [Client]
