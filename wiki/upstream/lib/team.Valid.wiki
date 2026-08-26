@@ -1,0 +1,11 @@
+<function name="Valid" parent="team" type="libraryfunc">
+	<description>Returns true if the given team index is valid</description>
+	<file line="40-L45">lua/includes/modules/team.lua</file>
+	<realm>Shared</realm>
+	<args>
+		<arg name="index" type="number">Index of the team</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Is valid</ret>
+	</rets>
+</function>

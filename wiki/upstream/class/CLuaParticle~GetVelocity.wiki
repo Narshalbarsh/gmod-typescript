@@ -1,0 +1,7 @@
+<function name="GetVelocity" parent="CLuaParticle" type="classfunc">
+	<description>Returns the current velocity of the particle.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="Vector">The current velocity of the particle.</ret>
+	</rets>
+</function>

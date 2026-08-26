@@ -1,0 +1,7 @@
+<function name="IsWeapon" parent="Entity" type="classfunc">
+	<description>Checks if the entity is a weapon or not.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the entity is a weapon</ret>
+	</rets>
+</function>

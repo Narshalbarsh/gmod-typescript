@@ -1,0 +1,11 @@
+<function name="GetSurfaceColor" parent="render" type="libraryfunc">
+	<description>Performs a render trace and returns the color of the surface hit, this uses a low res version of the texture.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="startPos" type="Vector">The start position to trace from.</arg>
+		<arg name="endPos" type="Vector">The end position of the trace.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">The surface color.</ret>
+	</rets>
+</function>

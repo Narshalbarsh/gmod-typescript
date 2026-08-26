@@ -1,0 +1,10 @@
+<function name="ComputeGroundHeightChange" parent="CNavArea" type="classfunc">
+	<description>Returns the height difference on the Z axis of the two <page>CNavArea</page>s. This is calculated from the center most point on both <page>CNavArea</page>s.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="navArea" type="CNavArea">The nav area to test against.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The ground height change.</ret>
+	</rets>
+</function>

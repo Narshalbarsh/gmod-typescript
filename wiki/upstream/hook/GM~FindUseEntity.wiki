@@ -1,0 +1,16 @@
+<function name="FindUseEntity" parent="GM" type="hook">
+	<description>
+This hook polls the entity the player use action should be applied to.
+
+<note>The default behavior of this hook is in [CBasePlayer::FindUseEntity](https://github.com/ValveSoftware/source-sdk-2013/blob/0d8dceea4310fde5706b3ce1c70609d72a38efdf/mp/src/game/shared/baseplayer_shared.cpp#L1068-L1270). Despite CBasePlayer::FindUseEntity being defined shared, it is only called serverside in practice, so this hook will be only called serverside, as well. It is possible for modules to call it clientside, so the Lua code should still be treated as shared.</note>
+	</description>
+	<realm>Shared</realm>
+	<file line="103-L120">gamemodes/base/gamemode/player_shd.lua</file>
+	<args>
+		<arg name="ply" type="Player">The player who initiated the use action.</arg>
+		<arg name="defaultEnt" type="Entity">The entity that was chosen by the engine.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Entity">The entity to use instead of default entity</ret>
+	</rets>
+</function>

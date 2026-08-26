@@ -1,0 +1,7 @@
+<function name="ResetToDefaultValue" parent="DColorCube" type="panelfunc">
+	<description>
+	Sets the color to whatever <page>DColorCube:GetDefaultColor</page> returns
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="43-L48">lua/vgui/dcolorcube.lua</file>
+</function>

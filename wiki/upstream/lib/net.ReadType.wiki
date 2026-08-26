@@ -1,0 +1,17 @@
+<function name="ReadType" parent="net" type="libraryfunc">
+	<description>
+<internal>Used internally by <page>net.ReadTable</page>.</internal>
+
+Reads a value from the net message with the specified type, written by <page>net.WriteType</page>.
+
+<warning>You **must** read information in same order as you write it.</warning>
+	</description>
+	<realm>Shared</realm>
+	<file line="229-L238">lua/includes/extensions/net.lua</file>
+	<args>
+		<arg name="typeID" type="number" default="net.ReadUInt(8)">The type of value to be read, using <page>Enums/TYPE</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="any">The value, or the respective blank value based on the type you're reading if the value could not be read.</ret>
+	</rets>
+</function>

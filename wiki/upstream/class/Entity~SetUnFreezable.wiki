@@ -1,0 +1,8 @@
+<function name="SetUnFreezable" parent="Entity" type="classfunc">
+	<description>Sets whether an entity can be unfrozen, meaning that it cannot be unfrozen using the physgun.</description>
+	<realm>Server</realm>
+	<file line="594-L596">lua/includes/extensions/entity.lua</file>
+	<args>
+		<arg name="freezable" type="boolean" default="false">True to make the entity unfreezable, false otherwise.</arg>
+	</args>
+</function>

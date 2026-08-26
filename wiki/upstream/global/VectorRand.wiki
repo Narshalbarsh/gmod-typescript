@@ -1,0 +1,12 @@
+<function name="VectorRand" parent="Global" type="libraryfunc">
+	<description>Returns a random vector whose components are each between min(inclusive), max(exclusive).</description>
+	<realm>Shared and Menu</realm>
+	<file line="130-L137">lua/includes/util.lua</file>
+	<args>
+		<arg name="min" type="number" default="-1">Min bound inclusive.</arg>
+		<arg name="max" type="number" default="1">Max bound exclusive.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">The random direction vector.</ret>
+	</rets>
+</function>

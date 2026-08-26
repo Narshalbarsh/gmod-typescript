@@ -1,0 +1,7 @@
+<function name="GetGravity" parent="CLuaLocomotion" type="classfunc">
+	<description>Returns the locomotion's gravity.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="gravity" type="number" default="1000">The gravity.</ret>
+	</rets>
+</function>

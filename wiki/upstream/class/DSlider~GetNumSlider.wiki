@@ -1,0 +1,11 @@
+<function name="GetNumSlider" parent="DSlider" type="panelfunc">
+	<description>
+<deprecated></deprecated>
+
+Does nothing.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="any"></ret>
+	</rets>
+</function>

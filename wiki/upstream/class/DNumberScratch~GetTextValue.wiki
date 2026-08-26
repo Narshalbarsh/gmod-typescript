@@ -1,0 +1,11 @@
+<function name="GetTextValue" parent="DNumberScratch" type="panelfunc">
+	<description>
+Returns the real value of the <page>DNumberScratch</page> as a string.
+
+See also <page>DNumberScratch:GetFloatValue</page> and <page>DNumberScratch:GetFraction</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="string">The real value of the <page>DNumberScratch</page></ret>
+	</rets>
+</function>

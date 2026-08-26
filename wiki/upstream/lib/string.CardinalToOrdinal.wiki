@@ -1,0 +1,16 @@
+<function name="CardinalToOrdinal" parent="string" type="libraryfunc">
+	<description>
+Converts a cardinal (`111`) number to its [ordinal/sequential variation](https://en.wikipedia.org/wiki/Ordinal_numeral) (`111th`).
+
+See also <page>Global.STNDRD</page> for a function that returns just the suffix.
+	</description>
+	<added>2023.10.13</added>
+	<realm>Shared and Menu</realm>
+	<file line="385-L411">lua/includes/extensions/string.lua</file>
+	<args>
+		<arg name="input" type="number">A number to convert to ordinal.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The ordinal numeral.</ret>
+	</rets>
+</function>

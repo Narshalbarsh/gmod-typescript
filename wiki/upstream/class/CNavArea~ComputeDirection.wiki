@@ -1,0 +1,10 @@
+<function name="ComputeDirection" parent="CNavArea" type="classfunc">
+	<description>Returns the <page>Enums/NavDir</page> direction that the given vector faces on this <page>CNavArea</page>.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="pos" type="Vector">The position to compute direction towards.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The direction the vector is in relation to this <page>CNavArea</page>. See <page>Enums/NavDir</page>.</ret>
+	</rets>
+</function>

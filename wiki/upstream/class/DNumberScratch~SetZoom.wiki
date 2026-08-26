@@ -1,0 +1,7 @@
+<function name="SetZoom" parent="DNumberScratch" type="panelfunc">
+	<description>Sets the zoom level of the scratch panel.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="zoom" type="number"></arg>
+	</args>
+</function>

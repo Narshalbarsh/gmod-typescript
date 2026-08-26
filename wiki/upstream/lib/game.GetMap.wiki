@@ -1,0 +1,17 @@
+<function name="GetMap" parent="game" type="libraryfunc">
+	<description>
+Returns the name of the current map, without a file extension.
+On the menu state, returns "menu".
+<warning>In Multiplayer this does not return the current map in the CLIENT realm before <page>GM:Initialize</page>.</warning>
+	</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="string">The name of the current map, without a file extension.</ret>
+	</rets>
+</function>
+
+<example>
+	<code>print(game.GetMap())</code>
+	<output>gm_flatgrass</output>
+
+</example>

@@ -1,0 +1,18 @@
+<function name="Remove" parent="concommand" type="libraryfunc">
+	<description>
+Removes a console command.
+
+<bug issue="1183"><page>concommand.Add</page> will fail if the concommand was previously removed with this function in a different realm (creating a command on the client that was removed from the server and vice-versa).</bug>
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="35-L43">lua/includes/modules/concommand.lua</file>
+	<args>
+		<arg name="name" type="string">The name of the command to be removed.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Removes the built-in concommand `gmod_camera` which would normally quickly select the camera swep.</description>
+	<code>concommand.Remove("gmod_camera")</code>
+
+</example>

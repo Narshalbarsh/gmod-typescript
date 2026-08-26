@@ -1,0 +1,7 @@
+<function name="Center" parent="DFrame" type="panelfunc">
+	<description>Centers the frame relative to the whole screen and invalidates its layout. This overrides <page>Panel:Center</page>.</description>
+	<realm>Client and Menu</realm>
+	<file line="104-L110">lua/vgui/dframe.lua</file>
+</function>
+
+<note>You must use <page>Panel:SetSize</page> before using this function.</note>

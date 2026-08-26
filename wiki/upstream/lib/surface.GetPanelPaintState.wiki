@@ -1,0 +1,16 @@
+<function name="GetPanelPaintState" parent="surface" type="libraryfunc">
+	<description>
+		Retrieves the position and <page text="ScissorRect">render.SetScissorRect</page> information for the <page>Panel</page> that is currently being drawn.
+
+When using the <page>surface</page> library (and, by extension, the <page>draw</page> library) inside of the <page>PANEL:Paint</page> function, the origin (The on-screen position of `(0,0)`) is automatically shifted to the top-left corner of the panel to make it easier to draw the panel's contents.  Additionally, <page>render.SetScissorRect</page> is used to clip (or "mask") all drawn content to within the boundaries of the panel.  This function returns the information used by the <page>surface</page> library about the current panel's origin and <page text="ScissorRect">render.SetScissorRect</page>.
+	</description>
+	<added>2024.09.13</added>
+	<realm>Client</realm>
+	<rets>
+		<ret type="table{PanelPaintState}">
+			A table containing the position and <page text="ScissorRect">render.SetScissorRect</page> boundaries for the <page>Panel</page> currently being drawn.
+
+			For the table's format and available options see the <page>Structures/PanelPaintState</page> page.
+		</ret>
+	</rets>
+</function>

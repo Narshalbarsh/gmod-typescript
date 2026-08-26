@@ -1,0 +1,23 @@
+<cat>gameevent</cat>
+<title>host_quit</title>
+
+<structure>
+	<realm>Shared and Menu</realm>
+	<description>
+		Called **only** in the specific realm when the game is existing.
+		
+		<note>This is not called reliable serverside.</note>
+	</description>
+</structure>
+
+<example>
+	<description>This is a basic template with the purpose of including all arguments / table variables to make it easily known which values can be accessed.</description>
+	<code>
+gameevent.Listen( "host_quit" )
+hook.Add( "host_quit", "host_quit_example", function() 
+	
+	// Called when the client is quitting the game.
+
+end )
+	</code>
+</example>

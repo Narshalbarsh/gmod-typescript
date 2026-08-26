@@ -1,0 +1,12 @@
+<function name="SetColor" parent="CEffectData" type="classfunc">
+	<description>Sets the "color" of the effect.
+
+All this does is provide an addition 8 bits of data for the effect to use. What this will actually do will vary from effect to effect, depending on how a specific effect uses this given data, if at all.
+
+<note>Internally stored as an integer, but only first 8 bits are networked, effectively limiting this function to 0-255 range.</note>
+</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="color" type="number">Color represented by a byte.</arg>
+	</args>
+</function>

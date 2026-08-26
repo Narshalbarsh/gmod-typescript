@@ -1,0 +1,19 @@
+<function name="ClearToolMenus" parent="spawnmenu" type="libraryfunc">
+	<description>
+Clears all the tools from the different tool categories and the categories itself, if ran at the correct place.
+
+Seems to only work when ran at initialization.
+	</description>
+	<realm>Client</realm>
+	<file line="60-L64">lua/includes/modules/spawnmenu.lua</file>
+</function>
+
+<example>
+	<description>Clear the tool menu completely, after populating it:</description>
+	<code>
+hook.Run( "PopulateToolMenu" )
+
+spawnmenu.ClearToolMenus()
+	</code>
+
+</example>

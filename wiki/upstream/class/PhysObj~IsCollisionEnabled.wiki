@@ -1,0 +1,7 @@
+<function name="IsCollisionEnabled" parent="PhysObj" type="classfunc">
+	<description>Returns whenever the entity is able to collide or not.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">isCollisionEnabled</ret>
+	</rets>
+</function>

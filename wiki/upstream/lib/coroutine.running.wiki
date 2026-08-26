@@ -1,0 +1,7 @@
+<function name="running" parent="coroutine" type="libraryfunc">
+	<description>Returns the active coroutine or nil if we are not within a coroutine.</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="thread">The active coroutine.</ret>
+	</rets>
+</function>

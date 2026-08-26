@@ -1,0 +1,28 @@
+<function name="PlaySound" parent="surface" type="libraryfunc">
+	<description>Play a sound file directly on the client (such as UI sounds, etc).
+
+<note>
+Valid sample rates: **11025 Hz, 22050 Hz and 44100 Hz**, otherwise you may see this kind of message:
+
+`Unsupported 32-bit wave file your_sound.wav` and 
+`Invalid sample rate (48000) for sound 'your_sound.wav'`
+</note>
+</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="soundfile" type="string">The path to the sound file.
+
+This should either be a sound script name (<page>sound.Add</page>) or a file path relative to the `sound/` folder. (Make note that it's not sound**s**)
+</arg>
+	</args>
+</function>
+
+<example>
+	<description>
+Plays a sound with a given name. The game will look for the file in following places in that order:
+* garrysmod/addons/myaddon/sound/`mysound.wav`
+* garrysmod/gamemodes/mygamemode/content/sound/`mysound.wav`
+* garrysmod/sound/`mysound.wav`
+	</description>
+	<code>surface.PlaySound( "mysound.wav" )</code>
+</example>

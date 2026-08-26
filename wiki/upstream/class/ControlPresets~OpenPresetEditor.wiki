@@ -1,0 +1,5 @@
+<function name="OpenPresetEditor" parent="ControlPresets" type="panelfunc">
+	<description>Creates and opens <page>PresetEditor</page></description>
+	<realm>Client</realm>
+	<file line="97-L108">gamemodes/sandbox/gamemode/spawnmenu/controls/control_presets.lua</file>
+</function>

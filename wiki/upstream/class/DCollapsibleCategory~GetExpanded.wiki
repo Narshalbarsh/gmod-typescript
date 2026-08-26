@@ -1,0 +1,8 @@
+<function name="GetExpanded" parent="DCollapsibleCategory" type="panelfunc">
+	<description>Returns whether the DCollapsibleCategory is expanded or not.</description>
+	<realm>Client and Menu</realm>
+	<file line="48">lua/vgui/dcategorycollapse.lua</file>
+	<rets>
+		<ret name="" type="boolean">If expanded it will return true.</ret>
+	</rets>
+</function>

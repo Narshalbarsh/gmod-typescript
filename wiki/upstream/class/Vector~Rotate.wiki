@@ -1,0 +1,10 @@
+<function name="Rotate" parent="Vector" type="classfunc">
+	<description>
+Rotates a vector by the given angle.
+Doesn't return anything, but rather changes the original vector.
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="rotation" type="Angle">The angle to rotate the vector by.</arg>
+	</args>
+</function>

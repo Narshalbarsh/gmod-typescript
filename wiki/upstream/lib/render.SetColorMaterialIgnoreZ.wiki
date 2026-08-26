@@ -1,0 +1,26 @@
+<function name="SetColorMaterialIgnoreZ" parent="render" type="libraryfunc">
+	<description>
+Sets the current drawing material to `color_ignorez`.
+
+The material is defined as:
+```
+
+ "UnlitGeneric"
+ {
+ 	"$basetexture" "color/white"
+  	"$model" 		1
+ 	"$translucent" 	1
+ 	"$vertexalpha" 	1
+ 	"$vertexcolor" 	1
+ 	"$ignorez"		1
+ }
+```
+	</description>
+	<realm>Client</realm>
+	<file line="80-L82">lua/includes/extensions/client/render.lua</file>
+</function>
+
+<example>
+	<description>Equivalent of this function. Internally, the material used is cached so it is not created every frame like the code below implies.</description>
+	<code>render.SetMaterial( Material( "color_ignorez" ) )</code>
+</example>

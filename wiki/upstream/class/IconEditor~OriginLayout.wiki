@@ -1,0 +1,8 @@
+<function name="OriginLayout" parent="IconEditor" type="panelfunc">
+	<description>
+Places the camera at the origin (0,0,0), relative to the entity, in the <page>DAdjustableModelPanel</page>.
+
+Called when a user clicks the `Center` (fifth) button (See the ).
+	</description>
+	<realm>Client</realm>
+</function>

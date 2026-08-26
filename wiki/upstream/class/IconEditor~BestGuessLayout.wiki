@@ -1,0 +1,8 @@
+<function name="BestGuessLayout" parent="IconEditor" type="panelfunc">
+	<description>
+Applies the best camera settings for the model in the <page>DAdjustableModelPanel</page>, using the values returned by <page>Global.PositionSpawnIcon</page>.
+
+Called when a user clicks the `wand` button (See the ) and when <page>IconEditor:Refresh</page> is called.
+	</description>
+	<realm>Client</realm>
+</function>

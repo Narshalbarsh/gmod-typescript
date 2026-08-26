@@ -1,0 +1,13 @@
+<function name="IntersectRayWithPlane" parent="util" type="libraryfunc">
+	<description>Performs a [ray-plane intersection](https://en.wikipedia.org/wiki/Line%E2%80%93plane_intersection) and returns the hit position or nil.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="rayOrigin" type="Vector">Origin/start position of the ray.</arg>
+		<arg name="rayDirection" type="Vector">The direction of the ray.</arg>
+		<arg name="planePosition" type="Vector">Any position of the plane.</arg>
+		<arg name="planeNormal" type="Vector">The normal vector of the plane.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">The position of intersection, nil if not hit.</ret>
+	</rets>
+</function>

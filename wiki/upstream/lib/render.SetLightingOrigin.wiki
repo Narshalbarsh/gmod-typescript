@@ -1,0 +1,9 @@
+<function name="SetLightingOrigin" parent="render" type="libraryfunc">
+	<description>
+Sets lighting origin for the current model.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="lightingOrigin" type="Vector">The position which will be used to calculate lighting for the current model.</arg>
+	</args>
+</function>

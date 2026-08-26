@@ -1,0 +1,10 @@
+<function name="status" parent="coroutine" type="libraryfunc">
+	<description>Returns the status of the coroutine passed to it, the possible statuses are "suspended", "running", and "dead".</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="coroutine" type="thread">Coroutine to check the status of.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The coroutine's status.</ret>
+	</rets>
+</function>

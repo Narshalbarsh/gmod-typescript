@@ -1,0 +1,11 @@
+<function name="BlastDamage" parent="util" type="libraryfunc">
+	<description>Applies explosion damage to all entities in the specified radius. Performs line-of-sight checking.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="inflictor" type="Entity">The entity that caused the damage.</arg>
+		<arg name="attacker" type="Entity">The entity that attacked.</arg>
+		<arg name="damageOrigin" type="Vector">The center of the explosion</arg>
+		<arg name="damageRadius" type="number">The radius in which entities will be damaged.</arg>
+		<arg name="damage" type="number">The amount of damage to be applied.</arg>
+	</args>
+</function>

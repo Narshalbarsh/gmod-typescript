@@ -1,0 +1,11 @@
+<function name="SetVerticalScrollbarEnabled" parent="Panel" type="classfunc">
+	<description>
+Sets the visibility of the vertical scrollbar.
+
+Works for <page>RichText</page> and <page>TextEntry</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="display" type="boolean" default="false">True to display the vertical text scroll bar, false to hide it.</arg>
+	</args>
+</function>

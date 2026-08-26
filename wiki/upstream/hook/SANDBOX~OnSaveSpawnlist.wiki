@@ -1,0 +1,5 @@
+<function name="OnSaveSpawnlist" parent="SANDBOX" type="hook">
+	<description>Called when a player saves his changes made to the spawnmenu</description>
+	<realm>Client</realm>
+	<file line="56">gamemodes/sandbox/gamemode/spawnmenu/creationmenu/content/contentsidebar.lua</file>
+</function>

@@ -1,0 +1,19 @@
+<function name="OnStuck" parent="NEXTBOT" type="hook">
+	<description>Called when the bot thinks it is stuck.</description>
+	<realm>Server</realm>
+	<file line="106">gamemodes/base/entities/entities/base_nextbot/sv_nextbot.lua</file>
+</function>
+
+<example>
+	<description>Kills the bot when getting stuck, using a new damageinfo object.</description>
+	<code>
+function ENT:OnStuck()
+
+	local dmginfo = DamageInfo()
+	dmginfo:SetAttacker( self )
+
+	self:OnKilled( dmginfo )
+	
+end
+	</code>
+</example>

@@ -1,0 +1,4 @@
+<function name="EnableVerticalScrollbar" parent="DPanelList" type="panelfunc">
+	<description>Enables/creates the vertical scroll bar so that the panel list can be scrolled through.</description>
+	<realm>Client and Menu</realm>
+</function>

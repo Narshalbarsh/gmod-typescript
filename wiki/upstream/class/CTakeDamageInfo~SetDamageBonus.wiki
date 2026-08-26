@@ -1,0 +1,7 @@
+<function name="SetDamageBonus" parent="CTakeDamageInfo" type="classfunc">
+	<description>Sets the bonus damage. Bonus damage isn't automatically applied, so this will have no outer effect by default.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="damage" type="number">The extra damage to be added.</arg>
+	</args>
+</function>

@@ -1,0 +1,13 @@
+<function name="Grid" parent="debugoverlay" type="libraryfunc">
+	<description>
+Draws a 3D grid of limited size in given position.
+
+<note>This function will silently fail if the `developer` <page>ConVar</page> is set to `0`.  
+It is not networked to clients, except for the <page text="listen server host">Player:IsListenServerHost</page>.  
+It will not work when the game is paused.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="position" type="Vector"></arg>
+	</args>
+</function>

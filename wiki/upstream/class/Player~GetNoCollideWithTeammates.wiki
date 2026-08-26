@@ -1,0 +1,7 @@
+<function name="GetNoCollideWithTeammates" parent="Player" type="classfunc">
+	<description>Returns whenever the player is set not to collide with their teammates.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">noCollideWithTeammates</ret>
+	</rets>
+</function>

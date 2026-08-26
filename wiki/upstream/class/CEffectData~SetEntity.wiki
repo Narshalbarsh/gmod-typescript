@@ -1,0 +1,7 @@
+<function name="SetEntity" parent="CEffectData" type="classfunc">
+	<description>Sets the entity of the effect to be created with this effect data.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="entity" type="Entity">Entity of the effect, mostly used for parenting.</arg>
+	</args>
+</function>

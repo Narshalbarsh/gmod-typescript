@@ -1,0 +1,39 @@
+<panel>
+	<parent>DDrawer</parent>
+	<realm>Client</realm>
+	<description>
+		<internal></internal>
+The ContentSidebarToolbox is internally used by the <page>ContentSidebar</page> and is used to change the icon of a category.
+It internally consists of a <page>DTextEntry</page>, <page>DPanel</page>, <page>DImageButton</page>, <page>Panel</page>, <page>ContentHeader</page> and a <page>DIconBrowser</page>
+	</description>
+	<overrides>
+<page>PANEL:Init</page>
+<page>PANEL:PerformLayout</page>
+	</overrides>
+</panel>
+
+<example>
+	<description>How to create a </description>
+	<code>
+Frame = vgui.Create("DFrame")
+Frame:SetSize(ScrW() / 2, ScrH() / 2)
+Frame:Center()
+Frame:MakePopup()
+
+ContentSidebar = vgui.Create( "ContentSidebar", Frame)
+ContentSidebar:Dock(FILL)
+ContentSidebar:CreateSaveNotification()
+
+for k=1, 6 do
+	local Node = ContentSidebar.Tree:AddNode("Example", "icon16/user.png")
+	Node:SetHideExpander(true)
+	Node:SetExpanded(true)
+	Node.DoClick = function(self)
+		hook.Call("SpawnlistContentChanged", GAMEMODE or GM)
+	end
+	for v=1, math.random(1, 5) do
+		Node:AddNode("Example", "icon16/star.png")
+	end
+end
+	</code>
+</example>

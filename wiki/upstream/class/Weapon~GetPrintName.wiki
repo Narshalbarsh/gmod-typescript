@@ -1,0 +1,12 @@
+<function name="GetPrintName" parent="Weapon" type="classfunc">
+	<description>
+Returns the non-internal name of the weapon, that should be for displaying.
+
+<note>If that returns an untranslated message (#HL2_XX), use <page>language.GetPhrase</page> to see the "nice" name.</note>
+<note>If SWEP.PrintName is not set in the Weapon or the Weapon Base then "&lt;MISSING SWEP PRINT NAME&gt;" will be returned.</note>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="string">The "nice" name of the weapon.</ret>
+	</rets>
+</function>

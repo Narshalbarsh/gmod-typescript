@@ -1,0 +1,16 @@
+<function name="GetAimVector" parent="Player" type="classfunc">
+	<description>Returns the direction that the player is aiming.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Vector">The direction vector of players aim</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Launches the player in the direction they're facing.</description>
+	<code>
+local ply = Entity( 1 )
+ply:SetVelocity( ply:GetAimVector() * 1000 )
+	</code>
+
+</example>

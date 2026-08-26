@@ -1,0 +1,7 @@
+<function name="IsOnGround" parent="CLuaLocomotion" type="classfunc">
+	<description>Returns whether the nextbot this locomotion is attached to is on ground or not.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the nextbot is on ground or not.</ret>
+	</rets>
+</function>

@@ -1,0 +1,19 @@
+<function name="GetWeapons" parent="Player" type="classfunc">
+	<description>
+		Returns a table of the player's weapons.
+		<note>
+			This function returns a sequential table. Prefer to loop it with <page>Global.ipairs</page> instead of the <page>Global.pairs</page> function.
+		</note>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="table<Weapon>">All the weapons the player currently has.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints how many weapons the player has.</description>
+	<code>print( #Entity( 1 ):GetWeapons() )</code>
+	<output>The number of weapons the player has (e.g. 5).</output>
+
+</example>

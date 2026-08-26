@@ -1,0 +1,5 @@
+<function name="Init" parent="Task" type="classfunc">
+	<description><internal></internal> Initialises the AI task. Called by <page>ai_task.New</page>.</description>
+	<realm>Server</realm>
+	<file line="29-L31">lua/includes/modules/ai_task.lua</file>
+</function>

@@ -1,0 +1,5 @@
+<function name="OnModified" parent="DDragBase" type="panelhook">
+	<description>Called when anything is dropped on or rearranged within the <page>DDragBase</page>. For Override</description>
+	<realm>Client and Menu</realm>
+	<file line="139-L141">lua/vgui/ddragbase.lua</file>
+</function>

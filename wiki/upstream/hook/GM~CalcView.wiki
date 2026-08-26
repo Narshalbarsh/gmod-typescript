@@ -1,0 +1,36 @@
+<function name="CalcView" parent="GM" type="hook">
+	<description>Allows override of the default view.
+		<note>
+			To avoid breaking compatibility with other addons, it is recommended to add onto the origin and angle values using <page>Vector:Add</page> or <page>Angle:Add</page> instead of overriding them completely.
+		</note> 
+	</description>
+	<realm>Client</realm>
+<file line="357">gamemodes/base/gamemode/cl_init.lua</file>
+	<args>
+		<arg name="ply" type="Player">The local player.</arg>
+		<arg name="origin" type="Vector">The player's view position.</arg>
+		<arg name="angles" type="Angle">The player's view angles.</arg>
+		<arg name="fov" type="number">Field of view.</arg>
+		<arg name="znear" type="number">Distance to near clipping plane.</arg>
+		<arg name="zfar" type="number">Distance to far clipping plane.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table{CamData}">View data table. See <page>Structures/CamData</page>.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Draws the LocalPlayer and sets the view behind.</description>
+	<code>
+hook.Add( "CalcView", "MyCalcView", function( ply, pos, angles, fov )
+	local view = {
+		origin = pos - ( angles:Forward() * 100 ),
+		angles = angles,
+		fov = fov,
+		drawviewer = true
+	}
+
+	return view
+end )
+ 	</code>
+</example>

@@ -1,0 +1,7 @@
+<function name="SetShader" parent="IMaterial" type="classfunc">
+	<description><deprecated>This function does nothing</deprecated>The functionality of this function was removed due to the amount of crashes it caused.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="shaderName" type="string">Name of the shader</arg>
+	</args>
+</function>

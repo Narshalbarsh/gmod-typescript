@@ -1,0 +1,18 @@
+<function name="LoadGWENFile" parent="Panel" type="classfunc">
+	<description>
+Loads a .gwen file (created by GWEN Designer) and calls <page>Panel:LoadGWENString</page> with the contents of the loaded file.
+
+Used to load panel controls from a file.
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="126-L133">lua/derma/derma_gwen.lua</file>
+	<args>
+		<arg name="filename" type="string">The file to open. The path is relative to garrysmod/garrysmod/.</arg>
+		<arg name="path" type="string" default="GAME">The path used to look up the file.
+
+* "GAME" Structured like base folder (garrysmod/), searches all the mounted content (main folder, addons, mounted games etc)
+* "LUA" or "lsv" - All Lua folders (lua/) including gamesmodes and addons
+* "DATA" Data folder (garrysmod/data)
+* "MOD" Strictly the game folder (garrysmod/), ignores mounting.</arg>
+	</args>
+</function>

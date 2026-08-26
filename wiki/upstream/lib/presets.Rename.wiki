@@ -1,0 +1,10 @@
+<function name="Rename" parent="presets" type="libraryfunc">
+	<description>Renames preset.</description>
+	<realm>Client</realm>
+	<file line="48-L63">lua/includes/modules/presets.lua</file>
+	<args>
+		<arg name="groupname" type="string">Preset group name</arg>
+		<arg name="oldname" type="string">Old preset name</arg>
+		<arg name="newname" type="string">New preset name</arg>
+	</args>
+</function>

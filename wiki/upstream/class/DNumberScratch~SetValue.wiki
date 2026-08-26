@@ -1,0 +1,7 @@
+<function name="SetValue" parent="DNumberScratch" type="panelfunc">
+	<description>Sets the value of the <page>DNumberScratch</page> and triggers <page>DNumberScratch:OnValueChanged</page></description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="val" type="number">The value to set.</arg>
+	</args>
+</function>

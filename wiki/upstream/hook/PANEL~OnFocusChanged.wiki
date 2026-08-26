@@ -1,0 +1,11 @@
+<function name="OnFocusChanged" parent="PANEL" type="hook">
+	<description>
+Called whenever the panel gained or lost focus.
+
+<note><page>Panel:HasFocus</page> will only be updated on the next frame and will return the "old" value at the time this hook is run. Same goes for <page>vgui.GetKeyboardFocus</page>.</note>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="gained" type="boolean">If the focus was gained (`true`) or lost (`false`).</arg>
+	</args>
+</function>

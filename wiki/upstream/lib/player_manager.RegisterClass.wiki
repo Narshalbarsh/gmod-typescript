@@ -1,0 +1,40 @@
+<function name="RegisterClass" parent="player_manager" type="libraryfunc">
+	<description>Register a class metatable to be assigned to players later.</description>
+	<realm>Shared</realm>
+	<file line="350-L375">lua/includes/modules/player_manager.lua</file>
+	<args>
+		<arg name="name" type="string">Class name.</arg>
+		<arg name="table" type="table">Class metatable, see <page>Structures/PLAYER</page>.</arg>
+		<arg name="base" type="string" default="nil">Base class name.</arg>
+	</args>
+</function>
+
+<example>
+	<description>A quick look at registering a class table.</description>
+	<code>
+local PLAYER = {}
+
+PLAYER.DisplayName = "Default Class"
+
+-- ...
+
+player_manager.RegisterClass( "player_default", PLAYER, nil )
+	</code>
+
+</example>
+
+
+<example>
+	<description>You can retrieve the data you've set when registering the table using baseclass.Get( "&lt;classname&gt;" ).</description>
+	<code>PrintTable( baseclass.Get( "player_default" ) )</code>
+	<output>
+```
+Walkspeed = 300
+RunSpeed = 500
+CalcView = function: 0x00665988
+UseVMHands = true
+--- etc...
+```
+	</output>
+
+</example>

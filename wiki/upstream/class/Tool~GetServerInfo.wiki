@@ -1,0 +1,14 @@
+<function name="GetServerInfo" parent="Tool" type="classfunc">
+	<description>
+Attempts to grab a serverside tool <page>ConVar</page>.
+This will not do anything on client, despite the function being defined shared.
+	</description>
+	<realm>Shared</realm>
+	<file line="59">gamemodes/sandbox/entities/weapons/gmod_tool/stool.lua</file>
+	<args>
+		<arg name="name" type="string">Name of the convar to retrieve. The function will automatically add the "mytoolfilename_" part to it.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The value of the requested <page>ConVar</page>.</ret>
+	</rets>
+</function>

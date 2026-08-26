@@ -1,0 +1,17 @@
+<function name="GetPhrase" parent="language" type="libraryfunc">
+	<description>Retrieves the translated version of inputted string. Useful for concentrating multiple translated strings.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="phrase" type="string">The phrase to translate</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The translated phrase, or the input string if no translation was found. There is a limit of 4000 bytes for the returned string.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>An example on usage of this function.</description>
+	<code>print( "Our phrase is: " .. language.GetPhrase( "limit_physgun" ) )</code>
+	<output>Our phrase is: Limited Physgun.</output>
+
+</example>

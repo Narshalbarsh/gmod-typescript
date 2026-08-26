@@ -1,0 +1,11 @@
+<function name="SetRenderOrigin" parent="Entity" type="classfunc">
+	<description>Sets the render origin override, a position where the entity will be rendered at. <page>Entity:GetPos</page> will return the value set by this function until the override is disabled. (This is all this does internally)
+
+See <page>Entity:SetRenderAngles</page> for the function to manipulate angles.
+</description>
+	<realm>Client</realm>
+	<file line="17">lua/includes/extensions/client/entity.lua</file>
+	<args>
+		<arg name="newOrigin" type="Vector|nil" default="nil">The new origin in world coordinates where the entity's model will now be rendered at. To disable the override, set to <page>nil</page>.</arg>
+	</args>
+</function>

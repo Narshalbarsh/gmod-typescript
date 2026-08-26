@@ -1,0 +1,5 @@
+<function name="StartBoxSelection" parent="Panel" type="classfunc">
+	<file line="134-L160">lua/includes/extensions/client/panel/selections.lua</file>
+	<description>Begins a box selection, enables mouse capture for the panel object, and sets the start point of the selection box to the mouse cursor's position, relative to this object. For this to work, either the object or its parent must be enabled as a selection canvas. This is set using <page>Panel:SetSelectionCanvas</page>.</description>
+	<realm>Client and Menu</realm>
+</function>

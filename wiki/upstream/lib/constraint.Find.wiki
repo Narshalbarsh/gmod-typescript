@@ -1,0 +1,29 @@
+<function name="Find" parent="constraint" type="libraryfunc">
+	<description>Returns the constraint of a specified type between two entities, if it exists</description>
+	<realm>Server</realm>
+	<file line="222-L244">lua/includes/modules/constraint.lua</file>
+	<args>
+		<arg name="ent1" type="Entity">The first entity to check.</arg>
+		<arg name="ent2" type="Entity">The second entity to check.</arg>
+		<arg name="type" type="string">The type of constraint, case sensitive. List of default constrains is as follows:
+* `Weld`
+* `Axis`
+* `AdvBallsocket`
+* `Rope`
+* `Elastic`
+* `NoCollide`
+* `Motor`
+* `Pulley`
+* `Ballsocket`
+* `Winch`
+* `Hydraulic`
+* `Muscle`
+* `Keepupright`
+* `Slider`</arg>
+		<arg name="bone1" type="number">The bone number for the first entity (0 for monoboned entities).</arg>
+		<arg name="bone2" type="number">The bone number for the second entity.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Entity">The constraint found.</ret>
+	</rets>
+</function>

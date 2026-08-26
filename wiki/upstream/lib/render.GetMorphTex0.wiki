@@ -1,0 +1,12 @@
+<function name="GetMorphTex0" parent="render" type="libraryfunc">
+	<realm>Client</realm>
+	<description>
+<internal>You probably want to just use a custom render target. See <page>Global.GetRenderTargetEx</page>.</internal>
+
+Returns the first render target texture that was used internally for Morph post processing effect
+
+The post processing effect was removed from the base game at some point during development of Garry's Mod 13, but can still be found as a community mod: https://steamcommunity.com/sharedfiles/filedetails/?id=501088470</description>
+	<rets>
+		<ret name="" type="ITexture">The render target texture named `s_pMorphTexture0`.</ret>
+	</rets>
+</function>

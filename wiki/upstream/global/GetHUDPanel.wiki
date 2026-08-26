@@ -1,0 +1,11 @@
+<function name="GetHUDPanel" parent="Global" type="libraryfunc">
+	<description>
+Returns the panel that is used as a wrapper for the HUD. If you want your panel to be hidden when the main menu is opened, parent it to this. Child panels will also have their controls disabled.
+
+See also <page>vgui.GetWorldPanel</page>
+	</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="Panel">The HUD panel</ret>
+	</rets>
+</function>

@@ -1,0 +1,24 @@
+<function name="ScreenFade" parent="Player" type="classfunc">
+	<description>Fades the screen</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="flags" type="number">Fade flags defined with <page>Enums/SCREENFADE</page>.</arg>
+		<arg name="color" type="Color" default="color_white">The color of the screenfade</arg>
+		<arg name="fadeTime" type="number">Fade(in/out) effect transition time ( From no fade to full fade and vice versa ).
+
+This is limited to 7 bits integer part and 9 bits fractional part.</arg>
+		<arg name="fadeHold" type="number">Fade effect hold time.
+
+This is limited to 7 bits integer part and 9 bits fractional part.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Flashes the screen red to nothing over 0.3 seconds when a player gets hurt.</description>
+	<code>
+hook.Add( "PlayerHurt", "hurt_effect_fade", function( ply )
+	ply:ScreenFade( SCREENFADE.IN, Color( 255, 0, 0, 128 ), 0.3, 0 )
+end )
+	</code>
+
+</example>

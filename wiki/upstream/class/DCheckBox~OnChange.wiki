@@ -1,0 +1,23 @@
+<function name="OnChange" parent="DCheckBox" type="panelhook">
+	<description>Called when the "checked" state is changed. This is for Overriding</description>
+	<realm>Client and Menu</realm>
+	<file line="51-L55">lua/vgui/dcheckbox.lua</file>
+	<args>
+		<arg name="bVal" type="boolean">Whether the CheckBox is checked or not.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Creates a metamethod on the DCheckBox class to print any changes to the console.</description>
+	<code>
+function DCheckBox:OnChange(bVal)
+	if (bVal) then
+		print("Checked!")
+	else
+		print("Unchecked!")
+	end
+end
+	</code>
+	<output>All new checkboxes created will print `Checked!` or `Unchecked!` when their checked state is changed.</output>
+
+</example>

@@ -1,0 +1,11 @@
+<function name="GMOD_OpenURLNoOverlay" parent="Global" type="libraryfunc">
+	<description>
+		<internal></internal>
+		Opens the given URL in a <page>HTML</page> panel.
+	</description>
+	<realm>Menu</realm>
+	<file line="34-L43">lua/menu/openurl.lua</file>
+	<args>
+		<arg name="url" type="string">The url to open.</arg>
+	</args>
+</function>

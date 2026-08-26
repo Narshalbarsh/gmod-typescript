@@ -1,0 +1,7 @@
+<function name="GetPrimaryAmmoType" parent="Weapon" type="classfunc">
+	<description>Gets the primary ammo type of the given weapon.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The ammo type ID, or -1 if not found.</ret>
+	</rets>
+</function>

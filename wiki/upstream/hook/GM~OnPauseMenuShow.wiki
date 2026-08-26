@@ -1,0 +1,22 @@
+<function name="OnPauseMenuShow" parent="GM" type="hook">
+	<added>2024.07.11</added>
+	<description>
+	Called when the pause menu is attempting to be opened. Allows you to prevent the main menu from being opened that time.
+
+	The user can hold <key>SHIFT</key> to not call this hook. If the main menu is blocked multiple times in short succession, a warning will be displayed to the end user on how to bypass the hook.
+	</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="ShouldOpen" type="boolean">Should the menu be allowed to open?</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Stops the main menu from opening</description>
+	<code>
+hook.Add( "OnPauseMenuShow", "DisableMenu", function()
+	chat.AddText( "Press Shift+Escape to open the menu." )
+	return false
+end )
+ 	</code>
+</example>

@@ -1,0 +1,7 @@
+<function name="GetAutoHeight" parent="MatSelect" type="panelfunc">
+	<description>Returns whether the panel would set its own height to fit all materials within its height.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="autoSize" type="boolean">`true` = auto size itself.</ret>
+	</rets>
+</function>

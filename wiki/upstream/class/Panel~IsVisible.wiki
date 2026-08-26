@@ -1,0 +1,7 @@
+<function name="IsVisible" parent="Panel" type="classfunc">
+	<description>Returns if the panel is visible. This will **NOT** take into account visibility of the parent.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">`true` if the panel ls visible, `false` otherwise.</ret>
+	</rets>
+</function>

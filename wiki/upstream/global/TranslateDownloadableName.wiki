@@ -1,0 +1,14 @@
+<function name="TranslateDownloadableName" parent="Global" type="libraryfunc">
+	<description>
+<deprecated></deprecated>
+<internal></internal>
+Returns "Lua Cache File" if the given file name is in a certain string table, nothing otherwise.
+	</description>
+	<realm>Menu</realm>
+	<args>
+		<arg name="filename" type="string">File name to test</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">"Lua Cache File" if the given file name is in a certain string table, nothing otherwise.</ret>
+	</rets>
+</function>

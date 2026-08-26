@@ -1,0 +1,41 @@
+<function name="SpawnMenuOpen" parent="SANDBOX" type="hook">
+	<description>
+Called when spawnmenu is trying to be opened.
+
+<note>Hiding the spawnmenu will not stop people from being able to use the various console commands to spawn in items, etc. See GM:PlayerSpawn* hooks for blocking actual spawning.</note>
+	</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="boolean">Return false to dissallow opening the spawnmenu</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Only allow the people you want to open the spawn menu.</description>
+	<code>
+local allowed = {
+	["STEAM_0:0:00000000"] = true,
+	["STEAM_0:0:10000000"] = true
+}
+
+hook.Add( "SpawnMenuOpen", "SpawnMenuWhitelist", function()
+	if ( !allowed[ LocalPlayer():SteamID() ] ) then
+		return false
+	end
+end )
+	</code>
+
+</example>
+
+
+<example>
+	<description>Disables and collapses the default customizable spawnlists node.</description>
+	<code>
+hook.Add( "SpawnMenuOpen", "SpawnMenuHide", function()
+	g_SpawnMenu.CustomizableSpawnlistNode:SetExpanded( false )
+	g_SpawnMenu.CustomizableSpawnlistNode:SetEnabled( false )
+	g_SpawnMenu.CustomizableSpawnlistNode.SMContentPanel:SwitchPanel()
+end )
+	</code>
+
+</example>

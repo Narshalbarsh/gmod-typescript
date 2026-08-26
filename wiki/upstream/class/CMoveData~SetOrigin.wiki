@@ -1,0 +1,17 @@
+<function name="SetOrigin" parent="CMoveData" type="classfunc">
+	<description>Sets the players position.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="pos" type="Vector">The position</arg>
+	</args>
+</function>
+
+<example>
+	<description>Make the player freeze at the origin of the map.</description>
+	<code>
+function GM:SetupMove( ply, movedata )
+    movedata:SetOrigin( vector_origin )
+end
+	</code>
+
+</example>

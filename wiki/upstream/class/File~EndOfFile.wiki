@@ -1,0 +1,8 @@
+<function name="EndOfFile" parent="File" type="classfunc">
+	<description>Returns whether the <page>File</page> object has reached the end of file or not.</description>
+	<realm>Shared and Menu</realm>
+<added>2020.03.17</added>
+	<rets>
+		<ret name="" type="boolean">Whether the file has reached end or not.</ret>
+	</rets>
+</function>

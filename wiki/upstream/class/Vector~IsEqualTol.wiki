@@ -1,0 +1,11 @@
+<function name="IsEqualTol" parent="Vector" type="classfunc">
+	<description>Returns if the vector is equal to another vector with the given tolerance.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="compare" type="Vector">The vector to compare to.</arg>
+		<arg name="tolerance" type="number">The tolerance range.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Are the vectors equal or not.</ret>
+	</rets>
+</function>

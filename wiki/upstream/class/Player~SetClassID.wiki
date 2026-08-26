@@ -1,0 +1,10 @@
+<function name="SetClassID" parent="Player" type="classfunc">
+	<description>
+<internal>Use <page>player_manager.SetPlayerClass</page> instead.</internal>
+
+Sets the player's class id.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="classID" type="number">The class id the player is being set with.</arg>
+	</args>
+</function>

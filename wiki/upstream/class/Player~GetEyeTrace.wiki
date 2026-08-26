@@ -1,0 +1,22 @@
+<function name="GetEyeTrace" parent="Player" type="classfunc">
+	<description>
+Returns a table with information of what the player is looking at.
+
+The results of this function are **cached** clientside every frame.
+
+Uses <page>util.GetPlayerTrace</page> internally and is therefore bound by its limits.
+
+See also <page>Player:GetEyeTraceNoCursor</page>.
+	</description>
+	<realm>Shared</realm>
+	<file line="172-L192">gamemodes/base/gamemode/obj_player_extend.lua</file>
+	<rets>
+		<ret name="" type="table{TraceResult}">Trace information, see <page>Structures/TraceResult</page>.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints the entity the player is looking at.</description>
+	<code>print( Entity( 1 ):GetEyeTrace().Entity )</code>
+	<output>`Entity [0][worldspawn]` in console, if you aim at world.</output>
+</example>

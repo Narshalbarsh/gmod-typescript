@@ -1,0 +1,33 @@
+<function name="SetSpawnEffect" parent="Entity" type="classfunc">
+	<description>
+Sets whether the entity should use a spawn effect when it is created on the client.
+
+See <page>Entity:GetSpawnEffect</page> for more information on how the effect is applied.
+
+<note>This function will only have an effect when the entity spawns. After that it will do nothing even is set to true.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="spawnEffect" type="boolean">Sets if we should show a spawn effect.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Simplified code taken from sandbox's commands.lua</description>
+	<code>
+local function MakeRagdoll( Player, Pos, Ang, Model, PhysicsObjects, Data )
+
+	local Ent = ents.Create( "prop_ragdoll" )
+	duplicator.DoGeneric( Ent, Data )
+	Ent:Spawn()
+	
+	duplicator.DoGenericPhysics( Ent, Player, Data )
+	Ent:Activate()
+
+	Ent:SetSpawnEffect( true )
+	return Ent	
+end
+	</code>
+	<output>Spawns the ragdoll and then sets the spawnEffect flag to true.</output>
+
+</example>

@@ -1,0 +1,8 @@
+<function name="RemoveAmmo" parent="Player" type="classfunc">
+	<description>Removes the amount of the specified ammo from the player.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="ammoCount" type="number">The amount of ammunition to remove.</arg>
+		<arg name="ammoName" type="string" alttype="number">The name of the ammunition to remove from. This can also be a <page>number</page> ammoID.</arg>
+	</args>
+</function>

@@ -1,0 +1,7 @@
+<function name="GetFlags" parent="ConVar" type="classfunc">
+	<description>Returns the <page>Enums/FCVAR</page> flags of the ConVar</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="flag" type="number">The bitflag. See <page>Enums/FCVAR</page></ret>
+	</rets>
+</function>

@@ -1,0 +1,10 @@
+<function name="VGUIMousePressAllowed" parent="GM" type="hook">
+	<description>Called when user clicks on a VGUI panel.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="button" type="number">The button that was pressed, see <page>Enums/MOUSE</page></arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return true if the mouse click should be ignored or not.</ret>
+	</rets>
+</function>

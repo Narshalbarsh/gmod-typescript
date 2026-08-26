@@ -1,0 +1,7 @@
+<function name="GetCurrentSchedule" parent="NPC" type="classfunc">
+	<description>Returns the NPC's current schedule.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">The NPCs schedule, see <page>Enums/SCHED</page> or -1 if we failed for some reason</ret>
+	</rets>
+</function>

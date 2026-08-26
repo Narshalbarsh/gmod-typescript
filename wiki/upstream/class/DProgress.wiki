@@ -1,0 +1,20 @@
+<panel>
+	<name>DProgress</name>
+	<parent>Panel</parent>
+	<realm>Client and Menu</realm>
+	<file line="">lua/vgui/dprogress.lua</file>
+	<description>A progressbar, works with a fraction between 0 and 1 where 0 is 0% and 1 is 100%.</description>
+</panel>
+
+
+<example>
+	<description>Creates a DProgress set to 75% (0.75 out of 1)</description>
+	<code>
+local DProgress = vgui.Create( "DProgress" )
+DProgress:SetPos( 10, 30 )
+DProgress:SetSize( 200, 20 )
+DProgress:SetFraction( 0.75 )
+	</code>
+	<output><image src="DProgress_large.png"/></output>
+
+</example>

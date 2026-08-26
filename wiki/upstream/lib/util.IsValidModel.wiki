@@ -1,0 +1,34 @@
+<function name="IsValidModel" parent="util" type="libraryfunc">
+	<description>
+Checks if the specified model is valid.
+ 
+
+A model is considered invalid in following cases:
+* Starts with a space or **maps**
+* Doesn't start with **models**
+* Contains any of the following:
+  * `_gestures`
+  * `_animations`
+  * `_postures`
+  * `_gst`
+  * `_pst`
+  * `_shd`
+  * `_ss`
+  * `_anm`
+  * `.bsp`
+  * `cs_fix`
+* If the model isn't precached on the server, AND if the model file doesn't exist on disk
+* If precache failed
+* Model is the error model
+
+Running this function will also precache the model. 
+
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="modelName" type="string">Name/Path of the model to check.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether the model is valid or not. Returns false clientside if the model is not precached by the server.</ret>
+	</rets>
+</function>

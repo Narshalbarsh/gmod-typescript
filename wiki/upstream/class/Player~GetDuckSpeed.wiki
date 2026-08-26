@@ -1,0 +1,14 @@
+<function name="GetDuckSpeed" parent="Player" type="classfunc">
+	<description>Returns a player's duck speed (in seconds)</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">duckspeed</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Gets player 1's duck speed in seconds, and prints it to console</description>
+	<code>print( Entity( 1 ):GetDuckSpeed() )</code>
+	<output>0.3 in console (tested)</output>
+
+</example>

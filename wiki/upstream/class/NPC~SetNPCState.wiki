@@ -1,0 +1,7 @@
+<function name="SetNPCState" parent="NPC" type="classfunc">
+	<description>Sets the state the NPC is in to help it decide on a ideal schedule.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="state" type="number">New NPC state, see <page>Enums/NPC_STATE</page></arg>
+	</args>
+</function>

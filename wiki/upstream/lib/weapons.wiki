@@ -1,0 +1,3 @@
+<type name="weapons" category="libraryfunc" is="library">
+	<summary>The weapons library allows you to access information about any scripted weapons loaded into the game, as well as register your own weapons.</summary>
+</type>

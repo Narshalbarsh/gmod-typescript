@@ -1,0 +1,58 @@
+<function name="SortedPairs" parent="Global" type="libraryfunc">
+	<description>
+This function can be used in a for loop instead of <page>Global.pairs</page>. It sorts all **keys** alphabetically.
+
+For sorting by specific **value member**, use <page>Global.SortedPairsByMemberValue</page>.
+
+
+For sorting by **value**, use <page>Global.SortedPairsByValue</page>.
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="552-L576">lua/includes/extensions/table.lua</file>
+	<args>
+		<arg name="table" type="table">The table to sort</arg>
+		<arg name="desc" type="boolean" default="false">Reverse the sorting order</arg>
+	</args>
+	<rets>
+		<ret name="" type="function">Iterator function</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Example of usage.</description>
+	<code>
+for id, text in SortedPairs({"e", "b", "d", "c", "a"}) do
+    print(id, text)
+end
+
+print("---")
+
+for id, text in SortedPairs({
+    e = 1,
+    b = 2,
+    d = 3,
+    c = 4,
+    a = 5
+}) do
+    print(id, text)
+end
+	</code>
+	<output>
+
+```
+1 e
+2 b
+3 d
+4 c
+5 a
+---
+a 5
+b 2
+c 4
+d 3
+e 1
+```
+
+	</output>
+
+</example>

@@ -1,0 +1,12 @@
+<function name="Exists" parent="presets" type="libraryfunc">
+	<description>Returns whether a preset with given name exists or not</description>
+	<realm>Client</realm>
+	<file line="20-L31">lua/includes/modules/presets.lua</file>
+	<args>
+		<arg name="type" type="string">The preset group name, usually it's tool class name.</arg>
+		<arg name="name" type="string">Name of the preset to test</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">true if the preset does exist</ret>
+	</rets>
+</function>

@@ -1,0 +1,30 @@
+<function name="QueryValue" parent="sql" type="libraryfunc">
+	<description>Performs the query like <page>sql.QueryRow</page>, but returns the first value found.</description>
+	<realm>Shared and Menu</realm>
+	<file line="68-L85">lua/includes/util/sql.lua</file>
+	<args>
+		<arg name="query" type="string">The input query.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The returned value.</ret>
+	</rets>
+</function>
+
+
+<example>
+	<description>Functions that are examples of saving and creating information into the database.</description>
+	<code>
+function CreateTable()
+	sql.Query("CREATE TABLE IF NOT EXISTS player_data ( SteamID64 INTEGER PRIMARY KEY, Money INTEGER )")
+end
+
+function SavePlayerToDataBase(ply, money)
+	sql.Query("INSERT OR REPLACE INTO player_data ( SteamID64, Money ) VALUES ( " ..  ply:SteamID64() .. ", " .. money .. " )")
+end
+
+function LoadPlayerFromDataBase(ply)
+	return sql.QueryValue("SELECT Money FROM player_data WHERE SteamID64 = " .. ply:SteamID64())
+end
+	</code>
+
+</example>

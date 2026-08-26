@@ -1,0 +1,36 @@
+<function name="SetOwner" parent="Entity" type="classfunc">
+	<description>
+Sets the owner of this entity, disabling all physics interaction with it.
+
+<note>This function is generally used to disable physics interactions on projectiles being fired by their owner, but can also be used for normal ownership in case physics interactions are not involved at all. The Gravity gun will be able to pick up the entity even if the owner can't collide with it, the Physics gun however will not.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="owner" type="Entity" default="NULL">The entity to be set as owner.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Taken from Garry's Flechette gun , shoots a hunter's flechette and sets the owner of the flechette to the player using the weapon.</description>
+	<code>
+function SWEP:PrimaryAttack()
+	self:SetNextPrimaryFire( CurTime() + 0.1 )
+	
+	if (!SERVER) then return end
+
+	local Forward = self:GetOwner():EyeAngles():Forward()
+
+	local ent = ents.Create( "hunter_flechette" )
+	
+	if ( IsValid( ent ) ) then
+
+		ent:SetPos( self:GetOwner():GetShootPos() + Forward * 32 )
+		ent:SetAngles( self:GetOwner():EyeAngles() )
+		ent:Spawn()
+		ent:SetVelocity( Forward * 2000 )
+		ent:SetOwner( self:GetOwner() )
+	end
+end
+	</code>
+
+</example>

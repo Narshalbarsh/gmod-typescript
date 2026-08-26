@@ -1,0 +1,7 @@
+<function name="SetDeleteOnClose" parent="DFrame" type="panelfunc">
+	<description>Determines whether or not the DFrame is removed when it is closed with <page>DFrame:Close</page>.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="shouldDelete" type="boolean">Whether or not to delete the frame on close. This is `true` by default.</arg>
+	</args>
+</function>

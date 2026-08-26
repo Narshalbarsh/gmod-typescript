@@ -1,0 +1,40 @@
+<function name="GetPhysicsObjectNum" parent="Entity" type="classfunc">
+	<description>
+Returns a specific physics object from an entity with multiple <page>PhysObj</page>ects (like ragdolls)
+
+See also <page>Entity:TranslateBoneToPhysBone</page>.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="physNum" type="number">The number corresponding to the <page>PhysObj</page> to grab. Starts at 0.</arg>
+	</args>
+	<rets>
+		<ret name="" type="PhysObj">The physics object or nil if not found</ret>
+	</rets>
+</function>
+
+<example>
+	<description>When run, if the player is dead it will throw their ragdoll up in the air by their head.</description>
+	<code>
+if ( !LocalPlayer():Alive() && LocalPlayer():GetRagdollEntity() ) then
+	local ent = LocalPlayer():GetRagdollEntity()
+	local head = ent:GetPhysicsObjectNum( 10 ) // 10 is usually the bone number of the head.
+	head:ApplyForceCenter( Vector( 0, 0, 6000 ) )
+end
+	</code>
+
+</example>
+
+
+<example>
+	<description>Example function that applies force to all physics objects of given entity.</description>
+	<code>
+function ApplySomeForce( ent )
+	for i = 0, ent:GetPhysicsObjectCount() - 1 do
+		local phys = ent:GetPhysicsObjectNum( i )
+		phys:ApplyForceCenter( Vector( 0, 0, 10000 ) )
+	end
+end
+	</code>
+
+</example>

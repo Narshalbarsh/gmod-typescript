@@ -1,0 +1,37 @@
+<function name="AddWorldTip" parent="Global" type="libraryfunc">
+	<description>
+This function creates a World Tip, similar to the one shown when aiming at a Thruster where it shows you its force.
+
+This function will make a World Tip that will only last 50 milliseconds (1/20th of a second), so you must call it continuously as long as you want the World Tip to be shown. It is common to call it inside a Think hook.
+
+Contrary to what the function's name implies, it is impossible to create more than one World Tip at the same time. A new World Tip will overwrite the old one, so only use this function when you know nothing else will also be using it.
+
+See <page>SANDBOX:PaintWorldTips</page> for more information.
+
+<note>This function is only available in Sandbox and its derivatives.</note>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="entindex" type="number" default="nil">**This argument is no longer used**; it has no effect on anything. You can use nil in this argument.</arg>
+		<arg name="text" type="string">The text for the world tip to display.</arg>
+		<arg name="dieTime" type="number" default="SysTime() + 0.05">**This argument is no longer used**; when you add a World Tip it will always last only 0.05 seconds. You can use nil in this argument.</arg>
+		<arg name="pos" type="Vector" default="ent:GetPos()">Where in the world you want the World Tip to be drawn. If you add a valid Entity in the next argument, this argument will have no effect on the actual World Tip.</arg>
+		<arg name="ent" type="Entity" default="nil">Which entity you want to associate with the World Tip. This argument is optional. If set to a valid entity, this will override the position set in `pos` with the Entity's position.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Creates a World Tip where the player is looking. If the player is looking at an entity, the World Tip is positioned on the entity.</description>
+	<code>
+hook.Add( "Think", "draw World Tip", function()
+	local ply = Entity( 1 )
+	local tr = ply:GetEyeTrace()
+	
+	local pos = tr.HitPos -- will be unused if ent is valid
+	local ent = tr.Entity
+	
+	AddWorldTip( nil, "Hello world!", nil, pos, ent )
+end )
+	</code>
+
+</example>

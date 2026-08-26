@@ -1,0 +1,10 @@
+<function name="NextTask" parent="ENTITY" type="hook">
+	<description>Start the next task in specific Lua schedule.
+<note>This is a helper function only available if your SENT is based on `base_ai`</note>
+</description>
+	<realm>Server</realm>
+	<file line="108">gamemodes/base/entities/entities/base_ai/schedules.lua</file>
+	<args>
+		<arg name="sched" type="table">The schedule to start next task in.</arg>
+	</args>
+</function>

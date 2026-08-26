@@ -1,0 +1,11 @@
+<function name="GetLineHeight" parent="DTree_Node" type="panelfunc">
+	<description>
+The height of a single <page>DTree_Node</page> of the <page>DTree</page> this node belongs to.
+
+Alias of <page>DTree:GetLineHeight</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The height of a single <page>DTree_Node</page>.</ret>
+	</rets>
+</function>

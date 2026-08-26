@@ -1,0 +1,7 @@
+<function name="GetName" parent="ITexture" type="classfunc">
+	<description>Returns the name of the texture, in most cases the path.</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="string">name</ret>
+	</rets>
+</function>

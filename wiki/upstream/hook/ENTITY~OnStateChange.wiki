@@ -1,0 +1,13 @@
+<function name="OnStateChange" parent="ENTITY" type="hook">
+	<added>2023.12.07</added>
+	<description>
+Called by the engine when NPC's state changes.
+
+<note>This hook only exists for `ai` type SENTs.</note>
+</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="oldState" type="number">The old state. See <page>Enums/NPC_STATE</page>.</arg>
+		<arg name="newState" type="number">The new state. See <page>Enums/NPC_STATE</page>.</arg>
+	</args>
+</function>

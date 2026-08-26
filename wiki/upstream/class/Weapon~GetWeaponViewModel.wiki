@@ -1,0 +1,7 @@
+<function name="GetWeaponViewModel" parent="Weapon" type="classfunc">
+	<description>Returns the view model of the weapon.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="string">The view model of the weapon.</ret>
+	</rets>
+</function>

@@ -1,0 +1,8 @@
+<function name="HasObstacles" parent="NPC" type="classfunc">
+	<description>Returns true if the current navigation has an obstacle, this is different from <page>NPC:GetBlockingEntity</page>, this is for virtual navigation obstacles put by AI's local navigation system to prevent movement to the marked area, forcing NPC to steer around, [for example](https://github.com/ValveSoftware/source-sdk-2013/blob/master/src/game/server/hl2/npc_playercompanion.cpp#L2897).</description>
+	<realm>Server</realm>
+	<added>2021.03.31</added>
+	<rets>
+		<ret name="" type="boolean">`true` if the current navigation has an obstacle.</ret>
+	</rets>
+</function>

@@ -1,0 +1,8 @@
+<function name="JS_Workshop" parent="Global" type="libraryfunc">
+	<description>Adds workshop related JavaScript functions to an HTML panel, used by the "Dupes" and "Saves" tabs in the spawnmenu.</description>
+	<realm>Client and Menu</realm>
+	<file line="19-L40">lua/includes/util/javascript_util.lua</file>
+	<args>
+		<arg name="htmlPanel" type="Panel">Panel to add JavaScript functions to.</arg>
+	</args>
+</function>

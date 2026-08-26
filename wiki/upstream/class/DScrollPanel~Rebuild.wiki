@@ -1,0 +1,9 @@
+<function name="Rebuild" parent="DScrollPanel" type="panelfunc">
+	<description>
+<internal></internal>
+
+Used internally to rebuild the panel's children positioning. You should use <page>Panel:InvalidateLayout</page> instead.
+</description>
+	<realm>Client and Menu</realm>
+	<file line="69-L80">lua/vgui/dscrollpanel.lua</file>
+</function>

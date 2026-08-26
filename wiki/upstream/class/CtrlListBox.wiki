@@ -1,0 +1,9 @@
+<panel>
+	<parent>DComboBox</parent>
+	<realm>Client</realm>
+	<description>
+A <page>DComboBox</page> based dropdown menu with build in easy <page>ConVar</page> support.
+
+This control only exists in Sandbox derived gamemodes.
+	</description>
+</panel>

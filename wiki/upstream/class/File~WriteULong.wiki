@@ -1,0 +1,7 @@
+<function name="WriteULong" parent="File" type="classfunc">
+	<description>Writes an unsigned little-endian 32-bit integer to the file.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="uint32" type="number">The unsigned 32-bit integer to be written to the file.</arg>
+	</args>
+</function>

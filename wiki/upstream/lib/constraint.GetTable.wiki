@@ -1,0 +1,14 @@
+<function name="GetTable" parent="constraint" type="libraryfunc">
+	<description>Returns a table of all constraints directly connected to the entity.
+
+If you are looking for a list of specific constraint(s), use <page>constraint.FindConstraints</page>.
+</description>
+	<realm>Server</realm>
+	<file line="1531-L1569">lua/includes/modules/constraint.lua</file>
+	<args>
+		<arg name="ent" type="Entity">The entity to check.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">A list of all constraints connected to the entity.</ret>
+	</rets>
+</function>

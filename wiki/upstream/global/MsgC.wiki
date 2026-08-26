@@ -1,0 +1,28 @@
+<function name="MsgC" parent="Global" type="libraryfunc">
+	<description>Just like <page>Global.Msg</page>, except it can also print colored text, just like <page>chat.AddText</page>.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="args" type="vararg">Values to print. If you put in a color, all text after that color will be printed in that color.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Prints `Hello World!` in red to the console.</description>
+	<code>MsgC( Color( 255, 0, 0 ), "Hello World!" )</code>
+	<output><image src="msgc_red_hello_world_2.png"/></output>
+</example>
+
+<example>
+	<description>Displays the built-in colors for the three realms (client, server and menu).</description>
+	<code>
+MsgC( Color( 156, 241, 255, 200 ), "Server message color\n" )
+MsgC( Color( 136, 221, 255, 255 ), "Server error color\n" )
+
+MsgC( Color( 255, 241, 122, 200 ), "Client message color\n" )
+MsgC( Color( 255, 221, 102, 255 ), "Client error color\n" )
+
+MsgC( Color( 100, 220, 100, 200 ), "Menu message color\n" )
+MsgC( Color( 120, 220, 100, 255 ), "Menu error color\n" )
+	</code>
+	<output><upload src="22674/8d99eb0bc22d743.png" size="2005" name="image.png" /></output>
+</example>

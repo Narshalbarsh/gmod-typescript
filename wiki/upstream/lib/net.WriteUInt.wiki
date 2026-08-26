@@ -1,0 +1,79 @@
+<function name="WriteUInt" parent="net" type="libraryfunc">
+	<description>Appends an unsigned integer with the specified number of bits to the current net message.
+
+Use <page>net.WriteInt</page> if you want to send negative and positive numbers. Use <page>net.WriteFloat</page> for a non-whole number (e.g. `2.25`).
+
+<note>Unsigned numbers **do not** support negative numbers.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="unsignedInteger" type="number">The unsigned integer to be sent.</arg>
+		<arg name="bitCount" type="number">The size of the integer to be sent, in bits. Acceptable values range from any number `1` to `32` inclusive.
+
+For reference: `1` = bit, `4` = nibble, `8` = byte, `16` = short, `32` = long.
+
+Consult the table below to determine the bit count you need. The minimum value for all bit counts is `0`.
+
+| Bit Count |  Maximum value |
+|-----------|:--------------:|
+| 1 | 1  |
+| 2 | 3  |
+| 3 | 7  |
+| 4 | 15 |
+| 5 | 31 |
+| 6 | 63 |
+| 7 | 127 |
+| 8 | 255 |
+| 9 | 511 |
+| 10 | 1,023 |
+| 11 | 2,047 |
+| 12 | 4,095 |
+| 13 | 8,191 |
+| 14 | 16,383 |
+| 15 | 32,767 |
+| 16 | 65,535 |
+| 17 | 131,071 |
+| 18 | 262,143 |
+| 19 | 524,287  |
+| 20 | 1,048,575  |
+| 21 | 2,097,151  |
+| 22 | 4,194,303  |
+| 23 | 8,388,607  |
+| 24 | 16,777,215  |
+| 25 | 33,554,431  |
+| 26 | 67,108,863  |
+| 27 | 134,217,727  |
+| 28 | 268,435,455  |
+| 29 | 536,870,911  |
+| 30 | 1,073,741,823 |
+| 31 | 2,147,483,647 |
+| 32 | 4,294,967,295 |
+</arg>
+	</args>
+</function>
+
+<example>
+	<description>Sends the server the client's age.</description>
+	<code>
+if CLIENT then
+	net.Start( "SendAge" )
+		net.WriteUInt( 3, 2 ) -- Only 2 bits are needed to store the number "3".
+	net.SendToServer()
+end
+
+if SERVER then
+	util.AddNetworkString( "SendAge" )
+
+	net.Receive( "SendAge", function( len, ply )
+	     local age = net.ReadUInt( 2 ) -- use the same number of bits that were written.
+
+	     print("Player " .. ply:Nick() .. " is " .. age .. " years old.")
+	end )
+end
+	</code>
+	<output>
+```
+Player <name> is 3 years old.
+```
+	</output>
+</example>

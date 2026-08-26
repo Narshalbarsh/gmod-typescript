@@ -1,0 +1,7 @@
+<function name="SendPVS" parent="net" type="libraryfunc">
+	<description>Sends current net message (see <page>net.Start</page>) to all players in the [PVS (Potential Visibility Set)](https://developer.valvesoftware.com/wiki/PVS "PVS - Valve Developer Community") of the position, or, more simply said, sends the message to players that can potentially see this position.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="position" type="Vector">Position that must be in players' visibility set.</arg>
+	</args>
+</function>

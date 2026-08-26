@@ -1,0 +1,7 @@
+<function name="IsConnected" parent="Player" type="classfunc">
+	<description>Returns true from the point when the player is sending client info but not fully in the game until they disconnect.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="boolean">isConnected</ret>
+	</rets>
+</function>

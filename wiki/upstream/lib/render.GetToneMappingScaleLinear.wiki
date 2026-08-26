@@ -1,0 +1,10 @@
+<function name="GetToneMappingScaleLinear" parent="render" type="libraryfunc">
+	<description>Returns a vector representing linear tone mapping scale. See <page>render.SetToneMappingScaleLinear</page> for details.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="scales" type="Vector">The tonemapping scales.
+* X - Output scale.
+* Y - Lightmap scale.
+* Z - Reflection map scale.</ret>
+	</rets>
+</function>

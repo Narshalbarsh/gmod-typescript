@@ -1,0 +1,43 @@
+<function name="ShowConsole" parent="gui" type="libraryfunc">
+	<description>Shows console in the game UI.</description>
+	<realm>Menu</realm>
+</function>
+
+<example>
+	<description>Example from `garrysmod\lua\menu\mainmenu.lua` that initializes the game UI and shows console if activated.</description>
+	<code>
+function PANEL:Init()
+
+	self:Dock( FILL )
+	self:SetKeyboardInputEnabled( true )
+	self:SetMouseInputEnabled( true )
+
+	self.HTML = vgui.Create( "DHTML", self )
+
+	JS_Language( self.HTML )
+	JS_Utility( self.HTML )
+	JS_Workshop( self.HTML )
+
+	self.HTML:Dock( FILL )
+	self.HTML:OpenURL( "asset://garrysmod/html/menu.html" )
+	self.HTML:SetKeyboardInputEnabled( true )
+	self.HTML:SetMouseInputEnabled( true )
+	self.HTML:SetAllowLua( true )
+	self.HTML:RequestFocus()
+
+	ws_save.HTML = self.HTML
+	addon.HTML = self.HTML
+	demo.HTML = self.HTML
+
+	self:MakePopup()
+	self:SetPopupStayAtBack( true )
+	
+	-- If the console is already open, we've got in its way.
+	if ( gui.IsConsoleVisible() ) then
+		gui.ShowConsole()
+	end
+
+end
+	</code>
+
+</example>

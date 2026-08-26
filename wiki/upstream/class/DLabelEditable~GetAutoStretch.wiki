@@ -1,0 +1,8 @@
+<function name="GetAutoStretch" parent="DLabelEditable" type="panelfunc">
+	<description>Returns whether the editable label will stretch to the text entered or not.</description>
+	<realm>Client</realm>
+	<added>2020.08.12</added>
+	<rets>
+		<ret name="" type="boolean">Whether the editable label will stretch to the text entered or not.</ret>
+	</rets>
+</function>

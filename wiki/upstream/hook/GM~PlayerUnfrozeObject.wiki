@@ -1,0 +1,9 @@
+<function name="PlayerUnfrozeObject" parent="GM" type="hook">
+	<description>Called when a player unfreezes an object.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ply" type="Player">Player who has unfrozen an object</arg>
+		<arg name="ent" type="Entity">The unfrozen object</arg>
+		<arg name="physobj" type="PhysObj">The frozen physics object of the unfrozen entity ( For ragdolls )</arg>
+	</args>
+</function>

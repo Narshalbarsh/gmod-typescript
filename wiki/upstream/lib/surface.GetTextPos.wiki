@@ -1,0 +1,9 @@
+<function name="GetTextPos" parent="surface" type="libraryfunc">
+	<description>Returns the X and Y co-ordinate that has been set with <page>surface.SetTextPos</page> or changed by <page>surface.DrawText</page>.</description>
+	<realm>Client and Menu</realm>
+	<added>2023.06.28</added>
+	<rets>
+		<ret name="x" type="number">The X integer co-ordinate.</ret>
+		<ret name="y" type="number">The Y integer co-ordinate.</ret>
+	</rets>
+</function>

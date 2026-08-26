@@ -1,0 +1,3 @@
+<type name="baseclass" category="libraryfunc" is="library">
+	<summary>The baseclass library. Used to lookup a field from a metatable.</summary>
+</type>

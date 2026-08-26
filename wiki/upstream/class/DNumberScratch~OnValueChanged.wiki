@@ -1,0 +1,7 @@
+<function name="OnValueChanged" parent="DNumberScratch" type="panelhook">
+	<description>Called when the value of the <page>DNumberScratch</page> is changed.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="newValue" type="number">The new value</arg>
+	</args>
+</function>

@@ -1,0 +1,44 @@
+<panel>
+	<parent>DIconLayout</parent>
+	<realm>Client and Menu</realm>
+	<file line="">lua/vgui/dcolorpalette.lua</file>
+	<preview>DColorPalette.png</preview>
+	<description>
+		The **DColorPalette** allows the player to select a color from a list of given colors.  
+		This panel supports saving across sessions via the panel cookie system.  
+		Use <page>Panel:SetCookieName</page> to change "save files".  
+	</description>
+	<overrides>
+		<page>Panel:Init</page>
+		<page>Panel:PaintOver</page>
+		<page>Panel:GenerateExample</page>
+	</overrides>
+</panel>
+
+
+<example>
+	<description>Creates a DColorPalette in a DFrame, clicking on a color will change the DColorButton's color to the selected color</description>
+	<code>
+local Frame = vgui.Create( "DFrame" )
+Frame:SetSize( 170, 200 )
+Frame:Center()
+Frame:MakePopup()
+
+local DColorPalette = vgui.Create( "DColorPalette", Frame )
+DColorPalette:SetPos( 5, 50 )
+DColorPalette:SetSize( 160, 50 )
+
+local DColorButton = vgui.Create( "DColorButton", Frame )
+DColorButton:SetSize( 50, 50 )
+DColorButton:SetPos( 60, 100 )
+
+-- This function is assigned AFTER DColorButton is created so we can use the DColorButton
+DColorPalette.OnValueChanged = function( s, value )
+	DColorButton:SetColor( value )
+end
+	</code>
+
+</example>
+
+Preview from the `derma_controls` concmd
+<upload src="aaf9e/8dc31bb98eead62.png" size="1032" name="image.png" />

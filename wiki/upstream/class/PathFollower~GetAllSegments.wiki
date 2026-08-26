@@ -1,0 +1,7 @@
+<function name="GetAllSegments" parent="PathFollower" type="classfunc">
+	<description>Returns all of the segments of the given path.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="table{PathSegment}">A table of tables with <page>Structures/PathSegment</page>.</ret>
+	</rets>
+</function>

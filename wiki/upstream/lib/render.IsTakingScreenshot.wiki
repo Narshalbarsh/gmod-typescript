@@ -1,0 +1,12 @@
+<function name="IsTakingScreenshot" parent="render" type="libraryfunc">
+	<description>
+Lets you know when a screenshot is being taken during rendering hooks.
+
+This is useful to hide certain visual elements from screenshots, such as debug overlays, helper objects, etc.
+	</description>
+	<realm>Client</realm>
+	<added>2025.12.01</added>
+	<rets>
+		<ret name="" type="boolean">Returns `true` when a screenshot is being taken.</ret>
+	</rets>
+</function>

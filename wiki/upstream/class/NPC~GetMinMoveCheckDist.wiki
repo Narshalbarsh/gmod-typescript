@@ -1,0 +1,8 @@
+<function name="GetMinMoveCheckDist" parent="NPC" type="classfunc">
+	<description>Returns how far should the NPC look ahead in its route.</description>
+	<realm>Server</realm>
+	<added>2021.03.31</added>
+	<rets>
+		<ret name="" type="number">How far the NPC checks ahead of its route.</ret>
+	</rets>
+</function>

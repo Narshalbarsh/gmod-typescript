@@ -1,0 +1,9 @@
+<function name="GetPreviousWeapon" parent="Player" type="classfunc">
+	<description>Returns the weapon the player previously had equipped.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Entity">The previous weapon of the player.
+
+<warning>This is not guaranteed to be a weapon entity so it should be checked with <page>Entity:IsWeapon</page> for safety.</warning></ret>
+	</rets>
+</function>

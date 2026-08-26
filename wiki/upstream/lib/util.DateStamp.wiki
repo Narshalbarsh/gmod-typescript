@@ -1,0 +1,8 @@
+<function name="DateStamp" parent="util" type="libraryfunc">
+	<description>Returns the current date formatted like '2012-10-31 18-00-00'</description>
+	<realm>Shared and Menu</realm>
+	<file line="98-L106">lua/includes/extensions/util.lua</file>
+	<rets>
+		<ret name="" type="string">date</ret>
+	</rets>
+</function>

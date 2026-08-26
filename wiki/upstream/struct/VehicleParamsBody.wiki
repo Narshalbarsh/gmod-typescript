@@ -1,0 +1,15 @@
+<structure>
+	<realm>Server</realm>
+	<description>The structure used by <page>Structures/VehicleParams</page>.</description>
+	<fields>
+<item name="addGravity" type="number">Additional gravity to be applied to the vehicle</item>
+<item name="counterTorqueFactor" type="number"></item>
+<item name="keepUprightTorque" type="number"></item>
+<item name="massCenterOverride" type="Vector">Mass center override</item>
+<item name="massOverride" type="number">Mass override</item>
+<item name="maxAngularVelocity" type="number">Maximum angular velocity</item>
+<item name="tiltForce" type="number"></item>
+<item name="tiltForceHeight" type="number"></item>
+	</fields>
+
+</structure>

@@ -1,0 +1,4 @@
+<function name="OnReloaded" parent="ENTITY" type="hook">
+	<description>Called when the entity is reloaded by the lua auto-refresh system, i.e. when the developer edits the lua file for the entity while the game is running.</description>
+	<realm>Shared</realm>
+</function>

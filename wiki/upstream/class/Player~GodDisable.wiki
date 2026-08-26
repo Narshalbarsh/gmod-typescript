@@ -1,0 +1,14 @@
+<function name="GodDisable" parent="Player" type="classfunc">
+	<description>Disables god mode on the player. Removes the <page text="FL_GODMODE">Enums/FL#FL_GODMODE</page> flag from the player.</description>
+	<realm>Server</realm>
+	<file line="232-L240">lua/includes/extensions/player.lua</file>
+</function>
+
+<example>
+	<description>Disables god mode on all players.</description>
+	<code>
+for _, ply in ipairs( player.GetAll() ) do
+    ply:GodDisable()
+end
+	</code>
+</example>

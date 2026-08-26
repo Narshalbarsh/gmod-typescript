@@ -1,0 +1,4 @@
+<function name="Finish" parent="CLuaEmitter" type="classfunc">
+	<description>Removes the emitter, making it no longer usable from Lua. If particles remain, the emitter will be removed when all particles die.</description>
+	<realm>Client</realm>
+</function>

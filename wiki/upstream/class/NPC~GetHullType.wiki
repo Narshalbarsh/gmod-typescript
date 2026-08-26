@@ -1,0 +1,7 @@
+<function name="GetHullType" parent="NPC" type="classfunc">
+	<description>Returns NPCs hull type set by <page>NPC:SetHullType</page>.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">Hull type, see <page>Enums/HULL</page></ret>
+	</rets>
+</function>

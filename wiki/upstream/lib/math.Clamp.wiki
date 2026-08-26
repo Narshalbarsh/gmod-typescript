@@ -1,0 +1,36 @@
+<function name="Clamp" parent="math" type="libraryfunc">
+	<description>Clamps a number between a minimum and maximum value.</description>
+	<realm>Shared and Menu</realm>
+	<file line="53-L55">lua/includes/extensions/math.lua</file>
+	<args>
+		<arg name="input" type="number">The number to clamp.</arg>
+		<arg name="min" type="number">The minimum value.</arg>
+		<arg name="max" type="number">The maximum value, this function will **never** return a number greater than this.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The clamped value.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Demonstrates what this function does.</description>
+	<code>
+print( math.Clamp( 10, 0, 5 ) ) -- 10 is greater than 5 so returns 5
+print( math.Clamp( 3, 0, 5 ) ) -- 3 is greater than 0 and less than 5, so returns 3
+print( math.Clamp( -1, 0, 5 ) ) -- -1 is less than 0, so returns 0
+print( math.Clamp( 20, 50, 10 ) ) -- 20 is greater than 10 so returns 10, even though min arg is 50 
+	</code>
+	<output>
+```
+5
+3
+0
+10
+```
+	</output>
+</example>
+
+<example>
+	<description>Heals player by 10, but won't let their health go above 100.</description>
+	<code>ply:SetHealth( math.Clamp( ply:Health() + 10, 0, 100 ) )</code>
+</example>

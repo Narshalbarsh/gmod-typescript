@@ -1,0 +1,7 @@
+<function name="Set" parent="Angle" type="classfunc">
+	<description>Copies pitch, yaw and roll from the second angle to the first.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="originalAngle" type="Angle">The angle to copy the values from.</arg>
+	</args>
+</function>

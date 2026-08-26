@@ -1,0 +1,11 @@
+<function name="BuildAmmoTypes" parent="game" type="libraryfunc">
+	<description>
+<internal>Consider using <page>game.GetAmmoTypes</page> and <page>game.GetAmmoData</page> instead.</internal>
+Called by the engine to retrieve the ammo types.
+	</description>
+	<realm>Shared</realm>
+	<file line="46-L54">lua/includes/extensions/game.lua</file>
+	<rets>
+		<ret name="" type="table">All ammo types registered via <page>game.AddAmmoType</page>, sorted by its name value.</ret>
+	</rets>
+</function>

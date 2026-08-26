@@ -1,0 +1,8 @@
+<function name="GetEyeDirection" parent="NPC" type="classfunc">
+	<description>Returns the eye direction of the NPC.</description>
+	<realm>Server</realm>
+	<added>2025.03.07</added>
+	<rets>
+		<ret name="" type="Vector">The eye direction.</ret>
+	</rets>
+</function>

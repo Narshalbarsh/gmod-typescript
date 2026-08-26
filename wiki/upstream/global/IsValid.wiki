@@ -1,0 +1,19 @@
+<function name="IsValid" parent="Global" type="libraryfunc">
+	<description>
+Returns whether an object is valid or not. (Such as <page text="entities">Entity</page>, <page>Panel</page>s, custom <page>table</page> objects and more).
+
+Checks that an object is not <page>nil</page>, has an `IsValid` method and if this method returns `true`. If the object has no `IsValid` method, it will return `false`.
+
+<note>If you are sure that the object you are about to check is not `nil` and has the `IsValid` method, it would be faster to call it directly rather than using `IsValid`.</note>
+<note>Due to vehicles being technically valid the moment they're spawned, also use <page>Vehicle:IsValidVehicle</page> to make sure they're fully initialized.</note>
+<warning>Putting a number in the argument will cause an error.</warning>
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="256-L268">lua/includes/util.lua</file>
+	<args>
+		<arg name="toBeValidated" type="any">The table or object to be validated.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">True if the object is valid.</ret>
+	</rets>
+</function>

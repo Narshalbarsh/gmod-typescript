@@ -1,0 +1,7 @@
+<function name="SetDeploySpeed" parent="Weapon" type="classfunc">
+	<description>Sets the weapon deploy speed. This value needs to match on client and server.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="speed" type="number">The value to set deploy speed to. Values less than `1` will slow down the animations. Minimum value is `0.1`.</arg>
+	</args>
+</function>

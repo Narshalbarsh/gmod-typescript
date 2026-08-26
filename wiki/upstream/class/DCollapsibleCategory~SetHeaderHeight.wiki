@@ -1,0 +1,13 @@
+<function name="SetHeaderHeight" parent="DCollapsibleCategory" type="panelfunc">
+	<description>
+Sets the header height of the <page>DCollapsibleCategory</page>.
+
+See also <page>DCollapsibleCategory:GetHeaderHeight</page>.
+	</description>
+	<added>2020.08.12</added>
+	<realm>Client and Menu</realm>
+	<file line="156-L160">lua/vgui/dcategorycollapse.lua</file>
+	<args>
+		<arg name="height" type="number">The new height to set. Default height is 20.</arg>
+	</args>
+</function>

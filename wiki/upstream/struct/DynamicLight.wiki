@@ -1,0 +1,33 @@
+<structure>
+	<realm>Client</realm>
+	<description>
+Structure for <page>Global.DynamicLight</page>.
+All members are case insensitive.
+
+<note>This is an actual class named **dlight_t**, not a table.</note>
+	</description>
+	<fields>
+<item name="brightness" type="number">The brightness of the light.</item>
+<item name="decay" type="number">Fade out speed.
+Here's a formula for calculating Decay for your light: 1000 / fadeOutTimeInSeconds. For example setting decay to 1000 would fade out the light in 1 second, 2000 - 0.5 seconds.</item>
+<item name="dietime" type="number">Time after which light will be removed.
+
+This is relative to <page>Global.CurTime</page>. If you put in a value that is less than or equal to <page>Global.CurTime</page>, the light will not behave properly.
+
+Note, that it does not affect fading out. Light will be removed regardless of it being fully faded out or not.</item>
+<item name="dir" type="Vector" default="Vector( 0, 0, 0 )">The light direction. Used with **InnerAngle** and **OuterAngle**.</item>
+<item name="innerangle" type="number" default="0">The closer this is to zero, the smoother the light will be. Requires **Dir** and **OuterAngle** to be set.</item>
+<item name="outerangle" type="number" default="0">The angle of the Dynamic Light. Requires **Dir** to be set.</item>
+<item name="key" type="number">The entity index the light belongs to. Set automatically by <page>Global.DynamicLight</page>. Probably don't touch it.</item>
+<item name="minlight" type="number" default="0">Minimum light</item>
+<item name="noworld" type="boolean" default="false">Don't light the world. Has no effect for elights since they never light the world.</item>
+<item name="nomodel" type="boolean" default="false">Don't light models</item>
+<item name="pos" type="Vector">Position of the light</item>
+<item name="size" type="number">Radius of the light</item>
+<item name="style" type="number">Flicker style, see [this page](https://developer.valvesoftware.com/wiki/Light_dynamic#Appearances) for examples.</item>
+<item name="b" type="number">The blue part of the color</item>
+<item name="g" type="number">The green part of the color</item>
+<item name="r" type="number">The red part of the color</item>
+	</fields>
+
+</structure>

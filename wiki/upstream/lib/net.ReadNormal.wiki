@@ -1,0 +1,11 @@
+<function name="ReadNormal" parent="net" type="libraryfunc">
+	<description>
+Reads a normal vector from the net message.
+
+<warning>You **must** read information in same order as you write it.</warning>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Vector">The normalized vector ( length = `1` ), or `Vector( 0, 0, 1 )` if no normal could be read.</ret>
+	</rets>
+</function>

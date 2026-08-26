@@ -1,0 +1,15 @@
+<function name="BodyTarget" parent="Entity" type="classfunc">
+	<description>
+Returns a centered vector of this entity, NPCs use this internally to aim at their targets.
+
+<note>This only works on players and NPCs.</note>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="origin" type="Vector">The vector of where the the attack comes from.</arg>
+		<arg name="noisy" type="boolean" default="false">Decides if it should return the centered vector with a random offset to it.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">The centered vector.</ret>
+	</rets>
+</function>

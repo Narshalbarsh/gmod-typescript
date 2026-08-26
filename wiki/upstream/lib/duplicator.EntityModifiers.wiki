@@ -1,0 +1,7 @@
+<function name="EntityModifiers" parent="duplicator" type="libraryfield">
+	<description>A list of all entity modifiers registered with <page>duplicator.RegisterEntityModifier</page>.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="table">The list of all entity modifiers.</ret>
+	</rets>
+</function>

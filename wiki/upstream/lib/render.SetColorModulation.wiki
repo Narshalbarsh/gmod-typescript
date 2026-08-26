@@ -1,0 +1,14 @@
+<function name="SetColorModulation" parent="render" type="libraryfunc">
+	<description>Sets the color modulation for upcoming render operations, such as rendering models.
+
+The values can exceed 1 for stronger effect.
+
+See <page>render.SetBlend</page> for the function to affect alpha channel.
+</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="r" type="number">The red channel multiplier normal ranging from 0-1.</arg>
+		<arg name="g" type="number">The green channel multiplier normal ranging from 0-1.</arg>
+		<arg name="b" type="number">The blue channel multiplier normal ranging from 0-1.</arg>
+	</args>
+</function>

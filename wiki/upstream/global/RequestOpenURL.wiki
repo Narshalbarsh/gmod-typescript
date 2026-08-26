@@ -1,0 +1,12 @@
+<function name="RequestOpenURL" parent="Global" type="libraryfunc">
+	<description>
+		<internal></internal>
+		Opens a confirmation window to open the url.
+		<upload src="ab571/8dc3890ccb8cfd4.png" size="14654" name="confirm_dialog.png" />
+	</description>
+	<realm>Menu</realm>
+	<file line="286-L291">lua/menu/openurl.lua</file>
+	<args>
+		<arg name="url" type="string">The Website URL to open.</arg>
+	</args>
+</function>

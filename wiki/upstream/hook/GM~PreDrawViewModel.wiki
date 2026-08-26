@@ -1,0 +1,24 @@
+<function name="PreDrawViewModel" parent="GM" type="hook">
+	<description>
+Called before the view model has been drawn.
+
+By default this hook also calls <page>WEAPON:PreDrawViewModel</page>, so you can use that if developing a scripted weapon.
+
+See <page>GM:PostDrawViewModel</page> for a hook that runs immediately after rendering a view model.  
+See <page>GM:PreDrawViewModels</page> for a hook that runs before **all** view models are drawn within a frame.
+
+For view model hands, see <page>GM:PreDrawPlayerHands</page>.
+
+<rendercontext hook="true" type="3D"></rendercontext>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="vm" type="Entity">This is the view model entity before it is drawn. On server-side, this entity is the predicted view model.</arg>
+		<arg name="ply" type="Player">The owner of the view model.</arg>
+		<arg name="weapon" type="Weapon">This is the weapon that is from the view model.</arg>
+		<arg name="flags" type="number" added="2025.12.16">The <page text="STUDIO_">Enums/STUDIO</page> flags for this render operation.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return true to prevent the default view model rendering. This also affects <page>GM:PostDrawViewModel</page>.</ret>
+	</rets>
+</function>

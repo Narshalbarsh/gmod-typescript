@@ -1,0 +1,32 @@
+<structure>
+	<realm>Shared</realm>
+	<description>Table used by <page>util.TraceHull</page>.</description>
+	<fields>
+<item name="start" type="Vector">The start position of the trace</item>
+<item name="endpos" type="Vector">The end position of the trace</item>
+<item name="maxs" type="Vector">The 3D vector local to the start/endpos with the highest values. This will represent the corner with the upper bounds of the box.</item>
+<item name="mins" type="Vector">The 3D vector local to the start/endpos with the lowest (often negative) values. This will represent the corner with the lower bounds of the box.</item>
+
+<item name="filter" type="Entity|table<Entity>|table<string>|function" default="nil">
+	Things the trace should not hit. Can be an entity, a table of entities, a table of entity classes or a function:
+
+	<callback>
+		<arg type="Entity" name="ent">The entity that the trace hit</arg>
+		<ret type="boolean">Return `true` to hit the entity, `false` to skip it.</ret>
+	</callback>
+
+	Using a function here is super slow. Try to avoid it.
+</item>
+
+<item name="mask" type="number{MASK}" default="MASK_SOLID">The trace mask <page>Enums/MASK</page>. This determines what the trace should hit and what it shouldn't hit.</item>
+<item name="collisiongroup" type="number{COLLISION_GROUP}" default="COLLISION_GROUP_NONE">The collision group <page>Enums/COLLISION_GROUP</page>. This determines what the trace should hit in regards to the entity's collision group.</item>
+<item name="ignoreworld" type="boolean" default="false">Should the trace ignore world or not.</item>
+<item name="output" type="table{TraceResult}" default="nil">If set, the trace result will be written to the supplied table instead of returning a new table</item>
+
+<item name="whitelist" type="boolean" default="false" added="2024.05.16">Turns the `filter` field into a whitelist, if it is a table.</item>
+<item name="hitclientonly" type="boolean" realm="client" default="false" added="2024.05.16">Enables traces to hit clientside only entities. Keep in mind that most naturally spawned entities are classified as debris, so extra `mask` values might be required.</item>
+
+
+	</fields>
+
+</structure>

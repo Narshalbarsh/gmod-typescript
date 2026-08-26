@@ -1,0 +1,9 @@
+<panel>
+	<parent>DPanel</parent>
+	<realm>Client and Menu</realm>
+	<description>
+<internal></internal>
+
+An internal panel used by <page>DVScrollBar</page> as the grip (middle) part of the scrollbar.
+	</description>
+</panel>

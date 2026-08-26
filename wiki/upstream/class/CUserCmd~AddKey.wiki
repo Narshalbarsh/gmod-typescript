@@ -1,0 +1,10 @@
+<function name="AddKey" parent="CUserCmd" type="classfunc">
+	<description>
+Adds a single key to the active buttons bitflag. See also <page>CUserCmd:SetButtons</page>.
+	</description>
+	<added>2021.12.15</added>
+	<realm>Shared</realm>
+	<args>
+		<arg name="key" type="number">Key to add, see <page>Enums/IN</page>.</arg>
+	</args>
+</function>

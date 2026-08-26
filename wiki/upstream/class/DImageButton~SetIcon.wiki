@@ -1,0 +1,12 @@
+<function name="SetIcon" parent="DImageButton" type="panelfunc">
+	<description>
+<deprecated></deprecated>
+
+Alias of <page>DImageButton:SetImage</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="strImage" type="string"></arg>
+		<arg name="strBackup" type="string" default="nil"></arg>
+	</args>
+</function>

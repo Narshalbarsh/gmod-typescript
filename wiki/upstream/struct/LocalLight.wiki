@@ -1,0 +1,20 @@
+<structure>
+	<realm>Client</realm>
+	<description>Table structure used for <page>render.SetLocalModelLights</page>.</description>
+	<fields>
+<item name="type" type="number{MATERIAL_LIGHT}" default="MATERIAL_LIGHT_POINT">The type of the light source, see <page>Enums/MATERIAL_LIGHT</page>.</item>
+<item name="color" type="Vector" default="vector_origin">The color of the light source (x is red, y is green, z is blue). Values are not restricted to a specific range, higher values will result in a brighter light.</item>
+<item name="pos" type="Vector" default="vector_origin">The origin of the light in world coordinates.</item>
+<item name="dir" type="Vector" default="vector_origin">The direction of the light. Only required for directional and spot lights.</item>
+<item name="range" type="number" default="0">The maximum range of the light source. Does not actually control light attenuation. Usually left at 0 for infinite range.</item>
+<item name="angularFalloff" type="number" default="5">Angular falloff exponent for spot lights. Higher values result in a sharper transition between the inner cone and the outer cone.</item>
+<item name="innerAngle" type="number" default="45">The inner cone angle for spot lights, in degrees. No angular falloff will occur inside that cone.</item>
+<item name="outerAngle" type="number" default="45">The outer cone angle for spot lights, in degrees.</item>
+<item name="fiftyPercentDistance" type="number" default="nil">The distance at which the light will fade to 50% of its brightness.</item>
+<item name="zeroPercentDistance" type="number" default="nil">The distance at which the light will completely fade out.</item>
+<item name="quadraticFalloff" type="number" default="0">The quadratic term of the light falloff. This will only be used if fiftyPercentDistance and zeroPercentDistance are not supplied, and allows finer control over light attenuation.</item>
+<item name="linearFalloff" type="number" default="0">The linear term of the light falloff. This will only be used if fiftyPercentDistance and zeroPercentDistance are not supplied, and allows finer control over light attenuation.</item>
+<item name="constantFalloff" type="number" default="1">The constant term of the light falloff. This will only be used if fiftyPercentDistance and zeroPercentDistance are not supplied, and allows finer control over light attenuation.</item>
+	</fields>
+
+</structure>

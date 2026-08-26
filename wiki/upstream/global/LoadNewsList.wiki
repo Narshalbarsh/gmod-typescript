@@ -1,0 +1,8 @@
+<function name="LoadNewsList" parent="Global" type="libraryfunc">
+	<description>
+		<internal></internal>
+		Updates the News List
+	</description>
+	<realm>Menu</realm>
+	<file line="300-L307">lua/menu/mainmenu.lua</file>
+</function>

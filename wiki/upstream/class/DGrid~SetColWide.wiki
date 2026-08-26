@@ -1,0 +1,11 @@
+<function name="SetColWide" parent="DGrid" type="panelfunc">
+	<description>
+Sets the width of each column.
+
+The cell panels (grid items) will not be resized or centered.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="colWidth" type="number">The width of each column.</arg>
+	</args>
+</function>

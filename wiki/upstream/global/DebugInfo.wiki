@@ -1,0 +1,8 @@
+<function name="DebugInfo" parent="Global" type="libraryfunc">
+	<description>Writes text to the right hand side of the screen, like the old error system. Messages disappear after a couple of seconds.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="slot" type="number">The location on the right hand screen to write the debug info to. Starts at 0, no upper limit</arg>
+		<arg name="info" type="string">The debugging information to be written to the screen</arg>
+	</args>
+</function>

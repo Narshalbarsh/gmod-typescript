@@ -1,0 +1,25 @@
+<function name="PreDrawHUD" parent="GM" type="hook">
+	<description>
+Called just after <page>GM:PostDrawEffects</page> (duplicate of it). Drawing anything in it seems to work incorrectly.
+
+See <page>GM:PostDrawHUD</page> for the associated hook.
+	</description>
+	<realm>Client</realm>
+</function>
+
+<example>
+	<description>Allows you to draw something before any other HUD elements.</description>
+	<code>
+hook.Add( "PreDrawHUD", "PreDrawExample", function()
+
+	cam.Start2D() -- If you don't call this the drawing will not work properly.
+
+		surface.SetDrawColor( 20, 20, 20, 200 )
+		surface.DrawRect( 0, 0, ScrW(), ScrH() )
+
+	cam.End2D()
+
+end )
+	</code>
+
+</example>

@@ -1,0 +1,10 @@
+<function name="DoRightClick" parent="DTree" type="panelhook">
+	<description>Called when the any node is right clicked. Called by <page>DTree_Node:DoRightClick</page>.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="node" type="DTree_Node">The right clicked node.</arg>
+	</args>
+	<rets>
+		<ret name="suppress" type="boolean"></ret>
+	</rets>
+</function>

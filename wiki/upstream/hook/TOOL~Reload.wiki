@@ -1,0 +1,11 @@
+<function name="Reload" parent="TOOL" type="hook">
+	<description>Called when the user presses the reload key with the tool out.</description>
+	<realm>Shared</realm>
+	<predicted>Yes</predicted>
+	<args>
+		<arg name="tr" type="table">A trace from user's eyes to wherever they aim at. See <page>Structures/TraceResult</page></arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return `true` to draw the tool gun beam and play fire animations, `false` otherwise</ret>
+	</rets>
+</function>

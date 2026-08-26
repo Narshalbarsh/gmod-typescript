@@ -1,0 +1,8 @@
+<function name="GetLevel" parent="IGModAudioChannel" type="classfunc">
+	<description>Returns the right and left levels of sound played by the sound channel.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">The left sound level. The value is between 0 and 1.</ret>
+		<ret name="" type="number">The right sound level. The value is between 0 and 1.</ret>
+	</rets>
+</function>

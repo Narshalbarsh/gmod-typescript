@@ -1,0 +1,8 @@
+<function name="OnToggle" parent="DCollapsibleCategory" type="panelhook">
+	<description>Called by <page>DCollapsibleCategory:Toggle</page>. This function does nothing by itself, as you're supposed to overwrite it.</description>
+	<realm>Client and Menu</realm>
+	<file line="227-L231">lua/vgui/dcategorycollapse.lua</file>
+	<args>
+		<arg name="expanded" type="boolean">If it was expanded or not</arg>
+	</args>
+</function>

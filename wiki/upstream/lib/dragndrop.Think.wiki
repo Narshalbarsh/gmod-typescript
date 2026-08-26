@@ -1,0 +1,8 @@
+<function name="Think" parent="dragndrop" type="libraryfunc">
+	<description>
+<internal></internal>
+Handles all the drag'n'drop processes. Calls <page>dragndrop.UpdateReceiver</page> and <page>dragndrop.HoverThink</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="194-L231">lua/includes/extensions/client/panel/dragdrop.lua</file>
+</function>

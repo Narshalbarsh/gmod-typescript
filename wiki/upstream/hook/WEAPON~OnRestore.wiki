@@ -1,0 +1,10 @@
+<function name="OnRestore" parent="WEAPON" type="hook">
+	<description>
+Called when the weapon entity is reloaded from a Source Engine save (not the Sandbox saves or dupes) or on a changelevel (for example Half-Life 2 campaign level transitions).
+
+For the <page>duplicator</page> callbacks, see <page>ENTITY:OnDuplicated</page>.
+
+See also <page>saverestore</page> for relevant functions.
+	</description>
+	<realm>Shared</realm>
+</function>

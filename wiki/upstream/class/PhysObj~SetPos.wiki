@@ -1,0 +1,10 @@
+<function name="SetPos" parent="PhysObj" type="classfunc">
+	<description>Sets the position of the physobject.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="position" type="Vector">The new position of the physobject in world coordinates. (`source units`).
+			<warning>The new position will not be applied on the parent entity while the physics object is asleep (<page>PhysObj:Sleep</page>)</warning>	
+		</arg>
+		<arg name="teleport" type="boolean" default="false">If `true`, temporarily disables collisions of the physics objects just before moving it, then enables collisions back again.</arg>
+	</args>
+</function>

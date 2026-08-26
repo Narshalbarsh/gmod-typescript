@@ -1,0 +1,9 @@
+<panel>
+	<parent>DLabel</parent>
+	<realm>Client</realm>
+	<description>
+		<deprecated>
+			Used Internally by <page>DListBox</page>.
+		</deprecated>
+	</description>
+</panel>

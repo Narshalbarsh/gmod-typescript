@@ -1,0 +1,8 @@
+<function name="GetConstraintSpeedScale" parent="CMoveData" type="classfunc">
+	<description>Returns the player movement constraint speed scale. See <page>CMoveData:SetConstraintSpeedScale</page>.</description>
+	<added>2021.06.09</added>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The constraint speed scale</ret>
+	</rets>
+</function>

@@ -1,0 +1,9 @@
+<panel>
+	<parent>DLabel</parent>
+	<realm>Client and Menu</realm>
+	<description>
+		<internal>
+			Used by <page>DListView_Line</page>.
+		</internal>
+	</description>
+</panel>

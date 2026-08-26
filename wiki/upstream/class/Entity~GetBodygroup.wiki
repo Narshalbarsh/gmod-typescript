@@ -1,0 +1,34 @@
+<function name="GetBodygroup" parent="Entity" type="classfunc">
+	<description>
+		Returns the <page text="Sub Model ID">Structures/BodyGroupData#submodels</page> for the currently active <page text="Sub Model">Entity:GetSubModels</page> of the Body Group corresponding to the given <page text="Body Group ID">Structures/BodyGroupData#id</page>.
+
+		<note>
+			Weapons will return results from their viewmodels.
+		</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="bodyGroupId" type="number">
+			The Body Group ID to retrieve the active Sub Model ID for.  
+			Body Group IDs start at `0`.
+		</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">
+			The currently active Sub Model ID.  
+			Sub Model IDs start at `0`.
+		</ret>
+	</rets>
+</function>
+
+<example>
+	<description>
+		Gets the value of bodygroup 2 of entity player 1 is aiming at.
+	</description>
+	<code>
+		print( Entity(1):GetEyeTrace().Entity:GetBodygroup(2) )
+	</code>
+	<output>
+		"1" in console, if player 1 is aiming at airboat.
+	</output>
+</example>

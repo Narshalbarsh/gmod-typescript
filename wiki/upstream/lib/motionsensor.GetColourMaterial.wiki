@@ -1,0 +1,7 @@
+<function name="GetColourMaterial" parent="motionsensor" type="libraryfunc">
+	<description>Returns the depth map material.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="IMaterial">The material</ret>
+	</rets>
+</function>

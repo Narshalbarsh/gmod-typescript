@@ -1,0 +1,8 @@
+<function name="SetDrawBackground" parent="DCollapsibleCategory" type="panelfunc">
+	<description><deprecated>You should use <page>DCollapsibleCategory:SetPaintBackground</page> instead.</deprecated>Sets whether or not to draw the panel background. Alias of <page>DCollapsibleCategory:SetPaintBackground</page>.</description>
+	<realm>Client and Menu</realm>
+	<file line="52">lua/vgui/dcategorycollapse.lua</file>
+	<args>
+		<arg name="draw" type="boolean">True to show the panel's background, false to hide it.</arg>
+	</args>
+</function>

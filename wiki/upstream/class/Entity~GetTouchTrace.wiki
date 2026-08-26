@@ -1,0 +1,27 @@
+<function name="GetTouchTrace" parent="Entity" type="classfunc">
+	<description>
+Returns the last trace used in the collision callbacks such as <page>ENTITY:StartTouch</page>, <page>ENTITY:Touch</page> and <page>ENTITY:EndTouch</page>.
+
+<note>This returns the last collision trace used, regardless of the entity that caused it. As such, it's only reliable when used in the hooks mentioned above</note>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="table{TraceResult}">The <page>Structures/TraceResult</page></ret>
+	</rets>
+</function>
+
+<example>
+	<description>Dispatches an explosion at the point of impact with another entity.</description>
+	<code>
+function ENT:Touch( otherEntity )
+	local tr = self:GetTouchTrace()
+	local hitPos = tr.HitPos
+
+	local effectdata = EffectData()
+	effectdata:SetOrigin( hitPos )
+	util.Effect( "Explosion", effectdata )
+
+end
+	</code>
+
+</example>

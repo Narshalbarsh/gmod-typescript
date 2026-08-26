@@ -1,0 +1,7 @@
+<function name="SetSizeY" parent="DSizeToContents" type="panelfunc">
+	<description>Sets whether the <page>DSizeToContents</page> panel should size to contents vertically. This is `true` by default.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="sizeY" type="boolean">Whether the panel should size to contents vertically.</arg>
+	</args>
+</function>

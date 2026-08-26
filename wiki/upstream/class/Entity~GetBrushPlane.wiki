@@ -1,0 +1,20 @@
+<function name="GetBrushPlane" parent="Entity" type="classfunc">
+	<description>
+Returns info about given plane of non-nodraw brush model surfaces of the entity's model. Works on worldspawn as well.
+
+<warning>This only works on entities with brush models.</warning>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="id" type="number">The index of the plane to get info of. Starts from 0.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">The origin of the plane.
+
+This will be either the first vertex's position (if available) or the plane's normal multiplied by the plane's distance.</ret>
+		<ret name="" type="Vector">The normal of the plane.</ret>
+		<ret name="" type="number">The "distance" of the plane.
+
+The distance is the dot product of the plane's normal and the point it was initialized with.</ret>
+	</rets>
+</function>

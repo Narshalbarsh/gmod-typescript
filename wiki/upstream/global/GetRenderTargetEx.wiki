@@ -1,0 +1,33 @@
+<function name="GetRenderTargetEx" parent="Global" type="libraryfunc">
+	<description>
+Gets (or creates if it does not exist) the rendertarget with the given name, this function allows to adjust the creation of a rendertarget more than <page>Global.GetRenderTarget</page>.
+
+See also <page>render.PushRenderTarget</page> and <page>render.SetRenderTarget</page>.
+	
+	
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="name" type="string">The internal name of the render target.
+
+<warning>The name is treated like a path and gets its extension discarded.<br/>"name.1" and "name.2" are considered the same name and will result in the same render target being reused.</warning></arg>
+		<arg name="width" type="number">The width of the render target, must be power of 2.</arg>
+		<arg name="height" type="number">The height of the render target, must be power of 2.</arg>
+		<arg name="sizeMode" type="number{RT_SIZE}">Bitflag that influences the sizing of the render target, see <page>Enums/RT_SIZE</page>.</arg>
+		<arg name="depthMode" type="number{MATERIAL_RT_DEPTH}">
+	Bitflag that determines the depth buffer usage of the render target <page>Enums/MATERIAL_RT_DEPTH</page>.
+	
+		<warning>PNG's may not render to non MATERIAL_RT_DEPTH_NONE RenderTargets</warning>
+		</arg>
+		<arg name="textureFlags" type="number{TEXTUREFLAGS}">Bitflag that configures the texture, see <page>Enums/TEXTUREFLAGS</page>.
+
+List of flags can also be found on the Valve's Developer Wiki:
+https://developer.valvesoftware.com/wiki/Valve_Texture_Format</arg>
+		<arg name="rtFlags" type="number{CREATERENDERTARGETFLAGS}">Flags that control the HDR behaviour of the render target, see <page>Enums/CREATERENDERTARGETFLAGS</page>.</arg>
+		<arg name="imageFormat" type="number">Image format, see <page>Enums/IMAGE_FORMAT</page>. 
+<note>Some additional image formats are accepted, but don't have enums. See [VTF Enumerations.](https://developer.valvesoftware.com/wiki/Valve_Texture_Format#VTF_enumerations)</note> </arg>
+	</args>
+	<rets>
+		<ret name="" type="ITexture">The new render target.</ret>
+	</rets>
+</function>

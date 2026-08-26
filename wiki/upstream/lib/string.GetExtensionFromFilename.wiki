@@ -1,0 +1,25 @@
+<function name="GetExtensionFromFilename" parent="string" type="libraryfunc">
+	<description>Returns extension of the file.
+
+See <page>string.StripExtension</page> for a function to remove the extension.  
+See <page>string.GetFileFromFilename</page> and <page>string.GetPathFromFilename</page> for related functions.
+
+	<note>Make sure there are no trailing whitespaces in your `path` argument</note>
+	</description>
+	
+	<realm>Shared and Menu</realm>
+	<file line="124">lua/includes/extensions/string.lua</file>
+	<args>
+		<arg name="path" type="string">The string eg. file-path to get the file extension from.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">File extension or `nil`.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints the extension of the file.</description>
+	<code>print(string.GetExtensionFromFilename("garrysmod/lua/modules/string.lua"))</code>
+	<output>lua</output>
+
+</example>

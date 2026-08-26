@@ -1,0 +1,13 @@
+<function name="FindTooltip" parent="Global" type="libraryfunc">
+	<description>Returns the tool-tip text and tool-tip-panel (if any) of the given panel as well as itself</description>
+	<realm>Client and Menu</realm>
+	<file line="20-L36">lua/includes/util/tooltips.lua</file>
+	<args>
+		<arg name="panel" type="Panel">Panel to find tool-tip of</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">tool-tip text</ret>
+		<ret name="" type="Panel">tool-tip panel</ret>
+		<ret name="" type="Panel">panel that the function was called with</ret>
+	</rets>
+</function>

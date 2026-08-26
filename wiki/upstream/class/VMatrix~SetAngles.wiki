@@ -1,0 +1,7 @@
+<function name="SetAngles" parent="VMatrix" type="classfunc">
+	<description>Sets the absolute rotation of the matrix.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="angle" type="Angle">New angles.</arg>
+	</args>
+</function>

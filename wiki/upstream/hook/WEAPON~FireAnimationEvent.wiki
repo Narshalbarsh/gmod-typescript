@@ -1,0 +1,65 @@
+<function name="FireAnimationEvent" parent="WEAPON" type="hook">
+	<description>
+Called before executing an animation event, such as a muzzle flash appearing or a shell ejecting.
+
+This will only be called serverside for 3000-range events, and clientside for 5000-range and other events.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="pos" type="Vector">Position of the effect.</arg>
+		<arg name="ang" type="Angle">Angle of the effect.</arg>
+		<arg name="event" type="number">The event ID of the happened event. See [this page](http://developer.valvesoftware.com/wiki/Animation_Events).</arg>
+		<arg name="options" type="string">Name or options of the event.</arg>
+		<arg name="source" type="Entity">The source entity. This will be a viewmodel on the client and the weapon itself on the server</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return true to disable the effect.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Disables muzzle flashes. Taken from tool gun source code.</description>
+	<code>
+function SWEP:FireAnimationEvent( pos, ang, event, options )
+	
+	-- Disables animation based muzzle event
+	if ( event == 21 ) then return true end	
+
+	-- Disable thirdperson muzzle flash
+	if ( event == 5003 ) then return true end
+
+end
+	</code>
+
+</example>
+
+
+<example>
+	<description>Counter-Strike: Source-like muzzle flashes.</description>
+	<code>
+function SWEP:FireAnimationEvent( pos, ang, event, options )
+
+	if ( !self.CSMuzzleFlashes ) then return end
+
+	-- CS Muzzle flashes
+	if ( event == 5001 or event == 5011 or event == 5021 or event == 5031 ) then
+	
+		local data = EffectData()
+		data:SetFlags( 0 )
+		data:SetEntity( self:GetOwner():GetViewModel() )
+		data:SetAttachment( math.floor( ( event - 4991 ) / 10 ) )
+		data:SetScale( 1 ) -- Change me
+
+		if ( self.CSMuzzleX ) then
+			util.Effect( "CS_MuzzleFlash_X", data )
+		else
+			util.Effect( "CS_MuzzleFlash", data )
+		end
+	
+		return true
+	end
+
+end
+	</code>
+
+</example>

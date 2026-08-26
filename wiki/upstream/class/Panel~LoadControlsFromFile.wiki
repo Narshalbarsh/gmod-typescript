@@ -1,0 +1,11 @@
+<function name="LoadControlsFromFile" parent="Panel" type="classfunc">
+	<description>
+<deprecated>No longer does anything.</deprecated>
+<internal></internal>
+Similar to <page>Panel:LoadControlsFromString</page> but loads controls from a file.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="path" type="string">The path to load the controls from.</arg>
+	</args>
+</function>

@@ -1,0 +1,18 @@
+<function name="GetScore" parent="team" type="libraryfunc">
+	<description>Returns the score of the team.</description>
+	<file line="149-L153">lua/includes/modules/team.lua</file>
+	<realm>Shared</realm>
+	<args>
+		<arg name="teamIndex" type="number">The team index.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">score</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Get's the teams score, can be a number 1 or 2 depending on how many teams you've set up.</description>
+	<code>print(team.GetScore(ply:Team()),team.GetScore(1))</code>
+	<output>1</output>
+
+</example>

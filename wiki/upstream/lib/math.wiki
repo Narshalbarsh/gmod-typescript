@@ -1,0 +1,3 @@
+<type name="math" category="libraryfunc" is="library">
+	<summary>The math library is a standard Lua library that provides functions for manipulating numbers. In Garry's Mod several additional math functions have been added.</summary>
+</type>

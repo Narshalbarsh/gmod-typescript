@@ -1,0 +1,5 @@
+<function name="StopDragging" parent="dragndrop" type="libraryfunc">
+	<description>Stops the drag'n'drop and calls <page>dragndrop.Clear</page>.</description>
+	<realm>Client and Menu</realm>
+	<file line="113-L129">lua/includes/extensions/client/panel/dragdrop.lua</file>
+</function>

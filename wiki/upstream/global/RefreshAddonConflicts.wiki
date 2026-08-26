@@ -1,0 +1,5 @@
+<function name="RefreshAddonConflicts" parent="Global" type="libraryfunc">
+	<description>Refreshes all Addon Conflicts after 1 Second. Internally uses <page>Global.FireAddonConflicts</page></description>
+	<realm>Menu</realm>
+	<file line="317-L319">lua/menu/problems/problems.lua</file>
+</function>

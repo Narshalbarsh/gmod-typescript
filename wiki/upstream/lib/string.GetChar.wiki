@@ -1,0 +1,22 @@
+<function name="GetChar" parent="string" type="libraryfunc">
+	<description><deprecated>Use either string.sub(str, index, index) or str[index].</deprecated> Returns char value from the specified index in the supplied string.</description>
+	<realm>Shared and Menu</realm>
+	<file line="305-L309">lua/includes/extensions/string.lua</file>
+	<args>
+		<arg name="str" type="string">The string that you will be searching with the supplied index.</arg>
+		<arg name="index" type="number">The index's value of the string to be returned.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">str</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Looks index in the supplied string and returns value of that index.</description>
+	<code>
+local char = "ABC"
+print(string.GetChar(char, 2))
+	</code>
+	<output>B</output>
+
+</example>

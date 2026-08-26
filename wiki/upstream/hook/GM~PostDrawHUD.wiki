@@ -1,0 +1,29 @@
+<function name="PostDrawHUD" parent="GM" type="hook">
+	<description>
+Called after <page>GM:PreDrawHUD</page>,  <page>GM:HUDPaintBackground</page> and <page>GM:HUDPaint</page> but before  <page>GM:DrawOverlay</page>.
+
+Unlike <page>GM:HUDPaint</page>(<page text="Background">GM:HUDPaintBackground</page>) hooks, this will still be called when the main menu is visible. And so will be <page>GM:PreDrawHUD</page>
+
+		<rendercontext hook="true" type="2D"></rendercontext>
+	</description>
+	<realm>Client</realm>
+</function>
+
+
+<example>
+	<description>Draws a transparent black box in the top left corner of the screen.</description>
+	<code>
+hook.Add( "PostDrawHUD", "DrawHelloWorldBox", function()
+    local w = 256
+    local h = 64
+
+	cam.Start2D() -- If you don't call this the text inside the hook will render odd.
+		surface.SetDrawColor( 20, 20, 20, 200 )
+		surface.DrawRect( 0, 0, w, h )
+
+        draw.SimpleText( "Hello World", "Trebuchet24", w / 2, h / 2, color_white, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
+	cam.End2D()
+end )
+	</code>
+
+</example>

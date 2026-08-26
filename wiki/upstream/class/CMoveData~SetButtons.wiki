@@ -1,0 +1,7 @@
+<function name="SetButtons" parent="CMoveData" type="classfunc">
+	<description>Sets the pressed buttons on the move data</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="buttons" type="number">A number representing which buttons are down, see <page>Enums/IN</page></arg>
+	</args>
+</function>

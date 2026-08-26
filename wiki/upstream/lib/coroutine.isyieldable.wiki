@@ -1,0 +1,11 @@
+<function name="isyieldable" parent="coroutine" type="libraryfunc">
+	<description>
+		Returns whether the running coroutine can yield.  
+		A running coroutine is yieldable if it is not in the main thread, and it is not inside a non-yieldable C function.
+		<note>This is only available on the x86-64 versions, because of the difference in the LuaJIT version. [See here](jit.version)</note>
+	</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="canyield" type="boolean">Returns true when the running coroutine can yield.</ret>
+	</rets>
+</function>

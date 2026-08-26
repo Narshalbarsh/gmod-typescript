@@ -1,0 +1,4 @@
+<function name="MaintainActivity" parent="NPC" type="classfunc">
+	<description>Tries to achieve our ideal animation state, playing any transition sequences that we need to play to get there.</description>
+	<realm>Server</realm>
+</function>

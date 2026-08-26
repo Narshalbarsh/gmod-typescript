@@ -1,0 +1,14 @@
+<function name="TakeDamage" parent="Entity" type="classfunc">
+	<description>
+Applies the specified amount of damage to the entity with <page text="DMG_GENERIC">Enums/DMG</page> flag.
+
+<warning>Calling this function on the victim entity in <page>ENTITY:OnTakeDamage</page> can cause infinite loops.</warning>
+<warning>This function does not seem to do any damage if you apply it to a player who is driving a prop_vehicle_jeep or prop_vehicle_jeep_old vehicle. You need to call it on the vehicle instead.</warning>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="damageAmount" type="number">The amount of damage to be applied.</arg>
+		<arg name="attacker" type="Entity" default="nil">The entity that initiated the attack that caused the damage.</arg>
+		<arg name="inflictor" type="Entity" default="nil">The entity that applied the damage, eg. a weapon.</arg>
+	</args>
+</function>

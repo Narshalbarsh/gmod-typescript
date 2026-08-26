@@ -1,0 +1,10 @@
+<function name="MotionSensorPos" parent="Player" type="classfunc">
+	<description>Returns the position of a Kinect bone.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="bone" type="number">Bone to get the position of. Must be from 0 to 19.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">Position of the bone.</ret>
+	</rets>
+</function>

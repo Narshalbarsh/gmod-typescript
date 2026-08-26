@@ -1,0 +1,17 @@
+<function name="SetAmmoType" parent="CTakeDamageInfo" type="classfunc">
+	<description>Changes the ammo type used by the weapon that inflicted the damage.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="ammoType" type="number">Ammo type ID</arg>
+	</args>
+</function>
+
+<example>
+	<description>Creates a new DamageInfo object and sets the ammo that caused the damage to AR2 ammo</description>
+	<code>
+local dmginfo = DamageInfo()
+
+dmginfo:SetAmmoType( game.GetAmmoID( 'AR2' ) )
+	</code>
+
+</example>

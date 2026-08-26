@@ -1,0 +1,10 @@
+<function name="ControlValues" parent="ControlPanel" type="panelfunc">
+	<description>Sets control values of the control panel.</description>
+	<realm>Client</realm>
+	<file line="138-L145">gamemodes/sandbox/gamemode/spawnmenu/controlpanel.lua</file>
+	<args>
+		<arg name="data" type="table">A two-membered table:
+* <page>boolean</page> closed - Sets if the control panel should be unexpanded.
+* <page>string</page> label - The text to display inside the control's label.</arg>
+	</args>
+</function>

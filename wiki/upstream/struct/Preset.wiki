@@ -1,0 +1,10 @@
+<structure>
+	<realm>Menu</realm>
+	<description>The structure used by <page>Global.CreateNewAddonPreset</page>.</description>
+	<fields>
+		<item name="enabled" type="table">A Table containing all enabled addons.</item>
+		<item name="disabled" type="table">A Table containing all disabled addons.</item>
+		<item name="name" type="string">The name of the Preset.</item>
+		<item name="newAction" type="string">What to do with addons not in the preset. Can be `enable`, `disable` or nothing.</item>
+	</fields>
+</structure>

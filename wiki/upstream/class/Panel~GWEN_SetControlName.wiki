@@ -1,0 +1,8 @@
+<function name="GWEN_SetControlName" parent="Panel" type="classfunc">
+	<description><internal></internal> Used by <page>Panel:ApplyGWEN</page> to apply the `ControlName` property to a panel. This calls <page>Panel:SetName</page>.</description>
+	<realm>Client and Menu</realm>
+	<file line="204">lua/derma/derma_gwen.lua</file>
+	<args>
+		<arg name="name" type="string">The new name to apply to the panel.</arg>
+	</args>
+</function>

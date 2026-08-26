@@ -1,0 +1,14 @@
+<function name="WriteType" parent="net" type="libraryfunc">
+	<description>
+<internal>Used internally by <page>net.WriteTable</page>.</internal>
+
+Appends any type of value to the current net message.
+
+<note>An additional 8-bit unsigned integer indicating the type will automatically be written to the packet before the value, in order to facilitate reading with <page>net.ReadType</page>. If you know the data type you are writing, use a function meant for that specific data type to reduce amount of data sent.</note>
+	</description>
+	<realm>Shared</realm>
+	<file line="199-L213">lua/includes/extensions/net.lua</file>
+	<args>
+		<arg name="Data" type="any">The data to be sent.</arg>
+	</args>
+</function>

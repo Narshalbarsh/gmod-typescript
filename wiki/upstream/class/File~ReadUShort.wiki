@@ -1,0 +1,7 @@
+<function name="ReadUShort" parent="File" type="classfunc">
+	<description>Reads an unsigned little-endian 16-bit integer from the file.</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="number">The 16-bit integer</ret>
+	</rets>
+</function>

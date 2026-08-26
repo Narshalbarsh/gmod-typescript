@@ -1,0 +1,16 @@
+<function name="RunAnimation" parent="DModelPanel" type="panelfunc">
+	<description>This function is used in <page>DModelPanel:LayoutEntity</page>. It will progress the animation, set using <page>Entity:SetSequence</page>. By default, it is the walking animation.</description>
+	<realm>Client</realm>
+</function>
+
+<example>
+	<description>Sets the model to alyx and puts her in a walking animation</description>
+	<code>
+local ModelPanel = vgui.Create( "DModelPanel", Panel )
+ModelPanel:SetModel( "models/player/alyx.mdl" )
+function ModelPanel:LayoutEntity( ent )
+     ModelPanel:RunAnimation()
+end
+	</code>
+
+</example>

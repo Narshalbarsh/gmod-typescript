@@ -1,0 +1,4 @@
+<function name="Reset" parent="bf_read" type="classfunc">
+	<description>Rewinds the bitstream so it can be read again.</description>
+	<realm>Client</realm>
+</function>

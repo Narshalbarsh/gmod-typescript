@@ -1,0 +1,10 @@
+<function name="SetLocalPos" parent="Entity" type="classfunc">
+	<description>Sets local position relative to the parented position. This is for use with <page>Entity:SetParent</page> to offset position.
+	
+This is also used by NPCs for interpolated movement. If you use <page>Entity:SetPos</page> for step movement, your NPC will snap to position instead. 
+</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="pos" type="Vector">The local position</arg>
+	</args>
+</function>

@@ -1,0 +1,14 @@
+<title>DListView_DraggerBar</title>
+<panel>
+	<parent>DButton</parent>
+	<realm>Client and Menu</realm>
+	<description>
+		<internal>Used by <page>DListView</page>.</internal>
+	</description>
+	<overrides>
+		<page>Panel:Init</page>
+		<page>Panel:Paint</page>
+		<page>Panel:OnCursorMoved</page>
+		<page>Panel:GenerateExample</page>
+	</overrides>
+</panel>

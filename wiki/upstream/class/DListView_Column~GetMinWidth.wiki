@@ -1,0 +1,7 @@
+<function name="GetMinWidth" parent="DListView_Column" type="panelfunc">
+	<description>Returns the minimum width set with <page>DListView_Column:SetMinWidth</page>.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="width" type="number">The minimum width</ret>
+	</rets>
+</function>

@@ -1,0 +1,36 @@
+<function name="AddPanel" parent="DMenu" type="panelfunc">
+	<description>
+Adds a panel to the <page>DMenu</page> as if it were an option.
+
+This invokes <page>DScrollPanel:AddItem</page> and will not create a new panel if a class name is passed, unlike <page>Panel:Add</page>.
+	</description>
+	<file line="29">lua/vgui/dmenu.lua</file>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="pnl" type="Panel">The panel that you want to add.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Creates a DMenu with some options and places a red DPanel between them.</description>
+	<code>
+local m = DermaMenu()
+
+m:AddOption( "Kill yourself", function() RunConsoleCommand( "kill" ) end ) -- Add first option
+m:AddSpacer()
+
+-- Create a red DPanel
+local panel = vgui.Create( "DPanel", m )
+panel:SetSize( 50, 100 )
+panel:SetBackgroundColor( Color( 255, 0, 0 ) )
+
+m:AddPanel( panel ) -- Add the panel
+
+m:AddSpacer()
+m:AddOption( "Say hi", function() RunConsoleCommand( "say", "Hi!" ) end ) -- Add second option
+
+m:Open() -- Show our menu
+	</code>
+	<output><image src="DMenu_AddPanel_eg.png"/></output>
+
+</example>

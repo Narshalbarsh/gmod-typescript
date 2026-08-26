@@ -1,0 +1,4 @@
+<function name="PopFlashlightMode" parent="render" type="libraryfunc">
+	<description>Pops the current flashlight mode from the flashlight mode stack.</description>
+	<realm>Client</realm>
+</function>

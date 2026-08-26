@@ -1,0 +1,9 @@
+<function name="SetField" parent="VMatrix" type="classfunc">
+	<description>Sets a specific field in the matrix.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="row" type="number">Row of the field to be set, from 1 to 4</arg>
+		<arg name="column" type="number">Column of the field to be set, from 1 to 4</arg>
+		<arg name="value" type="number">The value to set in that field</arg>
+	</args>
+</function>

@@ -1,0 +1,10 @@
+<function name="SetSortValue" parent="DListView_Line" type="panelfunc">
+	<description>Allows you to store data per column.
+
+	Used in the <page>DListView:SortByColumn</page> function in case you want to sort with something else than the text.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="column" type="number">The number of the column to write the text from, starts with 1.</arg>
+		<arg name="data" type="any">Data for given column on the line you wish to set.</arg>
+	</args>
+</function>

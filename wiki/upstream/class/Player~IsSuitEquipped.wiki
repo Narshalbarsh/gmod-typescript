@@ -1,0 +1,11 @@
+<function name="IsSuitEquipped" parent="Player" type="classfunc">
+	<description>
+Returns whenever the player is equipped with the suit item.
+
+<bug issue="3449">This will only work for the local player when used clientside.</bug>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">Is the suit equipped or not.</ret>
+	</rets>
+</function>

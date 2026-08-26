@@ -1,0 +1,7 @@
+<function name="GetButtons" parent="CMoveData" type="classfunc">
+	<description>Gets which buttons are down</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">An integer representing which buttons are down, see <page>Enums/IN</page></ret>
+	</rets>
+</function>

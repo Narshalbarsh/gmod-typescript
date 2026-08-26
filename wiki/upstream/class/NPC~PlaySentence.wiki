@@ -1,0 +1,12 @@
+<function name="PlaySentence" parent="NPC" type="classfunc">
+	<description>Forces the NPC to play a sentence from scripts/sentences.txt</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="sentence" type="string">The sentence string to speak.</arg>
+		<arg name="delay" type="number">Delay in seconds until the sentence starts playing.</arg>
+		<arg name="volume" type="number">The volume of the sentence, from 0 to 1.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">Returns the sentence index, -1 if the sentence couldn't be played.</ret>
+	</rets>
+</function>

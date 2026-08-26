@@ -1,0 +1,17 @@
+<function name="SetDrawOnTop" parent="Panel" type="classfunc">
+	<description>
+Makes the panel render in front of all others, including the spawn menu and main menu.
+
+Priority is given based on the last call, so of two panels that call this method, the second will draw in front of the first.
+
+<note>This only makes the panel **draw** above other panels. If there's another panel that would have otherwise covered it, users will not be able to interact with it.
+
+Completely disregards <page>PANEL:ParentToHUD</page>.</note>
+
+<warning>This does not work when using <page>PANEL:SetPaintedManually</page> or <page>PANEL:PaintAt</page>.</warning>
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="drawOnTop" type="boolean" default="false">Whether or not to draw the panel in front of all others.</arg>
+	</args>
+</function>

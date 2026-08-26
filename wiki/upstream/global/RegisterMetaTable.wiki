@@ -1,0 +1,11 @@
+<function name="RegisterMetaTable" parent="Global" type="libraryfunc">
+	<description>
+Registers a given table as a metatable. It can then be accessed by other code/addons via <page>Global.FindMetaTable</page>.
+	</description>
+	<realm>Shared and Menu</realm>
+	<added>2024.06.04</added>
+	<args>
+		<arg name="metaName" type="string">The new metatable name. Cannot override existing types.</arg>
+		<arg name="metaTable" type="table">The new metatable table. It will be given a `MetaID` and `MetaName` fields.</arg>
+	</args>
+</function>

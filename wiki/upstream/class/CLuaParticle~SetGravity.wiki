@@ -1,0 +1,7 @@
+<function name="SetGravity" parent="CLuaParticle" type="classfunc">
+	<description>Sets the directional gravity aka. acceleration of the particle.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="gravity" type="Vector">The directional gravity.</arg>
+	</args>
+</function>

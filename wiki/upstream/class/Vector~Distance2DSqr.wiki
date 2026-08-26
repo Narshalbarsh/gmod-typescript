@@ -1,0 +1,16 @@
+<function name="Distance2DSqr" parent="Vector" type="classfunc">
+	<description>Returns the squared distance between 2 vectors in 2D space, ignoring the Z axis. This is faster than <page>Vector:Distance2D</page> as calculating the square root is an expensive process.
+
+	<note>Squared distances should not be summed. If you need to sum distances, use <page>Vector:Distance2D</page>.
+
+When performing a distance check, ensure the distance being checked against is squared.</note>
+	</description>
+	<added>2023.11.03</added>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="otherVec" type="Vector">The vector to calculate the distance to.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">Squared distance to the vector in 2D space.</ret>
+	</rets>
+</function>

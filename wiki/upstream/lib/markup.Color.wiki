@@ -1,0 +1,12 @@
+<function name="Color" parent="markup" type="libraryfunc">
+	<description>A convenience function that converts a <page>Color</page> into its markup ready string representation.</description>
+	<realm>Client and Menu</realm>
+	<added>2021.12.15</added>
+	<file line="39-L46">lua/includes/modules/markup.lua</file>
+	<args>
+		<arg name="col" type="Color">The <page>Color</page> to convert.</arg>
+	</args>
+	<rets>
+		<ret type="string">The markup color, for example `255,255,255`.</ret>
+	</rets>
+</function>

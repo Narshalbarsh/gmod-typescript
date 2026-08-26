@@ -1,0 +1,31 @@
+<function name="PushCustomClipPlane" parent="render" type="libraryfunc">
+	<description>
+Pushes a new clipping plane of the clip plane stack and sets it as active.
+
+<bug issue="2687">A max of 2 clip planes are supported on Linux/POSIX, and 6 on Windows.</bug>
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="normal" type="Vector">The normal of the clipping plane.</arg>
+		<arg name="distance" type="number">The distance of the plane from the world origin. You can use <page>Vector:Dot</page> between the normal and any point on the plane to find this.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Clips the lower half of your custom entity.</description>
+	<code>
+function ENT:Draw()
+    local normal = self:GetUp() -- Everything "behind" this normal will be clipped
+    local position = normal:Dot( self:GetPos() ) -- self:GetPos() is the origin of the clipping plane
+
+    local oldEC = render.EnableClipping( true )
+    render.PushCustomClipPlane( normal, position )
+
+    self:DrawModel()
+
+    render.PopCustomClipPlane()
+    render.EnableClipping( oldEC )
+end
+	</code>
+
+</example>

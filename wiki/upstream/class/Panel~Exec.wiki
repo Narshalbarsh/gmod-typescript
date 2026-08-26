@@ -1,0 +1,7 @@
+<function name="Exec" parent="Panel" type="classfunc">
+	<description><internal></internal> Used to run commands within a <page>DHTML</page> window.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="cmd" type="string">The command to be run.</arg>
+	</args>
+</function>

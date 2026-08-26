@@ -1,0 +1,8 @@
+<function name="GetNetworked2VarTable" parent="Entity" type="classfunc">
+	<description>Returns all the networked2 variables in an entity.
+<deprecated>You should be using <page>Entity:GetNW2VarTable</page> instead.</deprecated></description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="table">Key-Value table of all networked2 variables.</ret>
+	</rets>
+</function>

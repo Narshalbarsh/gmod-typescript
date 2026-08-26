@@ -1,0 +1,7 @@
+<function name="GetReportedPosition" parent="CTakeDamageInfo" type="classfunc">
+	<description>Returns the initial, unmodified position where the damage occured.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Vector">position</ret>
+	</rets>
+</function>

@@ -1,0 +1,7 @@
+<function name="UpdateEntity" parent="IconEditor" type="panelfunc">
+	<description><internal></internal> Updates the entity being rendered in the internal <page>DAdjustableModelPanel</page>. Called by the model panel's <page>DModelPanel:LayoutEntity</page> method.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="ent" type="Entity">The entity being rendered within the model panel.</arg>
+	</args>
+</function>

@@ -1,0 +1,11 @@
+<function name="GetNormalized" parent="Vector" type="classfunc">
+	<description>
+Returns a normalized version of the vector. Normalized means vector with same direction but with length of 1.
+
+This does not affect the vector you call it on; to do this, use <page>Vector:Normalize</page>.
+	</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="Vector">Normalized version of the vector.</ret>
+	</rets>
+</function>

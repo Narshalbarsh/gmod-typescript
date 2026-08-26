@@ -1,0 +1,22 @@
+<function name="IsPlayer" parent="Entity" type="classfunc">
+	<description>Checks if the entity is a player or not.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the entity is a player.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Checks if two entities are players.</description>
+	<code>
+print( Entity( 1 ):IsPlayer() )
+print( ents.FindByClass( "prop_physics" )[ 1 ]:IsPlayer() )
+	</code>
+	<output>
+```
+true
+false
+```
+	</output>
+
+</example>

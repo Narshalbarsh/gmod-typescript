@@ -1,0 +1,57 @@
+<function name="LocalToWorldVector" parent="PhysObj" type="classfunc">
+	<description>
+Rotationally transforms a vector in the physics object's local space by the <page>PhysObj:GetPositionMatrix</page>.
+
+<note>In contrast to <page>PhysObj:LocalToWorld</page>, this function doesn't translate the vector.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="vecLocal" type="Vector">A vector in the physics object's local space.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">The resulting vector from the rotational transformation.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>
+Displays the forward, right, and up directions of the physics object the player's looking at, using <page>debugoverlay</page>.</description>
+	<code>
+local vector_forward = Vector( 1, 0, 0 )
+local vector_right = Vector( 0, -1, 0 )
+local vector_up = Vector( 0, 0, 1 )
+
+local color_forward = Color( 255, 0, 0 )
+local color_right = Color( 255, 0, 255 ) -- Note: Green's taken for left, so then the inverse for the opposite
+local color_up = Color( 0, 0, 255 )
+
+concommand.Add( 'test_localtoworldvector', function( pPlayer )
+
+	local traceAim = pPlayer:GetEyeTrace()
+	local pEntity = traceAim.Entity
+
+	if ( not pEntity:IsValid() ) then
+		return
+	end
+
+	local pPhysObj = pEntity:GetPhysicsObject()
+
+	if ( not pPhysObj:IsValid() ) then
+		return
+	end
+
+	local vecForward = pPhysObj:LocalToWorldVector( vector_forward )
+	local vecRight = pPhysObj:LocalToWorldVector( vector_right )
+	local vecUp = pPhysObj:LocalToWorldVector( vector_up )
+
+	local vecPos = pPhysObj:GetPos()
+	debugoverlay.Line( vecPos, vecPos + vecForward * 48, 5, color_forward, true )
+	debugoverlay.Line( vecPos, vecPos + vecRight * 48, 5, color_right, true )
+	debugoverlay.Line( vecPos, vecPos + vecUp * 48, 5, color_up, true )
+
+end )
+	</code>
+	<output>
+<upload src="8cd79/8de286f90755a43.jpg" size="605485" name="test_localtoworldvector.jpg" />
+	</output>
+</example>

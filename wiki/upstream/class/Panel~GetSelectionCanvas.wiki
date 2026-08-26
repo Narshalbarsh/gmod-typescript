@@ -1,0 +1,10 @@
+<function name="GetSelectionCanvas" parent="Panel" type="classfunc">
+	<file line="116-L131">lua/includes/extensions/client/panel/selections.lua</file>
+	<description>Returns the selection canvas for this panel. This will be the first parent that has <page>Panel:SetSelectionCanvas</page> set to true (or `self` if this panel is the selection canvas)
+
+A selection canvas would be the panel that contains a bunch of selectable panels (<page>Panel:SetSelectable</page>), usually for the drag'n'drop system. Calling this function on any of the selectable items, or any of their children, will return the first parent that can contain selectable panels.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="Panel">The selection canvas, otherwise `nil`.</ret>
+	</rets>
+</function>

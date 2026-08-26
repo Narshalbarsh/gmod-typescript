@@ -1,0 +1,13 @@
+<function name="IsMarkedForDeletion" parent="Entity" type="classfunc">
+	<realm>Shared</realm>
+	<description>
+		Determines if a given Entity is going to be removed at the start of the next tick.
+
+		This will return `true` for an <page>Entity</page> after <page>Entity:Remove</page> is called on it.
+	</description>
+	<rets>
+		<ret name="" type="boolean">
+			`true` if the Entity is going to be removed, `false` otherwise.
+		</ret>
+	</rets>
+</function>

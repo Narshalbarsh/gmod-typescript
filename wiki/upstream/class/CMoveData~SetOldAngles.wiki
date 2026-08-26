@@ -1,0 +1,7 @@
+<function name="SetOldAngles" parent="CMoveData" type="classfunc">
+	<description>Sets old aim angles. ( ? ) Doesn't seem to be doing anything.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="aimAng" type="Angle">The old angles</arg>
+	</args>
+</function>

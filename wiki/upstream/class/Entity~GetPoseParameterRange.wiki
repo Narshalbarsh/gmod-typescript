@@ -1,0 +1,11 @@
+<function name="GetPoseParameterRange" parent="Entity" type="classfunc">
+	<description>Returns pose parameter range</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="id" type="number" alttype="string">Pose parameter ID to look up. Can also be a pose parameter name.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The minimum value</ret>
+		<ret name="" type="number">The maximum value</ret>
+	</rets>
+</function>

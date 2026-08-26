@@ -1,0 +1,11 @@
+<function name="SetAutomaticFrameAdvance" parent="ENTITY" type="hook">
+	<description>
+Toggles automatic frame advancing for animated sequences on an entity.
+
+This has the same effect as setting the ``ENT.AutomaticFrameAdvance`` property. (See <page>Structures/ENT</page>)
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="enable" type="boolean">Whether or not to set automatic frame advancing.</arg>
+	</args>
+</function>

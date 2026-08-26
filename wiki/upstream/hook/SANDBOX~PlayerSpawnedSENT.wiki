@@ -1,0 +1,8 @@
+<function name="PlayerSpawnedSENT" parent="SANDBOX" type="hook">
+	<description>Called after the player has spawned a scripted entity.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ply" type="Player">The player that spawned the SENT</arg>
+		<arg name="ent" type="Entity">The spawned SENT</arg>
+	</args>
+</function>

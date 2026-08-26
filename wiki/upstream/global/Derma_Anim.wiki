@@ -1,0 +1,52 @@
+<function name="Derma_Anim" parent="Global" type="libraryfunc">
+	<description>Creates a new derma animation.</description>
+	<realm>Client and Menu</realm>
+	<file line="59-L70">lua/derma/derma_animation.lua</file>
+	<args>
+		<arg name="name" type="string">Name of the animation to create</arg>
+		<arg name="panel" type="Panel">Panel to run the animation on</arg>
+		<arg name="func" type="function">Function to call to process the animation
+
+<callback>
+<arg type="Panel" name="pnl">the panel passed to Derma_Anim</arg>
+<arg type="table" name="anim">the anim table</arg>
+<arg type="number" name="delta">the fraction of the progress through the animation</arg>
+<arg type="any" name="data">optional data passed to the run metatable method</arg>
+</callback>
+
+</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">A lua metatable containing four methods:
+* Run() - Should be called each frame you want the animation to be ran.
+* Active() - Returns if the animation is currently active (has not finished and stop has not been called)
+* Stop() - Halts the animation at its current progress.
+* Start( Length, Data ) - Prepares the animation to be ran for Length seconds. Must be called once before calling Run(). The data parameter will be passed to the func function.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Applies an [easeInQuad](http://easings.net/#easeInQuad) easing to the panel to make it glide naturally across the screen.</description>
+	<code>
+local function inQuad(fraction, beginning, change)
+	return change * (fraction ^ 2) + beginning
+end
+
+local main = vgui.Create("DFrame")
+main:SetTitle("Derma_Anim Example")
+main:SetSize(250, 200)
+main:SetPos(200)
+main:MakePopup()
+local anim = Derma_Anim("EaseInQuad", main, function(pnl, anim, delta, data)
+	pnl:SetPos(inQuad(delta, 200, 600), 300) -- Change the X coordinate from 200 to 200+600
+end)
+anim:Start(2) -- Animate for two seconds
+main.Think = function(self)
+	if anim:Active() then
+		anim:Run()
+	end
+end
+	</code>
+	<output>Panel naturally glides across the screen from 200 x to 800 x</output>
+
+</example>

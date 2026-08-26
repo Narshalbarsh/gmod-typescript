@@ -1,0 +1,7 @@
+<function name="SetArrivalSequence" parent="NPC" type="classfunc">
+	<description>Sets the sequence to be played when the NPC arrives at its goal.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="seq" type="number">See <page>Entity:LookupSequence</page>.</arg>
+	</args>
+</function>

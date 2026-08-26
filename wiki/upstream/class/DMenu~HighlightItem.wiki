@@ -1,0 +1,13 @@
+<function name="HighlightItem" parent="DMenu" type="panelfunc">
+	<description>
+<deprecated></deprecated>
+
+Highlights selected item in the <page>DMenu</page> by setting the item's key "Highlight" to true.
+
+Doesn't appear to be working or used.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="item" type="Panel">The item to highlight.</arg>
+	</args>
+</function>

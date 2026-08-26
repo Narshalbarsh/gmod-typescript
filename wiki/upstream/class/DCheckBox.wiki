@@ -1,0 +1,32 @@
+<panel>
+	<parent>DButton</parent>
+	<realm>Client and Menu</realm>
+	<file line="">lua/vgui/dcheckbox.lua</file>
+	<description>
+		The DCheckBox is a checkbox. It allows you to get a boolean value from the user (true/false - yes/no)
+	</description>
+	<overrides>
+		<page>Panel:Init</page>
+		<page>Panel:Think</page>
+		<page>Panel:GenerateExample</page>
+		<page>DLabel:DoClick</page>
+	</overrides>
+</panel>
+
+
+<example>
+	<description>Creates a DCheckBox and sets its initial value.</description>
+	<code>
+local window = vgui.Create( "DFrame" )
+window:SetSize( 300, 200 )
+window:Center()
+window:MakePopup()
+
+local checkbox = window:Add( "DCheckBox" ) -- Create the checkbox
+checkbox:SetPos( 25, 50 ) -- Set the position
+checkbox:SetValue( true ) -- Initial "ticked" value
+	</code>
+	<output>
+<upload src="70c/8dc9f632747cf21.gif" size="21094" name="July08-300-gmod.gif" />
+</output>
+</example>

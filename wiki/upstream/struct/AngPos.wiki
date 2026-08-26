@@ -1,0 +1,10 @@
+<structure>
+	<realm>Shared</realm>
+	<description>Table used by various functions, such as <page>Entity:GetAttachment</page>.</description>
+	<fields>
+<item name="Ang" type="Angle">An Angle object.</item>
+<item name="Pos" type="Vector">An Vector object.</item>
+<item name="Bone" type="number" added="2023.11.02">The bone ID the attachment point is parented to.</item>
+	</fields>
+
+</structure>

@@ -1,0 +1,11 @@
+<function name="GetMultiSelect" parent="DListView" type="panelfunc">
+	<description>
+Returns whether multiple lines can be selected or not.
+
+See <page>DListView:SetMultiSelect</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Whether multiple lines can be selected or not.</ret>
+	</rets>
+</function>

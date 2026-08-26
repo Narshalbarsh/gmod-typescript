@@ -1,0 +1,7 @@
+<function name="GetLineHeight" parent="DTree" type="panelfunc">
+	<description>Returns the height of each <page>DTree_Node</page> in the tree.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The height of each <page>DTree_Node</page> in the tree.</ret>
+	</rets>
+</function>

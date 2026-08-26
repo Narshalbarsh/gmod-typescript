@@ -1,0 +1,8 @@
+<function name="GetTextInset" parent="Panel" type="classfunc">
+	<description>Gets the left and top text margins of a text-based panel object, such as a <page>DButton</page> or <page>DLabel</page>. This is set with <page>Panel:SetTextInset</page>.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The left margin of the text, in pixels.</ret>
+		<ret name="" type="number">The top margin of the text, in pixels.</ret>
+	</rets>
+</function>

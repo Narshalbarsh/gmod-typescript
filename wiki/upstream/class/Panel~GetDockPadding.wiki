@@ -1,0 +1,10 @@
+<function name="GetDockPadding" parent="Panel" type="classfunc">
+	<description>Returns the docked padding of the panel. (set by <page>Panel:DockPadding</page>)</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">Left padding.</ret>
+		<ret name="" type="number">Top padding.</ret>
+		<ret name="" type="number">Right padding.</ret>
+		<ret name="" type="number">Bottom padding.</ret>
+	</rets>
+</function>

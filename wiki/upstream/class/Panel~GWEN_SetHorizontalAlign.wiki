@@ -1,0 +1,11 @@
+<function name="GWEN_SetHorizontalAlign" parent="Panel" type="classfunc">
+	<description><internal></internal> Used by <page>Panel:ApplyGWEN</page> to apply the `HorizontalAlign` property to a  panel object. This calls <page>Panel:SetContentAlignment</page>.</description>
+	<realm>Client and Menu</realm>
+	<file line="208-L212">lua/derma/derma_gwen.lua</file>
+	<args>
+		<arg name="hAlign" type="string">The alignment, as a string, to pass to <page>Panel:SetContentAlignment</page>. Accepts:
+* `Right`: Align mid-right.
+* `Left`: Align mid-left.
+* `Center`: Align mid-center.</arg>
+	</args>
+</function>

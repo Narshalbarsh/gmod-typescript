@@ -1,0 +1,9 @@
+<function name="GetChildNodes" parent="DTree_Node" type="panelfunc">
+	<added>2020.08.12</added>
+	<description>Returns a table containing all child nodes of this node.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="table">A list of all child nodes.</ret>
+	</rets>
+</function>

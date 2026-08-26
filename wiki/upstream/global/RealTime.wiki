@@ -1,0 +1,19 @@
+<function name="RealTime" parent="Global" type="libraryfunc">
+	<description>
+Returns the uptime of the game/server in seconds (to at least **4** decimal places). This value updates itself once every time the realm thinks. For servers, this is the server tickrate. For clients, this is once per frame.
+
+<note>This is **not** synchronised or affected by the game.
+
+This will be affected by precision loss if the uptime is more than 30+(?) days, and effectively cease to be functional after 50+(?) days.
+
+Changing the map will **not** fix it like it does with <page>Global.CurTime</page>. A server restart is necessary.</note>
+
+You should use this function (or <page>Global.SysTime</page>) for timing real-world events such as user interaction, but not for timing game events such as animations.
+
+See also: <page>Global.CurTime</page>, <page>Global.SysTime</page>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">Uptime of the game/server.</ret>
+	</rets>
+</function>

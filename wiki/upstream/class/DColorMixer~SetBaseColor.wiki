@@ -1,0 +1,12 @@
+<function name="SetBaseColor" parent="DColorMixer" type="panelfunc">
+	<description>
+Sets the base color of the <page>DColorCube</page> part of the <page>DColorMixer</page>.
+
+See also <page>DColorCube:SetBaseRGB</page>
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="252-L255">lua/vgui/dcolormixer.lua</file>
+	<args>
+		<arg name="clr" type="Color"><page>Color</page></arg>
+	</args>
+</function>

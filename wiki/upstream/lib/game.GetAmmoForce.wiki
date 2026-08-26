@@ -1,0 +1,10 @@
+<function name="GetAmmoForce" parent="game" type="libraryfunc">
+	<description>Returns the ammo bullet force that is applied when an entity is hit by a bullet of given ammo type.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="id" type="number">Ammo ID to retrieve the force of. Starts from 1.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The ammo force.</ret>
+	</rets>
+</function>

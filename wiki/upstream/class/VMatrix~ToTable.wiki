@@ -1,0 +1,7 @@
+<function name="ToTable" parent="VMatrix" type="classfunc">
+	<description>Converts the matrix to a 4x4 table. See <page>Global.Matrix</page> function.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="table">The 4x4 table.</ret>
+	</rets>
+</function>

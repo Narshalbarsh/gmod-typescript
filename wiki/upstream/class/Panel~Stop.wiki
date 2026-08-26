@@ -1,0 +1,5 @@
+<function name="Stop" parent="Panel" type="classfunc">
+	<file line="78-L82">lua/includes/extensions/client/panel/animation.lua</file>
+	<description>Stops all panel animations by clearing its animation list. This also clears all delayed animations.</description>
+	<realm>Client and Menu</realm>
+</function>

@@ -1,0 +1,26 @@
+<function name="SequenceDuration" parent="Entity" type="classfunc">
+	<description>
+Returns length of currently played sequence.
+
+<bug issue="2783">This will return incorrect results for weapons and viewmodels clientside in thirdperson.</bug>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="seqid" type="number" default="nil">A sequence ID to return the length specific sequence of instead of the entity's main/currently playing sequence.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The length of the sequence</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Example usage for the argument. Retrieve length of animation on specific gesture slot.</description>
+	<code>
+local ply = Entity( 1 )
+local seq = ply:SelectWeightedSequence( ACT_GMOD_TAUNT_CHEER )
+local len = ply:SequenceDuration( seq )
+print( ply, seq, len )
+	</code>
+	<output>Player [1][Rubat]	303	2.7499999180436</output>
+
+</example>

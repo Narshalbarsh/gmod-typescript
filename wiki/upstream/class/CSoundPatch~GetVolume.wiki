@@ -1,0 +1,7 @@
+<function name="GetVolume" parent="CSoundPatch" type="classfunc">
+	<description>Returns the current volume.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The current volume, ranging from 0 to 1.</ret>
+	</rets>
+</function>

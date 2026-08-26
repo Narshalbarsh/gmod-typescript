@@ -1,0 +1,7 @@
+<function name="GetSmallTex1" parent="render" type="libraryfunc">
+	<realm>Client</realm>
+	<description>Returns the second quarter sized frame buffer texture.</description>
+	<rets>
+		<ret name="" type="ITexture">The render target texture named `_rt_SmallFB1`.</ret>
+	</rets>
+</function>

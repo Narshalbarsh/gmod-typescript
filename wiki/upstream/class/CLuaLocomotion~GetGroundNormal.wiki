@@ -1,0 +1,9 @@
+<function name="GetGroundNormal" parent="CLuaLocomotion" type="classfunc">
+	<description>Returns the current ground normal.
+</description>
+	<added>2022.06.08</added>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="Vector">The current ground normal.</ret>
+	</rets>
+</function>

@@ -1,0 +1,54 @@
+<function name="DrawHUD" parent="WEAPON" type="hook">
+	<description>
+This hook allows you to draw on screen while this weapon is in use.
+
+If you want to draw a custom crosshair, consider using <page>WEAPON:DoDrawCrosshair</page> instead.
+	</description>
+	<realm>Client</realm>
+</function>
+
+<example>
+	<description>Weapon:DrawHud() as defined in weapon_cs_base, with more notes</description>
+	<code>
+function SWEP:DrawHUD()
+
+	-- No crosshair when ironsights is on
+	if ( self.Weapon:GetNWBool( "Ironsights" ) ) then return end
+
+	local x, y -- local, always
+
+	-- If we're drawing the local player, draw the crosshair where they're aiming
+	-- instead of in the center of the screen.
+	if ( self:GetOwner() == LocalPlayer() && self:GetOwner():ShouldDrawLocalPlayer() ) then
+		local tr = util.GetPlayerTrace( self:GetOwner() )
+		tr.mask = ( CONTENTS_SOLID+CONTENTS_MOVEABLE+CONTENTS_MONSTER+CONTENTS_WINDOW+CONTENTS_DEBRIS+CONTENTS_GRATE+CONTENTS_AUX ) -- List the enums that should mask the crosshair on camrea/thridperson
+		local trace = util.TraceLine( tr )
+		
+		local coords = trace.HitPos:ToScreen()
+		x, y = coords.x, coords.y
+
+	else
+		x, y = ScrW() / 2.0, ScrH() / 2.0 -- Center of screen
+	end
+	
+	local scale = 10 * self.Primary.Cone
+	local LastShootTime = self.Weapon:GetNWFloat( "LastShootTime", 0 )
+        -- Scale the size of the crosshair according to how long ago we fired our weapon
+	scale = scale * (2 - math.Clamp( (CurTime() - LastShootTime) * 5, 0.0, 1.0 ))
+	--                    R   G    B  Alpha
+	surface.SetDrawColor( 0, 255, 0, 255 ) -- Sets the color of the lines we're drawing
+	
+-- Draw a crosshair
+	local gap = 40 * scale
+	local length = gap + 20 * scale
+        --                 x1,        y1, x2,     y2
+	surface.DrawLine( x - length, y, x - gap, y )	-- Left
+	surface.DrawLine( x + length, y, x + gap, y )	-- Right
+	surface.DrawLine( x, y - length, x, y - gap )	-- Top
+	surface.DrawLine( x, y + length, x, y + gap )	-- Bottom
+
+end
+	</code>
+	<output>Draws 4 lines for crosshairs</output>
+
+</example>

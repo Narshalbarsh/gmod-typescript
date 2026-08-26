@@ -1,0 +1,7 @@
+<function name="GetTopMax" parent="DVerticalDivider" type="panelfunc">
+	<description>Returns the maximum height of the top content panel. See <page>DVerticalDivider:SetTopMax</page> for more information.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">The maximum height of the top content panel.</ret>
+	</rets>
+</function>

@@ -1,0 +1,32 @@
+<function name="SetupPhonemeMappings" parent="Entity" type="classfunc">
+	<description>
+Initializes the class names of an entity's phoneme mappings (mouth movement data). This is called by default with argument "phonemes" when a flex-based entity (such as an <page>NPC</page>) is created.
+
+<note>TF2 phonemes can be accessed by using a path such as "player/scout/phonemes/phonemes" , check TF2's "tf2_misc_dir.vpk" with GCFScape for other paths, however it seems that TF2 sounds don't contain phoneme definitions anymore after being converted to mp3 and only rely on VCD animations, this needs to be further investigated</note>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="fileRoot" type="string">The file prefix of the phoneme mappings (relative to "garrysmod/expressions/").</arg>
+	</args>
+</function>
+
+<example>
+	<description>Defines a function that can enable or disable phoneme mappings on an entity.</description>
+	<code>
+-- Turn phoneme mappings on or off
+function EnablePhonemes(ent, on)
+
+	if(!IsValid(ent)) then return end
+	
+	if(!on) then
+		-- Disable mouth movement
+		ent:SetupPhonemeMappings("")
+	else
+		-- Enable mouth movement
+		ent:SetupPhonemeMappings("phonemes")
+	end
+
+end
+	</code>
+
+</example>

@@ -1,0 +1,7 @@
+<function name="OnChangeTargetURL" parent="HTML" type="panelhook">
+	<description>Called by HTML panels when the target URL of the frame has changed, this happens when you hover over a link.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="url" type="string">New target URL.</arg>
+	</args>
+</function>

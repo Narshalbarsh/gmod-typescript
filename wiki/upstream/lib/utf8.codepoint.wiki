@@ -1,0 +1,20 @@
+<function name="codepoint" parent="utf8" type="libraryfunc">
+	<description>Returns the codepoints (as numbers) from all characters in the given string that start between byte position startPos and endPos. It raises an error if it meets any invalid byte sequence. This functions similarly to <page>string.byte</page>.</description>
+	<realm>Shared and Menu</realm>
+	<file line="175-L200">lua/includes/modules/utf8.lua</file>
+	<args>
+		<arg name="string" type="string">The string that you will get the code(s) from.</arg>
+		<arg name="startPos" type="number" default="1">The starting byte of the string to get the codepoint of.</arg>
+		<arg name="endPos" type="number" default="1">The ending byte of the string to get the codepoint of.</arg>
+	</args>
+	<rets>
+		<ret name="" type="vararg">The codepoint number(s).</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Demonstrates usage of the function.</description>
+	<code>print( utf8.codepoint( "Мёнём", 1, -1 ) )</code>
+	<output>1052	1105	1085	1105	1084</output>
+
+</example>

@@ -1,0 +1,15 @@
+<function name="tau" parent="math" type="libraryfield">
+	<description>
+A variable containing the mathematical constant tau, which is equivalent to 2*<page>math.pi</page>. (`6.28318530718`)
+
+See also: <page>Trigonometry</page>
+
+<note>It should be noted that due to the nature of floating point numbers, results of calculations with `math.tau` may not be what you expect. See the second example on <page>math.pi</page> page.</note>
+</description>
+	<added>2023.11.28</added>
+	<realm>Shared and Menu</realm>
+	<file line="4-L4">lua/includes/extensions/math.lua</file>
+	<rets>
+		<ret name="" type="number">The mathematical constant, Tau.</ret>
+	</rets>
+</function>

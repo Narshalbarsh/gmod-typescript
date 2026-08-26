@@ -1,0 +1,7 @@
+<function name="SetParticleCullRadius" parent="CLuaEmitter" type="classfunc">
+	<description>The function name has not much in common with its actual function, it applies a radius to every particles that affects the building of the bounding box, as it, usually is constructed by the particle that has the lowest x, y and z and the highest x, y and z, this function just adds/subtracts the radius and inflates the bounding box.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="radius" type="number">Particle radius.</arg>
+	</args>
+</function>

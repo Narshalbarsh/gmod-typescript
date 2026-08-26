@@ -1,0 +1,8 @@
+<function name="SetupCopy" parent="DTree_Node" type="panelfunc">
+	<description>
+<deprecated></deprecated>
+
+Currently does nothing, not implemented.
+	</description>
+	<realm>Client and Menu</realm>
+</function>

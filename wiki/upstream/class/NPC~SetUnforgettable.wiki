@@ -1,0 +1,9 @@
+<function name="SetUnforgettable" parent="NPC" type="classfunc">
+	<description>Sets given entity as an unforgettable enemy. The state can be retrieved via <page>NPC:IsUnforgettable</page>.</description>
+	<realm>Server</realm>
+	<added>2023.09.06</added>
+	<args>
+		<arg name="enemy" type="Entity">The enemy entity to set.</arg>
+		<arg name="set" type="boolean" default="true">The entity to set.</arg>
+	</args>
+</function>

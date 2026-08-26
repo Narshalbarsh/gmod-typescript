@@ -1,0 +1,14 @@
+<function name="AddMenu" parent="DMenuBar" type="panelfunc">
+	<description>
+Creates a new <page>DMenu</page> object tied to a <page>DButton</page> with the given label on the menu bar.
+
+This will create a new menu regardless of whether or not one with the same label exists. To add **or** get a menu, use <page>DMenuBar:AddOrGetMenu</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="label" type="string">The name (label) of the derma menu to create.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Panel">The new <page>DMenu</page> which will be opened when the button is clicked.</ret>
+	</rets>
+</function>

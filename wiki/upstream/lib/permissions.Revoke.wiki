@@ -1,0 +1,8 @@
+<function name="Revoke" parent="permissions" type="libraryfunc">
+	<description>Revokes permission from the server.</description>
+	<realm>Menu</realm>
+	<args>
+		<arg name="permission" type="string">Permission to revoke from the server.</arg>
+		<arg name="ip" type="string">IP of the server.</arg>
+	</args>
+</function>

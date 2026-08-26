@@ -1,0 +1,8 @@
+<function name="GetLoadPanel" parent="Global" type="libraryfunc">
+	<description>Returns the loading screen panel and creates it if it doesn't exist.</description>
+	<realm>Menu</realm>
+	<file line="228-L236">lua/menu/loading.lua</file>
+	<rets>
+		<ret name="" type="Panel">The loading screen panel</ret>
+	</rets>
+</function>

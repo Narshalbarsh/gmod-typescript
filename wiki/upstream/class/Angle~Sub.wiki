@@ -1,0 +1,7 @@
+<function name="Sub" parent="Angle" type="classfunc">
+	<description>Subtracts the values of the argument angle to the orignal angle. This functions the same as angle1 - angle2 without creating a new angle object, skipping object construction and garbage collection.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="angle" type="Angle">The angle to subtract.</arg>
+	</args>
+</function>

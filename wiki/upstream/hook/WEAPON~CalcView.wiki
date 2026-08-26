@@ -1,0 +1,19 @@
+<function name="CalcView" parent="WEAPON" type="hook">
+	<description>
+Allows you to adjust player view while this weapon in use.
+
+This hook is called from the default implementation of <page>GM:CalcView</page> which is [here](https://github.com/Facepunch/garrysmod/blob/master/garrysmod/gamemodes/base/gamemode/cl_init.lua#L387-L395). Therefore, it will not be called if any other hook added to `CalcView` returns any value, or if the current gamemode overrides the default hook and does not call the SWEP function.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="ply" type="Player">The owner of weapon</arg>
+		<arg name="pos" type="Vector">Current position of players view</arg>
+		<arg name="ang" type="Angle">Current angles of players view</arg>
+		<arg name="fov" type="number">Current FOV of players view</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">New position of players view</ret>
+		<ret name="" type="Angle">New angle of players view</ret>
+		<ret name="" type="number">New FOV of players view</ret>
+	</rets>
+</function>

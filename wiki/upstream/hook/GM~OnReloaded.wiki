@@ -1,0 +1,8 @@
+<function name="OnReloaded" parent="GM" type="hook">
+	<description>
+Called when gamemode has been reloaded by auto refresh.
+
+<note>It seems that this event can be triggered more than once for a single refresh event.</note>
+	</description>
+	<realm>Shared</realm>
+</function>

@@ -1,0 +1,13 @@
+<function name="OnPlayerSpawn" parent="player_manager" type="libraryfunc">
+	<description>
+Applies basic class variables when the player spawns.
+
+Called from <page>GM:PlayerSpawn</page> in the base gamemode.
+	</description>
+	<realm>Shared</realm>
+	<file line="433-L457">lua/includes/modules/player_manager.lua</file>
+	<args>
+		<arg name="ply" type="Player">Player to setup.</arg>
+		<arg name="transition" type="boolean">If true, the player just spawned from a map transition. You probably want to not touch player's weapons or position if this is set to `true`.</arg>
+	</args>
+</function>

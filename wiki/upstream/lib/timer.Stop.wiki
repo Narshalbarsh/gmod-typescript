@@ -1,0 +1,7 @@
+<function name="Stop" parent="timer" type="libraryfunc">
+	<description>Stops the given timer and rewinds it.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="identifier" type="any">Identifier of the timer.</arg>
+	</args>
+</function>

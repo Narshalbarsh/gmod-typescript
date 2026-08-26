@@ -1,0 +1,5 @@
+<function name="UseButtonOnlyStyle" parent="DColumnSheet" type="panelfunc">
+	<description>Makes the tabs/buttons show only the image and no text.</description>
+	<realm>Client and Menu</realm>
+	<file line="20-L22">lua/vgui/dcolumnsheet.lua</file>
+</function>

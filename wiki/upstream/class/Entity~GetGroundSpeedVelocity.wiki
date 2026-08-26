@@ -1,0 +1,7 @@
+<function name="GetGroundSpeedVelocity" parent="Entity" type="classfunc">
+	<description>Returns the entity's ground speed velocity, which is based on the entity's walk/run speed and/or the ground speed of their sequence ( <page>Entity:GetSequenceGroundSpeed</page> ). Will return an empty <page>Vector</page> if the entity isn't moving on the ground.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="Vector">The ground speed velocity.</ret>
+	</rets>
+</function>

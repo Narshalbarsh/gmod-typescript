@@ -1,0 +1,7 @@
+<function name="IsActive" parent="frame_blend" type="libraryfunc">
+	<description>Returns whether frame blend post processing effect is enabled or not.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="boolean">Is frame blend enabled or not.</ret>
+	</rets>
+</function>

@@ -1,0 +1,33 @@
+<panel>
+	<name>CtrlNumPad</name>
+	<realm>Client and Menu</realm>
+	<file line="">gamemodes/sandbox/gamemode/spawnmenu/controls/ctrlnumpad.lua</file>
+	<description>
+		CtrlNumPad is a <page>VGUI</page> element designed primarily for <page>SpawnMenu</page> and <page>ControlPanel</page>. It is used to create a <page>DBinder</page> with at least one <page>DLabel</page>. Each change made by the player in the `CtrlNumPad` acts on a previously defined <page>ConVar</page>.
+
+To retrieve the panels associated with this panel:
+* To retrieve the <page>DBinder</page> created, you can use this variable associated with the panel: `PANEL.NumPad1`
+* To retrieve the first <page>DLabel</page> created, you can use this variable associated with the panel: `PANEL.Label1`
+* To retrieve the second <page>DLabel</page> created, you can use this variable associated with the panel: `PANEL.Label2`
+
+By default, the <page>DLabel:SetDark</page> function is activated on both DLabels.
+
+To retrieve the value of the `CtrlNumPad` you can use these functions : <page>Player:GetInfoNum</page>, <page>CtrlNumPad:GetValue1</page> or <page>CtrlNumPad:GetValue2</page>
+	</description>
+</panel>
+
+<example>
+	<description>Example of a spawnmenu use case</description>
+	<code>
+hook.Add( "PopulateToolMenu", "TestPopulateToolMenu", function()
+	spawnmenu.AddToolMenuOption( "Create Category", "Other", "category_example", "#Create Name", "", "", function( panel )
+		panel:ClearControls()
+        panel:KeyBinder("Test", "convartest")
+	end )
+
+end)
+	</code>
+	<output>
+	<upload src="b58a0/8ddbe60bedbab14.png" size="10498" name="image.png" />
+	</output>
+</example>

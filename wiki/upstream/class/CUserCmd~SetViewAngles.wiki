@@ -1,0 +1,25 @@
+<function name="SetViewAngles" parent="CUserCmd" type="classfunc">
+	<description>
+Sets the direction the client wants to move in.
+
+<note>For human players, the pitch (vertical) angle should be clamped to +/- 89&deg; to prevent the player's view from glitching.</note>
+<note>For fake clients (those created with <page>player.CreateNextBot</page>), this functionally dictates the 'move angles' of the bot. This typically functions separately from the colloquial view angles. This can be utilized by <page>CUserCmd:SetForwardMove</page> and its related functions.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="viewAngle" type="Angle">New view angles.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Locks the player's view to only vertical movement.</description>
+	<code>
+hook.Add("InputMouseApply", "LockToPitchOnly", function( ccmd, x, y, angle )
+	-- By leaving angle.roll and angle.yaw alone, we effectively lock them
+	angle.pitch = math.Clamp( angle.pitch + y / 50, -89, 89 )
+	ccmd:SetViewAngles( angle )
+	return true
+end)
+	</code>
+
+</example>

@@ -1,0 +1,21 @@
+<function name="PostDrawViewModel" parent="WEAPON" type="hook">
+	<description>
+Called after the view model has been drawn while the weapon in use.
+
+This hook relies on default implementation of <page>GM:PostDrawViewModel</page>. If it appears to not work, it may have been overwritten/broken by the currently active gamemode or other addons.
+
+<page>WEAPON:ViewModelDrawn</page> is an alternative hook which is always called before <page>GM:PostDrawViewModel</page>.
+
+See also <page>WEAPON:PreDrawViewModel</page>.
+
+<rendercontext hook="true" type="3D"></rendercontext>
+
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="vm" type="Entity">This is the view model entity after it is drawn</arg>
+		<arg name="weapon" type="Weapon">This is the weapon that is from the view model (same as self)</arg>
+		<arg name="ply" type="Player">The owner of the view model</arg>
+		<arg name="flags" type="number" added="2025.12.16">The <page text="STUDIO_">Enums/STUDIO</page> flags for this render operation.</arg>
+	</args>
+</function>

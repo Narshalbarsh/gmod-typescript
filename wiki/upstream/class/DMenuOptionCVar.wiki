@@ -1,0 +1,19 @@
+<panel>
+	<parent>DMenuOption</parent>
+	<realm>Client</realm>
+	<file line="">lua/vgui/dmenuoptioncvar.lua</file>
+	<description>
+		<internal></internal>
+
+		An internal panel used by <page>DMenu</page>.
+		It acts as a menu option that can be checked.
+		It automatically sets and reads the given console variable.
+
+		It can be right clicked to toggle without closing the <page>DMenu</page>.
+
+		Use <page>DMenu:AddCVar</page> instead.
+	</description>
+	<overrides>
+		<page>PANEL:Think</page>
+	</overrides>
+</panel>

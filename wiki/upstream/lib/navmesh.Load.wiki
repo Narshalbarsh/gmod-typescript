@@ -1,0 +1,9 @@
+<function name="Load" parent="navmesh" type="libraryfunc">
+	<description>
+		Loads a new navmesh from the .nav file for current map discarding any changes made to the navmesh previously.
+		<warning>
+			Calling this function too soon, causes the Server to crash!
+		</warning>
+	</description>
+	<realm>Server</realm>
+</function>

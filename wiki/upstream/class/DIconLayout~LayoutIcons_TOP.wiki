@@ -1,0 +1,8 @@
+<function name="LayoutIcons_TOP" parent="DIconLayout" type="panelfunc">
+	<description>
+<internal></internal>
+
+Used internally to layout the child elements if the <page>DIconLayout:SetLayoutDir</page> is set to TOP (See <page>Enums/DOCK</page>).
+	</description>
+	<realm>Client and Menu</realm>
+</function>

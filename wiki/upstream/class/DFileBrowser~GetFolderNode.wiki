@@ -1,0 +1,12 @@
+<function name="GetFolderNode" parent="DFileBrowser" type="panelfunc">
+	<description>
+Returns the <page>DTree Node</page> that the file tree stems from.
+
+This is a child of the root node of the <page>DTree</page>.
+	</description>
+	<realm>Client</realm>
+	<file line="267-L271">lua/vgui/dfilebrowser.lua</file>
+	<rets>
+		<ret name="" type="DTree_Node">The <page>DTree_Node</page> used for the tree.</ret>
+	</rets>
+</function>

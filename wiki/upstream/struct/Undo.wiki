@@ -1,0 +1,13 @@
+<structure>
+	<description>Table structure used by <page>undo.Do_Undo</page> and <page>GM:CanUndo</page>.</description>
+	<realm>Server</realm>
+	<fields>
+<item name="Owner" type="Player">The player responsible who owns the undo</item>
+<item name="Name" type="string">The name of the text to report to the player</item>
+
+<item name="Entities" type="table<Entity>">A table of entities to be removed by the undo</item>
+<item name="Functions" type="table<table>">A table of {function_to_call, func_arg2, func_arg3}</item>
+<item name="CustomUndoText" type="string">A custom undo text to show the client</item>
+<item name="NiceText" type="string">A "nice" name of the undo, which will be used for the UI</item>
+	</fields>
+</structure>

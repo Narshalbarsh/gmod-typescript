@@ -1,0 +1,7 @@
+<function name="IsRecordingDemo" parent="engine" type="libraryfunc">
+	<description>Returns true if the game is currently recording a demo file (.dem) using gm_demo.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the game is currently recording a demo or not.</ret>
+	</rets>
+</function>

@@ -1,0 +1,7 @@
+<function name="GetMiddle" parent="DHorizontalDivider" type="panelfunc">
+	<description>Returns the middle content, set by <page>DHorizontalDivider:SetMiddle</page>.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="Panel">The middle content</ret>
+	</rets>
+</function>

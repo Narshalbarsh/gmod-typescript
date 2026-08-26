@@ -1,0 +1,7 @@
+<function name="SetDamageType" parent="CTakeDamageInfo" type="classfunc">
+	<description>Sets the damage type.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="type" type="number{DMG}">The damage type, see <page>Enums/DMG</page>.</arg>
+	</args>
+</function>

@@ -1,0 +1,8 @@
+<function name="GetDeleteOnClose" parent="DFrame" type="panelfunc">
+	<description>Determines whether or not the DFrame will be removed when it is closed. This is set with <page>DFrame:SetDeleteOnClose</page>.</description>
+	<realm>Client and Menu</realm>
+	<file line="8">lua/vgui/dframe.lua</file>
+	<rets>
+		<ret name="" type="boolean">Whether or not the frame will be removed on close.</ret>
+	</rets>
+</function>

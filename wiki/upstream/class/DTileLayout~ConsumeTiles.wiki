@@ -1,0 +1,10 @@
+<function name="ConsumeTiles" parent="DTileLayout" type="panelfunc">
+	<description><internal></internal> Called to designate a range of tiles as occupied by a panel.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="x" type="number">The x coordinate of the top-left corner of the panel.</arg>
+		<arg name="y" type="number">The y coordinate of the top-left corner of the panel.</arg>
+		<arg name="w" type="number">The panel's width.</arg>
+		<arg name="h" type="number">The panel's height.</arg>
+	</args>
+</function>

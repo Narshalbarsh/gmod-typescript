@@ -1,0 +1,36 @@
+<function name="ChatText" parent="GM" type="hook">
+	<description>
+Called when a message is printed to the chat box. Note, that this isn't working with player messages even though there are arguments for it.
+
+For player messages see <page>GM:PlayerSay</page> and <page>GM:OnPlayerChat</page>
+	</description>
+	<realm>Client</realm>
+	<file line="250-L260">gamemodes/base/gamemode/cl_init.lua</file>
+	<args>
+		<arg name="index" type="number">The index of the player.</arg>
+		<arg name="name" type="string">The name of the player.</arg>
+		<arg name="text" type="string">The text that is being sent.</arg>
+		<arg name="type" type="string">Chat filter type. Possible values are:
+* `joinleave` - Player join and leave messages
+* `namechange` - Player name change messages
+* `servermsg` - Server messages such as convar changes
+* `teamchange` - Team changes?
+* `chat` - (Obsolete?) Player chat? Seems to trigger when server console uses the `say` command
+* `none` - A fallback value</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return true to suppress the chat message.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Hides default join and leave messages in chat.</description>
+	<code>
+hook.Add( "ChatText", "hide_joinleave", function( index, name, text, type )
+	if ( type == "joinleave" ) then
+		return true
+	end
+end )
+	</code>
+
+</example>

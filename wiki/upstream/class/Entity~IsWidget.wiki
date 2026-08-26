@@ -1,0 +1,12 @@
+<function name="IsWidget" parent="Entity" type="classfunc">
+	<description>
+Returns whether the entity is a widget or not.
+
+This is used by the "Edit Bones" context menu property.
+	</description>
+	<realm>Shared</realm>
+	<file line="161">lua/includes/modules/widget.lua</file>
+	<rets>
+		<ret name="" type="boolean">Whether the entity is a widget or not.</ret>
+	</rets>
+</function>

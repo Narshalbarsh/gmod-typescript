@@ -1,0 +1,7 @@
+<function name="GetTextAlign" parent="DListView_Column" type="panelfunc">
+	<description>Returns the text alignment for the column</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="alignment" type="number{ContentAlignment}">The direction of the content, based on the number pad. See <page>Enums/ContentAlignment</page>.</ret>
+	</rets>
+</function>

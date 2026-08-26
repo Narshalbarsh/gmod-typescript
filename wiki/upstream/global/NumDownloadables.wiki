@@ -1,0 +1,7 @@
+<function name="NumDownloadables" parent="Global" type="libraryfunc">
+	<description>Returns the number of files needed from the server you are currently joining.</description>
+	<realm>Menu</realm>
+	<rets>
+		<ret name="" type="number">The number of downloadables</ret>
+	</rets>
+</function>

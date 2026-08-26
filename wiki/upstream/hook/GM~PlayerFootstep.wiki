@@ -1,0 +1,31 @@
+<function name="PlayerFootstep" parent="GM" type="hook">
+	<description>Called whenever a player steps. Return true to mute the normal sound.
+
+See <page>GM:PlayerStepSoundTime</page> for a related hook about footstep frequency.
+		<note>This hook is called on all clients.</note>
+	</description>
+	<realm>Shared</realm>
+	<predicted>yes</predicted>
+	<args>
+		<arg name="ply" type="Player">The stepping player</arg>
+		<arg name="pos" type="Vector">The position of the step</arg>
+		<arg name="foot" type="number">Foot that is stepped. 0 for left, 1 for right</arg>
+		<arg name="sound" type="string">Sound that is going to play</arg>
+		<arg name="volume" type="number">Volume of the footstep</arg>
+		<arg name="filter" type="CRecipientFilter">The Recipient filter of players who can hear the footstep</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Prevent default step sound</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Disables default player footsteps and plays custom ones.</description>
+	<code>
+hook.Add( "PlayerFootstep", "CustomFootstep", function( ply, pos, foot, sound, volume, rf )
+	ply:EmitSound( "NPC_Hunter.Footstep" ) -- Play the footsteps hunter is using
+	return true -- Don't allow default footsteps, or other addon footsteps
+end )
+	</code>
+
+</example>

@@ -1,0 +1,10 @@
+<function name="SetSurfaceProp" parent="CEffectData" type="classfunc">
+	<description>Sets the surface property index of the effect. See <page>util.GetSurfaceData</page> for more details about what they are.
+
+<note>Internally stored as an integer, but only first 8 bits are networked, effectively limiting this function to `-1`-`254` range. (Yes, that's not a mistake, `-1` signifying an invalid value.)</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="surfaceProperties" type="number">The surface property index of the effect.</arg>
+	</args>
+</function>

@@ -1,0 +1,37 @@
+<function name="PlayerCheckLimit" parent="GM" type="hook">
+	<description>Called whenever a player is about to spawn something to see if they hit a limit for whatever they are spawning.
+	<note>This hook will not be called in singleplayer, as singleplayer does not have limits.</note></description>
+	<realm>Shared</realm>
+	<added>2020.06.24</added>
+	<args>
+		<arg name="ply" type="Player">The player who is trying to spawn something.</arg>
+		<arg name="limitName" type="string">The limit's name.</arg>
+		<arg name="current" type="number">The amount of whatever player is trying to spawn that the player already has spawned.</arg>
+		<arg name="defaultMax" type="number">The default maximum count, as dictated by the `sbox_max<limitName>` convar on the server. This is the amount that will be used if nothing is returned from this hook.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return `false` to indicate the limit was hit, or nothing otherwise</ret>
+	</rets>
+</function>
+
+<example>
+	<description><note>Having multiple PlayerCheckLimit hooks that return values WILL conflict</note>Removes prop spawn limit for admins.</description>
+	<code>
+hook.Add("PlayerCheckLimit", "no_admin_limits", function(ply, name, cur, max)
+    if name == "props" and ply:IsAdmin() then return true end
+end)
+	</code>
+</example>
+
+<example>
+	<description>Doubles prop spawn limit for admins.</description>
+	<code>
+hook.Add("PlayerCheckLimit", "admin_double_limits", function(ply, name, cur, max)
+    if name == "props" and ply:IsAdmin() then
+        if cur >= max*2 then return false end
+        return true
+    end
+end)
+	</code>
+
+</example>

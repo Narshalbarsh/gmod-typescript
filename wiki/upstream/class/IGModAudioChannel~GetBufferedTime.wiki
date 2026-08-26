@@ -1,0 +1,10 @@
+<function name="GetBufferedTime" parent="IGModAudioChannel" type="classfunc">
+	<added>2023.11.20</added>
+	<description>Returns the buffered time of the sound channel in seconds, for online streaming sound channels. (<page>sound.PlayURL</page>)
+
+For offline channels this will be equivalent to <page>IGModAudioChannel:GetLength</page>.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">The current buffered time of the stream, in seconds.</ret>
+	</rets>
+</function>

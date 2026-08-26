@@ -1,0 +1,9 @@
+<function name="AddServerToFavorites" parent="serverlist" type="libraryfunc">
+	<description>
+		Adds the given server address to their favorites.
+	</description>
+	<args>
+		<arg name="address" type="string">Server Address. **IP:Port like "127.0.0.1:27015"**</arg>
+	</args>
+	<realm>Menu</realm>
+</function>

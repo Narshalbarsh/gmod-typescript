@@ -1,0 +1,11 @@
+<function name="TranslateAlias" parent="input" type="libraryfunc">
+	<description>Translates a console command alias, basically reverse of the `alias` console command.</description>
+	<realm>Client and Menu</realm>
+	<added>2020.04.29</added>
+	<args>
+		<arg name="command" type="string">The alias to lookup.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The command(s) this alias will execute if ran, or nil if the alias doesn't exist.</ret>
+	</rets>
+</function>

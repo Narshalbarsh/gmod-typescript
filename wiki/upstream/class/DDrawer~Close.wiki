@@ -1,0 +1,5 @@
+<function name="Close" parent="DDrawer" type="panelfunc">
+	<description>Closes the <page>DDrawer</page>.</description>
+	<realm>Client and Menu</realm>
+	<file line="68-L76">lua/vgui/ddrawer.lua</file>
+</function>

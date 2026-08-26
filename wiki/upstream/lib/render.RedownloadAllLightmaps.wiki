@@ -1,0 +1,8 @@
+<function name="RedownloadAllLightmaps" parent="render" type="libraryfunc">
+	<description>This applies the changes made to map lighting using <page>engine.LightStyle</page>.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="DoStaticProps" type="boolean" default="false">When true, this will also apply lighting changes to static props. This is really slow on large maps.</arg>
+		<arg name="UpdateStaticLighting" type="boolean" default="false">Forces all props to update their static lighting. Can be slow.</arg>
+	</args>
+</function>

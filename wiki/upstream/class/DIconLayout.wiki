@@ -1,0 +1,47 @@
+<panel>
+	<parent>DDragBase</parent>
+	<realm>Client and Menu</realm>
+	<file line="">lua/vgui/diconlayout.lua</file>
+	<description>
+		DIconLayout is what replaced <page>DPanelList</page> in Garry's Mod 13. 
+		DPanelList still exists in GMod but is deprecated and does not support the new GWEN skin.
+
+		<page>DIconLayout</page> is used to make a list of panels. 
+		Unlike DPanelList, DIconLayout does not automatically add a scroll bar - the example below shows you how you can do this.
+	</description>
+</panel>
+
+
+<example>
+	<code>
+local Frame = vgui.Create( "DFrame" ) -- Create a Frame to contain everything.
+Frame:SetTitle( "DIconLayout Example" )
+Frame:SetSize( 365, 240 )
+Frame:Center()
+Frame:MakePopup()
+
+local Scroll = vgui.Create( "DScrollPanel", Frame ) -- Create the Scroll panel
+Scroll:Dock( FILL )
+
+local List = vgui.Create( "DIconLayout", Scroll )
+List:Dock( FILL )
+List:SetSpaceY( 5 ) -- Sets the space in between the panels on the Y Axis by 5
+List:SetSpaceX( 5 ) -- Sets the space in between the panels on the X Axis by 5
+
+for i = 1, 20 do -- Make a loop to create a bunch of panels inside of the DIconLayout
+	local ListItem = List:Add( "DPanel" ) -- Add DPanel to the DIconLayout
+	ListItem:SetSize( 80, 40 ) -- Set the size of it
+	-- You don't need to set the position, that is done automatically.
+end
+
+local ListLabel = List:Add( "DLabel" ) -- Add a label that will be the only panel on its row
+ListLabel.OwnLine = true -- The magic variable that specifies this item has its own line all for itself
+ListLabel:SetText( "Hello World!" )
+
+for i = 1, 5 do
+	local ListItem = List:Add( "DPanel" )
+	ListItem:SetSize( 80, 40 )
+end
+	</code>
+	<output><image src="DIconLayout.png"/></output>
+</example>

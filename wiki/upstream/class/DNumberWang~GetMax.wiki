@@ -1,0 +1,7 @@
+<function name="GetMax" parent="DNumberWang" type="panelfunc">
+	<description>Returns the maximum numeric value allowed by the number selector.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The maximum value.</ret>
+	</rets>
+</function>

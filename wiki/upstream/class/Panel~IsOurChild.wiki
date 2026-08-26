@@ -1,0 +1,11 @@
+<function name="IsOurChild" parent="Panel" type="classfunc">
+	<file line="489-L495">lua/includes/extensions/client/panel.lua</file>
+	<description>Returns whether the panel contains the given panel, recursively.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="childPanel" type="Panel"></arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">True if the panel contains childPanel.</ret>
+	</rets>
+</function>

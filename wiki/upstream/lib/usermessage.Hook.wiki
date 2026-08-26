@@ -1,0 +1,21 @@
+<function name="Hook" parent="usermessage" type="libraryfunc">
+	<description>
+<deprecated>You should be using <page>net</page> instead</deprecated>
+
+Sets a hook for the specified to be called when a usermessage with the specified name arrives.
+
+<warning>Usermessages have a limit of only 256 bytes!</warning>
+	</description>
+	<realm>Shared</realm>
+	<file line="63-L70">lua/includes/modules/usermessage.lua</file>
+	<args>
+		<arg name="name" type="string">The message name to hook to.</arg>
+		<arg name="callback" type="function">The function to be called if the specified message was received.
+
+<callback>
+<arg type="bf_read" name="msg">The object to read your custom data from.</arg>
+<arg type="vararg" name="preArgs"></arg>
+</callback></arg>
+		<arg name="preArgs" type="vararg" default="nil">Arguments that are passed to the callback function when the hook is called.</arg>
+	</args>
+</function>

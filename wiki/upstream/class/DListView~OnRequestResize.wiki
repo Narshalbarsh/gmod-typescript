@@ -1,0 +1,12 @@
+<function name="OnRequestResize" parent="DListView" type="panelfunc">
+	<description>
+<internal></internal>
+
+Called from <page>DListView_Column</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="column" type="Panel">The column which initialized the resize</arg>
+		<arg name="size" type="number"></arg>
+	</args>
+</function>

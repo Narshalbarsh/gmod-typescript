@@ -1,0 +1,14 @@
+<function name="GetCostSoFar" parent="CNavArea" type="classfunc">
+	<description>
+Returns the cost from starting area this area when pathfinding. Set by <page>CNavArea:SetCostSoFar</page>.
+
+Used in pathfinding via the [A* algorithm](https://en.wikipedia.org/wiki/A*_search_algorithm).
+
+
+More information can be found on the <page>Simple Pathfinding</page> page.
+	</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">The cost so far.</ret>
+	</rets>
+</function>

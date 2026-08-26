@@ -1,0 +1,17 @@
+<enum>
+	<realm>Client</realm>
+	<description>Enumerations used by <page>Global.GetRenderTargetEx</page>. Clientside only.</description>
+	<items>
+<item key="RT_SIZE_NO_CHANGE" value="0">Only allowed for render targets that don't want a depth buffer (because if they have a depth buffer, the render target must be less than or equal to the size of the framebuffer).</item>
+<item key="RT_SIZE_DEFAULT" value="1">Don't play with the specified width and height other than making sure it fits in the framebuffer.</item>
+<item key="RT_SIZE_PICMIP" value="2">Apply picmip to the render target's width and height.</item>
+<item key="RT_SIZE_HDR" value="3">frame_buffer_width / 4</item>
+<item key="RT_SIZE_FULL_FRAME_BUFFER" value="4">Same size as frame buffer, or next lower power of 2 if we can't do that.</item>
+<item key="RT_SIZE_OFFSCREEN" value="5">Target of specified size, don't mess with dimensions</item>
+<item key="RT_SIZE_FULL_FRAME_BUFFER_ROUNDED_UP" value="6">Same size as the frame buffer, rounded up if necessary for systems that can't do non-power of two textures.</item>
+<item key="RT_SIZE_REPLAY_SCREENSHOT" value="7">Rounded down to power of 2, essentially</item>
+<item key="RT_SIZE_LITERAL" value="8">Use the size passed in. Don't clamp it to the frame buffer size. Really.</item>
+<item key="RT_SIZE_LITERAL_PICMIP" value="9">Use the size passed in, don't clamp to the frame buffer size, but do apply picmip restrictions.</item>
+	</items>
+
+</enum>

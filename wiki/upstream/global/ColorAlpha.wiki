@@ -1,0 +1,30 @@
+<function name="ColorAlpha" parent="Global" type="libraryfunc">
+	<description>Returns a new <page>Color</page> with the RGB components of the given <page>Color</page> and the alpha value specified.</description>
+	<realm>Shared and Menu</realm>
+	<file line="27-L31">lua/includes/util/color.lua</file>
+	<args>
+		<arg name="color" type="Color">The <page>Color</page> from which to take RGB values. This color will not be modified.</arg>
+		<arg name="alpha" type="number">The new alpha value, a number between 0 and 255. Values above 255 will be clamped.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">The new <page>Color</page> with the modified alpha value</ret>
+	</rets>
+</function>
+
+<example>
+	<code>
+local red = Color( 255, 0, 0, 255 )
+local red2 = ColorAlpha( red, 125 )
+print( red.r, red.g, red.b, red.a )
+print( red2.r, red2.g, red2.b, red2.a )
+	</code>
+	<output>
+
+```
+255	0	0	255
+255	0	0	125
+```
+
+	</output>
+
+</example>

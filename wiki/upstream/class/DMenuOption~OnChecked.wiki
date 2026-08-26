@@ -1,0 +1,7 @@
+<function name="OnChecked" parent="DMenuOption" type="panelfunc">
+	<description>Called whenever the <page>DMenuOption</page>'s checked state changes.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="checked" type="boolean">The new checked state</arg>
+	</args>
+</function>

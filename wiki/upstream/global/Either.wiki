@@ -1,0 +1,77 @@
+<function name="Either" parent="Global" type="libraryfunc">
+	<description>An [eagerly evaluated](https://en.wikipedia.org/wiki/Eager_evaluation) [ternary operator](https://en.wikipedia.org/wiki/%3F:), or, in layman's terms, a compact "if then else" statement.
+
+In most cases, you should just use Lua's ["pseudo" ternary operator](https://en.wikipedia.org/wiki/%3F:#Lua), like this:
+
+```
+local myCondition = true
+local consequent = "myCondition is true"
+local alternative = "myCondition is false"
+
+print(myCondition and consequent or alternative)
+```
+
+In the above example, due to [short-circuit evaluation](https://en.wikipedia.org/wiki/Short-circuit_evaluation), `consequent` would be "skipped" and ignored (not evaluated) by Lua due to `myCondition` being `true`, and only `alternative` would be evaluated. However, when using `Either`, both `consequent` and `alternative` would be evaluated. A practical example of this can be found at the bottom of the page.
+
+# Falsey values
+
+If `consequent` is "falsey" (Lua considers both `false` and `nil` as false), this will not work. For example:
+
+```
+local X = true
+local Y = false
+local Z = "myCondition is false"
+
+print(X and Y or Z)
+```
+
+This will actually print the value of `Z`.
+
+In the above case, and other very rare cases, you may find `Either` useful.
+
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="436-L439">lua/includes/util.lua</file>
+	<args>
+		<arg name="condition" type="any">The condition to check if true or false.</arg>
+		<arg name="truevar" type="any">If the condition isn't nil/false, returns this value.</arg>
+		<arg name="falsevar" type="any">If the condition is nil/false, returns this value.</arg>
+	</args>
+	<rets>
+		<ret name="" type="any">The result.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>The following two `print` statements have identical results.</description>
+	<code>
+local ply = Entity( 1 )
+print( "Player " .. Either( ply:IsAdmin(), "is", "is not" ) .. " an admin" )
+
+print( "Player " .. ( ply:IsAdmin() and "is" or "is not" ) .. " an admin" )
+	</code>
+	<output>If Player 1 is admin, it will print "Player is an admin".</output>
+
+</example>
+
+<example>
+	<description>A practical example of the behavior of this function in comparison to Lua's ["pseudo" ternary operator](https://en.wikipedia.org/wiki/%3F:#Lua), demonstrating [short-circuit evaluation](https://en.wikipedia.org/wiki/Short-circuit_evaluation), and the lack of it when using `Either`.</description>
+	<code>
+local function printHello()
+	print( "Hello, world!" )
+	return "printHello called"
+end
+
+local myCondition = true
+print( myCondition and "printHello not called" or printHello() )
+print( Either( myCondition, "myCondition is true, but printHello was still called", printHello() ) )
+	</code>
+	<output>
+```
+printHello not called
+Hello, world!
+myCondition is true, but printHello was still called
+```
+	</output>
+
+</example>

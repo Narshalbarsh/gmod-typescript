@@ -1,0 +1,14 @@
+<function name="CreateMove" parent="drive" type="libraryfunc">
+	<description>
+<internal></internal>
+Clientside, the client creates the cmd (usercommand) from their input device (mouse, keyboard) and then it's sent to the server. Restrict view angles here.
+	</description>
+	<realm>Shared</realm>
+	<file line="141-L149">lua/includes/modules/drive.lua</file>
+	<args>
+		<arg name="cmd" type="CUserCmd">The user command.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">True if succeeded.</ret>
+	</rets>
+</function>

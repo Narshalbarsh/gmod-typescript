@@ -1,0 +1,14 @@
+<function name="GetClass" parent="Entity" type="classfunc">
+	<description>Returns the classname of a entity. This is often the name of the Lua file or folder containing the files for the entity</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="string">The entity's classname</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints the classname of the weapon that the player is holding.</description>
+	<code>print( LocalPlayer( ):GetActiveWeapon( ):GetClass( ) )</code>
+	<output>Prints the classname of the weapon that the player is holding. (ie weapon_crowbar)</output>
+
+</example>

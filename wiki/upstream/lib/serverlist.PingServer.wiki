@@ -1,0 +1,12 @@
+<function name="PingServer" parent="serverlist" type="libraryfunc">
+	<description>Queries a server for its information/ping.</description>
+	<realm>Menu</realm>
+	<added>2021.01.27</added>
+	<args>
+		<arg name="ip" type="string">The IP address of the server, including the port.</arg>
+		<arg name="callback" type="function">The function to be called if and when the request finishes.
+
+Callback has arguments described here: <page>Structures/ServerQueryData</page>.</arg>
+
+	</args>
+</function>

@@ -1,0 +1,23 @@
+<function name="tobit" parent="bit" type="libraryfunc">
+	<description>Normalizes the specified value and clamps it in the range of a signed 32bit integer.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="value" type="number">The value to be normalized.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The 32 bits of the provided value.</ret>
+	</rets>
+</function>
+
+<example>
+<description></description>
+<code>
+print( bit.tobit( 9999999999 ) )
+</code>
+<output>
+1410065407
+
+Visual explanation:
+<upload src="70c/8dd3989d89f3bae.png" size="591911" name="January20-1021-gmod.png" />
+</output>
+</example>

@@ -1,0 +1,11 @@
+<function name="SetGravity" parent="Entity" type="classfunc">
+	<description>
+Sets the gravity multiplier of the entity.
+
+This may not affect affect all entities, but does affect players, and entities with <page text="MOVETYPE_FLYGRAVITY">Enums/MOVETYPE#MOVETYPE_FLYGRAVITY</page>, such as projectiles.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="multiplier" type="number">By how much to multiply the gravity. `1` is normal gravity, `0.5` is half-gravity, etc.</arg>
+	</args>
+</function>

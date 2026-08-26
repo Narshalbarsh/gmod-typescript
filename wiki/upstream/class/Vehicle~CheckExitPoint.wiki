@@ -1,0 +1,11 @@
+<function name="CheckExitPoint" parent="Vehicle" type="classfunc">
+	<description>Tries to find an Exit Point for leaving vehicle, if one is unobstructed in the direction given.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="yaw" type="number">Yaw/roll from vehicle angle to check for exit</arg>
+		<arg name="distance" type="number">Distance from origin to drop player</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">Returns the vector for exit position or nil if cannot exit that way.</ret>
+	</rets>
+</function>

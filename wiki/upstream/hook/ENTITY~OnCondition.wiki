@@ -1,0 +1,9 @@
+<function name="OnCondition" parent="ENTITY" type="hook">
+	<description>Called each time the NPC updates its condition.
+<note>This hook only exists for `ai` type [SENTs](Scripted_Entities).</note>
+</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="conditionID" type="number">The ID of condition. See <page>NPC:ConditionName</page>.</arg>
+	</args>
+</function>

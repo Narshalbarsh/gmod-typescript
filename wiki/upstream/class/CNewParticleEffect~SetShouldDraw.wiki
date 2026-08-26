@@ -1,0 +1,11 @@
+<function name="SetShouldDraw" parent="CNewParticleEffect" type="classfunc">
+	<description>
+Forces the particle system to stop automatically rendering.
+
+Used in conjunction with <page>CNewParticleEffect:Render</page>.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="should" type="boolean">Whether to automatically draw the particle effect or not.</arg>
+	</args>
+</function>

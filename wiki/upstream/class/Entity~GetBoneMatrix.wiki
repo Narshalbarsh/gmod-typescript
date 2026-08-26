@@ -1,0 +1,24 @@
+<function name="GetBoneMatrix" parent="Entity" type="classfunc">
+	<description>
+Returns the transformation matrix of a given bone on the entity's model. The matrix contains the transformation used to position the bone in the world. It is not relative to the parent bone.
+
+This is equivalent to constructing a <page>VMatrix</page> using <page>Entity:GetBonePosition</page>.
+
+See <page>Entity:CopyBoneMatrix</page> for a more performant version.
+
+
+<bug issue="884">This can return the server's matrix during server lag.</bug>
+
+<bug issue="3285">This can return garbage serverside or a 0,0,0 fourth column (represents position) for v49 models.</bug>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="boneID" type="number">The bone ID to retrieve matrix of, starting at index 0.
+* Bones clientside and serverside will differ</arg>
+	</args>
+	<rets>
+		<ret name="" type="VMatrix">The matrix
+
+* Some entities don't update animation every frame such as prop_physics and won't have accurate bone matrix.</ret>
+	</rets>
+</function>

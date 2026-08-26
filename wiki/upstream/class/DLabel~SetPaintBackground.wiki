@@ -1,0 +1,7 @@
+<function name="SetPaintBackground" parent="DLabel" type="panelfunc">
+	<description>Sets whether or not the background should be painted. This is mainly used by derivative classes, such as <page>DButton</page>.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="paint" type="boolean"></arg>
+	</args>
+</function>

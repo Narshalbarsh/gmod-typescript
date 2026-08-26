@@ -1,0 +1,8 @@
+<function name="AddFrame" parent="frame_blend" type="libraryfunc">
+	<description>
+<internal></internal>
+
+Adds a frame to the blend. Calls <page>frame_blend.CompleteFrame</page> once enough frames have passed since last <page>frame_blend.CompleteFrame</page> call.
+	</description>
+	<realm>Client</realm>
+</function>

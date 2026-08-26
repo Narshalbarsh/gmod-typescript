@@ -1,0 +1,7 @@
+<function name="GetSpeed" parent="Vehicle" type="classfunc">
+	<description>Returns the current speed of the vehicle in MPH.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">The speed of the vehicle in MPH</ret>
+	</rets>
+</function>

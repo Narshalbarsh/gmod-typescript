@@ -1,0 +1,23 @@
+<function name="CreateClientsideRagdoll" parent="GM" type="hook">
+	<description>
+Called whenever an entity becomes a clientside ragdoll.
+
+See <page>GM:CreateEntityRagdoll</page> for serverside ragdolls.
+	</description>
+	<realm>Client</realm>
+	<file line="732-L733">gamemodes/base/gamemode/cl_init.lua</file>
+	<args>
+		<arg name="entity" type="Entity">The Entity that created the ragdoll</arg>
+		<arg name="ragdoll" type="Entity">The ragdoll being created.</arg>
+	</args>
+</function>
+
+<example>
+	<description>A way of fade out a ragdoll easily. Idea from [here](https://github.com/ValveSoftware/source-sdk-2013/blob/0d8dceea4310fde5706b3ce1c70609d72a38efdf/mp/src/game/client/c_baseanimating.cpp#L533).</description>
+	<code>
+hook.Add( "CreateClientsideRagdoll", "fade_out_corpses", function( entity, ragdoll )
+	ragdoll:SetSaveValue( "m_bFadingOut", true ) -- Set the magic internal variable that will cause the ragdoll to immediately start fading out
+end )
+	</code>
+
+</example>

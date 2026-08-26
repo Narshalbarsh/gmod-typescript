@@ -1,0 +1,16 @@
+<function name="CreateRow" parent="DProperties" type="panelfunc">
+	<description>Creates a row in the properties panel.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="category" type="string">The category to list this row under</arg>
+		<arg name="name" type="string">The label of this row</arg>
+	</args>
+	<rets>
+		<ret name="" type="Panel">An internal Row panel. It has 2 methods of interest:
+* `Setup`( <page>string</page> type, <page>table</page> vars )
+  * Call to set up the panel as one of the `DProperty_<type>` panels. `vars` parameter is directly fed into the created `DProperty_<type>` panels' `Setup` function.
+* `SetValue`( <page>any</page> value )
+  * Call to set the value on the created `DProperty_<type>` panel.
+</ret>
+	</rets>
+</function>

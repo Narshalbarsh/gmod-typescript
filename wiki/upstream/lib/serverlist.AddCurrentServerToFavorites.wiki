@@ -1,0 +1,7 @@
+<function name="AddCurrentServerToFavorites" parent="serverlist" type="libraryfunc">
+	<description><internal></internal>Adds current server the player is on to their favorites.</description>
+	<args>
+		<arg name="addOrRemove" type="boolean">`true` if to add, or `false` if to remove from favorites.</arg>
+	</args>
+	<realm>Menu</realm>
+</function>

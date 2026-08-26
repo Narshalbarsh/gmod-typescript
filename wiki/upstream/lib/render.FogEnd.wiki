@@ -1,0 +1,9 @@
+<function name="FogEnd" parent="render" type="libraryfunc">
+	<description>Sets the at which the fog reaches its max density.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="distance" type="number">The distance at which the fog reaches its max density.
+
+<note>If used in <page>GM:SetupSkyboxFog</page>, this value **must** be scaled by the first argument of the hook</note></arg>
+	</args>
+</function>

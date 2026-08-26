@@ -1,0 +1,7 @@
+<function name="SetDamage" parent="CTakeDamageInfo" type="classfunc">
+	<description>Sets the amount of damage.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="damage" type="number">The value to set the absolute damage to.</arg>
+	</args>
+</function>

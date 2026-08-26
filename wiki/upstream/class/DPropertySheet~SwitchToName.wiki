@@ -1,0 +1,8 @@
+<function name="SwitchToName" parent="DPropertySheet" type="panelfunc">
+	<file line="376-L389">lua/vgui/dpropertysheet.lua</file>
+	<description>Switches the active tab to a tab with given name.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="name" type="string">Case sensitive name of the tab.</arg>
+	</args>
+</function>

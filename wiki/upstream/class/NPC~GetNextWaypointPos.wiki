@@ -1,0 +1,8 @@
+<function name="GetNextWaypointPos" parent="NPC" type="classfunc">
+	<description>Gets the NPC's next waypoint position, where NPC will be moving after reaching current waypoint, if any is available.</description>
+	<realm>Server</realm>
+	<added>2020.03.17</added>
+	<rets>
+		<ret name="" type="Vector">The position of the next NPC waypoint.</ret>
+	</rets>
+</function>

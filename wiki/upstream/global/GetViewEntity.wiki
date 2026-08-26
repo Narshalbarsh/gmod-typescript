@@ -1,0 +1,7 @@
+<function name="GetViewEntity" parent="Global" type="libraryfunc">
+	<description>Returns the entity the client is using to see from (such as the player itself, the camera, or another entity).</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="Entity">The view entity.</ret>
+	</rets>
+</function>

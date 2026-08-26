@@ -1,0 +1,4 @@
+<function name="ClearPoseParameters" parent="Entity" type="classfunc">
+	<description>Resets all pose parameters such as aim_yaw, aim_pitch and rotation.</description>
+	<realm>Shared</realm>
+</function>

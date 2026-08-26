@@ -1,0 +1,12 @@
+<function name="WorkshopFileBase" parent="Global" type="libraryfunc">
+	<description><internal></internal>Returns a new WorkshopFileBase element</description>
+	<realm>Client and Menu</realm>
+	<file line="6-L282">lua/includes/util/workshop_files.lua</file>
+	<args>
+		<arg name="namespace" type="string">Namespace for the file base</arg>
+		<arg name="requiredTags" type="table">Tags required for a Workshop submission to be interacted with by the filebase</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">WorkshopFileBase element</ret>
+	</rets>
+</function>

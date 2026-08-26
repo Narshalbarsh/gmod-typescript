@@ -1,0 +1,8 @@
+<function name="SetImage" parent="DImageButton" type="panelfunc">
+	<description>Sets the "image" of the <page>DImageButton</page>. Equivalent of <page>DImage:SetImage</page>.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="strImage" type="string">The path of the image to load, relative to the `materials/` folder. When no file extension is supplied the `.vmt` file extension is assumed.</arg>
+		<arg name="strBackup" type="string" default="nil">The path of the backup image.</arg>
+	</args>
+</function>

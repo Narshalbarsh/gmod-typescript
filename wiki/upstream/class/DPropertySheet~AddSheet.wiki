@@ -1,0 +1,41 @@
+<function name="AddSheet" parent="DPropertySheet" type="panelfunc">
+	<file line="175-L210">lua/vgui/dpropertysheet.lua</file>
+	<description>Adds a new tab.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="name" type="string">Name of the tab</arg>
+		<arg name="pnl" type="Panel">Panel to be used as contents of the tab. This normally should be a <page>DPanel</page></arg>
+		<arg name="icon" type="string" default="nil">Icon for the tab. This will ideally be a <page text="silkicon">Silkicons</page>, but any material name can be used.</arg>
+		<arg name="noStretchX" type="boolean" default="false">Should <page>DPropertySheet</page> try to fill itself with given panel horizontally.</arg>
+		<arg name="noStretchY" type="boolean" default="false">Should <page>DPropertySheet</page> try to fill itself with given panel vertically.</arg>
+		<arg name="tooltip" type="string" default="nil">Tooltip for the tab when user hovers over it with his cursor</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">A table containing the following keys:
+* <page>Panel</page> Tab - The created <page>DTab</page>.
+* <page>string</page> Name - Name of the created tab
+* <page>Panel</page> Panel - The contents panel of the tab</ret>
+	</rets>
+</function>
+
+<example>
+	<code>
+local frame = vgui.Create("DFrame")
+frame:SetSize( ScrW() / 2, ScrH() / 2 )
+frame:SetTitle( "Test Frame" )
+frame:MakePopup()
+frame:Center()
+
+local tabs = vgui.Create( "DPropertySheet", frame )
+tabs:Dock( FILL )
+
+local tab1panel = vgui.Create( "DPanel" )
+
+local SheetItem = vgui.Create( "DButton", tab1panel )
+SheetItem:SetText( "Suicide" )
+SheetItem:SetConsoleCommand( "kill" )
+ 
+tabs:AddSheet( "Tab 1", tab1panel, "icon16/user.png", false, false, "Description of first tab")
+	</code>
+
+</example>

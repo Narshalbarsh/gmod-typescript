@@ -1,0 +1,16 @@
+<function name="SetTotalCost" parent="CNavArea" type="classfunc">
+	<description>
+Sets the total cost when passing from starting area to the goal area through this node.
+
+Used in pathfinding via the [A* algorithm](https://en.wikipedia.org/wiki/A*_search_algorithm).
+
+
+More information can be found on the <page>Simple Pathfinding</page> page.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="cost" type="number">The total cost of the path to set.
+
+Must be above or equal 0.</arg>
+	</args>
+</function>

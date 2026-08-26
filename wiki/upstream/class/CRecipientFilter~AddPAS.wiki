@@ -1,0 +1,7 @@
+<function name="AddPAS" parent="CRecipientFilter" type="classfunc">
+	<description>Adds all players that are in the same [PAS (Potentially Audible Set)](https://developer.valvesoftware.com/wiki/PAS "PAS - Valve Developer Community") as this position.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="pos" type="Vector">A position that players may be able to hear, usually the position of an entity the sound is playing played from.</arg>
+	</args>
+</function>

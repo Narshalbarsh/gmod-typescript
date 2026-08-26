@@ -1,0 +1,7 @@
+<function name="GetItems" parent="DNotify" type="panelfunc">
+	<description>Returns all the items added with <page>DNotify:AddItem</page>.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="table">A table of <page>Panel</page>s.</ret>
+	</rets>
+</function>

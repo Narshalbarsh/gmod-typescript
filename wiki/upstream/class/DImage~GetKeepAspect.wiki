@@ -1,0 +1,11 @@
+<function name="GetKeepAspect" parent="DImage" type="panelfunc">
+	<description>
+Returns whether the <page>DImage</page> should keep the aspect ratio of its image when being resized.
+
+See <page>DImage:SetKeepAspect</page> for more info on how it works.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the <page>DImage</page> should keep the aspect ratio of its image when being resized.</ret>
+	</rets>
+</function>

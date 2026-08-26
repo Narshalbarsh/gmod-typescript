@@ -1,0 +1,20 @@
+<function name="GetDownloadables" parent="Global" type="libraryfunc">
+	<description>Returns a table with the names of files needed from the server you are currently joining.</description>
+	<realm>Menu</realm>
+	<rets>
+		<ret name="" type="table<string>">table of file names</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Returns a table with the file names.</description>
+	<code>PrintTable( GetDownloadables() )</code>
+	<output>
+```
+1	=	maps\gm_flatgrass.bsp
+2	=	maps\graphs\gm_flatgrass.ain
+3	=	maps\gm_flatgrass.nav
+```
+	</output>
+
+</example>

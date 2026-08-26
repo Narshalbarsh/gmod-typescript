@@ -1,0 +1,7 @@
+<function name="GetSteeringDegrees" parent="Vehicle" type="classfunc">
+	<description>Returns the maximum steering degree of the vehicle</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">The maximum steering degree of the vehicle</ret>
+	</rets>
+</function>

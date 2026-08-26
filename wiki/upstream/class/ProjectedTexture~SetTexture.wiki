@@ -1,0 +1,11 @@
+<function name="SetTexture" parent="ProjectedTexture" type="classfunc">
+	<description>
+Sets the texture to be projected.
+
+You must call <page>ProjectedTexture:Update</page> after using this function for it to take effect.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="texture" type="string">The name of the texture. Can also be an <page>ITexture</page>.</arg>
+	</args>
+</function>

@@ -1,0 +1,15 @@
+<function name="GetConVarCallbacks" parent="cvars" type="libraryfunc">
+	<description>Returns a table of the given <page>ConVar</page>s callbacks.</description>
+	<realm>Shared and Menu</realm>
+	<file line="21-L31">lua/includes/modules/cvars.lua</file>
+	<args>
+		<arg name="name" type="string">The name of the <page>ConVar</page>.</arg>
+		<arg name="createIfNotFound" type="boolean" default="false">Whether or not to create the internal callback table for given <page>ConVar</page> if there isn't one yet.
+
+
+This argument is internal and should not be used.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">A table of the convar's callbacks, or nil if the convar doesn't exist.</ret>
+	</rets>
+</function>

@@ -1,0 +1,18 @@
+<function name="Add_NPC_Class" parent="Global" type="libraryfunc">
+	<description>Defines a global entity class variable with an automatic value. In order to prevent collisions with other <page>Enums/CLASS</page>. You should prefix your variable with CLASS_ for consistency.</description>
+	<realm>Shared and Menu</realm>
+	<file line="441-L450">lua/includes/util.lua</file>
+	<args>
+		<arg name="name" type="string">The name of the new enum/global variable.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Creates a global variable named CLASS_TESTER and prints its value.</description>
+	<code>
+Add_NPC_Class( "CLASS_TESTER" )
+print( CLASS_TESTER )
+	</code>
+	<output>36 (one greater than the current highest value of the <page>Enums/CLASS</page>)</output>
+
+</example>

@@ -1,0 +1,11 @@
+<structure>
+	<realm>Shared</realm>
+	<description>Table is one element from <page>team.GetAllTeams</page>.</description>
+	<fields>
+<item name="Color" type="Color">Color of the team</item>
+<item name="Joinable" type="boolean">Whether the team is joinable or not.</item>
+<item name="Name" type="string">Name of the team</item>
+<item name="Score" type="number">Score of the team</item>
+	</fields>
+
+</structure>

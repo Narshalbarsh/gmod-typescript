@@ -1,0 +1,11 @@
+<function name="SetDirty" parent="DListView" type="panelfunc">
+	<description>
+<internal></internal>
+
+Used internally to signify if the <page>DListView</page> needs a rebuild.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="isDirty" type="boolean"></arg>
+	</args>
+</function>

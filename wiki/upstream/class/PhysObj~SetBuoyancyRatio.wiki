@@ -1,0 +1,7 @@
+<function name="SetBuoyancyRatio" parent="PhysObj" type="classfunc">
+	<description>Sets the buoyancy ratio of the physics object. (How well it floats in water)</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="buoyancy" type="number">Buoyancy ratio, where 0 is not buoyant at all (like a rock), and 1 is very buoyant (like wood). You can set values larger than 1 for greater effect.</arg>
+	</args>
+</function>

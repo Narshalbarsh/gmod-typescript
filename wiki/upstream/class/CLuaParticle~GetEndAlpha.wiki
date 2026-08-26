@@ -1,0 +1,7 @@
+<function name="GetEndAlpha" parent="CLuaParticle" type="classfunc">
+	<description>Returns the alpha value that the particle will reach on its death.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">The alpha value the particle will fade to</ret>
+	</rets>
+</function>

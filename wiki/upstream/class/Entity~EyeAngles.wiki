@@ -1,0 +1,24 @@
+<function name="EyeAngles" parent="Entity" type="classfunc">
+	<description>
+Returns the direction a player, npc or ragdoll is looking as a world-oriented angle.
+
+<bug issue="1150">This can return an incorrect value in vehicles (like pods, buggy, ...). **This bug has been fixed in the past but was causing many addons being broken, so the fix has been removed but applied to <page>Player:GetAimVector</page> only**.</bug>
+
+<bug issue="2620">This may return local angles in jeeps when used with <page>Player:EnterVehicle</page>. **A workaround is available in the second example.**</bug>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Angle">Player's eye angle.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Print the local player's angles.</description>
+	<code>print( LocalPlayer():EyeAngles() )</code>
+	<output>When looking straight down, it might return `Angle(89, -175.38, 0)`.</output>
+</example>
+
+<example>
+	<description>Fix the issue with vehicles when used with <page>Player:EnterVehicle</page>.</description>
+	<code>print( LocalPlayer():GetVehicle():LocalToWorldAngles( LocalPlayer():EyeAngles() ) )</code>
+</example>

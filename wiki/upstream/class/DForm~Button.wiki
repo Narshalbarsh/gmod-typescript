@@ -1,0 +1,13 @@
+<function name="Button" parent="DForm" type="panelfunc">
+	<description>Adds a <page>DButton</page> onto the <page>DForm</page></description>
+	<realm>Client and Menu</realm>
+	<file line="254-L267">lua/vgui/dform.lua</file>
+	<args>
+		<arg name="text" type="string">The text on the button</arg>
+		<arg name="concommand" type="string" default="">The concommand to run when the button is clicked</arg>
+		<arg name="args" type="vararg" default="nil">The arguments to pass on to the concommand when the button is clicked</arg>
+	</args>
+	<rets>
+		<ret name="" type="DButton">The created <page>DButton</page></ret>
+	</rets>
+</function>

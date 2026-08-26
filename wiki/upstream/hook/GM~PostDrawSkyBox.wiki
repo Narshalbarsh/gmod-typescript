@@ -1,0 +1,10 @@
+<function name="PostDrawSkyBox" parent="GM" type="hook">
+	<description>
+Called after drawing the 3D skybox. This will not be called if skybox rendering was prevented via the <page>GM:PreDrawSkyBox</page> hook.
+
+See also <page>GM:PostDraw2DSkyBox</page>.
+
+<rendercontext hook="true" type="3D"></rendercontext>
+	</description>
+	<realm>Client</realm>
+</function>

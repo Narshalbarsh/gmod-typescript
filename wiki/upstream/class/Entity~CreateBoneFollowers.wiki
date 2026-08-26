@@ -1,0 +1,19 @@
+<function name="CreateBoneFollowers" parent="Entity" type="classfunc">
+	<description>Creates bone followers based on the current entity model.
+
+Bone followers are <page text="Entities">Entity</page> whose <page text="Physics Objects">PhysObj</page> follow a specific bone on another Entity's model.  
+This is what is used by `prop_dynamic` for things like big combine doors with multiple physics objects which follow the visual mesh of the door when it animates.
+
+Be mindful that bone followers create a separate entity (`phys_bone_follower`) for each physics object.
+
+You must call <page>Entity:UpdateBoneFollowers</page> every tick for bone followers to update their positions.
+
+<note>This function only works on `anim`, `nextbot` and `ai` type entities.</note>
+</description>
+	<realm>Server</realm>
+	<added>2021.01.27</added>
+
+	<args>
+		<arg name="bone_whitelist" type="table" default="nil" added="2024.05.14">If set, a whitelist of bone names to create bone followers for. If a models' bone name is not in this list, a bone follower entity will not be created for it.</arg>
+	</args>
+</function>

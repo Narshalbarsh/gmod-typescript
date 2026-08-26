@@ -1,0 +1,9 @@
+<function name="VoiceVolume" parent="Player" type="classfunc">
+	<description>
+Returns the players voice volume, how loud the player's voice communication currently is, as a number in range of [0,1].
+	</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">The voice volume.</ret>
+	</rets>
+</function>

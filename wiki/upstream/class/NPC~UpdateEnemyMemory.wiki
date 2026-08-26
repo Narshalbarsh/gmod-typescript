@@ -1,0 +1,8 @@
+<function name="UpdateEnemyMemory" parent="NPC" type="classfunc">
+	<description>Force the NPC to update information on the supplied enemy, as if it had line of sight to it.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="enemy" type="Entity">The enemy to update.</arg>
+		<arg name="pos" type="Vector">The last known position of the enemy.</arg>
+	</args>
+</function>

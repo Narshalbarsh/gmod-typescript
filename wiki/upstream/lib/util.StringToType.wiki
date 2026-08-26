@@ -1,0 +1,23 @@
+<function name="StringToType" parent="util" type="libraryfunc">
+	<file line="108-L125">lua/includes/extensions/util.lua</file>
+	<description>
+Converts a string to the specified type.
+
+This can be useful when dealing with ConVars.
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="str" type="string">The string to convert</arg>
+		<arg name="typename" type="string">The type to attempt to convert the string to. This can be `vector`, `angle`, `float`, `int`, `bool`, or `string` (case insensitive).</arg>
+	</args>
+	<rets>
+		<ret name="" type="any">The result of the conversion, or nil if a bad type is specified.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Creates a vector from a string representation.</description>
+	<code>local vec = util.StringToType("5 6 75", "Vector")</code>
+	<output>A vector with components **(5, 6, 75)**</output>
+
+</example>

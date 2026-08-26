@@ -1,0 +1,57 @@
+<enum>
+	<realm>Shared and Menu</realm>
+	<description>Enumerations used by <page>net.ReadType</page> and returned by <page>Global.TypeID</page></description>
+	<items>
+<item key="TYPE_NONE" value="-1">Invalid type</item>
+<item key="TYPE_INVALID" value="-1"><deprecated notag="true">Use TYPE_NONE</deprecated></item>
+<item key="TYPE_NIL" value="0"><page>nil</page></item>
+<item key="TYPE_BOOL" value="1"><page>boolean</page></item>
+<item key="TYPE_LIGHTUSERDATA" value="2"><page text="light userdata">userdata#lightuserdata</page></item>
+<item key="TYPE_NUMBER" value="3"><page>number</page></item>
+<item key="TYPE_STRING" value="4"><page>string</page></item>
+<item key="TYPE_TABLE" value="5"><page>table</page></item>
+<item key="TYPE_FUNCTION" value="6"><page>function</page></item>
+<item key="TYPE_USERDATA" value="7"><page>userdata</page></item>
+<item key="TYPE_THREAD" value="8"><page>thread</page></item>
+<item key="TYPE_ENTITY" value="9"><page>Entity</page> and entity sub-classes including <page>Player</page>, <page>Weapon</page>, <page>NPC</page>, <page>Vehicle</page>, <page>CSEnt</page>, and <page>NextBot</page></item>
+<item key="TYPE_VECTOR" value="10"><page>Vector</page></item>
+<item key="TYPE_ANGLE" value="11"><page>Angle</page></item>
+<item key="TYPE_PHYSOBJ" value="12"><page>PhysObj</page></item>
+<item key="TYPE_SAVE" value="13"><page>ISave</page></item>
+<item key="TYPE_RESTORE" value="14"><page>IRestore</page></item>
+<item key="TYPE_DAMAGEINFO" value="15"><page>CTakeDamageInfo</page></item>
+<item key="TYPE_EFFECTDATA" value="16"><page>CEffectData</page></item>
+<item key="TYPE_MOVEDATA" value="17"><page>CMoveData</page></item>
+<item key="TYPE_RECIPIENTFILTER" value="18"><page>CRecipientFilter</page></item>
+<item key="TYPE_USERCMD" value="19"><page>CUserCmd</page></item>
+<item key="TYPE_SCRIPTEDVEHICLE" value="20"><deprecated notag="true">Leftover from GMod 13 Beta</deprecated></item>
+<item key="TYPE_MATERIAL" value="21"><page>IMaterial</page></item>
+<item key="TYPE_PANEL" value="22"><page>Panel</page></item>
+<item key="TYPE_PARTICLE" value="23"><page>CLuaParticle</page></item>
+<item key="TYPE_PARTICLEEMITTER" value="24"><page>CLuaEmitter</page></item>
+<item key="TYPE_TEXTURE" value="25"><page>ITexture</page></item>
+<item key="TYPE_USERMSG" value="26"><page>bf_read</page></item>
+<item key="TYPE_CONVAR" value="27"><page>ConVar</page></item>
+<item key="TYPE_IMESH" value="28"><page>IMesh</page></item>
+<item key="TYPE_MATRIX" value="29"><page>VMatrix</page></item>
+<item key="TYPE_SOUND" value="30"><page>CSoundPatch</page></item>
+<item key="TYPE_PIXELVISHANDLE" value="31"><page>pixelvis_handle_t</page></item>
+<item key="TYPE_DLIGHT" value="32">dlight_t. Metatable of a <page>Structures/DynamicLight</page></item>
+<item key="TYPE_VIDEO" value="33"><page>IVideoWriter</page></item>
+<item key="TYPE_FILE" value="34"><page>File</page></item>
+<item key="TYPE_LOCOMOTION" value="35"><page>CLuaLocomotion</page></item>
+<item key="TYPE_PATH" value="36"><page>PathFollower</page></item>
+<item key="TYPE_NAVAREA" value="37"><page>CNavArea</page></item>
+<item key="TYPE_SOUNDHANDLE" value="38"><page>IGModAudioChannel</page></item>
+<item key="TYPE_NAVLADDER" value="39"><page>CNavLadder</page></item>
+<item key="TYPE_PARTICLESYSTEM" value="40"><page>CNewParticleEffect</page></item>
+<item key="TYPE_PROJECTEDTEXTURE" value="41"><page>ProjectedTexture</page></item>
+<item key="TYPE_PHYSCOLLIDE" value="42"><page>PhysCollide</page></item>
+<item key="TYPE_SURFACEINFO" value="43"><page>SurfaceInfo</page></item>
+<item key="TYPE_COUNT" value="44">Amount of TYPE_* enums</item>
+<item key="TYPE_COLOR" value="255">Metatable of a <page>Color</page>.
+
+<note>This doesn't actually represent a unique type returned by <page>Global.TypeID</page>, but instead is a hack for networking colors with <page>net.WriteType</page>.</note></item>
+	</items>
+
+</enum>

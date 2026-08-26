@@ -1,0 +1,18 @@
+<function name="SetCursorPos" parent="input" type="libraryfunc">
+	<description>Sets the cursor's position on the screen, relative to the topleft corner of the window</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="mouseX" type="number">X coordinate for mouse position</arg>
+		<arg name="mouseY" type="number">Y coordinate for mouse position</arg>
+	</args>
+</function>
+
+<example>
+	<description>Makes the user's cursor circle their screen</description>
+	<code>
+hook.Add( 'HUDPaint', 'CircleScreen', function()
+	input.SetCursorPos( ScrW() / 2 + math.sin(CurTime()) * ScrW() / 2, ScrH() / 2 + math.cos(CurTime()) * ScrH() / 2 )
+end)
+	</code>
+
+</example>

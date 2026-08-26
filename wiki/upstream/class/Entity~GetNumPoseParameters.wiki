@@ -1,0 +1,31 @@
+<function name="GetNumPoseParameters" parent="Entity" type="classfunc">
+	<description>Returns the number of pose parameters this entity has.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">Amount of pose parameters the entity has</ret>
+	</rets>
+</function>
+
+<example>
+	<description>
+Prints all the entities poses.
+
+The entity used to generate the output is a model of the combine helicopter.
+	</description>
+	<code>
+for i=0, ent:GetNumPoseParameters() - 1 do
+	local min, max = ent:GetPoseParameterRange( i )
+	print( ent:GetPoseParameterName( i ) .. ' ' .. min .. " / " .. max )
+end
+	</code>
+	<output>
+
+```
+weapon_pitch -90 / 20
+weapon_yaw -40 / 40
+rudder -45 / 45
+```
+
+	</output>
+
+</example>

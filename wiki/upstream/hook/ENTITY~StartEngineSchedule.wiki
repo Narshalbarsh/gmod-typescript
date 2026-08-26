@@ -1,0 +1,9 @@
+<function name="StartEngineSchedule" parent="ENTITY" type="hook">
+	<description>Called by the engine only whenever <page>NPC:SetSchedule</page> is called. 
+<note>This hook only exists for `ai` type [SENTs](Scripted_Entities).</note>
+</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="scheduleID" type="number">Schedule ID to start. See <page>Enums/SCHED</page></arg>
+	</args>
+</function>

@@ -1,0 +1,4 @@
+<function name="Save" parent="navmesh" type="libraryfunc">
+	<description>Saves any changes made to navmesh to the .nav file.</description>
+	<realm>Server</realm>
+</function>

@@ -1,0 +1,3 @@
+<type name="drive" category="libraryfunc" is="library">
+	<summary>The drive library is for adding custom control modes to the new "remote control" entity piloting system in Garry's Mod 13. See <page>Entity Driving</page>.</summary>
+</type>

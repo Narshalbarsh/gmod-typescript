@@ -1,0 +1,63 @@
+<function name="PlayerNoClip" parent="GM" type="hook">
+	<description>Called when a player tries to switch noclip mode. 
+
+<page text="MOVETYPE_NOCLIP">Enums/MOVETYPE#MOVETYPE_NOCLIP</page> can be used to determine if a player is currently in noclip mode.
+</description>
+	<realm>Shared</realm>
+	<predicted>Yes</predicted>
+	<args>
+		<arg name="ply" type="Player">The person who entered/exited noclip</arg>
+		<arg name="desiredState" type="boolean">Represents the noclip state (on/off) the user will enter if this hook allows them to.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return false to disallow the switch.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Get the player when they enter/exit no clip and display their status</description>
+	<code>
+hook.Add( "PlayerNoClip", "isInNoClip", function( ply, desiredNoClipState )
+	if ( desiredNoClipState ) then
+		print( ply:Name() .. " wants to enter noclip." )
+	else
+		print( ply:Name() .. " wants to leave noclip." )
+	end
+end )
+	</code>
+	<output>
+```
+Player1 wants to enter noclip.
+Player1 wants to leave noclip.
+```
+	</output>
+
+</example>
+
+<example>
+	<description>While keeping the default behavior of admin-only noclip, the following example will also allow anyone to turn it off (if it's set on by a third-party administration addon, for example).</description>
+	<code>
+hook.Add( "PlayerNoClip", "FeelFreeToTurnItOff", function( ply, desiredState )
+	if ( desiredState == false ) then -- the player wants to turn noclip off
+		return true -- always allow
+	elseif ( ply:IsAdmin() ) then
+		return true -- allow administrators to enter noclip
+	end
+end )
+	</code>
+
+</example>
+
+<example>
+	<description>Adds a Player:InNoclip() function, that returns a boolean depending on whether or not the player is in noclip.</description>
+	<code>
+local meta = FindMetaTable( "Player" )
+function meta:InNoclip()
+	-- un-comment the line below to perform a check, if the player is an admin.
+	--if ( self:IsAdmin() == false ) then return false end
+
+	return self:GetMoveType() == MOVETYPE_NOCLIP
+end
+	</code>
+
+</example>

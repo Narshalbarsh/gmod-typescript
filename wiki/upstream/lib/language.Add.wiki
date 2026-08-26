@@ -1,0 +1,24 @@
+<function name="Add" parent="language" type="libraryfunc">
+	<description>Adds a language item. Language placeholders preceded with "#" are replaced with full text in Garry's Mod once registered with this function.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="placeholder" type="string">The key for this phrase, without the preceding "#".</arg>
+		<arg name="fulltext" type="string">The phrase that should be displayed whenever this key is used.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Small excerpt from a <page>TOOL</page> named `cooltool`. It has been registered as `cooltool`.</description>
+	<code>
+language.Add("tool.cooltool.name", "The really cool tool")
+language.Add("tool.cooltool.desc", "Do some random cool stuff.")
+language.Add("tool.cooltool.0", "Left-click: Cool Stuff. Right-click: Nothing.")
+language.Add("Undone_cooltool", "Cool stuff has been undone.")
+	</code>
+	<output>
+* When the player presses undo, `Cool stuff has been undone` will be shown.
+* The `cooltool`'s name will be `The really cool tool`.
+* Below that, where the description is shown, `Do some random cool stuff.` will be shown.
+* Below that, where the instructions or additional notes for the tool are shown, it will display `Left-click: Cool Stuff. Right-click: Nothing.`.</output>
+
+</example>

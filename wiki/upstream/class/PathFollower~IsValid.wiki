@@ -1,0 +1,7 @@
+<function name="IsValid" parent="PathFollower" type="classfunc">
+	<description>Returns true if the path is valid</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="boolean">Wether the path is valid or not.</ret>
+	</rets>
+</function>

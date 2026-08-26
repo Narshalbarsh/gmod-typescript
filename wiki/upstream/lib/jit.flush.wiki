@@ -1,0 +1,4 @@
+<function name="flush" parent="jit" type="libraryfunc">
+	<description>Flushes the whole cache of compiled code.</description>
+	<realm>Shared and Menu</realm>
+</function>

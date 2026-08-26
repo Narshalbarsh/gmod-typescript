@@ -1,0 +1,4 @@
+<function name="StartKeyTrapping" parent="input" type="libraryfunc">
+	<description>Begins waiting for a key to be pressed so we can save it for <page>input.CheckKeyTrapping</page>. Used by the <page>DBinder</page>.</description>
+	<realm>Client and Menu</realm>
+</function>

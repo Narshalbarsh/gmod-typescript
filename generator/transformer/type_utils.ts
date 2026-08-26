@@ -5,15 +5,25 @@ import { getPageMods, isRenameIndentifierModification } from './modification_db'
 export function inferType(type: string, desc: string) {
     let t = (type || '').trim();
 
-    const m = /<page\b([^>]*)>(.*?)<\/page>/i.exec(desc || '');
-    if (!m) return t;
+    // For number-ish types the enum link is what matters and it is not always the first <page> link,
+    // "look for <page>CNavArea</page>s, see <page>Enums/NavDir</page>".
+    // For table and any types ONLY the first link counts,
+    // an enum further down a table description almost always describes one of its fields
+    const links: string[] = [];
+    const linkRe = /<page\b([^>]*)>(.*?)<\/page>/gi;
+    let lm: RegExpExecArray | null;
+    while ((lm = linkRe.exec(desc || ''))) {
+        const attrs = lm[1] || '';
+        const inner = (lm[2] || '').trim();
+        const textAttr = /(?:^|\s)text="([^"]+)"/i.exec(attrs)?.[1] || '';
+        const target = inner || textAttr;
+        if (target) links.push(target);
+    }
+    if (links.length === 0) return t;
 
-    const attrs = m[1] || '';
-    const inner = (m[2] || '').trim();
-
-    const textAttr = /(?:^|\s)text="([^"]+)"/i.exec(attrs)?.[1] || '';
-    let rawPage = inner || textAttr;
-    if (!rawPage) return t;
+    const enumLinkRe = /(^|\/)(enum|enums)\//i;
+    const isNumberish = /^number(\s*\{.*\})?$/i.test(t);
+    let rawPage = (isNumberish && links.find((l) => enumLinkRe.test(l))) || links[0];
 
     if (rawPage.includes('#')) rawPage = rawPage.split('#')[0];
 

@@ -1,0 +1,12 @@
+<function name="SetTextStyleColor" parent="DLabel" type="panelfunc">
+	<description>
+<internal>Use <page>DLabel:SetTextColor</page> instead!</internal>
+
+
+Used by <page>DLabel:SetDark</page>, <page>DLabel:SetBright</page> and <page>DLabel:SetHighlight</page> to set the text color without affecting <page>DLabel:SetTextColor</page> calls.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="color" type="Color">The text color. Uses the <page>Color</page>.</arg>
+	</args>
+</function>

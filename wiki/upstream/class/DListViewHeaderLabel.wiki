@@ -1,0 +1,11 @@
+<panel>
+	<parent>DLabel</parent>
+	<realm>Client and Menu</realm>
+	<description>
+		<internal>Used by <page>DListView_ColumnPlain</page>.</internal>
+	</description>
+	<overrides>
+		<page>Panel:Init</page>
+		<page>Panel:GenerateExample</page>
+	</overrides>
+</panel>

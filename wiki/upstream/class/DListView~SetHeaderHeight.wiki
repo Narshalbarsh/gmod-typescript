@@ -1,0 +1,11 @@
+<function name="SetHeaderHeight" parent="DListView" type="panelfunc">
+	<description>
+Sets the height of the header line of the <page>DListView</page>.
+
+See also <page>DListView:SetDataHeight</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="height" type="number">The new height to set. Default value is 16.</arg>
+	</args>
+</function>

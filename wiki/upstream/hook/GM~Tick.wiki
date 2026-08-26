@@ -1,0 +1,11 @@
+<function name="Tick" parent="GM" type="hook">
+	<description>Called every game tick. <page>engine.TickCount</page> is guaranteed to be different between each call.
+
+Server side, this is similar to <page>GM:Think</page> (See that page for details). 
+
+The default tickrate is `66.6666` (15 millisecond intervals). It can be changed via the `-tickrate` [command line option](Command_Line_Parameters).  
+See <page>engine.TickInterval</page> for a function to retrieve this data at runtime.
+
+<note>This hook **WILL NOT** run if the server is empty, unless you set the <page>ConVar</page> `sv_hibernate_think` to 1</note></description>
+	<realm>Shared</realm>
+</function>

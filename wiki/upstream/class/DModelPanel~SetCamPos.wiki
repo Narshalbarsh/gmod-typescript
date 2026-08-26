@@ -1,0 +1,58 @@
+<function name="SetCamPos" parent="DModelPanel" type="panelfunc">
+	<description>Sets the position of the camera.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="pos" type="Vector">The position to set the camera at.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Creates a model panel focused on Gman's face while he adjusts his tie.</description>
+	<code>
+BGPanel = vgui.Create("DPanel")
+BGPanel:SetPos(20, 20)
+BGPanel:SetSize(200, 200)
+BGPanel:SetBackgroundColor(Color(0, 0, 0, 255))
+	
+local mdl = vgui.Create("DModelPanel", BGPanel)
+mdl:SetSize(BGPanel:GetSize())
+mdl:SetModel("models/player/gman_high.mdl")
+
+function mdl:LayoutEntity(ent)
+	ent:SetSequence(ent:LookupSequence("menu_gman"))
+	mdl:RunAnimation()		
+	return
+end
+
+local eyepos = mdl.Entity:GetBonePosition(mdl.Entity:LookupBone("ValveBiped.Bip01_Head1"))
+
+eyepos:Add(Vector(0, 0, 2))	-- Move up slightly
+
+mdl:SetLookAt(eyepos)
+
+mdl:SetCamPos(eyepos-Vector(-12, 0, 0))	-- Move cam in front of eyes
+
+mdl.Entity:SetEyeTarget(eyepos-Vector(-12, 0, 0))
+	</code>
+	<output><image src="DModelPanel_SetCamPos_example1.jpg"/></output>
+
+</example>
+
+
+<example>
+	<description>Sets a model panel's camera position so the model won't go outside it</description>
+	<code>
+local mdlpnl = vgui.Create( "DModelPanel" )
+
+local mn, mx = mdlpnl.Entity:GetRenderBounds()
+local size = 0
+size = math.max( size, math.abs(mn.x) + math.abs(mx.x) )
+size = math.max( size, math.abs(mn.y) + math.abs(mx.y) )
+size = math.max( size, math.abs(mn.z) + math.abs(mx.z) )
+
+mdlpnl:SetFOV( 45 )
+mdlpnl:SetCamPos( Vector( size, size, size ) )
+mdlpnl:SetLookAt( (mn + mx) * 0.5 )
+	</code>
+
+</example>

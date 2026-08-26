@@ -1,0 +1,11 @@
+<function name="SetHideExpander" parent="DTree_Node" type="panelfunc">
+	<description>
+<internal></internal>
+
+Sets whether the expand button (little + button) should be shown or hidden.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="hide" type="boolean"></arg>
+	</args>
+</function>

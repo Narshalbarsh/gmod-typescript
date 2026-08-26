@@ -1,0 +1,7 @@
+<function name="SetForwardSpeed" parent="CMoveData" type="classfunc">
+	<description>Sets players forward speed.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="speed" type="number">New forward speed</arg>
+	</args>
+</function>

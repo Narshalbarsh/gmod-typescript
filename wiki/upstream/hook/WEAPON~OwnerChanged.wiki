@@ -1,0 +1,8 @@
+<function name="OwnerChanged" parent="WEAPON" type="hook">
+	<description>
+Called when weapon is dropped or picked up by a new player. This can be called clientside for all players on the server if the weapon has no owner and is picked up.
+
+See also <page>WEAPON:OnDrop</page>.
+	</description>
+	<realm>Shared</realm>
+</function>

@@ -1,0 +1,7 @@
+<function name="MoveClimbStop" parent="NPC" type="classfunc">
+	<description>Stops a climb move.
+
+Related functions are <page>NPC:MoveClimbExec</page> and <page>NPC:MoveClimbStart</page>.</description>
+	<realm>Server</realm>
+	<added>2021.03.31</added>
+</function>

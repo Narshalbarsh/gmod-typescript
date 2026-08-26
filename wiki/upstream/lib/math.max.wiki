@@ -1,0 +1,49 @@
+<function name="max" parent="math" type="libraryfunc">
+	<description>Returns the largest value of all arguments.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="numbers" type="vararg">Numbers to get the largest from</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The largest number</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Get the largest number of a group.</description>
+	<code>print( math.max( 464, 654698468, 1, 3, 2 ) )</code>
+	<output>```
+654698468
+```</output>
+
+</example>
+
+
+<example>
+	<description>Prevent a value from falling under a certain minimum. A one-sided version of <page>math.Clamp</page>.</description>
+	<code>
+local minimumValue = 5
+
+function lowClamp(num)
+
+     return math.max( minimumValue, num )
+
+end
+
+print( lowClamp( 0.1 ) )
+print( lowClamp( -6 ) )
+print( lowClamp( 5 ) )
+print( lowClamp( 8 ) )
+print( lowClamp( 24 ) )
+	</code>
+	<output>
+```
+5
+5
+5
+8
+24
+```
+	</output>
+
+</example>

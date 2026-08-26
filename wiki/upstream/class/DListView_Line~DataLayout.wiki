@@ -1,0 +1,10 @@
+<function name="DataLayout" parent="DListView_Line" type="panelfunc">
+	<description><internal></internal>
+
+Called by <page>DListView:DataLayout</page>
+</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="pnl" type="DListView">The list view.</arg>
+	</args>
+</function>

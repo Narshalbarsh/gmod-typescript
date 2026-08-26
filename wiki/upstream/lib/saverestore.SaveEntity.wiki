@@ -1,0 +1,9 @@
+<function name="SaveEntity" parent="saverestore" type="libraryfunc">
+	<description>Saves entitys <page>Entity:GetTable</page> to the save game file that is being saved.</description>
+	<realm>Shared</realm>
+	<file line="320-L328">lua/includes/modules/saverestore.lua</file>
+	<args>
+		<arg name="ent" type="Entity">The entity to save <page>Entity:GetTable</page> of.</arg>
+		<arg name="save" type="ISave">The save object to save <page>Entity:GetTable</page> to.</arg>
+	</args>
+</function>

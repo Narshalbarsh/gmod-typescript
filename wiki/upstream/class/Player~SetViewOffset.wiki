@@ -1,0 +1,13 @@
+<function name="SetViewOffset" parent="Player" type="classfunc">
+	<description>
+Sets the **desired** view offset which equals the difference between the players actual position and their view when standing.
+
+If you want to set **actual** view offset, use <page>Player:SetCurrentViewOffset</page>
+
+See also <page>Player:SetViewOffsetDucked</page> for **desired** view offset when crouching.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="viewOffset" type="Vector">The new desired view offset when standing.</arg>
+	</args>
+</function>

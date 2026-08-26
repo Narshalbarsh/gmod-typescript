@@ -1,0 +1,10 @@
+<function name="IsMouseDown" parent="input" type="libraryfunc">
+	<description>Gets whether a mouse button is down.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="mouseKey" type="number">The key, see <page>Enums/MOUSE</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Is the key down?</ret>
+	</rets>
+</function>

@@ -1,0 +1,28 @@
+<function name="AddSaveHook" parent="saverestore" type="libraryfunc">
+	<description>Adds a save hook for the Half-Life 2 save system. You can use this to carry data through level transitions in Half-Life 2.</description>
+	<realm>Shared</realm>
+	<file line="357-L364">lua/includes/modules/saverestore.lua</file>
+	<args>
+		<arg name="identifier" type="string">The unique identifier for this hook.</arg>
+		<arg name="callback" type="function">The function to be called when an engine save is being saved.
+
+<callback>
+<arg type="ISave" name="save">The save object to be used to write data to the save file that is being saved.</arg>
+</callback>
+
+You can also use those functions to save data:
+* <page>saverestore.WriteVar</page>
+* <page>saverestore.WriteTable</page>
+* <page>saverestore.SaveEntity</page></arg>
+	</args>
+</function>
+
+<example>
+	<description>Example usage.</description>
+	<code>
+saverestore.AddSaveHook( "HookNameHere", function( save )
+	saverestore.WriteTable( { "test" }, save )
+end )
+	</code>
+
+</example>

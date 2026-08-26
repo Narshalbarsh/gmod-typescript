@@ -1,0 +1,7 @@
+<function name="SetDividerWidth" parent="DHorizontalDivider" type="panelfunc">
+	<description>Sets the width of the horizontal divider bar.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="width" type="number">The width of the horizontal divider bar.</arg>
+	</args>
+</function>

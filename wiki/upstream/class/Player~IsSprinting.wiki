@@ -1,0 +1,9 @@
+<function name="IsSprinting" parent="Player" type="classfunc">
+	<description>Returns whether the player is currently sprinting or not, specifically if they are holding their sprint key and are allowed to sprint.
+
+This will not check if the player is currently sprinting into a wall. (i.e. holding their sprint key but not moving)</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">Is the player sprinting or not</ret>
+	</rets>
+</function>

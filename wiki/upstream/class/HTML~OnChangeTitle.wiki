@@ -1,0 +1,7 @@
+<function name="OnChangeTitle" parent="HTML" type="panelhook">
+	<description>Called by HTML panels when the title of the loaded page has been changed.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="newTitle" type="string">The new title of the page.</arg>
+	</args>
+</function>

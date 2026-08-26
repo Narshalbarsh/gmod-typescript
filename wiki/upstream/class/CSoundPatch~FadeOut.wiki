@@ -1,0 +1,7 @@
+<function name="FadeOut" parent="CSoundPatch" type="classfunc">
+	<description>Fades out the volume of the sound from the current volume to 0 in the given amount of seconds.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="seconds" type="number">Fade time.</arg>
+	</args>
+</function>

@@ -1,0 +1,13 @@
+<function name="GetByAccountID" parent="player" type="libraryfunc">
+	<description>Tried to get the player with the specified <page>Player:AccountID</page>.
+	<warning>Internally this function iterates over all players in the server, meaning it can be quite expensive in a performance-critical context.</warning>
+</description>
+	<realm>Shared</realm>
+	<file line="265-L274">lua/includes/extensions/player.lua</file>
+	<args>
+		<arg name="accountID" type="number">The <page>Player:AccountID</page> to find the player by.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Player|boolean">Player if one is found, `false` otherwise.</ret>
+	</rets>
+</function>

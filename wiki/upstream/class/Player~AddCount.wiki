@@ -1,0 +1,9 @@
+<function name="AddCount" parent="Player" type="classfunc">
+	<description><note>This function is only available in Sandbox and its derivatives.</note>Adds an entity to the player's list of entities of the same type. See <page>Player:GetCount</page> to get the current count of entities of an entity type added with this function.</description>
+	<realm>Shared</realm>
+	<file line="72-L91">gamemodes/sandbox/gamemode/player_extension.lua</file>
+	<args>
+		<arg name="str" type="string">The type of this Entity.</arg>
+		<arg name="ent" type="Entity">The Entity you want to add to the list.</arg>
+	</args>
+</function>

@@ -1,0 +1,13 @@
+<function name="SetLOD" parent="Entity" type="classfunc">
+	<description>
+Sets the Level Of Detail model to use with this entity. This may not work for all models if the model doesn't include any LOD sub models.
+
+This function works exactly like the clientside r_lod convar and takes priority over it.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="lod" type="number" default="-1">The Level Of Detail model ID to use. -1 leaves the engine to automatically set the Level of Detail.
+
+The Level Of Detail may range from 0 to 8, with 0 being the highest quality and 8 the lowest.</arg>
+	</args>
+</function>

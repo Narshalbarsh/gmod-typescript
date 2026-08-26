@@ -1,0 +1,10 @@
+<function name="Saved" parent="GM" type="hook">
+	<description>
+Called when the game is saved using the Source Engine save system (not the Sandbox saves or dupes).
+
+See <page>GM:Restored</page> for a hook that is called when such a save file is loaded.
+
+See also the <page>saverestore</page> for relevant functions.
+	</description>
+	<realm>Shared</realm>
+</function>

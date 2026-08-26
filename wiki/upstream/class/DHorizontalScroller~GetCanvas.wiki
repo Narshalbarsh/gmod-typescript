@@ -1,0 +1,7 @@
+<function name="GetCanvas" parent="DHorizontalScroller" type="panelfunc">
+	<description>Returns the internal canvas panel where the content of <page>DHorizontalScroller</page> are placed on.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="DDragBase">The <page>DDragBase</page> panel.</ret>
+	</rets>
+</function>

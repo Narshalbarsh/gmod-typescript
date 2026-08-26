@@ -1,0 +1,13 @@
+<function name="LoadTGAImage" parent="Panel" type="classfunc">
+	<description>
+<deprecated><page>DImage</page> should be used instead (with `.png` or `.jpg` images). `TGAImage` panel has no advantages.</deprecated>
+
+Sets a new image to be loaded by a <page>TGAImage</page>.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="imageName" type="string">The file path.</arg>
+		<arg name="strPath" type="string">The PATH to search in. See <page>File Search Paths</page>.
+
+This isn't used internally.</arg>
+	</args>
+</function>

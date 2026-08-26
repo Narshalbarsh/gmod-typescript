@@ -1,0 +1,48 @@
+<function name="SetCursor" parent="Panel" type="classfunc">
+	<description>Sets the appearance of the cursor. You can find a list of all available cursors with image previews [here](https://wiki.facepunch.com/gmod/Cursors).
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="cursor" type="string">The cursor to be set. Can be one of the following:
+
+* [arrow](https://wiki.facepunch.com/gmod/Cursors#:~:text=arrow)
+* [beam](https://wiki.facepunch.com/gmod/Cursors#:~:text=beam)
+* [hourglass](https://wiki.facepunch.com/gmod/Cursors#:~:text=hourglass)
+* [waitarrow](https://wiki.facepunch.com/gmod/Cursors#:~:text=waitarrow)
+* [crosshair](https://wiki.facepunch.com/gmod/Cursors#:~:text=crosshair)
+* [up](https://wiki.facepunch.com/gmod/Cursors#:~:text=up)
+* [sizenwse](https://wiki.facepunch.com/gmod/Cursors#:~:text=sizenwse)
+* [sizenesw](https://wiki.facepunch.com/gmod/Cursors#:~:text=sizenesw)
+* [sizewe](https://wiki.facepunch.com/gmod/Cursors#:~:text=sizewe)
+* [sizens](https://wiki.facepunch.com/gmod/Cursors#:~:text=sizens)
+* [sizeall](https://wiki.facepunch.com/gmod/Cursors#:~:text=sizeall)
+* [no](https://wiki.facepunch.com/gmod/Cursors#:~:text=no)
+* [hand](https://wiki.facepunch.com/gmod/Cursors#:~:text=hand)
+* [blank](https://wiki.facepunch.com/gmod/Cursors#:~:text=blank)
+
+Set to anything else to set it to "none", the default fallback. Do note that a value of "none" does not, as one might assume, result in no cursor being drawn - hiding the cursor requires a value of "blank" instead.</arg>
+	</args>
+</function>
+
+<example>
+	<code>
+function draw.CustomCursor(panel, material)
+	-- Paint the custom cursor
+	local cursorX, cursorY = panel:LocalCursorPos()
+
+	surface.SetDrawColor(255, 255, 255, 240)
+	surface.SetMaterial(material)
+	surface.DrawTexturedRect(cursorX, cursorY, 20, 20)
+end
+
+local myPanel = vgui.Create("DFrame")
+myPanel:SetCursor("blank") -- Make the default cursor disappear
+
+local customCursorMaterial = Material("vgui/your_cursor")
+myPanel.Paint = function(s, w, h)
+	draw.CustomCursor(s, customCursorMaterial)
+end
+	</code>
+</example>
+
+<upload src="5598e/8d7dfba5b02b2c7.png" size="5451" name="cursor.png" />

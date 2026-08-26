@@ -1,0 +1,11 @@
+<function name="SetColumnText" parent="DListView_Line" type="panelfunc">
+	<description>Sets the string held in the specified column of a <page>DListView_Line</page> panel.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="column" type="number">The number of the column to write the text from, starts with 1.</arg>
+		<arg name="value" type="string">Column text you want to set</arg>
+	</args>
+	<rets>
+		<ret name="label" type="DLabel">The DLabel in which the text was set.</ret>
+	</rets>
+</function>

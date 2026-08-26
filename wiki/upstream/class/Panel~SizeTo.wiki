@@ -1,0 +1,17 @@
+<function name="SizeTo" parent="Panel" type="classfunc">
+	<file line="182-L197">lua/includes/extensions/client/panel/animation.lua</file>
+	<description>Uses animation to resize the panel to the specified size.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="sizeW" type="number" default="0">The target width of the panel. Use -1 to retain the current width.</arg>
+		<arg name="sizeH" type="number" default="0">The target height of the panel. Use -1 to retain the current height.</arg>
+		<arg name="time" type="number">The time to perform the animation within.</arg>
+		<arg name="delay" type="number" default="0">The delay before the animation starts.</arg>
+		<arg name="ease" type="number" default="-1">Easing of the start and/or end speed of the animation. See <page>Panel:NewAnimation</page> for how this works.</arg>
+		<arg name="callback" type="function" default="nil">The function to be called once the animation finishes.
+<callback>
+<arg type="table" name="animData">The <page>Structures/AnimationData</page> that was used.</arg>
+<arg type="Panel" name="targetPanel">The panel object that was animated.</arg>
+</callback></arg>
+	</args>
+</function>

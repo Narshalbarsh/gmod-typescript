@@ -1,0 +1,11 @@
+<function name="SetSkinID" parent="SpawnIcon" type="panelfunc">
+	<description>
+<internal>This is done automatically by SpawnIcon. You do not need to call this. Doing so may cause unforeseen consequences.</internal>
+
+Sets the skin id of the spawn icon, so it can be retrieved with <page>SpawnIcon:GetSkinID</page>. Use <page>Panel:SetModel</page> instead.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg type="number" name="skin">Skin ID to set</arg>
+	</args>
+</function>

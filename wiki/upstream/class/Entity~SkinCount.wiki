@@ -1,0 +1,11 @@
+<function name="SkinCount" parent="Entity" type="classfunc">
+	<description>Returns the amount of skins the entity has.
+
+To set the entity's skin, use <page>Entity:SetSkin</page>.
+To retrieve the total number of skins without an entity, see <page>util.GetModelInfo</page>.
+</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The amount of skins the entity's model has.</ret>
+	</rets>
+</function>

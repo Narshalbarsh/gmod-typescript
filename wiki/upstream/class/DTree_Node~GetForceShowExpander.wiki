@@ -1,0 +1,11 @@
+<function name="GetForceShowExpander" parent="DTree_Node" type="panelfunc">
+	<description>
+Returns whether the expand/collapse button is shown on this node regardless of whether or not it has sub-nodes.
+
+See also <page>DTree_Node:SetForceShowExpander</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean"></ret>
+	</rets>
+</function>

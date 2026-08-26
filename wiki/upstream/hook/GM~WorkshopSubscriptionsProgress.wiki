@@ -1,0 +1,11 @@
+<function name="WorkshopSubscriptionsProgress" parent="GM" type="hook">
+	<description>
+<internal></internal>
+Called by the engine when the game initially fetches subscriptions to be displayed on the bottom of the main menu screen.
+	</description>
+	<realm>Menu</realm>
+	<args>
+		<arg name="num" type="number">Amount of subscribed addons that have info retrieved.</arg>
+		<arg name="max" type="number">Total amount of subscribed addons that need their info retrieved.</arg>
+	</args>
+</function>

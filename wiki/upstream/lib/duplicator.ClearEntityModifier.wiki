@@ -1,0 +1,9 @@
+<function name="ClearEntityModifier" parent="duplicator" type="libraryfunc">
+	<description>Clears/removes the chosen entity modifier from the entity.</description>
+	<realm>Server</realm>
+	<file line="527-L534">lua/includes/modules/duplicator.lua</file>
+	<args>
+		<arg name="ent" type="Entity">The entity the modification is stored on.</arg>
+		<arg name="key" type="any">The key of the stored entity modifier.</arg>
+	</args>
+</function>

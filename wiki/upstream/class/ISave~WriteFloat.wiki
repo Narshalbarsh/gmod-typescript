@@ -1,0 +1,7 @@
+<function name="WriteFloat" parent="ISave" type="classfunc">
+	<description>Writes a floating point <page>number</page> to the save object.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="float" type="number">The floating point number to write.</arg>
+	</args>
+</function>

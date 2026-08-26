@@ -1,0 +1,47 @@
+<function name="OnSelect" parent="DComboBox" type="panelhook">
+	<description>Called when an option in the combo box is selected. This function does nothing by itself, you're supposed to overwrite it.</description>
+	<realm>Client and Menu</realm>
+	<file line="120-L124">lua/vgui/dcombobox.lua</file>
+	<args>
+		<arg name="index" type="number">The index of the option for use with other <page>DComboBox</page> functions.</arg>
+		<arg name="value" type="string">The name of the option.</arg>
+		<arg name="data" type="any">The data assigned to the option.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Creates a combo box that controls the color of the background panel.</description>
+	<code>
+local frame = vgui.Create("DFrame")
+frame:SetSize( 500, 500 )
+frame:Center()
+frame:MakePopup()
+
+-- Background panel
+local BGPanel = vgui.Create( "DPanel", frame )
+BGPanel:Dock( FILL )
+
+local cbox = vgui.Create( "DComboBox", BGPanel )
+cbox:SetPos( 5, 5 )
+cbox:SetSize( 190, 20 )
+cbox:SetValue( "Pick a color" ) -- Default text
+
+-- Color choices
+cbox:AddChoice( "Red", Color( 255, 0, 0 ) )
+cbox:AddChoice( "Orange", Color( 255, 128, 0 ) )
+cbox:AddChoice( "Yellow", Color( 255, 255, 0 ) )
+cbox:AddChoice( "Green", Color( 0, 255, 0 ) )
+cbox:AddChoice( "Blue", Color( 0, 0, 255 ) )
+cbox:AddChoice( "Indigo", Color( 64, 0, 255 ) )
+cbox:AddChoice( "Violet", Color( 128, 0, 255 ) )
+cbox:AddChoice( "Pink", Color( 255, 0, 255 ) )
+
+function cbox:OnSelect( index, text, data )
+
+	-- Set background panel color
+	BGPanel:SetBackgroundColor( data )
+
+end
+	</code>
+
+</example>

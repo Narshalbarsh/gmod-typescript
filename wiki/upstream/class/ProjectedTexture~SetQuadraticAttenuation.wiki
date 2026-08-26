@@ -1,0 +1,13 @@
+<function name="SetQuadraticAttenuation" parent="ProjectedTexture" type="classfunc">
+	<description>
+Sets the quadratic attenuation of the projected texture.
+
+See also <page>ProjectedTexture:SetLinearAttenuation</page> and <page>ProjectedTexture:SetConstantAttenuation</page>.
+
+You must call <page>ProjectedTexture:Update</page> after using this function for it to take effect.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="quadAtten" type="number"></arg>
+	</args>
+</function>

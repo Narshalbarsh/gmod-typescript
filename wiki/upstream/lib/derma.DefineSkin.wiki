@@ -1,0 +1,10 @@
+<function name="DefineSkin" parent="derma" type="libraryfunc">
+	<description>Defines a new skin so that it is usable by Derma. The default skin can be found in `garrysmod/lua/skins/default.lua`.</description>
+	<realm>Client and Menu</realm>
+	<file line="132-L149">lua/derma/derma.lua</file>
+	<args>
+		<arg name="name" type="string">Name of the skin.</arg>
+		<arg name="descriptions" type="string">Description of the skin.</arg>
+		<arg name="skin" type="table">Table containing skin data.</arg>
+	</args>
+</function>

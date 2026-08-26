@@ -1,0 +1,13 @@
+<function name="HandlePlayerLanding" parent="GM" type="hook">
+	<description>Called every frame by the player model animation system. Allows to override player landing animations.</description>
+	<realm>Shared</realm>
+	<file line="129-L137">gamemodes/base/gamemode/animations.lua</file>
+	<args>
+		<arg name="ply" type="Player">The player</arg>
+		<arg name="velocity" type="Vector">Players velocity</arg>
+		<arg name="onGround" type="boolean">Was the player on ground?</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return true if we've changed/set the animation, false otherwise</ret>
+	</rets>
+</function>

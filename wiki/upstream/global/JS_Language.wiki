@@ -1,0 +1,8 @@
+<function name="JS_Language" parent="Global" type="libraryfunc">
+	<description>Adds JavaScript function 'language.Update' to an HTML panel as a method to call Lua's <page>language.GetPhrase</page> function.</description>
+	<realm>Client and Menu</realm>
+	<file line="2-L9">lua/includes/util/javascript_util.lua</file>
+	<args>
+		<arg name="htmlPanel" type="Panel">Panel to add JavaScript function 'language.Update' to.</arg>
+	</args>
+</function>

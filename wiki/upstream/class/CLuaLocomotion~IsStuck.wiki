@@ -1,0 +1,7 @@
+<function name="IsStuck" parent="CLuaLocomotion" type="classfunc">
+	<description>Returns true if we're stuck</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="boolean">Whether we're stuck or not</ret>
+	</rets>
+</function>

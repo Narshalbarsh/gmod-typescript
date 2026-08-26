@@ -1,0 +1,5 @@
+<function name="BodyUpdate" parent="NEXTBOT" type="hook">
+	<description>Called to update the bot's animation.</description>
+	<realm>Server</realm>
+	<file line="52">gamemodes/base/entities/entities/base_nextbot/sv_nextbot.lua</file>
+</function>

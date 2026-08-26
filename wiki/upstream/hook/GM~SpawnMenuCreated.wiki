@@ -1,0 +1,5 @@
+<function name="SpawnMenuCreated" parent="GM" type="hook">
+	<description>Called when the Spawnmenu is Created.</description>
+	<realm>Client</realm>
+	<file line="247">gamemodes/sandbox/gamemode/spawnmenu/spawnmenu.lua</file>
+</function>

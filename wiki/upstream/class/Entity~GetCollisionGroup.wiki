@@ -1,0 +1,7 @@
+<function name="GetCollisionGroup" parent="Entity" type="classfunc">
+	<description>Returns the entity's collision group</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number{COLLISION_GROUP}">The collision group. See <page>Enums/COLLISION_GROUP</page></ret>
+	</rets>
+</function>

@@ -1,0 +1,23 @@
+<function name="SetCustomUndoText" parent="undo" type="libraryfunc">
+	<description>Sets a custom undo text for the current undo block</description>
+	<realm>Server</realm>
+	<file line="226-L232">lua/includes/modules/undo.lua</file>
+	<args>
+		<arg name="customText" type="string">The text to display when the undo block is undone</arg>
+	</args>
+</function>
+
+<example>
+	<description>This example creates a prop_physics, adds it to the players undo list, and sets a custom undo text</description>
+	<code>
+local prop = ents.Create( "prop_physics" )
+prop:SetModel( "models/props_junk/wood_crate001a.mdl" )
+prop:Spawn()
+undo.Create( "prop" )
+ undo.AddEntity( prop )
+ undo.SetPlayer( Player )
+ undo.SetCustomUndoText("Undone a crate prop")
+undo.Finish()
+	</code>
+
+</example>

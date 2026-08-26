@@ -1,0 +1,7 @@
+<function name="SubtractDamage" parent="CTakeDamageInfo" type="classfunc">
+	<description>Subtracts the specified amount from the damage.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="damage" type="number">Value to subtract.</arg>
+	</args>
+</function>

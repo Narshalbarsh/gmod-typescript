@@ -1,0 +1,19 @@
+<function name="Armor" parent="Player" type="classfunc">
+	<description>Returns the player's armor.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The player's armor.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Loops through all the players and checks if they have any armor, if they do not, then sets their armor to 100.</description>
+	<code>
+for i, ply in ipairs( player.GetAll( ) ) do
+    if ply:Armor() == 0 then
+         ply:SetArmor( 100 )
+    end
+end
+	</code>
+
+</example>

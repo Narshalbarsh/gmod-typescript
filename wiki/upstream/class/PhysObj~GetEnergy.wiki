@@ -1,0 +1,16 @@
+<function name="GetEnergy" parent="PhysObj" type="classfunc">
+	<description>Returns the sum of the linear and rotational kinetic energies of the physics object.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The kinetic energy</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Replicates what GetEnergy does internally.</description>
+	<code>
+local linear_kenergy = 0.5 * phys:GetMass() * phys:GetVelocity() ^ 2 -- 1/2 mv^2
+local rotational_kenergy = 0.5 * phys:GetInertia() * phys:GetAngleVelocity() ^ 2 -- 1/2 Iw^2
+local kenergy = linear_kenergy + rotational_kenergy
+	</code>
+</example>

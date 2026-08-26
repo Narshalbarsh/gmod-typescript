@@ -1,0 +1,8 @@
+<function name="OnOtherKilled" parent="NEXTBOT" type="hook">
+	<description>Called when someone else or something else has been killed.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="victim" type="Entity">The victim that was killed</arg>
+		<arg name="info" type="CTakeDamageInfo">The damage info</arg>
+	</args>
+</function>

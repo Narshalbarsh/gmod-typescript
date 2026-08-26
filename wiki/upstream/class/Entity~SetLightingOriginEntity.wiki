@@ -1,0 +1,7 @@
+<function name="SetLightingOriginEntity" parent="Entity" type="classfunc">
+	<description>Sets the entity to be used as the light origin position for this entity.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="lightOrigin" type="Entity">The lighting entity.</arg>
+	</args>
+</function>

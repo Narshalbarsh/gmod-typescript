@@ -1,0 +1,12 @@
+<function name="DrawWeaponSelection" parent="WEAPON" type="hook">
+	<description>This hook draws the selection icon in the weapon selection menu.</description>
+	<realm>Client</realm>
+	<file line="34-L58">gamemodes/base/entities/weapons/weapon_base/cl_init.lua</file>
+	<args>
+		<arg name="x" type="number">X coordinate of the selection panel</arg>
+		<arg name="y" type="number">Y coordinate of the selection panel</arg>
+		<arg name="width" type="number">Width of the selection panel</arg>
+		<arg name="height" type="number">Height of the selection panel</arg>
+		<arg name="alpha" type="number">Alpha value of the selection panel</arg>
+	</args>
+</function>

@@ -1,0 +1,13 @@
+<function name="RetrieveUserName" parent="WorkshopFileBase" type="classfunc">
+	<description>
+		Retrieves the username for the given SteamID.
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="steamid" type="string">SteamID to retrieve the name for</arg>
+		<arg name="callback" type="function">Callback function.
+		<callback>
+			<arg type="string" name="name">The retrieved name</arg>
+		</callback></arg>
+	</args>
+</function>

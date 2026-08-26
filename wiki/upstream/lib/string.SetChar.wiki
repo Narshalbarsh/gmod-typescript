@@ -1,0 +1,23 @@
+<function name="SetChar" parent="string" type="libraryfunc">
+	<description>Sets the character at the specific index of the string.</description>
+	<realm>Shared and Menu</realm>
+	<file line="299-L303">lua/includes/extensions/string.lua</file>
+	<args>
+		<arg name="InputString" type="string">The input string</arg>
+		<arg name="Index" type="number">The character index, 1 is the first from left.</arg>
+		<arg name="ReplacementChar" type="string">String to replace with.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">ModifiedString</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Demonstrates the use of SetChar</description>
+	<output>"Apgles"</output>
+	<code>
+local str = "Apples"
+MsgN(string.SetChar(str, 3, "g"))
+	</code>
+
+</example>

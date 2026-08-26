@@ -1,0 +1,16 @@
+<enum>
+	<realm>Shared</realm>
+	<description>Enumerations used by <page>draw.SimpleText</page>, <page>draw.DrawText</page> and in <page>Structures/TextData</page>.</description>
+	<items>
+<item key="TEXT_ALIGN_LEFT" value="0">Align the text on the left</item>
+
+<item key="TEXT_ALIGN_CENTER" value="1">Align the text in center</item>
+
+<item key="TEXT_ALIGN_RIGHT" value="2">Align the text on the right</item>
+
+<item key="TEXT_ALIGN_TOP" value="3">Align the text on the top</item>
+
+<item key="TEXT_ALIGN_BOTTOM" value="4">Align the text on the bottom</item>
+	</items>
+
+</enum>

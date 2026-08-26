@@ -1,0 +1,8 @@
+<function name="ScrollToChild" parent="DScrollPanel" type="panelfunc">
+	<description>Scrolls to the given child</description>
+	<realm>Client and Menu</realm>
+	<file line="94-L106">lua/vgui/dscrollpanel.lua</file>
+	<args>
+		<arg name="panel" type="Panel">The panel to scroll to, must be a child of the DScrollPanel.</arg>
+	</args>
+</function>

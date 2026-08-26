@@ -1,0 +1,14 @@
+<function name="GetItems" parent="DPropertySheet" type="panelfunc">
+	<file line="248-L252">lua/vgui/dpropertysheet.lua</file>
+	<description>Returns a list of all tabs of this <page>DPropertySheet</page>.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="table">A table of tables.
+Each table contains 3 key-value pairs:
+
+* <page>string</page> Name - The name of the tab.
+* <page>Panel</page> Tab - The <page>DTab</page> associated with the tab.
+* <page>Panel</page> Panel - The <page>Panel</page> associated with the tab.
+		</ret>
+	</rets>
+</function>

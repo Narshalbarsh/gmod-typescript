@@ -1,0 +1,13 @@
+<function name="GetResults" parent="search" type="libraryfunc">
+	<description>Retrieves search results.</description>
+	<realm>Client</realm>
+	<file line="20-L49">lua/includes/modules/search.lua</file>
+	<args>
+		<arg name="query" type="string">Search query</arg>
+		<arg name="types" type="string" default="nil">If set, only searches given provider type(s), instead of everything. For example `"tool"` will only search tools in Sandbox. Can be a table for multiple types.</arg>
+		<arg name="maxResults" type="number" default="1024">How many results to stop at</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">A table of results</ret>
+	</rets>
+</function>

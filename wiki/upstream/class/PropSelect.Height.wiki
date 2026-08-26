@@ -1,0 +1,11 @@
+<function name="Height" parent="PropSelect" type="panelfield">
+	<description>
+If set to above 0, automatically stretches the panel to fit this many rows. Default is 2.
+
+If 0 or below, it will automatically stretch to fit all rows.
+</description>
+	<realm>Client</realm>
+<rets>
+<ret type="number">The amount of rows to stretch to.</ret>
+</rets>
+</function>

@@ -1,0 +1,18 @@
+<function name="SortByColumns" parent="DListView" type="panelfunc">
+	<description>
+Sorts the list based on given columns.
+
+All arguments are optional
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="column1" type="number" default="nil"></arg>
+		<arg name="descrending1" type="boolean" default="false"></arg>
+		<arg name="column2" type="number" default="nil"></arg>
+		<arg name="descrending2" type="boolean" default="false"></arg>
+		<arg name="column3" type="number" default="nil"></arg>
+		<arg name="descrending3" type="boolean" default="false"></arg>
+		<arg name="column4" type="number" default="nil"></arg>
+		<arg name="descrending4" type="boolean" default="false"></arg>
+	</args>
+</function>

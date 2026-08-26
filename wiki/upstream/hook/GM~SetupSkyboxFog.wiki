@@ -1,0 +1,13 @@
+<function name="SetupSkyboxFog" parent="GM" type="hook">
+	<description>
+		Allows you to use render.Fog* functions to manipulate skybox fog.
+		This will not be called for maps with no 3D skybox, or when the 3d skybox is disabled. (`r_3dsky 0`)
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="scale" type="number">The scale of 3D skybox</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return true to tell the engine that fog is set up</ret>
+	</rets>
+</function>

@@ -1,0 +1,7 @@
+<function name="PlaceOnGround" parent="CNavArea" type="classfunc">
+	<description>Drops a corner or all corners of a <page>CNavArea</page> to the ground below it.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="corner" type="number">The corner(s) to drop, uses <page>Enums/NavCorner</page></arg>
+	</args>
+</function>

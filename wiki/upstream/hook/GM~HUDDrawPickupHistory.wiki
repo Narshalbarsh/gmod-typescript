@@ -1,0 +1,5 @@
+<function name="HUDDrawPickupHistory" parent="GM" type="hook">
+	<description>Renders the HUD pick-up history. Override to hide default or draw your own HUD.</description>
+	<realm>Client</realm>
+	<file line="94-L173">gamemodes/base/gamemode/cl_hudpickup.lua</file>
+</function>

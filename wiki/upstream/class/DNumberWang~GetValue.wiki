@@ -1,0 +1,7 @@
+<function name="GetValue" parent="DNumberWang" type="panelfunc">
+	<description>Returns the numeric value inside the number selector.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The numeric value.</ret>
+	</rets>
+</function>

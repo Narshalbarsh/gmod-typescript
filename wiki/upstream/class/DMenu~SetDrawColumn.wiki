@@ -1,0 +1,7 @@
+<function name="SetDrawColumn" parent="DMenu" type="panelfunc">
+	<description>Sets whether the <page>DMenu</page> should draw the icon column with a different color.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="draw" type="boolean">Whether to draw the column or not</arg>
+	</args>
+</function>

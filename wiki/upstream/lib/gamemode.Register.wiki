@@ -1,0 +1,10 @@
+<function name="Register" parent="gamemode" type="libraryfunc">
+	<description><internal></internal>Called by the engine when a gamemode is being loaded.</description>
+	<realm>Shared</realm>
+	<file line="20-L60">lua/includes/modules/gamemode.lua</file>
+	<args>
+		<arg name="gm" type="table">Your GM table.</arg>
+		<arg name="name" type="string">Name of your gamemode, lowercase, no spaces.</arg>
+		<arg name="derived" type="string">The gamemode name that your gamemode is derived from.</arg>
+	</args>
+</function>

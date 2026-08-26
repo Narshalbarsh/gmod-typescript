@@ -1,0 +1,11 @@
+<function name="DoAnimationEvent" parent="Player" type="classfunc">
+	<description>
+Sends a third person animation event to the player.
+
+Calls <page>GM:DoAnimationEvent</page> with <page text="PLAYERANIMEVENT_CUSTOM_GESTURE">Enums/PLAYERANIMEVENT</page> as the event, data as the given data.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="data" type="number">The data to send.</arg>
+	</args>
+</function>

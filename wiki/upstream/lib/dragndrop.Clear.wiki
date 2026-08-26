@@ -1,0 +1,5 @@
+<function name="Clear" parent="dragndrop" type="libraryfunc">
+	<description>Clears all the internal drag'n'drop variables.</description>
+	<realm>Client and Menu</realm>
+	<file line="6-L19">lua/includes/extensions/client/panel/dragdrop.lua</file>
+</function>

@@ -1,0 +1,73 @@
+<function name="format" parent="string" type="libraryfunc">
+	<description>Formats the specified values into the string given.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="format" type="string">The string to be formatted.<br/>
+Follows this format: http://www.cplusplus.com/reference/cstdio/printf/
+
+The following features are not supported in Lua:
+* The `n` specifier
+* The `*` width modifier
+* The `.*` precision modifier
+* All length modifiers
+
+The following specifiers are exclusive to LuaJIT:
+
+| Format | Description | Example of the output |
+|:------:|:-----------:|:---------------------:|
+| %p | Returns pointer to supplied structure (table/function) | `0xf20a8968` |
+| %q | Formats a string between double quotes, using escape sequences when necessary to ensure that it can safely be read back by the Lua interpreter | `"test\1\2test"` |
+
+</arg>
+		<arg name="formatParameters" type="vararg">Values to be formatted into the string.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The formatted string</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Example showing the different types of format codes.</description>
+	<code>
+local s = "Hello, world!"
+ 
+// string
+print(string.format("here's a string: %s", s))
+ 
+// string with quotes
+print(string.format("here's a quoted string: %q", s))
+ 
+// characters from numeric values
+print(string.format("%c%c%c", 65, 66, 67))
+ 
+// number with an exponent
+print(string.format("%e, %E", math.pi, math.pi))
+ 
+// float and compact float
+print(string.format("%f, %G", math.pi, math.pi))
+ 
+// signed, signed, and unsigned int
+print(string.format("%d, %i, %u", -100, -100, -100))
+ 
+// octal, hex, and uppercase hex
+print(string.format("%o, %x, %X", -100, -100, -100))
+	</code>
+	<output>
+```
+here's a string: Hello, world!
+
+here's a quoted string: "Hello, world!"
+
+ABC
+
+3.141593e+000, 3.141593E+000
+
+3.141593, 3.14159
+
+-100, -100, 4294967196
+
+37777777634, ffffff9c, FFFFFF9C
+```
+	</output>
+
+</example>

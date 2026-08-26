@@ -1,0 +1,4 @@
+<function name="Restart" parent="CNewParticleEffect" type="classfunc">
+	<description>Forces the particle system to restart emitting particles.</description>
+	<realm>Client</realm>
+</function>

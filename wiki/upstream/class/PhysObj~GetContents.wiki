@@ -1,0 +1,7 @@
+<function name="GetContents" parent="PhysObj" type="classfunc">
+	<description>Returns the contents flag of the <page>PhysObj</page>.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The <page>Enums/CONTENTS</page>.</ret>
+	</rets>
+</function>

@@ -1,0 +1,15 @@
+<function name="DoGenericPhysics" parent="duplicator" type="libraryfunc">
+	<description>
+"Applies bone data, generically."
+
+
+If data contains a PhysicsObjects table, it moves, re-angles and if relevent freezes all specified bones, first converting from local coordinates to world coordinates.
+	</description>
+	<realm>Server</realm>
+	<file line="1036-L1042">lua/includes/modules/duplicator.lua</file>
+	<args>
+		<arg name="ent" type="Entity">The entity to be applied upon.</arg>
+		<arg name="ply" type="Player" default="nil">The player who owns the entity. Unused in function as of early 2013.</arg>
+		<arg name="data" type="table">The data to be applied onto the entity.</arg>
+	</args>
+</function>

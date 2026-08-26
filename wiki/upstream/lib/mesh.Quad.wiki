@@ -1,0 +1,11 @@
+<function name="Quad" parent="mesh" type="libraryfunc">
+	<description>Adds a quad (4 vertices) to the currently built mesh. See <page>mesh.Begin</page>.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="vertex1" type="Vector">The first vertex.</arg>
+		<arg name="vertex2" type="Vector">The second vertex.</arg>
+		<arg name="vertex3" type="Vector">The third vertex.</arg>
+		<arg name="vertex4" type="Vector">The fourth vertex.</arg>
+		<arg name="color" type="Color">The <page>Color</page> for the vertices.</arg>
+	</args>
+</function>

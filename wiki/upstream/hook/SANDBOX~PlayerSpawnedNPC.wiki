@@ -1,0 +1,8 @@
+<function name="PlayerSpawnedNPC" parent="SANDBOX" type="hook">
+	<description>Called after the player spawned an NPC.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ply" type="Player">The player that spawned the NPC</arg>
+		<arg name="ent" type="Entity">The spawned NPC itself</arg>
+	</args>
+</function>

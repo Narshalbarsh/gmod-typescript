@@ -1,0 +1,7 @@
+<function name="SetSelectedItem" parent="DTree" type="panelfunc">
+	<description>Set the currently selected top-level node.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="node" type="Panel"><page>DTree_Node</page> to select.</arg>
+	</args>
+</function>

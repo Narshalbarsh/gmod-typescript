@@ -1,0 +1,50 @@
+<function name="UseLeadBehavior" parent="NPC" type="classfunc">
+	<realm>Server</realm>
+	<description> Enables the AI's [Lead Behavior](https://developer.valvesoftware.com/wiki/ai_goal_lead "Lead Behavior") when an `ai_goal_lead` is set for this SENT. 
+<note>This function only works on `ai` type [SENTs](Scripted_Entities).</note>
+</description>
+	<rets>
+		<ret name="" type="boolean">Whether the action succeeded.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>For use in `gm_construct`, spawns a `base_ai` in the middle of the map and orders it to take player under a spotlight.</description>
+	<code>
+local goalPos = Vector(1576.366943, -465.975769, -143.968750) 
+
+local npc = ents.Create("base_ai") 
+npc:SetKeyValue("additionalequipment","weapon_stunstick") 
+npc:SetName("police") 
+npc:Spawn() 
+npc:DropToFloor() 
+npc:SetModel("models/police.mdl") 
+
+local goal = ents.Create("info_target") 
+goal:SetPos(goalPos) 
+goal:SetName("darkroom") 
+goal:Spawn() 
+
+local goalHandler = ents.Create("ai_goal_lead") 
+goalHandler:SetKeyValue("goal","darkroom") 
+goalHandler:SetKeyValue("waitdistance","8192") 
+goalHandler:SetKeyValue("leaddistance","100") 
+goalHandler:SetKeyValue("retrievedistance","140") 
+goalHandler:SetKeyValue("run","0") 
+goalHandler:SetKeyValue("retrieve","1") 
+goalHandler:SetKeyValue("leadduringcombat","0") 
+goalHandler:SetKeyValue("actor","police") 
+goalHandler:SetKeyValue("startactive","1") 
+goalHandler:SetKeyValue("OnSuccess","police,setrelationship,!player d_ht 0") 
+goalHandler:Spawn() 
+
+npc:DeleteOnRemove(goal) 
+npc:DeleteOnRemove(goalHandler) 
+
+timer.Simple(0.5,function() -- wait for NPC ai to properly initialize 
+	if IsValid(npc) and IsValid(goal) and IsValid(goalHandler) then 
+		print(npc:UseLeadBehavior()) 
+	end 
+end ) 
+	</code>
+</example>

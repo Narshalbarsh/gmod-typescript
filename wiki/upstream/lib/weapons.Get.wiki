@@ -1,0 +1,13 @@
+<function name="Get" parent="weapons" type="libraryfunc">
+	<description>Get a `copy` of weapon table by name. This function also inherits fields from the weapon's base class, unlike <page>weapons.GetStored</page> or <page>weapons.GetList</page>.
+	<note> This will only work on SWEP's, this means that this will not return anything for HL2/HL:S weapons. </note>
+	</description>
+	<realm>Shared</realm>
+	<file line="132-L163">lua/includes/modules/weapons.lua</file>
+	<args>
+		<arg name="classname" type="string">Class name of weapon to retrieve</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">The retrieved table or <page>nil</page></ret>
+	</rets>
+</function>

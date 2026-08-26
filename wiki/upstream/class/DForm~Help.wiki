@@ -1,0 +1,11 @@
+<function name="Help" parent="DForm" type="panelfunc">
+	<description>Adds a <page>DLabel</page> onto the <page>DForm</page> as a helper</description>
+	<realm>Client and Menu</realm>
+	<file line="205-L223">lua/vgui/dform.lua</file>
+	<args>
+		<arg name="help" type="string">The help message to be displayed</arg>
+	</args>
+	<rets>
+		<ret name="" type="DLabel">The created <page>DLabel</page></ret>
+	</rets>
+</function>

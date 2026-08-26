@@ -1,0 +1,29 @@
+<cat>gameevent</cat>
+<title>show_freezepanel</title>
+
+<structure>
+	<realm>Client and Menu</realm>
+	<description>
+		Called when the freeze cam is started.  
+		Example cause:
+```
+Player:Spectate(OBS_MODE_FREEZECAM)
+```
+	</description>
+	<fields>
+		<item type="number" name="killer">The Index of the Entity that is being spectated or `0`.</item>
+	</fields>
+</structure>
+
+# Examples
+<example>
+	<description>This is a basic template with the purpose of including all arguments / table variables to make it easily known which values can be accessed.</description>
+	<code>
+gameevent.Listen( "show_freezepanel" )
+hook.Add( "show_freezepanel", "show_freezepanel_example", function( data )
+	local killer = data.killer	// The Map name.
+
+	// Called when the freeze cam is started.
+end )
+	</code>
+</example>

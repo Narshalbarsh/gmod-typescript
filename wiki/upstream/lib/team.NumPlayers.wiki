@@ -1,0 +1,18 @@
+<function name="NumPlayers" parent="team" type="libraryfunc">
+	<description>Returns the amount of players in a team.</description>
+	<file line="129-L133">lua/includes/modules/team.lua</file>
+	<realm>Shared</realm>
+	<args>
+		<arg name="teamIndex" type="number">The team index.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">playerCount</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints the amount of players in a player's team</description>
+	<code>print(team.NumPlayers(ply:Team()))</code>
+	<output>The number of players in ply's team.</output>
+
+</example>

@@ -1,0 +1,8 @@
+<function name="ClearProblem" parent="Global" type="libraryfunc">
+	<description>Removes the given Problem from the Problems table and refreshes the Problems panel.</description>
+	<realm>Menu</realm>
+	<file line="88-L98">lua/menu/problems/problems.lua</file>
+	<args>
+		<arg name="id" type="string">The Problem ID to remove</arg>
+	</args>
+</function>

@@ -1,0 +1,8 @@
+<function name="GetPaintShadow" parent="DFrame" type="panelfunc">
+	<description>Gets whether or not the shadow effect bordering the DFrame is being drawn.</description>
+	<realm>Client and Menu</realm>
+	<file line="9">lua/vgui/dframe.lua</file>
+	<rets>
+		<ret name="" type="boolean">Whether or not the shadow is being drawn.</ret>
+	</rets>
+</function>

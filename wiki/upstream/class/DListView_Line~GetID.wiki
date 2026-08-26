@@ -1,0 +1,7 @@
+<function name="GetID" parent="DListView_Line" type="panelfunc">
+	<description>Returns the ID of this line, set automatically in <page>DListView:AddLine</page>.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The ID of this line.</ret>
+	</rets>
+</function>

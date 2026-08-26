@@ -1,0 +1,12 @@
+<function name="GetShadowSlopeScaleDepthBias" parent="ProjectedTexture" type="classfunc">
+	<description>
+Returns the shadow depth slope scale bias of the projected texture.
+
+Set by <page>ProjectedTexture:SetShadowSlopeScaleDepthBias</page>.
+	</description>
+	<added>2021.03.31</added>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">The current shadow depth slope scale bias.</ret>
+	</rets>
+</function>

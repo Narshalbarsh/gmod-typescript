@@ -1,0 +1,13 @@
+<function name="ClientSignOnStateChanged" parent="GM" type="hook">
+	<description>
+Called when a player's sign on state changes.
+<bug issue="4899">You cannot get a valid player object from the userID at any point during this hook.</bug>
+</description>
+	<realm>Shared</realm>
+	<added>2021.03.31</added>
+	<args>
+		<arg name="userID" type="number">The userID of the player whose sign on state has changed.</arg>
+		<arg name="oldState" type="number">The previous sign on state. See <page text="SIGNONSTATE">Enums/SIGNONSTATE</page> enums.</arg>
+		<arg name="newState" type="number">The new/current sign on state. See <page text="SIGNONSTATE">Enums/SIGNONSTATE</page> enums.</arg>
+	</args>
+</function>

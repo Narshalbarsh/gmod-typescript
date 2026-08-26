@@ -1,0 +1,8 @@
+<function name="PriorSegment" parent="PathFollower" type="classfunc">
+	<description>Returns the previous segment of the path.</description>
+	<realm>Server</realm>
+	<added>2019.03.29</added>
+	<rets>
+		<ret name="" type="table">A table with <page>Structures/PathSegment</page>.</ret>
+	</rets>
+</function>

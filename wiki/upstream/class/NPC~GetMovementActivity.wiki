@@ -1,0 +1,7 @@
+<function name="GetMovementActivity" parent="NPC" type="classfunc">
+	<description>Returns the NPC's current movement activity.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">Current NPC movement activity, see <page>Enums/ACT</page>.</ret>
+	</rets>
+</function>

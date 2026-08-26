@@ -1,0 +1,5 @@
+<function name="Init" parent="PLAYER" type="hook">
+	<description>Called when the class object is created</description>
+	<realm>Shared</realm>
+	<file line="L37-L43">gamemodes/base/gamemode/player_class/player_default.lua</file>
+</function>

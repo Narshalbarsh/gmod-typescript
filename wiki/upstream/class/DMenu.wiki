@@ -1,0 +1,40 @@
+<panel>
+	<parent>DScrollPanel</parent>
+	<preview>DMenu_ex1.png</preview>
+	<realm>Client and Menu</realm>
+	<file line="">lua/vgui/dmenu.lua</file>
+	<description>A simple menu with sub menu, icon and convar support.</description>
+</panel>
+
+
+<example>
+	<description>Creates a DMenu with a submenu.</description>
+	<code>
+local Menu = DermaMenu()
+
+-- Add a simple option.
+Menu:AddOption( "Simple option" )
+
+-- Simple option, but we're going to add an icon
+local btnWithIcon = Menu:AddOption( "Option with icon" )
+btnWithIcon:SetIcon( "icon16/bug.png" )	-- Icons are in materials/icon16 folder
+
+-- Adds a simple line spacer
+Menu:AddSpacer()
+
+-- Add a submenu
+local SubMenu = Menu:AddSubMenu( "A Sub Menu" )
+SubMenu:AddOption( "Sub Option #1" ):SetIcon( "icon16/group.png" )
+
+-- Add a submenu with icon
+local Child, Parent = Menu:AddSubMenu( "A Sub Menu with Icon" )
+Parent:SetIcon( "icon16/arrow_refresh.png" )
+Child:AddOption( "Sub Option #2" ):SetIcon( "icon16/group.png" )
+
+-- Open the menu
+Menu:Open()
+	</code>
+
+</example>
+
+<upload src="45291/8dae31f6ecb960b.png" size="6609" name="gmod_GRSjcD2QhQ.png" />

@@ -1,0 +1,14 @@
+<function name="GetNavAreaByID" parent="navmesh" type="libraryfunc">
+	<description>
+Returns a <page>CNavArea</page> by the given ID.
+
+<note>Avoid calling this function every frame, as internally it does a lookup trough all the <page>CNavArea</page>s, call this once and store the result</note>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="id" type="number">ID of the <page>CNavArea</page> to get. Starts with 1.</arg>
+	</args>
+	<rets>
+		<ret name="" type="CNavArea">The <page>CNavArea</page> with given ID.</ret>
+	</rets>
+</function>

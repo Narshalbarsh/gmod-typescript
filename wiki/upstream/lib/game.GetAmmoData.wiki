@@ -1,0 +1,10 @@
+<function name="GetAmmoData" parent="game" type="libraryfunc">
+	<description>Returns the <page>Structures/AmmoData</page> for given ID.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="id" type="number">ID of the ammo type to look up the data for.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table{AmmoData}">The <page>Structures/AmmoData</page> containing all ammo data.</ret>
+	</rets>
+</function>

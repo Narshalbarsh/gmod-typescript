@@ -1,0 +1,14 @@
+<function name="OnKeyCodeTyped" parent="TextEntry" type="panelhook">
+	<description>
+Called from engine whenever a valid character is typed while the text entry is focused.
+
+Used internally for functionality of <page>DTextEntry</page>
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="keyCode" type="number">They key code of the key pressed, see <page>Enums/KEY</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether you've handled the key press. Returning true prevents the default text entry behavior from occurring.</ret>
+	</rets>
+</function>

@@ -1,0 +1,22 @@
+<function name="IsDir" parent="file" type="libraryfunc">
+	<description>Returns whether the given file is a directory or not.
+        </description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="fileName" type="string">The file or directory's name.</arg>
+		<arg name="gamePath" type="string">The path to look for the files and directories in. See <page text="this list">File_Search_Paths</page> for a list of valid paths.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">`true` if the given path is a directory or `false` if it's a file.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints if `helloworld.txt` is a directory.</description>
+	<code>print( file.IsDir( "helloworld.txt", "DATA" ) )</code>
+	<output>
+```
+false
+```
+	</output>
+</example>

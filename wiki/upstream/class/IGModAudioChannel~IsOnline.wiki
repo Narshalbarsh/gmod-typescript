@@ -1,0 +1,7 @@
+<function name="IsOnline" parent="IGModAudioChannel" type="classfunc">
+	<description>Returns if the sound channel is streamed from the Internet or not.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="boolean">Is online or not.</ret>
+	</rets>
+</function>

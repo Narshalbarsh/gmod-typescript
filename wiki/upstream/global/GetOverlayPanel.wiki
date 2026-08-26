@@ -1,0 +1,7 @@
+<function name="GetOverlayPanel" parent="Global" type="libraryfunc">
+	<description>Returns the menu overlay panel, a container for panels like the error panel created in <page>GM:OnLuaError</page>.</description>
+	<realm>Menu</realm>
+	<rets>
+		<ret name="" type="Panel">The overlay panel</ret>
+	</rets>
+</function>

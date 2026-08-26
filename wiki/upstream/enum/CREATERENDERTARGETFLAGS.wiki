@@ -1,0 +1,12 @@
+<enum>
+	<realm>Client</realm>
+	<description>Enumerations used by <page>Global.GetRenderTargetEx</page>. Clientside only.</description>
+	<items>
+<item key="CREATERENDERTARGETFLAGS_HDR" value="1">Makes this render target an HDR render target if the current system supports HDR.</item>
+
+<item key="CREATERENDERTARGETFLAGS_AUTOMIPMAP" value="2">Does nothing.</item>
+
+<item key="CREATERENDERTARGETFLAGS_UNFILTERABLE_OK" value="4">Does nothing</item>
+	</items>
+
+</enum>

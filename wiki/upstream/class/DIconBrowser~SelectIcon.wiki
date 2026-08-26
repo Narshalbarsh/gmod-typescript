@@ -1,0 +1,7 @@
+<function name="SelectIcon" parent="DIconBrowser" type="panelfunc">
+	<description>Selects an icon from file path</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="icon" type="string">The file path of the icon to select. Do not include the "materials/" part.</arg>
+	</args>
+</function>

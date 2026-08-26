@@ -1,0 +1,11 @@
+<function name="SetNotches" parent="DSlider" type="panelfunc">
+	<description>
+<deprecated></deprecated>
+
+Appears to be non functioning, however is still used by panels such as <page>DNumSlider</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="notches" type="number"></arg>
+	</args>
+</function>

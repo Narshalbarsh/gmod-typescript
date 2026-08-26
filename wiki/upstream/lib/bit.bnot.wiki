@@ -1,0 +1,10 @@
+<function name="bnot" parent="bit" type="libraryfunc">
+	<description>Returns the bitwise not of the value. Inverts every bit of the 32bit integer.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="value" type="number">The value to be inverted.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The result of bitwise not. 0101 becomes 1010, etc.</ret>
+	</rets>
+</function>

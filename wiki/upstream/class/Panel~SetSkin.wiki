@@ -1,0 +1,8 @@
+<function name="SetSkin" parent="Panel" type="classfunc">
+	<file line="364-L373">lua/includes/extensions/client/panel.lua</file>
+	<description>Sets the derma skin that the panel object will use, and refreshes all panels with <page>derma.RefreshSkins</page>.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="skinName" type="string">The name of the skin to use. The default derma skin is `Default`.</arg>
+	</args>
+</function>

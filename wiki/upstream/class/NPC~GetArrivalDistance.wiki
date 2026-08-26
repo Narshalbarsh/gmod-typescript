@@ -1,0 +1,10 @@
+<function name="GetArrivalDistance" parent="NPC" type="classfunc">
+	<description>Returns NPC arrival distance, set by <page>NPC:SetArrivalDistance</page>.
+</description>
+	<realm>Server</realm>
+	<added>2024.05.15</added>
+
+	<rets>
+		<ret name="dist" type="number">The current arrival distance.</ret>
+	</rets>
+</function>

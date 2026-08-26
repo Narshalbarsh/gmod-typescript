@@ -1,0 +1,12 @@
+<function name="GetAnimTimeInterval" parent="Entity" type="classfunc">
+	<description>
+Returns the amount of time since last animation.
+
+Works only on `CBaseAnimating` entities.
+	</description>
+	<added>2021.03.31</added>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The amount of time since last animation.</ret>
+	</rets>
+</function>

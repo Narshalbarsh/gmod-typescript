@@ -1,0 +1,39 @@
+<function name="Dissolve" parent="Entity" type="classfunc">
+	<description>Dissolves the entity.
+
+This function creates an `env_entity_dissolver` entity internally, which is parented to the target entity and remains until the entity is fully dissolved. Calling this function on an entity that is already dissolving will not create another `env_entity_dissolver` entity.
+</description>
+	<realm>Server</realm>
+	<added>2024.05.14</added>
+	<args>
+		<arg name="type" type="number" default="0">Dissolve type. Should be one of the following values:
+
+| ID | Description |
+|||
+| 0 | ENTITY_DISSOLVE_NORMAL |
+| 1 | ELECTRICAL|
+| 2 | ELECTRICAL_LIGHT |
+| 3 | ENTITY_DISSOLVE_CORE |
+</arg>
+		<arg name="magnitude" type="number" default="0">Magnitude of the dissolve effect, its effect depends on the dissolve type.</arg>
+		<arg name="origin" type="Vector" default="nil">The origin for the dissolve effect, its effect depends on the dissolve type. Defaults to entity's origin.</arg>
+		<arg name="delay" type="number" default="0" added="2026.05.19">Delay until starting the dissolve, in seconds. There will be some particles produced during this time.</arg>
+	</args>
+</function>
+
+<example>
+<description>
+A console command that will dissolve whatever the played is looking at, with a 3 second delay.
+</description>
+<code>
+if ( SERVER ) then
+	concommand.Add( "dissolve", function( ply )
+		local plyTr = ply:GetEyeTrace()
+
+		if ( IsValid( plyTr.Entity ) ) then
+			plyTr.Entity:Dissolve( 0, 0, nil, 3 )
+		end
+	end )
+end
+</code>
+</example>

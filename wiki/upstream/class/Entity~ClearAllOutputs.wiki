@@ -1,0 +1,8 @@
+<function name="ClearAllOutputs" parent="Entity" type="classfunc">
+	<description>Clears all registered events for map I/O outputs on this entity. If a string is given, will use the string as a wildcard to limit removed outputs by name matches.</description>
+	<realm>Server</realm>
+	<added>2023.01.25</added>
+	<args>
+		<arg name="outputName" type="string" default="nil">An optional string that will be used to limit removed outputs by name matches, supports wildcards.</arg>
+	</args>
+</function>

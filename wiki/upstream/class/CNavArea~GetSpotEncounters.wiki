@@ -1,0 +1,23 @@
+<function name="GetSpotEncounters" parent="CNavArea" type="classfunc">
+	<description>
+		Returns all possible path segments through a <page>CNavArea</page>, and the dangerous spots to look at as we traverse that path segment.
+	</description>
+	<added>2023.06.28</added>
+	<realm>Server</realm>
+	<rets>
+		<ret name="encounters" type="table">A sequential list of spot encounters in the following format:
+* <page>CNavArea</page> **from** - What <page>CNavArea</page> the path segment is coming from
+* <page>Vector</page> **from_pos** - Origin position of the path segment
+* <page>number</page> **from_dir** - Source <page>Enums/NavDir</page> direction of the path segment
+* <page>CNavArea</page> **to** - What <page>CNavArea</page> the path segment is going towards
+* <page>Vector</page> **to_pos** - Target position of the path segment
+* <page>number</page> **to_dir** - Target <page>Enums/NavDir</page> direction of the path segment
+* <page>table</page> **spots** - List of spots to look at, a sequential list of the following structures:
+  * <page>Vector</page> **pos** - Position of the spot
+  * <page>table</page> **flags** - Type of spot this is
+  * <page>CNavArea</page> **area** - The nav area the spot belongs to
+
+
+</ret>
+	</rets>
+</function>

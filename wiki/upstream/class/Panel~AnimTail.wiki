@@ -1,0 +1,8 @@
+<function name="AnimTail" parent="Panel" type="classfunc">
+	<file line="90-L100">lua/includes/extensions/client/panel/animation.lua</file>
+	<description>Returns the <page>Global.SysTime</page> value when all animations for this panel object will end.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The system time value when all animations will end for this panel.</ret>
+	</rets>
+</function>

@@ -1,0 +1,7 @@
+<function name="GetMinLookAheadDistance" parent="PathFollower" type="classfunc">
+	<description>Returns the minimum range movement goal must be along path.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">The minimum look ahead distance</ret>
+	</rets>
+</function>

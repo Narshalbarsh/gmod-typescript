@@ -1,0 +1,11 @@
+<function name="SetDrawBackground" parent="DMenuBar" type="panelfunc">
+	<description>
+<deprecated>Use <page>DMenuBar:SetPaintBackground</page></deprecated>
+
+Sets whether or not the background should be painted. Is the same as <page>DMenuBar:SetPaintBackground</page>
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="shouldPaint" type="boolean">Should the background be painted</arg>
+	</args>
+</function>

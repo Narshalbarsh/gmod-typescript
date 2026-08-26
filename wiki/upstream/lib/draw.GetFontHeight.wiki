@@ -1,0 +1,15 @@
+<function name="GetFontHeight" parent="draw" type="libraryfunc">
+	<description>
+Returns the height of the specified font in pixels. This is equivalent to the height of the character `W`. See <page>surface.GetTextSize</page>.
+
+<rendercontext hook="false" type="2D"></rendercontext>
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="33-L49">lua/includes/modules/draw.lua</file>
+	<args>
+		<arg name="font" type="string">Name of the font to get the height of.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The font height.</ret>
+	</rets>
+</function>

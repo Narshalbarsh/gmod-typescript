@@ -1,0 +1,7 @@
+<function name="Abort" parent="net" type="libraryfunc">
+	<description>
+Cancels a net message started by <page>net.Start</page>, so you can immediately start a new one without any errors.
+	</description>
+	<realm>Shared</realm>
+	<added>2023.12.11</added>
+</function>

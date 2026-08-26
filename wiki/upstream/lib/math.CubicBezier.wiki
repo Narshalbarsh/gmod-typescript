@@ -1,0 +1,47 @@
+<function name="CubicBezier" parent="math" type="libraryfunc">
+	<description>Lerp point between 4 control points with cubic bezier.
+
+See <page>math.QuadraticBezier</page> for a similar function which works with 3 control points.
+	</description>
+	<realm>Shared and Menu</realm>
+	<added>2023.08.08</added>
+	<file line="220-L226">lua/includes/extensions/math.lua</file>
+	<args>
+		<arg name="frac" type="number">The fraction for finding the result. This number is clamped between 0 and 1.</arg>
+		<arg name="p0" type="Vector">First control point</arg>
+		<arg name="p1" type="Vector">First tangent</arg>
+		<arg name="p2" type="Vector">Second tangent</arg>
+		<arg name="p3" type="Vector">Second control point</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">Point between control points at the specified fraction</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Demonstrates the use of this function.</description>
+	<code>
+local points = {
+	Vector( 128, 128 ),
+	Vector( 384, 128 ),
+	Vector( 384, 384 ),
+	Vector( 128, 384 )
+}
+
+hook.Add( "HUDPaint", "math.CubicBezier", function()
+	local frac = RealTime() % 1
+	local point = math.CubicBezier( frac, points[1], points[2], points[3], points[4] )
+
+	surface.SetDrawColor( 255, 255, 0 )
+	surface.DrawRect( point.x - 4, point.y - 4, 8, 8 )
+
+	surface.DrawRect( points[1].x - 4, points[1].y - 4, 8, 8 )
+	surface.DrawRect( points[2].x - 4, points[2].y - 4, 8, 8 )
+	surface.DrawRect( points[3].x - 4, points[3].y - 4, 8, 8 )
+	surface.DrawRect( points[4].x - 4, points[4].y - 4, 8, 8 )
+end )
+	</code>
+	<output>
+		<image src="ab571/8dc38952f5e0f29.gif" alt="Cubic bezier demonstration" />
+	</output>
+</example>

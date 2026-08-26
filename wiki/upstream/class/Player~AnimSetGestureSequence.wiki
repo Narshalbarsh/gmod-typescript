@@ -1,0 +1,8 @@
+<function name="AnimSetGestureSequence" parent="Player" type="classfunc">
+	<description>Sets the sequence of the animation playing in the given gesture slot.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="slot" type="number">The gesture slot. See <page>Enums/GESTURE_SLOT</page></arg>
+		<arg name="sequenceID" type="number">Sequence ID to set.</arg>
+	</args>
+</function>

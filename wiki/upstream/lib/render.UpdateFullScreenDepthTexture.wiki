@@ -1,0 +1,8 @@
+<function name="UpdateFullScreenDepthTexture" parent="render" type="libraryfunc">
+	<description>
+Updates the texture returned by <page>render.GetFullScreenDepthTexture</page>.
+
+Silently fails if <page>render.SupportsPixelShaders_2_0</page> returns false.
+	</description>
+	<realm>Client</realm>
+</function>

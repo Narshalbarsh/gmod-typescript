@@ -1,0 +1,7 @@
+<function name="SetDamageCustom" parent="CTakeDamageInfo" type="classfunc">
+	<description>Sets the custom damage type. This is used by Day of Defeat: Source and Team Fortress 2 for extended damage info, but isn't used in Garry's Mod by default.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="DamageType" type="number">Any integer - can be based on your own custom enums.</arg>
+	</args>
+</function>

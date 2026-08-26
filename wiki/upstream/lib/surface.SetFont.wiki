@@ -1,0 +1,27 @@
+<function name="SetFont" parent="surface" type="libraryfunc">
+	<description>
+Set the current font to be used for text operations later.
+
+The fonts must first be created with <page>surface.CreateFont</page> or be one of the <page>Default Fonts</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="fontName" type="string">The name of the font to use.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Draws 'Hello World' on the screen, with the 'Default' font.</description>
+	<code>
+hook.Add( "HUDPaint", "HUDPaint_DrawABox", function()
+	surface.SetDrawColor( 0, 0, 0, 128 ) -- Set color for background
+	surface.DrawRect( 100, 100, 128, 20 ) -- Draw background
+
+	surface.SetTextColor( 255, 255, 255 ) -- Set text color
+	surface.SetTextPos( 136, 104 ) -- Set text position, top left corner
+	surface.SetFont( "Default" ) -- Set the font
+	surface.DrawText( "Hello World" ) -- Draw the text
+end )
+	</code>
+
+</example>

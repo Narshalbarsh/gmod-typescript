@@ -1,0 +1,9 @@
+<panel>
+	<parent>Panel</parent>
+	<realm>Client and Menu</realm>
+	<description>
+		<internal>
+			Alias of <page>DListView_Line</page>.
+		</internal>
+	</description>
+</panel>

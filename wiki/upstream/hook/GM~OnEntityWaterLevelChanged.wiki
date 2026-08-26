@@ -1,0 +1,21 @@
+<function name="OnEntityWaterLevelChanged" parent="GM" type="hook">
+	<description>Called when the <page>Entity:WaterLevel</page> of an entity is changed.
+
+    0 - The entity isn't in water.
+
+    1 - Slightly submerged (at least to the feet).
+
+    2 - The majority of the entity is submerged (at least to the waist).
+
+    3 - Completely submerged.
+
+	<warning>This hook can be considered a physics callback, so changing collision rules (<page>Entity:SetSolidFlags</page>) in it may lead to a crash!</warning>
+	</description>
+	<realm>Server</realm>
+	<added>2020.03.17</added>
+	<args>
+		<arg name="entity" type="Entity">The entity.</arg>
+		<arg name="old" type="number">Previous water level.</arg>
+		<arg name="new" type="number">The new water level.</arg>
+	</args>
+</function>

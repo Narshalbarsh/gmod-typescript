@@ -1,0 +1,18 @@
+<function name="SetDrawLanguageID" parent="Panel" type="classfunc">
+	<description>
+		Sets the visibility of the language selection box when typing in non-English mode.
+
+		See <page>Panel:SetDrawLanguageIDAtLeft</page> for a function that changes the position of the language selection box.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="visible" type="boolean">true to make it visible, false to hide it.</arg>
+	</args>
+	<example>
+		<code>
+			local TextEntry = vgui.Create( "DTextEntry" )
+			TextEntry:SetDrawLanguageID(false)
+		</code>
+		<output>Hides language selection box.</output>
+	</example>
+</function>

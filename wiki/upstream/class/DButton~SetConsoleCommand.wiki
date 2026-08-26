@@ -1,0 +1,33 @@
+<function name="SetConsoleCommand" parent="DButton" type="panelfunc">
+	<realm>Client and Menu</realm>
+	<file line="129-L135">lua/vgui/dbutton.lua</file>
+
+
+	<description>
+Sets a console command to be called when the button is clicked.
+
+This overrides the button's `DoClick` method.
+	</description>
+	
+
+	<args>
+		<arg name="command" type="string">The console command to be called.</arg>
+		<arg name="args" type="string" default="nil">The arguments for the command.</arg>
+	</args>
+
+</function>
+
+
+
+<example>
+	<description>Creates a button that makes the player say their name.</description>
+	<code>
+local button = vgui.Create( "DButton" )
+button:SetSize( 100, 35 )
+button:SetText( "Say your nickname" )
+button:Center()
+button:MakePopup()
+button:SetConsoleCommand( "say", LocalPlayer():Nick() )
+	</code>
+
+</example>

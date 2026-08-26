@@ -1,0 +1,8 @@
+<function name="Size" parent="Stack" type="classfunc">
+	<description>Returns the size of the stack</description>
+	<realm>Shared and Menu</realm>
+	<file line="317-L319">lua/includes/extensions/util.lua</file>
+	<rets>
+		<ret name="" type="number">The size of the stack</ret>
+	</rets>
+</function>

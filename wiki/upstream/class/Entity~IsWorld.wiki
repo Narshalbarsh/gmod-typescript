@@ -1,0 +1,22 @@
+<function name="IsWorld" parent="Entity" type="classfunc">
+	<description>Returns if this entity is the map entity `Entity[0] worldspawn`.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">Whether this entity is the world entity.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Stool boilerplate for the ignite tool</description>
+	<code>
+function TOOL:LeftClick( trace )
+	local ent = trace.Entity
+ 	if not IsValid( ent ) or ent:IsPlayer() or ent:IsWorld() then 
+		return false 
+ 	end
+ 	...
+end
+	</code>
+	<output>LeftClick will not run for no ent, invalid ents, players, or worldspawn.</output>
+
+</example>

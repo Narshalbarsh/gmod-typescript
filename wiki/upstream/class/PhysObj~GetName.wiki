@@ -1,0 +1,7 @@
+<function name="GetName" parent="PhysObj" type="classfunc">
+	<description>Returns the name of the physics object.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="string">The name of the physics object.</ret>
+	</rets>
+</function>

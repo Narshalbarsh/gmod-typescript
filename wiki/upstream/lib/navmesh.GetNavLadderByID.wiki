@@ -1,0 +1,10 @@
+<function name="GetNavLadderByID" parent="navmesh" type="libraryfunc">
+	<description>Returns a <page>CNavLadder</page> by the given ID.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="id" type="number">ID of the <page>CNavLadder</page> to get. Starts with 1.</arg>
+	</args>
+	<rets>
+		<ret name="" type="CNavLadder">The <page>CNavLadder</page> with given ID.</ret>
+	</rets>
+</function>

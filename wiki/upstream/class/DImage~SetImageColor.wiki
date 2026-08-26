@@ -1,0 +1,28 @@
+<function name="SetImageColor" parent="DImage" type="panelfunc">
+	<description>Sets the image's color override.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="col" type="Color">The color override of the image. Uses <page>Color</page>.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Creates a frame with a Portal box inside and sets the color to green.</description>
+	<code>
+-- Frame
+MainFrame = vgui.Create("DFrame")
+MainFrame:SetSize(200, 180)
+MainFrame:Center()
+MainFrame:SetTitle("Color example")
+
+-- Image of a Portal box
+local metalbox_img = vgui.Create("DImage", MainFrame)
+metalbox_img:SetPos(35, 35)
+metalbox_img:SetSize(128, 128)
+metalbox_img:SetImage("spawnicons/models/props/metal_box_128.png")
+
+metalbox_img:SetImageColor(Color(128, 255, 0, 255))
+	</code>
+	<output><image src="DImage_SetImageColor_example1.png"/></output>
+
+</example>

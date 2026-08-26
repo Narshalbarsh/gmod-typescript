@@ -1,0 +1,32 @@
+<function name="SetMaterial" parent="PhysObj" type="classfunc">
+	<description>
+Sets the material of the physobject.
+
+<note>Impact sounds will only change if this is called on client</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="materialName" type="string">The name of the phys material to use. From this list: [Valve Developer](https://developer.valvesoftware.com/wiki/Material_surface_properties)</arg>
+	</args>
+</function>
+
+<example>
+	<description>Randomize the physical properties of an entity</description>
+	<code>
+local tbl = {
+	"gmod_ice", -- Makes the entity slide around
+	"gmod_bouncy", -- Makes the entity bouncy
+	"gmod_silent", -- Makes the entity not play sounds on impact
+	"flesh" -- Makes the entity play flesh sounds on impact
+}
+
+local phys = SomeEntity:GetPhysicsObject()
+
+if ( IsValid( phys ) ) then
+
+	phys:SetMaterial( table.Random( tbl ) )
+
+end
+	</code>
+
+</example>

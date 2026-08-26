@@ -1,0 +1,33 @@
+<function name="AllowInput" parent="DTextEntry" type="panelfunc">
+	<description>
+Called whenever the value of the panel has been updated (whether by user input or otherwise).
+
+It allows you to determine whether a user can modify the <page>TextEntry</page>'s text.
+
+By default, this only checks whether the panel disallows numeric characters, preventing it from being edited if the value contains any.
+
+This is actually an engine hook that only works on <page>TextEntry</page> derived elements.
+
+If you are looking for a way to modify character limits, see <page>Panel:SetMaximumCharCount</page>
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="321-L327">lua/vgui/dtextentry.lua</file>
+	<args>
+		<arg name="char" type="string">The last character entered into the panel.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return `true` to prevent the value from changing, `false` to allow it.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prevents the user from editing the text entirely.</description>
+	<code>
+local TextEntry = vgui.Create( "DTextEntry" )
+TextEntry.AllowInput = function( self, stringValue )
+	return true
+end
+	</code>
+	<output>The panel does not allow any alterations.</output>
+
+</example>

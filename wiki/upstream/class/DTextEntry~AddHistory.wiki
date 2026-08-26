@@ -1,0 +1,36 @@
+<function name="AddHistory" parent="DTextEntry" type="panelfunc">
+	<description>Adds an entry to <page>DTextEntry</page>'s history.
+
+See <page>DTextEntry:SetHistoryEnabled</page>.
+</description>
+	<realm>Client and Menu</realm>
+	<file line="366-L373">lua/vgui/dtextentry.lua</file>
+	<args>
+		<arg name="text" type="string">Text to add to the text entry's history.</arg>
+	</args>
+</function>
+
+<example>
+	<description>A simple example.</description>
+	<code>
+-- Create a new frame (window)
+local frame = vgui.Create( "DFrame" )
+frame:SetSize( 300, 300 )  -- Set the size of the frame
+frame:Center()  -- Center the frame on the screen
+frame:MakePopup()  -- Make the frame appear in front of other windows and accept user input
+
+-- Create a text entry field within the frame
+local tEntry = vgui.Create("DTextEntry", frame)
+tEntry:Dock(TOP)  -- Dock the text entry at the top of the frame
+tEntry:SetHistoryEnabled(true)  -- Dock the text entry at the top of the frame
+tEntry.OnEnter = function( self )
+	local val = self:GetValue()
+	self:AddHistory( val ) -- Store old value in history so the player can access it again later
+	self:SetText( "" ) -- reset the text
+	
+	-- Do something with the data...
+	chat.AddText( val )	-- print the textentry text as a chat message
+end
+	</code>
+
+</example>

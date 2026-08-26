@@ -1,0 +1,11 @@
+<function name="SetFloat" parent="IMaterial" type="classfunc">
+	<description>Sets the specified material float to the specified float, does nothing on a type mismatch.
+
+Unlike <page>IMaterial:SetInt</page>, this function **does not** call <page>IMaterial:Recompute</page> internally.
+</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="materialFloat" type="string">The name of the material float.</arg>
+		<arg name="float" type="number">The new float value.</arg>
+	</args>
+</function>

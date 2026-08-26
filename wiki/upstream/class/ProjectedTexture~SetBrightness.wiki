@@ -1,0 +1,11 @@
+<function name="SetBrightness" parent="ProjectedTexture" type="classfunc">
+	<description>
+Sets the brightness of the projected texture.
+
+You must call <page>ProjectedTexture:Update</page> after using this function for it to take effect.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="brightness" type="number">The brightness to give the projected texture. A float from 0 to 1, where 1 is 100% brightness. Can be higher.</arg>
+	</args>
+</function>

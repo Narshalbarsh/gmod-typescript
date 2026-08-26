@@ -1,0 +1,12 @@
+<function name="SetGlobalVector" parent="Global" type="libraryfunc">
+	<description>
+Defines a vector to be automatically networked to clients
+<warning>There's a 4095 slots Network limit. If you need more, consider using the <page>net</page> library or <page>Global.SetGlobal2Vector</page>. You should also consider the fact that you have way too many variables. You can learn more about this limit here: <page>Networking_Usage</page></warning>
+<note>Running this function clientside will only set it clientside for the client it is called on!</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="index" type="any">Index to identify the global vector with</arg>
+		<arg name="vec" type="Vector">Vector to be networked</arg>
+	</args>
+</function>

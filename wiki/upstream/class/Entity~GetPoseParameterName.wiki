@@ -1,0 +1,10 @@
+<function name="GetPoseParameterName" parent="Entity" type="classfunc">
+	<description>Returns name of given pose parameter</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="id" type="number">Id of the pose paremeter</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">Name of given pose parameter</ret>
+	</rets>
+</function>

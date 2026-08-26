@@ -1,0 +1,7 @@
+<function name="GetHoveredWidget" parent="Player" type="classfunc">
+	<description>Returns the widget the player is hovering with their mouse.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Entity">The hovered widget.</ret>
+	</rets>
+</function>

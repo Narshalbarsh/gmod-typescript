@@ -1,0 +1,7 @@
+<function name="GetIsCheckable" parent="DMenuOption" type="panelfunc">
+	<description>Returns whether the <page>DMenuOption</page> is a checkbox option or a normal button option.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean"></ret>
+	</rets>
+</function>

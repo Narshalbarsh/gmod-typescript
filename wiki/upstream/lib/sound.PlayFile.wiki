@@ -1,0 +1,46 @@
+<function name="PlayFile" parent="sound" type="libraryfunc">
+	<description>
+Plays a file from GMod directory. You can find a list of all error codes [here](http://www.un4seen.com/doc/#bass/BASS_ErrorGetCode.html)
+
+For external file/stream playback, see <page>sound.PlayURL</page>.
+
+<bug issue="1752">This fails for looping .wav files in 3D mode.</bug>
+
+<bug issue="2304">This fails with unicode file names.</bug>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="path" type="string">The path to the file to play.
+
+Unlike other sound functions and structures, the path is relative to `garrysmod/` instead of `garrysmod/sound/`</arg>
+		<arg name="flags" type="string">Flags for the sound. Can be one or more of following, separated by a space (" "):
+* 3d - Makes the sound 3D, so you can set its position
+* mono - Forces the sound to have only one channel
+* noplay - Forces the sound not to play as soon as this function is called
+* noblock - Disables streaming in blocks. It is more resource-intensive, but it is required for <page>IGModAudioChannel:SetTime</page>.
+
+If you don't want to use any of the above, you can just leave it as "".</arg>
+		<arg name="callback" type="function">Callback function that is called as soon as the the stream is loaded.
+
+<callback>
+<arg type="IGModAudioChannel" name="channel">The sound channel. Will be nil if an error occurred.</arg>
+<arg type="number" name="errorID">ID of an error if an error has occurred. Will be nil, otherwise.</arg>
+<arg type="string" name="errorName">Name of an error if an error has occurred. Will be nil, otherwise.</arg>
+</callback>
+</arg>
+	</args>
+</function>
+
+<example>
+	<description>Plays a piece of music from Half-Life 2.</description>
+	<code>
+sound.PlayFile( "sound/music/hl2_song12_long.mp3", "noplay", function( station, errCode, errStr )
+	if ( IsValid( station ) ) then
+		station:Play()
+	else
+		print( "Error playing sound!", errCode, errStr )
+	end
+end )
+	</code>
+
+</example>

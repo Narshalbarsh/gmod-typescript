@@ -1,0 +1,8 @@
+<function name="SetDamping" parent="PhysObj" type="classfunc">
+	<description>Sets the linear and angular damping of the physics object.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="linearDamping" type="number">Linear damping.</arg>
+		<arg name="angularDamping" type="number">Angular damping.</arg>
+	</args>
+</function>

@@ -1,0 +1,10 @@
+<function name="SecondaryAttack" parent="WEAPON" type="hook">
+	<description>
+Called when secondary attack button ( +attack2 ) is pressed.
+
+For issues with this hook being called rapidly on the client side, see the global function <page>Global.IsFirstTimePredicted</page>.
+	</description>
+	<realm>Shared</realm>
+	<file line="66-L84">gamemodes/base/entities/weapons/weapon_base/shared.lua</file>
+	<predicted>Yes</predicted>
+</function>

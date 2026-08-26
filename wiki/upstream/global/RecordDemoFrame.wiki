@@ -1,0 +1,8 @@
+<function name="RecordDemoFrame" parent="Global" type="libraryfunc">
+	<description>
+<internal></internal>
+Adds a frame to the currently recording demo.
+	</description>
+	<realm>Menu</realm>
+	<file line="312">lua/menu/demo_to_video.lua</file>
+</function>

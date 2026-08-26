@@ -1,0 +1,11 @@
+<function name="GetCookieName" parent="Panel" type="classfunc">
+	<description>Gets the name the panel uses to store cookies. This is set with <page>Panel:SetCookieName</page>.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="string">The name the panel uses when reading or writing cookies. The format used is as follows: 
+```
+panelCookieName.individualCookieName
+```
+</ret>
+	</rets>
+</function>

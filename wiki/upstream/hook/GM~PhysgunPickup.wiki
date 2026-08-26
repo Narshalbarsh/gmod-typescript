@@ -1,0 +1,36 @@
+<function name="PhysgunPickup" parent="GM" type="hook">
+<file line="58-L64">gamemodes/base/gamemode/shared.lua</file>
+	<description>
+Called to determine if a player should be able to pick up an entity with the Physics Gun.
+
+See <page>GM:OnPhysgunPickup</page> for a hook which is called when a player has successfully picked up an entity.
+
+See <page>GM:GravGunPickupAllowed</page> for the Gravity Gun pickup variant.<br/>
+See <page>GM:AllowPlayerPickup</page> for the `+USE` pickup variant.
+	</description>
+	<realm>Shared</realm>
+	<predicted>Yes</predicted>
+	<args>
+		<arg name="player" type="Player">The player that is picking up using the Physics Gun.</arg>
+		<arg name="entity" type="Entity">The entity that is being picked up.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Returns whether the player can pick up the entity or not.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Allows Admins to pick up players.</description>
+	<code>
+hook.Add( "PhysgunPickup", "AllowPlayerPickup", function( ply, ent )
+	if ( ply:IsAdmin() and ent:IsPlayer() ) then
+		return true
+	end
+end )
+	</code>
+	<code>
+--You can also disable physgun on a certain entity using ENT.PhysgunDisabled
+ENT.PhysgunDisabled = true
+	</code>
+	
+</example>

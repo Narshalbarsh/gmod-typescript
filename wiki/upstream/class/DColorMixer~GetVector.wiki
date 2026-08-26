@@ -1,0 +1,8 @@
+<function name="GetVector" parent="DColorMixer" type="panelfunc">
+	<description>Returns the color as a normalized <page>Vector</page>.</description>
+	<realm>Client and Menu</realm>
+	<file line="328-L333">lua/vgui/dcolormixer.lua</file>
+	<rets>
+		<ret name="" type="Vector">A vector representing the color of the <page>DColorMixer</page>, each value being in range of 0 to 1. Alpha is not included.</ret>
+	</rets>
+</function>

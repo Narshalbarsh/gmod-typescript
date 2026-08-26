@@ -1,0 +1,16 @@
+<structure>
+	<realm>Shared</realm>
+	<description>
+		A <page>table</page> structure containing the information of 3D skybox.
+
+		Returned by <page>game.Get3DSkyboxInfo</page>.
+	</description>
+	<fields>
+		<item name="origin" type="Vector">
+			Position of the [sky_camera](https://developer.valvesoftware.com/wiki/Sky_camera) entity.
+		</item>
+		<item name="scale" type="number">
+			Scale of the 3D skybox.
+		</item>
+	</fields>
+</structure>

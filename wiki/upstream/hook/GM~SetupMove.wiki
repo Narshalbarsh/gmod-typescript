@@ -1,0 +1,49 @@
+<function name="SetupMove" parent="GM" type="hook">
+	<description>
+SetupMove is called before the engine process movements. This allows us to override the players movement.
+
+See <page>Game Movement</page> for an explanation on the move system.
+	</description>
+	<file line="179-L184">gamemodes/base/gamemode/shared.lua</file>
+	<realm>Shared</realm>
+	<predicted>Yes</predicted>
+	<args>
+		<arg name="ply" type="Player">The player whose movement we are about to process</arg>
+		<arg name="mv" type="CMoveData">The move data to override/use</arg>
+		<arg name="cmd" type="CUserCmd">The command data</arg>
+	</args>
+</function>
+
+<example>
+	<description>Make drowning even more entertaining:</description>
+	<code>
+hook.Add( "SetupMove", "Drowning:HandleWaterInLungs", function( ply, mv, cmd )
+	if ( ply:WaterLevel() >= 2 ) then
+		mv:SetUpSpeed( -100 )
+		cmd:SetUpMove( -100 )
+	end
+end )
+	</code>
+
+</example>
+
+
+<example>
+	<description>Disable the player's ability to jump by removing a key from CMoveData:</description>
+	<code>
+local CMoveData = FindMetaTable( "CMoveData" )
+
+function CMoveData:RemoveKeys( keys )
+	-- Using bitwise operations to clear the key bits.
+	local newbuttons = bit.band( self:GetButtons(), bit.bnot( keys ) )
+	self:SetButtons( newbuttons )
+end
+
+hook.Add("SetupMove", "Disable Jumping", function(ply, mvd, cmd)
+	if ( mvd:KeyDown( IN_JUMP ) ) then
+		mvd:RemoveKeys( IN_JUMP )
+	end
+end)
+	</code>
+
+</example>

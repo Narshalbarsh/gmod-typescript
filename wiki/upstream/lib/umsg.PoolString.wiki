@@ -1,0 +1,11 @@
+<function name="PoolString" parent="umsg" type="libraryfunc">
+	<description>
+<deprecated>Inferior version of <page>util.AddNetworkString</page></deprecated>
+
+The string specified will be networked to the client and receive a identifying number, which will be sent instead of the string to optimize networking.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="string" type="string">The string to be pooled.</arg>
+	</args>
+</function>

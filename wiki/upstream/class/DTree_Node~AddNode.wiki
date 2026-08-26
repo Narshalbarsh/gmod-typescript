@@ -1,0 +1,11 @@
+<function name="AddNode" parent="DTree_Node" type="panelfunc">
+	<description>Add a child node to the DTree_Node</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="name" type="string">Name of the node.</arg>
+		<arg name="icon" type="string" default="icon16/folder.png">The icon that will show next to the node in the DTree.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Panel">Returns the created <page>DTree_Node</page> panel.</ret>
+	</rets>
+</function>

@@ -1,0 +1,9 @@
+<function name="UpdateData" parent="Tool" type="classfunc">
+	<description>
+<internal>Called on deploy automatically</internal>
+
+Sets the tool's stage to how many stored objects the tool has.
+	</description>
+	<realm>Shared</realm>
+	<file line="2">gamemodes/sandbox/entities/weapons/gmod_tool/object.lua</file>
+</function>

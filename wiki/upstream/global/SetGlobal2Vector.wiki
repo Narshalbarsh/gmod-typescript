@@ -1,0 +1,12 @@
+<function name="SetGlobal2Vector" parent="Global" type="libraryfunc">
+	<description>
+Defines a vector to be automatically networked to clients
+
+<note>Running this function clientside will only set it clientside for the client it is called on!</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="index" type="any">Index to identify the global vector with</arg>
+		<arg name="vec" type="Vector">Vector to be networked</arg>
+	</args>
+</function>

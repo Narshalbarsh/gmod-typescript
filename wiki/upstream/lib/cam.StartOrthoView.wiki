@@ -1,0 +1,10 @@
+<function name="StartOrthoView" parent="cam" type="libraryfunc">
+	<description>Sets up a new 3d context using orthographic projection.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="leftOffset" type="number">The left plane offset.</arg>
+		<arg name="topOffset" type="number">The top plane offset.</arg>
+		<arg name="rightOffset" type="number">The right plane offset.</arg>
+		<arg name="bottomOffset" type="number">The bottom plane offset.</arg>
+	</args>
+</function>

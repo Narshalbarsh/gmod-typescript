@@ -1,0 +1,25 @@
+<function name="TranslateFOV" parent="WEAPON" type="hook">
+	<description>
+Allows to change players field of view while player holds the weapon.
+
+<note>This hook must be defined shared and return same value on both to properly affect Area Portals.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="fov" type="number">The current/default FOV.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The target FOV.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Reduces players FOV by 30.</description>
+	<code>
+function SWEP:TranslateFOV( fov )
+	return fov - 30
+end
+	</code>
+	<output>Players view is zoomed in.</output>
+
+</example>

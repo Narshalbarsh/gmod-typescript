@@ -1,0 +1,19 @@
+<structure>
+	<realm>Client</realm>
+	<description>Table that maintains information on the creation menu tabs. Each key of the table represents the name of the tab. See <page>spawnmenu.AddCreationTab</page> and <page>spawnmenu.GetCreationTabs</page>.</description>
+	<fields>
+<item name="Function" type="function">The function used to generate the content of the tab.
+
+<callback>
+<ret type="Panel" name="content">A container panel that holds all of the content for the new tab.</ret>
+</callback>
+</item>
+
+<item name="Icon" type="string">The icon material that will accompany the title of the tab.</item>
+
+<item name="Order" type="number">The order in which a tab will be displayed relative to the other tabs.</item>
+
+<item name="Tooltip" type="string">The tooltip to be shown with the tab.</item>
+	</fields>
+
+</structure>

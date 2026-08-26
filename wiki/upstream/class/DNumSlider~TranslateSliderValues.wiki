@@ -1,0 +1,12 @@
+<function name="TranslateSliderValues" parent="DNumSlider" type="panelfunc">
+	<description><internal></internal></description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="x" type="number"></arg>
+		<arg name="y" type="number"></arg>
+	</args>
+	<rets>
+		<ret name="" type="number"></ret>
+		<ret name="" type="number">The second passed argument.</ret>
+	</rets>
+</function>

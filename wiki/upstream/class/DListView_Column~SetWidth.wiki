@@ -1,0 +1,34 @@
+<function name="SetWidth" parent="DListView_Column" type="panelfunc">
+	<description>Sets the width of the panel.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="width" type="number">The number value which will determine panel width.</arg>
+	</args>
+</function>
+
+<example>
+	<description>
+Creates a DListView and populates it with two columns and two items, only one of which can be selected at a time.
+
+The first column width is 15.
+The second column width is 350.
+	</description>
+	<code>
+local Frame = vgui.Create( "DFrame" )
+Frame:SetSize( 500, 500 )
+Frame:Center()
+Frame:MakePopup()
+
+local SimpleList = vgui.Create( "DListView", Frame )
+SimpleList:Dock( FILL )
+SimpleList:SetMultiSelect( false )
+
+SimpleList:AddColumn( "Column 1" ):SetWidth(15)
+SimpleList:AddColumn( "Column 2" ):SetWidth(350)
+
+SimpleList:AddLine( "First", "Column" )
+SimpleList:AddLine( "Second", "Column" )
+	</code>
+	<output><image src="DListView_Column_SetWidth.png"/></output>
+
+</example>

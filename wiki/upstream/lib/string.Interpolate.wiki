@@ -1,0 +1,28 @@
+<function name="Interpolate" parent="string" type="libraryfunc">
+	<added>2023.01.25</added>
+	<description>Interpolates a given string with the given table. This is useful for formatting localized strings.</description>
+	<realm>Shared and Menu</realm>
+	<file line="379-L383">lua/includes/extensions/string.lua</file>
+	<args>
+		<arg name="str" type="string">The string that should be interpolated.</arg>
+		<arg name="lookuptable" type="table">The table to search in.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The modified string.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Example on how to use this function.</description>
+	<code>
+local tbl = {
+	["Name"]= "Jerry"
+}
+print( string.Interpolate( "Hello {Name}!", tbl ) )
+	</code>
+	<output>
+```
+Hello Jerry!
+```
+	</output>
+</example>

@@ -1,0 +1,10 @@
+<function name="GetParentWorldTransformMatrix" parent="Entity" type="classfunc">
+	<description>Returns the position and angle of the entity's move parent as a 3x4 matrix (<page>VMatrix</page> is 4x4 so the fourth row goes unused). The first three columns store the angle as a [rotation matrix](https://en.wikipedia.org/wiki/Rotation_matrix), and the fourth column stores the position vector.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="VMatrix">The position and angle matrix.
+
+If the entity has no move parent, an identity matrix will be returned.
+If the entity is <page text="parented to attachment">Entity:GetParentAttachment</page> 0 or the parent isn't a BaseAnimating entity, the equivalent of <page>Entity</page>:<page text="GetMoveParent()">Entity:GetMoveParent</page>:<page text="GetWorldTransformMatrix()">Entity:GetWorldTransformMatrix</page> will be returned.</ret>
+	</rets>
+</function>

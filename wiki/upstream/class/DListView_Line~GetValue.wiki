@@ -1,0 +1,12 @@
+<function name="GetValue" parent="DListView_Line" type="panelfunc">
+	<description>
+		Alias of <page>DListView_Line:GetColumnText</page>. Overrides <page>Panel:GetValue</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="column" type="number">The number of the column to retrieve the text from, starts with 1.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The contents of the specified column.</ret>
+	</rets>
+</function>

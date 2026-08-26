@@ -1,0 +1,25 @@
+<function name="TraceEntity" parent="util" type="libraryfunc">
+	<description>
+Runs a trace using the entity's collisionmodel between two points. This does not take the entity's angles into account and will trace its unrotated collisionmodel.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="tracedata" type="table{Trace}">Trace data. See <page>Structures/Trace</page></arg>
+		<arg name="ent" type="Entity">The entity to use</arg>
+	</args>
+	<rets>
+		<ret name="" type="table{TraceResult}">Trace result. See <page>Structures/TraceResult</page></ret>
+	</rets>
+</function>
+
+<example>
+	<description>From sandbox/gamemode/prop_tools.lua, this checks if there are any entities inside our entity</description>
+	<code>
+local trace = { start = ent:GetPos(), endpos = ent:GetPos(), filter = ent }
+local tr = util.TraceEntity( trace, ent ) 
+if ( tr.Hit ) then
+ -- Do stuff
+end
+	</code>
+
+</example>

@@ -1,0 +1,21 @@
+<function name="sub" parent="string" type="libraryfunc">
+	<description>Returns a sub-string, starting from the character at position `StartPos` of the string (inclusive), and optionally ending at the character at position `EndPos` of the string (also inclusive). If EndPos is not given, the rest of the string is returned.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="string" type="string">The string you'll take a sub-string out of.</arg>
+		<arg name="StartPos" type="number">The position of the first character that will be included in the sub-string. It can be negative to count from the end.</arg>
+		<arg name="EndPos" type="number" default="nil">The position of the last character to be included in the sub-string. It can be negative to count from the end.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The substring.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Demonstrates the use of this function.</description>
+	<code>
+local mystring = "Some random text"
+print( string.sub( mystring, 1, 4 ) )
+	</code>
+	<output>Some</output>
+</example>

@@ -1,0 +1,81 @@
+<function name="Call" parent="hook" type="libraryfunc">
+	<description>
+Calls all hooks associated with the given event until one returns something other than `nil`, and then returns that data.
+
+In almost all cases, you should use <page>hook.Run</page> instead - it calls hook.Call internally but supplies the gamemode table by itself, making your code neater.
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="74-L137">lua/includes/modules/hook.lua</file>
+	<args>
+		<arg name="eventName" type="string">The event to call hooks for.</arg>
+		<arg name="gamemodeTable" type="table" default="nil">If the gamemode is specified, the gamemode hook within will be called, otherwise not.</arg>
+		<arg name="args" type="vararg" default="nil">The arguments to be passed to the hooks.</arg>
+	</args>
+	<rets>
+		<ret name="" type="vararg">Return data from called hooks. Limited to **6** return values.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Runs function `DoSomething`, which eventually calls the event `DoneDoingSomething`, triggering the hooked function `DoSomethingElse`.</description>
+	<code>
+local function DoSomething()
+    -- Does something
+    hook.Call( "DoneDoingSomething" )
+end
+
+local function DoSomethingElse()
+    -- Does something else, once the hook "DoneDoingSomething" is called.
+    print( "Done!" )
+end
+hook.Add( "DoneDoingSomething", "Does something else", DoSomethingElse )
+
+DoSomething()
+	</code>
+	<output>
+```
+Done!
+```
+	</output>
+</example>
+
+<example>
+	<description>You can also make custom functions controllable via hooks.</description>
+	<code>
+local function MakeCheese()
+    local shouldMakeCheese = hook.Call( "MakeCheezPleez" )
+
+    if shouldMakeCheese then
+        print( "yay" )
+    else
+        print( "nay" )
+    end
+end
+
+local function MakeCheeseOrNot()
+    return player.GetCount() >= 1
+end
+hook.Add( "MakeCheezPleez", "Does something else", MakeCheeseOrNot )
+
+MakeCheese()
+	</code>
+	<output>If there is players in the server, we print `yay`. If there isn't, we print `nay`.</output>
+</example>
+
+<example>
+	<description>Calls the event `DoneDoingSomething` with some arguments.</description>
+	<code>
+hook.Add( "DoneDoingSomething", "Does something else", function( a, b )
+	print( a )
+	print( b )
+end )
+
+hook.Call( "DoneDoingSomething", nil, "Hello", "Hey" )
+	</code>
+	<output>
+```
+Hello
+Hey
+```
+	</output>
+</example>

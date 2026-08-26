@@ -1,0 +1,7 @@
+<function name="GetPos" parent="PhysObj" type="classfunc">
+	<description>Returns the position of the physics object.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Vector">The position in world coordinates. (`source units`)</ret>
+	</rets>
+</function>

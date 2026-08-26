@@ -1,0 +1,29 @@
+<function name="GetScreenEffectTexture" parent="render" type="libraryfunc">
+	<description>
+Obtain an <page>ITexture</page> of the screen. You must call <page>render.UpdateScreenEffectTexture</page> in order to update this texture with the currently rendered scene.
+
+This texture is mainly used within <page>GM:RenderScreenspaceEffects</page>.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="textureIndex" type="number" default="0">Max index is 3, but engine only creates the first two for you.</arg>
+	</args>
+	<rets>
+		<ret name="" type="ITexture">The requested texture.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Print the texture name of the returned textures.</description>
+	<code>
+print(render.GetScreenEffectTexture(0):GetName())
+print(render.GetScreenEffectTexture(1):GetName())
+	</code>
+	<output>
+```
+_rt_fullframefb
+_rt_fullframefb1
+```
+	</output>
+
+</example>

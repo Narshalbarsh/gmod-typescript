@@ -1,0 +1,4 @@
+<function name="PopModelMatrix" parent="cam" type="libraryfunc">
+	<description>Removes the currently active model matrix (pushed previously with <page>cam.PushModelMatrix</page>) from the stack and reinstates the previous one.</description>
+	<realm>Client</realm>
+</function>

@@ -1,0 +1,21 @@
+<function name="ReadFloat" parent="File" type="classfunc">
+	<description>Reads an IEEE 754 little-endian 4-byte float from the file.</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="number">The read value</ret>
+	</rets>
+</function>
+
+<example>
+<code>
+local f = file.Open( "test.txt", "w", "DATA" )
+f:WriteFloat( math.pi )
+f:WriteFloat( 66.99 )
+f:Close()
+
+local f = file.Open( "test.txt", "r", "DATA" )
+f:Seek( 4 )
+print( f:ReadFloat() ) -- Prints 66.98999786377
+f:Close()
+</code>
+</example>

@@ -1,0 +1,34 @@
+<function name="GetSequenceList" parent="Entity" type="classfunc">
+	<description>Returns a list of all sequences ( animations ) the model has.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="table">The list of all sequences ( animations ) the model has. The indices start with 0!</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Example showing table structure. Prints a list of player model sequences.</description>
+	<code>PrintTable( Entity(1):GetSequenceList() )</code>
+	<output>
+
+```
+0	=	ragdoll
+1	=	reference
+2	=	idle_all_01
+3	=	idle_all_02
+4	=	idle_all_angry
+5	=	idle_all_scared
+6	=	idle_all_cower
+7	=	cidle_all
+8	=	swim_idle_all
+9	=	sit
+10	=	menu_walk
+11	=	menu_combine
+12	=	menu_gman
+13	=	walk_all
+-- The rest of the sequences
+```
+
+	</output>
+
+</example>

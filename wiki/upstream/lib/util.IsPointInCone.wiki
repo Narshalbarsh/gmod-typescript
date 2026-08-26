@@ -1,0 +1,47 @@
+<function name="IsPointInCone" parent="util" type="libraryfunc">
+	<description>Returns whether a point is within a cone or not.</description>
+	<realm>Shared</realm>
+	<added>2023.08.08</added>
+	<args>
+		<arg name="point" type="Vector">The position of the point to test.</arg>
+		<arg name="coneOrigin" type="Vector">The position of the cone tip.</arg>
+		<arg name="coneAxis" type="Vector">The direction of the cone.</arg>
+		<arg name="coneSine" type="number">The sine of the cone's angle.</arg>
+		<arg name="coneLength" type="number">Length of the cone's axis.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">`true` if the point is within the cone, `false` otherwise.</ret>
+	</rets>
+</function>
+
+<example>
+<code>
+function ENT:Draw()
+
+	local pos = self:GetPos()
+	local point = Vector( 0, 0, 0 )
+	local sphereRad = 20
+
+	local height = 100
+	local angle = 45 --[[degrees]] / 180 * math.pi -- converted to radians
+	
+	local size = math.tan( angle ) * height
+	local segs = 32
+	local is = util.IsPointInCone( point, pos, self:GetUp(), math.cos( angle ), height )
+	local is2 = util.IsSphereIntersectingCone( point, sphereRad, pos, self:GetUp(), math.sin( angle ), math.cos( angle ) ) -- infinite height
+
+	local precalc = 1/segs * math.pi * 2
+	local center = pos
+	for i = 1, segs do
+		local pos1 = pos + math.sin( i * precalc ) * size * self:GetForward() + math.cos( i * precalc ) * size * self:GetRight() + self:GetUp() * height
+		local pos2 = pos + math.sin( (i-1) * precalc ) * size * self:GetForward() + math.cos( (i-1) * precalc ) * size * self:GetRight() + self:GetUp() * height
+		
+		render.DrawLine( pos2, pos1, is and Color( 0, 255, 0 ) or Color( 255, 0, 0 ) )
+		render.DrawLine( pos2, center, is and Color( 0, 255, 0 ) or Color( 255, 0, 0 ) )
+	end
+	
+	render.DrawLine( pos, point, is and Color( 0, 255, 0 ) or Color( 255, 0, 0 ) )
+	debugoverlay.Sphere( point, sphereRad,0.01, is2 and Color( 0, 255, 0 ) or Color( 255, 0, 0 ) )
+end
+</code>
+</example>

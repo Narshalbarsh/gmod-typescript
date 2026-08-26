@@ -1,0 +1,17 @@
+<function name="IsMounted" parent="Global" type="libraryfunc">
+	<description>Checks whether or not a game is currently mounted. Uses data given by <page>engine.GetGames</page>.</description>
+	<realm>Shared and Menu</realm>
+	<file line="407-L431">lua/includes/util.lua</file>
+	<args>
+		<arg name="game" type="string">The game string/app ID to check.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">True if the game is mounted.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Check if Counter-Strike: Source is mounted.</description>
+	<code>IsMounted('cstrike')</code>
+
+</example>

@@ -1,0 +1,13 @@
+<function name="InvalidateLayout" parent="Panel" type="classfunc">
+	<description>
+Causes the panel to re-layout in the next frame. During the layout process  <page>PANEL:PerformLayout</page> will be called on the target panel.
+
+You should avoid calling this function every frame.
+
+<bug issue="2574">Using this on a panel after clicking on a docked element will cause docked elements to reorient themselves incorrectly. This can be fixed by assigning a unique <page>Panel:SetZPos</page> to each docked element.</bug>
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="layoutNow" type="boolean" default="false">If true the panel will re-layout instantly and not wait for the next frame.</arg>
+	</args>
+</function>

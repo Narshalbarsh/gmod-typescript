@@ -1,0 +1,7 @@
+<function name="GetImage" parent="DImageButton" type="panelfunc">
+	<description>Returns the "image" of the <page>DImageButton</page>. Equivalent of <page>DImage:GetImage</page>.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="string">The path to the image that is loaded.</ret>
+	</rets>
+</function>

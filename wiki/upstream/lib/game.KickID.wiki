@@ -1,0 +1,11 @@
+<function name="KickID" parent="game" type="libraryfunc">
+	<description>Kicks a player from the server. This can be ran before the player has spawned.</description>
+	<realm>Server</realm>
+
+	<args>
+		<arg name="id" type="string"> <page text="UserID">Player:UserID</page>, <page text="SteamID">Player:SteamID</page> or <page text="SteamID64">Player:SteamID64</page> of the player to kick. Uses SteamID32 eg STEAM_0:0:00000000.</arg>
+		<arg name="reason" type="string" default="No reason given">Reason to display to the player. This can span across multiple lines.
+
+<warning>This will be shortened to ~512 chars, though this includes the command itself and the player index so will realistically be more around ~483. It is recommended to avoid going near the limit to avoid truncation.</warning></arg>
+	</args>
+</function>

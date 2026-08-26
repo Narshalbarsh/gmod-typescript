@@ -1,0 +1,10 @@
+<function name="SetDynamicImage" parent="IMaterial" type="classfunc">
+	<description>
+		Changes the Material into the give Image.
+		<internal>This is used by the Background to change the Image.</internal>
+	</description>
+	<realm>Menu</realm>
+	<args>
+		<arg name="path" type="string">The path to a Image.</arg>
+	</args>
+</function>

@@ -1,0 +1,12 @@
+<function name="IsLastFrame" parent="frame_blend" type="libraryfunc">
+	<description>
+<internal></internal>
+
+
+Returns whether the current frame is the last frame?
+	</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the current frame is the last frame?</ret>
+	</rets>
+</function>

@@ -1,0 +1,12 @@
+<function name="SetAutoSize" parent="DForm" type="panelfunc">
+	<realm>Client and Menu</realm>
+	<file line="6">lua/vgui/dform.lua</file>
+	<description>
+		<deprecated></deprecated>
+
+		an <page>Global.AccessorFunc</page> that does nothing
+	</description>
+	<args>
+		<arg type="boolean"></arg>
+	</args>
+</function>

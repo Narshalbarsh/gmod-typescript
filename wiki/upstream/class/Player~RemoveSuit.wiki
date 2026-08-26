@@ -1,0 +1,4 @@
+<function name="RemoveSuit" parent="Player" type="classfunc">
+	<description>Strips the player's suit item.</description>
+	<realm>Server</realm>
+</function>

@@ -1,0 +1,27 @@
+<function name="CopyRenderTargetToTexture" parent="render" type="libraryfunc">
+	<description>Copies the currently active Render Target to the specified texture.
+		<warning>This does not copy the Depth buffer, no method for that is known at this moment so a common workaround is to store the source texture somewhere else, perform your drawing operations, save the result somewhere else and reapply the source texture.
+		</warning>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="Target" type="ITexture">The texture to copy to.</arg>
+	</args>
+</function>
+
+<example>
+	<description>This is how it's used in <page>render.CopyTexture</page>.</description>
+	<code>
+function render.CopyTexture( from, to )
+
+	local OldRT = render.GetRenderTarget()
+
+		render.SetRenderTarget( from )
+		render.CopyRenderTargetToTexture( to )
+
+	render.SetRenderTarget( OldRT )
+
+end
+	</code>
+
+</example>

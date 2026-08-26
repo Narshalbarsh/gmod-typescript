@@ -1,0 +1,11 @@
+<function name="GetViewMatrix" parent="cam" type="libraryfunc">
+	<description>Returns a copy of the view matrix. Also see <page>cam.GetProjectionMatrix</page>.
+
+Will return Identity matrix in 2D Render context. In this case use <page>cam.Start3D</page>. See <page text="Render Hook Order">Render_Order</page>.
+	</description>
+	<added>2026.06.03</added>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="VMatrix">The currently active view matrix.</ret>
+	</rets>
+</function>

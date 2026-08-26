@@ -1,0 +1,46 @@
+<function name="Add" parent="Panel" type="classfunc">
+	<file line="506-L521">lua/includes/extensions/client/panel.lua</file>
+	<description>When provided with a string or table, this function will create a new vgui element with that name and set the parent to the panel that this method is called on. When provided with a panel it will use <page>Panel:SetParent</page> on the provided panel to set it to our source panel</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="object" type="Panel">The panel to be added (parented).</arg>
+	</args>
+	<args name="Class Name">
+		<arg name="class", type="string">The class to be added.</arg>
+	</args>
+	<args name="Panel Table">
+		<arg name="table", type="table">The table to create the panel from.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Panel">New panel</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Create a Panel with <page>vgui.Register</page>, and initialize a <page>DScrollPanel</page> with <page>Panel:Add</page></description>
+<code>
+local PANEL = {}
+
+function PANEL:Init()
+    -- Guarantees only one instance of the frame is open at a time.
+    if IsValid(SingleDFrame) then
+        SingleDFrame:Remove()
+    end
+
+    local sw = ScrW()
+    local sh = ScrH()
+    self:SetSize(sw * 0.25, sh * 0.5)
+    self:SetTitle("Window (Scroll)")
+    self:Center()
+    self:MakePopup()
+
+    self.Canvas = self:Add("DScrollPanel")
+    self.Canvas:Dock(FILL)
+end
+
+
+vgui.Register("DFrameScrollable", PANEL, "DFrame")
+SingleDFrame = vgui.Create("DFrameScrollable")
+</code>
+
+</example>

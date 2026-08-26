@@ -1,0 +1,23 @@
+<function name="SetGlobal2Var" parent="Global" type="libraryfunc">
+	<description>
+Defines a variable to be automatically networked to clients
+
+
+| Allowed Types   |  
+| --------------- |  
+| Angle           |  
+| Boolean         |  
+| Entity          |  
+| Float           |  
+| Int             |  
+| String          |  
+| Vector          |  
+<warning>Trying to network a type that is not listed above will result in a nil value!</warning>
+<note>Running this function clientside will only set it clientside for the client it is called on!</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="index" type="any">Index to identify the global vector with</arg>
+		<arg name="value" type="any">Value to be networked</arg>
+	</args>
+</function>

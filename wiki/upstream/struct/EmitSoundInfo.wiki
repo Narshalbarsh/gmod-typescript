@@ -1,0 +1,36 @@
+<structure>
+	<realm>Shared</realm>
+	<description>Passed as argument of <page>GM:EntityEmitSound</page>.</description>
+	<fields>
+<item name="SoundName" type="string">The file path of the played sound.
+
+Sounds prefixed with ) tell the sound engine that it is a spatial sound; this allows the sound to emit from a specific location within the world.
+
+Sounds prefixed with ^ tell the sound engine that it is a distance based sound. The left channel of the .wav is the 'near' sound that will play when the sound originates close to you, and the right channel is the 'far' sound that will play when the sound originates far from you.</item>
+<item name="OriginalSoundName" type="string">The original file path or soundscript name.
+
+Even if the SoundName value is changed, the OriginalSoundName value will remain the same.
+
+Sounds may be returned as soundscripts (for example, "Weapon_357.Single") instead of the sound's file path. You can use <page>sound.GetProperties</page> to retrieve the actual file path.</item>
+<item name="SoundTime" type="number" default="0">The time at which the sound should be played.
+
+If equal to 0 or CurTime(), the sound is played immediately. If greater than CurTime(), the sound is played with a delay. If less than CurTime(), part of the sound is skipped.</item>
+<item name="DSP" type="number" default="0">The DSP (digital signal processing) preset applied to the sound.
+
+There are approximately 134 different presets defined by the Source engine between 0 and 133. These presets represent different types of 'rooms' or environments.
+
+<page text="DSP Presets">DSP_Presets</page></item>
+<item name="SoundLevel" type="number{SNDLVL}" default="75">The sound's attenuation, a number between 0 (low) and 511 (high)
+
+This determines how fast the sound drops away. A higher value means the sound can be heard farther away.
+
+See <page>Enums/SNDLVL</page>.</item>
+<item name="Pitch" type="number" default="100">The pitch of the played sound, a number between 0 (low) and 255 (high), where 100 is the sound's original pitch.</item>
+<item name="Flags" type="number{SND}" default="0">The bit flags of the played sound. See <page>Enums/SND</page> for available options.</item>
+<item name="Channel" type="number{CHAN}">The sound's channel. See <page>Enums/CHAN</page> for available options.</item>
+<item name="Volume" type="number">The volume of the played sound, return as a decimal number between 0 (low) and 1 (high).</item>
+<item name="Entity" type="Entity">The entity that played the sound.</item>
+<item name="Pos" type="Vector">The origin of the played sound.</item>
+	</fields>
+
+</structure>

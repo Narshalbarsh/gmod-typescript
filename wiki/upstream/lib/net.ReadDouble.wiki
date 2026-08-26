@@ -1,0 +1,11 @@
+<function name="ReadDouble" parent="net" type="libraryfunc">
+	<description>
+Reads a double-precision number from the received net message.
+
+<warning>You **must** read information in same order as you write it.</warning>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The double-precision number, or `0` if no number could be read.</ret>
+	</rets>
+</function>

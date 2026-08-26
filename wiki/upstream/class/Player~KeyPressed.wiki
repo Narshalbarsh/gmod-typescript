@@ -1,0 +1,33 @@
+<function name="KeyPressed" parent="Player" type="classfunc">
+	<description>Gets whether a key was just pressed this tick.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="key" type="number">Corresponds to an <page>Enums/IN</page>. You can use <page>bit.bor</page> here (see example 2)</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Was pressed or not</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints whenever the first player first starts pressing <key>+FORWARD</key> key (<key>W</key> on QWERTY keyboards).</description>
+	<code>
+hook.Add( "Tick", "CheckPlayer1Forward", function()
+	if Entity( 1 ):KeyPressed( IN_FORWARD ) then
+		print( "Player1 just started moving forward!" )
+	end
+end )
+	</code>
+</example>
+
+<example>
+	<description>Respawn the player when pressing <key>+ATTACK</key>, <key>+ATTACK2</key> or <key>+JUMP</key> (defaults to <key>LMB</key>, <key>RMB</key> and <key>SPACE</key> respectively)</description>
+	<code>
+local respawnKeys = bit.bor( IN_ATTACK, IN_ATTACK2, IN_JUMP )
+hook.Add( "PlayerDeathThink", "DoRespawn", function( ply )
+	if ply:KeyPressed( respawnKeys ) then
+		ply:Spawn()
+	end
+end )
+	</code>
+</example>

@@ -1,0 +1,7 @@
+<function name="EngineScheduleFinish" parent="ENTITY" type="hook">
+	<description>Called whenever an engine schedule is finished; either the last task within the engine schedule has been finished or the schedule has been interrupted by an interrupt condition. 
+<note>This hook only exists for `ai` type [SENTs](Scripted_Entities).</note>
+<note>This hook isn't called when the engine schedule is failed, the schedule is cleared with <page>NPC:ClearSchedule</page> or <page>NPC:SetSchedule</page> has been called. </note>
+</description>
+	<realm>Server</realm>
+</function>

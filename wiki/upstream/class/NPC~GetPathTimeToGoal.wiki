@@ -1,0 +1,7 @@
+<function name="GetPathTimeToGoal" parent="NPC" type="classfunc">
+	<realm>Server</realm>
+	<description>Returns the amount of time it will take for the NPC to get to its Target Goal.</description>
+	<rets>
+		<ret name="" type="number">The amount of time to get to the target goal.</ret>
+	</rets>
+</function>

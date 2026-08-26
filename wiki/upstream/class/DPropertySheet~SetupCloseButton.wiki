@@ -1,0 +1,8 @@
+<function name="SetupCloseButton" parent="DPropertySheet" type="panelfunc">
+	<file line="391-L403">lua/vgui/dpropertysheet.lua</file>
+	<description>Creates a close button on the right side of the <page>DPropertySheet</page> that will run the given callback function when pressed.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="func" type="function">Callback function to be called when the close button is pressed.</arg>
+	</args>
+</function>

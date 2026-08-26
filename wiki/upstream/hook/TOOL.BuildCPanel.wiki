@@ -1,0 +1,34 @@
+<function name="BuildCPanel" parent="TOOL" type="hook">
+	<description>Called when the tool's control panel needs to be rebuilt.
+
+<warning>Due to historical reasons, this hook does not provide the tool object as `self`! See examples.</warning>
+</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="cpanel" type="Panel">The <page>DForm</page> control panel to add settings to.</arg>
+	</args>
+</function>
+
+<example>
+<description>
+Shows how to use this hook properly.
+</description>
+<code>
+-- Build defaults for the preset system.
+local ConVarsDefault = TOOL:BuildConVarList()
+
+-- Please note that this function is defined with a dot (.), not a colon (:)!!!
+-- This is important! You will not be able to access "self" in this function.
+function TOOL.BuildCPanel( CPanel )
+
+	CPanel:AddControl( "Header", { Description = "#tool.ballsocket.help" } )
+
+	CPanel:AddControl( "ComboBox", { MenuButton = 1, Folder = "ballsocket", Options = { [ "#preset.default" ] = ConVarsDefault }, CVars = table.GetKeys( ConVarsDefault ) } )
+
+	CPanel:AddControl( "Slider", { Label = "#tool.forcelimit", Command = "ballsocket_forcelimit", Type = "Float", Min = 0, Max = 50000, Help = true } )
+
+	CPanel:AddControl( "CheckBox", { Label = "#tool.nocollide", Command = "ballsocket_nocollide", Help = true } )
+
+end
+</code>
+</example>

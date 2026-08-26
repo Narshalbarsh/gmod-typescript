@@ -1,0 +1,8 @@
+<function name="DrawOutlinedRect" parent="Panel" type="classfunc">
+	<description>Draws a hollow rectangle the size of the panel object this method is called on, with a border width of 1 px. The border colour is set using <page>surface.SetDrawColor</page>. This should only be called within the object's <page>PANEL:Paint</page> or <page>PANEL:PaintOver</page> hooks, as a shortcut for <page>surface.DrawOutlinedRect</page>.
+
+
+<rendercontext hook="false" type="2D"></rendercontext>
+</description>
+	<realm>Client and Menu</realm>
+</function>

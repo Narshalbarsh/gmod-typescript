@@ -1,0 +1,26 @@
+<function name="PlayerShouldTakeDamage" parent="GM" type="hook">
+	<description>Returns true if the player should take damage from the given attacker.
+
+<warning>Applying damage from this hook to the player taking damage will lead to infinite loop/crash.</warning>
+</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ply" type="Player">The player</arg>
+		<arg name="attacker" type="Entity">The attacker</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Allow damage</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Block damages between two players on the same team.</description>
+	<code>
+hook.Add( "PlayerShouldTakeDamage", "AntiTeamkill", function( ply, attacker )
+	if ply:Team() == attacker:Team() then
+		return false -- that will block damage if attacker and ply is on the same team.
+	end
+end )
+	</code>
+
+</example>

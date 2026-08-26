@@ -1,0 +1,14 @@
+<function name="GetCollisionBounds" parent="Entity" type="classfunc">
+	<description>
+Returns an entity's collision bounding box.
+
+In most cases, this will return the same bounding box as <page>Entity:GetModelBounds</page> unless the entity does not have a physics mesh or it has a <page>PhysObj</page> different from the default.
+
+Collision bounds can be previewed in singleplayer via `ent_bbox` console command, while looking at a desired entity and with `developer 1`. (Will appear as an orange wireframe box)
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Vector">The minimum vector of the collision bounds, basically <page>Entity:OBBMins</page>.</ret>
+		<ret name="" type="Vector">The maximum vector of the collision bounds, basically <page>Entity:OBBMaxs</page>.</ret>
+	</rets>
+</function>

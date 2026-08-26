@@ -1,0 +1,7 @@
+<function name="GetHands" parent="Player" type="classfunc">
+	<description>Gets the hands entity of a player</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Entity">The hands entity if players has one</ret>
+	</rets>
+</function>

@@ -1,0 +1,18 @@
+<enum>
+	<realm>Shared</realm>
+	<description>Enumerations used by <page>Global.ParticleEffectAttach</page>.</description>
+	<items>
+<item key="PATTACH_ABSORIGIN" value="0">Particle spawns in entity's origin and does not follow it</item>
+
+<item key="PATTACH_ABSORIGIN_FOLLOW" value="1">Particle attaches to entity's origin and follows the entity</item>
+
+<item key="PATTACH_CUSTOMORIGIN" value="2">Create at a custom origin, but don't follow</item>
+
+<item key="PATTACH_POINT" value="3">Particle attaches to passed to <page>Global.ParticleEffectAttach</page> attachment id, but does not follow the entity</item>
+
+<item key="PATTACH_POINT_FOLLOW" value="4">Particle attaches to passed to <page>Global.ParticleEffectAttach</page> attachment id and follows the entity</item>
+
+<item key="PATTACH_WORLDORIGIN" value="5">Particle spawns in the beginning of coordinates ( Vector( 0, 0, 0 ) ), used for control points that don't attach to an entity</item>
+	</items>
+
+</enum>

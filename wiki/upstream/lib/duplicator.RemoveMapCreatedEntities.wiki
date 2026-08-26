@@ -1,0 +1,9 @@
+<function name="RemoveMapCreatedEntities" parent="duplicator" type="libraryfunc">
+	<description>
+Help to remove certain map created entities before creating the saved entities
+This is obviously so we don't get duplicate props everywhere.
+It should be called before calling Paste.
+	</description>
+	<realm>Server</realm>
+	<file line="993-L1003">lua/includes/modules/duplicator.lua</file>
+</function>

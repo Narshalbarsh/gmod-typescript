@@ -1,0 +1,11 @@
+<function name="SetMoveType" parent="Entity" type="classfunc">
+	<description>
+Sets the entity's move type. This should be called before initializing the physics object on the entity, unless it will override SetMoveType such as <page>Entity:PhysicsInitBox</page>.
+
+Despite existing on client, it doesn't actually do anything on client.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="movetype" type="number">The new movetype, see <page>Enums/MOVETYPE</page></arg>
+	</args>
+</function>

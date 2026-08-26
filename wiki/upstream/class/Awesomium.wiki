@@ -1,0 +1,11 @@
+<panel>
+	<parent>Panel</parent>
+	<realm>Client</realm>
+	<description>
+		<deprecated>You should be using <page>HTML</page> panel, which this is an alias of.</deprecated>
+
+		Base panel for elements using the [Awesomium](http://www.awesomium.com) UI engine.
+
+		<note>On the `x86-64` beta this panel isn't actually Awesomium, its the same as `HTML` (`HtmlPanel`)</note>
+	</description>
+</panel>

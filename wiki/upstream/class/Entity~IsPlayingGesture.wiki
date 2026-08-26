@@ -1,0 +1,14 @@
+<function name="IsPlayingGesture" parent="Entity" type="classfunc">
+	<description>
+Returns whether there's a gesture with the given activity being played.
+
+<note>This function only works on <page>BaseAnimatingOverlay</page> entites!</note>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="activity" type="number">The activity to test. See <page>Enums/ACT</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether there's a gesture is given activity being played.</ret>
+	</rets>
+</function>

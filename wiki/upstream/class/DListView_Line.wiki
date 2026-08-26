@@ -1,0 +1,19 @@
+<panel>
+	<name>DListView_Line</name>
+	<parent>Panel</parent>
+	<realm>Client and Menu</realm>
+	<file line="">lua/vgui/dlistview_line.lua</file>
+	<description>
+		<internal></internal>
+
+		A panel used by <page>DListView</page>
+	</description>
+	<overrides>
+		<page>PANEL:Init</page>
+		<page>PANEL:OnCursorMoved</page>
+		<page>PANEL:OnMousePressed</page>
+		<page>PANEL:ApplySchemeSettings</page>
+		<page>PANEL:Paint</page>
+		<page>PANEL:PerformLayout</page>
+	</overrides>
+</panel>

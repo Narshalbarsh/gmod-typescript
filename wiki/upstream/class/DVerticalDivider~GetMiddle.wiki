@@ -1,0 +1,7 @@
+<function name="GetMiddle" parent="DVerticalDivider" type="panelfunc">
+	<description>Returns the middle content panel of the <page>DVerticalDivider</page>.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="Panel">The middle content panel.</ret>
+	</rets>
+</function>

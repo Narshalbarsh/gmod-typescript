@@ -1,0 +1,155 @@
+<enum>
+	<realm>Shared and Menu</realm>
+	<description>
+Enumerations used by:
+* <page>input.IsKeyDown</page>
+* <page>input.WasKeyPressed</page>
+* <page>input.WasKeyReleased</page>
+* <page>input.WasKeyTyped</page>
+* <page>input.IsKeyTrapping</page>
+* <page>input.GetKeyName</page>
+* <page>input.LookupBinding</page>
+* <page>PANEL:OnKeyCodePressed</page>
+* <page>PANEL:OnKeyCodeReleased</page>
+
+It's also part of the <page>Enums/BUTTON_CODE</page>.
+	</description>
+	<items>
+<item key="KEY_FIRST" value="0"></item>
+<item key="KEY_NONE" value="0"></item>
+<item key="KEY_0" value="1">Normal number 0 key</item>
+<item key="KEY_1" value="2">Normal number 1 key</item>
+<item key="KEY_2" value="3">Normal number 2 key</item>
+<item key="KEY_3" value="4">Normal number 3 key</item>
+<item key="KEY_4" value="5">Normal number 4 key</item>
+<item key="KEY_5" value="6">Normal number 5 key</item>
+<item key="KEY_6" value="7">Normal number 6 key</item>
+<item key="KEY_7" value="8">Normal number 7 key</item>
+<item key="KEY_8" value="9">Normal number 8 key</item>
+<item key="KEY_9" value="10">Normal number 9 key</item>
+<item key="KEY_A" value="11"></item>
+<item key="KEY_B" value="12"></item>
+<item key="KEY_C" value="13"></item>
+<item key="KEY_D" value="14"></item>
+<item key="KEY_E" value="15"></item>
+<item key="KEY_F" value="16"></item>
+<item key="KEY_G" value="17"></item>
+<item key="KEY_H" value="18"></item>
+<item key="KEY_I" value="19"></item>
+<item key="KEY_J" value="20"></item>
+<item key="KEY_K" value="21"></item>
+<item key="KEY_L" value="22"></item>
+<item key="KEY_M" value="23"></item>
+<item key="KEY_N" value="24"></item>
+<item key="KEY_O" value="25"></item>
+<item key="KEY_P" value="26"></item>
+<item key="KEY_Q" value="27"></item>
+<item key="KEY_R" value="28"></item>
+<item key="KEY_S" value="29"></item>
+<item key="KEY_T" value="30"></item>
+<item key="KEY_U" value="31"></item>
+<item key="KEY_V" value="32"></item>
+<item key="KEY_W" value="33"></item>
+<item key="KEY_X" value="34"></item>
+<item key="KEY_Y" value="35"></item>
+<item key="KEY_Z" value="36"></item>
+<item key="KEY_PAD_0" value="37">Keypad number 0 key</item>
+<item key="KEY_PAD_1" value="38">Keypad number 1 key</item>
+<item key="KEY_PAD_2" value="39">Keypad number 2 key</item>
+<item key="KEY_PAD_3" value="40">Keypad number 3 key</item>
+<item key="KEY_PAD_4" value="41">Keypad number 4 key</item>
+<item key="KEY_PAD_5" value="42">Keypad number 5 key</item>
+<item key="KEY_PAD_6" value="43">Keypad number 6 key</item>
+<item key="KEY_PAD_7" value="44">Keypad number 7 key</item>
+<item key="KEY_PAD_8" value="45">Keypad number 8 key</item>
+<item key="KEY_PAD_9" value="46">Keypad number 9 key</item>
+<item key="KEY_PAD_DIVIDE" value="47">Keypad division/slash key (/)</item>
+<item key="KEY_PAD_MULTIPLY" value="48">Keypad asterisk key (*)</item>
+<item key="KEY_PAD_MINUS" value="49">Keypad minus key</item>
+<item key="KEY_PAD_PLUS" value="50">Keypad plus key</item>
+<item key="KEY_PAD_ENTER" value="51">Keypad enter key</item>
+<item key="KEY_PAD_DECIMAL" value="52">Keypad dot key (.)</item>
+<item key="KEY_LBRACKET" value="53"></item>
+<item key="KEY_RBRACKET" value="54"></item>
+<item key="KEY_SEMICOLON" value="55"></item>
+<item key="KEY_APOSTROPHE" value="56"></item>
+<item key="KEY_BACKQUOTE" value="57"></item>
+<item key="KEY_COMMA" value="58"></item>
+<item key="KEY_PERIOD" value="59"></item>
+<item key="KEY_SLASH" value="60"></item>
+<item key="KEY_BACKSLASH" value="61"></item>
+<item key="KEY_MINUS" value="62"></item>
+<item key="KEY_EQUAL" value="63"></item>
+<item key="KEY_ENTER" value="64"></item>
+<item key="KEY_SPACE" value="65"></item>
+<item key="KEY_BACKSPACE" value="66"></item>
+<item key="KEY_TAB" value="67"></item>
+<item key="KEY_CAPSLOCK" value="68"></item>
+<item key="KEY_NUMLOCK" value="69"></item>
+<item key="KEY_ESCAPE" value="70"></item>
+<item key="KEY_SCROLLLOCK" value="71"></item>
+<item key="KEY_INSERT" value="72"></item>
+<item key="KEY_DELETE" value="73"></item>
+<item key="KEY_HOME" value="74"></item>
+<item key="KEY_END" value="75"></item>
+<item key="KEY_PAGEUP" value="76"></item>
+<item key="KEY_PAGEDOWN" value="77"></item>
+<item key="KEY_BREAK" value="78"></item>
+<item key="KEY_LSHIFT" value="79">The left Shift key, has been seen to be triggered by Right Shift in <page>PANEL:OnKeyCodePressed</page></item>
+<item key="KEY_RSHIFT" value="80"></item>
+<item key="KEY_LALT" value="81"></item>
+<item key="KEY_RALT" value="82"></item>
+<item key="KEY_LCONTROL" value="83"></item>
+<item key="KEY_RCONTROL" value="84"></item>
+<item key="KEY_LWIN" value="85">The left Windows key or the Command key on Mac OSX</item>
+<item key="KEY_RWIN" value="86">The right Windows key or the Command key on Mac OSX</item>
+<item key="KEY_APP" value="87"></item>
+<item key="KEY_UP" value="88"></item>
+<item key="KEY_LEFT" value="89"></item>
+<item key="KEY_DOWN" value="90"></item>
+<item key="KEY_RIGHT" value="91"></item>
+<item key="KEY_F1" value="92"></item>
+<item key="KEY_F2" value="93"></item>
+<item key="KEY_F3" value="94"></item>
+<item key="KEY_F4" value="95"></item>
+<item key="KEY_F5" value="96"></item>
+<item key="KEY_F6" value="97"></item>
+<item key="KEY_F7" value="98"></item>
+<item key="KEY_F8" value="99"><warning>By default, it serves as bind "load quick", which loads the save by forcing the player to exit the server.</warning></item>
+<item key="KEY_F9" value="100"></item>
+<item key="KEY_F10" value="101"></item>
+<item key="KEY_F11" value="102"></item>
+<item key="KEY_F12" value="103"></item>
+<item key="KEY_CAPSLOCKTOGGLE" value="104"></item>
+<item key="KEY_NUMLOCKTOGGLE" value="105"></item>
+<item key="KEY_LAST" value="106"></item>
+<item key="KEY_SCROLLLOCKTOGGLE" value="106"></item>
+<item key="KEY_COUNT" value="107"></item>
+<item key="KEY_XBUTTON_A" value="114"></item>⤶
+<item key="KEY_XBUTTON_B" value="115"></item>⤶
+<item key="KEY_XBUTTON_X" value="116"></item>⤶
+<item key="KEY_XBUTTON_Y" value="117"></item>⤶
+<item key="KEY_XBUTTON_LEFT_SHOULDER" value="118"></item>⤶
+<item key="KEY_XBUTTON_RIGHT_SHOULDER" value="119"></item>⤶
+<item key="KEY_XBUTTON_BACK" value="120"></item>⤶
+<item key="KEY_XBUTTON_START" value="121"></item>⤶
+<item key="KEY_XBUTTON_STICK1" value="122"></item>⤶
+<item key="KEY_XBUTTON_STICK2" value="123"></item>⤶
+<item key="KEY_XBUTTON_UP" value="146"></item>⤶
+<item key="KEY_XBUTTON_RIGHT" value="147"></item>⤶
+<item key="KEY_XBUTTON_DOWN" value="148"></item>⤶
+<item key="KEY_XBUTTON_LEFT" value="149"></item>⤶
+<item key="KEY_XSTICK1_RIGHT" value="150"></item>⤶
+<item key="KEY_XSTICK1_LEFT" value="151"></item>⤶
+<item key="KEY_XSTICK1_DOWN" value="152"></item>⤶
+<item key="KEY_XSTICK1_UP" value="153"></item>⤶
+<item key="KEY_XBUTTON_LTRIGGER" value="154"></item>⤶
+<item key="KEY_XBUTTON_RTRIGGER" value="155"></item>⤶
+<item key="KEY_XSTICK2_RIGHT" value="156"></item>⤶
+<item key="KEY_XSTICK2_LEFT" value="157"></item>⤶
+<item key="KEY_XSTICK2_DOWN" value="158"></item>⤶
+<item key="KEY_XSTICK2_UP" value="159"></item>⤶
+	</items>
+	<fieldsonly></fieldsonly>
+
+</enum>

@@ -1,0 +1,29 @@
+<enum>
+	<realm>Shared</realm>
+	<description>Enumerations used by <page>Global.EmitSound</page> and <page>sound.Add</page>.</description>
+	<items>
+<item key="CHAN_REPLACE" value="-1">Used when playing sounds through console commands.</item>
+
+<item key="CHAN_AUTO" value="0">Automatic channel</item>
+
+<item key="CHAN_WEAPON" value="1">Channel for weapon sounds</item>
+
+<item key="CHAN_VOICE" value="2">Channel for NPC voices</item>
+
+<item key="CHAN_ITEM" value="3">Channel for items ( Health kits, etc )</item>
+
+<item key="CHAN_BODY" value="4">Clothing, ragdoll impacts, footsteps, knocking/pounding/punching etc.</item>
+
+<item key="CHAN_STREAM" value="5">Stream channel from the static or dynamic area</item>
+
+<item key="CHAN_STATIC" value="6">A constant/background sound that doesn't require any reaction.<br/><br/>
+**This channel allows same sounds files to play multiple times without cutting out.**</item>
+<item key="CHAN_VOICE2" value="7">TF2s Announcer dialogue channel</item>
+
+<item key="CHAN_VOICE_BASE" value="8">Channels 8-135 (128 channels) are allocated for player voice chat<br/><br/>
+**This channel allows same sounds files to play multiple times without cutting out.**</item>
+
+<item key="CHAN_USER_BASE" value="136">Channels from this and onwards are allocated to game code</item>
+	</items>
+
+</enum>

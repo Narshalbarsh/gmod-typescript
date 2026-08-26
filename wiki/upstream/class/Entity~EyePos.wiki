@@ -1,0 +1,7 @@
+<function name="EyePos" parent="Entity" type="classfunc">
+	<description>Returns the position of an Player/NPC's view.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Vector">View position of the entity.</ret>
+	</rets>
+</function>

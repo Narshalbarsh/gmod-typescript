@@ -1,0 +1,17 @@
+<function name="SetCycle" parent="Entity" type="classfunc">
+	<description>
+Sets the progress of the current animation to a specific value between 0 and 1.
+
+<bug issue="3038">Viewmodels overwrite their animation cycle every frame, for prediction/interpolation purposes.</bug>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="value" type="number">The desired cycle value</arg>
+	</args>
+</function>
+
+<example>
+	<description>Set the entity to be half way through its current sequence</description>
+	<code>ent:SetCycle( .5 )</code>
+
+</example>

@@ -1,0 +1,14 @@
+<function name="GetAdjacentCountAtSide" parent="CNavArea" type="classfunc">
+	<description>
+Returns the amount of <page>CNavArea</page>s that have a connection ( one or two way ) **from** this <page>CNavArea</page> in given direction.
+
+See <page>CNavArea:GetAdjacentCount</page> for a function that returns <page>CNavArea</page> count from/in all sides/directions.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="navDir" type="number">The direction, in which to look for <page>CNavArea</page>s, see <page>Enums/NavDir</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The amount of <page>CNavArea</page>s that have a connection ( one or two way ) **from** this <page>CNavArea</page> in given direction.</ret>
+	</rets>
+</function>

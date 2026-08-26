@@ -1,0 +1,31 @@
+<function name="CreateClientConVar" parent="Global" type="libraryfunc">
+	<description>
+Makes a clientside-only console variable
+
+<note>This function is a wrapper of <page>Global.CreateConVar</page>, with the difference being that FCVAR_ARCHIVE and FCVAR_USERINFO are added automatically when **shouldsave** and **userinfo** are true, respectively.</note>
+
+Although this function is shared, it should only be used clientside.
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="488-L502">lua/includes/util.lua</file>
+	<args>
+		<arg name="name" type="string">Name of the ConVar to be created and able to be accessed.
+
+This cannot be a name of existing console command or console variable. It will silently fail if it is.</arg>
+		<arg name="default" type="string" alttype="number">Default value of the ConVar.</arg>
+		<arg name="shouldsave" type="boolean" default="true">Should the ConVar be saved across sessions in the cfg/client.vdf file.</arg>
+		<arg name="userinfo" type="boolean" default="false">Should the ConVar and its containing data be sent to the server when it has changed. This makes the convar accessible from server using <page>Player:GetInfoNum</page> and similar functions.</arg>
+		<arg name="helptext" type="string" default="">Help text to display in the console.</arg>
+		<arg name="min" type="number" default="nil">If set, the convar cannot be changed to a number lower than this value.</arg>
+		<arg name="max" type="number" default="nil">If set, the convar cannot be changed to a number higher than this value.</arg>
+	</args>
+	<rets>
+		<ret name="" type="ConVar">Created convar.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Creates a ConVar that does nothing and saves.</description>
+	<code>CreateClientConVar("superspeed_enabled", "0", true, false)</code>
+
+</example>

@@ -1,0 +1,17 @@
+<function name="Lerp" parent="Color" type="classfunc">
+	<realm>Shared and Menu</realm>
+	<file line="183-L192">lua/includes/util/color.lua</file>
+
+	<description>Performs linear interpolation between this and given colors.
+	</description>
+	
+	<args>
+		<arg name="target" type="Color">The target color to interpolate towards.</arg>
+		<arg name="fraction" type="number">The interpolation fraction. `0` means fully original color, `0.5` means in the middle between the 2 colors, `1` means fully target color, etc.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Color">
+			The result of linear interpolation.
+		</ret>
+	</rets>
+</function>

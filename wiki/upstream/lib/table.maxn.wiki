@@ -1,0 +1,36 @@
+<function name="maxn" parent="table" type="libraryfunc">
+	<description>Returns the highest numerical key.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="tbl" type="table">The table to search.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The highest numerical key.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Demonstrates how this differs from the **#** operator.</description>
+	<code>
+local tbl = {"One", "Two", [6] = "Six", [42] = "Answer to life, the universe, and everything"}
+
+PrintTable(tbl)
+print("\n" .. #tbl)
+print(table.maxn(tbl))
+	</code>
+	<output>
+
+```
+1	=	One
+2	=	Two
+6	=	Six
+42	=	Answer to life, the universe, and everything
+
+2
+42
+```
+
+Whereas the length operator (**#**) returns the highest `sequential` index, this returns the value of the highest `numeric` index.
+	</output>
+
+</example>

@@ -1,0 +1,8 @@
+<function name="GetConVars" parent="ControlPresets" type="panelfunc">
+	<description>Get a list of all Console Variables being managed by this panel.</description>
+	<realm>Client</realm>
+	<file line="116-L120">gamemodes/sandbox/gamemode/spawnmenu/controls/control_presets.lua</file>
+	<rets>
+		<ret name="" type="table">numbered table of convars</ret>
+	</rets>
+</function>

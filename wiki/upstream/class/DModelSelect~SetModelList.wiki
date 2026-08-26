@@ -1,0 +1,10 @@
+<function name="SetModelList" parent="DModelSelect" type="panelfunc">
+	<description>Called to set the list of models within the panel element.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="models" type="table">Each key is a model path, the value is a kay-value table where they key is a convar name and value is the value to set to that convar.</arg>
+<arg name="convar" type="string"><page>ConVar</page> to set when a model from this list is selected.</arg>
+		<arg name="dontSort" type="boolean">Do not sort the list. (by the `Model` member)</arg>
+		<arg name="dontCallListConVars" type="boolean">If set, only the `convar` from the 2nd argument will be set, not individual convars from the models list.</arg>
+	</args>
+</function>

@@ -1,0 +1,9 @@
+<function name="AddFrozenPhysicsObject" parent="Player" type="classfunc">
+	<description>Adds an entity to the player's list of frozen objects.</description>
+	<realm>Server</realm>
+	<file line="9-L30">gamemodes/base/gamemode/obj_player_extend.lua</file>
+	<args>
+		<arg name="ent" type="Entity">The Entity to add.</arg>
+		<arg name="physobj" type="PhysObj">The physics object of the Entity.</arg>
+	</args>
+</function>

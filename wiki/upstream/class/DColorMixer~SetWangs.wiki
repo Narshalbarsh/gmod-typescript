@@ -1,0 +1,8 @@
+<function name="SetWangs" parent="DColorMixer" type="panelfunc">
+	<description>Show / Hide the colors indicators in DColorMixer</description>
+	<realm>Client and Menu</realm>
+	<file line="175-L181">lua/vgui/dcolormixer.lua</file>
+	<args>
+		<arg name="show" type="boolean">Show / Hide the colors indicators</arg>
+	</args>
+</function>

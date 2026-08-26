@@ -1,0 +1,8 @@
+<function name="UpdateUI" parent="cleanup" type="libraryfunc">
+	<description>
+<internal></internal>
+
+Repopulates the clients cleanup menu.</description>
+	<realm>Client</realm>
+	<file line="207-L238">lua/includes/modules/cleanup.lua</file>
+</function>

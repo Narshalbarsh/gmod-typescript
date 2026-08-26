@@ -1,0 +1,35 @@
+<cat>gameevent</cat>
+<title>server_removeban</title>
+
+<structure>
+	<realm>Shared and Menu</realm>
+	<description>
+		Called when a Player is unbanned using the **removeid** or **removeip** command.
+
+		<note>
+			If the player was banned using **banip** was used the networkid will be an empty string.  
+			If the player was banned using **banid** was used the ip will be an empty string.  
+		</note>
+	</description>
+	<fields>
+		<item type="string" name="networkid">The <page text="SteamID">Player:SteamID</page> of the banned Player.</item>
+		<item type="string" name="ip">The <page text="IPAddress">Player:IPAddress</page> of the banned Player.</item>
+		<item type="string" name="by">The Person who unbanned the Player. Can be Console.</item>
+	</fields>
+</structure>
+
+# Examples
+<example>
+	<description>This is a basic template with the purpose of including all arguments / table variables to make it easily known which values can be accessed.</description>
+	<code>
+gameevent.Listen( "server_removeban" )
+hook.Add( "server_removeban", "server_removeban_example", function( data )
+	local id = data.networkid	// Same as Player:SteamID()
+	local address = data.ip		// Same as Player:IPAddress()
+	local by = data.by			// The Person who banned the Player. Can be Console.
+
+	// Called when a Player is unbanned.
+	
+end )
+	</code>
+</example>

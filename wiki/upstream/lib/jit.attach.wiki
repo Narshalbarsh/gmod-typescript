@@ -1,0 +1,45 @@
+<function name="attach" parent="jit" type="libraryfunc">
+	<description>
+<deprecated>This function was disabled due to security concerns.</deprecated>
+You can attach callbacks to a number of compiler events with jit.attach. The callback can be called:
+
+* when a function has been compiled to bytecode (`"bc"`);
+* when trace recording starts or stops (`"trace"`);
+* as a trace is being recorded (`"record"`);
+* or when a trace exits through a side exit (`"texit"`).
+
+Set a callback with `jit.attach(callback, "event")` and clear the same callback with `jit.attach(callback)`.
+Only one callback can be active per event.
+
+<warning>This function isn't officially documented on LuaJIT wiki, use it at your own risk.</warning>
+	
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="callback" type="function">The callback function.
+
+The arguments passed to the callback depend on the event being reported:
+
+* `"bc"`:
+  * <page>function</page> **func** - The function that's just been recorded
+* `"trace"`:
+  * <page>string</page> **what** - description of the trace event: "flush", "start", "stop", "abort". Available for all events.
+  * <page>number</page> **tr** - The trace number. Not available for flush.
+  * <page>function</page> **func** - The function being traced. Available for start and abort.
+  * <page>number</page> **pc** - The program counter - the bytecode number of the function being recorded (if this a Lua function). Available for start and abort.
+  * <page>number</page> **otr** - start: the parent trace number if this is a side trace, abort: abort code
+  * <page>string</page> **oex** - start: the exit number for the parent trace, abort: abort reason (string)
+* `"record"`:
+  * <page>number</page> **tr** - The trace number. Not available for flush.
+  * <page>function</page> **func** - The function being traced. Available for start and abort.
+  * <page>number</page> **pc** - The program counter - the bytecode number of the function being recorded (if this a Lua function). Available for start and abort.
+  * <page>number</page> **depth** - The depth of the inlining of the current bytecode.
+* `"texit"`:
+  * <page>number</page> **tr** - The trace number. Not available for flush.
+  * <page>number</page> **ex** - The exit number
+  * <page>number</page> **ngpr** - The number of general-purpose and floating point registers that are active at the exit.
+  * <page>number</page> **nfpr** - The number of general-purpose and floating point registers that are active at the exit.
+</arg>
+		<arg name="event" type="string">The event to hook into.</arg>
+	</args>
+</function>

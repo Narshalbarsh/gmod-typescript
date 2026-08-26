@@ -1,0 +1,23 @@
+<function name="SetSchedule" parent="NPC" type="classfunc">
+	<description>Sets the NPC's current schedule.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="schedule" type="number">The NPC schedule, see <page>Enums/SCHED</page>.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Function which forces an NPC to walk to an entity.</description>
+	<code>
+function NPCMoveTo( npc, ent )
+
+	if ( !IsValid( npc ) or !IsValid( ent ) ) then return end
+		
+	npc:SetSaveValue( "m_vecLastPosition", ent:GetPos() )
+	npc:SetSchedule( SCHED_FORCED_GO )
+	-- npc:SetSchedule( SCHED_FORCED_GO_RUN )
+	
+end
+	</code>
+
+</example>

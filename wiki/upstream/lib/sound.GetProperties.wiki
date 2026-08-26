@@ -1,0 +1,10 @@
+<function name="GetProperties" parent="sound" type="libraryfunc">
+	<description>Returns properties of a [sound script](https://developer.valvesoftware.com/wiki/Soundscripts).</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="name" type="string">The name of the sound script</arg>
+	</args>
+	<rets>
+		<ret name="" type="table{SoundData}">The properties of the soundscript. See <page>Structures/SoundData</page></ret>
+	</rets>
+</function>

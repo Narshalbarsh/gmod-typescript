@@ -1,0 +1,10 @@
+<function name="IgnoreZ" parent="cam" type="libraryfunc">
+	<description>Tells the renderer to ignore the depth buffer and draw any upcoming operation "ontop" of everything that was drawn yet.
+
+This is identical to calling `render.DepthRange( 0, 0.01 )` for `true` and  `render.DepthRange( 0, 1 )` for `false`. See <page>render.DepthRange</page>.
+</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="ignoreZ" type="boolean">Determines whenever to ignore the depth buffer or not.</arg>
+	</args>
+</function>

@@ -1,0 +1,4 @@
+<function name="Shuffle" parent="DNotify" type="panelfunc">
+	<description><internal></internal>Used internally to position and fade in/out its <page>DNotify:GetItems</page>.</description>
+	<realm>Client</realm>
+</function>

@@ -1,0 +1,8 @@
+<function name="GetSkin" parent="Panel" type="classfunc">
+	<file line="378-L413">lua/includes/extensions/client/panel.lua</file>
+	<description>Returns the table for the derma skin currently being used by this panel object.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="table">The derma skin table currently being used by this object.</ret>
+	</rets>
+</function>

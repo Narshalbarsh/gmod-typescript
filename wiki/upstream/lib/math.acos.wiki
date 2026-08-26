@@ -1,0 +1,12 @@
+<function name="acos" parent="math" type="libraryfunc">
+	<description>Returns the [arccosine](https://en.wikipedia.org/wiki/Arccosine) of the given number.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="cos" type="number">Cosine value in range of -1 to 1.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">An angle in radians, between 0 and pi, which has the given cos value.
+
+<page>nan</page> if the argument is out of range.</ret>
+	</rets>
+</function>

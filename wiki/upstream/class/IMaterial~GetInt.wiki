@@ -1,0 +1,13 @@
+<function name="GetInt" parent="IMaterial" type="classfunc">
+	<description>Returns the specified material value as a int, rounds the value if its a float, or nil if the value is not set.
+
+<note>Please note that certain material flags such as `$model` are stored in the `$flags` variable and cannot be directly retrieved with this function. See the full list here: <page>Material Flags</page></note>
+</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="materialInt" type="string">The name of the material integer.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The retrieved value as an integer</ret>
+	</rets>
+</function>

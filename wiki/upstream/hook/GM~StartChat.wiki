@@ -1,0 +1,27 @@
+<function name="StartChat" parent="GM" type="hook">
+	<description>
+Runs when the user tries to open the chat box.
+
+<warning>Returning `true` won't stop the chatbox from taking VGUI focus. <page>chat.Close</page> may be of use to mitigate that, or usage of <page>GM:PlayerBindPress</page>.</warning>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="isTeamChat" type="boolean">Whether the message was sent through team chat.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return true to hide the default chat box.</ret>
+	</rets>
+</function>
+
+<example>
+	<code>
+hook.Add( "StartChat", "HasStartedTyping", function( isTeamChat )
+	if ( isTeamChat ) then
+		print( "Player started typing a message in teamchat." )
+	else
+		print( "Player started typing a message." )
+	end
+end )
+	</code>
+
+</example>

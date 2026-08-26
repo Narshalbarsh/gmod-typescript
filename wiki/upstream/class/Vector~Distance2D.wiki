@@ -1,0 +1,15 @@
+<function name="Distance2D" parent="Vector" type="classfunc">
+	<description>
+Returns the Euclidean distance between the vector and the other vector in 2D space. The Z axis is ignored.
+
+<note>This function is more expensive than <page>Vector:Distance2DSqr</page>. However, please see the notes for <page>Vector:Distance2DSqr</page> before using it as squared distances are not the same as Euclidean distances.</note>
+	</description>
+	<added>2023.11.03</added>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="otherVector" type="Vector">The vector to get the distance to.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">Distance between the vectors in 2D space.</ret>
+	</rets>
+</function>

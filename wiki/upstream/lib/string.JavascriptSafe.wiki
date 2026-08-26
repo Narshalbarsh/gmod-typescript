@@ -1,0 +1,25 @@
+<function name="JavascriptSafe" parent="string" type="libraryfunc">
+	<description>Escapes special characters for JavaScript in a string, making the string safe for inclusion in to JavaScript strings.</description>
+	<realm>Shared and Menu</realm>
+	<file line="42-L52">lua/includes/extensions/string.lua</file>
+	<args>
+		<arg name="str" type="string">The string that should be escaped.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The escaped string.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Executes JavaScript on a panel using user input safely.</description>
+	<code>
+local user_input = "The user's input lives in this variable"
+
+local Panel = vgui.Create( "DHTML" )
+Panel:SetURL( "example.com/something.html" )
+Panel:Center()
+Panel:SetSize( 100, 100 )
+Panel:RunJavascript( "MyJavaScriptFunction('" .. string.JavascriptSafe( user_input ) .. "')" )
+	</code>
+
+</example>

@@ -1,0 +1,4 @@
+<function name="UpdateNotches" parent="DNumSlider" type="panelfunc">
+	<description><internal></internal>Updates visual notches on the slider.</description>
+	<realm>Client and Menu</realm>
+</function>

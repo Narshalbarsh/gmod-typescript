@@ -1,0 +1,32 @@
+<function name="Comma" parent="string" type="libraryfunc">
+	<description>Inserts commas for every third digit of a given number.</description>
+	<realm>Shared and Menu</realm>
+	<file line="357-L371">lua/includes/extensions/string.lua</file>
+	<args>
+		<arg name="value" type="number">The input number to commafy</arg>
+		<arg name="separator" type="string" default=",">An optional string that will be used instead of the default comma.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The commafied string</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Demonstrates the use of string.Comma</description>
+	<code>print( string.Comma( 123456789 ) )</code>
+	<output>
+```
+123,456,789
+```
+	</output>
+</example>
+
+<example>
+	<description>Demonstrates the use of the 2nd argument (separator)</description>
+	<code>print( "$" .. string.Comma( 987654321, "." ) )</code>
+	<output>
+```
+$987.654.321
+```
+	</output>
+</example>

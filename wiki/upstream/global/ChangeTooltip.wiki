@@ -1,0 +1,8 @@
+<function name="ChangeTooltip" parent="Global" type="libraryfunc">
+	<description>Automatically called by the engine when a panel is hovered over with the mouse</description>
+	<realm>Client and Menu</realm>
+	<file line="38-L64">lua/includes/util/tooltips.lua</file>
+	<args>
+		<arg name="panel" type="Panel">Panel that has been hovered over</arg>
+	</args>
+</function>

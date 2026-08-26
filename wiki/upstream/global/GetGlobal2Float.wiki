@@ -1,0 +1,18 @@
+<function name="GetGlobal2Float" parent="Global" type="libraryfunc">
+	<description>Returns a float that is shared between the server and all clients.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="index" type="string">The unique index to identify the global value with.</arg>
+		<arg name="default" type="number" default="0">The value to return if the global value is not set.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The global value, or the default if the global value is not set.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>SetGlobal2Float error example</description>
+	<code>SetGlobal2Float("Example", 3.3)
+print(GetGlobal2Float("Example"))</code>
+	<output>3.2999999523163</output>
+</example>

@@ -1,0 +1,8 @@
+<function name="SetNPCWeapon" parent="ContentIcon" type="panelfunc">
+	<description>An <page>Global.AccessorFunc</page> that sets a table of weapon classes for the content icon with "NPC" content type to be randomly chosen from when user tries to spawn the NPC.</description>
+	<realm>Client</realm>
+	<file line="16">gamemodes/sandbox/gamemode/spawnmenu/creationmenu/content/contenticon.lua</file>
+	<args>
+		<arg name="weapons" type="table">A table of weapon classes to be chosen from when user tries to spawn the NPC.</arg>
+	</args>
+</function>

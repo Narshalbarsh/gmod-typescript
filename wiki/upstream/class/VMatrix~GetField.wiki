@@ -1,0 +1,11 @@
+<function name="GetField" parent="VMatrix" type="classfunc">
+	<description>Returns a specific field in the matrix.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="row" type="number">Row of the field whose value is to be retrieved, from 1 to 4</arg>
+		<arg name="column" type="number">Column of the field whose value is to be retrieved, from 1 to 4</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The value of the specified field</ret>
+	</rets>
+</function>

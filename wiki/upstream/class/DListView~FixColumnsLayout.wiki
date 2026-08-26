@@ -1,0 +1,8 @@
+<function name="FixColumnsLayout" parent="DListView" type="panelfunc">
+	<description>
+<internal></internal>
+
+Internal helper function called from the <page>PANEL:PerformLayout</page> of <page>DListView</page>.
+	</description>
+	<realm>Client and Menu</realm>
+</function>

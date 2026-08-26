@@ -1,0 +1,41 @@
+<function name="SetWrap" parent="Panel" type="classfunc">
+	<description>
+Sets whether text wrapping should be enabled or disabled on <page>Label</page> and <page>DLabel</page> panels.
+
+Use <page>DLabel:SetAutoStretchVertical</page> to automatically correct vertical size; <page>Panel:SizeToContents</page> will not set the correct height.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="wrap" type="boolean">`True` to enable text wrapping, `false` otherwise.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Creates two labels in a panel and sets the text wrapping to false and true respectively.</description>
+	<code>
+-- Background panel
+local BGPanel = vgui.Create( "DPanel" )
+BGPanel:SetSize( 300, 130 )
+BGPanel:Center()
+BGPanel:SetBackgroundColor( color_black )
+		
+-- Label with no text wrapping
+local lbl_nowrap = vgui.Create( "DLabel", BGPanel )
+lbl_nowrap:SetPos( 10, 10 )
+lbl_nowrap:SetSize( 280, 50 )		
+lbl_nowrap:SetFont( "GModNotify" )
+lbl_nowrap:SetText( "This is a label that has text wrapping disabled." )
+
+lbl_nowrap:SetWrap( false )
+
+-- Label with text wrapping
+local lbl_wrap = vgui.Create( "DLabel", BGPanel )
+lbl_wrap:SetPos( 10, 70 )
+lbl_wrap:SetSize( 280, 50 )
+lbl_wrap:SetFont( "GModNotify" )
+lbl_wrap:SetText( "This is a label that has text wrapping enabled." )
+
+lbl_wrap:SetWrap( true )
+	</code>
+	<output><image src="Panel_SetWrap_example1.png"/></output>
+</example>

@@ -1,0 +1,7 @@
+<function name="SetMouseWheel" parent="CUserCmd" type="classfunc">
+	<description>Sets the scroll delta.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="speed" type="number">The scroll delta.</arg>
+	</args>
+</function>

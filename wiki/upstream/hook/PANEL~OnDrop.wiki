@@ -1,0 +1,13 @@
+<function name="OnDrop" parent="PANEL" type="hook">
+	<description>
+We're being dropped on something
+We can create a new panel here and return it, so that instead of dropping us - it drops the new panel instead! We remain where we are!
+
+Only works for panels derived from <page>DDragBase</page>.
+	</description>
+	<realm>Client</realm>
+	<file line="379-L389">lua/includes/extensions/client/panel/dragdrop.lua</file>
+	<rets>
+		<ret name="" type="Panel">The panel to drop instead of us. By default you should return self.</ret>
+	</rets>
+</function>

@@ -1,0 +1,11 @@
+<function name="FireTargets" parent="ents" type="libraryfunc">
+	<description>Fires a use event.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="target" type="string">Name of the target entity.</arg>
+		<arg name="activator" type="Entity">Activator of the event.</arg>
+		<arg name="caller" type="Entity">Caller of the event.</arg>
+		<arg name="usetype" type="number{USE}">Use type. See the <page>Enums/USE</page>.</arg>
+		<arg name="value" type="number">This value is passed to <page>ENTITY:Use</page>, but isn't used by any default entities in the engine.</arg>
+	</args>
+</function>

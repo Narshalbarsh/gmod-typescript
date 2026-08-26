@@ -1,0 +1,7 @@
+<function name="ProxyList" parent="matproxy" type="libraryfield">
+	<description>A list of all material proxies registered with <page>matproxy.Add</page>.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="table">The list of all material proxies.</ret>
+	</rets>
+</function>

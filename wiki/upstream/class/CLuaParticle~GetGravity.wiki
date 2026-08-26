@@ -1,0 +1,7 @@
+<function name="GetGravity" parent="CLuaParticle" type="classfunc">
+	<description>Returns the gravity of the particle.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="Vector">The gravity of the particle.</ret>
+	</rets>
+</function>

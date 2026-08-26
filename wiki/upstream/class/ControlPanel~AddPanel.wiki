@@ -1,0 +1,8 @@
+<function name="AddPanel" parent="ControlPanel" type="panelfunc">
+	<description>Adds an item by calling <page>DForm:AddItem</page>.</description>
+	<file line="29-L34">gamemodes/sandbox/gamemode/spawnmenu/controlpanel.lua</file>
+	<realm>Client</realm>
+	<args>
+		<arg name="panel" type="Panel">Panel to add as an item to the control panel.</arg>
+	</args>
+</function>

@@ -1,0 +1,10 @@
+<function name="GetUnFreezable" parent="Entity" type="classfunc">
+	<description>
+Returns if the entity is unfreezable, meaning it can't be frozen with the physgun. By default props are freezable, so this function will typically return false.
+	</description>
+	<realm>Server</realm>
+	<file line="590-L592">lua/includes/extensions/entity.lua</file>
+	<rets>
+		<ret name="" type="boolean">True if the entity is unfreezable, false otherwise.</ret>
+	</rets>
+</function>

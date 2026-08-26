@@ -1,0 +1,8 @@
+<function name="GetMaxLookDistance" parent="NPC" type="classfunc">
+	<description>Returns NPCs max view distance. An NPC will not be able to see enemies outside of this distance.</description>
+	<realm>Server</realm>
+	<added>2023.01.25</added>
+	<rets>
+		<ret name="dist" type="number">The maximum distance the NPC can see at.</ret>
+	</rets>
+</function>

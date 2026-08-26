@@ -1,0 +1,8 @@
+<function name="SetTabbingDisabled" parent="DTextEntry" type="panelfunc">
+	<description>Sets whether or not the panel accepts <key>tab</key> key.
+<note>Disabling tab key prevents the panel from unfocusing by mouse, however, still works for focusing to other keyboard focus.</note></description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="enabled" type="boolean">Whether the <page>DTextEntry</page> should ignore <key>tab</key>.</arg>
+	</args>
+</function>

@@ -1,0 +1,12 @@
+<function name="SetColor" parent="DColorPalette" type="panelfunc">
+	<description>
+<deprecated></deprecated>
+
+Currently does nothing. Intended to "select" the color.
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="224-L226">lua/vgui/dcolorpalette.lua</file>
+	<args>
+		<arg name="clr" type="Color"></arg>
+	</args>
+</function>

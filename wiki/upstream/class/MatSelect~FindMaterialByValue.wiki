@@ -1,0 +1,11 @@
+<function name="FindMaterialByValue" parent="MatSelect" type="panelfunc">
+	<description>Find a <page>DImageButton</page> panel based on the input material path.</description>
+	<realm>Client</realm>
+	<added>2023.09.08</added>
+	<args>
+		<arg name="mat" type="string">The material to find within this <page>MatSelect</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="DImageButton">The found material, or nil.</ret>
+	</rets>
+</function>

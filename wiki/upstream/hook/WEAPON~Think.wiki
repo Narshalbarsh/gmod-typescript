@@ -1,0 +1,18 @@
+<function name="Think" parent="WEAPON" type="hook">
+	<description>
+Called when the weapon thinks.
+
+This hook won't be called during the deploy animation and when using <page>Weapon:DefaultReload</page>. 
+
+<note>If you wish for this hook to be called during the deploy animation, add the following to the model's **ACT_VM_DRAW** sequence: `node "Ready"`</note>
+
+Despite being a predicted hook, this hook is called clientside in single player (for your convenience), however it will not be recognized as a predicted hook via <page>Player:GetCurrentCommand</page>, and will run more often in this case.
+
+This hook will be called before Player movement is processed on the client, and after on the server.
+
+<note>This hook only runs while the weapon is in players hands. It does not run while it is carried by an NPC.</note>
+<bug issue="2855">This will not be run during deploy animations after a serverside-only deploy. This usually happens after picking up and dropping an object with +use.</bug>
+	</description>
+	<realm>Shared</realm>
+	<predicted>Yes</predicted>
+</function>

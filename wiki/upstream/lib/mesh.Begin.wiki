@@ -1,0 +1,109 @@
+
+
+<function name="Begin" parent="mesh" type="libraryfunc">
+	<description>
+
+		Begins creating or modifying a 3D mesh constructed from a given quantity and type of primitive 3D shapes such as triangles and quads.
+
+		The resulting mesh can be stored in an <page>IMesh</page> if it is intended to be drawn multiple times or on multiple frames.
+	</description>
+	<realm>Client</realm>
+
+	<args name="Building an IMesh">
+		<arg name="mesh" type="IMesh">
+			The <page>IMesh</page> that the created mesh will be stored in.
+			
+			If the mesh has already been built, it will instead have its existing vertices modified but cannot have the quantity of vertices changed.
+		</arg>
+		<arg name="primitiveType" type="number">
+			An enum that indicates what the format of the mesh's primitives will be.  
+			For a full list of the available options, see the <page>Enums/MATERIAL</page>.
+		</arg>
+		<arg name="primitiveCount" type="number">
+			The quantity of primitives this mesh will contain as a whole integer number.
+
+			The total number of vertices must not exceed the limit of `65535`.  
+			The number of vertices created by each primitive will depend on the type of primitive used to construct the mesh.
+
+			The expected value of this argument is dependent on the primitive type used.  
+			For a full list of the primitive counts expected by each primitive type, see <page>Enums/MATERIAL</page>. 
+		</arg>
+	</args>
+
+	<args name="Building a Dynamic Mesh">
+		<arg name="primitiveType" type="number">
+			An enum that indicates what the format of the mesh's primitives will be.  
+			For a full list of the available options, see the <page>Enums/MATERIAL</page>.
+		</arg>
+		<arg name="primitiveCount" type="number">
+			The quantity of primitives this mesh will contain as a whole integer number.
+
+			The total number of vertices must not exceed the limit of `65535`.  
+			The number of vertices created by each primitive will depend on the type of primitive used to construct the mesh.
+
+			The expected value of this argument is dependent on the primitive type used.  
+			For a full list of the primitive counts expected by each primitive type, see <page>Enums/MATERIAL</page>. 
+		</arg>
+	</args>
+</function>
+
+<example>
+	<description>
+		Draws a triangle near Vector( 0, 0, 0 ) in the map using a dynamic mesh, a dynamic mesh is good for animated meshes, or otherwise frequently changed rendered meshes.
+	</description>
+	<code>
+local mat = Material( "editor/wireframe" ) -- The material (a wireframe)
+
+local verts = { -- A table of 3 vertices that form a triangle
+	{ pos = Vector( 0,  0,  0 ), u = 0, v = 0 }, -- Vertex 1
+	{ pos = Vector( 10, 0,  0 ), u = 1, v = 0 }, -- Vertex 2
+	{ pos = Vector( 10, 10, 0 ), u = 1, v = 1 }, -- Vertex 3
+}
+
+hook.Add( "PostDrawOpaqueRenderables", "MeshLibTest", function()
+
+	render.SetMaterial( mat ) -- Apply the material
+	mesh.Begin( MATERIAL_TRIANGLES, 1 ) -- Begin writing to the dynamic mesh
+	for i = 1, #verts do
+		mesh.Position( verts[i].pos ) -- Set the position
+		mesh.TexCoord( 0, verts[i].u, verts[i].v ) -- Set the texture UV coordinates
+		mesh.AdvanceVertex() -- Write the vertex
+	end
+	mesh.End() -- Finish writing the mesh and draw it
+end )
+	</code>
+</example>
+
+
+<example>
+	<description>Draws a triangle near Vector( 0, 0, 0 ) in the map using a static mesh, that is, a mesh that is only created once, which is good for performance.
+</description>
+
+
+
+	<code>
+local mat = Material( "editor/wireframe" ) -- The material (a wireframe)
+local obj = Mesh() -- Create the IMesh object
+
+local verts = { -- A table of 3 vertices that form a triangle
+	{ pos = Vector( 0,  0,  0 ), u = 0, v = 0 }, -- Vertex 1
+	{ pos = Vector( 10, 0,  0 ), u = 1, v = 0 }, -- Vertex 2
+	{ pos = Vector( 10, 10, 0 ), u = 1, v = 1 }, -- Vertex 3
+}
+
+mesh.Begin( obj, MATERIAL_TRIANGLES, 1 ) -- Begin writing to the static mesh
+for i = 1, #verts do
+	mesh.Position( verts[i].pos ) -- Set the position
+	mesh.TexCoord( 0, verts[i].u, verts[i].v ) -- Set the texture UV coordinates
+	mesh.AdvanceVertex() -- Write the vertex
+end
+mesh.End() -- Finish writing to the IMesh
+
+hook.Add( "PostDrawOpaqueRenderables", "MeshLibTest", function()
+
+	render.SetMaterial( mat ) -- Apply the material
+	obj:Draw() -- Draw the mesh
+end )
+	</code>
+
+</example>

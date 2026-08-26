@@ -1,0 +1,23 @@
+<type name="Stack" category="classfunc" is="class">
+	<summary>An object returned by <page>util.Stack</page>.
+
+Like a Lua table, a Stack is a container. It follows the principle of LIFO (last in, first out).
+
+The Stack works like a stack of papers: the first page you put down (push) will be the last one you remove (pop). That also means that the last page you put down, will be the first to be removed.</summary>
+</type>
+
+
+<example>
+	<code>
+local NewStack = util.Stack(); -- Creating a Stack
+
+NewStack:Push("Hello World!") -- Push "Hello World!" onto the stack
+NewStack:Push(print) -- Push the print function onto the Stack
+
+local PrintFunc = NewStack:Top() -- Get the print Function
+NewStack:Pop() -- Remove the print Function from the stack
+PrintFunc(NewStack:Top()) -- print "Hello World!"
+NewStack:Pop() -- Remove "Hello World!"
+	</code>
+	<output>Hello World!</output>
+</example>

@@ -1,0 +1,8 @@
+<function name="SetMaxVisionRange" parent="NextBot" type="classfunc">
+	<description>Sets the maximum range the nextbot can see other nextbots/players at. See <page>NextBot:IsAbleToSee</page>.</description>
+	<realm>Server</realm>
+	<added>2020.08.12</added>
+	<args>
+		<arg name="range" type="number">The new vision range to set.</arg>
+	</args>
+</function>

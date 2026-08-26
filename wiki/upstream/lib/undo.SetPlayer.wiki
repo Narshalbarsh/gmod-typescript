@@ -1,0 +1,22 @@
+<function name="SetPlayer" parent="undo" type="libraryfunc">
+	<description>Sets the player which the current undo block belongs to</description>
+	<realm>Server</realm>
+	<file line="288-L295">lua/includes/modules/undo.lua</file>
+	<args>
+		<arg name="ply" type="Player">The player responsible for undoing the block</arg>
+	</args>
+</function>
+
+<example>
+	<description>This example creates a prop_physics, and adds it to the players undo list.</description>
+	<code>
+prop = ents.Create("prop_physics")
+prop:SetModel("models/props_junk/wood_crate001a.mdl")
+prop:Spawn()
+undo.Create("prop")
+ undo.AddEntity(prop)
+ undo.SetPlayer(ply)
+undo.Finish()
+	</code>
+
+</example>

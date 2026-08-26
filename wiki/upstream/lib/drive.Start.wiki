@@ -1,0 +1,9 @@
+<function name="Start" parent="drive" type="libraryfunc">
+	<description>Called when the player first starts driving this entity.</description>
+	<realm>Shared</realm>
+	<file line="114-L134">lua/includes/modules/drive.lua</file>
+	<args>
+		<arg name="ply" type="Player">The player.</arg>
+		<arg name="ent" type="Entity">The entity.</arg>
+	</args>
+</function>

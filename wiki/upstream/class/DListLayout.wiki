@@ -1,0 +1,46 @@
+<panel>
+	<name>DListLayout</name>
+	<parent>DDragBase</parent>
+	<realm>Client and Menu</realm>
+	<description>
+A vertical list of panels that optionally allows child elements to be rearranged with the mouse cursor.
+
+Child panels' widths are set to the width of the DListLayout, and it resizes vertically to accommodate the heights of all children. You can place this inside a <page>DScrollPanel</page> when adding many panels.
+
+To enable the drag & drop rearrangement functionality, call <page>DDragBase:MakeDroppable</page> on the DListLayout with a unique identifier. All panels added following this will be moveable.
+	</description>
+	<overrides>
+		<page>Panel:Init</page>
+		<page>Panel:OnChildAdded</page>
+		<page>Panel:PerformLayout</page>
+		<page>Panel:OnChildRemoved</page>
+		<page>Panel:GenerateExample</page>
+		<page>DDragBase:OnModified</page>
+	</overrides>
+</panel>
+
+<example>
+	<description>Creates a DListLayout within a <page>DFrame</page> and adds 8 <page>DLabel</page>s.</description>
+	<code>
+local frame = vgui.Create("DFrame")
+frame:SetSize(250, 250)
+frame:SetTitle("DListLayout Example")
+frame:MakePopup()
+frame:Center()
+
+local layout = vgui.Create("DListLayout", frame)
+layout:SetSize(100, 100)
+layout:SetPos(20, 50)
+
+--Draw a background so we can see what it's doing
+layout:SetPaintBackground(true)
+layout:SetBackgroundColor(Color(0, 100, 100))
+
+layout:MakeDroppable( "unique_name" ) -- Allows us to rearrange children
+
+for i = 1, 8 do
+	layout:Add( Label( " Label " .. i ) )
+end
+	</code>
+	<output><image src="DListLayout.png"/></output>
+</example>

@@ -1,0 +1,11 @@
+<function name="OnScroll" parent="DPanPanel" type="panelfunc">
+	<description>
+<internal></internal>
+Used internally, called from <page>DPanPanel:ScrollToChild</page>.
+</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="x" type="number"></arg>
+		<arg name="y" type="number"></arg>
+	</args>
+</function>

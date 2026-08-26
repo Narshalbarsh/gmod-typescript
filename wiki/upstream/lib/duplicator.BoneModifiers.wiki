@@ -1,0 +1,7 @@
+<function name="BoneModifiers" parent="duplicator" type="libraryfield">
+	<description>A list of all entity bone modifiers registered with <page>duplicator.RegisterBoneModifier</page>.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="table">The list of all entity bone modifiers.</ret>
+	</rets>
+</function>

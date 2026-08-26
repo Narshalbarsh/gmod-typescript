@@ -1,0 +1,35 @@
+<function name="EyePos" parent="Global" type="libraryfunc">
+	<description>
+Returns the origin of the current render context as calculated by <page>GM:CalcView</page>.
+
+<bug issue="2516">This function is only reliable inside rendering hooks.</bug>
+	</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="Vector">Camera position.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Ensuring `EyePos` returns the correct value outside of render hooks.</description>
+	<code>
+local mins, maxs = Vector( -5, -5, -5 ), Vector( 5, 5, 5 )
+
+hook.Add( "PreDrawTranslucentRenderables", "FixEyePos", function()
+	EyePos()
+end )
+
+hook.Add( "Think", "Use Eyepos outside of render function", function()
+	local start = EyePos()
+	local dir = gui.ScreenToVector( gui.MousePos() )
+	local trace = util.TraceLine({
+		start = start,
+		endpos = start + ( dir * 10000 ),
+		filter = { ply }
+	})
+
+	debugoverlay.Box( trace.HitPos, mins, maxs )
+end )
+	</code>
+	<output>Draws a white box in the world where you point the mouse to. Requires the **developer** convar to be set to `1`.</output>
+</example>

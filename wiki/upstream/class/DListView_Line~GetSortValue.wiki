@@ -1,0 +1,12 @@
+<function name="GetSortValue" parent="DListView_Line" type="panelfunc">
+	<description>Returns the data stored on given cell of this line.
+
+	Used in the <page>DListView:SortByColumn</page> function in case you want to sort with something else than the text.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="column" type="number">The number of the column to write the text from, starts with 1.</arg>
+	</args>
+	<rets>
+		<ret name="data" type="any">The data that is set for given column of this line, if any.</ret>
+	</rets>
+</function>

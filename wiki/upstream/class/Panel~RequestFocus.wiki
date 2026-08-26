@@ -1,0 +1,4 @@
+<function name="RequestFocus" parent="Panel" type="classfunc">
+	<description>Attempts to obtain focus for this panel.</description>
+	<realm>Client and Menu</realm>
+</function>

@@ -1,0 +1,12 @@
+<function name="GetIPAddress" parent="game" type="libraryfunc">
+	<description>
+Returns the public IP address and port of the current server. This will return the IP/port that you are connecting through when ran clientside.
+<note>Returns "loopback" in singleplayer.</note>
+
+<bug issue="3001">Returns "0.0.0.0:`port`" on the server when called too early, including in <page>GM:Initialize</page> and <page>GM:InitPostEntity</page>. This bug seems to only happen the first time a server is launched, and will return the correct value after switching maps.</bug>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="string">The IP address and port in the format "x.x.x.x:x".</ret>
+	</rets>
+</function>

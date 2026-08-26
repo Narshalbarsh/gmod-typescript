@@ -1,0 +1,14 @@
+<function name="BytesWritten" parent="net" type="libraryfunc">
+	<description>
+Returns the size of the current message.
+
+<note>This will include 3 extra bytes (24 bits) used by the engine internally to send the data over the network.</note>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The amount of **bytes** written to the current net message.
+Returns `nil` if no net message has been started.</ret>
+		<ret name="" type="number">The amount of **bits** written to the current net message.
+Returns `nil` if no net message has been started.</ret>
+	</rets>
+</function>

@@ -1,0 +1,10 @@
+<function name="GetSequenceActivity" parent="Entity" type="classfunc">
+	<description>Return activity id out of sequence id. Opposite of <page>Entity:SelectWeightedSequence</page>.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="seq" type="number">The sequence ID</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The activity ID, ie <page>Enums/ACT</page></ret>
+	</rets>
+</function>

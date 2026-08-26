@@ -1,0 +1,40 @@
+<function name="SetColor" parent="Entity" type="classfunc">
+	<description>Sets the color of an entity.
+
+Some entities may need a custom [render mode](Enums/RENDERMODE) set for transparency to work. See example 2.<br/>
+Entities also must have a proper [render group](Enums/RENDERGROUP) set for transparency to work.
+
+When rendering a model manually via <page>Entity:SetNoDraw</page> inside <page>ENTITY:Draw</page>, you may need to use <page>render.SetColorModulation</page> in the render hook (where you call <page>Entity:DrawModel</page>) instead.
+</description>
+	<realm>Shared</realm>
+	<file line="180-L194">lua/includes/extensions/entity.lua</file>
+	<args>
+		<arg name="color" type="Color" default="Color(255, 255, 255, 255)">The color to set. Uses the <page>Color</page>.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Loop through all players, make them black</description>
+	<code>
+local colBlack = Color( 0, 0, 0, 255 ) -- Creates a black color
+for key, ply in player.Iterator() do -- Loop through all players on the server
+	ply:SetColor(colBlack) -- Sets the players color to colBlack
+end
+	</code>
+
+</example>
+
+
+<example>
+	<description>Creates a wooden crate at 0,0,0 and turns it a transparent green</description>
+	<code>
+local ent = ents.Create("prop_physics")
+ent:SetPos(Vector(0,0,0))
+ent:SetModel("models/props_junk/wood_crate001a.mdl")
+ent:Spawn()
+
+ent:SetColor( Color( 0, 255, 0, 230 ) ) 
+ent:SetRenderMode( RENDERMODE_TRANSCOLOR ) -- You need to set the render mode on some entities in order for the color to change
+	</code>
+
+</example>

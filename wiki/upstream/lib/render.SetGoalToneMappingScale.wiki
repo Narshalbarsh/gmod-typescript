@@ -1,0 +1,11 @@
+<function name="SetGoalToneMappingScale" parent="render" type="libraryfunc">
+	<description>
+Sets the goal HDR tone mapping scale.
+
+Use this in a rendering/think hook as it is reset every frame.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="scale" type="number">The target scale.</arg>
+	</args>
+</function>

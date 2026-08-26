@@ -1,0 +1,13 @@
+<function name="SetModel" parent="Panel" type="classfunc">
+	<description>
+Sets the model to be displayed by <page>SpawnIcon</page>.
+
+<note>This must be called after setting size if you wish to use a different size spawnicon</note>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="ModelPath" type="string">The path of the model to set</arg>
+		<arg name="skin" type="number" default="0">The skin to set</arg>
+		<arg name="bodygroups" type="string" default="nil">The body groups to set. Each single-digit number in the string represents a separate bodygroup, **This argument must be 9 characters in total**.</arg>
+	</args>
+</function>

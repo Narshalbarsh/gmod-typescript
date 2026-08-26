@@ -1,0 +1,14 @@
+<function name="WasKeyTyped" parent="input" type="libraryfunc">
+	<description>
+Returns whether the key is being held down or not.
+
+This function only works in Move hooks, and will detect key events even in main menu or when a typing in a text field.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="key" type="number">The key to test, see <page>Enums/KEY</page></arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether the key is being held down or not.</ret>
+	</rets>
+</function>

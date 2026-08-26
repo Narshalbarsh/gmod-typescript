@@ -1,0 +1,12 @@
+<function name="GetBloomTex1" parent="render" type="libraryfunc">
+	<realm>Client</realm>
+	<description><internal>You probably want to just use a custom render target. See <page>Global.GetRenderTargetEx</page>.</internal>
+
+Returns the Render Target texture used internally for the <page text="Blur">render.BlurRenderTarget</page> <page text="Post Processing">Post-Processing_Materials</page> effect.
+
+Despite its name, this function is not used for the <page text="Bloom">Global.DrawBloom</page> effect.
+	</description>
+	<rets>
+		<ret name="" type="ITexture">The render target texture named `s_pBloomTex1`.</ret>
+	</rets>
+</function>

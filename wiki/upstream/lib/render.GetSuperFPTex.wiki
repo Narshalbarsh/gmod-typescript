@@ -1,0 +1,11 @@
+<function name="GetSuperFPTex" parent="render" type="libraryfunc">
+	<description>
+Returns a floating point texture (RGBA16161616F format) the same resolution as the screen.
+
+<note>The <page text="gmodscreenspace">Shaders/gmodscreenspace</page> doesn't behave as expected when drawing a floating-point texture to an integer texture (e.g. the default render target). Use an UnlitGeneric material instead</note>
+	</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="ITexture">Render target named `__rt_SuperTexture1`.</ret>
+	</rets>
+</function>

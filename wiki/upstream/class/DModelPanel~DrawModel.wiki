@@ -1,0 +1,4 @@
+<function name="DrawModel" parent="DModelPanel" type="panelfunc">
+	<description><internal></internal> Used by the DModelPanel's paint hook to draw the model and background.</description>
+	<realm>Client</realm>
+</function>

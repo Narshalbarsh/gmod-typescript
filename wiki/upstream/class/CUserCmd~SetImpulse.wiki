@@ -1,0 +1,18 @@
+<function name="SetImpulse" parent="CUserCmd" type="classfunc">
+	<description>
+Sets the impulse command to be sent to the server.
+
+Here are a few examples of impulse numbers:
+- `100` toggles their flashlight
+- `101` gives the player all Half-Life 2 weapons with `sv_cheats` set to `1`
+- `200` toggles holstering / restoring the current weapon  
+  When holstered, the `EF_NODRAW` flag is set on the active weapon.
+- `154` toggles noclip
+
+[See full list](https://developer.valvesoftware.com/wiki/Impulse)
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="impulse" type="number">The impulse to send.</arg>
+	</args>
+</function>

@@ -1,0 +1,14 @@
+<function name="ToHex" parent="Color" type="classfunc">
+	<description>Converts a <page>Color</page> to its hexadecimal representation.
+</description>
+	<realm>Shared and Menu</realm>
+	<added>2025.07.15</added>
+	<args>
+		<arg name="" type="boolean" default="false">Whether to forcibly omit the alpha channel from the output.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The hexadecimal representation of the color. (`#RRGGBBAA`)
+
+If the alpha channel is `255`, it will be omitted from the output (`#RRGGBB`)</ret>
+	</rets>
+</function>

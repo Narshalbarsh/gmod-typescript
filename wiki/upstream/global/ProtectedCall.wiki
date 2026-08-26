@@ -1,0 +1,15 @@
+<function name="ProtectedCall" parent="Global" type="libraryfunc">
+	<description>
+Runs a function without stopping the whole script on error.
+
+This function is similar to <page>Global.pcall</page> and <page>Global.xpcall</page> except the errors are still printed and sent to the error handler (i.e. sent to server console if clientside and <page>GM:OnLuaError</page> called).
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="func" type="function">Function to run</arg>
+        <arg name="arguments" type="vararg">Arguments to call the function with.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether the function executed successfully or not</ret>
+	</rets>
+</function>

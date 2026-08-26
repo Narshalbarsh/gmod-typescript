@@ -1,0 +1,73 @@
+<function name="SetWriteDepthToDestAlpha" parent="render" type="libraryfunc">
+	<description>Sets the internal parameter **INT_RENDERPARM_WRITE_DEPTH_TO_DESTALPHA**.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="enable" type="boolean"></arg>
+	</args>
+</function>
+
+<example>
+<description>Draws a "masked" texture.</description>
+<code>
+-- Give the RT a size
+local TEX_SIZE = 512
+
+-- Create the RT
+local tex = GetRenderTargetEx( "ExampleMaskRT", TEX_SIZE, TEX_SIZE, RT_SIZE_OFFSCREEN,
+		 MATERIAL_RT_DEPTH_SHARED --[[IMPORTANT]], 0, 0, IMAGE_FORMAT_RGBA8888 )
+
+-- Create a translucent render-able material for our render target
+local myMat = CreateMaterial( "ExampleMaskRTMat", "UnlitGeneric", {
+	["$basetexture"] = tex:GetName(), -- Make the material use our render target texture
+	["$translucent"] = "1" -- make the drawn material transparent
+} )
+
+local txBackground = Material( "models/weapons/v_toolgun/screen_bg" )
+local mask = Material( "gui/gradient_down" )
+
+--[[
+A few words on the mask image. When creating a custom mask image, it must have an alpha channel which dictates
+what pixels to draw and which not to. The visual color should be all white for this example to work.
+Having lets say a red color mask would tint the final image red.
+]]
+
+function RenderMaskedRT()
+-- Draw the "background" image
+	surface.SetDrawColor( color_white )
+	surface.SetMaterial( txBackground )
+	surface.DrawTexturedRect( 0, 0, TEX_SIZE, TEX_SIZE )
+	-- Animate the background for fun
+	surface.DrawTexturedRectRotated( TEX_SIZE / 2, TEX_SIZE / 2, TEX_SIZE, TEX_SIZE, CurTime() * 20 )
+
+-- Draw the actual mask
+render.SetWriteDepthToDestAlpha( false )
+	render.OverrideBlend( true, BLEND_SRC_COLOR, BLEND_SRC_ALPHA, BLENDFUNC_MIN )
+		surface.SetMaterial( mask )
+		surface.DrawTexturedRect( 0, 0, TEX_SIZE, TEX_SIZE )
+	render.OverrideBlend( false )
+render.SetWriteDepthToDestAlpha( true )
+end
+
+-- Draw it on screen
+hook.Add( "HUDPaint", "DrawExampleMaskMat", function()
+	-- Render animated stuff to the render target
+	render.PushRenderTarget( tex )
+	cam.Start2D()
+		render.Clear( 0, 0, 0, 0 )
+		RenderMaskedRT()
+	cam.End2D()
+	render.PopRenderTarget()
+
+	-- This is just for debugging, to see what it looks like without the mask
+	-- RenderMaskedRT()
+
+	-- Actually draw the Render Target to see the final result.
+	surface.SetDrawColor( color_white )
+	surface.SetMaterial( myMat )
+	surface.DrawTexturedRect( 520, 0, TEX_SIZE, TEX_SIZE )
+end )
+</code>
+<output>
+<upload src="70c/8d7ba1c1119faa7.png" size="226575" name="image.png" />
+</output>
+</example>

@@ -1,0 +1,8 @@
+<function name="SetContentType" parent="ContentIcon" type="panelfunc">
+	<description>An <page>Global.AccessorFunc</page> that sets the content type used to save and restore the content icon in a spawnlist.</description>
+	<realm>Client</realm>
+	<file line="14">gamemodes/sandbox/gamemode/spawnmenu/creationmenu/content/contenticon.lua</file>
+	<args>
+		<arg name="type" type="string">The content type, for example "entity" or "weapon"</arg>
+	</args>
+</function>

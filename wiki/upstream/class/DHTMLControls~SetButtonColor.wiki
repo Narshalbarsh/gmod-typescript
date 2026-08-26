@@ -1,0 +1,7 @@
+<function name="SetButtonColor" parent="DHTMLControls" type="panelfunc">
+	<description>Sets the color of the navigation buttons.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="clr" type="Color">A <page>Color</page></arg>
+	</args>
+</function>

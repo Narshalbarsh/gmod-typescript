@@ -1,0 +1,8 @@
+<function name="GetAddonStatus" parent="Global" type="libraryfunc">
+	<description>Returns if the game was started with either -noaddons or -noworkshop</description>
+	<realm>Menu</realm>
+	<rets>
+		<ret name="noaddons" type="boolean">true if the game was started with -noaddons. (see <page>Command_Line_Parameters</page>)</ret>
+		<ret name="noworkshop" type="boolean">true if the game was started with -noworkshop. (see <page>Command_Line_Parameters</page>)</ret>
+	</rets>
+</function>

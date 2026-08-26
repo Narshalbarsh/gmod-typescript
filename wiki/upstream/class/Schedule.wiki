@@ -1,0 +1,3 @@
+<type name="Schedule" category="classfunc" is="class">
+	<summary>The object returned by <page>ai_schedule.New</page>.</summary>
+</type>

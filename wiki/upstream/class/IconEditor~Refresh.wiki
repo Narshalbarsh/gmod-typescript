@@ -1,0 +1,8 @@
+<function name="Refresh" parent="IconEditor" type="panelfunc">
+	<description>
+Updates the internal <page>DAdjustableModelPanel</page> and <page>SpawnIcon</page>. 
+
+This should be called immediately after setting the SpawnIcon with <page>IconEditor:SetIcon</page>.
+	</description>
+	<realm>Client</realm>
+</function>

@@ -1,0 +1,7 @@
+<function name="GetSpacing" parent="DNotify" type="panelfunc">
+	<description>Returns the spacing between items set by <page>DNotify:SetSpacing</page>.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number"></ret>
+	</rets>
+</function>

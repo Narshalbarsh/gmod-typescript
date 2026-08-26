@@ -1,0 +1,13 @@
+<function name="Incoming" parent="net" type="libraryfunc">
+	<description>
+<internal>You may be looking for <page>net.Receive</page>.</internal>
+
+Function called by the engine to tell the Lua state a message arrived.
+	</description>
+	<realm>Shared</realm>
+	<file line="23-L40">lua/includes/extensions/net.lua</file>
+	<args>
+		<arg name="length" type="number">The message length, in **bits**.</arg>
+		<arg name="client" type="Player">The player that sent the message. This will be `nil` in the client state.</arg>
+	</args>
+</function>

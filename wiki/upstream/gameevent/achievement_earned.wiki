@@ -1,0 +1,28 @@
+<cat>gameevent</cat>
+<title>achievement_earned</title>
+
+<structure>
+	<realm>Shared and Menu</realm>
+	<description>
+			Called when a player earns an achievement.
+	</description>
+	<fields>
+		<item type="number" name="achievement">The achievement ID.</item>
+		<item type="number" name="player">The <page text="UserID">Player:UserID</page> of the player.</item>
+	</fields>
+</structure>
+
+# Examples
+<example>
+	<description>This is a basic template with the purpose of including all arguments / table variables to make it easily known which values can be accessed.</description>
+	<code>
+gameevent.Listen( "achievement_earned" )
+hook.Add( "achievement_earned", "achievement_earned_example", function( data )
+	local achievement = data.achievement 	-- The achievement ID
+	local player = data.player				-- Same as Player:UserID()
+
+	-- Called when a player earns an achievement.
+	
+end )
+	</code>
+</example>

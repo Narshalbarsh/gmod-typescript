@@ -1,0 +1,6 @@
+<function name="Stop" parent="CSoundPatch" type="classfunc">
+	<description>
+Stops the sound from being played.
+	</description>⤶
+	<realm>Shared</realm>⤶
+</function>⤶

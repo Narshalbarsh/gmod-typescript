@@ -1,0 +1,9 @@
+<function name="Entity" parent="umsg" type="libraryfunc">
+	<description>
+<deprecated>You should be using the <page>net</page> instead</deprecated>
+Writes an entity object to the usermessage. (As an entity handle, which means the entity index + its serial number)</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="entity" type="Entity">The entity to be sent.</arg>
+	</args>
+</function>

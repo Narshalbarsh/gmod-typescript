@@ -1,0 +1,7 @@
+<function name="Equip" parent="WEAPON" type="hook">
+	<description>Called when a player or NPC has picked the weapon up.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="NewOwner" type="Entity">The one who picked the weapon up. Can be <page>Player</page> or <page>NPC</page>.</arg>
+	</args>
+</function>

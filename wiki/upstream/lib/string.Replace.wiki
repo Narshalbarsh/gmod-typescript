@@ -1,0 +1,23 @@
+<function name="Replace" parent="string" type="libraryfunc">
+	<description>Replaces all occurrences of the supplied second string.</description>
+	<realm>Shared and Menu</realm>
+	<file line="247-L251">lua/includes/extensions/string.lua</file>
+	<args>
+		<arg name="str" type="string">The string we are seeking to replace an occurrence(s).</arg>
+		<arg name="find" type="string">What we are seeking to replace.</arg>
+		<arg name="replace" type="string">What to replace find with.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The processed string with replacements.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Replaces the word "Garrys" with "Hers".</description>
+	<code>
+local text = "Garrys Mod"
+print(string.Replace(text, "Garrys", "Hers"))
+	</code>
+	<output>Hers Mod</output>
+
+</example>

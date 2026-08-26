@@ -1,0 +1,11 @@
+<function name="GetSortable" parent="DListView" type="panelfunc">
+	<description>
+Returns whether sorting of columns by clicking their headers is allowed or not.
+
+See also <page>DListView:SetSortable</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Whether sorting of columns by clicking their headers is allowed or not</ret>
+	</rets>
+</function>

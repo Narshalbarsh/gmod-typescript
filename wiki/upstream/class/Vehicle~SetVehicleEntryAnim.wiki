@@ -1,0 +1,7 @@
+<function name="SetVehicleEntryAnim" parent="Vehicle" type="classfunc">
+	<description>Sets whether the entry or exit camera animation should be played or not.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="bOn" type="boolean">Whether the entry or exit camera animation should be played or not.</arg>
+	</args>
+</function>

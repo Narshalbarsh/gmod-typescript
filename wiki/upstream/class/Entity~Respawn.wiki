@@ -1,0 +1,9 @@
+<function name="Respawn" parent="Entity" type="classfunc">
+	<description>
+Makes the entity/weapon respawn.
+
+Only usable on HL2/HL:S pickups and any weapons. Seems to be buggy with weapons.
+Very unreliable.
+	</description>
+	<realm>Server</realm>
+</function>

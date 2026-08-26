@@ -1,0 +1,20 @@
+<function name="Base64Decode" parent="util" type="libraryfunc">
+	<description>Decodes the specified string from base64.</description>
+	<realm>Shared and Menu</realm>
+	<added>2020.04.29</added>
+	<args>
+		<arg name="str" type="string">String to decode.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The raw bytes of the decoded string.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Decodes a string.</description>
+	<code>
+local decode = util.Base64Decode( "QmFzZTY0IEVuY29kaW5n" )
+print(decode)
+	</code>
+	<output>`Base64 Encoding`</output>
+</example>

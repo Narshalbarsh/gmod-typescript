@@ -1,0 +1,7 @@
+<function name="GetLastChild" parent="DTree_Node" type="panelfunc">
+	<description>Returns whether this node is the last child on this level or not.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Whether this node is the last child on this level or not.</ret>
+	</rets>
+</function>

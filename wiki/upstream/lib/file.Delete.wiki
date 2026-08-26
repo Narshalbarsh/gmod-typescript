@@ -1,0 +1,20 @@
+<function name="Delete" parent="file" type="libraryfunc">
+	<description>
+Deletes a file or `empty` folder that is relative to the **data** folder. You can't remove any files outside of **data** folder.
+<note>You are able to delete **any** file in the Menu state.</note>
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="name" type="string">The file name.</arg>
+		<arg name="path" type="string" default="DATA">The path to look for the files and directories in. See <page text="this list">File_Search_Paths</page> for a list of valid paths.
+<note>This is only available in the menu state.</note></arg>
+	</args>
+	<rets>
+		<ret name="success" type="boolean" added="2024.06.17"></ret>
+	</rets>
+</function>
+
+<example>
+	<description>Deletes **data/helloworld.txt** file.</description>
+	<code>file.Delete( "helloworld.txt" )</code>
+</example>

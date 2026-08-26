@@ -1,0 +1,89 @@
+<function name="getupvalue" parent="debug" type="libraryfunc">
+	<description>
+<deprecated></deprecated>
+
+Used for getting variable values in an index from the passed function. This does nothing for C functions.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="func" type="function">Function to get the upvalue indexed from.</arg>
+		<arg name="index" type="number">The index in the upvalue array. The max number of entries can be found in <page>debug.getinfo</page>'s "<page text="nups">Structures/DebugInfo</page>" key.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">Name of the upvalue. Will be nil if the index was out of range (&lt; 1 or &gt; <page>debug.getinfo</page>.nups), or the function was defined in C.</ret>
+		<ret name="" type="any">Value of the upvalue.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints the upvalues of some local functions.</description>
+	<code>
+local foo = 5
+local bar = "hello"
+local test = { "table", true, "variable" }
+
+local function DoSomethingWithFoo()
+	-- This code won't be run but the function
+	-- has to reference the variable for
+	-- it to be counted as an upvalue
+	foo = foo + 1
+end
+
+local function DoSomethingWithFooAndBar()
+	foo = foo / 2
+	bar = bar .. " world"
+end
+
+local function DoSomethingWithBarAndTest()
+	test[1] = bar .. "reader!"
+end
+
+
+-- level = stack level to get local variables of
+-- returns a table with <page>string</page> keys representing the variable name
+local function GetUpvalues( func )
+	local info = debug.getinfo( func, "uS" )
+	local variables = {}
+
+	-- Upvalues can't be retrieved from C functions
+	if ( info != nil && info.what == "Lua" ) then
+		local upvalues = info.nups
+
+		for i = 1, upvalues do
+			local key, value = debug.getupvalue( func, i )
+			variables[ key ] = value
+		end
+	end
+
+	return variables
+end
+
+print( "DoSomethingWithFoo:" )
+PrintTable( GetUpvalues( DoSomethingWithFoo ) )
+
+print( "\nDoSomethingWithFooAndBar:" )
+PrintTable( GetUpvalues( DoSomethingWithFooAndBar ) )
+
+print( "\nDoSomethingWithBarAndTest:" )
+PrintTable( GetUpvalues( DoSomethingWithBarAndTest ) )
+	</code>
+	<output>
+
+```
+DoSomethingWithFoo:
+foo	=	5
+
+DoSomethingWithFooAndBar:
+bar	=	hello
+foo	=	5
+
+DoSomethingWithBarAndTest:
+bar	=	hello
+test:
+		1	=	table
+		2	=	true
+		3	=	variable
+```
+
+	</output>
+
+</example>

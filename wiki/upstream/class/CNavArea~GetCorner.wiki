@@ -1,0 +1,10 @@
+<function name="GetCorner" parent="CNavArea" type="classfunc">
+	<description>Returns the vector position of the corner for the given <page>CNavArea</page>.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="cornerid" type="number">The target corner to get the position of, takes <page>Enums/NavCorner</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">The corner position.</ret>
+	</rets>
+</function>

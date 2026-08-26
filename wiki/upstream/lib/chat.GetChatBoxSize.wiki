@@ -1,0 +1,14 @@
+<function name="GetChatBoxSize" parent="chat" type="libraryfunc">
+	<description>Returns the chatbox size.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">The width of the chatbox.</ret>
+		<ret name="" type="number">The height of the chatbox.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints the width and the height of the chatbox.</description>
+	<code>print( chat.GetChatBoxSize() )</code>
+
+</example>

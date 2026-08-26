@@ -1,0 +1,80 @@
+<function name="PassesFilter" parent="Entity" type="classfunc">
+	<description>
+Tests whether the entity passes the entity filter.
+
+This will call <page>ENTITY:PassesFilter</page> on scripted entities of the type "filter".
+
+<note>This function only works on entities of the type "filter". ( filter_* entities, including base game filter entites )</note>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="caller" type="Entity">The initiator of the test.
+
+For example the trigger this filter entity is used in.</arg>
+		<arg name="ent" type="Entity">The entity to test against the entity filter.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether the entity info passes the entity filter.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>
+Ready-to-use entity for controlling Hammer entities through Lua (for example for `trigger_teleport`). This entity works like a <page>CRecipientFilter</page>: filter has a list of allowed and not allowed entities for each trigger. Note, you can add not only players.
+	</description>
+	<code>
+-- entities/filter_lua.lua
+ENT.Type = "filter" -- This should be set or the entity won't work
+ENT.Base = "base_filter" -- Base
+
+function ENT:Initialize()
+	self.Lists = {} -- Creating lists
+end
+
+function ENT:AttachToEntity(ent) -- Attaches filter to the entity
+	ent:SetSaveValue("m_hFilter", self)
+	self.Lists[ent] = {}
+end
+
+function ENT:AddPlayer(ent, ply, shouldTrigger) -- Adds player to the list. `shouldTrigger` decides if the player can use this entity
+	if not self.Lists[ent] then
+		error("Attach filter to the entity first")
+	end
+
+	self.Lists[ent][ply] = not shouldTrigger
+end
+
+function ENT:AddAllPlayers(ent, shouldTrigger) -- Adds all players. Same as ENT:AddPlayer
+	if not self.Lists[ent] then
+		error("Attach filter to the entity first")
+	end
+
+	for k, v in ipairs(player.GetAll()) do
+		self.Lists[ent][v] = not shouldTrigger
+	end
+end
+
+function ENT:PassesFilter(trigger, ent) -- The core of the entity. This decides if the entity is able to use the trigger.
+	return not self.Lists[trigger][ent]
+end
+
+-- autorun/server/filter.lua (this is just an example of usage)
+local function CreateLuaFilter()
+	if LuaFilter then
+		LuaFilter:Remove() -- If we have our entity, remove it
+	end
+
+	LuaFilter = ents.Create("filter_lua") -- Creates the entity
+	LuaFilter:Spawn()
+
+	for k, v in ipairs(ents.FindByClass("trigger_teleport")) do -- Attaching all trigger_teleport's on the map to our entity
+		LuaFilter:AttachToEntity(v) -- Attach
+		LuaFilter:AddAllPlayers(v, false) -- Add all players and set the filter to `false` for them. So all players won't trigger the teleport
+		LuaFilter:AddPlayer(v, Entity(1), true) -- Exclude first player. This makes the first player to be able to use teleport.
+	end
+end
+
+hook.Add("InitPostEntity", "CreateLuaFilter", CreateLuaFilter) -- This automatically creates the entity when map is loaded
+hook.Add("PostCleanupMap", "CreateLuaFilter", CreateLuaFilter) -- This automatically creates the entity after map cleanup
+	</code>
+</example>

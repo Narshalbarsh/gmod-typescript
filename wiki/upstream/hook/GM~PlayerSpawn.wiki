@@ -1,0 +1,48 @@
+<function name="PlayerSpawn" parent="GM" type="hook">
+	<description>
+Called whenever a player spawns, including respawns.
+
+See <page>GM:PlayerInitialSpawn</page> for a hook called only the first time a player spawns.
+
+See the <page text="player_spawn gameevent">gameevent/player_spawn</page> for a shared version of this hook.
+
+<warning>By default, in "base" derived gamemodes, this hook will also call <page>GM:PlayerLoadout</page> and <page>GM:PlayerSetModel</page>, which may override your <page>Entity:SetModel</page> and <page>Player:Give</page> calls. Consider using the other hooks or a 0-second timer.</warning>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="player" type="Player">The player who spawned.</arg>
+		<arg name="transition" type="boolean">If true, the player just spawned from a map transition. You probably want to not touch player's weapons or position if this is set to `true`.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Prints a message when a player spawns.</description>
+	<code>
+function GM:PlayerSpawn( ply )
+    MsgN( ply:Nick() .. " has spawned!" )
+end
+	</code>
+	<output>
+```
+Player1 has spawned!
+```
+	</output>
+
+</example>
+
+
+<example>
+	<description>Prints a message when a player spawns using a hook.</description>
+	<code>
+local function Spawn( ply )
+	print( ply:Nick() .. " has spawned!" )
+end
+hook.Add( "PlayerSpawn", "some_unique_name", Spawn )
+	</code>
+	<output>
+```
+Player1 has spawned!
+```
+	</output>
+
+</example>

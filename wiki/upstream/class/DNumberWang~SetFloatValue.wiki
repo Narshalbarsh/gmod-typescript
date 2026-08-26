@@ -1,0 +1,11 @@
+<function name="SetFloatValue" parent="DNumberWang" type="panelfunc">
+	<description>
+<deprecated></deprecated>
+
+Appears to do nothing.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="val" type="number"></arg>
+	</args>
+</function>

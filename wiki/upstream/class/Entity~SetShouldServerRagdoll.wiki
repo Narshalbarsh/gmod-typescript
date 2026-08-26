@@ -1,0 +1,15 @@
+<function name="SetShouldServerRagdoll" parent="Entity" type="classfunc">
+	<description>
+Sets if entity should create a server ragdoll on death or a client one.
+
+<note>
+This is reset for players when they respawn (<page>Entity:Spawn</page>).
+
+Player ragdolls created with this enabled will have an owner set, see <page>Entity:SetOwner</page> for more information on what effects this has.
+</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="serverragdoll" type="boolean">Set `true` if ragdoll should be created on server, `false` if on client.</arg>
+	</args>
+</function>

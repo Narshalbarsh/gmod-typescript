@@ -1,0 +1,20 @@
+<function name="TotalDeaths" parent="team" type="libraryfunc">
+	<description>Returns the total number of deaths of all players in the team.</description>
+	<file line="105-L115">lua/includes/modules/team.lua</file>
+	<realm>Shared</realm>
+	<args>
+		<arg name="index" type="number">The team index.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">Total deaths in team.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Outputs the name and total deaths of all existing teams.</description>
+	<code>
+for k, v in ipairs( team.GetAllTeams() ) do
+	print( v.Name, team.TotalDeaths( k ) )
+end
+	</code>
+</example>

@@ -1,0 +1,10 @@
+<function name="isentity" parent="Global" type="libraryfunc">
+	<description>Returns if the passed object is an <page>Entity</page>.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="variable" type="any">The variable to check.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">True if the variable is an <page>Entity</page>.</ret>
+	</rets>
+</function>

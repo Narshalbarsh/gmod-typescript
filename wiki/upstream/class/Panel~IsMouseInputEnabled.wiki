@@ -1,0 +1,7 @@
+<function name="IsMouseInputEnabled" parent="Panel" type="classfunc">
+	<description>Returns true if the panel can receive mouse input.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">mouseInputEnabled</ret>
+	</rets>
+</function>

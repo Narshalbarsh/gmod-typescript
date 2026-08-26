@@ -1,0 +1,7 @@
+<function name="GetCurrentAcceleration" parent="CLuaLocomotion" type="classfunc">
+	<description>Returns the current acceleration as a vector</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="Vector">Current acceleration</ret>
+	</rets>
+</function>

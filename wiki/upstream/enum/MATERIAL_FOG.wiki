@@ -1,0 +1,12 @@
+<enum>
+	<realm>Client</realm>
+	<description>Enumerations used by <page>render.GetFogMode</page> and <page>render.FogMode</page>. Clientside only.</description>
+	<items>
+<item key="MATERIAL_FOG_NONE" value="0">No fog</item>
+
+<item key="MATERIAL_FOG_LINEAR" value="1">Linear fog</item>
+
+<item key="MATERIAL_FOG_LINEAR_BELOW_FOG_Z" value="2">For use in conjunction with <page>render.SetFogZ</page>. Does not work if start distance is bigger than end distance. Ignores density setting. Seems to be broken? Used for underwater fog by the engine.</item>
+	</items>
+
+</enum>

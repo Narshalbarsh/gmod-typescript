@@ -1,0 +1,7 @@
+<function name="GetRPM" parent="Vehicle" type="classfunc">
+	<description>Returns the current RPM of the vehicle. This value is fake and doesn't actually affect the vehicle movement.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">The RPM.</ret>
+	</rets>
+</function>

@@ -1,0 +1,36 @@
+<structure>
+	<realm>Server</realm>
+	<description>
+Data structure used by the <page>duplicator</page> to store and load entity data.
+
+It is created by <page>duplicator.CopyEntTable</page> and can be loaded by <page>duplicator.CreateEntityFromTable</page>.
+
+It also shows up in several other contexts:
+* <page>duplicator.RegisterEntityClass</page>
+* <page>ENTITY:OnEntityCopyTableFinish</page>
+* <page>ENTITY:OnDuplicated</page>
+
+<note>In addition to all fields listed here, any field saved on the entity will be saved as-is to this table. For example, if you set `ent.FavoriteFood = "Steak"` before duplicating it, this structure will also contain the field `FavoriteFood` with the value `"Steak"`.</note>
+	</description>
+	<fields>
+<item name="Name" type="string">The entity's name, see <page>Entity:GetName</page>.</item>
+<item name="Class" type="string">The entity's class name, see <page>Entity:GetClass</page>.</item>
+<item name="Pos" type="Vector">The entity's position, relative to the duplication origin point.</item>
+<item name="Angle" type="Angle">The entity's angle, relative to the duplication angle.</item>
+<item name="DT" type="table">The entity's Network Vars, see <page>ENTITY:SetupDataTables</page> and <page>Networking Entities</page>.</item>
+<item name="Model" type="string">The entity's model, see <page>Entity:GetModel</page>.</item>
+<item name="ModelScale" type="number">The entity's model scale, see <page>Entity:GetModelScale</page>. This will only be present if the model scale isn't 1.</item>
+<item name="Skin" type="number">The entity's active skin, see <page>Entity:GetSkin</page>.</item>
+<item name="ColGroup" type="number">The entity's collision group, see <page>Entity:GetCollisionGroup</page>. Uses the <page>Enums/COLLISION_GROUP</page>.</item>
+<item name="Mins" type="Vector">The entity's collision bound minimums, see <page>Entity:GetCollisionBounds</page>.</item>
+<item name="Maxs" type="Vector">The entity's collision bound maximums, see <page>Entity:GetCollisionBounds</page>.</item>
+<item name="PhysicsObjects" type="table">Data about the entity's <page>PhysObj</page>s, see <page>Entity:GetPhysicsObjectNum</page>. The key is the physics object index (starts from 0), and the value is a <page>Structures/PhysicsObjectSave</page>. Unlike other tables in this structure, if there are no physics objects for this entity this will be an empty table.</item>
+<item name="FlexScale" type="number">The entity's Flex Scale, see <page>Entity:GetFlexScale</page>.</item>
+<item name="Flex" type="table">Each flex bone's flex weight, see <page>Entity:GetFlexWeight</page>. The key is the flex's index and the value is the weight. Only flexes with a non-default (nonzero) weight are listed, and if none exist, this field will be nil.</item>
+<item name="BodyG" type="table">The entity's body groups, see <page>Entity:GetBodygroup</page>. The key is the bodygroup ID and the value is the assigned bodygroup number. Only body groups with a non-default (&gt; 0) value are listed, and if none exist, this field will be nil.</item>
+<item name="BoneManip" type="table">Bone manipulation data, see <page>Entity:HasBoneManipulations</page>. The key is the bone index and the value is a <page>Structures/BoneManipulationData</page>. Only bones that have been manipulated with non-default values are listed, and if none exist, this field will be nil.</item>
+<item name="MapCreationID" type="number">The entity's MapCreationID, only exists for entities that were created by the map. See <page>Entity:MapCreationID</page>.</item>
+<item name="WorkshopID" type="number">Deprecated, always 0. See <page>Entity:GetWorkshopID</page>.</item>
+	</fields>
+
+</structure>

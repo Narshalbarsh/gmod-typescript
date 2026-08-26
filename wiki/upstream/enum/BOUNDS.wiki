@@ -1,0 +1,10 @@
+<enum>
+	<realm>Shared</realm>
+	<description>Enumerations used by <page>Entity:SetSurroundingBoundsType</page>.</description>
+	<items>
+<item key="BOUNDS_COLLISION" value="0">Sets the bounds in relation to the entity's collision bounds.</item>
+
+<item key="BOUNDS_HITBOXES" value="2">Sets the bounds to fit all hitboxes of the entity's model.</item>
+	</items>
+
+</enum>

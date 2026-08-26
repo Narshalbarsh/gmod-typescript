@@ -1,0 +1,13 @@
+<function name="SetX" parent="Panel" type="classfunc">
+	<description>
+Sets the X position of the panel.
+
+Uses <page>Panel:SetPos</page> internally.
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="70-L72">lua/includes/extensions/client/panel.lua</file>
+	<added>2021.03.31</added>
+	<args>
+		<arg name="x" type="number">The X coordinate of the position.</arg>
+	</args>
+</function>

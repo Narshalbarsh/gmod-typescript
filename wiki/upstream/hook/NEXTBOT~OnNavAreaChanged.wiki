@@ -1,0 +1,8 @@
+<function name="OnNavAreaChanged" parent="NEXTBOT" type="hook">
+	<description>Called when the nextbot enters a new navigation area.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="old" type="CNavArea">The navigation area the bot just left</arg>
+		<arg name="new" type="CNavArea">The navigation area the bot just entered</arg>
+	</args>
+</function>

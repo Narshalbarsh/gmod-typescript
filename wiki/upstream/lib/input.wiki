@@ -1,0 +1,3 @@
+<type name="input" category="libraryfunc" is="library">
+	<summary>The input library allows you to gather information about the clients input devices (mouse & keyboard), such as the cursor position and whether a key is pressed or not.</summary>
+</type>

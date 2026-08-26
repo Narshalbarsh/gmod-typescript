@@ -1,0 +1,7 @@
+<function name="GetFraction" parent="DProgress" type="panelfunc">
+	<description>Returns the progress bar's fraction. 0 is 0% and 1 is 100%.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">Current fraction of the progress bar.</ret>
+	</rets>
+</function>

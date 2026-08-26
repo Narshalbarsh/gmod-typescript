@@ -1,0 +1,38 @@
+<function name="PositionSpawnIcon" parent="Global" type="libraryfunc">
+	<description>
+Moves the given model to the given position and calculates appropriate camera parameters for rendering the model to an icon.
+
+The output table interacts nicely with <page>Panel:RebuildSpawnIconEx</page> with a few key renames.
+	</description>
+	<realm>Client</realm>
+	<file line="208-L249">lua/includes/util/client.lua</file>
+	<args>
+		<arg name="model" type="Entity">Model that is being rendered to the spawn icon</arg>
+		<arg name="position" type="Vector">Position that the model is being rendered at</arg>
+		<arg name="noAngles" type="boolean">If true the function won't reset the angles to 0 for the model.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">Table of information of the view which can be used for rendering</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Creates a clientside model and then PositionSpawnIcon is used to figure out the appropriate camera parameters for rendering this model.</description>
+	<code>
+local ent = ClientsideModel("models/props_wasteland/cafeteria_table001a.mdl", RENDERGROUP_BOTH)
+local tab = PositionSpawnIcon(ent, vector_origin)
+ent:Remove()
+
+PrintTable(tab)
+	</code>
+	<output>
+```
+angles	=	25.000 220.000 0.000
+fov	=	8.4436927451273
+origin	=	1156.924316 970.773010 704.184265
+zfar	=	1888.5692536466
+znear	=	1
+```
+	</output>
+
+</example>

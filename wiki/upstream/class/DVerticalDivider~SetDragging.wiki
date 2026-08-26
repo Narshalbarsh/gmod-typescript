@@ -1,0 +1,10 @@
+<function name="SetDragging" parent="DVerticalDivider" type="panelfunc">
+	<description>
+<internal></internal>
+Sets whether the divider is being dragged or not.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="isDragging" type="boolean">Setting this to true causes cursor movement to alter the position of the divider.</arg>
+	</args>
+</function>

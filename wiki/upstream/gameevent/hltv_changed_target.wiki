@@ -1,0 +1,30 @@
+<cat>gameevent</cat>
+<title>hltv_changed_target</title>
+
+<structure>
+	<realm>Client and Menu</realm>
+	<description>
+			Called when the HLTV observer target changes.
+	</description>
+	<fields>
+		<item type="number" name="mode">The <page text="OBS_MODE">Enums/OBS_MODE</page>.</item>
+		<item type="number" name="obs_target">The <page text="EntIndex">Entity:EntIndex</page> of the new Target.</item>
+		<item type="number" name="old_target">The <page text="EntIndex">Entity:EntIndex</page> of the old Target.</item>
+	</fields>
+</structure>
+
+# Examples
+<example>
+	<description>This is a basic template with the purpose of including all arguments / table variables to make it easily known which values can be accessed.</description>
+	<code>
+gameevent.Listen( "hltv_changed_target" )
+hook.Add( "hltv_changed_target", "hltv_changed_target_example", function( data )
+	local mode = data.mode				-- The Observer mode
+	local obs_target = data.obs_target	-- Entity:EntIndex() of new Target
+	local old_target = data.old_target	-- Entity:EntIndex() of old Target
+
+	-- Called when the HLTV observer target changes.
+	
+end )
+	</code>
+</example>

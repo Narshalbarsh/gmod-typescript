@@ -1,0 +1,32 @@
+<function name="SetBodyGroups" parent="Entity" type="classfunc">
+	<description>
+		Sets the <page text="Entity's">Entity</page> active Sub Models via a string of <page text="Sub Model IDs">Structures/BodyGroupData#submodels</page> in order from the first <page text="Body Group ID">Structures/BodyGroupData#id</page> to the last.
+
+This is a convenience function for <page>Entity:SetBodygroup</page>.
+		<note>
+			When used on a Weapon, this will modify its viewmodel.
+		</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="subModelIds" type="string">
+			The Sub Model IDs to activate for each Body Group on the Entity's model.
+
+			The first character corresponds with Body Group ID `0`, the second character coressponds to Body Group ID `1`, etc.	
+
+			To support Body Groups with more than `0`-`9` options, values above `9` are represented using alphabetical characters starting with `a` and ending with `z`.
+		</arg>
+	</args>
+</function>
+
+<example>
+	<description>Example of the format</description>
+	<code>Entity(1):SetBodyGroups( "021" )</code>
+	<output>
+		This makes the following changes:  
+  
+		Body Group ID `0` has Sub Model ID `0` made active.  
+		Body Group ID `1` has Sub Model ID `2` set to active.  
+		Body Group ID `2` has Sub Model ID `1` activated.  
+	</output>
+</example>

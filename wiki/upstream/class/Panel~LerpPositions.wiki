@@ -1,0 +1,15 @@
+<function name="LerpPositions" parent="Panel" type="classfunc">
+	<description>
+Redefines the panel object's <page>Panel:SetPos</page> method to operate using frame-by-frame linear interpolation (<page>Global.Lerp</page>). When the panel's position is changed, it will move to the target position at the speed defined. You can undo this with <page>Panel:DisableLerp</page>.
+
+Unlike the other panel animation functions, such as <page>Panel:MoveTo</page>, this animation method will not operate whilst the game is paused. This is because it relies on <page>Global.FrameTime</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="338-L354">lua/includes/extensions/client/panel/animation.lua</file>
+	<args>
+		<arg name="speed" type="number">The speed at which to move the panel. This is affected by the value of `easeOut`. Recommended values are:
+* **0.1 - 10** when `easeOut` is `false`.
+* **0.1 - 1** when `easeOut` is `true`.</arg>
+		<arg name="easeOut" type="boolean">This causes the panel object to 'jump' at the target, slowing as it approaches. This affects the `speed` value significantly, see above.</arg>
+	</args>
+</function>

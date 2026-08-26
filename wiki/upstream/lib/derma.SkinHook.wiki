@@ -1,0 +1,34 @@
+<function name="SkinHook" parent="derma" type="libraryfunc">
+	<description>Checks if a matching hook function exists in the skin _(based on the concatenation of type and name args)_, then calls it. 
+
+This function is used dynamically inside <page>Global.Derma_Hook</page>.</description>
+	<realm>Client and Menu</realm>
+	<file line="187-L200">lua/derma/derma.lua</file>
+	<args>
+		<arg name="type" type="string">The type of hook to run, usually `Paint`.</arg>
+		<arg name="name" type="string">The name of the hook/panel to run. Example: `Button`.</arg>
+		<arg name="panel" type="Panel">The panel to call the hook for.</arg>
+		<arg name="vararg1" type="any" default="nil">First parameter for the panel hook. i.e. width of the panel for.<page text="Paint">PANEL:Paint</page> hooks.</arg>
+		<arg name="vararg2" type="any" default="nil">Second parameter for the panel hook. i.e. height of the panel for.<page text="Paint">PANEL:Paint</page> hooks.</arg>
+	</args>
+	<rets>
+		<ret name="" type="any">The returned variable from the skin hook.</ret>
+	</rets>
+</function>
+
+
+<example name="Basic Usage">
+	<description> Example usage from `dbutton.lua`.</description>
+	<code name="dbutton's paint function">
+function PANEL:Paint( w, h )
+	derma.SkinHook( "Paint", "Button", self, w, h )
+	...
+end
+	</code>
+	<code name="Resulting function call in default skin">
+function SKIN:PaintButton( panel, w, h )
+	...
+end
+	</code>
+
+</example>

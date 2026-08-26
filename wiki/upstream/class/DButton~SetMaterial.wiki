@@ -1,0 +1,18 @@
+<function name="SetMaterial" parent="DButton" type="panelfunc">
+	<file line="54-L73">lua/vgui/dbutton.lua</file>
+	<realm>Client and Menu</realm>
+	<added>2020.08.12</added>
+
+	<description>
+Sets an image to be displayed as the button's background.
+
+See <page>DButton:SetImage</page> for equivalent function that uses file paths instead. Also see <page>DImageButton</page>.
+	</description>
+	
+	
+	<args>
+		<arg name="img" type="IMaterial" default="nil">The material to use. If this is nil, the image background is removed.</arg>
+	</args>
+
+
+</function>

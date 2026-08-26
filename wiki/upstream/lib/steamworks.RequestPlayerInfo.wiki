@@ -1,0 +1,22 @@
+<function name="RequestPlayerInfo" parent="steamworks" type="libraryfunc">
+	<description>Requests information of the player with SteamID64 for later use with <page>steamworks.GetPlayerName</page>.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="steamID64" type="string">The 64bit Steam ID of player.</arg>
+		<arg name="callback" type="function">A callback function with the data when it arrives.
+<callback>
+	<arg type="string" name="name">The player's name.</arg>
+</callback>
+</arg>
+	</args>
+</function>
+
+<example>
+	<description>Gets and prints the steam name of the local player.</description>
+	<code>
+steamworks.RequestPlayerInfo( LocalPlayer():SteamID64(), function( steamName )
+	print( steamName )
+end )
+	</code>
+	<output>The local player's name.</output>
+</example>

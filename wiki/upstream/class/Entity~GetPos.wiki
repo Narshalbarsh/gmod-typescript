@@ -1,0 +1,25 @@
+<function name="GetPos" parent="Entity" type="classfunc">
+	<description>Gets the position of given entity in the world.
+
+See <page>Entity:GetLocalPos</page> for the position relative to the entity's <page>Entity:GetParent</page>.
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Vector">The position of the entity.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Utility command that would give you the position of the entity you are looking at.</description>
+	<code>
+concommand.Add( "entity_pos", function( ply )
+	local tr = ply:GetEyeTrace()
+	if ( IsValid( tr.Entity ) ) then
+		print( "Entity position:", tr.Entity:GetPos() )
+	else
+		print( "Crosshair position:", tr.HitPos )
+	end
+end )
+	</code>
+
+</example>

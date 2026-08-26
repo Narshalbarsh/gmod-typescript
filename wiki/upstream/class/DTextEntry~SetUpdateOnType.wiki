@@ -1,0 +1,7 @@
+<function name="SetUpdateOnType" parent="DTextEntry" type="panelfunc">
+	<description>Sets whether we should fire <page>DTextEntry:OnValueChange</page> every time we type or delete a character or only when Enter is pressed.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="updateOnType" type="boolean"></arg>
+	</args>
+</function>

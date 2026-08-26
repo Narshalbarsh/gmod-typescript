@@ -1,0 +1,20 @@
+<function name="Alive" parent="Entity" type="classfunc">
+	<description>Checks if the entity is considered alive.
+
+Checks entity's internal life state variable. Does not check health, but it is generally expected the health to be 0 or below at the point of an entity being considered dead. This internally looks up the save value `m_lifeState`
+</description>
+<added>2025.01.24</added>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the entity is considered alive.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Sets the entity to return false for :Alive(), useful for npcs/nextbots that don't die at 0 health.</description>
+	<code>
+-- 0 is alive, 1 is "death animation", 2 is dead.
+ent:SetSaveValue("m_lifeState", 2)
+print(ent:Alive())
+	</code>
+</example>

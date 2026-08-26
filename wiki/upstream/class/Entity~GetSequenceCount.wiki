@@ -1,0 +1,7 @@
+<function name="GetSequenceCount" parent="Entity" type="classfunc">
+	<description>Returns the amount of sequences ( animations ) the entity's model has.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The amount of sequences ( animations ) the entity's model has.</ret>
+	</rets>
+</function>

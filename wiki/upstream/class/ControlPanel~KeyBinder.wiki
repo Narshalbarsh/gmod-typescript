@@ -1,0 +1,15 @@
+<function name="KeyBinder" parent="ControlPanel" type="panelfunc">
+	<description>Creates a CtrlNumPad (a Sandbox key binder) panel and adds it as an <page text="item">ControlPanel:AddPanel</page>.</description>
+	<added>2021.12.15</added>
+	<realm>Client</realm>
+	<file line="117-L133">gamemodes/sandbox/gamemode/spawnmenu/controlpanel.lua</file>
+	<args>
+		<arg name="label1" type="string">The label for the left key binder.</arg>
+		<arg name="convar1" type="string">The name of the <page>convar</page> that will store the key code for player selected key of the left key binder.</arg>
+		<arg name="label2" type="string" default="nil">If set and `convar2` is set, the label for the right key binder.</arg>
+		<arg name="convar2" type="string" default="nil">If set and `label2` is set, the name of the <page>convar</page> that will store the key code for player selected key of the right key binder.</arg>
+	</args>
+	<rets>
+		<ret type="CtrlNumPad">The created <page>CtrlNumPad</page> panel.</ret>
+	</rets>
+</function>

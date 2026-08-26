@@ -1,0 +1,140 @@
+<function name="AddPropCategory" parent="spawnmenu" type="libraryfunc">
+	<description>
+Used to add addon spawnlists to the spawnmenu tree. This function should be called within <page>SANDBOX:PopulatePropMenu</page>.
+
+Addon spawnlists will not save to disk if edited.
+
+<warning>You should never try to modify player customized spawnlists!</warning>
+	</description>
+	<realm>Client</realm>
+	<file line="224-L237">lua/includes/modules/spawnmenu.lua</file>
+	<args>
+		<arg name="classname" type="string">A unique classname of the list.</arg>
+		<arg name="name" type="string">The name of the category displayed to the player, e.g. `Comic Props`.</arg>
+		<arg name="contents" type="table">A table of entries for the spawn menu. It must be numerically indexed.
+
+Each member of the table is a sub-table containing a type member, and other members depending on the type.
+
+New content types can be added via <page>spawnmenu.AddContentType</page>.
+
+| <page>string</page> type | Description | Other members |
+| ------------- | ---------- | ----------------- |
+| "header" | a simple header for organization | <page>string</page> text - The text that the header will display |
+| "model" | spawns a model where the player is looking | <page>string</page> model - The path to the model file <br/>	 <page>number</page> skin - The skin for the model to use (optional) <br/> <page>string</page> body - The bodygroups for the model (optional) <br/> <page>number</page> wide - The width of the spawnicon (optional) <br/> <page>number</page> tall - The height of the spawnicon (optional) |
+| "entity" | spawns an entity where the player is looking<br/>(appears in the Entities tab by default) | <page>string</page> spawnname - The filename of the entity, for example "sent_ball" <br/> <page>string</page> nicename - The name of the entity to display <br/> <page>string</page> material - The icon to display, this should be set to `entities/[sent_name].png` <br/>	<page>boolean</page> admin - Whether the entity is only spawnable by admins (optional) |
+| "vehicle" | spawns a vehicle where the player is looking <br/> (appears in the Vehicles tab by default) | <page>string</page> spawnname - The filename of the vehicle <br/> <page>string</page> nicename - The name of the vehicle to display <br/> <page>string</page> material - The icon to display <br/> <page>boolean</page> admin - Whether the vehicle is only spawnable by admins (optional) |
+| "npc" | spawns an NPC where the player is looking <br/> (appears in the NPCs tab by default) | <page>string</page> spawnname - The spawn name of the NPC <br/>	<page>string</page> nicename - The name to display <br/> <page>string</page> material - The icon to display <br/> <page>table</page> weapon - A table of potential weapons (each a string) to give to the NPC.<br/> When spawned, one of these will be chosen randomly each time. <br/> <page>boolean</page> admin - Whether the NPC is only spawnable by admins (optional) |
+| "weapon" | When clicked, gives the player a weapon; <br/> When middle-clicked, spawns a weapon where the player is looking <br/> (appears in the Weapons tab by default) |<page>string</page> spawnname - The spawn name of the weapon <br/> <page>string</page> nicename - The name to display <br/> <page>string</page> material - The icon to display <br/> <page>boolean</page> admin - Whether the weapon is only spawnable by admins (optional) | 
+
+
+</arg>
+		<arg name="icon" type="string">The icon to use in the tree.</arg>
+		<arg name="id" type="number" default="1000">The unique ID number for the spawnlist category. Used to make sub categories. See "parentID" parameter below. If not set, it will be automatically set to ever increasing number, starting with 1000.</arg>
+		<arg name="parentID" type="number" default="0">The unique ID of the parent category. This will make the created category a subcategory of category with given unique ID. `0` makes this a base category (such as `Builder`).</arg>
+		<arg name="needsApp" type="string" default="">The needed game for this prop category, if one is needed. If the specified game is not mounted, the category isn't shown. This uses the shortcut name, e.g. `cstrike`, and not the Steam AppID.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Create a spawn menu with two icons for each type</description>
+	<code>
+hook.Add("PopulatePropMenu", "Add Two Of Each", function()
+	
+	local contents = {}
+	
+	-- Props
+	table.insert( contents, {
+		type = "header",
+		text = "Props"
+	} )
+	table.insert( contents, {
+		type = "model",
+		model = "models/props_c17/oildrum001.mdl"
+	} )
+	table.insert( contents, {
+		type = "model",
+		model = "models/props_wasteland/cargo_container01.mdl",
+		skin = 1,
+		wide = 128,
+		tall = 64
+	} )
+
+	-- Entities
+	table.insert( contents, {
+		type = "header",
+		text = "Entities"
+	} )
+	table.insert( contents, {
+		type = "entity",
+		spawnname = "sent_ball",
+		nicename = "Bouncy Ball",
+		material = "entities/sent_ball.png"
+	} )
+	table.insert( contents, {
+		type = "entity",
+		spawnname = "combine_mine",
+		nicename = "Hopper Mine",
+		material = "entities/combine_mine.png"
+	} )
+
+	-- Vehicles
+	table.insert( contents, {
+		type = "header",
+		text = "Vehicles"
+	} )
+	table.insert( contents, {
+		type = "vehicle",
+		spawnname = "Airboat",
+		nicename = "Half-Life 2 Airboat",
+		material = "entities/Airboat.png"
+	} )
+	table.insert( contents, {
+		type = "vehicle",
+		spawnname = "Chair_Office2",
+		nicename = "Executive's Chair",
+		material = "entities/Chair_Office2.png"
+	} )
+
+	-- NPCs
+	table.insert( contents, {
+		type = "header",
+		text = "NPCs"
+	} )
+	table.insert( contents, {
+		type = "npc",
+		spawnname = "npc_citizen",
+		nicename = "A random citizen",
+		material = "entities/npc_citizen.png",
+		weapon = { "weapon_smg1", "weapon_crowbar" }
+	} )
+	table.insert( contents, {
+		type = "npc",
+		spawnname = "npc_headcrab",
+		nicename = "Headhumper",
+		material = "entities/npc_headcrab.png"
+	} )
+
+	-- Weapons
+	table.insert( contents, {
+		type = "header",
+		text = "Weapons"
+	} )
+	table.insert( contents, {
+		type = "weapon",
+		spawnname = "weapon_crowbar",
+		nicename = "Crowbar",
+		material = "entities/weapon_crowbar.png",
+	} )
+	table.insert( contents, {
+		type = "weapon",
+		spawnname = "weapon_smg1",
+		nicename = "SMG",
+		material = "entities/weapon_smg1.png",
+	} )
+
+	spawnmenu.AddPropCategory( "TwoOfEach", "Two of each type", contents, "icon16/box.png" )
+end )
+	</code>
+	<output><image src="AddPropCategory_Two_of_each.jpeg"/></output>
+
+</example>

@@ -1,0 +1,7 @@
+<function name="GetLeftWidth" parent="DHorizontalDivider" type="panelfunc">
+	<description>Returns the current width of the left side, set by <page>DHorizontalDivider:SetLeftWidth</page> or by the user.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">The current width of the left side</ret>
+	</rets>
+</function>

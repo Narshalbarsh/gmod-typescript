@@ -1,0 +1,7 @@
+<function name="LastShootTime" parent="Weapon" type="classfunc">
+	<description>Returns the time since this weapon last fired a bullet with <page>Entity:FireBullets</page> in seconds. It is not networked.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The time in seconds when the last bullet was fired.</ret>
+	</rets>
+</function>

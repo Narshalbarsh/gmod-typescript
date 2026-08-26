@@ -1,0 +1,7 @@
+<function name="IsUsingLadder" parent="CLuaLocomotion" type="classfunc">
+	<description>Returns whether or not the target in question is on a ladder or not.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="boolean">If the target is on a ladder or not.</ret>
+	</rets>
+</function>

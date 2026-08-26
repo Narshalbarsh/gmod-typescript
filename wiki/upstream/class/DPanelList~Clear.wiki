@@ -1,0 +1,7 @@
+<function name="Clear" parent="DPanelList" type="panelfunc">
+	<description>Hides all child panels, and optionally deletes them.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="remove" type="boolean">Whether to actually delete the panels, not just hide them.</arg>
+	</args>
+</function>

@@ -1,0 +1,12 @@
+<panel>
+	<parent>Panel</parent>
+	<realm>Client and Menu</realm>
+	<file line="">lua/vgui/dsizetocontents.lua</file>
+	<description>
+		A helper panel that will automatically resize itself to fit all its children using <page>Panel:SizeToChildren</page>.
+	</description>
+	<overrides>
+		<page>Panel:Init</page>
+		<page>Panel:PerformLayout</page>
+	</overrides>
+</panel>

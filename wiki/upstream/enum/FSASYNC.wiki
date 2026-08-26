@@ -1,0 +1,23 @@
+<enum>
+	<realm>Shared</realm>
+	<description>
+Used by <page>file.AsyncRead</page>.
+	</description>
+	<items>
+<item key="FSASYNC_ERR_NOT_MINE" value="-8"></item>
+<item key="FSASYNC_ERR_RETRY_LATER" value="-7"></item>
+<item key="FSASYNC_ERR_ALIGNMENT" value="-6"></item>
+<item key="FSASYNC_ERR_FAILURE" value="-5"></item>
+<item key="FSASYNC_ERR_READING" value="-4"></item>
+<item key="FSASYNC_ERR_NOMEMORY" value="-3"></item>
+<item key="FSASYNC_ERR_UNKNOWNID" value="-2"></item>
+<item key="FSASYNC_ERR_FILEOPEN" value="-1"></item>
+<item key="FSASYNC_OK" value="0"></item>
+<item key="FSASYNC_STATUS_PENDING" value="1"></item>
+<item key="FSASYNC_STATUS_INPROGRESS" value="2"></item>
+<item key="FSASYNC_STATUS_ABORTED" value="3"></item>
+<item key="FSASYNC_STATUS_UNSERVICED" value="4"></item>
+	</items>
+	<fieldsonly></fieldsonly>
+
+</enum>

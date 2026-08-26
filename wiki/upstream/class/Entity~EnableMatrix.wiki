@@ -1,0 +1,30 @@
+<function name="EnableMatrix" parent="Entity" type="classfunc">
+	<description>
+Can be used to apply a custom <page>VMatrix</page> to the entity, mostly used for scaling the model by a <page>Vector</page>.
+
+To disable it, use <page>Entity:DisableMatrix</page>.
+
+If your old scales are wrong due to a recent update, use <page>Entity:SetLegacyTransform</page> as a quick fix.
+
+<note>The matrix can also be modified to apply a custom rotation and offset via the <page>VMatrix:SetAngles</page> and <page>VMatrix:SetTranslation</page> functions.</note>
+<bug issue="3502">This does not scale procedural bones, and disables inverse kinematics of the entity.</bug>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="matrixType" type="string">The name of the matrix type.  
+Currently the only matrix type is `"RenderMultiply"`.</arg>
+		<arg name="matrix" type="VMatrix">The matrix to apply before drawing the entity.</arg>
+	</args>
+</function>
+
+<example>
+	<description>To scale a prop's height by 4x</description>
+	<code>
+local scale = Vector(1,1,4)
+
+local mat = Matrix()
+mat:Scale(scale)
+prop:EnableMatrix("RenderMultiply", mat)
+	</code>
+
+</example>

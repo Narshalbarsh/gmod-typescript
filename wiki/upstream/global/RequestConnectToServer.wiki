@@ -1,0 +1,13 @@
+<function name="RequestConnectToServer" parent="Global" type="libraryfunc">
+	<description>
+		<internal>Called by <page>permissions.AskToConnect</page></internal>
+		If the server has the permission "connect" granted, it will instantly connect you to the server.  
+If the permission is not granted it will, it opens a confirmation window to connect to the server.
+		<upload src="ab571/8dc3890a88522bb.png" size="16390" name="connect_dialog.png" />
+	</description>
+	<realm>Menu</realm>
+	<file line="292-L300">lua/menu/openurl.lua</file>
+	<args>
+		<arg name="serverip" type="string">The server ip to connect to</arg>
+	</args>
+</function>

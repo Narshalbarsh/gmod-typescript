@@ -1,0 +1,11 @@
+<function name="OnToggled" parent="DLabel" type="panelhook">
+	<description>
+Called when the toggle state of the label is changed by <page>DLabel:Toggle</page>.
+
+In order to use toggle functionality, you must first call <page>DLabel:SetIsToggle</page> with `true`, as it is disabled by default.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="toggleState" type="boolean">The new toggle state.</arg>
+	</args>
+</function>

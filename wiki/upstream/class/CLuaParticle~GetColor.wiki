@@ -1,0 +1,9 @@
+<function name="GetColor" parent="CLuaParticle" type="classfunc">
+	<description>Returns the color of the particle.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">Red part of the color</ret>
+		<ret name="" type="number">Green part of the color</ret>
+		<ret name="" type="number">Blue part of the color</ret>
+	</rets>
+</function>

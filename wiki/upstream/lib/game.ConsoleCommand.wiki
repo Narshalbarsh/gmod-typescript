@@ -1,0 +1,20 @@
+<function name="ConsoleCommand" parent="game" type="libraryfunc">
+	<description>
+Runs a console command.
+Make sure to add a newline ("\n") at the end of the command.
+
+<warning>If you use data that were received from a client, you should avoid using this function because newline and semicolon (at least) allow the client to run arbitrary commands!
+
+For safety, you are urged to prefer using <page>Global.RunConsoleCommand</page> in this case.</warning>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="stringCommand" type="string">String containing the command and arguments to be ran.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Changes the gravity to 400 (default 600).</description>
+	<code>game.ConsoleCommand("sv_gravity 400\n")</code>
+
+</example>

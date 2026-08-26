@@ -1,0 +1,11 @@
+<function name="Create" parent="effects" type="libraryfunc">
+	<description><internal>You are looking for <page>util.Effect</page>.</internal>Returns the table of the effect specified.</description>
+	<realm>Client</realm>
+	<file line="51-L71">lua/includes/modules/effects.lua</file>
+	<args>
+		<arg name="name" type="string">Effect name.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">The effect table.</ret>
+	</rets>
+</function>

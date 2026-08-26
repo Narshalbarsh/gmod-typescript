@@ -1,0 +1,7 @@
+<function name="Copy" parent="DTileLayout" type="panelfunc">
+	<description>Creates and returns an exact copy of the DTileLayout.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="Panel">The created copy.</ret>
+	</rets>
+</function>

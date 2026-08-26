@@ -1,0 +1,86 @@
+<function name="Explode" parent="string" type="libraryfunc">
+	<description>
+Splits a string up wherever it finds the given separator.
+
+The function <page>string.Split</page> is an alias of this function, except that function doesn't support using patterns.
+
+See <page>string.Implode</page> for the reverse operation of this function.
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="83-L104">lua/includes/extensions/string.lua</file>
+	<args>
+		<arg name="separator" type="string">The string will be separated wherever this sequence is found.</arg>
+		<arg name="str" type="string">The string to split up.</arg>
+		<arg name="withpattern" type="boolean" default="false">Set this to true if your separator is a <page text="pattern">Patterns</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table<string>">Exploded string as a numerical sequential table.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Splits a sentence into a table of the words in it.</description>
+	<code>
+local sentence = "hello there my name is Player1"
+local words = string.Explode( " ", sentence )
+PrintTable( words )
+	</code>
+	<output>
+```
+1 = hello
+2 = there
+3 = my
+4 = name
+5 = is
+6 = Player1
+```
+	</output>
+
+</example>
+
+
+<example>
+	<description>Uses Explode to sort through words that a player says.</description>
+	<code>
+hook.Add( "PlayerSay", "GiveHealth", function( ply, text )
+	local playerInput = string.Explode( " ", text )
+
+	if ( playerInput[1] == "!givehealth" ) then 
+
+		if ( tonumber( playerInput[2] ) ) then
+
+			ply:SetHealth( tonumber( playerInput[2] ) )
+
+			print( ply:Nick() .. " set their health to " .. playerInput[2] )
+
+		end
+
+	end
+
+end)
+	</code>
+	<output>
+```
+Player1 set their health to 100.
+```
+	</output>
+
+</example>
+
+<example>
+	<description>Splits a sentence into a table at every digit.</description>
+	<code>
+local sentence = "Separated 4 every digit like 1 and 2"
+local words = string.Explode("%d", sentence, true)
+PrintTable( words )
+	</code>
+	<output>
+```
+1	=	Separated 
+2	=	 every digit like 
+3	=	 and 
+4	=	
+```
+	</output>
+
+</example>

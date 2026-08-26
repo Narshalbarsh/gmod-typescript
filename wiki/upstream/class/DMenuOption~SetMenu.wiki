@@ -1,0 +1,7 @@
+<function name="SetMenu" parent="DMenuOption" type="panelfunc">
+	<description><internal></internal>Used to set the <page>DMenu</page> for this option.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="pnl" type="Panel">The <page>DMenu</page> for this option.</arg>
+	</args>
+</function>

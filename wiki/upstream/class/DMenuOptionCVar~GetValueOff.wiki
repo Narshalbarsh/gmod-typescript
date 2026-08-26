@@ -1,0 +1,7 @@
+<function name="GetValueOff" parent="DMenuOptionCVar" type="panelfunc">
+	<description>Returns the value of the <page text="console variable">ConVars</page> when the <page>DMenuOptionCVar</page> is not checked.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="string">The value</ret>
+	</rets>
+</function>

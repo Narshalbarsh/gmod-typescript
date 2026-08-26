@@ -1,0 +1,11 @@
+<function name="SetLineHeight" parent="DTree" type="panelfunc">
+	<description>
+Sets the height of each <page>DTree_Node</page> in the tree.
+
+The default value is 17.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="h" type="number">The height to set.</arg>
+	</args>
+</function>

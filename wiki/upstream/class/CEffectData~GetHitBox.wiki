@@ -1,0 +1,7 @@
+<function name="GetHitBox" parent="CEffectData" type="classfunc">
+	<description>Returns the hit box ID of the effect.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The hit box ID of the effect.</ret>
+	</rets>
+</function>

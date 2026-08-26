@@ -1,0 +1,7 @@
+<function name="SetShadowDirection" parent="render" type="libraryfunc">
+	<description>Sets the shadow projection direction.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="shadowDirections" type="Vector">The new shadow direction.</arg>
+	</args>
+</function>

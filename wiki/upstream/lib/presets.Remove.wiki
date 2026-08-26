@@ -1,0 +1,9 @@
+<function name="Remove" parent="presets" type="libraryfunc">
+	<description>Removes a preset entry from a preset group.</description>
+	<realm>Client</realm>
+	<file line="65-L78">lua/includes/modules/presets.lua</file>
+	<args>
+		<arg name="groupname" type="string">Preset group to remove from</arg>
+		<arg name="name" type="string">Name of preset to remove</arg>
+	</args>
+</function>

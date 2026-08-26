@@ -1,0 +1,7 @@
+<function name="IsActive" parent="motionsensor" type="libraryfunc">
+	<description>Return whether a kinect is connected - and active (ie - Start has been called).</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="boolean">Connected and active or not</ret>
+	</rets>
+</function>

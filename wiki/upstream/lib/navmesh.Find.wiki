@@ -1,0 +1,13 @@
+<function name="Find" parent="navmesh" type="libraryfunc">
+	<description>Returns a list of areas within distance, used to find hiding spots by <page>NextBot</page>s for example.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="pos" type="Vector">The position to search around. This position will be used to find the closest area to search from.</arg>
+		<arg name="radius" type="number">Radius to search within</arg>
+		<arg name="stepHeight" type="number">Maximum step up height allowed</arg>
+		<arg name="dropHeight" type="number">Maximum step down (fall distance) allowed</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">A list of found <page>CNavArea</page>s.</ret>
+	</rets>
+</function>

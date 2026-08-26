@@ -1,0 +1,8 @@
+<function name="GetPhysicsPaused" parent="physenv" type="libraryfunc">
+	<description>Returns the pause status of global physics simulation. See <page>physenv.SetPhysicsPaused</page> for the setter.</description>
+	<realm>Shared</realm>
+	<added>2024.12.12</added>
+	<rets>
+		<ret type="boolean">`true` if paused.</ret>
+	</rets>
+</function>

@@ -1,0 +1,12 @@
+<function name="IsEditing" parent="DColorCombo" type="panelfunc">
+	<description>
+Returns true if the panel is currently being edited
+
+More of a internal method, it technically should only ever work (i.e. return true) inside <page>DColorCombo:OnValueChanged</page>.
+	</description>
+	<realm>Client</realm>
+	<file line="57-L61">lua/vgui/dcolorcombo.lua</file>
+	<rets>
+		<ret name="" type="boolean"></ret>
+	</rets>
+</function>

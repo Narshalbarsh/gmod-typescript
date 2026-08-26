@@ -1,0 +1,7 @@
+<function name="GetOverlap" parent="DHorizontalScroller" type="panelfunc">
+	<description>Returns the overlap set by <page>DHorizontalScroller:SetOverlap</page>.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The overlap.</ret>
+	</rets>
+</function>

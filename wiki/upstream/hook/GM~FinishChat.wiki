@@ -1,0 +1,14 @@
+<function name="FinishChat" parent="GM" type="hook">
+	<description>Runs when user cancels/finishes typing.</description>
+	<realm>Client</realm>
+	<file line="237-L238">gamemodes/base/gamemode/cl_init.lua</file>
+</function>
+
+<example>
+	<description>Prints `User has closed the chatbox.` when player closes their chat or sends the message.</description>
+	<code>
+hook.Add( "FinishChat", "ClientFinishTyping", function()
+	print( "User has closed the chatbox." )
+end )
+	</code>
+</example>

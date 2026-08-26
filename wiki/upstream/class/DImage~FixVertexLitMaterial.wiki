@@ -1,0 +1,10 @@
+<function name="FixVertexLitMaterial" parent="DImage" type="panelfunc">
+	<description>
+<internal></internal>
+
+"Fixes" the current material of the <page>DImage</page> if it has VertexLit shader by creating a new one with the same name and a prefix of "_DImage" and automatically calling <page>DImage:SetMaterial</page> with the new material.
+
+This fixes the problem where using materials using shaders that expect lighting information causing "weird" flickering when displayed in 2D/Unlit environment.
+	</description>
+	<realm>Client and Menu</realm>
+</function>

@@ -1,0 +1,7 @@
+<function name="GetWheelCount" parent="Vehicle" type="classfunc">
+	<description>Returns the wheel count of the vehicle</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">The amount of wheels</ret>
+	</rets>
+</function>

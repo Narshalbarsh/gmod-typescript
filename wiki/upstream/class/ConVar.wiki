@@ -1,0 +1,5 @@
+<type name="ConVar" category="classfunc" is="class">
+	<summary>An object returned by <page>Global.CreateConVar</page>, <page>Global.CreateClientConVar</page> (which uses <page>Global.CreateConVar</page> internally), and <page>Global.GetConVar</page>.
+
+It represents a console variable. See <page text="this">ConVars</page> page for more information.</summary>
+</type>

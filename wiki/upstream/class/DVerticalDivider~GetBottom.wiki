@@ -1,0 +1,7 @@
+<function name="GetBottom" parent="DVerticalDivider" type="panelfunc">
+	<description>Returns the bottom content panel of the <page>DVerticalDivider</page>.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="Panel">The bottom content panel.</ret>
+	</rets>
+</function>

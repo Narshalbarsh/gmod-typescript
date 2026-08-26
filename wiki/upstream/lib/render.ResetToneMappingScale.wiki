@@ -1,0 +1,11 @@
+<function name="ResetToneMappingScale" parent="render" type="libraryfunc">
+	<description>
+Resets the HDR tone multiplier to the specified value.
+
+This will only work on HDR maps, and the value will automatically fade to what it was ( or whatever <page>render.SetGoalToneMappingScale</page> is ) if called only once.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="scale" type="number">The value which should be used as multiplier.</arg>
+	</args>
+</function>

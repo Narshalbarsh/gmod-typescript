@@ -1,0 +1,8 @@
+<function name="RotateAroundAxis" parent="Angle" type="classfunc">
+    <description>Rotates the angle around the specified axis by the specified degrees.</description>
+    <realm>Shared and Menu</realm>
+    <args>
+        <arg name="axis" type="Vector">The axis to rotate around as a normalized unit vector. When argument is not a unit vector, you will experience numerical offset errors in the rotated angle.</arg>
+        <arg name="rotation" type="number">The degrees to rotate around the specified axis.</arg>
+    </args>
+</function>

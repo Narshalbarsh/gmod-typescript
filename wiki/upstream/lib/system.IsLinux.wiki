@@ -1,0 +1,7 @@
+<function name="IsLinux" parent="system" type="libraryfunc">
+	<description>Returns whether the current OS is Linux.</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Whether or not the game is running on Linux.</ret>
+	</rets>
+</function>

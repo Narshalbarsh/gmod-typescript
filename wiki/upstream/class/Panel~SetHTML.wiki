@@ -1,0 +1,16 @@
+<function name="SetHTML" parent="Panel" type="classfunc">
+	<description>Allows you to set HTML code within a panel.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="HTML" type="string">The HTML code to set.</arg>
+	</args>
+</function>
+
+<example>
+	<code>
+local HTML = vgui.Create( "HTML", DPanel )
+HTML:SetHTML( "<p>Put HTML code here</p>" )
+HTML:SetSize( 390, 400 )
+	</code>
+
+</example>

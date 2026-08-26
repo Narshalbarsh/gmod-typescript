@@ -1,0 +1,14 @@
+<function name="OnModelLoaded" parent="Global" type="libraryfunc">
+	<description><internal></internal> Called by the engine when a model has been loaded. Caches model information with the <page>sql</page>.</description>
+	<realm>Client</realm>
+	<file line="23-L78">lua/includes/util/model_database.lua</file>
+	<args>
+		<arg name="modelName" type="string">Name of the model.</arg>
+		<arg name="numPostParams" type="number">Number of pose parameters the model has.</arg>
+		<arg name="numSeq" type="number">Number of sequences the model has.</arg>
+		<arg name="numAttachments" type="number">Number of attachments the model has.</arg>
+		<arg name="numBoneControllers" type="number">Number of bone controllers the model has.</arg>
+		<arg name="numSkins" type="number">Number of skins that the model has.</arg>
+		<arg name="size" type="number">Size of the model.</arg>
+	</args>
+</function>

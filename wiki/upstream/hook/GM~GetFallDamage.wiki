@@ -1,0 +1,33 @@
+<function name="GetFallDamage" parent="GM" type="hook">
+	<description>Called when a player takes damage from falling, allows to override the damage.</description>
+	<realm>Server</realm>
+	<file line="727-L735">gamemodes/base/gamemode/player.lua</file>
+	<args>
+		<arg name="ply" type="Player">The player</arg>
+		<arg name="speed" type="number">The fall speed</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">New fall damage</ret>
+	</rets>
+</function>
+
+<example>
+	<description>The player takes a realistic amount of damage when they fall. Fall damage becomes the fall speed divided by 8.</description>
+	<code>
+hook.Add( "GetFallDamage", "RealisticDamage", function( ply, speed )
+    return ( speed / 8 )
+end )
+	</code>
+
+</example>
+
+
+<example>
+	<description>Closely approximates the Counter-Strike: Source fall damage.</description>
+	<code>
+hook.Add( "GetFallDamage", "CSSFallDamage", function( ply, speed )
+	return math.max( 0, math.ceil( 0.2418 * speed - 141.75 ) )
+end )
+	</code>
+
+</example>

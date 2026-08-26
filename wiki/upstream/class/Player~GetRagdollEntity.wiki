@@ -1,0 +1,11 @@
+<function name="GetRagdollEntity" parent="Player" type="classfunc">
+	<description>Returns players death ragdoll. The ragdoll is created by <page>Player:CreateRagdoll</page>.
+<note>Calling <page>Entity:GetPos</page> server-side with this function then will return the position where <page>Player:CreateRagdoll</page> was used, as it is a hl2mp_ragdoll which is a serverside point entity that creates a clientside ragdoll for everyone (opposed to prop_ragdoll that is serverside and networks).</note>
+</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Entity">The ragdoll.
+
+Unlike normal clientside ragdolls (`C_ClientRagdoll`), this will be a `C_HL2MPRagdoll` on the client, and `hl2mp_ragdoll` on the server.</ret>
+	</rets>
+</function>

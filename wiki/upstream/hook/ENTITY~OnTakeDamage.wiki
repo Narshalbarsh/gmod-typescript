@@ -1,0 +1,32 @@
+<function name="OnTakeDamage" parent="ENTITY" type="hook">
+	<description>
+Called when the entity is taking damage.
+
+<warning>Calling <page>Entity:TakeDamage</page>, <page>Entity:TakeDamageInfo</page>, <page>Entity:DispatchTraceAttack</page>, or <page>Player:TraceHullAttack</page> (if the entity is hit) in this hook on the victim entity can cause infinite loops since the hook will be called again. Make sure to setup recursion safeguards like the example below.</warning>
+
+<note>This hook is only called for `ai`, `nextbot` and `anim` type entities.</note>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="damage" type="CTakeDamageInfo">The damage to be applied to the entity.</arg>
+	</args>
+	<rets>
+		<ret type="number">How much damage the entity took. Basically `> 0` means took damage, `0` means did not take damage.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>All damage taken by this entity is applied twice. This will count the damage taken as two distinctive hits as opposed to just scaling it in <page>GM:EntityTakeDamage</page>.</description>
+	<code>
+function ENT:OnTakeDamage( dmginfo )
+	-- Make sure we're not already applying damage a second time
+	-- This prevents infinite loops
+	if ( not self.m_bApplyingDamage ) then
+		self.m_bApplyingDamage = true
+		self:TakeDamageInfo( dmginfo )
+		self.m_bApplyingDamage = false
+	end
+end
+	</code>
+
+</example>

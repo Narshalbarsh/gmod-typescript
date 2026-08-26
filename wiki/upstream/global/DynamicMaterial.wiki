@@ -1,0 +1,14 @@
+<function name="DynamicMaterial" parent="Global" type="libraryfunc">
+	<description>
+Creates a dynamic Material from the given materialPath
+<warning>This function should never be used in a Rendering Hook because it creates a new dynamic material every time and can fill up your vram.</warning>
+	</description>
+	<realm>Menu</realm>
+	<args>
+		<arg name="materialPath" type="string">The material with path. The path is relative to the `materials/` folder.</arg>
+		<arg name="flags" type="string" default="nil">Flags, same as <page>Global.Material</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="IMaterial">Generated material.</ret>
+	</rets>
+</function>

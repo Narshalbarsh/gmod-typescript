@@ -1,0 +1,11 @@
+<function name="GetSpacing" parent="DForm" type="panelfunc">
+	<realm>Client and Menu</realm>
+	<file line="7">lua/vgui/dform.lua</file>
+	<description>
+		<deprecated></deprecated>
+		An <page>Global.AccessorFunc</page> that does nothing.
+	</description>
+	<rets>
+		<ret type="number"></ret>
+	</rets>
+</function>

@@ -1,0 +1,30 @@
+<cat>gameevent</cat>
+<title>break_breakable</title>
+
+<structure>
+	<realm>Shared and Menu</realm>
+	<description>
+		Called when a func_break is broken by a player.
+	</description>
+	<fields>
+		<item type="number" name="entindex">The <page text="EntIndex">Entity:EntIndex</page> of the broken prop.</item>
+		<item type="number" name="userid">The <page text="UserID">Player:UserID</page> of the connected player.</item>
+		<item type="number" name="material">Material index of the broken entity.</item>
+	</fields>
+</structure>
+
+# Examples
+<example>
+	<description>This is a basic template with the purpose of including all arguments / table variables to make it easily known which values can be accessed.</description>
+	<code>
+gameevent.Listen( "break_breakable" )
+hook.Add( "break_breakable", "break_breakable_example", function( data )
+	local entindex = data.entindex	// The Entity:EntIndex() of the broken Prop.
+	local userid = data.userid		// The UserID of the connected Player. Seems to be 0 every time.
+	local material = data.material	// The Material index of the broken entity.
+
+	// Called when a func_break is broken by a player.
+	
+end )
+	</code>
+</example>

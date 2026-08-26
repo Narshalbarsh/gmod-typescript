@@ -1,0 +1,36 @@
+<function name="SetNWVarProxy" parent="Entity" type="classfunc">
+
+	<description><note>Only one NWVarProxy can be set per-var  
+Running this function will only set it for the realm it is called on.</note>
+
+Sets a function to be called when the NWVar changes.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="key" type="string">The key of the NWVar to add callback for.</arg>
+		<arg name="callback" type="function">The function to be called when the NWVar changes.
+
+<callback>
+<arg type="Entity" name="ent">The entity</arg>
+<arg type="string" name="name">Name of the NWVar that has changed</arg>
+<arg type="any" name="oldval">The old value</arg>
+<arg type="any" name="newval">The new value</arg>
+</callback>
+</arg>
+	</args>
+</function>
+
+<example>
+	<description>Prints all changes to a NWVar called "Key" of Player 1.</description>
+	<code>
+Entity( 1 ):SetNWVarProxy( "Key", print )
+Entity( 1 ):SetNWString( "Key", "Value" )
+Entity( 1 ):SetNWString( "Key", "Table" )
+	</code>
+	<output>
+```
+Player [1][Player1]	Key	nil	Value
+Player [1][Player1]	Key	Value	Table
+```
+	</output>
+
+</example>

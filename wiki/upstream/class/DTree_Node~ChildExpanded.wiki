@@ -1,0 +1,11 @@
+<function name="ChildExpanded" parent="DTree_Node" type="panelfunc">
+	<description>
+<internal></internal>
+
+Called when a child node is expanded or collapsed to propagate this event to parent nodes to update layout.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="expanded" type="boolean"></arg>
+	</args>
+</function>

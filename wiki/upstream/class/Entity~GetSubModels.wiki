@@ -1,0 +1,22 @@
+<function name="GetSubModels" parent="Entity" type="classfunc">
+	<description>Returns a list of models included into the entity's model in the .qc file.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="table<table>">The list of models included into the entity's model in the .qc file.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Example structure of the  table. Prints into console sub models of a player model.</description>
+	<code>PrintTable(Entity(1):GetSubModels() )</code>
+	<output>
+
+```
+1:
+		name	=	models/m_anm.mdl
+		id	=	0
+```
+
+	</output>
+
+</example>

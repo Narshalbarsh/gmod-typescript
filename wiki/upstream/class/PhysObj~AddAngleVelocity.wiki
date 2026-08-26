@@ -1,0 +1,9 @@
+<function name="AddAngleVelocity" parent="PhysObj" type="classfunc">
+	<description>Adds the specified [angular velocity](https://en.wikipedia.org/wiki/Angular_velocity) velocity to the current <page>PhysObj</page>.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="angularVelocity" type="Vector">The additional velocity in `degrees/s`. (Local to the physics object.)
+			<note>Does nothing on frozen objects.</note>
+		</arg>
+	</args>
+</function>

@@ -1,0 +1,3 @@
+<type name="gui" category="libraryfunc" is="library">
+	<summary>The gui library is similar to the <page>input</page> but features functions that are more focused on the mouse's interaction with GUI panels.</summary>
+</type>

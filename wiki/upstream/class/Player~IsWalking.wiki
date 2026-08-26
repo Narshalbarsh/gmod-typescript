@@ -1,0 +1,8 @@
+<function name="IsWalking" parent="Player" type="classfunc">
+	<description>Returns if the player currently walking. (`+walk` keybind)</description>
+	<realm>Shared</realm>
+	<added>2023.09.11</added>
+	<rets>
+		<ret name="" type="boolean">`true` if the player is currently walking.</ret>
+	</rets>
+</function>

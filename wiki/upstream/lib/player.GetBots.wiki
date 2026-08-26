@@ -1,0 +1,16 @@
+<function name="GetBots" parent="player" type="libraryfunc">
+	<description>Returns a table of all bots on the server.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="table<Player>">A table only containing bots ( AI / non human players )</ret>
+	</rets>
+</function>
+
+<example>
+<description> Kicks all bots from the server. </description>
+	<code>
+for _, bot in ipairs(player.GetBots()) do
+	bot:Kick("Bot's not allowed")
+end	
+	</code>
+</example>

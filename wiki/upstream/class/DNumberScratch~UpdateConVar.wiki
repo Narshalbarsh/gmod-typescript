@@ -1,0 +1,8 @@
+<function name="UpdateConVar" parent="DNumberScratch" type="panelfunc">
+	<description>
+<internal></internal>
+
+Forces the assigned ConVar to be updated to the value of this <page>DNumberScratch</page>
+	</description>
+	<realm>Client and Menu</realm>
+</function>

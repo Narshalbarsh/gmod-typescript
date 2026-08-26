@@ -1,0 +1,8 @@
+<function name="SetExpanded" parent="DExpandButton" type="panelfunc">
+	<description>Sets whether this DExpandButton should be expanded or not. Only changes appearance.</description>
+	<realm>Client and Menu</realm>
+	<file line="4">lua/vgui/dexpandbutton.lua</file>
+	<args>
+		<arg name="expanded" type="boolean">True to expand ( visually will show a "-" )</arg>
+	</args>
+</function>

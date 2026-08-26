@@ -1,0 +1,25 @@
+<function name="PlayScene" parent="Entity" type="classfunc">
+	<description>Makes the entity play a .vcd scene. [All scenes from Half-Life 2](https://developer.valvesoftware.com/wiki/Half-Life_2_Scenes_List).
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="scene" type="string">Filepath to scene.</arg>
+		<arg name="delay" type="number" default="0">Delay in seconds until the scene starts playing.</arg>
+	</args>
+<rets>
+	<ret name="" type="number">Estimated length of the scene.</ret>
+	<ret name="" type="Entity">The scene entity, removing which will stop the scene from continuing to play.</ret>
+</rets>
+</function>
+
+<example>
+	<description>Makes the NPC that the player 1 is looking at play the `Welcome to City 17` speech.</description>
+	<code>
+local entity = Entity( 1 ):GetEyeTrace().Entity
+
+if ( entity:IsValid() and entity:IsNPC() ) then
+	entity:PlayScene( "scenes/breencast/welcome.vcd" )
+end
+	</code>
+	<output>The entity plays the scene.</output>
+</example>

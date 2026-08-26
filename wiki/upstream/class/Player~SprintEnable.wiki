@@ -1,0 +1,11 @@
+<function name="SprintEnable" parent="Player" type="classfunc">
+	<description>
+Enables the sprint on the player.
+	</description>
+	<realm>Server</realm>
+</function>
+
+<example>
+	<description>Allows the player with ID 1 to use the sprint (<key>SHIFT</key> by default) feature.</description>
+	<code>Entity( 1 ):SprintEnable()</code>
+</example>

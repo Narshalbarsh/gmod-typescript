@@ -1,0 +1,7 @@
+<function name="WriteVector" parent="ISave" type="classfunc">
+	<description>Writes a <page>Vector</page> to the save object.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="vec" type="Vector">The vector to write.</arg>
+	</args>
+</function>

@@ -1,0 +1,32 @@
+<function name="LocalCursorPos" parent="Panel" type="classfunc">
+	<file line="540-L542">lua/includes/extensions/client/panel.lua</file>
+	<description>Returns the cursor position local to the position of the panel (usually the upper-left corner).</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The x coordinate</ret>
+		<ret name="" type="number">The y coordinate</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Create and center a label panel and update its text with the local cursor position.</description>
+	<code>
+TestLabel = vgui.Create("DLabel")
+TestLabel:SetSize(100, 20)
+TestLabel:Center()
+TestLabel:SetPaintBackgroundEnabled(true)
+TestLabel:SetColor(Color(255, 0, 0))
+
+local x, y = 0, 0
+
+function TestLabel:PerformLayout()
+
+	x, y = self:LocalCursorPos()
+
+	self:SetText(" X: "..x.." , Y: "..y)
+	
+end
+	</code>
+	<output><image src="Panel_LocalCursorPos_example1.gif"/></output>
+
+</example>

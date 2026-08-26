@@ -1,0 +1,30 @@
+<function name="OnChange" parent="DCheckBoxLabel" type="panelhook">
+	<description>Called when the "checked" state is changed. This is meant to be Overriden</description>
+	<file line="179-L183">lua/vgui/dcheckbox.lua</file>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="bVal" type="boolean">Whether the checkbox is checked or unchecked.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Creates a a DCheckBoxLabel that prints to the console when ticked/unticked</description>
+	<code>
+local Frame = vgui.Create( "DFrame" )
+Frame:SetSize( 300, 100 )
+Frame:SetPos( 200, 200 )
+
+local LabelBox = vgui.Create( "DCheckBoxLabel", Frame )
+LabelBox:SetPos( 10, 40 )
+LabelBox:SetText( "This is a DLabel" )
+function LabelBox:OnChange( val )
+	if val then
+		print( "The box has been ticked!" )
+	else
+		print( "The box has been unticked!" )
+	end
+end
+	</code>
+	<output>The box has been ticked!</output>
+
+</example>

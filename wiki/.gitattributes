@@ -1,0 +1,2 @@
+# LF line endings on every platform so the diffs stay clean
+*.wiki text eol=lf

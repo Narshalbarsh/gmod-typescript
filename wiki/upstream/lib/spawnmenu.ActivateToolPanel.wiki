@@ -1,0 +1,9 @@
+<function name="ActivateToolPanel" parent="spawnmenu" type="libraryfunc">
+	<description>Activates tools context menu in specified tool tab.</description>
+	<realm>Client</realm>
+	<file line="81-L98">lua/includes/modules/spawnmenu.lua</file>
+	<args>
+		<arg name="tab" type="number">The tabID of the tab to open the context menu in</arg>
+		<arg name="cp" type="Panel">The control panel to open</arg>
+	</args>
+</function>

@@ -1,0 +1,11 @@
+<function name="GetDemoPlaybackTimeScale" parent="engine" type="libraryfunc">
+	<description>
+Returns time scale of demo playback.
+
+If not during demo playback, returns 1.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The time scale of demo playback, value of demo_timescale console variable.</ret>
+	</rets>
+</function>

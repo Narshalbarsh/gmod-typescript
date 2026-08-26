@@ -1,0 +1,5 @@
+<function name="ExitLadder" parent="Player" type="classfunc">	
+	<description>Forces the player off the current ladder if they are on one.</description>	
+	<realm>Server</realm>
+	<added>2025.02.06</added>
+</function>

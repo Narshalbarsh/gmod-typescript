@@ -1,0 +1,46 @@
+<function name="FindByClass" parent="ents" type="libraryfunc">
+	<description>
+Gets all entities with the given class, supports wildcards.
+
+This function returns a sequential table, meaning it should be looped with <page>Global.ipairs</page> instead of <page>Global.pairs</page> for efficiency reasons.
+
+This works internally by iterating over <page>ents.GetAll</page>. `ents.FindByClass` is always faster than <page>ents.GetAll</page> or <page>ents.Iterator</page>.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="class" type="string">The class of the entities to find, supports wildcards.
+
+Asterisks (`*`) are the only wildcard supported.
+</arg>
+	</args>
+	<rets>
+		<ret name="" type="table<Entity>">A table containing all found entities.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints the location of every prop on the map.</description>
+	<code>
+for k, v in ipairs( ents.FindByClass( "prop_*" ) ) do
+	print( v:GetPos() )
+end
+	</code>
+	<output>
+The location of each prop on the map. In gm_construct, the output might be as follows:
+
+
+```
+-2936.288818 -1376.545532 -73.852913
+-2943.928467 -1375.800171 -84.964996
+-2932.637695 -1288.051636 -76.791924
+-2064.000000 -183.000000 -179.216003
+-2384.000000 -183.000000 -179.216003
+-2704.000000 -183.000000 -179.216003
+-1744.000000 -183.000000 -179.216003
+-1424.000000 -183.000000 -179.216003
+-3019.895020 -1095.824829 -78.900757
+```
+
+	</output>
+
+</example>

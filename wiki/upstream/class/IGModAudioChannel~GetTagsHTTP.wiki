@@ -1,0 +1,21 @@
+<function name="GetTagsHTTP" parent="IGModAudioChannel" type="classfunc">
+	<description>Retrieves HTTP headers from a bass stream channel created by <page>sound.PlayURL</page>, if available.
+
+Of special interest here are headers such as `icy-name`, `icy-br`, `ice-audio-info`, `icy-genre`.
+	</description>
+	<realm>Client</realm>
+	<added>2020.04.29</added>
+	<rets>
+		<ret name="info" type="table<string>">A list of HTTP headers or `nil` if no information is available.
+
+Example output:
+```
+... other headers
+[7]	=	ice-audio-info: channels=2;samplerate=44100;bitrate=128
+[8]	=	icy-genre: lounge
+[9]	=	icy-name: RTFM Lounge
+... other headers
+```
+</ret>
+	</rets>
+</function>

@@ -1,0 +1,40 @@
+<enum>
+	<realm>Shared</realm>
+	<description>Enumerations used by <page>Entity:AddFlags</page>, <page>Entity:RemoveFlags</page> and <page>Entity:IsFlagSet</page>.</description>
+	<items>
+<item key="FL_ONGROUND" value="1">Is the entity on ground or not</item>
+<item key="FL_DUCKING" value="2">Is player ducking or not</item>
+<item key="FL_ANIMDUCKING" value="4">Is the player in the process of ducking or standing up</item>
+<item key="FL_WATERJUMP" value="8">The player is jumping out of water</item>
+<item key="FL_ONTRAIN" value="16">This player is controlling a func_train</item>
+<item key="FL_INRAIN" value="32">Indicates the entity is standing in rain</item>
+<item key="FL_FROZEN" value="64">Completely freezes the player
+<bug>Bots will still be able to look around.</bug></item>
+<item key="FL_ATCONTROLS" value="128">This player is controlling something UI related in the world, this prevents his movement, but doesn't freeze mouse movement, jumping, etc.</item>
+<item key="FL_CLIENT" value="256">Is this entity a player or not</item>
+<item key="FL_FAKECLIENT" value="512">Bots have this flag</item>
+<item key="FL_INWATER" value="1024">Is the player in water or not</item>
+<item key="FL_FLY" value="2048">This entity can fly</item>
+<item key="FL_SWIM" value="4096">This entity can swim</item>
+<item key="FL_CONVEYOR" value="8192">This entity is a func_conveyor</item>
+<item key="FL_NPC" value="16384">NPCs have this flag (NPC: Ignore player push)</item>
+<item key="FL_GODMODE" value="32768">Whether the player has god mode enabled</item>
+<item key="FL_NOTARGET" value="65536">Makes the entity invisible to AI</item>
+<item key="FL_AIMTARGET" value="131072">This entity can be aimed at</item>
+<item key="FL_PARTIALGROUND" value="262144">Not all corners are valid</item>
+<item key="FL_STATICPROP" value="524288">It's a static prop</item>
+<item key="FL_GRAPHED" value="1048576">worldgraph has this ent listed as something that blocks a connection</item>
+<item key="FL_GRENADE" value="2097152">This entity is a grenade, unused</item>
+<item key="FL_STEPMOVEMENT" value="4194304">Changes the SV_Movestep() behavior to not do any processing</item>
+<item key="FL_DONTTOUCH" value="8388608">Doesn't generate touch functions, calls <page>ENTITY:EndTouch</page> when this flag gets set during a touch callback</item>
+<item key="FL_BASEVELOCITY" value="16777216">Base velocity has been applied this frame (used to convert base velocity into momentum)</item>
+<item key="FL_WORLDBRUSH" value="33554432">This entity is a brush and part of the world</item>
+<item key="FL_OBJECT" value="67108864">This entity can be seen by NPCs</item>
+<item key="FL_KILLME" value="134217728">This entity is about to get removed</item>
+<item key="FL_ONFIRE" value="268435456">This entity is on fire</item>
+<item key="FL_DISSOLVING" value="536870912">The entity is currently dissolving</item>
+<item key="FL_TRANSRAGDOLL" value="1073741824">This entity is about to become a ragdoll</item>
+<item key="FL_UNBLOCKABLE_BY_PLAYER" value="-2147483648">This moving door can't be blocked by the player</item>
+	</items>
+
+</enum>

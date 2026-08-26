@@ -1,0 +1,20 @@
+<function name="SetNetworkedVarProxy" parent="Entity" type="classfunc">
+	<description>
+<deprecated>You should be using <page>Entity:SetNWVarProxy</page> instead.</deprecated>
+Sets callback function to be called when given NWVar changes.
+	</description>
+	<realm>Shared</realm>
+	<file line="485-L493">lua/includes/extensions/entity.lua</file>
+	<args>
+		<arg name="name" type="string">The name of the NWVar to add callback for.</arg>
+		<arg name="callback" type="function">The function to be called when the NWVar changes.
+
+<callback>
+<arg type="Entity" name="ent">The entity</arg>
+<arg type="string" name="name">Name of the NWVar that has changed</arg>
+<arg type="any" name="oldval">The old value</arg>
+<arg type="any" name="newval">The new value</arg>
+</callback>
+</arg>
+	</args>
+</function>

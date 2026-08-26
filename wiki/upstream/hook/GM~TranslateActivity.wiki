@@ -1,0 +1,14 @@
+<function name="TranslateActivity" parent="GM" type="hook">
+	<description>
+		<note>Isn't called when CalcMainActivity returns a valid override sequence id</note>
+		Allows you to translate player activities.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="ply" type="Player">The player</arg>
+		<arg name="act" type="number">The activity. See <page>Enums/ACT</page></arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The new, translated activity</ret>
+	</rets>
+</function>

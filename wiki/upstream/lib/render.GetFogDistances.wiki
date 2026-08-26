@@ -1,0 +1,9 @@
+<function name="GetFogDistances" parent="render" type="libraryfunc">
+	<description>Returns the fog start and end distance.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">Fog start distance set by <page>render.FogStart</page>.</ret>
+		<ret name="" type="number">For end distance set by <page>render.FogEnd</page>.</ret>
+		<ret name="" type="number">Fog Z distance set by <page>render.SetFogZ</page>.</ret>
+	</rets>
+</function>

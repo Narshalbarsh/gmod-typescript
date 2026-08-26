@@ -1,0 +1,15 @@
+<function name="ScoreboardShow" parent="GM" type="hook">
+	<description>Called when player presses the scoreboard button (<key>TAB</key> by default).</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="boolean">Return true to prevent default scoreboard from showing.</ret>
+	</rets>
+</function>
+
+<example>
+	<code>
+hook.Add( "ScoreboardShow", "Scoreboard_Open", function()
+    -- You would use something like DFrame or HUDPaint
+end )
+	</code>
+</example>

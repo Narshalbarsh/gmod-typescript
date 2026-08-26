@@ -1,0 +1,52 @@
+<function name="AddPropsOfParent" parent="Global" type="libraryfunc">
+	<description>This function creates a Custom Category in the Spawnlist. Use <page>Global.GenerateSpawnlistFromPath</page> if you want to create a category with the contents of a folder.
+	<warning>Using this function before <page>SANDBOX:PopulateContent</page> has been called will result in an error.</warning>
+	</description>
+	<realm>Client</realm>
+	<file line="139-L172">gamemodes/sandbox/gamemode/spawnmenu/creationmenu/content/contenttypes/custom.lua</file>
+	<args>
+		<arg name="pnlContent" type="Panel">The SMContentPanel of the Node.</arg>
+		<arg name="node" type="Panel">The Node.</arg>
+		<arg name="parentid" type="number">The ParentID to use.</arg>
+		<arg name="customProps" type="table">The Table with the Contents of the new Category.</arg>
+	</args>
+</function>
+
+<example>
+<description>Creates an Example category with 5 Playermodels.</description>
+<code>
+hook.Add("SpawnMenuCreated", "Example", function()
+	local contents = {
+		[1] = {
+			["model"] =	"models/player/alyx.mdl",
+			["type"] = "model",
+		},
+		[2] = {
+			["model"] =	"models/player/arctic.mdl",
+			["type"] = "model",
+		},
+		[3] = {
+			["model"] =	"models/player/barney.mdl",
+			["type"] = "model",
+		},
+		[4] = {
+			["model"] =	"models/player/breen.mdl",
+			["type"] = "model",
+		},
+		[5] = {
+			["model"] =	"models/player/charple.mdl",
+			["type"] = "model",
+		},
+	}
+
+	AddPropsOfParent(g_SpawnMenu.CustomizableSpawnlistNode.SMContentPanel, g_SpawnMenu.CustomizableSpawnlistNode, 0, {["models/player"] = {
+		icon = "icon16/page.png",
+		id = 999,
+		name = "Example",
+		parentid = 0,
+		needsapp = nil,
+		contents = contents
+	}})
+end)
+</code>
+</example>

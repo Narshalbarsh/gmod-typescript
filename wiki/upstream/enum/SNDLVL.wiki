@@ -1,0 +1,72 @@
+<enum>
+	<realm>Shared</realm>
+	<description>
+The sound's attenuation, or how fast it drops away. Enumerations used by <page>Global.EmitSound</page> and <page>Entity:EmitSound</page>. Information taken from [soundflags.h in Source SDK 2013](https://github.com/ValveSoftware/source-sdk-2013/blob/0d8dceea4310fde5706b3ce1c70609d72a38efdf/sp/src/public/soundflags.h#L53)
+
+The engine starts running into trouble below 60dB.
+
+<warning>These enumerations are not provided in Garry's Mod Lua and are listed here only for reference. Use the raw number values instead.</warning>
+	</description>
+	<items>
+<item key="SNDLVL_NONE" value="0">Sound plays everywhere</item>
+
+<item key="SNDLVL_20dB" value="20">Rustling leaves</item>
+
+<item key="SNDLVL_25dB" value="25">Whispering</item>
+
+<item key="SNDLVL_30dB" value="30">Library</item>
+
+<item key="SNDLVL_35dB" value="35"></item>
+
+<item key="SNDLVL_40dB" value="40"></item>
+
+<item key="SNDLVL_45dB" value="45">Refrigerator</item>
+
+<item key="SNDLVL_50dB" value="50">Average home</item>
+
+<item key="SNDLVL_55dB" value="55"></item>
+
+<item key="SNDLVL_60dB" value="60">Normal conversation, clothes dryer</item>
+
+<item key="SNDLVL_IDLE" value="60">*The same as SNDLVL_60dB*</item>
+
+<item key="SNDLVL_65dB" value="65">Washing machine, dishwasher</item>
+
+<item key="SNDLVL_STATIC" value="66"></item>
+
+<item key="SNDLVL_70dB" value="70">Car, vacuum cleaner, mixer, electric sewing machine</item>
+
+<item key="SNDLVL_75dB" value="75">Busy traffic</item>
+
+<item key="SNDLVL_NORM" value="75">*The same as SNDLVL_75dB*</item>
+
+<item key="SNDLVL_80dB" value="80">Mini-bike, alarm clock, noisy restaurant, office tabulator, outboard motor, passing snowmobile</item>
+
+<item key="SNDLVL_TALKING" value="80">*The same as SNDLVL_80dB*</item>
+
+<item key="SNDLVL_85dB" value="85">Average factory, electric shaver</item>
+
+<item key="SNDLVL_90dB" value="90">Screaming child, passing motorcycle, convertible ride on freeway</item>
+
+<item key="SNDLVL_95dB" value="95"></item>
+
+<item key="SNDLVL_100dB" value="100">Subway train, diesel truck, woodworking shop, pneumatic drill, boiler shop, jackhammer</item>
+
+<item key="SNDLVL_105dB" value="105">Helicopter, power mower</item>
+
+<item key="SNDLVL_110dB" value="110">Snowmobile (drivers seat), inboard motorboat, sandblasting</item>
+
+<item key="SNDLVL_120dB" value="120">Car horn, propeller aircraft</item>
+
+<item key="SNDLVL_130dB" value="130">Air raid siren</item>
+
+<item key="SNDLVL_140dB" value="140">Threshold of pain, gunshot, jet engine</item>
+
+<item key="SNDLVL_GUNFIRE" value="140">*The same as SNDLVL_140dB*</item>
+
+<item key="SNDLVL_150dB" value="150"></item>
+
+<item key="SNDLVL_180dB" value="180">Rocket launching</item>
+	</items>
+
+</enum>

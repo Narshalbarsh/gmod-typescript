@@ -1,0 +1,7 @@
+<function name="GetMoveType" parent="Entity" type="classfunc">
+	<description>Returns the entity's movetype</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">Move type. See <page>Enums/MOVETYPE</page></ret>
+	</rets>
+</function>

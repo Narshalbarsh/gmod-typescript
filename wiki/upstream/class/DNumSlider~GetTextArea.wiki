@@ -1,0 +1,7 @@
+<function name="GetTextArea" parent="DNumSlider" type="panelfunc">
+	<description>Returns the <page>DTextEntry</page> component of the slider.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="DTextEntry">The <page>DTextEntry</page>.</ret>
+	</rets>
+</function>

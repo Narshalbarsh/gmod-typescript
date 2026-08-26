@@ -1,0 +1,26 @@
+<function name="Touch" parent="ENTITY" type="hook">
+	<description>
+Called every tick for every entity being "touched". Touching is usually detected via AABB intersection checks using entity's <page text="collision bounds">Entity:GetCollisionBounds</page>.
+
+Entities like triggers would be using the touch hooks for their function.
+
+See <page>Entity:PhysicsCollide</page> for physics based collision events.
+
+See also <page>ENTITY:StartTouch</page> and <page>ENTITY:EndTouch</page>.
+
+<note>For physics enabled entities, this hook will **not** be ran while the entity's physics is asleep. See <page>PhysObj:Wake</page>.</note>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="entity" type="Entity">The entity that touched it.</arg>
+	</args>
+</function>
+
+<example>
+	<code>
+function ENTITY:Touch(entity)
+	self:EmitSound("ambient/explosions/explode_" .. math.random(1, 9) .. ".wav")
+	self:Remove()
+end
+	</code>
+</example>

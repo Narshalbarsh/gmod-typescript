@@ -1,0 +1,7 @@
+<function name="Root" parent="DTree" type="panelfunc">
+	<description>Returns the root <page>DTree_Node</page>, the node that is the parent to all other nodes of the DTree.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="Panel">Root node.</ret>
+	</rets>
+</function>

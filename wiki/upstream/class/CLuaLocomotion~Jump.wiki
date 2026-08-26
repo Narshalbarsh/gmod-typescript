@@ -1,0 +1,7 @@
+<function name="Jump" parent="CLuaLocomotion" type="classfunc">
+	<description>Makes the bot jump. It must be on ground (<page>Entity:IsOnGround</page>) and its model must have `ACT_JUMP` activity.</description>
+	<realm>Server</realm>
+	<args>
+		<arg type="number" name="act" default="ACT_JUMP">The activity to use as the jumping animation.</arg>
+	</args>
+</function>

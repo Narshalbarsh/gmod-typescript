@@ -1,0 +1,8 @@
+<function name="SetPadding" parent="DPropertySheet" type="panelfunc">
+	<file line="152">lua/vgui/dpropertysheet.lua</file>
+	<description>Sets the padding from parent panel to children panel.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="padding" type="number" default="8">Amount of padding</arg>
+	</args>
+</function>

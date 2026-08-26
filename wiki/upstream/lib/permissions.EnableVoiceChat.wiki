@@ -1,0 +1,10 @@
+<function name="EnableVoiceChat" parent="permissions" type="libraryfunc">
+	<description>
+Activates player's microphone as if they pressed the speak button themself. The player will be prompted with a confirmation window which grants permission temporarily/permanently(depending on checkbox state) for the connected server (revokable). 
+This is used for TTT's traitor voice channel.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="enable" type="boolean">Enable or disable voice activity. `true` will run `+voicerecord` command, anything else `-voicerecord`.</arg>
+	</args>
+</function>

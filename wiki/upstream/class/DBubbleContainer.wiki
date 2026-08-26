@@ -1,0 +1,66 @@
+<panel>
+	<name>DBubbleContainer</name>
+	<parent>DPanel</parent>
+	<realm>Client</realm>
+	<file line="">lua/vgui/dbubblecontainer.lua</file>
+	<description>A transparent gray speech bubble panel made up of a rounded box and point coming from the bottom.</description>
+	<preview>DBubbleContainer_preview.jpg</preview>
+</panel>
+
+
+<example>
+	<description>Creates a bubble container panel in the middle of the screen. The background <page>DPanel</page> is used to allow better control of the dialog point position.</description>
+	<code>
+--Background panel
+BGPanel = vgui.Create("DPanel")
+BGPanel:SetSize(300, 170)
+BGPanel:Center()
+BGPanel:SetDrawBackground(false)
+
+-- The bubble container
+local DBubbleContainer = vgui.Create("DBubbleContainer", BGPanel)
+
+-- Set the dialog point 50 units from the left and make the entire bubble 280x150 pixels.
+DBubbleContainer:OpenForPos(50, 0, 280, 150)
+	</code>
+
+</example>
+
+
+<example>
+	<description>Creates a panel with Bill from Left 4 Dead talking through a speech bubble.</description>
+	<code>
+-- Image of Bill
+local dimg = vgui.Create("DImage")
+dimg:SetPos(0, ScrH()-512)
+dimg:SetImage("spawnicons/models/survivors/survivor_namvet_128.png")
+dimg:SizeToContents()
+
+-- Determine placement of bubble container based on image dimensions
+local dimg_x, dimg_y = dimg:GetPos()
+local dimg_w, dimg_h = dimg:GetSize()
+
+dimg_x = dimg_x + dimg_w/2
+dimg_y = dimg_y + dimg_h/2.5
+
+-- Bubble container size
+local bubble_w, bubble_h = 150, 100
+
+-- Create bubble container
+local bubble = vgui.Create("DBubbleContainer")
+
+-- Open it over Bill image
+bubble:OpenForPos(dimg_x, dimg_y+bubble_h-32, bubble_w, bubble_h)
+
+-- Add text to bubble
+local lbl = vgui.Create("DLabel", bubble)
+lbl:SetPos(5, 5)
+lbl:SetSize(150, 50)
+lbl:SetWrap(true)
+lbl:SetFont("GModNotify")
+lbl:SetText("Does this example get the point across?")
+lbl:SetDark(true)
+	</code>
+	<output><image src="DBubbleContainer_example2.jpg"/></output>
+
+</example>

@@ -1,0 +1,7 @@
+<function name="GetHideButtons" parent="DVScrollBar" type="panelfunc">
+	<description>Returns whether or not the manual up/down scroll buttons are visible or not. Set by <page>DVScrollBar:SetHideButtons</page>.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Whether or not the manual up/down scroll buttons are visible or not.</ret>
+	</rets>
+</function>

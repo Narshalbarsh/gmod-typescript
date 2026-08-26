@@ -1,0 +1,12 @@
+<function name="SetColor" parent="ProjectedTexture" type="classfunc">
+	<description>
+Sets the color of the projected texture.
+
+You must call <page>ProjectedTexture:Update</page> after using this function for it to take effect.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="color" type="Color">
+Unlike other projected textures, this color can only go up to 255.</arg>
+	</args>
+</function>

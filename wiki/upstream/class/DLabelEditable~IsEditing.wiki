@@ -1,0 +1,7 @@
+<function name="IsEditing" parent="DLabelEditable" type="panelfunc">
+	<description>Returns whether this <page>DLabelEditable</page> is being edited or not. (i.e. has focus)</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Whether this <page>DLabelEditable</page> is being edited or not</ret>
+	</rets>
+</function>

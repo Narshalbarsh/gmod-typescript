@@ -1,0 +1,28 @@
+<function name="PatternSafe" parent="string" type="libraryfunc">
+	<description>Escapes all special characters within a string, making the string safe for inclusion in a Lua pattern.</description>
+	<realm>Shared and Menu</realm>
+	<file line="58-L76">lua/includes/extensions/string.lua</file>
+	<args>
+		<arg name="str" type="string">The string to be sanitized</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The string that has been sanitized for inclusion in Lua patterns</ret>
+	</rets>
+</function>
+
+<example>
+	<description>
+Replaces all occurrences of "100%" in a string with "0%" and prints it.
+
+We call <page>string.PatternSafe</page> here as '%' is a special character when used in Lua patterns.
+	</description>
+	<code>
+local result = string.gsub( "You scored 100%!", 
+							string.PatternSafe( "100%" ), 
+							string.PatternSafe( "0%" ) )
+
+print( result )
+	</code>
+	<output>You scored 0%!</output>
+
+</example>

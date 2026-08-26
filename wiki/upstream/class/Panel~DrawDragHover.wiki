@@ -1,0 +1,11 @@
+<function name="DrawDragHover" parent="Panel" type="classfunc">
+	<file line="514-L529">lua/includes/extensions/client/panel/dragdrop.lua</file>
+	<description><internal></internal> Called to draw the drop target when an object is being dragged across another. See <page>Panel:SetDropTarget</page>.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="x" type="number">The x coordinate of the top-left corner of the drop area.</arg>
+		<arg name="y" type="number">The y coordinate of the top-left corner of the drop area.</arg>
+		<arg name="width" type="number">The width of the drop area.</arg>
+		<arg name="height" type="number">The height of the drop area.</arg>
+	</args>
+</function>

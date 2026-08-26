@@ -1,0 +1,9 @@
+<function name="OnMenuOpened" parent="DComboBox" type="panelhook">
+	<description>Called when the player opens the dropdown menu. For Override</description>
+	<realm>Client and Menu</realm>
+	<file line="126-L130">lua/vgui/dcombobox.lua</file>
+	<added>2021.12.15</added>
+	<args>
+		<arg name="menu" type="Panel">The <page>DMenu</page> menu panel.</arg>
+	</args>
+</function>

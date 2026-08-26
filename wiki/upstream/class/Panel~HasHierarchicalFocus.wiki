@@ -1,0 +1,7 @@
+<function name="HasHierarchicalFocus" parent="Panel" type="classfunc">
+	<description>Returns if the panel or any of its children(sub children and so on) has the focus.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">hasHierarchicalFocus</ret>
+	</rets>
+</function>

@@ -1,0 +1,7 @@
+<function name="GetModel" parent="DModelPanel" type="panelfunc">
+	<description>Gets the model of the rendered entity.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="string">The model of the rendered entity.</ret>
+	</rets>
+</function>

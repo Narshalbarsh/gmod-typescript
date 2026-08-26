@@ -1,0 +1,11 @@
+<function name="GetLockX" parent="DSlider" type="panelfunc">
+	<description>
+Returns the draggable panel's lock on the X axis.
+
+See <page>DSlider:SetLockX</page> for more info.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number"></ret>
+	</rets>
+</function>

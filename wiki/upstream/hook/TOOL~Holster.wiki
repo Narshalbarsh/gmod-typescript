@@ -1,0 +1,17 @@
+<function name="Holster" parent="TOOL" type="hook">
+	<description>Called when <page>WEAPON:Holster</page> of the toolgun is called, when switching between different toolguns.</description>
+	<realm>Shared</realm>
+	<predicted>Yes</predicted>
+</function>
+
+<example>
+	<description>Clears any objects set by <page>Tool:SetObject</page>.</description>
+	<code>
+function TOOL:Holster()
+
+	self:ClearObjects()
+
+end
+	</code>
+
+</example>

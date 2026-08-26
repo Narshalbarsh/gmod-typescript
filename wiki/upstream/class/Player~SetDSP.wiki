@@ -1,0 +1,22 @@
+<function name="SetDSP" parent="Player" type="classfunc">
+	<description>
+		Activates a given DSP (Digital Signal Processor) effect on all sounds that the player hears. This is equivalent to setting `dsp_player` convar on the player.
+
+		To apply a DSP effect to individual sounds, see <page>CSoundPatch:SetDSP</page>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="dspEffectId" type="number">
+			The index of the DSP sound filter to apply.
+
+			For a list of the available IDs and their meaning, see <page text="DSP Presets">DSP_Presets</page>.
+		</arg>
+		<arg name="fastReset" type="boolean">
+			If set to true the sound filter will be removed faster.
+			<note>
+				**This only works clientside**  
+				If used serverside, a message will be displayed (`SetPlayerDSP: fastReset only valid from client`) in the server console.
+			</note>
+		</arg>
+	</args>
+</function>

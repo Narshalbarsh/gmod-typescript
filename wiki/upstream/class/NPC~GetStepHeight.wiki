@@ -1,0 +1,10 @@
+<function name="GetStepHeight" parent="NPC" type="classfunc">
+	<description>Returns NPC step height.
+</description>
+	<realm>Server</realm>
+	<added>2024.05.14</added>
+
+	<rets>
+		<ret name="height" type="number">The current step height.</ret>
+	</rets>
+</function>

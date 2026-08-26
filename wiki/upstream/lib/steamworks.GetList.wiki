@@ -1,0 +1,51 @@
+<function name="GetList" parent="steamworks" type="libraryfunc">
+	<description>Retrieves a customized list of Steam Workshop addons.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="type" type="string">The type of items to retrieve. Possible values include:
+* popular (All invalid options will equal to this)
+* trending
+* latest
+* friends
+* followed - Items of people the player is following on Steam
+* friend_favs - Favorites of player's friends
+* favorite - Player's favorites
+</arg>
+		<arg name="tags" type="table">A table of tags to match.</arg>
+		<arg name="offset" type="number">How much of results to skip from first one. This is useful for pagination. Negative values are invalid.</arg>
+		<arg name="numRetrieve" type="number">How many items to retrieve, up to `50` at a time. Negative values are invalid.</arg>
+		<arg name="days" type="number">When getting `popular` or `trending` content from Steam, this determines a time period, in range of days from `0` to `365`. ( `7` = most popular addons in last 7 days, `30` = most popular addons in the last month, etc ). If given a zero, will automatically choose a value, which is `7` for `trending`.</arg>
+		<arg name="userID" type="string" default="0">`"0"` to retrieve all addons, `"1"` to retrieve addons only published by you, or a valid SteamID64 of a user to get workshop items of.</arg>
+		<arg name="resultCallback" type="function">The function to process retrieved data.
+
+<callback>
+<arg type="table" name="data">The list of items, or nil in case of error.</arg>
+</callback>
+</arg>
+<arg name="searchText" type="string" default="nil" added="2026.05.28">If given, will use the text to filter results.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Retrieves top 10 of Steam Workshop addons.</description>
+	<code>steamworks.GetList( "popular", nil, 0, 10, 7, 0, function( data ) PrintTable( data ) end )</code>
+	<output>
+```
+totalresults = 1748
+numresults = 10
+results:
+1 = 21197
+2 = 72122655
+3 = 68207248
+4 = 71921341
+5 = 79927494
+6 = 12692
+7 = 21174
+8 = 72145362
+9 = 16221
+10 = 22104
+```
+
+	</output>
+
+</example>

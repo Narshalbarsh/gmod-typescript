@@ -1,0 +1,10 @@
+<function name="ControlValues" parent="ContextBase" type="panelfunc">
+	<description>Called by spawnmenu functions (when creating a context menu) to fill this control with data.</description>
+	<file line="20-L25">lua/vgui/contextbase.lua</file>
+	<realm>Client</realm>
+	<args>
+		<arg name="contextData" type="table">A two-membered table:
+* <page>string</page> convar - The console variable to use. Calls <page>ContextBase:SetConVar</page>.
+* <page>string</page> label - The text to display inside the control's label.</arg>
+	</args>
+</function>

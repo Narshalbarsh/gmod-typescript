@@ -1,0 +1,16 @@
+<structure>
+	<realm>Shared</realm>
+	<description>
+		A <page>table</page> structure representing a single bone's orientation when its mesh is in its baseline (or "bind") pose before any animation is played.
+
+		This structure does not contain the bone ID for the bone it represents and instead relies on the structure's index within the <page>table</page> returned by <page>util.GetModelMeshes</page> to identify the bone it corresponds to.
+	</description>
+	<fields>
+		<item name="parent" type="number">
+			The bone ID of this bone's parent bone.
+		</item>
+		<item name="matrix" type="VMatrix">
+			A <page>VMatrix</page> containing this bone's position and rotation in local space relative to the model's origin.
+		</item>
+	</fields>
+</structure>

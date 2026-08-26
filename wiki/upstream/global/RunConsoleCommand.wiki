@@ -1,0 +1,18 @@
+<function name="RunConsoleCommand" parent="Global" type="libraryfunc">
+	<description>
+Executes the given console command with the parameters.
+
+<note>Some commands/convars are blocked from being ran/changed using this function, usually to prevent harm/annoyance to clients. For a list of blocked commands, see <page>Blocked ConCommands</page>.</note>
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="command" type="string">The command to be executed.</arg>
+		<arg name="arguments" type="vararg">The arguments. Note, that unlike <page>Player:ConCommand</page>, you must pass each argument as a new string, not separating them with a space.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Changes the gravity to 400 (default 600).</description>
+	<code>RunConsoleCommand("sv_gravity", "400")</code>
+
+</example>

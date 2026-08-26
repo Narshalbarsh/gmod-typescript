@@ -1,0 +1,10 @@
+<function name="GetClosestPointOnArea" parent="CNavArea" type="classfunc">
+	<description>Returns the closest point of this Nav Area from the given position.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="pos" type="Vector">The given position, can be outside of the Nav Area bounds.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">The closest position on this Nav Area.</ret>
+	</rets>
+</function>

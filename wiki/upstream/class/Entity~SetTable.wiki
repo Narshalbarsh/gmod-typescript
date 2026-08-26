@@ -1,0 +1,9 @@
+<function name="SetTable" parent="Entity" type="classfunc">
+	<description><internal></internal>
+
+Changes the table that can be accessed by indexing an entity. Each entity starts with its own table by default.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="tab" type="table">Table for the entity to use</arg>
+	</args>
+</function>

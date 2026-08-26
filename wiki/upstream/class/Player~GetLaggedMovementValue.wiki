@@ -1,0 +1,7 @@
+<function name="GetLaggedMovementValue" parent="Player" type="classfunc">
+	<description>Returns the timescale multiplier of the player movement.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The timescale multiplier, defaults to `1`.</ret>
+	</rets>
+</function>

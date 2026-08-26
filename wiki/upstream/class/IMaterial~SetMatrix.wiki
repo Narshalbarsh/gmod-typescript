@@ -1,0 +1,8 @@
+<function name="SetMatrix" parent="IMaterial" type="classfunc">
+	<description>Sets the specified material value to the specified matrix, does nothing on a type mismatch.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="materialMatrix" type="string">The name of the material int.</arg>
+		<arg name="matrix" type="VMatrix">The new matrix.</arg>
+	</args>
+</function>

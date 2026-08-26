@@ -1,0 +1,29 @@
+<function name="FindAlongRay" parent="ents" type="libraryfunc">
+	<description>Returns a table of all entities along the ray. The ray does not stop on collisions, meaning it will go through walls/entities.
+
+This function is capable of detecting clientside only entities by default.
+
+This internally uses [spatial partitioning](https://en.wikipedia.org/wiki/Space_partitioning) to avoid looping through all entities.
+</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="start" type="Vector">The start position of the ray.</arg>
+		<arg name="end" type="Vector">The end position of the ray.</arg>
+		<arg name="mins" type="Vector" default="nil">The mins corner of the ray.</arg>
+		<arg name="maxs" type="Vector" default="nil">The maxs corner of the ray.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table<Entity>">Table of the found entities. There's a limit of 1024 entities.</ret>
+	</rets>
+</function>
+
+<example>
+<description>Example usage of this function, as a "trace" of sorts.</description>
+<code>
+concommand.Add( "test_trace", function( ply )
+	local plyTr = ply:GetEyeTrace()
+	
+	local ents = ents.FindAlongRay( plyTr.StartPos, plyTr.HitPos )
+	PrintTable(ents)
+end )</code>
+</example>

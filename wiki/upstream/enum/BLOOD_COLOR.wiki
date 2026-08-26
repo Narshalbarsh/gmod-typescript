@@ -1,0 +1,22 @@
+<enum>
+	<realm>Shared</realm>
+	<description>Enumerations used by <page>Entity:GetBloodColor</page> and <page>Entity:SetBloodColor</page>.</description>
+	<items>
+<item key="DONT_BLEED" value="-1">No blood</item>
+
+<item key="BLOOD_COLOR_RED" value="0">Normal red blood</item>
+
+<item key="BLOOD_COLOR_YELLOW" value="1">Yellow blood</item>
+
+<item key="BLOOD_COLOR_GREEN" value="2">Green-red blood</item>
+
+<item key="BLOOD_COLOR_MECH" value="3">Sparks</item>
+
+<item key="BLOOD_COLOR_ANTLION" value="4">Yellow blood</item>
+
+<item key="BLOOD_COLOR_ZOMBIE" value="5">Green-red blood</item>
+
+<item key="BLOOD_COLOR_ANTLION_WORKER" value="6">Bright green blood</item>
+	</items>
+
+</enum>

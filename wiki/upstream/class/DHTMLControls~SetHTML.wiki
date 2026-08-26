@@ -1,0 +1,7 @@
+<function name="SetHTML" parent="DHTMLControls" type="panelfunc">
+	<description>Sets the <page>DHTML</page> element to control with these <page>DHTMLControls</page>.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="dhtml" type="Panel">The HTML panel</arg>
+	</args>
+</function>

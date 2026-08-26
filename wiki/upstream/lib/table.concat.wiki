@@ -1,0 +1,33 @@
+<function name="concat" parent="table" type="libraryfunc">
+	<description>Concatenates the contents of a table to a string.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="tbl" type="table">The table to concatenate.</arg>
+		<arg name="concatenator" type="string" default="\"\"">A separator to insert between strings</arg>
+		<arg name="startPos" type="number" default="1">The key to start at</arg>
+		<arg name="endPos" type="number" default="#tbl">The key to end at</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">Concatenated values</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Demonstrates the use of this function.</description>
+	<code>
+local Table = { "A", "simple", "table.concat", "test" }
+print( table.concat( Table ) )
+print( table.concat( Table, " " ) )
+print( table.concat( Table, " ", 3, 4 ) )
+	</code>
+	<output>
+
+```
+Asimpletable.concattest
+A simple table.concat test
+table.concat test
+```
+
+	</output>
+
+</example>

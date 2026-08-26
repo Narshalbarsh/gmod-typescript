@@ -1,0 +1,31 @@
+<function name="Setup" parent="DProperty_Combo" type="panelfunc">
+	<description>
+<internal></internal>
+Sets up a combo control.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="data" type="table" default="{ text = 'Select...' }">Data to use to set up the combo box control. See <page>Editable Entities</page>.
+
+Structure:
+* <page>string</page> text - The default label for this combo box
+* <page>table</page> values - The values to add to the combo box. Keys are the "nice" text, values are the data value to send.
+* <page>table</page> icons - The icons for each value. They will be matched by key name.
+* <page>boolean</page> select - The "nice" name/key of the value that should be initially selected.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Setup a Combo control with a custom default text and two options.</description>
+	<code>
+-- CreateRow returns an internal panel with its own Setup method, which calls this setup method.
+local Combo = DP:CreateRow( "Catergory", "Hello World" )
+Combo:Setup( "Combo", {
+	text = "Select me!",
+	values = {
+		[ "Label 1" ] = "data 1",
+		[ "Label 2" ] = 2,
+	}
+} )
+	</code>
+
+</example>

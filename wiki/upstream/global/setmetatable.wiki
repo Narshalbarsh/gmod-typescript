@@ -1,0 +1,35 @@
+<function name="setmetatable" parent="Global" type="libraryfunc">
+	<description>Sets, changes or removes a table's metatable. Returns Tab (the first argument).</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="Tab" type="table">The table who's metatable to change.</arg>
+		<arg name="Metatable" type="table">The metatable to assign. <br/> If it's nil, the metatable will be removed.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">The first argument.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Creates a metatable and assigns it to a table.</description>
+	<code>
+local Pupil_meta = {
+	GetName = function(self)
+		return self.name
+	end
+}
+Pupil_meta.__index = Pupil_meta
+-- If a key cannot be found in an object, it will look in it's metatable's __index metamethod.
+
+local Pupil = {
+	name = "John Doe"
+}
+
+setmetatable(Pupil, Pupil_meta)
+
+print( Pupil:GetName() )
+-- This will look for the "GetName" key in Pupil, but it doesn't have one. So it will look in it's metatable (Pupil_meta) __index key instead.
+	</code>
+	<output>"John Doe"</output>
+
+</example>

@@ -1,0 +1,32 @@
+<function name="Read" parent="File" type="classfunc">
+	<args>
+		<arg name="length" type="number" default="nil">Reads the specified amount of chars. If not set, will read the entire file.</arg>
+	</args>
+	<rets>
+		<ret name="data" type="string">The read data.</ret>
+	</rets>
+	<description>Reads the specified amount of chars and returns them as a binary string.</description>
+	<realm>Shared and Menu</realm>
+</function>
+
+<example>
+	<description>Adapted from extensions/file.lua</description>
+	<code>
+function file.Read( filename, path )
+
+	if ( path == true ) then path = "GAME" end
+	if ( path == nil || path == false ) then path = "DATA" end
+
+	local f = file.Open( filename, "rb", path )
+	if ( !f ) then return end
+
+	local str = f:Read( f:Size() )
+
+	f:Close()
+
+	if ( !str ) then str = "" end
+	return str
+
+end
+	</code>
+</example>

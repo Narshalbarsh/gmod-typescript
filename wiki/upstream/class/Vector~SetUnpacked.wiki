@@ -1,0 +1,9 @@
+<function name="SetUnpacked" parent="Vector" type="classfunc">
+	<description>Sets the x, y, and z of the vector.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="x" type="number">The x component</arg>
+		<arg name="y" type="number">The y component</arg>
+		<arg name="z" type="number">The z component</arg>
+	</args>
+</function>

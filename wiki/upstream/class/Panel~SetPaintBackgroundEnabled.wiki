@@ -1,0 +1,7 @@
+<function name="SetPaintBackgroundEnabled" parent="Panel" type="classfunc">
+	<description>Sets whether the default background of the panel should be drawn or not. It's color is usually set by <page>Panel:SetBGColor</page>.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="paintBackground" type="boolean">Whether to draw the background or not.</arg>
+	</args>
+</function>

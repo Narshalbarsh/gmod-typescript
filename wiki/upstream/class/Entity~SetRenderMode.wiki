@@ -1,0 +1,7 @@
+<function name="SetRenderMode" parent="Entity" type="classfunc">
+	<description>Sets the render mode of the entity.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="renderMode" type="number">New render mode to set, see <page>Enums/RENDERMODE</page>.</arg>
+	</args>
+</function>

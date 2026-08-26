@@ -1,0 +1,8 @@
+<function name="RightLayout" parent="IconEditor" type="panelfunc">
+	<description>
+Applies the right side view camera settings for the model in the <page>DAdjustableModelPanel</page>.
+
+Called when a user clicks the `Right` (fourth) button (See the ). (Note: The icon for this points left.)
+	</description>
+	<realm>Client</realm>
+</function>

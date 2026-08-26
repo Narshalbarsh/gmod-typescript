@@ -1,0 +1,21 @@
+<function name="DrawMotionBlur" parent="Global" type="libraryfunc">
+	<description>Creates a motion blur effect by drawing your screen multiple times.</description>
+	<realm>Client</realm>
+	<file line="17-L57">lua/postprocess/motion_blur.lua</file>
+	<args>
+		<arg name="AddAlpha" type="number">How much alpha to change per frame.</arg>
+		<arg name="DrawAlpha" type="number">How much alpha the frames will have. A value of 0 will not render the motion blur effect.</arg>
+		<arg name="Delay" type="number">Determines the amount of time between frames to capture.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Creates a motion blur effect.</description>
+	<code>
+hook.Add( "RenderScreenspaceEffects", "MotionBlurEffect", function()
+
+	DrawMotionBlur( 0.4, 0.8, 0.01 )
+
+end )
+	</code>
+</example>

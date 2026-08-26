@@ -1,0 +1,32 @@
+<panel>
+	<parent>DTextEntry</parent>
+	<name>DNumberWang</name>
+	<realm>Client and Menu</realm>
+	<file line="">lua/vgui/dnumberwang.lua</file>
+	<description>DNumberWang is a VGUI element that allows you to input a numeric value using up and down arrows or direct entry.</description>
+</panel>
+
+<example>
+	<description>Create the Number Wang with the minimum number being 0 and the max being 100</description>
+	<code>
+local frame = vgui.Create( "DFrame" )
+frame:SetSize( 300, 250 )
+frame:Center()
+frame:MakePopup()
+
+local Wang = vgui.Create("DNumberWang", frame)
+Wang:SetPos(85, 25)
+Wang:SetSize(45, 26)
+Wang:SetMin(0)
+Wang:SetMax(100)
+
+Wang.OnValueChanged = function(self)
+	print(self:GetValue())
+end
+	</code>
+	<upload src="8e3f9/8d808081d09d62c.png" size="29150" name="image.png" />
+	<output><image src="8e3f9/8d808081d09d62c.png"/></output>
+<upload src="8e3f9/8d808084bef0838.png" size="5628" name="image.png" />
+	<output><image src="8e3f9/8d808084bef0838.png"/></output>
+
+</example>

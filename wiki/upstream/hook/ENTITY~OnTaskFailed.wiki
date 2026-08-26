@@ -1,0 +1,11 @@
+<function name="OnTaskFailed" parent="ENTITY" type="hook">
+	<description>Called when a task this NPC was running has failed for whatever reason.
+<note>This hook only exists for `ai` type [SENTs](Scripted_Entities).</note>
+</description>
+	<realm>Server</realm>
+	<added>2023.10.09</added>
+	<args>
+		<arg name="failCode" type="number">The fail code for the task. It will be a [FAIL_ enum](https://github.com/ValveSoftware/source-sdk-2013/blob/0d8dceea4310fde5706b3ce1c70609d72a38efdf/sp/src/game/server/ai_task.h#L26) or a generated code for a custom string. (second argument)</arg>
+		<arg name="failReason" type="string">If set, a custom reason for the failure.</arg>
+	</args>
+</function>

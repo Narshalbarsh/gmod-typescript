@@ -1,0 +1,10 @@
+<function name="ScrollToChild" parent="DPanPanel" type="panelfunc">
+	<description>
+Scroll to a specific child panel.
+</description>
+	<realm>Client and Menu</realm>
+	<file line="123-L135">lua/vgui/dpanpanel.lua</file>
+	<args>
+		<arg name="pnl" type="Panel">The panel to scroll to.</arg>
+	</args>
+</function>

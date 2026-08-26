@@ -1,0 +1,10 @@
+<function name="Contains" parent="CNavArea" type="classfunc">
+	<description>Returns true if this <page>CNavArea</page> contains the given vector.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="pos" type="Vector">The position to test.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">True if the vector was inside and false otherwise.</ret>
+	</rets>
+</function>

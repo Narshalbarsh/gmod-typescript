@@ -1,0 +1,26 @@
+<function name="gfind" parent="string" type="libraryfunc">
+	<description><deprecated>This function is removed in Lua versions later than what GMod is currently using. Use <page>string.gmatch</page> instead.</deprecated>Returns an iterator function that is called for every complete match of the pattern, all sub matches will be passed as to the loop.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="data" type="string">The string to search in</arg>
+		<arg name="pattern" type="string">The pattern to search for</arg>
+	</args>
+	<rets>
+		<ret name="" type="function">The iterator function that can be used in a for-in loop</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Example usage of the function</description>
+	<code>
+local s = "my awesome stuff 12"
+for w in string.gfind(s, "(%a)") do
+    Msg(w)
+end
+	</code>
+	<output>
+In your console:
+myawesomestuff
+	</output>
+
+</example>

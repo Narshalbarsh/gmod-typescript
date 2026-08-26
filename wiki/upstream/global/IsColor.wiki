@@ -1,0 +1,28 @@
+<function name="IsColor" parent="Global" type="libraryfunc">
+	<description>
+Returns whether the given object does or doesn't have a `metatable` of a color.
+
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="36-L40">lua/includes/util/color.lua</file>
+	<args>
+		<arg name="Object" type="any">The object to be tested</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether the given object is a color or not</ret>
+	</rets>
+</function>
+
+<example>
+	<description>How work 'isColor' function ?</description>
+	<code>
+local color = Color(255, 255, 255)
+
+print(IsColor(color) or "This variable is not a colour")
+	</code>
+	<output>
+```
+true
+```
+	</output>
+</example>

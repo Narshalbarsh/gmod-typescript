@@ -1,0 +1,49 @@
+<cat>gameevent</cat>
+<title>server_spawn</title>
+
+<structure>
+	<realm>Menu</realm>
+	<description>
+		Called when joining a Server or when a Server spawned.
+
+		<note>
+			This is only available in the Menu state because this is called before the Client or Server State has even started. 
+		</note>
+	</description>
+	<fields>
+		<item type="string" name="hostname">The hostname of the Server.</item>
+		<item type="string" name="address">The Server address. Will be **loopback** in hosted games.</item>
+		<item type="number" name="ip">The IP of the Server. Will be **0** in hosted games. Use the **address** instead of this.</item>
+		<item type="number" name="port">The port of the Server. Will be **0** in hosted games.</item>
+		<item type="string" name="game">The Game the Server is hosting. Will be **garrysmod**.</item>
+		<item type="string" name="mapname">The mapname the Server is currently on.</item>
+		<item type="number" name="maxplayers">The amount of slots the server has.</item>
+		<item type="string" name="os">The OS of the Server. **W**(WIN32), **L**(LINUX) or **O**(OSX).</item>
+		<item type="boolean" name="dedicated">true if it's a dedicated server.</item>
+		<item type="boolean" name="password">true if the Server is password protected.</item>
+	</fields>
+</structure>
+
+# Examples
+<example>
+	<description>This is a basic template with the purpose of including all arguments / table variables to make it easily known which values can be accessed. [This](https://github.com/RaphaelIT7/gmod-gameevent) Binary Module has been used.</description>
+	<code>
+require("gameevent") -- using a Binary Module because the Menu State doesn't has gameevent.Listen
+gameevent.Listen( "server_spawn" )
+hook.Add( "server_spawn", "server_spawn_example", function( data )
+	local hostname = data.hostname		// The hostname of the Server.
+	local address = data.address		// The Server address.
+	local ip = data.ip					// The Server IP. Use the address instead!
+	local port = data.port				// The Server Port.
+	local game = data.game				// The Game the Server is hosting. Should always be garrysmod.
+	local mapname = data.mapname		// The Mapname the Server is currently on.
+	local maxplayers = data.maxplayers 	// The amount of slots the Server has.
+	local os = data.os 					// The os the Server is running on.
+	local dedicated = data.dedicated	// true if the Server is a dedicated Server.
+	local password = data.password		// true if the Server is password protected.
+
+	// Called while connecting to the Server.
+	
+end )
+	</code>
+</example>

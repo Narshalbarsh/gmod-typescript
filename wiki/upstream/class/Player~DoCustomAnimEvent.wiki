@@ -1,0 +1,12 @@
+<function name="DoCustomAnimEvent" parent="Player" type="classfunc">
+	<description>
+Sends a specified third person animation event to the player.
+
+Calls <page>GM:DoAnimationEvent</page> with specified arguments.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="event" type="number">The event to send. See <page>Enums/PLAYERANIMEVENT</page>.</arg>
+		<arg name="data" type="number">The data to send alongside the event.</arg>
+	</args>
+</function>

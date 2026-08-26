@@ -1,0 +1,9 @@
+<function name="Reset" parent="DColorPalette" type="panelfunc">
+	<description>
+Resets this entire color palette to a default preset one, without saving.
+
+See <page>DColorPalette:ResetSavedColors</page> for version that also saves the changes.
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="127-L131">lua/vgui/dcolorpalette.lua</file>
+</function>

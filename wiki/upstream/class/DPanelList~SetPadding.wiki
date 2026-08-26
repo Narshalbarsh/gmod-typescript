@@ -1,0 +1,7 @@
+<function name="SetPadding" parent="DPanelList" type="panelfunc">
+	<description>Sets the offset of the lists items from the panel borders</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="Offset" type="number">Offset from panel borders</arg>
+	</args>
+</function>

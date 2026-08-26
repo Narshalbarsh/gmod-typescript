@@ -1,0 +1,34 @@
+<function name="GibBreakClient" parent="Entity" type="classfunc">
+	<description>
+Causes the entity to break into its current models gibs, if it has any.
+
+You must call <page>Entity:PrecacheGibs</page> on the entity before using this function, or it will not create any gibs.
+
+If called on server, the gibs will be spawned on the currently connected clients and will not be synchronized. Otherwise the gibs will be spawned only for the client the function is called on.
+
+<note>
+	this function will not remove or hide the entity it is called on.
+	For more expensive version of this function see <page>Entity:GibBreakServer</page>.
+</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="force" type="Vector">The force to apply to the created gibs.</arg>
+		<arg name="clr" type="Color" default="nil">If set, this will be color of the broken gibs instead of the entity's color.</arg>
+	</args>
+</function>
+
+<example>
+	<description>A console command that breaks the prop the player is aiming at when they run the command.</description>
+	<code>
+concommand.Add( "break", function( ply )
+	local tr = ply:GetEyeTrace()
+	local ent = tr.Entity
+	if ( !IsValid( ent ) ) then return end -- playing not looking at any entity, bail
+
+	ent:PrecacheGibs()
+	ent:GibBreakClient( tr.HitNormal * 100 ) -- Break in some direction
+end )
+	</code>
+
+</example>

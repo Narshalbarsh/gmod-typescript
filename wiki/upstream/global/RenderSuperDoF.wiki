@@ -1,0 +1,10 @@
+<function name="RenderSuperDoF" parent="Global" type="libraryfunc">
+	<description>Renders the Super Depth of Field post-process effect</description>
+	<realm>Client</realm>
+	<file line="281-L329">lua/postprocess/super_dof.lua</file>
+	<args>
+		<arg name="viewOrigin" type="Vector">Origin to render the effect at</arg>
+		<arg name="viewAngles" type="Angle">Angles to render the effect at</arg>
+		<arg name="viewFOV" type="number">Field of View to render the effect at</arg>
+	</args>
+</function>

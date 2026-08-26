@@ -1,0 +1,36 @@
+<function name="AddRestoreHook" parent="saverestore" type="libraryfunc">
+	<description>Adds a restore/load hook for the Half-Life 2 save system.</description>
+	<realm>Shared</realm>
+	<file line="371-L378">lua/includes/modules/saverestore.lua</file>
+	<args>
+		<arg name="identifier" type="string">The unique identifier for this hook.</arg>
+		<arg name="callback" type="function">The function to be called when an engine save is being loaded.
+
+<callback>
+<arg type="IRestore" name="save">The restore object to be used to read data from save file that is being loaded.</arg>
+</callback>
+
+You can also use those functions to read data:
+* <page>saverestore.ReadVar</page>
+* <page>saverestore.ReadTable</page>
+* <page>saverestore.LoadEntity</page></arg>
+	</args>
+</function>
+
+<example>
+	<description>Example usage.</description>
+	<code>
+saverestore.AddRestoreHook( "HookNameHere", function( save )
+	PrintTable( saverestore.ReadTable( save ) )
+end )
+	</code>
+	<output>
+If you used example from <page>saverestore.AddSaveHook</page>
+
+```
+1 = Test
+```
+
+	</output>
+
+</example>

@@ -1,0 +1,10 @@
+<function name="GetHoldPos" parent="DVerticalDivider" type="panelfunc">
+	<description>
+<internal></internal>
+Returns the local Y position of where the user starts dragging the divider.
+	</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">The local Y position where divider dragging has started.</ret>
+	</rets>
+</function>

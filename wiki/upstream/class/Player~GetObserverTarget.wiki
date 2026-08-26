@@ -1,0 +1,11 @@
+<function name="GetObserverTarget" parent="Player" type="classfunc">
+	<description>
+Returns the entity the player is currently observing.
+
+Set using <page>Player:SpectateEntity</page>.
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Entity">The entity the player is currently spectating, or <page text="NULL">Global_Variables</page> if the player has no target.</ret>
+	</rets>
+</function>

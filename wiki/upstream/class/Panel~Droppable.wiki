@@ -1,0 +1,15 @@
+<function name="Droppable" parent="Panel" type="classfunc">
+	<description>
+Makes this panel droppable. This is used with <page>Panel:Receiver</page> to create drag and drop events.
+
+Can be called multiple times with different names allowing to be dropped onto different receivers.
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="302-L310">lua/includes/extensions/client/panel/dragdrop.lua</file>
+	<args>
+		<arg name="name" type="string">Name of your droppable panel</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">Blank table stored on the panel itself under pnl.m_DragSlot[ name ]. Is reset every time this function is called and does not appear to be used or exposed anywhere else.</ret>
+	</rets>
+</function>

@@ -1,0 +1,7 @@
+<function name="GetPlaceholderColor" parent="DTextEntry" type="panelfunc">
+	<description>Return current color of panel placeholder</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="Color">Current placeholder color</ret>
+	</rets>
+</function>

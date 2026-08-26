@@ -1,0 +1,89 @@
+<function name="Color" parent="Global" type="libraryfunc">
+	<description>Creates a <page>Color</page>.
+	<warning>This function is relatively expensive when used in rendering hooks or in operations requiring very frequent calls (like loops for example) due to object creation and garbage collection. It is better to store the color in a variable or to use the [default colors](https://wiki.facepunch.com/gmod/Global_Variables#misc) available.</warning>
+
+Here is a list of colors already cached by the game 
+
+Variable | Color (RGBA) |
+-----|------------|
+| color_white | Color(255, 255, 255, 255) |
+| color_black | Color(0, 0, 0, 255) |
+| color_transparent | Color(255, 255, 255, 0) |
+
+	<warning>Under no circumstances should these variables be modified (by a Lerp or value modification). Some addons that use these values (e.g. color_white) will be affected by this change.</warning>
+
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="13-L22">lua/includes/util/color.lua</file>
+	<args>
+		<arg name="r" type="number">An integer from `0-255` describing the red value of the color.</arg>
+		<arg name="g" type="number">An integer from `0-255` describing the green value of the color.</arg>
+		<arg name="b" type="number">An integer from `0-255` describing the blue value of the color.</arg>
+		<arg name="a" type="number" default="255">An integer from `0-255` describing the alpha (transparency) of the color.(default 255)</arg>
+	</args>
+	<rets>
+		<ret name="" type="Color">The created <page>Color</page>.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Creates a color and prints the components to the console.</description>
+	<code>PrintTable( Color( 1, 2, 3, 4 ) )</code>
+	<output>
+```
+a	=	4
+b	=	3
+g	=	2
+r	=	1
+```
+
+	</output>
+</example>
+
+<example>
+	<description>Color variables can have individual channels set using the arguments.</description>
+	<code>
+local col = Color( 0, 255, 0 )
+
+col.r = 255
+
+PrintTable( col )
+	</code>
+	<output>
+```
+a	=	255
+b	=	0
+g	=	255
+r	=	255
+```
+	</output>
+</example>
+
+<example>
+	<description>Transforms a color object to a string, then prints it.</description>
+	<code>
+local str = tostring( Color( 255, 0, 0 ) )
+print( str )
+	</code>
+	<output>
+```
+255 0 0
+```
+	</output>
+</example>
+
+<example>
+	<description>Prints `equal` if both colors are equal, otherwise `unequal` will be printed.</description>
+	<code>
+if Color( 255, 0, 0 ) == Color( 255, 0, 0 ) then
+	print( "equal" )
+else
+	print( "unequal" )
+end
+	</code>
+	<output>
+```
+equal
+```
+	</output>
+</example>

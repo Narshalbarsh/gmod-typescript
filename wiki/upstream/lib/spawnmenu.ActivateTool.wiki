@@ -1,0 +1,9 @@
+<function name="ActivateTool" parent="spawnmenu" type="libraryfunc">
+	<description>Activates a tool, opens context menu and brings up the tool gun.</description>
+	<realm>Client</realm>
+	<file line="101-L129">lua/includes/modules/spawnmenu.lua</file>
+	<args>
+		<arg name="tool" type="string">Tool class/file name</arg>
+		<arg name="menu_only" type="boolean" default="false">Should we activate this tool in the menu only or also the toolgun? `true` = menu only,`false` = toolgun aswell</arg>
+	</args>
+</function>

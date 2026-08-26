@@ -1,0 +1,10 @@
+<function name="ApplySchemeSettings" parent="PANEL" type="hook">
+	<description>
+Called whenever the panel should apply its scheme (colors, fonts, style).
+
+It is called a few frames after panel's creation once.
+
+The engine will overwrite <page>Panel:SetFGColor</page> and <page>Panel:SetBGColor</page> (from the engine panel theme/scheme) for most panels just before this hook is called in Lua.
+	</description>
+	<realm>Client</realm>
+</function>

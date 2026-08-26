@@ -1,0 +1,15 @@
+<function name="RunEngineTask" parent="ENTITY" type="hook">
+	<description>
+Called when an engine task is ran on the entity.
+
+<note>This hook only exists for `ai` type [SENTs](Scripted_Entities).</note>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="taskID" type="number">The task ID, see [ai_task.h](https://github.com/ValveSoftware/source-sdk-2013/blob/55ed12f8d1eb6887d348be03aee5573d44177ffb/mp/src/game/server/ai_task.h#L89-L502)</arg>
+		<arg name="taskData" type="number">The task data.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">true to prevent default action</ret>
+	</rets>
+</function>

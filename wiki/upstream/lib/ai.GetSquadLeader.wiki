@@ -1,0 +1,11 @@
+<function name="GetSquadLeader" parent="ai" type="libraryfunc">
+	<description>Returns the squad leader of the given squad.</description>
+	<realm>Server</realm>
+	<added>2021.01.27</added>
+	<args>
+		<arg name="squad" type="string">The squad name.</arg>
+	</args>
+	<rets>
+		<ret name="" type="NPC">The squad leader.</ret>
+	</rets>
+</function>

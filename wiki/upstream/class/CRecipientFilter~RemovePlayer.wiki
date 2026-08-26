@@ -1,0 +1,23 @@
+<function name="RemovePlayer" parent="CRecipientFilter" type="classfunc">
+	<description>Removes the player from the recipient filter.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="Player" type="Player">The player that should be in the recipient filter if you call this function.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Adds all players to the recipient filter, then removes the first player and sends a message to the rest.</description>
+	<code>
+util.AddNetworkString("message")
+function SendMessage()
+	local filter = RecipientFilter()
+	filter:AddAllPlayers()
+	filter:RemovePlayer(Entity(1))
+	net.Start("message")
+	net.Send(filter)
+end
+	</code>
+	<output>Sends a net message to every player except the first.</output>
+
+</example>

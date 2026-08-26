@@ -1,0 +1,17 @@
+<function name="PlayerList" parent="serverlist" type="libraryfunc">
+	<description>Queries a server for its player list.</description>
+	<realm>Menu</realm>
+	<args>
+		<arg name="ip" type="string">The IP address of the server, including the port.</arg>
+		<arg name="callback" type="function">The function to be called if and when the request finishes.
+
+<callback>
+<arg type="table" name="data">
+A list of players and their info. Each entry has the following fields:
+  * <page>number</page> **time** - The amount of time the player is playing on the server, in seconds
+  * <page>string</page> **name** - The player name
+  * <page>number</page> **score** - The players score
+</arg>
+</callback></arg>
+	</args>
+</function>

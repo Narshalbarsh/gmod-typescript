@@ -1,0 +1,49 @@
+<function name="GetGames" parent="engine" type="libraryfunc">
+	<description>Returns an array of tables corresponding to all games from which Garry's Mod supports mounting content.</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="table">A table of tables containing all mountable games.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints out a list of games, their Steam AppIds, titles and status (owned, installed, mounted).</description>
+	<code>PrintTable( engine.GetGames() )</code>
+	<output>
+
+```
+1:
+ depot = 220
+ title = Half-Life 2
+ owned = true
+ folder = hl2
+ mounted = true
+ installed = true
+2:
+ depot = 240
+ title = Counter-Strike
+ owned = false
+ folder = cstrike
+ mounted = false
+ installed = false
+3:
+ depot = 300
+ title = Day of Defeat
+ owned = false
+ folder = dod
+ mounted = false
+ installed = false
+4:
+ depot = 440
+ title = Team Fortress 2
+ owned = true
+ folder = tf
+ mounted = true
+ installed = true
+```
+
+```
+
+	</output>
+
+</example>

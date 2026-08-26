@@ -1,0 +1,22 @@
+<function name="IsUserGroup" parent="Player" type="classfunc">
+	<description>Returns whether the player is in specified group or not. See <page>Player:GetUserGroup</page> for a way to get player's user group.</description>
+	<realm>Shared</realm>
+	<file line="32-L38">lua/includes/extensions/player_auth.lua</file>
+	<args>
+		<arg name="groupName" type="string">Group to check the player for.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">`true` if the player has the given user group.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints in the players console "yes, I'm awesome!" if he's in the superadmin group.</description>
+	<code>
+if ( Entity( 1 ):IsUserGroup( "superadmin" ) ) then
+    print( "Yes, I'm awesome!" )
+end
+	</code>
+	<output>"Yes, I'm awesome!" in console.</output>
+
+</example>

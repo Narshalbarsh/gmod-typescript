@@ -1,0 +1,43 @@
+<function name="PlayerDeath" parent="GM" type="hook">
+	<description>
+Called when a player is killed by <page>Player:Kill</page> or any other normal means.
+
+This hook is **not** called if the player is killed by <page>Player:KillSilent</page>. See <page>GM:PlayerSilentDeath</page> for that.
+
+* <page>GM:DoPlayerDeath</page> is called **before** this hook.
+* <page>GM:PostPlayerDeath</page> is called **after** this hook.
+
+See <page>Player:LastHitGroup</page> if you need to get the last hit hitgroup of the player.
+
+<note><page>Player:Alive</page> will return false in this hook.</note>
+
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="victim" type="Player">The player who died</arg>
+		<arg name="inflictor" type="Entity">Item used to kill the victim</arg>
+		<arg name="attacker" type="Entity">Player or entity that killed the victim</arg>
+	</args>
+</function>
+
+<example>
+	<description>If the player suicides (they are the killer and the victim), then it will print a message to console. If someone else kills them, it will print a different message to console.</description>
+	<code>
+hook.Add( "PlayerDeath", "GlobalDeathMessage", function( victim, inflictor, attacker )
+    if ( victim == attacker ) then
+        PrintMessage( HUD_PRINTTALK, victim:Name() .. " committed suicide." )
+    else
+        PrintMessage( HUD_PRINTTALK, victim:Name() .. " was killed by " .. attacker:Name() .. ".")
+    end
+end )
+	</code>
+	<output>
+```
+-- If suicide...
+Player1 has committed suicide.
+
+-- else...
+Player1 was killed by Player2.
+```
+	</output>
+</example>

@@ -1,0 +1,34 @@
+<function name="AddSurfaceData" parent="physenv" type="libraryfunc">
+	<description>
+Adds a [material surface property](https://developer.valvesoftware.com/wiki/Material_surface_properties) type to the game's physics environment.
+
+See <page>util.GetSurfaceData</page> for the opposite function.
+
+<bug issue="2604">The game has a limit of 128 surface properties - this includes properties loaded automatically from [surfaceproperties.txt](https://github.com/Facepunch/garrysmod/blob/master/garrysmod/scripts/surfaceproperties.txt). Due to this, there's only a small amount of open slots that can be registered with GMod's provided surfaceproperties.txt.
+
+Does nothing on `x86-64` beta.
+</bug>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="properties" type="string">The properties to add. Each one should include `"base"` or the game will crash due to some values being missing.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Adds the "scout_baseball" surface property from TF2.</description>
+	<code>
+physenv.AddSurfaceData([["scout_baseball"
+{
+	"base"		"rubber"
+
+	"bulletimpact"	"Weapon_Baseball.HitWorld"
+	"scraperough"	"Grenade.ScrapeRough"
+	"scrapesmooth"	"Grenade.ScrapeSmooth"
+	"impacthard"	"Weapon_Baseball.HitWorld"
+	"impactsoft"	"Weapon_Baseball.HitWorld"
+	"rolling"	"Grenade.Roll"
+}]])
+	</code>
+
+</example>

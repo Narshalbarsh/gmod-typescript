@@ -1,0 +1,21 @@
+<function name="KeyValue" parent="ENTITY" type="hook">
+	<description>
+Called when the engine sets a value for this scripted entity.
+
+This hook is called **before** <page>ENTITY:Initialize</page> when the key-values are set by the map.<br/>
+Otherwise this hook will be called whenever <page>Entity:SetKeyValue</page> is called on the entity.
+
+See <page>GM:EntityKeyValue</page> for a hook that works for all entities.
+
+See <page>WEAPON:KeyValue</page> for a hook that works for scripted weapons.
+
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="key" type="string">The key that was affected.</arg>
+		<arg name="value" type="string">The new value.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return true to suppress this KeyValue or return false or nothing to apply this key value.</ret>
+	</rets>
+</function>

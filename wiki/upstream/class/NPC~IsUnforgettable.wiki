@@ -1,0 +1,11 @@
+<function name="IsUnforgettable" parent="NPC" type="classfunc">
+	<description>Returns the "forgettable" status for a given enemy, as set by <page>NPC:SetUnforgettable</page>, or by internal logic of engine NPCs.</description>
+	<added>2025.09.04</added>
+	<realm>Server</realm>
+	<args>
+		<arg name="enemy" type="Entity">Enemy entity to check.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether the given enemy is unforgettable (`true`) or not.</ret>
+	</rets>
+</function>

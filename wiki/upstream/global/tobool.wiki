@@ -1,0 +1,54 @@
+<function name="tobool" parent="Global" type="libraryfunc">
+	<description>Attempts to return an appropriate boolean for the given value</description>
+	<realm>Shared and Menu</realm>
+	<file line="304-L310">lua/includes/util.lua</file>
+	<args>
+		<arg name="input" type="any">The object to be converted to a boolean</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">
+* `false` for the boolean `false`.
+* `false` for `"false"`.
+* `false` for `"0"`.
+* `false` for numeric `0`.
+* `false` for `nil`.
+* `true` otherwise.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Demonstrate the output of this function with various values.</description>
+	<code>
+print("boolean true:", tobool(true))
+print("boolean false:", tobool(false))
+print("string true:", tobool("true"))
+print("string false:", tobool("false"))
+print("numeric 0:", tobool(0))
+print("string 0:", tobool("0"))
+print("string 1:", tobool("1"))
+print("nil:", tobool(nil))
+print("text string:", tobool("not a boolean"))
+print("empty string:", tobool(""))
+print("table:", tobool({"stuff"}))
+print("empty table:", tobool({}))
+	</code>
+	<output>
+
+```
+boolean true: true
+boolean false: false
+string true: true
+string false: false
+numeric 0: false
+string 0: false
+string 1: true
+nil: false
+text string: true
+empty string: true
+table: true
+empty table: true
+```
+
+	</output>
+
+</example>

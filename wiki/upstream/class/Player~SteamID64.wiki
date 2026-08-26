@@ -1,0 +1,27 @@
+<function name="SteamID64" parent="Player" type="classfunc">
+	<description>
+Returns the player's full **64-bit SteamID**, also known as **CommunityID**. Information on how data is packed into this value can be found [here](https://developer.valvesoftware.com/wiki/SteamID).
+
+See <page>Player:AccountID</page> for a function that returns only the Account ID part of the SteamID and <page>Player:SteamID</page> for the text version of the SteamID.
+
+<note>In a `-multirun` environment, this will return `"0"` for all "copies" of a player because they are not authenticated with Steam.
+
+For bots, this will return `90071996842377216` (equivalent to `STEAM_0:0:0`) for the first bot to join.
+
+For each additional bot, the number increases by 1. So the next bot will be `90071996842377217` (`STEAM_0:1:0`) then `90071996842377218` (`STEAM_0:0:1`) and so on.</note>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="string">Player's 64-bit SteamID aka CommunityID.
+
+<note>The return value is a string, not a number, since Lua's numbers are unable to store the entire 64bit numbers without data loss.</note>
+</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints the 64bit SteamID of player.</description>
+	<code>print( Entity( 1 ):SteamID64() )</code>
+	<output>64bit SteamID (about 17 digits)
+	</output>
+</example>

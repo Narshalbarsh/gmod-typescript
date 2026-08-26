@@ -1,0 +1,11 @@
+<function name="GetPlayerList" parent="Global" type="libraryfunc">
+	<description>
+		<internal></internal>
+		Updates the PlayerList for the Currently Viewed Server. Internally uses <page>serverlist.PlayerList</page> to retrieve the PlayerList.
+	</description>
+	<realm>Menu</realm>
+	<file line="257-L266">lua/menu/mainmenu.lua</file>
+	<args>
+		<arg name="serverip" type="string">The ServerIP to retrieve the PlayerList from.</arg>
+	</args>
+</function>

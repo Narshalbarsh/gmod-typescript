@@ -1,0 +1,22 @@
+<function name="unpack" parent="Global" type="libraryfunc">
+	<description>This function takes a numeric indexed table and return all the members as a vararg. If specified, it will start at the given index and end at end index.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="tbl" type="table">The table to generate the vararg from.</arg>
+		<arg name="startIndex" type="number" default="1">Which index to start from. Optional.</arg>
+		<arg name="endIndex" type="number" default="#tbl">Which index to end at. Optional, even if you set StartIndex.</arg>
+	</args>
+	<rets>
+		<ret name="" type="vararg">Output values</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints a vararg</description>
+	<code>print( unpack({"a", "b", "c"}) )</code>
+	<output>
+```
+ a b c
+```</output>
+
+</example>

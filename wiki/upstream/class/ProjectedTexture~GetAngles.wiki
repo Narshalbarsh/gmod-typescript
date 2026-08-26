@@ -1,0 +1,7 @@
+<function name="GetAngles" parent="ProjectedTexture" type="classfunc">
+	<description>Returns the angle of the ProjectedTexture, which were previously set by <page>ProjectedTexture:SetAngles</page></description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="Angle">The angles of the ProjectedTexture.</ret>
+	</rets>
+</function>

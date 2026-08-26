@@ -1,0 +1,17 @@
+<function name="GetViewEntity" parent="Player" type="classfunc">
+	<description>Returns the entity the player is using to see from (such as the player itself, the camera, or another entity).
+
+	<note>This function will not return the currently spectated entity. See <page>Player:GetObserverTarget</page>.</note>
+</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Entity">The entity the player is using to see from</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Will print what entity the first player uses to look through.</description>
+	<code>print( Entity( 1 ):GetViewEntity() )</code>
+	<output>Player [1][ExamplePlayer]</output>
+
+</example>

@@ -1,0 +1,16 @@
+<function name="DistanceSqr" parent="math" type="libraryfunc">
+	<description>
+Returns the squared difference between two points in 2D space. This is computationally faster than <page>math.Distance</page>.
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="10-L14">lua/includes/extensions/math.lua</file>
+	<args>
+		<arg name="x1" type="number">X position of first point</arg>
+		<arg name="y1" type="number">Y position of first point</arg>
+		<arg name="x2" type="number">X position of second point</arg>
+		<arg name="y2" type="number">Y position of second point</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The squared distance between the two points.</ret>
+	</rets>
+</function>

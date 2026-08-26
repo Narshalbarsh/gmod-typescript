@@ -1,0 +1,7 @@
+<function name="IsRunningBehavior" parent="NPC" type="classfunc">
+	<realm>Server</realm>
+	<description>Checks if the NPC is running an **ai_goal**. ( e.g. An npc_citizen NPC following the Player. )</description>
+	<rets>
+		<ret name="" type="boolean">Returns true if running an ai_goal, otherwise returns false.</ret>
+	</rets>
+</function>

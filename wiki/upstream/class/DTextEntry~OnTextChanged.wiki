@@ -1,0 +1,13 @@
+<function name="OnTextChanged" parent="DTextEntry" type="panelfunc">
+	<description>
+<internal></internal>
+Called internally when the text inside the <page>DTextEntry</page> changes. This is an implementation of <page>TextEntry:OnTextChanged</page>
+
+You should not override this function. Use <page>DTextEntry:OnValueChange</page> instead.
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="188-L208">lua/vgui/dtextentry.lua</file>
+	<args>
+		<arg name="noMenuRemoval" type="boolean">Determines whether to remove the autocomplete menu (false) or not (true).</arg>
+	</args>
+</function>

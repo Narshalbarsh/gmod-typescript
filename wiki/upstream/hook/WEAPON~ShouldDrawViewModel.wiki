@@ -1,0 +1,7 @@
+<function name="ShouldDrawViewModel" parent="WEAPON" type="hook">
+	<description>Called to determine if the view model should be drawn or not.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="boolean">Return true to draw the view model, false otherwise.</ret>
+	</rets>
+</function>

@@ -1,0 +1,26 @@
+<function name="FindConstraintEntity" parent="constraint" type="libraryfunc">
+	<description>Returns the other entity involved in the first constraint of a specific type directly connected to the entity.</description>
+	<realm>Server</realm>
+	<file line="1624-L1638">lua/includes/modules/constraint.lua</file>
+	<args>
+		<arg name="ent" type="Entity">The entity to check.</arg>
+		<arg name="type" type="string">The type of constraint, case sensitive. List of default constrains is as follows:
+* `Weld`
+* `Axis`
+* `AdvBallsocket`
+* `Rope`
+* `Elastic`
+* `NoCollide`
+* `Motor`
+* `Pulley`
+* `Ballsocket`
+* `Winch`
+* `Hydraulic`
+* `Muscle`
+* `Keepupright`
+* `Slider`</arg>
+	</args>
+	<rets>
+		<ret name="" type="Entity">The other entity.</ret>
+	</rets>
+</function>

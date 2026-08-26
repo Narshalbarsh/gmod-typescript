@@ -1,0 +1,33 @@
+<function name="SetViewPort" parent="render" type="libraryfunc">
+	<description>
+Changes the view port position and size. The values will be clamped to the game's screen resolution.
+
+If you are looking to render something to a texture (render target), you should use <page>render.PushRenderTarget</page>.
+
+<note>This function will override values of <page>Global.ScrW</page> and <page>Global.ScrH</page> with the ones you set.</note>
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="x" type="number">X origin of the view port.</arg>
+		<arg name="y" type="number">Y origin of the view port.</arg>
+		<arg name="w" type="number">Width of the view port.</arg>
+		<arg name="h" type="number">Height of the view port.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Renders a screen with a dimension of 32 X 32 and resets the render system to normal.</description>
+	<code>
+local oldW, oldH = ScrW(), ScrH()
+
+render.PushRenderTarget( RTName )
+render.Clear( 0, 0, 0, 255 )
+
+render.SetViewPort( 0, 0, 32, 32 )
+	render.RenderView( CamData )
+render.SetViewPort( 0, 0, oldW, oldH )
+
+render.PopRenderTarget()
+	</code>
+
+</example>

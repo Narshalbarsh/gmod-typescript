@@ -1,0 +1,7 @@
+<function name="IsVoiceAudible" parent="Player" type="classfunc">
+	<description>Returns if the player can be heard by the local player.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="boolean">isAudible</ret>
+	</rets>
+</function>

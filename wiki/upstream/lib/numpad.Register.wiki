@@ -1,0 +1,18 @@
+<function name="Register" parent="numpad" type="libraryfunc">
+	<description>Registers a numpad library action for use with <page>numpad.OnDown</page> and <page>numpad.OnUp</page></description>
+	<realm>Server</realm>
+	<file line="241-L245">lua/includes/modules/numpad.lua</file>
+	<args>
+		<arg name="id" type="string">The unique id of your action.</arg>
+		<arg name="func" type="function">The function to be executed.
+
+<callback>
+<arg type="Player" name="ply">The player who pressed the button</arg>
+<arg type="vararg" name="data">The 4th and all subsequent arguments passed from <page>numpad.OnDown</page> and/or <page>numpad.OnUp</page>.</arg>
+<ret type="boolean" name="data" default="nil">Returning `false` in this function will remove the listener which triggered this function
+
+(example: return `false` if one of your varargs is an entity which is no longer valid)</ret>
+</callback>
+</arg>
+	</args>
+</function>

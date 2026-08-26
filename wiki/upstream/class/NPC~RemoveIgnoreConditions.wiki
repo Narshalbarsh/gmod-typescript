@@ -1,0 +1,8 @@
+<function name="RemoveIgnoreConditions" parent="NPC" type="classfunc">
+	<description>Removes conditions to ignore for the this NPC.</description>
+	<realm>Server</realm>
+	<added>2023.11.17</added>
+	<args>
+		<arg name="conditions" type="table" default="nil">Ignore conditions to remove, see <page>Enums/COND</page>. If omitted, removes all ignore conditions.</arg>
+	</args>
+</function>

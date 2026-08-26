@@ -1,0 +1,7 @@
+<function name="SetIcon" parent="DTree_Node" type="panelfunc">
+	<description>Sets the material for the icon of the <page>DTree_Node</page>.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="path" type="string">The path to the material to be used. Do not include "materials/". .pngs are supported.</arg>
+	</args>
+</function>

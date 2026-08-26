@@ -1,0 +1,9 @@
+<function name="Update" parent="PathFollower" type="classfunc">
+	<description>Move the bot along the path.
+    <note>player nextbots require <page>CUserCmd:SetForwardMove</page> to move forward along the path</note>
+    </description>
+	<realm>Server</realm>
+	<args>
+		<arg name="bot" type="NextBot">The bot to update along the path. This can also be a nextbot player (<page>player.CreateNextbot</page>)</arg>
+	</args>
+</function>

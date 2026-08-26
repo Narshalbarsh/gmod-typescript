@@ -1,0 +1,14 @@
+<enum>
+	<realm>Server</realm>
+	<added>2021.03.31</added>
+	<description>
+Used by <page>NPC:SetNavType</page> and <page>NPC:GetNavType</page>.
+	</description>
+	<items>
+<item key="NAV_NONE" value="-1">Error condition.</item>
+<item key="NAV_GROUND" value="0">walk/run</item>
+<item key="NAV_JUMP" value="1">jump/leap</item>
+<item key="NAV_FLY" value="2">can fly, move all around</item>
+<item key="NAV_CLIMB" value="3">climb ladders</item>
+	</items>
+</enum>

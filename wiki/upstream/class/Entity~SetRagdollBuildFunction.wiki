@@ -1,0 +1,11 @@
+<function name="SetRagdollBuildFunction" parent="Entity" type="classfunc">
+	<description>Sets the function to build the ragdoll. This is used alongside Kinect, for more info see `ragdoll_motion` entity in the game files.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="builder" type="function">The build function. 
+
+<callback>
+<arg type="Entity" name="ragdoll">The ragdoll to build</arg>
+</callback></arg>
+	</args>
+</function>

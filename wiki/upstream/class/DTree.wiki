@@ -1,0 +1,41 @@
+<panel>
+	<parent>DScrollPanel</parent>
+	<realm>Client and Menu</realm>
+	<file line="">lua/vgui/dtree.lua</file>
+	<preview>DTree.jpg</preview>
+	<description>
+A tree view element for Derma.
+
+See also <page>DTree_Node</page>.
+	</description>
+</panel>
+
+
+<example>
+	<description>Example of using DTree</description>
+	<code>
+local frame = vgui.Create( "DFrame" )
+frame:SetSize( 300, 500 )
+frame:Center()
+frame:MakePopup()
+
+local dtree  = vgui.Create( "DTree", frame )
+dtree:Dock( FILL )
+
+local node = dtree:AddNode( "Node One" )
+local node = dtree:AddNode( "Node Two" )
+local cnode = node:AddNode( "Node 2.1" )
+local cnode = node:AddNode( "Node 2.2" )
+local cnode = node:AddNode( "Node 2.3" )
+local cnode = node:AddNode( "Node 2.4" )
+local cnode = node:AddNode( "Node 2.5" )
+local gcnode = cnode:AddNode( "Node 2.5" )
+local cnode = node:AddNode( "Node 2.6" )
+local node = dtree:AddNode( "Node Three ( Maps Folder )" )
+node:MakeFolder( "maps", "GAME", true )
+local node = dtree:AddNode( "Node Four" )
+	</code>
+
+</example>
+
+<upload src="54669/8dc9e104b27c151.gif" size="534326" name="gmod_kBGJMEHMBn.gif" />

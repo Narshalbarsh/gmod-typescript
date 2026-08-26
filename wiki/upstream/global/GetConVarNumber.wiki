@@ -1,0 +1,18 @@
+<function name="GetConVarNumber" parent="Global" type="libraryfunc">
+	<description>Returns the numeric value <page>ConVar</page> (converted from the ConVar's string value) with the specified name.
+
+This function will return `0` if the ConVar does not exist. Use <page>cvars.Number</page> to specify your own default.
+
+Will return the value of <page>game.MaxPlayers</page> if `maxplayers` is specified as the ConVar name, even though `maxplayers` is not a ConVar. (it is a console **command**) You should be using aforementioned Lua function instead for that case.
+
+In performance intensive places such as think and rendering callbacks/hooks, it is advised to use <page>ConVar:GetFloat</page> on a <page>ConVar</page> object directly, which be retrieved via <page>Global.GetConVar</page>, or from existing <page>Global.CreateConVar</page> call.
+</description>
+	<realm>Shared and Menu</realm>
+	<file line="524-L528">lua/includes/util.lua</file>
+	<args>
+		<arg name="name" type="string">Name of the ConVar to get the value of.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The ConVar's value.</ret>
+	</rets>
+</function>

@@ -1,0 +1,32 @@
+<function name="GetConVar" parent="Global" type="libraryfunc">
+	<description>
+Gets the <page>ConVar</page> with the specified name.
+
+<note>This function uses <page>Global.GetConVar_Internal</page> internally, but caches the result in Lua for quicker lookups.</note>
+
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="510-L522">lua/includes/util.lua</file>
+	<args>
+		<arg name="name" type="string">Name of the ConVar to get</arg>
+	</args>
+	<rets>
+		<ret name="" type="ConVar">The <page>ConVar</page> object, or nil if no such <page>ConVar</page> was found.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Makes a ConVar and utilizes GetConVar to print the value of the ConVar.</description>
+	<code>
+CreateClientConVar("exampleConvar", "hi")
+
+concommand.Add("exampleConvar2", function()
+	MsgN("ConVar Value: " .. GetConVar("exampleConvar"):GetString())
+end)
+	</code>
+	<output>
+```
+ConVar Value: hi
+```
+</output>
+</example>

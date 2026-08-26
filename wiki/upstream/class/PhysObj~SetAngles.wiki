@@ -1,0 +1,9 @@
+<function name="SetAngles" parent="PhysObj" type="classfunc">
+	<description>Sets the angles of the physobject in degrees.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="angles" type="Angle">The new angles of the physobject.
+			<warning>The new angle will not be applied on the parent entity while the physics object is asleep (<page>PhysObj:Sleep</page>)</warning>	
+		</arg>
+	</args>
+</function>

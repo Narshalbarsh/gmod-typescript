@@ -1,0 +1,7 @@
+<function name="IsSpeaking" parent="Player" type="classfunc">
+	<description>Returns whenever the player is heard by the local player clientside, or if the player is speaking serverside.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">Is the player speaking or not.</ret>
+	</rets>
+</function>

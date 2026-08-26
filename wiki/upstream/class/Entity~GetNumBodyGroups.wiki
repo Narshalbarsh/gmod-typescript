@@ -1,0 +1,41 @@
+<function name="GetNumBodyGroups" parent="Entity" type="classfunc">
+	<description>
+		Returns the number of Body Groups that the <page text="Entity's">Entity</page> model contains.
+
+		<note>
+			Weapons will return results from their viewmodels.
+		</note>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">
+			The amount of Body Groups on the Entity's model.
+		</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Example usage. Console commands to randomize bodygroups, and print out all bodygroups.</description>
+	<code>
+
+
+concommand.Add( "print_bodygruops", function( ent )
+
+	print("Here's all the bodygroups for " .. ent:GetModel() )
+	for k = 0, ent:GetNumBodyGroups() do
+		print( ent:GetBodygroupName( k ), " value ", ent:GetBodygroup( k ), " max ", ent:GetBodygroupCount( k ) )
+	end
+
+end )
+
+concommand.Add( "bodygroups_random", function( ent )
+
+	print("Randomizing all the bodygroups for " .. ent:GetModel() )
+	for k = 0, ent:GetNumBodyGroups() do
+		ent:SetBodygroup( k, math.random( 0, ent:GetBodygroupCount( k ) - 1 ) )
+	end
+
+end )
+
+</code>
+</example>

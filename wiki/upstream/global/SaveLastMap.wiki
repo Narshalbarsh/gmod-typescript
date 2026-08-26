@@ -1,0 +1,12 @@
+<function name="SaveLastMap" parent="Global" type="libraryfunc">
+	<description>
+<internal></internal>
+This function is used to save the last map and category to which the map belongs as a .
+	</description>
+	<realm>Menu</realm>
+	<file line="441-L449">lua/menu/getmaps.lua</file>
+	<args>
+		<arg name="map" type="string">The name of the map.</arg>
+		<arg name="category" type="string">The name of the category to which this map belongs.</arg>
+	</args>
+</function>

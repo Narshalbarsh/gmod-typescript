@@ -1,0 +1,13 @@
+<title>DTree_Node</title>
+<panel>
+	<parent>DPanel</parent>
+	<realm>Client and Menu</realm>
+	<file line="">lua/vgui/dtree_node.lua</file>
+	<file>lua/vgui/dtree_node.lua</file>
+	<description>
+<internal></internal>
+
+This panel is created whenever you add a node to a <page>DTree</page>.
+The root node of a <page>DTree</page> is also a <page>DTree_Node</page> and controls much of its action. it can be accessed with <page>DTree:Root</page>.
+	</description>
+</panel>

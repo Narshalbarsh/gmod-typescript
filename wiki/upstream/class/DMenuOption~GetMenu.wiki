@@ -1,0 +1,7 @@
+<function name="GetMenu" parent="DMenuOption" type="panelfunc">
+	<description>Returns which <page>DMenu</page> this option belongs.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="DMenu">A <page>DMenu</page> to which this panel belongs.</ret>
+	</rets>
+</function>

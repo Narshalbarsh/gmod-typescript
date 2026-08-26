@@ -1,0 +1,15 @@
+<function name="LookupSequence" parent="Entity" type="classfunc">
+	<description>Returns sequence ID from either sequence name or activity name. See <page>Entity:GetSequenceName</page> for a function that does the opposite.
+
+**Sequences** are animations tied to a specific model. Different models can have sequences with same names, but have different IDs.  
+Sequences can also be tied to certain activities (<page>Enums/ACT</page>), see <page>Entity:SelectWeightedSequence</page>.
+</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="name" type="string">Sequence name. Input string can alternatively be an activity name, to lookup an activity from its name and get a sequence as result.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">Sequence ID for that name. This **will** differ for models with same sequence names. Will be `-1` when the sequence is invalid or not found.</ret>
+		<ret name="" type="number">The sequence duration, or `0` if the sequence is invalid or there's no sequence with given name on entity's current model.</ret>
+	</rets>
+</function>

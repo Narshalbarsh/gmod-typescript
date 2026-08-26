@@ -1,0 +1,8 @@
+<function name="IsMenuOpen" parent="DComboBox" type="panelfunc">
+	<description>Returns whether or not the combo box's menu is opened.</description>
+	<realm>Client and Menu</realm>
+	<file line="170-L174">lua/vgui/dcombobox.lua</file>
+	<rets>
+		<ret name="" type="boolean">True if the menu is open, false otherwise.</ret>
+	</rets>
+</function>

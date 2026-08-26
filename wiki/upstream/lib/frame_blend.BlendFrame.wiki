@@ -1,0 +1,8 @@
+<function name="BlendFrame" parent="frame_blend" type="libraryfunc">
+	<description>
+<internal></internal>
+
+Blends the frame(s).
+	</description>
+	<realm>Client</realm>
+</function>

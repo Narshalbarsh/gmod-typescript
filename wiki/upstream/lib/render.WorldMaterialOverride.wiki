@@ -1,0 +1,19 @@
+<function name="WorldMaterialOverride" parent="render" type="libraryfunc">
+	<description>This function overrides all map materials for one frame.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="mat" type="IMaterial" default="nil"></arg>
+	</args>
+</function>
+
+<example>
+<description>
+</description>
+<code>
+local X = Material( "CONCRETE/CONCRETEFLOOR026A" )
+hook.Add( "RenderScene", "", function() render.WorldMaterialOverride( X ) end )
+</code>
+<output>
+![](https://files.facepunch.com/rubat/1b2311b1/J6RKLesbNH.jpg)
+</output>
+</example>

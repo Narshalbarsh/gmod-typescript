@@ -1,0 +1,14 @@
+<function name="LocalEyeAngles" parent="Player" type="classfunc">
+	<description>
+Returns the direction a player is looking as a entity/local-oriented angle.
+
+Unlike <page>Entity:EyeAngles</page>, this function does not include angles of the Player's <page>Entity:GetParent</page>.
+
+<bug>Does not work correctly clientside for non local players when in a vehicle. (validate: when parented in general?)</bug>
+	</description>
+	<added>2021.06.09</added>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Angle">The local eye angles.</ret>
+	</rets>
+</function>

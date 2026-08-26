@@ -1,0 +1,11 @@
+<function name="LoadControlsFromString" parent="Panel" type="classfunc">
+	<description>
+<deprecated>No longer does anything.</deprecated>
+<internal></internal>
+Loads controls(positions, etc) from given data. This is what the default options menu uses.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="data" type="string">The data to load controls from. Format unknown.</arg>
+	</args>
+</function>

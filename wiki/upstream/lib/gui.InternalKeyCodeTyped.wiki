@@ -1,0 +1,7 @@
+<function name="InternalKeyCodeTyped" parent="gui" type="libraryfunc">
+	<description>Simulates a key type typing to the specified key.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="key" type="number">The key, see <page>Enums/KEY</page>.</arg>
+	</args>
+</function>

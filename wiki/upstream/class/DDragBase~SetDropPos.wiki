@@ -1,0 +1,15 @@
+<function name="SetDropPos" parent="DDragBase" type="panelfunc">
+	<description>
+Determines where you can drop stuff.
+"4" for left
+"5" for center
+"6" for right
+"8" for top
+"2" for bottom
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="24-L32">lua/vgui/ddragbase.lua</file>
+	<args>
+		<arg name="pos" type="string" default="5">Where you're allowed to drop things.</arg>
+	</args>
+</function>

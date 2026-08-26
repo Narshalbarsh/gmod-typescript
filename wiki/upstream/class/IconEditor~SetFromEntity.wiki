@@ -1,0 +1,11 @@
+<function name="SetFromEntity" parent="IconEditor" type="panelfunc">
+	<description>
+Sets the editor's model and icon from an entity. Alternative to <page>IconEditor:SetIcon</page>, with uses a <page>SpawnIcon</page>.
+
+You do not need to call <page>IconEditor:Refresh</page> after this.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="ent" type="Entity">The entity to retrieve the model and skin from.</arg>
+	</args>
+</function>

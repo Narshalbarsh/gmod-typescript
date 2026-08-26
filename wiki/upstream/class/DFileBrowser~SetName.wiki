@@ -1,0 +1,8 @@
+<function name="SetName" parent="DFileBrowser" type="panelfunc">
+	<description>An <page>Global.AccessorFunc</page> that sets the name to use for the file tree.</description>
+	<realm>Client</realm>
+	<file line="36-L48">lua/vgui/dfilebrowser.lua</file>
+	<args>
+		<arg name="treeName" type="string" default="`baseFolder`">The name for the root of the file tree. Passing no value causes this to be the base folder name. See <page>DFileBrowser:SetBaseFolder</page>.</arg>
+	</args>
+</function>

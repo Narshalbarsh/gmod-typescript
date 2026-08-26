@@ -1,0 +1,12 @@
+<function name="GetSlowWalkSpeed" parent="Player" type="classfunc">
+	<description>
+Returns the player's slow walking speed, which is activated via <key>+WALK</key> keybind.
+
+See <page>Player:GetWalkSpeed</page> for normal walking speed, <page>Player:GetRunSpeed</page> for sprinting speed and <page>Player:GetLadderClimbSpeed</page> for ladder climb speed.
+	</description>
+	<realm>Shared</realm>
+	<added>2020.03.17</added>
+	<rets>
+		<ret name="speed" type="number">The new slow walking speed.</ret>
+	</rets>
+</function>

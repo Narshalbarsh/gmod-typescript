@@ -1,0 +1,40 @@
+<function name="QueueJavascript" parent="DHTML" type="panelfunc">
+	<description>
+		Runs/Executes a string as JavaScript code in a panel.
+		
+		<note>This function does **NOT** evaluate expression (i.e. allow you to pass variables from JavaScript (JS) to Lua context).<br/>Because a return value is nil/no value (a.k.a. void).<br/>If you wish to pass/return values from JS to Lua, you may want to use <page>DHTML:AddFunction</page> function to accomplish that job.</note>
+		<note>If <page>Panel:IsVisible</page> is `false`, <page>PANEL:Think</page> will **NOT** run, meaning the Javascript Queue will not be processed.<br/><br/>Consider overriding <page>PANEL:Paint</page> to stop the panel from drawing instead.</note>
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="js" type="string">Specify JavaScript code to be executed.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Shows how to change [document.body.innerHTML](http://www.w3schools.com/jsref/prop_html_innerhtml.asp) property by calling this function on  panel.</description>
+	
+	<code>
+-- First we create a container, in this case it is a full-screen Derma Frame window.
+local dframe = vgui.Create( 'DFrame' )
+dframe:SetSize( ScrW(), ScrH() )
+dframe:SetTitle( "Garry's Mod Wiki" )
+dframe:Center()
+dframe:MakePopup() -- Enable keyboard and mouse interaction for DFrame panel.
+
+-- Create a new DHTML panel as a child of dframe, and dock-fill it.
+local dhtml = vgui.Create( 'DHTML', dframe )
+dhtml:Dock( FILL )
+-- Navigate to Garry's Mod wikipedia website.
+dhtml:OpenURL( 'https://wiki.garrysmod.com/index.php' )
+-- Run JavaScript code.
+dhtml:QueueJavascript( "document.body.innerHTML = 'HTML changed from Lua using JavaScript!';" )
+
+-- This does not throw an error/exception, but instead returns nil/no value.
+-- That means you can't pass/return values from JavaScript back to Lua context using this function.
+local number = dhtml:QueueJavascript( '22;' )
+print( number )
+	</code>
+
+	<output>Inner HTML of document body in DHTML panel is now set to "HTML changed from Lua using JavaScript!".</output>
+</example>

@@ -1,0 +1,12 @@
+<function name="SetNeedsChildSearch" parent="DTree_Node" type="panelfunc">
+	<description>
+<internal></internal>
+<deprecated>Seems to be unused entirely.</deprecated>
+
+Sets whether the node still needs a filesystem search for sub-nodes.
+</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="newState" type="boolean">New state.</arg>
+	</args>
+</function>

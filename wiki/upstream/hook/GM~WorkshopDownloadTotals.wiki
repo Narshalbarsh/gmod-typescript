@@ -1,0 +1,9 @@
+<function name="WorkshopDownloadTotals" parent="GM" type="hook">
+	<description>Called after <page>GM:WorkshopStart</page>.</description>
+	<realm>Menu</realm>
+	<file line="52-71">lua/menu/mount/mount.lua</file>
+	<args>
+		<arg name="remain" type="number">Remaining addons to download</arg>
+		<arg name="total" type="number">Total addons needing to be downloaded</arg>
+	</args>
+</function>

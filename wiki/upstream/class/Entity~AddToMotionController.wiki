@@ -1,0 +1,15 @@
+<function name="AddToMotionController" parent="Entity" type="classfunc">
+	<description>
+Adds a <page>PhysObj</page>ect to the entity's motion controller so that <page>ENTITY:PhysicsSimulate</page> will be called for given <page>PhysObj</page>ect as well.
+
+You must first create a motion controller with <page>Entity:StartMotionController</page>.
+
+You can remove added <page>PhysObj</page>ects by using <page>Entity:RemoveFromMotionController</page>.
+
+<note>Only works on a scripted <page>Entity</page> of anim type</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="physObj" type="PhysObj">The <page>PhysObj</page> to add to the motion controller.</arg>
+	</args>
+</function>

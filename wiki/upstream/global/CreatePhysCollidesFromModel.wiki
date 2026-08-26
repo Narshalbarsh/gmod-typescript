@@ -1,0 +1,10 @@
+<function name="CreatePhysCollidesFromModel" parent="Global" type="libraryfunc">
+	<description>Creates <page>PhysCollide</page> objects for every physics object the model has. The model must be precached with <page>util.PrecacheModel</page> before being used with this function.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="modelName" type="string">Model path to get the collision objects of.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table<PhysCollide>">Table of <page>PhysCollide</page> objects. The number of entries will match the model's physics object count. See also <page>Entity:GetPhysicsObjectCount</page>. Returns no value if the model doesn't exist, or has not been precached.</ret>
+	</rets>
+</function>

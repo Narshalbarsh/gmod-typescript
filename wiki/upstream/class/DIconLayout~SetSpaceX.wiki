@@ -1,0 +1,7 @@
+<function name="SetSpaceX" parent="DIconLayout" type="panelfunc">
+	<description>Sets the horizontal (x) spacing between children within the DIconLayout. You must call <page>DIconLayout:Layout</page> in order for the changes to take effect.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="xSpacing" type="number">The width of the gap between child objects.</arg>
+	</args>
+</function>

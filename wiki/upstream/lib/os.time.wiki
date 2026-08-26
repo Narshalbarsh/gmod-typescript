@@ -1,0 +1,18 @@
+
+<function name="time" parent="os" type="libraryfunc">
+	<description>Returns the system time in seconds past the unix epoch. If a table is supplied, the function attempts to build a system time with the specified table members.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="dateData" type="table" default="nil">Table to generate the time from. This table's data is interpreted as being in the local timezone. See <page>Structures/DateData</page></arg>
+	</args>
+	<rets>
+		<ret name="" type="number">Seconds passed since Unix epoch</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints out the current time, in seconds past the unix epoch.</description>
+	<code>print( os.time() )</code>
+	<output>1581691801</output>
+
+</example>

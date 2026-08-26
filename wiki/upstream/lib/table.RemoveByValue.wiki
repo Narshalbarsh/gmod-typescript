@@ -1,0 +1,14 @@
+<function name="RemoveByValue" parent="table" type="libraryfunc">
+	<description>Removes the first instance of a given value from the specified table with <page>table.remove</page>, then returns the key that the value was found at.
+
+<warning>Avoid usage of this function. It does not remove all instances of given value in the table, only the first found, and it does not work with non sequential tables!</warning></description>
+	<realm>Shared and Menu</realm>
+	<file line="700-L713">lua/includes/extensions/table.lua</file>
+	<args>
+		<arg name="tbl" type="table">The table that will be searched.</arg>
+		<arg name="val" type="any">The value to find within the table.</arg>
+	</args>
+	<rets>
+		<ret name="" type="any">The key at which the value was found, or false if the value was not found.</ret>
+	</rets>
+</function>

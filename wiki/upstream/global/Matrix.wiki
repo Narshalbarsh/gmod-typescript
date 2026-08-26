@@ -1,0 +1,31 @@
+<function name="Matrix" parent="Global" type="libraryfunc">
+	<description>Returns a <page>VMatrix</page> object, a 4x4 matrix.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="data" type="table" default="{{1, 0, 0, 0}, {0, 1, 0, 0}, {0, 0, 1, 0}, {0, 0, 0, 1}}">Initial data to initialize the matrix with. Leave empty to initialize an identity matrix. See examples for usage.
+
+Can be a <page>VMatrix</page> to copy its data.</arg>
+	</args>
+	<rets>
+		<ret name="" type="VMatrix">New matrix.</ret>
+	</rets>
+</function>
+
+
+<example>
+	<description>Initializes a matrix, translates it by <page>Vector</page>( 4, 5, 6 ) and then scales it by <page>Vector</page>( 1, 2, 3 ).</description>
+	<code>
+local M = Matrix()
+M:Translate( Vector( 4, 5, 6 ) )
+M:Scale( Vector( 1, 2, 3 ) )
+
+-- This matrix is equivalent:
+local M2 = Matrix( {
+	{ 1, 0, 0, 4 },
+	{ 0, 2, 0, 5 },
+	{ 0, 0, 3, 6 },
+	{ 0, 0, 0, 1 }
+} )
+	</code>
+
+</example>

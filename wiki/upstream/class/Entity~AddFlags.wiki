@@ -1,0 +1,7 @@
+<function name="AddFlags" parent="Entity" type="classfunc">
+	<description>Adds flags to the entity.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="flag" type="number{FL}">Flag to add, see <page>Enums/FL</page></arg>
+	</args>
+</function>

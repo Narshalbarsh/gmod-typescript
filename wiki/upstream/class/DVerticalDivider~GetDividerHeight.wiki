@@ -1,0 +1,7 @@
+<function name="GetDividerHeight" parent="DVerticalDivider" type="panelfunc">
+	<description>Returns the height of the divider bar between the top and bottom content panels of the <page>DVerticalDivider</page>.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">The height of the divider bar.</ret>
+	</rets>
+</function>

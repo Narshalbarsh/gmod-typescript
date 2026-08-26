@@ -1,0 +1,12 @@
+<function name="ChangeVolume" parent="CSoundPatch" type="classfunc">
+	<description>
+Adjusts the volume of the sound played.
+
+Appears to only work while the sound is being played. See also <page>CSoundPatch:PlayEx</page>.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="volume" type="number">The volume ranges from 0 to 1.</arg>
+		<arg name="deltaTime" type="number" default="0">Time to fade the volume from previous to new value from.</arg>
+	</args>
+</function>

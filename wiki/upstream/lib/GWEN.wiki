@@ -1,0 +1,3 @@
+<type name="GWEN" category="libraryfunc" is="library">
+	<summary>GWEN is a system that allows you to load a spritesheet and generate a skin out of it.</summary>
+</type>

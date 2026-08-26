@@ -1,0 +1,60 @@
+<function name="InsertClickableTextStart" parent="Panel" type="classfunc">
+	<description>
+Starts the insertion of clickable text for a <page>RichText</page> element. Any text appended with <page>Panel:AppendText</page> between this call and <page>Panel:InsertClickableTextEnd</page> will become clickable text.
+
+The hook <page>PANEL:OnTextClicked</page> is called when the text is clicked.
+
+<note>The clickable text is a separate Derma panel which will not inherit the current font from the `RichText`.</note>
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="signalValue" type="string">The text passed as the action signal's value.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Creates a panel with some information on Rich Text panels along with a click-able link to the <page>RichText</page> page.</description>
+	<code>
+-- Create a window frame
+TextFrame = vgui.Create("DFrame")
+TextFrame:SetSize(250, 150)
+TextFrame:Center()
+TextFrame:SetTitle("RichText")
+TextFrame:MakePopup()
+
+-- RichText panel
+local richtext = vgui.Create("RichText", TextFrame)
+richtext:Dock( FILL )
+
+-- First segment
+richtext:InsertColorChange(255, 255, 255, 255)
+richtext:AppendText("This is a Rich Text panel — a panel used in Source MP's default chat box and developer console.\n\nSee the ")
+
+-- Second segment
+richtext:InsertColorChange(192, 192, 255, 255)
+richtext:InsertClickableTextStart("OpenWiki")	-- Make incoming text fire the "OpenWiki" value when clicked
+richtext:AppendText("Garry's Mod Wiki")
+richtext:InsertClickableTextEnd()	-- End clickable text here
+
+-- Third segment
+richtext:InsertColorChange(255, 255, 255, 255)
+richtext:AppendText(" for information on how to use a Rich Text panel.")
+
+-- Background color
+function richtext:PerformLayout() self:SetBGColor(Color(32, 32, 46)) end
+
+-- Handle any commands we get from the panel
+function richtext:OnTextClicked( id )
+
+	-- Open the wiki
+	if ( id == "OpenWiki" ) then
+	
+		gui.OpenURL( "https://wiki.facepunch.com/gmod/Panel:InsertClickableTextStart" ) 
+	
+	end
+
+end
+	</code>
+	<output><image src="RichText_InsertClickableText_example.png"/></output>
+
+</example>

@@ -1,0 +1,21 @@
+<function name="TranslatePlayerModel" parent="player_manager" type="libraryfunc">
+	<description>Returns the valid model path for a simplified name.
+
+Will default to `"models/player/kleiner.mdl"` if given player model does not exist.
+</description>
+	<realm>Shared</realm>
+	<file line="44-L55">lua/includes/modules/player_manager.lua</file>
+	<args>
+		<arg name="shortName" type="string">The short name of the model.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The valid model path for the short name.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Print the valid model path for "Alyx".</description>
+	<code>print(player_manager.TranslatePlayerModel("alyx"))</code>
+	<output>Console outputs: "models/player/alyx.mdl"</output>
+
+</example>

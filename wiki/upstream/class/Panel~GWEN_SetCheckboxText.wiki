@@ -1,0 +1,8 @@
+<function name="GWEN_SetCheckboxText" parent="Panel" type="classfunc">
+	<description><internal></internal> Used by <page>Panel:ApplyGWEN</page> to apply the `CheckboxText` property to a <page>DCheckBoxLabel</page>. This does exactly the same as <page>Panel:GWEN_SetText</page>, but exists to cater for the seperate GWEN properties.</description>
+	<file line="222">lua/derma/derma_gwen.lua</file>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="txt" type="string">The text to be applied to the DCheckBoxLabel.</arg>
+	</args>
+</function>

@@ -1,0 +1,64 @@
+<function name="GetEnemy" parent="NPC" type="classfunc">
+	<description>
+Returns the entity that this NPC is trying to fight.
+
+<bug issue="3132">This returns nil if the NPC has no enemy. You should use <page>Global.IsValid</page> (which accounts for nil and NULL) on the return to verify validity of the enemy.</bug>
+	</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="NPC">Enemy NPC.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Kill any npc that sets the first player as its enemy.</description>
+	<code>
+local function Think()
+	for i, ent in ipairs( ents.GetAll() ) do
+		if ent:IsNPC() and ent:GetEnemy() == Entity( 1 ) then
+			ent:TakeDamage( 999 )
+		end
+	end
+end
+
+hook.Add( "Think", "Kill My Enemies", Think )
+	</code>
+	<output>Any npc that sets their enemy to Entity( 1 ) dies.</output>
+
+</example>
+
+
+<example>
+	<description>Make every NPC that does not have an enemy (and preferably a <page text="D_HT">Enums/D</page> relationship agains Players) start attacking a random Player. This code is copied from the gamemode [My Base Defence](https://steamcommunity.com/sharedfiles/filedetails/?id=1647345157):</description>
+	<code>
+-- ...
+local function _SetRandomPlayerTargetForNPC(npc)
+	if (npc:IsNPC()) then
+		if (!IsValid(npc:GetEnemy())) then
+			local _allPlayers	= player.GetAll()
+			local _winnerPlNr	= math.random(1, #_allPlayers)
+
+			timer.Simple(0.15, function()
+				local __Player = _allPlayers[_winnerPlNr]
+				--
+				--- Set the enemy for the NPC, so it does not just stand there doing nothing
+				-- lika young lazy teen or something
+				if (!npc:IsValid() or !__Player:IsValid()) then return end
+				npc:SetEnemy(__Player)
+				npc:UpdateEnemyMemory(__Player, __Player:GetPos())
+				npc:SetSchedule(SCHED_SHOOT_ENEMY_COVER)
+			end)
+		end
+	end
+end
+-- - - ---
+-- --
+-- Make every NPC that might not have a target, recive one random Player..:>>
+-- (..you can place this loop inside an interval timer or something...)
+for i, ent in ipairs( ents.GetAll('npc_*') ) do
+	if ent:IsValid() then _SetRandomPlayerTargetForNPC( ent ) end
+end
+	</code>
+	<output>All NPCs on the SERVER will get their memory updated if they don't already have an enemy, and start moving to the last know position of the enemy and try to attack. This enemy will be a random Player. They will also try and shoot enemy cover.</output>
+
+</example>

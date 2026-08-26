@@ -1,0 +1,7 @@
+<function name="OnPauseMenuBlockedTooManyTimes" parent="GM" type="hook">
+	<added>2024.07.12</added>
+	<description>
+	Called when the main menu has been blocked by <page>GM:OnPauseMenuShow</page> four times in a small interval. This is used internally to explain to the user that they can hold <key>SHIFT</key> to force open the main menu.
+	</description>
+	<realm>Menu</realm>
+</function>

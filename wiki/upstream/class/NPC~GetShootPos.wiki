@@ -1,0 +1,11 @@
+<function name="GetShootPos" parent="NPC" type="classfunc">
+	<description>
+Returns the shooting position of the NPC, i.e. where their bullets would come from, etc. 
+
+If the NPC does not overwrite this, it will return <page>Entity:GetPos</page>.
+	</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="Vector">The NPC's shooting position.</ret>
+	</rets>
+</function>

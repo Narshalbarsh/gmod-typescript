@@ -1,0 +1,10 @@
+<function name="ConditionName" parent="NPC" type="classfunc">
+	<description>Translates condition ID to a string. For the opposite process, see <page>NPC:ConditionID</page>.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="cond" type="number">The NPCs condition ID, see <page>Enums/COND</page></arg>
+	</args>
+	<rets>
+		<ret name="" type="string">A human understandable string equivalent of that condition.</ret>
+	</rets>
+</function>

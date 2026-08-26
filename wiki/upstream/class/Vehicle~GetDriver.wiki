@@ -1,0 +1,7 @@
+<function name="GetDriver" parent="Vehicle" type="classfunc">
+	<description>Gets the driver of the vehicle, returns <page>NULL</page> if no driver is present.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Entity">The driver of the vehicle.</ret>
+	</rets>
+</function>

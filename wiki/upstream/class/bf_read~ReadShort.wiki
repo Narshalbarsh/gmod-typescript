@@ -1,0 +1,7 @@
+<function name="ReadShort" parent="bf_read" type="classfunc">
+	<description>Reads a 2 byte short from the bitstream and returns it.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">short</ret>
+	</rets>
+</function>

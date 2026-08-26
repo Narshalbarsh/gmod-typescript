@@ -1,0 +1,21 @@
+<function name="Distance" parent="math" type="libraryfunc">
+	<description>Returns the difference between two points in 2D space.</description>
+	<realm>Shared and Menu</realm>
+	<file line="20-L24">lua/includes/extensions/math.lua</file>
+	<args>
+		<arg name="x1" type="number">X position of first point</arg>
+		<arg name="y1" type="number">Y position of first point</arg>
+		<arg name="x2" type="number">X position of second point</arg>
+		<arg name="y2" type="number">Y position of second point</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">Distance between the two points</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Demonstrates the use of this function.</description>
+	<code>print( math.Distance( 1, 2, 5, 6 ) ) -- distance bet</code>
+	<output>5.6568542494924</output>
+
+</example>

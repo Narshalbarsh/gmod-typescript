@@ -1,0 +1,49 @@
+<function name="SetScissorRect" parent="render" type="libraryfunc">
+	<description>Sets a scissoring rectangle which limits the drawing area. (otherwise known as clipping)</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="startX" type="number">X start coordinate of the scissor rectangle in screen-space coordinates.</arg>
+		<arg name="startY" type="number">Y start coordinate of the scissor rectangle in screen-space coordinates.</arg>
+		<arg name="endX" type="number">X end coordinate of the scissor rectangle in screen-space coordinates.</arg>
+		<arg name="endY" type="number">Y end coordinate of the scissor rectangle in screen-space coordinates.</arg>
+		<arg name="enable" type="boolean">Enable or disable the scissor rect.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Shows how to use this function. This will cut the white rectangle from full screen to 512x512 box in top left corner.</description>
+	<code>
+render.SetScissorRect( 0, 0, 512, 512, true ) -- Enable the rect
+	draw.RoundedBox( 4, 0, 0, ScrW(), ScrH(), color_white ) -- Draw a white rectangle over the whole screen
+render.SetScissorRect( 0, 0, 0, 0, false ) -- Disable after you are done
+	</code>
+
+</example>
+
+<example>
+	<description>Draws a fake circle + cut it to look like a progress bar.</description>
+	<code>
+local function draw_circle( x, y, radius, color, percent )
+    percent = percent or 1
+
+    render.SetScissorRect( x - radius, y - radius + radius * 2 * ( 1 - percent ), x + radius, y + radius * 2, true )
+        draw.RoundedBox( radius, x - radius, y - radius, radius * 2, radius * 2, color or color_white )
+    render.SetScissorRect( 0, 0, 0, 0, false )
+end
+
+hook.Add( "HUDPaint", "GMod:Wiki", function()
+    local w, h = ScrW(), ScrH()
+	local radius = h * 0.1
+
+	-- Filled circle
+    draw_circle( w / 2, h * 0.25, radius, Color( 255, 0, 0 ), 1 )
+
+	-- Filled circle + quarter circle
+	draw_circle( w / 2, h / 2, radius, Color( 255, 0, 0 ), 1 )
+	draw_circle( w / 2, h / 2, radius, Color( 0, 255, 0 ), 0.25 )
+
+	-- Half circle
+	draw_circle( w / 2, h * 0.75, radius, Color( 0, 0, 255 ), 0.5 )
+end )
+	</code>
+</example>

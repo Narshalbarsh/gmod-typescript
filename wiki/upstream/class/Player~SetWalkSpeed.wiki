@@ -1,0 +1,17 @@
+<function name="SetWalkSpeed" parent="Player" type="classfunc">
+	<description>
+Sets the player's normal walking speed. Not sprinting, not slow walking <key>+walk</key>.
+
+See also <page>Player:SetSlowWalkSpeed</page>, <page>Player:GetWalkSpeed</page>, <page>Player:SetCrouchedWalkSpeed</page>, <page>Player:SetMaxSpeed</page> and <page>Player:SetRunSpeed</page>.
+
+<bug issue="2030">Using a speed of `0` can lead to prediction errors, and can cause players to move at sv_maxvelocity</bug>
+
+<note>`player_default` class walk speed is: `200`.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="walkSpeed" type="number">The new walk speed when `sv_friction` is below `10`. Higher `sv_friction` values will result in slower speed.
+
+Has to be `7` or above or the player **won't** be able to move.</arg>
+	</args>
+</function>

@@ -1,0 +1,28 @@
+<panel>
+	<parent>Panel</parent>
+	<realm>Client and Menu</realm>
+	<file line="143-L145">lua/vgui/dpropertysheet.lua</file>
+	<description>A tab oriented control where you can create multiple tabs with items within. Used mainly for organization.</description>
+</panel>
+
+<example>
+	<description>Example of how you'd create and use this panel.</description>
+	<code>
+local frame = vgui.Create( "DFrame" )
+frame:SetSize( 500, 300 )
+frame:Center()
+frame:MakePopup()
+
+local sheet = vgui.Create( "DPropertySheet", frame )
+sheet:Dock( FILL )
+
+local panel1 = vgui.Create( "DPanel", sheet )
+panel1.Paint = function( self, w, h ) draw.RoundedBox( 4, 0, 0, w, h, Color( 0, 128, 255, self:GetAlpha() ) ) end 
+sheet:AddSheet( "test", panel1, "icon16/cross.png" )
+
+local panel2 = vgui.Create( "DPanel", sheet )
+panel2.Paint = function( self, w, h ) draw.RoundedBox( 4, 0, 0, w, h, Color( 255, 128, 0, self:GetAlpha() ) ) end 
+sheet:AddSheet( "test 2", panel2, "icon16/tick.png" )
+	</code>
+	<output><image src="DPropertySheet.png"/></output>
+</example>

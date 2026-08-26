@@ -1,0 +1,37 @@
+<function name="UpdateMapList" parent="Global" type="libraryfunc">
+	<description>
+		<internal>Called from JS when starting a new game</internal>
+		This function updates the Map List
+	</description>
+	<realm>Menu</realm>
+	<file line="280-L293">lua/menu/getmaps.lua</file>
+</function>
+
+<example>
+	<description>Manually updating the Map List with one Category.</description>
+	<code>
+--
+local mapList = {
+	["Example"] = {"gm_flatgrass", "gm_construct"}
+}
+
+pnlMainMenu:Call( "UpdateMaps(" .. util.TableToJSON(mapList) .. ")" )
+	</code>
+	<output>
+		<image src="ab571/8dc38911e504d0d.png" size="87584" name="maplist_example_1.png" />
+	</output>
+</example>
+
+<example>
+	<description>Manually updating the Map List with an extra Category.</description>
+	<code>
+--
+local mapList = GetMapList()
+mapList["Example"] = {"gm_flatgrass", "gm_construct"}
+
+pnlMainMenu:Call( "UpdateMaps(" .. util.TableToJSON(mapList) .. ")" )
+	</code>
+	<output>
+		<image src="ab571/8dc389128e53d0f.png" size="91048" name="maplist_example_2.png" />
+	</output>
+</example>

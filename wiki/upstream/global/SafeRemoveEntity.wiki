@@ -1,0 +1,8 @@
+<function name="SafeRemoveEntity" parent="Global" type="libraryfunc">
+	<description>Removes the given entity unless it is a player or the world entity.</description>
+	<realm>Shared and Menu</realm>
+	<file line="270-L279">lua/includes/util.lua</file>
+	<args>
+		<arg name="ent" type="Entity">Entity to safely remove.</arg>
+	</args>
+</function>

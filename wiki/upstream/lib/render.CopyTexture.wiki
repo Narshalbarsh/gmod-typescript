@@ -1,0 +1,12 @@
+<function name="CopyTexture" parent="render" type="libraryfunc">
+	<description>Copies the contents of one texture to another. Only works with rendertargets.
+		<warning>This does not copy the Depth buffer, no method for that is known at this moment so a common workaround is to store the source texture somewhere else, perform your drawing operations, save the result somewhere else and reapply the source texture.
+		</warning>
+	</description>
+	<realm>Client</realm>
+	<file line="61-L70">lua/includes/extensions/client/render.lua</file>
+	<args>
+		<arg name="texture_from" type="ITexture">The texture to copy from.</arg>
+		<arg name="texture_to" type="ITexture">The texture being copied to.</arg>
+	</args>
+</function>

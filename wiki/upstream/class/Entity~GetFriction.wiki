@@ -1,0 +1,7 @@
+<function name="GetFriction" parent="Entity" type="classfunc">
+	<description>Returns the friction modifier for this entity. Entities default to `1` (100%) and can be higher.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">friction</ret>
+	</rets>
+</function>

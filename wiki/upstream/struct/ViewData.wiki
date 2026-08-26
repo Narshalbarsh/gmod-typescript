@@ -1,0 +1,63 @@
+<structure>
+	<realm>Client</realm>
+	<description>
+Table structure used for <page>render.RenderView</page>.
+
+Unless stated otherwise, the default values for all these keys would be inherited from the engine's CViewSetup and do not have static representations.
+	</description>
+	<fields>
+<item name="origin" type="Vector">The view's original position. Defaults to the current view's origin</item>
+<item name="angles" type="Angle">The view's angles. Defaults to the current view's angles</item>
+<item name="aspect" type="number">Defaults to width divided by height. Has a deprecated alias `aspectratio`.</item>
+<item name="aspectratio" type="number">The deprecated alias of `aspect`. Defaults to width divided by height.
+
+**Deprecated**: Use `aspect` instead!</item>
+<item name="x" type="number" default="0">The x position of the viewport to render in</item>
+<item name="y" type="number" default="0">The y position of the viewport to render in</item>
+<item name="w" type="number">The width of the viewport to render in. Defaults to the current viewport's width</item>
+<item name="h" type="number">The height of the viewport to render in. Defaults to the current viewport's height</item>
+<item name="drawhud" type="boolean" default="false">Draw the HUD and call the hud painting related hooks</item>
+<item name="drawmonitors" type="boolean" default="false">Draw monitors</item>
+<item name="drawviewmodel" type="boolean" default="true">The weapon's viewmodel</item>
+<item name="drawviewer" type="boolean" default="false" added="2025.03.05">Whether to force draw the local player or not.</item>
+<item name="viewmodelfov" type="number">The viewmodel's FOV. Defaults to the current viewmodel FOV</item>
+<item name="fov" type="number">The main view's FOV. Defaults to the current view's FOV</item>
+<item name="ortho" type="table" default="nil">If set, renders the view orthogonally. A table with these keys:
+* left
+* right
+* top
+* bottom</item>
+<item name="ortholeft" type="number" default="nil">Coordinate for the left clipping plane. Requires `ortho` to be set to `true`.
+
+**Deprecated**: Use `ortho` table instead!</item>
+<item name="orthoright" type="number" default="nil">Coordinate for the right clipping plane. Requires `ortho` to be set to `true`.
+
+**Deprecated**: Use `ortho` table instead!</item>
+<item name="orthotop" type="number" default="nil">Coordinate for the top clipping plane. Requires `ortho` to be set to `true`.
+
+**Deprecated**: Use `ortho` table instead!</item>
+<item name="orthobottom" type="number" default="nil">Coordinate for the bottom clipping plane. Requires `ortho` to be set to `true`.
+
+**Deprecated**: Use `ortho` table instead!</item>
+<item name="znear" type="number">The distance of the view's origin to the near clipping plane. Defaults to the current view's near clipping distance</item>
+<item name="zfar" type="number">The distance of the view's origin to the far clipping plane. Defaults to the current view's far clipping distance</item>
+<item name="znearviewmodel" type="number">The distance of the view's origin to the near clipping plane for the viewmodel. Defaults to the viewmodel's current near clipping distance</item>
+<item name="zfarviewmodel" type="number">The distance of the view's origin to the far clipping plane for the viewmodel. Defaults to the viewmodel's current far clipping distance</item>
+<item name="dopostprocess" type="boolean" default="false">
+Currently works identically to the "bloomtone" option (it also overrides it if you set this to false).</item>
+<item name="bloomtone" type="boolean" default="true">Disables default engine bloom and pauses the "brightness changes" on HDR maps.</item>
+<item name="viewid" type="number{VIEW}" default="0">This is identifying which logical part of the scene an entity is being redered in, see <page>Enums/VIEW</page>.</item>
+<item name="offcenter" type="table" default="nil">This allows you to "zoom in" on a part of the screen - for example, the top-left quarter of the screen. This is similar to how [poster splits the screen](https://garry.blog/poster-screenshots/) into separate renders.
+
+It's a table with 4 keys, controlling what portion of the screen to draw:
+* left - where the left edge starts. Natural value is 0.
+* right - where the right edge ends. Natural value is equal to w (the width of the viewport).
+* top - where the `bottom` edge starts. Natural value is 0.
+* bottom - where the `top` edge ends. Natural value is equal to h (the height of the viewport).
+
+Note that top and bottom are reversed.
+
+Values outside the viewport are allowed, but not recommended - instead you should increase the view FOV.</item>
+	</fields>
+
+</structure>

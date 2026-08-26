@@ -1,0 +1,23 @@
+<function name="GetPathFromFilename" parent="string" type="libraryfunc">
+	<description>Returns the path part of a full file path.
+  
+See <page>string.GetFileFromFilename</page> for the opposite function.  
+See <page>string.GetExtensionFromFilename</page> for thefile extension version.
+
+</description>
+	<realm>Shared and Menu</realm>
+	<file line="152">lua/includes/extensions/string.lua</file>
+	<args>
+		<arg name="path" type="string">The string eg. file-path to get the path from.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">Path or empty string.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Demonstrates the use of string.GetPathFromFilename</description>
+	<code>MsgN(string.GetPathFromFilename("garrysmod/lua/modules/string.lua"))</code>
+	<output>"garrysmod/lua/modules/"</output>
+
+</example>

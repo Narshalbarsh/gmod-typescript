@@ -1,0 +1,8 @@
+<function name="CompleteFrame" parent="frame_blend" type="libraryfunc">
+	<description>
+<internal></internal>
+
+Renders the frame onto internal render target.
+	</description>
+	<realm>Client</realm>
+</function>

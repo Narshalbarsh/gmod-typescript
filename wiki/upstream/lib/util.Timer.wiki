@@ -1,0 +1,17 @@
+<function name="Timer" parent="util" type="libraryfunc">
+	<description>Creates a timer object. The returned timer will be already started with given duration.</description>
+	<realm>Shared and Menu</realm>
+	<file line="217-L226">lua/includes/extensions/util.lua</file>
+	<args>
+		<arg name="duration" type="number" default="0">How long you want the timer to be. `Elapsed()` will return true only after this much time has passed.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">A timer object. It has the following methods:
+* `Reset()` - Resets and stops the timer.
+* `Start( duration = 0 )` - (Re)starts the timer with given duration
+* `Started()` - Returns `true` if the timer has been started. It will continue to return true even after the duration has passed.
+* `Elapsed()` - Returns `true` if the timer duration has elapsed since its creation or the call to `Start()`
+* `GetElaspedTime()` - Returns amount of time since timer started.
+</ret>
+	</rets>
+</function>

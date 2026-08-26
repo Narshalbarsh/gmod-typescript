@@ -1,0 +1,45 @@
+<function name="Record" parent="video" type="libraryfunc">
+	<description>Attempts to create an <page>IVideoWriter</page>.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="config" type="table">The video config. See <page>Structures/VideoData</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="IVideoWriter">The video object. (returns **false** if there is an error)</ret>
+		<ret name="" type="string">The error string, if there is an error.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>How to create a basic IVideoWriter, and how to use it.</description>
+	<code>
+local config = {
+	container = "webm",
+	video = "vp8",
+	audio = "vorbis",
+	quality = 50,
+	bitrate = 200,
+	fps = 30,
+	lockfps = true,
+	name = "Test",
+	width = 1280,
+	height = 720
+}
+local iVideoWriter = video.Record( config )
+iVideoWriter:SetRecordSound( true )
+
+local function Record()
+	iVideoWriter:AddFrame( FrameTime(), true )
+end
+
+function StartRecording()
+	hook.Add( "DrawOverlay", "Record", Record )
+end
+
+function StopRecording()
+	hook.Remove( "DrawOverlay", "Record" )
+	iVideoWriter:Finish()
+end
+	</code>
+
+</example>

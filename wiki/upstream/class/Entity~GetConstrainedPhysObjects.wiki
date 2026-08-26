@@ -1,0 +1,25 @@
+<function name="GetConstrainedPhysObjects" parent="Entity" type="classfunc">
+	<description>Returns the two entities physobjects involved in a constraint ent, or no value if the entity is not a constraint.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="PhysObj">phys1</ret>
+		<ret name="" type="PhysObj">phys2</ret>
+	</rets>
+</function>
+
+<example>
+	<description>From gmsave/constraints.lua</description>
+	<code>
+function gmsave.ConstraintSave( ent )
+	local t = {}
+	t.EntOne, t.EntTwo = ent:GetConstrainedEntities()
+	local PhysA, PhysB = ent:GetConstrainedPhysObjects()
+
+	t.BoneOne = GetPhysicsObjectNum( t.EntOne, PhysA )
+	t.BoneTwo = GetPhysicsObjectNum( t.EntTwo, PhysB )
+	t.EntOne = gmsave.EntityEncode( t.EntOne )
+	t.EntTwo = gmsave.EntityEncode( t.EntTwo )
+	return t
+end
+	</code>
+</example>

@@ -1,0 +1,10 @@
+<function name="SetLabel" parent="DColorMixer" type="panelfunc">
+	<description>Sets the label's text to show.</description>
+	<realm>Client and Menu</realm>
+	<file line="144-L156">lua/vgui/dcolormixer.lua</file>
+	<args>
+		<arg name="text" type="string" default="nil">Set to non empty string to show the label and its text.
+
+Give it an empty string or nothing and the label will be hidden.</arg>
+	</args>
+</function>

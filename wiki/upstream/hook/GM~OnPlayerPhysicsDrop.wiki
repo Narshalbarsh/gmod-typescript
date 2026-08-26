@@ -1,0 +1,10 @@
+<function name="OnPlayerPhysicsDrop" parent="GM" type="hook">
+	<added>2021.01.27</added>
+	<description>Called when a player +use drops an entity.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ply" type="Player">The player that dropped the object</arg>
+		<arg name="ent" type="Entity">The object that was dropped.</arg>
+		<arg name="thrown" type="boolean">Whether the object was throw or simply let go of.</arg>
+	</args>
+</function>

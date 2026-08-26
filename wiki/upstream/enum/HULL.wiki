@@ -1,0 +1,17 @@
+<enum>
+	<realm>Server</realm>
+	<description>Enumerations used by <page>NPC:SetHullType</page> and  <page>NPC:GetHullType</page>. Serverside only.</description>
+	<items>
+<item key="HULL_HUMAN" value="0">Hull of a Citizen</item>
+<item key="HULL_SMALL_CENTERED" value="1"></item>
+<item key="HULL_WIDE_HUMAN" value="2"></item>
+<item key="HULL_TINY" value="3"></item>
+<item key="HULL_WIDE_SHORT" value="4"></item>
+<item key="HULL_MEDIUM" value="5"></item>
+<item key="HULL_TINY_CENTERED" value="6"></item>
+<item key="HULL_LARGE" value="7"></item>
+<item key="HULL_LARGE_CENTERED" value="8"></item>
+<item key="HULL_MEDIUM_TALL" value="9"></item>
+	</items>
+
+</enum>

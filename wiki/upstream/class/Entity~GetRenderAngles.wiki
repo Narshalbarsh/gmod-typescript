@@ -1,0 +1,8 @@
+<function name="GetRenderAngles" parent="Entity" type="classfunc">
+	<description>Returns the entity's render angles, set by <page>Entity:SetRenderAngles</page> in a drawing hook.</description>
+	<realm>Client</realm>
+	<file line="16">lua/includes/extensions/client/entity.lua</file>
+	<rets>
+		<ret name="" type="Angle">The entitys render angles</ret>
+	</rets>
+</function>

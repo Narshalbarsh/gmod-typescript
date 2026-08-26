@@ -1,0 +1,13 @@
+<function name="SetDrivingEntity" parent="Player" type="classfunc">
+	<description>
+<internal></internal>
+Sets the driving entity and driving mode.
+
+Use <page>drive.PlayerStartDriving</page> instead, see <page>Entity Driving</page>.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="drivingEntity" type="Entity" default="NULL">The entity the player should drive.</arg>
+		<arg name="drivingMode" type="number">The driving mode index.</arg>
+	</args>
+</function>

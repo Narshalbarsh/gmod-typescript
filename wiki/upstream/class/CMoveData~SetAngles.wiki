@@ -1,0 +1,11 @@
+<function name="SetAngles" parent="CMoveData" type="classfunc">
+	<description>
+Sets angles.
+
+<bug issue="2382">This function does nothing.</bug>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="ang" type="Angle">The angles.</arg>
+	</args>
+</function>

@@ -1,0 +1,47 @@
+<function name="SetBaseRGB" parent="DColorCube" type="panelfunc">
+	<description>
+An <page>Global.AccessorFunc</page> that sets the base color and the color used to draw the color cube panel itself.
+
+<note>Calling this when using a color that isn't 100% saturated and valued (<page>Global.HSVToColor</page> with saturation and value set to 1) causes the color cube to look inaccurate compared to the color that's returned by methods like <page>DColorCube:GetRGB</page> and <page>DColorCube:OnUserChanged</page>. You should use <page>DColorCube:SetColor</page> instead</note>
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="107-L112">lua/vgui/dcolorcube.lua</file>
+	<args>
+		<arg name="color" type="Color">The base color to set, uses <page>Color</page>.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Creates a background panel and color cube that controls the background color. Demonstrates how setting the base RGB explicitly can cause a disconnect between the color represented by the cube and the color output.</description>
+	<code>
+-- Background panel
+BGPanel = vgui.Create("DPanel")
+BGPanel:SetSize(200, 200)
+BGPanel:Center()
+
+-- Color cube
+local color_cube = vgui.Create("DColorCube", BGPanel)
+color_cube:SetSize(180, 180)
+color_cube:Center()
+
+-- Base color set to white
+color_cube:SetBaseRGB(Color(255, 255, 255))
+
+-- Called when the color is changed by user input
+function color_cube:OnUserChanged(col)
+
+	-- Update background panel color
+	BGPanel:SetBackgroundColor(col)
+	
+end
+	</code>
+	<output>
+Notice how the output/background color doesn't match the color where the slider is positioned.
+
+
+
+
+<image src="DColorCube_SetBaseRGB_example1.png"/>
+	</output>
+
+</example>

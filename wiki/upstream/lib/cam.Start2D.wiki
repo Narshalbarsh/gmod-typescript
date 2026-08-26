@@ -1,0 +1,26 @@
+<function name="Start2D" parent="cam" type="libraryfunc">
+<file line="109-L113">lua/includes/extensions/client/render.lua</file>
+	<description>
+Sets up a new 2D rendering context. Must be finished by <page>cam.End2D</page>.
+
+This is almost always used with a render target from the <page>render</page>. To set its position use <page>render.SetViewPort</page> with a target already stored.
+
+<note>This will put an identity matrix at the top of the model matrix stack. If you are trying to use <page>cam.PushModelMatrix</page>, call it after this function and not before.</note>
+<rendercontext hook="true" type="2D"></rendercontext>
+	</description>
+	<realm>Client</realm>
+</function>
+
+<example>
+	<description>Sets the viewport then draws on the view with 2d methods.</description>
+	<code>
+local oldW, oldH = ScrW(), ScrH()
+render.SetViewPort( 0, 100, 50, 50 )
+cam.Start2D()
+	surface.SetDrawColor( 255, 255, 255 )
+	surface.DrawLine( 10, 10, 100, 100 )
+cam.End2D()
+render.SetViewPort( 0, 0, oldW, oldH )
+	</code>
+
+</example>

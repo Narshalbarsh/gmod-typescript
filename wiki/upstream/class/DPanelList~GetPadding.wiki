@@ -1,0 +1,7 @@
+<function name="GetPadding" parent="DPanelList" type="panelfunc">
+	<description>Returns offset of list items from the panel borders set by <page>DPanelList:SetPadding</page></description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">Offset from panel borders</ret>
+	</rets>
+</function>

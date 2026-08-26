@@ -1,0 +1,39 @@
+<function name="Sanitise" parent="table" type="libraryfunc">
+	<description>Converts <page>Vector</page>s, <page>Angle</page>s and <page>boolean</page>s to be able to be converted to and from key-values via <page>util.TableToKeyValues</page>.
+
+<page>table.DeSanitise</page> performs the opposite transformation.</description>
+	<realm>Shared and Menu</realm>
+	<file line="284-L338">lua/includes/extensions/table.lua</file>
+	<args>
+		<arg name="tab" type="table">Table to sanitise</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">Sanitised table</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Example of what this function does.</description>
+	<code>
+local table1 = { "A", "Golden", Angle( 1, 2, 3 ), Vector( 1, 2, 3 ) }
+
+PrintTable( table.Sanitise( table1 ) )
+	</code>
+	<output>
+```
+1	=	A
+2	=	Golden
+3:
+		__type	=	Angle
+		p	=	1
+		r	=	3
+		y	=	2
+4:
+		__type	=	Vector
+		x	=	1
+		y	=	2
+		z	=	3
+```
+	</output>
+
+</example>

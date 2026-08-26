@@ -1,0 +1,13 @@
+<function name="GetMaterial" parent="Entity" type="classfunc">
+	<description>
+Returns the material override for this entity. 
+
+Returns an empty string if no material override exists. Use <page>Entity:GetMaterials</page> to list its default materials.
+
+<bug issue="3362">The server's value takes priority on the client.</bug>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="string">material</ret>
+	</rets>
+</function>

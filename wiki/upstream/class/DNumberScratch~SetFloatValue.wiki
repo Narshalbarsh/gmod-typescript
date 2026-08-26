@@ -1,0 +1,13 @@
+<function name="SetFloatValue" parent="DNumberScratch" type="panelfunc">
+	<description>
+<internal></internal>
+
+Does not trigger <page>DNumberScratch:OnValueChanged</page>
+
+Use <page>DNumberScratch:SetValue</page> instead.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="val" type="number">The value to set</arg>
+	</args>
+</function>

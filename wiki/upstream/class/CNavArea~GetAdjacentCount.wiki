@@ -1,0 +1,11 @@
+<function name="GetAdjacentCount" parent="CNavArea" type="classfunc">
+	<description>
+Returns the amount of <page>CNavArea</page>s that have a connection ( one and two way ) **from** this <page>CNavArea</page>.
+
+See <page>CNavArea:GetAdjacentCountAtSide</page> for a function that only returns area count from one side/direction.
+	</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">The amount of <page>CNavArea</page>s that have a connection ( one and two way ) **from** this <page>CNavArea</page>.</ret>
+	</rets>
+</function>

@@ -1,0 +1,20 @@
+<enum>
+	<realm>Client</realm>
+	<description>Enumerations used by <page>Global.GetRenderTargetEx</page>. Clientside only.
+	<warning>When Anti Aliasing is enabled then `MATERIAL_RT_DEPTH_SHARED` and `MATERIAL_RT_DEPTH_SEPARATE` will always create a new depth-stencil buffer because Render Targets do not have Anti Aliasing.
+	</warning>
+	</description>
+	<items>
+<item key="MATERIAL_RT_DEPTH_SHARED" value="0">Do not create a depth-stencil buffer.<br/>Use the default depth-stencil buffer if used as render target 0.</item>
+
+<item key="MATERIAL_RT_DEPTH_SEPARATE" value="1">Create a depth-stencil buffer.<br/>Use the created depth-stencil buffer if used as render target 0.</item>
+
+<item key="MATERIAL_RT_DEPTH_NONE" value="2">Do not create a depth-stencil buffer.<br/>Disable depth and stencil buffer usage if used as render target 0.</item>
+
+<item key="MATERIAL_RT_DEPTH_ONLY" value="3">Create a depth-stencil buffer.<br/>Use the created depth-stencil buffer if used as render target 0.
+
+Creates a color texture despite the name.<br/>
+Seems to behave the same as MATERIAL_RT_DEPTH_SEPARATE.</item>
+	</items>
+
+</enum>

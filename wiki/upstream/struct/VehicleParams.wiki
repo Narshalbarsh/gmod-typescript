@@ -1,0 +1,13 @@
+<structure>
+	<realm>Server</realm>
+	<description>The structure used by <page>Vehicle:SetVehicleParams</page> and <page>Vehicle:GetVehicleParams</page>.</description>
+	<fields>
+<item name="wheelsPerAxle" type="number">Wheels per axle</item>
+<item name="axleCount" type="number">Number of axles</item>
+<item name="axles" type="table{VehicleParamsAxle}">A table of <page>Structures/VehicleParamsAxle</page> tables.</item>
+<item name="body" type="table{VehicleParamsBody}">See <page>Structures/VehicleParamsBody</page></item>
+<item name="engine" type="table{VehicleParamsEngine}">See <page>Structures/VehicleParamsEngine</page></item>
+<item name="steering" type="table{VehicleParamsSteering}">See <page>Structures/VehicleParamsSteering</page></item>
+	</fields>
+
+</structure>

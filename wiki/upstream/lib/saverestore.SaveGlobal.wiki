@@ -1,0 +1,14 @@
+<function name="SaveGlobal" parent="saverestore" type="libraryfunc">
+	<description>
+<internal></internal>
+
+Called by engine when a save is being saved.
+
+This handles saving gamemode and calls all of the hooks added with <page>saverestore.AddSaveHook</page>.
+	</description>
+	<realm>Shared</realm>
+	<file line="385-L401">lua/includes/modules/saverestore.lua</file>
+	<args>
+		<arg name="save" type="ISave">The save object to write data into the save file.</arg>
+	</args>
+</function>

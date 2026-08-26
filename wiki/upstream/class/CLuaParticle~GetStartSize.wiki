@@ -1,0 +1,7 @@
+<function name="GetStartSize" parent="CLuaParticle" type="classfunc">
+	<description>Returns the size which the particle has when it's created.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">The size which the particle has when it's created.</ret>
+	</rets>
+</function>

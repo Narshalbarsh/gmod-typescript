@@ -1,0 +1,28 @@
+<function name="RegisterFile" parent="vgui" type="libraryfunc">
+	<description>Registers a new <page>VGUI</page> panel from a file, to be used with <page>vgui.CreateFromTable</page>.
+
+File file must use the `PANEL` global that is provided just before the file is <page>Global.include</page>d, for example:
+
+
+```
+PANEL.Base = "Panel"
+
+function PANEL:Init()
+	-- Your code...
+end
+
+function PANEL:Think()
+	-- Your code...
+end
+```
+
+</description>
+	<realm>Client and Menu</realm>
+    <file line="112-L129">lua/includes/extensions/client/panel/scriptedpanels.lua</file>
+	<args>
+		<arg name="file" type="string">The file to register</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">A table containing info about the panel.</ret>
+	</rets>
+</function>

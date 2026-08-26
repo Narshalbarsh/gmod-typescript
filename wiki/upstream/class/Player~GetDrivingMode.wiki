@@ -1,0 +1,7 @@
+<function name="GetDrivingMode" parent="Player" type="classfunc">
+	<description>Returns driving mode of the player. See <page>Entity Driving</page>.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The drive mode ID or 0 if player doesn't use the drive system.</ret>
+	</rets>
+</function>

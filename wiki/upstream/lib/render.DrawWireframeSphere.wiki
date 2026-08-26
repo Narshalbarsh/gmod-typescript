@@ -1,0 +1,44 @@
+<function name="DrawWireframeSphere" parent="render" type="libraryfunc">
+	<description>
+Draws a wireframe sphere in 3d space.
+
+<rendercontext hook="false" type="3D"></rendercontext>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="position" type="Vector">Position of the sphere.</arg>
+		<arg name="radius" type="number">The size of the sphere.</arg>
+		<arg name="longitudeSteps" type="number">The amount of longitude steps. 
+The larger this number is, the smoother the sphere is.</arg>
+		<arg name="latitudeSteps" type="number">The amount of latitude steps. 
+The larger this number is, the smoother the sphere is.</arg>
+		<arg name="color" type="Color" default="Color( 255, 255, 255 )">The color of the wireframe.</arg>
+		<arg name="writeZ" type="boolean" default="false">Whether or not to consider the Z buffer. If false, the wireframe will be drawn over everything currently drawn. If true, it will be drawn with depth considered, as if it were a regular object in 3D space.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Draws a wireframe sphere over a normal sphere for an artistic effect.</description>
+	<code>
+hook.Add( "PostDrawTranslucentRenderables", "test", function()
+
+	-- Set the draw material to solid white
+	render.SetColorMaterial()
+
+	-- The position to render the sphere at, in this case, the looking position of the local player
+	local pos = LocalPlayer():GetEyeTrace().HitPos
+
+	local radius = 50
+	local wideSteps = 10
+	local tallSteps = 10
+
+	-- Draw the sphere!
+	render.DrawSphere( pos, radius, wideSteps, tallSteps, Color( 0, 175, 175, 100 ) )
+
+	-- Draw the wireframe sphere!
+	render.DrawWireframeSphere( pos, radius, wideSteps, tallSteps, Color( 255, 255, 255, 255 ) )
+
+end )
+	</code>
+
+</example>

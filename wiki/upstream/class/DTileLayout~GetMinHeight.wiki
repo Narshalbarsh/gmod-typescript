@@ -1,0 +1,7 @@
+<function name="GetMinHeight" parent="DTileLayout" type="panelfunc">
+	<description>Returns the minimum height the DTileLayout can resize to.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">The minimum height the panel can shrink to.</ret>
+	</rets>
+</function>

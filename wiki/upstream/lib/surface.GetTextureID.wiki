@@ -1,0 +1,16 @@
+<function name="GetTextureID" parent="surface" type="libraryfunc">
+	<description>
+Returns the texture id of the material with the given name/path, for use with <page>surface.SetTexture</page>.
+
+Opposite version of this function is <page>surface.GetTextureNameByID</page>.
+
+<note>This function will not work with .png or .jpg images. For that, see <page>Global.Material</page>. You will probably want to use it regardless.</note>
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="name/path" type="string">Name or path of the texture. The path must be to a `.vmt` file (a material), not to `.vtf` (a texture)!</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The texture ID</ret>
+	</rets>
+</function>

@@ -1,0 +1,8 @@
+<function name="SortByMember" parent="DGrid" type="panelfunc">
+	<description>Sorts the items in the grid. Does not visually update the grid, use <page>Panel:InvalidateLayout</page> for that.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="key" type="string">A key in the panel from <page>DGrid:GetItems</page>. The key's value must be numeric.</arg>
+		<arg name="desc" type="boolean" default="true">True for descending order, false for ascending.</arg>
+	</args>
+</function>

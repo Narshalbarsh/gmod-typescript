@@ -1,0 +1,9 @@
+<function name="SafeRemoveEntityDelayed" parent="Global" type="libraryfunc">
+	<description>Removes entity after delay using <page>Global.SafeRemoveEntity</page>.</description>
+	<realm>Shared and Menu</realm>
+	<file line="281-L290">lua/includes/util.lua</file>
+	<args>
+		<arg name="entity" type="Entity">Entity to be removed.</arg>
+		<arg name="delay" type="number">Delay for entity removal in seconds.</arg>
+	</args>
+</function>

@@ -1,0 +1,10 @@
+<function name="HUDShouldDraw" parent="WEAPON" type="hook">
+	<description>This hook determines which parts of the HUD to draw.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="element" type="string">The HUD element in question</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return false to hide this HUD element</ret>
+	</rets>
+</function>

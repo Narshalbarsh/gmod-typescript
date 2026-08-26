@@ -1,0 +1,14 @@
+<structure>
+	<realm>Shared</realm>
+	<description>Table created by the <page>Global.Color</page> function and used in various situations.</description>
+	<fields>
+<item name="r" type="number">The red channel.</item>
+
+<item name="g" type="number">The green channel.</item>
+
+<item name="b" type="number">The blue channel.</item>
+
+<item name="a" type="number">The alpha channel.</item>
+	</fields>
+
+</structure>

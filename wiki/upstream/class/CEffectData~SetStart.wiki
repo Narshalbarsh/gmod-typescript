@@ -1,0 +1,9 @@
+<function name="SetStart" parent="CEffectData" type="classfunc">
+	<description>Sets the start of the effect to be created with this effect data.
+<note>Limited to world bounds (+-16386 on every axis) and has horrible networking precision. (17 bit float per component)</note>
+</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="start" type="Vector">Start of the effect.</arg>
+	</args>
+</function>

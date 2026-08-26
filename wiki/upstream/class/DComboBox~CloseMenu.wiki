@@ -1,0 +1,5 @@
+<function name="CloseMenu" parent="DComboBox" type="panelfunc">
+	<description>Closes the combo box menu. Called when the combo box is clicked while open.</description>
+	<realm>Client and Menu</realm>
+	<file line="236-L244">lua/vgui/dcombobox.lua</file>
+</function>

@@ -1,0 +1,4 @@
+<function name="Remove" parent="CNavArea" type="classfunc">
+	<description>Removes the given nav area.</description>
+	<realm>Server</realm>
+</function>

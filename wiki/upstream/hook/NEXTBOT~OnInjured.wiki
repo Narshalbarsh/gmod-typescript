@@ -1,0 +1,8 @@
+<function name="OnInjured" parent="NEXTBOT" type="hook">
+	<description>Called when the bot gets hurt. This is a good place to play hurt sounds or voice lines.</description>
+	<realm>Server</realm>
+	<file line="130">gamemodes/base/entities/entities/base_nextbot/sv_nextbot.lua</file>
+	<args>
+		<arg name="info" type="CTakeDamageInfo">The damage info</arg>
+	</args>
+</function>

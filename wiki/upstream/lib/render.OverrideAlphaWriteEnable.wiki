@@ -1,0 +1,29 @@
+<function name="OverrideAlphaWriteEnable" parent="render" type="libraryfunc">
+	<description>
+Overrides the write behaviour of all next rendering operations towards the alpha channel of the current render target.
+
+See also <page>render.OverrideBlend</page>.
+
+<note>Doing <page>surface</page> draw calls with alpha set to 0 is a no-op and will never have any effect.</note>
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="enable" type="boolean">Enable or disable the override.</arg>
+		<arg name="shouldWrite" type="boolean" default="nil">If the previous argument is true, sets whether the next rendering operations should write to the alpha channel or not. Has no effect if the previous argument is false.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Shows how you can use alpha channel with render targets.</description>
+	<code>
+render.PushRenderTarget( texture )
+render.OverrideAlphaWriteEnable( true, true )
+
+render.ClearDepth()
+render.Clear( 0, 0, 0, 0 )
+
+render.OverrideAlphaWriteEnable( false )
+render.PopRenderTarget()
+	</code>
+
+</example>

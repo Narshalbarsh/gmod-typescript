@@ -1,0 +1,8 @@
+<function name="CopyBase" parent="Panel" type="classfunc">
+	<file line="497-L504">lua/includes/extensions/client/panel.lua</file>
+	<description>Gets the size, position and dock state of the passed panel object, and applies it to this one.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="srcPanel" type="Panel">The panel to copy the boundary and dock settings from.</arg>
+	</args>
+</function>

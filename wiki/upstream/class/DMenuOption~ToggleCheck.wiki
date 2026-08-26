@@ -1,0 +1,4 @@
+<function name="ToggleCheck" parent="DMenuOption" type="panelfunc">
+	<description>Toggles the checked state of <page>DMenuOption</page>. Does not respect <page>DMenuOption:GetIsCheckable</page>.</description>
+	<realm>Client and Menu</realm>
+</function>

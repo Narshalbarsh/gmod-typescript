@@ -1,0 +1,26 @@
+<function name="InSine" parent="math.ease" type="libraryfunc">
+	<description>Eases in using <page>math.sin</page>.</description>
+	<realm>Shared and Menu</realm>
+	<file line="37-L39">lua/includes/extensions/math/ease.lua</file>
+	<args>
+		<arg name="fraction" type="number">Fraction of the progress to ease, from 0 to 1</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">"Eased" Value, from 0 to 1</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Calculates the easing of three situations</description>
+	<code>
+print(math.ease.InSine(0.1))
+print(math.ease.InSine(0.2))
+print(math.ease.InSine(0.3))
+	</code>
+	<output>
+0.01231...
+0.04894...
+0.10899...
+	</output>
+
+</example>

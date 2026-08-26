@@ -1,0 +1,7 @@
+<function name="GetTextureFrame" parent="ProjectedTexture" type="classfunc">
+	<description>Returns the texture frame of the ProjectedTexture, which was previously set by <page>ProjectedTexture:SetTextureFrame</page></description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">The texture frame.</ret>
+	</rets>
+</function>

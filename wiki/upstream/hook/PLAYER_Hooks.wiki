@@ -1,0 +1,12 @@
+<title>PLAYER</title>
+<type name="PLAYER" category="hook" is="class">
+	<summary>
+Represents a player class.
+
+The player class hooks have one special field:
+* <page>Player</page> **Player** - The player for which a hook is called.
+
+<note>These hooks are used in <page>player_manager</page> this can't be <page text="hooked">hook.Add</page></note>
+
+	</summary>
+</type>

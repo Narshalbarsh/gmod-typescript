@@ -1,0 +1,7 @@
+<function name="GetDeceleration" parent="CLuaLocomotion" type="classfunc">
+	<description>Gets the deceleration speed</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">Current deceleration speed</ret>
+	</rets>
+</function>

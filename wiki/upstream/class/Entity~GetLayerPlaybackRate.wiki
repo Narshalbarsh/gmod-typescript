@@ -1,0 +1,12 @@
+<function name="GetLayerPlaybackRate" parent="Entity" type="classfunc">
+	<description>Returns the layer playback rate. See also <page>Entity:GetLayerDuration</page>.
+	<note>This function only works on <page>BaseAnimatingOverlay</page> entities.</note></description>
+	<added>2020.03.17</added>
+	<realm>Shared</realm>
+	<args>
+		<arg name="layerID" type="number">The Layer ID</arg>
+	</args>
+	<rets>
+		<ret name="rate" type="number">The current playback rate.</ret>
+	</rets>
+</function>

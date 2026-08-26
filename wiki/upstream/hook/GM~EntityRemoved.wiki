@@ -1,0 +1,33 @@
+<function name="EntityRemoved" parent="GM" type="hook">
+	<description>
+		Called right before removal of an entity.
+		<warning>This hook is called clientside during full updates due to how networking works in the Source Engine.
+
+This can happen when the client briefly loses connection to the server, and can be simulated via `cl_fullupdate` for testing purposes.</warning>
+	</description>
+	<realm>Shared</realm>
+	<file line="98-L99">gamemodes/base/gamemode/shared.lua</file>
+	<args>
+		<arg name="ent" type="Entity">Entity being removed</arg>
+		<arg name="fullUpdate" type="boolean" added="2023.09.26">Whether the removal is happening due to a full update clientside.
+
+The entity may or **may not** be recreated immediately after, depending on whether it is in the local player's [PVS](https://developer.valvesoftware.com/wiki/PVS "PVS - Valve Developer Community"). (See <page>Entity:IsDormant</page>)</arg>
+	</args>
+</function>
+
+<example>
+	<description>Adds all sent_ball's into a list, which is cleared when they are removed.</description>
+	<code>
+local BallList = {}
+
+hook.Add( "OnEntityCreated", "BallList", function( ent )
+	if ( ent:GetClass() ~= "sent_ball" ) then return end
+	BallList[ ent:EntIndex() ] = ent
+end )
+
+hook.Add( "EntityRemoved", "ClearBallList", function( ent, fullUpdate )
+	if ( fullUpdate ) then return end
+	BallList[ ent:EntIndex() ] = nil
+end )
+	</code>
+</example>

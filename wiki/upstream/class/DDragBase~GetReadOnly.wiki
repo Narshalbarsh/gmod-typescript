@@ -1,0 +1,8 @@
+<function name="GetReadOnly" parent="DDragBase" type="panelfunc">
+	<description>Returns whether this panel is read only or not for drag'n'drop purposes. An <page>Global.AccessorFunc</page></description>
+	<realm>Client and Menu</realm>
+	<file line="6">lua/vgui/ddragbase.lua</file>
+	<rets>
+		<ret name="name" type="boolean">Whether this panel is read only or not.</ret>
+	</rets>
+</function>

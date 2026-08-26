@@ -1,0 +1,7 @@
+<function name="GetAngleVelocity" parent="CLuaParticle" type="classfunc">
+	<description>Returns the angular velocity of the particle</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="Angle">The angular velocity of the particle</ret>
+	</rets>
+</function>

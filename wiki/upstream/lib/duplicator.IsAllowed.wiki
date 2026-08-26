@@ -1,0 +1,11 @@
+<function name="IsAllowed" parent="duplicator" type="libraryfunc">
+	<description>Returns whether the entity can be duplicated or not.</description>
+	<realm>Shared</realm>
+	<file line="349-L353">lua/includes/modules/duplicator.lua</file>
+	<args>
+		<arg name="classname" type="string">An entity's classname.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Returns true if the entity can be duplicated (nil otherwise).</ret>
+	</rets>
+</function>

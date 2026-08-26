@@ -1,0 +1,7 @@
+<function name="SetElasticity" parent="Entity" type="classfunc">
+	<description>Sets the elasticity of this entity, used by some flying entities such as the Helicopter NPC to determine how much it should bounce around when colliding.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="elasticity" type="number">The elasticity to set.</arg>
+	</args>
+</function>

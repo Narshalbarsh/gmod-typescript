@@ -1,0 +1,11 @@
+<function name="SetUnpacked" parent="Color" type="classfunc">
+	<description>Sets the red, green, blue, and alpha of the color.</description>
+	<realm>Shared</realm>
+	<file line="94-L101">lua/includes/util/color.lua</file>
+	<args>
+		<arg name="r" type="number">The red component</arg>
+		<arg name="g" type="number">The green component</arg>
+		<arg name="b" type="number">The blue component</arg>
+		<arg name="a" type="number">The alpha component</arg>
+	</args>
+</function>

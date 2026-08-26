@@ -1,0 +1,8 @@
+<function name="GetControlList" parent="derma" type="libraryfunc">
+	<description>Returns the <page>derma.Controls</page> table, a list of all derma controls registered with <page>derma.DefineControl</page>.</description>
+	<realm>Client and Menu</realm>
+	<file line="90-L94">lua/derma/derma.lua</file>
+	<rets>
+		<ret name="" type="table">A listing of all available derma-based controls. See <page>derma.Controls</page> for structure and contents.</ret>
+	</rets>
+</function>

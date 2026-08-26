@@ -1,0 +1,20 @@
+<enum>
+	<realm>Client and Menu</realm>
+	<description>
+Alignment of a panel's contents, laid out like the keys of a number pad.
+Used by <page>Panel:SetContentAlignment</page>, <page>DListView_Column:SetTextAlign</page> and <page>DNotify:SetAlignment</page>.
+
+<warning>These enumerations do not exist in game and are listed here only for reference</warning>
+	</description>
+	<items>
+<item key="BOTTOM_LEFT" value="1">Bottom-left</item>
+<item key="BOTTOM_CENTER" value="2">Bottom-center</item>
+<item key="BOTTOM_RIGHT" value="3">Bottom-right</item>
+<item key="MIDDLE_LEFT" value="4">Middle-left</item>
+<item key="CENTER" value="5">Center</item>
+<item key="MIDDLE_RIGHT" value="6">Middle-right</item>
+<item key="TOP_LEFT" value="7">Top-left</item>
+<item key="TOP_CENTER" value="8">Top-center</item>
+<item key="TOP_RIGHT" value="9">Top-right</item>
+	</items>
+</enum>

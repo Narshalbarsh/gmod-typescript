@@ -1,0 +1,8 @@
+<function name="IsSelectable" parent="Panel" type="classfunc">
+	<file line="66-L70">lua/includes/extensions/client/panel/selections.lua</file>
+	<description>Determines if the panel object is selectable (like icons in the Spawn Menu, holding <key>Shift</key>). This is set with <page>Panel:SetSelectable</page>.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the panel is selectable or not.</ret>
+	</rets>
+</function>

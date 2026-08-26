@@ -1,0 +1,7 @@
+<function name="SetMinimumWidth" parent="DMenu" type="panelfunc">
+	<description>Sets the minimum width of the <page>DMenu</page>. The menu will be stretched to match the given value.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="minWidth" type="number">The minimum width of the <page>DMenu</page> in pixels</arg>
+	</args>
+</function>

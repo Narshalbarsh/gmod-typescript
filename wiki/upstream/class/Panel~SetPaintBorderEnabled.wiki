@@ -1,0 +1,7 @@
+<function name="SetPaintBorderEnabled" parent="Panel" type="classfunc">
+	<description>Sets whether the default border of the panel should be drawn or not.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="paintBorder" type="boolean">Whether to draw the border or not.</arg>
+	</args>
+</function>

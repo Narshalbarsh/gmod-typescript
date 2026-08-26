@@ -1,0 +1,13 @@
+<function name="SetInflictor" parent="CTakeDamageInfo" type="classfunc">
+	<description>
+Sets the inflictor of the damage for example a weapon.
+
+For hitscan/bullet weapons this should the weapon.
+
+For projectile (rocket launchers, grenades, etc) weapons this should be the projectile and <page>CTakeDamageInfo:SetWeapon</page> should be the weapon.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="inflictor" type="Entity">The new inflictor.</arg>
+	</args>
+</function>

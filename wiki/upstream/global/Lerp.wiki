@@ -1,0 +1,110 @@
+<function name="Lerp" parent="Global" type="libraryfunc">
+	<description>
+Performs a linear interpolation from the start number to the end number.
+
+This function provides a very efficient and easy way to smooth out movements.
+
+See also <page>math.ease</page> for functions that allow to have non linear animations using linear interpolation.
+
+<note>This function is not meant to be used with constant value in the first argument if you're dealing with animation! Use a value that changes over time. See example for **proper** usage of Lerp for animations.</note>
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="292-L302">lua/includes/util.lua</file>
+	<args>
+		<arg name="t" type="number">The fraction for finding the result. This number is clamped between 0 and 1. Shouldn't be a constant.</arg>
+		<arg name="from" type="number">The starting number. The result will be equal to this if delta is 0.</arg>
+		<arg name="to" type="number">The ending number. The result will be equal to this if delta is 1.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The result of the linear interpolation, `from + (to - from) * t`.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Example of simple Lerp usage for animations.</description>
+	<code>
+-- A variable to store the animation's start time is needed if you
+-- want to use the "Lerp" function to make timed animations.
+local animation_start, animation_duration = CurTime(), 2
+
+hook.Add( "HUDPaint", "LerpAnimation", function()
+	local animation_progress = ( CurTime() - animation_start ) / animation_duration
+
+	-- The "Lerp" function is then called using the fraction as the first argument with
+	-- the second being the value you want to start at ("from") when the fraction is "0" and
+	-- the third being the final value ("to") when the fraction is "1".
+
+	-- If the "from" value is going to be "0" consider using the formula "to * animation_progress".
+	-- If the "to" value is "0" you could use the formula "from * ( 1 - animation_progress )".
+	-- These methods are slightly faster and will achieve the same result as if you were to use "Lerp".
+
+	-- For example a different way of writing this line would be:
+	-- 	"local animated_value = 255 * ( 1 - animated_progress )"
+
+	-- If you wanted to reverse the animation the line could be:
+	-- 	"local animated_value = Lerp( animation_progress, 0, 255 )"
+	-- 		or
+	-- 	"local animated_value = 255 * animation_progress"
+	local animated_value = Lerp( animation_progress, 255, 0 )
+
+	-- In this case the "Lerp" function is being used to make a rect fade out.
+	surface.SetDrawColor( 255, 255, 255, animated_value )
+	surface.DrawRect( 50, 50, 300, 300 )
+
+	-- If you add the start time and duration together you'll have the total
+	-- animation time, and if you compare it to the current time you can check
+	-- if the animation has completed.
+
+	-- A slightly more accurate and optimised way of checking if the animation has completed is by
+	-- checking if the "animation_progress" is equal to "1" or if "animated_value" is equal to the
+	-- third argument used when "Lerp" was called.
+	if ( animation_start + animation_duration <= CurTime() ) then
+		-- In this example we're just resetting the start time when the animation completes.
+		animation_start = CurTime()
+	end
+end )
+	</code>
+</example>
+
+<example>
+	<description>Advanced example of Lerp animation: A health bar that will smooth the health change over 0.5 seconds to reach new health value from the previous value.</description>
+	<code>
+local start, oldhp, newhp = 0, -1, -1
+local barW = 200
+local animationTime = 0.5 -- seconds
+
+hook.Add( "HUDPaint", "LerpAnimation", function()
+	-- Local player still loading, do nothing
+	if ( !IsValid( LocalPlayer() ) ) then return end
+
+	local hp = LocalPlayer():Health()
+	local maxhp = LocalPlayer():GetMaxHealth()
+
+	-- The values are not initialized yet, do so right now
+	if ( oldhp == -1 and newhp == -1 ) then
+		oldhp = hp
+		newhp = hp
+	end
+
+	-- You can use a different smoothing function here
+	local smoothHP = Lerp( ( SysTime() - start ) / animationTime, oldhp, newhp )
+
+	-- Health was changed, initialize the animation
+	if newhp ~= hp then
+		-- Old animation is still in progress, adjust
+		if ( smoothHP ~= hp ) then
+			-- Pretend our current "smooth" position was the target so the animation will
+			-- not jump to the old target and start to the new target from there
+			newhp = smoothHP
+		end
+
+		oldhp = newhp
+		start = SysTime()
+		newhp = hp
+	end
+
+	draw.RoundedBox( 4, 100, 200, barW, 100, color_black )
+	draw.RoundedBox( 4, 100, 200, math.max( 0, smoothHP ) / maxhp * barW, 100, color_white )
+end )
+	</code>
+</example>

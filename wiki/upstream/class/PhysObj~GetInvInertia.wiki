@@ -1,0 +1,9 @@
+<function name="GetInvInertia" parent="PhysObj" type="classfunc">
+	<description>Returns 1 divided by the angular inertia. See <page>PhysObj:GetInertia</page></description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="invAngularInertia" type="Vector">The inverted angular inertia
+			<warning>Returns `[0, 0, 0]` on frozen physics objects.</warning>
+		</ret>
+	</rets>
+</function>

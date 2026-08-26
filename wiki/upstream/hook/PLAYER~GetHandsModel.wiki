@@ -1,0 +1,24 @@
+<function name="GetHandsModel" parent="PLAYER" type="hook">
+	<description>Called on player spawn to determine which hand model to use</description>
+	<realm>Server</realm>
+	<file line="126-L133">gamemodes/base/gamemode/player_class/player_default.lua</file>
+	<rets>
+		<ret name="" type="table">A table containing info about view model hands model to be set. See examples.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Default action of player_default class</description>
+	<code>
+function PLAYER:GetHandsModel()
+
+	-- return { model = "models/weapons/c_arms_cstrike.mdl", skin = 1, body = "0100000" }
+
+	local playermodel = player_manager.TranslateToPlayerModelName( self.Player:GetModel() )
+	return player_manager.TranslatePlayerHands( playermodel )
+
+end
+	</code>
+	<output>View model hands model is chosen according to player's player model.</output>
+
+</example>

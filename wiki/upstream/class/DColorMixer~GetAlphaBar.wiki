@@ -1,0 +1,8 @@
+<function name="GetAlphaBar" parent="DColorMixer" type="panelfunc">
+	<description>An <page>Global.AccessorFunc</page> that returns true if alpha bar is shown, false if not.</description>
+	<realm>Client and Menu</realm>
+	<file line="10">lua/vgui/dcolormixer.lua</file>
+	<rets>
+		<ret name="" type="boolean">Return true if shown, false if not.</ret>
+	</rets>
+</function>

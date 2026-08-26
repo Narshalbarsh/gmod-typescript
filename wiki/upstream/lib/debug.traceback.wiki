@@ -1,0 +1,56 @@
+<function name="traceback" parent="debug" type="libraryfunc">
+	<description>
+<deprecated></deprecated>
+
+Returns a full execution stack trace.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="thread" type="thread" default="current thread">Thread (ie. error object from xpcall error handler) to build traceback for. If this argument is not set to a proper <page>thread</page> it will act as the next argument.</arg>
+		<arg name="message" type="string" default="nil">Appended at the beginning of the traceback.</arg>
+		<arg name="level" type="number" default="1">Which level to start the traceback.</arg>
+		
+	</args>
+	<rets>
+		<ret name="" type="string">A dump of the execution stack.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints the traceback into console.</description>
+	<code>print(debug.traceback())</code>
+	<output>
+&gt; print(debug.traceback())...
+stack traceback:
+```
+
+        lua_run:1: in main chunk
+```
+
+	</output>
+
+</example>
+
+
+<example>
+	<description>Defines two functions that are later visible in the traceback. Enter "lua_run TracebackTest()" into the development console to achieve exact results.</description>
+	<code>
+function TracebackTest()
+     AnotherTracebackFunction()
+end
+
+function AnotherTracebackFunction()
+     print(debug.traceback())
+end
+	</code>
+	<output>
+stack traceback:
+```
+
+        lua_run:1: in function 'AnotherTracebackFunction'
+        lua_run:1: in function 'TracebackTest'
+        lua_run:1: in main chunk
+```
+
+	</output>
+
+</example>

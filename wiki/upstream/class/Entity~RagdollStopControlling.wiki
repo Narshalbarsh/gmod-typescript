@@ -1,0 +1,4 @@
+<function name="RagdollStopControlling" parent="Entity" type="classfunc">
+	<description>Sets the function to build the ragdoll. This is used alongside Kinect in <page>Entity:SetRagdollBuildFunction</page>, for more info see ragdoll_motion entity.</description>
+	<realm>Server</realm>
+</function>

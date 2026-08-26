@@ -1,0 +1,12 @@
+<function name="SetContents" parent="DTooltip" type="panelfunc">
+	<description>
+What Panel you want put inside of the <page>DTooltip</page>
+
+<note>You can only have one Panel at a time; use Parenting to add more</note>
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="panel" type="Panel">Contents</arg>
+		<arg name="delete" type="boolean" default="false">If set to true, the panel in the first argument will be automatically removed when <page>DTooltip</page> is closed via <page>DTooltip:Close</page>.</arg>
+	</args>
+</function>

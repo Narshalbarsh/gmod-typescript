@@ -1,0 +1,15 @@
+<function name="NPCShoot_Primary" parent="WEAPON" type="hook">
+	<description>
+Called internally during `TASK_RANGE_ATTACK1 --> OnRangeAttack1`. This allows you to separate your SWEPs primary firing function from players and NPCs. 
+
+To get the delay the NPC will fire again, you can call `self:GetOwner():GetInternalVariable("m_flNextAttack")`
+
+<note>This hook is called internally only for NPCs that has `CAP_USE_SHOT_REGULATOR` set.</note>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="shootPos" type="Vector" default="GetShootPos()">The world position the NPC will use as attack starting position. You can create your projectiles here. </arg>
+		<arg name="shootDir" type="Vector" default="GetAimVector()">The direction the NPC wants to shoot at. </arg>
+	</args>
+	<file line="93">gamemodes/base/entities/weapons/weapon_base/init.lua</file>
+</function>

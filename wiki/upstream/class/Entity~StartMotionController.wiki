@@ -1,0 +1,16 @@
+<function name="StartMotionController" parent="Entity" type="classfunc">
+	<description>
+Starts a motion controller in the physics engine tied to this entity's <page>PhysObj</page>, which enables the use of <page>ENTITY:PhysicsSimulate</page>.
+
+The motion controller can later be destroyed via <page>Entity:StopMotionController</page>.
+
+Motion controllers are used internally to control other Entities' <page>PhysObj</page>ects, such as the Gravity Gun, +use pickup and the Physics Gun.
+
+This function should be called every time you recreate the Entity's <page>PhysObj</page>. Or alternatively you should call <page>Entity:AddToMotionController</page> on the new <page>PhysObj</page>.
+
+Also see <page>Entity:AddToMotionController</page> and <page>Entity:RemoveFromMotionController</page>.
+
+<note>Only works on a scripted <page>Entity</page> of anim type.</note>
+	</description>
+	<realm>Shared</realm>
+</function>

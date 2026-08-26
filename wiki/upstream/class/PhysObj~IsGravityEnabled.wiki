@@ -1,0 +1,7 @@
+<function name="IsGravityEnabled" parent="PhysObj" type="classfunc">
+	<description>Returns whenever the entity is affected by gravity.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">`true` if the gravity is enabled, `false` otherwise</ret>
+	</rets>
+</function>

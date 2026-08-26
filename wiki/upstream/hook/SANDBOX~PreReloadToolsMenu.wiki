@@ -1,0 +1,24 @@
+<function name="PreReloadToolsMenu" parent="SANDBOX" type="hook">
+	<description>Called right before the Lua Loaded tool menus are reloaded.</description>
+	<realm>Client</realm>
+</function>
+
+<example>
+	<description>Removes some tools from the spawnmenu tab. **Note**: the player can still take them (e.g. via console command).</description>
+		<code>
+-- The tools that we are going to hide from the menu.
+local toolsToHide = {
+    weld = true,
+    rope = true,
+}
+
+hook.Add( "PreReloadToolsMenu", "HideTools", function()
+    -- Tool contains information about all registered tools.
+    for name, data in pairs( weapons.GetStored( "gmod_tool" ).Tool ) do
+        if toolsToHide[ name ] then
+            data.AddToMenu = false
+        end
+    end
+end )
+		</code>
+</example>

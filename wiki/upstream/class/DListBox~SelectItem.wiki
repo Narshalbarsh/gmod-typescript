@@ -1,0 +1,12 @@
+<function name="SelectItem" parent="DListBox" type="panelfunc">
+	<description>
+<internal></internal>
+
+Used internally to select a specific panel.
+</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="item" type="Panel"><page>DListBox</page> to select.</arg>
+		<arg name="onlyme" type="boolean">Whether to deselect other selected items.</arg>
+	</args>
+</function>

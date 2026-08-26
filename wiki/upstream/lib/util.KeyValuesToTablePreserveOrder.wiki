@@ -1,0 +1,62 @@
+<function name="KeyValuesToTablePreserveOrder" parent="util" type="libraryfunc">
+	<description>Similar to <page>util.KeyValuesToTable</page>, but it also preserves order of keys (since Lua dictionary-style tables do not guarantee a specific order), and allows handling of repeated keys. (since each key can only appear once in a dictionary data structure)</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="keyValues" type="string">The Valve KeyValue formatted text.</arg>
+		<arg name="usesEscapeSequences" type="boolean" default="false">If set to true, will replace `\t`, `\n`, `\"` and `\\` in the input text with their escaped variants</arg>
+		<arg name="preserveKeyCase" type="boolean" default="false">Whether we should preserve key case (may fail) or not (always lowercase)</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">The output table</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Example usage and output of this function. Note how there are multiple entries where they key is "solid", just like in the input string.</description>
+	<code>
+local ModelInfo = util.GetModelInfo("models/combine_gate_vehicle.mdl" )
+PrintTable( util.KeyValuesToTablePreserveOrder( ModelInfo.KeyValues ) )
+	</code>
+	<output>
+```
+1:
+		Key	=	solid
+		Value:
+				1:
+						Key	=	index
+						Value	=	0
+				2:
+						Key	=	name
+						Value	=	Vehicle_Gate.Gate2_L
+				3:
+						Key	=	mass
+						Value	=	1
+				4:
+						Key	=	surfaceprop
+						Value	=	metal
+				5:
+						Key	=	damping
+						Value	=	0
+				6:
+						Key	=	rotdamping
+						Value	=	0
+				7:
+						Key	=	inertia
+						Value	=	1
+				8:
+						Key	=	volume
+						Value	=	68522.9296875
+2:
+		Key	=	solid
+		Value:
+				1:
+						Key	=	index
+						Value	=	1
+				2:
+						Key	=	name
+						Value	=	Vehicle_Gate.Gate3_R
+...
+```
+	</output>
+
+</example>

@@ -1,0 +1,9 @@
+<function name="Alias" parent="scripted_ents" type="libraryfunc">
+	<file line="256-L260">lua/includes/modules/scripted_ents.lua</file>
+	<description>Defines an alias string that can be used to refer to another classname.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="alias" type="string">A new string which can be used to refer to another classname.</arg>
+		<arg name="classname" type="string">The classname the alias should refer to.</arg>
+	</args>
+</function>

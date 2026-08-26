@@ -1,0 +1,7 @@
+<function name="SetShadowDistance" parent="render" type="libraryfunc">
+	<description>Sets the maximum shadow projection range.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="shadowDistance" type="number">The new maximum shadow distance.</arg>
+	</args>
+</function>

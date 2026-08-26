@@ -1,0 +1,8 @@
+<function name="ClearMovement" parent="CUserCmd" type="classfunc">
+	<description>
+Clears the movement from the command.
+
+See also <page>CUserCmd:SetForwardMove</page>, <page>CUserCmd:SetSideMove</page> and  <page>CUserCmd:SetUpMove</page>.
+	</description>
+	<realm>Shared</realm>
+</function>

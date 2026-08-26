@@ -1,0 +1,43 @@
+<function name="GetAllNavAreas" parent="navmesh" type="libraryfunc">
+	<description>Returns an integer indexed table of all <page>CNavArea</page>s on the current map. If the map doesn't have a navmesh generated then this will return an empty table.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="table<CNavArea>">A table of all the <page>CNavArea</page>s on the current map.</ret>
+	</rets>
+</function>
+
+<example>
+<description>Visualizes the entire navmesh and light intensities of each area via the <page>debugoverlay</page> library.</description>
+<code>
+if SERVER then
+
+	local nav_visualize = CreateConVar( "nav_visualize", "0", 0, "Visualize navmesh" )
+	local LastNavmeshViz = 0
+	hook.Add("Think", "navmesh_visualize", function()
+		if ( !nav_visualize:GetBool() ) then return end
+
+		if ( CurTime() - LastNavmeshViz < 0.1 ) then return end
+		local time = math.min( CurTime() - LastNavmeshViz + 0.02, 1 )
+		LastNavmeshViz = CurTime()
+
+		for id, navArea in pairs( navmesh.GetAllNavAreas() ) do
+			local color = Color( 255, 255, 255, 40 + (1-navArea:GetLightIntensity() )* 200 )
+			color:SetBrightness( navArea:GetLightIntensity() )
+
+			local ignoreDepth = nav_visualize:GetInt() > 1 && Entity(1):GetPos():Distance(navArea:GetCenter()) < 1000
+
+			-- Raise the corners up a bit to avoid z fighting with the ground
+			local corner1 = navArea:GetCorner( 0 ) + Vector( 0, 0, 1 )
+			local corner2 = navArea:GetCorner( 1 ) + Vector( 0, 0, 1 )
+			local corner3 = navArea:GetCorner( 2 ) + Vector( 0, 0, 1 )
+			local corner4 = navArea:GetCorner( 3 ) + Vector( 0, 0, 1 )
+			debugoverlay.Triangle( corner3, corner2, corner1, time, color, ignoreDepth )
+			debugoverlay.Triangle( corner1, corner4, corner3, time, color, ignoreDepth )
+		end
+	end)
+end
+</code>
+<output>
+<upload src="70c/8dedb655ee8e294.png" size="4234386" name="image.png" />
+</output>
+</example>

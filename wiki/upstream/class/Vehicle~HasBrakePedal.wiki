@@ -1,0 +1,7 @@
+<function name="HasBrakePedal" parent="Vehicle" type="classfunc">
+	<description>Returns whether this vehicle has a brake pedal. See <page>Vehicle:SetHasBrakePedal</page>.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="boolean">Whether this vehicle has a brake pedal or not.</ret>
+	</rets>
+</function>

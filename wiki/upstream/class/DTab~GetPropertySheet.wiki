@@ -1,0 +1,7 @@
+<function name="GetPropertySheet" parent="DTab" type="panelfunc">
+	<description>The <page>DPropertySheet</page> this tab belongs to.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="pnl" type="Panel">The <page>DPropertySheet</page> this tab belongs to.</ret>
+	</rets>
+</function>

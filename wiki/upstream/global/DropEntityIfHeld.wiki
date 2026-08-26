@@ -1,0 +1,13 @@
+<function name="DropEntityIfHeld" parent="Global" type="libraryfunc">
+	<description>
+<deprecated>You really should be using <page>Entity:ForcePlayerDrop</page>, which does the same thing.</deprecated>
+
+Drops the specified entity if it is being held by any player with Gravity Gun, Physics Gun or `+use` pickup.
+
+See also <page>Player:DropObject</page> and <page>Entity:ForcePlayerDrop</page>.
+</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ent" type="Entity">The entity to drop.</arg>
+	</args>
+</function>

@@ -1,0 +1,30 @@
+<cat>gameevent</cat>
+<title>hltv_changed_mode</title>
+
+<structure>
+	<realm>Client and Menu</realm>
+	<description>
+			Called when the HLTV observer mode changes.
+	</description>
+	<fields>
+		<item type="number" name="newmode">The new <page text="OBS_MODE">Enums/OBS_MODE</page>.</item>
+		<item type="number" name="obs_target">The <page text="EntIndex">Entity:EntIndex</page> of our Target.</item>
+		<item type="number" name="oldmode">The old <page text="OBS_MODE">Enums/OBS_MODE</page>.</item>
+	</fields>
+</structure>
+
+# Examples
+<example>
+	<description>This is a basic template with the purpose of including all arguments / table variables to make it easily known which values can be accessed.</description>
+	<code>
+gameevent.Listen( "hltv_changed_mode" )
+hook.Add( "hltv_changed_mode", "hltv_changed_mode_example", function( data )
+	local newmode = data.newmode		-- The new Observer mode
+	local obs_target = data.obs_target	-- Entity:EntIndex() of new Target
+	local oldmode = data.oldmode		-- The old Observer mode
+
+	-- Called when the HLTV observer mode changes.
+	
+end )
+	</code>
+</example>

@@ -1,0 +1,7 @@
+<function name="ReadFloat" parent="bf_read" type="classfunc">
+	<description>Reads a 4 byte float from the bitstream and returns it.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">float</ret>
+	</rets>
+</function>

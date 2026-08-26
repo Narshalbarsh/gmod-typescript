@@ -1,0 +1,17 @@
+<function name="Move" parent="PLAYER" type="hook">
+	<description>
+Called from <page>GM:Move</page>.
+
+<warning>This hook will not work if the current gamemode overrides <page>GM:Move</page> and does not call this hook.</warning>
+
+<note>This hook is run after the <page>drive.Move</page> has been called.</note>
+	</description>
+	<realm>Shared</realm>
+	<file line="L86">gamemodes/base/gamemode/player_class/player_default.lua</file>
+	<args>
+		<arg name="mv" type="CMoveData">Movement information</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return true to prevent default action</ret>
+	</rets>
+</function>

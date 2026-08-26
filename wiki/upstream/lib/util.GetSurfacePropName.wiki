@@ -1,0 +1,14 @@
+<function name="GetSurfacePropName" parent="util" type="libraryfunc">
+	<description>
+Returns the name of a surface property at given ID.
+
+See also <page>util.GetSurfaceData</page> and <page>util.GetSurfaceIndex</page> for opposite function.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="id" type="number">Surface property ID. You can get it from <page>Structures/TraceResult</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The name or an empty string if there is no valid surface property at given index.</ret>
+	</rets>
+</function>

@@ -1,0 +1,11 @@
+<function name="EnableSearch" parent="ContentSidebar" type="panelfunc">
+	<description>
+Creates a search bar which will be displayed over the Nodes.
+	</description>
+	<args>
+		<arg name="style" type="string"></arg>
+		<arg name="hookname" type="string" default="PopulateContent">A Populate Hook like PopulateEntities</arg>
+	</args>
+	<realm>Client</realm>
+	<file line="20-L23">gamemodes/sandbox/gamemode/spawnmenu/creationmenu/content/contentsidebar.lua</file>
+</function>

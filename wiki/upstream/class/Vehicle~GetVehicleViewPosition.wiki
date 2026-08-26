@@ -1,0 +1,13 @@
+<function name="GetVehicleViewPosition" parent="Vehicle" type="classfunc">
+	<description>Returns the view position and forward angle of a given passenger seat.
+</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="role" type="number" default="0">The passenger role. 0 is the driver. This parameter seems to be ignored by the game engine and is therefore optional.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">The view position, will be 0, 0, 0 on failure</ret>
+		<ret name="" type="Angle">The view angles, will be 0, 0, 0 on failure</ret>
+		<ret name="" type="number">The field of view, will be 0 on failure</ret>
+	</rets>
+</function>

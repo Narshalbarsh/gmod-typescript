@@ -1,0 +1,61 @@
+<function name="BeamRingPoint" parent="effects" type="libraryfunc">
+	<description>Creates a "beam ring point" effect.</description>
+	<realm>Shared</realm>
+	<added>2020.04.29</added>
+	<args>
+		<arg name="pos" type="Vector">The origin position of the effect.</arg>
+		<arg name="lifetime" type="number">How long the effect will be drawing for, in seconds.</arg>
+		<arg name="startRad" type="number">Initial radius of the effect.</arg>
+		<arg name="endRad" type="number">Final radius of the effect, at the end of the effect's lifetime.</arg>
+		<arg name="width" type="number">How thick the beam should be.</arg>
+		<arg name="amplitude" type="number">How noisy the beam should be.</arg>
+		<arg name="color" type="Color">Beam's <page>Color</page>.</arg>
+		<arg name="extra" type="table">Extra info, all optional. A table with the following keys: (any combination)
+* <page>number</page> speed - ?
+* <page>number</page> spread - ?
+* <page>number</page> delay - Delay in seconds after which the effect should appear.
+* <page>number</page> flags- Beam flags.
+* <page>number</page> framerate - texture framerate.
+* <page>string</page> material - The material to use instead of the default one.
+</arg>
+	</args>
+</function>
+
+<example>
+<code>
+effects.BeamRingPoint( Entity(1):GetEyeTrace().HitPos + Vector( 0, 0, 10 ), 1, 0, 200, 10, 0, Color( 255, 255, 255 ) )
+</code>
+<output><upload src="70c/8d7eac74df02356.png" size="291360" name="image.png" /></output>
+</example>
+
+<example>
+<code>
+function ENT:DoExplosion()
+	-- boom
+	self:EmitSound("NPC_CombineBall.Explosion")
+	util.ScreenShake(self:GetPos(), 20, 150, 1, 1250)
+	
+	local data = EffectData()
+	data:SetOrigin(self:GetPos())
+	util.Effect("cball_explode",data)
+	
+	effects.BeamRingPoint(self:GetPos(), 0.2, 12, 1024, 64, 0, Color(255,255,225,32),{
+		speed=0,
+		spread=0,
+		delay=0,
+		framerate=2,
+		material="sprites/lgtning.vmt"
+	})
+	-- Shockring
+	effects.BeamRingPoint(self:GetPos(), 0.5, 12, 1024, 64, 0, Color(255,255,225,64),{
+		speed=0,
+		spread=0,
+		delay=0,
+		framerate=2,
+		material="sprites/lgtning.vmt"
+	})
+	self:Remove()
+end
+</code>
+<output>Very closely emulates a Combine Ball explosion.</output>
+</example>

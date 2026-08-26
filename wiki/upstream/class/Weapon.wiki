@@ -1,0 +1,10 @@
+<type name="Weapon" category="classfunc" parent="Entity" is="class">
+	<summary>This is a list of all methods only available for weapons. It is also possible to call <page>Entity</page> functions on weapons.
+
+<note>A list of available methods has been expanded in your navigation bar.</note></summary>
+</type>
+
+<type name="WEAPON" category="classfunc" parent="Entity" is="class">
+</type>
+
+<title>Weapon</title>

@@ -1,0 +1,26 @@
+<function name="SetPlaybackRate" parent="Entity" type="classfunc">
+	<description>
+		Allows you to set how fast an entity's animation will play, with 1.0 being the default speed.
+
+		It is networked to clients, but limited to [-4,12] range when networking.
+
+		<note>
+			This function does not affect gestures.
+			Use <page>Entity:SetLayerPlaybackRate</page> instead.
+		</note>
+	</description>
+
+	<realm>Shared</realm>
+
+	<args>
+		<arg name="fSpeed" type="number">
+			How fast the animation will play.
+		</arg>
+	</args>
+</function>
+
+<example>
+	<description>Makes Entity(1)'s viewmodel play animations 50% slower.</description>
+	<code>Entity(1):GetViewModel():SetPlaybackRate(0.5)</code>
+	<output>Entity(1)'s viewmodel now plays animations 50% slower.</output>
+</example>

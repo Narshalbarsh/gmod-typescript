@@ -1,0 +1,22 @@
+<function name="GetFileFromFilename" parent="string" type="libraryfunc">
+	<description>Returns file name and extension.
+
+See <page>string.GetPathFromFilename</page> for the opposite function.  
+See <page>string.GetExtensionFromFilename</page> for the file extension version.
+</description>
+	<realm>Shared and Menu</realm>
+	<file line="166-L173">lua/includes/extensions/string.lua</file>
+	<args>
+		<arg name="path" type="string">The string eg. file-path to get the file-name from.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">File name or unmodified string.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Returns the file name.</description>
+	<code>print( string.GetFileFromFilename( "garrysmod/lua/modules/string.lua" ) )</code>
+	<output>string.lua</output>
+
+</example>

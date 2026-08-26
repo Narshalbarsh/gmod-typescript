@@ -1,0 +1,7 @@
+<function name="SetReportedPosition" parent="CTakeDamageInfo" type="classfunc">
+	<description>Sets the origin of the damage.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="pos" type="Vector">The location of where the damage is originating</arg>
+	</args>
+</function>

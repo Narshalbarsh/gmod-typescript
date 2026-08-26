@@ -1,0 +1,8 @@
+<function name="CopyWidth" parent="Panel" type="classfunc">
+	<file line="115-L117">lua/includes/extensions/client/panel.lua</file>
+	<description>Copies the width of the panel.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="base" type="Panel">Panel to copy the width from.</arg>
+	</args>
+</function>

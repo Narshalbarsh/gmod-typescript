@@ -1,0 +1,90 @@
+<function name="include" parent="Global" type="libraryfunc">
+	<description>
+		Executes a Lua script.
+
+This function will try to load local client file if `sv_allowcslua` is **1**.
+
+<warning>The file you are attempting to include **MUST NOT** be empty or the include will fail. Files over a certain size (64KB compressed) may fail clientside as well.
+
+If the file you are including is clientside or shared, it **must** be <page>Global.AddCSLuaFile</page>'d or this function will error saying the file doesn't exist.</warning>
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="fileName" type="string">The name of the script to be executed. The path must be either relative to the current file, or be an absolute path (relative to and excluding the **lua/** folder).
+
+Addon files (.gma files) and dedicated servers clientside do not support relative parent folders (`..` notation).
+
+Absolute paths for gamemode files must include `<gamemode_folder_name>/gamemode/`.
+
+<note>
+Please make sure your file names are unique, the filesystem is shared across all addons, so a file named `lua/config.lua` in your addon may be overwritten by the same file in another addon.</note></arg>
+	</args>
+	<rets>
+		<ret name="" type="vararg">Anything that the executed Lua script returns.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Demonstrates correct and incorrect usage.</description>
+	<code>
+-- Correct usage:
+-- Will look for "lua/myLuaFolder/myLuaFile.lua" in all addons and then the base game **lua/** folder.
+include( "myLuaFolder/myLuaFile.lua" )
+
+-- This is incorrect, and will NOT work.
+include( 				"lua/myLuaFolder/myLuaFile.lua" )
+include( 		 "addons/lua/myLuaFolder/myLuaFile.lua" )
+include( "addons/MyAddon/lua/myLuaFolder/myLuaFile.lua" )
+include( 		"MyAddon/lua/myLuaFolder/myLuaFile.lua" )
+	</code>
+</example>
+
+<example>
+	<description>Specify a base folder and recursively include client, shared and server files without having to specify them.</description>
+	<code>
+local rootDirectory = "you_directory"
+
+local function AddFile( File, directory )
+	local prefix = string.lower( string.Left( File, 3 ) )
+
+	if SERVER and prefix == "sv_" then
+		include( directory .. File )
+		print( "[AUTOLOAD] SERVER INCLUDE: " .. File )
+	elseif prefix == "sh_" then
+		if SERVER then
+			AddCSLuaFile( directory .. File )
+			print( "[AUTOLOAD] SHARED ADDCS: " .. File )
+		end
+		include( directory .. File )
+		print( "[AUTOLOAD] SHARED INCLUDE: " .. File )
+	elseif prefix == "cl_" then
+		if SERVER then
+			AddCSLuaFile( directory .. File )
+			print( "[AUTOLOAD] CLIENT ADDCS: " .. File )
+		elseif CLIENT then
+			include( directory .. File )
+			print( "[AUTOLOAD] CLIENT INCLUDE: " .. File )
+		end
+	end
+end
+
+local function IncludeDir( directory )
+	directory = directory .. "/"
+
+	local files, directories = file.Find( directory .. "*", "LUA" )
+
+	for _, v in ipairs( files ) do
+		if string.EndsWith( v, ".lua" ) then
+			AddFile( v, directory )
+		end
+	end
+
+	for _, v in ipairs( directories ) do
+		print( "[AUTOLOAD] Directory: " .. v )
+		IncludeDir( directory .. v )
+	end
+end
+
+IncludeDir( rootDirectory )
+	</code>
+</example>

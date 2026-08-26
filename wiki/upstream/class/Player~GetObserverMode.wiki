@@ -1,0 +1,7 @@
+<function name="GetObserverMode" parent="Player" type="classfunc">
+	<description>Returns the the observer mode of the player</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">Observe mode of that player, see <page>Enums/OBS_MODE</page>.</ret>
+	</rets>
+</function>

@@ -1,0 +1,14 @@
+<function name="SHA1" parent="util" type="libraryfunc">
+	<description>
+		Generates the [SHA-1 hash](https://en.wikipedia.org/wiki/SHA-1) of the specified string.
+		<warning>SHA-1 is considered cryptographically broken and is known to be vulnerable to a variety of attacks. If security is a concern, use <page>util.SHA256</page>.</warning>
+	</description>
+	<realm>Shared</realm>
+	<added>2021.07.01</added>
+	<args>
+		<arg name="stringToHash" type="string">The string to calculate the SHA-1 hash of.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The SHA-1 hash of the string in hexadecimal form.</ret>
+	</rets>
+</function>

@@ -1,0 +1,11 @@
+<function name="SetForward" parent="VMatrix" type="classfunc">
+	<description>
+Sets the forward direction of the matrix.
+
+ie. The first column of the matrix, excluding the w coordinate.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="forward" type="Vector">The forward direction of the matrix.</arg>
+	</args>
+</function>

@@ -1,0 +1,38 @@
+<function name="MemberValuesFromKey" parent="table" type="libraryfunc">
+	<description>Returns an array of values of given with given key from each table of given table.
+
+See also <page>table.KeysFromValue</page>.</description>
+	<realm>Shared and Menu</realm>
+	<file line="723-L729">lua/includes/extensions/table.lua</file>
+	<added>2021.12.15</added>
+	<args>
+		<arg name="inputTable" type="table">The table to search in.</arg>
+		<arg name="keyName" type="any">The key to lookup.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">A list of found values, or an empty table.</ret>
+	</rets>
+</function>
+
+<example>
+<code>
+PrintTable( table.MemberValuesFromKey( engine.GetAddons(), "wsid" ) )
+</code>
+<output>
+```
+1	=	1524511793
+2	=	242776816
+3	=	1452613192
+4	=	196980498
+5	=	210637861
+6	=	180495527
+7	=	708804738
+8	=	603034140
+9	=	526098847
+10	=	457478322
+11	=	497881072
+12	=	635999365
+...
+```
+</output>
+</example>

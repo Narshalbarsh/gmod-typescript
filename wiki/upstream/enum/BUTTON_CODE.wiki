@@ -1,0 +1,27 @@
+<enum>
+	<realm>Shared and Menu</realm>
+	<description>
+Encompasses the range of <page>Enums/KEY</page>, <page>Enums/MOUSE</page> and <page>Enums/JOYSTICK</page>, all of which can be used by:
+* <page>input.IsButtonDown</page>
+* <page>input.LookupKeyBinding</page>
+* <page>input.GetKeyName</page>
+* <page>input.GetKeyCode</page>
+* <page>GM:PlayerButtonDown</page>
+* <page>GM:PlayerButtonUp</page>
+	</description>
+	<items>
+<item key="BUTTON_CODE_INVALID" value="-1"></item>
+
+<item key="BUTTON_CODE_NONE" value="0"></item>
+
+<item key="BUTTON_CODE_LAST" value="171"></item>
+
+<item key="BUTTON_CODE_COUNT" value="172"></item>
+	</items>
+	<appendedenums>
+KEY |  
+ MOUSE |  
+ JOYSTICK |
+	</appendedenums>
+
+</enum>

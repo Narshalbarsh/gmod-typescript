@@ -1,0 +1,22 @@
+<function name="SetNextClientThink" parent="Entity" type="classfunc">
+	<description>Sets the next time the clientside <page>ENTITY:Think</page> is called.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="nextthink" type="number">The next time, relative to <page>Global.CurTime</page>, to execute the <page>ENTITY:Think</page> clientside.</arg>
+	</args>
+</function>
+
+
+<example>
+	<description>Prints 'Hello, World!' in console and sleeps for a second.</description>
+	<code>
+function ENT:Think()
+    print("Hello, World!")
+
+    self:SetNextClientThink( CurTime() + 1 )
+    return true -- Note: You need to return true to override the default next think time
+end
+	</code>
+	<output>Hello, World! every second the entity exists in the world.</output>
+
+</example>

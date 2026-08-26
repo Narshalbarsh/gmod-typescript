@@ -1,0 +1,32 @@
+<function name="SortByMember" parent="table" type="libraryfunc">
+	<description>Sorts a table by a named member.</description>
+	<realm>Shared and Menu</realm>
+	<file line="407-L439">lua/includes/extensions/table.lua</file>
+	<args>
+		<arg name="tab" type="table">Table to sort.</arg>
+		<arg name="memberKey" type="any">The key used to identify the member.</arg>
+		<arg name="ascending" type="boolean" default="false">Whether or not the order should be ascending.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Orders a table by a member and prints it.</description>
+	<code>
+local tab = {
+    { Name = "Bill", Age = 13 },
+    { Name = "Jill", Age = 14 },
+    { Name = "Phil", Age = 8 }
+}
+
+table.SortByMember( tab, "Age" )
+
+for _, v in ipairs( tab ) do
+    print( v.Name )
+end
+	</code>
+	<output>
+Jill
+Bill
+Phil
+	</output>
+</example>

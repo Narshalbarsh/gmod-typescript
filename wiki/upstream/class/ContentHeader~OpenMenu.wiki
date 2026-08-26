@@ -1,0 +1,11 @@
+<function name="OpenMenu" parent="ContentHeader" type="panelfunc">
+	<description>
+Creates a <page>Global.DermaMenu</page> and adds a delete option before opening the menu
+	</description>
+	<args>
+		<arg name="style" type="string"></arg>
+		<arg name="hookname" type="string" default="PopulateContent">A Populate Hook like PopulateEntities</arg>
+	</args>
+	<realm>Client</realm>
+	<file line="96-L105">gamemodes/sandbox/gamemode/spawnmenu/creationmenu/content/contentheader.lua</file>
+</function>

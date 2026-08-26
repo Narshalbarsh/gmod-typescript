@@ -1,0 +1,16 @@
+<function name="FilePopulateCallback" parent="DTree_Node" type="panelfunc">
+	<description>
+<internal></internal>
+
+Called automatically from <page>DTree_Node:FilePopulate</page> to actually fill the node with sub-nodes based on set preferences like should files be added, etc.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="files" type="table">A list of files in this folder</arg>
+		<arg name="folders" type="table">A list of folder in this folder.</arg>
+		<arg name="foldername" type="string">The folder name/path this node represents</arg>
+		<arg name="path" type="string">The Path ID search was performed with. See <page>File Search Paths</page></arg>
+		<arg name="bAndChildren" type="boolean">Inherited from the **FilePopulate** call. Does nothing</arg>
+		<arg name="wildcard" type="string">The wildcard that was given</arg>
+	</args>
+</function>

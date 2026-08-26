@@ -1,0 +1,13 @@
+<function name="Format" parent="Global" type="libraryfunc">
+	<description>Formats the specified values into the string given. Same as <page>string.format</page>.</description>
+	<realm>Shared and Menu</realm>
+	<file line="29">lua/includes/util.lua</file>
+	<args>
+		<arg name="format" type="string">The string to be formatted.
+Follows this format: http://www.cplusplus.com/reference/cstdio/printf/</arg>
+		<arg name="formatParameters" type="vararg">Values to be formatted into the string.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The formatted string</ret>
+	</rets>
+</function>

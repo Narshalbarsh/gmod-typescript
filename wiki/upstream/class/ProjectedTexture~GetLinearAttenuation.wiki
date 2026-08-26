@@ -1,0 +1,7 @@
+<function name="GetLinearAttenuation" parent="ProjectedTexture" type="classfunc">
+	<description>Returns the linear attenuation of the projected texture, which can also be set by <page>ProjectedTexture:SetLinearAttenuation</page>.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">The linear attenuation.</ret>
+	</rets>
+</function>

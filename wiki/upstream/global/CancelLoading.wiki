@@ -1,0 +1,4 @@
+<function name="CancelLoading" parent="Global" type="libraryfunc">
+	<description>Aborts joining of the server you are currently joining.</description>
+	<realm>Menu</realm>
+</function>

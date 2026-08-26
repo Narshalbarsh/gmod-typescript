@@ -1,0 +1,10 @@
+<function name="SetMaxArmor" parent="Player" type="classfunc">
+	<description>
+Sets the maximum amount of armor the player should have. This affects default built-in armor pickups, but not <page>Player:SetArmor</page>.
+	</description>
+	<realm>Server</realm>
+	<added>2020.10.14</added>
+	<args>
+		<arg name="maxarmor" type="number">The new max armor value.</arg>
+	</args>
+</function>

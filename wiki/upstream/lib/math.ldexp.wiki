@@ -1,0 +1,14 @@
+<function name="ldexp" parent="math" type="libraryfunc">
+	<description>Takes a normalised number and returns the floating point representation.
+
+Effectively it returns the result of `normalizedFraction * 2.0 ^ exponent`. <page>math.frexp</page> is the opposite function.
+</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="normalizedFraction" type="number">The value to get the normalized fraction and the exponent from.</arg>
+		<arg name="exponent" type="number">The value to get the normalized fraction and the exponent from.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">result</ret>
+	</rets>
+</function>

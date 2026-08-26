@@ -1,0 +1,7 @@
+<function name="GetZPos" parent="Panel" type="classfunc">
+	<description>Returns the Z position of the panel.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The Z order position of the panel.</ret>
+	</rets>
+</function>

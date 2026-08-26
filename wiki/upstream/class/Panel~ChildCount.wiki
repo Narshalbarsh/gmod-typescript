@@ -1,0 +1,8 @@
+<function name="ChildCount" parent="Panel" type="classfunc">
+	<description>Returns the amount of children of the of panel.</description>
+	<file line="145-L147">lua/vgui/dmenu.lua</file>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The amount of children the panel has.</ret>
+	</rets>
+</function>

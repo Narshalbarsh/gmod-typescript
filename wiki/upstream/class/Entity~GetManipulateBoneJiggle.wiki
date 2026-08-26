@@ -1,0 +1,14 @@
+<function name="GetManipulateBoneJiggle" parent="Entity" type="classfunc">
+	<description>
+Returns the jiggle amount of the entity's bone.
+
+See <page>Entity:ManipulateBoneJiggle</page> for more info.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="boneID" type="number">The bone ID</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The jiggle bone type, as set by <page>Entity:ManipulateBoneJiggle</page>.</ret>
+	</rets>
+</function>

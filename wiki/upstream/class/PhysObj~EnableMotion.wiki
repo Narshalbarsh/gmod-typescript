@@ -1,0 +1,11 @@
+<function name="EnableMotion" parent="PhysObj" type="classfunc">
+	<description>
+Sets whether the physobject should be able to move or not.
+
+This is the exact method the Physics Gun uses to freeze props. If a motion-disabled physics object is grabbed with the physics gun, the object will be able to move again. To disallow this, use <page>GM:PhysgunPickup</page>.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="enable" type="boolean">True to enable, false to disable.</arg>
+	</args>
+</function>

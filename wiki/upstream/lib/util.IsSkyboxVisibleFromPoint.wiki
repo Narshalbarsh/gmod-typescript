@@ -1,0 +1,14 @@
+<function name="IsSkyboxVisibleFromPoint" parent="util" type="libraryfunc">
+	<description>
+Check whether the skybox is visible from the point specified.
+
+<note>This will always return true in fullbright maps.</note>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="position" type="Vector">The position to check the skybox visibility from.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether the skybox is visible from the position.</ret>
+	</rets>
+</function>

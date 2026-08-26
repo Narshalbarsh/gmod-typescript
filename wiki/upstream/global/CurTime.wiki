@@ -1,0 +1,30 @@
+<function name="CurTime" parent="Global" type="libraryfunc">
+	<description>
+Returns the uptime of the server in seconds (to at least 4 decimal places)
+
+This is a synchronised value and affected by various factors such as host_timescale (or <page>game.GetTimeScale</page>) and the server being paused - either by `sv_pausable` or all players disconnecting.
+
+You should use this function for timing in-game events but not for real-world events.
+
+See also: <page>Global.RealTime</page>, <page>Global.SysTime</page>
+	</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="number">Time synced with the game server.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Simple delay timer.</description>
+	<code>
+local delay = 0
+
+hook.Add( "Think", "CurTimeDelay", function()
+	if CurTime() < delay then return end	
+	print( "This message will repeat every 5 seconds." )
+	delay = CurTime() + 5
+end)
+	</code>
+	<output>This message will repeat every 5 seconds.</output>
+
+</example>

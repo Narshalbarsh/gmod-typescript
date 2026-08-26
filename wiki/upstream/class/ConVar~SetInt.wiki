@@ -1,0 +1,17 @@
+<function name="SetInt" parent="ConVar" type="classfunc">
+	<description>Sets a ConVar's value to the input number after converting it to an integer.
+
+<note>This can only be ran on ConVars created from within Lua.</note></description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="value" type="number">Value to set the ConVar to.</arg>
+	</args>
+</function>
+
+<example>
+        <description>Demonstrates the use of this function.</description>
+		<code>
+local example = GetConVar( "CVAR_EXAMPLE" )
+example:SetInt( 1337 )
+		</code>
+</example>

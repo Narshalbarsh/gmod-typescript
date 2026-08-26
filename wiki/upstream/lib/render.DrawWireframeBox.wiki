@@ -1,0 +1,16 @@
+<function name="DrawWireframeBox" parent="render" type="libraryfunc">
+	<description>
+Draws a wireframe box in 3D space.
+
+<rendercontext hook="false" type="3D"></rendercontext>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="position" type="Vector">Position of the box.</arg>
+		<arg name="angle" type="Angle">Angles of the box.</arg>
+		<arg name="mins" type="Vector">The lowest corner of the box.</arg>
+		<arg name="maxs" type="Vector">The highest corner of the box.</arg>
+		<arg name="color" type="Color" default="Color( 255, 255, 255 )">The color of the box.</arg>
+		<arg name="writeZ" type="boolean" default="false">Sets whenever to write to the zBuffer.</arg>
+	</args>
+</function>

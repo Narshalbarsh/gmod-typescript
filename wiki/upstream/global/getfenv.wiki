@@ -1,0 +1,10 @@
+<function name="getfenv" parent="Global" type="libraryfunc">
+	<description>Returns the environment table of either the stack level or the function specified.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="location" type="function" default="1" alttype="number">The object to get the enviroment from. Can also be a number that specifies the function at that stack level: Level 1 is the function calling getfenv. Level 0 is the base Garry's Mod environment (_G).</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">The environment.</ret>
+	</rets>
+</function>

@@ -1,0 +1,22 @@
+<function name="SetUserGroup" parent="Player" type="classfunc">
+	<description>Sets the usergroup of the player.</description>
+	<realm>Server</realm>
+	<file line="61-L65">lua/includes/extensions/player_auth.lua</file>
+	<args>
+		<arg name="groupName" type="string">The user group of the player.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Make the player superadmin and print their group.</description>
+	<code>
+Player( 1 ):SetUserGroup( "superadmin" )
+print( Player( 1 ):GetUserGroup() )
+	</code>
+	<output>
+```
+superadmin
+```
+</output>
+
+</example>

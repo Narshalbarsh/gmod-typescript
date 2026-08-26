@@ -1,0 +1,8 @@
+<function name="ContextMenuShowTool" parent="SANDBOX" type="hook">
+	<description>Called to poll if active tool settings should appear in the context menu. Please note that this is only called on initial opening of the context menu, not every frame the context menu is in use.</description>
+	<realm>Client</realm>
+	<added>2023.08.08</added>
+	<rets>
+		<ret type="boolean">Return `false` to prevent active tool settings from displaying in the context menu.</ret>
+	</rets>
+</function>

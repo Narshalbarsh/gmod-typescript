@@ -1,0 +1,8 @@
+<function name="GetLastKnownArea" parent="NextBot" type="classfunc">
+	<description>Returns this bots last known area. See also <page>NextBot:ClearLastKnownArea</page>.</description>
+	<realm>Server</realm>
+	<added>2022.02.14</added>
+	<rets>
+		<ret name="" type="CNavArea">The last area the bot is known to have been in.</ret>
+	</rets>
+</function>

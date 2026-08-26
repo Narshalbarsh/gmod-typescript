@@ -1,0 +1,19 @@
+<function name="Kill" parent="Player" type="classfunc">
+	<description>Kills a player and calls <page>GM:PlayerDeath</page>.</description>
+	<realm>Server</realm>
+</function>
+
+<example>
+	<description>When the user types "/respawn" the user will be killed and then respawned.</description>
+	<code>
+hook.Add( "PlayerSay", "RespawnCommand", function( ply, text, public )
+	if ( string.lower( text ) == "/respawn" ) then
+		ply:Kill()
+		ply:Spawn()
+
+		return ""
+	end
+end )
+	</code>
+
+</example>

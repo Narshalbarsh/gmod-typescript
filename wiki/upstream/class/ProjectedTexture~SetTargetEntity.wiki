@@ -1,0 +1,12 @@
+<function name="SetTargetEntity" parent="ProjectedTexture" type="classfunc">
+	<description>
+Sets the target entity for this projected texture, meaning it will only be lighting the given entity and the world.
+
+<validate>You must call <page>ProjectedTexture:Update</page> after using this function for it to take effect.</validate>
+	</description>
+	<added>2021.03.31</added>
+	<realm>Client</realm>
+	<args>
+		<arg name="target" type="Entity" default="NULL">The target entity, or `NULL` to reset.</arg>
+	</args>
+</function>

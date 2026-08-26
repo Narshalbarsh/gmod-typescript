@@ -1,0 +1,34 @@
+<function name="ToString" parent="table" type="libraryfunc">
+	<description>Converts a table into a string</description>
+	<realm>Shared and Menu</realm>
+	<file line="271-L278">lua/includes/extensions/table.lua</file>
+	<args>
+		<arg name="tbl" type="table">The table to iterate over.</arg>
+		<arg name="displayName" type="string" default="nil">A name for the table.</arg>
+		<arg name="niceFormatting" type="boolean" default="false">Adds new lines and tabs to the string.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The table formatted as a string.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Demonstrates the use of this function.</description>
+	<code>
+local Table = { Red = "Apple", Green = "Celery", Yellow = "Banana"}
+local String = table.ToString( Table, "Fruit and Vegetable", true )
+print( String )
+	</code>
+	<output>
+
+```
+Fruit and Vegetable	=	{
+		Red	=	"Apple",
+		Green	=	"Celery",
+		Yellow	=	"Banana",
+}
+```
+
+	</output>
+
+</example>

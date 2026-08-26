@@ -1,0 +1,7 @@
+<function name="WriteAngle" parent="ISave" type="classfunc">
+	<description>Writes an <page>Angle</page> to the save object.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="ang" type="Angle">The angle to write.</arg>
+	</args>
+</function>

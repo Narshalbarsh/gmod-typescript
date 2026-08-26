@@ -1,0 +1,4 @@
+<function name="Remove" parent="CSEnt" type="classfunc">
+	<description>Removes the clientside entity</description>
+	<realm>Client</realm>
+</function>

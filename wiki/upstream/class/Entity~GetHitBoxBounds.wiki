@@ -1,0 +1,22 @@
+<function name="GetHitBoxBounds" parent="Entity" type="classfunc">
+	<description>Gets the bounds (min and max corners) of a hit box.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="hitbox" type="number">The number of the hit box.</arg>
+		<arg name="set" type="number">The hitbox set of the hit box. This should be 0 in most cases.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">Hit box mins. Will be nil if the hit box index was out of range.</ret>
+		<ret name="" type="Vector">Hit box maxs. Will be nil if the hit box index was out of range.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Displays the mins and maxs for the client's first hitbox in the first group, which is generally the head.</description>
+	<code>
+local mins, maxs = LocalPlayer():GetHitBoxBounds(0, 0)
+print(mins, maxs)
+	</code>
+	<output>-1.250000 -6.500000 -3.190000	8.250000 3.500000 3.310000</output>
+
+</example>

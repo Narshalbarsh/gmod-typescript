@@ -1,0 +1,9 @@
+<function name="NoTexture" parent="draw" type="libraryfunc">
+	<description>
+Sets drawing texture to a default white texture (vgui/white) via <page>surface.SetMaterial</page>. Useful for resetting the drawing texture.
+
+<rendercontext hook="false" type="2D"></rendercontext>
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="312-L314">lua/includes/modules/draw.lua</file>
+</function>

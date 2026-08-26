@@ -1,0 +1,7 @@
+<function name="RemovePAS" parent="CRecipientFilter" type="classfunc">
+	<description>Removes all players from the filter that are in [PAS (Potentially Audible Set)](https://developer.valvesoftware.com/wiki/PAS "PAS - Valve Developer Community") for given position.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="position" type="Vector">The position to test</arg>
+	</args>
+</function>

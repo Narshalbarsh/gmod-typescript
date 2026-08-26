@@ -1,0 +1,9 @@
+<function name="Get3DCone" parent="IGModAudioChannel" type="classfunc">
+	<description>Returns 3D cone of the sound channel. See <page>IGModAudioChannel:Set3DCone</page>.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">The angle of the inside projection cone in degrees.</ret>
+		<ret name="" type="number">The angle of the outside projection cone in degrees.</ret>
+		<ret name="" type="number">The delta-volume outside the outer projection cone.</ret>
+	</rets>
+</function>

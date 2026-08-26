@@ -1,0 +1,11 @@
+<function name="ChooseBuilderFromEntity" parent="motionsensor" type="libraryfunc">
+	<description></description>
+	<realm>Shared</realm>
+	<file line="46-L58">lua/includes/extensions/motionsensor.lua</file>
+	<args>
+		<arg name="ent" type="Entity">Entity to choose builder for</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">Chosen builder. The builders are stored in `list.Get( "SkeletonConvertor" )`</ret>
+	</rets>
+</function>

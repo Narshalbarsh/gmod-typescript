@@ -1,0 +1,4 @@
+<function name="GoForward" parent="Panel" type="classfunc">
+	<description>Goes forward one page in the HTML panel's history if available.</description>
+	<realm>Client and Menu</realm>
+</function>

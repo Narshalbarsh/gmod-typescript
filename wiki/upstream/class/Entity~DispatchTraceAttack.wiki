@@ -1,0 +1,13 @@
+<function name="DispatchTraceAttack" parent="Entity" type="classfunc">
+	<description>
+Performs a trace attack towards the entity this function is called on, as if an invisible bullet is shot towards it. Visually identical to <page>Entity:TakeDamageInfo</page>.
+<warning>Calling this function on the victim entity in <page>ENTITY:OnTakeDamage</page> can cause infinite loops.</warning>
+<note>This function correctly applies damage to [func_breakable_surf](https://developer.valvesoftware.com/wiki/Func_breakable_surf) entities, unlike <page>Entity:TakeDamageInfo</page>.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="damageInfo" type="CTakeDamageInfo">The damage to apply.</arg>
+		<arg name="traceRes" type="table">Trace result to use to deal damage. See <page>Structures/TraceResult</page></arg>
+		<arg name="dir" type="Vector" default="traceRes.HitNormal">Direction of the attack.</arg>
+	</args>
+</function>

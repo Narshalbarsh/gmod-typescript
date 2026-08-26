@@ -1,0 +1,18 @@
+<function name="Triangle" parent="debugoverlay" type="libraryfunc">
+	<description>
+Displays a colored triangle at the specified coordinates.
+
+<note>This function will silently fail if the `developer` <page>ConVar</page> is set to `0`.  
+It is not networked to clients, except for the <page text="listen server host">Player:IsListenServerHost</page>.  
+It will not work when the game is paused.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="pos1" type="Vector">First point of the triangle.</arg>
+		<arg name="pos2" type="Vector">Second point of the triangle.</arg>
+		<arg name="pos3" type="Vector">Third point of the triangle.</arg>
+		<arg name="lifetime" type="number" default="1">Number of seconds to appear.</arg>
+		<arg name="color" type="Color" default="Color( 255, 255, 255 )">The color of the box.</arg>
+		<arg name="ignoreZ" type="boolean" default="false">If true, will draw on top of everything; ignoring the Z buffer.</arg>
+	</args>
+</function>

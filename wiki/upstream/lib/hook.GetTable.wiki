@@ -1,0 +1,43 @@
+<function name="GetTable" parent="hook" type="libraryfunc">
+	<description>Returns a list of all the hooks registered with <page>hook.Add</page>.</description>
+	<realm>Shared and Menu</realm>
+	<file line="15-L21">lua/includes/modules/hook.lua</file>
+	<rets>
+		<ret name="" type="table">A table of tables. See below for output example.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Example of output table structure.</description>
+	<code>PrintTable( hook.GetTable() )</code>
+	<output>
+```
+EntityNetworkedVarChanged:
+	NetworkedVars	=	function: 0x1098ef38
+EntityRemoved:
+	DoDieFunction	=	function: 0x253b2650
+	nocollide_fix	=	function: 0x3f934a90
+InitPostEntity:
+	PersistenceInit	=	function: 0x02b6e2c0
+LoadGModSave:
+	LoadGModSave	=	function: 0x1098a680
+OnEntityCreated:
+	map_sethelinpcnode	=	function: 0x3ffe3568
+OnViewModelChanged:
+	Entity [40][gmod_hands]	=	function: 0x403478a0
+PersistenceLoad:
+	PersistenceLoad	=	function: 0x10961cd0
+PersistenceSave:
+	PersistenceSave	=	function: 0x253d8f08
+PlayerInitialSpawn:
+	PlayerAuthSpawn	=	function: 0x02b63398
+PlayerTick:
+	TickWidgets	=	function: 0x10986c40
+PostDrawEffects:
+	RenderWidgets	=	function: 0x10979af8
+ShutDown:
+	SavePersistenceOnShutdown	=	function: 0x10950c18
+```
+	</output>
+
+</example>

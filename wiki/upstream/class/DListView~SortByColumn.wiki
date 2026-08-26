@@ -1,0 +1,8 @@
+<function name="SortByColumn" parent="DListView" type="panelfunc">
+	<description>Sorts the items in the specified column.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="columnIndex" type="number">The index of the column that should be sorted.</arg>
+		<arg name="descending" type="boolean" default="false">Whether the items should be sorted in descending order or not.</arg>
+	</args>
+</function>

@@ -1,0 +1,12 @@
+<enum>
+	<realm>Server</realm>
+	<description>
+Various count enums.
+	</description>
+	<items>
+<item key="NUM_AI_CLASSES" value="36">Amount of <page>Enums/CLASS</page>. Used by <page>Global.Add_NPC_Class</page>.</item>
+
+<item key="NUM_HULLS" value="10">Amount of <page>Enums/HULL</page>.</item>
+	</items>
+
+</enum>

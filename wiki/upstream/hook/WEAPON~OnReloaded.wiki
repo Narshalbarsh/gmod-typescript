@@ -1,0 +1,4 @@
+<function name="OnReloaded" parent="WEAPON" type="hook">
+	<description>Called whenever the weapons Lua script is reloaded.</description>
+	<realm>Shared</realm>
+</function>

@@ -1,0 +1,57 @@
+<function name="ChooseOptionID" parent="DComboBox" type="panelfunc">
+	<description>Selects an option within a combo box based on its table index.</description>
+	<realm>Client and Menu</realm>
+	<file line="99-L104">lua/vgui/dcombobox.lua</file>
+	<args>
+		<arg name="index" type="number">Selects the option with given index.</arg>
+	</args>
+</function>
+
+<example>
+	<description>A simple combo box menu which gives choices for a favorite lunch meal, including a non-preference choice which randomly chooses an option.</description>
+	<code>
+BGPanel = vgui.Create("DPanel")
+BGPanel:SetPos(20, 20)
+BGPanel:SetSize(200, 100)
+
+-- Text output
+local lbl = vgui.Create("DLabel", BGPanel)
+lbl:SetPos(10, 80)
+lbl:SetSize(180, 20)
+lbl:SetDark(true)
+lbl:SetText("You choose...")
+
+-- Combo box
+local cbox = vgui.Create("DComboBox", BGPanel)
+cbox:SetPos(5, 5)
+cbox:SetSize(190, 20)
+
+cbox:SetValue("What's your favorite lunch meal?")
+
+-- Choices
+cbox:AddChoice("BBQ Chicken")
+cbox:AddChoice("Fish and Chips")
+cbox:AddChoice("Pizza")
+cbox:AddChoice("Potato Salad")
+cbox:AddChoice("Roast Beef Sandwich")
+cbox:AddChoice("Spaghetti")
+
+-- No preference: data is set to -1
+cbox:AddChoice("I don't have a favorite.", -1)
+
+function cbox:OnSelect(index, value, data)
+
+	-- No preference? Choose a random choice
+	if(data == -1) then				
+		self:ChooseOptionID(math.random(1, 6))
+		
+	-- Otherwise update the text label with our choice
+	else
+		lbl:SetText("You choose "..value..".")
+	end
+	
+end
+	</code>
+	<output><image src="DComboBox_ChooseOptionID_example1.gif"/></output>
+
+</example>

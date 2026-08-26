@@ -1,0 +1,18 @@
+<function name="TimedSin" parent="Global" type="libraryfunc">
+	<description>
+Returns a sine value that fluctuates based on <page>Global.CurTime</page>. The value returned will be between the start value plus/minus the range value.
+
+<bug>The range arguments don't work as intended. The existing (bugged) behavior is documented below.</bug>
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="351-L356">lua/includes/util.lua</file>
+	<args>
+		<arg name="frequency" type="number">The frequency of fluctuation, in</arg>
+		<arg name="origin" type="number">The center value of the sine wave.</arg>
+		<arg name="max" type="number">This argument's distance from origin defines the size of the full range of the sine wave. For example, if origin is 3 and max is 5, then the full range of the sine wave is 5-3 = 2. 3 is the center point of the sine wave, so the sine wave will range between 2 and 4.</arg>
+		<arg name="offset" type="number">Offset variable that doesn't affect the rate of change, but causes the returned value to be offset by time</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">Sine value</ret>
+	</rets>
+</function>

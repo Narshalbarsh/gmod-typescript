@@ -1,0 +1,9 @@
+<function name="SetIK" parent="Entity" type="classfunc">
+	<description>Enables or disable the inverse kinematic usage of this entity.
+		<warning>Calling this with false outside of <page>ENTITY:Initialize</page> requires a model change to take effect.</warning>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="useIK" type="boolean" default="false">The state of the IK.</arg>
+	</args>
+</function>

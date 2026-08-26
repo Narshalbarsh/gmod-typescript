@@ -1,0 +1,7 @@
+<function name="ReadLong" parent="bf_read" type="classfunc">
+	<description>Reads a 4 byte long from the bitstream and returns it.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">int</ret>
+	</rets>
+</function>

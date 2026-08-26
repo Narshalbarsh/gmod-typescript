@@ -1,0 +1,10 @@
+<function name="PreDrawModel" parent="DModelPanel" type="panelhook">
+	<description>Called **before** the entity of the <page>DModelPanel</page> is drawn.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="ent" type="Entity">The clientside entity of the <page>DModelPanel</page> that has been drawn.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return false to stop the entity from being drawn. This will also cause <page>DModelPanel:PostDrawModel</page> to stop being called.</ret>
+	</rets>
+</function>

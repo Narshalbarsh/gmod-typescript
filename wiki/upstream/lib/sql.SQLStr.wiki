@@ -1,0 +1,25 @@
+<function name="SQLStr" parent="sql" type="libraryfunc">
+	<description>
+Escapes dangerous characters and symbols from user input used in an SQLite SQL Query.
+
+If possible, it is recommended to use <page>sql.QueryTyped</page> instead.
+
+<warning>Do not use this function with external database engines such as `MySQL`. `MySQL` and `SQLite` use different escape sequences that are incompatible with each other! Escaping strings with inadequate functions is dangerous and will lead to SQL injection vulnerabilities.</warning>
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="6-L27">lua/includes/util/sql.lua</file>
+	<args>
+		<arg name="string" type="string">The string to be escaped.</arg>
+		<arg name="bNoQuotes" type="boolean" default="false">Set this as `true`, and the function will not wrap the input string in apostrophes.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The escaped input.</ret>
+	</rets>
+</function>
+
+<example>
+<description>Example usage of this function.</description>
+<code>
+sql.Query( "INSERT OR REPLACE INTO cookies ( key, value ) VALUES ( " .. sql.SQLStr( k ) .. ", " .. sql.SQLStr( v ) .. " )" )
+</code>
+</example>

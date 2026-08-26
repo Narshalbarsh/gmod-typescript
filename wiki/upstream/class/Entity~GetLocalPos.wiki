@@ -1,0 +1,9 @@
+<function name="GetLocalPos" parent="Entity" type="classfunc">
+	<description>Returns entity's position relative to it's <page>Entity:GetParent</page>.
+
+See <page>Entity:GetPos</page> for the absolute position.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Vector">Relative position</ret>
+	</rets>
+</function>

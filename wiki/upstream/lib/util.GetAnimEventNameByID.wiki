@@ -1,0 +1,14 @@
+<function name="GetAnimEventNameByID" parent="util" type="libraryfunc">
+	<description>Returns a name for given automatically generated numerical animation event ID. This is useful for models that define custom animation events.
+
+See <page>util.GetAnimEventIDByName</page> for a function that does the opposite.
+</description>
+	<realm>Shared</realm>
+	<added>2024.01.26</added>
+	<args>
+		<arg name="id" type="number">The ID of an animation event, typically from <page>ENTITY:HandleAnimEvent</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The associated name with given event ID.</ret>
+	</rets>
+</function>

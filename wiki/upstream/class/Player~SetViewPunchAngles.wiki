@@ -1,0 +1,7 @@
+<function name="SetViewPunchAngles" parent="Player" type="classfunc">
+	<description>Sets client's view punch angle, but not the velocity. See <page>Player:ViewPunch</page></description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="punchAngle" type="Angle">The angle to set.</arg>
+	</args>
+</function>

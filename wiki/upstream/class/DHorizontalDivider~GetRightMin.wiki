@@ -1,0 +1,7 @@
+<function name="GetRightMin" parent="DHorizontalDivider" type="panelfunc">
+	<description>Returns the minimum width of the right side, set by <page>DHorizontalDivider:SetRightMin</page>.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">The minimum width of the right side</ret>
+	</rets>
+</function>

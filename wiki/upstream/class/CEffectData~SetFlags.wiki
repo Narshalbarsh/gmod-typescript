@@ -1,0 +1,22 @@
+<function name="SetFlags" parent="CEffectData" type="classfunc">
+	<description>
+Sets the flags for the effect. What flags do depends entirely on the effect. See <page>Default Effects</page>.
+
+<note>Internally stored as an integer, but only first 8 bits are networked, effectively limiting this function to `0-255` range.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="flags" type="number">The flags of the effect. Each effect has their own flags.</arg>
+	</args>
+</function>
+
+<example>
+	<code>
+local ef = EffectData()
+      ef:SetEntity( self )
+      ef:SetAttachment( 1 ) -- self:LookupAttachment( "muzzle" )
+      ef:SetFlags( 5 ) -- Sets the Combine AR2 Muzzle flash
+
+util.Effect( "MuzzleFlash", ef )
+	</code>
+</example>

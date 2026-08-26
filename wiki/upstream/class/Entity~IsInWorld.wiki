@@ -1,0 +1,11 @@
+<function name="IsInWorld" parent="Entity" type="classfunc">
+	<description>
+Returns whether the entity is in the world (not inside a wall or outside of the map).
+
+<note>Internally this function uses <page>util.IsInWorld</page>, that means that this function only checks <page>Entity:GetPos</page> of the entity. If an entity is only partially inside a wall, or has a weird GetPos offset, this function may not give reliable output.</note>
+	</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="boolean">False if the entity is inside a wall or outside of the map, true otherwise.</ret>
+	</rets>
+</function>

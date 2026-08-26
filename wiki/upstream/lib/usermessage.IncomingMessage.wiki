@@ -1,0 +1,12 @@
+<function name="IncomingMessage" parent="usermessage" type="libraryfunc">
+	<description>
+<internal></internal>
+Called by the engine when a usermessage arrives, this method calls the hook function specified by <page>usermessage.Hook</page> if any.
+	</description>
+	<realm>Shared</realm>
+	<file line="76-L87">lua/includes/modules/usermessage.lua</file>
+	<args>
+		<arg name="name" type="string">The message name.</arg>
+		<arg name="msg" type="bf_read">The message.</arg>
+	</args>
+</function>

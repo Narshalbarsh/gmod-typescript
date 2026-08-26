@@ -1,0 +1,11 @@
+<function name="GetTable" parent="usermessage" type="libraryfunc">
+	<description>
+<deprecated>You should be using <page>net</page> instead</deprecated>
+
+Returns a table of every usermessage hook</description>
+	<realm>Shared</realm>
+	<file line="53-L57">lua/includes/modules/usermessage.lua</file>
+	<rets>
+		<ret name="" type="table">User message hooks</ret>
+	</rets>
+</function>

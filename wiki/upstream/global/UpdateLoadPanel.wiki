@@ -1,0 +1,7 @@
+<function name="UpdateLoadPanel" parent="Global" type="libraryfunc">
+	<description>Runs JavaScript on the loading screen panel (<page>Global.GetLoadPanel</page>).</description>
+	<realm>Menu</realm>
+	<args>
+		<arg name="javascript" type="string">JavaScript to run on the loading panel.</arg>
+	</args>
+</function>

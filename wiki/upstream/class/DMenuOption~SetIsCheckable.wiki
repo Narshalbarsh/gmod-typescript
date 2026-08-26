@@ -1,0 +1,9 @@
+<function name="SetIsCheckable" parent="DMenuOption" type="panelfunc">
+	<description>Sets whether the <page>DMenuOption</page> is a checkbox option or a normal button option.
+
+Enables automatic <page>DMenuOption:GetChecked</page> toggling with left/right clicks.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="checkable" type="boolean">Whether the menu option should allow the player to toggle itself.</arg>
+	</args>
+</function>

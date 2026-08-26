@@ -1,0 +1,28 @@
+<function name="SetAllowNonAsciiCharacters" parent="Panel" type="classfunc">
+	<description>
+Configures a <page>TextEntry</page> to allow user to type characters that are not included in the US-ASCII (7-bit ASCII) character set.
+
+Characters not included in US-ASCII are multi-byte characters in UTF-8. They can be accented characters, non-Latin characters and special characters.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="allowed" type="boolean">Set to true in order not to restrict input characters.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Replaces the default vgui.Create() function to always allow non US-ASCII characters for text inputs.</description>
+	<code>
+if vgui.CreateStdRestrict == nil then
+	vgui.CreateStdRestrict = vgui.Create
+end
+function vgui.Create( classname, parent, name )
+	local vgui_elt = vgui.CreateStdRestrict(classname, parent, name)
+	if classname == "DTextEntry" or classname == "RichText" or classname == "TextEntry" then
+		vgui_elt:SetAllowNonAsciiCharacters(true)
+	end
+	return vgui_elt
+end
+	</code>
+
+</example>

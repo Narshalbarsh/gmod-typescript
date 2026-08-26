@@ -1,0 +1,8 @@
+<function name="SetOnViewMaterial" parent="DImageButton" type="panelfunc">
+	<description>See <page>DImage:SetOnViewMaterial</page></description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="mat" type="string"></arg>
+		<arg name="backup" type="string"></arg>
+	</args>
+</function>

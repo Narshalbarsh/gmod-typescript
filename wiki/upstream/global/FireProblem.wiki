@@ -1,0 +1,95 @@
+<function name="FireProblem" parent="Global" type="libraryfunc">
+
+	<realm>Menu</realm>
+	<file line="100-L111">lua/menu/problems/problems.lua</file>
+
+	<description>
+
+		Creates a problem from the given definition.
+
+		<note>
+			
+			Existing problems with the same Id will be replaced / overridden.
+
+		</note>
+
+	</description>
+
+	<args>
+		<arg name="problem" type="table{Problem}">
+		
+			The problem's definition.
+		
+		</arg>
+	</args>
+
+</function>
+
+<br/>
+
+---
+
+<br/>
+
+<example name = 'Unfixable Problem' >
+
+	<description>
+
+		Creating a problem that the user cannot fix.
+
+	</description>
+
+	<code>
+
+local problem = {
+    text = 'There is a problem!' ,
+    type = 'addons' ,
+    id = 'my-problem-1234'
+}
+
+FireProblem(problem)
+
+	</code>
+
+	<output>
+		
+		<image src = 'https://files.facepunch.com/wiki/files/b5608/8dc5c1882fa7c97.webp' />
+		
+	</output>
+
+</example>
+
+<br/>
+
+<example name = 'Fixable Problem' >
+
+	<description>
+
+		Creating a problem that can be fixed by the user.
+
+	</description>
+
+	<code>
+
+local function fixProblem ()
+    ClearProblem('my-problem-1234')
+end
+
+local problem = {
+    text = 'There is a problem!' ,
+    type = 'addons' ,
+    fix = fixProblem ,
+    id = 'my-problem-1234'
+}
+
+FireProblem(problem)
+
+	</code>
+
+	<output>
+		
+		<image src = 'https://files.facepunch.com/wiki/files/b5608/8dc5c18b01414c6.webp' />
+		
+	</output>
+
+</example>

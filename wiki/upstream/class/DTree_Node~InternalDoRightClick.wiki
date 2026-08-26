@@ -1,0 +1,8 @@
+<function name="InternalDoRightClick" parent="DTree_Node" type="panelfunc">
+	<description>
+<internal></internal>
+
+See <page>DTree_Node:DoRightClick</page>.
+	</description>
+	<realm>Client and Menu</realm>
+</function>

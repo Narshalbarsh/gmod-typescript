@@ -1,0 +1,13 @@
+<function name="GetClosestChild" parent="Panel" type="classfunc">
+	<file line="523-L538">lua/includes/extensions/client/panel.lua</file>
+	<description>Returns the child of this panel object that is closest to the specified point. The point is relative to the object on which the method is called. The distance the child is from this point is also returned.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="x" type="number">The horizontal (x) position of the point.</arg>
+		<arg name="y" type="number">The vertical (y) position of the point.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Panel">The child object that was closest to the specified point.</ret>
+		<ret name="" type="number">The distance that this child was from the point.</ret>
+	</rets>
+</function>

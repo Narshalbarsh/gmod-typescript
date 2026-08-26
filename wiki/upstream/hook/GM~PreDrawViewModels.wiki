@@ -1,0 +1,13 @@
+<function name="PreDrawViewModels" parent="GM" type="hook">
+	<added>2020.06.24</added>
+	<description>
+Called just before all view models (there are 3 per player, see <page>Player:GetViewModel</page>) and entities with `RENDERGROUP_VIEWMODEL` are drawn.
+
+See <page>GM:PreDrawViewModel</page> and <page>GM:PostDrawViewModel</page> for hooks that run for specific view models.
+
+You can use <page>GM:PreDrawEffects</page> as a "`PostDrawViewModels`" hook as it is called just after the all the view model(s) are drawn.
+
+<rendercontext hook="true" type="3D"></rendercontext>
+	</description>
+	<realm>Client</realm>
+</function>

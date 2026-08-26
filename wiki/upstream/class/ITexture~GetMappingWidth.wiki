@@ -1,0 +1,7 @@
+<function name="GetMappingWidth" parent="ITexture" type="classfunc">
+	<description>Returns the true unmodified width of the texture.</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="number">width</ret>
+	</rets>
+</function>

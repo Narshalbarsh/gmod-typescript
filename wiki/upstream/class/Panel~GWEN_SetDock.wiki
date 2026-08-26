@@ -1,0 +1,13 @@
+<function name="GWEN_SetDock" parent="Panel" type="classfunc">
+	<description><internal></internal> Used by <page>Panel:ApplyGWEN</page> to apply the `Dock` property to a  panel object. This calls <page>Panel:Dock</page>.</description>
+	<realm>Client and Menu</realm>
+	<file line="214-L220">lua/derma/derma_gwen.lua</file>
+	<args>
+		<arg name="dockState" type="string">The dock mode to pass to the panel's `Dock` method. This reads a string and applies the approriate <page>Enums/DOCK</page>.
+* `Right`: Dock right.
+* `Left`: Dock left.
+* `Bottom`: Dock at the bottom.
+* `Top`: Dock at the top.
+* `Fill`: Fill the parent panel.</arg>
+	</args>
+</function>

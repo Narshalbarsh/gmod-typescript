@@ -1,0 +1,14 @@
+<function name="KillSilent" parent="Player" type="classfunc">
+	<description>
+Kills a player without notifying the rest of the server.
+
+This will call <page>GM:PlayerSilentDeath</page> instead of <page>GM:PlayerDeath</page>.
+	</description>
+	<realm>Server</realm>
+</function>
+
+<example>
+	<description>Silently kills the player.</description>
+	<code>Entity( 1 ):KillSilent()</code>
+
+</example>

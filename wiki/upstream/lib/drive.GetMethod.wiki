@@ -1,0 +1,14 @@
+<function name="GetMethod" parent="drive" type="libraryfunc">
+	<description>
+<internal></internal>
+Returns ( or creates if inexistent ) a driving method.
+	</description>
+	<realm>Shared</realm>
+	<file line="56-L101">lua/includes/modules/drive.lua</file>
+	<args>
+		<arg name="ply" type="Player">The player.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">A method object.</ret>
+	</rets>
+</function>

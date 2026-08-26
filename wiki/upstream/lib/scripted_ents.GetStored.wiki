@@ -1,0 +1,24 @@
+<function name="GetStored" parent="scripted_ents" type="libraryfunc">
+	<description>Returns the actual ENT table for a class. Modifying functions/variables in this table will change newly spawned entities</description>
+	<realm>Shared</realm>
+	<file line="220-L222">lua/includes/modules/scripted_ents.lua</file>
+	<args>
+		<arg name="classname" type="string">The classname of the ENT table to return</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">entTable</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Modifies all newly spawned gmod_button's to print a message on use</description>
+	<code>
+local ENT = scripted_ents.GetStored("gmod_button").t
+local oldUse = ENT.Use
+function ENT:Use(activator, caller, type, value)
+ print(tostring(self.Entity).." just got pressed!")
+ oldUse(self,activator, caller, type, value)
+end
+	</code>
+
+</example>

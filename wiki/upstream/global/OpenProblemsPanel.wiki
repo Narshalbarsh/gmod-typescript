@@ -1,0 +1,5 @@
+<function name="OpenProblemsPanel" parent="Global" type="libraryfunc">
+	<description>Opens the Problems Panel.</description>
+	<realm>Menu</realm>
+	<file line="165-L185">lua/menu/problems/problems.lua</file>
+</function>

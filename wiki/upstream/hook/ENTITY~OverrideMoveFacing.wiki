@@ -1,0 +1,28 @@
+<function name="OverrideMoveFacing" parent="ENTITY" type="hook">
+	<added>2023.12.06</added>
+	<description>
+Called to completely override the direction NPC will be facing during navigation. 
+
+<note>This hook only exists for `ai` type SENTs.</note> 
+<note>This hook is called by the default movement hook. Returning `true` inside <page>ENTITY:OverrideMove</page> will prevent engine from calling this hook. </note>
+</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="interval" type="number">Time interval for the movement, in seconds. Usually time since last movement.</arg>
+		<arg name="AILMG" type="table">Extra data for the movement. A table containing the following data:
+* <page>boolean</page> hasTraced - The result if a forward probing trace has been done
+* <page>number</page> expectedDist = `speed*interval` - The distance expected to move this think
+* <page>number</page> flags - [AILMG flags](https://github.com/ValveSoftware/source-sdk-2013/blob/master/src/game/server/ai_movetypes.h#L113)
+* <page>number</page> maxDist = <page>NPC:GetPathDistanceToGoal</page> - The distance maximum distance intended to travel in path length
+* <page>number</page> navType - <page>Enums/NAV</page>
+* <page>number</page> speed - <page>Entity:GetSequenceGroundSpeed</page> Note these need not always agree with `target`
+* <page>Entity</page> moveTarget = `m_hGoalEnt` - Target entity as goal. 
+* <page>Vector</page> dir - The step direction, towards `target` 
+* <page>Vector</page> facing - The direction NPC's body will turn during movement. 
+* <page>Vector</page> target = <page>NPC:GetCurWaypointPos</page> - Current waypoint in world coordinates. 
+</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return `true` to disable the default movement facing code.</ret>
+	</rets>
+</function>

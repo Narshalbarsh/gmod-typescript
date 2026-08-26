@@ -1,0 +1,7 @@
+<function name="GetParent" parent="Panel" type="classfunc">
+	<description>Returns the parent of the panel, returns nil if there is no parent.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="Panel">The parent of given panel</ret>
+	</rets>
+</function>

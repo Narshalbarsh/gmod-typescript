@@ -1,0 +1,11 @@
+<function name="GetCapabilities" parent="WEAPON" type="hook">
+	<description>This hook is for NPCs, you return what they should try to do with it.
+	<warning>Calling <page>NPC:CapabilitiesGet</page> in this hook on the same entity can cause infinite loops since that function adds the result of <page>WEAPON:GetCapabilities</page> on top of the return value. </warning>
+</description>
+	
+	<realm>Server</realm>
+	<file line="73-L77">gamemodes/base/entities/weapons/weapon_base/init.lua</file>
+	<rets>
+		<ret name="" type="number{CAP}">A number defining what NPC should do with the weapon. Use the <page>Enums/CAP</page>.</ret>
+	</rets>
+</function>

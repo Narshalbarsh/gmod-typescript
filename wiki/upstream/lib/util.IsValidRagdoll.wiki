@@ -1,0 +1,10 @@
+<function name="IsValidRagdoll" parent="util" type="libraryfunc">
+	<description>Checks if the specified model name points to a valid ragdoll.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="ragdollName" type="string">Name/Path of the ragdoll model to check.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Returns true if the specified model name points to a valid ragdoll; otherwise false.</ret>
+	</rets>
+</function>

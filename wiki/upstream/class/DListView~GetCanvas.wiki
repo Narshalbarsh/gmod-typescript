@@ -1,0 +1,7 @@
+<function name="GetCanvas" parent="DListView" type="panelfunc">
+	<description>Gets the canvas.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="Panel">The canvas.</ret>
+	</rets>
+</function>

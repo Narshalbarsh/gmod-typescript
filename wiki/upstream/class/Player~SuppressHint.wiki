@@ -1,0 +1,30 @@
+<function name="SuppressHint" parent="Player" type="classfunc">
+	<description>
+Prevents a hint from showing up.
+
+
+<note>This function is only available in Sandbox and its derivatives</note>
+	</description>
+	<realm>Server</realm>
+	<file line="129-L137">gamemodes/sandbox/gamemode/player_extension.lua</file>
+	<args>
+		<arg name="name" type="string">Hint name/class/index to prevent from showing up. You can find a list of hint names for this function <page text="here">List_of_Hint_Classes</page>.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Removes three default Sandbox hints (taken from the source code of the Sandbox gamemode):</description>
+	<code>
+-- Hint type: Show opening menu hint
+-- ... Suppress this hint =>
+ply:SuppressHint( "OpeningMenu" )
+
+-- Hint type: Tell them how to turn the hints off
+-- ... Suppress this hint =>
+ply:SuppressHint( "Annoy1" )
+ply:SuppressHint( "Annoy2" )
+
+-- Other default Hint types: PhysgunFreeze, PhysgunUse, VehicleView ...
+	</code>
+
+</example>

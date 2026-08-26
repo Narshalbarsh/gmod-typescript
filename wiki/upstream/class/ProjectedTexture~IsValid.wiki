@@ -1,0 +1,19 @@
+<function name="IsValid" parent="ProjectedTexture" type="classfunc">
+	<description>
+Returns true if the projected texture is valid (i.e. has not been removed), false otherwise.
+
+Instead of calling this directly it's a good idea to call <page>Global.IsValid</page> in case the variable is nil.
+
+
+```
+IsValid( ptexture )
+```
+
+
+This not only checks whether the projected texture is valid - but also checks whether it's nil.
+	</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the projected texture is valid.</ret>
+	</rets>
+</function>

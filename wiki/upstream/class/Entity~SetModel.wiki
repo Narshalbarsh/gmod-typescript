@@ -1,0 +1,13 @@
+<function name="SetModel" parent="Entity" type="classfunc">
+	<description>
+Sets the model of the entity.
+
+This does not update the physics of the entity - see <page>Entity:PhysicsInit</page>.
+
+<warning>This silently fails when given an empty string.</warning>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="modelName" type="string">New model value.</arg>
+	</args>
+</function>

@@ -1,0 +1,28 @@
+<function name="PreRegisterSWEP" parent="GM" type="hook">
+	<description>
+Called when a Scripted Weapon (SWEP) is about to be registered, allowing addons to alter the weapon's SWEP table with custom data for later usage. Called internally from <page>weapons.Register</page>.
+	</description>
+	<realm>Shared</realm>
+	<added>2021.01.27</added>
+	<file line="48">lua/includes/modules/weapons.lua</file>
+	<args>
+		<arg name="swep" type="table">The SWEP table to be registered.</arg>
+		<arg name="class" type="string">The class name to be assigned.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return `false` to prevent the weapon from being registered. Returning any other value has no effect.</ret>
+	</rets>
+</function>
+
+<example>
+    <description>Prevent registration of any weapon whose name contains a number, additionally, make all weapons automatic.</description>
+    <code>
+hook.Add( "PreRegisterSWEP", "NoNumbers", function( swep, class )
+    if ( string.find( class, "%d" ) ) then
+        return false
+    end
+    
+	swep.Primary.Automatic = true
+end )
+    </code>
+</example>

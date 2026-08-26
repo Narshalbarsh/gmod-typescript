@@ -1,0 +1,8 @@
+<function name="NewObjectCallback" parent="Panel" type="classfunc">
+	<description><internal></internal></description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="objectName" type="string"></arg>
+		<arg name="callbackName" type="string"></arg>
+	</args>
+</function>

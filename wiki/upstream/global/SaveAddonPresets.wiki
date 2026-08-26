@@ -1,0 +1,12 @@
+<cat>global</cat>
+<function name="SaveAddonPresets" parent="Global" type="libraryfunc">
+	<description>
+Sets the content of `addonpresets.txt` located in the `garrysmod/settings` folder. By default, this file stores your addon presets as JSON.
+
+You can use <page>Global.LoadAddonPresets</page> to retrieve the data in this file.
+	</description>
+	<realm>Menu</realm>
+	<args>
+		<arg name="JSON" type="string">The new contents of the file.</arg>
+	</args>
+</function>

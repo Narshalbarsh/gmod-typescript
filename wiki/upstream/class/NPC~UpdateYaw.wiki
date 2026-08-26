@@ -1,0 +1,10 @@
+<function name="UpdateYaw" parent="NPC" type="classfunc">
+	<description>Forces the NPC to turn to their ideal yaw angle. See <page>NPC:SetIdealYaw</page> and <page>NPC:SetIdealYawAndUpdate</page>.</description>
+	<realm>Server</realm>
+	<added>2023.11.17</added>
+	<args>
+		<arg name="speed" type="number" default="-1">The turn speed. Special values are:
+* `-1` - Calculate automatically
+* `-2` - Keep the previous yaw speed</arg>
+	</args>
+</function>

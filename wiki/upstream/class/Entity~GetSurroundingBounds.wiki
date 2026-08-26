@@ -1,0 +1,11 @@
+<function name="GetSurroundingBounds" parent="Entity" type="classfunc">
+<added>2023.01.25</added>
+	<description>
+Returns two vectors representing the minimum and maximum extent of the entity's axis-aligned bounding box for hitbox detection. In most cases, this will return the same bounding box as <page>Entity:WorldSpaceAABB</page> unless it was changed by <page>Entity:SetSurroundingBounds</page> or <page>Entity:SetSurroundingBoundsType</page>.
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Vector">The minimum vector for the entity's bounding box in world space.</ret>
+		<ret name="" type="Vector">The maximum vector for the entity's bounding box in world space.</ret>
+	</rets>
+</function>

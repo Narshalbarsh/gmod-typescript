@@ -1,0 +1,83 @@
+<panel>
+	<parent>TextEntry</parent>
+	<realm>Client and Menu</realm>
+	<file line="">lua/vgui/dtextentry.lua</file>
+	<description>
+A form which may be used to display text the player is meant to select and copy or alternately allow them to enter some text of their own.
+
+<note>At least one of your `DTextEntry`'s parents must either be an <page>EditablePanel</page> or derived from it (like a <page>DFrame</page>, for example), else it won't be able to focus and thus be unselectable.
+
+You must also call <page>Panel:MakePopup</page> on said panel or the `DTextEntry` will not work.</note>
+	</description>
+<overrides>
+	<page>TextEntry:OnTextChanged</page>
+	<page>PANEL:Think</page>
+	<page>PANEL:OnRemove</page>
+	<page>PANEL:Paint</page>
+	<page>PANEL:PerformLayout</page>
+	<page>PANEL:OnMousePressed</page>
+	<page>PANEL:GenerateExample</page>
+</overrides>
+
+</panel>
+
+<example>
+	<description>Creates a text entry form that allows you to print messages into the local player's chat window.
+	</description>
+	<code>
+concommand.Add( "test_textentry", function(ply)
+	local frame = vgui.Create( "DFrame" )
+	frame:SetSize( 400, 200 )
+	frame:Center()
+	frame:MakePopup()
+
+	local TextEntry = vgui.Create( "DTextEntry", frame ) -- create the form as a child of frame
+	TextEntry:Dock( TOP )
+	TextEntry.OnEnter = function( self )
+		chat.AddText( self:GetValue() )	-- print the textentry text as a chat message
+	end
+
+	local TextEntryPH = vgui.Create( "DTextEntry", frame )
+	TextEntryPH:Dock( TOP )
+	TextEntryPH:DockMargin( 0, 5, 0, 0 )
+	TextEntryPH:SetPlaceholderText( "I am a placeholder" )
+	TextEntryPH.OnEnter = function( self )
+		chat.AddText( self:GetValue() )
+	end
+end )
+	</code>
+	<output>
+		<upload src="70c/8d88bebe8e67219.png" size="11372" name="image.png" />
+	</output>
+</example>
+
+<example>
+	<description>Creates a text entry with a browse button.</description>
+	<code>
+-- Create a new frame (window)
+local frame = vgui.Create( "DFrame" )
+frame:SetSize( 300, 300 )  -- Set the size of the frame
+frame:Center()  -- Center the frame on the screen
+frame:MakePopup()  -- Make the frame appear in front of other windows and accept user input
+
+-- Create a text entry field within the frame
+local tEntry = vgui.Create("DTextEntry", frame)
+tEntry:Dock(TOP)  -- Dock the text entry at the top of the frame
+
+-- Create a new button within the text entry field
+local browseBtn = vgui.Create("DButton", tEntry)
+browseBtn:SetText("...")  -- Set the text of the button
+browseBtn:SetWidth(20)  -- Set the width of the button
+browseBtn:Dock(RIGHT)  -- Dock the button to the right side of the text entry field
+
+-- Function to be called when the browse button is clicked
+-- Can be a reference or anonymous (like in this case)
+browseBtn.DoClick = function()
+	-- Code to open a browser for certain file types should go here
+end
+	</code>
+	<output>
+		<upload src="b4b46/8db9014737538e5.png" size="32408" name="tentry_w_browse.png" />
+		(For instructions on how to make the file browser, see <page>DFileBrowser</page>)
+	</output>
+</example>

@@ -1,0 +1,13 @@
+<function name="Length2D" parent="Vector" type="classfunc">
+	<description>
+		Returns the length of the vector in two dimensions, without the Z axis.
+
+		<warning>
+			This is a relatively expensive process since it uses the square root. It is recommended that you use <page>Vector:Length2DSqr</page> whenever possible.
+		</warning>
+	</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="number">Length of the vector in two dimensions, √(x² + y²)</ret>
+	</rets>
+</function>

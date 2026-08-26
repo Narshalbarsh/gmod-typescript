@@ -1,0 +1,8 @@
+<function name="StartEngineTask" parent="NPC" type="classfunc">
+	<description>Forces the NPC to start an engine task, this has different results for every NPC.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="task" type="number">The id of the task to start, see [ai_task.h](https://github.com/ValveSoftware/source-sdk-2013/blob/55ed12f8d1eb6887d348be03aee5573d44177ffb/mp/src/game/server/ai_task.h#L89-L502)</arg>
+		<arg name="taskData" type="number">The task data as a float, not all tasks make use of it.</arg>
+	</args>
+</function>

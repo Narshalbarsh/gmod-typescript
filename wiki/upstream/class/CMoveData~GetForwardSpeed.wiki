@@ -1,0 +1,7 @@
+<function name="GetForwardSpeed" parent="CMoveData" type="classfunc">
+	<description>Returns the players forward speed.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">speed</ret>
+	</rets>
+</function>

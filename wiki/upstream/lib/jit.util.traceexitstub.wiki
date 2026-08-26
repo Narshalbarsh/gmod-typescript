@@ -1,0 +1,13 @@
+<function name="util.traceexitstub" parent="jit" type="libraryfunc">
+	<description>
+		<deprecated>This function was disabled due to security concerns. It will always return 0.</deprecated>
+		Grabs the address of a function based on it's trace exit number. Grabbed via <page>jit.attach</page> (with the texit event).
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="exitno" type="number">exit number to retrieve exit stub address from (gotten via <page>jit.attach</page> with the texit event)</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">exitstub trace address</ret>
+	</rets>
+</function>

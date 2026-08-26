@@ -1,0 +1,10 @@
+<function name="SetListView" parent="DListView_Line" type="panelfunc">
+	<description>
+<internal></internal>
+
+Sets the parent <page>DListView</page> for this line. Used internally by <page>DListView:AddLine</page>.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="pnl" type="DListView">The new parent <page>DListView</page> for this line.</arg>
+	</args>
+</function>

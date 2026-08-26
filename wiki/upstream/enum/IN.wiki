@@ -1,0 +1,57 @@
+<enum>
+	<realm>Shared</realm>
+	<description>
+Unlike <page>Enums/BUTTON_CODE</page>, these enums are abstracted to allow the user to bind actions to any key they might prefer.
+
+Keybinds using these actions work with two console commands, one starting with a plus and one with a minus symbol. A key press or release will call either the plus or minus command, adding or removing the corresponding enum in the current <page>CUserCmd</page>.
+
+Enumerations used by:
+* <page>Player:KeyDown</page>
+* <page>Player:KeyDownLast</page>
+* <page>Player:KeyPressed</page>
+* <page>Player:KeyReleased</page>
+* <page>CMoveData:AddKey</page>
+* <page>CMoveData:GetButtons</page>
+* <page>CMoveData:GetOldButtons</page>
+* <page>CMoveData:KeyDown</page>
+* <page>CMoveData:KeyPressed</page>
+* <page>CMoveData:KeyReleased</page>
+* <page>CMoveData:KeyWasDown</page>
+* <page>CMoveData:SetButtons</page>
+* <page>CMoveData:SetOldButtons</page>
+* <page>CUserCmd:GetButtons</page>
+* <page>CUserCmd:KeyDown</page>
+* <page>CUserCmd:RemoveKey</page>
+* <page>CUserCmd:SetButtons</page>
+* <page>GM:KeyPress</page>
+* <page>GM:KeyRelease</page>
+	</description>
+	<items>
+<item key="IN_ATTACK" value="1">+attack bound key ( Default: Left Mouse Button )</item>
+<item key="IN_JUMP" value="2">+jump bound key ( Default: Space )</item>
+<item key="IN_DUCK" value="4">+duck bound key ( Default: CTRL )</item>
+<item key="IN_FORWARD" value="8">+forward bound key ( Default: W )</item>
+<item key="IN_BACK" value="16">+back bound key ( Default: S )</item>
+<item key="IN_USE" value="32">+use bound key ( Default: E )</item>
+<item key="IN_CANCEL" value="64"></item>
+<item key="IN_LEFT" value="128">+left bound key ( Look left )</item>
+<item key="IN_RIGHT" value="256">+right bound key ( Look right )</item>
+<item key="IN_MOVELEFT" value="512">+moveleft bound key ( Default: A )</item>
+<item key="IN_MOVERIGHT" value="1024">+moveright bound key ( Default: D )</item>
+<item key="IN_ATTACK2" value="2048">+attack2 bound key ( Default: Right Mouse Button )</item>
+<item key="IN_RUN" value="4096"></item>
+<item key="IN_RELOAD" value="8192">+reload bound key ( Default: R )</item>
+<item key="IN_ALT1" value="16384">+alt1 bound key</item>
+<item key="IN_ALT2" value="32768">+alt2 bound key</item>
+<item key="IN_SCORE" value="65536">+showscores bound key ( Default: Tab )</item>
+<item key="IN_SPEED" value="131072">+speed bound key ( Default: Shift )</item>
+<item key="IN_WALK" value="262144">+walk bound key ( Slow walk )</item>
+<item key="IN_ZOOM" value="524288">+zoom bound key ( Suit Zoom )</item>
+<item key="IN_WEAPON1" value="1048576">For use in weapons. Set in the physgun when scrolling an object away from you.</item>
+<item key="IN_WEAPON2" value="2097152">For use in weapons. Set in the physgun when scrolling an object towards you.</item>
+<item key="IN_BULLRUSH" value="4194304"></item>
+<item key="IN_GRENADE1" value="8388608">+grenade1 bound key</item>
+<item key="IN_GRENADE2" value="16777216">+grenade2 bound key</item>
+	</items>
+
+</enum>

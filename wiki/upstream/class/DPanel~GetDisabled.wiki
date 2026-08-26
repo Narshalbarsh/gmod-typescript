@@ -1,0 +1,10 @@
+<function name="GetDisabled" parent="DPanel" type="panelfunc">
+	<description>Returns whether or not the panel is disabled.
+
+<deprecated>Use <page>Panel:IsEnabled</page>.</deprecated>
+</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">`true` if the panel is disabled (mouse input disabled and background alpha set to 75), `false` if its enabled (mouse input enabled and background alpha set to 255).</ret>
+	</rets>
+</function>

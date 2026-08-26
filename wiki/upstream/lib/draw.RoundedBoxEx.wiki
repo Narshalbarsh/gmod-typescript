@@ -1,0 +1,26 @@
+<function name="RoundedBoxEx" parent="draw" type="libraryfunc">
+	<description>
+Draws a rounded rectangle. This function also lets you specify which corners are drawn rounded.
+
+
+<note>This function actually draws rectangles with 'gui/cornerX' textures applied to it's rounded corners. It means that this function will fail (or will be drawn not as expected) with any vertex operations, such as model matrices like <page>cam.Start3D2D</page> (corners would be pixelated) or stencil operations. Consider using <page>surface.DrawPoly</page> or <page>mesh</page> library
+</note>
+
+
+<rendercontext hook="false" type="2D"></rendercontext>
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="173-L231">lua/includes/modules/draw.lua</file>
+	<args>
+		<arg name="cornerRadius" type="number">Radius of the rounded corners, works best with a power of 2 number.</arg>
+		<arg name="x" type="number">The x coordinate of the top left of the rectangle.</arg>
+		<arg name="y" type="number">The y coordinate of the top left of the rectangle.</arg>
+		<arg name="width" type="number">The width of the rectangle.</arg>
+		<arg name="height" type="number">The height of the rectangle.</arg>
+		<arg name="color" type="Color">The color to fill the rectangle with. Uses the <page>Color</page>.</arg>
+		<arg name="roundTopLeft" type="boolean" default="false">Whether the top left corner should be rounded.</arg>
+		<arg name="roundTopRight" type="boolean" default="false">Whether the top right corner should be rounded.</arg>
+		<arg name="roundBottomLeft" type="boolean" default="false">Whether the bottom left corner should be rounded.</arg>
+		<arg name="roundBottomRight" type="boolean" default="false">Whether the bottom right corner should be rounded.</arg>
+	</args>
+</function>

@@ -1,0 +1,11 @@
+<type name="gameevent" category="libraryfunc" is="library">
+	<summary>Used to interface with the built-in game events system.
+
+<note>
+	All Serverside gameevents are networked and called clientside. It could happen that a gameevent is called twice because of this like <page text="OnRequestFullUpdate">gameevent/OnRequestFullUpdate</page>.
+</note>
+
+The following is a list of all available game events.
+<pagelist category="gameevent"></pagelist>
+</summary>
+</type>

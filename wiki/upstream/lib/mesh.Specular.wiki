@@ -1,0 +1,12 @@
+<function name="Specular" parent="mesh" type="libraryfunc">
+	<description>
+Sets the specular map values. This is `COLOR1` semantic of Vertex Shader. Allows to blend textures of [Lightmapped_4WayBlend](https://developer.valvesoftware.com/wiki/Lightmapped_4WayBlend). Requires the `VERTEX_SPECULAR` flag to be set in the C++ code of a shader.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="r" type="number">The red channel multiplier of the specular map.</arg>
+		<arg name="g" type="number">The green channel multiplier of the specular map.</arg>
+		<arg name="b" type="number">The blue channel multiplier of the specular map.</arg>
+		<arg name="a" type="number">The alpha channel multiplier of the specular map.</arg>
+	</args>
+</function>

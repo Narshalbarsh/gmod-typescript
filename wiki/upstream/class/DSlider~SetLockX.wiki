@@ -1,0 +1,30 @@
+<function name="SetLockX" parent="DSlider" type="panelfunc">
+	<description>
+Sets the lock on the X axis. 
+
+For example the value 0.5 will lock the draggable panel to half the width of the slider's panel.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="lockX" type="number" default="nil">Set to nil to reset lock.
+
+The value range is from 0 to 1.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Example of a slider that can be dragged on the X and Y axis.</description>
+	<code>
+local frame = vgui.Create( "DFrame" )
+frame:SetSize( 500, 300 )
+frame:Center()
+frame:MakePopup()
+
+local Slider = vgui.Create( "DSlider", frame )
+Slider:SetPos( 50, 50 )
+Slider:SetSize( 100, 100 )
+Slider:SetLockX()
+Slider:SetLockY()
+	</code>
+
+</example>

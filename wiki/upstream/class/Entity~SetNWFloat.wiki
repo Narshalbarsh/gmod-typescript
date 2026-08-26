@@ -1,0 +1,26 @@
+<function name="SetNWFloat" parent="Entity" type="classfunc">
+	<description>
+Sets a networked float (number) value on the entity.
+
+The value can then be accessed with <page>Entity:GetNWFloat</page> both from client and server.
+
+Unlike <page>Entity:SetNWInt</page>, floats don't have to be whole numbers.
+<warning>There's a 4095 slots Network limit. If you need more, consider using the <page>net</page> library or <page>Entity:SetNW2Float</page>. You should also consider the fact that you have way too many variables. You can learn more about this limit here: <page>Networking_Usage#nwlimits</page></warning>
+<note>Running this function clientside will only set it for the client it is called on.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="key" type="string">The key to associate the value with</arg>
+		<arg name="value" type="number">The value to set</arg>
+	</args>
+</function>
+
+<example>
+	<description>This will set the networked float 'money' on all clients to 10.5.</description>
+	<code>
+for k, v in ipairs( player.GetAll() ) do
+    v:SetNWFloat( 'money', 10.5 )
+end
+	</code>
+
+</example>

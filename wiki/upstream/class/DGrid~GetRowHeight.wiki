@@ -1,0 +1,7 @@
+<function name="GetRowHeight" parent="DGrid" type="panelfunc">
+	<description>Returns the height of each row of the <page>DGrid</page>, which is set by <page>DGrid:SetRowHeight</page>.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The height of each row</ret>
+	</rets>
+</function>

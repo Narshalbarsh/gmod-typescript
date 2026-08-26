@@ -1,0 +1,10 @@
+<function name="GetKeyCode" parent="input" type="libraryfunc">
+	<description>Gets the button code from a button name. This is opposite of <page>input.GetKeyName</page>.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="button" type="string">The internal button name, such as <key>E</key> or <key>SHIFT</key>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number{BUTTON_CODE}">The button code, see <page>Enums/BUTTON_CODE</page>.</ret>
+	</rets>
+</function>

@@ -1,0 +1,16 @@
+<function name="GetAttackSpread" parent="ENTITY" type="hook">
+	<description>
+Called to determine how good an NPC is at using a particular weapon.
+
+<note>"ai" base only</note>
+	</description>
+	<realm>Server</realm>
+	<file line="135">gamemodes/base/entities/entities/base_ai/init.lua</file>
+	<args>
+		<arg name="wep" type="Weapon">The weapon being used by the NPC.</arg>
+		<arg name="target" type="NPC">The target the NPC is attacking</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The number of degrees of inaccuracy in the NPC's attack.</ret>
+	</rets>
+</function>

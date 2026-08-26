@@ -1,0 +1,81 @@
+<function name="EaseInOut" parent="math" type="libraryfunc">
+	<description>Calculates the progress of a value fraction, taking in to account given easing fractions</description>
+	<realm>Shared and Menu</realm>
+	<file line="74-L98">lua/includes/extensions/math.lua</file>
+	<args>
+		<arg name="progress" type="number">Fraction of the progress to ease, from 0 to 1.</arg>
+		<arg name="easeIn" type="number" default="0">Fraction of how much easing to begin with, from 0 to 1.</arg>
+		<arg name="easeOut" type="number" default="1">Fraction of how much easing to end with, from 0 to 1.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">"Eased" Value, from 0 to 1</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Calculates the easing of three situations</description>
+	<code>
+print(math.EaseInOut(0.1, 0.1, 0.1))
+print(math.EaseInOut(0.2, 0.1, 0.1))
+print(math.EaseInOut(0.3, 0.1, 0.1))
+	</code>
+	<output>
+0.055555...
+0.166666...
+0.277777...
+	</output>
+
+</example>
+
+<example>
+	<description>Interactive preview of the curve this function can generate.</description>
+	<code>
+local f = vgui.Create( "DFrame" )
+f:SetSize( 500, 500 )
+f:Center()
+f:MakePopup()
+
+local sliderIn = vgui.Create( "DNumSlider", f )
+sliderIn:Dock( TOP )
+sliderIn:SetMinMax( 0, 4 )
+sliderIn:SetText( "Ease In" )
+
+local sliderOut = vgui.Create( "DNumSlider", f )
+sliderOut:Dock( TOP )
+sliderOut:SetMinMax( 0, 4 )
+sliderOut:SetText( "Ease Out" )
+
+local sliderMax = vgui.Create( "DNumSlider", f )
+sliderMax:Dock( TOP )
+sliderMax:SetMinMax( 1, 2 )
+sliderMax:SetValue( 1 )
+sliderMax:SetText( "Value Range Max" )
+
+local quality = 128
+
+local oldPaint = f.Paint
+f.Paint = function( pnl, w, h )
+	oldPaint( pnl, w, h )
+
+	surface.SetDrawColor( 255, 0, 0, 255 )
+	local lastPos = { x = 0, y = 0 }
+	for i=0, quality do
+		local pos = { x = i / quality * pnl:GetWide(), y = math.EaseInOut( math.Remap( i / quality, 0, 1, 0, sliderMax:GetValue() ), sliderIn:GetValue(), sliderOut:GetValue() ) * pnl:GetTall() }
+		surface.DrawLine( lastPos.x, lastPos.y, pos.x, pos.y )
+		lastPos = pos
+	end 
+
+	local frac = CurTime() % 1
+	local easeVal = math.EaseInOut( math.Remap( frac, 0, 1, 0, sliderMax:GetValue() ), sliderIn:GetValue(), sliderOut:GetValue() )
+	surface.DrawCircle( frac * pnl:GetWide(), easeVal * pnl:GetTall(), 4, 255, 255, 255 )
+
+	surface.SetDrawColor( 255, 255, 255, easeVal * 255 )
+	surface.DrawRect( 10, pnl:GetTall() - 10 - 48, 48, 48 )
+end
+
+	</code>
+	<output>
+<upload src="70c/8dcc90cd6ec7ec8.gif" size="25530" name="August30-494-hl2.gif" />
+</output>
+
+</example>

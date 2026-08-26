@@ -1,0 +1,11 @@
+<function name="SetLastChild" parent="DTree_Node" type="panelfunc">
+	<description>
+<internal></internal>
+
+Called automatically to set whether this node is the last child on this level or not.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="last" type="boolean"></arg>
+	</args>
+</function>

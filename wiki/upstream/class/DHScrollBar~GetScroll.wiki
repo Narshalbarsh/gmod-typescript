@@ -1,0 +1,7 @@
+<function name="GetScroll" parent="DHScrollBar" type="panelfunc">
+	<description>Returns the amount of scroll level from the left in pixels.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The amount of scroll level from the left edge.</ret>
+	</rets>
+</function>

@@ -1,0 +1,8 @@
+<function name="GetOwner" parent="Tool" type="classfunc">
+	<description>Returns the owner of this tool.</description>
+	<realm>Shared</realm>
+	<file line="120">gamemodes/sandbox/entities/weapons/gmod_tool/stool.lua</file>
+	<rets>
+		<ret name="" type="Player">Player using the tool</ret>
+	</rets>
+</function>

@@ -1,0 +1,7 @@
+<function name="GetNextBot" parent="CLuaLocomotion" type="classfunc">
+	<description>Returns the <page>NextBot</page> this locomotion is associated with.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="NextBot">The nextbot</ret>
+	</rets>
+</function>

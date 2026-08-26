@@ -1,0 +1,7 @@
+<function name="SetSolid" parent="Entity" type="classfunc">
+	<description>Sets the solidity of an entity.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="solid_type" type="number">The solid type. See the <page>Enums/SOLID</page>.</arg>
+	</args>
+</function>

@@ -1,0 +1,8 @@
+<function name="OnGamemodeLoaded" parent="GM" type="hook">
+	<description>
+Called when the gamemode is loaded. <page>gmod.GetGamemode</page> will be functional at this point.
+
+<page>Global.LocalPlayer</page>() returns NULL at the time this is run.
+	</description>
+	<realm>Shared</realm>
+</function>

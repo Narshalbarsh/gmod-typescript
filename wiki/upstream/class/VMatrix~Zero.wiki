@@ -1,0 +1,8 @@
+<function name="Zero" parent="VMatrix" type="classfunc">
+	<description>
+Sets all components of the matrix to 0, also known as a [null matrix](https://en.wikipedia.org/wiki/Zero_matrix).
+
+This function is more efficient than setting each element manually.
+	</description>
+	<realm>Shared</realm>
+</function>

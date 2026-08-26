@@ -1,0 +1,10 @@
+<function name="Activate" parent="numpad" type="libraryfunc">
+	<description>Activates numpad key owned by the player</description>
+	<realm>Server</realm>
+	<file line="96-L117">lua/includes/modules/numpad.lua</file>
+	<args>
+		<arg name="ply" type="Player">The player whose numpad should be simulated</arg>
+		<arg name="key" type="number">The key to press, see <page>Enums/KEY</page></arg>
+		<arg name="isButton" type="boolean" default="false">Should this keypress pretend to be a from a `gmod_button`? (causes <page>numpad.FromButton</page> to return `true`)</arg>
+	</args>
+</function>

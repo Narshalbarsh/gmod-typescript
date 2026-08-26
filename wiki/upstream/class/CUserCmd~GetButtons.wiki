@@ -1,0 +1,7 @@
+<function name="GetButtons" parent="CUserCmd" type="classfunc">
+	<description>Returns a bitflag indicating which buttons are pressed.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">Pressed buttons, see <page>Enums/IN</page></ret>
+	</rets>
+</function>

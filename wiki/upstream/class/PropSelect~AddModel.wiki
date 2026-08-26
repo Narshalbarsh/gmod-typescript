@@ -1,0 +1,8 @@
+<function name="AddModel" parent="PropSelect" type="panelfunc">
+	<description>Adds a new model to the selection list.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="model" type="string">Model path, **including** `models/` and `.mdl`.</arg>
+		<arg name="convars" type="table">A list of convar names (as keys) and their values to set when the user selects this model.</arg>
+	</args>
+</function>

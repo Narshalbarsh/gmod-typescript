@@ -1,0 +1,9 @@
+<function name="Tick" parent="WEAPON" type="hook">
+	<description>
+<deprecated>Use <page>Weapon:Think</page> instead.</deprecated>
+
+Alias of <page>Weapon:Think</page>.
+	</description>
+	<realm>Shared</realm>
+	<predicted>Yes</predicted>
+</function>

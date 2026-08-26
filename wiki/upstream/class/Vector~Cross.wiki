@@ -1,0 +1,16 @@
+<function name="Cross" parent="Vector" type="classfunc">
+	<description>
+Calculates the cross product of this vector and the passed one.
+
+The cross product of two vectors is a 3-dimensional vector with a direction perpendicular (at right angles) to both of them (according to the [right-hand rule](https://en.wikipedia.org/wiki/Right-hand_rule)), and magnitude equal to the area of parallelogram they span. This is defined as the product of the magnitudes, the sine of the angle between them, and unit (normal) vector `n` defined by the right-hand rule:
+:**a** &times; **b** = &#124;**a**&#124; &#124;**b**&#124; sin(&theta;) **n&#770;**
+where **a** and **b** are vectors, and **n&#770;** is a unit vector (magnitude of 1) perpendicular to both.
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="otherVector" type="Vector">Vector to calculate the cross product with.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">The cross product of the two vectors.</ret>
+	</rets>
+</function>

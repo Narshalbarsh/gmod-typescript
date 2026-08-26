@@ -1,0 +1,67 @@
+<panel>
+	<parent>DButton</parent>
+	<preview>DComboBox2.png</preview>
+	<realm>Client and Menu</realm>
+	<file line="">lua/vgui/dcombobox.lua</file>
+	<description>
+		A field with multiple selectable values.
+	</description>
+	<overrides>
+		<page>Panel:Init</page>
+		<page>Panel:Clear</page>
+		<page>Panel:Think</page>
+		<page>Panel:PerformLayout</page>
+		<page>Panel:GenerateExample</page>
+		<page>DLabel:DoClick</page>
+	</overrides>
+</panel>
+
+<example>
+	<description>Creates a Combo Box.</description>
+	<code>
+local frame = vgui.Create( "DFrame" )
+frame:SetSize( 300, 250 )
+frame:Center()
+frame:MakePopup()
+
+local DComboBox = vgui.Create( "DComboBox", frame )
+DComboBox:SetPos( 5, 30 )
+DComboBox:SetSize( 100, 20 )
+DComboBox:SetValue( "options" )
+DComboBox:AddChoice( "option A" )
+DComboBox:AddChoice( "option B" )
+DComboBox:AddChoice( "option C" )
+DComboBox.OnSelect = function( self, index, value )
+	print( value .. " was selected at index " .. index )
+end
+	</code>
+	<output>
+<image src="PictureA.png"/>
+<image src="DComboBox2.png"/>
+<image src="DComboBox3.png"/>
+```
+option B was selected at index 2
+```
+	</output>
+</example>
+
+<example>
+	<description>Create a Combo Box with all players.</description>
+	<code>
+local comboBox = vgui.Create( "DComboBox" )
+comboBox:SetPos( 5, 5 )
+comboBox:SetSize( 100, 20 )
+comboBox:SetValue( "All Players" )
+
+comboBox.OnSelect = function( _, _, value )
+	print( value .. " was selected!" )
+end
+
+for _, v in ipairs( player.GetAll() ) do
+	comboBox:AddChoice( v:Name() )
+end
+	</code>
+</example>
+
+preview from `derma_controls` concmd
+<upload src="aaf9e/8dc31bc1450ad75.gif" size="3772096" name="DComboBox.gif" />

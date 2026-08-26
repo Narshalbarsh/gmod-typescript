@@ -1,0 +1,7 @@
+<function name="version_num" parent="jit" type="libraryfield">
+	<description>A variable containing the version number of the LuaJIT core.</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="number">The version number.  Version `xx.yy.zz` is represented by the decimal number `xxyyzz`. In GMod this is `20004`. On x86-64 branch it's `20100`.</ret>
+	</rets>
+</function>

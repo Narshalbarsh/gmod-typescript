@@ -1,0 +1,67 @@
+<function name="lower" parent="string" type="libraryfunc">
+	<description>
+		Changes any upper-case letters in a string to lower-case letters.
+		<note>This function doesn't work on special non-English UTF-8 characters.</note>
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="str" type="string">The string to convert.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">A string representing the value of a string converted to lower-case.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Demonstrates the use of this function.</description>
+	<code>
+print( string.lower( "ABCDEFG" ) )
+print( string.lower( "AbCdefG" ) )
+print( string.lower( "abcdefg" ) )
+print( string.lower( "1234567890" ) )
+	</code>
+	<output>
+```
+abcdefg
+abcdefg
+abcdefg
+1234567890
+```
+	</output>
+</example>
+
+<example>
+	<description>Demonstrates a common use for string.lower - case-insensitive user input.</description>
+	<code>
+-- All keys in this table must be lowercase:
+local products = {}
+products.apple = "Buy an apple!"
+products.banana = "Buy a bunch of bananas!"
+products.tomato = "There's also tomatoes."
+
+-- This function is case-insensitive, meaning "APPLE", "apple", and "APPle" are all the same.
+function GetProduct( userinput )
+
+	return userinput, products[ string.lower( userinput ) ]
+
+end
+
+-- Demonstration:
+print( GetProduct( "apple" ) )
+print( GetProduct( "Apple" ) )
+print( GetProduct( "APPLE" ) )
+print()
+print( GetProduct( "banana" ) )
+print( GetProduct( "BaNaNa" ) )
+	</code>
+	<output>
+```
+apple	Buy an apple!
+Apple	Buy an apple!
+APPLE	Buy an apple!
+
+banana	Buy a bunch of bananas!
+BaNaNa	Buy a bunch of bananas!
+```
+	</output>
+</example>

@@ -1,0 +1,7 @@
+<function name="GetInterval" parent="DNumberWang" type="panelfunc">
+	<description>Returns interval at which the up and down buttons change the current value.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="min" type="number">The current interval.</ret>
+	</rets>
+</function>

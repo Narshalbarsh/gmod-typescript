@@ -1,0 +1,9 @@
+<function name="SetHitboxSet" parent="Entity" type="classfunc">
+	<description>Sets the current Hitbox set for the entity.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="id" type="number">The new hitbox set to set. Can be a name as a <page>string</page>, or the ID as a <page>number</page>.
+
+If the operation failed, the function will silently fail.</arg>
+	</args>
+</function>

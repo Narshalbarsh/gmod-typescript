@@ -1,0 +1,35 @@
+<function name="SetText" parent="Panel" type="classfunc">
+	<description>
+Sets the text value of a panel object containing text, such as a <page>Label</page>, <page>TextEntry</page> or  <page>RichText</page> and their derivatives, such as <page>DLabel</page>, <page>DTextEntry</page> or <page>DButton</page>.
+
+<warning>When used on a <page>Label</page> or its derivatives ( <page>DLabel</page> and <page>DButton</page> ), it will automatically call <page>Panel:InvalidateLayout</page>, meaning that you should avoid running this function every frame on these panels to avoid unnecessary performance loss.</warning>
+
+<warning><page>Label</page> & its derivatives has hard length limit, maximum 1023 ascii characters.</warning>
+
+
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="text" type="string">The text value to set.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Creates a <page>RichText</page> element and sets the text to a localized string; the default VAC rejection message.</description>
+	<code>
+-- Window frame for the RichText
+TextFrame = vgui.Create("DFrame")
+TextFrame:SetSize(250, 150)
+TextFrame:Center()
+TextFrame:SetTitle("#VAC_ConnectionRefusedTitle") -- Results in "Connection Refused - VAC"
+
+-- RichText panel
+local richtext = vgui.Create("RichText", TextFrame)
+richtext:Dock(FILL)
+
+-- Set the text to the message you get when VAC banned
+richtext:SetText("#VAC_ConnectionRefusedDetail")
+	</code>
+	<output><image src="RichText_SetText_example1.png"/></output>
+
+</example>

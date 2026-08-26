@@ -1,0 +1,7 @@
+<function name="GetAttachment" parent="CEffectData" type="classfunc">
+	<description>Returns the attachment ID for the effect.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The attachment ID of the effect.</ret>
+	</rets>
+</function>

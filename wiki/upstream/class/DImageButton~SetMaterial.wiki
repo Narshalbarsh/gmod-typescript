@@ -1,0 +1,7 @@
+<function name="SetMaterial" parent="DImageButton" type="panelfunc">
+	<description>Sets a <page>Global.Material</page> directly as an image. Equivalent of <page>DImage:SetMaterial</page>.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="mat" type="IMaterial">The material to set</arg>
+	</args>
+</function>

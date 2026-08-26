@@ -1,0 +1,36 @@
+<function name="SetIgnoreConditions" parent="NPC" type="classfunc">
+	<description>Sets conditions to ignore, which would normally interrupt an Engine-based schedule. Specified conditions will still be set, will call <page>ENTITY:OnCondition</page> and can be returned by <page>NPC:HasCondition</page>, but they will no longer interrupt the Engine schedule. </description>
+	<realm>Server</realm>
+	<added>2023.11.17</added>
+	<args>
+		<arg name="conditions" type="table">Conditions to ignore, see <page>Enums/COND</page>. The table must be sequential, numerical and values must correspond to condition enums. </arg>
+		<arg name="size" type="number">Number of conditions to include in the ignored conditions table. Set this to the size of ignored conditions table to ignore all specified conditions. </arg>
+	</args>
+</function>
+
+<example>
+	<description>Ignore all conditions for this SNPC, allows it to naturally process the engine schedule.</description>
+	<code>
+
+function ENT:StartEngineSchedule() -- best place to set ignored conditions without ENT.BuildScheduleTestBits 
+	local tblIgnoredConds = { } 
+	for i = 1, table.Count(COND) do -- 72 keyvalues 
+		tblIgnoredConds[i] = i -- { [1] = 1, [2] = 2 } and so on 
+	end 
+	self:SetIgnoreConditions(tblIgnoredConds,#tblIgnoredConds) 
+end 
+	</code>
+</example> 
+
+<example>
+	<description>Ignore specific conditions from interrupting this SNPC while attacking.</description>
+	<code>
+
+function ENT:StartEngineSchedule() -- best place to set ignored conditions without ENT.BuildScheduleTestBits 
+	if self:GetCurrentSchedule() >= SCHED_RANGE_ATTACK1 and self:GetCurrentSchedule() <= SCHED_SPECIAL_ATTACK2 then 
+		local tblIgnoredConds = {COND.NEW_ENEMY, COND.LIGHT_DAMAGE} 
+		self:SetIgnoreConditions(tblIgnoredConds,#tblIgnoredConds) 
+	end 
+end 
+	</code>
+</example>

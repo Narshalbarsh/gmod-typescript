@@ -1,0 +1,14 @@
+<function name="PlayerRequestTeam" parent="GM" type="hook">
+	<description>
+Request a player to join the team. This function will check if the team is available to join or not.
+
+This hook is called when the player runs "changeteam" in the console.
+
+To prevent the player from changing teams, see <page>GM:PlayerCanJoinTeam</page>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ply" type="Player">The player to try to put into a team</arg>
+		<arg name="team" type="number">Team to put the player into if the checks succeeded</arg>
+	</args>
+</function>

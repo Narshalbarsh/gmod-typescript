@@ -1,0 +1,20 @@
+<function name="GetSoundInterests" parent="ENTITY" type="hook">
+	<added>2021.06.09</added>
+	<description>Called every second to poll the sound hint interests of this SNPC. This is used in conjunction with other sound hint functions, such as <page>sound.EmitHint</page> and <page>NPC:GetBestSoundHint</page>.
+<note>This hook only exists for `ai` type SENTs</note>
+</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="types" type="number">A bitflag representing which sound types this NPC wants to react to.  See <page text="SOUND_ enums">Enums/SOUND</page>.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>React to player footstep sounds.</description>
+	<code>
+function ENT:GetSoundInterests(  )
+	return SOUND_WORLD + SOUND_PLAYER 
+end
+	</code>
+
+</example>

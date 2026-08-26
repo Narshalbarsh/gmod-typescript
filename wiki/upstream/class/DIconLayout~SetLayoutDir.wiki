@@ -1,0 +1,11 @@
+<function name="SetLayoutDir" parent="DIconLayout" type="panelfunc">
+	<description>
+Sets the direction that it will be layed out, using the <page>Enums/DOCK</page>.
+
+Currently only TOP and LEFT are supported.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="direction" type="number"><page>Enums/DOCK</page></arg>
+	</args>
+</function>

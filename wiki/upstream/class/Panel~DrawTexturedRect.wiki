@@ -1,0 +1,8 @@
+<function name="DrawTexturedRect" parent="Panel" type="classfunc">
+	<description>Draws a textured rectangle to fill the panel object this method is called on. The texture is set using <page>surface.SetTexture</page> or <page>surface.SetMaterial</page>. This should only be called within the object's <page>PANEL:Paint</page> or <page>PANEL:PaintOver</page> hooks, as a shortcut for <page>surface.DrawTexturedRect</page>.
+
+
+<rendercontext hook="false" type="2D"></rendercontext>
+</description>
+	<realm>Client and Menu</realm>
+</function>

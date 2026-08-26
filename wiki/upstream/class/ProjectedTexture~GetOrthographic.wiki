@@ -1,0 +1,11 @@
+<function name="GetOrthographic" parent="ProjectedTexture" type="classfunc">
+	<description>Returns the current orthographic settings of the Projected Texture. To set these values, use <page>ProjectedTexture:SetOrthographic</page>.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="boolean">Whether or not this projected texture is orthographic. When false, nothing else is returned.</ret>
+		<ret name="" type="number">left</ret>
+		<ret name="" type="number">top</ret>
+		<ret name="" type="number">right</ret>
+		<ret name="" type="number">bottom</ret>
+	</rets>
+</function>

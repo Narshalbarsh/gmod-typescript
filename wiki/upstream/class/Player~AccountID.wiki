@@ -1,0 +1,18 @@
+<function name="AccountID" parent="Player" type="classfunc">
+	<description>
+Returns the player's AccountID part of their full SteamID.
+
+Since this does not include other vital parts of the SteamID such as "Account Type" and "Account Instance", it should be avoided, as AccountIDs are finite, and can theoretically be the same for multiple valid accounts.
+
+See <page>Player:SteamID</page> for the text representation of the full SteamID.
+See <page>Player:SteamID64</page> for a 64bit representation of the full SteamID.
+
+<note>In a `-multirun` environment, this will return `-1` for all "copies" of a player because they are not authenticated with Steam.
+
+For bots this will return values starting with `0` for the first bot, `1` for the second bot and so on.</note>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The AccountID of Player's SteamID.</ret>
+	</rets>
+</function>

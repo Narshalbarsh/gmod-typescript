@@ -1,0 +1,8 @@
+<function name="GetSelectedChildren" parent="Panel" type="classfunc">
+	<file line="189-L205">lua/includes/extensions/client/panel/selections.lua</file>
+	<description>Returns a table of all children of the panel object that are selected. This is recursive, and the returned table will include tables for any child objects that also have children. This means that not all first-level members in the returned table will be of type <page>Panel</page>.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="table">A table of any child objects that are selected, including tables for children of the child objects (These tables may also contain table members, as the method is recursive).</ret>
+	</rets>
+</function>

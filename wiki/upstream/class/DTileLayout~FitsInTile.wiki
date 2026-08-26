@@ -1,0 +1,13 @@
+<function name="FitsInTile" parent="DTileLayout" type="panelfunc">
+	<description><internal></internal> Determines if a group of tiles is vacant.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="x" type="number">The x coordinate of the first tile.</arg>
+		<arg name="y" type="number">The y coordinate of the first tile.</arg>
+		<arg name="w" type="number">The width needed.</arg>
+		<arg name="h" type="number">The height needed.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether or not this group is available for occupation.</ret>
+	</rets>
+</function>

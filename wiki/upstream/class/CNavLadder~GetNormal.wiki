@@ -1,0 +1,7 @@
+<function name="GetNormal" parent="CNavLadder" type="classfunc">
+	<description>Returns the direction of this <page>CNavLadder</page>. ( The direction in which players back will be facing if they are looking directly at the ladder )</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="Vector">The direction of this <page>CNavLadder</page>.</ret>
+	</rets>
+</function>

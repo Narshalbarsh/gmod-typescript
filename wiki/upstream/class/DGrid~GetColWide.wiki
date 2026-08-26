@@ -1,0 +1,7 @@
+<function name="GetColWide" parent="DGrid" type="panelfunc">
+	<description>Returns the width of each column of the <page>DGrid</page>, which is set by <page>DGrid:SetColWide</page>.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The width of each column</ret>
+	</rets>
+</function>

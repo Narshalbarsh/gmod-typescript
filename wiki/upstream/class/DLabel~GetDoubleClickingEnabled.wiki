@@ -1,0 +1,11 @@
+<function name="GetDoubleClickingEnabled" parent="DLabel" type="panelfunc">
+	<description>
+Returns whether or not double clicking will call <page>DLabel:DoDoubleClick</page>.
+
+See <page>DLabel:SetDoubleClickingEnabled</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">true = enabled, false means disabled</ret>
+	</rets>
+</function>

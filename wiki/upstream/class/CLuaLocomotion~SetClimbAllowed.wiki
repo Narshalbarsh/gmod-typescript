@@ -1,0 +1,8 @@
+<function name="SetClimbAllowed" parent="CLuaLocomotion" type="classfunc">
+	<description>Sets whether the Nextbot is allowed to climb or not. This is used during path generation. Works similarly to `nb_allow_climbing` convar. By default bots are allowed to climb.</description>
+	<realm>Server</realm>
+	<added>2021.12.15</added>
+	<args>
+		<arg name="allowed" type="boolean">Whether this bot should be allowed to climb.</arg>
+	</args>
+</function>

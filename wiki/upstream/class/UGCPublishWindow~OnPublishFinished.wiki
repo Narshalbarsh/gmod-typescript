@@ -1,0 +1,8 @@
+<function name="OnPublishFinished" parent="UGCPublishWindow" type="panelfunc">
+	<description>Called when the Item was published or if any error occurred while publishing</description>
+	<realm>Menu</realm>
+	<args>
+		<arg name="wsid" type="string">The workshop id</arg>
+		<arg name="err" type="string">If wsid is nil, this will be the error message</arg>
+	</args>
+</function>

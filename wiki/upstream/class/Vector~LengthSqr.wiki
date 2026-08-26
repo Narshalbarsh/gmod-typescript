@@ -1,0 +1,11 @@
+<function name="LengthSqr" parent="Vector" type="classfunc">
+	<description>
+Returns the squared length of the vector, x&sup2; + y&sup2; + z&sup2;.
+
+This is faster than <page>Vector:Length</page> as calculating the square root is an expensive process.
+	</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="number">Squared length of the vector</ret>
+	</rets>
+</function>

@@ -1,0 +1,8 @@
+<function name="GetUseLiveDrag" parent="DDragBase" type="panelfunc">
+	<description>Whether this panel uses live drag'n'drop previews. An <page>Global.AccessorFunc</page></description>
+	<realm>Client and Menu</realm>
+	<file line="5">lua/vgui/ddragbase.lua</file>
+	<rets>
+		<ret name="" type="boolean"></ret>
+	</rets>
+</function>

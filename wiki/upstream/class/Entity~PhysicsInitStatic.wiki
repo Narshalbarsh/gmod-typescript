@@ -1,0 +1,22 @@
+<function name="PhysicsInitStatic" parent="Entity" type="classfunc">
+	<description>
+Initializes a static physics object of the entity using its <page text="current model">Entity:GetModel</page>. If successful, the previous physics object is removed.
+
+This is what used by entities such as `func_breakable`, `prop_dynamic`, `item_suitcharger`, `prop_thumper` and `npc_rollermine` while it is in its "buried" state in the Half-Life 2 Campaign.
+
+If the entity's current model has no physics mesh associated to it, no physics object will be created.
+
+<note>This function will automatically call <page>Entity:SetSolid</page>( `solidType` ).</note>
+
+<bug issue="5060">Clientside physics objects on serverside entities do not move properly in some cases. Physics objects should only created on the server or you will experience incorrect physgun beam position, prediction issues, and other unexpected behavior.
+
+A workaround is available on the <page>Entity:PhysicsInitConvex</page> page.</bug>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="solidType" type="number">The solid type of the physics object to create, see <page>Enums/SOLID</page>. Should be `SOLID_VPHYSICS` in most cases.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Returns `true` on success, `false` otherwise. This will fail if the entity's current model has no associated physics mesh.</ret>
+	</rets>
+</function>

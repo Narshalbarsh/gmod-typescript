@@ -1,0 +1,24 @@
+<function name="Remove" parent="timer" type="libraryfunc">
+<description>Stops and removes a timer created by <page>timer.Create</page>.
+<warning>The timers are removed in the next frame! Keep this in mind when storing identifiers in variables.</warning>
+</description>
+<realm>Shared and Menu</realm>
+<args>
+	<arg name="identifier" type="string">Identifier of the timer to remove.</arg>
+</args>
+</function>
+
+<example>
+
+<description>Creates a timer and then removes it</description>
+<code>
+
+-- create timer
+timer.Create( "UniqueName1", 5, 1, function() print("inside") end )
+
+-- remove timer
+timer.Remove( "UniqueName1" )
+
+</code>
+
+</example>

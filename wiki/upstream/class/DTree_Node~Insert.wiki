@@ -1,0 +1,9 @@
+<function name="Insert" parent="DTree_Node" type="panelfunc">
+	<description>Inserts a sub-node into this node before or after the given node.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="node" type="Panel">The <page>DTree_Node</page> to insert.</arg>
+		<arg name="nodeNextTo" type="Panel">The node to insert the node above before or after.</arg>
+		<arg name="before" type="boolean">true to insert before, false to insert after.</arg>
+	</args>
+</function>

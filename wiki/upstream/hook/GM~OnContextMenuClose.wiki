@@ -1,0 +1,10 @@
+<function name="OnContextMenuClose" parent="GM" type="hook">
+	<description>
+Called when the context menu keybind (+menu_context) is released, which by default is C.
+
+This hook will not run if <page>input.IsKeyTrapping</page> returns true.
+
+See also <page>GM:OnContextMenuOpen</page>.
+	</description>
+	<realm>Client</realm>
+</function>

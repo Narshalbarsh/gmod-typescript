@@ -1,0 +1,7 @@
+<function name="SetCanZoom" parent="Player" type="classfunc">
+	<description>Sets whether the player can use the HL2 suit zoom (`+zoom` bind) or not.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="canZoom" type="boolean">Whether to make the player able or unable to zoom.</arg>
+	</args>
+</function>

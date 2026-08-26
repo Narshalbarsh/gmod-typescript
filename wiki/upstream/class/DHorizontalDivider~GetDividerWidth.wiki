@@ -1,0 +1,7 @@
+<function name="GetDividerWidth" parent="DHorizontalDivider" type="panelfunc">
+	<description>Returns the width of the horizontal divider bar, set by <page>DHorizontalDivider:SetDividerWidth</page>.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">The width of the horizontal divider bar</ret>
+	</rets>
+</function>

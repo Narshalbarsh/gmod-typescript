@@ -1,0 +1,10 @@
+<function name="GetMaxArmor" parent="Player" type="classfunc">
+	<description>
+Returns the maximum amount of armor the player should have. Default value is 100.
+	</description>
+	<realm>Shared</realm>
+	<added>2020.10.14</added>
+	<rets>
+		<ret name="maxarmor" type="number">The new max armor value</ret>
+	</rets>
+</function>

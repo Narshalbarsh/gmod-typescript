@@ -1,0 +1,8 @@
+<function name="Render" parent="halo" type="libraryfunc">
+	<description><internal></internal>Renders a halo according to the specified table, only used internally, called from a <page>GM:PostDrawEffects</page> hook added by the halo library.</description>
+	<realm>Client</realm>
+	<file line="39-L145">lua/includes/modules/halo.lua</file>
+	<args>
+		<arg name="entry" type="table">Table with info about the halo to draw.</arg>
+	</args>
+</function>

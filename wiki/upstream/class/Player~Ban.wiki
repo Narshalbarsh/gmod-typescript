@@ -1,0 +1,14 @@
+<function name="Ban" parent="Player" type="classfunc">
+	<description>Bans the player from the server for a certain amount of minutes.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="minutes" type="number">Duration of the ban in minutes (0 is permanent)</arg>
+		<arg name="kick" type="boolean" default="false">Whether to kick the player after banning them or not</arg>
+	</args>
+</function>
+
+<example>
+	<description>Kicks and bans the player for a day.</description>
+	<code>Entity( 1 ):Ban( 1440, true )</code>
+
+</example>

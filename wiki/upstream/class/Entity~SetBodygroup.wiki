@@ -1,0 +1,19 @@
+<function name="SetBodygroup" parent="Entity" type="classfunc">
+	<description>
+		Sets the currently active <page text="Sub Model ID">Structures/BodyGroupData#submodels</page> for the Body Group corresponding to the given <page text="Body Group ID">Structures/BodyGroupData#id</page> of the <page text="Entity's">Entity</page> model.
+
+Bodygroups, for which <page>Entity:GetBodygroupCount</page> returns `1` or less are considered invalid, and will have no effect in-game.
+		<note>When used on a Weapon, this will modify its viewmodel.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="bodyGroupId" type="number">
+			The Body Group ID to set the Sub Model ID of.  
+			Body Group IDs start at `0`.
+		</arg>
+		<arg name="subModelId" type="number">
+			The Sub Model ID to set as active for this Body Group.  
+			Sub Model IDs start at `0`.
+		</arg>
+	</args>
+</function>

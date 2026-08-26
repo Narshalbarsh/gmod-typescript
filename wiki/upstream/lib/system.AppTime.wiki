@@ -1,0 +1,13 @@
+<function name="AppTime" parent="system" type="libraryfunc">
+	<description>
+Returns the total uptime of the current application as reported by Steam.
+
+This will return a similar value to <page>Global.SysTime</page>.
+
+<note>This function does not work on Dedicated Servers and will instead return no value.</note>
+	</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="number">Seconds of game uptime as an integer.</ret>
+	</rets>
+</function>

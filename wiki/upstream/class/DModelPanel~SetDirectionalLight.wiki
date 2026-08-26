@@ -1,0 +1,42 @@
+<function name="SetDirectionalLight" parent="DModelPanel" type="panelfunc">
+	<description>Sets the directional lighting used on the rendered entity.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="direction" type="number">The light direction, see <page>Enums/BOX</page>.</arg>
+		<arg name="color" type="Color">The <page>Color</page> of the directional lighting.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Displays a model panel with no directional lighting. Dr. Kleiner is only lit by the ambient light set by <page>DModelPanel:SetAmbientLight</page>.</description>
+	<code>
+-- Black background panel
+BGPanel = vgui.Create("DPanel")
+BGPanel:SetPos(20, 20)
+BGPanel:SetSize(400, 400)
+BGPanel:SetBackgroundColor(Color(0, 0, 0, 255))
+
+local mdl = vgui.Create("DModelPanel", BGPanel)
+mdl:SetSize(BGPanel:GetSize())
+	
+-- Setup model and camera
+mdl:SetModel("models/kleiner.mdl")
+mdl:SetCamPos(Vector(20, 20, 60))
+mdl:SetLookAt(Vector(0, 0, 60))
+
+-- Make Kleiner pace
+mdl:GetEntity():SetSequence(mdl:GetEntity():LookupSequence("pace_all"))
+
+-- Disable directional lighting
+mdl:SetDirectionalLight(BOX_TOP, Color(0, 0, 0))
+mdl:SetDirectionalLight(BOX_FRONT, Color(0, 0, 0))
+
+-- Spin around faster and play animation
+function mdl:LayoutEntity(ent)
+	ent:SetAngles(Angle( 0, self.LastPaint*60,  0))
+	self:RunAnimation()
+end
+	</code>
+	<output><image src="DModelPanel_SetDirectionalLight_example1.jpg"/></output>
+
+</example>

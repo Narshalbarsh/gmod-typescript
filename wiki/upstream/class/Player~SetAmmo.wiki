@@ -1,0 +1,8 @@
+<function name="SetAmmo" parent="Player" type="classfunc">
+	<description>Sets the amount of the specified ammo for the player.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="ammoCount" type="number">The amount of ammunition to set.</arg>
+		<arg name="ammoType" type="any">The ammunition type. Can be either number ammo ID or string ammo name. See <page>Default Ammo Types</page> for default values.</arg>
+	</args>
+</function>

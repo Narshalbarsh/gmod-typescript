@@ -1,0 +1,20 @@
+<function name="SetNetworkedNumber" parent="Entity" type="classfunc">
+	<description><deprecated>You should be using <page>Entity:SetNWFloat</page> instead.</deprecated>
+
+Sets a networked number at the specified index on the entity.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="index" type="any">The index that the value is stored in.</arg>
+		<arg name="number" type="number">The value to network.</arg>
+	</args>
+</function>
+
+<example>
+	<description>This will set the networked number 'score' on all clients to 3.</description>
+	<code>
+for i, ply in ipairs( player.GetAll() ) do
+    ply:SetNetworkedNumber( 'score', 3 )
+end
+	</code>
+
+</example>

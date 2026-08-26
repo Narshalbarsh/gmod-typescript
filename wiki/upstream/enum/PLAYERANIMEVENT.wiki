@@ -1,0 +1,54 @@
+<enum>
+	<realm>Shared</realm>
+	<description>Used by <page>GM:DoAnimationEvent</page> and <page>Player:DoCustomAnimEvent</page>.</description>
+	<items>
+<item key="PLAYERANIMEVENT_ATTACK_PRIMARY" value="0">Primary attack</item>
+
+<item key="PLAYERANIMEVENT_ATTACK_SECONDARY" value="1">Secondary attack</item>
+
+<item key="PLAYERANIMEVENT_ATTACK_GRENADE" value="2">Grenade throw</item>
+
+<item key="PLAYERANIMEVENT_RELOAD" value="3">Reload</item>
+
+<item key="PLAYERANIMEVENT_RELOAD_LOOP" value="4">Looping reload (single-reload shotguns)</item>
+
+<item key="PLAYERANIMEVENT_RELOAD_END" value="5">Looping reload end</item>
+
+<item key="PLAYERANIMEVENT_JUMP" value="6">Jump</item>
+
+<item key="PLAYERANIMEVENT_SWIM" value="7">Swim</item>
+
+<item key="PLAYERANIMEVENT_DIE" value="8">Die</item>
+
+<item key="PLAYERANIMEVENT_FLINCH_CHEST" value="9"></item>
+
+<item key="PLAYERANIMEVENT_FLINCH_HEAD" value="10"></item>
+
+<item key="PLAYERANIMEVENT_FLINCH_LEFTARM" value="11"></item>
+
+<item key="PLAYERANIMEVENT_FLINCH_RIGHTARM" value="12"></item>
+
+<item key="PLAYERANIMEVENT_FLINCH_LEFTLEG" value="13"></item>
+
+<item key="PLAYERANIMEVENT_FLINCH_RIGHTLEG" value="14"></item>
+
+<item key="PLAYERANIMEVENT_DOUBLEJUMP" value="15"></item>
+
+<item key="PLAYERANIMEVENT_CANCEL" value="16"></item>
+
+<item key="PLAYERANIMEVENT_SPAWN" value="17">Spawn</item>
+
+<item key="PLAYERANIMEVENT_SNAP_YAW" value="18"></item>
+
+<item key="PLAYERANIMEVENT_CUSTOM" value="19">Custom activity</item>
+
+<item key="PLAYERANIMEVENT_CUSTOM_GESTURE" value="20">Play activity in gesture slot</item>
+
+<item key="PLAYERANIMEVENT_CUSTOM_SEQUENCE" value="21">Play sequence</item>
+
+<item key="PLAYERANIMEVENT_CUSTOM_GESTURE_SEQUENCE" value="22">Play sequence in gesture slot</item>
+
+<item key="PLAYERANIMEVENT_CANCEL_RELOAD" value="23">Cancel reload animation</item>
+	</items>
+
+</enum>

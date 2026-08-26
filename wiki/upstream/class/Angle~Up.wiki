@@ -1,0 +1,7 @@
+<function name="Up" parent="Angle" type="classfunc">
+	<description>Returns a normal vector facing in the direction that points up relative to the angle's direction.</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="Vector">The up direction of the angle.</ret>
+	</rets>
+</function>

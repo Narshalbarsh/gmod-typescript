@@ -1,0 +1,7 @@
+<function name="IsScripted" parent="Entity" type="classfunc">
+	<description>Checks if the entity is a SENT or a built-in entity.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">Returns true if entity is scripted ( SENT ), false if not ( A built-in engine entity )</ret>
+	</rets>
+</function>

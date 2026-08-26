@@ -1,0 +1,8 @@
+<function name="GetDnD" parent="DDragBase" type="panelfunc">
+	<description>Returns the drag'n'drop group this panel belongs to. See <page>DDragBase:MakeDroppable</page>. An <page>Global.AccessorFunc</page></description>
+	<realm>Client and Menu</realm>
+	<file line="4">lua/vgui/ddragbase.lua</file>
+	<rets>
+		<ret name="" type="string">Name of the DnD family.</ret>
+	</rets>
+</function>

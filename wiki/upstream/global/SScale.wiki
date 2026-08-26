@@ -1,0 +1,19 @@
+<function name="SScale" parent="Global" type="libraryfunc">
+	<description>
+<deprecated>You should be using <page>Global.ScreenScale</page> instead.</deprecated>
+
+Returns a number based on the Size argument and your screen's width. Alias of <page>Global.ScreenScale</page>.
+	</description>
+	<file line="14">lua/includes/extensions/client/globals.lua</file>
+	<realm>Client</realm>
+	<args>
+		<arg name="Size" type="number">The number you want to scale.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Prints a scaled number based on the number 40.</description>
+	<code>print( SScale( 40 ) )</code>
+	<output>105 (this will differ depending on your screen size)</output>
+
+</example>

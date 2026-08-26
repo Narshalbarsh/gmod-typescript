@@ -1,0 +1,15 @@
+<function name="GetNWInt" parent="Entity" type="classfunc">
+	<description>
+Retrieves a networked integer (whole number) value that was previously set by <page>Entity:SetNWInt</page>.
+
+<bug issue="3374">This function will not round decimal values as it actually networks a float internally.</bug>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="key" type="string">The key that is associated with the value</arg>
+		<arg name="fallback" type="any" default="0">The value to return if we failed to retrieve the value (If it isn't set).</arg>
+	</args>
+	<rets>
+		<ret name="" type="any">The value associated with the key</ret>
+	</rets>
+</function>

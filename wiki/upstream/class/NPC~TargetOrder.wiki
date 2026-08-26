@@ -1,0 +1,24 @@
+<function name="TargetOrder" parent="NPC" type="classfunc">
+	<description>
+Cancels <page>NPC:MoveOrder</page> basically.
+
+Only works on Citizens (npc_citizen) and is a part of the Half-Life 2 squad system.
+
+The NPC **must** be in the player's squad for this to work.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="target" type="Entity">Must be a player, does nothing otherwise.</arg>
+	</args>
+</function>
+
+<example>
+	<description>A console command that once used cancels Move Orders and makes the NPCs return to the player.</description>
+	<code>
+concommand.Add( "targetnpcs", function( ply )
+	for id, npc in ipairs( ents.FindByClass( "npc_citizen" ) ) do
+		npc:TargetOrder( ply )
+	end
+end )
+	</code>
+</example>

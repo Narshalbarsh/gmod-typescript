@@ -1,0 +1,15 @@
+<function name="ColorPicker" parent="ControlPanel" type="panelfunc">
+	<description>Creates a <page>CtrlColor</page> (a color picker) panel and adds it as an <page text="item">ControlPanel:AddPanel</page>.</description>
+	<added>2021.12.15</added>
+	<realm>Client</realm>
+	<file line="94-L113">gamemodes/sandbox/gamemode/spawnmenu/controlpanel.lua</file>
+	<args>
+		<arg name="label" type="string">The label for this color picker.</arg>
+<arg name="convarR" type="string">Name of the <page>convar</page> that will store the R component of the selected color.</arg>
+<arg name="convarG" type="string">Name of the <page>convar</page> that will store the G component of the selected color.</arg><arg name="convarB" type="string">Name of the <page>convar</page> that will store the B component of the selected color.</arg>
+<arg name="convarA" type="string" default="nil">Name of the <page>convar</page> that will store the A component of the selected color.</arg>
+	</args>
+	<rets>
+		<ret name="" type="CtrlColor">The created <page>CtrlColor</page> panel.</ret>
+	</rets>
+</function>

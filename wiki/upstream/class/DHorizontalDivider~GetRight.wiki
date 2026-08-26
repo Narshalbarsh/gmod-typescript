@@ -1,0 +1,7 @@
+<function name="GetRight" parent="DHorizontalDivider" type="panelfunc">
+	<description>Returns the right side content</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="Panel">The right side content</ret>
+	</rets>
+</function>

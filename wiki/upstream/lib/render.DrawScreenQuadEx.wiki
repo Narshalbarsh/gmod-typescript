@@ -1,0 +1,28 @@
+<function name="DrawScreenQuadEx" parent="render" type="libraryfunc">
+	<description>
+Draws the current material set by <page>render.SetMaterial</page> to the area specified. Color cannot be customized.
+
+See also <page>render.DrawScreenQuad</page>.
+
+<rendercontext hook="false" type="2D"></rendercontext>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="startX" type="number">X start position of the rect.</arg>
+		<arg name="startY" type="number">Y start position of the rect.</arg>
+		<arg name="width" type="number">Width of the rect.</arg>
+		<arg name="height" type="number">Height of the rect.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Example usage, draws a 256x256 rectangle with the wireframe material.</description>
+	<code>
+local ourMat = Material( "models/wireframe" )
+hook.Add( "HUDPaint", "example_hook", function()
+	render.SetMaterial( ourMat )
+	render.DrawScreenQuadEx( 100, 100, 256, 256 )
+end )
+	</code>
+
+</example>

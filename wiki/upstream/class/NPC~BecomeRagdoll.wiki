@@ -1,0 +1,14 @@
+<cat>classfunc</cat>
+<title>NPC:BecomeRagdoll</title>
+
+<function name="BecomeRagdoll" parent="NPC" type="classfunc">
+	<description>Become a ragdoll and remove the entity. Internally handles serverside/clientside ragdoll creation, momentum calculation, triggering ragdoll creation hooks / events and cloning entity's bone transforms to the created ragdoll. </description>
+	<added>2025.08.08</added>
+	<realm>Server</realm>
+	<args>
+		<arg name="info" type="CTakeDamageInfo">Damage info passed from an onkilled event</arg>
+	</args>
+	<rets>
+		<ret name="" type="Entity">The created serverside ragdoll, nil if failed or a clientside ragdoll created. </ret>
+	</rets>
+</function>

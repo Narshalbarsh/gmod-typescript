@@ -1,0 +1,8 @@
+<function name="SetConstraintSpeedScale" parent="CMoveData" type="classfunc">
+	<description>Sets the player movement constraint speed scale. This will be applied to the player within the <page text="constraint radius">CMoveData:SetConstraintRadius</page> when approaching its edge.</description>
+	<added>2021.06.09</added>
+	<realm>Shared</realm>
+	<args>
+		<arg name="" type="number">The constraint speed scale</arg>
+	</args>
+</function>

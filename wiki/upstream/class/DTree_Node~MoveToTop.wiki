@@ -1,0 +1,4 @@
+<function name="MoveToTop" parent="DTree_Node" type="panelfunc">
+	<description>Moves this node to the top of the level.</description>
+	<realm>Client and Menu</realm>
+</function>

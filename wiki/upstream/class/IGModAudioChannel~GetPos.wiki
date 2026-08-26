@@ -1,0 +1,7 @@
+<function name="GetPos" parent="IGModAudioChannel" type="classfunc">
+	<description>Returns position of the sound channel</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="Vector">The position of the sound channel, previously set by <page>IGModAudioChannel:SetPos</page></ret>
+	</rets>
+</function>

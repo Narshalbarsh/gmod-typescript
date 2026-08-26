@@ -1,0 +1,11 @@
+<function name="SteamTime" parent="system" type="libraryfunc">
+	<description>
+Returns the synchronized Steam time. This is the number of seconds since the [Unix epoch](http://en.wikipedia.org/wiki/Unix_time).
+
+<note>This function does not work on Dedicated Servers and will instead return no value.</note>
+	</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="number">Current Steam-synchronized Unix time.</ret>
+	</rets>
+</function>

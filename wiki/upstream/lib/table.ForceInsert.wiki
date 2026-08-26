@@ -1,0 +1,12 @@
+<function name="ForceInsert" parent="table" type="libraryfunc">
+	<description>Inserts a value in to the given table even if the table is non-existent</description>
+	<realm>Shared and Menu</realm>
+	<file line="393-L401">lua/includes/extensions/table.lua</file>
+	<args>
+		<arg name="tab" type="table" default="{}">Table to insert value in to</arg>
+		<arg name="value" type="any">Value to insert</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">The supplied or created table</ret>
+	</rets>
+</function>

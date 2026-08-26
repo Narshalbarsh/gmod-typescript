@@ -1,0 +1,7 @@
+<function name="GetMinimumWidth" parent="DMenu" type="panelfunc">
+	<description>Returns the minimum width of the <page>DMenu</page> in pixels</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">the minimum width of the <page>DMenu</page></ret>
+	</rets>
+</function>

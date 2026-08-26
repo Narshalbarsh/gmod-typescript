@@ -1,0 +1,7 @@
+<function name="GetAngles" parent="CEffectData" type="classfunc">
+	<description>Returns the angles of the effect.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Angle">The angles of the effect</ret>
+	</rets>
+</function>

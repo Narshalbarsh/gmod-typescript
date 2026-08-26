@@ -1,0 +1,9 @@
+<function name="SetDefaultColor" parent="DColorCube" type="panelfunc">
+	<description>An <page>Global.AccessorFunc</page> that sets the color cube's default color. This value will be used to reset to on middle mouse click of the color cube's draggable slider.</description>
+	<realm>Client and Menu</realm>
+	<file line="7">lua/vgui/dcolorcube.lua</file>
+	<args>
+		<arg name="" type="Color">The new default <page>Color</page>.</arg>
+	</args>
+	<added>2024.05.02</added>
+</function>

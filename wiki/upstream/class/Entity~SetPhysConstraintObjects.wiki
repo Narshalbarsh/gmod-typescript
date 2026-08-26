@@ -1,0 +1,29 @@
+<function name="SetPhysConstraintObjects" parent="Entity" type="classfunc">
+	<description>
+When called on a constraint entity, sets the two physics objects to be constrained.
+
+Usage is not recommended as the Constraint library provides easier ways to deal with constraints.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="Phys1" type="PhysObj">The first physics object to be constrained.</arg>
+		<arg name="Phys2" type="PhysObj">The second physics object to be constrained.</arg>
+	</args>
+</function>
+
+<example>
+	<description>From constraint.lua</description>
+	<code>
+Constraint = ents.Create("phys_lengthconstraint")
+	Constraint:SetPos( WPos1 )
+	Constraint:SetKeyValue( "attachpoint", tostring(WPos2) )
+	Constraint:SetKeyValue( "minlength", "0.0" )
+	Constraint:SetKeyValue( "length", length + addlength )
+	if ( forcelimit ) then Constraint:SetKeyValue( "forcelimit", forcelimit ) end
+	if ( rigid ) then Constraint:SetKeyValue( "spawnflags", 2 ) end
+	Constraint:SetPhysConstraintObjects( Phys1, Phys2 )
+Constraint:Spawn()
+Constraint:Activate()
+	</code>
+
+</example>

@@ -1,0 +1,4 @@
+<function name="SpawnedRagdoll" parent="achievements" type="libraryfunc">
+	<description><internal></internal>Adds one to the count of ragdolls spawned. Once this count reaches 2000, the 'Dollhouse' achievement is unlocked.</description>
+	<realm>Client</realm>
+</function>

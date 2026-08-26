@@ -1,0 +1,13 @@
+<function name="getfenv" parent="debug" type="libraryfunc">
+	<description>
+<deprecated></deprecated>
+
+Returns the environment of the passed object. This can be set with <page>debug.setfenv</page>.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="object" type="table">Object to get environment of.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">The environment.</ret>
+	</rets>
+</function>

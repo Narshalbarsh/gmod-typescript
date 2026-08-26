@@ -1,0 +1,8 @@
+<function name="BodyMoveXY" parent="NextBot" type="classfunc">
+	<description>
+Should only be called in <page>NEXTBOT:BodyUpdate</page>. This sets the `move_x` and `move_y` pose parameters of the bot to fit how they're currently moving, sets the animation speed (<page>Entity:GetPlaybackRate</page>) to suit the ground speed, and calls <page>Entity:FrameAdvance</page>.
+
+<bug issue="3420">This function might cause crashes with some activities.</bug>
+	</description>
+	<realm>Server</realm>
+</function>

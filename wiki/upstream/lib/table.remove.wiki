@@ -1,0 +1,33 @@
+<function name="remove" parent="table" type="libraryfunc">
+	<description>Removes a value from a table and shifts any other values down to fill the gap.
+<note>Does nothing if index is less than 1 or greater than `#tbl`</note></description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="tbl" type="table">The table to remove the value from.</arg>
+		<arg name="index" type="number" default="#tbl">The index of the value to remove.</arg>
+	</args>
+	<rets>
+		<ret name="" type="any">The value that was removed.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Demonstrates the use of this function.</description>
+	<code>
+sentence = { "hello", "there", "my", "name", "is", "Player1" }
+print( table.remove( sentence ) ) -- Using no second arg removes the last value
+print( table.remove( sentence, 2 ) )
+PrintTable( sentence )
+	</code>
+	<output>
+```
+Player1
+there
+1 = hello
+2 = my
+3 = name
+4 = is
+```
+	</output>
+
+</example>

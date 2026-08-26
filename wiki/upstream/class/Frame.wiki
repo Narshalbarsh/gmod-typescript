@@ -1,0 +1,23 @@
+<panel>
+	<name>Frame</name>
+	<parent>Panel</parent>
+	<realm>Client</realm>
+	<description>
+		<deprecated>You should use <page>DFrame</page> instead.</deprecated>
+	
+		A window that in which you can place just about every other component and even another frame.
+	</description>
+</panel>
+
+
+<example>
+	<description>Creates a simple frame that's centered.</description>
+	<code>
+local frame = vgui.Create("Frame")
+frame:SetSize( ScrW()*0.25, ScrH()*0.25 )
+frame:Center()
+frame:SetVisible( true )
+frame:MakePopup()
+	</code>
+
+</example>

@@ -1,0 +1,8 @@
+<function name="SetFOV" parent="NPC" type="classfunc">
+	<description>Sets the Field Of View of the NPC, for use with such functions as <page>NPC:IsInViewCone</page>. it is also used internally by the NPC for enemy detection, etc.</description>
+	<realm>Server</realm>
+	<added>2024.12.03</added>
+	<args>
+		<arg name="fov" type="number">The new FOV for the NPC in degrees.</arg>
+	</args>
+</function>

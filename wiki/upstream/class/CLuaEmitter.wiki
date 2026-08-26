@@ -1,0 +1,3 @@
+<type name="CLuaEmitter" category="classfunc" is="class">
+	<summary>List of all possible functions available for LuaEmitters. This is the object returned by the <page>Global.ParticleEmitter</page> function.</summary>
+</type>

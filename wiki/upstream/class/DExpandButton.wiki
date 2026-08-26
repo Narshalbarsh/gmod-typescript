@@ -1,0 +1,12 @@
+<panel>
+	<parent>DButton</parent>
+	<realm>Client and Menu</realm>
+	<file line="">lua/vgui/dexpandbutton.lua</file>
+	<description>
+		<internal></internal>
+		The little "+" button used by <page>DProperties</page> and <page>DTree_Node</page>.
+	</description>
+	<overrides>
+		<page>Panel:GenerateExample</page>
+	</overrides>
+</panel>

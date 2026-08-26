@@ -1,0 +1,7 @@
+<function name="GetQuadraticAttenuation" parent="ProjectedTexture" type="classfunc">
+	<description>Returns the quadratic attenuation of the projected texture, which can also be set by <page>ProjectedTexture:SetQuadraticAttenuation</page>.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">The quadratic attenuation</ret>
+	</rets>
+</function>

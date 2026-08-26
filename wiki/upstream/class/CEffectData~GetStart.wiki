@@ -1,0 +1,7 @@
+<function name="GetStart" parent="CEffectData" type="classfunc">
+	<description>Returns the start position of the effect.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Vector">The start position of the effect</ret>
+	</rets>
+</function>

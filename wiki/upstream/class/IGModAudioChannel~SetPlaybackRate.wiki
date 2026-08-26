@@ -1,0 +1,7 @@
+<function name="SetPlaybackRate" parent="IGModAudioChannel" type="classfunc">
+	<description>Sets the playback rate of the sound channel. May not work with high values for radio streams.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="rate" type="number">Playback rate to set to. 1 is normal speed, 0.5 is half the normal speed, etc.</arg>
+	</args>
+</function>

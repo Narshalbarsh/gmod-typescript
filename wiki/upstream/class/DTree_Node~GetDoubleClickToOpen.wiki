@@ -1,0 +1,7 @@
+<function name="GetDoubleClickToOpen" parent="DTree_Node" type="panelfunc">
+	<description>Returns whether the double clock to collapse/expand functionality is enabled on this node.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean"></ret>
+	</rets>
+</function>

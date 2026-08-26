@@ -1,0 +1,18 @@
+<function name="AdjustMouseSensitivity" parent="GM" type="hook">
+	<description>Allows you to adjust the mouse sensitivity.</description>
+	<realm>Client</realm>
+	<file line="418">gamemodes/base/gamemode/cl_init.lua</file>
+	<args>
+		<arg name="defaultSensitivity" type="number">The old sensitivity
+
+In general it will be 0, which is equivalent to a sensitivity of 1.</arg>
+		<arg name="localFOV" type="number">Player's current FOV.</arg>
+		<arg name="defaultFOV" type="number">Default FOV.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">A fraction of the normal sensitivity (0.5 would be half as sensitive).
+
+Return -1 to not override and prevent subsequent hooks and <page>WEAPON:AdjustMouseSensitivity</page> from running.  
+Return <page>nil</page> to not override and allow subsequent hooks and <page>WEAPON:AdjustMouseSensitivity</page> to run.</ret>
+	</rets>
+</function>

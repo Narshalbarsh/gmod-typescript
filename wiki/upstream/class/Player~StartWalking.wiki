@@ -1,0 +1,18 @@
+<function name="StartWalking" parent="Player" type="classfunc">
+	<description>
+<deprecated>This appears to be a direct binding to internal functionality that is overridden by the engine every frame so calling these functions may not have any or expected effect.</deprecated>
+
+When used in a <page>GM:SetupMove</page> hook, this function will force the player to walk, as well as preventing the player from sprinting.
+	</description>
+	<realm>Shared</realm>
+</function>
+
+<example>
+	<description>Example usage, forces the player to walk. (+walk console command)</description>
+	<code>
+hook.Add( "SetupMove", "TestFunc", function( ply, mv, cmd )
+	ply:StartWalking()
+end )
+	</code>
+
+</example>

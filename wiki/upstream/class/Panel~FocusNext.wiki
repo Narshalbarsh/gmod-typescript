@@ -1,0 +1,4 @@
+<function name="FocusNext" parent="Panel" type="classfunc">
+	<description>Focuses the next panel in the focus queue.</description>
+	<realm>Client and Menu</realm>
+</function>

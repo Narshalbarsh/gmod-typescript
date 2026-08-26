@@ -1,0 +1,13 @@
+<function name="IsPaused" parent="timer" type="libraryfunc">
+	<description>Returns whenever the given timer is paused or not. (<page>timer.Pause</page>)
+
+</description>
+	<added>2026.06.25</added>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="identifier" type="string">Identifier of the timer. (<page>timer.Create</page>)</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Returns true if the timer is paused, false if it isn't, `nil` if it doesn't exist.</ret>
+	</rets>
+</function>

@@ -1,0 +1,13 @@
+<function name="IsFullyAuthenticated" parent="Player" type="classfunc">
+	<description>Returns whether the player identity was confirmed by the Steam network.
+
+See also <page>GM:NetworkIDValidated</page>.
+</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the player has been fully authenticated or not.
+
+This will always be true for singleplayer and the listen server host.
+This will always be false for bots.</ret>
+	</rets>
+</function>

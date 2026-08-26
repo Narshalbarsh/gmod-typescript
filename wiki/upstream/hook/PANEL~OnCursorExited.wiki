@@ -1,0 +1,6 @@
+<function name="OnCursorExited" parent="PANEL" type="hook">
+	<description>Called whenever the cursor left the panels bounds.</description>	
+	<realm>Client</realm>
+</function>
+
+<warning>This wont be called if <page>Panel:OnCursorEntered</page> is called on the same frame</warning>

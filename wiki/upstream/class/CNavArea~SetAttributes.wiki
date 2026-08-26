@@ -1,0 +1,7 @@
+<function name="SetAttributes" parent="CNavArea" type="classfunc">
+	<description>Sets the attributes for given <page>CNavArea</page>. See <page>CNavArea:HasAttributes</page>.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="attribs" type="number">The attributes to set, as a bitflag. See <page>Enums/NAV_MESH</page>.</arg>
+	</args>
+</function>

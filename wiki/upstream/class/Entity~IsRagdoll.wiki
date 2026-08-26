@@ -1,0 +1,7 @@
+<function name="IsRagdoll" parent="Entity" type="classfunc">
+	<description>Checks if the entity is a ragdoll, or became a ragdoll. Internally checks whether [kRenderFXRagdoll](kRenderFX) is set.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">Is ragdoll or not</ret>
+	</rets>
+</function>

@@ -1,0 +1,14 @@
+<function name="Sign" parent="math" type="libraryfunc">
+	<description>
+Returns the mathematical negative/positive sign of the input number.
+	</description>
+	<realm>Shared and Menu</realm>
+	<added>2026.05.25</added>
+	<file line="185-L187">lua/includes/extensions/math.lua</file>
+	<args>
+		<arg name="value" type="number">The input number.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">`-1` for inputs of less than 0, `0` if given a 0, `1` for inputs above 0.</ret>
+	</rets>
+</function>

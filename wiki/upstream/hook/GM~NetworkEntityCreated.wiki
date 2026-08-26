@@ -1,0 +1,17 @@
+<function name="NetworkEntityCreated" parent="GM" type="hook">
+	<description>Called when an entity has been created over the network.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="ent" type="Entity">Created entity</arg>
+	</args>
+</function>
+
+
+<example>
+	<description>Prints newly created/networked entitys to the players chat.</description>
+<code>
+hook.Add("NetworkEntityCreated", "InformPlayerOnEntityCreation", function(ent)
+    chat.AddText("A entity was created/networked: " .. tostring(ent) .. " (" .. ent:GetClass() .. ")")
+end)
+</code>
+</example>

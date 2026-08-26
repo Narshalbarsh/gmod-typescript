@@ -1,0 +1,16 @@
+<function name="GetDTVector" parent="Entity" type="classfunc">
+	<description>
+<internal></internal>
+This is called internally by the <page>Entity:NetworkVar</page> system, you can use this in cases where using NetworkVar is not possible.
+
+Get a vector stored in the datatable of the entity.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="key" type="number">Goes from 0 to 31.
+Specifies what key to grab from datatable.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">Requested vector.</ret>
+	</rets>
+</function>

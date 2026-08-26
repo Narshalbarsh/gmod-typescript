@@ -1,0 +1,11 @@
+<function name="GetMaxSpeed" parent="Player" type="classfunc">
+	<description>
+Returns the player's maximum movement speed.
+
+See also <page>Player:SetMaxSpeed</page>, <page>Player:GetWalkSpeed</page> and <page>Player:GetRunSpeed</page>.
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The maximum movement speed the player can go at.</ret>
+	</rets>
+</function>

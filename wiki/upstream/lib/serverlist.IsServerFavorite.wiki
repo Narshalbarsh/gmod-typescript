@@ -1,0 +1,23 @@
+<function name="IsServerFavorite" parent="serverlist" type="libraryfunc">
+	<description>
+		Returns true if the given server address is in their favorites. 
+	</description>
+	<args>
+		<arg name="address" type="string">Server Address. **IP:Port like "127.0.0.1:27015"**</arg>
+	</args>
+	<rets>
+		<ret name="favorite" type="boolean">true if the server address is in their favorites</ret>
+	</rets>
+	<realm>Menu</realm>
+</function>
+
+<example>
+	<description>Adds an Address to the Favorites and checks if it has been added.</description>
+	<code>
+serverlist.AddServerToFavorites( "127.0.0.1:27015" )
+print( serverlist.IsServerFavorite( "127.0.0.1:27015" ) )
+	</code>
+	<output>
+true
+	</output>
+</example>

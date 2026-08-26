@@ -1,0 +1,7 @@
+<function name="PlayerEndVoice" parent="GM" type="hook">
+	<description>Called when player stops using voice chat.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="ply" type="Player">Player who stopped talking</arg>
+	</args>
+</function>

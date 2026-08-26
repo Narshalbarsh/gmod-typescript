@@ -1,0 +1,61 @@
+<function name="TestCollision" parent="ENTITY" type="hook">
+	<description>
+Allows you to override trace result when a trace hits the entity.
+
+Your entity **must** have <page>Entity:EnableCustomCollisions</page> enabled for this hook to work.
+
+Your entity must also be otherwise "hit-able" with a trace, so it should have <page text="SOLID_OBB">Enums/SOLID#SOLID_OBB</page> or <page text="SOLID_VPHYSICS">Enums/SOLID#SOLID_VPHYSICS</page> be set (as an example), and it must have its <page text="collision bounds">Entity:SetCollisionBounds</page> be set accordingly.
+
+<note>This hook is called for `anim` type only.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="startpos" type="Vector">Start position of the trace.</arg>
+		<arg name="delta" type="Vector">Offset from startpos to the endpos of the trace.</arg>
+		<arg name="isbox" type="boolean">Is the trace a hull trace?</arg>
+		<arg name="extents" type="Vector">Size of the hull trace, with the center of the Bounding Box being `0, 0, 0`, so mins are `-extents`, and maxs are `extents`.</arg>
+		<arg name="mask" type="number">The <page>Enums/CONTENTS</page> mask.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">
+Returning a `table` will allow you to override trace results. Table should contain the following keys: (All keys fallback to the original trace value)
+* <page>Vector</page> `HitPos` - The new hit position of the trace.
+* <page>number</page> `Fraction` - A number from `0` to `1`, describing how far the trace went from its origin point, `1` = did not hit.
+  * Could be calculated like so : `Fraction = ( startpos + delta ):Length() / myCustomHitPos:Length()`
+* <page>Vector</page> `Normal` - A unit vector (length=1) describing the direction perpendicular to the hit surface.
+
+Returning `true` will allow "normal" collisions to happen for `SOLID_VPHYSICS` and `SOLID_OBB` entities.<br/>
+Returning `nothing` or `false` allows the trace to ignore the entity completely.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Example taken from `lua/entities/widget_base.lua`</description>
+	<code>
+function ENT:TestCollision( startpos, delta, isbox, extents )
+
+	if ( isbox ) then return end
+	if ( !widgets.Tracing ) then return end
+
+	-- TODO. Actually trace against our cube!
+
+	return
+	{
+		HitPos		= self:GetPos(),
+		Fraction	= 0.5 * self:GetPriority()
+	}
+
+end
+	</code>
+
+</example>
+
+<example>
+	<description>Allows players to shoot through the entity, but still stand on it and use the Physics Gun on it, etc.</description>
+	<code>
+local sent_contents = CONTENTS_GRATE
+function ENT:TestCollision( startpos, delta, isbox, extents, mask )
+	if bit.band( mask, sent_contents ) ~= 0 then return true end
+end
+	</code>
+</example>

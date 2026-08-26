@@ -1,0 +1,16 @@
+<function name="AddOutputFromKeyValue" parent="ENTITY" type="hook">
+	<added>2021.12.15</added>
+	<description>
+A helper function for creating <page>Scripted Entities</page>.
+
+Call it from <page>ENTITY:KeyValue</page> and it'll return true if it successfully added an output from the passed KV pair.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="key" type="string">The key-value key.</arg>
+		<arg name="value" type="string">The key-value value.</arg>
+	</args>
+	<rets>
+		<ret type="boolean">Whether any outputs were added or not.</ret>
+	</rets>
+</function>

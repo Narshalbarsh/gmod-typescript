@@ -1,0 +1,10 @@
+<function name="SetMovementSequence" parent="NPC" type="classfunc">
+	<description>Sets the sequence the NPC navigation path uses for speed calculation. Doesn't seem to have any visible effect on NPC movement or actively playing sequence.
+	
+To be able to use this, first set <page>NPC:SetIdealActivity</page> to `ACT_DO_NOT_DISTURB`, set this to any sequence with root motion data and call <page>Entity:SetSequence</page> on your desired sequence. As long as your NPC's <page>NPC:GetMovementSequence</page> has root motion data, your NPC will move to navigation point even though your NPC's <page>Entity:GetSequence</page> doesn't have any motion. 
+</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="sequenceId" type="number">The movement sequence index</arg>
+	</args>
+</function>

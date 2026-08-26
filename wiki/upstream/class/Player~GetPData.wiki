@@ -1,0 +1,26 @@
+<function name="GetPData" parent="Player" type="classfunc">
+	<description>
+Returns a **P**ersistent **Data** key-value pair from the SQL database. (`sv.db` when called on server, `cl.db` when called on client)
+
+Internally uses the <page>sql</page> library. See <page>util.GetPData</page> for cases when the player is not currently on the server.
+
+<note>This function internally uses <page>Player:SteamID64</page>, it previously utilized <page>Player:UniqueID</page> which can cause collisions (two or more players sharing the same PData entry). <page>Player:SetPData</page> now replaces all instances of <page>Player:UniqueID</page> with <page>Player:SteamID64</page> when running <page>Player:SetPData</page></note>
+
+<note>PData is not networked from servers to clients!</note>
+	</description>
+	<realm>Shared</realm>
+	<file line="111-L131">lua/includes/extensions/player.lua</file>
+	<args>
+		<arg name="key" type="string">Name of the PData key</arg>
+		<arg name="default" type="any" default="nil">Default value if PData key doesn't exist.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The data in the SQL database or the default value given.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Reads the key "money" from player 1's PData</description>
+	<code>Entity( 1 ):GetPData( "money", 0 )</code>
+
+</example>

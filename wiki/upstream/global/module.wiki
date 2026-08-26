@@ -1,0 +1,12 @@
+<function name="module" parent="Global" type="libraryfunc">
+	<description>
+Creates a table with the specified module name and sets the function environment for said table.
+
+Any passed loaders are called with the table as an argument. An example of this is <page>package.seeall</page>.
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="name" type="string">The name of the module. This will be used to access the module table in the runtime environment.</arg>
+		<arg name="loaders" type="vararg">Calls each function passed with the new table as an argument.</arg>
+	</args>
+</function>

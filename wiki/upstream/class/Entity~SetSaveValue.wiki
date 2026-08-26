@@ -1,0 +1,25 @@
+<function name="SetSaveValue" parent="Entity" type="classfunc">
+	<description>
+Sets a save value for an entity. You can see a full list of an entity's save values by creating it and printing <page>Entity:GetSaveTable</page>.
+
+See <page>Entity:GetInternalVariable</page> for the opposite of this function.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="name" type="string">Name of the save value to set</arg>
+		<arg name="value" type="any">Value to set</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Key successfully set</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Make all rollermines currently on the map friendly</description>
+	<code>
+for i, mine in ipairs( ents.FindByClass( "npc_rollermine" ) ) do
+   mine:SetSaveValue( "m_bHackedByAlyx", true )
+end
+	</code>
+
+</example>

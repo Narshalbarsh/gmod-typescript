@@ -1,0 +1,8 @@
+<function name="SetMaxLookDistance" parent="NPC" type="classfunc">
+	<description>Sets NPC's max view distance. An NPC will not be able to see enemies outside of this distance.</description>
+	<realm>Server</realm>
+	<added>2023.01.25</added>
+	<args>
+		<arg name="dist" type="number">New maximum distance the NPC can see at. Default is 2048 and 6000 for long range NPCs such as the sniper.</arg>
+	</args>
+</function>

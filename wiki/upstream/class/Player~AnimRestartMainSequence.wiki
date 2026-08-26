@@ -1,0 +1,4 @@
+<function name="AnimRestartMainSequence" parent="Player" type="classfunc">
+	<description>Restarts the main animation on the player, has the same effect as calling <page>Entity:SetCycle</page>( 0 ).</description>
+	<realm>Shared</realm>
+</function>

@@ -1,0 +1,8 @@
+<function name="Push" parent="Stack" type="classfunc">
+	<description>Push an item onto the stack</description>
+	<realm>Shared and Menu</realm>
+	<file line="251-L255">lua/includes/extensions/util.lua</file>
+	<args>
+		<arg name="object" type="any">The item you want to push</arg>
+	</args>
+</function>

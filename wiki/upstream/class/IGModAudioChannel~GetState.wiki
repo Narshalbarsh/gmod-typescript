@@ -1,0 +1,7 @@
+<function name="GetState" parent="IGModAudioChannel" type="classfunc">
+	<description>Returns the state of a sound channel</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">The state of the sound channel, see <page>Enums/GMOD_CHANNEL</page></ret>
+	</rets>
+</function>

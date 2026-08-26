@@ -1,0 +1,40 @@
+<function name="Merge" parent="table" type="libraryfunc">
+	<description>
+<note>This function can cause a stack overflow under certain circumstances.</note>
+Recursively merges the key-value pairs of the `source` table with the key-value pairs in the `destination` table.
+
+See <page>table.Inherit</page>, which doesn't override existing values.
+
+
+See also <page>table.Add</page>, which simply adds values of one table to another.
+
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="85-L99">lua/includes/extensions/table.lua</file>
+	<args>
+		<arg name="destination" type="table">The table you want the source table to merge with.</arg>
+		<arg name="source" type="table">The table you want to merge with the destination table.</arg>
+		<arg name="forceOverride" type="boolean" added="2023.11.28" default="false">If `true`, does not recursively merge sub-tables, and simply replaces them.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">Destination table</ret>
+	</rets>
+</function>
+
+<example>
+	<description>"Merges" the content of the second table with the first one, overwriting any matching key/value pairs in the destination with the source's version and prints the resulting merge.</description>
+	<code>
+local destination = {[1] = "A", [2] = "Golden", [3] = "Apple"}
+local source = {[1] = "Two", [2] = "Orange"}
+table.Merge( destination, source )
+PrintTable( destination )
+	</code>
+	<output>
+```
+1	=	Two
+2	=	Orange
+3	=	Apple
+```
+	</output>
+
+</example>

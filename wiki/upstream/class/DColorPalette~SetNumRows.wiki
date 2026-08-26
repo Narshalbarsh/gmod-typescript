@@ -1,0 +1,54 @@
+<function name="SetNumRows" parent="DColorPalette" type="panelfunc">
+	<description>
+Roughly sets the number of colors that can be picked by the user. If the DColorPalette is exactly 6 rows tall, this function will set the number of colors shown per row in the palette. This is an <page>Global.AccessorFunc</page>
+<note><page>DColorPalette:Reset</page> or <page>DColorPalette:ResetSavedColors</page> must be called after this function to apply changes.</note>
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="13">lua/vgui/dcolorpalette.lua</file>
+	<args>
+		<arg name="rows" type="number">Scale for the range of colors that the user can pick. Default is 8.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Creates four DColorPalettes, each with a varying number of colors per row.</description>
+	<code>
+local frame = vgui.Create( "DFrame" ) -- Create the window
+frame:SetSize( 350, 350 )
+frame:SetTitle( "SetNumRows Demonstration" )
+frame:Center()
+frame:MakePopup()
+
+local label = vgui.Create( "DLabel", frame ) -- Create the help text
+label:Dock( TOP )
+label:SetText( "Difference between SetNumRows( 4 ), SetNumRows( 8 ), SetNumRows( 16 ) and SetNumRows( 24 )" )
+label:SetWrap( true ) -- Enables text wrapping for lower resolutions
+label:SetAutoStretchVertical( true ) -- Needed for the text to show properly
+
+local pallette1 = vgui.Create( "DColorPalette", frame ) -- First DColorPalette with 4 colors per row
+pallette1:SetPos( 4, 60 )
+pallette1:SetNumRows( 4 )
+pallette1:SetSize( 40, 60 )
+pallette1:Reset()
+
+local pallette2 = vgui.Create( "DColorPalette", frame ) -- Second DColorPalette with 8 colors per row
+pallette2:SetPos( 4, 130 )
+pallette2:SetNumRows( 8 )
+pallette2:SetSize( 80, 60 )
+pallette2:Reset()
+
+local pallette3 = vgui.Create( "DColorPalette", frame ) -- Third DColorPalette with 16 colors per row
+pallette3:SetPos( 4, 200 )
+pallette3:SetNumRows( 16 )
+pallette3:SetSize( 160, 60 )
+pallette3:Reset()
+
+local pallette4 = vgui.Create( "DColorPalette", frame ) -- Fourth DColorPalette with 24 colors per row
+pallette4:SetPos( 4, 270 )
+pallette4:SetNumRows( 24 )
+pallette4:SetSize( 240, 60 )
+pallette4:Reset()
+	</code>
+	<output><image src="setnumrows_demonstration.png"/></output>
+
+</example>

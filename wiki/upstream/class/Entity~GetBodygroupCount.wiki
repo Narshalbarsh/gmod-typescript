@@ -1,0 +1,20 @@
+<function name="GetBodygroupCount" parent="Entity" type="classfunc">
+	<description>
+		Returns the number of <page text="Sub Models">Entity:GetSubModels</page> in the Body Group corresponding to a given <page text="Body Group ID">Structures/BodyGroupData#id</page> of the <page text="Entity's">Entity</page> model.
+		<note>
+			Weapons will return results from their viewmodels.
+		</note>
+</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="bodyGroupId" type="number">
+			The Body Group ID to retrieve the Sub Model count of.  
+			Body Group IDs start at `0`.
+		</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">
+			The number of Sub Models in the Body Group.
+		</ret>
+	</rets>
+</function>

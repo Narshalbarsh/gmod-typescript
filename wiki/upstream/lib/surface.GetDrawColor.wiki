@@ -1,0 +1,10 @@
+<function name="GetDrawColor" parent="surface" type="libraryfunc">
+	<description>
+Returns the current color affecting draw operations.
+
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="Color">The color that drawing operations will use.</ret>
+	</rets>
+</function>

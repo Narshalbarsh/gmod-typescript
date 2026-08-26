@@ -1,0 +1,8 @@
+<function name="GetBackgroundBlur" parent="DFrame" type="panelfunc">
+	<description>Gets whether the background behind the frame is being blurred.</description>
+	<realm>Client and Menu</realm>
+	<file line="14">lua/vgui/dframe.lua</file>
+	<rets>
+		<ret name="" type="boolean">Whether or not background blur is enabled.</ret>
+	</rets>
+</function>

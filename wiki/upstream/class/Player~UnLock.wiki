@@ -1,0 +1,8 @@
+<function name="UnLock" parent="Player" type="classfunc">
+	<description>
+Unlocks the player movement if locked previously.
+
+Will disable godmode for the player if locked previously.
+	</description>
+	<realm>Server</realm>
+</function>

@@ -1,0 +1,28 @@
+<function name="PreventScreenClicks" parent="GM" type="hook">
+	<description>This will prevent <key>IN_ATTACK</key> from sending to server when player tries to shoot from C menu.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="boolean">Return true to prevent screen clicks.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Disables usage of the World Clicker feature, where a player can hold <key>C</key> to shoot at their cursor instead of their crosshair.</description>
+	<code>
+hook.Add( "PreventScreenClicks", "DisableWorldClicker", function()
+	local pnl = vgui.GetHoveredPanel()
+	if ( IsValid( pnl ) ) then
+		if ( pnl:IsWorldClicker() ) then return true end
+
+		while ( IsValid( pnl:GetParent() ) ) do
+			pnl = pnl:GetParent()
+			if ( pnl:IsWorldClicker() ) then return true end
+		end
+	else
+		-- For when the cursor is outside of the game's window, there can be potential edge cases here
+		return true
+	end
+end )
+	</code>
+
+</example>

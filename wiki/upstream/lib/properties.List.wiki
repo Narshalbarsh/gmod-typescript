@@ -1,0 +1,7 @@
+<function name="List" parent="properties" type="libraryfield">
+	<description>A list of all properties registered with <page>properties.Add</page>.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="table">The list of all properties. The keys will be the first argument passed to <page>properties.Add</page>, the values will be the second argument.</ret>
+	</rets>
+</function>

@@ -1,0 +1,11 @@
+<function name="Deploy" parent="TOOL" type="hook">
+	<description>
+Called when <page>WEAPON:Deploy</page> of the toolgun is called.
+
+This is also called when switching from another tool on the server.</description>
+	<realm>Shared</realm>
+	<predicted>Yes</predicted>
+	<rets>
+		<ret name="" type="boolean">Return true to allow switching away from the toolgun using lastinv command</ret>
+	</rets>
+</function>

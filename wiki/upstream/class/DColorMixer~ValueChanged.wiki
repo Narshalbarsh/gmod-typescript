@@ -1,0 +1,13 @@
+<function name="ValueChanged" parent="DColorMixer" type="panelhook">	
+	<description>
+		Called when the player changes the color of the <page>DColorMixer</page>. Meant to be overridden.
+
+<bug>The returned color will not have the color metatable.</bug>
+	</description>
+	
+	<realm>Client and Menu</realm>
+	<file line="313-L315">lua/vgui/dcolormixer.lua</file>
+	<args>
+		<arg name="col" type="Color">The new color. See <page>Color</page></arg>
+	</args>
+</function>

@@ -1,0 +1,11 @@
+<function name="GetSlideX" parent="DSlider" type="panelfunc">
+	<description>
+Returns the target position of the draggable "knob" panel of the slider on the X axis.
+
+Set by <page>DSlider:SetSlideX</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The value range seems to be from 0 to 1</ret>
+	</rets>
+</function>

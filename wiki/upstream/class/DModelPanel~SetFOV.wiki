@@ -1,0 +1,41 @@
+<function name="SetFOV" parent="DModelPanel" type="panelfunc">
+	<description>Sets the panel camera's FOV (field of view).</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="fov" type="number">The field of view value.</arg>
+	</args>
+</function>
+
+<example>
+	<description>The best FOV demo you've ever seen.</description>
+	<code>
+BGPanel = vgui.Create("DPanel")
+BGPanel:SetPos(20, 20)
+BGPanel:SetSize(200, 200)
+	
+local mdl = vgui.Create("DModelPanel", BGPanel)
+mdl:Dock(FILL)
+mdl:SetModel("models/player/barney.mdl")
+
+local fov = 10	-- starting value
+local offset = 0.1	-- amount to increment by
+
+function mdl:LayoutEntity(ent)
+	
+	mdl:SetFOV(fov)	-- update FOV
+	
+	fov = fov + offset	-- increment
+	
+	if(fov >= 120 or fov <= 10) then
+		offset = offset*-1	-- inverse increment amount
+	end
+	
+	ent:SetSequence(ent:LookupSequence("taunt_muscle"))	-- FLEX
+	if(ent:GetCycle() >= 0.95) then ent:SetCycle(0.05) end	-- YOUR
+	mdl:RunAnimation()	-- MUSCLES
+	
+end
+	</code>
+	<output><image src="DModelPanel_SetFOV_example1.jpg"/></output>
+
+</example>

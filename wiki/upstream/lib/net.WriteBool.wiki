@@ -1,0 +1,8 @@
+<function name="WriteBool" parent="net" type="libraryfunc">
+	<description>Appends a boolean to the current net message. Alias of <page>net.WriteBit</page>.</description>
+	<realm>Shared</realm>
+	<file line="41-L41">lua/includes/extensions/net.lua</file>
+	<args>
+		<arg name="boolean" type="boolean">Boolean value to write.</arg>
+	</args>
+</function>

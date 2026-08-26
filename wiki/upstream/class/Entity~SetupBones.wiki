@@ -1,0 +1,8 @@
+<function name="SetupBones" parent="Entity" type="classfunc">
+	<description>
+Forces the entity to reconfigure its bones. You might need to call this after changing your model's scales or when manually drawing the entity multiple times at different positions.
+
+<note>This calls the BuildBonePositions callback added via <page>Entity:AddCallback</page>, so avoid calling this function inside it to prevent an infinite loop.</note>
+	</description>
+	<realm>Client</realm>
+</function>

@@ -1,0 +1,7 @@
+<function name="GetAlpha" parent="Panel" type="classfunc">
+	<description>Returns the alpha multiplier for this panel.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">alphaMul</ret>
+	</rets>
+</function>

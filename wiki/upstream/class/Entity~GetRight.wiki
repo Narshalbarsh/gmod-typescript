@@ -1,0 +1,7 @@
+<function name="GetRight" parent="Entity" type="classfunc">
+	<description>Returns the rightward vector of the entity, as a normalized direction vector</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Vector">rightDir</ret>
+	</rets>
+</function>

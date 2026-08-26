@@ -1,0 +1,21 @@
+<function name="Subscribe" parent="steamworks" type="libraryfunc">
+	<description>
+<internal></internal>
+
+Subscribes to the specified workshop addon. Call <page>steamworks.ApplyAddons</page> afterwards to update.
+	</description>
+	<realm>Menu</realm>
+	<args>
+		<arg name="workshopItemID" type="string">The ID of the Steam Workshop item we should subscribe to</arg>
+	</args>
+</function>
+
+<example>
+	<description>Subscribes to the Gm_construct_Beta Steam Workshop addon and reloads addons afterwards</description>
+	<code>
+steamworks.Subscribe( "21197" )
+steamworks.ApplyAddons()
+	</code>
+	<output>Subscribes to gm_construct_beta addon, if not already.</output>
+
+</example>

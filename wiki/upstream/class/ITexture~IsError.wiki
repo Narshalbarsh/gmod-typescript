@@ -1,0 +1,11 @@
+<function name="IsError" parent="ITexture" type="classfunc">
+	<description>
+Returns whenever the texture is valid. (i.e. was loaded successfully or not)
+
+<note>The "error" texture is a valid texture, and therefore this function will return false when used on it. Use <page>ITexture:IsErrorTexture</page>, instead.</note>
+	</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the texture was loaded successfully or not.</ret>
+	</rets>
+</function>

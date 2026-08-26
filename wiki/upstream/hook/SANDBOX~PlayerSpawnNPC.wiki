@@ -1,0 +1,12 @@
+<function name="PlayerSpawnNPC" parent="SANDBOX" type="hook">
+	<description>Called to ask if player allowed to spawn a particular NPC or not.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ply" type="Player">The player that wants to spawn that NPC</arg>
+		<arg name="npc_type" type="string">The npc type that player is trying to spawn</arg>
+		<arg name="weapon" type="string">The weapon of that NPC</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return false to disallow spawning that NPC</ret>
+	</rets>
+</function>

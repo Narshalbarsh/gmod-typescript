@@ -1,0 +1,26 @@
+<function name="JSONToTable" parent="util" type="libraryfunc">
+	<description>
+Converts a JSON string to a Lua table. It supports comments and trailing commas.
+
+See <page>util.TableToJSON</page> for the opposite function.
+
+<bug issue="2407">Colors will not have the color metatable.</bug>
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="json" type="string">The JSON string to convert.</arg>
+		<arg name="ignoreLimits" type="boolean" default="false" added="2023.09.05">
+			ignore the depth and breadth limits, **use at your own risk!**.
+			<warning>If this is false, there is a limit of 15,000 keys total.</warning>
+		</arg>
+		<arg name="ignoreConversions" type="boolean" default="false" added="2023.09.05">
+			ignore string to number conversions for table keys.
+			<warning>
+				if this is false, keys are converted to numbers wherever possible. This means using <page>Player:SteamID64</page> as keys won't work.
+			</warning>
+		</arg>
+	</args>
+	<rets>
+		<ret name="" type="table|nil">The table containing converted information. Returns `nil` on failure.</ret>
+	</rets>
+</function>

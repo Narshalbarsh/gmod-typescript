@@ -1,0 +1,7 @@
+<function name="GetTopHeight" parent="DVerticalDivider" type="panelfunc">
+	<description>Returns the current height of the top content panel set by <page>DVerticalDivider:SetTopHeight</page> or by the user.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">The current height of the <page>DVerticalDivider</page>.</ret>
+	</rets>
+</function>

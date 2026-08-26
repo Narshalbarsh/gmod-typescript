@@ -1,0 +1,78 @@
+<function name="ClearKeys" parent="table" type="libraryfunc">
+	<description>Changes all keys to sequential integers. This creates a new table object and does not affect the original.</description>
+	<realm>Shared and Menu</realm>
+	<file line="501-L514">lua/includes/extensions/table.lua</file>
+	<args>
+		<arg name="table" type="table">The original table to modify.</arg>
+		<arg name="saveKeys" type="boolean" default="false">Save the keys within each member table. This will insert a new field `__key` into each value, and should not be used if the table contains non-table values.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">Table with integer keys.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Changes all the table's keys to integer values</description>
+	<code>
+local Table = {One = "A", Two = "B", Three = "C"}
+local Table2 = table.ClearKeys(Table)
+PrintTable(Table2)
+	</code>
+	<output>
+1 = A
+
+
+2 = C
+
+
+3 = B
+	</output>
+
+</example>
+
+
+<example>
+	<description>Clears a table of its keys, and preserves the old key names within each member.</description>
+	<code>
+local tbl = {
+	FirstMember = { Name = "John Smith", Age  = 25 },
+	SecondMember = { Name = "Jane Doe", Age = 42 },
+	ThirdMember = { Name = "Joe Bloggs", Age = 39 }
+}
+print( "===== Before =====" )
+PrintTable( tbl )
+local tbl2 = table.ClearKeys( tbl, true )
+print( "===== After =====" )
+PrintTable( tbl2 )
+	</code>
+	<output>
+
+```
+===== Before =====
+FirstMember:
+		Name	=	John Smith
+		Age	=	25
+SecondMember:
+		Name	=	Jane Doe
+		Age	=	42
+ThirdMember:
+		Name	=	Joe Bloggs
+		Age	=	39
+===== After =====
+1:
+		Age	=	25
+		Name	=	John Smith
+		__key	=	FirstMember
+2:
+		Age	=	39
+		Name	=	Joe Bloggs
+		__key	=	ThirdMember
+3:
+		Age	=	42
+		Name	=	Jane Doe
+		__key	=	SecondMember
+```
+
+	</output>
+
+</example>

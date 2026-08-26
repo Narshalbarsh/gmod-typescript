@@ -1,0 +1,8 @@
+<function name="Remove" parent="properties" type="libraryfunc">
+	<description>Remove an entity right-click property. See <page>properties.Add</page> for details.</description>
+	<realm>Shared</realm>
+	<added>2024.09.12</added>
+	<args>
+		<arg name="name" type="string">A unique name used to identify the property to be removed.</arg>
+	</args>
+</function>

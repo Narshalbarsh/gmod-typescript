@@ -1,0 +1,8 @@
+<function name="GetGoalPos" parent="NPC" type="classfunc">
+	<description>Returns the position we are trying to reach, if any.</description>
+	<realm>Server</realm>
+	<added>2023.10.04</added>
+	<rets>
+		<ret name="" type="Vector">The position we are trying to reach.</ret>
+	</rets>
+</function>

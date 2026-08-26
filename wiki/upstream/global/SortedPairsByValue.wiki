@@ -1,0 +1,20 @@
+<function name="SortedPairsByValue" parent="Global" type="libraryfunc">
+	<description>
+Returns an iterator function that can be used to loop through a table in order of its **values**.
+
+To sort by specific **value member**, use <page>Global.SortedPairsByMemberValue</page>.
+
+
+To sort by **keys**, use <page>Global.SortedPairs</page>.
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="578-L594">lua/includes/extensions/table.lua</file>
+	<args>
+		<arg name="table" type="table">Table to create iterator for</arg>
+		<arg name="descending" type="boolean" default="false">Whether the iterator should iterate in descending order or not</arg>
+	</args>
+	<rets>
+		<ret name="" type="function">Iterator function</ret>
+		<ret name="" type="table">Internal iterator state, not the source table. It must be passed straight through to the generic for loop; capturing only the first return value and iterating over that will error.</ret>
+	</rets>
+</function>

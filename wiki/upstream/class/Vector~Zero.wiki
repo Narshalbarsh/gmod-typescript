@@ -1,0 +1,4 @@
+<function name="Zero" parent="Vector" type="classfunc">
+	<description>Sets x, y and z to 0.</description>
+	<realm>Shared and Menu</realm>
+</function>

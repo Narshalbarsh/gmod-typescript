@@ -1,0 +1,11 @@
+<function name="LowerKeyNames" parent="table" type="libraryfunc">
+	<description>Returns a copy of the input table with all string keys converted to be lowercase recursively</description>
+	<realm>Shared and Menu</realm>
+	<file line="445-L469">lua/includes/extensions/table.lua</file>
+	<args>
+		<arg name="tbl" type="table">Table to convert</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">New table</ret>
+	</rets>
+</function>

@@ -1,0 +1,17 @@
+<function name="GetCursorColor" parent="DTextEntry" type="panelfunc">
+	<description>Returns the cursor color of a DTextEntry.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="Color">The color of the cursor as a <page>Color</page>.</ret>
+	</rets>
+</function>
+
+<example>
+	<code>
+local TextEntry = vgui.Create( "DTextEntry" )
+TextEntry:SetCursorColor( Color( 255, 0, 0, 255 ))
+PrintTable( TextEntry:GetCursorColor() )
+	</code>
+	<output>Prints the R, G, B and A of the cursor color.</output>
+
+</example>

@@ -1,0 +1,7 @@
+<function name="SetMax" parent="DNumberWang" type="panelfunc">
+	<description>Sets the maximum numeric value allowed by the number selector.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="max" type="number">The maximum value.</arg>
+	</args>
+</function>

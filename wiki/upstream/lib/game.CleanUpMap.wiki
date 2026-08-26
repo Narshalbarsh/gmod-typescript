@@ -1,0 +1,25 @@
+<function name="CleanUpMap" parent="game" type="libraryfunc">
+	<description>
+Removes most entities, and then respawns entities created by the map, as if the map was just loaded.
+
+There are certain exclusions, such as players or weapons held by players, soundscapes and others.  
+<page text="EFL_KEEP_ON_RECREATE_ENTITIES">enums/EFL</page> can be set on entities to preserve them through a map cleanup.
+
+On the client it will remove decals, sounds, gibs, dead NPCs, and entities created via <page>ents.CreateClientProp</page>. This function is ran on all clients from server automatically, when it is called on the server.
+
+This function calls <page>GM:PreCleanupMap</page> before cleaning up the map and <page>GM:PostCleanupMap</page> after cleaning up the map.
+
+Beware of calling this function in hooks that may be called on map clean up (such as <page>ENTITY:StartTouch</page>) to avoid infinite loops.
+
+<bug issue="2874">Calling this destroys all BASS streams.</bug>
+<bug issue="6105">The EFL_KEEP_ON_RECREATE_ENTITIES flag doesn't prevent an entity from being recreated, which means flagged entities will be duplicated since they are both kept and recreated.</bug>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="dontSendToClients" type="boolean" default="false">If set to `true`, don't run this functions on all clients.</arg>
+		<arg name="extraFilters" type="table" default="{}">Entity classes not to reset during cleanup.</arg>
+		<arg name="callback" type="function" default="nil" added="2024.01.04">If set, delays the map cleanup until the end of a server tick, allowing bypassing the entity limit on maps with large amounts of them. Otherwise the entities will not be cleaned up until the end of the server tick.
+
+The callback function will be called after the map cleanup has been performed.</arg>
+	</args>
+</function>

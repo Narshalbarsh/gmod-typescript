@@ -1,0 +1,10 @@
+<function name="SetNotchColor" parent="DSlider" type="panelfunc">
+	<description>
+<deprecated>Does not affect anything by default.</deprecated>
+Sets the current notch color, overriding the color set by the derma skin.</description>
+	<realm>Client and Menu</realm>
+	<added>2021.06.09</added>
+	<args>
+		<arg name="clr" type="Color">The new color to set</arg>
+	</args>
+</function>

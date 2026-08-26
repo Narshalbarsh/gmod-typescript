@@ -1,0 +1,39 @@
+<function name="HTTP" parent="Global" type="libraryfunc">
+	<description>
+		Launches an asynchronous http request with the given parameters.
+
+		<bug issue="2232">This cannot send or receive multiple headers with the same name.</bug>
+		<note>HTTP-requests that respond with a large body may return an `unsuccessful` error. Try using the [Range](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Range) header to download the file in chunks.</note>
+<note>
+	HTTP-requests to destinations on private networks (such as `192.168.0.1`, or `127.0.0.1`) won't work.
+	<br/>
+	To enable HTTP-requests to destinations on private networks use <page>Command Line Parameters</page> `-allowlocalhttp`. (Dedicated servers only)
+</note>
+	</description>
+
+	<realm>Shared and Menu</realm>
+
+	<args>
+		<arg name="parameters" type="table{HTTPRequest}">The request parameters. See <page>Structures/HTTPRequest</page>.
+		</arg>
+	</args>
+
+	<rets>
+		<ret name="" type="boolean">`true` if a request is queued, `false` if a request could not be queued. (i.e. When not giving a `table` or the game is ran with `-disablehttp`)</ret>
+	</rets>
+</function>
+
+<example>
+<code>
+HTTP( {
+	failed = function( reason )
+		print( "HTTP request failed", reason )
+	end,
+	success = function( code, body, headers )
+		print( "HTTP request succeeded", code, body, headers )
+	end,
+	method = "GET",
+	url = "https://google.com/"
+} )
+</code>
+</example>

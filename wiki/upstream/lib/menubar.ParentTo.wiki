@@ -1,0 +1,7 @@
+<function name="ParentTo" parent="menubar" type="libraryfunc">
+	<description>Parents the menubar to the panel and displays the menubar.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="pnl" type="Panel">The panel to parent to</arg>
+	</args>
+</function>

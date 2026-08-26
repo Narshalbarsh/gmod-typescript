@@ -1,0 +1,18 @@
+<function name="SetShouldMountAddon" parent="steamworks" type="libraryfunc">
+	<description>Sets if an addon should be enabled or disabled. Call <page>steamworks.ApplyAddons</page> afterwards to update.</description>
+	<realm>Menu</realm>
+	<args>
+		<arg name="workshopItemID" type="string">The ID of the Steam Workshop item we should enable/disable</arg>
+		<arg name="shouldMount" type="boolean">true to enable the item, false to disable.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Enables the Gm_construct_Beta Steam Workshop addon and reloads addons afterwards</description>
+	<code>
+steamworks.SetShouldMountAddon( 21197, true )
+steamworks.ApplyAddons()
+	</code>
+	<output>Enabled the gm_construct_beta addon, if installed.</output>
+
+</example>

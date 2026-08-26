@@ -1,0 +1,9 @@
+<function name="OpenEntityMenu" parent="properties" type="libraryfunc">
+	<description>Opens properties menu for given entity.</description>
+	<realm>Shared</realm>
+	<file line="74-L91">lua/includes/modules/properties.lua</file>
+	<args>
+		<arg name="ent" type="Entity">The entity to open menu for</arg>
+		<arg name="tr" type="table">The trace that is passed as second argument to Action callback of a property</arg>
+	</args>
+</function>

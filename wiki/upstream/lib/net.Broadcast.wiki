@@ -1,0 +1,16 @@
+<function name="Broadcast" parent="net" type="libraryfunc">
+	<description>
+Sends the currently built net message (see <page>net.Start</page>) to all connected players.
+More information can be found in <page>Net Library Usage</page>.
+	</description>
+	<realm>Server</realm>
+</function>
+
+<example>
+	<description>Sends a packet to all players.</description>
+	<code>
+net.Start( "MyNetworkString" )
+    net.WriteString( "some text" )
+net.Broadcast()
+	</code>
+</example>

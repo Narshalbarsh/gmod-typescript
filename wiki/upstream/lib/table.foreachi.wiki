@@ -1,0 +1,12 @@
+<function name="foreachi" parent="table" type="libraryfunc">
+	<description>
+<deprecated>This was deprecated in Lua 5.1 and removed in 5.2. You should use <page>Global.ipairs</page>() instead.</deprecated> Iterates for each numeric index in the table in order.
+
+This is inherited from the original Lua implementation and is deprecated in Lua as of 5.1; see [here](http://lua-users.org/wiki/TableLibraryTutorial). You should use <page>Global.ipairs</page>() instead.
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="table" type="table">The table to iterate over.</arg>
+		<arg name="func" type="function">The function to run for each index.</arg>
+	</args>
+</function>

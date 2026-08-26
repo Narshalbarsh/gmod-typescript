@@ -1,0 +1,7 @@
+<function name="GetBrushPlaneCount" parent="Entity" type="classfunc">
+	<description>Returns the amount of planes of non-nodraw brush model surfaces of the entity's model.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The amount of brush model planes of the entity's model. This will be 0 for any non-brush model.</ret>
+	</rets>
+</function>

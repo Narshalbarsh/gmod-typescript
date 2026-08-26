@@ -1,0 +1,10 @@
+<function name="NamedColor" parent="Global" type="libraryfunc">
+	<description>Returns named color defined in `resource/ClientScheme.res`.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="name" type="string">Name of color</arg>
+	</args>
+	<rets>
+		<ret name="" type="Color">A <page>Color</page> or nil</ret>
+	</rets>
+</function>

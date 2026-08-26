@@ -1,0 +1,17 @@
+<function name="DisableClipping" parent="surface" type="libraryfunc">
+	<description>
+<deprecated><br/>Alias of <page>Global.DisableClipping</page> so use that instead.</deprecated>
+
+Enables or disables the clipping used by the VGUI that limits the drawing operations to a panels bounds.
+
+Identical to <page>Global.DisableClipping</page>. See also <page>Panel:NoClipping</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="disable" type="boolean">True to disable, false to enable the clipping</arg>
+	</args>
+
+	<rets>
+		<ret name="oldState" type="boolean" added="2020.03.17">Whether the clipping was enabled or not before this function call</ret>
+	</rets>
+</function>

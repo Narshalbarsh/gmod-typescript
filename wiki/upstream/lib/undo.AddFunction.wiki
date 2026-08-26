@@ -1,0 +1,39 @@
+<function name="AddFunction" parent="undo" type="libraryfunc">
+	<description>Adds a function to call when the current undo block is undone. Note that if an undo has a function, the player will always be notified when this undo is performed, even if the entity it is meant to undo no longer exists.</description>
+	<realm>Server</realm>
+	<file line="249-L256">lua/includes/modules/undo.lua</file>
+	<args>
+		<arg name="func" type="function">The function to call. 
+<callback>
+<arg type="table" name="undo">See <page text="Undo Structure">Structures/Undo</page>.</arg>
+<arg type="vararg" name="...">What was passed after the function callback argument.</arg>
+
+<ret type="boolean" name="result" default="nil">Returning `false` will mark execution of this function as "failed", meaning that the undo might be skipped if no other entities are removed by it. This is useful when for example an entity you want to access is removed therefore there's nothing to do.</ret>
+</callback>
+</arg>
+		<arg name="arguments" type="vararg">Arguments to pass to the function (after the undo info table)</arg>
+	</args>
+</function>
+
+<example>
+	<description>This example creates a prop_physics, and adds it to the players undo list. A message will be printed to console about it.</description>
+	<code>
+prop = ents.Create("prop_physics")
+prop:SetModel("models/props_junk/wood_crate001a.mdl")
+prop:Spawn()
+
+undo.Create("prop")
+	undo.AddEntity(prop)
+	undo.AddFunction(function( tab, arg2 )
+		print( tab.Owner:GetName() .. " removed prop " .. tab.Entities[1]:GetModel() .. ", code: " .. arg2 )
+	end, 556 )
+	undo.SetPlayer(ply)
+undo.Finish()
+	</code>
+	<output>
+```
+PlayerName removed prop models/props_junk/wood_crate001a.mdl, code: 556
+```
+will be printed</output>
+
+</example>

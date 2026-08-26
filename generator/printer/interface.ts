@@ -1,5 +1,5 @@
 import { TSCollection, TSField } from '../ts_types';
-import { printInterfaceFunction, printNamespaceFunction } from './function';
+import { printInterfaceFunction, printNamespaceFunction, stripDeclare } from './function';
 import { indentStr, printDocComent } from './util';
 import { tryLoadFunctionOverride, tryLoadFieldOverride } from '../override_loader';
 import { loadExtras } from '../extras_loader';
@@ -32,7 +32,7 @@ export function _printInterface(
             if (override) {
                 return `
 ${printDocComent(f.docComment)}
-${override}
+${stripDeclare(override)}
 `.trim();
             }
             return printNamespaceFunction(f, tsInterface.identifier);

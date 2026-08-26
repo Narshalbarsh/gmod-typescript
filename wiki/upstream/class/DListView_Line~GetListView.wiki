@@ -1,0 +1,7 @@
+<function name="GetListView" parent="DListView_Line" type="panelfunc">
+	<description>Returns the parent <page>DListView</page> of this line.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="pnl" type="DListView">The parent <page>DListView</page> of this line.</ret>
+	</rets>
+</function>

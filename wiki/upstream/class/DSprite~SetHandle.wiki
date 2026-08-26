@@ -1,0 +1,9 @@
+<function name="SetHandle" parent="DSprite" type="panelfunc">
+	<description>
+<deprecated></deprecated>
+Seems to be an unused feature. Does nothing.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="vec" type="Vector"></arg>
+	</args>
+</function>

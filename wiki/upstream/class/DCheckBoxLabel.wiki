@@ -1,0 +1,39 @@
+<panel>
+	<parent>DPanel</parent>
+	<preview>DCheckBoxLabel_small.png</preview>
+	<realm>Client and Menu</realm>
+	<file line="L76">lua/vgui/dcheckbox.lua</file>
+	<description>
+		The **DCheckBoxLabel** is a <page>DCheckBox</page> with a <page>DLabel</page> next to it. 
+		It allows you to get a boolean value from the user (true/false - yes/no)
+	</description>
+	<overrides>
+		<page>Panel:Init</page>
+		<page>Panel:Paint</page>
+		<page>Panel:PerformLayout</page>
+		<page>Panel:SizeToContents</page>
+		<page>Panel:GenerateExample</page>
+	</overrides>
+</panel>
+
+
+<example>
+	<description>Creates a DCheckBoxLabel, ties it to a convar, and sets its initial value.</description>
+	<code>
+concommand.Add( "example_checkboxlabel", function( ply, cmd, args )
+	local window = vgui.Create( "DFrame" )
+	window:SetSize( 300, 200 )
+	window:Center()
+	window:MakePopup()
+
+	local DermaCheckbox = window:Add( "DCheckBoxLabel" ) -- Create the checkbox
+	DermaCheckbox:SetPos( 25, 50 )						-- Set the position
+	DermaCheckbox:SetText("God Mode")					-- Set the text next to the box
+	DermaCheckbox:SetConVar("sbox_godmode")				-- Change a ConVar when the box it ticked/unticked
+	DermaCheckbox:SetValue( true )						-- Initial value
+	DermaCheckbox:SizeToContents()						-- Make its size the same as the contents
+end )
+	</code>
+	<output><image src="DCheckBoxLabel.png"/></output>
+
+</example>

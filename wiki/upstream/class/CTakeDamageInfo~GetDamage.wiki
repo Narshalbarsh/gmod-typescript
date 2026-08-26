@@ -1,0 +1,7 @@
+<function name="GetDamage" parent="CTakeDamageInfo" type="classfunc">
+	<description>Returns the total damage.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">damage</ret>
+	</rets>
+</function>

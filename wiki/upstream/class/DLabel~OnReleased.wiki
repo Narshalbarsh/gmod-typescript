@@ -1,0 +1,36 @@
+<function name="OnReleased" parent="DLabel" type="panelhook">
+	<description>
+Called when the player releases any mouse button on the label. This is always called after <page>DLabel:OnDepressed</page>.
+
+This works as an alternative to <page>PANEL:OnMouseReleased</page> as that hook is used heavily by <page>DLabel</page> and overriding it will break functionality.
+
+See also <page>DLabel:DoClick</page>, <page>DLabel:DoMiddleClick</page>, <page>DLabel:DoRightClick</page> and <page>DLabel:DoDoubleClick</page>.
+	</description>
+	<realm>Client and Menu</realm>
+</function>
+
+<example>
+	<description>Changes the text of the label when the hook is called.</description>
+	<code>
+local frame = vgui.Create( "DFrame" )
+frame:SetTitle( "OnDepressed/Released Example" )
+frame:SetSize( 300, 100 )
+frame:Center()
+frame:MakePopup()
+
+local frame_label = vgui.Create( "DLabel", frame )
+frame_label:SetPos( 10, 30 )
+frame_label:SetTextColor( Color( 255, 255, 255 ) )
+frame_label:SetText( "Click me!" )
+frame_label:SizeToContents()
+frame_label:SetMouseInputEnabled( true )
+frame_label.OnDepressed = function( s )
+	s:SetText( "OnDepressed" )
+	frame_label:SizeToContents()
+end
+frame_label.OnReleased = function( s )
+	s:SetText( "OnReleased" )
+	frame_label:SizeToContents()
+end
+	</code>
+</example>

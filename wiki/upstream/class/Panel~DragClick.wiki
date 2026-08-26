@@ -1,0 +1,8 @@
+<function name="DragClick" parent="Panel" type="classfunc">
+	<file line="431-L438">lua/includes/extensions/client/panel/dragdrop.lua</file>
+	<description><internal></internal> Called by <page>Panel:DragMouseRelease</page> when a user clicks one mouse button whilst dragging with another.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Always returns `true`.</ret>
+	</rets>
+</function>

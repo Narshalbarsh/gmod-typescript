@@ -1,0 +1,58 @@
+<panel>
+	<parent>ContextBase</parent>
+	<realm>Client</realm>
+	<file line="">lua/vgui/matselect.lua</file>
+	<overrides>
+<page>Panel:Clear</page>
+<page>ContextBase:TestForChanges</page>
+<page>PANEL:Init</page>
+<page>PANEL:PerformLayout</page>
+	</overrides>
+	<description>The panel used by Material & Lamp Sandbox tools for texture selection. Despite being only used in Sandbox, it is **not** exclusive to that gamemode.
+
+See also <page>PropSelect</page> for the prop selecting alternative.
+
+</description>
+</panel>
+
+<example>
+<description>
+Example usage of the panel.
+</description>
+<code>
+local frame = vgui.Create( "DFrame" )
+frame:SetSize( 500, 500 )
+frame:Center()
+frame:MakePopup()
+
+local MatSelect = vgui.Create( "MatSelect", frame )
+MatSelect:Dock( TOP )
+Derma_Hook( MatSelect.List, "Paint", "Paint", "Panel" )
+
+-- MatSelect:SetConVar( "my_convar_name" )
+
+MatSelect:SetAutoHeight( true )
+MatSelect:SetItemWidth( 64 )
+MatSelect:SetItemHeight( 64 )
+
+local items = {
+	"effects/flashlight001",
+	"effects/flashlight/slit",
+	"effects/flashlight/circles"
+}
+
+for k, material in pairs( items ) do
+	MatSelect:AddMaterial( "Item #" .. k, material )
+end
+
+function MatSelect:OnSelect( mat, pnl )
+	print( "Selected material: ", mat )
+end
+
+</code>
+
+<output>
+<upload src="70c/8dccb68cd9a7b1f.png" size="40990" name="image.png" />
+</output>
+
+</example>

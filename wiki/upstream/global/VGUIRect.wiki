@@ -1,0 +1,14 @@
+<function name="VGUIRect" parent="Global" type="libraryfunc">
+	<description>Creates and returns a <page>DShape</page> rectangle GUI element with the given dimensions.</description>
+	<realm>Client</realm>
+	<file line="34-L41">lua/vgui/dshape.lua</file>
+	<args>
+		<arg name="x" type="number">X position of the created element</arg>
+		<arg name="y" type="number">Y position of the created element</arg>
+		<arg name="w" type="number">Width of the created element</arg>
+		<arg name="h" type="number">Height of the created element</arg>
+	</args>
+	<rets>
+		<ret name="" type="DShape"><page>DShape</page> element</ret>
+	</rets>
+</function>

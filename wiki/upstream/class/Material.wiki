@@ -1,0 +1,86 @@
+<panel>
+	<parent>Button</parent>
+	<realm>Client</realm>
+	<file line="">lua/vgui/material.lua</file>
+	<preview>Material_preview.gif</preview>
+	<description>Material is a VGUI element that renders a VMT material.</description>
+</panel>
+
+
+<example>
+	<description>Creates a Material panel with TV static under a <page>DModelPanel</page> with a spinning Garry's Mod logo model.</description>
+	<code>
+-- Background panel
+BGPanel = vgui.Create("DPanel")
+BGPanel:SetSize(400, 400)
+BGPanel:Center()
+BGPanel:SetBackgroundColor(Color(0, 0, 0, 255))
+
+-- Material panel with TV static
+local mat = vgui.Create("Material", BGPanel)
+mat:SetPos(10, 10)
+mat:SetSize(380, 380)
+mat:SetMaterial("effects/tvscreen_noise002a")	-- Path to material VMT
+
+-- Set this to false to enable material stretching
+mat.AutoSize = false
+
+-- Model panel for GMod Logo
+local mdl = vgui.Create("DModelPanel", BGPanel)
+mdl:SetPos(10, 10)
+mdl:SetSize(380, 380)
+mdl:SetModel("models/maxofs2d/logo_gmod_b.mdl")
+mdl:SetCamPos(Vector(240, 0, 0))
+mdl:SetLookAt(Vector(0, 0, 0))
+mdl:SetFOV(40)
+
+-- Spin faster
+function mdl:LayoutEntity(ent)
+	ent:SetAngles(Angle(0, RealTime()*100,  0))
+end
+	</code>
+	<output><image src="Material_example1.gif"/></output>
+
+</example>
+
+
+<example>
+	<description>Creates a custom material (using existing textures) of a Portal background with scrolling scan lines, and then displays that material in a Material panel in the center of the screen.</description>
+	<code>
+-- Background panel
+BGPanel = vgui.Create("DPanel")
+BGPanel:SetSize(720, 480)
+BGPanel:Center()
+BGPanel:SetBackgroundColor(Color(0, 0, 0, 255))
+
+-- Material data for the scanline background
+local matdata = {
+	["$basetexture"]="vgui/appchooser/background_portal_widescreen",
+	["$texture2"]="dev/dev_scanline",
+	["Proxies"]={
+		["TextureScroll"]={
+			["texturescrollvar"]="$texture2transform",
+			["texturescrollrate"]=.06,
+			["texturescrollangle"]=-90
+		}
+	}
+}
+
+-- Create material and recompute just in case
+local portal_scanlines = CreateMaterial("PortalScanlines", "UnlitTwoTexture", matdata)
+portal_scanlines:Recompute()
+
+-- Create material panel
+local mat = vgui.Create("Material", BGPanel)
+mat:SetPos(5, 5)
+mat:SetSize(710, 470)
+
+-- This has to be set manually since mat:SetMaterial only accepts string argument
+mat.Material = portal_scanlines
+
+-- Stretch to fit
+mat.AutoSize = false
+	</code>
+	<output><image src="Material_example2.gif"/></output>
+
+</example>

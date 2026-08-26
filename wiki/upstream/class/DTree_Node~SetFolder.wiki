@@ -1,0 +1,13 @@
+<function name="SetFolder" parent="DTree_Node" type="panelfunc">
+	<description>
+<internal></internal>
+
+Sets the folder to search files and folders in.
+
+Use <page>DTree_Node:MakeFolder</page> instead.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="folder" type="string"></arg>
+	</args>
+</function>

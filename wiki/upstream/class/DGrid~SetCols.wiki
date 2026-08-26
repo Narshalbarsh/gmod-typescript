@@ -1,0 +1,11 @@
+<function name="SetCols" parent="DGrid" type="panelfunc">
+	<description>
+Sets the number of columns this panel should have.
+
+The <page>DGrid</page> will resize its width to match this value.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="cols" type="number">The desired number of columns</arg>
+	</args>
+</function>

@@ -1,0 +1,13 @@
+<function name="Play" parent="CSoundPatch" type="classfunc">
+	<description>Starts to play the sound. This will reset the sound's volume and pitch to their default values. See <page>CSoundPatch:PlayEx</page></description>
+	<realm>Shared</realm>
+</function>
+
+<example>
+	<description>Example usage</description>
+	<code>
+local mysound = CreateSound( "test.wav" )
+mysound:Play()
+	</code>
+
+</example>

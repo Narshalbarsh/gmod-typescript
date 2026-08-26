@@ -1,0 +1,7 @@
+<function name="GetSolidMask" parent="NextBot" type="classfunc">
+	<description>Returns the solid mask for given NextBot.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">The solid mask, see <page>Enums/CONTENTS</page> and <page>Enums/MASK</page></ret>
+	</rets>
+</function>

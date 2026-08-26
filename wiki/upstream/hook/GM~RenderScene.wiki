@@ -1,0 +1,16 @@
+<function name="RenderScene" parent="GM" type="hook">
+	<description>
+Render the scene. Used by the `Stereoscopy` post-processing effect.
+
+<note>Materials rendered in this hook require `$ignorez` parameter to draw properly.</note>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="origin" type="Vector">View origin</arg>
+		<arg name="angles" type="Angle">View angles</arg>
+		<arg name="fov" type="number">View FOV</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return `true` to override drawing the scene.</ret>
+	</rets>
+</function>

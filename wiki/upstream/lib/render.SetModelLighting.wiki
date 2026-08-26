@@ -1,0 +1,17 @@
+<function name="SetModelLighting" parent="render" type="libraryfunc">
+	<description>
+Sets up the ambient lighting for any upcoming render operation. Ambient lighting can be seen as a cube enclosing the object to be drawn, each of its faces representing a directional light source that shines towards the object. Thus, there is a total of six different light sources that can be configured separately.
+
+Light color components are not restricted to a specific range (i.e. 0-1), instead, higher values will result in a brighter light.
+
+<page>render.ResetModelLighting</page> will set all 6 directions at once.
+See also <page>render.SetLocalModelLights</page>.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="lightDirection" type="number{BOX}">The light source to edit, see <page>Enums/BOX</page>.</arg>
+		<arg name="red" type="number">The red component of the light color. In range of [0,1]</arg>
+		<arg name="green" type="number">The green component of the light color. In range of [0,1]</arg>
+		<arg name="blue" type="number">The blue component of the light color. In range of [0,1]</arg>
+	</args>
+</function>

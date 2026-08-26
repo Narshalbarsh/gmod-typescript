@@ -1,0 +1,52 @@
+<function name="GetName" parent="achievements" type="libraryfunc">
+	<description>Retrieves the name of the given achievement.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="achievementID" type="number">The ID of the achievement.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The name.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints the name of every achievement into the console.</description>
+	<code>
+for i = 1, achievements.Count() - 1 do
+	print( achievements.GetName( i ) )
+end
+	</code>
+	<output>
+```
+Play Singleplayer
+Play Multiplayer
+Startup Millenium
+Secret Phrase
+Addict
+Map Loader
+Play Around
+War Zone
+Friendly
+Yes, I am the real garry!
+Marathon
+One Day
+One Week
+One Month
+Half Marathon
+Innocent Bystander
+Bad Friend
+Ball Eater
+Creator
+Popper
+Destroyer
+Menu User
+Bad Coder
+Procreator
+Dollhouse
+10 Thumbs
+100 Thumbs
+1000 Thumbs
+Mega Upload
+```
+	</output>
+</example>

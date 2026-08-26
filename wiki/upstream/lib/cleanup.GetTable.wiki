@@ -1,0 +1,39 @@
+<function name="GetTable" parent="cleanup" type="libraryfunc">
+	<description>Gets the table of cleanup types.</description>
+	<realm>Shared</realm>
+	<file line="31-L33">lua/includes/modules/cleanup.lua</file>
+	<rets>
+		<ret name="" type="table">A list of cleanup types.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Example of output table structure.</description>
+	<code>PrintTable( cleanup.GetTable() )</code>
+	<output>
+```
+1	=	props
+2	=	ragdolls
+3	=	effects
+4	=	npcs
+5	=	constraints
+6	=	ropeconstraints
+7	=	sents
+8	=	vehicles
+9	=	balloons
+10	=	buttons
+11	=	cameras
+12	=	duplicates
+13	=	dynamite
+14	=	emitters
+15	=	hoverballs
+16	=	lamps
+17	=	lights
+18	=	nocollide
+19	=	thrusters
+20	=	trails
+21	=	wheels
+```
+	</output>
+
+</example>

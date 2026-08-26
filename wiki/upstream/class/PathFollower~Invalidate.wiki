@@ -1,0 +1,4 @@
+<function name="Invalidate" parent="PathFollower" type="classfunc">
+	<description>Invalidates the current path</description>
+	<realm>Server</realm>
+</function>

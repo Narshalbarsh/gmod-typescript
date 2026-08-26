@@ -1,0 +1,13 @@
+<function name="Call" parent="matproxy" type="libraryfunc">
+	<description>
+<internal></internal>
+Called by the engine from `OnBind`. Calls <page text="bind">Structures/MatProxyData#bind</page> method of the Lua material proxy.
+</description>
+	<realm>Client</realm>
+	<file line="50-L58">lua/includes/modules/matproxy.lua</file>
+	<args>
+		<arg name="uname" type="string">The material proxy name.</arg>
+		<arg name="mat" type="IMaterial">The material the proxy is being applied to.</arg>
+		<arg name="ent" type="Entity">The entity the material is applied to.</arg>
+	</args>
+</function>

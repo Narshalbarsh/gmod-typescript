@@ -1,0 +1,7 @@
+<function name="TakePhysicsDamage" parent="Entity" type="classfunc">
+	<description>Applies forces to our physics object in response to damage.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="dmginfo" type="CTakeDamageInfo">The damageinfo to apply. Only <page>CTakeDamageInfo:GetDamageForce</page> and <page>CTakeDamageInfo:GetDamagePosition</page> are used.</arg>
+	</args>
+</function>

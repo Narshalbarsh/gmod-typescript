@@ -1,0 +1,33 @@
+<function name="DrawText" parent="draw" type="libraryfunc">
+	<description>
+Simple draw text at position, but this will expand newlines and tabs.
+
+<rendercontext hook="false" type="2D"></rendercontext>
+
+See also <page>MarkupObject</page> for limited width and markup support.
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="119-L160">lua/includes/modules/draw.lua</file>
+	<args>
+		<arg name="text" type="string">Text to be drawn.</arg>
+		<arg name="font" type="string" default="DermaDefault">Name of font to draw the text in. See <page>surface.CreateFont</page> to create your own, or <page>Default Fonts</page> for a list of default fonts.</arg>
+		<arg name="x" type="number" default="0">The X Coordinate.</arg>
+		<arg name="y" type="number" default="0">The Y Coordinate.</arg>
+		<arg name="color" type="Color" default="Color( 255, 255, 255, 255 )">Color to draw the text in. Uses <page>Color</page>.</arg>
+		<arg name="xAlign" type="number" default="TEXT_ALIGN_LEFT">Where to align the text horizontally. Uses the <page>Enums/TEXT_ALIGN</page>.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Makes a message saying `Hello there!` pop up in the center of your screen.</description>
+	<code>
+hook.Add( "HUDPaint", "HelloThere", function() 
+	draw.DrawText( "Hello there!", "TargetID", ScrW() * 0.5, ScrH() * 0.25, color_white, TEXT_ALIGN_CENTER )
+end )
+	</code>
+	<output>
+```
+Hello there!
+```
+	</output>
+</example>

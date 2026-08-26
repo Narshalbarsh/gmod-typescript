@@ -1,0 +1,7 @@
+<function name="IsZero" parent="Angle" type="classfunc">
+	<description>Returns whether the pitch, yaw and roll are 0 or not.</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the pitch, yaw and roll are 0 or not.</ret>
+	</rets>
+</function>

@@ -1,0 +1,85 @@
+<function name="ClearStencilBufferRectangle" parent="render" type="libraryfunc">
+	<description>
+Sets the Stencil Buffer value for every pixel in a given rectangle to a given value.
+
+This is **not** affected by <page>render.SetStencilWriteMask</page>.
+
+For more detailed information on the Stencil system, including usage examples, see the <page text="Stencils Render Reference">render_stencils</page> page.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="startX" type="number">The X coordinate of the top left corner of the rectangle to be cleared.</arg>
+		<arg name="startY" type="number">The Y coordinate of the top left corner of the rectangle to be cleared.</arg>
+		<arg name="endX" type="number">
+			The X coordinate of the bottom right corner of the rectangle to be cleared.  
+			**Note:** Unlike some other rectangle-based functions, this is **not** the width of the rectangle.
+		</arg>
+		<arg name="endY" type="number">
+			The Y coordinate of the bottom right corner of the rectangle to be cleared.  
+			**Note:** Unlike some other rectangle-based functions, this is **not** the height of the rectangle.
+		</arg>
+		<arg name="stencilBufferValue" type="number">The Stencil Buffer value that all pixels within the rectangle will be set to.</arg>
+	</args>
+</function>
+
+<example name="Horizontal Wipe">
+	<description>
+		This example demonstrates using this function to perform a "wipe" transition between two drawn elements.  
+	</description>
+	<code>
+local COLOR_BLUE = Color( 65, 98, 214 )
+local COLOR_RED = Color( 214, 44, 100 )
+
+local colorMaterial = Material( "color" )
+
+hook.Add( "PostDrawTranslucentRenderables", "StencilExampleClearStencilBufferRectangle", function()
+
+    -- Reset the Stencil system's settings
+    render.SetStencilTestMask( 255 )
+    render.SetStencilWriteMask( 255 )
+    render.SetStencilFailOperation( STENCILOPERATION_KEEP )
+    render.SetStencilPassOperation( STENCILOPERATION_KEEP )
+    render.SetStencilZFailOperation( STENCILOPERATION_KEEP )
+
+    -- Reset all Stencil Buffer values to 0
+    render.ClearStencil()
+
+    -- Only pass pixels whose Stencil Buffer value equals the Stencil Reference value
+    render.SetStencilCompareFunction( STENCILCOMPARISONFUNCTION_EQUAL )
+
+    -- We're going to mask everything to the left and right of this X coordinate
+    -- It starts at the middle of the screen and moves back and forth thanks to math.sin
+    local verticalSplitX = ScrW()/2 + math.sin( CurTime() ) * ScrW()/8
+
+    -- Set the Stencil Buffer value for all pixels on the left side of the vertical split to 1
+    render.ClearStencilBufferRectangle( 0, 0, verticalSplitX, ScrH(), 1 )
+
+    -- Set the Stencil Buffer value for all pixels on the right side of the vertical split to 2
+    render.ClearStencilBufferRectangle( verticalSplitX, 0, ScrW(), ScrH(), 2 )
+
+    cam.Start2D()
+    render.SetStencilEnable( true )
+
+    -- Only render on pixels whose Stencil Buffer value equals 1 (The left side)
+    render.SetStencilReferenceValue( 1 )
+
+    -- Draw a rectangle in the center of the screen, which will be masked to only the left half of the screen
+    surface.SetDrawColor( COLOR_BLUE )
+    surface.SetMaterial( colorMaterial )
+    surface.DrawTexturedRectRotated( ScrW()/2, ScrH()/2, ScrW()/8, ScrW()/8, math.sin( CurTime() ) * 360 )
+
+    -- Only render on pixels whose Stencil Buffer value equals 2 (The right side)
+    render.SetStencilReferenceValue( 2 )
+
+    -- Draw a rectangle in the center of the screen, which will be masked to only the right half of the screen
+    surface.SetDrawColor( COLOR_RED )
+    surface.DrawTexturedRectRotated( ScrW()/2, ScrH()/2, ScrW()/8, ScrW()/8, math.cos( CurTime() ) * 360 )
+
+    render.SetStencilEnable( false )
+    cam.End2D()
+end )	</code>
+	<output>  
+		In the image below you can see the vertical split moving across the center of the screen revealing and hiding the two rectangles that are both being drawn in the same position.
+		<image src="b2b4c/8dc4e65bb50b87e.gif" size="11711390" name="HorizontalWipeExample.gif" />
+	</output>
+</example>

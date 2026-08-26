@@ -1,0 +1,33 @@
+<function name="GetSpawnEffect" parent="Entity" type="classfunc">
+	<description>Returns if we should show a spawn effect on spawn on this entity.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">The flag to allow or disallow the spawn effect.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Taken from sandbox's cl_init.lua</description>
+	<code>
+function GM:NetworkEntityCreated( ent )
+
+	--
+	-- If the entity wants to use a spawn effect
+	-- then create a propspawn effect if the entity was
+	-- created within the last second (this function gets called
+	-- on every entity when joining a server)
+	--
+
+	if ( ent:GetSpawnEffect() && ent:GetCreationTime() > ( CurTime() - 1.0 ) ) then
+	
+		local ed = EffectData()
+		ed:SetEntity( ent )
+		util.Effect( "propspawn", ed, true, true )
+
+	end
+
+end
+	</code>
+	<output>Checks if the entity has the spawnEffect flag set to true and checks if it was created in the last second, and then shows the propspawn effect.</output>
+
+</example>

@@ -1,0 +1,8 @@
+<function name="GWEN_SetText" parent="Panel" type="classfunc">
+	<description><internal></internal> Used by <page>Panel:ApplyGWEN</page> to apply the `Text` property to a panel.</description>
+	<realm>Client and Menu</realm>
+	<file line="203">lua/derma/derma_gwen.lua</file>
+	<args>
+		<arg name="txt" type="string">The text to be applied to the panel.</arg>
+	</args>
+</function>

@@ -1,0 +1,14 @@
+<function name="GetMapCreatedEntity" parent="ents" type="libraryfunc">
+	<description>Returns entity that has given <page>Entity:MapCreationID</page>.
+
+
+	This works internally by iterating over <page>ents.GetAll</page>.
+</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="id" type="number">Entity's creation id.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Entity|nil">Found entity, `nil` otherwise.</ret>
+	</rets>
+</function>

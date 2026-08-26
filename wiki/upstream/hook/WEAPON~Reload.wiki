@@ -1,0 +1,5 @@
+<function name="Reload" parent="WEAPON" type="hook">
+	<description>Called when the reload key ( +reload ) is pressed.</description>
+	<realm>Shared</realm>
+	<predicted>Yes</predicted>
+</function>

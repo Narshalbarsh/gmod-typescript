@@ -1,0 +1,38 @@
+<enum>
+	<realm>Client</realm>
+
+	<description>Used by:
+* <page>Entity:DrawModel</page>
+* <page>ENTITY:Draw</page>
+* <page>ENTITY:DrawTranslucent</page>
+* <page>WEAPON:PreDrawViewModel</page>
+* <page>WEAPON:PostDrawViewModel</page>
+* <page>WEAPON:ViewModelDrawn</page>
+* <page>GM:PreDrawPlayerHands</page>
+* <page>GM:PostDrawPlayerHands</page>
+* <page>GM:PreDrawViewModel</page>
+* <page>GM:PostDrawViewModel</page>
+* <page>GM:PrePlayerDraw</page>
+* <page>GM:PostPlayerDraw</page>
+
+	</description>
+	<items>
+<item key="STUDIO_RENDER" value="1">The current render is for opaque renderables only</item>
+<item key="STUDIO_VIEWXFORMATTACHMENTS" value="2"></item>
+<item key="STUDIO_DRAWTRANSLUCENTSUBMODELS" value="4">The current render is for translucent renderables only</item>
+<item key="STUDIO_TWOPASS" value="8">The current render is for both opaque and translucent renderables</item>
+<item key="STUDIO_STATIC_LIGHTING" value="16"></item>
+<item key="STUDIO_WIREFRAME" value="32"></item>
+<item key="STUDIO_ITEM_BLINK" value="64"></item>
+<item key="STUDIO_NOSHADOWS" value="128"></item>
+<item key="STUDIO_WIREFRAME_VCOLLIDE" value="256"></item>
+<item key="STUDIO_GENERATE_STATS" value="16777216">Not a studio flag, but used to flag when we want studio stats</item>
+<item key="STUDIO_SSAODEPTHTEXTURE" value="134217728">Not a studio flag, but used to flag model as using shadow depth material override</item>
+<item key="STUDIO_SHADOWDEPTHTEXTURE" value="1073741824">Not a studio flag, but used to flag model as using shadow depth material override</item>
+<item key="STUDIO_TRANSPARENCY" value="2147483648">Not a studio flag, but used to flag model as a non-sorting brush model</item>
+
+<item key="STUDIO_SKIP_FLEXES" value="1024" added="2026.05.19">Do not update/apply flexes. (<page>Entity:SetFlexWeight</page>)</item>
+<item key="STUDIO_SKIP_DECALS" value="268435456" added="2026.05.19">Do not render decals.</item>
+	</items>
+
+</enum>

@@ -1,0 +1,19 @@
+<enum>
+	<realm>Shared</realm>
+	<description>Enumerations used by <page>Entity:AddEffects</page>,  <page>Entity:RemoveEffects</page> and  <page>Entity:IsEffectActive</page>.</description>
+	<items>
+<item key="EF_BONEMERGE" value="1">Performs bone merge on client side, merging bone positions of child entities (<page>Entity:SetParent</page>) with those of the parent, by bone names. The skeletons should have identical proportions, however it is not a requirement.</item>
+<item key="EF_BONEMERGE_FASTCULL" value="128">For use with EF_BONEMERGE. If this is set, then it places this ents origin at its parent and uses the parent's bbox + the max extents of the aiment. Otherwise, it sets up the parent's bones every frame to figure out where to place the aiment, which is inefficient because it'll setup the parent's bones even if the parent is not in the PVS.</item>
+<item key="EF_BRIGHTLIGHT" value="2">DLIGHT centered at entity origin.</item>
+<item key="EF_DIMLIGHT" value="4">Player flashlight.</item>
+<item key="EF_NOINTERP" value="8"><deprecated notag="true">Seems to have no effect. Has been replaced with [C_BaseEntity::IsNoInterpolationFrame()](https://github.com/ValveSoftware/source-sdk-2013/blob/master/src/game/client/c_baseentity.h#L1331-L1332).</deprecated>Don't interpolate the next frame.</item>
+<item key="EF_NOSHADOW" value="16">Disables shadow.</item>
+<item key="EF_NODRAW" value="32">Prevents the entity from drawing and networking.</item>
+<item key="EF_NORECEIVESHADOW" value="64">Don't receive shadows.</item>
+<item key="EF_ITEM_BLINK" value="256">Makes the entity blink.</item>
+<item key="EF_PARENT_ANIMATES" value="512">Always assume that the parent entity is animating.</item>
+<item key="EF_FOLLOWBONE" value="1024">Internal flag that is set by <page>Entity:FollowBone</page>.</item>
+<item key="EF_NOFLASHLIGHT" value="8192">GMod-specific. Makes the entity not accept being lit by projected textures, including the player's flashlight.</item>
+	</items>
+
+</enum>

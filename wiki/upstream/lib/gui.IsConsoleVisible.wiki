@@ -1,0 +1,7 @@
+<function name="IsConsoleVisible" parent="gui" type="libraryfunc">
+	<description>Returns whether the console is visible or not.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the console is visible or not.</ret>
+	</rets>
+</function>

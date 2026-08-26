@@ -1,0 +1,20 @@
+<function name="PreRender" parent="GM" type="hook">
+	<description>Called before the renderer is about to start rendering the next frame.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="boolean">Return true to prevent all rendering. This can make the whole game stop rendering anything.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Fills the draw buffer with black pixels, removing tearing when looking at a world leak. Achieves the same effect as using gl_clear. This is no longer needed as GMod does this by default.</description>
+	<code>
+hook.Add("PreRender", "ResetBuffer", function()
+	cam.Start2D()
+		surface.SetDrawColor(0, 0, 0, 255)
+		surface.DrawRect(0, 0, ScrW(), ScrH())
+	cam.End2D()
+end)
+	</code>
+
+</example>

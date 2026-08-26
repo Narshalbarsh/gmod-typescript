@@ -1,0 +1,8 @@
+<function name="RemoveCallback" parent="Entity" type="classfunc">
+	<description>Removes a callback previously added with <page>Entity:AddCallback</page></description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="hook" type="string">The hook name to remove. See <page>Entity Callbacks</page></arg>
+		<arg name="callbackid" type="number">The callback id previously retrieved with the return of <page>Entity:AddCallback</page> or <page>Entity:GetCallbacks</page></arg>
+	</args>
+</function>

@@ -1,0 +1,13 @@
+<function name="SaveColor" parent="DColorPalette" type="panelfunc">
+	<description>
+Saves the color of given button across sessions.  
+The color is saved as a panel cookie, see <page>Panel:SetCookie</page> and <page>Panel:SetCookieName</page>.  
+It is expected that the amount of colors per palette (<page>Panel:SetCookieName</page>) is the same every time.  
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="210-L222">lua/vgui/dcolorpalette.lua</file>
+	<args>
+		<arg name="btn" type="Panel">The button to save the color of. Used to get the ID of the button.</arg>
+		<arg name="clr" type="Color">The color to save to this button's index</arg>
+	</args>
+</function>

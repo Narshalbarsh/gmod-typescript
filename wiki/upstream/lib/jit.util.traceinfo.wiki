@@ -1,0 +1,19 @@
+<function name="util.traceinfo" parent="jit" type="libraryfunc">
+	<description>
+<deprecated>This function was disabled due to security concerns.</deprecated>
+
+Return table fields:
+* link (number): the linked trace (0 for link types: none, return, interpreter)
+* nk (number): the lowest IR constant (???)
+* nins (number): the next IR instruction (???)
+* linktype (string): the link type (none, root, loop, tail-recursion, up-recursion, down-recursion, interpreter, return)
+* nexit (number): number of snapshots (for use with <page>jit.util.tracesnap</page>)
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="trace" type="number">trace index to retrieve info for (gotten via <page>jit.attach</page>)</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">trace info</ret>
+	</rets>
+</function>

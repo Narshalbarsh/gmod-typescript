@@ -1,0 +1,8 @@
+<function name="GetMapList" parent="Global" type="libraryfunc">
+	<description>Returns a table with the names of all maps and categories that you have on your client.</description>
+	<realm>Menu</realm>
+	<file line="419-L421">lua/menu/getmaps.lua</file>
+	<rets>
+		<ret name="" type="table">Table of map names and categories.</ret>
+	</rets>
+</function>

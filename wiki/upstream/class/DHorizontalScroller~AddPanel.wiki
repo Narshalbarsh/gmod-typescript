@@ -1,0 +1,7 @@
+<function name="AddPanel" parent="DHorizontalScroller" type="panelfunc">
+	<description>Adds a panel to the <page>DHorizontalScroller</page>.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="pnl" type="Panel">The panel to add. It will be automatically parented.</arg>
+	</args>
+</function>

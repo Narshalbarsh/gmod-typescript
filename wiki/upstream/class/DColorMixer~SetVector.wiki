@@ -1,0 +1,8 @@
+<function name="SetVector" parent="DColorMixer" type="panelfunc">
+	<description>Sets the color of <page>DColorMixer</page> from a <page>Vector</page>. Alpha is not included.</description>
+	<realm>Client and Menu</realm>
+	<file line="246-L250">lua/vgui/dcolormixer.lua</file>
+	<args>
+		<arg name="vec" type="Vector">The color to set. It is expected that the vector will have values be from 0 to 1. (i.e. be normalized)</arg>
+	</args>
+</function>

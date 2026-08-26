@@ -1,0 +1,16 @@
+<title>DTree_Node_Button</title>
+<panel>
+	<parent>DButton</parent>
+	<realm>Client and Menu</realm>
+	<description>
+		<internal></internal>
+
+		Used by <page>DTree_Node</page>.
+	</description>
+	<overrides>
+		<page>Panel:Init</page>
+		<page>Panel:Paint</page>
+		<page>Panel:GenerateExample</page>
+		<page>DButton:UpdateColours</page>
+	</overrides>
+</panel>

@@ -1,0 +1,7 @@
+<function name="GetOffset" parent="DHScrollBar" type="panelfunc">
+	<description>Returns the negative of <page>DHScrollBar:GetScroll</page>.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The scroll offset.</ret>
+	</rets>
+</function>

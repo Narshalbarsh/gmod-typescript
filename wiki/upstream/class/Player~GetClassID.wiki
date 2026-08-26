@@ -1,0 +1,7 @@
+<function name="GetClassID" parent="Player" type="classfunc">
+	<description>Returns the player's class id.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The player's class id.</ret>
+	</rets>
+</function>

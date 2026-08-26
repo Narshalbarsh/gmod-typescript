@@ -1,0 +1,7 @@
+<function name="OnContact" parent="NEXTBOT" type="hook">
+	<description>Called when the nextbot touches another entity.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ent" type="Entity">The entity the nextbot came in contact with.</arg>
+	</args>
+</function>

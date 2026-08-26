@@ -1,0 +1,10 @@
+<function name="LocalToWorldAngles" parent="Entity" type="classfunc">
+	<description>Translates an angle relative to the entity's coordinate system to a worldspace angle.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="ang" type="Angle">A local space angle.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Angle">The corresponding worldspace angle.</ret>
+	</rets>
+</function>

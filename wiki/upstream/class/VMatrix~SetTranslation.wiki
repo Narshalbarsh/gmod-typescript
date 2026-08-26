@@ -1,0 +1,7 @@
+<function name="SetTranslation" parent="VMatrix" type="classfunc">
+	<description>Sets the absolute translation of the matrix.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="translation" type="Vector">New translation.</arg>
+	</args>
+</function>

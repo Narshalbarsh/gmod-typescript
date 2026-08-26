@@ -1,0 +1,8 @@
+<function name="GetTaskStatus" parent="NPC" type="classfunc">
+	<description>Returns the status of the current task.</description>
+	<realm>Server</realm>
+	<added>2021.03.31</added>
+	<rets>
+		<ret name="" type="number">The status. See <page>Enums/TASKSTATUS</page>.</ret>
+	</rets>
+</function>

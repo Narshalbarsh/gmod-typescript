@@ -1,0 +1,37 @@
+<function name="AddSubMenu" parent="DMenu" type="panelfunc">
+	<description>Add a sub menu to the DMenu</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="Name" type="string">Name of the sub menu.</arg>
+		<arg name="func" type="function" default="nil">Function to execute when this sub menu is clicked.
+
+<callback>
+<arg type="Panel" name="pnl">The <page>DMenuOption</page> that was clicked.</arg>
+</callback>
+</arg>
+	</args>
+	<rets>
+		<ret name="" type="Panel">The created sub <page>DMenu</page></ret>
+		<ret name="" type="Panel">The created <page>DMenuOption</page></ret>
+	</rets>
+</function>
+
+<example>
+	<description>Creates a menu with one option "Do you want to die?", which has two sub-options "Yes" and "No".</description>
+	<code>
+local parentMenu = DermaMenu()
+
+local subMenu, parentMenuOption = parentMenu:AddSubMenu("Do you want to die?")
+parentMenuOption:SetIcon("icon16/user_red.png")
+
+local yesOption = subMenu:AddOption("Yes", function() LocalPlayer():ConCommand("kill") end)
+yesOption:SetIcon("icon16/accept.png")
+
+local noOption = subMenu:AddOption("No", function() print("You chose to live another day") end)
+noOption:SetIcon("icon16/cross.png")
+
+parentMenu:Open()
+	</code>
+	<output><image src="DMenuSubMenu.png"/></output>
+
+</example>

@@ -1,0 +1,9 @@
+<function name="GetValue2" parent="CtrlNumPad" type="panelfunc">
+	<description>The value (key bind) of the second <page>DBinder</page>, if it's enabled.</description>
+	<realm>Client</realm>
+	<added>2025.07.15</added>
+	<file line="66-L72">gamemodes/sandbox/gamemode/spawnmenu/controls/ctrlnumpad.lua</file>
+	<rets>
+		<ret name="keyBind" type="number{KEY}">The key bind or `KEY_NONE`.</ret>
+	</rets>
+</function>

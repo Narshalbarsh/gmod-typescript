@@ -1,0 +1,8 @@
+<function name="GetSelectedID" parent="DComboBox" type="panelfunc">
+	<description>Returns the index (ID) of the currently selected option.</description>
+	<realm>Client and Menu</realm>
+	<file line="106-L110">lua/vgui/dcombobox.lua</file>
+	<rets>
+		<ret name="" type="number">The ID of the currently selected option.</ret>
+	</rets>
+</function>

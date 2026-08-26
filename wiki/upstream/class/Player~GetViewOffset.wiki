@@ -1,0 +1,11 @@
+<function name="GetViewOffset" parent="Player" type="classfunc">
+	<description>
+Returns the view offset of the player, which equals the difference between the player's actual position and their view when standing.
+
+See also <page>Player:GetViewOffsetDucked</page>.
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Vector">New view offset, must be local vector to player's <page>Entity:GetPos</page></ret>
+	</rets>
+</function>

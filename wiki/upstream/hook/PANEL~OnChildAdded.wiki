@@ -1,0 +1,11 @@
+<function name="OnChildAdded" parent="PANEL" type="hook">
+	<description>
+Called whenever a child was parented to the panel.
+
+<bug issue="2759">This is called before the panel's metatable is set.</bug>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="child" type="Panel">The child which was added.</arg>
+	</args>
+</function>

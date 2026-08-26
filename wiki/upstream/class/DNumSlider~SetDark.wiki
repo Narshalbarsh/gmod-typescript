@@ -1,0 +1,9 @@
+<function name="SetDark" parent="DNumSlider" type="panelfunc">
+	<description>
+		Calls <page>DLabel:SetDark</page> on the <page>DLabel</page> part of the <page>DNumSlider</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="dark" type="boolean"></arg>
+	</args>
+</function>

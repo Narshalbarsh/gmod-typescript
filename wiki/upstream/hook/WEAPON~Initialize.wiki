@@ -1,0 +1,43 @@
+<function name="Initialize" parent="WEAPON" type="hook">
+	<description>
+Called when the weapon entity is created.
+
+<note><page>Entity:GetOwner</page> will return NULL at this point because the weapon is not equpped by a player or NPC yet. Use <page>WEAPON:Equip</page> or <page>WEAPON:Deploy</page> if you need the owner to be valid.</note>
+
+<bug issue="3015">This is not called serverside after a quicksave.</bug>
+	</description>
+	<realm>Shared</realm>
+</function>
+
+<example>
+	<description>Sets the weapon hold type to SWEP.HoldType.</description>
+	<code>
+function SWEP:Initialize()
+
+	self:SetHoldType( self.HoldType )
+
+end
+	</code>
+
+</example>
+
+
+<example>
+	<description>Fixes the function not being called clientside.</description>
+	<code>
+function SWEP:Initialize()
+	self.m_bInitialized = true
+
+	-- Other code
+end
+
+function SWEP:Think()
+	if (not self.m_bInitialized) then
+		self:Initialize()
+	end
+
+	-- Other code
+end
+	</code>
+
+</example>

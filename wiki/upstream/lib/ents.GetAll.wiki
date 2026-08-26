@@ -1,0 +1,12 @@
+<function name="GetAll" parent="ents" type="libraryfunc">
+	<description>
+		Returns a table of all existing entities.
+
+Consider using <page>ents.Iterator</page> instead for better performance.
+
+This function returns a sequential table, meaning it should be looped with <page>Global.ipairs</page> instead of <page>Global.pairs</page> for efficiency reasons.	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="table<Entity>">Table of all existing <page>Entity</page>s.</ret>
+	</rets>
+</function>

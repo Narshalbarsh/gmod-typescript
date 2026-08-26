@@ -1,0 +1,9 @@
+<function name="ChooseOption" parent="DComboBox" type="panelfunc">
+	<description>Selects a combo box option by its index and changes the text displayed at the top of the combo box.</description>
+	<realm>Client and Menu</realm>
+	<file line="85-L97">lua/vgui/dcombobox.lua</file>
+	<args>
+		<arg name="value" type="string">The text to display at the top of the combo box.</arg>
+		<arg name="index" type="number">The option index.</arg>
+	</args>
+</function>

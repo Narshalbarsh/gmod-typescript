@@ -1,0 +1,11 @@
+<function name="OnChangeActiveWeapon" parent="ENTITY" type="hook">
+	<added>2021.01.27</added>
+	<description>Called when the currently active weapon of the SNPC changes.
+<note>This hook only works on `ai` type entities.</note>
+</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="old" type="Weapon">The previous active weapon.</arg>
+		<arg name="new" type="Weapon">The new active weapon.</arg>
+	</args>
+</function>

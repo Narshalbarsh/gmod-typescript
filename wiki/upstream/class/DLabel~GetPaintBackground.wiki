@@ -1,0 +1,7 @@
+<function name="GetPaintBackground" parent="DLabel" type="panelfunc">
+	<description>Returns whether or not the background should be painted.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">If the background is painted or not</ret>
+	</rets>
+</function>

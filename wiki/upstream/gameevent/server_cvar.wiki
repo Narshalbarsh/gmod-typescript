@@ -1,0 +1,28 @@
+<cat>gameevent</cat>
+<title>server_cvar</title>
+
+<structure>
+	<realm>Shared and Menu</realm>
+	<description>
+		Called when a convar with FCVAR_NOTIFY is changed on the server.
+	</description>
+	<fields>
+		<item type="string" name="cvarname">The convar name. e.g "sv_cheats".</item>
+		<item type="string" name="cvarvalue">The new value. Always a string. e.g "1".</item>
+	</fields>
+</structure>
+
+# Examples
+<example>
+	<description>This is a basic template with the purpose of including all arguments / table variables to make it easily known which values can be accessed.</description>
+	<code>
+gameevent.Listen( "server_cvar" )
+hook.Add( "server_cvar", "server_cvar_example", function( data )
+	local cvarname = data.cvarname		// The convar name
+	local cvarvalue = data.cvarvalue	// The new value
+
+	// Called when a convar with FCVAR_NOTIFY is changed on the server.
+	
+end )
+	</code>
+</example>

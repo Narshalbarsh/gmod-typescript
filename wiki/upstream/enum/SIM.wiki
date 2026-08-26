@@ -1,0 +1,16 @@
+<enum>
+	<realm>Shared</realm>
+	<description>Enumerations used by <page>ENTITY:PhysicsSimulate</page>.</description>
+	<items>
+<item key="SIM_NOTHING" value="0">Don't simulate physics</item>
+
+<item key="SIM_LOCAL_ACCELERATION" value="1">Vectors in local coordinate system</item>
+
+<item key="SIM_LOCAL_FORCE" value="2">Vectors in local coordinate system</item>
+
+<item key="SIM_GLOBAL_ACCELERATION" value="3">Vectors in world coordinate system</item>
+
+<item key="SIM_GLOBAL_FORCE" value="4">Vectors in world coordinate system</item>
+	</items>
+
+</enum>

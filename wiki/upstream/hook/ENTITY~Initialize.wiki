@@ -1,0 +1,32 @@
+<function name="Initialize" parent="ENTITY" type="hook">
+	<description>
+Called when the entity is created. This is called when you <page>Entity:Spawn</page> the custom entity.
+
+This is called **after** <page>ENTITY:SetupDataTables</page> and <page>GM:OnEntityCreated</page>.
+	</description>
+	<realm>Shared</realm>
+</function>
+
+<example>
+	<description>Example Initialize function</description>
+	<code>
+function ENT:Initialize()
+	-- Sets what model to use
+	self:SetModel( "models/props/cs_assault/money.mdl" )
+
+	-- Sets what color to use
+	self:SetColor( Color( 200, 255, 200 ) )
+
+	-- Physics stuff
+	self:SetMoveType( MOVETYPE_VPHYSICS )
+	self:SetSolid( SOLID_VPHYSICS )
+
+	-- Init physics only on server, so it doesn't mess up physgun beam
+	if ( SERVER ) then self:PhysicsInit( SOLID_VPHYSICS ) end
+	
+	-- Make prop to fall on spawn
+	self:PhysWake()
+end
+	</code>
+
+</example>

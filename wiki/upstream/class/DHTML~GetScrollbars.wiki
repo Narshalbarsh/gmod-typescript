@@ -1,0 +1,10 @@
+<function name="GetScrollbars" parent="DHTML" type="panelfunc">
+	<description><deprecated>Broken. Use the CSS `overflow` rule instead.</deprecated>
+
+Returns the value set by <page>DHTML:SetScrollbars</page>.
+</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="show" type="boolean">True if scrollbars should be visible.</ret>
+	</rets>
+</function>

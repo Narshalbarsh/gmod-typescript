@@ -1,0 +1,28 @@
+<function name="IsCurrentSchedule" parent="NPC" type="classfunc">
+	<description>Returns whether or not the NPC is performing the given schedule.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="schedule" type="number">The schedule number, see <page>Enums/SCHED</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">True if the NPC is performing the given schedule, false otherwise.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Function which returns the schedule an NPC is performing.</description>
+	<code>
+function GetNPCSchedule(npc)
+
+	if(!IsValid(npc)) then return end
+	
+	for s = 0, LAST_SHARED_SCHEDULE-1 do
+		if(npc:IsCurrentSchedule(s)) then return s end
+	end
+	
+	return 0
+	
+end
+	</code>
+
+</example>

@@ -1,0 +1,11 @@
+<function name="SetInertia" parent="PhysObj" type="classfunc">
+	<description>Sets the angular inertia. See <page>PhysObj:GetInertia</page>.
+
+<note>This does not affect linear inertia.</note>
+</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="angularInertia" type="Vector">The angular inertia of the object.<br/>
+		</arg>
+	</args>
+</function>

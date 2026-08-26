@@ -1,0 +1,8 @@
+<function name="SlideUp" parent="Panel" type="classfunc">
+	<file line="202-L211">lua/includes/extensions/client/panel/animation.lua</file>
+	<description>Slides the panel out to the top.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="Length" type="number">Time to complete the animation.</arg>
+	</args>
+</function>

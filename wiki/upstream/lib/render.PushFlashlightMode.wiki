@@ -1,0 +1,11 @@
+<function name="PushFlashlightMode" parent="render" type="libraryfunc">
+	<description>
+Enables the flashlight projection for the upcoming rendering.
+
+<deprecated>This will leave models lit under specific conditions. You should use <page>render.RenderFlashlights</page> which is meant as a direct replacement for this function.</deprecated>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="enable" type="boolean" default="false">Whether the flashlight mode should be enabled or disabled.</arg>
+	</args>
+</function>

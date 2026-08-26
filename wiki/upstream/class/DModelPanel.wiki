@@ -1,0 +1,43 @@
+<panel>
+	<name>DModelPanel</name>
+	<parent>DButton</parent>
+	<realm>Client</realm>
+	<file line="">lua/vgui/dmodelpanel.lua</file>
+	<preview>dmodelpanel.jpg</preview>
+	<description>DModelPanel is a VGUI element that projects a 3D model onto a 2D plane. See also <page>DAdjustableModelPanel</page></description>
+
+</panel>
+
+
+
+<example>
+	<description>Creates a DModelPanel and sets its model to your playermodel.</description>
+	<code>
+local Panel = vgui.Create( "DPanel" )
+Panel:SetPos( 10, 10 )
+Panel:SetSize( 200, 200 )
+
+local icon = vgui.Create( "DModelPanel", Panel )
+icon:SetSize( 200, 200 )
+icon:SetModel( LocalPlayer():GetModel() )
+	</code>
+
+</example>
+
+
+<example>
+	<description>Creates a DModelPanel and sets its model to the Alyx playermodel, then changes its player color to red. Also disables default rotation animation.</description>
+	<code>
+local Panel = vgui.Create( "DPanel" )
+Panel:SetPos( 10, 10 )
+Panel:SetSize( 200, 200 )
+
+local icon = vgui.Create( "DModelPanel", Panel )
+icon:SetSize(200,200)
+icon:SetModel( "models/player/alyx.mdl" ) -- you can only change colors on playermodels
+function icon:LayoutEntity( Entity ) return end -- disables default rotation
+function icon.Entity:GetPlayerColor() return Vector (1, 0, 0) end --we need to set it to a Vector not a Color, so the values are normal RGB values divided by 255.
+	</code>
+	<output><image src="dmodelpanel_color.jpg"/></output>
+
+</example>

@@ -1,0 +1,27 @@
+<structure>
+	<realm>Shared</realm>
+	<description>
+		A <page>table</page> structure containing the information required to create a mesh.
+
+		Returned by <page>util.GetModelMeshes</page>
+	</description>
+	<fields>
+		<item name="material" type="string">
+			The name or path of this mesh's material.
+		</item>
+		<item name="triangles" type="table<table>">
+			A sequential <page>table</page> of <page text="MeshVertex Structures">Structures/MeshVertex</page> that represents the triangles of this mesh.
+
+			These triangles are created from the contents of the `verticies` field.
+
+			This can be used as an input to <page>IMesh:BuildFromTriangles</page>
+		</item>
+		<item name="verticies" type="table<table>">
+			A sequential <page>table</page> of <page text="MeshVertex Structures">Structures/MeshVertex</page> that represents each vertex of the mesh.
+
+			<bug>
+			This field has a typo in its name and should be named "vertices"
+			</bug>
+		</item>
+	</fields>
+</structure>

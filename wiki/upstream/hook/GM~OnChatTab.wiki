@@ -1,0 +1,15 @@
+<function name="OnChatTab" parent="GM" type="hook">
+	<description>
+	Called when the local player presses TAB while having their chatbox opened.
+	
+		<warning>This function now uses <page>player.Iterator</page>. This means it can't run all the time, as an error in the <page>GM:OnEntityCreated</page> or <page>GM:EntityRemoved</page> hooks is likely to interrupt it. Make sure that no addon causes an error in these hooks.</warning>
+	</description>
+	<realm>Client</realm>
+	<file line="184-L215">gamemodes/base/gamemode/cl_init.lua</file>
+	<args>
+		<arg name="text" type="string">The currently typed into chatbox text</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">What should be placed into the chatbox instead of what currently is when player presses tab</ret>
+	</rets>
+</function>

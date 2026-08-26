@@ -1,0 +1,14 @@
+<function name="WorkoutSize" parent="duplicator" type="libraryfunc">
+	<description>Works out the AABB size of the duplication.</description>
+	<realm>Server</realm>
+	<file line="569-L609">lua/includes/modules/duplicator.lua</file>
+	<args>
+		<arg name="Ents" type="table">A table of entity duplication datums.</arg>
+	</args>
+
+
+	<rets>
+		<ret name="Mins" type="Vector">AABB mins vector.</ret>
+		<ret name="Maxs" type="Vector">AABB maxs vector.</ret>
+	</rets>
+</function>

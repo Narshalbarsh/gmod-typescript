@@ -1,0 +1,7 @@
+<function name="Is3D" parent="IGModAudioChannel" type="classfunc">
+	<description>Returns if the sound channel is in 3D mode or not.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="boolean">Is 3D or not.</ret>
+	</rets>
+</function>

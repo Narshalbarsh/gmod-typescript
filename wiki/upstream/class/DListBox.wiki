@@ -1,0 +1,35 @@
+<panel>
+	<parent>DPanelList</parent>
+	<realm>Client</realm>
+	<file line="">lua/vgui/dlistbox.lua</file>
+	<description>
+		<deprecated>
+			Derived from the deprecated <page>DPanelList</page>.
+		</deprecated>
+
+		A simple list box with optional multi-select.  
+		As this is deprecated, it is recommended that you use <page>DListView</page>, which contains the same functionality with multi-column options.
+	</description>
+	<overrides>
+		<page>DPanelList:Rebuild</page>
+	</overrides>
+</panel>
+
+<example>
+<code>
+
+local DFrame = vgui.Create( "DFrame" )
+DFrame:SetPos( 100, 100 )
+DFrame:SetSize( 300, 200 )
+DFrame:SetTitle( "Derma Frame" )
+DFrame:MakePopup()
+
+
+local DListBox = vgui.Create( "DListBox", DFrame )
+DListBox:Dock( FILL )
+DListBox:AddItem( "test1" )
+DListBox:AddItem( "test2" )
+DListBox:AddItem( "test3" )
+DListBox:SetMultiple( true )
+</code>
+</example>

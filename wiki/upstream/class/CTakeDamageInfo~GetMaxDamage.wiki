@@ -1,0 +1,9 @@
+<function name="GetMaxDamage" parent="CTakeDamageInfo" type="classfunc">
+	<description>Returns the maximum damage. See <page>CTakeDamageInfo:SetMaxDamage</page>.
+
+This is only set by "multi damage" instances in the engine, and is only checked by the strider NPC when receiving explosive damage.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The maximum amount of damage in the "multi damage" instance.</ret>
+	</rets>
+</function>

@@ -1,0 +1,9 @@
+<function name="SetSlideY" parent="DSlider" type="panelfunc">
+	<description>
+Used to position the draggable panel of the slider on the Y axis.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="y" type="number">The value range seems to be from 0 to 1</arg>
+	</args>
+</function>

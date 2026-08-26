@@ -1,0 +1,8 @@
+<function name="SetConVar" parent="DCheckBoxLabel" type="panelfunc">
+	<description>Sets the console variable to be set when the checked state of the <page>DCheckBoxLabel</page> changes.</description>
+	<realm>Client and Menu</realm>
+	<file line="102-L104">lua/vgui/dcheckbox.lua</file>
+	<args>
+		<arg name="convar" type="string">The name of the convar to set</arg>
+	</args>
+</function>

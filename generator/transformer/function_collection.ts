@@ -4,6 +4,7 @@ import {
     isInnerNamespaceModification,
     isAddParentModification,
     isAddFieldModification,
+    isSkipped,
 } from './modification_db';
 import { TSCollection, TSFunction, TSField } from '../ts_types';
 import {
@@ -24,7 +25,7 @@ export function transformFunctionCollection(
 ): TSCollection {
     const mods = getPageMods(wikiClass.address);
 
-    let membersCopy = [...wikiMembers];
+    let membersCopy = wikiMembers.filter((m) => !isSkipped(m.address));
 
     // explicit inner namespaces from modifications.json
     const innerNamespacesFromMods = mods.filter(isInnerNamespaceModification).map((mod) => {

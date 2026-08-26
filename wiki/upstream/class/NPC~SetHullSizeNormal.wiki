@@ -1,0 +1,4 @@
+<function name="SetHullSizeNormal" parent="NPC" type="classfunc">
+	<description>Updates the NPC's hull and physics hull in order to match its model scale. <page>Entity:SetModelScale</page> seems to take care of this regardless.</description>
+	<realm>Server</realm>
+</function>

@@ -1,0 +1,7 @@
+<function name="IsWindows" parent="system" type="libraryfunc">
+	<description>Returns whether the current OS is Windows.</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the system the game runs on is Windows or not.</ret>
+	</rets>
+</function>

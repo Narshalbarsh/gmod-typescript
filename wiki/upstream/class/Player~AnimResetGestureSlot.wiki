@@ -1,0 +1,7 @@
+<function name="AnimResetGestureSlot" parent="Player" type="classfunc">
+	<description>Resets player gesture in selected slot.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="slot" type="number">Slot to reset. See the <page>Enums/GESTURE_SLOT</page>.</arg>
+	</args>
+</function>

@@ -1,0 +1,73 @@
+<function name="SetBlend" parent="render" type="libraryfunc">
+	<description>
+Sets the alpha blending (or transparency) for upcoming render operations.
+	
+See <page>render.SetColorModulation</page> for the function to affect RGB color channels.
+
+By itself, this will cause visible overlapping on parts of a model that are in front of other parts of the same model.  
+For a solution to this, see the examples below.
+
+<bug issue="3166">This does not affect non-model `render.Draw*` functions.</bug>
+<note>If a material has the [$alphatest](https://developer.valvesoftware.com/wiki/$alphatest) flag enabled then this function might not behave as expected because alpha will be binary, this has a default cutoff of `0.7`.</note>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="blending" type="number">
+			The alpha (transparency) for upcoming draw operations.  
+			A value in the range `(0-1)` where `0` is fully transparent, `0.5` is 50% visible, and `1` is fully opaque.
+		</arg>
+	</args>
+</function>
+
+<example name="Basic Usage (With overlaps)">
+	<description>
+		This example demonstrates the basic usage of <page>render.SetBlend</page> and the overlapping effect mentioned above.
+	</description>
+	<code>
+-- Draw at a 75% opacity, so it's mostly opaque.
+render.SetBlend( 0.75 )
+
+-- Draw the model using the blend we just set.
+self:DrawModel()
+
+-- Draw at a normal opacity again.
+render.SetBlend( 1 )
+	</code>
+<output>
+	<image src="b2b4c/8dc575936095ba3.png" size="436279" name="WithoutDepthExample.png" />
+</output>
+</example>
+
+<example name="Avoiding Overlap Issues">
+	<description>
+		This example demonstrates how the overlapping effect can be avoided with the use of <page>render.OverrideColorWriteEnable</page>.
+	</description>
+	<code>
+-- Prevent drawing to the Color Channel of the currently active Render Target so
+-- that when we draw the model, it only sets the Depth Buffer values.
+render.OverrideColorWriteEnable( true, false )
+
+-- Draw the model to set the Depth Buffer values
+self:DrawModel()
+
+-- Start drawing normally again
+render.OverrideColorWriteEnable( false, false )
+
+-- Draw at a 75% opacity, so it's mostly opaque.
+render.SetBlend( 0.75 )
+
+-- Draw the model using the blend we just set.
+-- Because we previously set the Depth Buffer values by drawing the model, and
+-- because pixels are only drawn when the pixel's current Depth Buffer value is 
+-- less-than or equal-to the draw operation's new Depth value, only the parts of 
+-- the model that are closest to the player's view will be drawn.  
+-- This will prevent the overlapping that normally happens.
+self:DrawModel()
+
+-- Draw at a normal opacity again.
+render.SetBlend( 1 )
+	</code>
+	<output>
+		<image src="b2b4c/8dc57594556b659.png" size="431723" name="WithDepthExample.png" />
+	</output>
+</example>

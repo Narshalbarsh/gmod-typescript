@@ -1,0 +1,3 @@
+<type name="CNavLadder" category="classfunc" is="class">
+	<summary>An object that represents a ladder for Nextbots.</summary>
+</type>

@@ -1,0 +1,55 @@
+<function name="RegisterEntityClass" parent="duplicator" type="libraryfunc">
+	<description>
+This allows you to specify a specific function to be run when your SENT is pasted with the duplicator, instead of relying on the generic automatic functions.
+
+<note>Automatically calls <page>duplicator.Allow</page> for the entity class.</note>
+	</description>
+	<realm>Shared</realm>
+	<file line="381-L390">lua/includes/modules/duplicator.lua</file>
+	<args>
+		<arg name="name" type="string">The ClassName of the entity you wish to register a factory for.</arg>
+		<arg name="function" type="function">The factory function you want to have called.
+
+
+<callback>
+<arg type="Player" name="ply">The player that is spawning the entity.</arg>
+<arg type="vararg" name="...">Whatever arguments you request to be passed.</arg>
+<ret type="Entity" name="ent">It also should return the entity created, otherwise <page>duplicator.Paste</page> result will not include it!</ret>
+</callback>
+
+</arg>
+		<arg name="args" type="vararg">Strings of the names of arguments you want passed to function the from the <page>Structures/EntityCopyData</page>. As a special case, "Data" will pass the whole structure.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Prints the datatable and then lets the duplicator do it's job.</description>
+	<code>
+duplicator.RegisterEntityClass("prop_physics", function(ply, data)
+	PrintTable(data)
+	return duplicator.GenericDuplicatorFunction(ply, data)
+end, "Data")
+	</code>
+	<output>
+
+```
+Skin = 0
+Mins = -14.357550 -14.390250 -25.934851
+Flex:
+	ColGroup = 0
+Pos = -292.415070 -157.575043 -12262.056641
+PhysicsObjects:
+	0:
+		Frozen = false
+		Pos = 13.750092 0.490356 -4.675781
+		Angle = 0.057 87.808 -0.031
+Class = prop_physics
+FlexScale = 1
+Maxs = 14.438149 14.405550 25.995348
+Model = models/props_borealis/bluebarrel001.mdl
+Angle = 0.057 134.318 -0.031
+```
+
+	</output>
+
+</example>

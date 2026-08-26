@@ -1,0 +1,11 @@
+<function name="GetUserContent" parent="engine" type="libraryfunc">
+	<description>
+<deprecated>Used internally for in-game menus, may be merged in the future into <page>engine.GetAddons</page>.</deprecated>
+
+Returns the UGC (demos, saves and dupes) the player have subscribed to on the workshop.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="table">Returns a table with 5 keys (title, type, tags, wsid, timeadded).</ret>
+	</rets>
+</function>

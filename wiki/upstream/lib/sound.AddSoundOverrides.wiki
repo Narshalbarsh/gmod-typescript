@@ -1,0 +1,20 @@
+<function name="AddSoundOverrides" parent="sound" type="libraryfunc">
+	<description>Overrides [sound scripts](https://developer.valvesoftware.com/wiki/Soundscripts) defined inside of a `.txt` file; typically used for adding map-specific sounds.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="filepath" type="string">Path to the script file to load.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Adds and overrides all sounds defined in scripts/override_test.txt</description>
+	<code>sound.AddSoundOverrides("scripts/override_test.txt")</code>
+	<output>
+```
+SoundEmitter:  adding map sound overrides from scripts/override_test.txt [1 total, 1 replacements, 0 duplicated replacements]
+```
+
+(Displayed in the console)
+	</output>
+
+</example>

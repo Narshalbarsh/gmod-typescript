@@ -1,0 +1,4 @@
+<function name="Hide" parent="DMenu" type="panelfunc">
+	<description>Used to safely hide (not remove) the menu. This will also hide any opened submenues recursively.</description>
+	<realm>Client and Menu</realm>
+</function>

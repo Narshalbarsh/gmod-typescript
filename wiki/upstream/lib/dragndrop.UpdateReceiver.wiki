@@ -1,0 +1,8 @@
+<function name="UpdateReceiver" parent="dragndrop" type="libraryfunc">
+	<description>
+<internal></internal>
+Updates the receiver to drop the panels onto. Called from <page>dragndrop.Think</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="131-L157">lua/includes/extensions/client/panel/dragdrop.lua</file>
+</function>

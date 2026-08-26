@@ -1,0 +1,16 @@
+<function name="OpenFolder" parent="Global" type="libraryfunc">
+	<description>
+Opens a folder with the given name in the garrysmod folder using the operating system's file browser.
+
+<bug issue="1532">This does not work on OSX or Linux.</bug>
+	</description>
+	<realm>Menu</realm>
+	<args>
+		<arg name="folder" type="string">The subdirectory to open in the garrysmod folder.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Opens the "saves" folder.</description>
+	<code>OpenFolder( "saves" )</code>
+</example>

@@ -1,0 +1,56 @@
+<function name="PlayerCanPickupWeapon" parent="GM" type="hook">
+	<description>
+	Returns whether or not a player is allowed to pick up a weapon.
+
+ 	If this returns `false`, <page>Player:Give</page> won't work.
+
+See <page>GM:PlayerCanPickupItem</page> for a hook that affects things like health kits, armor batteries and ammo entities.
+
+See <page>GM:WeaponEquip</page> for a hook that is called when a player successfully picks up a weapon after passing this hook.
+	</description>
+	<description></description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ply" type="Player">The player attempting to pick up the weapon.</arg>
+		<arg name="weapon" type="Weapon">The weapon entity in question.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">`false` to disallow pickup.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>
+Disallows picking up a weapon if player already has this weapon ( prevents ammo pickups from lying guns ).
+	</description>
+	<code>
+hook.Add( "PlayerCanPickupWeapon", "noDoublePickup", function( ply, weapon )
+    if ( ply:HasWeapon( weapon:GetClass() ) ) then
+		return false
+	end
+end )
+	</code>
+
+</example>
+
+<example>
+	<description>Players can only pick up the HL2 Pistol.</description>
+	<code>
+hook.Add( "PlayerCanPickupWeapon", "OnlyPistol", function( ply, weapon )
+    return ( weapon:GetClass() == "weapon_pistol" )
+end )
+	</code>
+</example>
+
+<example>
+	<description>How you could give a player an alternate weapon to the one they picked up (such as an RPG Launcher rather than a pistol).</description>
+	<code>
+hook.Add( "PlayerCanPickupWeapon", "NoPistolGiveFists", function( ply, weapon )
+	if ( weapon:GetClass() == "weapon_pistol" ) then -- if the weapon they are trying to pick up is a pistol
+		ply:Give( "weapon_rpg" ) -- give them an RPG
+		weapon:Remove() -- remove the one they were trying to pick up
+		return false -- don't give them a pistol
+	end
+end )
+	</code>
+</example>

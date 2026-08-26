@@ -1,0 +1,9 @@
+<function name="SetWorldClicker" parent="Panel" type="classfunc">
+	<description>
+This makes it so that when you're hovering over this panel you can "click" on the world. Your weapon aim (and its viewmodel) will follow the cursor. This is primarily used for the Sandbox context menu.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="enable" type="boolean">Whether to enable or disable the feature for this panel.</arg>
+	</args>
+</function>

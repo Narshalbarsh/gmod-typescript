@@ -1,0 +1,30 @@
+<enum>
+	<realm>Server</realm>
+	<description>
+Enumerations used by <page>CNavArea:GetParentHow</page>.
+
+<warning>These enumerations do not exist in game and are listed here only for reference</warning>
+
+	</description>
+	<items>
+<item key="GO_NORTH" value="0"></item>
+
+<item key="GO_EAST" value="1"></item>
+
+<item key="GO_SOUTH" value="2"></item>
+
+<item key="GO_WEST" value="3"></item>
+
+
+<item key="GO_LADDER_UP" value="4"></item>
+
+<item key="GO_LADDER_DOWN" value="5"></item>
+
+<item key="GO_JUMP" value="6"></item>
+
+<item key="GO_ELEVATOR_UP" value="7"></item>
+
+<item key="GO_ELEVATOR_DOWN" value="8"></item>
+	</items>
+
+</enum>

@@ -1,0 +1,11 @@
+<function name="GetTagsMeta" parent="IGModAudioChannel" type="classfunc">
+	<description>Retrieves ICY metadata from a bass stream channel created by <page>sound.PlayURL</page>, if available.
+	</description>
+	<realm>Client</realm>
+	<added>2020.04.29</added>
+	<rets>
+		<ret name="info" type="string">The meta information, or `nil` if no information is available.
+
+Example output: `StreamTitle='MUSIC NAME HERE';`</ret>
+	</rets>
+</function>

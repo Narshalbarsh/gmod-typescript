@@ -1,0 +1,4 @@
+<function name="LayoutTiles" parent="DTileLayout" type="panelfunc">
+	<description><internal></internal> Called by <page>PANEL:PerformLayout</page> to arrange and lay out the child panels, if it has changed in size.</description>
+	<realm>Client</realm>
+</function>

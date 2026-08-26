@@ -1,0 +1,27 @@
+<function name="DrawScreenQuad" parent="render" type="libraryfunc">
+	<description>
+Draws the current material set by <page>render.SetMaterial</page> to the whole screen. The color cannot be customized.
+
+See also <page>render.DrawScreenQuadEx</page>.
+
+<rendercontext hook="false" type="2D"></rendercontext>
+	</description>
+	<realm>Client</realm>
+
+	<args>
+		<arg name="applyPoster" default="false" type="boolean" added="2020.06.24">If set to true, when rendering a poster the quad will be properly drawn in parts in the poster. This is used internally by some Post Processing effects. Certain special textures (frame buffer like textures) do not need this adjustment.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Example usage, draws a wireframe texture onto the entire screen.</description>
+	<code>
+local ourMat = Material( "models/wireframe" )
+
+hook.Add( "HUDPaint", "example_hook", function()
+	render.SetMaterial( ourMat )
+	render.DrawScreenQuad()
+end )
+	</code>
+
+</example>

@@ -1,0 +1,9 @@
+<function name="Register" parent="effects" type="libraryfunc">
+	<description><internal></internal>Registers a new effect.</description>
+	<realm>Client</realm>
+	<file line="18-L45">lua/includes/modules/effects.lua</file>
+	<args>
+		<arg name="effect_table" type="table">Effect table.</arg>
+		<arg name="name" type="string">Effect name.</arg>
+	</args>
+</function>

@@ -1,0 +1,7 @@
+<function name="MouseX" parent="gui" type="libraryfunc">
+	<description>Returns x component of the mouse position.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">mouseX</ret>
+	</rets>
+</function>

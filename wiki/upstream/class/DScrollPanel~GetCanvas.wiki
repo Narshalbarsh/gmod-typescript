@@ -1,0 +1,8 @@
+<function name="GetCanvas" parent="DScrollPanel" type="panelfunc">
+	<description>Returns the canvas ( The panel all child panels are parented to ) of the DScrollPanel.</description>
+	<realm>Client and Menu</realm>
+	<file line="57-L61">lua/vgui/dscrollpanel.lua</file>
+	<rets>
+		<ret name="" type="Panel">The canvas</ret>
+	</rets>
+</function>

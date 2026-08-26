@@ -1,0 +1,10 @@
+<function name="Skip" parent="File" type="classfunc">
+	<description>Moves the file pointer by the specified amount of chars.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="amount" type="number">The amount of chars to skip, can be negative to skip backwards.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">amount</ret>
+	</rets>
+</function>

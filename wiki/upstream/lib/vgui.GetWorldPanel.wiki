@@ -1,0 +1,11 @@
+<function name="GetWorldPanel" parent="vgui" type="libraryfunc">
+	<description>
+Returns the global world panel which is the parent to all others, except for the HUD panel.
+
+See also <page>Global.GetHUDPanel</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="Panel">The world panel</ret>
+	</rets>
+</function>

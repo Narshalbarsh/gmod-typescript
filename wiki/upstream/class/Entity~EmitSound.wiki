@@ -1,0 +1,45 @@
+<function name="EmitSound" parent="Entity" type="classfunc">
+	<description>
+Plays a sound on an entity. See also <page>Global.EmitSound</page> if you wish to play sounds without an entity.
+
+If run clientside, the sound will only be heard locally.  
+If used on a player or NPC character with the mouth rigged, the character will "lip-sync" if the sound file contains lipsync data. See [this page](https://developer.valvesoftware.com/wiki/Choreography_creation/Lip_syncing) for more information.
+
+<note>When using this function with weapons, use the <page>Weapon</page> itself as the entity, not its owner!</note>
+
+<warning>Due to engine quirks, [sound scripts](https://developer.valvesoftware.com/wiki/Soundscripts) can't have their soundlevel, pitch, volume, or channel changed when played from an entity—the sound script parameters will override whatever you pass to this function.
+
+You can do one of these instead:
+* Use <page>sound.GetProperties</page> to select a sound from the script, and play the sound file directly.
+* For single-use sounds, you can pass the <page text="SND_CHANGE_VOL">Enums/SND</page> or <page text="SND_CHANGE_PITCH">Enums/SND</page> sound flags. However, this will change the volume or pitch of the sound if it's already playing, instead of starting the sound over or playing another instance.
+* Use <page>Global.EmitSound</page> with the entity parameter set to the <page>Entity:EntIndex</page> of the entity you want to play the sound on.</warning>
+
+<bug issue="2651">This does not respond to <page>Global.SuppressHostEvents</page>.</bug>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="soundName" type="string">The name of the sound to be played.
+
+This should either be a sound script name (<page>sound.Add</page>) or a file path relative to the `sound/` folder. (so don't include `sound/`, and make note that it's not sound**s** when moving the sound file itself)
+
+<warning>The string cannot have whitespace at the start or end. You can remove this with <page>string.Trim</page>.</warning></arg>
+		<arg name="soundLevel" type="number" default="75">A modifier for the distance this sound will reach, acceptable range is 0 to 511. 100 means no adjustment to the level. See <page>Enums/SNDLVL</page></arg>
+		<arg name="pitchPercent" type="number" default="100">The pitch applied to the sound. The acceptable range is from 0 to 255. 100 means the pitch is not changed.</arg>
+		<arg name="volume" type="number" default="1">The volume, from 0 to 1.</arg>
+		<arg name="channel" type="number" default="CHAN_AUTO, CHAN_WEAPON for weapons">The sound channel, see <page>Enums/CHAN</page>.</arg>
+		<arg name="soundFlags" type="number" default="0">The flags of the sound, see <page>Enums/SND</page></arg>
+		<arg name="dsp" type="number" default="1">The DSP preset for this sound. <page text="DSP Presets">DSP_Presets</page></arg>
+		<arg name="filter" type="CRecipientFilter" default="nil" added="2023.10.25">If set serverside, the sound will only be networked to the clients in the filter.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Plays sound from the first player on the server.</description>
+	<code>
+Entity(1):EmitSound( "garrysmod/save_load1.wav", 75, 100, 1, CHAN_AUTO ) -- Same as below
+Entity(1):EmitSound( "garrysmod/save_load1.wav" ) -- You can remove the arguments that have default values.
+
+Entity(1):EmitSound( "Weapon_AR2.Single" )
+	</code>
+
+</example>

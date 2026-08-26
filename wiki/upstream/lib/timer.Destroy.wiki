@@ -1,0 +1,7 @@
+<function name="Destroy" parent="timer" type="libraryfunc">
+	<description><deprecated>You should be using <page>timer.Remove</page> instead.</deprecated> Stops and destroys the given timer. Alias of <page>timer.Remove</page>.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="identifier" type="string">Identifier of the timer to destroy.</arg>
+	</args>
+</function>

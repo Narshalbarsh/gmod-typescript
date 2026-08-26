@@ -1,0 +1,10 @@
+<function name="OBBMaxs" parent="Entity" type="classfunc">
+	<description>Returns the highest corner of an entity's collision bounding box as a local vector.
+
+See also <page>Entity:GetCollisionBounds</page>, <page>Entity:OBBMins</page> and <page>Entity:OBBCenter</page>.
+</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Vector">The local position of the highest corner of the entity's oriented bounding box.</ret>
+	</rets>
+</function>

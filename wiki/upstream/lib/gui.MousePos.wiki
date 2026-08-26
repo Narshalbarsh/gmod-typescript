@@ -1,0 +1,12 @@
+<function name="MousePos" parent="gui" type="libraryfunc">
+	<description>
+<deprecated>Use <page>input.GetCursorPos</page> instead.</deprecated>
+
+Returns the cursor's position on the screen, or 0, 0 if cursor is not visible.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">mouseX</ret>
+		<ret name="" type="number">mouseY</ret>
+	</rets>
+</function>

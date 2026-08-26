@@ -1,0 +1,21 @@
+<function name="SetFadeTime" parent="DPropertySheet" type="panelfunc">
+	<file line="153">lua/vgui/dpropertysheet.lua</file>
+	<description>Sets the amount of time (in seconds) it takes to fade between tabs.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="time" type="number" default="0.1">The amount of time it takes (in seconds) to fade between tabs.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Sets the fade time to 0.5 seconds (500 milliseconds)</description>
+	<code>DPropertySheet.SetFadeTime(0.5)</code>
+
+</example>
+
+
+<example>
+	<description>Sets the fade time to 2 seconds (2000 milliseconds)</description>
+	<code>DPropertySheet.SetFadeTime(2)</code>
+
+</example>

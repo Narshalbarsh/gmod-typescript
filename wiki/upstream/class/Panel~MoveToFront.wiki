@@ -1,0 +1,38 @@
+<function name="MoveToFront" parent="Panel" type="classfunc">
+	<description>Moves the panel in front of all other panels on screen. Unless the panel has been made a pop-up using <page>Panel:MakePopup</page>, it will still draw behind any that have.</description>
+	<realm>Client and Menu</realm>
+</function>
+
+<example>
+	<description>Creates two frame panels where one acts normal and the other acts as a persistent warning window that will move in front of all other panels until it is closed.</description>
+	<code>
+-- Regular message
+local popup1 = vgui.Create("DFrame")
+popup1:SetSize(400, 300)
+popup1:Center()
+popup1:MakePopup()
+popup1:SetTitle("This is a normal window.")
+
+-- Warning message
+local popup2 = vgui.Create("DFrame")
+popup2:SetSize(300, 100)
+popup2:Center()
+popup2:MakePopup()
+popup2:SetTitle("Warning!")
+
+-- Warning label
+local warning = vgui.Create("DLabel", popup2)
+warning:SetSize(280, 80)
+warning:Center()
+warning:SetText("The server will be shutting down in 5 minutes!")
+warning:SetFont("GModNotify")
+warning:SetWrap(true)
+
+-- Move the warning message to front constantly
+function popup2:Think()
+	self:MoveToFront()
+end
+	</code>
+	<output><image src="Panel_MoveToFront_example1.gif"/></output>
+
+</example>

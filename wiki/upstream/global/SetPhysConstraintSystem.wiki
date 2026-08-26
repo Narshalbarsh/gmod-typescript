@@ -1,0 +1,7 @@
+<function name="SetPhysConstraintSystem" parent="Global" type="libraryfunc">
+	<description>Called by the engine to set which [constraint system](https://developer.valvesoftware.com/wiki/Phys_constraintsystem) the next created constraints should use.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="constraintSystem" type="Entity">Constraint system to use</arg>
+	</args>
+</function>

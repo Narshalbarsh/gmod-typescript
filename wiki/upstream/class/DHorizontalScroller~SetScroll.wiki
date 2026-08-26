@@ -1,0 +1,7 @@
+<function name="SetScroll" parent="DHorizontalScroller" type="panelfunc">
+	<description>Sets the scroll amount, automatically clamping the value.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="scroll" type="number">The new scroll amount</arg>
+	</args>
+</function>

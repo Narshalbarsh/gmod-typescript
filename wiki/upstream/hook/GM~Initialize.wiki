@@ -1,0 +1,22 @@
+<function name="Initialize" parent="GM" type="hook">
+	<description>Called after the gamemode loads and starts.
+
+No entities would be present at the time this hook is called, please see <page>GM:InitPostEntity</page> for a one time fire hook after all map entities have been initialized.</description>
+	<realm>Shared</realm>
+</function>
+
+<example>
+	<description>"hi" will be printed to the console when the gamemode initializes.</description>
+	<code>
+function GM:Initialize()
+	print( "hi" )
+end
+
+-- That way you are overriding the default hook.
+-- You can use hook.Add to make more functions get called on initialization.
+hook.Add( "Initialize", "some_unique_name", function()
+	print( "Initialization hook called" )
+end )
+	</code>
+	<output>`Initialization hook called` and `hi`</output>
+</example>

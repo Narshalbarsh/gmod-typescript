@@ -1,0 +1,26 @@
+<function name="GetPlayerTrace" parent="util" type="libraryfunc">
+	<description>Utility function to quickly generate a trace table that starts at the players view position, and ends `32768` units along a specified direction.
+
+For usage with <page>util.TraceLine</page> and similar functions.</description>
+	<realm>Shared and Menu</realm>
+	<file line="32-L49">lua/includes/extensions/util.lua</file>
+	<args>
+		<arg name="ply" type="Player">The player the trace should be based on</arg>
+		<arg name="dir" type="Vector" default="ply:GetAimVector()">The direction of the trace. By default falls back to the direction the player is looking in.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table{Trace}">The trace data. See <page>Structures/Trace</page></ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints the entity's model the local player is looking at to console</description>
+	<code>
+local tr = util.TraceLine( util.GetPlayerTrace( LocalPlayer() ) )
+if IsValid(tr.Entity) then print("I saw a "..tr.Entity:GetModel()) end
+
+local trground = util.TraceLine( util.GetPlayerTrace( LocalPlayer(), Vector(0,0,-1) ) )
+if IsValid(trground.Entity) then print("I'm standing on a "..trground.Entity:GetModel()) end
+	</code>
+
+</example>

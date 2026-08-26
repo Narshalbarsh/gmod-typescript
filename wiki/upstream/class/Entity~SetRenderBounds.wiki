@@ -1,0 +1,11 @@
+<function name="SetRenderBounds" parent="Entity" type="classfunc">
+	<description>Sets the render bounds for the entity.
+
+For world space coordinate alternative see <page>Entity:SetRenderBoundsWS</page>.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="mins" type="Vector">The minimum corner of the bounds, relative to origin of the entity.</arg>
+		<arg name="maxs" type="Vector">The maximum corner of the bounds, relative to origin of the entity.</arg>
+		<arg name="add" type="Vector" default="Vector( 0, 0, 0 )">If defined, adds this vector to maxs and subtracts this vector from mins.</arg>
+	</args>
+</function>

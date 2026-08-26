@@ -1,0 +1,11 @@
+<function name="rawget" parent="Global" type="libraryfunc">
+	<description>Gets the value with the specified key from the table without calling the __index method.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="table" type="table">Table to get the value from.</arg>
+		<arg name="index" type="any">The index to get the value from.</arg>
+	</args>
+	<rets>
+		<ret name="" type="any">The value.</ret>
+	</rets>
+</function>

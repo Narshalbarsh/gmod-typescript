@@ -1,0 +1,21 @@
+<function name="Unsubscribe" parent="steamworks" type="libraryfunc">
+	<description>
+<internal></internal> Unsubscribes to the specified workshop addon. Call <page>steamworks.ApplyAddons</page> afterwards to update.
+
+This function should `never` be called without a user's consent and should not be called if the addon is currently in use (aka: the user is not in the main menu) as it may result in unexpected behaviour.
+	</description>
+	<realm>Menu</realm>
+	<args>
+		<arg name="workshopItemID" type="string">The ID of the Steam Workshop item we should unsubscribe from.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Unsubscribes from the Gm_construct_Beta Steam Workshop addon, if subscribed, and reloads addons afterwards</description>
+	<code>
+steamworks.Unsubscribe( 21197 )
+steamworks.ApplyAddons()
+	</code>
+	<output>Unsubscribes from the gm_construct_beta addon, if subscribed.</output>
+
+</example>

@@ -1,0 +1,46 @@
+<panel>
+	<name>RichText</name>
+	<parent>Panel</parent>
+	<preview>RichText_preview.png</preview>
+	<realm>Client</realm>
+	<description>
+A very versatile text display element that's used to power the default chat and console.
+
+Rich Text panels allows multicolored, highlight-able, and interactive text using individual text segment markup (segments are defined by the <page>Panel:AppendText</page> method).
+
+The **RichText** element has a `64000` character limit.
+
+You can hide the RichText scrollbar with the following function: <page>Panel:SetVerticalScrollbarEnabled</page>
+
+	</description>
+</panel>
+
+
+
+<example>
+	<description>Creates a Rich Text frame with 3 text segments.</description>
+	<code>
+-- Window frame for containing text
+local frame = vgui.Create("DFrame")
+frame:SetSize(200, 150)
+frame:Center()
+frame:MakePopup()
+
+-- Rich Text panel
+local richtext = vgui.Create( "RichText", frame )
+richtext:Dock( FILL )
+
+-- Text segment #1 (grayish color)
+richtext:InsertColorChange( 192, 192, 192, 255 )
+richtext:AppendText( "This \nRichText \nis \n" )
+
+-- Text segment #2 (light yellow)
+richtext:InsertColorChange( 255, 255, 224, 255 )
+richtext:AppendText( "AWESOME\n\n" )
+
+-- Text segment #3 (red ESRB notice localized string)
+richtext:InsertColorChange( 255, 64, 64, 255 )
+richtext:AppendText( "#ServerBrowser_ESRBNotice" )
+	</code>
+<output><upload src="70c/8dccb4713aa7fa1.png" size="5233" name="image.png" /></output>
+</example>

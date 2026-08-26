@@ -1,0 +1,71 @@
+<function name="AddFunction" parent="DHTML" type="panelfunc">
+	<description>
+Defines a Javascript function that when called will call a Lua callback.
+<note>Must be called after the HTML document has fully loaded.</note>
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="123-L146">lua/vgui/dhtml.lua</file>
+	<args>
+		<arg name="library" type="string">Library name of the JS function you are defining.</arg>
+		<arg name="name" type="string">Name of the JS function you are defining.</arg>
+		<arg name="callback" type="function">Function called when the JS function is called. Arguments passed to the JS function will be passed here.</arg>
+	</args>
+
+</function>
+
+<example>
+	<description>Prints text from Javascript to the console in color.</description>
+	<code>
+-- Create the frame
+local frame = vgui.Create( "DFrame" )
+frame:SetSize( 800, 600 )
+frame:Center()
+
+-- Create a green color variable
+local color_green = Color( 0, 255, 0 )
+
+-- Define the Javascript function in the DHTML element
+local DHTML = vgui.Create( "DHTML", frame )
+DHTML:Dock( FILL )
+DHTML:OpenURL( "https://wiki.facepunch.com/gmod/DHTML" )
+DHTML:AddFunction( "console", "luaprint", function( str )
+	MsgC( color_green, str ) -- Print the given string
+end)
+
+-- This runs our function. Our function could also be called from Javascript on the DHTML's page.
+DHTML:RunJavascript( "console.luaprint( 'Hello from Javascript!' );" )
+	</code>
+</example>
+
+<example>
+	<description>
+		Passing a callback to the added JavaScript function as the last argument allows us to use the values returned by our Lua function.
+		
+		Of course, you're allowed to use multiple return values, with each being its own argument.
+		
+		Tables should work as you expect them to. Lua table `{true, a = true}` will be an object with keys `1` and `a`, both equal to `true`. 
+		Unsure about metatable behavior.
+
+		Userdata (`Vector`, `Player`, etc...) will be `undefined`, obviously.
+		
+		As per https://github.com/Facepunch/garrysmod-issues/issues/3995#issuecomment-531491316	
+
+		<note>
+			This is relevant for the x86-64 branch only (Chromium in place of Awesomium), you may still [handle return values normally](https://github.com/Facepunch/garrysmod/blob/b7da4993e8fbee1789eee4cded85114849d17699/garrysmod/html/js/svc.Tranny.js#L21-L34) to work with the default branch as well.
+		</note>
+	</description>
+	<code>
+] lua_run_cl A = vgui.Create"DHTML"
+] lua_run_cl A:OpenURL("https://duckduckgo.com/html/")
+] lua_run_cl A:AddFunction("gmod", "test", function(x) return x end )
+-- This works
+] lua_run_cl A:RunJavascript("gmod.test('test', console.log)")
+[HTML] test
+] lua_run_cl A:AddFunction("gmod", "say", function(x) RunConsoleCommand("say", x) end)
+] lua_run_cl A:RunJavascript("gmod.test('test', gmod.say)")
+Bell: test
+-- This doesn't work
+] lua_run_cl A:RunJavascript("gmod.test(console.log, 'test')")
+
+	</code>
+</example>

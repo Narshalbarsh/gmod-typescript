@@ -1,0 +1,7 @@
+<function name="GetMaxJumpHeight" parent="CLuaLocomotion" type="classfunc">
+	<description>Returns maximum jump height of this <page>CLuaLocomotion</page>.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">The maximum jump height.</ret>
+	</rets>
+</function>

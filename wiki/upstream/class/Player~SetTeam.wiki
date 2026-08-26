@@ -1,0 +1,23 @@
+<function name="SetTeam" parent="Player" type="classfunc">
+	<description>Sets the player to the chosen team. The value is networked to clients at reduced bit count (16 bits) as as a signed value, so the real range is [-32768, 32767].
+
+Can be retrieved via <page>Player:Team</page>
+</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="team" type="number">The team that the player is being set to.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Sets the players team to the first argument when writing "set_team" into the console and respawns the player afterwards, ex. "set_team 1".</description>
+	<code>
+concommand.Add( "set_team", function( ply, cmd, args )
+	local Team = args[1] or 1
+	ply:SetTeam( Team )
+	ply:Spawn()
+end )
+	</code>
+	<output>Sets the player to team 1 and respawns them.</output>
+
+</example>

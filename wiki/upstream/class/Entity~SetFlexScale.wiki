@@ -1,0 +1,9 @@
+<function name="SetFlexScale" parent="Entity" type="classfunc">
+	<description>
+Sets the scale of all the flexes of this entity. See <page>Entity:SetFlexWeight</page>.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="scale" type="number">The new flex scale to set to</arg>
+	</args>
+</function>

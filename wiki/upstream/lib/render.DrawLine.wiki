@@ -1,0 +1,29 @@
+<function name="DrawLine" parent="render" type="libraryfunc">
+	<description>
+Draws a line in 3D space.
+
+<rendercontext hook="false" type="3D"></rendercontext>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="startPos" type="Vector">Line start position in world coordinates.</arg>
+		<arg name="endPos" type="Vector">Line end position in world coordinates.</arg>
+		<arg name="color" type="Color" default="Color( 255, 255, 255 )">The color to be used. Uses <page>Color</page>.</arg>
+		<arg name="writeZ" type="boolean" default="false">Whether or not to consider the Z buffer. If false, the line will be drawn over everything currently drawn, if true, the line will be drawn with depth considered, as if it were a regular object in 3D space.
+
+<bug issue="1086">Enabling this option will cause the line to ignore the color's alpha.</bug></arg>
+	</args>
+</function>
+
+<example>
+	<description>A Simple Line of code drawing a line starting for the eyes of the player and going forward.</description>
+	<code>
+local color_red = Color(255, 0, 0)
+
+hook.Add( "PostDrawTranslucentRenderables", "MySuper3DRenderingHook", function()
+	local eyePos = LocalPlayer():EyePos()
+
+    render.DrawLine( eyePos, eyePos + LocalPlayer():EyeAngles():Forward() * 100, color_red )
+end )
+	</code>
+</example>

@@ -1,0 +1,7 @@
+<function name="WriteShort" parent="File" type="classfunc">
+	<description>Writes a signed little-endian 16-bit integer to the file.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="int16" type="number">The 16-bit signed integer to be written to the file.</arg>
+	</args>
+</function>

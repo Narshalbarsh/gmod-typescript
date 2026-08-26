@@ -1,0 +1,23 @@
+<function name="SetLastPosition" parent="NPC" type="classfunc">
+	<description>
+Sets the last registered or memorized position for this NPC. When using scheduling, the NPC will focus on navigating to the last position via nodes.
+
+<note>The navigation requires ground nodes to function properly, otherwise the NPC could only navigate in a small area. (https://developer.valvesoftware.com/wiki/Info_node)</note>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="position" type="Vector">Where the NPC's last position will be set.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Make an NPC chase a player</description>
+	<code>
+function NPCGoGoRun(npc, ply)
+	npc:SetLastPosition( ply:GetPos() )
+	npc:SetSchedule( SCHED_FORCED_GO_RUN )
+end
+	</code>
+	<output>The NPC will chase the player.</output>
+
+</example>

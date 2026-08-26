@@ -1,0 +1,9 @@
+<function name="Connect" parent="permissions" type="libraryfunc">
+	<description>
+Connects player to the server. This is what <page>permissions.AskToConnect</page> uses internally.
+	</description>
+	<realm>Menu</realm>
+	<args>
+		<arg name="ip" type="string">IP address to connect.</arg>
+	</args>
+</function>

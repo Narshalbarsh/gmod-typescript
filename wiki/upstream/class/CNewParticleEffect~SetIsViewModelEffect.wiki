@@ -1,0 +1,7 @@
+<function name="SetIsViewModelEffect" parent="CNewParticleEffect" type="classfunc">
+	<description>Set whether this particle effect is a view model effect or not. This will have an effect on attachment positioning and other things.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="isViewModel" type="boolean">Whether this particle effect is a view model effect or not.</arg>
+	</args>
+</function>

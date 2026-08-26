@@ -1,0 +1,18 @@
+<function name="GetString" parent="ConVar" type="classfunc">
+	<description>Returns the current <page>ConVar</page> value as a string.</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="string">The current console variable value as a string.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Will check if the gamemode is sandbox (Consider using <page>engine.ActiveGamemode</page>)</description>
+	<code>
+if GetConVar("gamemode"):GetString() == "sandbox" then
+    print("Gamemode is sandbox")
+end
+	</code>
+	<output>Gamemode is sandbox</output>
+
+</example>

@@ -1,0 +1,8 @@
+<function name="GetTask" parent="Schedule" type="classfunc">
+	<description>Returns the task at the given index.</description>
+	<realm>Server</realm>
+	<file line="82-L84">lua/includes/modules/ai_schedule.lua</file>
+	<args>
+		<arg name="num" type="number">Task index.</arg>
+	</args>
+</function>

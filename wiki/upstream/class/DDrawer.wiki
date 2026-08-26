@@ -1,0 +1,32 @@
+<panel>
+	<name>DDrawer</name>
+	<parent>Panel</parent>
+	<file line="">lua/vgui/ddrawer.lua</file>
+	<preview>DDrawer_ex1.png</preview>
+	<description>A simple Derma Drawer</description>
+	<realm>Client and Menu</realm>
+</panel>
+
+
+<example>
+	<description>Creates a DDrawer in a DFrame; set the open size and time; add a panel in the drawer; open the DDrawer.</description>
+	<code>
+local Frame = vgui.Create( "DFrame" )
+Frame:SetSize( 400, 200 )
+Frame:Center()
+Frame:MakePopup()
+
+local Drawer = vgui.Create( "DDrawer", Frame )
+Drawer:SetOpenSize( 75 )		-- Default OpenSize is 100
+Drawer:SetOpenTime( 0.2 )		-- Default OpenTime is 0.3
+Drawer:Open()				-- You can also use Drawer:Close()  and  Drawer:Toggle()
+
+//Let's add a panel, because Drawer is empty
+local PanelInDrawer = vgui.Create( "DPanel", Drawer )
+PanelInDrawer:Dock( FILL )		-- Make PanelInDrawer fill place of Drawer
+PanelInDrawer:DockMargin( 3, 0, 3, 3 ) 	-- Margins for the dock. Search on wiki for more info
+	</code>
+
+</example>
+
+<image src="aaf9e/8dc3d534b478b18.gif" size="3112885" name="Drawer.gif" />

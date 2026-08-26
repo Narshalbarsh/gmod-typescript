@@ -1,0 +1,12 @@
+<ambig page="Global.error(lowercase)">You might be looking for the "error" function, which has the same name as this function.</ambig>
+<function name="Error" parent="Global" type="libraryfunc">
+	<description>
+Throws an error. This is currently an alias of <page>Global.ErrorNoHalt</page> despite it once throwing a halting error like <page text="error">Global.error(lowercase)</page> without the stack trace appended.
+
+<bug issue="2113">This function throws a non-halting error instead of a halting error.</bug>
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="arguments" type="vararg">Converts all arguments to strings and prints them with no spacing or line breaks.</arg>
+	</args>
+</function>

@@ -1,0 +1,8 @@
+<function name="GetWangs" parent="DColorMixer" type="panelfunc">
+	<description>An <page>Global.AccessorFunc</page> that returns true if the wangs are shown, false if not.</description>
+	<realm>Client and Menu</realm>
+	<file line="11">lua/vgui/dcolormixer.lua</file>
+	<rets>
+		<ret name="" type="boolean">Return true if shown, false if not.</ret>
+	</rets>
+</function>

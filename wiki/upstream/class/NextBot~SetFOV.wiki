@@ -1,0 +1,9 @@
+<function name="SetFOV" parent="NextBot" type="classfunc">
+	<description>Sets the Field of View for the Nextbot NPC, used for its vision functionality, such as <page>NextBot:IsAbleToSee</page>.</description>
+	<realm>Server</realm>
+	<added>2020.08.12</added>
+	<args>
+		<arg name="fov" type="number">The new FOV</arg>
+	</args>
+	
+</function>

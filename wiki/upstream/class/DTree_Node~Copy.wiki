@@ -1,0 +1,7 @@
+<function name="Copy" parent="DTree_Node" type="panelfunc">
+	<description>Create and returns a copy of this node, including all the sub-nodes.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="DTree_Node">The copied <page>DTree_Node</page>.</ret>
+	</rets>
+</function>

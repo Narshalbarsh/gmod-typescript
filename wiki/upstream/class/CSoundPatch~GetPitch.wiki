@@ -1,0 +1,7 @@
+<function name="GetPitch" parent="CSoundPatch" type="classfunc">
+	<description>Returns the current pitch.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The current pitch, can range from 0-255.</ret>
+	</rets>
+</function>

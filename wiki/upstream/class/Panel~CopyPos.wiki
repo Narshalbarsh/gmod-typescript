@@ -1,0 +1,8 @@
+<function name="CopyPos" parent="Panel" type="classfunc">
+	<file line="122-L124">lua/includes/extensions/client/panel.lua</file>
+	<description>Copies the position of the panel.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="base" type="Panel">Panel to position the width from.</arg>
+	</args>
+</function>

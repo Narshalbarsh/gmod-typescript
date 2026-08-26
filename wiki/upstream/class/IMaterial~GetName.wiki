@@ -1,0 +1,7 @@
+<function name="GetName" parent="IMaterial" type="classfunc">
+	<description>Returns the name of the material, in most cases the path.</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="string">Material name/path</ret>
+	</rets>
+</function>

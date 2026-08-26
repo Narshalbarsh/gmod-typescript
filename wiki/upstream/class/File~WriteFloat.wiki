@@ -1,0 +1,21 @@
+<function name="WriteFloat" parent="File" type="classfunc">
+	<description>Writes an IEEE 754 little-endian 4-byte float to the file.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="float" type="number">The float to be written to the file.</arg>
+	</args>
+</function>
+
+<example>
+<code>
+local f = file.Open( "test.txt", "w", "DATA" )
+f:WriteFloat( math.pi )
+f:WriteFloat( 66.99 )
+f:Close()
+
+local f = file.Open( "test.txt", "r", "DATA" )
+f:Seek( 4 )
+print( f:ReadFloat() ) -- Prints 66.98999786377
+f:Close()
+</code>
+</example>

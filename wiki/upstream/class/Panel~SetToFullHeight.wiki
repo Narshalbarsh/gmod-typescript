@@ -1,0 +1,41 @@
+<function name="SetToFullHeight" parent="Panel" type="classfunc">
+	<description>
+Sets the height of a <page>RichText</page> element to accommodate the text inside.
+
+<note>This function internally relies on <page>Panel:GetNumLines</page>, so it should be called at least a couple frames after modifying the text using <page>Panel:AppendText</page></note>
+	</description>
+	<realm>Client and Menu</realm>
+</function>
+
+<example>
+	<description>Creates a <page>RichText</page> panel with no set height. The proper height is applied 2 seconds after being created in order to show the difference.</description>
+	<code>
+-- Create a window frame
+TextFrame = vgui.Create("DFrame")
+TextFrame:SetSize(250, 210)
+TextFrame:Center()
+TextFrame:SetTitle("No set height")
+TextFrame:MakePopup()
+
+-- RichText panel
+local richtext = vgui.Create("RichText", TextFrame)
+richtext:SetPos(10, 30)
+richtext:SetWidth(230)
+
+-- Block of text
+richtext:AppendText("#ServerBrowser_ServerWarning_MaxPlayers")
+
+function richtext:PerformLayout() self:SetBGColor(Color(0, 0, 0)) end
+
+-- Set to full height after 2 seconds
+timer.Simple(2, function()
+
+	richtext:SetToFullHeight()
+	
+	TextFrame:SetTitle("Full set height")
+	
+end)
+	</code>
+	<output><image src="RichText_SetToFullHeight_example1.gif"/></output>
+
+</example>

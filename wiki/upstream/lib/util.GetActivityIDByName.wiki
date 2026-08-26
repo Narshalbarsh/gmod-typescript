@@ -1,0 +1,14 @@
+<function name="GetActivityIDByName" parent="util" type="libraryfunc">
+	<description>Returns the ID of a custom model activity. This is useful for models that define custom ones.
+
+See <page>util.GetActivityNameByID</page> for a function that does the opposite.
+</description>
+	<realm>Shared</realm>
+	<added>2024.04.24</added>
+	<args>
+		<arg name="" type="string">The name of an activity, as defined in the model's `.qc` at compile time.</arg>
+	</args>
+	<rets>
+		<ret name="id" type="number">The ID of the activity. See also <page>Enums/ACT</page>.</ret>
+	</rets>
+</function>

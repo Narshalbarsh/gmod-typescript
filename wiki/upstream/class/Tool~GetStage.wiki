@@ -1,0 +1,8 @@
+<function name="GetStage" parent="Tool" type="classfunc">
+	<description>Returns the current stage of the tool set by <page>Tool:SetStage</page>.</description>
+	<realm>Shared</realm>
+	<file line="16">gamemodes/sandbox/entities/weapons/gmod_tool/object.lua</file>
+	<rets>
+		<ret name="" type="number">The current stage of the current operation the tool is at.</ret>
+	</rets>
+</function>

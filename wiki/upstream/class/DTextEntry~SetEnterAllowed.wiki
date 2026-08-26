@@ -1,0 +1,7 @@
+<function name="SetEnterAllowed" parent="DTextEntry" type="panelfunc">
+	<description>Sets whether pressing the Enter key will cause the DTextEntry to lose focus or not, provided it is not multiline. This is true by default.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="allowEnter" type="boolean">If set to false, pressing Enter will not cause the panel to lose focus and will never call <page>DTextEntry:OnEnter</page>.</arg>
+	</args>
+</function>

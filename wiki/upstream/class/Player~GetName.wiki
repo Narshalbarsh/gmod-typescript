@@ -1,0 +1,21 @@
+<function name="GetName" parent="Player" type="classfunc">
+	<file line="56-L56">lua/includes/extensions/player.lua</file>
+	<description>
+Returns the player's name, this is an alias of <page>Player:Nick</page>.
+
+<deprecated>Use <page>Player:Nick</page>.</deprecated>
+
+<note>This function overrides <page>Entity:GetName</page> (in the Lua metatable, not in c++), keep it in mind when dealing with <page>ents.FindByName</page> or any engine function which requires the mapping name.</note>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="string">The player's name.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints the player's name</description>
+	<code>print( Entity( 1 ):GetName() )</code>
+	<output>Player1</output>
+
+</example>

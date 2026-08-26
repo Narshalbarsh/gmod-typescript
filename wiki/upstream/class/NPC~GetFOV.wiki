@@ -1,0 +1,8 @@
+<function name="GetFOV" parent="NPC" type="classfunc">
+	<description>Returns the Field Of View of the NPC. See <page>NPC:SetFOV</page>.</description>
+	<realm>Server</realm>
+	<added>2024.12.03</added>
+	<rets>
+		<ret name="fov" type="number">The FOV for the NPC in degrees.</ret>
+	</rets>
+</function>

@@ -1,0 +1,33 @@
+<function name="Implode" parent="string" type="libraryfunc">
+	<description>
+<deprecated>You really should just use <page>table.concat</page>.</deprecated>
+
+Joins the values of a table together to form a string.
+
+This is the reverse of <page>string.Explode</page> and is functionally identical to <page>table.concat</page>, but with less features.
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="115-L117">lua/includes/extensions/string.lua</file>
+	<args>
+		<arg name="separator" type="string" default="">The separator to insert between each piece.</arg>
+		<arg name="pieces" type="table">The table of pieces to concatenate. The keys for these must be numeric and sequential.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">Imploded pieces</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Joins all values of a table with a space</description>
+	<code>
+local tab = { "one", "two", "three" }
+
+print( string.Implode( " ", tab ) )
+	</code>
+	<output>
+```
+one two three
+```
+</output>
+
+</example>

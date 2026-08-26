@@ -1,0 +1,37 @@
+<function name="SetPlaceholderText" parent="DTextEntry" type="panelfunc">
+	<description>Sets the placeholder text that will be shown while the text entry has no user text. The player will not need to delete the placeholder text if they decide to start typing.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="text" type="string" default="nil"></arg>
+	</args>
+</function>
+
+<example>
+	<description>This example shows what the placeholder text looks like
+	</description>
+	<code>
+concommand.Add( "test_textentry", function(ply)
+	local frame = vgui.Create( "DFrame" )
+	frame:SetSize( 400, 200 )
+	frame:Center()
+	frame:MakePopup()
+
+	local TextEntry = vgui.Create( "DTextEntry", frame ) -- create the form as a child of frame
+	TextEntry:Dock( TOP )
+	TextEntry.OnEnter = function( self )
+		chat.AddText( self:GetValue() )	-- print the form's text as server text
+	end
+
+	local TextEntryPH = vgui.Create( "DTextEntry", frame ) -- create the form as a child of frame
+	TextEntryPH:Dock( TOP )
+	TextEntryPH:DockMargin( 0, 5, 0, 0 )
+	TextEntryPH:SetPlaceholderText( "I am a placeholder" )
+	TextEntryPH.OnEnter = function( self )
+		chat.AddText( self:GetValue() )	-- print the form's text as server text
+	end
+end )
+	</code>
+	<output>
+		<upload src="70c/8d88bebe8e67219.png" size="11372" name="image.png" />
+	</output>
+</example>

@@ -1,0 +1,12 @@
+<function name="BytesLeft" parent="net" type="libraryfunc">
+	<description>
+		Returns the amount of data left to read in the current message. Does nothing when sending data.
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The amount of data left to read in the current net message in **bytes**.
+Returns `nil` if no net message has been started.</ret>
+		<ret name="" type="number">The amount of data left to read in the current net message in **bits**.
+Returns `nil` if no net message has been started.</ret>
+	</rets>
+</function>

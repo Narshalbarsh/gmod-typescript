@@ -1,0 +1,7 @@
+<function name="GetCols" parent="DGrid" type="panelfunc">
+	<description>Returns the number of columns of this <page>DGrid</page>. Set by <page>DGrid:SetCols</page>.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The number of columns of this <page>DGrid</page></ret>
+	</rets>
+</function>

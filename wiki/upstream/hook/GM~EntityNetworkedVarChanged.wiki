@@ -1,0 +1,34 @@
+<function name="EntityNetworkedVarChanged" parent="GM" type="hook">
+	<description>
+Called when an NW2Var is changed.
+<bug issue="5455">If a NW2Var is set on an entity that is based on a Lua Entity could result in the NW2Var being mixed up with other ones and being updated multiple times.</bug>
+<note>
+	This hook is fired before the client value is actually changed. Calling the GetNW2 function for the specified variable name within this hook will return the old value, not the current/updated one.  
+
+	This hook gets called for all NW2Vars on all Entities in a full update. The old value will be nil in this case.  
+	If this hook seems to be called for no apparent reason, check if it's caused by a full update.
+</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="ent" type="Entity">The owner entity of the changed NW2Var</arg>
+		<arg name="name" type="string">The name of the changed NW2Var</arg>
+		<arg name="oldval" type="any">The old value of the NW2Var</arg>
+		<arg name="newval" type="any">The new value of the NW2Var</arg>
+	</args>
+</function>
+
+<example>
+	<description>Example usage of the hook. Prints out all NW2Var changes.</description>
+	<code>
+hook.Add( "EntityNetworkedVarChanged", "printchange", print )
+
+-- Trigger a change!
+Entity( 1 ):SetNW2String( "UserGroup", "owner" )
+	</code>
+	<output>
+```
+Player [1][Player1]	UserGroup	superadmin	owner
+```</output>
+
+</example>

@@ -1,0 +1,13 @@
+<function name="TextEntry" parent="DForm" type="panelfunc">
+	<description>Adds a <page>DTextEntry</page> to a <page>DForm</page></description>
+	<realm>Client and Menu</realm>
+	<file line="75-L89">lua/vgui/dform.lua</file>
+	<args>
+		<arg name="label" type="string">The label to be next to the text entry</arg>
+		<arg name="convar" type="string">The console variable to be changed when the text entry is changed</arg>
+	</args>
+	<rets>
+		<ret name="" type="DTextEntry">The created <page>DTextEntry</page></ret>
+		<ret name="" type="DLabel">The created <page>DLabel</page></ret>
+	</rets>
+</function>

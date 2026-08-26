@@ -1,0 +1,8 @@
+<function name="AddConVar" parent="ControlPresets" type="panelfunc">
+	<description>Adds a convar to be managed by this control.</description>
+	<file line="110-L114">gamemodes/sandbox/gamemode/spawnmenu/controls/control_presets.lua</file>
+	<realm>Client</realm>
+	<args>
+		<arg name="convar" type="string">The convar to add.</arg>
+	</args>
+</function>

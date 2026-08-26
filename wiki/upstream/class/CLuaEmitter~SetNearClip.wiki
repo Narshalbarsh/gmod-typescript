@@ -1,0 +1,8 @@
+<function name="SetNearClip" parent="CLuaEmitter" type="classfunc">
+	<description>This function sets the the distance between the render camera and the emitter at which the particles should start fading and at which distance fade ends ( alpha becomes 0 ).</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="distanceMin" type="number">Min distance where the alpha becomes 0.</arg>
+		<arg name="distanceMax" type="number">Max distance where the alpha starts fading.</arg>
+	</args>
+</function>

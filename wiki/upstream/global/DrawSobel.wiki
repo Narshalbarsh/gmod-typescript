@@ -1,0 +1,19 @@
+<function name="DrawSobel" parent="Global" type="libraryfunc">
+	<description>Draws the sobel shader, which detects edges and draws a black border.</description>
+	<realm>Client</realm>
+	<file line="8-L18">lua/postprocess/sobel.lua</file>
+	<args>
+		<arg name="Threshold" type="number">Determines the threshold of edges. A value of `0` will make your screen completely black.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Draws the sobel shader.</description>
+	<code>
+hook.Add( "RenderScreenspaceEffects", "SobelShader", function()
+
+	DrawSobel( 0.5 )
+
+end )
+	</code>
+</example>

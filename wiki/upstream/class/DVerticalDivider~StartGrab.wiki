@@ -1,0 +1,7 @@
+<function name="StartGrab" parent="DVerticalDivider" type="panelfunc">
+	<description>
+<internal></internal>
+Causes the user to start dragging the divider.
+	</description>
+	<realm>Client</realm>
+</function>

@@ -1,0 +1,12 @@
+<function name="MainEyeAngles" parent="Global" type="libraryfunc">
+	<description>
+Returns the main view angles, as they were at the start of the latest main view render.
+
+This is a good alternative to <page>Global.EyeAngles</page> which is affected by other rendering operations, including <page>render.RenderView</page>.
+	</description>
+	<added>2025.10.02</added>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="Angle">The angles of the main view.</ret>
+	</rets>
+</function>

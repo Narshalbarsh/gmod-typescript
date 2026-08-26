@@ -1,0 +1,13 @@
+<function name="SetWeaponHoldType" parent="WEAPON" type="hook">
+	<description>
+Sets the hold type of the weapon. This must be called on **both** the server and the client to work properly.
+
+<note>
+	You should avoid calling this function and call <page>Weapon:SetHoldType</page> now.
+</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="name" type="string">Name of the hold type. You can find all default hold types <page text="here">Hold_Types</page></arg>
+	</args>
+</function>

@@ -1,0 +1,7 @@
+<function name="SetPlaceholderColor" parent="DTextEntry" type="panelfunc">
+	<description>Allow you to set placeholder color.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="color" type="Color" default="Color(128, 128, 128)">The color of the placeholder.</arg>
+	</args>
+</function>

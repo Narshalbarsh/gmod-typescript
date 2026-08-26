@@ -1,0 +1,35 @@
+<function name="util.funcuvname" parent="jit" type="libraryfunc">
+	<description>
+<deprecated>This function was disabled due to security concerns.</deprecated>
+
+Does the exact same thing as <page>debug.getupvalue</page> except it only returns the name, not the name and the object. The upvalue indexes also start at 0 rather than 1, so doing `jit.util.funcuvname(func, 0)` will get you the same name as `debug.getupvalue(func, 1)`
+<warning>This function isn't officially documented on LuaJIT wiki, use it at your own risk.</warning>
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="func" type="function">Function to get the upvalue indexed from</arg>
+		<arg name="index" type="number">The upvalue index, starting from 0</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The function returns nil if there is no upvalue with the given index, otherwise the name of the upvalue is returned</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Get the name of the first upvalue in hook.Add</description>
+	<code>
+local a = jit.util.funcuvname(hook.Add, 0)
+local b = debug.getupvalue(hook.Add, 1)
+print(a)
+print(a == b)
+	</code>
+	<output>
+
+```
+isfunction
+true
+```
+
+	</output>
+
+</example>

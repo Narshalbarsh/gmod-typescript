@@ -1,0 +1,7 @@
+<function name="GetHideExpander" parent="DTree_Node" type="panelfunc">
+	<description>Returns whether the expand button (little + button) should be shown or hidden.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Цhether the expand button should be shown or hidden.</ret>
+	</rets>
+</function>

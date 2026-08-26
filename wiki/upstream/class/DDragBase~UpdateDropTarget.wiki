@@ -1,0 +1,13 @@
+<function name="UpdateDropTarget" parent="DDragBase" type="panelfunc">
+	<description>
+<internal></internal>
+
+Internal function used in <page>DDragBase:DropAction_Normal</page>
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="143-L168">lua/vgui/ddragbase.lua</file>
+	<args>
+		<arg name="drop" type="number"></arg>
+		<arg name="pnl" type="Panel"></arg>
+	</args>
+</function>

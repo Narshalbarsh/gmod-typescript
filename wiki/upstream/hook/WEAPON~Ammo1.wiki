@@ -1,0 +1,8 @@
+<function name="Ammo1" parent="WEAPON" type="hook">
+	<description>Returns how much of primary ammo the player has.</description>
+	<realm>Shared</realm>
+	<file line="251-L257">gamemodes/base/entities/weapons/weapon_base/shared.lua</file>
+	<rets>
+		<ret name="" type="number">The amount of primary ammo player has</ret>
+	</rets>
+</function>

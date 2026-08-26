@@ -1,0 +1,14 @@
+<function name="UpdateColours" parent="DLabel" type="panelfunc">
+	<file line="289-279">lua/vgui/dlabel.lua</file>
+	<description>A hook called from within <page>PANEL:ApplySchemeSettings</page> to determine the color of the text on display.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="skin" type="table">A table supposed to contain the color values listed above.</arg>
+	</args>
+</function>
+
+Condition |  Value |
+----------|-------|
+| self.m_bBright | skin.Colours.Label.Bright |
+| self.m_bDark | skin.Colours.Label.Dark |
+| self.m_bHighlight | skin.Colours.Label.Highlight |

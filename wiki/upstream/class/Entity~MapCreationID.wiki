@@ -1,0 +1,15 @@
+<function name="MapCreationID" parent="Entity" type="classfunc">
+	<description>
+Returns entity's map creation ID. Unlike <page>Entity:EntIndex</page> or <page>Entity:GetCreationID</page>, it will always be the same on same map, no matter how much you clean up or restart it.
+
+It may change if the map is recompiled, even if no edits were made. It will definitely change if entities are added or removed from the map file.
+
+To be used in conjunction with <page>ents.GetMapCreatedEntity</page>. See also <page>Entity:CreatedByMap</page>.
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The map creation ID or -1 if the entity is not compiled into the map.
+			<note>If the ID exists, it is identical to the entity's order number as it appears in Lump 1 of the BSP file. It is believed to start at 1234 for some reason.</note>
+		</ret>
+	</rets>
+</function>

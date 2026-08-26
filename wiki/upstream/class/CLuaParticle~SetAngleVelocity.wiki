@@ -1,0 +1,7 @@
+<function name="SetAngleVelocity" parent="CLuaParticle" type="classfunc">
+	<description>Sets the angular velocity of the the particle.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="angVel" type="Angle">New angular velocity.</arg>
+	</args>
+</function>

@@ -1,0 +1,32 @@
+<function name="Think" parent="ENTITY" type="hook">
+	<description>
+Called every frame on the client.
+Called about 5-6 times per second on the server.
+
+<note>You may need to call <page>Entity:Spawn</page> to get this hook to run server side.
+
+You can force it to run at servers tickrate using the example below.</note>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">Return `true` if you used <page>Entity:NextThink</page> to override the next execution time. Otherwise it will be reset to `CurTime() + 0.2`.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>
+Force the think hook to run at the maximum frequency.
+This is generally only used for `anim` type entities, if the entity has to play model animations/sequences.
+	</description>
+	<code>
+ENT.AutomaticFrameAdvance = true -- Must be set on client
+
+function ENT:Think()
+	-- Do stuff
+
+	self:NextThink( CurTime() ) -- Set the next think to run as soon as possible, i.e. the next frame.
+
+	return true -- Apply NextThink call
+end
+	</code>
+</example>

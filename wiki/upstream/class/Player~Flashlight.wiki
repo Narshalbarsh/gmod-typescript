@@ -1,0 +1,25 @@
+<function name="Flashlight" parent="Player" type="classfunc">
+	<description>Enables/Disables the player's flashlight.
+
+<page>Player:CanUseFlashlight</page> must be true in order for the player's flashlight to be changed.
+<page>GM:PlayerSwitchFlashlight</page> can block this function.
+
+<note>Added in [2025.11.12](https://gmod.facepunch.com/changelist/4026), the `gmod_flashlight` attachment is used as a source for the player's flashlight. In thirdperson, the playermodel and weapon worldmodel are checked; in firstperson, the viewmodel is checked. If the attachment isn't found, default engine functionality is used.
+
+The light sprite attached to the playermodel when the flashlight is on will also follow the playermodel's `gmod_flashlight` attachment if it exists.</note>
+
+</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="isOn" type="boolean">Turns the flashlight on/off</arg>
+	</args>
+</function>
+
+<example>
+	<description>Turns off and disables the player's flashlight</description>
+	<code>
+Entity( 1 ):Flashlight( false )
+Entity( 1 ):AllowFlashlight( false )
+	</code>
+
+</example>

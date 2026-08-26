@@ -1,0 +1,20 @@
+<function name="SetHull" parent="Player" type="classfunc">
+	<description>
+		Sets the size of the <page text="Player's">Player</page> [Axis-Aligned Bounding Box (AABB)](https://en.wikipedia.org/wiki/Minimum_bounding_box) used for physics and movement <page text="Hull Traces">util.TraceHull</page>.
+
+		See also: <page>Player:GetHull</page>, <page>Player:SetHullDuck</page>, <page>Player:GetHullDuck</page>
+
+		<note>
+			This value is **not** replicated automatically to clients and must be manually called in both the Server and Client <page text="Realms">States</page>.
+		</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="mins" type="Vector">
+			The hull mins, the lowest corner of the Player's bounding box.
+		</arg>
+		<arg name="maxs" type="Vector">
+			The hull maxs, the highest corner of the Player's bounding box, opposite of the mins.
+		</arg>
+	</args>
+</function>

@@ -1,0 +1,9 @@
+<function name="UpdateAnimation" parent="GM" type="hook">
+	<description>Animation updates (pose params etc) should be done here.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="ply" type="Player">The player to update the animation info for.</arg>
+		<arg name="velocity" type="Vector">The player's velocity.</arg>
+		<arg name="maxSeqGroundSpeed" type="number">Speed of the animation - used for playback rate scaling.</arg>
+	</args>
+</function>

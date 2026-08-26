@@ -1,0 +1,19 @@
+<function name="FireAnimationEvent" parent="ENTITY" type="hook">
+	<description>
+Called before firing clientside animation events, such as muzzle flashes or shell ejections.
+
+See <page>ENTITY:HandleAnimEvent</page> for the serverside version.
+
+<note>This hook only works on "anim", "nextbot" and "ai" type entities.</note>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="pos" type="Vector">Position of the effect</arg>
+		<arg name="ang" type="Angle">Angle of the effect</arg>
+		<arg name="event" type="number">The event ID of happened even. See [this page](http://developer.valvesoftware.com/wiki/Animation_Events). Only event IDs above 5000 will appear in this hook. (Are considered the "new" system in-engine)</arg>
+		<arg name="name" type="string">Name of the event</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return true to disable the effect</ret>
+	</rets>
+</function>

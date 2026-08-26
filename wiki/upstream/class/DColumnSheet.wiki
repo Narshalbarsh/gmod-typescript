@@ -1,0 +1,38 @@
+<panel>
+	<name>DColumnSheet</name>
+	<parent>Panel</parent>
+	<realm>Client and Menu</realm>
+	<file line="">lua/vgui/dcolumnsheet.lua</file>
+	<description>Similar to <page>DPropertySheet</page>, but with tabs on the left.</description>
+	<overrides>
+		<page>Panel:Init</page>
+	</overrides>
+</panel>
+
+
+<example>
+	<description>Example of how you'd use this panel</description>
+	<code>
+local frame = vgui.Create( "DFrame" )
+frame:SetSize( 500, 300 )
+frame:Center()
+frame:MakePopup()
+
+local sheet = vgui.Create( "DColumnSheet", frame )
+sheet:Dock( FILL )
+
+local panel1 = vgui.Create( "DPanel", sheet )
+panel1:Dock( FILL )
+panel1.Paint = function( self, w, h ) draw.RoundedBox( 4, 0, 0, w, h, Color( 0, 128, 255 ) ) end 
+sheet:AddSheet( "test", panel1, "icon16/cross.png" )
+
+local panel2 = vgui.Create( "DPanel", sheet )
+panel2:Dock( FILL )
+panel2.Paint = function( self, w, h ) draw.RoundedBox( 4, 0, 0, w, h, Color( 255, 128, 0 ) ) end 
+sheet:AddSheet( "test 2", panel2, "icon16/tick.png" )
+	</code>
+
+</example>
+
+<image src="aaf9e/8dc3d52622081bb.png" size="25737" name="image.png" />
+<image src="aaf9e/8dc3d526954044f.png" size="24695" name="image.png" />

@@ -1,0 +1,12 @@
+<panel>
+	<parent>DProperties</parent>
+	<realm>Client</realm>
+	<file line="">lua/vgui/dentityproperties.lua</file>
+	<description>
+		<internal>
+			Unless you know what you are doing and you benefit from this panel, you should be using the <page>DProperties</page> instead.
+		</internal>
+
+		A panel used by the <page>Editable Entities</page> system.
+	</description>
+</panel>

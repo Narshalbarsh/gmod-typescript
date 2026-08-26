@@ -1,0 +1,12 @@
+<function name="CallOnClient" parent="Weapon" type="classfunc">
+	<description>
+Calls a SWEP function on client. Does nothing on client.
+
+<warning>This uses the <page>usermessage</page> internally, because of that, the combined length of the arguments of this function may not exceed 254 bytes/characters or the function will cease to function!</warning>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="functionName" type="string">Name of function to call. If you want to call `SWEP:MyFunc()` on client, you type in `"MyFunc"`</arg>
+		<arg name="data" type="string" default="">Custom data to be passed to the target SWEP function as the first argument.</arg>
+	</args>
+</function>

@@ -1,0 +1,7 @@
+<function name="SetImpulseCommand" parent="CMoveData" type="classfunc">
+	<description>Sets the impulse command. This isn't actually utilised in the engine anywhere.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="impulse" type="number">The impulse to set</arg>
+	</args>
+</function>

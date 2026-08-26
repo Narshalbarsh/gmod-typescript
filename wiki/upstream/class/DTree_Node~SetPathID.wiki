@@ -1,0 +1,13 @@
+<function name="SetPathID" parent="DTree_Node" type="panelfunc">
+	<description>
+<internal></internal>
+
+Sets the path ID (<page>File Search Paths</page>) for populating the tree from the filesystem.
+
+Use <page>DTree_Node:MakeFolder</page> instead.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="path" type="string">The path ID to set.</arg>
+	</args>
+</function>

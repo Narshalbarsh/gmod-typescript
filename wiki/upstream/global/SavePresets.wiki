@@ -1,0 +1,10 @@
+<function name="SavePresets" parent="Global" type="libraryfunc">
+	<description>
+<internal></internal>
+
+Overwrites all presets with the supplied table. Used by the <page>presets</page> for preset saving</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="presets" type="table">Presets to be saved</arg>
+	</args>
+</function>

@@ -1,0 +1,67 @@
+<function name="Delete" parent="cookie" type="libraryfunc">
+	
+	<file line="105-L114">lua/includes/modules/cookie.lua</file>
+	<realm>Shared and Menu</realm>
+
+	<description>
+		
+		Removes any cookie with the given name.
+		
+		Does nothing if the cookie doesn't exist.
+
+	</description>
+
+	<args>
+		<arg name="key" type="string">
+
+			The name of the cookie that you want to delete.
+
+		</arg>
+	</args>
+
+</function>
+
+<br/>
+
+---
+
+<br/>
+
+<example>
+
+	<description>
+
+		Sets & deletes a cookie & print it's values on every step.
+
+	</description>
+
+	<code>
+
+cookie.Set('My-Cookie','Hello World')
+
+print('Set My-Cookie')
+
+print('My-Cookie:',cookie.GetString('My-Cookie'))
+
+
+cookie.Delete('My-Cookie')
+
+print('Deleted My-Cookie')
+
+print('My-Cookie:',cookie.GetString('My-Cookie'))
+
+	</code>
+
+
+	<output>
+
+```
+Set My-Cookie
+My-Cookie: Hello World
+Deleted My-Cookie
+My-Cookie: nil
+```
+
+	</output>
+
+</example>

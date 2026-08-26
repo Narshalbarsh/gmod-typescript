@@ -1,0 +1,11 @@
+<function name="GetNegated" parent="Vector" type="classfunc">
+	<description>Returns the negative version of this vector, i.e. a vector with every component to the negative value of itself.
+
+See also <page>Vector:Negate</page>.
+</description>
+	<realm>Shared and Menu</realm>
+	<added>2021.12.15</added>
+	<rets>
+		<ret type="Vector">The negative of this vector.</ret>
+	</rets>
+</function>

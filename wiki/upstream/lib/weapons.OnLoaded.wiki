@@ -1,0 +1,13 @@
+<function name="OnLoaded" parent="weapons" type="libraryfunc">
+	<description>
+<internal></internal>
+
+Called after all SWEPS have been loaded and runs <page>baseclass.Set</page> on each one.
+
+You can retrieve all the currently registered SWEPS with <page>weapons.GetList</page>.
+
+<note>This is not called after a SWEP auto refresh, and thus the inherited baseclass functions retrieved with <page>baseclass.Get</page> will not be updated</note>
+	</description>
+	<realm>Shared</realm>
+	<file line="113-L126">lua/includes/modules/weapons.lua</file>
+</function>

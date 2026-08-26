@@ -1,0 +1,42 @@
+<function name="Paste" parent="duplicator" type="libraryfunc">
+	<description>
+"Given entity list and constraint list, create all entities and return their tables"
+
+Calls <page>duplicator.CreateEntityFromTable</page> on each sub-table of EntityList. If an entity is actually created, it calls <page>ENTITY:OnDuplicated</page> with the entity's duplicator data, then <page>duplicator.ApplyEntityModifiers</page>, <page>duplicator.ApplyBoneModifiers</page> and finally  <page>ENTITY:PostEntityPaste</page> is called.
+
+The constraints are then created with <page>duplicator.CreateConstraintFromTable</page>.
+	</description>
+	<realm>Server</realm>
+	<file line="769-L859">lua/includes/modules/duplicator.lua</file>
+	<args>
+		<arg name="Player" type="Player">The player who wants to create something.</arg>
+		<arg name="EntityList" type="table">A table of duplicator data to create the entities from.</arg>
+		<arg name="ConstraintList" type="table">A table of duplicator data to create the constraints from.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">List of created entities.</ret>
+		<ret name="" type="table">List of created constraints.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Code used for a TOOL to copy duplication data on right click and paste it with its original info on left click.</description>
+	<code>
+function TOOL:LeftClick( trace )
+	if (SERVER) then
+		duplicator.Paste(self:GetOwner(),Dupe.Entities,Dupe.Constraints)
+		print("PASTED")
+	end
+	return true
+end
+ 
+function TOOL:RightClick( trace )
+	if (SERVER and IsValid(trace.Entity)) then
+		Dupe = duplicator.Copy(trace.Entity)
+		print("COPIED")
+	end
+	return true
+end
+	</code>
+
+</example>

@@ -1,0 +1,7 @@
+<function name="IsMoving" parent="NPC" type="classfunc">
+	<description>Returns whether the NPC is moving or not.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the NPC is moving or not.</ret>
+	</rets>
+</function>

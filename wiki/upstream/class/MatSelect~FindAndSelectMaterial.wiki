@@ -1,0 +1,7 @@
+<function name="FindAndSelectMaterial" parent="MatSelect" type="panelfunc">
+	<description>Find a material and selects it, if it exists in this panel.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="mat" type="string">The material to find and select within this <page>MatSelect</page>.</arg>
+	</args>
+</function>

@@ -1,0 +1,7 @@
+<function name="GetChecked" parent="DMenuOption" type="panelfunc">
+	<description>Returns the checked state of <page>DMenuOption</page>.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Are we checked or not</ret>
+	</rets>
+</function>

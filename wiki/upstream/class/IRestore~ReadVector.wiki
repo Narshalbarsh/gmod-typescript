@@ -1,0 +1,7 @@
+<function name="ReadVector" parent="IRestore" type="classfunc">
+	<description>Reads next bytes from the restore object as a <page>Vector</page>.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Vector">The read vector.</ret>
+	</rets>
+</function>

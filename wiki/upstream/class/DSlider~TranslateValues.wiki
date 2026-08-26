@@ -1,0 +1,12 @@
+<function name="TranslateValues" parent="DSlider" type="panelhook">
+	<description>For override by child panels, such as <page>DNumSlider</page>. Allows changing the output values of the slider.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="x" type="number">The input X coordinate, in range of 0-1.</arg>
+		<arg name="y" type="number">The input Y coordinate, in range of 0-1.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The output X coordinate, in range of 0-1.</ret>
+		<ret name="" type="number">The output X coordinate, in range of 0-1.</ret>
+	</rets>
+</function>

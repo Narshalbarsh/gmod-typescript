@@ -1,0 +1,21 @@
+<function name="GetVelocity" parent="CMoveData" type="classfunc">
+	<description>
+Gets the players velocity.
+
+<bug issue="3413">This will return Vector(0,0,0) sometimes when walking on props.</bug>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Vector">The players velocity</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints the player's velocity.</description>
+	<code>
+function GM:Move( ply, movedata )
+    print( movedata:GetVelocity() )
+end
+	</code>
+
+</example>

@@ -1,0 +1,8 @@
+<function name="DoChildrenOrder" parent="DTree_Node" type="panelhook">
+	<description>
+<internal></internal>
+
+Called automatically to update the status of <page>DTree_Node:GetLastChild</page> on children of this node.
+	</description>
+	<realm>Client and Menu</realm>
+</function>

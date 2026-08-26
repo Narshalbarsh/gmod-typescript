@@ -1,0 +1,9 @@
+<title>DProperty_Int</title>
+<panel>
+	<parent>DProperty_Float</parent>
+	<realm>Client</realm>
+	<description>
+		<internal></internal>
+		Integer control for the <page>DProperties</page> panel.
+	</description>
+</panel>

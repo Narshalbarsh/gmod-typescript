@@ -1,0 +1,11 @@
+<function name="Add" parent="DCategoryList" type="panelfunc">
+	<description>Adds a <page>DCollapsibleCategory</page> to the list.</description>
+	<realm>Client and Menu</realm>
+	<file line="18-L28">lua/vgui/dcategorylist.lua</file>
+	<args>
+		<arg name="categoryName" type="string">The name of the category to add.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Panel">The created <page>DCollapsibleCategory</page></ret>
+	</rets>
+</function>

@@ -1,0 +1,11 @@
+<function name="GetOptionData" parent="DComboBox" type="panelfunc">
+	<description>Returns an option's data based on the given index.</description>
+	<realm>Client and Menu</realm>
+	<file line="48-L52">lua/vgui/dcombobox.lua</file>
+	<args>
+		<arg name="index" type="number">The option index.</arg>
+	</args>
+	<rets>
+		<ret name="" type="any">The option's data value.</ret>
+	</rets>
+</function>

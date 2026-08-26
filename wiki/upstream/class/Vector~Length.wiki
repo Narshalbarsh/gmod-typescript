@@ -1,0 +1,23 @@
+<function name="Length" parent="Vector" type="classfunc">
+	<description>
+		Returns the [Euclidean length](https://en.wikipedia.org/wiki/Euclidean_vector#Length) of the vector: &radic;(x&sup2; + y&sup2; + z&sup2;).
+
+		<warning>
+			This is a relatively expensive process since it uses the square root. It is recommended that you use <page>Vector:LengthSqr</page> whenever possible.
+		</warning>
+	</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="number">Length of the vector.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Gets the length of the vector.</description>
+	<code>print( Vector( 15, 16, 17 ):Length() )</code>
+	<output>
+```
+27.748874664307
+```
+	</output>
+</example>

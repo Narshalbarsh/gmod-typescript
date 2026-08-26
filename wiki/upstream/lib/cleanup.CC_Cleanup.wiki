@@ -1,0 +1,10 @@
+<function name="CC_Cleanup" parent="cleanup" type="libraryfunc">
+	<description><internal></internal> Called by the `gmod_cleanup` console command. Allows players to cleanup their own props.</description>
+	<realm>Server</realm>
+	<file line="98-L146">lua/includes/modules/cleanup.lua</file>
+	<args>
+		<arg name="pl" type="Player">The player that called the console command.</arg>
+		<arg name="command" type="string">The console command that called this function.</arg>
+		<arg name="args" type="table">First and only argument is the cleanup type.</arg>
+	</args>
+</function>

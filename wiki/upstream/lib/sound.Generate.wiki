@@ -1,0 +1,45 @@
+<function name="Generate" parent="sound" type="libraryfunc">
+	<description>
+Creates a sound from a function.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="identifier" type="string">A unique identifier for the sound.
+
+			<warning>You cannot override already existing ones.</warning>
+		</arg>
+		<arg name="samplerate" type="number">The sample rate of the sound. Must be `11025`, `22050` or `44100`.</arg>
+		<arg name="length" type="number">The length in seconds of the sound to generate.</arg>
+		<arg name="callbackOrData" type="function" alttype="table">
+			A function which will be called to generate every sample on the sound. 
+
+			<callback>
+			<arg type="number" name="sampleIndex">The current sample number.</arg>
+			<ret type="number" name="sampleValue">The return value must be between `-1.0` and `1.0`.  
+			Other values will wrap back to the -1 to 1 range and basically clip.  
+			There are **65535** possible quantifiable values between `-1` and `1`.</ret>
+			</callback>
+
+		This argument can also be given a table of samples, where values must range from `-1` to `1`.  
+		This argument can also be a string of raw 16bit binary data, (each sample is unsigned short).
+		</arg>
+		<arg name="loopStart" type="number" default="nil" added="2024.06.04">Sample ID of the loop start. If given, the sound will be looping and will restart playing at given position after reaching its end.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Plays a 2000 Hz sine wave at maximum volume.</description>
+	<code>
+local frequency = 2000 -- Hz
+local samplerate = 44100
+
+local function data( t )
+    return math.sin( t * math.pi * 2 / samplerate * frequency )
+end
+
+test_sound_id = test_sound_id and test_sound_id + 1 or 10
+
+sound.Generate( "testgen" .. test_sound_id, samplerate, 2, data )
+surface.PlaySound( "testgen" .. test_sound_id )
+	</code>
+</example>

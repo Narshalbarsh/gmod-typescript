@@ -1,0 +1,31 @@
+<cat>gameevent</cat>
+<title>hide_freezepanel</title>
+
+<structure>
+	<realm>Client and Menu</realm>
+	<description>
+		Called when the freeze cam is finished.  
+		Example cause:
+```
+local ply = Entity( 1 )
+ply:Spectate( OBS_MODE_FREEZECAM )
+
+timer.Simple( 1, function()
+	ply:UnSpectate()
+end )
+```
+	</description>
+</structure>
+
+# Examples
+<example>
+	<description>
+		This is a basic template with the purpose of including all arguments / table variables to make it easily known which values can be accessed.
+	</description>
+	<code>
+gameevent.Listen( "hide_freezepanel" )
+hook.Add( "hide_freezepanel", "hide_freezepanel_example", function( data )
+	// Called when the freeze cam is finished
+end )
+	</code>
+</example>

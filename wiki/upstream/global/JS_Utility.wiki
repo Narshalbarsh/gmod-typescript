@@ -1,0 +1,8 @@
+<function name="JS_Utility" parent="Global" type="libraryfunc">
+	<description>Adds JavaScript function 'util.MotionSensorAvailable' to an HTML panel as a method to call Lua's <page>motionsensor.IsAvailable</page> function.</description>
+	<realm>Client and Menu</realm>
+	<file line="11-L17">lua/includes/util/javascript_util.lua</file>
+	<args>
+		<arg name="htmlPanel" type="Panel">Panel to add JavaScript function 'util.MotionSensorAvailable' to.</arg>
+	</args>
+</function>

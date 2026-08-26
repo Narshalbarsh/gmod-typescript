@@ -1,0 +1,19 @@
+<function name="GetWeaponColor" parent="Player" type="classfunc">
+	<description>Returns a player's weapon color.
+
+The part of the model that is colored is determined by the model itself, and is different for each model. 
+
+See <page>Player:GetPlayerColor</page> for the accompanying function for the player character model color.
+</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Vector">The format is `Vector(r,g,b)`, and each color should be between 0 and 1.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Gets player 1's weapon color, and prints it to console</description>
+	<code>print( Entity( 1 ):GetWeaponColor() )</code>
+	<output>Vector( 1, 1, 1 )</output>
+
+</example>

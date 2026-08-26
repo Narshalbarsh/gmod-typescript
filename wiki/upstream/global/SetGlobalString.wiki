@@ -1,0 +1,14 @@
+<function name="SetGlobalString" parent="Global" type="libraryfunc">
+	<description>
+Defines a string with a maximum of 199 characters to be automatically networked to clients
+
+<warning>There's a 4095 slots Network limit. If you need more, consider using the <page>net</page> library or <page>Global.SetGlobal2String</page>. You should also consider the fact that you have way too many variables. You can learn more about this limit here: <page>Networking_Usage</page></warning>
+<note>If you want to have a higher characters limit use <page>Global.SetGlobal2String</page></note>
+<note>Running this function clientside will only set it clientside for the client it is called on!</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="index" type="any">Index to identify the global string with</arg>
+		<arg name="string" type="string">String to be networked</arg>
+	</args>
+</function>

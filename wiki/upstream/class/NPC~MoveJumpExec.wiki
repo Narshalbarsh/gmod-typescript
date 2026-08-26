@@ -1,0 +1,10 @@
+<function name="MoveJumpExec" parent="NPC" type="classfunc">
+	<description>Executes a jump move.
+
+Related functions are <page>NPC:MoveJumpStart</page> and <page>NPC:MoveJumpStop</page>.</description>
+	<realm>Server</realm>
+	<added>2021.03.31</added>
+	<rets>
+		<ret name="" type="number{AIMR}">The result. See <page>Enums/AIMR</page>.</ret>
+	</rets>
+</function>

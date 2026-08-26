@@ -1,0 +1,31 @@
+<function name="AddParticles" parent="game" type="libraryfunc">
+	<description>
+Loads a particle file. Individual particle systems will still need to be precached with <page>Global.PrecacheParticleSystem</page>.
+
+<note>You will still need to call this function clientside regardless if you create the particle effects serverside.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="particleFileName" type="string">The path of the file to add. Must be `(file).pcf`.</arg>
+	</args>
+</function>
+
+<example>
+	<description>
+Example usage of the function. Precaches `ExplosionCore_wall` particle from `particles/explosion.pcf`, a Team Fortress 2 particle file.
+
+You can find a list of particles inside a .pcf file using the [Particle Editor Tool](https://developer.valvesoftware.com/wiki/Particle_Editor).
+	</description>
+	<code>
+game.AddParticles( "particles/explosion.pcf" )
+
+if ( SERVER ) then
+	-- A test console command to see if the particle works, spawns the particle where the player is looking at. 
+	concommand.Add( "particleitup", function( ply, cmd, args )
+		PrecacheParticleSystem( "ExplosionCore_wall" )
+		ParticleEffect( "ExplosionCore_wall", ply:GetEyeTrace().HitPos, Angle( 0, 0, 0 ) )
+	end )
+end
+	</code>
+
+</example>

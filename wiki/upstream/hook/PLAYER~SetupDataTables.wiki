@@ -1,0 +1,15 @@
+<function name="SetupDataTables" parent="PLAYER" type="hook">
+	<description>Setup the network table accessors.</description>
+	<realm>Shared</realm>
+	<file line="27-L34">gamemodes/base/gamemode/player_class/player_default.lua</file>
+</function>
+
+<example>
+	<description>Example usage.</description>
+	<code>
+function PLAYER:SetupDataTables()
+	self.Player:NetworkVar( "Int", 0, "Money" )
+end
+	</code>
+
+</example>

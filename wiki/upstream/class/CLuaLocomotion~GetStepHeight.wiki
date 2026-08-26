@@ -1,0 +1,7 @@
+<function name="GetStepHeight" parent="CLuaLocomotion" type="classfunc">
+	<description>Gets the max height the bot can step up</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">Current step height</ret>
+	</rets>
+</function>

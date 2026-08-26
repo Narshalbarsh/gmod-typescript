@@ -1,0 +1,11 @@
+<function name="GetTarget" parent="NPC" type="classfunc">
+	<description>
+Returns the NPC's current target set by <page>NPC:SetTarget</page>.
+
+<bug issue="3132">This returns nil if the NPC has no target. You should use <page>Global.IsValid</page> (which accounts for nil and NULL) on the return to verify validity of the target.</bug>
+	</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="Entity">Target entity</ret>
+	</rets>
+</function>

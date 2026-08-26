@@ -1,0 +1,7 @@
+<function name="GetLocalAngles" parent="Entity" type="classfunc">
+	<description>Returns the rotation of the entity relative to its parent entity.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Angle">Relative angle</ret>
+	</rets>
+</function>

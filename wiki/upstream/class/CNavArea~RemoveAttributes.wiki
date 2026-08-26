@@ -1,0 +1,8 @@
+<function name="RemoveAttributes" parent="CNavArea" type="classfunc">
+	<description>Removes given attributes from given <page>CNavArea</page>. See also <page>CNavArea:SetAttributes</page>.</description>
+	<realm>Server</realm>
+	<added>2023.10.05</added>
+	<args>
+		<arg name="attribs" type="number">The attributes to remove, as a bitflag. See <page>Enums/NAV_MESH</page>.</arg>
+	</args>
+</function>

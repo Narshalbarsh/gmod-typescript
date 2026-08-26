@@ -1,0 +1,9 @@
+<function name="EnableConstraints" parent="Entity" type="classfunc">
+	<description>Toggles the constraints of this ragdoll entity on and off.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="toggleConstraints" type="boolean">Set to true to enable the constraints and false to disable them.
+
+Disabling constraints will delete the constraints.</arg>
+	</args>
+</function>

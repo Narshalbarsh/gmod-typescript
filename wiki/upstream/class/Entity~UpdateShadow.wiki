@@ -1,0 +1,5 @@
+<function name="UpdateShadow" parent="Entity" type="classfunc">
+	<description>Marks the render-to-texture (RTT) shadow of this entity as dirty, as well as any potential projected texture shadows related to this entity, so they will be updated as soon as possible.</description>
+	<realm>Client</realm>
+	<added>2019.10.23</added>
+</function>

@@ -1,0 +1,42 @@
+<enum>
+	<realm>Shared</realm>
+	<description>Enumerations used by <page>CTakeDamageInfo:GetDamageType</page>, <page>CTakeDamageInfo:SetDamageType</page> and <page>CTakeDamageInfo:IsDamageType</page>.
+
+This enumeration is a bit field/bitflag, which means that you can combine multiple damage types using the <page>bit</page> library. You can use <page>bit.band</page> to test if a specific damage type is set.
+</description>
+	<items>
+<item key="DMG_GENERIC" value="0">Generic damage (used by weapon_fists)</item>
+<item key="DMG_CRUSH" value="1">Caused by physics interaction and ignored by airboat drivers. This is used by the Rollermine and an unused animation attack called 'Fireattack' by the Antlion Guard [ACT_RANGE_ATTACK1](https://wiki.facepunch.com/gmod/Enums/ACT)</item>
+<item key="DMG_BULLET" value="2">Bullet damage from Ceiling Turrets, the Strider, Turrets and most guns.</item>
+<item key="DMG_SLASH" value="4">Used by the Stunstick, Manhacks, Antlions, Antlion Guards, Headcrabs, Fast Headcrabs, all Zombies types, Hunter, and potentially other NPCs attacks</item>
+<item key="DMG_BURN" value="8">Damage from fire</item>
+<item key="DMG_VEHICLE" value="16">Hit by a vehicle (This will need to be set for passengers of some vehicle to receive damage)</item>
+<item key="DMG_FALL" value="32">Fall damage</item>
+<item key="DMG_BLAST" value="64">Explosion damage like grenades, helicopter bombs, combine mines, Will be ignored by most vehicle passengers.</item>
+<item key="DMG_CLUB" value="128">Blunt attacks such as from the Crowbar, Antlion Guard & Hunter</item>
+<item key="DMG_SHOCK" value="256">Electrical damage, shows smoke at the damage position and its used by Stalkers & Vortigaunts</item>
+<item key="DMG_SONIC" value="512">Sonic damage, used by the Gargantua and Houndeye NPCs</item>
+<item key="DMG_ENERGYBEAM" value="1024">Laser damage</item>
+<item key="DMG_PREVENT_PHYSICS_FORCE" value="2048">Prevent a physics force.</item>
+<item key="DMG_NEVERGIB" value="4096">Crossbow damage, never creates gibs.</item>
+<item key="DMG_ALWAYSGIB" value="8192">Always create gibs</item>
+<item key="DMG_DROWN" value="16384">Drown damage</item>
+<item key="DMG_PARALYZE" value="32768">Same as DMG_POISON</item>
+<item key="DMG_NERVEGAS" value="65536">Neurotoxin damage</item>
+<item key="DMG_POISON" value="131072">Poison damage used by Antlion Workers & Poison Headcrabs.</item>
+<item key="DMG_RADIATION" value="262144">Radiation damage & it will be ignored by most vehicle passengers</item>
+<item key="DMG_DROWNRECOVER" value="524288">Damage applied to the player to restore health after drowning</item>
+<item key="DMG_ACID" value="1048576">Toxic chemical or acid burn damage used by the Antlion Workers</item>
+<item key="DMG_SLOWBURN" value="2097152">In an oven</item>
+<item key="DMG_REMOVENORAGDOLL" value="4194304">Don't create a ragdoll on death</item>
+<item key="DMG_PHYSGUN" value="8388608">Damage done by the gravity gun.</item>
+<item key="DMG_PLASMA" value="16777216">Plasma damage</item>
+<item key="DMG_AIRBOAT" value="33554432">Airboat gun damage</item>
+<item key="DMG_DISSOLVE" value="67108864">Forces the entity to dissolve on death. This is what the combine ball uses when it hits a target.</item>
+<item key="DMG_BLAST_SURFACE" value="134217728">This won't hurt the player underwater</item>
+<item key="DMG_DIRECT" value="268435456">Direct damage to the entity that does not go through any damage value modifications</item>
+<item key="DMG_BUCKSHOT" value="536870912">The pellets fired from a shotgun</item>
+<item key="DMG_SNIPER" value="1073741824">Damage from SniperRound/SniperPenetratedRound ammo types</item>
+<item key="DMG_MISSILEDEFENSE" value="2147483648">Damage from npc_missiledefense, npc_combinegunship, or monster_mortar</item>
+	</items>
+</enum>

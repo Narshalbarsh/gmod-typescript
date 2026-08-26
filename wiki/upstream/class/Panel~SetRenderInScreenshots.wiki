@@ -1,0 +1,7 @@
+<function name="SetRenderInScreenshots" parent="Panel" type="classfunc">
+	<description>Sets whenever the panel should be rendered in a screenshot. (`jpeg` or `screenshot` commands, Camera SWEP)</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="renderInScreenshot" type="boolean">Whether to render in the screenshot or not.</arg>
+	</args>
+</function>

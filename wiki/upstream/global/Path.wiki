@@ -1,0 +1,17 @@
+<function name="Path" parent="Global" type="libraryfunc">
+	<description>Creates a path for the bot to follow using one of two types (`Follow` or `Chase`)
+
+`Follow` is a general purpose path. Best used for static or infrequently updated locations. The path will only be updated once <page>PathFollower:Update</page> is called. This needs to be done manually (typically inside the bots `BehaveThread` coroutine.
+
+`Chase` is a specifically optimized for chasing a moving entity. Paths of this type will use <page>PathFollower:Chase</page>
+
+
+</description>
+	<realm>Server</realm>
+	<args> 
+		<arg name="type" type="string">The type of the path to create, must be `"Follow"` or `"Chase"`</arg>
+	</args>
+	<rets>
+		<ret name="" type="PathFollower">The path</ret>
+	</rets>
+</function>

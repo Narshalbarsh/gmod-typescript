@@ -1,0 +1,11 @@
+<function name="PostDrawModel" parent="DModelPanel" type="panelhook">
+	<description>
+Called when the entity of the <page>DModelPanel</page> was drawn.
+
+This is a rendering hook with 3d drawing context.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="ent" type="Entity">The clientside entity of the <page>DModelPanel</page> that has been drawn.</arg>
+	</args>
+</function>

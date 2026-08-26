@@ -1,0 +1,38 @@
+<function name="SetSequence" parent="Entity" type="classfunc">
+	<description>
+Sets the entity's model sequence.
+
+If the specified sequence is already active, the animation will not be restarted. See <page>Entity:ResetSequence</page> for a function that restarts the animation even if it is already playing.
+
+In some cases you want to run <page>Entity:ResetSequenceInfo</page> to make this function run.
+
+<note>This will not work properly if called directly after calling <page>Entity:SetModel</page>. Consider waiting until the next Tick.
+
+Will not work on players due to the animations being reset every frame by the base gamemode animation system. See <page>GM:CalcMainActivity</page>.
+
+For custom scripted entities you will want to apply example from <page>ENTITY:Think</page> to make animations work.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="sequence" type="number" alttype="string">The sequence to play.
+
+If set to a number, the input is treated as the sequence ID.  
+If set to a string, the function will automatically call <page>Entity:LookupSequence</page> to retrieve the sequence ID.</arg>
+	</args>
+	<rets>
+	<ret type="number">The length of the sequence.</ret>
+</rets>
+</function>
+
+<example>
+	<description>Set the entity to play the "idle" sequence.</description>
+	<code>self:SetSequence( "idle" )</code>
+
+</example>
+
+
+<example>
+	<description>Set the entity to play the first sequence defined on the model (usually idle).</description>
+	<code>self:SetSequence( 0 )</code>
+
+</example>

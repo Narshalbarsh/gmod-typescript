@@ -1,0 +1,7 @@
+<function name="SetNotSolid" parent="Entity" type="classfunc">
+	<description>Sets whether the entity is solid or not.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="IsNotSolid" type="boolean">True will make the entity not solid, false will make it solid.</arg>
+	</args>
+</function>

@@ -1,0 +1,8 @@
+<function name="SetConstraintWidth" parent="CMoveData" type="classfunc">
+	<description>Sets  the width (distance from the edge of the <page text="radius">CMoveData:SetConstraintRadius</page>, inward) where the actual movement constraint functions.</description>
+	<added>2021.06.09</added>
+	<realm>Shared</realm>
+	<args>
+		<arg name="" type="number">The constraint width</arg>
+	</args>
+</function>

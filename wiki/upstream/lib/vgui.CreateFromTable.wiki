@@ -1,0 +1,34 @@
+<function name="CreateFromTable" parent="vgui" type="libraryfunc">
+	<description>Creates a panel from a table, used alongside <page>vgui.RegisterFile</page> and <page>vgui.RegisterTable</page> to efficiently define, register, and instantiate custom panels.</description>
+	<realm>Client and Menu</realm>
+    <file line="54-L72">lua/includes/extensions/client/panel/scriptedpanels.lua</file>
+	<args>
+		<arg name="metatable" type="table">Your PANEL table.</arg>
+		<arg name="parent" type="Panel" default="nil">Which panel to parent the newly created panel to.</arg>
+		<arg name="name" type="string" default="nil">Custom name of the created panel for scripting/debugging purposes. Can be retrieved with <page>Panel:GetName</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Panel">The created panel, or `nil` if creation failed for whatever reason.</ret>
+	</rets>
+</function>
+
+<example>
+<code>
+local CustomPanel = {
+    Init = function( self )
+        self:SetSize( 200, 100 )
+    end,
+
+    Paint = function( self, w, h )
+        surface.SetDrawColor( 0, 255, 0, 255 )
+        surface.DrawRect( 0, 0, w, h)
+    end,
+}
+
+local my_custom_panel = vgui.RegisterTable( CustomPanel, "Panel" ) -- Register the panel class from a table
+
+local panel = vgui.CreateFromTable( my_custom_panel ) -- Create an instance of the panel
+panel:SetPos( 50, 50 )
+</code>
+
+</example>

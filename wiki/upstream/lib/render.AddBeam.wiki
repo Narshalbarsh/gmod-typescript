@@ -1,0 +1,14 @@
+<function name="AddBeam" parent="render" type="libraryfunc">
+	<description>
+		Adds a Beam Segment to the Beam started by <page>render.StartBeam</page>.
+
+		For more detailed information on Beams, as well as usage examples, see the <page text="Beams Render Reference">render_beams</page>.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="startPos" type="Vector">Beam start position.</arg>
+		<arg name="width" type="number">The width of the beam.</arg>
+		<arg name="textureEnd" type="number">The end coordinate of the texture used.</arg>
+		<arg name="color" type="Color">The color to be used.</arg>
+	</args>
+</function>

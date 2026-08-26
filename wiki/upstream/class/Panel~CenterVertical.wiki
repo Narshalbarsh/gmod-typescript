@@ -1,0 +1,10 @@
+<function name="CenterVertical" parent="Panel" type="classfunc">
+	<description>Centers the panel vertically with specified fraction.
+
+See <page>Panel:CenterHorizontal</page> for horizontal only centering, and  <page>Panel:Center</page> for a function that does both axes.</description>
+	<realm>Client and Menu</realm>
+	<file line="151-L153">lua/includes/extensions/client/panel.lua</file>
+	<args>
+		<arg name="fraction" type="number" default="0.5">The center fraction.</arg>
+	</args>
+</function>

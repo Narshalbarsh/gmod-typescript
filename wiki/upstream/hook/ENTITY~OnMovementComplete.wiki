@@ -1,0 +1,7 @@
+<function name="OnMovementComplete" parent="ENTITY" type="hook">
+	<added>2021.01.27</added>
+	<description>Called when the SNPC completes its movement to its destination.
+<note>This hook only works on `ai` type entities.</note>
+</description>
+	<realm>Server</realm>
+</function>

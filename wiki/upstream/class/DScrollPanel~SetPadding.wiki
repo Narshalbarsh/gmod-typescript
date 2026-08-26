@@ -1,0 +1,10 @@
+<function name="SetPadding" parent="DScrollPanel" type="panelfunc">
+	<description>
+<deprecated></deprecated>
+
+Sets the DScrollPanel's padding. This function appears to be unused.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="padding" type="number">The padding of the DScrollPanel.</arg>
+	</args>
+</function>

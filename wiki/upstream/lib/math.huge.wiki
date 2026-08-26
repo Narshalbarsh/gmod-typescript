@@ -1,0 +1,11 @@
+<function name="huge" parent="math" type="libraryfield">
+	<description>A variable that effectively represents infinity, in the sense that in any numerical comparison every number will be less than this.
+
+For example, if `x` is a number, `x > math.huge` will **NEVER** be `true` except in the case of overflow (see below).
+
+Lua will consider any number greater than or equal to `2^1024` (the exponent limit of a [double](http://en.wikipedia.org/wiki/Double-precision_floating-point_format)) as `inf` and hence equal to this.</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="number">The effective infinity.</ret>
+	</rets>
+</function>

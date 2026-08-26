@@ -1,0 +1,7 @@
+<function name="GetMin" parent="DNumberWang" type="panelfunc">
+	<description>Returns the minimum numeric value allowed by the number selector.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The minimum number.</ret>
+	</rets>
+</function>

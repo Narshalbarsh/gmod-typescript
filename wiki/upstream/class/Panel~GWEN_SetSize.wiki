@@ -1,0 +1,10 @@
+<function name="GWEN_SetSize" parent="Panel" type="classfunc">
+	<description><internal></internal> Used by <page>Panel:ApplyGWEN</page> to apply the `Size` property to a  panel object. This calls <page>Panel:SetSize</page>.</description>
+	<realm>Client and Menu</realm>
+	<file line="202">lua/derma/derma_gwen.lua</file>
+	<args>
+		<arg name="size" type="table">A two-membered table containing the width and heights as numbers:
+* <page>number</page> w - The width.
+* <page>number</page> h - The height.</arg>
+	</args>
+</function>

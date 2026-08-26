@@ -1,0 +1,58 @@
+<function name="util.funck" parent="jit" type="libraryfunc">
+	<description>
+Gets a constant at a certain index in a function.
+<deprecated>This function was disabled due to security concerns.</deprecated>
+
+<warning>This function isn't officially documented on LuaJIT wiki, use it at your own risk.</warning>
+<note>Numbers constants goes from 0 (included) to n-1, n being the value of nconsts in <page>jit.util.funcinfo</page> in other words, the consts goes from (nconsts-1) to -n</note>
+<note>This function only works for Lua defined functions.</note>
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="func" type="function">Function to get constant from</arg>
+		<arg name="index" type="number">Constant index (counting down from the top of the function at -1)</arg>
+	</args>
+	<rets>
+		<ret name="" type="any">The constant found.
+
+<note>This will return a <page>proto</page> for functions that are created inside the target function - see Example 2.</note></ret>
+	</rets>
+</function>
+
+<example>
+	<description>This code demonstrates how to get a constant in a function.</description>
+	<code>
+function bob()
+    print("hi")
+end
+
+print(jit.util.funck(bob, -1))
+print(jit.util.funck(bob, -2))
+	</code>
+	<output>
+```
+print
+hi
+```
+	</output>
+
+</example>
+
+
+<example>
+	<description>Demonstrates how a function created inside of the accessed function will be a <page>proto</page>s when used with this function.</description>
+	<code>
+local function foo()
+    local function bar()
+    end 
+end
+
+print( type( jit.util.funck( foo, -1 ) ) )
+	</code>
+	<output>
+```
+proto
+```
+</output>
+
+</example>

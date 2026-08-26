@@ -1,0 +1,10 @@
+<function name="SetFileCompleted" parent="steamworks" type="libraryfunc">
+	<description>Sets the workshop item as "completed" by the player. There will be a visual indicator on the Steam Workshop for completed items.</description>
+	<realm>Menu</realm>
+	<args>
+		<arg name="workshopid" type="string">The Steam Workshop item id</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">Whatever you have put in as first argument</ret>
+	</rets>
+</function>

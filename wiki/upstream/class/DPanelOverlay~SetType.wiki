@@ -1,0 +1,12 @@
+<function name="SetType" parent="DPanelOverlay" type="panelfunc">
+	<description>Sets the type of the <page>DPanelOverlay</page>.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="type" type="number">The type to set.
+
+Possible value are:
+* 1 - 8px corners of given color
+* 2 - 4px corners of given type
+* 3 - 2 top? corners of hardcoded color, 2 other corners of given color</arg>
+	</args>
+</function>

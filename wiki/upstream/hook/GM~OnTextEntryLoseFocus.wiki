@@ -1,0 +1,8 @@
+<function name="OnTextEntryLoseFocus" parent="GM" type="hook">
+	<description>Called when a <page>DTextEntry</page> loses focus.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="panel" type="Panel">The panel that lost focus</arg>
+	</args>
+	<file line="L362">lua/vgui/dtextentry.lua</file>
+</function>

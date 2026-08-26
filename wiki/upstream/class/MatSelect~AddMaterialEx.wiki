@@ -1,0 +1,10 @@
+<function name="AddMaterialEx" parent="MatSelect" type="panelfunc">
+	<description>Adds a new material to the selection list, with some extra options.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="label" type="string">Tooltip for the material, for when the player hovers over the material.</arg>
+		<arg name="path" type="string">Path to the material. Relative to `materials/` folder (do not include it), and do not include the `.vmt` extension.</arg>
+		<arg name="value" type="any">Overrides the "value" of the material. This will be what <page>MatSelect:OnSelect</page> receives in the first argument. It also affects <page>MatSelect:FindMaterialByValue</page>.</arg>
+		<arg name="convars" type="table">A list of convar names (as keys) and their values to set when the user selects this material. <page>ContextBase:SetConVar</page> will be ignored.</arg>
+	</args>
+</function>

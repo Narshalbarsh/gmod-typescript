@@ -1,0 +1,17 @@
+<function name="frexp" parent="math" type="libraryfunc">
+	<description>
+**Lua reference description**: Returns `m` and `e` such that `x = m2e`, `e` is an integer and the absolute value of `m` is in the range ((0.5, 1) (or zero when x is zero).
+
+Used to split the number value into a normalized fraction and an exponent. Two values are returned: the first is a multiplier in the range `1/2` (**inclusive**) to `1` (**exclusive**) and the second is an integer exponent.
+
+The result is such that `x = m*2^e`.
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="x" type="number">The value to get the normalized fraction and the exponent from.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">m, multiplier - between `0.5` and `1`.</ret>
+		<ret name="" type="number">e, exponent - **always** an integer.</ret>
+	</rets>
+</function>

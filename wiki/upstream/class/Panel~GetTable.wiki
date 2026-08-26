@@ -1,0 +1,7 @@
+<function name="GetTable" parent="Panel" type="classfunc">
+	<description>Returns the internal Lua table of the panel.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="table">A table containing all the members of given panel object.</ret>
+	</rets>
+</function>

@@ -1,0 +1,14 @@
+<function name="AddFrags" parent="Player" type="classfunc">
+	<description>Adds the provided amount to the player's frag/kill count.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="count" type="number">The amount to add.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Adds 2 frags to player</description>
+	<code>Entity( 1 ):AddFrags( 2 )</code>
+	<output>Player1 has 2 extra frags on the scoreboard relative to their old score.</output>
+
+</example>

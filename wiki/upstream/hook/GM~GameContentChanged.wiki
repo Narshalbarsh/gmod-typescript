@@ -1,0 +1,4 @@
+<function name="GameContentChanged" parent="GM" type="hook">
+	<description>Called when game content has been changed, for example an addon or a mountable game was (un)mounted.</description>
+	<realm>Shared and Menu</realm>
+</function>

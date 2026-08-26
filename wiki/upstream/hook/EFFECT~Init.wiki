@@ -1,0 +1,7 @@
+<function name="Init" parent="EFFECT" type="hook">
+	<description>Called when the effect is created.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="effectData" type="CEffectData">The effect data used to create the effect.</arg>
+	</args>
+</function>

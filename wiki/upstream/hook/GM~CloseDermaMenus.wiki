@@ -1,0 +1,5 @@
+<function name="CloseDermaMenus" parent="GM" type="hook">
+	<description>Called when derma menus are closed with <page>Global.CloseDermaMenus</page>.</description>
+	<realm>Client and Menu</realm>
+	<file line="729-L730">gamemodes/base/gamemode/cl_init.lua</file>
+</function>

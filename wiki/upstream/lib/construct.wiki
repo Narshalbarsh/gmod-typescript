@@ -1,0 +1,3 @@
+<type name="construct" category="libraryfunc" is="library">
+	<summary>The construct library is used to control the physical properties of entities.</summary>
+</type>

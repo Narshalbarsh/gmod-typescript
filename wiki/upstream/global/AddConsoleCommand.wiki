@@ -1,0 +1,9 @@
+<function name="AddConsoleCommand" parent="Global" type="libraryfunc">
+	<description><internal>Use <page>concommand.Add</page> instead.</internal>Tells the engine to register a console command. If the command was ran, the engine calls <page>concommand.Run</page>.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="name" type="string">The name of the console command to add.</arg>
+		<arg name="helpText" type="string">The help text.</arg>
+		<arg name="flags" type="number{FCVAR}">Concommand flags using <page>Enums/FCVAR</page>.</arg>
+	</args>
+</function>

@@ -1,0 +1,15 @@
+<function name="ReadVar" parent="saverestore" type="libraryfunc">
+	<description>
+Loads a variable from the save game file that is being loaded.
+
+Variables will be read in the save order you have saved them.
+	</description>
+	<realm>Shared</realm>
+	<file line="185-L214">lua/includes/modules/saverestore.lua</file>
+	<args>
+		<arg name="save" type="IRestore">The restore object to read variables from.</arg>
+	</args>
+	<rets>
+		<ret name="" type="any">The variable that was read, if any.</ret>
+	</rets>
+</function>

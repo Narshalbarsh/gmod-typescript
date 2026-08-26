@@ -1,0 +1,9 @@
+<function name="Random" parent="Vector" type="classfunc">
+	<description>Randomizes each element of this Vector object.</description>
+	<realm>Shared and Menu</realm>
+	<added>2021.12.15</added>
+	<args>
+		<arg name="min" type="number" default="-1">The minimum value for each component.</arg>
+		<arg name="max" type="number" default="1">The maximum value for each component.</arg>
+	</args>
+</function>

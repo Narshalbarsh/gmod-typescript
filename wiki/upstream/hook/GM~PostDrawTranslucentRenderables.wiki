@@ -1,0 +1,46 @@
+<function name="PostDrawTranslucentRenderables" parent="GM" type="hook">
+	<description>
+Called after all translucent entities are drawn.
+
+See also <page>GM:PostDrawOpaqueRenderables</page> and  <page>GM:PreDrawTranslucentRenderables</page>.
+
+<rendercontext hook="true" type="3D"></rendercontext>
+
+<bug issue="3295">This is still called when r_drawentities or r_drawopaquerenderables is disabled.</bug>
+<bug issue="3296">This is not called when r_drawtranslucentworld is disabled.</bug>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="bDrawingDepth" type="boolean">Whether the current call is writing depth.</arg>
+		<arg name="bDrawingSkybox" type="boolean">Whether the current call is drawing the 3D or 2D skybox.
+
+In case of 2D skyboxes it is possible for this hook to always be called with this parameter set to `true`.</arg>
+		<arg name="isDraw3DSkybox" type="boolean">Whether the current call is drawing the 3D skybox.</arg>
+	</args>
+</function>
+
+<example>
+	<description>
+Draws a solid black sphere at where the player is looking at, but not when the skybox is being drawn.
+
+You can see why this is needed if you disable the skybox check and look into the sky on gm_flatgrass (or any other map where the 3d skybox is below the map) and you will notice 2 spheres and not 1.
+	</description>
+	<code>
+hook.Add( "PostDrawTranslucentRenderables", "test", function( bDepth, bSkybox )
+	-- If we are drawing in the skybox, bail
+	if ( bSkybox ) then return end
+
+	-- Set the draw material to solid white
+	render.SetColorMaterial()
+
+	-- The position to render the sphere at, in this case, the looking position of the local player
+	local pos = LocalPlayer():GetEyeTrace().HitPos
+
+	-- Draw the sphere!
+	render.DrawSphere( pos, 500, 30, 30, color_black )
+end )
+	</code>
+	<output>
+		<upload src="22674/8d9d79bce67a7e7.png" size="85032" name="image.png" />
+	</output>
+</example>

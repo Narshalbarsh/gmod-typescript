@@ -1,0 +1,9 @@
+<function name="GetHandle" parent="DSprite" type="panelfunc">
+	<description>
+<deprecated></deprecated>
+Returns the value set by <page>DSprite:SetHandle</page></description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="Vector"></ret>
+	</rets>
+</function>

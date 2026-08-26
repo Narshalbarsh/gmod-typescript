@@ -1,0 +1,12 @@
+<function name="RequestPermission" parent="Global" type="libraryfunc">
+	<description>
+		<internal></internal>
+		Opens a confirmation window to grant the requested permission.
+		<upload src="ab571/8dc3890f84fb468.png" size="17108" name="permission_request.png" />
+	</description>
+	<realm>Menu</realm>
+	<file line="301-L305">lua/menu/openurl.lua</file>
+	<args>
+		<arg name="permission" type="string">The permission to ask</arg>
+	</args>
+</function>

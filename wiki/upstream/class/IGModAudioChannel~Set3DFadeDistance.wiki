@@ -1,0 +1,24 @@
+<function name="Set3DFadeDistance" parent="IGModAudioChannel" type="classfunc">
+	<description>Sets 3D fade distances of a sound channel.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="min" type="number">The minimum distance. The channel's volume is at maximum when the listener is within this distance.
+
+
+
+
+0 or less = leave current.</arg>
+		<arg name="max" type="number">The maximum distance. The channel's volume stops decreasing when the listener is beyond this distance.
+
+
+
+
+0 or less = leave current.</arg>
+	</args>
+</function>
+
+<example>
+	<description>The default values.</description>
+	<code>Channel:Set3DFadeDistance( 200, 1000000000 )</code>
+
+</example>

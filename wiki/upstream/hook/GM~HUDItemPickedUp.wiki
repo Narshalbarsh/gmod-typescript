@@ -1,0 +1,14 @@
+<function name="HUDItemPickedUp" parent="GM" type="hook">
+	<description>Called when an item has been picked up. Override to disable the default HUD notification.</description>
+	<realm>Client</realm>
+	<file line="36-L45">gamemodes/base/gamemode/cl_hudpickup.lua</file>
+	<args>
+		<arg name="itemName" type="string">Name of the picked up item</arg>
+	</args>
+</function>
+
+<example>
+<code>hook.Add( "HUDItemPickedUp", "ItemPickedUp", function( itemName )
+    -- Register the addition or create a Panel here
+end )</code>
+</example>

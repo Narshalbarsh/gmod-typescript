@@ -1,0 +1,7 @@
+<function name="StopLoopingSound" parent="Entity" type="classfunc">
+	<description>Stops a sound created by <page>Entity:StartLoopingSound</page>.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="id" type="number">The sound ID returned by <page>Entity:StartLoopingSound</page></arg>
+	</args>
+</function>

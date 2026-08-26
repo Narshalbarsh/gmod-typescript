@@ -1,0 +1,41 @@
+<function name="GetShootPos" parent="Player" type="classfunc">
+	<description>
+Returns the position of a Player's view
+
+<note>This is the same as calling <page>Entity:EyePos</page> on the player.</note>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Vector">The position of the player's view.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Gets player 1's shoot position, and prints it to console</description>
+	<code>print( Entity( 1 ):GetShootPos() )</code>
+	<output>A vector of the player's shooting position in the console.</output>
+
+</example>
+
+
+<example>
+	<description>
+Prints the position of your player's camera, but using 3 different functions.
+
+This example demonstrates that it doesn't matter whichever of these functions you use, you will get the SAME result.
+	</description>
+	<code>
+// run on client
+print( LocalPlayer():GetEyeTrace().StartPos )
+print( LocalPlayer():GetShootPos() )
+print( LocalPlayer():EyePos() )
+	</code>
+	<output>
+```
+94.856689 -115.472549 -83.981430
+94.856689 -115.472549 -83.981430
+94.856689 -115.472549 -83.981430
+```
+	</output>
+
+</example>

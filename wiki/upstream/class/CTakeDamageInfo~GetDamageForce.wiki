@@ -1,0 +1,11 @@
+<function name="GetDamageForce" parent="CTakeDamageInfo" type="classfunc">
+	<description>
+Returns a vector representing the damage force.
+
+Can be set with <page>CTakeDamageInfo:SetDamageForce</page>.
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Vector">The damage force</ret>
+	</rets>
+</function>

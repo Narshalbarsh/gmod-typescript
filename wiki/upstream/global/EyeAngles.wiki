@@ -1,0 +1,16 @@
+<function name="EyeAngles" parent="Global" type="libraryfunc">
+	<description>
+Returns the angles of the current render context as calculated by <page>GM:CalcView</page>.
+
+<bug issue="2516">This function is only reliable inside rendering hooks.</bug>
+	</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="Angle">The angle of the currently rendered scene.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Identical to <page>Global.EyeVector</page>.</description>
+	<code>print( EyeAngles():Forward() )</code>
+</example>

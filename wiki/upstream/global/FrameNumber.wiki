@@ -1,0 +1,15 @@
+<function name="FrameNumber" parent="Global" type="libraryfunc">
+	<description>
+		Returns the number of frames rendered since the game was launched.
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">frame count</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints the frame count to the console.</description>
+	<code>print(FrameNumber())</code>
+
+</example>

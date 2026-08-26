@@ -1,0 +1,13 @@
+<function name="SetTarget" parent="NPC" type="classfunc">
+	<description>Sets the NPC's target. This is used in some engine schedules.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="entity" type="Entity">The target of the NPC.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Sets the NPC's target to first player.</description>
+	<code>npc:SetTarget( Entity( 1 ) )</code>
+
+</example>

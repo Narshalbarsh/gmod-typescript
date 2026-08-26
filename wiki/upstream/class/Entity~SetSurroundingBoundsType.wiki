@@ -1,0 +1,11 @@
+<function name="SetSurroundingBoundsType" parent="Entity" type="classfunc">
+	<added>2023.01.25</added>
+	<description>Automatically sets the axis-aligned bounding box (AABB) for an entity's hitbox detection.
+
+	See also <page>Entity:SetSurroundingBounds</page> (mutually exclusive).
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="bounds" type="number{BOUNDS}">Bounds type of the entity, see <page>Enums/BOUNDS</page></arg>
+	</args>
+</function>

@@ -1,0 +1,7 @@
+<function name="GetPlaybackRate" parent="IGModAudioChannel" type="classfunc">
+	<description>Returns the playback rate of the sound channel.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">The current playback rate of the sound channel</ret>
+	</rets>
+</function>

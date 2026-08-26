@@ -1,0 +1,5 @@
+<function name="OnRevertSpawnlist" parent="SANDBOX" type="hook">
+	<description>Called when the Client reverts spawnlist changes</description>
+	<realm>Client</realm>
+	<file line="70">gamemodes/sandbox/gamemode/spawnmenu/creationmenu/content/contentsidebar.lua</file>
+</function>

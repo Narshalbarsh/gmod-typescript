@@ -1,0 +1,15 @@
+<function name="ViewModelDrawn" parent="WEAPON" type="hook">
+	<description>Called straight after the view model has been drawn. This is called before <page>GM:PostDrawViewModel</page> and <page>WEAPON:PostDrawViewModel</page>.
+
+See <page>WEAPON:DrawWorldModel</page> for world model rendering.
+
+See also <page>WEAPON:PreDrawViewModel</page> and <page>WEAPON:PostDrawViewModel</page>.
+
+<rendercontext hook="true" type="3D"></rendercontext>
+</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="ViewModel" type="Entity">Players view model</arg>
+		<arg name="flags" type="number" added="2025.12.10">The <page text="STUDIO_">Enums/STUDIO</page> flags for this render operation.</arg>
+	</args>
+</function>

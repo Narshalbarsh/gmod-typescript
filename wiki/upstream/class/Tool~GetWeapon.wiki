@@ -1,0 +1,8 @@
+<function name="GetWeapon" parent="Tool" type="classfunc">
+	<description>
+Returns the Tool Gun (`gmod_tool`) Scripted <page>Weapon</page>.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Weapon">The tool gun weapon. (`gmod_tool`)</ret>
+	</rets>
+</function>

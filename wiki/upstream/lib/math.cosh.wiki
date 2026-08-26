@@ -1,0 +1,10 @@
+<function name="cosh" parent="math" type="libraryfunc">
+	<description>Returns the [hyperbolic cosine](https://en.wikipedia.org/wiki/Cosh_(mathematical_function)) of the given angle.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="number" type="number">Angle in radians.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The hyperbolic cosine of the given angle.</ret>
+	</rets>
+</function>

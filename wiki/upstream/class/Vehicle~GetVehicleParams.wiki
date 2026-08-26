@@ -1,0 +1,7 @@
+<function name="GetVehicleParams" parent="Vehicle" type="classfunc">
+	<description>Returns the vehicle parameters of given vehicle.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="table{VehicleParams}">The vehicle parameters.</ret>
+	</rets>
+</function>

@@ -1,0 +1,10 @@
+<function name="AddGamemodeToolMenuCategories" parent="SANDBOX" type="hook">
+	<description>
+<internal></internal>
+
+This hook is used to add default categories to spawnmenu tool tabs.
+
+Do not override or hook this function, use <page>SANDBOX:AddToolMenuCategories</page>!
+	</description>
+	<realm>Client</realm>
+</function>

@@ -1,0 +1,7 @@
+<function name="SetDecimals" parent="DNumberScratch" type="panelfunc">
+	<description>Sets the desired amount of numbers after the decimal point.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="decimals" type="number">0 for whole numbers only, 1 for one number after the decimal point, etc.</arg>
+	</args>
+</function>

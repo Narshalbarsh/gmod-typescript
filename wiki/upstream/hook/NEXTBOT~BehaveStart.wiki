@@ -1,0 +1,11 @@
+<function name="BehaveStart" parent="NEXTBOT" type="hook">
+	<description>
+		Called to initialize the behaviour.
+
+		This is called automatically when the NextBot is created, you should not call it manually.
+
+		<note>You shouldn't override this unless you know what you are doing - it's used to kick off the <page>coroutine</page> that runs the bot's behaviour. See <page>NEXTBOT:RunBehaviour</page> instead.</note>
+	</description>
+	<realm>Server</realm>
+	<file line="2">gamemodes/base/entities/entities/base_nextbot/sv_nextbot.lua</file>
+</function>

@@ -1,0 +1,12 @@
+<function name="SuppressEngineLighting" parent="render" type="libraryfunc">
+	<description>
+Allows suppressing model lighting for any upcoming model render operation.  
+Lighting then can be manually set up via various functions such as <page>render.SetModelLighting</page>.
+
+<bug issue="4070">This does not affect <page>IMesh</page>es.</bug>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="suppressLighting" type="boolean">True to suppress false to enable.</arg>
+	</args>
+</function>

@@ -1,0 +1,11 @@
+<function name="SetFileName" parent="DTree_Node" type="panelfunc">
+	<description>
+<internal></internal>
+
+Sets the file full filepath to the file attached to this node
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="filename" type="string"></arg>
+	</args>
+</function>

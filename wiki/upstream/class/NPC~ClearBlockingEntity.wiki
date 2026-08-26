@@ -1,0 +1,5 @@
+<function name="ClearBlockingEntity" parent="NPC" type="classfunc">
+	<description>Resets the <page>NPC:GetBlockingEntity</page>.</description>
+	<realm>Server</realm>
+	<added>2021.03.31</added>
+</function>

@@ -1,0 +1,12 @@
+<function name="DragHoverClick" parent="PANEL" type="hook">
+	<file line="540-L541">lua/includes/extensions/client/panel/dragdrop.lua</file>
+	<description>
+Called when an object is dragged and hovered over this panel for 0.1 seconds.
+
+This is used by <page>DPropertySheet</page> and <page>DTree</page>, for example to open a tab or expand a node when an object is hovered over it.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="hoverTime" type="number">The time the object was hovered over this panel.</arg>
+	</args>
+</function>

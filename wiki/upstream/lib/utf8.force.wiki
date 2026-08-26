@@ -1,0 +1,15 @@
+<function name="force" parent="utf8" type="libraryfunc">
+	<description>
+Forces a string to contain only valid UTF-8 data. Invalid sequences are replaced with U+FFFD (the Unicode replacement character).
+
+This is a lazy way for users to ensure a string contains only valid UTF-8 data.
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="303-L338">lua/includes/modules/utf8.lua</file>
+	<args>
+		<arg name="string" type="string">The string that will become a valid UTF-8 string.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The UTF-8 string.</ret>
+	</rets>
+</function>

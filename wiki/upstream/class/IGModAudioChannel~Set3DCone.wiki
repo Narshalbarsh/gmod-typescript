@@ -1,0 +1,30 @@
+<function name="Set3DCone" parent="IGModAudioChannel" type="classfunc">
+	<description>Sets 3D cone of the sound channel.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="innerAngle" type="number">The angle of the inside projection cone in degrees.
+
+
+
+
+Range is from 0 (no cone) to 360 (sphere), -1 = leave current.</arg>
+		<arg name="outerAngle" type="number">The angle of the outside projection cone in degrees.
+
+
+
+
+Range is from 0 (no cone) to 360 (sphere), -1 = leave current.</arg>
+		<arg name="outerVolume" type="number">The delta-volume outside the outer projection cone.
+
+
+
+
+Range is from 0 (silent) to 1 (same as inside the cone), less than 0 = leave current.</arg>
+	</args>
+</function>
+
+<example>
+	<description>The default values</description>
+	<code>Channel:Set3DCone( 360, 360, 0 )</code>
+
+</example>

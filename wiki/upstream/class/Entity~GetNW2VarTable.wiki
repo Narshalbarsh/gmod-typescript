@@ -1,0 +1,25 @@
+<function name="GetNW2VarTable" parent="Entity" type="classfunc">
+	<description>
+		Returns all the NW2 variables in an entity.
+		<bug issue="5396">This function will return keys with empty tables if the NW2Var is nil.</bug>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="table">Key-Value table of all NW2 variables.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Structure of the returned table.</description>
+	<code>
+Entity(1):SetNW2String("Example", "Example")
+PrintTable(Entity(1):GetNW2VarTable())
+	</code>
+	<output>
+```
+Example:
+		type	=	String
+		value	=	Example
+```
+	</output>
+</example>

@@ -1,0 +1,8 @@
+<function name="SetActiveControlPanel" parent="spawnmenu" type="libraryfunc">
+	<description><internal></internal>Sets currently active control panel to be returned by <page>spawnmenu.ActiveControlPanel</page>.</description>
+	<realm>Client</realm>
+	<file line="20-L22">lua/includes/modules/spawnmenu.lua</file>
+	<args>
+		<arg name="pnl" type="Panel">The panel to set.</arg>
+	</args>
+</function>

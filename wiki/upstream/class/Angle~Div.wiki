@@ -1,0 +1,7 @@
+<function name="Div" parent="Angle" type="classfunc">
+	<description>Divides all values of the original angle by a scalar. This functions the same as angle1 / num without creating a new angle object, skipping object construction and garbage collection.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="scalar" type="number">The number to divide by.</arg>
+	</args>
+</function>

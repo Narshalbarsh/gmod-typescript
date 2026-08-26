@@ -1,0 +1,11 @@
+<function name="AddModelList" parent="DModelSelectMulti" type="panelfunc">
+	<description>Adds a new tab of models.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="name" type="string">Name of the tab to add.</arg>
+		<arg name="models" type="table">Models list for this tab. See <page>DModelSelect:SetModelList</page>.</arg>
+		<arg name="convar" type="string"><page>ConVar</page> to set when a model from this list is selected.</arg>
+		<arg name="dontSort" type="boolean">Do not sort the list. (by the `Model` member)</arg>
+		<arg name="dontCallListConVars" type="boolean">If set, only the `convar` from the 2nd argument will be set, not individual convars from the models list.</arg>
+	</args>
+</function>

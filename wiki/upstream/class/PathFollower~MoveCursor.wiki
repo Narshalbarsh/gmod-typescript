@@ -1,0 +1,11 @@
+<function name="MoveCursor" parent="PathFollower" type="classfunc">
+	<description>
+Moves the cursor by give distance.
+
+For a function that sets the distance, see <page>PathFollower:MoveCursorTo</page>.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="distance" type="number">The distance to move the cursor (in relative world units)</arg>
+	</args>
+</function>

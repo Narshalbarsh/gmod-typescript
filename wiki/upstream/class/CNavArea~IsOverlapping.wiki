@@ -1,0 +1,11 @@
+<function name="IsOverlapping" parent="CNavArea" type="classfunc">
+	<description>Returns if this position overlaps the Nav Area within the given tolerance.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="pos" type="Vector">The overlapping position to test.</arg>
+		<arg name="tolerance" type="number" default="0">The tolerance of the overlapping, set to 0 for no tolerance.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether the given position overlaps the Nav Area or not.</ret>
+	</rets>
+</function>

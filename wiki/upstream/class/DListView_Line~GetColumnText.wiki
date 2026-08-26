@@ -1,0 +1,34 @@
+<function name="GetColumnText" parent="DListView_Line" type="panelfunc">
+	<description>
+Gets the string held in the specified column of a <page>DListView_Line</page> panel.
+
+This is the same thing as doing <page text="DListView_Line:GetValue">Panel:GetValue</page>( column_number ).
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="column" type="number">The number of the column to retrieve the text from, starts with 1.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The contents of the specified column.</ret>
+	</rets>
+</function>
+
+<example>
+	<code>
+local dframe = vgui.Create("DFrame")
+dframe:SetSize(450, 350)
+dframe:Center()
+
+local dlist = vgui.Create("DListView", dframe)
+dlist:Dock(FILL)
+dlist:SetMultiSelect(false)
+dlist:AddColumn("Name")
+dlist:AddColumn("SteamID")
+dlist:AddLine("Stalker", "STEAM_0:1:18093014")
+function dlist:DoDoubleClick(linenumber, lineinfo)
+	print(lineinfo:GetColumnText(2))
+end
+	</code>
+	<output>Prints "STEAM_0:1:18093014" when the line containing Stalker is double clicked.</output>
+
+</example>

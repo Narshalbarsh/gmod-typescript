@@ -1,0 +1,8 @@
+<function name="SetOptions" parent="ControlPresets" type="panelfunc">
+	<description>Uses <page>table.Merge</page> to combine the provided table into the `Options` subtable </description>
+	<realm>Client</realm>
+	<file line="56-L60">gamemodes/sandbox/gamemode/spawnmenu/controls/control_presets.lua</file>
+	<args>
+		<arg name="Options" type="table">Options</arg>
+	</args>
+</function>

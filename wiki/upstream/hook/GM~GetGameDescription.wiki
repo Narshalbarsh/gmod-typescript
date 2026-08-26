@@ -1,0 +1,14 @@
+<function name="GetGameDescription" parent="GM" type="hook">
+	<description>
+Called when the game(server) needs to update the text shown in the server browser as the gamemode. Runs at a ~2s interval, runs even when the server is hibernating. This hook doesn't run when `hide_server 1` is set.
+
+<note>This hook (and the `sv_gamename_override` command) may not work on some popular gamemodes like DarkRP or Trouble Terrorist Town. This is not a bug, it's just how it works. See [here](https://github.com/Facepunch/garrysmod-issues/issues/4637#issuecomment-677884989) for more information.
+
+Also, it **only** works on dedicated servers and is called at regular intervals (about one second) **even** if the server has no players and the hibernation function is enabled.</note>
+</description>
+	<realm>Shared</realm>
+	<file line="76-L78">gamemodes/base/gamemode/shared.lua</file>
+	<rets>
+		<ret name="" type="string">The text to be shown in the server browser as the gamemode.</ret>
+	</rets>
+</function>

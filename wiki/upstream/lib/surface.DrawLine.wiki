@@ -1,0 +1,31 @@
+<function name="DrawLine" parent="surface" type="libraryfunc">
+	<description>
+Draws a line from one point to another.
+
+<rendercontext hook="false" type="2D"></rendercontext>
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="startX" type="number">The start x float coordinate.</arg>
+		<arg name="startY" type="number">The start y float coordinate.</arg>
+		<arg name="endX" type="number">The end x float coordinate.</arg>
+		<arg name="endY" type="number">The end y float coordinate.</arg>
+	</args>
+</function>
+
+<example>
+	<description>This example will draw a pixel perfect circle in the middle of your screen.</description>
+	<code>
+hook.Add( "HUDPaint", "Circle", function()
+	local center = Vector( ScrW() / 2, ScrH() / 2, 0 )
+	local scale = Vector( 100, 100, 0 )
+	local segmentdist = 360 / ( 2 * math.pi * math.max( scale.x, scale.y ) / 2 )
+	surface.SetDrawColor( 255, 0, 0, 255 )
+ 
+	for a = 0, 360 - segmentdist, segmentdist do
+		surface.DrawLine( center.x + math.cos( math.rad( a ) ) * scale.x, center.y - math.sin( math.rad( a ) ) * scale.y, center.x + math.cos( math.rad( a + segmentdist ) ) * scale.x, center.y - math.sin( math.rad( a + segmentdist ) ) * scale.y )
+	end
+end )
+	</code>
+
+</example>

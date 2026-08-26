@@ -1,0 +1,4 @@
+<function name="OnRemove" parent="PANEL" type="hook">
+	<description>Called when the panel is about to be removed.</description>
+	<realm>Client</realm>
+</function>

@@ -1,0 +1,7 @@
+<function name="GetBottomArea" parent="CNavLadder" type="classfunc">
+	<description>Returns the bottom area of the <page>CNavLadder</page>.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="CNavArea"></ret>
+	</rets>
+</function>

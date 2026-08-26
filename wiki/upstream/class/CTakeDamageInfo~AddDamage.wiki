@@ -1,0 +1,7 @@
+<function name="AddDamage" parent="CTakeDamageInfo" type="classfunc">
+	<description>Increases the damage by damageIncrease.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="damageIncrease" type="number">The damage to add.</arg>
+	</args>
+</function>

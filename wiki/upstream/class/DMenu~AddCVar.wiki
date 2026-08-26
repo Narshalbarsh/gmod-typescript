@@ -1,0 +1,20 @@
+<function name="AddCVar" parent="DMenu" type="panelfunc">
+	<description>Creates a <page>DMenuOptionCVar</page> and adds it as an option into the menu. Checking and unchecking the option will alter the given console variable's value.</description>
+	<realm>Client and Menu</realm>
+<file line="49-L64">lua/vgui/dmenu.lua</file>
+	<args>
+		<arg name="strText" type="string">The text of the button</arg>
+		<arg name="convar" type="string">The console variable to change</arg>
+		<arg name="on" type="string">The value of the console variable to set when the option is checked</arg>
+		<arg name="off" type="string">The value of the console variable to set when the option is unchecked</arg>
+		<arg name="funcFunction" type="function" default="nil">If set, the function will be called every time the option is pressed/clicked/selected.
+
+<callback>
+<arg type="Panel" name="pnl">The <page>DMenuOptionCVar</page> that was clicked.</arg>
+</callback>
+</arg>
+	</args>
+	<rets>
+		<ret name="" type="DMenuOptionCVar">The created <page>DMenuOptionCVar</page></ret>
+	</rets>
+</function>

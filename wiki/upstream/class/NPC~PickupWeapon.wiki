@@ -1,0 +1,12 @@
+<function name="PickupWeapon" parent="NPC" type="classfunc">
+	<description>Forces the NPC to pickup an existing weapon entity. The NPC will not pick up the weapon if they already own a weapon of given type, or if the NPC could not normally have this weapon in their inventory.
+</description>
+	<realm>Server</realm>
+	<added>2020.06.24</added>
+	<args>
+		<arg name="wep" type="Weapon">The weapon to try to pick up.</arg>
+	</args>
+	<rets>
+		<ret name="result" type="boolean">Whether the NPC succeeded in picking up the weapon or not.</ret>
+	</rets>
+</function>

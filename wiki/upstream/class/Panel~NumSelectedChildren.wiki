@@ -1,0 +1,8 @@
+<function name="NumSelectedChildren" parent="Panel" type="classfunc">
+	<file line="207-L221">lua/includes/extensions/client/panel/selections.lua</file>
+	<description>Returns the number of children of the panel object that are selected. This is equivalent to calling <page>Panel:IsSelected</page> on all child objects and counting the number of returns that are `true`.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The number of child objects that are currently selected. This does not include the parent object you are calling the method from.</ret>
+	</rets>
+</function>

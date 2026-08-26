@@ -1,0 +1,10 @@
+<function name="GetWheel" parent="Vehicle" type="classfunc">
+	<description>Returns the <page>PhysObj</page> of given wheel.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="wheel" type="number">The wheel to retrieve</arg>
+	</args>
+	<rets>
+		<ret name="" type="PhysObj">The wheel</ret>
+	</rets>
+</function>

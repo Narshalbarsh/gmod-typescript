@@ -1,0 +1,11 @@
+<function name="SetStretchHeight" parent="DIconLayout" type="panelfunc">
+	<description>
+If set to true, the icon layout will stretch its height to fit all the children.
+
+See also <page>DIconLayout:SetStretchWidth</page>
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="do_stretch" type="boolean"></arg>
+	</args>
+</function>

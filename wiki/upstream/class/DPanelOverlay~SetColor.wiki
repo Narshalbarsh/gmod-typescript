@@ -1,0 +1,7 @@
+<function name="SetColor" parent="DPanelOverlay" type="panelfunc">
+	<description>Sets the border color of the <page>DPanelOverlay</page>.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="color" type="Color">The color to set. Uses <page>Color</page>.</arg>
+	</args>
+</function>

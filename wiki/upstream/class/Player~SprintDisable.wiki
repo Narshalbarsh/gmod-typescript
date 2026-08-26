@@ -1,0 +1,11 @@
+<function name="SprintDisable" parent="Player" type="classfunc">
+	<description>
+Disables the sprint on the player.
+	</description>
+	<realm>Server</realm>
+</function>
+
+<example>
+	<description>Stops and prevents player with ID 1 from sprinting</description>
+	<code>Entity( 1 ):SprintDisable()</code>
+</example>

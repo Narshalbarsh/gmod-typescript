@@ -1,0 +1,11 @@
+<function name="SetFarZ" parent="ProjectedTexture" type="classfunc">
+	<description>
+Sets the distance at which the projected texture ends.
+
+You must call <page>ProjectedTexture:Update</page> after using this function for it to take effect.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="farZ" type="number"></arg>
+	</args>
+</function>

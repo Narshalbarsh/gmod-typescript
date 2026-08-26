@@ -1,0 +1,8 @@
+<function name="SetLabel2" parent="CtrlNumPad" type="panelfunc">
+	<description>If set and convar2 is set, the label for the right key binder.</description>
+	<realm>Client</realm>
+	<file line="37-L40">gamemodes/sandbox/gamemode/spawnmenu/controls/ctrlnumpad.lua</file>
+	<args>
+		<arg name="txt" type="string">The label for the right key binder.</arg>
+	</args>
+</function>

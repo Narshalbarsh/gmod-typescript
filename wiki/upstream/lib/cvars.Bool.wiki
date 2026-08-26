@@ -1,0 +1,12 @@
+<function name="Bool" parent="cvars" type="libraryfunc">
+	<description>Retrieves console variable as a boolean.</description>
+	<realm>Shared and Menu</realm>
+	<file line="138-L147">lua/includes/modules/cvars.lua</file>
+	<args>
+		<arg name="cvar" type="string">Name of console variable.</arg>
+		<arg name="default" type="boolean" default="nil">The value to return if the console variable does not exist.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Retrieved value.</ret>
+	</rets>
+</function>

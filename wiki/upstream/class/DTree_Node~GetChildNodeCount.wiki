@@ -1,0 +1,9 @@
+<function name="GetChildNodeCount" parent="DTree_Node" type="panelfunc">
+	<added>2020.08.12</added>
+	<description>Returns the number of child nodes this node has. For use with <page>DTree_Node:GetChildNode</page>
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">Number of child nodes.</ret>
+	</rets>
+</function>

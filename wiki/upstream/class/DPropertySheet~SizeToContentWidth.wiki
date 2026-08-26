@@ -1,0 +1,5 @@
+<function name="SizeToContentWidth" parent="DPropertySheet" type="panelfunc">
+	<file line="359-L374">lua/vgui/dpropertysheet.lua</file>
+	<description>Sets the width of the <page>DPropertySheet</page> to fit the contents of all of the tabs.</description>
+	<realm>Client and Menu</realm>
+</function>

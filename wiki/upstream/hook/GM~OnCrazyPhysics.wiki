@@ -1,0 +1,8 @@
+<function name="OnCrazyPhysics" parent="GM" type="hook">
+	<description>Called when the crazy physics detection detects an entity with crazy physics, i.e. position being far outside of the map, velocities being near or at infinity, etc. The primary reason for this system is to prevent program crashes in physics engine.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="ent" type="Entity">The entity that was detected as crazy</arg>
+		<arg name="physobj" type="PhysObj">The physics object that is going crazy</arg>
+	</args>
+</function>

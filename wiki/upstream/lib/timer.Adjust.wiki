@@ -1,0 +1,13 @@
+<function name="Adjust" parent="timer" type="libraryfunc">
+	<description>Adjusts a previously created (<page>timer.Create</page>) timer with the given identifier.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="identifier" type="any">Identifier of the timer to adjust.</arg>
+		<arg name="delay" type="number">The delay interval in seconds. **Must be specified.**</arg>
+		<arg name="repetitions" type="number" default="nil">Repetitions. Use `0` for infinite or `nil` to keep previous value.</arg>
+		<arg name="func" type="function" default="nil">The new function. Use `nil` to keep previous value.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">`true` if succeeded.</ret>
+	</rets>
+</function>

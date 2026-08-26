@@ -1,0 +1,29 @@
+<function name="PlayerDroppedWeapon" parent="GM" type="hook">
+	<description>
+Called when a weapon is dropped by a player via <page>Player:DropWeapon</page>. Despite its name, this hook is also called for NPC weapon drops.
+
+Also called when a weapon is removed from a player via <page>Player:StripWeapon</page>.
+
+See also <page>GM:WeaponEquip</page> for a hook when a player picks up a weapon.
+
+The weapon's <page>Entity:GetOwner</page> will be NULL at the time this hook is called.
+
+<page>WEAPON:OnDrop</page> will be called before this hook is.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="owner" type="Player|NPC">The player or NPC who owned this weapon before it was dropped.</arg>
+		<arg name="wep" type="Weapon">The weapon that was dropped.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Print in the chat when a player drop his weapons</description>
+	<code>
+hook.Add("PlayerDroppedWeapon", "PrintWhenDrop", function(owner, wep)
+	PrintMessage( HUD_PRINTTALK, owner:IsPlayer() and owner:Nick() or owner:GetClass() .. " dropped " .. wep:GetPrintName() )
+end)
+	</code>
+	<output>Player1 drop AR2</output>
+
+</example>

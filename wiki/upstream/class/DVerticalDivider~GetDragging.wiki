@@ -1,0 +1,7 @@
+<function name="GetDragging" parent="DVerticalDivider" type="panelfunc">
+	<description>Returns whether the divider is being dragged or not.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="boolean">If true, mouse movement will alter the size of the divider.</ret>
+	</rets>
+</function>

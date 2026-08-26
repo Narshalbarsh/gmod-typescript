@@ -1,0 +1,15 @@
+<function name="SetConVarB" parent="DColorPalette" type="panelfunc">
+	<description>
+An <page>Global.AccessorFunc</page> that sets the <page>ConVar</page> name for the blue channel of the color.
+
+See also:
+* <page>DColorPalette:SetConVarR</page> - For the red channel
+* <page>DColorPalette:SetConVarG</page> - For the green channel
+* <page>DColorPalette:SetConVarA</page> - For the alpha channel
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="8">lua/vgui/dcolorpalette.lua</file>
+	<args>
+		<arg name="convar" type="string">The <page>ConVar</page> name for the blue channel of the color</arg>
+	</args>
+</function>

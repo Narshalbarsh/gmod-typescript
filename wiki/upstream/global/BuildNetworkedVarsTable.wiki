@@ -1,0 +1,11 @@
+<function name="BuildNetworkedVarsTable" parent="Global" type="libraryfunc">
+	<description>Dumps the networked variables of all entities into one table and returns it.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="table">Format:
+* key = <page>Entity</page> for NWVars or <page>number</page> (always 0) for global vars.
+* value = <page>table</page> formatted as:
+  * key = <page>string</page> var name.
+  * value = any type var value.</ret>
+	</rets>
+</function>

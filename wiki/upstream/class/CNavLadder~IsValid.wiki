@@ -1,0 +1,7 @@
+<function name="IsValid" parent="CNavLadder" type="classfunc">
+	<description>Returns whether this <page>CNavLadder</page> is valid or not.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="boolean">Whether this <page>CNavLadder</page> is valid or not.</ret>
+	</rets>
+</function>

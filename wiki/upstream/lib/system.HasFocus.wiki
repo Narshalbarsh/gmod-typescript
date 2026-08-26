@@ -1,0 +1,11 @@
+<function name="HasFocus" parent="system" type="libraryfunc">
+	<description>
+Returns whether or not the game window has focus.
+
+<note>This function does not work on dedicated servers and will instead return no value.</note>
+	</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Whether or not the game window has focus.</ret>
+	</rets>
+</function>

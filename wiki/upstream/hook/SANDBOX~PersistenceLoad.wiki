@@ -1,0 +1,7 @@
+<function name="PersistenceLoad" parent="SANDBOX" type="hook">
+	<description>Called when persistent props are loaded.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="name" type="string">Save from which to load.</arg>
+	</args>
+</function>

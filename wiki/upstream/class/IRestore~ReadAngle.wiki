@@ -1,0 +1,7 @@
+<function name="ReadAngle" parent="IRestore" type="classfunc">
+	<description>Reads next bytes from the restore object as an <page>Angle</page>.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Angle">The angle that has been read</ret>
+	</rets>
+</function>

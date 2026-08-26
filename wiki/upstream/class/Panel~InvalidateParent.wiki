@@ -1,0 +1,13 @@
+<function name="InvalidateParent" parent="Panel" type="classfunc">
+	<file line="250-L260">lua/includes/extensions/client/panel.lua</file>
+	<description>Calls <page>Panel:InvalidateLayout</page> on the panel's <page text="parent">Panel:GetParent</page>. This function will silently fail if the panel has no parent.
+
+This will cause the parent panel to re-layout, calling <page>PANEL:PerformLayout</page>.
+
+Internally sets `LayingOutParent` to `true` on this panel, and will silently fail if it is already set.
+</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="layoutNow" type="boolean" default="false">If `true`, the re-layout will occur immediately, otherwise it will be performed in the next frame.</arg>
+	</args>
+</function>

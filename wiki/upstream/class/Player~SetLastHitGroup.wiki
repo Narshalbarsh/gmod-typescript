@@ -1,0 +1,8 @@
+<function name="SetLastHitGroup" parent="Player" type="classfunc">
+	<description>Sets the hitgroup where the player was last hit.</description>
+	<realm>Server</realm>
+	<added>2020.03.17</added>
+	<args>
+		<arg name="hitgroup" type="number">The hitgroup to set as the "last hit", see <page>Enums/HITGROUP</page>.</arg>
+	</args>
+</function>

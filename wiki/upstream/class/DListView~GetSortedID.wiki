@@ -1,0 +1,14 @@
+<function name="GetSortedID" parent="DListView" type="panelfunc">
+	<description>
+<internal></internal>
+
+Converts LineID to SortedID
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="lineId" type="number">The <page>DListView_Line:GetID</page> of a line to look up</arg>
+	</args>
+	<rets>
+		<ret name="" type="number"></ret>
+	</rets>
+</function>

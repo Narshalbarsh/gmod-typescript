@@ -1,0 +1,13 @@
+<function name="GetFGColor" parent="Panel" type="classfunc">
+	<description>Returns the foreground color of the panel.
+
+For a <page>Label</page> or <page>RichText</page>, this is the color of its text.
+
+<note>This doesn't apply to all VGUI elements (such as <page>DLabel</page>) and its function varies between them</note>
+	</description>
+	<added>2020.03.17</added>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="color" type="Color">The <page>Color</page>.</ret>
+	</rets>
+</function>

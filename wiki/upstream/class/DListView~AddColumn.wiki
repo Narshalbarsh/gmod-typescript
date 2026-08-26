@@ -1,0 +1,13 @@
+<function name="AddColumn" parent="DListView" type="panelfunc">
+	<description>Adds a column to the listview.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="column" type="string">The name of the column to add.</arg>
+		<arg name="position" type="number" default="nil">At which position to insert the new column compared to the other columns. Set to 1 to add the new column before all other columns. 
+
+By default the column will be placed after all columns.</arg>
+	</args>
+	<rets>
+		<ret name="" type="DListView_Column">The newly created <page>DListView_Column</page>.</ret>
+	</rets>
+</function>

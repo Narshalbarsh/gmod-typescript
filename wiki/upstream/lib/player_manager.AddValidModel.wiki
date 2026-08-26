@@ -1,0 +1,13 @@
+<function name="AddValidModel" parent="player_manager" type="libraryfunc">
+	<description>
+Associates a simplified name with a path to a valid player model.
+
+This is used to list all available player model in the Player Model Selector (via <page>player_manager.AllValidModels</page>), and to prevent players from being able to set any model as the player model.
+	</description>
+	<realm>Shared</realm>
+	<file line="17-L25">lua/includes/modules/player_manager.lua</file>
+	<args>
+		<arg name="name" type="string">Short, simplified, unique player model name. (something like `"combine"` for the Combine Soldier player model)</arg>
+		<arg name="model" type="string">The model path for this player model entry.</arg>
+	</args>
+</function>

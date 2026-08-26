@@ -1,0 +1,7 @@
+<function name="GetColumnID" parent="DListView_Column" type="panelfunc">
+	<description>Gets the index used for this column.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="index" type="number">The column index of the <page>DListView_Column</page>.</ret>
+	</rets>
+</function>

@@ -1,0 +1,63 @@
+<function name="GetMaterialType" parent="Entity" type="classfunc">
+	<description>Returns the [surface material type](https://developer.valvesoftware.com/wiki/Material_Types) of this entity.
+
+This can be approximated clientside via <page>util.GetModelInfo</page>.
+
+Internally, all this does is return `gamematerial` of the surface property on the first physics object of the entity. You can do this yourself using <page>PhysObj:GetMaterial</page> and <page>util.GetSurfaceData</page>.
+</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number{MAT}">Surface material type.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints the MAT_ enum name for every prop on the map.</description>
+	<code>
+local function BackwardsEnums( enumname ) -- Helper function to build our table of values.
+	local backenums = {}
+
+	for k, v in pairs( _G ) do
+		if isstring(k) and string.find( k, "^" .. enumname ) then
+			backenums[ v ] = k
+		end
+	end
+
+	return backenums
+end
+
+local MAT = BackwardsEnums( "MAT_" )
+local validClasses = { prop_physics = true, prop_physics_multiplayer = true, prop_dynamic = true }
+
+for _, v in ipairs( ents.GetAll() ) do
+	if validClasses[ v:GetClass() ] then
+		print( v:GetModel(), MAT[ v:GetMaterialType() ] or "UNKNOWN" )
+	end
+end
+	</code>
+	<output>
+```
+models/props_interiors/furniture_couch01a.mdl	MAT_DIRT
+models/props/cs_office/offinspd.mdl	MAT_GLASS
+models/props/cs_office/offinspf.mdl	MAT_GLASS
+models/props_wasteland/controlroom_desk001b.mdl	MAT_METAL
+models/props_junk/wood_crate002a.mdl	MAT_WOOD
+models/props_junk/wood_crate002a.mdl	MAT_WOOD
+models/props_junk/wood_crate001a_damaged.mdl	MAT_WOOD
+models/props_wasteland/controlroom_desk001a.mdl	MAT_METAL
+models/props_wasteland/controlroom_chair001a.mdl	MAT_METAL
+models/props_c17/tools_wrench01a.mdl	MAT_METAL
+models/props/cs_office/radio.mdl	MAT_COMPUTER
+models/props_junk/pushcart01a.mdl	MAT_METAL
+models/props_wasteland/kitchen_shelf001a.mdl	MAT_METAL
+models/props_wasteland/cafeteria_table001a.mdl	MAT_WOOD
+models/props_c17/furniturecouch001a.mdl	MAT_DIRT
+models/props_c17/furnituretable003a.mdl	MAT_WOOD
+models/combine_gate_vehicle.mdl	UNKNOWN
+models/props_junk/sawblade001a.mdl	MAT_METAL
+models/props/cs_office/offinspf.mdl	MAT_GLASS
+models/props_junk/wood_crate001a.mdl	MAT_WOOD
+...
+```
+	</output>
+</example>

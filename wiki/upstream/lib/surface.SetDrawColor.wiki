@@ -1,0 +1,31 @@
+<function name="SetDrawColor" parent="surface" type="libraryfunc">
+	<description>
+		Set the color of any future shapes to be drawn, can be set by either using R, G, B, A as separate values or by a <page>Color</page>.
+		
+		<note>The alpha value may not work properly if you're using a material without `$vertexalpha`.</note>
+		<note>Due to post processing and gamma correction the color you set with this function may appear differently when rendered. This problem does not occur on materials drawn with <page>surface.DrawTexturedRect</page>.</note>
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="r" type="number">The red value of color.</arg>
+		<arg name="g" type="number">The green value of color.</arg>
+		<arg name="b" type="number">The blue value of color.</arg>
+		<arg name="a" type="number" default="255">The alpha value of color.</arg>
+	</args>
+	<args name="Use color object">
+		<arg name="color" type="Color">A <page>Color</page> object/table to read the color from. This is slower than providing four numbers. You could use <page>Color:Unpack</page> to address this. You should also cache your color objects if you wish to use them, for performance reasons.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Draws a 512x512 textured rectangle with the wireframe material.</description>
+	<code>
+local myMaterial = Material( "models/wireframe" ) -- Calling Material() every frame is quite expensive
+
+hook.Add( "HUDPaint", "example_hook", function()
+	surface.SetDrawColor( 255, 0, 0 ) -- Set the color to red
+	surface.SetMaterial( myMaterial ) -- If you use Material, cache it!
+	surface.DrawTexturedRect( 0, 0, 512, 512 )
+end )
+	</code>
+</example>

@@ -1,0 +1,38 @@
+<panel>
+	<name>DAlphaBar</name>
+	<parent>DPanel</parent>
+	<realm>Client and Menu</realm>
+	<file line="">lua/vgui/dalphabar.lua</file>
+	<description>A bar to select the opacity (alpha level) of a color.</description>
+	<overrides>
+		<page>Panel:Init</page>
+		<page>Panel:Paint</page>
+		<page>Panel:OnCursorMoved</page>
+		<page>Panel:OnMousePressed</page>
+		<page>Panel:OnMouseReleased</page>
+	</overrides>
+</panel>
+
+
+<example>
+	<description>Creates a DAlphaBar on a DFrame sets its value to 25%.</description>
+	<code>
+local frame = vgui.Create( "DFrame" )
+frame:SetSize( 300, 500 )
+frame:Center()
+frame:MakePopup()
+
+local DAlphaBar = vgui.Create( "DAlphaBar", frame )
+DAlphaBar:SetPos( 20, 30 )
+DAlphaBar:SetSize( 25, 125 )
+DAlphaBar:SetValue( 0.25 )
+DAlphaBar.OnChange = function( self, newvalue )
+	print( "DAlphaBar value changed to " .. newvalue )
+end
+
+frame:MakePopup()
+	</code>
+
+</example>
+
+<upload src="54669/8dc9e10fc1cf725.gif" size="20585" name="gmod_T1YSxbrW8Y.gif" />

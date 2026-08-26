@@ -1,0 +1,13 @@
+<function name="SetWildCard" parent="DTree_Node" type="panelfunc">
+	<description>
+<internal></internal>
+
+Sets the search wildcard.
+
+Use <page>DTree_Node:MakeFolder</page> instead
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="wildcard" type="string">The wildcard to set</arg>
+	</args>
+</function>

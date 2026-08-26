@@ -1,0 +1,18 @@
+<enum>
+	<realm>Client</realm>
+	<added>2021.01.27</added>
+	<description>
+The analog axis to get the value of via <page>input.GetAnalogValue</page>.
+	</description>
+	<items>
+<item key="ANALOG_MOUSE_X" value="0"></item>
+<item key="ANALOG_MOUSE_Y" value="1"></item>
+<item key="ANALOG_MOUSE_WHEEL" value="3"></item>
+<item key="ANALOG_JOY_X" value="4"></item>
+<item key="ANALOG_JOY_Y" value="5"></item>
+<item key="ANALOG_JOY_Z" value="6"></item>
+<item key="ANALOG_JOY_R" value="7"></item>
+<item key="ANALOG_JOY_U" value="8"></item>
+<item key="ANALOG_JOY_V" value="9"></item>
+	</items>
+</enum>

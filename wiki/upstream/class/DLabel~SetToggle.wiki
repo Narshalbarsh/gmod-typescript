@@ -1,0 +1,11 @@
+<function name="SetToggle" parent="DLabel" type="panelfunc">
+	<description>
+Sets the toggle state of the label. This can be retrieved with <page>DLabel:GetToggle</page> and toggled with <page>DLabel:Toggle</page>.
+
+In order to use toggle functionality, you must first call <page>DLabel:SetIsToggle</page> with `true`, as it is disabled by default.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="toggleState" type="boolean">The toggle state to be set.</arg>
+	</args>
+</function>

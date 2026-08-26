@@ -1,0 +1,16 @@
+<function name="FillViaFunction" parent="ControlPanel" type="panelfunc">
+	<description>Calls the given function with this panel as the only argument. Used by the spawnmenu to populate the control panel.
+
+<deprecated>This is dumb. Just call the builder function directly.</deprecated>
+</description>
+	<realm>Client</realm>
+	<file line="132-L136">gamemodes/sandbox/gamemode/spawnmenu/controlpanel.lua</file>
+	<args>
+		<arg name="func" type="function">The builder function.
+
+<callback>
+<arg type="ControlPanel" name="panelToPopulate"></arg>
+</callback>
+</arg>
+	</args>
+</function>

@@ -1,0 +1,11 @@
+<function name="ReadAngle" parent="net" type="libraryfunc">
+	<description>
+Reads an angle from the received net message.
+
+<warning>You **must** read information in same order as you write it.</warning>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Angle">The read angle, or `Angle( 0, 0, 0 )` if no angle could be read</ret>
+	</rets>
+</function>

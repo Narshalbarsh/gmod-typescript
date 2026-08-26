@@ -1,0 +1,7 @@
+<function name="GetGroundEntity" parent="Entity" type="classfunc">
+	<description>Returns the object the entity is standing on.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Entity">The ground entity.</ret>
+	</rets>
+</function>

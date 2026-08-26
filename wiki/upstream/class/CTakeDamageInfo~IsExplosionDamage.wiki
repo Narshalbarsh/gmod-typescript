@@ -1,0 +1,7 @@
+<function name="IsExplosionDamage" parent="CTakeDamageInfo" type="classfunc">
+	<description>Returns whenever the damageinfo contains explosion damage.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">isExplDamage</ret>
+	</rets>
+</function>

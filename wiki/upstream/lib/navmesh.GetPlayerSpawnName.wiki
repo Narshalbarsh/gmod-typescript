@@ -1,0 +1,7 @@
+<function name="GetPlayerSpawnName" parent="navmesh" type="libraryfunc">
+	<description>Returns the classname of the player spawn entity.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="string">The classname of the spawn point entity. By default returns "info_player_start"</ret>
+	</rets>
+</function>

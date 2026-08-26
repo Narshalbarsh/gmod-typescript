@@ -1,0 +1,7 @@
+<function name="GetTopForwardArea" parent="CNavLadder" type="classfunc">
+	<description>Returns the top forward <page>CNavArea</page> of the <page>CNavLadder</page>.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="CNavArea">The top forward <page>CNavArea</page> of the <page>CNavLadder</page>.</ret>
+	</rets>
+</function>

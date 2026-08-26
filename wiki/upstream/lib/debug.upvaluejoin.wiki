@@ -1,0 +1,61 @@
+<function name="upvaluejoin" parent="debug" type="libraryfunc">
+	<description>
+<removed>This function was removed due to security concerns.</removed>
+ 
+Makes an upvalue of `func1` refer to an upvalue of `func2`. Both functions provided must be Lua-defined, otherwise an error is thrown.
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="func1" type="function"></arg>
+		<arg name="upvalueIndex1" type="number">The index of the upvalue in `func1`.</arg>
+		<arg name="func2" type="function"></arg>
+		<arg name="upvalueIndex2" type="number">The index of the upvalue in `func2`.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Example code to demonstrate how the function works.</description>
+	<code>
+local x = 5
+local y = 8
+
+-- 1st upvalue refers to 'x' local variable
+-- 2st upvalue refers to 'y' local variable
+local function Add()
+    return x + y
+end
+
+local z = 12
+
+-- 1st upvalue refers to 'z' local variable
+-- 2st upvalue refers to 'x' local variable
+local function Subtract()
+    return z - x
+end
+
+print(Add()) -- Expected: 13
+
+--[[
+    Makes the 2nd upvalue of 'Add' refer to the 1st upvalue of 'Subtract'.
+
+    The 2nd upvalue of 'Add' is stil 'y', but the function will now use the
+    the 1st upvalue of 'Subtract' in its place.
+]]
+debug.upvaluejoin(Add, 2, Subtract, 1)
+
+print(Add()) -- Expected: 17
+
+-- Show that debug.upvaluejoin did not modify the values of the variables
+print(x, y, z) -- Expected: 5, 8, 12
+	</code>
+	<output>
+
+```
+13
+17
+5       8       12
+```
+
+	</output>
+
+</example>

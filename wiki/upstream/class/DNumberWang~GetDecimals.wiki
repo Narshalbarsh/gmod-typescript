@@ -1,0 +1,7 @@
+<function name="GetDecimals" parent="DNumberWang" type="panelfunc">
+	<description>Returns the amount of decimal places allowed in the number selector, set by <page>DNumberWang:SetDecimals</page></description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The amount of decimal places allowed in the number selector.</ret>
+	</rets>
+</function>

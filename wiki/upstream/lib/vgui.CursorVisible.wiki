@@ -1,0 +1,7 @@
+<function name="CursorVisible" parent="vgui" type="libraryfunc">
+	<description>Returns whenever the cursor is currently active and visible.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the cursor is visible or not.</ret>
+	</rets>
+</function>

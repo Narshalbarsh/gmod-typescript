@@ -1,0 +1,10 @@
+<function name="ReadUInt64" parent="File" type="classfunc">
+	<description>Reads an unsigned 64-bit integer from the file.</description>
+	<realm>Shared and Menu</realm>
+	<added>2023.08.30</added>
+	<rets>
+		<ret name="" type="string">An unsigned 64-bit integer.
+<note>Since Lua cannot store full 64-bit integers, this function returns a string. It is mainly aimed at usage with <page>Player:SteamID64</page>.</note>
+</ret>
+	</rets>
+</function>

@@ -1,0 +1,68 @@
+<enum>
+	<realm>Shared</realm>
+	<description>
+Used by <page>Entity:SetRenderFX</page> and returned by <page>Entity:GetRenderFX</page>.
+
+Most of these require alpha value of entitys color to be less than 255 to have any visible effect.
+	</description>
+	<items>
+<item key="kRenderFxNone" value="0">None. No change.</item>
+
+<item key="kRenderFxPulseSlow" value="1">Slowly pulses the entitys transparency, +-15 to the current alpha.</item>
+
+<item key="kRenderFxPulseFast" value="2">Quickly pulses the entitys transparency, +-15 to the current alpha.</item>
+
+<item key="kRenderFxPulseSlowWide" value="3">Slowly pulses the entitys transparency, +-60 to the current alpha.</item>
+
+<item key="kRenderFxPulseFastWide" value="4">Quickly pulses the entitys transparency, +-60 to the current alpha.</item>
+
+<item key="kRenderFxFadeSlow" value="5">Slowly fades away the entity, making it completely invisible over 3 seconds.
+
+Starts from whatever alpha the entity currently has set.</item>
+
+<item key="kRenderFxFadeFast" value="6">Quickly fades away the entity, making it completely invisible.
+
+Starts from whatever alpha the entity currently has set.</item>
+
+<item key="kRenderFxSolidSlow" value="7">Slowly solidifies the entity, making it fully opaque.
+
+Starts from whatever alpha the entity currently has set.</item>
+
+<item key="kRenderFxSolidFast" value="8">Quickly solidifies the entity, making it fully opaque.
+
+Starts from whatever alpha the entity currently has set.</item>
+
+<item key="kRenderFxStrobeSlow" value="9">Slowly switches the entitys transparency between its alpha and 0.</item>
+
+<item key="kRenderFxStrobeFast" value="10">Quickly switches the entitys transparency between its alpha and 0.</item>
+
+<item key="kRenderFxStrobeFaster" value="11">Very quickly switches the entitys transparency between its alpha and 0.</item>
+
+<item key="kRenderFxFlickerSlow" value="12">Same as Strobe Slow, but the interval is more randomized.</item>
+
+<item key="kRenderFxFlickerFast" value="13">Same as Strobe Fast, but the interval is more randomized.</item>
+
+<item key="kRenderFxNoDissipation" value="14"></item>
+
+<item key="kRenderFxDistort" value="15">Flickers ( randomizes ) the entitys transparency</item>
+
+<item key="kRenderFxHologram" value="16">Same as Distort, but fades the entity away the farther you are from it.</item>
+
+<item key="kRenderFxExplode" value="17"></item>
+
+<item key="kRenderFxGlowShell" value="18"></item>
+
+<item key="kRenderFxClampMinScale" value="19"></item>
+
+<item key="kRenderFxEnvRain" value="20"></item>
+
+<item key="kRenderFxEnvSnow" value="21"></item>
+
+<item key="kRenderFxSpotlight" value="22"></item>
+
+<item key="kRenderFxRagdoll" value="23">Is ragdoll, can be set to force an entity to create a clientside ragdoll.</item>
+
+<item key="kRenderFxPulseFastWider" value="24">Quickly pulses the entitys transparency, from 0 to 255.</item>
+	</items>
+
+</enum>

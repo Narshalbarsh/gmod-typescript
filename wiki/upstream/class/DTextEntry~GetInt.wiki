@@ -1,0 +1,8 @@
+<function name="GetInt" parent="DTextEntry" type="panelfunc">
+	<description>Similar to <page>DTextEntry:GetFloat</page>, but rounds the value to the nearest integer.</description>
+	<realm>Client and Menu</realm>
+	<file line="379-L386">lua/vgui/dtextentry.lua</file>
+	<rets>
+		<ret name="" type="number">Text of the DTextEntry as a round number, or nil if it cannot be converted to a number.</ret>
+	</rets>
+</function>

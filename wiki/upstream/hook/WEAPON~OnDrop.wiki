@@ -1,0 +1,11 @@
+<function name="OnDrop" parent="WEAPON" type="hook">
+	<description>
+Called when weapon is dropped by <page>Player:DropWeapon</page>.
+
+See also <page>WEAPON:OwnerChanged</page>.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="owner" type="Entity" added="2025.02.12">The entity that dropped the weapon.</arg>
+	</args>
+</function>

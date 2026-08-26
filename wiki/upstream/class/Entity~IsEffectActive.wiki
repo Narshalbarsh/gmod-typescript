@@ -1,0 +1,10 @@
+<function name="IsEffectActive" parent="Entity" type="classfunc">
+	<description>Returns whether an entity has engine effect applied or not.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="effect" type="number{EF}">The effect to check for, see <page>Enums/EF</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether the entity has the engine effect applied or not.</ret>
+	</rets>
+</function>

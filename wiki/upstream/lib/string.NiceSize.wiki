@@ -1,0 +1,18 @@
+<function name="NiceSize" parent="string" type="libraryfunc">
+	<description>Converts a digital filesize to human-readable text.</description>
+	<realm>Shared and Menu</realm>
+	<file line="283-L294">lua/includes/extensions/string.lua</file>
+	<args>
+		<arg name="bytes" type="number">The filesize in bytes.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The human-readable filesize, in Bytes/KB/MB/GB (whichever is appropriate).</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Example output of this function.</description>
+	<code>print(string.NiceSize(64512))</code>
+	<output>63 KB</output>
+
+</example>

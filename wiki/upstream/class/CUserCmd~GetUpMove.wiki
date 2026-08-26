@@ -1,0 +1,7 @@
+<function name="GetUpMove" parent="CUserCmd" type="classfunc">
+	<description>The speed the client wishes to move up with, negative if the clients wants to move down.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">requestSpeed</ret>
+	</rets>
+</function>

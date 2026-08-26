@@ -1,0 +1,14 @@
+<function name="UpdateConVars" parent="DColorPalette" type="panelfunc">
+	<description>
+<internal></internal>
+
+Updates all the console variables set by <page>DColorPalette:SetConVarR</page> and so on with given color.
+
+Called internally when a palette color is clicked.
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="201-L208">lua/vgui/dcolorpalette.lua</file>
+	<args>
+		<arg name="clr" type="Color">A <page>Color</page></arg>
+	</args>
+</function>

@@ -1,0 +1,41 @@
+<enum>
+	<realm>Client</realm>
+	<description>
+Enumerations for use with <page>render.SetStencilCompareFunction</page>.
+
+The comparison is between the reference value set by <page>render.SetStencilReferenceValue</page>, and the value of each pixel in the stencil buffer.
+
+These enumerations are mirrors of <page>Enums/STENCILCOMPARISONFUNCTION</page>.
+
+Also see this corresponding MSDN entry: https://msdn.microsoft.com/en-us/library/windows/desktop/ff476101%28v=vs.85%29.aspx.
+	</description>
+	<items>
+		<item key="STENCIL_NEVER" value="1">Never passes.</item>
+		<item key="STENCIL_LESS" value="2">Passes where the reference value is less than the stencil value.</item>
+		<item key="STENCIL_EQUAL" value="3">Passes where the reference value is equal to the stencil value.</item>
+		<item key="STENCIL_LESSEQUAL" value="4">Passes where the reference value is less than or equal to the stencil value.</item>
+		<item key="STENCIL_GREATER" value="5">Passes where the reference value is greater than the stencil value.</item>
+		<item key="STENCIL_NOTEQUAL" value="6">Passes where the reference value is not equal to the stencil value.</item>
+		<item key="STENCIL_GREATEREQUAL" value="7">Passes where the reference value is greater than or equal to the stencil value.</item>
+		<item key="STENCIL_ALWAYS" value="8">Always passes.</item>
+	</items>
+</enum>
+
+<enum>
+	<realm>Client</realm>
+	<description>
+Enumerations for use with <page>render.SetStencilPassOperation</page>, <page>render.SetStencilFailOperation</page> and <page>render.SetStencilZFailOperation</page>.
+
+These enumerations are mirrors of <page>Enums/STENCILOPERATION</page>.
+	</description>
+	<items>
+<item key="STENCIL_KEEP" value="1">Preserves the existing stencil buffer value.</item>
+<item key="STENCIL_ZERO" value="2">Sets the value in the stencil buffer to 0.</item>
+<item key="STENCIL_REPLACE" value="3">Sets the value in the stencil buffer to the reference value, set using <page>render.SetStencilReferenceValue</page>.</item>
+<item key="STENCIL_INCRSAT" value="4">Increments the value in the stencil buffer by 1, clamping the result.</item>
+<item key="STENCIL_DECRSAT" value="5">Decrements the value in the stencil buffer by 1, clamping the result.</item>
+<item key="STENCIL_INVERT" value="6">Inverts the value in the stencil buffer.</item>
+<item key="STENCIL_INCR" value="7">Increments the value in the stencil buffer by 1, wrapping around on overflow.</item>
+<item key="STENCIL_DECR" value="8">Decrements the value in the stencil buffer by 1, wrapping around on overflow.</item>
+	</items>
+</enum>

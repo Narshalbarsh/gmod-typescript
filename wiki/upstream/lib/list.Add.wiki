@@ -1,0 +1,22 @@
+<function name="Add" parent="list" type="libraryfunc">
+	<description>Adds an item to a named list.</description>
+	<realm>Shared and Menu</realm>
+	<file line="41-L45">lua/includes/modules/list.lua</file>
+	<args>
+		<arg name="identifier" type="string">The list identifier.</arg>
+		<arg name="item" type="any">The item to add to the list.</arg>
+	</args>
+	<rets>
+		<ret type="number">The index at which the item was added.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>From weapons/gmod_tool/stools/paint.lua</description>
+	<code>
+list.Add( "PaintMaterials", "Eye" )
+list.Add( "PaintMaterials", "Smile" )
+list.Add( "PaintMaterials", "Light" )
+	</code>
+
+</example>

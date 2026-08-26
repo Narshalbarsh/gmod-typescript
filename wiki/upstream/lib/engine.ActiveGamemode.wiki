@@ -1,0 +1,18 @@
+<function name="ActiveGamemode" parent="engine" type="libraryfunc">
+	<description>Returns the name of the currently running gamemode.</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="string">The active gamemode's name. This is the name of the gamemode's folder.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints out the name of the active gamemode.</description>
+	<code>print( engine.ActiveGamemode() )</code>
+	<output>
+```
+sandbox
+```
+	</output>
+
+</example>

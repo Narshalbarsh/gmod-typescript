@@ -1,0 +1,19 @@
+<function name="GetAdjacentAreaDistances" parent="CNavArea" type="classfunc">
+	<description>
+Returns a list of all the <page>CNavArea</page>s that have a (one and two way) connection **from** this <page>CNavArea</page> and their pre-computed distances.
+
+If an area has a one-way incoming connection to this <page>CNavArea</page>, then it will **not** be returned from this function, use <page>CNavArea:GetIncomingConnectionDistances</page> to get all one-way incoming connections.
+	</description>
+	<added>2023.10.18</added>
+	<realm>Server</realm>
+	<args>
+		<arg name="dir" type="number" default="nil">If set, will only return areas in the specified direction. See <page>Enums/NavDir</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">A list of tables in the following format:
+* <page>CNavArea</page> **area** - the area that is connected to this area.
+* <page>number</page> **dist** - Distance from the area to this area.
+* <page>number</page> **dir** - Direction in which the area is in relative to this area.
+</ret>
+	</rets>
+</function>

@@ -1,0 +1,7 @@
+<function name="GetVelocity" parent="CLuaLocomotion" type="classfunc">
+	<description>Returns the current movement velocity as a vector</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="Vector">Current velocity</ret>
+	</rets>
+</function>

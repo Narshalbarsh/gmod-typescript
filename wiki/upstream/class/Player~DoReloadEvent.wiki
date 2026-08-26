@@ -1,0 +1,8 @@
+<function name="DoReloadEvent" parent="Player" type="classfunc">
+	<description>
+Sends a third person reload animation event to the player.
+
+Similar to other animation event functions, calls <page>GM:DoAnimationEvent</page> with <page text= "PLAYERANIMEVENT_RELOAD">Enums/PLAYERANIMEVENT</page> as the event and no extra data.
+	</description>
+	<realm>Shared</realm>
+</function>

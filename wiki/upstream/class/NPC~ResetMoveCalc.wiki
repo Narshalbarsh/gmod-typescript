@@ -1,0 +1,7 @@
+<function name="ResetMoveCalc" parent="NPC" type="classfunc">
+	<description>Resets all the movement calculations.
+
+Related functions are <page>NPC:MoveStart</page>, <page>NPC:MovePause</page> and <page>NPC:MoveStop</page>.</description>
+	<realm>Server</realm>
+	<added>2021.03.31</added>
+</function>

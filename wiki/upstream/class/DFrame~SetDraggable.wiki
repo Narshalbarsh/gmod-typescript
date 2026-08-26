@@ -1,0 +1,7 @@
+<function name="SetDraggable" parent="DFrame" type="panelfunc">
+	<description>Sets whether the frame should be draggable by the user. The DFrame can only be dragged from its title bar.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="draggable" type="boolean">Whether to be draggable or not.</arg>
+	</args>
+</function>

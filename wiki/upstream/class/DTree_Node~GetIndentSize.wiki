@@ -1,0 +1,11 @@
+<function name="GetIndentSize" parent="DTree_Node" type="panelfunc">
+	<description>
+Returns the indentation level of the <page>DTree</page> this node belongs to.
+
+Alias of <page>DTree:GetIndentSize</page>, see it for more info.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The indentation level.</ret>
+	</rets>
+</function>

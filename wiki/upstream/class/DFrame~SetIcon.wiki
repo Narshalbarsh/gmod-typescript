@@ -1,0 +1,10 @@
+<function name="SetIcon" parent="DFrame" type="panelfunc">
+	<description>Adds or removes an icon on the left of the <page>DFrame</page>'s title.</description>
+	<realm>Client and Menu</realm>
+	<file line="121-L135">lua/vgui/dframe.lua</file>
+	<args>
+		<arg name="path" type="string">Set to empty string ("") to remove the icon.
+
+Otherwise, set to file path to create the icon.</arg>
+	</args>
+</function>

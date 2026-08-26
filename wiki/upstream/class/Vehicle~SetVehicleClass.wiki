@@ -1,0 +1,8 @@
+<function name="SetVehicleClass" parent="Vehicle" type="classfunc">
+	<description><internal></internal>Sets the vehicle class name.</description>
+	<realm>Shared</realm>
+	<file line="678-L682">lua/includes/extensions/entity.lua</file>
+	<args>
+		<arg name="class" type="string">The vehicle class name to set</arg>
+	</args>
+</function>

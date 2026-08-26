@@ -1,0 +1,29 @@
+<function name="TexturedQuad" parent="draw" type="libraryfunc">
+	<description>
+Draws a texture with a table structure.
+
+<rendercontext hook="false" type="2D"></rendercontext>
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="302-L310">lua/includes/modules/draw.lua</file>
+	<args>
+		<arg name="texturedata" type="table">The texture properties. See <page>Structures/TextureData</page>.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Example usage with a random texture.</description>
+	<code>
+local texturedQuadStructure = {
+	texture = surface.GetTextureID( "phoenix_storms/amraam" ),
+	color   = Color( 255, 0, 255, 255 ),
+	x 	= 0,
+	y 	= 0,
+	w 	= 512,
+	h 	= 512
+}
+
+draw.TexturedQuad( texturedQuadStructure )
+	</code>
+	<output>Renders the texture.</output>
+</example>

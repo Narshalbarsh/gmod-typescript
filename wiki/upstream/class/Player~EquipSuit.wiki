@@ -1,0 +1,14 @@
+<function name="EquipSuit" parent="Player" type="classfunc">
+	<description>
+Equips the player with the HEV suit.
+
+Allows the player to zoom, walk slowly, sprint, pickup armor batteries, use the health and armor stations and also shows the HUD.<br/>
+The player also emits a flatline sound on death, which can be overridden with <page>GM:PlayerDeathSound</page>.
+
+The player is automatically equipped with the suit on spawn, if you wish to stop that, use <page>Player:RemoveSuit</page>.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="playEffects" type="boolean" default="false">If set to `true`, play the suit glove admire animation if player is holding no weapons.</arg>
+	</args>
+</function>

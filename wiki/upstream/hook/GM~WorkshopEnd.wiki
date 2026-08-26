@@ -1,0 +1,5 @@
+<function name="WorkshopEnd" parent="GM" type="hook">
+	<description>Called when downloading content from Steam workshop ends. Used by default to hide fancy workshop downloading panel.</description>
+	<realm>Menu</realm>
+	<file line="13-19">lua/menu/mount/mount.lua</file>
+</function>

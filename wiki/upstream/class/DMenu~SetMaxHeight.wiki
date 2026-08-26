@@ -1,0 +1,7 @@
+<function name="SetMaxHeight" parent="DMenu" type="panelfunc">
+	<description>Sets the maximum height the <page>DMenu</page> can have. If the height of all menu items exceed this value, a scroll bar will be automatically added.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="maxHeight" type="number">The maximum height of the <page>DMenu</page> to set, in pixels</arg>
+	</args>
+</function>

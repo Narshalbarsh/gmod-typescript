@@ -1,0 +1,11 @@
+<function name="GetMatName" parent="DImage" type="panelfunc">
+	<description>
+<internal></internal>
+
+Returns the texture path set by <page>DImage:SetMatName</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="string"></ret>
+	</rets>
+</function>

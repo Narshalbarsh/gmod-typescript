@@ -1,0 +1,47 @@
+<panel>
+	<parent>DScrollPanel</parent>
+	<realm>Client and Menu</realm>
+	<file line="">lua/vgui/dcategorylist.lua</file>
+	<description>
+		A host for multiple <page>DCollapsibleCategory</page> panels. 
+		As the name suggests, each one of them can be collapsed or expanded on demand by the user.
+	</description>
+	<overrides>
+		<page>Panel:Init</page>
+		<page>Panel:Paint</page>
+		<page>Panel:GenerateExample</page>
+	</overrides>
+</panel>
+
+
+<example>
+	<description>Creates a DCategoryList with a category and a DFrame, as seen above.</description>
+	<code>
+local frame = vgui.Create( "DFrame" )
+frame:SetSize( 500, 500 )
+frame:Center()
+frame:MakePopup()
+
+local CatList = vgui.Create( "DCategoryList", frame )
+CatList:Dock( FILL )
+
+local Cat = CatList:Add( "Test category with text contents" )
+Cat:Add( "Item 1" )
+local button = Cat:Add( "Item 2" )
+button.DoClick = function()
+	print( "Item 2 was clicked." )
+end
+
+-- The contents can be any panel, even a DPanelList
+local Cat2 = CatList:Add( "Test category with panel contents" )
+Cat2:SetTall( 100 )
+
+local Contents = vgui.Create( "DButton" )
+Contents:SetText( "This is the content of the category" )
+Cat2:SetContents( Contents )
+
+CatList:InvalidateLayout( true )
+	</code>
+</example>
+
+<upload src="aaf9e/8dc31b8cab54b78.gif" size="4436160" name="DCategoryList.gif" />

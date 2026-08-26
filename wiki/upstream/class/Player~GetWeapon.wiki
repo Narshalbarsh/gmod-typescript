@@ -1,0 +1,17 @@
+<function name="GetWeapon" parent="Player" type="classfunc">
+	<description>Returns the weapon for the specified class</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="className" type="string">Class name of weapon</arg>
+	</args>
+	<rets>
+		<ret name="" type="Weapon">The weapon for the specified class, or NULL ENTITY if the player does not have this weapon.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints the weapon if the player has the toolgun</description>
+	<code>print( Entity( 1 ):GetWeapon( "gmod_tool" ) )</code>
+	<output>Something like "Weapon [77]" in console.</output>
+
+</example>

@@ -1,0 +1,13 @@
+<function name="GetIsMenu" parent="DPanel" type="panelfunc">
+	<description>
+Used internally by <page>DMenu</page>.
+
+Returns whether the frame is part of a derma menu or not.
+
+If this is `true`, <page>Global.CloseDermaMenus</page> will not be called when the frame is clicked, and thus any open menus will remain open.
+</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="isMenu" type="boolean">Whether this panel is a Menu Component</ret>
+	</rets>
+</function>

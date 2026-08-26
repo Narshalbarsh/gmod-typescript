@@ -1,0 +1,8 @@
+<function name="SetIdealYaw" parent="NPC" type="classfunc">
+	<description>Sets the ideal yaw angle (left-right rotation) for the NPC. Does not actually force the NPC to start turning in that direction. See <page>NPC:UpdateYaw</page>, <page>NPC:GetIdealYaw</page> and <page>NPC:SetIdealYawAndUpdate</page>.</description>
+	<realm>Server</realm>
+	<added>2023.11.17</added>
+	<args>
+		<arg name="angle" type="number">The aim direction to set, the `yaw` component.</arg>
+	</args>
+</function>

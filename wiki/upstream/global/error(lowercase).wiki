@@ -1,0 +1,47 @@
+
+<ambig page="Global.Error">You might be looking for the "Error" function, which has the same name as this function.</ambig>
+<function name="error" parent="Global" type="libraryfunc">
+	<description>
+Throws a Lua error and breaks out of the current call stack.
+
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="message" type="string">The error message to throw.</arg>
+		<arg name="errorLevel" type="number" default="1">The level to throw the error at.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Throwing an custom error that doesn't normally happen.</description>
+	<code>error("Because I wanted!")</code>
+	<output>
+```
+[my_addon] addons/my_addon/lua/autorun/my_code.lua:1: Because I wanted!
+  1. error - [C]:-1
+   2. unknown - addons/my_addon/lua/autorun/my_code.lua:1
+```
+	</output>
+</example>
+
+
+<example>
+	<description>Shows what a different level errors look like.</description>
+	<code>
+timer.Simple( 0, function() -- A timer so that both errors are displayed. This is for demonstration purposes only.
+	error( "I'M VERY IMPORTANT!!!" ) -- Normal error (level 1)
+end )
+error( "It isn't important", 0 ) -- Notice the missing file path
+</code>
+	<output>
+```
+[my_addon] It isn't important
+  1. error - [C]:-1
+   2. unknown - addons/my_addon/lua/autorun/my_code.lua:1
+
+[my_addon] addons/my_addon/lua/autorun/my_code.lua:1: I'M VERY IMPORTANT!!!
+  1. error - [C]:-1
+   2. unknown - addons/my_addon/lua/autorun/my_code.lua:1
+```
+	</output>
+</example>

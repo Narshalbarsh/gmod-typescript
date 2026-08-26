@@ -1,0 +1,8 @@
+<function name="GetColor" parent="ContentIcon" type="panelfunc">
+	<description> An <page>Global.AccessorFunc</page> that returns the color set by <page>ContentIcon:SetColor</page></description>
+	<realm>Client</realm>
+	<file line="13">gamemodes/sandbox/gamemode/spawnmenu/creationmenu/content/contenticon.lua</file>
+	<rets>
+		<ret name="" type="Color">See <page>Color</page></ret>
+	</rets>
+</function>

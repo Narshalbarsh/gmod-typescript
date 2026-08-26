@@ -1,0 +1,4 @@
+<function name="DetonateTripmines" parent="Player" type="classfunc">
+	<description>Detonates all tripmines belonging to the player.</description>
+	<realm>Server</realm>
+</function>

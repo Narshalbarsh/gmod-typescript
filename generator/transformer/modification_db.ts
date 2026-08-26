@@ -19,6 +19,7 @@ export enum ModificationKind {
     RenameIndentifier = 'RenameIndentifier',
     AddFieldModification = 'AddField',
     InnerNamespace = 'InnerNamespace',
+    Skip = 'Skip',
 }
 
 export interface Modification {
@@ -84,6 +85,20 @@ export interface InnerNamespaceModification extends Modification {
 
 export function isInnerNamespaceModification(mod: Modification): mod is InnerNamespaceModification {
     return mod.kind === ModificationKind.InnerNamespace;
+}
+
+// drop the page from the output entirely, Global.Error collides with the Error that lib.es5 declares
+export interface SkipModification extends Modification {
+    kind: ModificationKind.Skip;
+    reason?: string;
+}
+
+export function isSkipModification(mod: Modification): mod is SkipModification {
+    return mod.kind === ModificationKind.Skip;
+}
+
+export function isSkipped(page: string): boolean {
+    return getPageMods(page).some(isSkipModification);
 }
 
 export interface AddFieldModification extends Modification {

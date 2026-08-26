@@ -1,0 +1,12 @@
+<function name="SetGlobal2Bool" parent="Global" type="libraryfunc">
+	<description>
+Defined a boolean to be automatically networked to clients
+
+<note>Running this function clientside will only set it clientside for the client it is called on!</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="index" type="any">Index to identify the global boolean with</arg>
+		<arg name="bool" type="boolean">Boolean to be networked</arg>
+	</args>
+</function>

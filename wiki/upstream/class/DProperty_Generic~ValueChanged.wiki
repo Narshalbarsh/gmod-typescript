@@ -1,0 +1,8 @@
+<function name="ValueChanged" parent="DProperty_Generic" type="panelfunc">
+	<description>Called by this control, or a derived control, to alert the row of the change.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="newVal" type="any">The new value.</arg>
+		<arg name="force" type="boolean">Force an update.</arg>
+	</args>
+</function>

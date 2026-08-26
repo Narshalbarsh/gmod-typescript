@@ -1,0 +1,72 @@
+<function name="GetAPIManifest" parent="Global" type="libraryfunc">
+	<description>
+		<internal></internal>
+
+		Gets miscellaneous information from Facepunches API.	
+	</description>
+	<realm>Menu</realm>
+	<args>
+		<arg name="callback" type="function">
+			Callback to be called when the API request is done.
+
+<callback>
+	<arg type="string" name="data">JSON encoded data, see <page>util.JSONToTable</page>.</arg>
+</callback>  
+
+<br/>
+Formatted output:  
+```js
+{
+	"ManifestVersion": 	number - Version of the manifest
+	"Date": 			string - Date the data was retrieved
+
+	// Contains all the blog posts, the things in the top right of the menu
+	"News": {
+		"Blogs": [
+
+			// Structure of blog posts
+			{ 
+				"Date": 		string - Date the post was created
+				"ShortName": 	string - Short name of the post, identifier of it on the blog website
+				"Title": 		string - Title of the post
+				"HeaderImage": 	string - Main image of the post, showed in the top right
+				"SummaryHtml": 	string - Summary of the blogpost, text thats shown to the user
+				"Url": 			string - URL to the post on the blog
+				"Tags": 		string - String of the posts tag
+			}
+		]
+	}
+	
+	// Array of Facepunches Mods, Admins and Developers
+	"Administrators": [
+		{
+			"UserId": 		string - SteamID64 of the person
+			"Level": 		string - Level of the user (Administrator, Developer or Moderator)
+		}
+	]
+
+	// Unused and contains nothing useful
+	"Heroes": {}
+
+	"SentryUrl": 		string - Nothing
+	"DatabaseUrl" 		string - URL to the Facepunch API (/database/{action}/)
+	"FeedbackUrl" 		string - URL to the Facepunch API (/feedback/add/)
+	"ReportUrl" 		string - URL to the Facepunch API (/feedback/report/)
+	"LeaderboardUrl" 	string - URL to the Facepunch API (/leaderboard/{action}/)
+	"BenchmarkUrl" 		string - URL to the Facepunch API (/benchmark/add/)
+	"AccountUrl" 		string - URL to the Facepunch API (/account/{action}/)
+
+	"Servers": {
+		"Official": [] // Nothing
+		
+		// List of blacklisted servers
+		"Banned": [
+			string 	- IP of the blacklisted server
+		]
+	}
+}
+```
+			
+		</arg>
+	</args>
+</function>

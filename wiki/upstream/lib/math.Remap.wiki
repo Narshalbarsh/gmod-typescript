@@ -1,0 +1,22 @@
+<function name="Remap" parent="math" type="libraryfunc">
+	<description>Remaps the value from one range to another</description>
+	<realm>Shared and Menu</realm>
+	<file line="211-L213">lua/includes/extensions/math.lua</file>
+	<args>
+		<arg name="value" type="number">The value</arg>
+		<arg name="inMin" type="number">The minimum of the initial range</arg>
+		<arg name="inMax" type="number">The maximum of the initial range</arg>
+		<arg name="outMin" type="number">The minimum of new range</arg>
+		<arg name="outMax" type="number">The maximum of new range</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The number in the new range</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Example usage, converts a value from range 0-1, to range 0-255.</description>
+	<code>print( math.Remap( 0.5, 0, 1, 0, 255 ) )</code>
+	<output>127.5</output>
+
+</example>

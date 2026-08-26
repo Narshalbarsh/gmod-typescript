@@ -1,0 +1,20 @@
+<function name="DrawMaterialOverlay" parent="Global" type="libraryfunc">
+	<description>Draws a material overlay on the screen.</description>
+	<realm>Client</realm>
+	<file line="11-L31">lua/postprocess/overlay.lua</file>
+	<args>
+		<arg name="Material" type="string">This will be the material that is drawn onto the screen.</arg>
+		<arg name="RefractAmount" type="number">This will adjust how much the material will refract your screen.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Creates a fisheye effect on your screen.</description>
+	<code>
+hook.Add( "RenderScreenspaceEffects", "FishEyeEffect", function()
+
+	DrawMaterialOverlay( "models/props_c17/fisheyelens", -0.06 )
+
+end )
+	</code>
+</example>

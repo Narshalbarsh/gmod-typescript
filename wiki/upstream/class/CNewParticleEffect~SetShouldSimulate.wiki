@@ -1,0 +1,8 @@
+<function name="SetShouldSimulate" parent="CNewParticleEffect" type="classfunc">
+	<description>Sets whether the particle system should continue simulation or not. If simulation is paused, all currently active particles will be frozen in place.</description>
+	<realm>Client</realm>
+	<added>2025.11.26</added>
+	<args>
+		<arg name="simulate" type="boolean">Whether the simulation should run (`true`) or not (`false`).</arg>
+	</args>
+</function>

@@ -1,0 +1,6 @@
+<panel>
+	<parent>DPanel</parent>
+	<realm>Client</realm>
+	<file line="">lua/vgui/dverticaldivider.lua</file>
+	<description>Vertical version of <page>DHorizontalDivider</page>.</description>
+</panel>

@@ -1,0 +1,14 @@
+<function name="CalculateVelocityOffset" parent="PhysObj" type="classfunc">
+	<description>Calculates the linear and angular velocities on the center of mass for an offset impulse. The outputs can be directly passed to <page>PhysObj:AddVelocity</page> and <page>PhysObj:AddAngleVelocity</page>, respectively.
+
+<warning>This will return zero length vectors if the physics object's motion is disabled. See <page>PhysObj:IsMotionEnabled</page>.</warning></description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="impulse" type="Vector">The impulse acting on the object in `kg*source_unit/s`. (World frame)</arg>
+		<arg name="position" type="Vector">The location of the impulse in world coordinates (`source units`)</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">The calculated linear velocity from the impulse on the physics object's center of mass in `source_unit/s`. (World frame)</ret>
+		<ret name="" type="Vector">The calculated angular velocity from the impulse on the physics object's center of mass in `degrees/s`. (Local frame)</ret>
+	</rets>
+</function>

@@ -1,0 +1,38 @@
+<function name="Holster" parent="WEAPON" type="hook">
+	<description>
+Called when weapon tries to holster.
+
+<note>This will only be called serverside when using <page>Player:SelectWeapon</page> as that function immediately switches the weapon out of prediction.</note>
+
+<bug issue="2854">This is called twice for every holster clientside, one in <page>Prediction</page> and one not.</bug>
+
+<bug issue="3133">Before <page>WEAPON:OnRemove</page> is called, this function is only called serverside.</bug>
+	</description>
+	<realm>Shared</realm>
+	<predicted>Yes</predicted>
+	<args>
+		<arg name="weapon" type="Entity">The weapon we are trying switch to.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return true to allow weapon to holster.
+
+This will not have an effect if weapon was switched away from using <page>Player:SetActiveWeapon</page></ret>
+	</rets>
+</function>
+
+<example>
+	<description>Returns the weapon switched to when when the weapon is being holstered.</description>
+	<code>
+function SWEP:Holster( wep )
+	if IsFirstTimePredicted() then
+		LocalPlayer():ChatPrint("Switched to: "..(wep.PrintName or wep:GetClass()))
+	end
+	return true
+end
+	</code>
+	<output>
+Switched to Toolgun
+Switched to weapon_crowbar
+	</output>
+
+</example>

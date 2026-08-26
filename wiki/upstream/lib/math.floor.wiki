@@ -1,0 +1,31 @@
+<function name="floor" parent="math" type="libraryfunc">
+	<description>Floors or rounds a number down.
+
+	See <page>math.ceil</page> for the inverse of this function.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="number" type="number">The number to be rounded down.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">floored numbers</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Round pi.</description>
+	<code>print(math.floor(math.pi))</code>
+	<output>3</output>
+
+</example>
+
+
+<example>
+	<description>Demonstrates the difference between math.Round and math.floor.</description>
+	<code>
+local value = 3.6
+
+print( math.Round( value ), math.floor( value ) )
+	</code>
+	<output>4 3</output>
+
+</example>

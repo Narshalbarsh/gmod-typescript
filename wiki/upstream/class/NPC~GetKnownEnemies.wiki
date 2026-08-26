@@ -1,0 +1,11 @@
+<function name="GetKnownEnemies" parent="NPC" type="classfunc">
+	<description>Returns all known enemies this NPC has. The enemy table is updated with <page>NPC:UpdateEnemyMemory</page> and <page>NPC:ClearEnemyMemory</page>, meaning other entities may be in enemies list even though your NPC doesn't hate it. 
+
+See also <page>NPC:GetKnownEnemyCount</page>
+</description>
+	<added>2022.06.08</added>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="table">Table of entities that this NPC knows as enemies.</ret>
+	</rets>
+</function>

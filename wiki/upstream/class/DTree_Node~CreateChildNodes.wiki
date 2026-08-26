@@ -1,0 +1,10 @@
+<function name="CreateChildNodes" parent="DTree_Node" type="panelfunc">
+	<description>
+<internal></internal>
+
+Creates the container <page>DListLayout</page> for the <page>DTree_Node</page>s.
+
+This is called automatically so you don't have to.
+	</description>
+	<realm>Client and Menu</realm>
+</function>

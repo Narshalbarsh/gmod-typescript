@@ -1,0 +1,7 @@
+<function name="SetSortOrigin" parent="CNewParticleEffect" type="classfunc">
+	<description>Sets the sort origin for given particle system. This is used as a helper to determine which particles are in front of which.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="origin" type="Vector">The new sort origin.</arg>
+	</args>
+</function>

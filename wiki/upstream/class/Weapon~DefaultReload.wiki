@@ -1,0 +1,14 @@
+<function name="DefaultReload" parent="Weapon" type="classfunc">
+	<description>Forces the weapon to reload while playing given animation.
+	<note>
+		This will stop the <page>Weapon:Think</page> function from getting called while the weapon is reloading!
+	</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="act" type="number">Sequence to use as reload animation. Uses the <page>Enums/ACT</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Did reloading actually take place</ret>
+	</rets>
+</function>

@@ -1,0 +1,3 @@
+<type name="mesh" category="libraryfunc" is="library">
+	<summary>The mesh library allows you to create meshes. A mesh is a set of vertices that define a 3D shape, for constant meshes you should use the <page>IMesh</page> object instead.</summary>
+</type>

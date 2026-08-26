@@ -1,0 +1,14 @@
+<function name="IsSphereIntersectingSphere" parent="util" type="libraryfunc">
+	<description>Performs a sphere-sphere intersection and returns whether there was an intersection or not.</description>
+	<realm>Shared</realm>
+	<added>2023.08.08</added>
+	<args>
+		<arg name="sphere1Position" type="Vector">Any position of the first sphere.</arg>
+		<arg name="sphere1Radius" type="number">The radius of the first sphere.</arg>
+		<arg name="sphere2Position" type="Vector">Any position of the second sphere.</arg>
+		<arg name="sphere2Radius" type="number">The radius of the second sphere.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">`true` if there is an intersection, `false` otherwise.</ret>
+	</rets>
+</function>

@@ -1,0 +1,9 @@
+<function name="GetDesiredSpeed" parent="CLuaLocomotion" type="classfunc">
+	<description>Returns the desired movement speed set by <page>CLuaLocomotion:SetDesiredSpeed</page>
+</description>
+	<added>2022.06.08</added>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">The desired movement speed.</ret>
+	</rets>
+</function>

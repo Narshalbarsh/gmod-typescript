@@ -1,0 +1,7 @@
+<function name="SetAirDensity" parent="physenv" type="libraryfunc">
+	<description>Sets the air density.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="airDensity" type="number">The new air density.</arg>
+	</args>
+</function>

@@ -1,0 +1,11 @@
+<function name="GetFlexIDByName" parent="Entity" type="classfunc">
+	<description>Returns the ID of the flex based on the beginning or the entire name.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="name" type="string">The name of the flex to get the ID of. Case sensitive.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The ID of flex
+* `nil` if no flex with given name was found</ret>
+	</rets>
+</function>

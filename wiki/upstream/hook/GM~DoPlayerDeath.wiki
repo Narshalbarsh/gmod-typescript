@@ -1,0 +1,20 @@
+<function name="DoPlayerDeath" parent="GM" type="hook">
+	<description>
+Handles the player's death.
+
+This hook is **not** called if the player is killed by <page>Player:KillSilent</page>. See <page>GM:PlayerSilentDeath</page> for that.
+
+* <page>GM:PlayerDeath</page> is called after this hook
+* <page>GM:PostPlayerDeath</page> is called after that
+
+<note><page>Player:Alive</page> will return false in this hook.</note>
+
+	</description>
+	<realm>Server</realm>
+	<file line="39-L57">gamemodes/base/gamemode/init.lua</file>
+	<args>
+		<arg name="ply" type="Player">The player</arg>
+		<arg name="attacker" type="Entity">The entity that killed the player</arg>
+		<arg name="dmg" type="CTakeDamageInfo">Damage info</arg>
+	</args>
+</function>

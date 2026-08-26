@@ -1,0 +1,7 @@
+<function name="GetNumeric" parent="DTextEntry" type="panelfunc">
+	<description>Returns whether only numeric characters (`123456789.-`) can be entered into the DTextEntry.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the DTextEntry is numeric or not.</ret>
+	</rets>
+</function>

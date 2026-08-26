@@ -1,0 +1,9 @@
+<function name="ContextMenuEnabled" parent="SANDBOX" type="hook">
+	<description>
+Allows to prevent the creation of the context menu. If the context menu is already created, this will have no effect.
+	</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="boolean">Return `false` to prevent the context menu from being created.</ret>
+	</rets>
+</function>

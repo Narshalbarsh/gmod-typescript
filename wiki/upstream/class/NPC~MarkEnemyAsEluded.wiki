@@ -1,0 +1,7 @@
+<function name="MarkEnemyAsEluded" parent="NPC" type="classfunc">
+	<description>Causes the NPC to temporarily forget the current enemy and switch on to a better one.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="enemy" type="Entity" default="GetEnemy()" added="2020.06.24">The enemy to mark</arg>
+	</args>
+</function>

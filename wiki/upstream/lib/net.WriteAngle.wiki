@@ -1,0 +1,7 @@
+<function name="WriteAngle" parent="net" type="libraryfunc">
+	<description>Writes an angle to the current net message.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="angle" type="Angle">The angle to be sent.</arg>
+	</args>
+</function>

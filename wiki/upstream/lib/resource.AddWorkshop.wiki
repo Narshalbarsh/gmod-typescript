@@ -1,0 +1,30 @@
+<function name="AddWorkshop" parent="resource" type="libraryfunc">
+	<description>
+Adds a workshop addon for the client to download before entering the server. This will not "install" the addon on your server, see <page>Workshop for Dedicated Servers</page> for installing Steam Workshop addons onto your servers.
+
+Having the raw files from a workshop item does not count as having already downloaded it.<br/>
+So players who previously downloaded a map through [FastDL](Serving_Content) will have to re-download it if it is part of a workshop addon.
+
+You should try to only add addons that have custom content (models, sounds, etc). Lua files are not considered content, and are handled by a separate system. Adding workshop addons that only have Lua files is a waste, it will do nothing.
+
+Gamemodes that are <page text="workshop enabled">Gamemode_Creation#Gamemode_Text_File</page> and the current map are automatically added to this list, if they come from the servers' workshop collection - so there's no need to manually add them.
+
+<warning>There's a 8192 downloadable file limit. If you need more, consider the fact that you have way too many downloads. This limit is shared among all `resource.Add*` functions.</warning>
+
+See also <page>Serving Content</page>.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="workshopid" type="string">The workshop id of the file. This cannot be a collection.</arg>
+	</args>
+</function>
+
+<example>
+	<description>
+Adds the Achievement Viewer addon (workshop id `104606562`). Any clients that join will download this addon if they haven't previously downloaded it from the workshop or from the server (via the workshop).
+
+You get the ID from the URL of the workshop addon. For example, here's the URL of the Achievement Viewer addon's page: https://steamcommunity.com/sharedfiles/filedetails/?id=104606562.
+	</description>
+	<code>resource.AddWorkshop( "104606562" )</code>
+	<output>Players joining the server will now be forced to download the Achievement Viewer addon.</output>
+</example>

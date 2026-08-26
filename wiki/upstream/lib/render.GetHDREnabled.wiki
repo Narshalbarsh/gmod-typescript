@@ -1,0 +1,8 @@
+<function name="GetHDREnabled" parent="render" type="libraryfunc">
+	<description>Returns whether HDR is currently enabled or not. This takes into account hardware support, current map and current client settings.</description>
+	<realm>Client and Menu</realm>
+	<added>2020.10.14</added>
+	<rets>
+		<ret name="" type="boolean">`true` if the player currently has HDR enabled.</ret>
+	</rets>
+</function>

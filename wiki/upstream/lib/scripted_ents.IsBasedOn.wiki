@@ -1,0 +1,19 @@
+<function name="IsBasedOn" parent="scripted_ents" type="libraryfunc">
+	<file line="44-L51">lua/includes/modules/scripted_ents.lua</file>
+	<description>Checks if name is based on base</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="name" type="string">Entity's class name to be checked</arg>
+		<arg name="base" type="string">Base class name to be checked</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Returns true if class name is based on base, else false.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>See if gmod_hands is based on base_anim.</description>
+	<code>print(scripted_ents.IsBasedOn("gmod_hands", "base_anim"))</code>
+	<output>true</output>
+
+</example>

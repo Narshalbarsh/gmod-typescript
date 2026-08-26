@@ -1,0 +1,21 @@
+<function name="RegisterEntityModifier" parent="duplicator" type="libraryfunc">
+	<description>
+This allows you to register tweaks to entities. For instance, if you were making an "unbreakable" addon, you would use this to enable saving the "unbreakable" state of entities between duplications.
+
+This function registers a piece of generic code that is run on all entities with this modifier. In order to have it actually run, use <page>duplicator.StoreEntityModifier</page>.
+
+This function does nothing when run clientside.
+	</description>
+	<realm>Shared</realm>
+	<file line="406">lua/includes/modules/duplicator.lua</file>
+	<args>
+		<arg name="name" type="string">An identifier for your modification. This is not limited, so be verbose. `Person's 'Unbreakable' mod` is far less likely to cause conflicts than `unbreakable`.</arg>
+		<arg name="func" type="function">The function to be called for your modification.
+
+<callback>
+<arg type="Player" name="ply">The player that is spawning the entity.</arg>
+<arg type="Entity" name="ent">The entity being spawned in.</arg>
+<arg type="table" name="data">What you pass to <page>duplicator.StoreEntityModifier</page>.</arg>
+</callback></arg>
+	</args>
+</function>

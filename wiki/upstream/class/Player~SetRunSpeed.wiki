@@ -1,0 +1,15 @@
+<function name="SetRunSpeed" parent="Player" type="classfunc">
+	<description>
+Sets the player's sprint speed.
+
+See also <page>Player:GetRunSpeed</page>, <page>Player:SetWalkSpeed</page> and <page>Player:SetMaxSpeed</page>.
+<note>player_default class run speed is: `400`</note>
+	</description>
+	
+	<realm>Shared</realm>
+	<args>
+		<arg name="runSpeed" type="number">The new sprint speed when `sv_friction` is below `10`. Higher `sv_friction` values will result in slower speed.
+
+Has to be `7` or above or the player **won't** be able to move.</arg>
+	</args>
+</function>

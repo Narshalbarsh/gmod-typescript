@@ -1,0 +1,7 @@
+<function name="RememberCursorPosition" parent="Global" type="libraryfunc">
+	<description>
+Saves position of your cursor on screen. You can restore it by using <page>Global.RestoreCursorPosition</page>. This is used internally by the spawn menu/context menu
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="454-L474">lua/includes/util.lua</file>
+</function>

@@ -1,0 +1,6 @@
+<function name="End3D" parent="cam" type="libraryfunc">
+	<description>
+Switches the renderer back to the previous drawing mode from a 3D context.
+	</description>
+	<realm>Client</realm>
+</function>

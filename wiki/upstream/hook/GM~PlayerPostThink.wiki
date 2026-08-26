@@ -1,0 +1,12 @@
+<function name="PlayerPostThink" parent="GM" type="hook">
+	<description>Called after the player's think, just after <page>GM:FinishMove</page>.
+
+
+		<note>On the client side, it is only called for the local player.</note>
+	</description>
+	<predicted>Yes</predicted>
+	<realm>Shared</realm>
+	<args>
+		<arg name="ply" type="Player">The player</arg>
+	</args>
+</function>

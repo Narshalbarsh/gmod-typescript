@@ -1,0 +1,9 @@
+<function name="RenderStereoscopy" parent="Global" type="libraryfunc">
+	<description>Renders the stereoscopic post-process effect</description>
+	<realm>Client</realm>
+	<file line="11-L37">lua/postprocess/stereoscopy.lua</file>
+	<args>
+		<arg name="viewOrigin" type="Vector">Origin to render the effect at</arg>
+		<arg name="viewAngles" type="Angle">Angles to render the effect at</arg>
+	</args>
+</function>

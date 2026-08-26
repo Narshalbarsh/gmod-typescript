@@ -1,0 +1,8 @@
+<function name="SetIdealSequence" parent="NPC" type="classfunc">
+	<description>Sets the ideal sequence the NPC currently wants to achieve. This is most useful for custom SNPCs.</description>
+	<realm>Server</realm>
+	<added>2024.09.12</added>
+	<args>
+		<arg name="sequenceId" type="number">The ideal sequence to set. <page>Entity:LookupSequence</page>.</arg>
+	</args>
+</function>

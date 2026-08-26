@@ -1,0 +1,16 @@
+<enum>
+	<realm>Client and Menu</realm>
+	<description>
+Enumerations used by <page>Panel:Dock</page>.
+<note>These enumerations doesn't have DOCK_ prefix, this is an exception from all other enumerations.</note>
+	</description>
+	<items>
+<item key="NODOCK" value="0">Don't dock</item>
+<item key="FILL" value="1">Fill parent</item>
+<item key="LEFT" value="2">Dock to the left</item>
+<item key="RIGHT" value="3">Dock to the right</item>
+<item key="TOP" value="4">Dock to the top</item>
+<item key="BOTTOM" value="5">Dock to the bottom</item>
+	</items>
+
+</enum>

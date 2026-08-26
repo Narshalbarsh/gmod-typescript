@@ -1,0 +1,11 @@
+<function name="GetPunchAngle" parent="Player" type="classfunc">
+	<description>
+<deprecated>You should use <page>Player:GetViewPunchAngles</page> instead.</deprecated>
+Returns players screen punch effect angle. See <page>Player:ViewPunch</page> and <page>Player:SetViewPunchAngles</page> 
+
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Angle">The punch angle</ret>
+	</rets>
+</function>

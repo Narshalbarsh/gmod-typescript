@@ -1,0 +1,28 @@
+<function name="NavSetRandomGoal" parent="NPC" type="classfunc">
+	<description>Creates a random path of specified minimum length between a closest start node and random node in the specified direction. This won't actually force the NPC to move.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="minPathLength" type="number">Minimum length of path in units</arg>
+		<arg name="dir" type="Vector">Unit vector pointing in the direction of the target random node</arg>
+	</args>
+
+	<rets>
+		<ret type="boolean">Whether path generation was successful or not</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Example usage. Keep in mind that non scriptable NPCs will override their tasks occasionally. This is meant for scriptable NPCs</description>
+	<code>
+function MakeNPCGo( npc )
+	-- Choose a random node to go to at least 200 units away from us in the direction we are looking
+	npc:NavSetRandomGoal( 200, npc:GetAimVector() )
+	
+	-- At this point npc:GetPathDistanceToGoal() will return a different value, if a new path was generated
+
+	-- Force us to go there
+	-- 48 is TASK_RUN_PATH
+	npc:StartEngineTask( 48, 0 )
+end
+</code>
+</example>

@@ -1,0 +1,8 @@
+<function name="ChangeBackground" parent="Global" type="libraryfunc">
+	<description>Sets the active main menu background image to a random entry from the background images pool. Images are added with <page>Global.AddBackgroundImage</page>.</description>
+	<realm>Menu</realm>
+	<file line="109-L164">lua/menu/background.lua</file>
+	<args>
+		<arg name="currentgm" type="string">Apparently does nothing.</arg>
+	</args>
+</function>

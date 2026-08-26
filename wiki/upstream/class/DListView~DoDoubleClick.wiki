@@ -1,0 +1,34 @@
+<function name="DoDoubleClick" parent="DListView" type="panelhook">
+	<description>Called when a line in the DListView is double clicked.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="lineID" type="number">The line number of the double clicked line.</arg>
+		<arg name="line" type="Panel">The double clicked <page>DListView_Line</page>.</arg>
+	</args>
+</function>
+
+
+<example>
+	<description>Demonstrates the use of this function.</description>
+	<code>
+local DList = vgui.Create( "DListView" )
+DList:SetPos( 5, 50 )
+DList:SetSize( 150, 245 )
+DList:AddColumn( "Player Names" )
+
+for _, v in ipairs( player.GetAll() ) do
+	DList:AddLine( v:Name() )
+end
+
+function DList:DoDoubleClick( lineID, line )
+	MsgN( "Line " .. lineID .. " was double clicked!" )
+end
+	</code>
+	<output>
+The double clicked line number is printed, e.g.
+
+```
+Line 6 was double clicked!
+```
+	</output>
+</example>

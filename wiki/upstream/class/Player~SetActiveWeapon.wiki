@@ -1,0 +1,31 @@
+<function name="SetActiveWeapon" parent="Player" type="classfunc">
+	<description>
+Sets the player's active weapon. You should use <page>CUserCmd:SelectWeapon</page> or <page>Player:SelectWeapon</page>, instead in most cases.
+
+This function will not trigger the weapon switch events or associated equip animations. It will bypass 
+ <page>GM:PlayerSwitchWeapon</page> and the currently active weapon's <page>WEAPON:Holster</page> return value.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="weapon" type="Weapon">The weapon to equip.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Holster the weapon of a player and restore it after 20 seconds.</description>
+	<code>
+local ply = Entity( 1 )
+local prevWeapon = ply:GetActiveWeapon()
+local prevWeaponClass = prevWeapon:GetClass()
+
+ply:SetActiveWeapon( NULL ) -- Holster the weapon
+
+timer.Simple(20, function()
+	if ( !prevWeapon:IsValid() ) then
+		prevWeapon = ply:Give( prevWeaponClass )
+	end
+
+	ply:SelectWeapon( prevWeapon )
+end)
+	</code>
+</example>

@@ -1,0 +1,4 @@
+<function name="Download" parent="ITexture" type="classfunc">
+	<description>Invokes the generator of the texture. Reloads file based textures from disk and clears render target textures.</description>
+	<realm>Shared and Menu</realm>
+</function>

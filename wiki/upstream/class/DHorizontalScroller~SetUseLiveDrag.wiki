@@ -1,0 +1,7 @@
+<function name="SetUseLiveDrag" parent="DHorizontalScroller" type="panelfunc">
+	<description>Same as <page>DDragBase:SetUseLiveDrag</page></description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="newState" type="boolean"></arg>
+	</args>
+</function>

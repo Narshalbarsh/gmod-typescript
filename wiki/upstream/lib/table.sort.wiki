@@ -1,0 +1,69 @@
+<function name="sort" parent="table" type="libraryfunc">
+	<description>Sorts a sequential table either ascending or by the given sort function.
+<note>This function modifies the table you give to it and internally uses the [quick sort algorithm](http://www.lua.org/source/5.2/ltablib.c.html#sort).</note>
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="tbl" type="table">The table to sort.</arg>
+		<arg name="sorter" type="function" default="nil">If specified, the sorting function.
+
+<callback>
+	<arg name="a" type="any">Item A to test.</arg>
+	<arg name="b" type="any">Item B to test.</arg>
+	<ret name="result" type="boolean">Result of the comparison. Return true in this function if you want the first parameter to come first in the sorted array.</ret>
+</callback>
+</arg>
+	</args>
+</function>
+
+<example>
+	<description>Sorting table by an integer</description>
+	<code>
+local tbl = {
+	{ "Jeff", 8 },
+	{ "Peter", 17 },
+	{ "Shay", 11 },
+	{ "Janine", 1 }
+}
+
+table.sort( tbl, function(a, b) return a[2] > b[2] end )
+	</code>
+	<output>Table going from highest number to lowest (1: Peter, 2: Shay, 3: Jeff, 4: Janine)</output>
+
+</example>
+
+
+<example>
+	<description>Sorting a player table by a NWInt</description>
+	<code>
+local plys = player.GetAll()
+
+table.sort( plys, function(a, b) return a:GetNWInt("Score") > b:GetNWInt("Score") end )
+	</code>
+	<output>Player table sorted by score going from highest to lowest</output>
+
+</example>
+
+<example>
+	<description>Sort the table by string keys. We cannot sort non-numeric keys in `ages`, because they are contained in a hash part whose order is undefined.</description>
+	<code>
+local ages = {
+    [ "Jeff" ] = 8,
+    [ "Peter" ] = 17,
+    [ "Shay" ] = 11,
+    [ "Janine" ] = 1,
+}
+
+local names = table.GetKeys( ages )
+table.sort( names )
+for _, name in ipairs( names ) do
+    print( name, ages[ name ] )
+end
+	</code>
+	<output>
+Janine  1
+Jeff    8
+Peter   17
+Shay    11
+	</output>
+</example>

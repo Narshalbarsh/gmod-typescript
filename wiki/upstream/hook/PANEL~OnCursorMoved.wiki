@@ -1,0 +1,11 @@
+<function name="OnCursorMoved" parent="PANEL" type="hook">
+	<description>Called whenever the cursor was moved with the panels bounds.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="cursorX" type="number">The new x position of the cursor relative to the panels origin.</arg>
+		<arg name="cursorY" type="number">The new y position of the cursor relative to the panels origin.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return true to suppress default action.</ret>
+	</rets>
+</function>

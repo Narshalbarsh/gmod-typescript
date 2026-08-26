@@ -1,0 +1,7 @@
+<function name="GetExpression" parent="NPC" type="classfunc">
+	<description>Returns the expression file the NPC is currently playing.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="m_iszExpressionScene" type="string">The file path of the expression.</ret>
+	</rets>
+</function>

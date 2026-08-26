@@ -1,0 +1,8 @@
+<function name="GetIdealYaw" parent="NPC" type="classfunc">
+	<description>Returns the ideal yaw (left right rotation) for this NPC at this moment.</description>
+	<realm>Server</realm>
+	<added>2023.09.06</added>
+	<rets>
+		<ret name="" type="number">The ideal yaw.</ret>
+	</rets>
+</function>

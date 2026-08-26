@@ -1,0 +1,24 @@
+<structure>
+    <realm>Client</realm>
+    <description>Table structure used by <page>matproxy.Add</page>.</description>
+    <fields>
+<item name="name" type="string">The name of the material proxy</item>
+<item name="init" type="function">The function used to get variables from the ".vmt". Called once per each ".vmt".
+
+<callback>
+<arg type="table" name="self">The table structure itself</arg>
+<arg type="IMaterial" name="mat">The material.</arg>
+<arg type="table" name="values">The material key values</arg>
+</callback>
+</item>
+<item name="bind" type="function">The function used to apply the proxy. This is called every frame while any materials with this proxy are used in world.
+
+<callback>
+<arg type="table" name="self">The table structure itself.</arg>
+<arg type="IMaterial" name="mat">The material.</arg>
+<arg type="Entity" name="ent">The entity the material instance is applied to, if any.</arg>
+</callback>
+</item>
+    </fields>
+
+</structure>

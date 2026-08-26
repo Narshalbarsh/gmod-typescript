@@ -1,0 +1,11 @@
+<function name="ShowIcons" parent="DTree" type="panelfunc">
+	<description>
+Returns whether or not the <page>Silkicons</page> next to each node of the DTree will be displayed.
+
+Alias of <page>DTree:GetShowIcons</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Whether or not the silkicons next to each node will be displayed.</ret>
+	</rets>
+</function>

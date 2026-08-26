@@ -1,0 +1,15 @@
+<function name="SetBounce" parent="CLuaParticle" type="classfunc">
+	<description>Sets the 'bounciness' of the the particle.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="bounce" type="number">New 'bounciness' of the particle
+
+2 means it will gain 100% of its previous velocity,
+
+
+1 means it will not lose velocity,
+
+
+0.5 means it will lose half of its velocity with each bounce.</arg>
+	</args>
+</function>

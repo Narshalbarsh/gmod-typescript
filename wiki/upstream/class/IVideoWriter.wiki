@@ -1,0 +1,3 @@
+<type name="IVideoWriter" category="classfunc" is="class">
+	<summary>This is returned from <page>video.Record</page>.</summary>
+</type>

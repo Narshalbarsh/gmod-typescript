@@ -1,0 +1,11 @@
+<function name="GetStretchToFit" parent="DImageButton" type="panelfunc">
+	<description>
+Returns whether the image inside the button should be stretched to fit it or not
+
+See <page>DImageButton:SetStretchToFit</page>
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean"></ret>
+	</rets>
+</function>

@@ -1,0 +1,8 @@
+<function name="RemoveItem" parent="DGrid" type="panelfunc">
+	<description>Removes given panel from the <page>DGrid:GetItems</page>.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="item" type="Panel">Item to remove from the grid</arg>
+		<arg name="bDontDelete" type="boolean" default="false">If set to true, the actual panel will not be removed via <page>Panel:Remove</page>.</arg>
+	</args>
+</function>

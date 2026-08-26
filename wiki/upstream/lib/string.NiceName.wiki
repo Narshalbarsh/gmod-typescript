@@ -1,0 +1,15 @@
+<function name="NiceName" parent="string" type="libraryfunc">
+	<description>Converts a `"string_likeThis"` to a more human-friendly `"String like This"`.
+
+This is used internally by Faceposer and other code to transform flex and bodygroup names to a more friendly format.
+</description>
+	<added>2024.06.28</added>
+	<realm>Shared and Menu</realm>
+	<file line="413-L451">lua/includes/extensions/string.lua</file>
+	<args>
+		<arg name="text" type="string">The name to transform.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The more human-friendly version of the input text.</ret>
+	</rets>
+</function>

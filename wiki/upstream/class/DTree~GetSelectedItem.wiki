@@ -1,0 +1,7 @@
+<function name="GetSelectedItem" parent="DTree" type="panelfunc">
+	<description>Returns the currently selected node.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="DTree_Node">Curently selected <page>DTree_Node</page>.</ret>
+	</rets>
+</function>

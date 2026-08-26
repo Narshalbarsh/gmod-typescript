@@ -1,0 +1,7 @@
+<function name="WriteFloat" parent="net" type="libraryfunc">
+	<description>Appends a float (number with decimals) to the current net message.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="float" type="number">The float to be sent.</arg>
+	</args>
+</function>

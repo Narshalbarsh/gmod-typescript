@@ -1,0 +1,26 @@
+<function name="LayoutEntity" parent="DModelPanel" type="panelhook">
+	<description>
+By default, this function slowly rotates and animates the entity being rendered.
+
+If you want to change this behavior, you should override it.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="entity" type="Entity">The entity that is being rendered.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Stops the rendered entity from rotating.</description>
+	<code>
+local modelPanel = vgui.Create( "DModelPanel" )
+modelPanel:SetPos( 0, 0 )
+modelPanel:SetSize( 200, 200 )
+modelPanel:SetModel( "models/player/kleiner.mdl" )
+
+function modelPanel:LayoutEntity( ent )
+	-- do nothing
+end
+	</code>
+
+</example>

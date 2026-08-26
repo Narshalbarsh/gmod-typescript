@@ -1,0 +1,4 @@
+<function name="AdvanceVertex" parent="mesh" type="libraryfunc">
+	<description>Pushes the currently set vertex data (via other `mesh.*` functions) into the mesh stack. See example on <page>mesh.Begin</page>.</description>
+	<realm>Client</realm>
+</function>

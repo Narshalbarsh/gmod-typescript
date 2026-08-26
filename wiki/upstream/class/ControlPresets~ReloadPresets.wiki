@@ -1,0 +1,5 @@
+<function name="ReloadPresets" parent="ControlPresets" type="panelfunc">
+	<description></description>
+	<realm>Client</realm>
+	<file line="129-L149">gamemodes/sandbox/gamemode/spawnmenu/controls/control_presets.lua</file>
+</function>

@@ -1,0 +1,8 @@
+<function name="GetOpenSize" parent="DDrawer" type="panelfunc">
+	<description>An <page>Global.AccessorFunc</page> that returns the Open Size of DDrawer.</description>
+	<realm>Client and Menu</realm>
+	<file line="4">lua/vgui/ddrawer.lua</file>
+	<rets>
+		<ret name="" type="number">Open size.</ret>
+	</rets>
+</function>

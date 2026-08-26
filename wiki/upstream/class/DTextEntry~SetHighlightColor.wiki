@@ -1,0 +1,9 @@
+<function name="SetHighlightColor" parent="DTextEntry" type="panelfunc">
+	<description>
+Sets/overrides the default highlight/text selection color of the text entry.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="color" type="Color">The new highlight <page>Color</page>.</arg>
+	</args>
+</function>

@@ -1,0 +1,19 @@
+<function name="PlayerFireAnimationEvent" parent="GM" type="hook">
+	<description>
+Called before firing clientside animation events on a player model.
+
+See <page>GM:PlayerHandleAnimEvent</page> for the serverside version.
+	</description>
+	<realm>Client</realm>
+	<added>2020.10.14</added>
+	<args>
+		<arg name="ply" type="Player">The player who has triggered the event.</arg>
+		<arg name="pos" type="Vector">Position of the effect</arg>
+		<arg name="ang" type="Angle">Angle of the effect</arg>
+		<arg name="event" type="number">The event ID of happened even. See [this page](http://developer.valvesoftware.com/wiki/Animation_Events).</arg>
+		<arg name="name" type="string">Name of the event</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return true to disable the effect</ret>
+	</rets>
+</function>

@@ -1,0 +1,14 @@
+<function name="SetShadowDepthBias" parent="ProjectedTexture" type="classfunc">
+	<description>
+Sets the shadow depth bias of the projected texture.
+
+The initial value is `0.0001`. Normal projected textures obey the value of the `mat_depthbias_shadowmap` <page>ConVar</page>.
+
+<validate>You must call <page>ProjectedTexture:Update</page> after using this function for it to take effect.</validate>
+	</description>
+	<added>2021.03.31</added>
+	<realm>Client</realm>
+	<args>
+		<arg name="bias" type="number">The shadow depth bias to set.</arg>
+	</args>
+</function>

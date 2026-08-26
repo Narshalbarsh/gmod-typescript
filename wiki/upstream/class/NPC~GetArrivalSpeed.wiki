@@ -1,0 +1,10 @@
+<function name="GetArrivalSpeed" parent="NPC" type="classfunc">
+	<description>Returns NPC arrival speed, set by <page>NPC:SetArrivalSpeed</page>.
+</description>
+	<realm>Server</realm>
+	<added>2024.05.15</added>
+
+	<rets>
+		<ret name="speed" type="number">The current arrival peed.</ret>
+	</rets>
+</function>

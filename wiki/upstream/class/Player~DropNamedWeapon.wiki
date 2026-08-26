@@ -1,0 +1,9 @@
+<function name="DropNamedWeapon" parent="Player" type="classfunc">
+	<description>Drops the players' weapon of a specific class.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="class" type="string">The class to drop.</arg>
+		<arg name="target" type="Vector" default="nil">If set, launches the weapon at given position. There is a limit to how far it is willing to throw the weapon. Overrides velocity argument.</arg>
+		<arg name="velocity" type="Vector" default="nil">If set and previous argument is unset, launches the weapon with given velocity. If the velocity is higher than 400, it will be clamped to 400.</arg>
+	</args>
+</function>

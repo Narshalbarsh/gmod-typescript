@@ -1,0 +1,8 @@
+<function name="SetSelectionCanvas" parent="Panel" type="classfunc">
+	<file line="10-L15">lua/includes/extensions/client/panel/selections.lua</file>
+	<description>Enables the panel object for selection (much like the spawn menu).</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="set" type="boolean">Whether to enable selection.</arg>
+	</args>
+</function>

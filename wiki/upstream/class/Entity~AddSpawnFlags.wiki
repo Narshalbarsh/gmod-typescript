@@ -1,0 +1,46 @@
+<function name="AddSpawnFlags" parent="Entity" type="classfunc">
+	<description>
+Adds onto the current SpawnFlags of an Entity.
+
+SpawnFlags can easily be found on https://developer.valvesoftware.com/wiki/.
+
+	<note>See also <page>Entity:RemoveSpawnFlags</page>, <page>Entity:SetSpawnFlags</page>
+
+	Using <page text="SF Enumerations">Enums/SF</page> won't work, if this function is ran clientside due to the enumerations being defined only Serverside. Use the actual SpawnFlag number.
+	</note>
+
+	</description>
+	<added>2024.12.04</added>
+	<realm>Shared</realm>
+	<file line="11-L13">lua/includes/extensions/entity.lua</file>	
+
+	<args>
+		<arg name="flag" type="number">The SpawnFlag to add to the Entity</arg>
+	</args>
+</function>
+
+<example>
+	<description>When a turret Entity is created, it adds the `Out of Ammo` SpawnFlag, therefore it doesn't have ammo.</description>
+	<code>
+hook.Add( "OnEntityCreated", "AddSpawnFlagsExample", function( ent )
+	timer.Simple( 0.1, function()
+		if ( !IsValid(ent) or ent:GetClass() != "npc_turret_floor" ) then return end
+
+		ent:AddSpawnFlags(256) -- https://developer.valvesoftware.com/wiki/Npc_turret_floor#Flags
+	end )
+end )
+	</code>
+</example>
+
+<example>
+	<description>When a turret Entity is created, it adds the `Out of Ammo` and `Fast Retire` SpawnFlag, therefore it doesn't have ammo and it goes into idle state faster.</description>
+	<code>
+hook.Add( "OnEntityCreated", "AddSpawnFlagsExample", function( ent )
+	timer.Simple( 0.1, function()
+		if ( !IsValid(ent) or ent:GetClass() != "npc_turret_floor" ) then return end
+
+		ent:AddSpawnFlags( bit.bor( ent:GetSpawnFlags(), 256, 128 ) ) -- https://developer.valvesoftware.com/wiki/Npc_turret_floor#Flags
+	end )
+end )
+	</code>
+</example>

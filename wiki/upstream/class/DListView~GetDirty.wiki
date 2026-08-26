@@ -1,0 +1,11 @@
+<function name="GetDirty" parent="DListView" type="panelfunc">
+	<description>
+<internal></internal>
+
+See <page>DListView:SetDirty</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean"></ret>
+	</rets>
+</function>

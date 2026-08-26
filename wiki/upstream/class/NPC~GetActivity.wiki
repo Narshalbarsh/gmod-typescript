@@ -1,0 +1,7 @@
+<function name="GetActivity" parent="NPC" type="classfunc">
+	<description>Returns the NPC's current activity.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">Current activity, see <page>Enums/ACT</page>.</ret>
+	</rets>
+</function>

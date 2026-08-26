@@ -1,0 +1,12 @@
+<function name="ToHSL" parent="Color" type="classfunc">
+	<description>Converts a <page>Color</page> into [HSL color space](https://en.wikipedia.org/wiki/HSL_and_HSV) .
+
+This calls <page>Global.ColorToHSL</page> internally.</description>
+	<realm>Shared and Menu</realm>
+	<file line="140-L144">lua/includes/util/color.lua</file>
+	<rets>
+		<ret name="" type="number">The hue in degrees [0, 360).</ret>
+		<ret name="" type="number">The saturation in the range [0, 1].</ret>
+		<ret name="" type="number">The lightness in the range [0, 1].</ret>
+	</rets>
+</function>

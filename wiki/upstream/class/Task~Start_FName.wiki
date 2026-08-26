@@ -1,0 +1,8 @@
+<function name="Start_FName" parent="Task" type="classfunc">
+	<description><internal></internal> Starts the AI task as an NPC method.</description>
+	<realm>Server</realm>
+	<file line="99">lua/includes/modules/ai_task.lua</file>
+	<args>
+		<arg name="target" type="NPC">The NPC to start the task on.</arg>
+	</args>
+</function>

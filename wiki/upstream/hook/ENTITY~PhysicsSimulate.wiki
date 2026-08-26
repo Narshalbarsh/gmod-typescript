@@ -1,0 +1,21 @@
+<function name="PhysicsSimulate" parent="ENTITY" type="hook">
+	<description>
+Called from the Entity's motion controller to simulate physics.
+
+This will only be called after using <page>Entity:StartMotionController</page> on a <page text="scripted entity">Scripted_Entities</page> of `anim` type.
+
+<note>This hook can work on the CLIENT if you call <page>Entity:StartMotionController</page> and use <page>Entity:AddToMotionController</page> on the physics objects you want to control</note>
+
+<warning>Do not use functions such as <page>PhysObj:EnableCollisions</page> or <page>PhysObj:EnableGravity</page> in this hook as they're very likely to crash your game. You may want to use <page>ENTITY:PhysicsUpdate</page> instead.</warning>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="phys" type="PhysObj">The physics object of the entity.</arg>
+		<arg name="deltaTime" type="number">Time since the last call.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">Angular force. The 3rd argument must be above SIM_NOTHING.</ret>
+		<ret name="" type="Vector">Linear force. The 3rd argument must be above SIM_NOTHING.</ret>
+		<ret name="" type="number">One of the <page>Enums/SIM</page>.</ret>
+	</rets>
+</function>

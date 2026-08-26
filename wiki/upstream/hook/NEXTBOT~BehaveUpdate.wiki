@@ -1,0 +1,10 @@
+<function name="BehaveUpdate" parent="NEXTBOT" type="hook">
+	<description>Called to update the bot's behaviour. 
+
+If you override this hook you must call `coroutine.resume(self.BehaveThread)` to resume the <page>NEXTBOT:RunBehaviour</page> Behavior </description>
+	<realm>Server</realm>
+	<file line="23">gamemodes/base/entities/entities/base_nextbot/sv_nextbot.lua</file>
+	<args>
+		<arg name="interval" type="number">How long since the last update</arg>
+	</args>
+</function>

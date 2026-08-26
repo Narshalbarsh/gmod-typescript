@@ -1,0 +1,9 @@
+<function name="GetTagsVendor" parent="IGModAudioChannel" type="classfunc">
+	<description>Retrieves OGG Vendor tag, usually containing the application that created the file, from a bass channel created by <page>sound.PlayURL</page> or <page>sound.PlayFile</page>, if available.
+	</description>
+	<realm>Client</realm>
+	<added>2020.04.29</added>
+	<rets>
+		<ret name="info" type="string">The OGG vendor tag, or `nil` if no information is available.</ret>
+	</rets>
+</function>

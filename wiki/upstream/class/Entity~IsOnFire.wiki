@@ -1,0 +1,14 @@
+<function name="IsOnFire" parent="Entity" type="classfunc">
+	<description>Returns whether the entity is on fire.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the entity is on fire or not.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Demonstrates the use of this function.</description>
+	<code>print( Entity(1):IsOnFire() )</code>
+	<output>Outputs 'true' to the console if the player 1 is on fire.</output>
+
+</example>

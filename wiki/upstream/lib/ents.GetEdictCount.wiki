@@ -1,0 +1,12 @@
+<function name="GetEdictCount" parent="ents" type="libraryfunc">
+	<description>Returns the amount of networked entities, which is limited to 8192.
+
+<page>ents.Create</page> will fail somewhere between 8064 and 8176 - this can vary based on the amount of player slots on the server and other entities.
+
+See also [MAX_EDICT_BITS](https://wiki.facepunch.com/gmod/Global_Variables#maxedictbits) global variable.
+</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">Number of networked entities.</ret>
+	</rets>
+</function>

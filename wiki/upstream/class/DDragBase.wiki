@@ -1,0 +1,41 @@
+<panel>
+	<parent>DPanel</parent>
+	<realm>Client and Menu</realm>
+	<file line="">lua/vgui/ddragbase.lua</file>
+	<description>
+		<internal></internal>
+
+		A VGUI base panel providing drag/drop functionality. Used by <page>DIconLayout</page>, <page>DListLayout</page> and <page>DTileLayout</page>.
+	</description>
+	<overrides>
+		<page>Panel:Init</page>
+	</overrides>
+</panel>
+
+
+<example>
+	<code>
+local frame = vgui.Create( "DFrame" )
+frame:SetSize( 300, 500 )
+frame:Center()
+frame:MakePopup()
+
+local dragbase = vgui.Create( "DDragBase", frame )
+dragbase:Dock( FILL )
+dragbase:MakeDroppable( "test" )
+dragbase:SetDropPos( "82" )
+
+for i = 0, 10 do
+	local butt = dragbase:Add( "DButton" )
+	--butt:Dock( TOP )
+	butt:SetPos( 25, i * 25 )
+	butt:SetWidth( 100 )
+	butt:Droppable( "test" )
+	butt.id = i
+	butt.Think = function( s ) s:SetText( "ID: " .. i .. " ZPOS: " .. s:GetZPos() ) end
+end
+	</code>
+
+</example>
+
+<upload src="54669/8dc9e114123f9fd.png" size="7487" name="gmod_exLLKAnmTY.png" />

@@ -1,0 +1,8 @@
+<function name="SetOpenTime" parent="DDrawer" type="panelfunc">
+	<description>An <page>Global.AccessorFunc</page> that sets the time (in seconds) for DDrawer to open.</description>
+	<realm>Client and Menu</realm>
+	<file line="5">lua/vgui/ddrawer.lua</file>
+	<args>
+		<arg name="value" type="number">Length in seconds. Default is 0.3</arg>
+	</args>
+</function>

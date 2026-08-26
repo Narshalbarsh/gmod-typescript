@@ -1,0 +1,7 @@
+<function name="LastHitGroup" parent="Player" type="classfunc">
+	<description>Returns the hitgroup where the player was last hit.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">Hitgroup, see <page>Enums/HITGROUP</page></ret>
+	</rets>
+</function>

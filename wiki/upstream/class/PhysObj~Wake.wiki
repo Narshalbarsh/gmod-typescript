@@ -1,0 +1,8 @@
+<function name="Wake" parent="PhysObj" type="classfunc">
+	<description>
+Wakes the physics object, so that it will continue to simulate physics/gravity.
+
+See <page>PhysObj:Sleep</page> for more information.
+	</description>
+	<realm>Shared</realm>
+</function>

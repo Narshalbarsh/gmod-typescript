@@ -1,0 +1,7 @@
+<function name="GetAngles" parent="VMatrix" type="classfunc">
+	<description>Returns the absolute rotation of the matrix. Scaled matrix might produce unexpected results!</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Angle">Absolute rotation of the matrix</ret>
+	</rets>
+</function>

@@ -1,0 +1,23 @@
+<function name="PropSelect" parent="DForm" type="panelfunc">
+	<description>Creates a <page>PropSelect</page> panel and docks it to the top of the DForm.</description>
+	<realm>Client and Menu</realm>
+	<added>2021.12.15</added>
+	<file line="91-L132">lua/vgui/dform.lua</file>
+	<args>
+		<arg name="label" type="string">The label to display above the prop select.</arg>
+		<arg name="convar" type="string">The convar to set the selected model to.</arg>
+		<arg name="models" type="table">A table of models to display for selection. Supports 2 formats:
+1) Key is the model and value are the <page>convar</page>s to set when that model is selected in format `convar=value`
+2) An table of tables where each table must have the following keys:
+* <page>string</page> model - The model.
+* <page>number</page> skin - Model's skin. Defaults to 0
+* <page>string</page> tooltip - Displayed when user hovers over the model. Defaults to the model path.
+* The key of the table is the value of the convar.
+
+</arg>
+		<arg name="height" type="number" default="2">The height of the prop select panel, in 64px icon increments.</arg>
+	</args>
+	<rets>
+		<ret name="" type="PropSelect">The created <page>PropSelect</page> panel.</ret>
+	</rets>
+</function>

@@ -1,0 +1,8 @@
+<function name="SetMaterial" parent="CLuaParticle" type="classfunc">
+	<description>Sets the material of the particle.</description>
+	<realm>Client</realm>
+	<added>2020.03.17</added>
+	<args>
+		<arg name="mat" type="IMaterial">The new material to set. Can also be a string.</arg>
+	</args>
+</function>

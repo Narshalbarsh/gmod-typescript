@@ -1,0 +1,11 @@
+<function name="ReadVars" parent="net" type="libraryfield">
+	<description>
+<internal></internal>
+
+A list of types that can be sent over the network via <page>net.ReadType</page>.
+</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="table">Key = type ID (<page>Global.TypeID</page>), Value = function to send the data over the net.</ret>
+	</rets>
+</function>

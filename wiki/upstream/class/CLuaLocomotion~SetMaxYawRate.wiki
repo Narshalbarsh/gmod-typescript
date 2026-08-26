@@ -1,0 +1,7 @@
+<function name="SetMaxYawRate" parent="CLuaLocomotion" type="classfunc">
+	<description>Sets the max rate at which the NextBot can visually rotate. This will not affect moving or pathing.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="yawRate" type="number" default="250">Desired new maximum yaw rate</arg>
+	</args>
+</function>

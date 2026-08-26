@@ -1,0 +1,8 @@
+<function name="DoClickInternal" parent="DLabel" type="panelfunc">
+	<description>
+Called just before <page>DLabel:DoClick</page>.
+
+In <page>DLabel</page> does nothing and is safe to override. Used by <page>DMenuOption</page> and <page>DCollapsibleCategory</page>'s tabs.
+	</description>
+	<realm>Client and Menu</realm>
+</function>

@@ -1,0 +1,11 @@
+<function name="GetDrawLines" parent="DTree_Node" type="panelfunc">
+	<description>
+<internal></internal>
+
+Returns whether or not this node is drawing lines
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean"></ret>
+	</rets>
+</function>

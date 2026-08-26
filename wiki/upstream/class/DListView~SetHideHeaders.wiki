@@ -1,0 +1,7 @@
+<function name="SetHideHeaders" parent="DListView" type="panelfunc">
+	<description>Sets whether the header line should be visible on not.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="hide" type="boolean">Whether the header line should be visible on not.</arg>
+	</args>
+</function>

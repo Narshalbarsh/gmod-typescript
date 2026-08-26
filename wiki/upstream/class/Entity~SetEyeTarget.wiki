@@ -1,0 +1,35 @@
+<function name="SetEyeTarget" parent="Entity" type="classfunc">
+	<description>Sets the position an entity's eyes look toward. This works as an override for default behavior. Set to `0,0,0` to disable the override.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="pos" type="Vector">For NPCs and all other entities except ragdolls - the **world position** for the entity to look towards
+
+For ragdolls specifically - a **local position** in front of their `eyes` attachment.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Makes an NPC (self) look into a nearby player's eyes.</description>
+	<code>
+for p, ply in player.Iterator() do
+    if(ply:EyePos():DistToSqr(self:EyePos()) <= 60 * 60) then
+        self:SetEyeTarget(ply:EyePos())
+        break
+    end
+end
+	</code>
+
+</example>
+
+
+<example>
+	<description>Makes an entity look at a vector the way the eyeposer does it</description>
+	<code>
+local lookat = Vector( 0, 0, 0 )
+
+local attachment = ent:GetAttachment( ent:LookupAttachment( "eyes" ) )
+local LocalPos, LocalAng = WorldToLocal( lookat, Angle( 0, 0, 0 ), attachment.Pos, attachment.Ang )
+ent:SetEyeTarget( LocalPos )
+	</code>
+
+</example>

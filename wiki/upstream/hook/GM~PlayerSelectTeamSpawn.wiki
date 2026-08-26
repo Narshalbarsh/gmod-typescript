@@ -1,0 +1,12 @@
+<function name="PlayerSelectTeamSpawn" parent="GM" type="hook">
+	<description>Find a team spawn point entity for this player.</description>
+	<realm>Server</realm>
+	<file line="301-L323">gamemodes/base/gamemode/player.lua</file>
+	<args>
+		<arg name="team" type="number">Players team</arg>
+		<arg name="ply" type="Player">The player</arg>
+	</args>
+	<rets>
+		<ret name="" type="Entity">The entity to use as a spawn point.</ret>
+	</rets>
+</function>

@@ -1,0 +1,20 @@
+<function name="RenderMe" parent="widgets" type="libraryfunc">
+	<description>Renders a widget. Normally you won't need to call this.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="ent" type="Entity">Widget entity to render</arg>
+	</args>
+	<file line="114-L130">lua/includes/modules/widget.lua</file>
+</function>
+
+<example>
+	<description>Example usage in **lua/entities/widget_base.lua**</description>
+	<code>
+function ENT:Draw()
+
+	widgets.RenderMe( self )
+	
+end
+	</code>
+
+</example>

@@ -1,0 +1,10 @@
+<function name="GetVelocityAtPoint" parent="PhysObj" type="classfunc">
+	<description>Returns the world velocity of a point in world coordinates about the object. This is useful for objects rotating around their own axis/origin.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="point" type="Vector">A point to test in world space coordinates</arg>
+	</args>
+	<rets>
+		<ret name="velocity" type="Vector">Velocity at the given point</ret>
+	</rets>
+</function>

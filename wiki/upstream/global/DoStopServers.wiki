@@ -1,0 +1,8 @@
+<function name="DoStopServers" parent="Global" type="libraryfunc">
+	<description>Stops searching for new servers in the given category</description>
+	<realm>Menu</realm>
+	<file line="447-L451">lua/menu/mainmenu.lua</file>
+	<args>
+		<arg name="category" type="string">The category to stop searching in. **Working Values: internet, favorite, history, lan**</arg>
+	</args>
+</function>

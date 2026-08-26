@@ -1,0 +1,7 @@
+<function name="ClearControls" parent="ControlPanel" type="panelfunc">
+	<description><deprecated></deprecated>
+
+Alias of <page>Panel:Clear</page>.</description>
+	<realm>Client</realm>
+	<file line="19-L21">gamemodes/sandbox/gamemode/spawnmenu/controlpanel.lua</file>
+</function>

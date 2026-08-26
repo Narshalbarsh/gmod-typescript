@@ -1,0 +1,7 @@
+<function name="GetItems" parent="DPanelList" type="panelfunc">
+	<description>Returns all panels has added by <page>DPanelList:AddItem</page></description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="table">A table of panels used as items of <page>DPanelList</page>.</ret>
+	</rets>
+</function>

@@ -1,0 +1,7 @@
+<function name="ReadFloat" parent="IRestore" type="classfunc">
+	<description>Reads next bytes from the restore object as a floating point <page>number</page>.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The read floating point number.</ret>
+	</rets>
+</function>

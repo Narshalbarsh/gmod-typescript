@@ -1,0 +1,10 @@
+<function name="OnMousePressed" parent="PANEL" type="hook">
+	<description>Called whenever a mouse key was pressed while the panel is focused.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="keyCode" type="number">They key code of the key pressed, see <page>Enums/MOUSE</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return true to suppress default action such as right click opening edit menu for <page>DTextEntry</page>.</ret>
+	</rets>
+</function>

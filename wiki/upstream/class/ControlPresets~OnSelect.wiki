@@ -1,0 +1,13 @@
+<function name="OnSelect" parent="ControlPresets" type="panelfunc">
+	<description>Checks if Data is valid then uses <page>Global.pairs</page> to iterate over the data parameter and run each entry using <page>Global.RunConsoleCommand</page>
+<validate>Index and Value parameters appear to not be used. Further testing should be done to confirm </validate>
+</description>
+	
+	<realm>Client</realm>
+	<file line="62-L70">gamemodes/sandbox/gamemode/spawnmenu/controls/control_presets.lua</file>
+	<args>
+		<arg name="index" type="number">Name</arg>
+		<arg name="value" type="any"></arg>
+		<arg name="data" type="table"></arg>
+	</args>
+</function>

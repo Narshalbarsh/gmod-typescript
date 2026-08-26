@@ -1,0 +1,7 @@
+<function name="TimerCycle" parent="util" type="libraryfunc">
+	<description>Returns the time since this function has been last called</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="number">Time since this function has been last called in ms</ret>
+	</rets>
+</function>

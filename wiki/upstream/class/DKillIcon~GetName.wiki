@@ -1,0 +1,7 @@
+<function name="GetName" parent="DKillIcon" type="panelfunc">
+	<description>Gets the killicon being shown.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="string">The name of the killicon currently being displayed.</ret>
+	</rets>
+</function>

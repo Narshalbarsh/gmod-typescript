@@ -1,0 +1,27 @@
+<function name="SetCondition" parent="NPC" type="classfunc">
+	<description>Sets an NPC condition.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="condition" type="number{COND}">The condition index, see <page>Enums/COND</page>.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Freezes an NPC for a period of time.</description>
+	<code>
+function FreezeNPCTemporarily(npc, delay)
+	
+	if(!IsValid(npc)) then return end
+	
+	delay = delay or 1
+	
+	npc:SetSchedule(SCHED_NPC_FREEZE)
+
+	timer.Simple(delay, function()
+		if(IsValid(npc)) then npc:SetCondition(COND.NPC_UNFREEZE) end
+	end)
+	
+end
+	</code>
+
+</example>

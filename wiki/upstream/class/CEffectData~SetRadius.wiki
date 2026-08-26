@@ -1,0 +1,11 @@
+<function name="SetRadius" parent="CEffectData" type="classfunc">
+	<description>
+Sets the radius of the effect to be created with this effect data.
+
+<note>Internally stored as a float, but networked as a 10bit float, and is clamped to 0-1023 range.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="radius" type="number">Radius of the effect.</arg>
+	</args>
+</function>

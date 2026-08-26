@@ -1,0 +1,17 @@
+<function name="HasWeapon" parent="Player" type="classfunc">
+	<description>Returns if the player has the specified weapon</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="className" type="string">Class name of the weapon</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">True if the player has the weapon</ret>
+	</rets>
+</function>
+
+<example>
+	<description>prints if the player has the physgun</description>
+	<code>print( Entity( 1 ):HasWeapon( "weapon_physgun" ) )</code>
+	<output>"true" in console, if player 1 has Physics Gun.</output>
+
+</example>

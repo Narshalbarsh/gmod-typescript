@@ -1,0 +1,21 @@
+<function name="ConsoleMessage" parent="HTML" type="panelhook">
+	<description>Called when the page inside the <page>HTML</page> window runs the `console.log` javascript function.
+
+On the x86-64 beta, it's called for all built-in `console.*` javascript functions.
+
+Overwriting this function in any way will disable default behavior of printing the message to the in-game console.
+</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="msg" type="string">The message to be logged (or Lua code to be executed; see above).</arg>
+		<arg name="file" type="string">The message source file, if any.</arg>
+		<arg name="lineNr" type="number">The line number in the file the message was output from.</arg>
+		<arg name="severity" type="string" added="2025.09.22">The severity of the message. Possible values are:
+* "log"
+* "warn"
+* "error"
+* "debug"
+
+</arg>
+	</args>
+</function>

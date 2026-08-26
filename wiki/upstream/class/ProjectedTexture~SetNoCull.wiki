@@ -1,0 +1,12 @@
+<function name="SetNoCull" parent="ProjectedTexture" type="classfunc">
+	<description>
+Allows disabling of projected texture view-frustum culling for cases where said culling creates unwanted side effects. Disabling culling will have a negative effect on performance.
+
+Culling makes projected textures off screen to stop rendering/updating.
+	</description>
+	<added>2024.10.09</added>
+	<realm>Client</realm>
+	<args>
+		<arg name="enable" type="boolean">`false` to enable culling (default), `true` to disable.</arg>
+	</args>
+</function>

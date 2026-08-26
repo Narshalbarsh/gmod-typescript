@@ -1,0 +1,7 @@
+<function name="version" parent="jit" type="libraryfield">
+	<description>A variable containing the LuaJIT version string. This is `LuaJIT 2.0.4` in GMod, and `LuaJIT 2.1.0-beta3` on the x86-64 branch of GMod.</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="string">The version string.</ret>
+	</rets>
+</function>

@@ -1,0 +1,28 @@
+<function name="SetMultiline" parent="Panel" type="classfunc">
+	<description>Enables or disables the multi-line functionality of <page>TextEntry</page> panel and its derivatives.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="multiline" type="boolean">Whether to enable multiline or not.</arg>
+	</args>
+</function>
+
+<example>
+	<description>
+	</description>
+	<code>
+concommand.Add( "test_textentry", function(ply)
+	local frame = vgui.Create( "DFrame" )
+	frame:SetSize( 400, 200 )
+	frame:Center()
+	frame:MakePopup()
+
+	local TextEntry = vgui.Create( "DTextEntry", frame ) -- create the form as a child of frame
+	TextEntry:Dock( FILL )
+	TextEntry:SetMultiline( true )
+	TextEntry.OnChange = function( self )
+		chat.AddText( self:GetValue() )	-- print the textentry text as a chat message
+	end
+
+end )
+	</code>
+</example>

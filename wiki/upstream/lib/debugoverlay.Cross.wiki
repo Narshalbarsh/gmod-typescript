@@ -1,0 +1,17 @@
+<function name="Cross" parent="debugoverlay" type="libraryfunc">
+	<description>
+Creates a coloured cross at the specified position for the specified time.
+
+<note>This function will silently fail if the `developer` <page>ConVar</page> is set to `0`.  
+It is not networked to clients, except for the <page text="listen server host">Player:IsListenServerHost</page>.  
+It will not work when the game is paused.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="position" type="Vector">Position origin.</arg>
+		<arg name="size" type="number">Size of the cross.</arg>
+		<arg name="lifetime" type="number" default="1">Number of seconds the cross will appear for.</arg>
+		<arg name="color" type="Color" default="Color( 255, 255, 255 )">The color of the cross.</arg>
+		<arg name="ignoreZ" type="boolean" default="false">If true, will draw on top of everything; ignoring the Z buffer.</arg>
+	</args>
+</function>

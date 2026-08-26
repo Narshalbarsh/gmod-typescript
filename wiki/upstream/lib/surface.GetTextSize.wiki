@@ -1,0 +1,47 @@
+<function name="GetTextSize" parent="surface" type="libraryfunc">
+	<description>Returns the width and height (in pixels) of the given text with the font that has been set with <page>surface.SetFont</page>.
+
+<note>Takes into account new lines, the returned height is for the entire text, but <page>surface.DrawText</page> does not!</note></description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="text" type="string">The string to check the size of.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">Width of the provided text.</ret>
+		<ret name="" type="number">Height of the provided text.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints out the size of `Hello World` in the Trebuchet24 font.</description>
+	<code>
+surface.SetFont( "Trebuchet24" )
+
+local text = "Hello World"
+local width, height = surface.GetTextSize( text )
+
+print("Text width: " .. width .. ", text height: " .. height)
+	</code>
+	<output>
+```
+Text width: 100, text height: 24
+```
+	</output>
+</example>
+
+<example>
+	<description>Get text height very quickly. No tables or spare variables used.</description>
+	<code>
+surface.SetFont( "Trebuchet24" )
+
+local text = "Hello World"
+local height = select( 2, surface.GetTextSize( text ) )
+
+print( height )
+	</code>
+	<output>
+```
+24
+```
+	</output>
+</example>

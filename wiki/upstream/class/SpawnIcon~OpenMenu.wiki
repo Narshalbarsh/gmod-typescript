@@ -1,0 +1,6 @@
+<function name="OpenMenu" parent="SpawnIcon" type="panelfunc">
+	<description>
+Called when right clicked on the SpawnIcon. It will not be called if there is a selection (<page>Panel:GetSelectionCanvas</page>), in which case <page>SANDBOX:SpawnlistOpenGenericMenu</page> is called.
+	</description>
+	<realm>Client</realm>
+</function>

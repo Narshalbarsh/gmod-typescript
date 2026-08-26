@@ -1,0 +1,7 @@
+<function name="SetNormal" parent="CEffectData" type="classfunc">
+	<description>Sets the normalized (length=1) direction vector of the effect to be created with this effect data. This **must** be a normalized vector for networking purposes.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="normal" type="Vector">The normalized direction vector of the effect.</arg>
+	</args>
+</function>

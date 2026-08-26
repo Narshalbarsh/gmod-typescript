@@ -1,0 +1,7 @@
+<function name="GetThrottle" parent="Vehicle" type="classfunc">
+	<description>Returns the current throttle of the vehicle.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">The current throttle of the vehicle</ret>
+	</rets>
+</function>

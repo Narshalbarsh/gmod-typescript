@@ -1,0 +1,13 @@
+<function name="PlayerSpawnedSWEP" parent="SANDBOX" type="hook">
+	<description>
+Called after the player has spawned a weapon from the spawnmenu with a middle mouse click (mouse wheel click).
+
+For a hook capable of preventing such spawns, see <page>SANDBOX:PlayerSpawnSWEP</page>.  
+For left mouse click spawns, see <page>SANDBOX:PlayerGiveSWEP</page>.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ply" type="Player">The player that spawned the SWEP</arg>
+		<arg name="ent" type="Entity">The SWEP itself</arg>
+	</args>
+</function>

@@ -1,0 +1,33 @@
+<function name="TableToJSON" parent="util" type="libraryfunc">
+	<description>
+Converts a table to a JSON string. Keep in mind that not every data type can be stored in the JSON format, notably any entity will not be written, as if it wasn't in the table. Same goes for materials and textures, etc.
+
+See <page>util.JSONToTable</page> for the opposite function.
+
+<warning>All keys are strings in the JSON format, so all keys of other types will be converted to strings!  
+This can lead to loss of data where a number key could be converted into an already existing string key! (for example in a table like this: `{["5"] = "ok", [5] = "BBB"}`)
+</warning>
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="table" type="table">Table to convert.</arg>
+		<arg name="prettyPrint" type="boolean" default="false">Format and indent the JSON.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">A JSON formatted string containing the serialized data</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Writes the positions and angles of every player to a JSON file called playerstuff.json.</description>
+	<code>
+local Players = {}
+for k, v in ipairs(player.GetAll()) do 
+	Players[k] = { pos = v:GetPos(), ang = v:GetAngles() }
+end
+	
+local tab = util.TableToJSON( Players ) -- Convert the player table to JSON
+file.CreateDir( "jsontest" ) -- Create the directory
+file.Write( "jsontest/playerstuff.json", tab) -- Write to .json
+	</code>
+</example>

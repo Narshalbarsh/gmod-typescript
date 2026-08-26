@@ -1,0 +1,8 @@
+<function name="OverrideDepthEnable" parent="render" type="libraryfunc">
+	<description>Overrides the write behaviour of all next rendering operations towards the depth buffer.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="enable" type="boolean">Enable or disable the override.</arg>
+		<arg name="shouldWrite" type="boolean">If the previous argument is true, sets whether the next rendering operations should write to the depth buffer or not. Has no effect if the previous argument is false.</arg>
+	</args>
+</function>

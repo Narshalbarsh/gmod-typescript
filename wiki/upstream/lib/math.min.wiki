@@ -1,0 +1,17 @@
+<function name="min" parent="math" type="libraryfunc">
+	<description>Returns the smallest value of all arguments.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="numbers" type="vararg">Numbers to get the smallest from.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The smallest number</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Get the smallest number of a group.</description>
+	<code>print( math.min( 1, 2, -3, 464, 654698468 ) )</code>
+	<output>-3</output>
+
+</example>

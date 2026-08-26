@@ -1,0 +1,11 @@
+<function name="GetCreationID" parent="Entity" type="classfunc">
+	<description>Returns entity's creation ID. Unlike <page>Entity:EntIndex</page> or <page>Entity:MapCreationID</page>.
+
+It will increase up until value of `10 000 000`, at which point it will reset back to `0`.
+<bug>This returns `0` for clientside only entities, such as `class CLuaEffect`.</bug>
+</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The creation ID</ret>
+	</rets>
+</function>

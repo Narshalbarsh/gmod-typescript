@@ -1,0 +1,10 @@
+<function name="VideoSettings" parent="engine" type="libraryfunc">
+	<description>
+<internal></internal>
+
+Returns video recording settings set by <page>video.Record</page>. Used by Demo-To-Video feature.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="table">The video recording settings, see <page>Structures/VideoData</page>.</ret>
+	</rets>
+</function>

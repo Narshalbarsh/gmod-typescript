@@ -1,0 +1,7 @@
+<function name="SetMarkedArea" parent="navmesh" type="libraryfunc">
+	<description>Sets the <page>CNavArea</page> as marked, so it can be used with editing console commands.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="area" type="CNavArea">The <page>CNavArea</page> to set as the marked area.</arg>
+	</args>
+</function>

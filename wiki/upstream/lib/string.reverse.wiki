@@ -1,0 +1,17 @@
+<function name="reverse" parent="string" type="libraryfunc">
+	<description>Reverses a string.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="str" type="string">The string to be reversed.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">reversed string</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Reverse "abcdef".</description>
+	<code>print( string.reverse( "abcdef" ) )</code>
+	<output>fedcba</output>
+
+</example>

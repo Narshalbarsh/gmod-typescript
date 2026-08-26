@@ -1,0 +1,20 @@
+<structure>
+	<realm>Shared</realm>
+	<description>
+Structure used for storing/restoring bone manipulations.
+Data is stored from <page>Entity:GetManipulateBoneScale</page>, <page>Entity:GetManipulateBoneAngles</page>, and <page>Entity:GetManipulateBonePosition</page>.
+Data is restored using <page>Entity:ManipulateBoneScale</page>, <page>Entity:ManipulateBoneAngles</page>, and <page>Entity:ManipulateBonePosition</page>.
+
+The function <page>duplicator.DoBoneManipulator</page> and <page>Structures/EntityCopyData</page> use a table
+containing a BoneManipulationData structure for each bone (that has manipulations applied) with the bone ID as the struct index in the table.
+
+Fields **s**, **a**, and **p** are set if they don't equal **Vector( 1, 1, 1 )**, **Angle( 0, 0, 0 )**, and **Vector( 0, 0, 0 )** respectively.
+	</description>
+	<fields>
+<item name="s" type="Vector" default="nil">The entity's scale manipulation of the bone.</item>
+
+<item name="a" type="Angle" default="nil">The entity's angle manipulation of the bone.</item>
+
+<item name="p" type="Vector" default="nil">The entity's position manipulation of the given bone.</item>
+	</fields>
+</structure>

@@ -1,0 +1,22 @@
+<function name="AddProgress" parent="notification" type="libraryfunc">
+	<description>Adds a notification with an animated progress bar.</description>
+	<realm>Client</realm>
+	<file line="26-L55">lua/includes/modules/notification.lua</file>
+	<args>
+		<arg name="id" type="any">Can be any type. It's used as an index.</arg>
+		<arg name="strText" type="string">The text to show</arg>
+		<arg name="frac" type="number" default="nil">If set, overrides the progress bar animation with given percentage. Range is 0 to 1.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Add a notification that says "Downloading file...", and remove after three seconds.</description>
+	<code>
+notification.AddProgress("FileDownload", "Downloading file...")
+timer.Simple(3, function()
+	notification.Kill("FileDownload")
+end)
+	</code>
+<output>Adds a progress notification that says `Downloading file...`
+<upload src="adcc2/8da06a2ec212781.png" size="101380" name="image.png" /></output>
+</example>

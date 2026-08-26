@@ -1,0 +1,29 @@
+<function name="print" parent="Global" type="libraryfunc">
+	<description>
+Writes every given argument to the console.
+Automatically attempts to convert each argument to a string. (See <page>Global.tostring</page>)
+
+Separates lines with a line break (`"\n"`)
+
+Separates arguments with a tab character (`"\t"`).
+
+Can only print up to `4096` characters at a time, and will stop at NULL character. (`"\0"`)
+
+See <page>Global.Msg</page> for alternative that doesn't force add a new line, and <page>Global.MsgC</page> for adding colored text to the console.
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="args" type="vararg">List of values to print.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Prints "Hello World! Yay!" to the console.</description>
+	<code>print("Hello World!", "Yay!")</code>
+	<output>
+```
+Hello World! Yay!
+```
+</output>
+
+</example>

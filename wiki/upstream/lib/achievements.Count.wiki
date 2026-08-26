@@ -1,0 +1,9 @@
+<function name="Count" parent="achievements" type="libraryfunc">
+	<description>Returns the amount of achievements currently in Garry's Mod.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The amount of achievements available.
+
+This will include 1 extra hidden/non functional achievement at index 0.</ret>
+	</rets>
+</function>

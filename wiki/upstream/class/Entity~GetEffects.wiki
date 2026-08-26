@@ -1,0 +1,7 @@
+<function name="GetEffects" parent="Entity" type="classfunc">
+	<description>Returns a bit flag of all engine effect flags of the entity.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">Engine effect flags, see <page>Enums/EF</page></ret>
+	</rets>
+</function>

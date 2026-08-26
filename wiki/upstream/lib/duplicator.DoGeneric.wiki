@@ -1,0 +1,17 @@
+<function name="DoGeneric" parent="duplicator" type="libraryfunc">
+	<description>
+"Applies generic every-day entity stuff for ent from table data."
+
+
+Depending on the values of Model, Angle, Pos, Skin, Flex, Bonemanip, ModelScale, ColGroup, Name, and BodyG (<page>table</page> of multiple values) in the data table, this calls <page>Entity:SetModel</page>, <page>Entity:SetAngles</page>, <page>Entity:SetPos</page>, <page>Entity:SetSkin</page>, <page>duplicator.DoFlex</page>, <page>duplicator.DoBoneManipulator</page>, <page>Entity:SetModelScale</page>, <page>Entity:SetCollisionGroup</page>, <page>Entity:SetName</page>, <page>Entity:SetBodygroup</page> on ent.
+
+
+If ent has a RestoreNetworkVars function, it is called with data.DT.
+	</description>
+	<realm>Server</realm>
+	<file line="1044-L1048">lua/includes/modules/duplicator.lua</file>
+	<args>
+		<arg name="ent" type="Entity">The entity to be applied upon.</arg>
+		<arg name="data" type="table">The data to be applied onto the entity.</arg>
+	</args>
+</function>

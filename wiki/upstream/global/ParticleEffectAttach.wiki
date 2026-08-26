@@ -1,0 +1,16 @@
+<function name="ParticleEffectAttach" parent="Global" type="libraryfunc">
+	<description>
+Creates a particle effect with specialized parameters. See also <page>Entity:CreateParticleEffect</page> and <page>Global.CreateParticleSystem</page>.
+
+<note>The particle effect must be precached **serverside** with <page>Global.PrecacheParticleSystem</page> and the file its from must be added via <page>game.AddParticles</page> before it can be used! This is due to the function using networked IDs for particle names, not directly networking particle system name.
+
+Clientside, you can use <page>Global.CreateParticleSystemNoEntity</page> (and similar) instead.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="particleName" type="string">The name of the particle effect.</arg>
+		<arg name="attachType" type="number">Attachment type using <page>Enums/PATTACH</page>.</arg>
+		<arg name="entity" type="Entity">The entity to be used in the way specified by the attachType.</arg>
+		<arg name="attachmentID" type="number">The id of the attachment to be used in the way specified by the attachType.</arg>
+	</args>
+</function>

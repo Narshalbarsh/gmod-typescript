@@ -1,0 +1,60 @@
+<function name="GetNumLines" parent="Panel" type="classfunc">
+	<description>
+Returns the number of lines in a <page>RichText</page> or a <page>TextEntry</page>.
+
+You must wait a couple frames before calling this after using <page>Panel:AppendText</page> or <page>Panel:SetText</page>, otherwise it will return the number of text lines before the text change.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The number of lines.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Creates a rich text panel with a block of text and prints out the number of text lines before and after `PerformLayout` is called.</description>
+	<code>
+-- Create a window frame
+TextFrame = vgui.Create("DFrame")
+TextFrame:SetSize(200, 224)
+TextFrame:Center()
+TextFrame:SetTitle("Generic Frame")
+
+-- RichText panel
+local richtext = vgui.Create("RichText", TextFrame)
+richtext:Dock(FILL)
+
+-- Throw some text in the panel
+richtext:SetText("This is a block of text demonstrating how line wrapping and panel size relates to the number of lines shown inside of a RichText panel.")
+
+-- Keep track of PerformLayout calls
+richtext.layoutCount = 0
+
+-- Custom function for this example
+function richtext:NumLinesExample()
+	print("PerformLayout called "..self.layoutCount.." times: "..richtext:GetNumLines().." line(s) returned")	
+end
+
+-- Print # of lines before any layouts
+richtext:NumLinesExample()
+
+-- Render update
+function richtext:PerformLayout()
+
+	self.layoutCount = self.layoutCount + 1
+	self:NumLinesExample()	-- Print current # of lines
+
+end
+	</code>
+	<output>
+The panel shows 5 lines of text, but the number 5 isn't returned until PerformLayout has been called 2 times.
+
+```
+PerformLayout called 0 times: 1 line(s) returned
+PerformLayout called 1 times: 1 line(s) returned
+PerformLayout called 2 times: 5 line(s) returned
+```
+
+<image src="RichText_GetNumLines_example1.png"/>
+	</output>
+
+</example>

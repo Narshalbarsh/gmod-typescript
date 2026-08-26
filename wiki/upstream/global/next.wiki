@@ -1,0 +1,37 @@
+<function name="next" parent="Global" type="libraryfunc">
+	<description>
+Returns the next key and value pair in a table.
+
+<note>Table keys in Lua have no specific order, and will be returned in whatever order they exist in memory. This may not always be in ascending order or alphabetical order. If you need to iterate over an array in order, use <page>Global.ipairs</page>.</note>
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="tab" type="table">The table</arg>
+		<arg name="prevKey" type="any" default="nil">The previous key in the table.</arg>
+	</args>
+	<rets>
+		<ret name="" type="any">The next key for the table. If the previous key was nil, this will be the first key in the table. If the previous key was the last key in the table, this will be nil.</ret>
+		<ret name="" type="any">The value associated with that key. If the previous key was the last key in the table, this will be nil.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Returns whether the table is empty or not</description>
+	<code>
+local function IsEmptyTable( t )
+	return next( t ) == nil
+end
+
+local mytable = {}
+print( "mytable is empty:", IsEmptyTable( mytable ) )
+mytable["hello"]=true
+print( "mytable is empty:", IsEmptyTable( mytable ) )
+	</code>
+	<output>
+```
+mytable is empty: true
+mytable is empty: false
+```
+	</output>
+
+</example>

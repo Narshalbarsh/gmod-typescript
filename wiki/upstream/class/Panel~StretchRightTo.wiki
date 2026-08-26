@@ -1,0 +1,9 @@
+<function name="StretchRightTo" parent="Panel" type="classfunc">
+	<file line="145-L145">lua/includes/extensions/client/panel.lua</file>
+	<description>Resizes the panel object's width so that its right edge is aligned with the left of the passed panel. An offset greater than zero will reduce the panel's width to leave a gap between it and the passed panel.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="tgtPanel" type="Panel">The panel to align the right edge of this one with.</arg>
+		<arg name="offset" type="number" default="0">The gap to leave between this and the passed panel. Negative values will cause the panel's width to increase, forming an overlap.</arg>
+	</args>
+</function>

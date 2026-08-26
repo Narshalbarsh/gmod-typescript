@@ -1,0 +1,7 @@
+<function name="WriteBool" parent="ISave" type="classfunc">
+	<description>Writes a <page>boolean</page> to the save object.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="bool" type="boolean">The boolean to write.</arg>
+	</args>
+</function>

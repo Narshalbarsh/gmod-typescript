@@ -1,0 +1,14 @@
+<function name="PrecacheModel" parent="util" type="libraryfunc">
+	<description>
+	Precaches a model for later use. Model is cached after being loaded once.
+		<warning>
+		Modelprecache is limited to 8192 unique models. When it reaches the limit the game will crash.
+		</warning>
+
+		<note>Does nothing on the client.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="modelName" type="string">The model to precache.</arg>
+	</args>
+</function>

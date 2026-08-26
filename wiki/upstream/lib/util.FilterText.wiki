@@ -1,0 +1,21 @@
+<function name="FilterText" parent="util" type="libraryfunc">
+	<description>
+Filters given text using Steam's filtering system. The function will obey local client's Steam settings for chat filtering:
+
+<upload src="70c/8d9e680b626348b.png" size="50426" name="image.png" />
+
+<note>In some cases, especially in a chatbox, messages from some players may return an empty string if the context argument used for filtering is `TEXT_FILTER_CHAT` and [if the local player has blocked the sender of the message on Steam](https://github.com/Facepunch/garrysmod-issues/issues/5161#issuecomment-1035153941).</note>
+	</description>
+	<added>2022.02.02</added>
+	<realm>Client</realm>
+	<args>
+		<arg name="str" type="string">String to filter.</arg>
+		<arg name="context" type="number" default="TEXT_FILTER_UNKNOWN">Filtering context. See <page>Enums/TEXT_FILTER</page>.</arg>
+		<arg name="player" type="Player" default="nil">Used to determine if the text should be filtered according to local user's Steam chat filtering settings.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The filtered text based on given settings.
+
+The maximum length of the string is 4095 bytes.</ret>
+	</rets>
+</function>

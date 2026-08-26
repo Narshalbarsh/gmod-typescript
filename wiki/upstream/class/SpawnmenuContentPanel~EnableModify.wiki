@@ -1,0 +1,7 @@
+<function name="EnableModify" parent="SpawnmenuContentPanel" type="panelfunc">
+	<description>
+Allows the modification of the ContentSidebar
+	</description>
+	<realm>Client</realm>
+	<file line="44-L46">gamemodes/sandbox/gamemode/spawnmenu/creationmenu/content/content.lua</file>
+</function>

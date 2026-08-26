@@ -1,0 +1,41 @@
+<function name="AddTask" parent="Schedule" type="classfunc">
+	<description>
+Adds a task to the schedule. See also <page>Schedule:AddTaskEx</page> if you wish to customize task start and run function names.
+
+See also <page>ENTITY:StartSchedule</page>, <page>NPC:StartEngineTask</page>, and <page>NPC:RunEngineTask</page>.
+	</description>
+	<realm>Server</realm>
+	<file line="56-L62">lua/includes/modules/ai_schedule.lua</file>
+	<args>
+		<arg name="taskname" type="string">Custom task name</arg>
+		<arg name="taskdata" type="any">Task data to be passed into the NPC's functions</arg>
+	</args>
+</function>
+
+<example>
+	<description>This creates a new schedule with a task named "HelloWorld" that is defined to print the taskdata passed in.</description>
+	<code>
+local schdHello = ai_schedule.New( "SayHello" )
+schdHello:AddTask( "HelloWorld", "HELLO" )
+
+-- Called when the task is initiated (started)
+function ENT:TaskStart_HelloWorld( data )
+    print(data)
+
+    -- Set a variable that is 5 seconds in the future so the task can complete when we tick past it
+    self.TaskEndTime = CurTime() + 5
+end
+
+-- Called every think until the task is completed
+function ENT:Task_HelloWorld(data)
+    print( data, "again" )
+
+    -- Check if the 5 seconds have passed
+    if CurTime() < self.TaskEndTime then
+        self:TaskComplete()
+    end
+end
+	</code>
+	<output>Prints "HELLO" in the console, then prints "HELLO again" on every NPC think until 5 seconds have passed.</output>
+
+</example>

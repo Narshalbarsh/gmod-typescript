@@ -1,0 +1,22 @@
+<function name="GetContentAlignment" parent="Panel" type="classfunc">
+	<description>Returns the alignment of the text of a <page>Label</page>.
+
+<note>This function only works on <page>Label</page> panels and its derivatives.</note>
+</description>
+	<added>2025.04.03</added>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="alignment" type="number{ContentAlignment}">The direction of the content, based on the number pad. See <page>Enums/ContentAlignment</page>.
+
+<key>1</key>: **bottom-left** <br/>
+<key>2</key>: **bottom-center** <br/>
+<key>3</key>: **bottom-right** <br/>
+<key>4</key>: **middle-left** <br/>
+<key>5</key>: **center** <br/>
+<key>6</key>: **middle-right** <br/>
+<key>7</key>: **top-left** <br/>
+<key>8</key>: **top-center** <br/>
+<key>9</key>: **top-right** <br/>
+<image src="DLabel_SetContentAlignment.gif"/></ret>
+	</rets>
+</function>

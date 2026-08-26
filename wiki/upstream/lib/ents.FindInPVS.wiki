@@ -1,0 +1,14 @@
+<function name="FindInPVS" parent="ents" type="libraryfunc">
+	<description>
+Finds all entities that lie within a [PVS (Potential Visibility Set)](https://developer.valvesoftware.com/wiki/PVS "PVS - Valve Developer Community").
+
+<note>The function won't take in to account <page>Global.AddOriginToPVS</page> and the like.</note>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="viewPoint" type="Entity|Vector"><page>Entity</page> or <page>Vector</page> to find entities within the PVS of. If a player is given, this function will use the player's view entity.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table<Entity>">The found <page>Entity</page>s.</ret>
+	</rets>
+</function>

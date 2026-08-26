@@ -1,0 +1,51 @@
+<function name="SetBoneMatrix" parent="Entity" type="classfunc">
+	<description>
+Sets the bone matrix of given bone to given matrix. See also <page>Entity:GetBoneMatrix</page>. Will cause a uncatchable error when used on `__INVALIDBONE__` bones, see the examples on a way to prevent this.
+
+<note>Despite existing serverside, it does nothing.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="boneid" type="number">The ID of the bone</arg>
+		<arg name="matrix" type="VMatrix">The matrix to set.</arg>
+	</args>
+</function>
+
+<example>
+<description>
+	Check if the bone is valid, if it is apply the bone matrix
+</description>
+<code>
+if ent:GetBoneName(boneid) ~= "__INVALIDBONE__" then
+	ent:SetBoneMatrix(boneid, bonematrix)
+end
+</code>
+</example>
+
+<example>
+	<description>
+Example usage of the function.
+
+Aim at an NPC and enter "bones_cl" into your console.
+	</description>
+	<code>
+if ( CLIENT ) then
+	concommand.Add( "bones_cl", function( ply )
+		local ent = ply:GetEyeTrace().Entity
+		if ( !IsValid( ent ) ) then return end
+
+		ent:AddCallback( "BuildBonePositions", function( ent, numbones )
+			for i = 0, numbones - 1 do
+				local mat = ent:GetBoneMatrix( i )
+				if ( !mat ) then continue end
+
+				local scale = mat:GetScale()
+				mat:Scale( Vector( 1, 1, 1 ) * 0.5 )
+				ent:SetBoneMatrix( i, mat )
+			end
+		end )
+	end )
+end
+	</code>
+
+</example>

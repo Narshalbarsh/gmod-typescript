@@ -1,0 +1,78 @@
+<enum>
+	<realm>Client</realm>
+	<description>
+		Enumerations used by <page>mesh.Begin</page> to control what type of vertex information it should expect. Clientside only.
+
+		For more information, see the <page text="Mesh Primitives">mesh_primitives</page> reference page.
+	</description>
+	<items>
+		<item key="MATERIAL_POINTS" value="0">
+			<warning>
+				The primitive type `MATERIAL_POINTS` does not currently work and will not produce any visual effect if used.
+			</warning>
+
+			For more information, see <page text="Point Primitives">mesh_primitives#points</page>
+		</item>
+
+		<item key="MATERIAL_LINES" value="1">
+			Creates line using 2 vertices.  
+
+			The `primitiveCount` argument of <page>mesh.Begin</page> should be the total number of line multiply by 2 that the Mesh will contain.  
+E.g. `(vertexCount * 2)`
+
+			For more information, see <page text="Line Primitives">mesh_primitives#lines</page>
+		</item>
+
+		<item key="MATERIAL_TRIANGLES" value="2">
+			Creates triangles from groupings of 3 vertices.  
+
+			The `primitiveCount` argument of <page>mesh.Begin</page> should be the total number of triangles that the Mesh will contain.  
+E.g. `(vertexCount / 3)`
+
+			For more information, see <page text="Triangle Primitives">mesh_primitives#triangles</page>
+		</item>
+
+		<item key="MATERIAL_TRIANGLE_STRIP" value="3">
+			Creates a set of triangles that each share two vertices with the previous triangle in the sequence.
+
+			The `primitiveCount` argument of <page>mesh.Begin</page> should be the total number of triangles that the Mesh will contain.  
+			E.g. `(vertexCount - 2)`
+
+			For more information, see <page text="Triangle Strip Primitives">mesh_primitives#trianglestrips</page>
+		</item>
+
+		<item key="MATERIAL_LINE_STRIP" value="4">
+			Creates a set of lines that all share a single vertex and each share a vertex with the previous lines.
+
+			The `primitiveCount` argument of <page>mesh.Begin</page> should be the total number of line connection that the Mesh will contain.  
+			E.g. `(vertexCount)`
+
+			For more information, see <page text="Line Strip Primitives">mesh_primitives#linestrips</page>
+		</item>
+
+		<item key="MATERIAL_LINE_LOOP" value="5">
+			Exactly like <key>MATERIAL_LINE_STRIP</key> do, but the first and the last vertex will always be connected together.
+
+			For more information, see <page text="Line Loop Primitives">mesh_primitives#lineloops</page>
+		</item>
+
+		<item key="MATERIAL_POLYGON" value="6">
+			Creates a set of triangles that all share a single vertex and each share a vertex with the previous triangle.
+
+			The `primitiveCount` argument of <page>mesh.Begin</page> should be the total number of vertices that the Mesh will contain.  
+			E.g. `(vertexCount)`
+
+			For more information, see <page text="Polygon Primitives">mesh_primitives#polygons</page>
+		</item>
+
+		<item key="MATERIAL_QUADS" value="7">
+			Creates pairs of triangles that share two vertices.
+
+			The `primitiveCount` argument of <page>mesh.Begin</page> should be the total number of quads that the Mesh will contain.  
+			E.g. `(vertexCount / 4)`
+
+			For more information, see <page text="Quad Primitives">mesh_primitives#quads</page>
+		</item>
+	</items>
+
+</enum>

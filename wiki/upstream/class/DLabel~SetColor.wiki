@@ -1,0 +1,19 @@
+<function name="SetColor" parent="DLabel" type="panelfunc">
+	<description>Changes color of label. Alias of <page>DLabel:SetTextColor</page>.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="color" type="Color">The color to set. Uses <page>Color</page>.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Creates a label and changes it color to red.</description>
+	<code>
+local DLabel = vgui.Create( "DLabel" )
+DLabel:SetPos( 90, 50 )
+DLabel:SetColor(Color(255, 0, 0))
+DLabel:SetText( "Hello world." )
+DLabel:SizeToContents()
+	</code>
+
+</example>

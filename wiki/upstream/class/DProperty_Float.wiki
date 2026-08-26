@@ -1,0 +1,10 @@
+<title>DProperty_Float</title>
+<panel>
+	<parent>DProperty_Generic</parent>
+	<realm>Client</realm>
+	<file line="">lua/vgui/prop_float.lua</file>
+	<description>
+		<internal></internal>
+		Float control for the <page>DProperties</page> panel.
+	</description>
+</panel>

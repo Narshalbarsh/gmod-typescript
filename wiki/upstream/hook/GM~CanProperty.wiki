@@ -1,0 +1,26 @@
+<function name="CanProperty" parent="GM" type="hook">
+	<description>Controls if a <page text="property">properties</page> can be used or not.</description>
+	<realm>Shared</realm>
+	<file line="263-L265">gamemodes/base/gamemode/shared.lua</file>
+	<predicted>Yes</predicted>
+	<args>
+		<arg name="ply" type="Player">Player, that tried to use the property</arg>
+		<arg name="property" type="string">Class of the property that is tried to use, for example - bonemanipulate
+
+<warning>This is not guaranteed to be the internal property name used in <page>properties.Add</page>!</warning></arg>
+		<arg name="ent" type="Entity">The entity, on which property is tried to be used on</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return false to disallow using that property</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Stops non-admins from using the remover property.</description>
+	<code>
+hook.Add( "CanProperty", "block_remover_property", function( ply, property, ent )
+	if ( !ply:IsAdmin() && property == "remover" ) then return false end
+end )
+	</code>
+
+</example>

@@ -1,0 +1,7 @@
+<function name="GetColor" parent="DPanelOverlay" type="panelfunc">
+	<description>Returns the border color of the <page>DPanelOverlay</page> set by <page>DPanelOverlay:SetColor</page>.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="Color">The set color. Uses <page>Color</page>.</ret>
+	</rets>
+</function>

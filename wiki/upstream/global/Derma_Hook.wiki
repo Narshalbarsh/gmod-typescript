@@ -1,0 +1,18 @@
+<function name="Derma_Hook" parent="Global" type="libraryfunc">
+	<description>Creates panel method that calls the supplied Derma skin hook via <page>derma.SkinHook</page> </description>
+	<realm>Client and Menu</realm>
+	<file line="54-L60">lua/derma/init.lua</file>
+	<args>
+		<arg name="panel" type="Panel">Panel to add the hook to</arg>
+		<arg name="functionName" type="string">Name of panel function to create</arg>
+		<arg name="hookName" type="string">Name of Derma skin hook to call within the function</arg>
+		<arg name="typeName" type="string">Type of element to call Derma skin hook for</arg>
+	</args>
+</function>
+
+<example>
+	<description>Creates PANEL.Paint function to call Derma skin hook 'Paint' with type 'Panel'</description>
+	<code>Derma_Hook( PANEL, "Paint", "Paint", "Panel" )</code>
+	<output>The provided panels paint function becomes the skins `SKIN:PaintPanel` function </output>
+
+</example>

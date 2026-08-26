@@ -1,0 +1,65 @@
+<function name="RenderFlashlights" parent="render" type="libraryfunc">
+	<description>Renders additive flashlights on an <page>IMesh</page>, a direct replacement for <page>render.PushFlashlightMode</page>.</description>
+	<realm>Client</realm>
+	<added>2023.06.28</added>
+	<args>
+		<arg name="renderFunc" type="function">The function that renders the <page>IMesh</page>, or a model.</arg>
+	</args>
+</function>
+
+<example>
+<description>Shows an example usage of this function.</description>
+<code>
+function ENT:CreateMesh()
+	-- Destroy any previous meshes
+	if ( self.Mesh ) then self.Mesh:Destroy() end
+
+	-- Get a list of all meshes of a model
+	local visualMeshes = util.GetModelMeshes( "models/combine_helicopter/helicopter_bomb01.mdl" )
+
+	-- Check if the model even exists
+	if ( !visualMeshes ) then return end
+
+	-- Select the first mesh
+	local visualMesh = visualMeshes[ 1 ]
+
+	-- Set the material to draw the mesh with from the model data
+	self.myMaterial = Material( visualMesh.material )
+
+	-- You can apply any changes to visualMesh.trianges table here, distorting the mesh
+	-- or any other changes you can come up with
+
+	-- Create and build the mesh
+	self.Mesh = Mesh( visualMesh.material )
+	self.Mesh:BuildFromTriangles( visualMesh.triangles )
+end
+
+function ENT:DrawModelOrMesh()
+	-- Move the mesh to the entity's position for upcoming drawing operation
+	cam.PushModelMatrix( self:GetWorldTransformMatrix() )
+
+	-- The material to render our mesh with
+	render.SetMaterial( self.myMaterial )
+
+	-- Draw our mesh
+	self.Mesh:Draw()
+
+	-- Undo the cam.PushModelMatrix call above
+	cam.PopModelMatrix()
+end
+
+function ENT:Draw()
+
+
+	if ( !self.Mesh ) then return self:CreateMesh() end
+
+
+	-- Draw the mesh normally
+	self:DrawModelOrMesh()
+
+	-- Draw the additive flashlight layers
+	render.RenderFlashlights( function() self:DrawModelOrMesh() end )
+
+end
+</code>
+</example>

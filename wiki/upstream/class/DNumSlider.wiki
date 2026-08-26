@@ -1,0 +1,35 @@
+<panel>
+	<parent>Panel</parent>
+	<realm>Client and Menu</realm>
+	<description>
+		The **DNumSlider** allows you to create a slider, allowing the user to slide it to set a value, or changing the value in the box.
+	</description>
+	<file>lua/vgui/dnumslider.lua</file>
+</panel>
+
+<example>
+	<description>Attempts to create a DNumSlider.</description>
+	<code>
+local DermaPanel = vgui.Create( "DFrame" )	-- Create a panel to parent it to
+DermaPanel:SetSize( 500, 200 )	-- Set the size
+DermaPanel:Center()				-- Center it
+DermaPanel:MakePopup()			-- Make it a popup
+
+local DermaNumSlider = vgui.Create( "DNumSlider", DermaPanel )
+DermaNumSlider:SetPos( 50, 50 )				-- Set the position
+DermaNumSlider:SetSize( 300, 100 )			-- Set the size
+DermaNumSlider:SetText( "Maximum props" )	-- Set the text left of the slider
+DermaNumSlider:SetMin( 0 )				 	-- Set the minimum number you can slide to
+DermaNumSlider:SetMax( 256 )				-- Set the maximum number you can slide to
+DermaNumSlider:SetDecimals( 0 )				-- Decimal places - zero for whole number
+DermaNumSlider:SetConVar( "sbox_maxprops" )	-- Changes the ConVar when you slide
+
+-- If not using convars, you can use this hook + Panel.SetValue()
+DermaNumSlider.OnValueChanged = function( self, value )
+	-- Called when the slider value changes
+end
+	</code>
+
+	<output><image src="DNumSlider.png"/></output>
+
+</example>

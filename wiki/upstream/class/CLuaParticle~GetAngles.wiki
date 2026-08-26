@@ -1,0 +1,7 @@
+<function name="GetAngles" parent="CLuaParticle" type="classfunc">
+	<description>Returns the current orientation of the particle.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="Angle">The angles of the particle</ret>
+	</rets>
+</function>

@@ -1,0 +1,7 @@
+<function name="GetMax" parent="ConVar" type="classfunc">
+	<description>Returns the maximum value of the <page>ConVar</page></description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret type="number">The maximum value of the <page>ConVar</page></ret>
+	</rets>
+</function>

@@ -1,0 +1,8 @@
+<function name="DragHover" parent="Panel" type="classfunc">
+	<description><internal></internal> Called by <page>dragndrop.HoverThink</page> to perform actions on an object that is dragged and hovered over another.</description>
+	<realm>Client and Menu</realm>
+	<file line="499-L512">lua/includes/extensions/client/panel/dragdrop.lua</file>
+	<args>
+		<arg name="HoverTime" type="number">If this time is greater than 0.1, <page>PANEL:DragHoverClick</page> is called, passing it as an argument.</arg>
+	</args>
+</function>

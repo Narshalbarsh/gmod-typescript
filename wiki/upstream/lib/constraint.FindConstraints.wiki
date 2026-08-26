@@ -1,0 +1,28 @@
+<function name="FindConstraints" parent="constraint" type="libraryfunc">
+	<description>Returns a table of all constraints of a specific type directly connected to the entity.
+
+If you are looking for a list of all constraints, use <page>constraint.GetTable</page>.</description>
+	<realm>Server</realm>
+	<file line="1584-L1600">lua/includes/modules/constraint.lua</file>
+	<args>
+		<arg name="ent" type="Entity">The entity to check.</arg>
+		<arg name="type" type="string">The type of constraint, case sensitive. List of default constrains is as follows:
+* `Weld`
+* `Axis`
+* `AdvBallsocket`
+* `Rope`
+* `Elastic`
+* `NoCollide`
+* `Motor`
+* `Pulley`
+* `Ballsocket`
+* `Winch`
+* `Hydraulic`
+* `Muscle`
+* `Keepupright`
+* `Slider`</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">All the constraints of this entity.</ret>
+	</rets>
+</function>

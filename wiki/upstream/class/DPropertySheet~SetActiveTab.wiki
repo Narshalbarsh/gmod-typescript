@@ -1,0 +1,34 @@
+<function name="SetActiveTab" parent="DPropertySheet" type="panelfunc">
+	<file line="151">lua/vgui/dpropertysheet.lua</file>
+	<description>Sets the active tab of the <page>DPropertySheet</page>.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="tab" type="Panel">The <page>DTab</page> to set active.
+
+See <page>DPropertySheet:GetItems</page></arg>
+	</args>
+</function>
+
+<example>
+	<description>Example of how you'd create and use this panel and set active tab.</description>
+	<code>
+local MainFrame = vgui.Create( "DFrame" )
+MainFrame:SetSize( 500, 300 )
+MainFrame:Center()
+MainFrame:MakePopup()
+
+local MainSheet = vgui.Create( "DPropertySheet", MainFrame )
+MainSheet:Dock( FILL )
+
+local First_Panel = vgui.Create( "DPanel", MainSheet )
+First_Panel.Paint = function( self, w, h ) draw.RoundedBox( 4, 0, 0, w, h, Color( 0, 128, 255, self:GetAlpha() ) ) end
+MainSheet:AddSheet( "test", First_Panel, "icon16/cross.png" )
+
+local Second_Panel = vgui.Create( "DPanel", MainSheet )
+Second_Panel.Paint = function( self, w, h ) draw.RoundedBox( 4, 0, 0, w, h, Color( 255, 128, 0, self:GetAlpha() ) ) end
+MainSheet:AddSheet( "test 2", Second_Panel, "icon16/tick.png" )
+
+MainSheet:SetActiveTab( MainSheet:GetItems()[2].Tab ) --2 is a representation of the second sheet
+	</code>
+
+</example>

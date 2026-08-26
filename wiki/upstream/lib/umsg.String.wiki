@@ -1,0 +1,21 @@
+<function name="String" parent="umsg" type="libraryfunc">
+	<description>
+<deprecated>You should be using the <page>net</page> instead</deprecated>
+Writes a null terminated string to the usermessage.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="string" type="string">The string to be sent.</arg>
+	</args>
+</function>
+
+
+
+<example>
+	<description>An easy way to send any string to the client or clients</description>
+	<code>
+umsg.Start("Example_SendString") -- With umsg.Start("Example_SendString",pl) Must get pl value the player entity.
+	umsg.String("Custom Text")
+umsg.End()
+	</code>
+
+</example>

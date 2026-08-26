@@ -1,0 +1,13 @@
+<function name="GetFogMode" parent="render" type="libraryfunc">
+	<description>
+		Returns the current fog mode.
+	</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">
+			Fog mode, see <page>Enums/MATERIAL_FOG</page>.
+
+			In 2D post-processing hooks, starting with <page>GM:PreDrawEffects</page>, this will always return <page text="MATERIAL_FOG_NONE">Enums/MATERIAL_FOG#MATERIAL_FOG_NONE</page>
+		</ret>
+	</rets>
+</function>

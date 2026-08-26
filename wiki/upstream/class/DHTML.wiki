@@ -1,0 +1,98 @@
+<panel>
+	<name>DHTML</name>
+	<parent>HTML</parent>
+	<realm>Client and Menu</realm>
+	<file line="">lua/vgui/dhtml.lua</file>
+	<overrides>
+<page>HTML:ConsoleMessage</page>
+<page>HTML:OnDocumentReady</page>
+<page>HTML:OnCallback</page>
+	</overrides>
+
+	<description>
+		The DHTML control wraps the internal web engine, supports calling Javascript functions from Lua, 
+		as well as running Lua from within the HTML. Running Lua code is disabled by default.
+	</description>
+</panel>
+
+<note>Awesomium doesn’t work with most HTTPS websites because it only supports up to TLS 1.0.
+
+This and other rendering issues can be rectified by using the x86-64 branch.</note>
+
+<note>For more information on Garry's Mod's web rendering, you can consult the following page: <page>HTML_Web_Engine</page></note>
+
+# Using url/href/src
+
+You might have noticed that Relative File Paths like `<img src="/images/picture.jpg">` wont work. There are 3 solutions for that:
+
+## asset://
+
+Instead of `https://` we use `asset://` which will point to our local files.
+
+```
+<img src="asset://garrysmod/materials/example_addon/example.png">
+```
+
+<note>Please don't point towards your Addons folder. Use the File Location where Gmod has your addon files included.</note>
+
+## Online
+
+Classic Absolute File Paths still work ... well unless `you are offline` or the `website is down` or the website uses `HTTPS above TLS 1.0` Version.
+
+```
+<img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png">
+```
+
+## Base64 encoding
+
+This will encode your local File into a Base64 String. The String will start with the datatype like `data:image/jpeg;base64,` followed by a long chain of characters being the Base64 data.
+
+```
+-- In HTML
+<img src="data:image/jpeg;base64,LzlqLzRBQ...<!-- base64 data -->">
+
+-- In CSS
+url("data:image/jpeg;base64,LzlqLzRBQ...<!-- base64 data -->")
+```
+
+Websites like https://www.base64-image.de/ can encode the file for you.
+
+# Examples
+<example>
+	<description>Creates a DHTML.</description>
+	<code>
+local frame = vgui.Create("DFrame")
+frame:SetSize(300, 200)
+frame:SetTitle("My new Derma frame")
+frame:SetVisible(true)
+frame:SetDraggable(true)
+frame:MakePopup()
+frame:Center()
+
+--Fill the form with a html page
+local html = vgui.Create("DHTML", frame)
+html:Dock(FILL)
+html:SetHTML([[
+    <input type='submit' onclick='console.log("RUNLUA:print(\"This is called in Lua context\")")' />
+]])
+-- Enable the webpage to call lua code.
+html:SetAllowLua(true)
+	</code>
+</example>
+
+<example>
+	<description>Creates a DHTML and opens Google inside.</description>
+	<code>
+local frame = vgui.Create("DFrame")
+frame:SetSize(ScrW() * 0.5, ScrH() * 0.5)
+frame:SetTitle("HTML Example!")
+frame:Center()
+frame:MakePopup()
+local html = vgui.Create("DHTML", frame)
+html:Dock(FILL)
+html:OpenURL("https://www.google.com/")
+</code>
+	<output>
+<image src="dhtmlexample1.png"/>
+	</output>
+</example>

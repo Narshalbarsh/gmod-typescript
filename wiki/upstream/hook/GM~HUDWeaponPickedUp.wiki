@@ -1,0 +1,14 @@
+<function name="HUDWeaponPickedUp" parent="GM" type="hook">
+	<description>Called when a weapon has been picked up. Override to disable the default HUD notification.</description>
+	<realm>Client</realm>
+	<file line="36-L45">gamemodes/base/gamemode/cl_hudpickup.lua</file>
+	<args>
+		<arg name="weapon" type="Weapon">The picked up weapon</arg>
+	</args>
+</function>
+
+<example>
+<code>hook.Add( "HUDWeaponPickedUp", "WeaponPickedUp", function( weapon )
+    -- You would use HUDPaint or DFrame
+end )</code>
+</example>

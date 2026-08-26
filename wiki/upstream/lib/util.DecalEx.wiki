@@ -1,0 +1,19 @@
+<function name="DecalEx" parent="util" type="libraryfunc">
+	<description>
+Performs a trace and paints a decal to the surface hit.
+
+<note>This function has trouble spanning across multiple brushes on the map.</note>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="material" type="IMaterial">The name of the decal to paint. Can be retrieved with <page>util.DecalMaterial</page>.</arg>
+		<arg name="ent" type="Entity">The entity to apply the decal to</arg>
+		<arg name="position" type="Vector">The position of the decal.</arg>
+		<arg name="normal" type="Vector">The direction of the decal.</arg>
+		<arg name="color" type="Color">The color of the decal. Uses <page>Color</page>.
+
+This only works when used on a brush model and only if the decal material has set `$vertexcolor` to `1`.</arg>
+		<arg name="w" type="number">The width scale of the decal.</arg>
+		<arg name="h" type="number">The height scale of the decal.</arg>
+	</args>
+</function>

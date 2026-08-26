@@ -1,0 +1,10 @@
+<function name="GetDockMargin" parent="Panel" type="classfunc">
+	<description>Returns the docked margins of the panel. (set by <page>Panel:DockMargin</page>)</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">Left margin.</ret>
+		<ret name="" type="number">Top margin.</ret>
+		<ret name="" type="number">Right margin.</ret>
+		<ret name="" type="number">Bottom margin.</ret>
+	</rets>
+</function>

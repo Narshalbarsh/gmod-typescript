@@ -1,0 +1,31 @@
+<function name="IsConstrained" parent="Entity" type="classfunc">
+	<description>
+Returns true if the entity has constraints attached to it
+
+<bug issue="3837">This will only update clientside if the server calls it first. This only checks constraints added through the <page>constraint</page> so this will not react to map constraints.
+
+For a serverside alternative, see <page>constraint.HasConstraints</page></bug>
+	</description>
+	<realm>Shared</realm>
+	<file line="75-L97">lua/includes/extensions/entity.lua</file>
+	<rets>
+		<ret name="" type="boolean">Whether the entity is constrained or not.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>From entities/prop_effect.lua</description>
+	<code>
+function ENT:PhysicsUpdate( physobj )
+
+	if ( CLIENT ) then return end
+
+	-- Don't do anything if the player isn't holding us
+	if ( !self:IsPlayerHolding() && !self:IsConstrained() ) then
+		physobj:SetVelocity( Vector(0,0,0) )
+		physobj:Sleep() 
+	end
+end
+	</code>
+
+</example>

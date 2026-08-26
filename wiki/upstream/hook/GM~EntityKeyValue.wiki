@@ -1,0 +1,47 @@
+<function name="EntityKeyValue" parent="GM" type="hook">
+	<description>
+Called when a key-value pair is set on an entity on map spawn. Is **not** called by <page>Entity:SetKeyValue</page>.
+
+See <page>ENTITY:KeyValue</page> for a <page>scripted entities</page> hook, and its scripted weapon alternative: <page>WEAPON:KeyValue</page>.
+	</description>
+	<realm>Shared</realm>
+	<file line="120-L121">gamemodes/base/gamemode/shared.lua</file>
+	<args>
+		<arg name="ent" type="Entity">Entity that the keyvalue is being set on</arg>
+		<arg name="key" type="string">Key of the key/value pair</arg>
+		<arg name="value" type="string">Value of the key/value pair</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">If set, the value of the key-value pair will be overridden by this string.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Remove [`infodecal`](https://developer.valvesoftware.com/wiki/Infodecal) entities similar to the blue graffiti text behind the big building with numbered floors on **gm_construct**.  
+The `texture` keyvalue cannot be retrieved from `infodecal` entities.</description>
+	<code>
+local unwantedDecals = {
+	["decals/decalgraffiti031a"] = true,
+	-- etc.
+}
+hook.Add( "EntityKeyValue", "remove_unwanted_decals", function( ent, key, value )
+	if ( key == "texture" and IsValid( ent ) and ent:GetClass() == "infodecal" ) then
+		if ( unwantedDecals[value] ) then
+			-- set a targetname to make the decal remain and not appear automatically:
+			ent:SetName( "remove_unwanted_decals" )
+		end
+	end
+end )
+
+local function remove_unwanted_decals()
+	-- remove the decals instead of just keeping them invisible:
+	for _, decal in ipairs( ents.FindByClass( "infodecal" ) ) do
+		if ( decal:GetName() == "remove_unwanted_decals" ) then
+			decal:Remove()
+		end
+	end
+end
+hook.Add( "InitPostEntity", "remove_unwanted_decals", remove_unwanted_decals )
+hook.Add( "PostCleanupMap", "remove_unwanted_decals", remove_unwanted_decals )
+	</code>
+</example>

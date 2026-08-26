@@ -1,0 +1,9 @@
+<function name="StartSpot" parent="game" type="libraryfunc">
+	<description>Returns the name of the entity that should be used as player start position.
+
+This is not the same thing as spawn points (See <page>GM:PlayerSelectSpawn</page> for that), this is used to properly transit the player between maps, and therefore will only be set after a level change via `trigger_changelevel` entity in singleplayer.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="string">The name of the entity that should be used as start position.</ret>
+	</rets>
+</function>

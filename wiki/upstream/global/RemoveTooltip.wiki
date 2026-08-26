@@ -1,0 +1,5 @@
+<function name="RemoveTooltip" parent="Global" type="libraryfunc">
+	<description>Does the removing of the tooltip panel. Called by <page>Global.EndTooltip</page>.</description>
+	<realm>Client and Menu</realm>
+	<file line="5-L18">lua/includes/util/tooltips.lua</file>
+</function>

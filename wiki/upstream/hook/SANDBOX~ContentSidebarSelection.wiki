@@ -1,0 +1,8 @@
+<function name="ContentSidebarSelection" parent="SANDBOX" type="hook">
+	<description>Called when player selects an item on the spawnmenu sidebar at the left.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="parent" type="Panel">The panel that holds spawnicons and the sidebar of spawnmenu</arg>
+		<arg name="node" type="Panel">The item player selected</arg>
+	</args>
+</function>

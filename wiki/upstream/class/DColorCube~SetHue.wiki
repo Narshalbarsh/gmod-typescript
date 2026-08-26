@@ -1,0 +1,11 @@
+<function name="SetHue" parent="DColorCube" type="panelfunc">
+	<description>
+<deprecated></deprecated>
+	An <page>Global.AccessorFunc</page> that appears to do nothing and unused.
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="4">lua/vgui/dcolorcube.lua</file>
+	<args>
+		<arg name="hue" type="number"></arg>
+	</args>
+</function>

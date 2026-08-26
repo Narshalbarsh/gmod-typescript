@@ -1,0 +1,8 @@
+<function name="CanSecondaryAttack" parent="WEAPON" type="hook">
+	<description>Helper function for checking for no ammo.</description>
+	<realm>Shared</realm>
+	<file line="219-L231">gamemodes/base/entities/weapons/weapon_base/shared.lua</file>
+	<rets>
+		<ret name="" type="boolean">Can use secondary attack</ret>
+	</rets>
+</function>

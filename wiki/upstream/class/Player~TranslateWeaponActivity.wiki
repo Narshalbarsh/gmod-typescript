@@ -1,0 +1,10 @@
+<function name="TranslateWeaponActivity" parent="Player" type="classfunc">
+	<description>Translates <page>Enums/ACT</page> according to the holdtype of players currently held weapon.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="act" type="number">The initial <page>Enums/ACT</page></arg>
+	</args>
+	<rets>
+		<ret name="" type="number">Translated <page>Enums/ACT</page></ret>
+	</rets>
+</function>

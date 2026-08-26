@@ -1,0 +1,64 @@
+<function name="CreateMaterial" parent="Global" type="libraryfunc">
+	<description>
+Creates a new material with the specified name and shader.
+
+Materials created with this function can be used in <page>Entity:SetMaterial</page> and <page>Entity:SetSubMaterial</page> by prepending a `!` to their material name argument.
+
+This will not create a new material if another material object with the same name already exists. All Materials created by this functions are cleaned up on map shutdown.
+
+<note>This does not work with [patch materials](https://developer.valvesoftware.com/wiki/Patch).</note>
+
+<bug issue="1531">.pngs must be loaded with <page>Global.Material</page> before being used with this function.</bug>
+
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="name" type="string">The material name. Must be unique.</arg>
+		<arg name="shaderName" type="string">The shader name. See <page>Shaders</page>.</arg>
+		<arg name="materialData" type="table">Key-value table that contains shader parameters and proxies.
+
+* See: [List of Shader Parameters on Valve Developers Wiki](https://developer.valvesoftware.com/wiki/Category:List_of_Shader_Parameters) and each shader's page from .
+
+<note>Unlike <page>IMaterial:SetTexture</page>, this table will not accept <page>ITexture</page> values. Instead, use the texture's name (see <page>ITexture:GetName</page>).</note></arg>
+	</args>
+	<rets>
+		<ret name="" type="IMaterial">Created material</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Alternative to <page>render.SetColorMaterial</page>, mainly for use with <page>Entity:SetMaterial</page></description>
+	<code>
+CreateMaterial( "colortexshp", "VertexLitGeneric", {
+  ["$basetexture"] = "color/white",
+  ["$model"] = 1,
+  ["$translucent"] = 1,
+  ["$vertexalpha"] = 1,
+  ["$vertexcolor"] = 1
+} )
+	</code>
+
+</example>
+
+<example>
+	<description>Sample example of using material proxies. **Keep in mind that you can only have 1 instance of each proxy type! This is a limitation of how Lua tables work**</description>
+	<code>
+local mat = CreateMaterial( "combine_ball_animated", "UnlitGeneric", {
+  ["$basetexture"] = "effects/comball/comball",
+  ["Proxies"] = {
+    ["AnimatedOffsetTexture"] = {
+      ["animatedtexturevar"] = "$basetexture",
+      ["animatedtextureframenumvar"] = "$frame",
+      ["animatedtextureframerate"] = 30
+    }
+  }
+} )
+
+hook.Add( "HUDPaint", "HUDPaint_DrawATexturedBox", function()
+	surface.SetMaterial( mat )
+	surface.SetDrawColor( 255, 255, 255, 255 )
+	surface.DrawTexturedRect( 50, 50, 128, 128 )
+end )
+	</code>
+
+</example>

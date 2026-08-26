@@ -1,0 +1,12 @@
+<function name="asin" parent="math" type="libraryfunc">
+	<description>Returns the [arcsine](https://en.wikipedia.org/wiki/Inverse_trigonometric_functions) of the given number.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="normal" type="number">Sine value in the range of -1 to 1.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">An angle in radians, in the range -pi/2 to pi/2, which has the given sine value.
+
+<page>nan</page> if the argument is out of range.</ret>
+	</rets>
+</function>

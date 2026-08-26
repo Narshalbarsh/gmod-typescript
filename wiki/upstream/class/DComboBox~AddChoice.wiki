@@ -1,0 +1,16 @@
+<function name="AddChoice" parent="DComboBox" type="panelfunc">
+	<description>Adds a choice to the combo box.</description>
+	<file line="138-L158">lua/vgui/dcombobox.lua</file>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="value" type="string">The text show to the user.</arg>
+		<arg name="data" type="any" default="nil">The data accompanying this string. If left empty, the value argument is used instead.
+
+Can be accessed with the second argument of <page>DComboBox:GetSelected</page>, <page>DComboBox:GetOptionData</page> and as an argument of <page>DComboBox:OnSelect</page>.</arg>
+		<arg name="select" type="boolean" default="false">Should this be the default selected text show to the user or not.</arg>
+		<arg name="icon" type="string" default="nil">Adds an icon for this choice.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The index of the new option.</ret>
+	</rets>
+</function>

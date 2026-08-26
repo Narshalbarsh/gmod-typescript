@@ -1,0 +1,65 @@
+<function name="SizeToChildren" parent="Panel" type="classfunc">
+	<description>
+Resizes the panel to fit the bounds of its children.
+
+<note>Your panel must have its layout updated (<page>Panel:InvalidateLayout</page>) for this function to work properly.</note>
+<note>The sizeW and sizeH parameters are false by default. Therefore, calling this function with no arguments will result in a no-op.</note>
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="sizeW" type="boolean" default="false">Resize with width of the panel.</arg>
+		<arg name="sizeH" type="boolean" default="false">Resize the height of the panel.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Using <page>Panel:InvalidateLayout</page></description>
+	<code>
+local Frame = vgui.Create( "DFrame" )
+Frame:SetSize( 300, 400 )
+Frame:Center()
+Frame:MakePopup()
+Frame:SetSizable( true )
+
+-- with :InvalidateLayout(true)
+local backgroundPanel = vgui.Create( "DPanel", Frame )
+backgroundPanel:Dock( TOP )
+backgroundPanel:DockPadding( 4, 4, 4, 4 )
+backgroundPanel:DockMargin( 0, 0, 0, 4 )
+
+local button1 = vgui.Create( "DButton", backgroundPanel )
+button1:Dock( TOP )
+button1:DockMargin( 0, 0, 0, 4 )
+button1:SetTall( 60 )
+button1:SetText( "c1" )
+
+local button2 = vgui.Create( "DButton", backgroundPanel )
+button2:Dock( TOP )
+button2:SetTall( 60 )
+button2:SetText( "c2" )
+
+backgroundPanel:InvalidateLayout( true )
+backgroundPanel:SizeToChildren( false, true )
+
+
+-- now w/o :InvalidateLayout
+local backgroundPanel = vgui.Create( "DPanel", Frame )
+backgroundPanel:Dock( TOP )
+backgroundPanel:DockPadding( 4, 4, 4, 4 )
+
+local button1 = vgui.Create( "DButton", backgroundPanel )
+button1:Dock( TOP )
+button1:DockMargin( 0, 0, 0, 4 )
+button1:SetTall( 60 )
+button1:SetText( "c1" )
+
+local button2 = vgui.Create( "DButton", backgroundPanel )
+button2:Dock( TOP )
+button2:SetTall( 60 )
+button2:SetText( "c2" )
+
+backgroundPanel:SizeToChildren( false, true )
+	</code>
+	<output><image src="panel_stc_invalidation_ex1.png"/></output>
+
+</example>

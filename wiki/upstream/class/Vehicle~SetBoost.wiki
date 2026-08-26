@@ -1,0 +1,7 @@
+<function name="SetBoost" parent="Vehicle" type="classfunc">
+	<description>Sets the boost. It is possible that this function does not work while the vehicle has a valid driver in it.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="boost" type="number">The new boost value</arg>
+	</args>
+</function>

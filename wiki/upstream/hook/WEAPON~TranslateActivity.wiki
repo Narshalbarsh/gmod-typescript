@@ -1,0 +1,39 @@
+<function name="TranslateActivity" parent="WEAPON" type="hook">
+	<description>
+Translate a generic activity into a more specific activity, such as holdtype-specific activities.
+
+The translated activity is then used to request animations from the owner's model via <page>Entity:SelectWeightedSequence</page> and similar functions.
+
+For example, `ACT_MP_RUN` becomes `ACT_HL2MP_RUN_PISTOL`.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="act" type="number{ACT}">The activity to translate</arg>
+	</args>
+	<rets>
+		<ret name="act" type="number{ACT}">The translated activity</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Default action</description>
+	<code>
+function SWEP:TranslateActivity( act )
+
+	if ( self:GetOwner():IsNPC() ) then
+		if ( self.ActivityTranslateAI[ act ] ) then
+			return self.ActivityTranslateAI[ act ]
+		end
+		return -1
+	end
+
+	if ( self.ActivityTranslate[ act ] != nil ) then
+		return self.ActivityTranslate[ act ]
+	end
+
+	return -1
+
+end
+	</code>
+
+</example>

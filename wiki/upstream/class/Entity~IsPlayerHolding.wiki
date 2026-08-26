@@ -1,0 +1,11 @@
+<function name="IsPlayerHolding" parent="Entity" type="classfunc">
+	<description>
+Returns true if the entity is being held by a player. Either by physics gun, gravity gun or use-key (+use).
+
+<bug issue="2046">If multiple players are holding an object and one drops it, this will return false despite the object still being held.</bug>
+	</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="boolean">IsBeingHeld</ret>
+	</rets>
+</function>

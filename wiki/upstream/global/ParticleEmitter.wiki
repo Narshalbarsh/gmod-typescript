@@ -1,0 +1,47 @@
+<function name="ParticleEmitter" parent="Global" type="libraryfunc">
+	<description>
+Creates a new <page>CLuaEmitter</page>.
+
+<note>Do not forget to delete the emitter with <page>CLuaEmitter:Finish</page> once you are done with it</note>
+<warning>There is a limit of 4097 emitters that can be active at once, exceeding this limit will throw a non-halting error in console!</warning>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="position" type="Vector">The start position of the emitter.
+
+This is only used to determine particle drawing order for translucent particles.</arg>
+		<arg name="use3D" type="boolean" default="false">Whenever to render the particles in 2D or 3D mode. Supplying "true" will enable 3D (non-billboarded), otherwise it will default to 2D.</arg>
+	</args>
+	<rets>
+		<ret name="" type="CLuaEmitter">The new particle emitter.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Creates a simple spark particle effect 100 units above where the local player is looking at.</description>
+	<code>
+local tr =  LocalPlayer():GetEyeTrace()
+local pos = tr.HitPos + tr.HitNormal * 100 -- The origin position of the effect
+
+local emitter = ParticleEmitter( pos ) -- Particle emitter in this position
+
+for i = 1, 100 do -- Do 100 particles
+	local part = emitter:Add( "effects/spark", pos ) -- Create a new particle at pos
+	if ( part ) then
+		part:SetDieTime( 1 ) -- How long the particle should "live"
+
+		part:SetStartAlpha( 255 ) -- Starting alpha of the particle
+		part:SetEndAlpha( 0 ) -- Particle size at the end if its lifetime
+
+		part:SetStartSize( 5 ) -- Starting size
+		part:SetEndSize( 0 ) -- Size when removed
+
+		part:SetGravity( Vector( 0, 0, -250 ) ) -- Gravity of the particle
+		part:SetVelocity( VectorRand() * 50 ) -- Initial velocity of the particle
+	end
+end
+
+emitter:Finish()
+	</code>
+
+</example>

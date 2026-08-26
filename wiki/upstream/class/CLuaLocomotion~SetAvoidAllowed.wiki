@@ -1,0 +1,8 @@
+<function name="SetAvoidAllowed" parent="CLuaLocomotion" type="classfunc">
+	<description>Sets whether the Nextbot is allowed try to to avoid obstacles or not. This is used during path generation. Works similarly to `nb_allow_avoiding` convar. By default bots are allowed to try to avoid obstacles.</description>
+	<realm>Server</realm>
+	<added>2021.12.15</added>
+	<args>
+		<arg name="allowed" type="boolean">Whether this bot should be allowed to try to avoid obstacles.</arg>
+	</args>
+</function>

@@ -1,0 +1,14 @@
+<function name="DoBoneManipulator" parent="duplicator" type="libraryfunc">
+	<description>
+"Restores the bone's data."
+
+
+Loops through Bones and calls <page>Entity:ManipulateBoneScale</page>, <page>Entity:ManipulateBoneAngles</page> and <page>Entity:ManipulateBonePosition</page> on ent with the table keys and the subtable values s, a and p respectively.
+	</description>
+	<realm>Server</realm>
+	<file line="454-L467">lua/includes/modules/duplicator.lua</file>
+	<args>
+		<arg name="ent" type="Entity">The entity to be bone manipulated.</arg>
+		<arg name="bones" type="table">Table with a <page>Structures/BoneManipulationData</page> for every bone (that has manipulations applied) using the bone ID as the table index.</arg>
+	</args>
+</function>

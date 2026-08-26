@@ -1,0 +1,35 @@
+<function name="WorkshopSubscriptionsMessage" parent="GM" type="hook">
+	<description>
+		Called when a Workshop Message is received?. Currently, it seems like the message will be **#ugc.mounting** every time.
+		<validate>When does this exactly get called?. If an addon is subscribed, unsubscribed, error occurs or on any event?</validate>
+	</description>
+	<realm>Menu</realm>
+	<file line="95-L103">lua/menu/mount/mount.lua</file>
+	<args>
+		<arg name="message" type="string">The Message from the Workshop. Will be a phrase that needs to be translated.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Translates the message and prints them.</description>
+	<code>
+hook.Add( "WorkshopSubscriptionsMessage", "Example", function(msg)
+	print( language.GetPhrase(msg) )
+end )
+
+steamworks.Subscribe( "104514796" ) -- Subscribes to a Random addon. "Directional Gravity"
+steamworks.ApplyAddons()
+
+timer.Simple(10, function()
+	steamworks.Unsubscribe( "104514796" ) --UnSubscribes the Random Addon. "Directional Gravity"
+	steamworks.ApplyAddons()
+end)
+	</code>
+	<output>
+```lua
+Mounting Workshop content, please wait...
+	[After 10 Seconds]
+Mounting Workshop content, please wait...
+```
+	</output>
+</example>

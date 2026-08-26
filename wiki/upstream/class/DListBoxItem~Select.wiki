@@ -1,0 +1,9 @@
+<function name="Select" parent="DListBoxItem" type="panelfunc">
+	<description>
+Selects this item.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="onlyMe" type="boolean">Whether to deselect other items.</arg>
+	</args>
+</function>

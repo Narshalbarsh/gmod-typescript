@@ -1,0 +1,7 @@
+<function name="SetTabbingDisabled" parent="DPanel" type="panelfunc">
+	<description><deprecated></deprecated>Does nothing.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="draw" type="boolean"></arg>
+	</args>
+</function>

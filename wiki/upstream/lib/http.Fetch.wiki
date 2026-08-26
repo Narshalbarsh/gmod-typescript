@@ -1,0 +1,86 @@
+<function name="Fetch" parent="http" type="libraryfunc">
+	<description>
+Launches an asynchronous **GET** request to an HTTP server. Internally calls <page>Global.HTTP</page>.
+
+HTTP requests returning a status code >= `400` are still considered a success and will call the <page text="onSuccess">Structures/HTTPRequest</page> callback.
+
+The <page text="onFailure">Structures/HTTPRequest</page> callback is usually only called on DNS or TCP errors (e.g. the website is unavailable or the domain does not exist).
+
+A rough overview of possible <page text="onFailure">Structures/HTTPRequest</page> messages:
+* `invalid url` - Invalid/empty url. ( no request was attempted )
+* `invalid request` - Steam HTTP lib failed to create a HTTP request.
+* `error` - OnComplete callback's second argument, `bError`, is `true`.
+* `unsuccessful` - OnComplete's first argument, `pResult->m_bRequestSuccessful`, returned `false`.
+
+<bug issue="2232">This cannot send or receive multiple headers with the same name.</bug>
+<note>HTTP-requests that respond with a large body may return an `unsuccessful` error. Try using the [Range](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Range) header to download the file in chunks.</note>
+<note>
+	HTTP-requests to destinations on private networks (such as `192.168.0.1`, or `127.0.0.1`) won't work.
+	<br/>
+	To enable HTTP-requests to destinations on private networks use <page>Command Line Parameters</page> `-allowlocalhttp`. (Dedicated servers only)
+</note>
+
+Not all headers are allowed to be set, here is a list of known blacklisted headers:
+```
+host
+expect
+content-length
+proxy-authenticate
+accept-charset
+connection
+accept-encoding
+origin
+date
+```
+	</description>
+	<realm>Shared and Menu</realm>
+
+	<file line="18-L44">lua/includes/modules/http.lua</file>
+
+	<args>
+		<arg name="url" type="string">The URL of the website to fetch.</arg>
+		<arg name="onSuccess" type="function" default="nil">Function to be called on success.
+<callback>
+<arg type="string" name="body"></arg>
+<arg type="number" name="size">equal to <page>string.len</page>(body).</arg>
+<arg type="table" name="headers"></arg>
+<arg type="number" name="code">The HTTP success code.</arg>
+</callback>
+</arg>
+		<arg name="onFailure" type="function" default="nil">Function to be called on failure.
+<callback>
+<arg type="string" name="error">The error message.</arg>
+</callback>
+</arg>
+		<arg name="headers" type="table" default="{}">KeyValue table for headers.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Shows the typical usage to get the HTML of a webpage.</description>
+	<code>
+local theReturnedHTML = "" -- Blankness
+
+http.Fetch( "https://www.google.com",
+	
+	-- onSuccess function
+	function( body, length, headers, code )
+		-- The first argument is the HTML we asked for.
+		theReturnedHTML = body
+	end,
+
+	-- onFailure function
+	function( message )
+		-- We failed. =(
+		print( message )
+	end,
+
+	-- header example
+	{ 
+		["accept-encoding"] = "gzip, deflate",
+		["accept-language"] = "fr" 
+	}
+)
+	</code>
+	<output>If it successfully fetched the page, the variable `theReturnedHTML` should contain the returned HTML in plain text.</output>
+</example>

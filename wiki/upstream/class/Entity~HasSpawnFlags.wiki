@@ -1,0 +1,25 @@
+<function name="HasSpawnFlags" parent="Entity" type="classfunc">
+	<description>Returns whether this entity has the specified spawnflags bits set.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="spawnFlags" type="number">The spawnflag bits to check, see <page>Enums/SF</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether the entity has that spawnflag set or not.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>As seen in sandbox's PhysgunPickup hook.</description>
+	<code>
+function GM:PhysgunPickup( ply, ent )
+
+	-- Don't move physboxes if the mapper logic says no
+	if ( ent:GetClass() == "func_physbox" && ent:HasSpawnFlags( SF_PHYSBOX_MOTIONDISABLED ) ) then return false end
+
+	return true
+	
+end
+	</code>
+
+</example>

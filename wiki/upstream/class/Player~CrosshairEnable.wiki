@@ -1,0 +1,10 @@
+<function name="CrosshairEnable" parent="Player" type="classfunc">
+	<description>Enables the player's crosshair, if it was previously disabled via <page>Player:CrosshairDisable</page>.</description>
+	<realm>Server</realm>
+</function>
+
+<example>
+	<description>Enables crosshair of the first player on the server, if it was disabled.</description>
+	<code>Entity( 1 ):CrosshairEnable()</code>
+
+</example>

@@ -1,0 +1,15 @@
+<function name="AddAlias" parent="killicon" type="libraryfunc">
+	<description>Creates kill icon from existing one.</description>
+	<realm>Client</realm>
+	<file line="39-L43">lua/includes/modules/killicon.lua</file>
+	<args>
+		<arg name="new_class" type="string">New class of the kill icon.</arg>
+		<arg name="existing_class" type="string">Already existing kill icon class.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Copies prop_physics kill icon to prop_ragdoll.</description>
+	<code>killicon.AddAlias( "prop_ragdoll", "prop_physics" )</code>
+
+</example>

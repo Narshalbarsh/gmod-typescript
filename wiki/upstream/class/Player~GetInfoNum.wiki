@@ -1,0 +1,44 @@
+<function name="GetInfoNum" parent="Player" type="classfunc">
+	<description>Retrieves the numeric value of a client-side convar, returns nil if value is not convertible to a number. The <page>ConVar</page> must have a <page text="FCVAR_USERINFO">Enums/FCVAR</page> flag for this to work.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="cVarName" type="string">The name of the <page>ConVar</page> to query the value of</arg>
+		<arg name="default" type="number">Default value if we failed to retrieve the number.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The value of the <page>ConVar</page> or the default value</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Creates clientside <page>ConVar</page> 'Apple' and retrieves value of it.</description>
+	<code>
+if CLIENT then
+	CreateConVar( "Apple", "1", FCVAR_USERINFO )
+else
+	MsgN( Entity( 1 ):GetInfoNum( "Apple" ) )
+end
+	</code>
+	<output>`1`</output>
+
+</example>
+
+
+<example>
+	<description>Shows difference between <page>Player:GetInfo</page> and <page>Player:GetInfoNum</page>.</description>
+	<code>
+if CLIENT then
+	CreateConVar( "Apple", "1", FCVAR_USERINFO )
+else
+	MsgN( type( Entity( 1 ):GetInfoNum( "Apple", 1 ) ) )
+	MsgN( type( Entity( 1 ):GetInfo( "Apple" ) ) )
+end
+	</code>
+	<output>
+```
+number
+string
+```
+	</output>
+
+</example>

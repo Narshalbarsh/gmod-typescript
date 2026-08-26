@@ -1,0 +1,14 @@
+<function name="IsPartiallyVisible" parent="CNavArea" type="classfunc">
+	<description>
+Returns whether this <page>CNavArea</page> can see given position.
+	</description>
+	<realm>Server</realm>
+	<added>2020.08.12</added>
+	<args>
+		<arg name="pos" type="Vector">The position to test.</arg>
+		<arg name="ignoreEnt" type="Entity" default="NULL">If set, the given entity will be ignored when doing LOS tests</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether the given position is visible from this area</ret>
+	</rets>
+</function>

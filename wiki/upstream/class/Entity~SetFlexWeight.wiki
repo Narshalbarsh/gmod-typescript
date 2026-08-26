@@ -1,0 +1,40 @@
+<function name="SetFlexWeight" parent="Entity" type="classfunc">
+	<description>Sets the weight/value of given flex controller.
+
+Setting flex weights spawns an internal networked entity (one per entity face posed) to accommodate networking to clients.
+
+<note>Only `96` flex controllers can be set! Flex controllers on models with higher amounts will not be accessible.</note>
+</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="flex" type="number">The ID of the flex to modify weight of.  The range is between `0` and <page>Entity:GetFlexNum</page> - 1.</arg>
+		<arg name="weight" type="number">The new weight to set.
+
+The range is [0,1] for entities with <page>Entity:HasFlexManipulatior</page>, and the model-defined input range otherwise (<page>Entity:GetFlexBounds</page>)
+
+Exceeding the range is allowed, and will amplify the effect (to possibly bad results), exactly like <page>Entity:SetFlexScale</page> does.
+</arg>
+	</args>
+</function>
+
+<example>
+<description>Spawns a clientside ragdoll with randomized facial flexes.</description>
+<code>
+
+concommand.Add( "test_csragdoll_flex", function( ply )
+
+	local ragdoll = ClientsideRagdoll( "models/player/breen.mdl" )
+	ragdoll:SetNoDraw( false )
+	ragdoll:DrawShadow( true )
+	ragdoll:SetPos( ply:GetPos() )
+	--print( ragdoll )
+
+	for i=0,ragdoll:GetFlexNum() do
+		ragdoll:SetFlexWeight( i, math.Rand( 0, 1 ) * 5 )
+		//print( ragdoll:GetFlexWeight( i ) )
+	end
+
+end )
+</code>
+
+</example>

@@ -1,0 +1,11 @@
+<function name="Set3DEnabled" parent="IGModAudioChannel" type="classfunc">
+	<description>Sets the 3D mode of the channel. This will affect <page>IGModAudioChannel:Get3DEnabled</page> but not <page>IGModAudioChannel:Is3D</page>.
+
+This feature **requires** the channel to be initially created in 3D mode, i.e. <page>IGModAudioChannel:Is3D</page> should return true or this function will do nothing.
+	</description>
+	<realm>Client</realm>
+	<added>2020.04.29</added>
+	<args>
+		<arg name="enable" type="boolean">true to enable, false to disable 3D.</arg>
+	</args>
+</function>

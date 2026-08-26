@@ -2,7 +2,7 @@ import { printGlobalFunction } from './printer/function';
 import { extractEnum } from './scrapper/extract/enum';
 import { extractFunction } from './scrapper/extract/function';
 import { extractStruct } from './scrapper/extract/struct';
-import { GetPage, GetPagesInCategory } from './scrapper/scrapper';
+import { GetPage, GetPagesInCategory, configureLocalWiki } from './wiki/local';
 import { transformFunction } from './transformer/function';
 import * as fs from 'fs';
 import { transformEnum } from './transformer/enum';
@@ -16,14 +16,37 @@ import { isWikiFunction } from './wiki_types';
 import { TSCollection, TSEnum, TSField, TSFunction } from './ts_types';
 import { fetchGameEventTypeMap } from './scrapper/extract/gameevent';
 import { printTypeMap } from './printer/typemap';
-import { transformIdentifier } from './transformer/util';
+import { registerPageTypeNames, transformIdentifier } from './transformer/util';
+import { isSkipped } from './transformer/modification_db';
 
 (async (): Promise<void> => {
+    // pages come from wiki/upstream with wiki/staging applied, --no-staging generates from upstream alone
+    configureLocalWiki({ staging: !process.argv.includes('--no-staging') });
+
+    // Container pages whose page name differs from the type they declare, file_class -> File,
+    // MUST be registered before any signature is transformed, other pages reference them by page name in type="..."
+    {
+        const containerPaths = [
+            ...(await GetPagesInCategory('classfunc')),
+            ...(await GetPagesInCategory('panelfunc')),
+            ...(await GetPagesInCategory('libraryfunc')),
+        ];
+        const pages = await Promise.all(containerPaths.map(GetPage));
+        const names: Record<string, string> = {};
+        for (const page of pages) {
+            if (page.title.includes(':') || page.title.includes('.')) continue;
+            const declared = extractClass(page).name;
+            if (declared && declared !== page.address) names[page.address] = declared;
+        }
+        registerPageTypeNames(names);
+    }
+
     const globalFuncs = await GetPagesInCategory('Global');
     const globalFunctionPages = await Promise.all(globalFuncs.map(GetPage));
     const globalFunctionResult = globalFunctionPages
         .map(extractFunction)
         .filter(isWikiFunction)
+        .filter((f) => !isSkipped(f.address))
         .map(transformFunction)
         .map(printGlobalFunction)
         .join('\n\n');
@@ -45,19 +68,11 @@ import { transformIdentifier } from './transformer/util';
     const classTypePaths = await GetPagesInCategory('class');
     const containerPaths = Array.from(new Set([...panelClassPaths, ...classTypePaths]));
 
-    const hookIndexPaths = [
-        '/gmod/GM_Hooks',
-        '/gmod/ENTITY_Hooks',
-        '/gmod/WEAPON_Hooks',
-        '/gmod/TOOL_Hooks',
-        '/gmod/EFFECT_Hooks',
-        '/gmod/PLAYER_Hooks',
-        '/gmod/SANDBOX_Hooks',
-        '/gmod/PANEL_Hooks',
-    ];
+    // hook index pages, GM_Hooks, ENTITY_Hooks and so on, are the containers for the hook members
+    const hookPathsAll = await GetPagesInCategory('hook');
+    const hookIndexPaths = hookPathsAll.filter((p) => /_Hooks$/i.test(decodeURIComponent(p)));
     const hookIndexPages = await Promise.all(hookIndexPaths.map(GetPage));
 
-    const hookPathsAll = await GetPagesInCategory('hook');
     const hookMemberPaths = hookPathsAll.filter(
         (p) => /\/gmod\/[A-Z]+%3A/.test(p) || /[A-Z]+:/.test(p),
     );
@@ -262,7 +277,7 @@ import { transformIdentifier } from './transformer/util';
     const structResult = remainingStructs.map(printInterface).join('\n\n');
 
     const result = [
-        '/// <reference types="typescript-to-lua/language-extensions" />',
+        '/// <reference types="@typescript-to-lua/language-extensions" />',
         '/// <reference path="./extras.d.ts" />',
         '/** @noSelfInFile **/',
         classResult,

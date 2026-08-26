@@ -1,0 +1,16 @@
+<function name="GetVectorLinear" parent="IMaterial" type="classfunc">
+	<description>
+Returns the specified material linear color vector, or nil if the value is not set.
+
+See https://en.wikipedia.org/wiki/Gamma_correction
+
+See also <page>IMaterial:GetVector</page>
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="materialVector" type="string">The name of the material vector.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">The linear color vector</ret>
+	</rets>
+</function>

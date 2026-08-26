@@ -1,0 +1,9 @@
+<function name="Char" parent="umsg" type="libraryfunc">
+	<description>
+<deprecated>You should be using the <page>net</page> instead</deprecated>
+Writes a signed char to the usermessage.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="char" type="number">The char to be sent.</arg>
+	</args>
+</function>

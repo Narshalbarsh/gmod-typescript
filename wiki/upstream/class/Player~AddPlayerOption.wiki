@@ -1,0 +1,40 @@
+<function name="AddPlayerOption" parent="Player" type="classfunc">
+	<description>
+Sets up the voting system for the player.
+This is a really barebone system. By calling this a vote gets started, when the player presses 0-9 the callback function gets called along with the key the player pressed. Use the draw callback to draw the vote panel.
+	</description>
+	<realm>Client</realm>
+	<file line="21-L39">lua/includes/extensions/client/player.lua</file>
+	<args>
+		<arg name="name" type="string">Name of the vote</arg>
+		<arg name="timeout" type="number">Time until the vote expires</arg>
+		<arg name="vote_callback" type="function">The function to be run when the player presses 0-9 while a vote is active.
+
+<callback>
+	<arg name="voteNum" type="number">Which option the player pressed, 1-9 and 0 being the very last option.</arg>
+	<ret name="" type="boolean">Return true to remove this option from the vote.</ret>
+</callback>
+</arg>
+		<arg name="draw_callback" type="function">Used to draw the vote panel.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Simple example. Prints player's choice in chat.</description>
+	<code>
+function AfterChoice( num ) -- This is callback after we press number (Argument #3)
+	chat.AddText( "Your rate is " .. num .. ". Thanks!" )
+
+	return true -- Return true to close vote
+end
+
+local BlackTransparent = Color( 0, 0, 0, 200 )
+function VisualVote() -- This is drawing function (Argument #4)
+    draw.RoundedBox( 4, ScrW() / 2 - 300, ScrH() / 2 - 25, 600, 50, BlackTransparent )
+    draw.SimpleText( "Rate our server by scale of zero to nine. Use number line to vote.", "Trebuchet24", ScrW() / 2 , ScrH() / 2, color_white, 1, 1 )
+end
+
+LocalPlayer():AddPlayerOption( "SelectWeapon", 30, AfterChoice, VisualVote ) -- Creates new vote
+	</code>
+
+</example>

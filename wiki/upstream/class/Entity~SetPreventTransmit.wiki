@@ -1,0 +1,33 @@
+<function name="SetPreventTransmit" parent="Entity" type="classfunc">
+	<description>
+Prevents the server from sending any further information about the entity to a player.
+
+<note>You must also call this function on all entity's children. See <page>Entity:GetChildren</page>.
+
+[issue tracker](https://github.com/Facepunch/garrysmod-issues/issues/1736)
+
+<page>Entity:SetFlexScale</page> and other flex/bone manipulation functions will create a child entity.
+</note>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="player" type="Player|CRecipientFilter|table<Player>">The player to stop networking the entity to. Can also be a <page>CRecipientFilter</page> or a <page>table</page> as of March 2024 to affect multiple players at once.</arg>
+		<arg name="stopTransmitting" type="boolean">true to stop the entity from networking, false to make it network again.</arg>
+	</args>
+</function>
+
+<example>
+	<description>This will loop through all children entities of the ent passed and stop networking them too. Works with nextbots/players</description>
+	<code>
+function RecursiveSetPreventTransmit( ent, ply, stopTransmitting )
+    if ( ent ~= ply and IsValid( ent ) and IsValid( ply ) ) then
+        ent:SetPreventTransmit( ply, stopTransmitting )
+        local tab = ent:GetChildren()
+        for i = 1, #tab do
+            RecursiveSetPreventTransmit( tab[ i ], ply, stopTransmitting )
+        end
+    end
+end
+	</code>
+
+</example>

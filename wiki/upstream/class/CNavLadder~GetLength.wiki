@@ -1,0 +1,7 @@
+<function name="GetLength" parent="CNavLadder" type="classfunc">
+	<description>Returns the length of the ladder.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">The length of the ladder.</ret>
+	</rets>
+</function>

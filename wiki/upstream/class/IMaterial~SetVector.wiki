@@ -1,0 +1,8 @@
+<function name="SetVector" parent="IMaterial" type="classfunc">
+	<description>Sets the specified material vector to the specified vector, does nothing on a type mismatch.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="MaterialVector" type="string">The name of the material vector.</arg>
+		<arg name="vec" type="Vector">The new vector.</arg>
+	</args>
+</function>

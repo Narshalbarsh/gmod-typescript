@@ -1,0 +1,7 @@
+<function name="GetDamageType" parent="CEffectData" type="classfunc">
+	<description>Returns the damage type of the effect</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">Damage type of the effect, see <page>Enums/DMG</page></ret>
+	</rets>
+</function>

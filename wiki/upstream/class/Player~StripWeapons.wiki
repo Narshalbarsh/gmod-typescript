@@ -1,0 +1,11 @@
+<function name="StripWeapons" parent="Player" type="classfunc">
+	<description>Removes all weapons from a certain player</description>
+	<realm>Server</realm>
+</function>
+
+<example>
+	<description>Removes all the weapons from the player with the ID 1</description>
+	<code>Entity( 1 ):StripWeapons()</code>
+	<output>Player 1 has no weapons anymore</output>
+
+</example>

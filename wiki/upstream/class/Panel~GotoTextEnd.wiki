@@ -1,0 +1,4 @@
+<function name="GotoTextEnd" parent="Panel" type="classfunc">
+	<description>Causes a <page>RichText</page> element to scroll to the bottom of its text.</description>
+	<realm>Client and Menu</realm>
+</function>

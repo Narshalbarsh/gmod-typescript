@@ -1,0 +1,14 @@
+<function name="AddOrGetMenu" parent="DMenuBar" type="panelfunc">
+	<description>
+Retrieves a <page>DMenu</page> object from the menu bar. If one with the given label doesn't exist, a new one is created.
+
+To add a DMenu without checking, use <page>DMenuBar:AddMenu</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="label" type="string">The name (label) of the derma menu to get or create.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Panel">The <page>DMenu</page> with the given label.</ret>
+	</rets>
+</function>

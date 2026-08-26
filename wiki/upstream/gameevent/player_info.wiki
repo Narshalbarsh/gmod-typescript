@@ -1,0 +1,38 @@
+<cat>gameevent</cat>
+<title>player_info</title>
+
+<structure>
+	<realm>Shared and Menu</realm>
+	<description>
+		Called when a player's info has changed over the network.  
+		When a Client joins the Server, this gameevent is called for each player on the server for the client.  
+		So if 32 Players are on the Server, this gameevent is called 32 times on the Client.
+	</description>
+	<fields>
+		<item type="number" name="friendsid">The <page>Player:AccountID</page> of the Player.</item>
+		<item type="number" name="index">The <page text="EntIndex">Entity:EntIndex</page> of the Player minus one.</item>
+		<item type="number" name="bot">1 or 0 if it is a bot or not.</item>
+		<item type="number" name="userid">The <page text="UserID">Player:UserID</page> of the Player.</item>
+		<item type="string" name="name">The <page text="Name">Player:Name</page> of the Player.</item>
+		<item type="string" name="networkid">The <page text="SteamID">Player:SteamID</page> of the Player.</item>
+	</fields>
+</structure>
+
+# Examples
+<example>
+	<description>This is a basic template with the purpose of including all arguments / table variables to make it easily known which values can be accessed.</description>
+	<code>
+gameevent.Listen( "player_info" )
+hook.Add( "player_info", "player_info_example", function( data )
+	local name = data.name				// Same as Player:Nick()
+	local steamid = data.networkid		// Same as Player:SteamID()
+	local id = data.userid				// Same as Player:UserID()
+	local bot = data.bot				// Same as Player:IsBot()
+	local index = data.index   			// Same as Entity:EntIndex() minus one
+	local friendsid = data.friendsid	// Same as Player:AccountID()
+
+	// Player has connected; this happens instantly after they join -- do something..
+	
+end )
+	</code>
+</example>

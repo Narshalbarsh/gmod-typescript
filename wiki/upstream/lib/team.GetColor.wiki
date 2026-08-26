@@ -1,0 +1,22 @@
+<function name="GetColor" parent="team" type="libraryfunc">
+	<description>Returns the team's color.</description>
+	<file line="171-L176">lua/includes/modules/team.lua</file>
+	<realm>Shared</realm>
+	<args>
+		<arg name="teamIndex" type="number">The team index.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Color">The team's color as a <page>Color</page>.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>( Clientside Example ) Draws a box with the LocalPlayer team's color in the top left corner of the screen.</description>
+	<code>
+hook.Add( "HUDPaint", "WikiTeamGetColorExample", function()
+	surface.SetDrawColor( team.GetColor( LocalPlayer():Team() ) )
+	surface.DrawRect( 0, 0, 150, 150 )
+end )
+	</code>
+
+</example>

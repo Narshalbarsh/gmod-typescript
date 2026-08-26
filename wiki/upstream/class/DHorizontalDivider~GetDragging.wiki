@@ -1,0 +1,7 @@
+<function name="GetDragging" parent="DHorizontalDivider" type="panelfunc">
+	<description>Returns whether or not the player is currently dragging the middle divider bar.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="boolean">Whether or not the player is currently dragging the middle divider bar.</ret>
+	</rets>
+</function>

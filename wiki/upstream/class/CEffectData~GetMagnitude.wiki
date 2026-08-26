@@ -1,0 +1,7 @@
+<function name="GetMagnitude" parent="CEffectData" type="classfunc">
+	<description>Returns the magnitude of the effect.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The magnitude of the effect.</ret>
+	</rets>
+</function>

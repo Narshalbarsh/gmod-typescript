@@ -1,0 +1,50 @@
+<function name="SortedPairsByMemberValue" parent="Global" type="libraryfunc">
+	<description>
+Returns an iterator function that can be used to loop through a table in order of member values, when the values of the table are also tables and contain that member.
+
+To sort by **value**, use <page>Global.SortedPairsByValue</page>.
+
+
+To sort by **keys**, use <page>Global.SortedPairs</page>.
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="578-L612">lua/includes/extensions/table.lua</file>
+	<args>
+		<arg name="table" type="table">Table to create iterator for.</arg>
+		<arg name="memberKey" type="any">Key of the value member to sort by.</arg>
+		<arg name="descending" type="boolean" default="false">Whether the iterator should iterate in descending order or not.</arg>
+	</args>
+	<rets>
+		<ret name="" type="function">Iterator function</ret>
+		<ret name="" type="table">Internal iterator state, not the source table. It must be passed straight through to the generic for loop; capturing only the first return value and iterating over that will error.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Creates a table and prints its contents in order of the age member descending</description>
+	<code>
+local tab = {
+	{
+		Name = "Adam",
+		Age = 16
+	},
+	{
+		Name = "Charles",
+		Age = 18
+	}
+}
+
+for k, v in SortedPairsByMemberValue(tab, "Age", true) do
+	print(v.Name)
+end
+	</code>
+	<output>
+
+```
+Charles
+Adam
+```
+
+	</output>
+
+</example>

@@ -1,0 +1,11 @@
+<function name="IsValid" parent="PhysCollide" type="classfunc">
+	<description>
+Checks whether this <page>PhysCollide</page> object is valid or not.
+
+You should just use <page>Global.IsValid</page> instead.
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">Is valid or not.</ret>
+	</rets>
+</function>

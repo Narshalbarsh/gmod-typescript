@@ -1,0 +1,10 @@
+<function name="StopEmissionAndDestroyImmediately" parent="CNewParticleEffect" type="classfunc">
+	<description>
+Stops particle emission and destroys all particles instantly. Also detaches the particle effect from the entity it was attached to.
+
+<note>This function will work identically to <page>CNewParticleEffect:StopEmission</page>( false, true ) if  <page>CNewParticleEffect:GetOwner</page> entity is not valid.</note>
+
+Consider using <page>CNewParticleEffect:StopEmission</page>( false, true ) instead, which has same effect, but doesn't require owner entity, and does't detach the particle system from its entity.
+	</description>
+	<realm>Client</realm>
+</function>

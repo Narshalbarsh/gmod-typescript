@@ -1,0 +1,22 @@
+<function name="NoCollide" parent="constraint" type="libraryfunc">
+	<description>
+Creates an no-collide "constraint". Disables collision between two entities.
+<note>Does not work with players.</note>
+	</description>
+	<realm>Server</realm>
+	<file line="913-L954">lua/includes/modules/constraint.lua</file>
+	<args>
+		<arg name="ent1" type="Entity">First entity.</arg>
+		<arg name="ent2" type="Entity">Second entity.</arg>
+		<arg name="bone1" type="number"><page>PhysObj</page> number of first entity to constrain to. (0 for non-ragdolls).
+
+See <page>Entity:TranslateBoneToPhysBone</page>.</arg>
+		<arg name="bone2" type="number"><page>PhysObj</page> number of second entity to constrain to. (0 for non-ragdolls).
+
+See <page>Entity:TranslateBoneToPhysBone</page>.</arg>
+<arg name="disableOnRemove" type="boolean" default="false" added="2024.10.29">If set, the nocollide will be reversed if the constraint is removed.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Entity">The created constraint. ([logic_collision_pair](https://developer.valvesoftware.com/wiki/Logic_collision_pair)) Will return `false` if the constraint could not be created.</ret>
+	</rets>
+</function>

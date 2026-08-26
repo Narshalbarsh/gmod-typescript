@@ -1,0 +1,14 @@
+<function name="SetMaterial" parent="ImageCheckBox" type="panelfunc">
+	<description>
+Sets the material that will be visible when the <page>ImageCheckBox</page> is checked.
+
+Internally calls <page>Material:SetMaterial</page>.
+
+<note>Will error if no material was set.</note>
+	</description>
+	<file line="4-L16">lua/vgui/imagecheckbox.lua</file>
+	<realm>Client</realm>
+	<args>
+		<arg name="mat" type="string">The file path of the material to set (relative to "garrysmod/materials/").</arg>
+	</args>
+</function>

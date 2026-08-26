@@ -1,0 +1,7 @@
+<function name="GetFont" parent="DLabel" type="panelfunc">
+	<description>Returns the current font of the DLabel. This is set with <page>DLabel:SetFont</page>.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="string">The name of the font in use.</ret>
+	</rets>
+</function>

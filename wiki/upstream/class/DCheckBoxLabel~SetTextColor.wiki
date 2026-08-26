@@ -1,0 +1,17 @@
+<function name="SetTextColor" parent="DCheckBoxLabel" type="panelfunc">
+	<description>Sets the text color for the <page>DCheckBoxLabel</page>.</description>
+	<file line="134-L138">lua/vgui/dcheckbox.lua</file>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="color" type="Color">The text color. Uses the <page>Color</page>.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Creates a DCheckBoxLabel and changes the text color to red.</description>
+	<code>
+local LabelBox = vgui.Create( "DCheckBoxLabel" )
+LabelBox:SetTextColor( Color(255,0,0) )
+	</code>
+
+</example>

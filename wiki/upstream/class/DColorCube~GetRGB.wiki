@@ -1,0 +1,37 @@
+<function name="GetRGB" parent="DColorCube" type="panelfunc">
+	<description>An <page>Global.AccessorFunc</page> that returns the color cube's current set color.</description>
+	<realm>Client and Menu</realm>
+	<file line="6">lua/vgui/dcolorcube.lua</file>
+	<rets>
+		<ret name="" type="Color">The set color, uses <page>Color</page>.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Creates a color cube, sets the color to cyan, adjusts the saturation and value to 50% each, and prints out the final color.</description>
+	<code>
+local color_cube = vgui.Create("DColorCube")
+color_cube:SetSize(200, 200)
+color_cube:Center()
+
+-- Set color to cyan
+color_cube:SetColor(Color(0, 255, 255))
+
+-- 50% saturated, 50% valued
+color_cube:TranslateValues(0.5, 0.5)
+
+-- Print set color
+PrintTable(color_cube:GetRGB())
+	</code>
+	<output>
+
+```
+r	=	63
+b	=	127
+a	=	255
+g	=	127
+```
+
+	</output>
+
+</example>

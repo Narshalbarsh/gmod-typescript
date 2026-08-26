@@ -1,0 +1,15 @@
+<function name="GetModelBounds" parent="Entity" type="classfunc">
+	<description>Returns the entity's model bounds, not scaled by <page>Entity:SetModelScale</page>.
+
+These bounds are affected by all the animations the model has at compile time, if they go outside of the models' render bounds at any point.  
+See <page>Entity:GetModelRenderBounds</page> for just the render bounds of the model.
+
+This is different than the collision bounds/hull, which are set via <page>Entity:SetCollisionBounds</page>.
+
+</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Vector">The minimum vector of the bounds</ret>
+		<ret name="" type="Vector">The maximum vector of the bounds</ret>
+	</rets>
+</function>

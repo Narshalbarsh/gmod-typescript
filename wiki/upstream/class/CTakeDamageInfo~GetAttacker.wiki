@@ -1,0 +1,7 @@
+<function name="GetAttacker" parent="CTakeDamageInfo" type="classfunc">
+	<description>Returns the attacker ( character who originated the attack ), for example a player or an NPC that shot the weapon.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Entity">The attacker</ret>
+	</rets>
+</function>

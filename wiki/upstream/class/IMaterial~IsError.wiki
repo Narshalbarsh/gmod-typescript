@@ -1,0 +1,7 @@
+<function name="IsError" parent="IMaterial" type="classfunc">
+	<description>Returns whenever the material is valid, i.e. whether it was not loaded successfully from disk or not.</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Is this material the error material? (___error)</ret>
+	</rets>
+</function>

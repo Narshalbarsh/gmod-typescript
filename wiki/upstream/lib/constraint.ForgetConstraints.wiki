@@ -1,0 +1,8 @@
+<function name="ForgetConstraints" parent="constraint" type="libraryfunc">
+	<description>Make this entity forget any constraints it knows about. Note that this will not actually remove the constraints.</description>
+	<realm>Server</realm>
+	<file line="1574-L1578">lua/includes/modules/constraint.lua</file>
+	<args>
+		<arg name="ent" type="Entity">The entity that will forget its constraints.</arg>
+	</args>
+</function>

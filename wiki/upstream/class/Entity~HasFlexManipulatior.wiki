@@ -1,0 +1,38 @@
+<function name="HasFlexManipulatior" parent="Entity" type="classfunc">
+	<description>Returns whether or not the the entity has had flex manipulations performed with <page>Entity:SetFlexWeight</page> or <page>Entity:SetFlexScale</page>.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">True if the entity has flex manipulations, false otherwise.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Defines server-side function which manipulates all of an entity's flexes and prints true if the entity has flex manipulations.</description>
+	<code>
+function FlexExample(ent)
+
+	if(!IsValid(ent)) then return end
+	
+	-- Loop through all flexes
+	for i = 0, ent:GetFlexNum()-1 do
+	
+		-- Set each flex to number ranging from 0.0 to 2.0
+		ent:SetFlexWeight(i, math.random()*2)
+		
+	end
+	
+	-- Print whether or not we have flex manipulations
+	print(ent:HasFlexManipulatior())
+
+end
+	</code>
+	<output>
+
+```
+true
+```
+
+<image src="Entity_HasFlexManipulatior_example1.jpg"/>
+	</output>
+
+</example>

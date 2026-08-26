@@ -1,0 +1,7 @@
+<function name="BrushMaterialOverride" parent="render" type="libraryfunc">
+	<description>This function overrides the brush material for next render operations. It can be used with <page>Entity:DrawModel</page>.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="mat" type="IMaterial" default="nil"></arg>
+	</args>
+</function>

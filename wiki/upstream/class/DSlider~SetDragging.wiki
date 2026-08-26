@@ -1,0 +1,11 @@
+<function name="SetDragging" parent="DSlider" type="panelfunc">
+	<description>
+<internal></internal>
+
+Sets whether or not the slider is being dragged.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="dragging" type="boolean"></arg>
+	</args>
+</function>

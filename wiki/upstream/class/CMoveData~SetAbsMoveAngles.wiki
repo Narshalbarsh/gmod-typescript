@@ -1,0 +1,7 @@
+<function name="SetAbsMoveAngles" parent="CMoveData" type="classfunc">
+	<description>Sets absolute move angles.( ? ) Doesn't seem to do anything.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="ang" type="Angle">New absolute move angles</arg>
+	</args>
+</function>

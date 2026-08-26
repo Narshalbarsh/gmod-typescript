@@ -1,0 +1,16 @@
+<function name="SetLagCompensated" parent="Entity" type="classfunc">
+	<description>
+This allows the entity to be lag compensated during <page>Player:LagCompensation</page>.
+
+<note>Players are lag compensated by default and there's no need to call this function for them.
+
+It's best to not enable lag compensation on parented entities, as the system does not handle it that well ( they will be moved back but then the entity will lag behind ).
+Parented entities move back with the parent if it's lag compensated, so if you are making some kind of armor piece you shouldn't do anything.</note>
+
+As a side note for parented entities, if your entity can be shot at, keep in mind that its collision bounds need to be bigger than the bone's hitbox the entity is parented to, or hull/line traces ( such as the crowbar attack or bullets ) might not hit at all.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="enable" type="boolean">Whether the entity should be lag compensated or not.</arg>
+	</args>
+</function>

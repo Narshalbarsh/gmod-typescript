@@ -1,0 +1,22 @@
+<function name="OnNPCKilled" parent="GM" type="hook">
+	<description>Called whenever an NPC is killed.</description>
+	<file line="74-L138">gamemodes/base/gamemode/npc.lua</file>
+	<realm>Server</realm>
+	<args>
+		<arg name="npc" type="NPC">The killed NPC</arg>
+		<arg name="attacker" type="Entity">The NPCs attacker, the entity that gets the kill credit, for example a player or an NPC.</arg>
+		<arg name="inflictor" type="Entity">Death inflictor. The entity that did the killing. Not necessarily a weapon.</arg>
+	</args>
+
+</function>
+
+<example>
+	<description>Spawns an explosion effect on an NPC when they die.</description>
+	<code> 
+hook.Add( "OnNPCKilled", "ExplosionEffectOnNPCDeath", function( npc, attacker, inflictor )
+	local effectData = EffectData()
+	effectData:SetOrigin( npc:GetPos() )
+	util.Effect( "Explosion", effectData )
+end)
+	</code>
+</example>

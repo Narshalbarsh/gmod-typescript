@@ -1,0 +1,13 @@
+<function name="SetRenderAngles" parent="Entity" type="classfunc">
+	<description>Sets the render angles override for the entity. <page>Entity:GetAngles</page> will return the value set by this function until the override is disabled. (This is all this does internally)
+
+See <page>Entity:SetRenderOrigin</page> for the function to manipulate origin.
+
+Not to be confused with <page>Player:SetRenderAngles</page>.
+</description>
+	<realm>Client</realm>
+	<file line="16">lua/includes/extensions/client/entity.lua</file>
+	<args>
+		<arg name="newAngles" type="Angle|nil" default="nil">The new render angles to be set to. To disable the override, set to <page>nil</page>.</arg>
+	</args>
+</function>

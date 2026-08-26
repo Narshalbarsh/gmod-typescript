@@ -1,0 +1,19 @@
+<function name="SetStencilEnable" parent="render" type="libraryfunc">
+	<description>
+Enables or disables the Stencil system for future draw operations.
+
+While enabled, all pixels affected by draw operations will have their corresponding values in the active <page text="Render Target's">render_rendertargets</page> Stencil Buffer compared against the current <page text="Reference Value">render.SetStencilReferenceValue</page> and their current Depth Buffer value compared against the depth of the corresponding pixel from the draw operation.  
+Depending on the outcomes of these comparisons, one of either the <page text="Pass">render.SetStencilPassOperation</page>, <page text="Fail">render.SetStencilFailOperation</page>, or <page text="Z-Fail">render.SetStencilZFailOperation</page> operations is performed on the pixel's Stencil Buffer value.  
+A pixel will only be updated in the active <page text="Render Target">render_rendertargets</page> if the <page text="Pass Operation">render.SetStencilPassOperation</page> is performed.
+
+For more detailed information on the Stencil system, including usage examples, see the <page text="Stencils Render Reference">render_stencils</page> page.
+
+<note>The Stencil system's configuration does **not** reset automatically.  
+To prevent unexpected behavior, always manually ensure that the Stencil system is configured appropriately for your use-case after enabling it.</note>
+
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="newState" type="boolean">The new state.</arg>
+	</args>
+</function>

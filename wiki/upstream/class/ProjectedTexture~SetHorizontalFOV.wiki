@@ -1,0 +1,11 @@
+<function name="SetHorizontalFOV" parent="ProjectedTexture" type="classfunc">
+	<description>
+Sets the horizontal angle of projection without affecting the vertical angle.
+
+You must call <page>ProjectedTexture:Update</page> after using this function for it to take effect.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="hFOV" type="number">The new horizontal Field Of View for the projected texture. Must be in range between 0 and 180.</arg>
+	</args>
+</function>

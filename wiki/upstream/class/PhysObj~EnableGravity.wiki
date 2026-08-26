@@ -1,0 +1,7 @@
+<function name="EnableGravity" parent="PhysObj" type="classfunc">
+	<description>Sets whether the PhysObject should be affected by gravity</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="enable" type="boolean">True to enable, false to disable.</arg>
+	</args>
+</function>

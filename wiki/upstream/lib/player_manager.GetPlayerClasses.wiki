@@ -1,0 +1,9 @@
+<function name="GetPlayerClasses" parent="player_manager" type="libraryfunc">
+	<description>Retrieves a copy of all registered player classes.</description>
+	<realm>Shared</realm>
+	<file line="300-L304">lua/includes/modules/player_manager.lua</file>
+	<added>2020.10.14</added>
+	<rets>
+		<ret name="" type="table">A copy of all registered player classes.</ret>
+	</rets>
+</function>

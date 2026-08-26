@@ -1,0 +1,12 @@
+<function name="ReadBool" parent="net" type="libraryfunc">
+	<description>
+Reads a boolean from the received net message.
+
+<warning>You **must** read information in same order as you write it.</warning>
+	</description>
+	<realm>Shared</realm>
+	<file line="47-L51">lua/includes/extensions/net.lua</file>
+	<rets>
+		<ret name="" type="boolean">`true` or `false`, or `false` if the bool could not be read.</ret>
+	</rets>
+</function>

@@ -1,0 +1,3 @@
+<type name="player_manager" category="libraryfunc" is="library">
+	<summary>The player_manager library lets you manage players, such as setting their models or creating player classes.</summary>
+</type>

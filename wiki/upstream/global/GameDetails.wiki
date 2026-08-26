@@ -1,0 +1,42 @@
+<function name="GameDetails" parent="Global" type="libraryfunc">
+	<description>Callback function for when the client has joined a server. This function shows the server's loading URL by default.</description>
+	<realm>Menu</realm>
+	<file line="249-L274">lua/menu/loading.lua</file>
+	<args>
+		<arg name="servername" type="string">Server's name.</arg>
+		<arg name="serverurl" type="string">Server's loading screen URL, or "" if the URL is not set.</arg>
+		<arg name="mapname" type="string">Server's current map's name.</arg>
+		<arg name="maxplayers" type="number">Max player count of server.</arg>
+		<arg name="steamid" type="string">The local player's <page>Player:SteamID64</page>.</arg>
+		<arg name="gamemode" type="string">Server's current gamemode's folder name.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Prints GameDetails of the server you join to console, and preserves default behavior.</description>
+	<code>
+local OldGameDetails = GameDetails
+function GameDetails( servername, serverurl, mapname, maxplayers, steamid, gamemode )
+	print( 1, servername )
+	print( 2, serverurl )
+	print( 3, mapname )
+	print( 4, maxplayers )
+	print( 5, steamid )
+	print( 6, gamemode )
+	OldGameDetails( servername, serverurl, mapname, maxplayers, steamid, gamemode )
+end
+	</code>
+	<output>
+
+```
+1	ZerfTestServer
+2	
+3	gm_construct
+4	8
+5	76561198052589582
+6	sandbox
+```
+
+	</output>
+
+</example>

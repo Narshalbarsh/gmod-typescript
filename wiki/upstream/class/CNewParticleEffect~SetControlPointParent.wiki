@@ -1,0 +1,8 @@
+<function name="SetControlPointParent" parent="CNewParticleEffect" type="classfunc">
+	<description>Essentially makes child control point follow the parent control point.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="childID" type="number">The child control point ID, 0 to 63.</arg>
+		<arg name="parentID" type="number">The parent control point ID, 0 to 63.</arg>
+	</args>
+</function>

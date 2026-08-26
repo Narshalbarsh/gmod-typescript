@@ -1,0 +1,10 @@
+<function name="GravGunPickupAllowed" parent="ENTITY" type="hook">
+	<description>Called by <page>GM:GravGunPickupAllowed</page> on ALL entites in Sandbox-derived  gamemodes and acts as an override.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ply" type="Player">The player aiming at us</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return true to allow the entity to be picked up</ret>
+	</rets>
+</function>

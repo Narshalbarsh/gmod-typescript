@@ -1,0 +1,32 @@
+<function name="SetTooltip" parent="Panel" type="classfunc">
+	<file line="301-L303">lua/includes/extensions/client/panel.lua</file>
+	<description>Sets the tooltip to be displayed when a player hovers over the panel object with their cursor.
+
+By default, <page>DTooltip</page> will be used. <page>Panel:SetTooltipPanelOverride</page> can be used to override the tooltip panel.
+</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="str" type="string" default="nil">The text to be displayed in the tooltip. Set `nil` to disable it.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Give DButton a tooltip, that will be automatically shown when the player hovers over the button for a certain amount of time, decided by `tooltip_delay` <page>ConVar</page>.</description>
+	<code>
+concommand.Add( "test_tooltip", function( ply )
+	local frame = vgui.Create( "DFrame" )
+	frame:SetSize( 200, 200 )
+	frame:Center()
+	frame:MakePopup()
+
+	local btn = frame:Add( "DButton" )
+	btn:SetPos( 20, 40 )
+	btn:SetSize( 100, 64 )
+	btn:SetText( "Hover over me!" )
+	btn:SetTooltip( "I am the tooltip text!" )
+end )
+	</code>
+	<output>
+<upload src="70c/8de029dfe107ffc.gif" size="12567" name="October03-1797-gmod.gif" />
+</output>
+</example>

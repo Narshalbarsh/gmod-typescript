@@ -1,0 +1,45 @@
+<function name="DrawQuadEasy" parent="render" type="libraryfunc">
+	<description>
+Draws a quad. Expects material to be set by <page>render.SetMaterial</page>.
+
+<rendercontext hook="false" type="3D"></rendercontext>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="position" type="Vector">Origin of the sprite.</arg>
+		<arg name="normal" type="Vector">The face direction of the quad.</arg>
+		<arg name="width" type="number">The width of the quad.</arg>
+		<arg name="height" type="number">The height of the quad.</arg>
+		<arg name="color" type="Color">The color of the quad.</arg>
+		<arg name="rotation" type="number" default="0">The rotation of the quad counter-clockwise in degrees around the normal axis. In other words, the quad will always face the same way but this will rotate its corners.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Example usage of this function.</description>
+	<code>
+local mat = Material( "sprites/sent_ball" )
+local mat2 = Material( "models/wireframe" )
+hook.Add("PostDrawTranslucentRenderables", "DrawQuadEasyExample", function()
+
+	-- Draw a rotating circle under local player
+	render.SetMaterial( mat )
+	local pos = LocalPlayer():GetPos()
+	render.DrawQuadEasy( pos + Vector( 0, 0, 1 ), Vector( 0, 0, 1 ), 64, 64, Color( 255, 255, 255, 200 ), ( CurTime() * 50 ) % 360 )
+
+	-- Draw 3 rotating wireframe quads where local player is looking at
+	render.SetMaterial( mat2 )
+	local tr = LocalPlayer():GetEyeTrace()
+	render.DrawQuadEasy( tr.HitPos + tr.HitNormal, tr.HitNormal, 64, 64, Color( 255, 255, 255 ), ( CurTime() * 50 ) % 360 )
+
+	local dir = tr.HitNormal:Angle()
+	dir:RotateAroundAxis( tr.HitNormal, ( CurTime() * 50 ) % 360 )
+	dir = dir:Up()
+
+	-- We need to call this function twice, once for each side
+	render.DrawQuadEasy( tr.HitPos + tr.HitNormal * 32, dir, 64, 64, Color( 255, 255, 255 ), 0 )
+	render.DrawQuadEasy( tr.HitPos + tr.HitNormal * 32, -dir, 64, 64, Color( 255, 255, 255 ), 0 )
+end )
+	</code>
+
+</example>

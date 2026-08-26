@@ -1,0 +1,9 @@
+<function name="SetMovementScale" parent="DAdjustableModelPanel" type="panelfunc">
+	<description>Sets the movement speed multiplier. Currently this only affects first person camera controls.</description>
+	<realm>Client</realm>
+	<file line="5">lua/vgui/dadjustablemodelpanel.lua</file>
+	<added>2024.05.09</added>
+	<args>
+		<arg name="" type="number">The movement scale, where `1` is normal, `2` is double, etc.</arg>
+	</args>
+</function>

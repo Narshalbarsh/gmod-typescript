@@ -1,0 +1,7 @@
+<function name="SetTextStyleColor" parent="DLabelURL" type="panelfunc">
+	<description>Sets the base text color of the <page>DLabelURL</page>. This is overridden by <page>DLabelURL:SetTextColor</page>.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="color" type="Color">The <page>Color</page> to set</arg>
+	</args>
+</function>

@@ -1,0 +1,15 @@
+<function name="ViewPunch" parent="Player" type="classfunc">
+	<description>Simulates a push on the client's screen. This **adds** view punch velocity, and does not reset the current view punch angle, for which you can use <page>Player:SetViewPunchAngles</page>.
+
+<note>Despite being defined shared, it only functions when called server-side.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="punchAngle" type="Angle">The angle in which to push the player's screen.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Knocks the player's camera upward</description>
+	<code>Entity( 1 ):ViewPunch( Angle( -10, 0, 0 ) )</code>
+</example>

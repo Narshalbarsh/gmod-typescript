@@ -1,0 +1,13 @@
+<function name="SetSquad" parent="NPC" type="classfunc">
+	<description>Assigns the NPC to a new squad. A squad can have up to 16 NPCs. NPCs in a single squad should be friendly to each other.
+
+See also <page>ai.GetSquadMembers</page> and <page>NPC:GetSquad</page>.
+
+NPCs within the same squad are meant to function more effectively, tactics wise.
+</description>
+	<realm>Server</realm>
+	<added>2021.01.27</added>
+	<args>
+		<arg name="name" type="string" default="nil">The new squad name to set. Do not provide this argument to reset the squad.</arg>
+	</args>
+</function>

@@ -1,0 +1,7 @@
+<function name="SetupWorldFog" parent="GM" type="hook">
+	<description>Allows you to use render.Fog* functions to manipulate world fog.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="boolean">Return true to tell the engine that fog is set up</ret>
+	</rets>
+</function>

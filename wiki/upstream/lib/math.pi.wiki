@@ -1,0 +1,39 @@
+<function name="pi" parent="math" type="libraryfield">
+	<description>
+A variable containing the mathematical constant pi. (`3.1415926535898`)
+
+See also: <page>Trigonometry</page>
+
+<note>It should be noted that due to the nature of floating point numbers, results of calculations with `math.pi` may not be what you expect. See second example below.</note>
+</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="number">The mathematical constant, Pi.</ret>
+	</rets>
+</function>
+
+<example>
+<code>
+print( math.cos( math.pi ) )
+</code>
+<output>
+```
+-1
+```
+</output>
+</example>
+
+<example>
+<description>
+
+`sin(π) = 0`, but because floating point precision is not unlimited it cannot be calculated as exactly `0`.
+</description>
+<code>
+print( math.sin( math.pi ), math.sin( math.pi ) == 0 )
+</code>
+<output>
+```
+1.2246467991474e-16 false
+```
+</output>
+</example>

@@ -1,0 +1,10 @@
+<function name="GetHindrance" parent="PathFollower" type="classfunc">
+	<realm>Server</realm>
+	<description>
+<deprecated>Currently always returns NULL due to internal implementation of Lua Nextbots, where nothing is considered a hindrance, so do not try to use.</deprecated>
+
+Returns the entity the bot is currently trying to avoid.</description>
+	<rets>
+		<ret name="" type="Entity">The current path hindrance, if any.</ret>
+	</rets>
+</function>

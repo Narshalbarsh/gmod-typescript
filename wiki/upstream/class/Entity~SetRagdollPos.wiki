@@ -1,0 +1,8 @@
+<function name="SetRagdollPos" parent="Entity" type="classfunc">
+	<description>Sets the bone position. This is used alongside Kinect in <page>Entity:SetRagdollBuildFunction</page>, for more info see ragdoll_motion entity.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="boneid" type="number">Bone ID</arg>
+		<arg name="pos" type="Vector">Position to set</arg>
+	</args>
+</function>

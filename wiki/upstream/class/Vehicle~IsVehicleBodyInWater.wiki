@@ -1,0 +1,7 @@
+<function name="IsVehicleBodyInWater" parent="Vehicle" type="classfunc">
+	<description>Returns whether this vehicle's engine is underwater or not. ( Internally the attachment point "engine" or "vehicle_engine" is checked )</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="boolean">Whether this vehicle's engine is underwater or not.</ret>
+	</rets>
+</function>

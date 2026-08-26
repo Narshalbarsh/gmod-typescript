@@ -1,0 +1,13 @@
+<function name="InvalidateInternalEntityCache" parent="Global" type="libraryfunc">
+	<description>
+<internal></internal>
+Called by the engine before <page>GM:OnEntityCreated</page> and after <page>GM:EntityRemoved</page> hooks are called.
+Internally used to clear the <page>player.Iterator</page> or <page>ents.Iterator</page> cache
+	</description>
+	<realm>Shared</realm>
+	<added>2025.06.12</added>
+	<file line="22-L28">lua/includes/extensions/entity_iter.lua</file>
+	<args>
+		<arg name="isPly" type="boolean">Reset the <page>player.Iterator</page> cache</arg>
+	</args>
+</function>

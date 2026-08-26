@@ -1,0 +1,15 @@
+<enum>
+	<realm>Shared</realm>
+
+	<description>Enumerations used in <page>GM:PlayerStepSoundTime</page> hook.</description>
+	<items>
+<item key="STEPSOUNDTIME_NORMAL" value="0">Normal step</item>
+
+<item key="STEPSOUNDTIME_ON_LADDER" value="1">Step on ladder</item>
+
+<item key="STEPSOUNDTIME_WATER_KNEE" value="2">Step in water, with water reaching knee</item>
+
+<item key="STEPSOUNDTIME_WATER_FOOT" value="3">Step in water, with water reaching foot</item>
+	</items>
+
+</enum>

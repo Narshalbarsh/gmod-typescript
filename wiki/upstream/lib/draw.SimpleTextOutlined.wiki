@@ -1,0 +1,24 @@
+<function name="SimpleTextOutlined" parent="draw" type="libraryfunc">
+	<description>
+Creates a simple line of text that is outlined.
+
+<rendercontext hook="false" type="2D"></rendercontext>
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="96-L114">lua/includes/modules/draw.lua</file>
+	<args>
+		<arg name="Text" type="string">The text to draw.</arg>
+		<arg name="font" type="string" default="DermaDefault">The font name to draw with. See <page>surface.CreateFont</page> to create your own, or <page text="here">Default_Fonts</page> for a list of default fonts.</arg>
+		<arg name="x" type="number" default="0">The X Coordinate.</arg>
+		<arg name="y" type="number" default="0">The Y Coordinate.</arg>
+		<arg name="color" type="Color" default="Color( 255, 255, 255, 255 )">The color of the text.</arg>
+		<arg name="xAlign" type="number" default="TEXT_ALIGN_LEFT">The alignment of the X Coordinate using <page>Enums/TEXT_ALIGN</page>.</arg>
+		<arg name="yAlign" type="number" default="TEXT_ALIGN_TOP">The alignment of the Y Coordinate using <page>Enums/TEXT_ALIGN</page>.</arg>
+		<arg name="outlinewidth" type="number">Width of the outline.</arg>
+		<arg name="outlinecolor" type="Color" default="Color( 255, 255, 255, 255 )">Color of the outline. Uses the <page>Color</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The width of the text. Same value as if you were calling <page>surface.GetTextSize</page>.</ret>
+		<ret name="" type="number">The height of the text. Same value as if you were calling <page>surface.GetTextSize</page>.</ret>
+	</rets>
+</function>

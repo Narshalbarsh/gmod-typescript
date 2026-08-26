@@ -1,0 +1,12 @@
+<function name="InsertNode" parent="DTree_Node" type="panelfunc">
+	<description>
+<internal></internal>
+
+Inserts an existing node as a "child" or a sub-node of this node.
+Used internally by the drag'n'drop functionality.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="node" type="Panel">Has to be <page>DTree_Node</page></arg>
+	</args>
+</function>

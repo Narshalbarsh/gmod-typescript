@@ -1,0 +1,9 @@
+<function name="SetVelocityScale" parent="CLuaParticle" type="classfunc">
+	<description>Automatically scales the length of the particle based on the particle speed, multiplied with <page>CLuaParticle:SetStartLength</page> and <page>CLuaParticle:SetEndLength</page>. Width remains the same as <page>CLuaParticle:SetStartSize</page> and <page>CLuaParticle:SetEndSize</page>. 
+
+</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="doScale" type="boolean" default="false">Use velocity scaling.</arg>
+	</args>
+</function>

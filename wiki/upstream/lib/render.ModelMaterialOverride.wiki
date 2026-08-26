@@ -1,0 +1,15 @@
+<function name="ModelMaterialOverride" parent="render" type="libraryfunc">
+	<description>
+		Forces all future draw operations to use a specific <page>IMaterial</page>.  
+		
+		Because this is independent of a specific <page>Entity</page>, it can be used to change materials on static models that are part of maps.
+
+<warning>In certain scenarios such as during entity's shadow pass, using this function can cause unexpected side effects. See example on <page>render.MaterialOverride</page> about dealing with this.</warning>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="material" type="IMaterial" default="nil">
+			The <page>IMaterial</page> that will be used for all upcoming draw operations, or `nil` to stop overriding. 
+		</arg>
+	</args>
+</function>

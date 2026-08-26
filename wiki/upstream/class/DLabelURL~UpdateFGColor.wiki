@@ -1,0 +1,4 @@
+<function name="UpdateFGColor" parent="DLabelURL" type="panelfunc">
+	<description><internal></internal>Used internally to set correct text color via <page>Panel:SetFGColor</page> and <page>DLabelURL:GetColor</page>.</description>
+	<realm>Client and Menu</realm>
+</function>

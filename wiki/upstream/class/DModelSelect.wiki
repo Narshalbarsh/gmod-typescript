@@ -1,0 +1,41 @@
+<panel>
+	<name>DModelSelect</name>
+	<parent>DPanelSelect</parent>
+	<realm>Client</realm>
+	<file line="">lua/vgui/dmodelselect.lua</file>
+	<description>
+		<deprecated>
+			This is derived from the deprecated <page>DPanelList</page>.
+		</deprecated>
+
+		A vertical list of models.
+	</description>
+	<preview>dmodelselect.png</preview>
+</panel>
+
+
+<example>
+	<description>Creates a DModelSelect within a <page>DFrame</page> and adds four models.</description>
+	<code>
+-- Create a table of models
+local models = {
+	["models/props_c17/oildrum001_explosive.mdl"] = {}, 
+	["models/props_c17/oildrum001.mdl"] = {}, 
+	["models/props_junk/TrafficCone001a.mdl"] = {},
+	["models/props_c17/gravestone004a.mdl"] = {}
+}
+	
+local frame = vgui.Create("DFrame")
+frame:SetSize(220, 220)
+frame:SetTitle("DModelSelect Example")
+frame:MakePopup()
+frame:Center()
+
+local mselect = vgui.Create( "DModelSelect", frame ) 
+mselect:SetModelList( models, "", false, true )
+mselect:SetSize(150, 150)
+mselect:Center()
+	</code>
+	<output><image src="dmodelselect.png"/></output>
+
+</example>

@@ -1,0 +1,11 @@
+<function name="WritableKeysInTable" parent="saverestore" type="libraryfunc">
+	<description>Returns how many writable keys are in the given table.</description>
+	<realm>Shared</realm>
+	<file line="132-L144">lua/includes/modules/saverestore.lua</file>
+	<args>
+		<arg name="table" type="table">The table to test.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The number of keys that can be written with <page>saverestore.WriteTable</page>.</ret>
+	</rets>
+</function>

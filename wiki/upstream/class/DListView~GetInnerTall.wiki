@@ -1,0 +1,11 @@
+<function name="GetInnerTall" parent="DListView" type="panelfunc">
+	<description>
+Returns the height of <page>DListView:GetCanvas</page>.
+
+Intended to represent the height of all data lines.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The height of <page>DListView:GetCanvas</page>.</ret>
+	</rets>
+</function>

@@ -1,0 +1,12 @@
+<function name="GetShadowDepthBias" parent="ProjectedTexture" type="classfunc">
+	<description>
+Returns the shadow depth bias of the projected texture.
+
+Set by <page>ProjectedTexture:SetShadowDepthBias</page>.
+	</description>
+	<added>2021.03.31</added>
+	<realm>Client</realm>
+	<rets>
+		<ret name="bias" type="number">The current shadow depth bias.</ret>
+	</rets>
+</function>

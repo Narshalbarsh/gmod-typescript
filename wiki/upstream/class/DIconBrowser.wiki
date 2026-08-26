@@ -1,0 +1,29 @@
+<panel>
+	<name>DIconBrowser</name>
+	<parent>DScrollPanel</parent>
+	<realm>Client and Menu</realm>
+	<file line="">lua/vgui/diconbrowser.lua</file>
+	<description>
+		Simply a <page>DIconLayout</page> which automatically displays all of the <page text="Silkicons">silkicons</page>. 
+		Used as a way to get the user to select an icon.
+	</description>
+</panel>
+
+
+<example>
+	<description>Creates a DIconBrowser which, when an icon is clicked, prints said icon's directory.</description>
+	<code>
+local DermaPanel = vgui.Create("DFrame")
+DermaPanel:SetSize(300, 200)
+DermaPanel:Center()
+DermaPanel:SetTitle("DIconBrowserExample")
+DermaPanel:MakePopup()
+
+local IconBrowser = DermaPanel:Add("DIconBrowser")
+IconBrowser:Dock(FILL)
+IconBrowser.OnChange = function(self)
+    chat.AddText("You selected: " .. self:GetSelectedIcon())
+end
+	</code>
+
+</example>

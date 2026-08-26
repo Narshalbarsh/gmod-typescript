@@ -1,0 +1,12 @@
+<function name="DistanceFrom" parent="Panel" type="classfunc">
+	<file line="430-L437">lua/includes/extensions/client/panel.lua</file>
+	<description>Returns the distance between the center of this panel object and a specified point **local to the parent panel**.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="posX" type="number">The horizontal (x) position in pixels of the point to compare with. Local to the parent panel, or container, not the panel the function is called on.</arg>
+		<arg name="posY" type="number">The vertical (y) position in pixels of the point to compare with. Local to the parent panel, or container, not the panel the function is called on.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The linear (straight-line) distance between the specified point local to parent panel and the center of this panel object.</ret>
+	</rets>
+</function>

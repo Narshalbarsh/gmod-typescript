@@ -1,0 +1,7 @@
+<function name="GetShadowAngles" parent="PhysObj" type="classfunc">
+	<description>Returns the angles of the <page>PhysObj</page> shadow. See <page>PhysObj:UpdateShadow</page>.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Angle">The angles of the <page>PhysObj</page> shadow.</ret>
+	</rets>
+</function>

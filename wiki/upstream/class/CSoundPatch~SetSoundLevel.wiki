@@ -1,0 +1,7 @@
+<function name="SetSoundLevel" parent="CSoundPatch" type="classfunc">
+	<description>Sets the sound level in decibel.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="level" type="number">The sound level in decibel. See <page>Enums/SNDLVL</page></arg>
+	</args>
+</function>

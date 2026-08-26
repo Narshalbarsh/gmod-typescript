@@ -1,0 +1,5 @@
+<function name="TestForChanges" parent="ContextBase" type="panelfunc">
+	<description>You should override this function and use it to check whether your convar value changed.</description>
+	<realm>Client</realm>
+	<file line="40-L45">lua/vgui/contextbase.lua</file>
+</function>

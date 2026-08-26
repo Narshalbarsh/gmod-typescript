@@ -1,0 +1,11 @@
+<function name="GetIndex" parent="PhysObj" type="classfunc">
+	<description>Returns the index this physics object is on its <page>PhysObj:GetEntity</page>.
+
+Useful for <page>Entity:TranslateBoneToPhysBone</page>.
+</description>
+	<realm>Shared</realm>
+	<added>2024.11.20</added>
+	<rets>
+		<ret name="" type="number">The physics object index on its parent entity.</ret>
+	</rets>
+</function>

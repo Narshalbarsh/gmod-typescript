@@ -1,0 +1,7 @@
+<function name="ReadChar" parent="bf_read" type="classfunc">
+	<description>Reads a signed char and returns a number from -127 to 127 representing the ascii value of that char.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">asciiVal</ret>
+	</rets>
+</function>

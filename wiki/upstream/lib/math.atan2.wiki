@@ -1,0 +1,68 @@
+<function name="atan2" parent="math" type="libraryfunc">
+	<description>
+functions like <page>math.atan</page>(y / x), except it also takes into account the quadrant of the angle and so doesn't have a limited range of output.
+
+<note>The Y argument comes first!</note>
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="y" type="number">Y coordinate.</arg>
+		<arg name="x" type="number">X coordinate.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The angle of the line from (0, 0) to (x, y) in radians, in the left-open interval (-pi, pi]</ret>
+	</rets>
+</function>
+
+<example>
+	<description>
+atan( 1 ) and atan2( 1, 1 ) are both math.pi / 4
+
+atan2( -1, -1 ) equals to ( (-3) * math.pi ) / 4
+	</description>
+	<code>
+print( atan( 1 ) )
+print( atan2( 1, 1 ) )
+print( atan2( -1, -1 ) )
+	</code>
+	<output>
+0.7853981633974483
+
+0.7853981633974483
+
+-2.356194490192345
+	</output>
+
+</example>
+
+<example>
+	<description>Draws an icon in the center of the screen that rotates relative to the position of the cursor. **Note**: you might have to use <page>Panel:LocalCursorPos</page> if you want to draw this inside a panel.</description>
+		<code>
+local icon = Material("icon16/emoticon_smile.png", "smooth")
+local iconSize = 64
+
+hook.Add("HUDPaint", "Atan2Example", function()
+	-- The point relative to which the angle will be calculated
+	-- We can assume that this is our "zero" coordinate
+	local centerX, centerY = ScrW()/2, ScrH()/2
+	-- The point for which we will look for the angle
+	local mouseX, mouseY = input.GetCursorPos()
+
+	-- Get the angle in radians
+	local angle = math.atan2(
+		centerY - mouseY,
+		mouseX - centerX
+	)
+	-- Convert to degrees
+	local deg = math.deg(angle)
+
+	surface.SetDrawColor(255, 255, 255, 255)
+	surface.SetMaterial(icon)
+	surface.DrawTexturedRectRotated(centerX, centerY, iconSize, iconSize, deg)
+
+	-- Just for debug
+	draw.SimpleText(deg, "DermaDefault", centerX, centerY + 40, color_white, TEXT_ALIGN_CENTER)
+end)
+
+		</code>
+</example>

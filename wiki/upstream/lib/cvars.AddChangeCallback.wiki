@@ -1,0 +1,35 @@
+<function name="AddChangeCallback" parent="cvars" type="libraryfunc">
+	<description>
+Adds a callback to be called when the named convar changes.
+
+<bug issue="1440">This does not callback convars in the menu state.</bug>
+<bug issue="3503">This does not callback convars on the client with FCVAR_GAMEDLL and convars on the server without FCVAR_GAMEDLL.</bug>
+<bug issue="3740">This does not callback convars on the client with FCVAR_REPLICATED.</bug>
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="54-L81">lua/includes/modules/cvars.lua</file>
+	<args>
+		<arg name="name" type="string">The name of the convar to add the change callback to.</arg>
+		<arg name="callback" type="function">The function to be called when the convar changes. 
+<callback>
+<arg type="string" name="convar">The name of the convar.</arg>
+<arg type="string" name="oldValue">The old value of the convar.</arg>
+<arg type="string" name="newValue">The new value of the convar.</arg>
+</callback>
+</arg>
+		<arg name="identifier" type="string" default="nil">If set, you will be able to remove the callback using <page>cvars.RemoveChangeCallback</page>.
+
+ The identifier is not required to be globally unique, as it's paired with the actual name of the convar.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Called when convar changes.</description>
+	<code>
+cvars.AddChangeCallback("convar name", function(convar_name, value_old, value_new)
+    print(convar_name, value_old, value_new)
+end)
+	</code>
+	<output>"convar name" 2 5</output>
+
+</example>

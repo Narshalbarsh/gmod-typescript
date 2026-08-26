@@ -1,0 +1,33 @@
+<function name="SelectWeapon" parent="Player" type="classfunc">
+	<description>
+Sets the active weapon of the player by its class name.
+
+<warning>This will switch the weapon out of prediction, causing delay on the client and <page>WEAPON:Deploy</page> and <page>WEAPON:Holster</page> to be called out of prediction. Try using <page>CUserCmd:SelectWeapon</page> or <page>input.SelectWeapon</page>, instead.</warning>
+
+<note>This will trigger the weapon switch event and associated animations. To switch weapons silently, use <page>Player:SetActiveWeapon</page>.</note>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="className" type="string">The class name of the weapon to switch to.
+
+If the player doesn't have the specified weapon, nothing will happen. You can use <page>Player:Give</page> to give the weapon first.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Force the player to switch to toolgun</description>
+	<code>Entity( 1 ):SelectWeapon( "gmod_tool" )</code>
+
+</example>
+
+
+<example>
+	<description>Selects a random weapon from the player's inventory and switches to it.</description>
+	<code>
+local weapons = Entity( 1 ):GetWeapons()
+local weapon = weapons[ math.random( #weapons ) ]
+
+Entity( 1 ):SelectWeapon( weapon:GetClass() )
+	</code>
+
+</example>

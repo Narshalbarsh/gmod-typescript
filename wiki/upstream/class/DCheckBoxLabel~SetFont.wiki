@@ -1,0 +1,8 @@
+<function name="SetFont" parent="DCheckBoxLabel" type="panelfunc">
+	<description>Sets the font of the text part of the <page>DCheckBoxLabel</page>.</description>
+	<realm>Client and Menu</realm>
+	<file line="156-L161">lua/vgui/dcheckbox.lua</file>
+	<args>
+		<arg name="font" type="string">Font name</arg>
+	</args>
+</function>

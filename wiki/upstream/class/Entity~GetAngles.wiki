@@ -1,0 +1,22 @@
+<function name="GetAngles" parent="Entity" type="classfunc">
+	<description>
+Gets the angles of given entity.
+
+<bug issue="2764">This returns incorrect results for the local player clientside.</bug>
+
+<bug issue="3106">This will return the local player's <page>Global.EyeAngles</page> in <page text="rendering hooks">3D_Rendering_Hooks</page>.</bug>
+
+<bug issue="3107">This will return <page>Global.Angle</page>(0,0,0) in <page text="rendering hooks">3D_Rendering_Hooks</page> while paused in single-player.</bug>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Angle">The angles of the entity.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints the 1st player's angles.</description>
+	<code>print( Entity( 1 ):GetAngles() )</code>
+	<output>Something like "0.000 34.529 0.000" in console.</output>
+
+</example>

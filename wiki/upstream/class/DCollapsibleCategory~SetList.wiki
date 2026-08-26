@@ -1,0 +1,11 @@
+<function name="SetList" parent="DCollapsibleCategory" type="panelfunc">
+	<description>
+Used internally by <page>DCategoryList</page> when it creates a <page>DCollapsibleCategory</page> during <page>DCategoryList:Add</page>.
+
+If set, <page>Panel:UnselectAll</page> will be called on the list, instead of calling it on the category panel itself when a category is clicked.</description>
+	<realm>Client and Menu</realm>
+	<file line="54">lua/vgui/dcategorycollapse.lua</file>
+	<args>
+		<arg name="pnl" type="Panel">The <page>Panel:UnselectAll</page> that is the "parent" of this panel.</arg>
+	</args>
+</function>

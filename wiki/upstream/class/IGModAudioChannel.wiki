@@ -1,0 +1,3 @@
+<type name="IGModAudioChannel" category="classfunc" is="class">
+	<summary>A sound channel returned by a callback of <page>sound.PlayURL</page> and <page>sound.PlayFile</page>.</summary>
+</type>

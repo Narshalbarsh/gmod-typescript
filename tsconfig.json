@@ -3,6 +3,8 @@
     "compilerOptions": {
         "lib": ["esnext"],
         "noEmit": true,
-        "skipLibCheck": true
+        "strict": true,
+        "skipLibCheck": false,
+        "types": ["@typescript-to-lua/language-extensions"]
     }
 }

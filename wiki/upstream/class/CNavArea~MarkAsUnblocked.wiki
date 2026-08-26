@@ -1,0 +1,8 @@
+<function name="MarkAsUnblocked" parent="CNavArea" type="classfunc">
+	<description>Unblocked this area if it was previously blocked by <page>CNavArea:MarkAsBlocked</page>.</description>
+	<realm>Server</realm>
+	<added>2023.10.05</added>
+	<args>
+		<arg name="teamID" type="number" default="-2">TeamID to unblock the area for. `-2` means all teams. Only 2 valid teamIDs are supported: `0` and `1`.</arg>
+	</args>
+</function>

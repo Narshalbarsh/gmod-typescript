@@ -1,0 +1,7 @@
+<function name="Blocked" parent="Entity" type="classfunc">
+	<description><internal></internal> Dispatches blocked events to this entity's blocked handler. This function is only useful when interacting with entities like func_movelinear.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="entity" type="Entity">The entity that is blocking us</arg>
+	</args>
+</function>

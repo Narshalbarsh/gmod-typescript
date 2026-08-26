@@ -1,0 +1,33 @@
+<ambig page="Entity:Use(function)">You might be looking for the "Entity:Use" method, which has the same name as this hook.</ambig>
+
+<function name="Use" parent="ENTITY" type="hook">
+	<description>
+Called when an entity "uses" this entity, for example a player pressing their `+use` key (default <key>E</key>) on this entity.
+
+To change how often the hook is called, see <page>Entity:SetUseType</page>.
+
+<note>This hook only works for `nextbot`, `ai` and `anim` scripted entity types.</note>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="activator" type="Entity">The entity that caused this input. This will usually be the player who pressed their use key.</arg>
+		<arg name="caller" type="Entity">The entity responsible for the input. This will typically be the same as `activator` unless some other entity is acting as a proxy.</arg>
+		<arg name="useType" type="number{USE}">Use type, see <page>Enums/USE</page>.</arg>
+		<arg name="value" type="number">Any passed value.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Kills any player that uses this entity.</description>
+	<code>
+function ENT:Use( activator )
+
+	if ( activator:IsPlayer() ) then 
+
+		activator:Kill()
+
+	end
+
+end
+	</code>
+</example>

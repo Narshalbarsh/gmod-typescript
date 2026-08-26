@@ -1,0 +1,63 @@
+<function name="ResetSequence" parent="Entity" type="classfunc">
+	<description>
+Plays an animation on the entity. This may not always work on engine entities.
+
+<warning>This will not reset the animation on viewmodels, use <page>Entity:SendViewModelMatchingSequence</page> instead.</warning>
+
+<note>This will not work properly if called directly after calling <page>Entity:SetModel</page>. Consider waiting until the next Tick.
+
+Will not work on players due to the animations being reset every frame by the base gamemode animation system. See <page>GM:CalcMainActivity</page>.
+
+For custom scripted entities you will want to apply example from <page>ENTITY:Think</page> to make animations work.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="sequence" type="number" alttype="string">The sequence to play. Also accepts strings.
+
+<note>If set to a string, the function will automatically call <page>Entity:LookupSequence</page> to retrieve the sequence ID as a number.</note></arg>
+	</args>
+</function>
+
+<example>
+	<description>
+Minimal code needed to make sequences work as expected on custom "anim" type entities.
+
+In this example, when the player uses the crate, it will open, and when they use it again, it will close.
+	</description>
+	<code>
+ENT.Base = "base_anim"
+ENT.Spawnable = true
+ENT.AutomaticFrameAdvance = true
+
+ENT.PrintName = "Animation Test"
+ENT.Category = "My Entity Category"
+
+function ENT:Initialize()
+	if ( SERVER ) then -- Only set this stuff on the server, it is networked to clients automatically
+		self:SetModel( "models/items/ammocrate_ar2.mdl" ) -- Set the model
+		self:PhysicsInit( SOLID_VPHYSICS ) -- Initialize physics
+		self:SetUseType( SIMPLE_USE ) -- Make sure ENT:Use is ran only once per use ( per press of the use button on the entity, by default the E key )
+	end
+end
+
+function ENT:Think()
+	if ( SERVER ) then -- Only set this stuff on the server
+		self:NextThink( CurTime() ) -- Set the next think for the serverside hook to be the next frame/tick
+		return true -- Return true to let the game know we want to apply the self:NextThink() call
+	end
+end
+
+if ( SERVER ) then -- This hook is only available on the server
+	function ENT:Use( activator, caller ) -- If a player uses this entity, play an animation
+		if ( !self.Opened ) then -- If we are not "opened"
+			self:ResetSequence( "open" ) -- Play the open sequence
+			self.Opened = true -- We are now opened
+		else
+			self:ResetSequence( "close" ) -- Play the close sequence
+			self.Opened = false -- We are now closed
+		end
+	end
+end
+	</code>
+
+</example>

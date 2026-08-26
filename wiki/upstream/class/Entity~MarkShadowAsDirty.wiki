@@ -1,0 +1,4 @@
+<function name="MarkShadowAsDirty" parent="Entity" type="classfunc">
+	<description>Refreshes the shadow of the entity.</description>
+	<realm>Client</realm>
+</function>

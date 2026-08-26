@@ -1,0 +1,7 @@
+<function name="SetSpaceY" parent="DTileLayout" type="panelfunc">
+	<description>Sets the spacing between 2 elements in the <page>DTileLayout</page> on the Y axis.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="spaceY" type="number">New Y axis spacing.</arg>
+	</args>
+</function>

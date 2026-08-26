@@ -10,7 +10,7 @@ declare function pairs<K extends string | number, V>(
     t: Readonly<LuaMap<K, V>>
 ): LuaIterable<LuaMultiReturn<[K, NonNullable<V>]>>;
 
-declare function pairs<K, V>(
+declare function pairs<K extends AnyNotNil, V>(
     t: LuaTable<K, V>
 ): LuaIterable<LuaMultiReturn<[K, NonNullable<V>]>>;
 

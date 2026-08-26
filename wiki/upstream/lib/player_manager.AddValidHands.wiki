@@ -1,0 +1,24 @@
+<function name="AddValidHands" parent="player_manager" type="libraryfunc">
+	<description>Assigns view model hands model to a specific player model.</description>
+	<realm>Shared</realm>
+	<file line="27-L34">lua/includes/modules/player_manager.lua</file>
+	<args>
+		<arg name="name" type="string">The internal player model name, as set in the first argument of <page>player_manager.AddValidModel</page>.</arg>
+		<arg name="model" type="string">Hands model.</arg>
+		<arg name="skin" type="number" default="0">Skin to apply to the hands.</arg>
+		<arg name="bodygroups" type="string" default="0000000">Bodygroups to apply to the hands. See <page>Entity:SetBodyGroups</page> for help with the format.</arg>
+		<arg name="matchBodySkin" type="boolean" default="false">If set to `true`, the skin of the hands will be set to the skin of the playermodel. 
+ This is useful when player models have multiple user-selectable skins.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Adds CS:S hands for hostage playermodels.</description>
+	<code>
+player_manager.AddValidHands( "hostage01", "models/weapons/c_arms_cstrike.mdl", 0, "10000000" )
+player_manager.AddValidHands( "hostage02", "models/weapons/c_arms_cstrike.mdl", 0, "10000000" )
+player_manager.AddValidHands( "hostage03", "models/weapons/c_arms_cstrike.mdl", 0, "10000000" )
+player_manager.AddValidHands( "hostage04", "models/weapons/c_arms_cstrike.mdl", 0, "10000000" )
+	</code>
+
+</example>

@@ -1,0 +1,11 @@
+<function name="IsVisible" parent="CNavArea" type="classfunc">
+	<description>Returns whether we can be seen from the given position.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="pos" type="Vector">The position to check.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether we can be seen or not.</ret>
+		<ret name="" type="Vector">If we can be seen, this is returned with either the center or one of the corners of the Nav Area.</ret>
+	</rets>
+</function>

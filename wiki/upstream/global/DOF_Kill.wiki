@@ -1,0 +1,5 @@
+<function name="DOF_Kill" parent="Global" type="libraryfunc">
+	<description>Cancels current DOF post-process effect started with <page>Global.DOF_Start</page></description>
+	<realm>Client</realm>
+	<file line="14-L30">lua/postprocess/dof.lua</file>
+</function>

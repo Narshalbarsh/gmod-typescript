@@ -1,0 +1,10 @@
+<function name="KeyPressed" parent="CMoveData" type="classfunc">
+	<description>Returns whether the key was pressed. If you want to check if the key is held down, try <page>CMoveData:KeyDown</page></description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="key" type="number">The key to test, see <page>Enums/IN</page></arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Was the key pressed or not.</ret>
+	</rets>
+</function>

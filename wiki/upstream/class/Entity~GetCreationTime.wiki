@@ -1,0 +1,9 @@
+<function name="GetCreationTime" parent="Entity" type="classfunc">
+	<description>Returns the time the entity was created on, relative to <page>Global.CurTime</page>.
+<bug>This returns `0` for clientside only entities, such as `class CLuaEffect`.</bug>
+</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The time the entity was created on.</ret>
+	</rets>
+</function>

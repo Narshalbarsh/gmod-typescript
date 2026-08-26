@@ -1,0 +1,11 @@
+<function name="RenderableFrames" parent="frame_blend" type="libraryfunc">
+	<description>
+<internal></internal>
+
+Returns amount of frames needed to render?
+	</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">Amount of frames needed to render?</ret>
+	</rets>
+</function>

@@ -1,0 +1,50 @@
+<function name="move" parent="table" type="libraryfunc">
+	<description>Moves elements from one part of a table to another part a given table. This is similar to assigning elements from the source table to the destination table in multiple assignments.
+	</description>
+	<realm>Shared and Menu</realm>
+	<added>2023.11.28</added>
+	<file line="781-L802">lua/includes/extensions/table.lua</file>
+	<args>
+		<arg name="sourceTbl" type="table">The source table from which the elements are to be moved.</arg>
+		<arg name="from" type="number">The start index of the source range from which the elements are to be moved.</arg>
+		<arg name="to" type="number">The end index of the source range until which the elements are to be moved.</arg>
+		<arg name="dest" type="number">The index within the destination table where the moved elements should be inserted.</arg>
+		<arg name="destTbl" type="table" default="sourceTbl">The destination table to which the elements are to be moved. By default, this is the same as the source table.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">The modified destination table.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Example of the this can be used.</description>
+	<code>
+local source = { "a", "b", "c", "d", "e" }
+local dest = { "f", "g", "h", "i", "j" }
+
+table.move( source, 3, 5, 1, dest )
+
+PrintTable( source )
+print( "\n" )
+PrintTable( dest )
+	</code>
+	<output>
+
+```
+1	=	a
+2	=	b
+3	=	c
+4	=	d
+5	=	e
+
+
+1	=	c
+2	=	d
+3	=	e
+4	=	i
+5	=	j
+```
+
+	</output>
+
+</example>

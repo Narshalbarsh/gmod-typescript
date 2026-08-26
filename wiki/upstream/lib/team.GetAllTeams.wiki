@@ -1,0 +1,27 @@
+<function name="GetAllTeams" parent="team" type="libraryfunc">
+	<description>Returns the real table consisting of information on every defined team</description>
+	<file line="34-L38">lua/includes/modules/team.lua</file>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="table">Team info</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints all Jobs/Teams on the server. The list in printed from lowest to highest. Information about join able to the player, the score of the team and the colors.</description>
+	<code>PrintTable( team.GetAllTeams() )</code>
+	<output>
+```
+0:
+		Color:
+				a	=	255
+				b	=	100
+				g	=	255
+				r	=	255
+		Joinable	=	false
+		Name	=	Joining/Connecting
+		Score	=	0
+```
+	</output>
+
+</example>

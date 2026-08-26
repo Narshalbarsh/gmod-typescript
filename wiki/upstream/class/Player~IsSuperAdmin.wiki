@@ -1,0 +1,11 @@
+<function name="IsSuperAdmin" parent="Player" type="classfunc">
+	<description>Returns whether the player is a super admin.
+
+Internally this is determined by <page>Player:IsUserGroup</page>. See also <page>Player:IsAdmin</page>.
+</description>
+	<realm>Shared</realm>
+	<file line="22-L26">lua/includes/extensions/player_auth.lua</file>
+	<rets>
+		<ret name="" type="boolean">True if the player is a super admin.</ret>
+	</rets>
+</function>

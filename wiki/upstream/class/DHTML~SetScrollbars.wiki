@@ -1,0 +1,7 @@
+<function name="SetScrollbars" parent="DHTML" type="panelfunc">
+	<description><deprecated>Broken. Use the CSS `overflow` rule instead.</deprecated> Sets if the loaded window should display scrollbars when the webpage is larger than the viewing window. This is similar to the CSS `overflow` rule.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="show" type="boolean">True if scrollbars should be visible.</arg>
+	</args>
+</function>

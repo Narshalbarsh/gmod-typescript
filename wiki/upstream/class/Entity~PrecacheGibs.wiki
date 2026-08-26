@@ -1,0 +1,13 @@
+<function name="PrecacheGibs" parent="Entity" type="classfunc">
+	<description>
+Precaches gibs for the entity's model.
+
+Normally this function should be ran when the entity is spawned, for example the <page>ENTITY:Initialize</page>, after <page>Entity:SetModel</page> is called.
+
+This is required for <page>Entity:GibBreakServer</page> and <page>Entity:GibBreakClient</page> to work.
+	</description>
+	<realm>Server</realm>
+<rets>
+	<ret name="gibCount" type="number">The amount of gibs the prop has</ret>
+</rets>
+</function>

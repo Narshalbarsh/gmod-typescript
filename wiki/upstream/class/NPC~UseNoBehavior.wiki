@@ -1,0 +1,8 @@
+<function name="UseNoBehavior" parent="NPC" type="classfunc">
+	<description>
+Undoes the other `Use*Behavior` functions.
+
+<note>This function only works on `ai` type [SENTs](Scripted_Entities).</note>
+	</description>
+	<realm>Server</realm>
+</function>

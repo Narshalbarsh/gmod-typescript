@@ -1,0 +1,31 @@
+<function name="BRANCH" parent="Global" type="libraryfield">
+	<description>
+		A variable containing a string indicating which (Beta) Branch of the game you are using.
+
+		While this variable is always available in the <page text="Client">States#client</page> & <page text="Menu">States#menu</page> realms, it is only defined in the <page text="Server">States#server</page>  realm on local servers.
+
+		For more information on beta branches, see <page text="this page">Dev_Branch</page>.
+ <br/><br/>
+		Branch List :
+* unknown **(No beta program)**
+* dev
+* prerelease
+* x86-64
+* network_test
+
+	<note>The Branch "network_test" might be one or more major live updates behind, as it is not merged from the other branches (e.g. prerelease) on regularly bases. This can also be true especially if the version number ([VERSION](https://wiki.facepunch.com/gmod/Global_Variables#version)) appears to be a newer date.</note>
+
+	</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="string">The current branch.</ret>
+	</rets>
+</function>
+
+<example>
+<code>
+if BRANCH == "dev" then
+	print("You are using the development branch!")
+end
+</code>
+</example>

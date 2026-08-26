@@ -1,0 +1,29 @@
+<function name="Keepupright" parent="constraint" type="libraryfunc">
+	<description>
+Creates a keep upright constraint.
+	</description>
+	<realm>Server</realm>
+	<file line="621-L662">lua/includes/modules/constraint.lua</file>
+	<args>
+		<arg name="ent" type="Entity">The entity to keep upright.</arg>
+		<arg name="ang" type="Angle">The angle defined as "upright".</arg>
+		<arg name="bone" type="number">The bone of the entity to constrain (0 for boneless).</arg>
+		<arg name="angularLimit" type="number">Basically, the strength of the constraint. Must be above 0.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Entity">The created constraint, if any or false if the constraint failed to set.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Adds a console command that makes whatever prop the player is looking at to be kept upright.</description>
+	<code>concommand.Add( "keep_upright",function( ply, cmd, args )
+	local tr = ply:GetEyeTrace()
+
+	local ent = tr.Entity
+	if ( !IsValid( ent ) ) then return end
+
+	constraint.Keepupright( ent, ent:GetAngles(), tr.PhysicsBone, 999999 )
+end )</code>
+
+</example>

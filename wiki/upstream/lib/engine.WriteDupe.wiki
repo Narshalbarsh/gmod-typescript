@@ -1,0 +1,11 @@
+<function name="WriteDupe" parent="engine" type="libraryfunc">
+	<description>
+<internal>Do not use.</internal>
+
+Saves a duplication as a file.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="dupe" type="string">Dupe table, encoded by <page>util.TableToJSON</page> and compressed by <page>util.Compress</page>.</arg>
+		<arg name="jpeg" type="string">The dupe icon, created by <page>render.Capture</page>.</arg>
+	</args>
+</function>

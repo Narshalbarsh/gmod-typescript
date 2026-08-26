@@ -1,0 +1,17 @@
+<function name="BoneLength" parent="Entity" type="classfunc">
+	<description>Returns the length between given bone's position and the position of given bone's parent.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="boneID" type="number">The ID of the bone you want the length of. You may want to get the length of the next bone ( boneID + 1 ) for decent results</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The length of the bone</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Returns first bones length of first player on the server</description>
+	<code>print( Entity( 1 ):BoneLength( 1 ) )</code>
+	<output>Returns 0</output>
+
+</example>

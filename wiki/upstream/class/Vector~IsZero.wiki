@@ -1,0 +1,17 @@
+<function name="IsZero" parent="Vector" type="classfunc">
+	<description>Checks whenever all fields of the vector are 0.</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Do all fields of the vector equal 0 or not</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Confirm that the Vector is indeed 0.</description>
+	<code>
+a = Vector(0, 0, 0)
+print(a:IsZero())
+	</code>
+	<output>true</output>
+
+</example>

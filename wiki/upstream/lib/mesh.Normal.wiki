@@ -1,0 +1,12 @@
+<function name="Normal" parent="mesh" type="libraryfunc">
+	<description>Sets the normal to be used for the next vertex. See <page>mesh.Begin</page>.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="normal" type="Vector">The normal of the vertex.</arg>
+	</args>
+	<args name="Direct numbers input">
+		<arg name="x" type="number">The X part of the vertex normal.</arg>
+		<arg name="y" type="number">The Y part of the vertex normal.</arg>
+		<arg name="z" type="number">The Z part of the vertex normal.</arg>
+	</args>
+</function>

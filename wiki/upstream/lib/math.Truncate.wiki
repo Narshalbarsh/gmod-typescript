@@ -1,0 +1,29 @@
+<function name="Truncate" parent="math" type="libraryfunc">
+	<description>Trim unwanted decimal places.</description>
+	<realm>Shared and Menu</realm>
+	<file line="168-L171">lua/includes/extensions/math.lua</file>
+	<args>
+		<arg name="num" type="number">The number to truncate</arg>
+		<arg name="digits" type="number" default="0">The amount of digits to keep after the point.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The result.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Demonstrates the use of this function.</description>
+	<code>
+local num = 54.59874
+
+print( math.Truncate( num, 2 ) ) -- 54.59
+print( math.Round( num, 2 ) ) -- 54.6
+	</code>
+	<output>
+```
+54.59
+54.6
+```
+	</output>
+
+</example>

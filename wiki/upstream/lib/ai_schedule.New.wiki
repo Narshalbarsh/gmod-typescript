@@ -1,0 +1,11 @@
+<function name="New" parent="ai_schedule" type="libraryfunc">
+	<description>Creates a schedule for scripted NPC.</description>
+	<realm>Server</realm>
+	<file line="89-L98">lua/includes/modules/ai_schedule.lua</file>
+	<args>
+		<arg name="name" type="string">Name of the schedule.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">A table containing schedule information to be used with <page>ENTITY:StartSchedule</page>.</ret>
+	</rets>
+</function>

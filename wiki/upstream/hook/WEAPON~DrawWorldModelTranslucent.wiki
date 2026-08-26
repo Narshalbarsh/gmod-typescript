@@ -1,0 +1,23 @@
+<function name="DrawWorldModelTranslucent" parent="WEAPON" type="hook">
+	<description>Called when we are about to draw the translucent parts of the weapon's world model.
+
+See <page>WEAPON:DrawWorldModel</page> for opaque pass callback.
+See <page>WEAPON:ViewModelDrawn</page> for view model rendering.
+
+<rendercontext hook="true" type="3D"></rendercontext>
+</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="flags" type="number">The <page text="STUDIO_">Enums/STUDIO</page> flags for this render operation.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Do the default action - render it without any changes.</description>
+	<code>
+function SWEP:DrawWorldModelTranslucent( flags )
+	self:DrawModel( flags )
+end
+	</code>
+
+</example>

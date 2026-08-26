@@ -1,0 +1,72 @@
+<function name="SetEnemy" parent="NPC" type="classfunc">
+	<description>Sets the target for an NPC.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="enemy" type="Entity">The enemy that the NPC should target</arg>
+		<arg name="newenemy" type="boolean" default="true">Calls <page>NPC:SetCondition</page>(COND.NEW_ENEMY) if the new enemy is valid and not equal to the last enemy.</arg>
+	</args>
+</function>
+
+<example>
+	<description>If an NPC has no specific target, they will start to target the closest player they are hostile to, or nothing if there are none. This is run every tick on the server and can be a bottleneck if player and/or entity counts are high, so consider adding a <page>Global.CurTime</page> cooldown if you plan on using this in-game.</description>
+	<code>
+hook.Add( "Think", "NPCAutoSeekPlayer", function()
+	local npcs = ents.GetAll()
+	local plys = player.GetAll()
+	local plyCount = #plys
+
+	-- No point trying to give NPCs a player when there are none
+	if ( plyCount == 0 ) then
+		return
+	end
+
+	-- Loop over all entities and check for NPCs
+	for i = 1, #npcs do
+		local npc = npcs[ i ]
+
+		-- If this entity is an NPC without an enemy, give them one
+		if ( npc:IsNPC() && !IsValid( npc:GetEnemy() ) ) then
+			local curPly = nil			-- Closest player
+			local curPlyPos = nil		-- Position of closest player
+			local curDist = math.huge	-- Lowest distance between npc and player
+			
+			local npcPos = npc:GetPos()	-- Position of the NPC
+
+			-- Loop over all players to check their distance from the NPC
+			for i = 1, plyCount do
+				local ply = plys[ i ]
+
+				-- Only consider players that this NPC hates
+				if ( npc:Disposition( ply ) == D_HT ) then
+					-- TODO: You can optimise looking up each player's position (constant)
+					-- for every NPC by generating a table of:
+					--- key = player identifier (entity object, UserID, EntIndex, etc.)
+					--- value = player's position vector
+					-- for the first NPC that passes to this part of the code,
+					-- then reuse it for other NPCs
+					local plyPos = ply:GetPos()
+					
+					-- Use DistToSqr for distance comparisons since
+					-- it's more efficient than Distance, and the
+					-- non-squared distance isn't needed for anything
+					local dist = npcPos:DistToSqr( plyPos )
+
+					-- If the new distance is lower, update the player information
+					if ( dist < curDist ) then
+						curPly = ply
+						curPlyPos = plyPos
+						curDist = dist
+					end
+				end
+			end
+
+			-- curPly is guarenteed to be valid since this code
+			-- will only run if there is at least one player
+			npc:SetEnemy( curPly )
+			npc:UpdateEnemyMemory( curPly, curPlyPos )
+		end
+	end
+end )
+	</code>
+
+</example>

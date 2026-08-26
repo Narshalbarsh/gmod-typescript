@@ -1,0 +1,25 @@
+<function name="GetCamPos" parent="DModelPanel" type="panelfunc">
+	<description>Returns the position of the model viewing camera.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="Vector">The position of the camera.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints out the default camera position.</description>
+	<code>
+local mdl = vgui.Create("DModelPanel")
+mdl:SetPos(20, 20)
+mdl:SetSize(200, 200)
+mdl:SetModel("models/props_junk/watermelon01.mdl")
+
+print(mdl:GetCamPos())
+	</code>
+	<output>
+```
+50.000000 50.000000 50.000000
+```
+</output>
+
+</example>

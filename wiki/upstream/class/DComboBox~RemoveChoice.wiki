@@ -1,0 +1,13 @@
+<function name="RemoveChoice" parent="DComboBox" type="panelfunc">
+	<description>Removes a choice added with <page>DComboBox:AddChoice</page></description>
+	<realm>Client and Menu</realm>
+	<file line="160-L168">lua/vgui/dcombobox.lua</file>
+	<added>2023.09.08</added>
+	<args>
+		<arg name="index" type="number">The index of the option to remove.</arg>
+	</args>
+	<rets>
+		<ret name="text" type="string">The text of the removed option.</ret>
+		<ret name="data" type="any">The data of the removed option that was provided.</ret>
+	</rets>
+</function>

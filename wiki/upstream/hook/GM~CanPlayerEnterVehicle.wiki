@@ -1,0 +1,28 @@
+<function name="CanPlayerEnterVehicle" parent="GM" type="hook">
+	<description>
+Determines whether or not a given player player can enter the given vehicle. <page>Player:EnterVehicle</page> will still call this hook.
+
+Called just before <page>GM:PlayerEnteredVehicle</page>. See also <page>GM:CanExitVehicle</page>.
+	</description>
+	<realm>Server</realm>
+<file line="584-L590">gamemodes/base/gamemode/player.lua</file>
+	<args>
+		<arg name="player" type="Player">The player that wants to enter a vehicle.</arg>
+		<arg name="vehicle" type="Vehicle">The vehicle in question.</arg>
+		<arg name="role" type="number">The seat number.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">`false` if the player is not allowed to enter the vehicle.</ret>
+	</rets>
+</function>
+
+
+<example>
+	<description>Displays a message in the console when a player enters any vehicle.</description>
+	<code>
+hook.Add( "CanPlayerEnterVehicle", "PrintPlayersInVehicles", function( ply, veh, role )
+	print( ply, "has entered the vehicle", veh )
+end )
+	</code>
+
+</example>

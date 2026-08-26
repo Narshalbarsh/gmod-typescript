@@ -1,0 +1,13 @@
+<function name="ExpandTo" parent="DTree" type="panelfunc">
+	<description>
+<internal></internal>
+
+Does nothing. Used as a placeholder empty function alongside <page>DTree:MoveChildTo</page>, <page>DTree:SetExpanded</page> and <page>DTree:ChildExpanded</page>.
+
+The <page>DTree</page> acts a root node and methods with the same name in <page>DTree_Node</page> call to the parent.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="bExpand" type="boolean"></arg>
+	</args>
+</function>

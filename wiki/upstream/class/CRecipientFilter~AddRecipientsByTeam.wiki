@@ -1,0 +1,7 @@
+<function name="AddRecipientsByTeam" parent="CRecipientFilter" type="classfunc">
+	<description>Adds all players that are on the given team to the filter.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="teamid" type="number">Team index to add players from.</arg>
+	</args>
+</function>

@@ -1,0 +1,4 @@
+<function name="Play" parent="IGModAudioChannel" type="classfunc">
+	<description>Starts playing the stream.</description>
+	<realm>Client</realm>
+</function>

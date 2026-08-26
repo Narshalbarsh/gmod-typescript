@@ -1,0 +1,15 @@
+<function name="FindTransitionSequence" parent="Entity" type="classfunc">
+	<description>
+Returns a transition from the given start and end sequence.
+
+This function was only used by HL1 entities and NPCs, before the advent of sequence blending and gestures.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="currentSequence" type="number">The currently playing sequence</arg>
+		<arg name="goalSequence" type="number">The goal sequence.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The transition sequence, -1 if not available.</ret>
+	</rets>
+</function>

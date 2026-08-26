@@ -1,0 +1,51 @@
+<function name="GetResolvedFullFrameDepth" parent="render" type="libraryfunc">
+	<description>Returns the `_rt_ResolvedFullFrameDepth` texture for SSAO depth. It will only be updated if <page>GM:NeedsDepthPass</page> returns true. Depth is written using the <page>Shaders/DepthWrite</page> by rendering scene a second time, using [SSAO_DepthPass function](https://github.com/ValveSoftware/source-sdk-2013/blob/11a677c349b149b2f77184dc903e6bb17f8df69b/src/game/client/viewrender.cpp#L5576).</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="ITexture">The depth texture.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Render the depth pass to the screen.</description>
+	<code>
+local function MyNeedsDepthPass()
+    return true
+end
+
+-- Add hook so that the _rt_ResolvedFullFrameDepth texture is updated
+hook.Add( "NeedsDepthPass", "MyNeedsDepthPass", MyNeedsDepthPass )
+
+
+local function RenderSSAOdepth()
+    -- call render.GetResolvedFullFrameDepth() and draw the resulting itexture to the screen
+
+    local texture = render.GetResolvedFullFrameDepth()
+    render.DrawTextureToScreen( texture )
+
+end
+
+-- Add hook to render pass to screen
+hook.Add( "RenderScreenspaceEffects", "RenderSSAOdepth", RenderSSAOdepth )
+</code>
+<output><upload src="ab571/8dc388e4e483f90.png" size="146994" name="depth_example.png" /></output>
+
+</example>
+
+
+<example name="Depth buffer upgrade">
+	<description>
+		This method allows you to increase the bit depth of the depth buffer.
+	</description>
+	<code>
+IMAGE_FORMAT_R32F = 27 -- Single-channel 32-bit floating point
+
+GetRenderTargetEx( "_rt_resolvedfullframedepth", 1, 1,
+    RT_SIZE_FULL_FRAME_BUFFER,
+    MATERIAL_RT_DEPTH_SHARED,
+    bit.bor( 4, 8, 256, 512 ),
+    0,
+    IMAGE_FORMAT_R32F
+)
+	</code>
+</example>

@@ -1,0 +1,12 @@
+<function name="SetVector4D" parent="IMaterial" type="classfunc">
+	<description>Sets the specified material vector to the specified 4 component vector, does nothing on a type mismatch.</description>
+	<realm>Shared and Menu</realm>
+	<added>2020.08.12</added>
+	<args>
+		<arg name="name" type="string">The name of the material vector.</arg>
+		<arg name="x" type="number">The x component of the new vector.</arg>
+		<arg name="y" type="number">The y component of the new vector.</arg>
+		<arg name="z" type="number">The z component of the new vector.</arg>
+		<arg name="w" type="number">The w component of the new vector.</arg>
+	</args>
+</function>

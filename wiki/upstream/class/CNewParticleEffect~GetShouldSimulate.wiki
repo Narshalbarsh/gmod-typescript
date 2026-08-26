@@ -1,0 +1,8 @@
+<function name="GetShouldSimulate" parent="CNewParticleEffect" type="classfunc">
+	<description>Returns whether the particle system simulation was paused by <page>CNewParticleEffect:SetShouldSimulate</page>.</description>
+	<realm>Client</realm>
+	<added>2025.11.26</added>
+	<rets>
+		<ret name="" type="boolean">Whether the simulation is running (`true`) or not (`false`).</ret>
+	</rets>
+</function>

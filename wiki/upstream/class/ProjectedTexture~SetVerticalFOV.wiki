@@ -1,0 +1,11 @@
+<function name="SetVerticalFOV" parent="ProjectedTexture" type="classfunc">
+	<description>
+Sets the vertical angle of projection without affecting the horizontal angle.
+
+You must call <page>ProjectedTexture:Update</page> after using this function for it to take effect.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="vFOV" type="number">The new vertical Field Of View for the projected texture. Must be in range between 0 and 180.</arg>
+	</args>
+</function>

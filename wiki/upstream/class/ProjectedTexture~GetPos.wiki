@@ -1,0 +1,7 @@
+<function name="GetPos" parent="ProjectedTexture" type="classfunc">
+	<description>Returns the position of the ProjectedTexture, which was previously set by <page>ProjectedTexture:SetPos</page></description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="Vector">The position of the ProjectedTexture.</ret>
+	</rets>
+</function>

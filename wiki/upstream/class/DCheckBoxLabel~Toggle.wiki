@@ -1,0 +1,5 @@
+<function name="Toggle" parent="DCheckBoxLabel" type="panelfunc">
+	<description>Toggles the checked state of the <page>DCheckBoxLabel</page>.</description>
+	<realm>Client and Menu</realm>
+	<file line="118-L120">lua/vgui/dcheckbox.lua</file>
+</function>

@@ -1,0 +1,4 @@
+<function name="ResetSequenceInfo" parent="Entity" type="classfunc">
+	<description>Reset entity sequence info such as playback rate, ground speed, last event check, etc.</description>
+	<realm>Shared</realm>
+</function>

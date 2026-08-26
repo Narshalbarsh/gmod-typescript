@@ -1,0 +1,7 @@
+<function name="RegisterDermaMenuForClose" parent="Global" type="libraryfunc">
+	<description>Registers a Derma element to be closed the next time <page>Global.CloseDermaMenus</page> is called</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="menu" type="Panel">Menu to be registered for closure</arg>
+	</args>
+</function>

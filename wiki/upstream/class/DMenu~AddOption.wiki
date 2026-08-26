@@ -1,0 +1,29 @@
+<function name="AddOption" parent="DMenu" type="panelfunc">
+	<description>Add an option to the DMenu</description>
+	<file line="36">lua/vgui/dmenu.lua</file>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="name" type="string">Name of the option.</arg>
+		<arg name="func" type="function" default="nil">Function to execute when this option is clicked.
+
+<callback>
+<arg type="Panel" name="pnl">The <page>DMenuOption</page> that was clicked.</arg>
+</callback>
+</arg>
+	</args>
+	<rets>
+		<ret name="" type="Panel">Returns the created <page>DMenuOption</page> panel.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Creates a DMenu with 2 options: One that kills yourself; One that does nothing.</description>
+	<code>
+local m = DermaMenu()
+
+m:AddOption( "Suicide", function() RunConsoleCommand("kill") end )
+m:AddOption( "It does nothing" )
+
+m:Open()
+	</code>
+</example>

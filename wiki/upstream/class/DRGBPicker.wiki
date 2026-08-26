@@ -1,0 +1,101 @@
+<panel>
+	<parent>DPanel</parent>
+	<realm>Client and Menu</realm>
+	<file line="">lua/vgui/drgbpicker.lua</file>
+	<description>
+DRGBPicker is an interactive panel which can be used to select a color hue.
+
+See <page>DColorCube</page> for a color picker which controls brightness and saturation.
+
+See <page>DColorMixer</page> for a color picker that allows control over hue, saturation, and brightness at once.
+	</description>
+</panel>
+
+
+<example>
+	<description>Creates a color picker which controls the color of the background panel it's parented to.</description>
+	<code>
+-- Background panel
+BGPanel = vgui.Create("DPanel")
+BGPanel:SetSize(100, 200)
+BGPanel:Center()
+
+-- Color picker
+local color_picker = vgui.Create("DRGBPicker", BGPanel)
+color_picker:SetPos(35, 10)
+color_picker:SetSize(30, 180)
+
+-- When the picked color is changed...
+function color_picker:OnChange(col)
+
+	-- Change the panel background color
+	BGPanel:SetBackgroundColor(col)
+	
+end
+	</code>
+	<output><image src="DRGBPicker_example1.png"/></output>
+
+</example>
+
+
+<example>
+	<description>Creates a DRGBPicker that controls the hue of  a <page>DColorCube</page>, which outputs the color to the background panel, label, and your copy/paste buffer.</description>
+	<code>
+-- Background panel
+BGPanel = vgui.Create("DPanel")
+BGPanel:SetSize(200, 200)
+BGPanel:Center()
+
+-- Color label
+local color_label = Label("Color( 255, 255, 255 )", BGPanel)
+color_label:SetPos(40, 160)
+color_label:SetSize(150, 20)
+color_label:SetHighlight(true)
+color_label:SetColor(Color(0, 0, 0))
+
+-- Color picker
+local color_picker = vgui.Create("DRGBPicker", BGPanel)
+color_picker:SetPos(5, 5)
+color_picker:SetSize(30, 190)
+
+-- Color cube
+local color_cube = vgui.Create("DColorCube", BGPanel)
+color_cube:SetPos(40, 5)
+color_cube:SetSize(155, 155)
+
+-- When the picked color is changed...
+function color_picker:OnChange(col)
+	
+	-- Get the hue of the RGB picker and the saturation and vibrance of the color cube
+	local h = ColorToHSV(col)
+	local _, s, v = ColorToHSV(color_cube:GetRGB())
+	
+	-- Mix them together and update the color cube
+	col = HSVToColor(h, s, v)
+	color_cube:SetColor(col)
+	
+	-- Lastly, update the background color and label
+	UpdateColors(col)
+		
+end
+
+function color_cube:OnUserChanged(col)
+
+	-- Update background color and label
+	UpdateColors(col)
+
+end
+
+-- Updates display colors, label, and clipboard text
+function UpdateColors(col)
+
+	BGPanel:SetBackgroundColor(col)
+	color_label:SetText("Color( "..col.r..", "..col.g..", "..col.b.." )")
+	color_label:SetColor(Color((255-col.r), (255-col.g), (255-col.b)))
+	SetClipboardText(color_label:GetText())
+
+end
+	</code>
+	<output><image src="DRGBPicker_example2.png"/></output>
+
+</example>

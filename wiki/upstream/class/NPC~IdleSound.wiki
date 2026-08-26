@@ -1,0 +1,4 @@
+<function name="IdleSound" parent="NPC" type="classfunc">
+	<description>Force an NPC to play their Idle sound.</description>
+	<realm>Server</realm>
+</function>

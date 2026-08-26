@@ -1,0 +1,86 @@
+<function name="PhysicsInitMultiConvex" parent="Entity" type="classfunc">
+	<description>
+An advanced version of <page>Entity:PhysicsInitConvex</page> which initializes a physics object from multiple convex meshes. This should be used for physics objects with a custom shape which cannot be represented by a single convex mesh.
+
+If successful, the previous physics object will be removed.
+
+You may be expected to call <page>Entity:SetSolid</page> with desired solid type **before** calling this function.
+
+<bug issue="5060">Clientside physics objects on serverside entities do not move properly in some cases. Physics objects should only created on the server or you will experience incorrect physgun beam position, prediction issues, and other unexpected behavior.
+
+A workaround is available on the <page>Entity:PhysicsInitConvex</page> page.</bug>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="vertices" type="table">A table consisting of tables of <page>Vector</page>s. Each sub-table defines a set of points to be used in the computation of one convex mesh.</arg>
+		<arg name="surfaceprop" type="string" added="2023.01.25" default="default">Physical material from [surfaceproperties.txt](https://github.com/Facepunch/garrysmod/blob/master/garrysmod/scripts/surfaceproperties.txt) or added with <page>physenv.AddSurfaceData</page>.</arg>
+<arg name="massCenterOverride" type="Vector" default="nil" added="2024.10.29">If set, overwrites the center of mass for the created physics object.</arg>
+
+	</args>
+	<rets>
+		<ret name="" type="boolean">Returns `true` on success, `nil` otherwise.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Creates a physics mesh for the entity which consists of two boxes.</description>
+	<code>
+local min1 = Vector( -30, -10, 0 ) -- Box1 minimum corner
+local max1 = Vector( -10, 10, 20 ) -- Box1 maximum corner
+
+local min2 = Vector( 10, -5, 10 ) -- Box2 minimum corner
+local max2 = Vector( 30, 5, 40 ) -- Box2 maximum corner
+
+if SERVER then
+    local convex = {
+        { -- Each sub-table is a set of vertices of a convex piece, order doesn't matter
+            Vector( min1.x, min1.y, min1.z ), -- The first box vertices
+            Vector( min1.x, min1.y, max1.z ),
+            Vector( min1.x, max1.y, min1.z ),
+            Vector( min1.x, max1.y, max1.z ),
+            Vector( max1.x, min1.y, min1.z ),
+            Vector( max1.x, min1.y, max1.z ),
+            Vector( max1.x, max1.y, min1.z ),
+            Vector( max1.x, max1.y, max1.z ),
+        },
+        { -- All these tables together form a concave collision mesh
+            Vector( min2.x, min2.y, min2.z ), -- The second box vertices
+            Vector( min2.x, min2.y, max2.z ),
+            Vector( min2.x, max2.y, min2.z ),
+            Vector( min2.x, max2.y, max2.z ),
+            Vector( max2.x, min2.y, min2.z ),
+            Vector( max2.x, min2.y, max2.z ),
+            Vector( max2.x, max2.y, min2.z ),
+            Vector( max2.x, max2.y, max2.z ),
+        },
+    }
+    
+	function ENT:Initialize()
+		self:SetModel( "models/props_c17/oildrum001.mdl" )
+
+		-- Initializing the multi-convex physics mesh
+		self:PhysicsInitMultiConvex( convex )
+
+		self:SetSolid( SOLID_VPHYSICS ) -- Setting the solidity
+		self:SetMoveType( MOVETYPE_VPHYSICS ) -- Setting the movement type
+
+		self:EnableCustomCollisions( true ) -- Enabling the custom collision mesh
+
+		self:PhysWake() -- Enabling the physics motion
+	end
+else
+	local col = Color( 0, 0, 255, 255 )
+
+	-- Drawing collision boxes on the client
+	function ENT:Draw()
+		self:DrawModel()
+
+		local pos, ang = self:GetPos(), self:GetAngles()
+
+		render.DrawWireframeBox( pos, ang, min1, max1, col ) -- Drawing the first collision box
+		render.DrawWireframeBox( pos, ang, min2, max2, col ) -- Drawing the second collision box
+	end
+end
+	</code>
+	<output><image src="PhysicsInitMultiConvexExample.gif"/></output>
+</example>

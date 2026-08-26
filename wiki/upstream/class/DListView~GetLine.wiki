@@ -1,0 +1,23 @@
+<function name="GetLine" parent="DListView" type="panelfunc">
+	<description>Gets the <page>DListView_Line</page> at the given index.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="id" type="number">The index of the line to get.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Panel">The <page>DListView_Line</page> at the given index.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>An example of how to retrieve a DListView_Line from a DListView.</description>
+	<code>
+local list = vgui.Create( "DListView" )
+list:AddColumn( "Name" )
+list:AddLine( "Garry :D" )
+
+print( list:GetLine( 1 ) )
+	</code>
+	<output>Panel: [name:DListView_Line][class:Panel][0,0,64,24]</output>
+
+</example>

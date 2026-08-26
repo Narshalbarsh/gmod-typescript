@@ -1,0 +1,13 @@
+<function name="OnNodeSelected" parent="DTree_Node" type="panelhook">
+	<description>
+<internal></internal>
+
+Called when this or a sub node is selected. Do not use this, it is not for override.
+
+Use <page>DTree:OnNodeSelected</page> or <page>DTree_Node:DoClick</page> instead.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="node" type="Panel"></arg>
+	</args>
+</function>

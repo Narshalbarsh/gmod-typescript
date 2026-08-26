@@ -1,0 +1,25 @@
+<function name="GetOperatingParams" parent="Vehicle" type="classfunc">
+	<description>Returns some info about the vehicle.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="table{OperatingParams}">The operating parameters.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Example output on a default Half-Life 2 Jeep.</description>
+	<code>PrintTable( Entity(1):GetVehicle():GetOperatingParams() )</code>
+	<output>
+
+```
+RPM	=	19.902961730957
+gear	=	0
+isTorqueBoosting	=	false
+speed	=	-0.67361652851105
+steeringAngle	=	0
+wheelsInContact	=	4
+```
+
+	</output>
+
+</example>

@@ -1,0 +1,131 @@
+<function name="TraceLine" parent="util" type="libraryfunc">
+	<description>
+Performs an infinitely thin, invisible ray trace (or "trace") in a line based on the input and returns a table that contains information about what, if anything, the trace line hit or intersected.
+
+Traces intersect with the physics meshes of <page text="solid">enums/SOLID</page>, <page text="server-side">States</page>, <page text="entities">Entity</page> (including the <page text="game world">game.GetWorld</page>) but cannot detect client-side only entities unless <page text="hitclientonly">Structures/Trace#hitclientonly</page> is set to true.
+  
+See <page>ents.FindAlongRay</page> if you wish for the trace to not stop on first intersection.  
+See <page>util.TraceHull</page> for a "box" type trace.
+
+Traces do not differentiate between the inside and the outside faces of physics meshes. Because of this, if a trace starts within a solid physics mesh it will hit the inside faces of the physics mesh and may return unexpected values as a result.
+
+
+You can use `r_visualizetraces` set to `1` (requires `sv_cheats` set to `1`) to visualize traces in real time for debugging purposes.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="traceConfig" type="table{Trace}">
+			A table of data that configures the trace. See <page>Structures/Trace</page> for available options.
+		</arg>
+	</args>
+	<rets>
+		<ret name="" type="table{TraceResult}">
+			A table of information detailing where and what the trace line intersected, or `nil` if the trace is being done before the <page>GM:InitPostEntity</page> hook.
+
+			For the table's format and available options see the <page>Structures/TraceResult</page> page.
+		</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Example usage of various filter methods .</description>
+	<code>
+-- This trace will ONLY hit entities that are vehicles using function callback filter
+concommand.Add( "test_trace_vehicles", function( ply )
+	local tr = util.TraceLine( {
+		start = ply:GetShootPos(),
+		endpos = ply:GetShootPos() + ply:GetAimVector() * 10000,
+		filter = function( ent ) return ent:IsVehicle() end
+	} )
+
+	print( tr.HitPos, tr.Entity )
+end )
+
+-- This trace will NOT hit entities whose classname is 'prop_physics'.
+concommand.Add( "test_trace_not_props", function( ply )
+	local tr = util.TraceLine( {
+		start = ply:GetShootPos(),
+		endpos = ply:GetShootPos() + ply:GetAimVector() * 10000,
+		filter = { "prop_physics", ply } -- Also do not hit the player doing the trace
+	} )
+
+	print( tr.HitPos, tr.Entity )
+end )
+
+-- This trace will ONLY hit entities whose classname is 'prop_physics'.
+concommand.Add( "test_trace_props", function( ply )
+	local tr = util.TraceLine( {
+		start = ply:GetShootPos(),
+		endpos = ply:GetShootPos() + ply:GetAimVector() * 10000,
+		filter = { "prop_physics" },
+		whitelist = true
+	} )
+
+	print( tr.HitPos, tr.Entity )
+end )
+	</code>
+</example>
+
+<example>
+	<description>Visualizes a trace.</description>
+	<code>
+local color_red = Color( 255, 0, 0 )
+local color_blu = Color( 0, 0, 255 )
+local mins, maxs = Vector( -24, -3, -2 ), Vector( 24, 3, 2 )
+
+hook.Add( "PostDrawTranslucentRenderables", "trace_visualize", function()
+	local eyePos = Entity( 1 ):EyePos() + Entity( 1 ):GetRight() * -5
+	local eyeDir = Entity( 1 ):GetAimVector()
+
+	local tr = util.TraceLine( {
+		start = eyePos,
+		endpos = eyePos + eyeDir * 10000,
+		filter = Entity( 1 )
+	} )
+	render.DrawLine( eyePos + LocalPlayer():GetRight() * -5, tr.HitPos, color_red, true )
+
+	-- Show that the traceline is a line, not a hull
+	render.DrawWireframeBox( tr.HitPos, Angle( 0, 0, 0 ), mins, maxs, color_red, true )
+
+	eyePos = Entity( 1 ):EyePos() + Entity( 1 ):GetRight() * 5
+	local tr2 = util.TraceHull( {
+		start = eyePos,
+		endpos = eyePos + eyeDir * 10000,
+		filter = Entity( 1 ),
+		mins = mins,
+		maxs = maxs
+	} )
+	render.DrawLine( eyePos, tr2.HitPos, color_blu, true )
+	render.DrawWireframeBox( tr2.HitPos, Angle( 0, 0, 0 ), mins, maxs, color_blu, true )
+end )
+	</code>
+	<output><upload src="70c/8dbdae6fcf05200.png" size="5612891" name="image.png" /></output>
+</example>
+
+<example>
+	<description>Example code that would hit clientside-only entities when ran on client.</description>
+	<code>
+if ( CLIENT ) then
+	concommand.Add( "test_cl_trace", function( ply )
+			local tr = util.TraceLine( {
+				start = ply:GetShootPos(),
+				endpos = ply:GetShootPos() + ply:GetAimVector() * 10000,
+				mask = MASK_ALL, -- This is needed to hit ragdolls of dead NPCs/players, since they are considered "debris"
+				filter = ply, -- Don't hit the player doing the trace
+				hitclientonly = true -- Hit clientside only entites
+			} )
+
+			-- Display trace results
+			PrintTable( tr )
+
+			-- With "developer 1" enabled, draw the hit position
+			-- The timer is necessary because debugoverlay won't work when the game is paused (such as when the console is open)
+			timer.Simple( 0.0, function()
+				debugoverlay.Cross( tr.HitPos, 16, 10 )
+				debugoverlay.Text( tr.HitPos, "Hit: " .. tostring(tr.Entity), 10 )
+			end )
+	end )
+end
+	</code>
+	<output></output>
+</example>

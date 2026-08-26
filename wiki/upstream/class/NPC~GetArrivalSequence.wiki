@@ -1,0 +1,7 @@
+<function name="GetArrivalSequence" parent="NPC" type="classfunc">
+	<description>Returns the sequence to be played when the NPC arrives at its goal.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">Sequence ID to be played, or -1 if there's no sequence.</ret>
+	</rets>
+</function>

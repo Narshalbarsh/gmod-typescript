@@ -1,0 +1,49 @@
+<function name="RunClass" parent="player_manager" type="libraryfunc">
+	<description>Execute a named function within the player's set class.</description>
+	<realm>Shared</realm>
+	<file line="405-L415">lua/includes/modules/player_manager.lua</file>
+	<args>
+		<arg name="ply" type="Player">Player to execute function on.</arg>
+		<arg name="funcName" type="string">Name of function.</arg>
+		<arg name="arguments" type="vararg">Optional arguments. Can be of any type.</arg>
+	</args>
+	<rets>
+		<ret name="" type="vararg">The values returned by the called function.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Run the player's class 'Loadout' function when PlayerLoadout is called.</description>
+	<code>
+function GM:PlayerLoadout( ply )
+
+	player_manager.RunClass( ply, "Loadout" )
+ 
+end
+	</code>
+	<output>The player's class 'Loadout' function is executed.</output>
+
+</example>
+
+
+<example>
+	<description>Call a greeting function within the playerclass system.</description>
+	<code>
+local PLAYER = {}
+PLAYER.DisplayName = "Hooman"
+PLAYER.WalkSpeed = 200
+PLAYER.greet = function( tbl ) // create a function named 'greet'
+// the first argument passed is the source table
+// which includes the classID, the player entity, and the function itself
+	local ply = tbl.Player // here we extract the player entity from the table
+    ply:ChatPrint("Hello "..ply:Nick().." !") // tell the player
+end
+
+// link it to the spawn hook, so each time a player (re-)spawns, he will be greeted with a hello
+hook.Add("PlayerSpawn","greet",function(ply)
+	player_manager.RunClass( ply, "greet" )
+end)
+	</code>
+	<output>Hello Flowx !</output>
+
+</example>

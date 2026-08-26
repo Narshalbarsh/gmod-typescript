@@ -1,0 +1,23 @@
+<function name="OnCloseCaptionEmit" parent="GM" type="hook">
+	<description>Called when a caption/subtitle has been emitted to the closed caption box.</description>
+	<realm>Client</realm>
+	<added>2023.09.19</added>
+	<args>
+		<arg name="soundScript" type="string">The name of the soundscript, or `customLuaToken` if it's from <page>gui.AddCaption</page></arg>
+		<arg name="duration" type="number">How long the caption should stay for</arg>
+		<arg name="fromPlayer" type="boolean">Is this caption coming from the player?</arg>
+		<arg name="fullText" type="string">The caption. Can be nil if its token is not registered</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return `true` to prevent the caption from appearing</ret>
+	</rets>
+</function>
+
+<example>
+
+<code>
+hook.Add( "OnCloseCaptionEmit", "OnCloseCaptionEmit_Example", function( soundScript, duration, fromPlayer, fullText )
+	print( "Close caption emitted:", fullText, duration, fromPlayer, soundScript )
+end )
+</code>
+</example>

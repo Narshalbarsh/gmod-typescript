@@ -1,0 +1,9 @@
+<function name="Unpack" parent="Angle" type="classfunc">
+	<description>Returns the pitch, yaw, and roll components of the angle.</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="number">p, pitch, x, or Angle[1].</ret>
+		<ret name="" type="number">y, yaw, or Angle[2].</ret>
+		<ret name="" type="number">r, roll, r, or Angle[3].</ret>
+	</rets>
+</function>

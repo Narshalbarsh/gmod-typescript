@@ -1,0 +1,5 @@
+<function name="UpdateText" parent="DBinder" type="panelfunc">
+	<description><internal></internal> Used to set the text of the DBinder to the current key binding, or `NONE`.</description>
+	<file line="15-L24">lua/vgui/dbinder.lua</file>
+	<realm>Client</realm>
+</function>

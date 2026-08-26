@@ -1,0 +1,14 @@
+<function name="IsConnected" parent="CNavArea" type="classfunc">
+	<description>
+Returns whether this <page>CNavArea</page> has an outgoing ( one or two way ) connection **to** given <page>CNavArea</page>.
+
+See <page>CNavArea:IsConnectedAtSide</page> for a function that only checks for outgoing connections in one direction.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="navArea" type="CNavArea">The <page>CNavArea</page> to test against.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether this <page>CNavArea</page> has an outgoing ( one or two way ) connection **to** given <page>CNavArea</page>.</ret>
+	</rets>
+</function>

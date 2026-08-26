@@ -1,0 +1,31 @@
+<function name="SetPlayer" parent="Panel" type="classfunc">
+	<description>Used by <page>AvatarImage</page> to load an avatar for given player.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="player" type="Player">The player to use avatar of.</arg>
+		<arg name="size" type="number" default="32">The size of the avatar to use. Acceptable sizes are `32`, `64`, `184`. Non matching sizes will be clamped down to the highest valid number.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Creates an AvatarImage with the LocalPlayer's avatar inside.</description>
+	<code>
+concommand.Add( "testavatar", function()
+
+	local Panel = vgui.Create( "DFrame" )
+	Panel:SetPos( 200, 200 )
+	Panel:SetSize( 500, 500 )
+	Panel:SetTitle( "Avatar Test" )
+	Panel:MakePopup()
+
+	local Avatar = vgui.Create( "AvatarImage", Panel )
+	Avatar:SetSize( 64, 64 )
+	Avatar:SetPos( 4, 30 )
+	Avatar:SetPlayer( LocalPlayer(), 64 )
+
+	-- After a second reset the avatar to no player
+	timer.Simple( 1, function() Avatar:SetPlayer( NULL, 64 ) end )
+
+end )
+	</code>
+</example>

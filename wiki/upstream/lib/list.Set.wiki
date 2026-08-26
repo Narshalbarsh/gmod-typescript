@@ -1,0 +1,39 @@
+<function name="Set" parent="list" type="libraryfunc">
+	<description>Sets a specific position in the named list to a value.</description>
+	<realm>Shared and Menu</realm>
+	<file line="35-L39">lua/includes/modules/list.lua</file>
+	<args>
+		<arg name="identifier" type="string">The list identifier.</arg>
+		<arg name="key" type="any">The key in the list to set.</arg>
+		<arg name="item" type="any">The item to set to the list as key.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Adds an NPC to the spawnmenu NPC list with the name "Fisherman", classname of "npc_fisherman" and the default weapon of "weapon_oldmanharpoon".</description>
+	<code>
+-- Lost Coast
+list.Set("NPC", "npc_fisherman", {
+	Name = "Fisherman",
+	Class = "npc_fisherman",
+	Weapons = { "weapon_oldmanharpoon" },
+	Category = Category
+})
+	</code>
+
+</example>
+
+
+<example>
+	<description>Adds a new "Desktop Widget" to the Context Menu (C Menu). (This is how Player Model selection is added)</description>
+	<code>
+list.Set( "DesktopWindows", "My Custom Context Menu Icon", {
+	title = "Context Menu Icon",
+	icon = "icon64/icon.png",
+	init = function( icon, window )
+		--Your code here
+	end
+} )
+	</code>
+
+</example>

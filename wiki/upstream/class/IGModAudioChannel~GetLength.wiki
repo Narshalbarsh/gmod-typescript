@@ -1,0 +1,7 @@
+<function name="GetLength" parent="IGModAudioChannel" type="classfunc">
+	<description>Returns the length of sound played by the sound channel in seconds.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">The length of the sound. This value seems to be less then 0 for continuous radio streams.</ret>
+	</rets>
+</function>

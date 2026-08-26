@@ -1,0 +1,8 @@
+<function name="CopyBounds" parent="Panel" type="classfunc">
+	<file line="175-L182">lua/includes/extensions/client/panel.lua</file>
+	<description>Copies position and size of the panel.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="base" type="Panel">The panel to copy size and position from.</arg>
+	</args>
+</function>

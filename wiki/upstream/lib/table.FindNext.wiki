@@ -1,0 +1,26 @@
+<function name="FindNext" parent="table" type="libraryfunc">
+	<description>
+<deprecated>Instead, iterate the table using ipairs or increment from the previous index using <page>Global.next</page>. Non-numerically indexed tables are not ordered.</deprecated>
+Returns the value positioned after the supplied value in a table. If it isn't found then the first element in the table is returned
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="659-L667">lua/includes/extensions/table.lua</file>
+	<args>
+		<arg name="tbl" type="table">Table to search</arg>
+		<arg name="value" type="any">Value to return element after</arg>
+	</args>
+	<rets>
+		<ret name="" type="any">Found element</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Print the next element after the "b" value of the table</description>
+	<code>
+local tbl = {"a", "b", "c"}
+
+print(table.FindNext(tbl, "b"))
+	</code>
+	<output>c in console</output>
+
+</example>

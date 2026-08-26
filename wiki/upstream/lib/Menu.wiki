@@ -1,0 +1,3 @@
+<type name="menu" category="libraryfunc" is="library">
+	<summary>The menu library.</summary>
+</type>

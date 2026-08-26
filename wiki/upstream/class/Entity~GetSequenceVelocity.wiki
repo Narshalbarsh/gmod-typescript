@@ -1,0 +1,12 @@
+<function name="GetSequenceVelocity" parent="Entity" type="classfunc">
+	<description>Returns an entity's sequence velocity at given animation frame.</description>
+	<realm>Shared</realm>
+	<added>2022.06.08</added>
+	<args>
+		<arg name="sequenceId" type="number">The sequence index.</arg>
+		<arg name="cycle" type="number">The point in animation, from `0` to `1`.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">Velocity of the sequence at given point in the animation.</ret>
+	</rets>
+</function>

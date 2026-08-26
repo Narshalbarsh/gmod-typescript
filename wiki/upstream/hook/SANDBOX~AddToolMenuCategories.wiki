@@ -1,0 +1,18 @@
+<function name="AddToolMenuCategories" parent="SANDBOX" type="hook">
+	<description>This hook is used to add new categories to spawnmenu tool tabs.</description>
+	<realm>Client</realm>
+</function>
+
+<example>
+	<description>Adds default categories to Utilities tab in spawnmenu.</description>
+	<code>
+local function CreateUtilitiesCategories()
+
+        spawnmenu.AddToolCategory( "Utilities", "User", "#spawnmenu.utilities.user" )
+        spawnmenu.AddToolCategory( "Utilities", "Admin", "#spawnmenu.utilities.admin" )
+
+end        
+hook.Add( "AddToolMenuCategories", "CreateUtilitiesCategories", CreateUtilitiesCategories )
+	</code>
+
+</example>

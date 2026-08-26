@@ -1,0 +1,8 @@
+<function name="UnSpectate" parent="Player" type="classfunc">
+	<description>
+Removes the player from the spectate mode entirely.
+
+<bug>The player must be respawned, otherwise they will be able to walk through doors and become invincible. This will be fixed in a future update.</bug>
+</description>
+	<realm>Server</realm>
+</function>

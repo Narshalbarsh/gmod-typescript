@@ -1,0 +1,5 @@
+<function name="PopulateToolMenu" parent="SANDBOX" type="hook">
+	<description>Add the <page text="Scripted TOOLs">TOOL</page> to the tool menu. You want to call <page>spawnmenu.AddToolMenuOption</page> in this hook.</description>
+	<realm>Client</realm>
+	<file line="241">gamemodes/sandbox/gamemode/spawnmenu/spawnmenu.lua</file>
+</function>

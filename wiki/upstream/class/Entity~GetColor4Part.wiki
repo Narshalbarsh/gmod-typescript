@@ -1,0 +1,21 @@
+<function name="GetColor4Part" parent="Entity" type="classfunc">
+	<description>Returns the color the entity is set to without using a color object.
+
+<internal>Internally used to implement <page>Entity:GetColor</page>.</internal>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="r" type="number"></ret>
+		<ret name="g" type="number"></ret>
+		<ret name="b" type="number"></ret>
+		<ret name="a" type="number"></ret>
+	</rets>
+</function>
+
+<example>
+	<code>
+Entity(1):SetColor4Part(0, 0, 0, 0)
+print(Entity(1):GetColor4Part())
+	</code>
+	<output>0 0 0 0</output>
+</example>

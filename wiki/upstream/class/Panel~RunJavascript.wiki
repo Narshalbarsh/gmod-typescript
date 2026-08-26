@@ -1,0 +1,49 @@
+<function name="RunJavascript" parent="Panel" type="classfunc">
+	<realm>Client and Menu</realm>
+	<description>
+Executes a string as JavaScript code on a web document panel.
+
+<note>This function does **NOT** allow you to pass variables from JavaScript (JS) to Lua context.  
+If you wish to pass/return values from JS to Lua, you may want to use <page>DHTML:AddFunction</page> function to accomplish that job.</note>
+
+<note>The Awesomium web renderer automatically delays the code execution if the document is not ready, but the Chromium web renderer does not!
+
+This means that with Chromium, you cannot JavaScript run code immediatly after calling <page>Panel:SetHTML</page> or <page>Panel:OpenURL</page>. You should wait for the events <page>HTML:OnDocumentReady</page> or <page>HTML:OnFinishLoadingDocument</page> to be triggered before proceeding, otherwise you may manipulate an empty / incomplete document.</note>
+	</description>
+	<args>
+		<arg name="js" type="string">Specify JavaScript code to be executed.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Shows how to change [document.body.innerHTML](http://www.w3schools.com/jsref/prop_html_innerhtml.asp) property by calling this function on  panel.</description>
+	<code>
+-- First we create a container, in this case it is a full-screen Derma Frame window.
+local dframe = vgui.Create( 'DFrame' )
+dframe:SetSize( ScrW(), ScrH() )
+dframe:SetTitle( "Garry's Mod Wiki" )
+dframe:Center()
+dframe:MakePopup() -- Enable keyboard and mouse interaction for DFrame panel.
+
+-- Create a new DHTML panel as a child of dframe, and dock-fill it.
+local dhtml = vgui.Create( 'DHTML', dframe )
+dhtml:Dock( FILL )
+
+-- Navigate to Garry's Mod wikipedia website.
+dhtml:OpenURL( 'https://wiki.facepunch.com/gmod/' )
+
+-- Wait for the document to load...
+dhtml.OnDocumentReady = function()
+	-- Run JavaScript code.
+	dhtml:RunJavascript( [[console.log("hello world"); document.body.innerHTML = 'HTML changed from Lua using JavaScript!';]] )
+end
+
+-- This does not throw an error/exception, but instead returns nil/no value.
+-- That means you can't pass/return values from JavaScript back to Lua context using this function.
+local number = dhtml:Call( '22;' )
+print( number ) 
+
+	</code>
+	<output>Inner HTML of document body in DHTML panel is now set to "HTML changed from Lua using JavaScript!".</output>
+
+</example>

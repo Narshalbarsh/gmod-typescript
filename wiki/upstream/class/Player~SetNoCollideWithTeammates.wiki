@@ -1,0 +1,11 @@
+<function name="SetNoCollideWithTeammates" parent="Player" type="classfunc">
+	<description>Sets whenever the player should not collide with their teammates, based on their <page>Player:Team</page>.
+
+<note>This will only work for teams with ID 1 to 4 due to internal Engine limitations.</note>
+<note>This causes traces with <page text="COLLISION_GROUP_PLAYER">Enums/COLLISION_GROUP</page> to pass through players.</note>
+</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="shouldNotCollide" type="boolean">`true` to disable, `false` to enable collision.</arg>
+	</args>
+</function>

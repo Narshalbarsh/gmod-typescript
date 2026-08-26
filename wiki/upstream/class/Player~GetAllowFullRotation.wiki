@@ -1,0 +1,7 @@
+<function name="GetAllowFullRotation" parent="Player" type="classfunc">
+	<description>Returns true if the players' model is allowed to rotate around the pitch and roll axis.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">Allowed</ret>
+	</rets>
+</function>

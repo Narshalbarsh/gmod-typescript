@@ -1,0 +1,46 @@
+<function name="ApplyForceCenter" parent="PhysObj" type="classfunc">
+	<description>
+Applies the specified impulse in the mass center of the physics object.
+
+<note>This will not work on players, use <page>Entity:SetVelocity</page> instead.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="impulse" type="Vector">The [impulse](https://en.wikipedia.org/wiki/Impulse_(physics)) to be applied in `kg*source_unit/s`. (The vector is in world frame)</arg>
+	</args>
+</function>
+
+<example>
+	<description>
+An entity that simulates its own gravity by applying a force downward on the entity based on the force equation:
+
+`(Force = mass * acceleration)`
+
+Since, by default, entities already have gravity, the default gravity must be turned off by adding `phys:EnableGravity(false)` in the entity's <page text="Initialize">ENTITY:Initialize</page> function so that the default gravity doesn't interfere with our custom gravity.
+
+**NOTE**: We can get the mass of the entity by using the <page>PhysObj:GetMass</page> function.
+
+<note>-9.80665 (meters / second ^ 2)  Is the approximate acceleration of objects on Earth due to gravity. (It is negative because gravity pushes things downwards.)</note>
+<note>Considering that the unit of the impulse that ApplyForceCenter accepts is kg*source_unit / s, we have to do unit conversion: 1 meter ≈ 39.37 source units ([on entity scale](https://developer.valvesoftware.com/wiki/Dimensions#Source_Engine_Scale_Calculations))</note>
+	</description>
+	<code>
+function ENT:Initialize()
+    self:SetModel( "models/hunter/blocks/cube1x1x1.mdl" )
+	self:PhysicsInit( SOLID_VPHYSICS )
+	self:SetSolid( SOLID_VPHYSICS )
+	self:SetMoveType( MOVETYPE_VPHYSICS )
+
+    local phys = self:GetPhysicsObject()
+    if phys:IsValid() then
+        phys:EnableGravity( false ) -- This is required. Since we are creating our own gravity.
+        phys:Wake()
+    end
+end
+
+function ENT:PhysicsUpdate( phys )
+	local force = phys:GetMass() * Vector( 0, 0, -9.80665 ) * 39.37 -- This gives us the force in kg*source_unit/s^2
+	local dt = engine.TickInterval() -- The time interval over which the force acts on the object (in seconds)
+    phys:ApplyForceCenter( force * dt ) -- Multiplying the two gives us the impulse in kg*source_unit/s
+end
+	</code>
+</example>

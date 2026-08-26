@@ -1,0 +1,26 @@
+<function name="Do_Undo" parent="undo" type="libraryfunc">
+	<description>Processes an undo block (in table form). This is used internally by the undo manager when a player presses Z.
+
+You should use `gmod_undo` or `gmod_undonum *num*` console commands instead of calling this function directly.
+</description>
+	<realm>Server</realm>
+	<file line="368-L414">lua/includes/modules/undo.lua</file>
+	<args>
+		<arg name="tab" type="table{Undo}">The undo block to process as an <page>Structures/Undo</page></arg>
+	</args>
+	<rets>
+		<ret name="" type="number">Number of removed entities</ret>
+	</rets>
+</function>
+
+<example>
+	<description>This example removes two entities, and informs player 1 that they just "Undone Prop!"</description>
+	<code>
+local tab = {}
+tab.Owner = Entity(1)
+tab.Name = "prop"
+tab.Entities = {Entity(56),Entity(57)}
+undo.Do_Undo(tab)
+	</code>
+
+</example>

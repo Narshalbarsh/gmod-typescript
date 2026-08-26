@@ -1,0 +1,8 @@
+<function name="GetPaintBackground" parent="DCollapsibleCategory" type="panelfunc">
+	<description>An <page>Global.AccessorFunc</page> that returns whether or not the background should be painted.</description>
+	<realm>Client and Menu</realm>
+	<file line="41">lua/vgui/dcategorycollapse.lua</file>
+	<rets>
+		<ret name="" type="boolean">If the background is painted or not</ret>
+	</rets>
+</function>

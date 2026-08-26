@@ -1,0 +1,11 @@
+<function name="OnRightClick" parent="PropSelect" type="panelhook">
+	<description>Called when the player right clicks a model.
+
+By default, this opens a menu that lets the player copy the model path.
+</description>
+	<realm>Client</realm>
+	<added>2024.09.02</added>
+	<args>
+		<arg name="pnl" type="Panel">The <page>Spawnicon</page> that was clicked.</arg>
+	</args>
+</function>

@@ -1,0 +1,12 @@
+<function name="SetLayerPriority" parent="Entity" type="classfunc">
+	<description>
+Sets the priority of given layer.
+
+<note>This function only works on <page>BaseAnimatingOverlay</page> entites!</note>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="layerID" type="number">The Layer ID</arg>
+		<arg name="priority" type="number">The new priority of the layer.</arg>
+	</args>
+</function>

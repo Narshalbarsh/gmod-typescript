@@ -1,0 +1,24 @@
+<function name="Remove" parent="Entity" type="classfunc">
+	<realm>Shared</realm>	
+	<description>
+		Removes (or deletes) a given <page>Entity</page>. 
+
+		The Entity will continue to exist until the start of the next tick.  
+
+		To check if an Entity will be removed in the next tick, see <page>Entity:IsMarkedForDeletion</page>
+	</description>
+</function>
+
+<example>
+	<description>
+		Removes the Entity being looked at by the first <page>Player</page> to join the server.
+	</description>
+	<code>
+local firstPlayer = player.GetAll()[1]
+local targetEntity = firstPlayer:GetEyeTrace().Entity
+
+if IsValid( targetEntity ) then
+    targetEntity:Remove()
+end
+	</code>
+</example>

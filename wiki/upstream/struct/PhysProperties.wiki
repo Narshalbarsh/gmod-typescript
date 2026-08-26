@@ -1,0 +1,9 @@
+<structure>
+	<realm>Server</realm>
+	<description>Structure used by <page>construct.SetPhysProp</page>.</description>
+	<fields>
+<item name="GravityToggle" type="boolean" default="nil">Enables or disables gravity for the entity</item>
+<item name="Material" type="string" default="nil">Sets the physics material for the entity</item>
+	</fields>
+
+</structure>

@@ -1,0 +1,15 @@
+<function name="PickupWeapon" parent="Player" type="classfunc">
+	<description>Forces the player to pickup an existing weapon entity. The player will not pick up the weapon if they already own a weapon of given type, or if the player could not normally have this weapon in their inventory.
+
+This function **will** bypass <page>GM:PlayerCanPickupWeapon</page>.
+</description>
+	<realm>Server</realm>
+	<added>2020.06.24</added>
+	<args>
+		<arg name="wep" type="Weapon">The weapon to try to pick up.</arg>
+		<arg name="ammoOnly" type="boolean" default="false">If set to true, the player will only attempt to pick up the ammo from the weapon. The weapon will not be picked up even if the player doesn't have a weapon of this type, and the weapon will be removed if the player picks up any ammo from it.</arg>
+	</args>
+	<rets>
+		<ret name="result" type="boolean">Whether the player succeeded in picking up the weapon or not.</ret>
+	</rets>
+</function>

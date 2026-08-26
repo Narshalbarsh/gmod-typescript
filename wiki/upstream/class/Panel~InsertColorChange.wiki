@@ -1,0 +1,92 @@
+<function name="InsertColorChange" parent="Panel" type="classfunc">
+	<description>Inserts a color change in a <page>RichText</page> element, which affects the color of all text added with <page>Panel:AppendText</page> until another color change is applied.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="r" type="number">The red value `(0 - 255)`.</arg>
+		<arg name="g" type="number">The green value `(0 - 255)`.</arg>
+		<arg name="b" type="number">The blue value `(0 - 255)`.</arg>
+		<arg name="a" type="number">The alpha value `(0 - 255)`.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Creates a RichText panel with color coding on certain segments of text.</description>
+	<code>
+-- Create a window frame
+TextFrame = vgui.Create( "DFrame" )
+TextFrame:SetSize( 200, 200 )
+TextFrame:Center()
+TextFrame:SetTitle( "Colored text" )
+TextFrame:MakePopup()
+
+-- RichText panel
+local richtext = vgui.Create( "RichText", TextFrame )
+richtext:Dock( FILL )
+richtext:SetVerticalScrollbarEnabled( false )
+
+-- Text blocks
+richtext:InsertColorChange( 255, 255, 192, 255 )
+richtext:AppendText( "This is an example of " )
+
+richtext:InsertColorChange( 0, 255, 0, 255 )
+richtext:AppendText( "color coding " )
+
+richtext:InsertColorChange( 255, 255, 192, 255 )
+richtext:AppendText( "different segments of text throughout a " )
+
+richtext:InsertColorChange( 255, 200, 0, 255 )
+richtext:AppendText( "Rich Text panel.\n\n" )
+
+richtext:InsertColorChange(64, 0, 255, 255 )
+richtext:AppendText( "Here is another line of text shown in the color ")
+
+richtext:InsertColorChange( 128, 0, 255, 255 )
+richtext:AppendText( "purple." )
+
+-- When the panel is ready for layout, apply font and background color
+function richtext:PerformLayout()
+	self:SetFontInternal( "Trebuchet18" )
+	self:SetBGColor( Color( 0, 16, 32 ) )
+end
+	</code>
+	<output><image src="RichText_InsertColorChange_example1.png"/></output>
+</example>
+
+
+<example>
+	<description>Word by word coloring using <page>string.Explode</page> and random colors.</description>
+	<code>
+-- Create a window frame
+local TextFrame = vgui.Create( "DFrame" )
+TextFrame:SetSize( 300, 200 )
+TextFrame:Center()
+TextFrame:SetTitle( "Randomly Colored Words" )
+TextFrame:MakePopup()
+
+-- RichText panel
+local richtext = vgui.Create( "RichText", TextFrame )
+richtext:Dock( FILL )
+richtext:SetVerticalScrollbarEnabled( false )
+
+local txt_tbl = {
+    "Here's a fun example involving word by word text coloring.",
+    "Each word is separated by a space, colored, and appended to the Rich Text panel individually.",
+    "The colors are randomly generated shades of red, orange, yellow, and pink."
+}
+
+for _, txt in ipairs( txt_tbl ) do
+    txt = string.Explode( " ", txt, false )
+    
+    for _, word in ipairs( txt ) do
+        richtext:InsertColorChange( 255, math.random( 0, 255 ), math.random( 0, 255 ), 255 )
+        richtext:AppendText( word .. " " )
+    end
+end
+
+function richtext:PerformLayout()
+    self:SetFontInternal( "GModNotify" )
+    self:SetBGColor( Color( 32, 16, 0 ) )
+end
+	</code>
+	<output><image src="RichText_InsertColorChange_example2.png"/></output>
+</example>

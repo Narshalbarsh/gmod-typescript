@@ -1,0 +1,33 @@
+<function name="Draw" parent="IMesh" type="classfunc">
+	<description>Renders the mesh with the active matrix.</description>
+	<realm>Client</realm>
+</function>
+
+<bug>If this function is paired with VertexLitGeneric material, this function will reuse light parameters calculated on previously drawn model unless other are specified using <page>render</page> library (such as <page>render.ResetModelLighting</page>). If you experience lighting issues or you want engine to calculate light for you, draw a dummy (invisible) model in origin of mesh, then draw the mesh.
+
+If utilized inside <page>ENTITY:Draw</page>, drawing entity's model (if it has one) should be enough.</bug>
+
+<example>
+	<description>
+Properly renders the mesh using the SENT's model matrix.
+
+`self.Mesh` in this case is the <page>IMesh</page>.
+	</description>
+	<code>
+local myMaterial = Material( "models/wireframe" ) -- models/debug/debugwhite
+
+function ENT:Draw()
+	-- Code containing self:DrawModel()
+
+	if ( self.Mesh ) then
+		render.SetMaterial( myMaterial )
+		cam.PushModelMatrix( self:GetWorldTransformMatrix() )
+			self.Mesh:Draw()
+		cam.PopModelMatrix()
+	end
+
+	-- Probably other code
+end
+	</code>
+
+</example>

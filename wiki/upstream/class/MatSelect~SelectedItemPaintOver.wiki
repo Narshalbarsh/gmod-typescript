@@ -1,0 +1,12 @@
+<function name="SelectedItemPaintOver" parent="MatSelect" type="panelhook">
+	<description>Defines a paint over function for a <page>DImageButton</page> when it is selected.
+
+<warning>`self` in the context of this function is the <page>DImageButton</page>!</warning>
+</description>
+	<realm>Client</realm>
+	<added>2023.09.08</added>
+	<args>
+		<arg name="w" type="number">Width of the <page>DImageButton</page> panel.</arg>
+		<arg name="h" type="number">Height of the <page>DImageButton</page> panel.</arg>
+	</args>
+</function>

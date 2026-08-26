@@ -1,0 +1,8 @@
+<function name="CapabilitiesHas" parent="NPC" type="classfunc">
+	<description>Checks whether the NPC has the specified capabilities.</description>
+	<added>2025.09.01</added>
+	<realm>Server</realm>
+	<args>
+		<arg name="capabilities" type="number{CAP}">Capabilities to check, see <page>Enums/CAP</page>.</arg>
+	</args>
+</function>

@@ -1,0 +1,4 @@
+<function name="StopLoading" parent="Panel" type="classfunc">
+	<description>Stops the loading of the <page>HTML</page> panel's current page.</description>
+	<realm>Client and Menu</realm>
+</function>

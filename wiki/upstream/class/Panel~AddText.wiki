@@ -1,0 +1,7 @@
+<function name="AddText" parent="Panel" type="classfunc">
+	<description>
+<deprecated>Does nothing</deprecated>
+This function does nothing.
+	</description>
+	<realm>Client and Menu</realm>
+</function>

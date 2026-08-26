@@ -1,0 +1,20 @@
+<function name="SetNumeric" parent="DTextEntry" type="panelfunc">
+	<description>
+Sets whether or not to decline non-numeric characters as input.
+
+Numeric characters are `1234567890.-`
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="numericOnly" type="boolean">Whether to accept only numeric characters.</arg>
+	</args>
+</function>
+
+<example>
+	<code>
+local TextEntry = vgui.Create( "DTextEntry" )
+TextEntry:SetNumeric(true)
+	</code>
+	<output>Only allow numeric characters.</output>
+
+</example>

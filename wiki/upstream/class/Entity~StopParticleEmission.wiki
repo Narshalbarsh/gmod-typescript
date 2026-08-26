@@ -1,0 +1,8 @@
+<function name="StopParticleEmission" parent="Entity" type="classfunc">
+	<description>
+Stops all particle effects parented to the entity.
+
+This is ran automatically on every client by <page>Entity:StopParticles</page> if called on the server.
+	</description>
+	<realm>Client</realm>
+</function>

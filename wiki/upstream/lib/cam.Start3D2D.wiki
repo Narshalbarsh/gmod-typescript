@@ -1,0 +1,128 @@
+<function name="Start3D2D" parent="cam" type="libraryfunc">
+	<description>
+Sets up the model transformation matrix to draw 2D content in 3D space and pushes it into the stack (<page>cam.PushModelMatrix</page>).
+
+Matrix formula:
+```
+local m = Matrix()
+m:SetAngles( angles )
+m:SetTranslation( pos )
+m:SetScale( Vector( scale, -scale, 1 ) )
+```
+<warning>This must be closed by <page>cam.End3D2D</page>. If not done so, unexpected issues might arise.</warning>
+
+<page>render.SetToneMappingScaleLinear</page> may of use when dealing with bloom.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="pos" type="Vector">Origin of the 3D2D context, ie. the top left corner, (0, 0).</arg>
+		<arg name="angles" type="Angle">Angles of the 3D2D context.
++x in the 2d context corresponds to +x of the angle (its forward direction).
++y in the 2d context corresponds to -y of the angle (its right direction).
+
+If (dx, dy) are your desired (+x, +y) unit vectors, the angle you want is dx:AngleEx(dx:Cross(-dy)).</arg>
+		<arg name="scale" type="number">The scale of the render context.
+If scale is 1 then 1 pixel in 2D context will equal to 1 unit in 3D context.</arg>
+	</args>
+</function>
+
+<example>
+<description>Makes a floating rectangle with text above each player, pointing at the local player.</description>
+<code>
+
+surface.CreateFont( "PlayerTagFont", {
+	font = "Arial",
+	size = 72,
+} )
+
+hook.Add( "PostPlayerDraw", "player_name_tags", function(ply)
+	-- Player too far, don't bother
+	if ( ply:GetPos():Distance( EyePos() ) > 512 ) then return end
+
+	-- Player is the local player in the first person, don't bother
+	if ( ply == LocalPlayer() ) then return end
+
+	-- Get the player position, and move it above their head.
+	local pos = ply:GetPos() + ply:GetUp() * ( ply:OBBMaxs().z + 5 )
+
+	-- Apply some neat bobbing animation
+	pos = pos + Vector( 0, 0, math.cos( CurTime() / 2 ) )
+
+	-- Get the angle between the local player and the target player
+	local angle = ( pos - EyePos() ):GetNormalized():Angle()
+
+	-- Only use the Yaw component of the angle
+	angle = Angle( 0, angle.y, 0 )
+
+	-- Apply some animation to the angle
+	angle.y = angle.y + math.sin( CurTime() ) * 10
+
+	-- Correct the angle so it points at the camera
+	-- This is usually done by trial and error using Up(), Right() and Forward() axes
+	angle:RotateAroundAxis( angle:Up(), -90 )
+	angle:RotateAroundAxis( angle:Forward(), 90 )
+
+	-- Notice the scale is small, so text looks crispier
+	cam.Start3D2D( pos, angle, 0.05 )
+		-- Get the size of the text we are about to draw
+
+		surface.SetFont( "PlayerTagFont" )
+		local tW, tH = surface.GetTextSize( ply:Nick() )
+
+		-- This defines amount of padding for the box around the text
+		local padX = 20
+		local padY = 5
+
+		-- Draw a rectable. This has to be done before drawing the text, to prevent overlapping
+		-- Notice how we start drawing in negative coordinates
+		-- This is to make sure the 3d2d display rotates around our position by its center, not left corner
+		surface.SetDrawColor( 0, 0, 0, 100 )
+		surface.DrawRect( -tW / 2 - padX, -padY, tW + padX * 2, tH + padY * 2 )
+
+		-- Draw some text
+		draw.SimpleText( ply:Nick(), "PlayerTagFont", -tW / 2, 0, color_white )
+	cam.End3D2D()
+end )
+</code>
+	<output>
+<image src="70c/8dc53c0087ef97a.png" size="928654" name="image.png" />
+</output>
+</example>
+
+<example>
+<description>An example on how to correctly rotate and position 3D2D "screen" attached to a prop.</description>
+	<code>
+
+function ENT:Draw( flags )
+	self:DrawModel( flags )
+
+	local ang = self:GetAngles()
+	-- Change these numbers to rotate the screen correctly for your model
+	ang:RotateAroundAxis( self:GetUp(), 90 )
+	ang:RotateAroundAxis( self:GetRight(), -90 + 4.5 )
+	ang:RotateAroundAxis( self:GetForward(), 0 )
+
+	local pos = self:GetPos()
+	-- Change these numbers to position the screen on your model
+	pos = pos + self:GetForward() * 11.7
+	pos = pos + self:GetRight() * 9.69
+	pos = pos + self:GetUp() * 11.8
+
+	-- Higher the value, the better the resolution
+	local resolution = 1.1
+
+	cam.Start3D2D( pos, ang, 0.05 / resolution )
+		-- Paint the background. Effectively a 388x320 pixel screen
+		surface.SetDrawColor( 0, 0, 0, 255 )
+		surface.DrawRect( 0, 0, 388 * resolution, 320 * resolution )
+
+		-- Paint the content
+		draw.SimpleText( "Loading GMod BIOS v0.9.....", "Default", 5, 5, color_white )
+		draw.SimpleText( "Fancy text..", "Default", 5, 16, color_white )
+	cam.End3D2D()
+end
+	</code>
+	<output>
+<image src="70c/8dc53be7f864914.png" size="608035" name="image.png" />
+</output>
+</example>

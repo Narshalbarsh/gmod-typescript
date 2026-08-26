@@ -1,0 +1,37 @@
+<panel>
+	<parent>DPanel</parent>
+	<realm>Client and Menu</realm>
+	<file line="">lua/vgui/dcolormixer.lua</file>
+	<preview>DColorMixer_ex1.png</preview>
+	<description>
+		A standard Derma color mixer
+	</description>
+	<overrides>
+		<page>Panel:Init</page>
+		<page>Panel:Paint</page>
+		<page>Panel:Think</page>
+		<page>Panel:PerformLayout</page>
+		<page>Panel:GenerateExample</page>
+	</overrides>
+</panel>
+
+
+<example>
+	<description>Creates a DColorMixer in a DFrame, as seen above</description>
+	<code>
+local Frame = vgui.Create("DFrame")
+Frame:SetSize(267,186) 	-- Good size for example
+Frame:Center()
+Frame:MakePopup()
+
+local Mixer = vgui.Create("DColorMixer", Frame)
+Mixer:Dock(FILL)					-- Make Mixer fill place of Frame
+Mixer:SetPalette(true)  			-- Show/hide the palette 				DEF:true
+Mixer:SetAlphaBar(true) 			-- Show/hide the alpha bar 				DEF:true
+Mixer:SetWangs(true) 				-- Show/hide the R G B A indicators 	DEF:true
+Mixer:SetColor(Color(30,100,160)) 	-- Set the default color
+	</code>
+</example>
+
+Preview from the `derma_controls` concmd
+<upload src="aaf9e/8dc31bb3d6d1a6e.gif" size="5342693" name="DColorMixer.gif" />

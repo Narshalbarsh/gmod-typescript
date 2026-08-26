@@ -1,0 +1,65 @@
+<function name="Receiver" parent="Panel" type="classfunc">
+	<description>Allows the panel to receive drag and drop events. Can be called multiple times with different names to receive multiple different draggable panel events.</description>
+	<realm>Client and Menu</realm>
+	<file line="315-L324">lua/includes/extensions/client/panel/dragdrop.lua</file>
+	<args>
+		<arg name="name" type="string">Name of DnD panels to receive. This is set on the drag'n'drop-able panels via  <page>Panel:Droppable</page></arg>
+		<arg name="func" type="function">This function is called whenever a panel with valid name is hovering above and dropped on this panel. 
+
+<callback>
+<arg type="Panel" name="pnl">The receiver panel</arg>
+<arg type="table" name="tbl">A table of panels dropped onto receiver panel</arg>
+<arg type="boolean" name="dropped">False if hovering over, true if dropped onto</arg>
+<arg type="number" name="menuIndex">Index of clicked menu item from third argument of <page>Panel:Receiver</page></arg>
+<arg type="number" name="x">Cursor pos, relative to the receiver</arg>
+<arg type="number" name="y">Cursor pos, relative to the receiver</arg>
+</callback>
+</arg>
+		<arg name="menu" type="table" default="nil">A table of strings that will act as a menu if drag'n'drop was performed with a right click</arg>
+	</args>
+</function>
+
+<example>
+	<description>A very simple drag'n'drop example without using <page>DDragBase</page>.</description>
+	<code>
+local function DoDrop( self, panels, bDoDrop, Command, x, y )
+	if ( bDoDrop ) then
+		for k, v in pairs( panels ) do
+			self:AddItem( v )
+		end
+	end
+end
+
+concommand.Add( "test2", function()
+
+	local frame = vgui.Create( "DFrame" )
+	frame:SetSize( 500, 300 )
+	frame:SetTitle( "Frame" )
+	frame:MakePopup()
+	frame:Center()
+
+	local left = vgui.Create( "DScrollPanel", frame )
+	left:Dock( LEFT )
+	left:SetWidth( frame:GetWide() / 2 - 7 )
+	left:SetPaintBackground( true )
+	left:DockMargin( 0, 0, 4, 0 )
+	left:Receiver( "myDNDname", DoDrop ) -- Make the panel a receiver for drag and drop events
+
+	local right = vgui.Create( "DScrollPanel", frame )
+	right:Dock( FILL )
+	right:SetPaintBackground( true )
+	right:Receiver( "myDNDname", DoDrop )
+
+	for i = 1, 30 do
+		local but = vgui.Create( "DButton" )
+		but:SetText( i )
+		but:SetSize( 36, 24 )
+		but:Dock( TOP )
+		but:Droppable( "myDNDname" ) -- make the panel be able to be drag'n'dropped onto other panels
+		right:AddItem( but )
+	end
+
+end )
+	</code>
+
+</example>

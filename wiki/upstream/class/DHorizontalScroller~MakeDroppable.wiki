@@ -1,0 +1,10 @@
+<function name="MakeDroppable" parent="DHorizontalScroller" type="panelfunc">
+	<description>
+Same as <page>DDragBase:MakeDroppable</page>.
+TODO: Transclude or whatever to here?
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="name" type="string"></arg>
+	</args>
+</function>

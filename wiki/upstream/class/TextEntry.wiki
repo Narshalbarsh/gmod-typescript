@@ -1,0 +1,10 @@
+<panel>
+	<name>TextEntry</name>
+	<parent>Panel</parent>
+	<realm>Client</realm>
+	<description>
+		Basic text input field.
+
+See <page>DTextEntry</page> for a more advanced version.
+	</description>
+</panel>

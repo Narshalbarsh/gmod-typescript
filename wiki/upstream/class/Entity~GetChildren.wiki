@@ -1,0 +1,33 @@
+<function name="GetChildren" parent="Entity" type="classfunc">
+	<description>
+Gets the children of the entity - that is, every entity whose move parent is this entity.
+
+<note>This function returns <page>Entity:SetMoveParent</page> children, **NOT** <page>Entity:SetParent</page>!
+
+<page>Entity:SetParent</page> however also calls <page>Entity:SetMoveParent</page>.
+
+
+
+This means that some entities in the returned list might have a NULL <page>Entity:GetParent</page>.
+
+This also means that using this function on players will return their weapons on the client but not the server.</note>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="table<Entity>">A list of movement children entities</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Example usage and output</description>
+	<code>
+-- ent is a prop_effect entity
+PrintTable( ent:GetChildren() )
+	</code>
+	<output>
+```
+1	=	Entity [184][prop_dynamic]
+```
+</output>
+
+</example>

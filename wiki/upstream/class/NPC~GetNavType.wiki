@@ -1,0 +1,8 @@
+<function name="GetNavType" parent="NPC" type="classfunc">
+	<description>Returns the NPC's navigation type.</description>
+	<realm>Server</realm>
+	<added>2021.03.31</added>
+	<rets>
+		<ret name="" type="number">The nav type. See <page>Enums/NAV</page>.</ret>
+	</rets>
+</function>

@@ -1,0 +1,7 @@
+<function name="SetConVar" parent="DMenuOptionCVar" type="panelfunc">
+	<description>Sets the <page text="console variable">ConVars</page> to be used by <page>DMenuOptionCVar</page>.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="cvar" type="string">The <page text="console variable">ConVars</page> name to set</arg>
+	</args>
+</function>

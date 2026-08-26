@@ -1,0 +1,21 @@
+<function name="OnGround" parent="Entity" type="classfunc">
+	<description>
+Returns true if the entity is on the ground, and false if it isn't.
+
+Internally, this checks if <page text="FL_ONGROUND">Enums/FL</page> is set on the entity. This is only updated for players and NPCs, and thus won't inherently work for other entities.
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the entity is on the ground or not.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints if Entity(1) is on the ground or not.</description>
+	<code>
+print( Entity( 1 ):OnGround() )
+print( Entity( 1 ):IsFlagSet( FL_ONGROUND ) ) -- This should give exact same output as the first line
+	</code>
+	<output>In most cases, true.</output>
+
+</example>

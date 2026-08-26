@@ -1,0 +1,10 @@
+<function name="ConVarExists" parent="Global" type="libraryfunc">
+	<description>Returns whether a <page>ConVar</page> with the given name exists or not</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="name" type="string">Name of the <page>ConVar</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">True if the <page>ConVar</page> exists, false otherwise.</ret>
+	</rets>
+</function>

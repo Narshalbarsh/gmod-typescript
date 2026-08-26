@@ -1,0 +1,18 @@
+<function name="BinToInt" parent="math" type="libraryfunc">
+	<description>Converts a binary string into a number.</description>
+	<realm>Shared and Menu</realm>
+	<file line="31-L33">lua/includes/extensions/math.lua</file>
+	<args>
+		<arg name="string" type="string">Binary string to convert</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">Base 10 number.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Will print the string "101010101" as a number in console.</description>
+	<code>print( math.BinToInt( "101010101" ) )</code>
+	<output>341</output>
+
+</example>

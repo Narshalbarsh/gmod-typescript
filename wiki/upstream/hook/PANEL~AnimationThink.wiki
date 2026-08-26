@@ -1,0 +1,10 @@
+<function name="AnimationThink" parent="PANEL" type="hook">
+	<description>
+Called every frame unless the panel is not visible (<page>Panel:IsVisible</page>). Similar to <page>PANEL:Think</page>, but can be disabled by <page>Panel:SetAnimationEnabled</page> as explained below.
+
+If you are overriding this, you must call <page>Panel:AnimationThinkInternal</page> every frame, else animations will cease to work.
+
+If you want to "disable" this hook with <page>Panel:SetAnimationEnabled</page>, you must call it after defining this hook. Once disabled, a custom hook **will not** be re-enabled by <page>Panel:SetAnimationEnabled</page> again - the hook will have to be re-defined.
+	</description>
+	<realm>Client</realm>
+</function>

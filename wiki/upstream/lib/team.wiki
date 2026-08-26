@@ -1,0 +1,3 @@
+<type name="team" category="libraryfunc" is="library">
+	<summary>The team library gives you access to the team system built into the Source engine, and allows you to create custom teams and get information about them.</summary>
+</type>

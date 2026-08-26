@@ -1,0 +1,16 @@
+<function name="GetMaterials" parent="Entity" type="classfunc">
+	<description>
+Returns all materials of the entity's model.
+
+This function is unaffected by <page>Entity:SetSubMaterial</page> as it returns the original materials.
+
+<bug>The table returned by this function will not contain materials if they are missing from the disk/repository. This means that if you are attempting to find the ID of a material to replace with <page>Entity:SetSubMaterial</page> and there are missing materials on the model, all subsequent materials will be offset in the table, meaning that the ID you are trying to get will be incorrect.</bug>
+
+	</description>
+	<realm>Shared</realm>
+	<rets>
+<ret name="" type="table<string>">A table containing full paths to the materials of the model.
+
+For models, it's limited to `128` materials.</ret>
+	</rets>
+</function>

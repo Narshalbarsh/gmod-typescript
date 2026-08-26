@@ -1,0 +1,30 @@
+<panel>
+	<parent>Panel</parent>
+	<realm>Client</realm>
+	<preview>DPanel-Avatar.png</preview>
+	<description>
+		Used to show a player's Steam avatar. You are recommended but not limited to pick one of the following sizes: 16, 32, 64, 84, 128, 184.
+	</description>
+</panel>
+
+
+<example>
+	<description>Creates an AvatarImage with the LocalPlayer's avatar inside.</description>
+	<code>
+concommand.Add( "testavatar", function()
+
+	local Panel = vgui.Create( "DFrame" )
+	Panel:SetPos( 200, 200 )
+	Panel:SetSize( 500, 500 )
+	Panel:SetTitle( "Avatar Test" )
+	Panel:MakePopup()
+
+	local Avatar = vgui.Create( "AvatarImage", Panel )
+	Avatar:SetSize( 64, 64 )
+	Avatar:SetPos( 4, 30 )
+	Avatar:SetPlayer( LocalPlayer(), 64 )
+
+end )
+	</code>
+
+</example>

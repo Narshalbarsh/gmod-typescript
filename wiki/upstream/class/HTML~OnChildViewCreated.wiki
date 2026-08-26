@@ -1,0 +1,9 @@
+<function name="OnChildViewCreated" parent="HTML" type="panelhook">
+	<description>Called by HTML panels when the page attempts to open a new child view (such as a popup or new tab).</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="sourceURL" type="string">The URL of the page requesting to create a child.</arg>
+		<arg name="targetURL" type="string">The URL of the requested child.</arg>
+		<arg name="isPopup" type="boolean">True if the requested view is a popup.</arg>
+	</args>
+</function>

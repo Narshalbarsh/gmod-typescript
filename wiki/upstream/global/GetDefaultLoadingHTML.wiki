@@ -1,0 +1,7 @@
+<function name="GetDefaultLoadingHTML" parent="Global" type="libraryfunc">
+	<description>Returns the default loading screen URL (asset://garrysmod/html/loading.html)</description>
+	<realm>Menu</realm>
+	<rets>
+		<ret name="" type="string">Default loading url (asset://garrysmod/html/loading.html)</ret>
+	</rets>
+</function>

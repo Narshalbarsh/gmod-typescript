@@ -1,0 +1,35 @@
+<function name="MaterialOverride" parent="render" type="libraryfunc">
+	<description>Sets the render material override for all next calls of <page>Entity:DrawModel</page>. Also overrides <page>render.MaterialOverrideByIndex</page>.
+
+See <page>render.WorldMaterialOverride</page>, <page>render.BrushMaterialOverride</page> and <page>render.ModelMaterialOverride</page> for similar functions.
+
+<warning>In certain scenarios such as during entity's shadow pass, using this function can cause unexpected side effects. See example below on how to deal with this.</warning>
+</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="material" type="IMaterial|nil" default="nil">The material to use as override, use `nil` to disable.</arg>
+	</args>
+</function>
+
+<example>
+<description>
+Deal with shadow passes during entity rendering. This usually only applies to opaque renders (so not to `ENT:DrawTranslucent`).
+</description>
+<code>
+local matForOverride = Material( "phoenix_storms/stripes" )
+
+function ENT:Draw( flags )
+	-- If the model is currently rendering in the shadow pass, do not overwrite any materials and just render the model(s) normally.
+	-- In this case we just render the model without any material overrides and returning early.
+	if ( ( bit.band( flags, STUDIO_SSAODEPTHTEXTURE ) != 0 || bit.band( flags, STUDIO_SHADOWDEPTHTEXTURE ) != 0 ) ) then
+		self:DrawModel( flags )
+		return
+	end
+
+	-- The rest of your code. For example:
+	render.MaterialOverride( matForOverride )
+		self:DrawModel( flags )
+	render.MaterialOverride()
+end
+</code>
+</example>

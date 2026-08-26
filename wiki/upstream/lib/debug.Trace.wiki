@@ -1,0 +1,22 @@
+<function name="Trace" parent="debug" type="libraryfunc">
+	<description>
+
+Prints out the lua function call stack to the console.</description>
+	<realm>Shared and Menu</realm>
+	<file line="24-L51">lua/includes/extensions/debug.lua</file>
+</function>
+
+<example>
+	<description>Prints the current call stack.</description>
+	<code>debug.Trace()</code>
+	<output>
+
+```
+Trace: 
+ 1: Line 32 "Trace" lua/includes/extensions/debug.lua
+ 2: Line 1 "(null)" LuaCmd
+```
+
+	</output>
+
+</example>

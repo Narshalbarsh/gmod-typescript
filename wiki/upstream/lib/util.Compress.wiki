@@ -1,0 +1,18 @@
+<function name="Compress" parent="util" type="libraryfunc">
+	<description>
+Compresses the given string using the [LZMA](https://en.wikipedia.org/wiki/LZMA) algorithm.
+
+Use with <page>net.WriteData</page> and <page>net.ReadData</page> for networking and  <page>util.Decompress</page> to decompress the data.
+
+<note>The output of this function will have the uncompressed size of the data prepended to it as an 8-byte little-endian integer. [Source](https://github.com/garrynewman/bootil/blob/beb4cec8ad29533965491b767b177dc549e62d23/src/Bootil/Utility/CompressionLZMA.cpp#L56-L63)
+
+You may therefore experience issues using the output of this function **_outside of Garry's Mod_**. If you need to do this, you will need to manually strip the first 8 bytes from the compressed output, or use third-party tools such as [gmod-lzma](https://github.com/WilliamVenner/gmod-lzma-rs) to decompress the output instead.</note>
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="str" type="string">String to compress.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The compressed string, or an empty string if the input string was zero length ("").</ret>
+	</rets>
+</function>

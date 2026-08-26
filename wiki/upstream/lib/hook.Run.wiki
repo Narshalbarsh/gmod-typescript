@@ -1,0 +1,18 @@
+<function name="Run" parent="hook" type="libraryfunc">
+	<description>
+Calls all hooks associated with the given event **until** one returns something other than `nil` and then returns that data. If no hook returns any data, it will try to call the `GAMEMODE:<eventName>` alternative, if one exists.
+
+This function internally calls <page>hook.Call</page>.
+
+See also: <page>gamemode.Call</page> - same as this, but does not call hooks if the gamemode hasn't defined the function.
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="64-L71">lua/includes/modules/hook.lua</file>
+	<args>
+		<arg name="eventName" type="string">The event to call hooks for.</arg>
+		<arg name="args" type="vararg">The arguments to be passed to the hooks.</arg>
+	</args>
+	<rets>
+		<ret name="" type="vararg">Return data from called hooks. Limited to **6** return values.</ret>
+	</rets>
+</function>

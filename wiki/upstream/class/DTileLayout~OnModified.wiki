@@ -1,0 +1,4 @@
+<function name="OnModified" parent="DTileLayout" type="panelhook">
+	<description>Called when anything is dropped on or rearranged within the DTileLayout.</description>
+	<realm>Client</realm>
+</function>

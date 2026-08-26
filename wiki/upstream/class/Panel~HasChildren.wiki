@@ -1,0 +1,7 @@
+<function name="HasChildren" parent="Panel" type="classfunc">
+	<description>Returns whenever the panel has child panels.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">hasChilds</ret>
+	</rets>
+</function>

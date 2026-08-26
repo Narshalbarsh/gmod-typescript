@@ -1,0 +1,8 @@
+<function name="OnChange" parent="DTextEntry" type="panelhook">
+	<description>
+Called by <page>DTextEntry:OnTextChanged</page> when the user modifies the text in the <page>DTextEntry</page>.
+
+You should override this function to define custom behavior when the <page>DTextEntry</page> text changes.
+	</description>
+	<realm>Client and Menu</realm>
+</function>

@@ -1,0 +1,7 @@
+<function name="GetConVar" parent="DMenuOptionCVar" type="panelfunc">
+	<description>Returns the <page text="console variable">ConVars</page> used by the <page>DMenuOptionCVar</page>.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="string">The <page text="console variable">ConVars</page> used</ret>
+	</rets>
+</function>

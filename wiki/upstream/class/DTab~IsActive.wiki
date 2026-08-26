@@ -1,0 +1,8 @@
+<function name="IsActive" parent="DTab" type="panelfunc">
+	<description>Returns whether the tab is the currently selected tab of the associated <page>DPropertySheet</page>.</description>
+	<realm>Client and Menu</realm>
+	<file line="34">lua/vgui/dpropertysheet.lua</file>
+	<rets>
+		<ret name="" type="boolean">Currently selected tab.</ret>
+	</rets>
+</function>

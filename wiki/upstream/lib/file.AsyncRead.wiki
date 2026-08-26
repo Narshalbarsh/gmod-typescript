@@ -1,0 +1,46 @@
+<function name="AsyncRead" parent="file" type="libraryfunc">
+	<description>
+Returns the content of a file asynchronously.
+
+All limitations of <page>file.Read</page> also apply.
+	</description>
+	<realm>Shared</realm>
+	<added>2021.03.31</added>
+	<args>
+		<arg name="fileName" type="string">The name of the file.</arg>
+		<arg name="gamePath" type="string">The path to look for the files and directories in. See <page text="this list">File_Search_Paths</page> for a list of valid paths.</arg>
+		<arg name="callback" type="function">
+A callback function that will be called when the file read operation finishes.
+
+<callback>
+<arg type="string" name="fileName">The `fileName` argument above.</arg>
+<arg type="string" name="gamePath">The `gamePath` argument above.</arg>
+<arg type="number" name="status">The status of the operation. The list can be found in <page>Enums/FSASYNC</page>.</arg>
+<arg type="string" name="data">The entirety of the data of the file.</arg>
+</callback>
+		</arg>
+		<arg name="sync" type="boolean" default="false">If `true` the file will be read synchronously.</arg>
+	</args>
+	<rets>
+		<ret name="status" type="number{FSASYNC}"><page text="FSASYNC_OK">Enums/FSASYNC</page> on success, <page text="FSASYNC_ERR_">Enums/FSASYNC</page> on failure.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints the SteamIDs of players who will be automatically assigned to a user group when they connect to a server (Sandbox gamemode and derived).</description>
+	<code>
+file.AsyncRead( "settings/users.txt", "GAME", function( fileName, gamePath, status, data )
+	if ( status == FSASYNC_OK ) then
+		PrintTable( util.KeyValuesToTable( data ) )
+	end
+end)
+	</code>
+	<output>
+```
+admin:
+                garry   =       STEAM_0:1:7099
+superadmin:
+                garry   =       STEAM_0:1:7099
+```
+	</output>
+</example>

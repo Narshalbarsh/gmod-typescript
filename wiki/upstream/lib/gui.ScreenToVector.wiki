@@ -1,0 +1,33 @@
+<function name="ScreenToVector" parent="gui" type="libraryfunc">
+	<description>
+Converts the specified screen position to a **direction** vector local to the player's view. A related function is <page>Vector:ToScreen</page>, which translates a 3D position to a screen coordinate.
+
+<page>util.AimVector</page> is a more generic version of this, using a custom view instead of the player's current view.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="x" type="number">X coordinate on the screen.</arg>
+		<arg name="y" type="number">Y coordinate on the screen.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">Direction</ret>
+	</rets>
+</function>
+
+<example>
+	<description>This will do a trace from the mouse position to the world</description>
+	<code>
+local tr = util.QuickTrace(LocalPlayer():GetShootPos(), gui.ScreenToVector(gui.MousePos()),LocalPlayer())
+print(tr.HitPos)
+	</code>
+	<output>The worldpos the cursor is pointing at will be printed</output>
+
+</example>
+
+
+<example>
+	<description>Replacement for <page>Player:GetAimVector</page></description>
+	<code>print(gui.ScreenToVector(ScrW()/2, ScrH()/2))</code>
+	<output>The player's current aimvector will be printed</output>
+
+</example>

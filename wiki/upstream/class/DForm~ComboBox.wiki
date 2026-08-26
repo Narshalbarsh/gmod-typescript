@@ -1,0 +1,30 @@
+<function name="ComboBox" parent="DForm" type="panelfunc">
+	<description>Adds a <page>DComboBox</page> onto the <page>DForm</page></description>
+	<realm>Client and Menu</realm>
+	<file line="134-L152">lua/vgui/dform.lua</file>
+	<args>
+		<arg name="title" type="string">Text to the left of the combo box</arg>
+		<arg name="convar" type="string">Console variable to change when the user selects something from the dropdown.</arg>
+	</args>
+	<rets>
+		<ret name="" type="DComboBox">The created <page>DComboBox</page></ret>
+		<ret name="" type="DLabel">The created <page>DLabel</page></ret>
+	</rets>
+</function>
+
+<example>
+	<code>
+local frame = vgui.Create( "DFrame" )
+frame:SetSize( ScrW() / 2, ScrH() / 2 )
+frame:MakePopup()
+
+local form = frame:Add("DForm")
+form:Dock( FILL )
+form:DockMargin( 5, 5, 5, 5 )
+
+local combobox, label = form:ComboBox( "test", "sv_accelerate" )
+combobox:AddChoice( "10" ) -- 10 will be used as convar value
+combobox:AddChoice( "1000", 100 ) -- 100 will be used as convar value
+	</code>
+
+</example>

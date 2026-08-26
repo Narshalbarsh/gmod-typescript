@@ -1,0 +1,8 @@
+<function name="ConVarXNumberThink" parent="DSlider" type="panelfunc">
+	<description>
+<internal></internal>
+
+Used internally to set the X axis convar.
+	</description>
+	<realm>Client and Menu</realm>
+</function>

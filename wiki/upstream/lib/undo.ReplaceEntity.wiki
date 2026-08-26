@@ -1,0 +1,27 @@
+<function name="ReplaceEntity" parent="undo" type="libraryfunc">
+	<description>Replaces any instance of the "from" reference with the "to" reference, in any existing undo block.
+
+You very likely want to call <page>cleanup.ReplaceEntity</page> with the same entities as well.
+</description>
+	<realm>Server</realm>
+	<file line="261-L282">lua/includes/modules/undo.lua</file>
+	<args>
+		<arg name="from" type="Entity">The old entity</arg>
+		<arg name="to" type="Entity|nil">The new entity to replace the old one. Can also be a `NULL` to remove the entity from the undo system.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether the entity was replaced</ret>
+	</rets>
+</function>
+
+<example>
+	<description>When an entity is ragdolled, this will replace any instances of the entity with it's ragdoll.</description>
+	<code>
+function GM:CreateEntityRagdoll( entity, ragdoll )
+	// Replace the entity with the ragdoll in cleanups etc
+	undo.ReplaceEntity( entity, ragdoll )
+	cleanup.ReplaceEntity( entity, ragdoll )
+end
+	</code>
+
+</example>

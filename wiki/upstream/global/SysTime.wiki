@@ -1,0 +1,48 @@
+<function name="SysTime" parent="Global" type="libraryfunc">
+	<description>Returns a highly accurate time in seconds since the start up, ideal for benchmarking. Unlike <page>Global.RealTime</page>, this value will be updated any time the function is called, allowing for sub-think precision.</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="number">Uptime of the server.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints the runtime.</description>
+	<code>print(SysTime())</code>
+	<output>1654.4422888037</output>
+
+</example>
+
+
+<example>
+	<description>Typical usage of this function for benchmarking.</description>
+	<code>
+local SysTime = SysTime
+local Distance = FindMetaTable("Vector").Distance
+
+local vec1 = Vector(1, 2, 3)
+local vec2 = Vector(13, 26, -10)
+
+local count = 10000
+
+local StartTime = SysTime()
+
+for i = 1, count do
+	-- Repeat an action 10,000 times to check how long it takes on average
+	-- Example action:
+	Distance(vec1 , vec2)
+end
+
+local EndTime = SysTime()
+local TotalTime = EndTime - StartTime
+local AverageTime = TotalTime / count
+
+print("Total: " .. TotalTime .. " seconds. Average: " .. AverageTime .. " seconds.")
+	</code>
+	<output>
+```
+Total: 0.0099969995115998 seconds. Average: 9.9969995115998e-07 seconds.
+```
+	</output>
+
+</example>

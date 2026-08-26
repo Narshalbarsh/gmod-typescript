@@ -1,0 +1,4 @@
+<function name="CheckInput" parent="UGCPublishWindow" type="panelfunc">
+	<description>Checks if the Tags and Title are valid and if so it enables the publish button.</description>
+	<realm>Menu</realm>
+</function>

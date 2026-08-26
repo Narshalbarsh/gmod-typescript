@@ -1,0 +1,40 @@
+<function name="Derma_StringRequest" parent="Global" type="libraryfunc">
+	<description>Creates a derma window asking players to input a string.</description>
+	<realm>Client and Menu</realm>
+	<file line="195-L264">lua/derma/derma_utils.lua</file>
+	<args>
+		<arg name="title" type="string">The title of the created panel.</arg>
+		<arg name="subtitle" type="string">The text above the input box.</arg>
+		<arg name="default" type="string">The default text for the input box.</arg>
+		<arg name="confirm" type="function">The function to be called once the user has confirmed their input.
+<callback>
+	<arg name="text" type="string">The text the player entered.</arg>
+</callback>
+</arg>
+		<arg name="cancel" type="function" default="nil">The function to be called once the user has cancelled their input.
+<callback>
+	<arg name="text" type="string">The text the player entered.</arg>
+</callback>
+</arg>
+		<arg name="confirmText" type="string" default="OK">Allows you to override text of the "OK" button</arg>
+		<arg name="cancelText" type="string" default="Cancel">Allows you to override text of the "Cancel" button</arg>
+	</args>
+	<rets>
+		<ret name="" type="DFrame">The created <page>DFrame</page></ret>
+	</rets>
+</function>
+
+<example>
+	<description>Asks the user to input a string which is then printed to their console</description>
+	<code>
+Derma_StringRequest(
+	"Console Print", 
+	"Input the string to print to console",
+	"",
+	function(text) print(text) end,
+	function(text) print("Cancelled input") end
+)
+	</code>
+	<output><image src="Derma_StringRequest.png"/></output>
+
+</example>

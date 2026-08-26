@@ -1,0 +1,7 @@
+<function name="SetMaxHealth" parent="Entity" type="classfunc">
+	<description>Sets the maximum health for entity. Note, that you can still set entity's health above this amount with <page>Entity:SetHealth</page>.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="maxhealth" type="number">What the max health should be</arg>
+	</args>
+</function>

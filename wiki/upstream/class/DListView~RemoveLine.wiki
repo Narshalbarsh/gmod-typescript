@@ -1,0 +1,7 @@
+<function name="RemoveLine" parent="DListView" type="panelfunc">
+	<description>Removes a line from the list view.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="line" type="number">Removes the given row, by row id (same number as <page>DListView:GetLine</page>).</arg>
+	</args>
+</function>

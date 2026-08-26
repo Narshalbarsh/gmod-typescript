@@ -1,0 +1,5 @@
+<function name="DebugInfo" parent="Player" type="classfunc">
+	<description>Prints the players' name and position to the console.</description>
+	<realm>Shared</realm>
+	<file line="48-L53">lua/includes/extensions/player.lua</file>
+</function>

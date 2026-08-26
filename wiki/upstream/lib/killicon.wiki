@@ -1,0 +1,3 @@
+<type name="killicon" category="libraryfunc" is="library">
+	<summary>The killicon library is used to add to and control the icons that appear in the top right of your screen when a player is killed.</summary>
+</type>

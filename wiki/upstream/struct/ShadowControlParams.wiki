@@ -1,0 +1,22 @@
+<structure>
+	<realm>Shared</realm>
+	<description>Table used by <page>PhysObj:ComputeShadowControl</page>. Default values are given if the table element is omitted.</description>
+	<fields>
+<item name="secondstoarrive" type="number" default="TICK_INTERVAL * 2">How long it takes to move to the set pos and angle. Limited by max speed/damping.
+<warning>Cannot be 0! Will give errors if you do.</warning>
+</item>
+<item name="delta" type="number" default="0.1">The time it should use - just use the one from <page>ENTITY:PhysicsSimulate</page>.</item>
+
+<item name="pos" type="Vector" default="vector_origin">Where you want to move to.</item>
+<item name="angle" type="Angle" default="angle_zero">Angle you want to move to.</item>
+
+<item name="maxangular" type="number" default="1">What should be the maximal angular force applied.</item>
+<item name="maxangulardamp" type="number" default="1">At which force/speed should it start damping the rotation.</item>
+<item name="maxspeed" type="number" default="1">Maximum linear force applied</item>
+<item name="maxspeeddamp" type="number" default="1">Maximum linear force/speed before damping.</item>
+
+<item name="dampfactor" type="number" default="1">The percentage it should damp the linear/angular force if it reaches it's max amount</item>
+<item name="teleportdistance" type="number" default="0">If it's further away than this it'll teleport (Set to 0 to not teleport)</item>
+	</fields>
+
+</structure>

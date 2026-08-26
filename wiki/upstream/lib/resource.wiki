@@ -1,0 +1,3 @@
+<type name="resource" category="libraryfunc" is="library">
+	<summary>The resource library is used to control what files are sent to clients who join a server, this includes models, materials, sounds, text files but not Lua files.</summary>
+</type>

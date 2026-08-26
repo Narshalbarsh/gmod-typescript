@@ -1,0 +1,17 @@
+<function name="KeyWasDown" parent="CMoveData" type="classfunc">
+	<description>
+Returns whether the key was down or not.
+
+
+
+
+Unlike <page>CMoveData:KeyDown</page>, it will return false if <page>CMoveData:KeyPressed</page> is true and it will return true if <page>CMoveData:KeyReleased</page> is true.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="key" type="number">The key to test, see <page>Enums/IN</page></arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Was the key down or not</ret>
+	</rets>
+</function>

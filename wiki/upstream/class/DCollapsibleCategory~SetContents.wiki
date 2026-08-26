@@ -1,0 +1,8 @@
+<function name="SetContents" parent="DCollapsibleCategory" type="panelfunc">
+	<description>Sets the contents of the DCollapsibleCategory.</description>
+	<realm>Client and Menu</realm>
+	<file line="176-L196">lua/vgui/dcategorycollapse.lua</file>
+	<args>
+		<arg name="pnl" type="Panel">The panel, containing the contents for the DCollapsibleCategory, mostly an DScrollPanel</arg>
+	</args>
+</function>

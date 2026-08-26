@@ -1,0 +1,8 @@
+<function name="GetTextSize" parent="Panel" type="classfunc">
+	<description>Gets the size of the text within a <page>Label</page> derived panel.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The width of the text in the DLabel.</ret>
+		<ret name="" type="number">The height of the text in the DLabel.</ret>
+	</rets>
+</function>

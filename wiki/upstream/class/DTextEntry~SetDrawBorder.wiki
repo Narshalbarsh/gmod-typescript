@@ -1,0 +1,11 @@
+<function name="SetDrawBorder" parent="DTextEntry" type="panelfunc">
+	<description>
+<deprecated></deprecated>
+
+Does nothing.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="bool" type="boolean"></arg>
+	</args>
+</function>

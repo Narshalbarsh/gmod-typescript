@@ -1,0 +1,28 @@
+<function name="IsFriendEntityName" parent="Global" type="libraryfunc">
+	<description>
+Returns if the given NPC class name is a friend. Returns `true` if the entity name is one of the following:
+* `monster_scientist`
+* `monster_barney`
+* `npc_alyx`
+* `npc_barney`
+* `npc_citizen`
+* `npc_dog`
+* `npc_eli`
+* `npc_fisherman`
+* `npc_gman`
+* `npc_kleiner`
+* `npc_magnusson`
+* `npc_monk`
+* `npc_mossman`
+* `npc_odessa`
+* `npc_vortigaunt`
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="403-L405">lua/includes/util.lua</file>
+	<args>
+		<arg name="className" type="string">Class name of the entity to check</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Is a friend</ret>
+	</rets>
+</function>

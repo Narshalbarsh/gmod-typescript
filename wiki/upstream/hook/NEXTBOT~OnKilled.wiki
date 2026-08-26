@@ -1,0 +1,46 @@
+<function name="OnKilled" parent="NEXTBOT" type="hook">
+	<description>Called when the bot gets killed.</description>
+	<realm>Server</realm>
+	<file line="140">gamemodes/base/entities/entities/base_nextbot/sv_nextbot.lua</file>
+	<args>
+		<arg name="info" type="CTakeDamageInfo">The damage info</arg>
+	</args>
+</function>
+
+<example>
+	<description>Example of NPC becoming a ragdoll after death and sending death notification to everybodys killfeed.</description>
+	<code>
+function ENT:OnKilled( dmginfo )
+
+	hook.Call( "OnNPCKilled", GAMEMODE, self, dmginfo:GetAttacker(), dmginfo:GetInflictor() )
+
+	self:BecomeRagdoll( dmginfo )
+
+end
+	</code>
+</example>
+
+<example>
+	<description>Removes the body after 5 seconds, to prevent having lots of bodies laying around after a while.</description>
+	<code>
+function ENT:OnKilled( dmginfo )
+	
+	hook.Call( "OnNPCKilled", GAMEMODE, self, dmginfo:GetAttacker(), dmginfo:GetInflictor() )
+	
+	local body = ents.Create( "prop_ragdoll" )
+	body:SetPos( self:GetPos() )
+	body:SetModel( self:GetModel() )
+	body:Spawn()
+	
+	self:Remove()
+	
+	timer.Simple( 5, function()
+	
+		body:Remove()
+		
+	end )
+
+end
+	</code>
+	<output>The body disappears after 5 seconds.</output>
+</example>

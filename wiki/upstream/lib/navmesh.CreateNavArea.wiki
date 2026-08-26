@@ -1,0 +1,11 @@
+<function name="CreateNavArea" parent="navmesh" type="libraryfunc">
+	<description>Creates a new <page>CNavArea</page>.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="corner" type="Vector">The first corner of the new <page>CNavArea</page></arg>
+		<arg name="opposite_corner" type="Vector">The opposite (diagonally) corner of the new <page>CNavArea</page></arg>
+	</args>
+	<rets>
+		<ret name="" type="CNavArea">The new <page>CNavArea</page> or <page>nil</page> if we failed for some reason.</ret>
+	</rets>
+</function>

@@ -1,0 +1,13 @@
+<function name="QuadEasy" parent="mesh" type="libraryfunc">
+	<description>Adds a quad (4 vertices) to the currently built mesh, by using position, normal and sizes. See <page>mesh.Begin</page>.
+
+See also <page>mesh.Quad</page>.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="position" type="Vector">The center of the quad.</arg>
+		<arg name="normal" type="Vector">The normal of the quad.</arg>
+		<arg name="sizeX" type="number">X size in pixels.</arg>
+		<arg name="sizeY" type="number">Y size in pixels.</arg>
+		<arg name="color" type="Color">The <page>Color</page> for the vertices.</arg>
+	</args>
+</function>

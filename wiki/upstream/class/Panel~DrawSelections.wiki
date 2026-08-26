@@ -1,0 +1,5 @@
+<function name="DrawSelections" parent="Panel" type="classfunc">
+	<file line="91-L101">lua/includes/extensions/client/panel/selections.lua</file>
+	<description>Used to draw the magenta highlight colour of a panel object when it is selected. This should be called in the object's <page>PANEL:PaintOver</page> hook. Once this is implemented, the highlight colour will be displayed only when the object is selectable and selected. This is achieved using <page>Panel:SetSelectable</page> and <page>Panel:SetSelected</page> respectively.</description>
+	<realm>Client and Menu</realm>
+</function>

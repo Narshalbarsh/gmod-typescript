@@ -1,0 +1,12 @@
+<function name="TextureColor" parent="GWEN" type="libraryfunc">
+	<description>Retrieves the color from a materials texture at the provided UV coordinates </description>
+	<realm>Client and Menu</realm>
+	<file line="121-L127">lua/derma/derma_gwen.lua</file>
+	<args>
+		<arg name="x" type="number">X position of the pixel to get the color from.</arg>
+		<arg name="y" type="number">Y position of the pixel to get the color from.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Color">The color of the point on the skin.</ret>
+	</rets>
+</function>

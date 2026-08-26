@@ -1,0 +1,37 @@
+<function name="Derma_Query" parent="Global" type="libraryfunc">
+	<description>Shows a message box in the middle of the screen, with up to 4 buttons they can press.</description>
+	<realm>Client and Menu</realm>
+	<file line="105-L180">lua/derma/derma_utils.lua</file>
+	<args>
+		<arg name="text" type="string" default="Message Text (Second Parameter)">The message to display.</arg>
+		<arg name="title" type="string" default="Message Title (First Parameter)">The title to give the message box.</arg>
+		<arg name="btn1text" type="string">The text to display on the first button.</arg>
+		<arg name="btn1func" type="function" default="nil">The function to run if the user clicks the first button.</arg>
+		<arg name="btn2text" type="string" default="nil">The text to display on the second button.</arg>
+		<arg name="btn2func" type="function" default="nil">The function to run if the user clicks the second button.</arg>
+		<arg name="btn3text" type="string" default="nil">The text to display on the third button</arg>
+		<arg name="btn3func" type="function" default="nil">The function to run if the user clicks the third button.</arg>
+		<arg name="btn4text" type="string" default="nil">The text to display on the fourth button</arg>
+		<arg name="btn4func" type="function" default="nil">The function to run if the user clicks the fourth button.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Panel">The Panel object of the created window.</ret>
+	</rets>
+</function>
+
+
+<example>
+
+	<description>Creates a popup box with buttons that print messages to the console when clicked.</description>
+	<code>
+Derma_Query(
+    "Are you sure about that?",
+    "Confirmation:",
+    "Yes",
+    function() print("They clicked the yes button.") end,
+	"No",
+	function() print("They clicked the no button.") end
+)
+	</code>
+
+</example>

@@ -1,0 +1,55 @@
+<function name="SetSkipShadowUpdates" parent="ProjectedTexture" type="classfunc">
+	<description>Sets whether shadow updates are disabled for this ProjectedTexture. This can be useful to save up on performance, but it will inevitably cause graphical glitches if left not updating for long.</description>
+	<added>2026.04.10</added>
+	<realm>Client</realm>
+	<args>
+		<arg name="enable" type="boolean">Whether future shadow updates should be skipped.</arg>
+	</args>
+</function>
+
+<example>
+<description>
+Creates a projected texture on the entity, holding reload key will freeze the projected shadow.
+</description>
+<code>
+function ENT:OnRemove()
+	if ( IsValid( self.lamp ) ) then
+		self.lamp:Remove()
+	end
+end
+
+
+function ENT:Think()
+	-- Keep updating the light so it's attached to our entity
+	-- you might want to call other functions here, you can do animations here as well
+	local pos = self:GetPos()
+	local angles = self:GetAngles()
+
+	if ( IsValid( self.lamp ) ) then
+		self.lamp:SetPos( pos )
+		self.lamp:SetAngles( angles )
+		if ( Entity(1):KeyDown( IN_RELOAD ) ) then
+			self.lamp:SetColor( Color( 255, 255, 255 ) )
+			self.lamp:SetSkipShadowUpdates( true )
+			self.lamp:Update()
+		else
+			self.lamp:SetColor( Color( 255, 255, 255 ) )
+			self.lamp:SetSkipShadowUpdates( false )
+			self.lamp:Update()
+		end
+		self.FrameFlipFlop = !self.FrameFlipFlop
+	else
+		local lamp = ProjectedTexture() -- Create a projected texture
+		self.lamp = lamp -- Assign it to the entity table so it may be accessed later
+
+		-- Set it all up
+		lamp:SetTexture( "effects/flashlight001" )
+		lamp:SetFarZ( 500 ) -- How far the light should shine
+
+		lamp:SetPos( pos ) -- Initial position and angles
+		lamp:SetAngles( angles )
+		lamp:Update()
+	end
+end
+</code>
+</example>

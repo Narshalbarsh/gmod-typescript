@@ -1,0 +1,9 @@
+<function name="Rebuild" parent="DForm" type="panelfunc">
+	<realm>Client and Menu</realm>
+	<file line="297-L298">lua/vgui/dform.lua</file>
+	<description>
+		<deprecated></deprecated>
+
+		Does nothing.
+	</description>
+</function>

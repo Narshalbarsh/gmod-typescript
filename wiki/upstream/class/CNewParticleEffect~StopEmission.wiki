@@ -1,0 +1,9 @@
+<function name="StopEmission" parent="CNewParticleEffect" type="classfunc">
+	<description>Stops the particle emission.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="infiniteOnly" type="boolean" default="false"></arg>
+		<arg name="removeAllParticles" type="boolean" default="false"></arg>
+		<arg name="wakeOnStop" type="boolean" default="false"></arg>
+	</args>
+</function>

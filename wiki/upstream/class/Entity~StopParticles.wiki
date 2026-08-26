@@ -1,0 +1,11 @@
+<function name="StopParticles" parent="Entity" type="classfunc">
+	<description>
+Stops any attached to the entity .pcf particles using <page>Global.ParticleEffectAttach</page> or <page>Global.ParticleEffect</page>.
+
+On client, this is the same as <page>Entity:StopParticleEmission</page>. ( and you should use StopParticleEmission instead )
+
+
+On server, this is the same as running <page>Entity:StopParticleEmission</page> on every client.
+	</description>
+	<realm>Shared</realm>
+</function>

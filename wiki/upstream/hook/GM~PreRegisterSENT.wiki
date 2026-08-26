@@ -1,0 +1,28 @@
+<function name="PreRegisterSENT" parent="GM" type="hook">
+	<description>
+Called by <page>scripted_ents.Register</page>.
+	</description>
+	<realm>Shared</realm>
+	<added>2021.01.27</added>
+	<file line="55">lua/includes/modules/scripted_ents.lua</file>
+	<args>
+		<arg name="ent" type="table">The entity table to be registered.</arg>
+		<arg name="class" type="string">The class name to be assigned.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return `false` to prevent the entity from being registered. Returning any other value has no effect.</ret>
+	</rets>
+</function>
+
+<example>
+    <description>Disallow registration of entities created by Garry, and change admin-only entities into regular entities.</description>
+    <code>
+hook.Add( "PreRegisterSENT", "MakeThingsFun", function( ent, class )
+    if ( ent.Author == "Garry Newman" ) then
+        return false
+    end
+
+    ent.AdminOnly = false
+end )
+    </code>
+</example>

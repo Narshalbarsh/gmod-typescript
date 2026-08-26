@@ -1,0 +1,8 @@
+<function name="SupportsHDR" parent="render" type="libraryfunc">
+	<description>Returns whether the player's hardware supports HDR. (High Dynamic Range) HDR can still be disabled by the `mat_hdr_level` console variable or just not be supported by the map.</description>
+	<realm>Client and Menu</realm>
+		<file line="47-L53">lua/includes/extensions/client/render.lua</file>
+	<rets>
+		<ret name="" type="boolean">`true` if the player's hardware supports HDR.</ret>
+	</rets>
+</function>

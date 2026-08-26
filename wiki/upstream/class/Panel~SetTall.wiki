@@ -1,0 +1,7 @@
+<function name="SetTall" parent="Panel" type="classfunc">
+	<description>Sets height of a panel. An alias of <page>Panel:SetHeight</page>.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="height" type="number">Desired height to set</arg>
+	</args>
+</function>

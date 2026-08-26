@@ -1,0 +1,15 @@
+<function name="CopyEntTable" parent="duplicator" type="libraryfunc">
+	<description>
+		Returns a table with some entity data that can be used to create a new entity with <page>duplicator.CreateEntityFromTable</page>.
+	</description>
+	<realm>
+		Server
+	</realm>
+	<file line="558-L564">lua/includes/modules/duplicator.lua</file>
+	<args>
+		<arg name="ent" type="Entity">The entity table to save.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">See <page>Structures/EntityCopyData</page>.</ret>
+	</rets>
+</function>

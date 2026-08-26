@@ -1,0 +1,10 @@
+<function name="isbool" parent="Global" type="libraryfunc">
+	<description>Returns if the passed object is a <page>boolean</page>.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="variable" type="any">The variable to perform the type check for.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">True if the variable is a <page>boolean</page>.</ret>
+	</rets>
+</function>

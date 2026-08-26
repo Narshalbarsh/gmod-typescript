@@ -1,0 +1,10 @@
+<function name="ExpressionFinished" parent="ENTITY" type="hook">
+	<realm>Server</realm>
+	<file line="94">gamemodes/base/entities/entities/base_ai/init.lua</file>
+	<description>Called when an NPC's expression has finished.
+<note>This hook only exists for `ai` type [SENTs](Scripted_Entities).</note>
+</description>
+	<args>
+		<arg name="strExp" type="string">The path of the expression.</arg>
+	</args>
+</function>

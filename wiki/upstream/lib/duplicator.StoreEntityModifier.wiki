@@ -1,0 +1,10 @@
+<function name="StoreEntityModifier" parent="duplicator" type="libraryfunc">
+	<description>Stores an entity modifier into an entity for saving.</description>
+	<realm>Server</realm>
+	<file line="510-L522">lua/includes/modules/duplicator.lua</file>
+	<args>
+		<arg name="entity" type="Entity">The entity to store modifier in.</arg>
+		<arg name="name" type="string">Unique modifier name as defined in <page>duplicator.RegisterEntityModifier</page>.</arg>
+		<arg name="data" type="table">Modifier data.</arg>
+	</args>
+</function>

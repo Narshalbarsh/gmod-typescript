@@ -1,0 +1,7 @@
+<function name="GetFOV" parent="Player" type="classfunc">
+	<description>Returns the FOV of the player.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">Field of view as a float</ret>
+	</rets>
+</function>

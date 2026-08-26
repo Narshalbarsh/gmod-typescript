@@ -1,0 +1,7 @@
+<function name="SimulateGravGunDrop" parent="Player" type="classfunc">
+	<description>Signals the entity that it was dropped by the gravity gun.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ent" type="Entity">Entity that was dropped.</arg>
+	</args>
+</function>

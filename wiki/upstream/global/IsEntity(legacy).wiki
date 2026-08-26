@@ -1,0 +1,14 @@
+<ambig page="Global.IsEntity">You might be looking for <page>Global.isentity</page>, which has the same name, but is lowercase and not deprecated.</ambig>
+
+<function name="IsEntity" parent="Global" type="libraryfunc">
+	<description>
+<deprecated>Use the function <page>Global.isentity</page> instead.</deprecated>
+Identical to <page>Global.isentity</page>. Returns if the passed object is an <page>Entity</page>.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="variable" type="any">The variable to check.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">True if the variable is an <page>Entity</page>.</ret>
+	</rets>
+</function>

@@ -1,0 +1,8 @@
+<function name="SetCreator" parent="Entity" type="classfunc">
+	<description>Sets the creator of this entity. This is set automatically in Sandbox gamemode when spawning SENTs, but is never used/read by default.</description>
+	<realm>Server</realm>
+	<file line="59-L67">lua/includes/extensions/entity.lua</file>
+	<args>
+		<arg name="ply" type="Player" default="NULL">The creator</arg>
+	</args>
+</function>

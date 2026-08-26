@@ -1,0 +1,7 @@
+<type name="NextBot" parent="Entity" category="classfunc" is="class">
+	<summary>NextBots are a new system to create NPCs in the Source Engine, utilizing the more powerful <page>navmesh</page> system for navigation over the old node based system.
+
+This page lists all possible functions usable with NextBots.
+
+See <page>NextBot NPC Creation</page> for more information on how to create NextBot NPCs.</summary>
+</type>

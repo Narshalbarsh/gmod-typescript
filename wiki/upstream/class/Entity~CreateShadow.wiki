@@ -1,0 +1,15 @@
+<function name="CreateShadow" parent="Entity" type="classfunc">
+	<description>Draws the shadow of an entity.</description>
+	<realm>Client</realm>
+</function>
+
+<example>
+	<code>
+function ENT:Draw()
+	self:DrawModel()
+	self:CreateShadow()
+end
+	</code>
+	<output>Draws the shadow of an entity</output>
+
+</example>

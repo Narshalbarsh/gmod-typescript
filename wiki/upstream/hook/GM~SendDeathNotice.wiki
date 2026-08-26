@@ -1,0 +1,13 @@
+<function name="SendDeathNotice" parent="GM" type="hook">
+	<description>
+An internal function used to send a death notice event to all clients.
+	</description>
+	<realm>Server</realm>
+	<added>2023.09.01</added>
+	<args>
+		<arg name="attacker" type="Entity|string|nil">The entity that caused the death.</arg>
+		<arg name="inflictor" type="string">The attacker's weapon class name or the attacker itself if no weapon was equipped.</arg>
+		<arg name="victim" type="Entity|string">The entity that died.</arg>
+		<arg name="flags" type="number">Death notice flags. 1 = Friendly victim (to the player), 2 = friendly attacker (to the player)</arg>
+	</args>
+</function>

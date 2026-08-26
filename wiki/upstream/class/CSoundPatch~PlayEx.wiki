@@ -1,0 +1,8 @@
+<function name="PlayEx" parent="CSoundPatch" type="classfunc">
+	<description>Same as <page>CSoundPatch:Play</page> but with 2 extra arguments allowing to set volume and pitch directly.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="volume" type="number">The volume ranges from 0 to 1.</arg>
+		<arg name="pitch" type="number">The pitch can range from 0-255.</arg>
+	</args>
+</function>

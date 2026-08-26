@@ -1,0 +1,10 @@
+<structure>
+	<realm>Client</realm>
+	<description>Table returned by <page>Vector:ToScreen</page>.</description>
+	<fields>
+<item name="x" type="number">The x coordinate on the players screen</item>
+<item name="y" type="number">The y coordinate on the players screen</item>
+<item name="visible" type="boolean">The coordinate is not behind the player. **This does not mean the coordinate is on the screen.** When this is false, it means that the coordinate would not be on the screen even if the player had a full 180 degree FOV.</item>
+	</fields>
+
+</structure>

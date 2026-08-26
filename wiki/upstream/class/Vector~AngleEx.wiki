@@ -1,0 +1,30 @@
+<function name="AngleEx" parent="Vector" type="classfunc">
+	<description>Returns the angle of this vector (normalized), but instead of assuming that up is <page>Global.Vector</page>( 0, 0, 1 ) (Like <page>Vector:Angle</page> does) you can specify which direction is 'up' for the angle.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="up" type="Vector">The up direction vector</arg>
+	</args>
+	<rets>
+		<ret name="" type="Angle">The angle</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Shows usage of the function</description>
+	<code>print( Vector( 0, 0, 100 ):AngleEx( Vector( 0, 0, 0 ) ) )</code>
+	<output>Angle( -90.000, -0.000, 0.000 )</output>
+
+</example>
+
+<example>
+	<description>
+		Use forward and up vector to produce angle. These two lines below will
+		return the same angle
+	</description>
+	<code>
+local e = ents.Create("prop_physics")
+print(e:GetAngles())
+print(e:GetForward():AngleEx(e:GetUp()))
+	</code>
+
+</example>

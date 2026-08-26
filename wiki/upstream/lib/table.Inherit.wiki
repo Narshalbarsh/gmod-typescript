@@ -1,0 +1,43 @@
+<function name="Inherit" parent="table" type="libraryfunc">
+	<description>
+Copies any missing data from `base` to `target`, and sets the `target`'s `BaseClass` member to the `base` table's pointer.
+
+See <page>table.Merge</page>, which overrides existing values and doesn't add a BaseClass member.
+
+
+See also <page>table.Add</page>, which simply adds values of one table to another.
+
+<bug pull="1304">Sub-tables aren't inherited. The target's table value will take priority.</bug>
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="10-L20">lua/includes/extensions/table.lua</file>
+	<args>
+		<arg name="target" type="table">Table to copy data to</arg>
+		<arg name="base" type="table">Table to copy data from</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">Target</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Example of how this function works.</description>
+	<code>
+local table1 = { "A", "Golden" }
+local table2 = { "Two", "Orange", "Apple" }
+table.Inherit( table1, table2 )
+PrintTable( table1 )
+	</code>
+	<output>
+```
+1	=	A
+2	=	Golden
+3	=	Apple
+BaseClass:
+		1	=	Two
+		2	=	Orange
+		3	=	Apple
+```
+	</output>
+
+</example>

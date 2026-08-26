@@ -1,0 +1,15 @@
+<enum>
+	<realm>Shared</realm>
+	<description>
+Enumerations used by <page>ENTITY:Use</page>.
+
+Not to be confused with <page>Enums/_USE</page> used by <page>Entity:SetUseType</page>.
+	</description>
+	<items>
+<item key="USE_OFF" value="0"></item>
+<item key="USE_ON" value="1"></item>
+<item key="USE_SET" value="2"></item>
+<item key="USE_TOGGLE" value="3"></item>
+	</items>
+
+</enum>

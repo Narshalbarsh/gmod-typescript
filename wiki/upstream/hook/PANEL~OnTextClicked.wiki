@@ -1,0 +1,8 @@
+<function name="OnTextClicked" parent="PANEL" type="hook">
+	<description>Called whenever clickable text is clicked within a <page>RichText</page>.</description>
+	<realm>Client</realm>
+	<added>2023.12.18</added>
+	<args>
+		<arg name="id" type="string">The identifier of the text clicked. The one passed to <page>Panel:InsertClickableTextStart</page>.</arg>
+	</args>
+</function>

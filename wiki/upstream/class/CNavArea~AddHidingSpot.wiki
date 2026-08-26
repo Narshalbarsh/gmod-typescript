@@ -1,0 +1,19 @@
+<function name="AddHidingSpot" parent="CNavArea" type="classfunc">
+	<description>
+Adds a hiding spot onto this nav area.
+
+There's a limit of 255 hiding spots per area.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="pos" type="Vector">The position on the nav area</arg>
+		<arg name="flags" type="number" default="7">Flags describing what kind of hiding spot this is.
+* 0 = None (Not recommended)
+* 1 = In Cover/basically a hiding spot, in a corner with good hard cover nearby
+* 2 = good sniper spot, had at least one decent sniping corridor
+* 4 = perfect sniper spot, can see either very far, or a large area, or both
+* 8 = exposed, spot in the open, usually on a ledge or cliff
+
+Values over 255 will be clamped.</arg>
+	</args>
+</function>

@@ -1,0 +1,14 @@
+<enum>
+	<realm>Shared</realm>
+	<description>Enumerations used by <page>Player:SetObserverMode</page>, <page>Player:GetObserverMode</page> and <page>Player:Spectate</page>.</description>
+	<items>
+<item key="OBS_MODE_NONE" value="0">Not spectating</item>
+<item key="OBS_MODE_DEATHCAM" value="1">Camera doesn't move, but adjusts camera angles to follow the spectated target</item>
+<item key="OBS_MODE_FREEZECAM" value="2">TF2-like freeze-cam, then acts like `OBS_MODE_FIXED`.</item>
+<item key="OBS_MODE_FIXED" value="3">Same as OBS_MODE_CHASE, but you can't rotate the view</item>
+<item key="OBS_MODE_IN_EYE" value="4">Spectate a specific player from first person view.</item>
+<item key="OBS_MODE_CHASE" value="5">Chase cam, 3rd person cam, free rotation around the spectated target</item>
+<item key="OBS_MODE_ROAMING" value="6">Free roam/noclip-alike. Does not work from <page>GM:PlayerDeath</page></item>
+	</items>
+
+</enum>

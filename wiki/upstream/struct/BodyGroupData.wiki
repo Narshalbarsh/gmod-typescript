@@ -1,0 +1,25 @@
+<structure>
+	<realm>Shared</realm>
+	<description>
+		The tables that make up the values of the table returned by <page>Entity:GetBodyGroups</page>.
+	</description>
+	<fields>
+		<item name="id" type="number">
+			The Body Group's ID.  
+			Body Group IDs start at `0`.
+		</item>
+
+		<item name="name" type="string">
+			The name of the Body Group.
+		</item>
+
+		<item name="num" type="number">
+			The number of Sub Models in this Body Group, and the length of the `submodels` table.
+		</item>
+
+		<item name="submodels" type="table<string>">
+			A table of the names of the Sub Models within this Body Group.  
+			Sub Model IDs start at `0`.
+		</item>
+	</fields>
+</structure>

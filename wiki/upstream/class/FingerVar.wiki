@@ -1,0 +1,12 @@
+<panel>
+	<name>FingerVar</name>
+	<parent>Panel</parent>
+	<realm>Client</realm>
+	<description>
+		<internal>
+			Used by the <page>fingerposer</page> panel.
+		</internal>
+
+		A panel used by Sandbox's Finger Poser tool.
+	</description>
+</panel>

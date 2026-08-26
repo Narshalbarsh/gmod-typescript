@@ -1,0 +1,25 @@
+<function name="LocalToWorld" parent="PhysObj" type="classfunc">
+	<description>
+Translates a vector in the physics object's local space into worldspace coordinates.
+
+<note>Internally transforms the vector by the <page>PhysObj:GetPositionMatrix</page>.
+
+So in GLua it approximates to:
+```
+local matrixWorldTransform = PhysObj:GetPositionMatrix()
+local vecWorldspaced = Vector()
+vecWorldspaced:Set( vecLocal )
+vecWorldspaced:Mul( matrixWorldTransform )
+
+return vecWorldspaced
+```
+</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="vecLocal" type="Vector">A vector in the physics object's local space.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">The corresponding worldspace vector.</ret>
+	</rets>
+</function>

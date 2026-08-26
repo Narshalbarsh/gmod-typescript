@@ -1,0 +1,11 @@
+<function name="SetMousePos" parent="gui" type="libraryfunc">
+	<description>
+<deprecated>Use <page>input.SetCursorPos</page> instead.</deprecated>
+Sets the cursor's position on the screen, relative to the topleft corner of the window
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="mouseX" type="number">The X coordinate to move the cursor to.</arg>
+		<arg name="mouseY" type="number">The Y coordinate to move the cursor to.</arg>
+	</args>
+</function>

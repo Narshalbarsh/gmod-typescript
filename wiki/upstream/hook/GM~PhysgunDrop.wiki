@@ -1,0 +1,12 @@
+<function name="PhysgunDrop" parent="GM" type="hook">
+	<file line="70-L71">gamemodes/base/gamemode/shared.lua</file>
+	<description>Called when a player drops an entity with the Physgun.
+
+See <page>GM:GravGunOnDropped</page> for the Gravity Gun drop variant.
+</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="player" type="Player">The player who dropped an entity</arg>
+		<arg name="entity" type="Entity">The dropped entity</arg>
+	</args>
+</function>

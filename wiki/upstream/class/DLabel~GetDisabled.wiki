@@ -1,0 +1,11 @@
+<function name="GetDisabled" parent="DLabel" type="panelfunc">
+	<description>
+<deprecated>Use <page>Panel:IsEnabled</page> instead.</deprecated>
+
+Gets the disabled state of the <page>DLabel</page>. This is set with <page>DLabel:SetDisabled</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">The disabled state of the label.</ret>
+	</rets>
+</function>

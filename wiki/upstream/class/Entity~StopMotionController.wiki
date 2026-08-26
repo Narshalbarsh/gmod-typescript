@@ -1,0 +1,4 @@
+<function name="StopMotionController" parent="Entity" type="classfunc">
+	<description>Stops the motion controller created with <page>Entity:StartMotionController</page>.</description>
+	<realm>Shared</realm>
+</function>

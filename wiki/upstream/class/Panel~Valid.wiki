@@ -1,0 +1,7 @@
+<function name="Valid" parent="Panel" type="classfunc">
+	<description><deprecated>Use <page>Panel:IsValid</page> instead.</deprecated>Returns if a given panel is valid or not.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the panel is valid or not, true being it is, false being it isn't.</ret>
+	</rets>
+</function>

@@ -1,0 +1,7 @@
+<function name="GetNumActiveParticles" parent="CLuaEmitter" type="classfunc">
+	<description>Returns the amount of active particles of this emitter.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">The amount of active particles of this emitter</ret>
+	</rets>
+</function>

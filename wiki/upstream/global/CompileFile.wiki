@@ -1,0 +1,21 @@
+<function name="CompileFile" parent="Global" type="libraryfunc">
+	<description>Attempts to compile the given file. If successful, returns a function that can be called to perform the actual execution of the script.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="path" type="string">Path to the file, relative to the `garrysmod/lua/` directory.</arg>
+		<arg name="showError" type="boolean" default="true" added="2025.01.31">Decides whether or not a non-halting error should be thrown on compile failure.</arg>
+	</args>
+	<rets>
+		<ret name="" type="function">The function which executes the script.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Assuming our file is named example.lua and located in the garrysmod/lua/ directory, the following code would execute the script.</description>
+	<code>
+local example = CompileFile("example.lua")
+example()
+	</code>
+	<output>Hello!</output>
+
+</example>

@@ -1,0 +1,10 @@
+<function name="Find" parent="Panel" type="classfunc">
+	<description>Finds a panel in its children(and sub children) with the given name.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="panelName" type="string">The name of the panel that should be found.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Panel">foundPanel</ret>
+	</rets>
+</function>

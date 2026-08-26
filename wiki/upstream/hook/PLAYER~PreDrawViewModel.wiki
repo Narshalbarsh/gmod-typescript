@@ -1,0 +1,9 @@
+<function name="PreDrawViewModel" parent="PLAYER" type="hook">
+	<description>Called before the viewmodel is drawn</description>
+	<realm>Client</realm>
+	<file line="100-L108">gamemodes/base/gamemode/player_class/player_default.lua</file>
+	<args>
+		<arg name="viewmodel" type="Entity">The viewmodel</arg>
+		<arg name="weapon" type="Entity">The weapon</arg>
+	</args>
+</function>

@@ -1,0 +1,7 @@
+<function name="GetBaseVelocity" parent="Entity" type="classfunc">
+	<description>Returns the entity's base velocity which is their velocity due to forces applied by other entities. This includes entity-on-entity collision or riding a treadmill.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Vector">The base velocity of the entity.</ret>
+	</rets>
+</function>

@@ -1,0 +1,24 @@
+<function name="ApplyForceOffset" parent="PhysObj" type="classfunc">
+	<description>Applies the specified impulse on the physics object at the specified position.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="impulse" type="Vector">The impulse to be applied in `kg*source_unit/s`. (World frame)</arg>
+		<arg name="position" type="Vector">The position in world coordinates (`source units`) where the force is applied to the physics object.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Pull what the player is looking at towards him.</description>
+	<code>
+local tr = Entity(1):GetEyeTrace()
+if IsValid(tr.Entity) then
+	local phys = tr.Entity:GetPhysicsObjectNum(tr.PhysicsBone)
+	
+	local pushvec = tr.Normal * -100000
+	local pushpos = tr.HitPos
+	
+	phys:ApplyForceOffset(pushvec, pushpos)
+end
+	</code>
+
+</example>

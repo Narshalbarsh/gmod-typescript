@@ -1,0 +1,48 @@
+<function name="ResetAllFades" parent="Panel" type="classfunc">
+	<description>Resets all text fades in a <page>RichText</page> element made with <page>Panel:InsertFade</page>.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="hold" type="boolean">True to reset fades, false otherwise.</arg>
+		<arg name="expiredOnly" type="boolean">Any value equating to `true` will reset fades only on text segments that are completely faded out.</arg>
+		<arg name="newSustain" type="number">The new sustain value of each faded text segment. Set to -1 to keep the old sustain value.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Creates a RichText panel where two text segments slowly fade out and get reset to full alpha 5 seconds after being created.</description>
+	<code>
+-- Window frame
+TextFrame = vgui.Create("DFrame")
+TextFrame:SetSize(200, 100)
+TextFrame:Center()
+TextFrame:SetTitle("ResetAllFades")
+TextFrame:MakePopup()
+
+-- Rich Text panel
+local richtext = vgui.Create("RichText", TextFrame)
+richtext:Dock(FILL)
+
+-- Append text and start fading a few frames after creation (won't work otherwise)
+timer.Simple(0.05, function()
+
+	richtext:SetBGColor(Color(32, 32, 32))
+	richtext:SetFontInternal("GModNotify")
+
+	richtext:AppendText("This is ")
+	richtext:InsertFade(5, 2)
+	
+	richtext:AppendText("a test...")
+	richtext:InsertFade(5, 1)
+	
+end)
+
+-- 5 seconds after creation, reset all the fades
+timer.Simple(5, function()
+
+	richtext:ResetAllFades(true, false, -1)
+
+end)
+	</code>
+	<output><image src="RichText_ResetAllFades_example1.gif"/></output>
+
+</example>

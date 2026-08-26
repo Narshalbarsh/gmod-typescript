@@ -1,0 +1,7 @@
+<function name="LastSegment" parent="PathFollower" type="classfunc">
+	<description>Returns the last segment of the path.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="table">A table with <page>Structures/PathSegment</page>.</ret>
+	</rets>
+</function>

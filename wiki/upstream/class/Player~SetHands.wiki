@@ -1,0 +1,12 @@
+<function name="SetHands" parent="Player" type="classfunc">
+	<description>
+Sets the hands entity of a player.
+
+The hands entity is an entity introduced in Garry's Mod 13 and it's used to show the player's hands attached to the viewmodel.
+This is similar to the approach used in L4D and CS:GO, for more information on how to implement this system in your gamemode visit <page>Using Viewmodel Hands</page>.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="hands" type="Entity">The hands entity to set</arg>
+	</args>
+</function>

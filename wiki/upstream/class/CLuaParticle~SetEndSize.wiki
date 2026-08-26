@@ -1,0 +1,7 @@
+<function name="SetEndSize" parent="CLuaParticle" type="classfunc">
+	<description>Sets the size of the particle that it will reach when it dies.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="endSize" type="number">The new size of the particle that it will reach when it dies.</arg>
+	</args>
+</function>

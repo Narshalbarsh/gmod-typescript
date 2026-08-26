@@ -1,0 +1,14 @@
+<function name="ShutDown" parent="GM" type="hook">
+	<description>
+		Called whenever the Lua environment is about to be shut down, for example on map change, or when the server is going to shut down.
+	</description>
+	<realm>Shared</realm>
+</function>
+
+<example>
+	<description>Prints into the players chat: `Server Is Restarting.`.</description>
+	<code>hook.Add( "ShutDown", "ServerShuttingDown", function()
+    Entity( 1 ):PrintMessage( HUD_PRINTTALK, "Server Is Restarting." )
+end )</code>
+	<output>Server Is Restarting. When then the server is Shutting down, etc.</output>
+</example>

@@ -1,0 +1,15 @@
+<function name="SQLStr" parent="Global" type="libraryfunc">
+	<description>Returns the input value in an escaped form so that it can safely be used inside of queries. The returned value is surrounded by quotes unless `noQuotes` is true. Alias of <page>sql.SQLStr</page>.
+
+<warning>Do not use this function with external database engines such as `MySQL`. `MySQL` and `SQLite` use different escape sequences that are incompatible with each other! Escaping strings with inadequate functions is dangerous and will lead to SQL injection vulnerabilities.</warning>
+</description>
+	<realm>Shared and Menu</realm>
+	<file line="27-L27">lua/includes/util/sql.lua</file>
+	<args>
+		<arg name="input" type="string">String to be escaped</arg>
+		<arg name="noQuotes" type="boolean" default="false">Set this as `true`, and the function will not wrap the input string in apostrophes.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">Escaped input</ret>
+	</rets>
+</function>

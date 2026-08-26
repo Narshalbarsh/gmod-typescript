@@ -1,0 +1,43 @@
+<function name="SetValue" parent="DComboBox" type="panelfunc">
+	<description>Sets the text shown in the combo box when the menu is not collapsed.</description>
+	<file line="266-L270">lua/vgui/dcombobox.lua</file>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="value" type="string">The text in the DComboBox.</arg>
+	</args>
+</function>
+
+<example>
+	<description>A simple feedback combo box which has the value set to a thank you message once a choice is clicked.</description>
+	<code>
+BGPanel = vgui.Create("DPanel")
+BGPanel:SetPos(20, 20)
+BGPanel:SetSize(200, 30)
+
+local cbox = vgui.Create("DComboBox", BGPanel)
+cbox:SetPos(5, 5)
+cbox:SetSize(190, 20)
+
+cbox:SetValue("What do you think of this server?")
+
+-- Responses
+cbox:AddChoice("It's the best server of all time!")
+cbox:AddChoice("It's pretty good.")
+cbox:AddChoice("It's okay.")
+cbox:AddChoice("It's not that good.")
+cbox:AddChoice("Don't bother me with this.")
+
+function cbox:OnSelect(index, value, data)
+
+	-- Clear combo box and set a thank you message
+	self:Clear()
+	self:SetText("Thank you for your feedback!")
+	
+	-- Here you would send the feedback to the server using a net message
+	-- The choice is stored in the 'data' variable
+
+end
+	</code>
+	<output><image src="DComboBox_SetValue_example1.gif"/></output>
+
+</example>

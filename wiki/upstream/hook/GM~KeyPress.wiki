@@ -1,0 +1,42 @@
+<function name="KeyPress" parent="GM" type="hook">
+	<description>
+Called whenever a player pressed a key included within the IN keys.
+
+For a more general purpose function that handles all kinds of input, see <page>GM:PlayerButtonDown</page>.
+See <page>GM:KeyRelease</page> for the key release event.
+
+Despite being a predicted hook, it will still be called in singleplayer for your convenience.
+
+<warning>Due to this being a predicted hook, <page>Global.ParticleEffect</page>s created only serverside from this hook will not be networked to the client, so make sure to do that on both realms.</warning>
+	</description>
+	<realm>Shared</realm>
+	<predicted>Yes</predicted>
+	<args>
+		<arg name="ply" type="Player">The player pressing the key. If running client-side, this will always be <page>Global.LocalPlayer</page>.</arg>
+		<arg name="key" type="number">The key that the player pressed using <page>Enums/IN</page>.</arg>
+	</args>
+</function>
+
+<example>
+	<description>`hi` will be printed to the console when the player presses the <key>+USE</key> key (<key>E</key>).</description>
+	<code>
+hook.Add( "KeyPress", "keypress_use_hi", function( ply, key )
+	if ( key == IN_USE ) then
+		print( "hi" )
+	end
+end )
+	</code>
+	<output>hi</output>
+</example>
+
+
+<example>
+	<description>When a player tries to jump, they will be shot straight up in the air.</description>
+	<code>
+hook.Add( "KeyPress", "keypress_jump_super", function( ply, key )
+    if ( key == IN_JUMP ) then
+        ply:SetVelocity( ply:GetVelocity() + Vector( 0, 0, 1000 ) )
+    end
+end )
+	</code>
+</example>

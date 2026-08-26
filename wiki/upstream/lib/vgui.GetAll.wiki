@@ -1,0 +1,11 @@
+<function name="GetAll" parent="vgui" type="libraryfunc">
+	<description>Returns all Lua-created panels.
+
+Used internally for <page>PANEL:PreAutoRefresh</page> and <page>PANEL:PostAutoRefresh</page>.
+</description>
+	<realm>Client and Menu</realm>
+	<added>2024.04.19</added>
+	<rets>
+		<ret name="" type="table<Panel>">List of all Lua created panels.</ret>
+	</rets>
+</function>

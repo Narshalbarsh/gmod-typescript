@@ -1,0 +1,58 @@
+<function name="SetDragParent" parent="Panel" type="classfunc">
+	<description>
+Sets the drag parent.
+
+Drag parent means that when we start to drag this panel, we'll really start dragging the defined parent.
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="331-L333">lua/includes/extensions/client/panel/dragdrop.lua</file>
+	<args>
+		<arg name="parent" type="Panel">The panel to set as drag parent.</arg>
+	</args>
+</function>
+
+<example>
+	<code>
+local function DoDrop( self, panels, bDoDrop, Command, x, y )
+	if ( bDoDrop ) then
+		for _, v in ipairs( panels ) do
+			self:AddItem( v )
+		end
+	end
+end
+
+concommand.Add( "test2", function()
+	local frame = vgui.Create( "DFrame" )
+	frame:SetSize( 500, 300 )
+	frame:SetTitle( "Frame" )
+	frame:MakePopup()
+	frame:Center()
+
+	local left = vgui.Create( "DScrollPanel", frame )
+	left:Dock( LEFT )
+	left:SetWidth( frame:GetWide() / 2 - 7 )
+	left:SetPaintBackground( true )
+	left:DockMargin( 0, 0, 4, 0 )
+	left:Receiver( "myDNDname", DoDrop ) -- Make the panel a receiver for drag and drop events
+
+	local right = vgui.Create( "DScrollPanel", frame )
+	right:Dock( FILL )
+	right:SetPaintBackground( true )
+	right:Receiver( "myDNDname", DoDrop )
+
+	for i = 1, 30 do
+		local but = vgui.Create( "DButton" )
+		but:SetText( "button text " .. i )
+		but:SetSize( 36, 24 )
+		but:Dock( TOP )
+		but:Droppable( "myDNDname" ) -- make the panel be able to be drag'n'dropped onto other panels
+		right:AddItem( but )
+		
+		local mdl = vgui.Create( "DModelPanel", but ) -- Put another panel over the draggable button
+		mdl:Dock( FILL )
+		mdl:SetModel( "models/alyx.mdl" )
+		mdl:SetDragParent( but ) -- The magic bit. Without it, you would not be able to drag the button at all
+	end
+end )
+	</code>
+</example>

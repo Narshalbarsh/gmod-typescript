@@ -1,0 +1,10 @@
+<function name="IsSolid" parent="Entity" type="classfunc">
+	<description>
+Returns if the entity is solid or not.
+Very useful for determining if the entity is a trigger or not.
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the entity is solid or not.</ret>
+	</rets>
+</function>

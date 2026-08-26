@@ -1,0 +1,11 @@
+<function name="SetAttachment" parent="CEffectData" type="classfunc">
+	<description>
+Sets the attachment id of the effect to be created with this effect data.
+
+<note>This is internally stored as an integer, but only the first 5 bits will be networked, effectively limiting this function to 0-31 range.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="attachment" type="number">New attachment ID of the effect.</arg>
+	</args>
+</function>

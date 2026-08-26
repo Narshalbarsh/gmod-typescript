@@ -1,0 +1,29 @@
+<function name="AddToolTab" parent="spawnmenu" type="libraryfunc">
+	<description>
+Adds a new tool tab to the right side of the spawnmenu. (usually via the <page>SANDBOX:AddToolMenuTabs</page> hook)
+
+See <page>spawnmenu.GetToolMenu</page> for a function to retrieve existing tool tabs.
+
+See <page>spawnmenu.AddCreationTab</page> for tabs on the left side of the spawnmenu.
+
+See <page>spawnmenu.AddToolCategory</page> to add new categories to the newly created tool tab.  
+See <page>spawnmenu.AddToolMenuOption</page> to add new options to the categories within a tool tab. 
+	</description>
+	<realm>Client</realm>
+	<file line="66-L70">lua/includes/modules/spawnmenu.lua</file>
+	<args>
+		<arg name="name" type="string">The internal name of the tab. This is used for sorting, as well as adding categories, so it should be unique.</arg>
+		<arg name="label" type="string" default="name">The 'nice' name of the tab that is displayed to the player. See <page>Addon Localization</page>.</arg>
+		<arg name="icon" type="string" default="icon16/wrench.png">The file path to the icon of the tab. Should be a `.png` file. See <page>Silkicons</page>.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Creates a new tab named, "Tab name!" with a unique name and a wrench icon.</description>
+	<code>
+hook.Add( "AddToolMenuTabs", "myHookClass", function()
+	spawnmenu.AddToolTab( "Tab name!", "#Unique_Name", "icon16/wrench.png" )
+end )
+	</code>
+
+</example>

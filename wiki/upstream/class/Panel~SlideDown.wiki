@@ -1,0 +1,8 @@
+<function name="SlideDown" parent="Panel" type="classfunc">
+	<file line="216-L224">lua/includes/extensions/client/panel/animation.lua</file>
+	<description>Slides the panel in from above.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="Length" type="number">Time to complete the animation.</arg>
+	</args>
+</function>

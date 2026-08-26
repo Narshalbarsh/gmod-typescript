@@ -1,0 +1,7 @@
+<function name="GetType" parent="DPanelOverlay" type="panelfunc">
+	<description>Returns the type of the <page>DPanelOverlay</page> set by <page>DPanelOverlay:SetType</page>.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The set type.</ret>
+	</rets>
+</function>

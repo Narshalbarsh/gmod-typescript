@@ -1,0 +1,33 @@
+<function name="SetNetworkKeyValue" parent="Entity" type="classfunc">
+	<description>
+A helper function to allow setting <page text="Network Variables">Networking_Entities</page> via <page>Entity:SetKeyValue</page>, primarily to allow mappers to set them from Hammer.
+
+Meant to be called from <page>ENTITY:KeyValue</page>, see example.
+
+See also <page>Entity:SetNetworkVarsFromMapInput</page> for a function that does similar thing for map inputs instead.
+
+<note>This function will only work on entities which had <page>Entity:InstallDataTable</page> called on them, which is done automatically for players and all <page>Scripted Entities</page>.</note>
+</description>
+	<realm>Server</realm>
+	<file line="437-L450">lua/includes/extensions/entity.lua</file>
+	<args>
+		<arg name="key" type="string">The key-value name, or simply the "key".</arg>
+		<arg name="value" type="string">The key-value value.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether a network variable was set successfully</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Example usage, adding this will allow mappers to set all your key networks as key values. You will also need to provide manually crafted `.fgd` file that lists all the key values. `env_skypaint` can be used as an example (`garrysmod.fgd` and `env_skypaint.lua` in base gamemode).</description>
+	<code>
+function ENT:KeyValue( key, value )
+	if ( self:SetNetworkKeyValue( key, value ) ) then
+		return
+	end
+
+	-- Other code...
+end
+</code>
+</example>

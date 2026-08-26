@@ -1,0 +1,36 @@
+<structure>
+	<realm>Shared</realm>
+	<description>
+Passed as argument of <page>ENTITY:PhysicsCollide</page>, <page>EFFECT:PhysicsCollide</page> and used with <page>Entity:AddCallback</page>.
+
+<note>Sometimes, the value of `Speed` can be different from getting the length calculated from `OurOldVelocity`, even though they should be the same, or close to same. It's recommended to do `OurOldVelocity:Length()` instead. 
+
+```
+function ENT:PhysicsCollide( colData, collider )
+    -- you may get two completely different values, and the second one should be more accurate.
+    print(colData.Speed)
+    print(colData.OurOldVelocity:Length())
+end
+```
+</note>
+	</description>
+	<fields>
+<item name="HitPos" type="Vector">The collision position.</item>
+<item name="HitEntity" type="Entity">The other collision entity.</item>
+<item name="OurOldVelocity" type="Vector">The entity's velocity before the collision.</item>
+<item name="HitObject" type="PhysObj">Other entity's physics object.</item>
+<item name="DeltaTime" type="number">Time since the last collision with the `HitEntity`.</item>
+<item name="TheirOldVelocity" type="Vector">Speed of the other entity before the collision.</item>
+<item name="Speed" type="number">The speed of the entity before the collision.</item>
+<item name="HitNormal" type="Vector">Normal of the surface that hit the other entity.</item>
+<item name="PhysObject" type="PhysObj">Entity's physics object.</item>
+<item name="OurSurfaceProps" type="number">Surface Property ID of `this` entity.</item>
+<item name="TheirSurfaceProps" type="number">Surface Property ID of the entity we collided with.</item>
+<item name="HitSpeed" type="Vector">The speed at which the impact happened.</item>
+<item name="OurNewVelocity" type="Vector">Our new velocity after the impact.</item>
+<item name="TheirNewVelocity" type="Vector">The new velocity after the impact of the entity we collided with.</item>
+<item name="OurOldAngularVelocity" type="Vector">Old angular velocity of this entity.</item>
+<item name="TheirOldAngularVelocity" type="Vector">Old angular velocity of the entity we collided with.</item>
+	</fields>
+
+</structure>

@@ -1,0 +1,12 @@
+<function name="OverwritePresetPrompt" parent="presets" type="libraryfunc">
+	<description>
+<internal></internal>
+
+Used internally to ask the player if they want to override an already existing preset.
+	</description>
+	<realm>Client</realm>
+	<file line="87-L91">lua/includes/modules/presets.lua</file>
+	<args>
+		<arg name="callback" type="function"></arg>
+	</args>
+</function>

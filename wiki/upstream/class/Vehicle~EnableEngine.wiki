@@ -1,0 +1,7 @@
+<function name="EnableEngine" parent="Vehicle" type="classfunc">
+	<description>Sets whether the engine is enabled or disabled, i.e. can be started or not.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="enable" type="boolean">Enable or disable the engine</arg>
+	</args>
+</function>

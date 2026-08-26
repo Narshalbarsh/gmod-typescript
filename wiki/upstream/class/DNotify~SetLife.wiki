@@ -1,0 +1,7 @@
+<function name="SetLife" parent="DNotify" type="panelfunc">
+	<description>Sets the display time in seconds for the DNotify.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="time" type="number">The time in seconds.</arg>
+	</args>
+</function>

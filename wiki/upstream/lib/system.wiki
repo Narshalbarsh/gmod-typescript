@@ -1,0 +1,3 @@
+<type name="system" category="libraryfunc" is="library">
+	<summary>The system library provides functions that allow you to gather information about the system running the game, such as operating system, uptime and battery level.</summary>
+</type>

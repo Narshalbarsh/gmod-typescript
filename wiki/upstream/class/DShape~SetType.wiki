@@ -1,0 +1,20 @@
+<function name="SetType" parent="DShape" type="panelfunc">
+	<description>Sets the shape to be drawn.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="type" type="string">The render type of the DShape. Only rectangles (`Rect`) work currently. If you don't define a type immediately, the <page>PANEL:Paint</page> method will generate errors until you do.</arg>
+	</args>
+</function>
+
+<example>
+	<description>
+Creates a DShape and sets the render type.
+	</description>
+<Code>
+local Shape = vgui.Create( "DShape" )
+Shape:SetType( "Rect" )
+Shape:SetSize(500,500)
+Shape:SetPos(10, 10)
+</code>
+
+</example>

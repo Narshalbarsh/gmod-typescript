@@ -1,0 +1,5 @@
+<function name="Spawn" parent="PLAYER" type="hook">
+	<description>Called when the player spawns</description>
+	<realm>Server</realm>
+	<file line="45-L52">gamemodes/base/gamemode/player_class/player_default.lua</file>
+</function>

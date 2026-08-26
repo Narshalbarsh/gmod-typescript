@@ -1,0 +1,8 @@
+<function name="SetGravity" parent="physenv" type="libraryfunc">
+	<description>Sets the gravitational acceleration used for physics objects. Does not affect players.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="gravAccel" type="Vector">The new gravity in `source_unit/s^2`.</arg>
+	</args>
+</function>

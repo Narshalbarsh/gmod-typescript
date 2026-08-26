@@ -1,0 +1,7 @@
+<function name="GetWeaponWorldModel" parent="Weapon" type="classfunc">
+	<description>Returns the world model of the weapon.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="string">The world model of the weapon.</ret>
+	</rets>
+</function>

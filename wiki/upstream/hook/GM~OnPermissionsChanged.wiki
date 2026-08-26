@@ -1,0 +1,7 @@
+<function name="OnPermissionsChanged" parent="GM" type="hook">
+	<description>
+		Called when a permission gets Granted or Revoked.
+	</description>
+	<realm>Menu</realm>
+	<file line="221-L227">lua/menu/problems/permissions.lua</file>
+</function>

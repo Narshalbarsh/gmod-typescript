@@ -1,0 +1,6 @@
+<function name="AddSpacer" parent="DComboBox" type="panelfunc">
+	<description>Adds a spacer below the currently last item in the drop down. Recommended to use with <page>DComboBox:SetSortItems</page> set to `false`.</description>
+	<file line="132-L136">lua/vgui/dcombobox.lua</file>
+	<realm>Client and Menu</realm>
+	<added>2021.03.31</added>
+</function>

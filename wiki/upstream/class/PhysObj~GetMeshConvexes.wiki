@@ -1,0 +1,7 @@
+<function name="GetMeshConvexes" parent="PhysObj" type="classfunc">
+	<description>Returns all convex physics meshes of the object. See <page>Entity:PhysicsInitMultiConvex</page> for more information.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="table">Table of <page>Structures/MeshVertex</page>s where each <page>Structures/MeshVertex</page> is an independent convex mesh and each three vertices represent a triangle. Returns nil if the physics object is a sphere.</ret>
+	</rets>
+</function>

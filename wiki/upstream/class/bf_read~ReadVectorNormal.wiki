@@ -1,0 +1,7 @@
+<function name="ReadVectorNormal" parent="bf_read" type="classfunc">
+	<description>Reads a special encoded vector normal from the bitstream and returns it, this function is not suitable to send vectors that represent a position.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="Vector">normal</ret>
+	</rets>
+</function>

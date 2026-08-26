@@ -1,0 +1,20 @@
+<function name="EntIndex" parent="Entity" type="classfunc">
+	<description>
+Gets the unique entity index of an entity.
+
+<note>Entity indices are marked as unused after deletion, and can be reused by newly-created entities</note>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The index of the entity.
+
+`-1` for clientside-only or `0` for serverside-only and <page>NULL</page> entities.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Demonstrates the use of this function.</description>
+	<code>print( player.GetAll()[1]:EntIndex() )</code>
+	<output>1</output>
+
+</example>

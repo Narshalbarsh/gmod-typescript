@@ -1,0 +1,78 @@
+<enum>
+	<realm>Shared</realm>
+	<description>
+Enumerations used by <page>util.PointContents</page> and <page>PhysObj:SetContents</page> as tracer masks, and by <page text="ENT.PhysicsSolidMask">Structures/ENT#PhysicsSolidMask</page> for collision masking.
+	</description>
+	<items>
+<item key="CONTENTS_EMPTY" value="0">Things that are not solid</item>
+
+<item key="CONTENTS_SOLID" value="1">Things that are solid</item>
+
+<item key="CONTENTS_WINDOW" value="2">Glass</item>
+
+<item key="CONTENTS_AUX" value="4"></item>
+
+<item key="CONTENTS_GRATE" value="8">Bullets go through, solids don't</item>
+
+<item key="CONTENTS_SLIME" value="16"></item>
+
+<item key="CONTENTS_WATER" value="32">Hits world but not skybox</item>
+
+<item key="CONTENTS_BLOCKLOS" value="64">Things that block line of sight</item>
+
+<item key="CONTENTS_OPAQUE" value="128">Things that block light</item>
+
+<item key="CONTENTS_TESTFOGVOLUME" value="256"></item>
+
+<item key="CONTENTS_TEAM4" value="512"></item>
+
+<item key="CONTENTS_TEAM3" value="1024"></item>
+
+<item key="CONTENTS_TEAM1" value="2048"></item>
+
+<item key="CONTENTS_TEAM2" value="4096"></item>
+
+<item key="CONTENTS_IGNORE_NODRAW_OPAQUE" value="8192"></item>
+
+<item key="CONTENTS_MOVEABLE" value="16384"></item>
+
+<item key="CONTENTS_AREAPORTAL" value="32768"></item>
+
+<item key="CONTENTS_PLAYERCLIP" value="65536"></item>
+
+<item key="CONTENTS_MONSTERCLIP" value="131072"></item>
+
+<item key="CONTENTS_CURRENT_0" value="262144"></item>
+
+<item key="CONTENTS_CURRENT_180" value="1048576"></item>
+
+<item key="CONTENTS_CURRENT_270" value="2097152"></item>
+
+<item key="CONTENTS_CURRENT_90" value="524288"></item>
+
+<item key="CONTENTS_CURRENT_DOWN" value="8388608"></item>
+
+<item key="CONTENTS_CURRENT_UP" value="4194304"></item>
+
+<item key="CONTENTS_DEBRIS" value="67108864">
+	Includes, among other things, client-side ragdolls and prop gibs
+</item>
+
+<item key="CONTENTS_DETAIL" value="134217728"></item>
+
+<item key="CONTENTS_HITBOX" value="1073741824">Hitbox</item>
+
+<item key="CONTENTS_LADDER" value="536870912">Ladder</item>
+
+<item key="CONTENTS_MONSTER" value="33554432">NPCs</item>
+
+<item key="CONTENTS_ORIGIN" value="16777216"></item>
+
+<item key="CONTENTS_TRANSLUCENT" value="268435456">Hits world but not skybox</item>
+
+<item key="LAST_VISIBLE_CONTENTS" value="128">Last visible contents enumeration</item>
+
+<item key="ALL_VISIBLE_CONTENTS" value="255">Sum of all the visible contents enumerations</item>
+	</items>
+
+</enum>

@@ -1,0 +1,7 @@
+<function name="SetMultiple" parent="DListBox" type="panelfunc">
+	<description>Sets whether the list box can select multiple items.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="multiple" type="boolean">Whether the list box can select multiple items.</arg>
+	</args>
+</function>

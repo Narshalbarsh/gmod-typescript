@@ -1,0 +1,129 @@
+<function name="BSplinePoint" parent="math" type="libraryfunc">
+	<description>Basic code for Bézier-Spline algorithm.</description>
+	<realm>Shared and Menu</realm>
+	<file line="131-L142">lua/includes/extensions/math.lua</file>
+	<args>
+		<arg name="fraction" type="number">
+			A number in the range `[0,fractionMax]` which controls which location along the spline's length should be evaluated as the return value.
+		</arg>
+		<arg name="points" type="table">
+			A table of <page text="Vectors">Vector</page> that form the spline.  
+
+			There must be **at least** 4 points.
+		</arg>
+		<arg name="fractionMax" type="number">
+			The maximum value of the `fraction` argument.  
+
+			The most common value for this is `1`.
+		</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">The point on the Bézier curve that corresponds to the given `fraction` argument.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>
+		Makes a black box that moves a Bézier curve made out of 4 points.
+	</description>
+	<code>
+local points = { 
+	Vector( 100, 100, 0 ),
+	Vector( 200, 200, 0 ),
+	Vector( 300, 100, 0 ),
+	Vector( 400, 200, 0 )
+}
+
+hook.Add( "HUDPaint", "BSplinePointExample", function()
+	-- Draw the points
+	for _, p in ipairs( points ) do
+		draw.RoundedBox( 0, p.x - 2, p.y - 2, 4, 4, color_white )
+	end
+
+	-- Draw the spline
+	surface.SetDrawColor( 255, 0, 0, 255 )
+	local lastPos = math.BSplinePoint( 0, points, 1 )
+	for i=0, 10 do
+		local pos = math.BSplinePoint( i / 10, points, 1 )
+		surface.DrawLine( lastPos.x, lastPos.y, pos.x, pos.y )
+		lastPos = pos
+	end
+
+	-- Draw a point on the spline
+	local pos = math.BSplinePoint( ( math.cos( CurTime() ) + 1 ) / 2, points, 1 )
+	draw.RoundedBox( 0, pos.x - 2, pos.y - 2, 4, 4, color_black )
+
+end )
+	</code>
+</example>
+
+
+<example>
+	<description>Interactive demo</description>
+	<code>
+
+local PANEL = {}
+
+PANEL.Init = function( panel )
+	panel:SetText( "" )
+	panel:SetSize( 24, 24 )
+	panel.Dragging = false
+end
+PANEL.OnCursorMoved = function( panel, x, y )
+	if ( panel.Dragging ) then
+		local x, y = input.GetCursorPos()
+		panel:SetPos( panel.StartPos.x + x - panel.CursorPos.x , panel.StartPos.y + y - panel.CursorPos.y )
+	end
+end
+PANEL.OnMousePressed = function( panel, x, y )
+	panel.Dragging = true
+	local x, y = input.GetCursorPos()
+	panel.CursorPos = { x = x, y = y }
+	local x, y = panel:GetPos()
+	panel.StartPos = { x = x, y = y }
+end
+
+PANEL.OnMouseReleased = function( panel, x, y ) panel.Dragging = false end
+PANEL.OnCursorExited = PANEL.OnCursorMoved 
+
+local MovableButton = vgui.RegisterTable( PANEL, "DButton" )
+
+
+local f = vgui.Create( "DFrame" )
+f:SetSize( 500, 500 )
+f:Center()
+f:MakePopup()
+
+local oldPaint = f.Paint
+f.Paint = function( pnl, w, h )
+	oldPaint( pnl, w, h )
+
+	local points = {}
+	for k, pnl in ipairs( pnl:GetChildren() ) do
+		local x, y = pnl:GetPos()
+		if ( pnl.Dragging != nil ) then
+			table.insert( points, Vector( x, y, 0 ) )
+			pnl:SetText( #points )
+		end
+	end
+
+	surface.SetDrawColor( 255, 0, 0, 255 )
+	local lastPos = math.BSplinePoint( 0, points, 1 )
+	for i=0, 32 do
+		local pos = math.BSplinePoint( i / 32, points, 1 )
+		surface.DrawLine( lastPos.x, lastPos.y, pos.x, pos.y )
+		lastPos = pos
+	end
+end
+
+vgui.CreateFromTable( MovableButton, f ):SetPos( 100, 100 )
+vgui.CreateFromTable( MovableButton, f ):SetPos( 200, 200 )
+vgui.CreateFromTable( MovableButton, f ):SetPos( 300, 100 )
+vgui.CreateFromTable( MovableButton, f ):SetPos( 400, 200 )
+
+local addBtn = vgui.Create( "DButton", f )
+addBtn:Dock( TOP )
+addBtn:SetText( "Add point" )
+addBtn.DoClick = function() vgui.CreateFromTable( MovableButton, f ):SetPos( VectorRand( 20, 450 ):Unpack() ) end
+	</code>
+</example>

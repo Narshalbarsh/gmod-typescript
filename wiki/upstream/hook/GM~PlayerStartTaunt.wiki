@@ -1,0 +1,9 @@
+<function name="PlayerStartTaunt" parent="GM" type="hook">
+	<description>Called when player starts taunting.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ply" type="Player">The player who is taunting</arg>
+		<arg name="act" type="number">The sequence ID of the taunt</arg>
+		<arg name="length" type="number">Length of the taunt</arg>
+	</args>
+</function>

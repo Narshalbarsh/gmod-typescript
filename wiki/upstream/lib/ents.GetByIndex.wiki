@@ -1,0 +1,10 @@
+<function name="GetByIndex" parent="ents" type="libraryfunc">
+	<description>Returns an entity by its index. Same as <page>Global.Entity</page>.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="entIdx" type="number">The index of the entity.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Entity">The entity if it exists, or `NULL` if it doesn't.</ret>
+	</rets>
+</function>

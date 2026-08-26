@@ -1,0 +1,7 @@
+<cat>Hook</cat>
+<title>NEXTBOT</title>
+<type name="NEXTBOT" parent="NextBot" category="hook" is="class">
+	<summary>
+The list of hooks for nextbot NPCs.
+	</summary>
+</type>

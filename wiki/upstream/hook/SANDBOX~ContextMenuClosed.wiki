@@ -1,0 +1,10 @@
+<function name="ContextMenuClosed" parent="SANDBOX" type="hook">
+	<description>Called when the context menu is supposedly closed.
+
+This is simply an alias of <page>GM:OnContextMenuClose</page>.
+
+This hook **will** be called even if the Sandbox's context menu doesn't actually exist, i.e. <page>SANDBOX:ContextMenuEnabled</page> blocked its creation.
+
+</description>
+	<realm>Client</realm>
+</function>

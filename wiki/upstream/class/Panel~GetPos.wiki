@@ -1,0 +1,16 @@
+<function name="GetPos" parent="Panel" type="classfunc">
+	<description>
+Returns the position of the panel relative to its <page>Panel:GetParent</page>.
+
+If you require the panel's position **and** size, consider using <page>Panel:GetBounds</page> instead.
+
+If you need the position in screen space, see <page>Panel:LocalToScreen</page>.
+
+See also <page>Panel:GetX</page> and <page>Panel:GetY</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">X coordinate, relative to this panels parents top left corner.</ret>
+		<ret name="" type="number">Y coordinate, relative to this panels parents top left corner.</ret>
+	</rets>
+</function>

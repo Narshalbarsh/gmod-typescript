@@ -1,0 +1,5 @@
+<function name="Loadout" parent="PLAYER" type="hook">
+	<description>Called on spawn to give the player their default loadout</description>
+	<realm>Server</realm>
+	<file line="60-L65">gamemodes/base/gamemode/player_class/player_default.lua</file>
+</function>

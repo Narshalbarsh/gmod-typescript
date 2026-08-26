@@ -1,0 +1,14 @@
+<function name="DrawScreen" parent="DNumberScratch" type="panelfunc">
+	<description>
+<internal></internal>
+
+Used by <page>DNumberScratch:PaintScratchWindow</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="x" type="number"></arg>
+		<arg name="y" type="number"></arg>
+		<arg name="w" type="number"></arg>
+		<arg name="h" type="number"></arg>
+	</args>
+</function>

@@ -1,0 +1,13 @@
+<function name="HasBoneManipulations" parent="Entity" type="classfunc">
+	<description>
+Returns whether or not the bone manipulation functions have ever been called on given  entity.
+
+Related functions are <page>Entity:ManipulateBonePosition</page>, <page>Entity:ManipulateBoneAngles</page>, <page>Entity:ManipulateBoneJiggle</page>, and <page>Entity:ManipulateBoneScale</page>.
+
+<bug issue="3131">This will return true if the entity's bones have ever been manipulated. Resetting the position/angles/jiggle/scaling to 0,0,0 will not affect this function.</bug>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">True if the entity has been bone manipulated, false otherwise.</ret>
+	</rets>
+</function>

@@ -1,0 +1,114 @@
+<function name="OverrideBlend" parent="render" type="libraryfunc">
+	<description>
+Overrides the way that the final color and alpha is calculated for each pixel affected by upcoming draw operations.
+
+When a draw operation is performed, the rendering system examines each pixel that is affected by the draw operation and determines its new color by combining (or "Blending") the pixel's current color (Called the "Destination" or "Dst" color) with the new color produced by the draw operation (Called the "Source" or "Src" color.)
+
+This function allows you to control the way that those two colors (The Source and Destination) are combined to produce the final pixel color.
+
+It's important to know that while <page text="Colors">Global.Color</page> use values in the range `(0-255)`, the color and alpha values used here are normalized to the range `(0-1)` so that they can be multiplied together to produce a value that is still in the range `(0-1)`.
+
+</description>
+
+	<realm>Client and Menu</realm>
+
+	<args name="Combined Color and Alpha Blending">
+		<arg name="enabled" type="boolean">
+			Set to `true` to enable Blend Overrides.
+		</arg>
+		<arg name="sourceMultiplier" type="number{BLEND}">
+			This determines which value each affected pixel's **Source color and alpha** will be multiplied by before they are sent to the Blending Function.  
+			One of the <page>Enums/BLEND</page> enums.
+		</arg>
+		<arg name="destinationMultiplier" type="number{BLEND}">
+			This determines which value each affected pixel's **Destination color and alpha** will be multiplied by before they are sent to the Blending Function.  
+			One of the <page>Enums/BLEND</page> enums.
+		</arg>
+		<arg name="blendingFunction" type="number{BLENDFUNC}">
+			After the Source and Destination color and alpha have been multiplied against their corresponding multipliers, they are passed to the Blending Function which combines them into the final color and alpha for the pixel.  
+			One of the <page>Enums/BLENDFUNC</page> enums.
+		</arg>
+	</args>
+
+	<args name="Separate Color and Alpha Blending" >
+		<arg name="enabled" type="boolean">
+			Set to `true` to enable Blend Overrides.
+		</arg>
+		<arg name="sourceColorMultiplier" type="number{BLEND}">
+			This determines which value each affected pixel's **Source color** will be multiplied by before they are sent to the Color Blending Function.  
+			One of the <page>Enums/BLEND</page> enums.
+		</arg>
+		<arg name="destinationColorMultiplier" type="number{BLEND}">
+			This determines which value each affected pixel's **Destination color** will be multiplied by before they are sent to the Color Blending Function.  
+			One of the <page>Enums/BLEND</page> enums.
+		</arg>
+		<arg name="colorBlendingFunction" type="number{BLENDFUNC}">
+			After the Source and Destination colors have been multiplied against their corresponding multipliers, they are passed to the Color Blending Function which combines them into the final color and alpha for the pixel.  
+			One of the <page>Enums/BLENDFUNC</page> enums.
+		</arg>
+		<arg name="sourceAlphaMultiplier" type="number{BLEND}" default="none">
+			This determines which value each affected pixel's **Source alpha** will be multiplied by before they are sent to the Alpha Blending Function.  
+			One of the <page>Enums/BLEND</page> enums.
+		</arg>
+		<arg name="destinationAlphaMultiplier" type="number{BLEND}" default="none">
+			This determines which value each affected pixel's **Destination alpha** will be multiplied by before they are sent to the Alpha Blending Function.  
+			One of the <page>Enums/BLEND</page> enums.
+		</arg>
+		<arg name="alphaBlendingFunction" type="number{BLENDFUNC}" default="none">
+			After the Source and Destination alphas have been multiplied against their corresponding multipliers, they are passed to the Alpha Blending Function which combines them into the final alpha for the pixel.  
+		</arg>
+	</args>
+
+	<args name="Disabling Blend Overrides">
+		<arg name="enabled" type="boolean">
+			Set to `false` to disable blend overrides.
+		</arg>
+	</args>
+</function>
+
+<example>
+	<description>
+In this example we draw a lightning bolt over our player's head.
+
+We shouldn't really draw the lightning in the PreDrawTranslucentRenderables hook as this causes issues rendering transparent objects behind the lightning, but it's a quick example of how the function works. Normally it should be drawn in a custom lua effect's <page>EFFECT:Render</page>.
+
+	<bug issue="5693">This override might not work properly on Linux</bug>
+	</description>
+	<code>
+-- Our sprite texture to render. Rendering this texture without
+-- render.OverrideBlendFunc will result in black borders around the lightning beam.
+local lightningMaterial = Material("sprites/lgtning")
+
+hook.Add( "PreDrawTranslucentRenderables", "LightningExample", function(isDrawingDepth, isDrawingSkybox)
+
+	if isDrawingDepth or isDrawSkybox then return end
+
+	local ply = Entity(1)
+
+	if !IsValid(ply) then return end
+
+	-- Calculate a random UV to use for the lightning to give it some movement
+	local uv = math.Rand(0, 1)
+
+	-- Enable blend override to interpret the color and alpha from the texture.
+	render.OverrideBlend( true, BLEND_SRC_COLOR, BLEND_SRC_ALPHA, BLENDFUNC_ADD, BLEND_ONE, BLEND_ZERO, BLENDFUNC_ADD )
+
+	render.SetMaterial(lightningMaterial)
+
+	-- Render a lightning beam along points randomly offset from a line above the player.
+	render.StartBeam(5)
+	render.AddBeam(ply:GetPos() + Vector(0,0,035), 20, uv, Color(255,255,255,255))
+	render.AddBeam(ply:GetPos() + Vector(0,0,135) + Vector(math.Rand(-20,20),math.Rand(-20,20),0), 20, uv*2, Color(255,255,255,255))
+	render.AddBeam(ply:GetPos() + Vector(0,0,235) + Vector(math.Rand(-20,20),math.Rand(-20,20),0), 20, uv*3, Color(255,255,255,255))
+	render.AddBeam(ply:GetPos() + Vector(0,0,335) + Vector(math.Rand(-20,20),math.Rand(-20,20),0), 20, uv*4, Color(255,255,255,255))
+	render.AddBeam(ply:GetPos() + Vector(0,0,435) + Vector(math.Rand(-20,20),math.Rand(-20,20),0), 20, uv*5, Color(255,255,255,255))
+	render.EndBeam()
+
+	 -- Disable blend override
+	render.OverrideBlend( false )
+
+end )
+	</code>
+	<output><image src="overrideblendfunc_example.png" alt="_overrideblendfunc_example.png"/></output>
+
+</example>

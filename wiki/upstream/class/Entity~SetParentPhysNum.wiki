@@ -1,0 +1,11 @@
+<function name="SetParentPhysNum" parent="Entity" type="classfunc">
+	<description>
+Sets the parent of an entity to another entity with the given physics bone number. Similar to <page>Entity:SetParent</page>, except it is parented to a physbone. This function is useful mainly for ragdolls.
+
+<note>Despite this function being available server side, it doesn't actually do anything server side.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="bone" type="number">Physics bone number to attach to. Use 0 for objects with only one physics bone. (See <page>Entity:GetPhysicsObjectNum</page>)</arg>
+	</args>
+</function>

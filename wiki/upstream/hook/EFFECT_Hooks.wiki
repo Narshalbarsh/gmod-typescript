@@ -1,0 +1,86 @@
+<cat>Hook</cat>
+<title>EFFECT</title>
+<type name="EFFECT" category="hook" parent="Entity" is="class">
+	<summary>
+These hooks are used inside of a Lua effect. Lua effects are stored in either the `/lua/effects` directory or in a gamemode in `/gamemodes/<gamemodename>/entities/effects`.
+
+Effects are entities with the classname `class CLuaEffect`, and as such, <page>Entity</page> functions are usable on them (using the `self` argument).
+
+An `EFFECT` is made using either a combination of the <page>EFFECT:Init</page>, <page>EFFECT:Render</page> and optionally the <page>EFFECT:Think</page> hook. Another way is to create all particles in one go in the `Init` hook and don't use the other hooks at all.
+<example>
+	<description>Creates a particle effect using a combination of the Init and the Think hooks.</description>
+	<code>
+function EFFECT:Init( data )
+	-- Because CEffectData is a shared object, we can't just store it and use its' properties later
+	-- Instead, we store the properties themselves
+	self.offset = data:GetOrigin() + Vector( 0, 0, 0.2 )
+	self.angles = data:GetAngles()
+	self.particles = 4
+end
+
+function EFFECT:Think()
+	return true
+end
+
+function EFFECT:Render()
+	local emitter = ParticleEmitter( self.offset, false )
+		for i=0, self.particles do
+			local particle = emitter:Add( "effects/softglow", self.offset )
+			if particle then
+				particle:SetAngles( self.angles )
+				particle:SetVelocity( Vector( 0, 0, 15 ) )
+				particle:SetColor( 255, 102, 0 )
+				particle:SetLifeTime( 0 )
+				particle:SetDieTime( 0.2 )
+				particle:SetStartAlpha( 255 )
+				particle:SetEndAlpha( 0 )
+				particle:SetStartSize( 1.6 )
+				particle:SetStartLength( 1 )
+				particle:SetEndSize( 1.2 )
+				particle:SetEndLength( 4 )
+			end
+		end
+	emitter:Finish()
+end
+	</code>
+
+</example>
+
+
+<example>
+	<description>Creates a particle effect using only the Init hook. To use this effect in a loop one needs to create a new instance of this effect every drawn frame.</description>
+	<code>
+function EFFECT:Init( data )
+	local vOffset = data:GetOrigin() + Vector( 0, 0, 0.2 )
+	local vAngle = data:GetAngles()
+	local emitter = ParticleEmitter( vOffset, false )
+		for i=0,4 do
+			local particle = emitter:Add( "effects/softglow", vOffset )
+			if particle then
+				particle:SetAngles( vAngle )
+				particle:SetVelocity( Vector( 0, 0, 15 ) )
+				particle:SetColor( 255, 102, 0 )
+				particle:SetLifeTime( 0 )
+				particle:SetDieTime( 0.2 )
+				particle:SetStartAlpha( 255 )
+				particle:SetEndAlpha( 0 )
+				particle:SetStartSize( 1.6 )
+				particle:SetStartLength( 1 )
+				particle:SetEndSize( 1.2 )
+				particle:SetEndLength( 4 )
+			end
+		end
+	emitter:Finish()
+end
+
+function EFFECT:Think()
+	return false
+end
+
+function EFFECT:Render()
+end
+	</code>
+
+</example>
+	</summary>
+</type>

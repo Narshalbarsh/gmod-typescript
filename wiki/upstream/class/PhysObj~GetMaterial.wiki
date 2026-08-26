@@ -1,0 +1,27 @@
+<function name="GetMaterial" parent="PhysObj" type="classfunc">
+	<description>Returns the [physical material](https://developer.valvesoftware.com/wiki/Material_surface_properties) ($surfaceprop) of the physics object.
+
+See <page>util.GetSurfaceData</page> for a function that adds these types as well as further explanation of what they are.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="string">The physical material name. ($surfaceprop)</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Play an appropriate sound when we hit something.</description>
+	<code>
+function ENT:Initialize()
+	local phys = self.Entity:GetPhysicsObject()
+	if IsValid(phys) then 
+		self.ImpactSound = util.GetSurfaceData(util.GetSurfaceIndex(phys:GetMaterial())).impactHardSound
+	end
+end
+
+function ENT:PhysicsCollide(data, physobj)
+	if (data.Speed > 50) then
+		self:EmitSound(Sound(self.ImpactSound))
+	end
+end
+	</code>
+</example>

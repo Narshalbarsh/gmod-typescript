@@ -1,0 +1,9 @@
+<function name="TaskTime" parent="ENTITY" type="hook">
+	<description>Returns how many seconds we've been doing this current task
+<note>This hook only exists for `ai` type [SENTs](Scripted_Entities).</note>
+</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">How many seconds we've been doing this current task</ret>
+	</rets>
+</function>

@@ -1,0 +1,7 @@
+<function name="SetMultiSelect" parent="DListView" type="panelfunc">
+	<description>Sets whether multiple lines can be selected by the user by using the <key>Ctrl</key> or <key>Shift</key> keys. When set to false, only one line can be selected.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="allowMultiSelect" type="boolean">Whether multiple lines can be selected or not</arg>
+	</args>
+</function>

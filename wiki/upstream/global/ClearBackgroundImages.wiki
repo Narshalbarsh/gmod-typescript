@@ -1,0 +1,5 @@
+<function name="ClearBackgroundImages" parent="Global" type="libraryfunc">
+	<description>Empties the pool of main menu background images.</description>
+	<realm>Menu</realm>
+	<file line="95-L99">lua/menu/background.lua</file>
+</function>

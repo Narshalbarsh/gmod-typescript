@@ -1,0 +1,64 @@
+<function name="SetRenderTargetEx" parent="render" type="libraryfunc">
+	<description>
+Sets the render target with the specified index of `COLOR[n]` to the specified rt, allowing you to work with [Multiple Render Targets (MRT)](https://learn.microsoft.com/en-us/windows/win32/direct3d9/multiple-render-targets). Since standard shaders don't use MRT, you might find this useful at <page>Shaders/screenspace_general</page>.
+<note>MRT doesn't work with 2D render functions like <page>render.DrawScreenQuad</page>. Instead, you can render a <page>render.DrawQuad</page> using <page>cam.Start2D</page>.</note>
+<warning>
+If you try to render with MSAA and set the main RenderTarget with another RenderTarget, nothing will be rendered.
+
+[Link to Direct3D 9 documentation on MRT](https://learn.microsoft.com/en-us/windows/win32/direct3d9/multiple-render-targets#:~:text=No%20antialiasing%20is%20supported)
+
+`Multiple render targets have the following restrictions:`
+* *No antialiasing is supported.*
+</warning>
+	
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="rtIndex" type="number">The index of output `COLOR[n]` [semantics](https://learn.microsoft.com/en-us/windows/win32/direct3dhlsl/dx-graphics-hlsl-semantics) from pixel-shader. Min: `0`, max: `3`.</arg>
+		<arg name="texture" type="ITexture" default="nil">The new render target to be used.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Multiple Render Targets in a 2D context:</description>
+	<code>
+local w, h = ScrW(), ScrH()
+local tex0 = GetRenderTarget( "ExampleRT0", w, h )
+local tex1 = GetRenderTarget( "ExampleRT1", w, h )
+
+local mat = Material("pp/ssao") -- your material with custom shader and COLOR0, COLOR1 output
+-- See https://github.com/meetric1/gmod_shader_guide/tree/main?tab=readme-ov-file#example-8---multi-render-targets for details
+
+local quad = {
+    vector_origin,
+    Vector(w, 0),
+    Vector(w, h),
+    Vector(0, h),
+}
+
+local function DrawScreenQuadMRT() 
+    cam.Start2D()
+        cam.IgnoreZ( true )
+        render.DrawQuad(
+            quad[1],
+            quad[2],
+            quad[3],
+            quad[4]
+        )
+        cam.IgnoreZ( false )
+    cam.End2D()
+end
+
+hook.Add( "RenderScreenspaceEffects", "2DMRT", function()
+	render.SetRenderTargetEx(0, tex0)
+	render.SetRenderTargetEx(1, tex1)
+
+	render.SetMaterial(mat)
+	DrawScreenQuadMRT()
+
+	render.SetRenderTargetEx(1)
+	render.SetRenderTargetEx(0)
+end )
+	</code>
+
+</example>

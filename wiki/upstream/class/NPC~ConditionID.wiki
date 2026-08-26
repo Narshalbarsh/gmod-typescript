@@ -1,0 +1,14 @@
+<function name="ConditionID" parent="NPC" type="classfunc">
+	<description>Returns the ID of a given condition by name. Opposite of <page>NPC:ConditionName</page>.
+
+This is useful for custom conditions defined by engine NPCs, such as `COND_ZOMBIE_RELEASECRAB` for zombies, and `COND_COMBINE_ON_FIRE` for Combine Soldiers.
+</description>
+	<added>2025.09.03</added>
+	<realm>Server</realm>
+	<args>
+		<arg name="conditionName" type="string">The condition name.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The condition ID, see <page>Enums/COND</page>. Custom conditions will have a "randomly" assigned IDs, which will change with each game session.</ret>
+	</rets>
+</function>

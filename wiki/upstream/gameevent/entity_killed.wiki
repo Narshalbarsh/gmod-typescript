@@ -1,0 +1,34 @@
+<cat>gameevent</cat>
+<title>entity_killed</title>
+
+<structure>
+	<realm>Shared and Menu</realm>
+	<description>
+		Called when an entity dies.
+		
+		<note>This is not called when a player dies using <page>Player:KillSilent</page>.</note>
+	</description>
+	<fields>
+		<item type="number" name="entindex_inflictor">The <page text="EntIndex">Entity:EntIndex</page> of the inflictor.</item>
+		<item type="number" name="entindex_attacker">The <page text="EntIndex">Entity:EntIndex</page> of the attacker.</item>
+		<item type="number" name="damagebits">Damage type(s), a combination of <page>Enums/DMG</page>.</item>
+		<item type="number" name="entindex_killed">The <page text="EntIndex">Entity:EntIndex</page> of the victim.</item>
+	</fields>
+</structure>
+
+# Examples
+<example>
+	<description>This is a basic template with the purpose of including all arguments / table variables to make it easily known which values can be accessed.</description>
+	<code>
+gameevent.Listen( "entity_killed" )
+hook.Add( "entity_killed", "entity_killed_example", function( data ) 
+	local inflictor_index = data.entindex_inflictor		// Same as Weapon:EntIndex() / weapon used to kill victim
+	local attacker_index = data.entindex_attacker		// Same as Player/Entity:EntIndex() / person or entity who did the damage
+	local damagebits = data.damagebits			// DAMAGE_TYPE - use BIT operations to decipher damage types...
+	local victim_index = data.entindex_killed		// Same as Victim:EntIndex() / the entity / player victim
+
+	// Called when a Player or Entity is killed
+
+end )
+	</code>
+</example>

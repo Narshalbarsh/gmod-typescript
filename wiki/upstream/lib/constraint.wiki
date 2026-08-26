@@ -1,0 +1,3 @@
+<type name="constraint" category="libraryfunc" is="library">
+	<summary>The constraint library allows you to control the constraint system built into the physics engine (rope, weld, ballsockets, etc).</summary>
+</type>

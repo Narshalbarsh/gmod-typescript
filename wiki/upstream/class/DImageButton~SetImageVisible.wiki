@@ -1,0 +1,7 @@
+<function name="SetImageVisible" parent="DImageButton" type="panelfunc">
+	<description>Hides or shows the image of the image button. Internally this calls <page>Panel:SetVisible</page> on the internal <page>DImage</page>.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="visible" type="boolean">Set true to make it visible ( default ), or false to hide the image</arg>
+	</args>
+</function>

@@ -1,0 +1,5 @@
+<function name="UpdateTurnActivity" parent="NPC" type="classfunc">
+	<description>Updates the turn activity. Basically applies the turn animations depending on the current turn yaw.</description>
+	<realm>Server</realm>
+	<added>2021.03.31</added>
+</function>

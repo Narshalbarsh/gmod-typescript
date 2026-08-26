@@ -1,0 +1,14 @@
+<function name="CalculateForceOffset" parent="PhysObj" type="classfunc">
+	<description>Calculates the linear and angular impulse on the object's center of mass for an offset impulse.<br/>The outputs can be used with <page>PhysObj:ApplyForceCenter</page> and <page>PhysObj:ApplyTorqueCenter</page>, respectively.
+
+**Be careful to convert the angular impulse to world frame (<page>PhysObj:LocalToWorldVector</page>) if you are going to use it with ApplyTorqueCenter.**</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="impulse" type="Vector">The impulse acting on the object in `kg*source_unit/s`. (World frame)</arg>
+		<arg name="position" type="Vector">The location of the impulse in world coordinates (`source units`)</arg>
+	</args>
+	<rets>
+		<ret name="linearImpulse" type="Vector">The calculated linear impulse on the physics object's center of mass in `kg*source_unit/s`. (World frame)</ret>
+		<ret name="angularImpulse" type="Vector">The calculated angular impulse on the physics object's center of mass in `kg*m^2*degrees/s`. (Local frame)</ret>
+	</rets>
+</function>

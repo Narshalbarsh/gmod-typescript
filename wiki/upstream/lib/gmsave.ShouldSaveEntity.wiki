@@ -1,0 +1,12 @@
+<function name="ShouldSaveEntity" parent="gmsave" type="libraryfunc">
+	<description>Returns if we should save this entity in a duplication or a map save or not.</description>
+	<realm>Server</realm>
+	<file line="49-L79">lua/includes/gmsave/entity_filters.lua</file>
+	<args>
+		<arg name="ent" type="Entity">The entity.</arg>
+		<arg name="t" type="table">A table containing classname key with entities classname.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Should save entity or not.</ret>
+	</rets>
+</function>

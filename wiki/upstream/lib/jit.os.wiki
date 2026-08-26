@@ -1,0 +1,7 @@
+<function name="os" parent="jit" type="libraryfield">
+	<description>This is NOT a function, it's a variable containing the target OS name: `Windows`, `Linux`, `OSX`, `BSD`, `POSIX` or `Other`.</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="string">The operating system.</ret>
+	</rets>
+</function>

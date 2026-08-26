@@ -1,0 +1,7 @@
+<function name="loaded" parent="package" type="libraryfield">
+	<description>A list of all loaded packages.</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="table">The list of all loaded packages.</ret>
+	</rets>
+</function>

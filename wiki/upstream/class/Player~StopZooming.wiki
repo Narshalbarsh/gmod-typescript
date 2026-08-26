@@ -1,0 +1,8 @@
+<function name="StopZooming" parent="Player" type="classfunc">
+	<description>
+Turns off the zoom mode of the player. (+zoom console command)
+
+Basically equivalent of entering "-zoom" into player's console.
+	</description>
+	<realm>Server</realm>
+</function>

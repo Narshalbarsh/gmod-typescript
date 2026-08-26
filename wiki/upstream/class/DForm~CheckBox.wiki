@@ -1,0 +1,13 @@
+<function name="CheckBox" parent="DForm" type="panelfunc">
+	<description>Adds a <page>DCheckBoxLabel</page> onto the <page>DForm</page>.
+<note>This will run <page>DCheckBoxLabel:OnChange</page> when being added. This is caused by <page>Panel:SetConVar</page> being used when this function is used. To avoid this, use <page>DForm:AddItem</page> with a <page>DCheckBoxLabel</page>.</note></description>
+	<realm>Client and Menu</realm>
+	<file line="192-L203">lua/vgui/dform.lua</file>
+	<args>
+		<arg name="label" type="string">The label to be set next to the check box</arg>
+		<arg name="convar" type="string">The console variable to change when this is changed</arg>
+	</args>
+	<rets>
+		<ret name="" type="DCheckBoxLabel">The created <page>DCheckBoxLabel</page></ret>
+	</rets>
+</function>

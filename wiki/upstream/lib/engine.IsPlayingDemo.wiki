@@ -1,0 +1,11 @@
+<function name="IsPlayingDemo" parent="engine" type="libraryfunc">
+	<description>
+Returns true if we're currently playing a demo.
+
+You will notice that there's no server-side version of this. That's because there is no server when playing a demo. Demos are both recorded and played back purely clientside.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the game is currently playing a demo or not.</ret>
+	</rets>
+</function>

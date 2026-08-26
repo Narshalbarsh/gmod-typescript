@@ -1,0 +1,5 @@
+<type name="Tool" category="classfunc" is="class">
+	<summary>A list of functions available inside a Sandbox Toolgun tool.
+
+You can find the hooks <page text="here">TOOL_Hooks</page>, and members <page text="here">Structures/TOOL</page>.</summary>
+</type>

@@ -1,0 +1,36 @@
+<enum>
+	<realm>Server</realm>
+	<description>Enumerations used by <page>sound.EmitHint</page>.</description>
+	<items>
+<item key="SOUND_NONE" value="0"></item>
+<item key="SOUND_COMBAT" value="1"></item>
+<item key="SOUND_WORLD" value="2"></item>
+<item key="SOUND_PLAYER" value="4"></item>
+<item key="SOUND_DANGER" value="8"></item>
+<item key="SOUND_BULLET_IMPACT" value="16"></item>
+<item key="SOUND_CARCASS" value="32">Considered a scent.</item>
+<item key="SOUND_MEAT" value="64">Considered a scent.</item>
+<item key="SOUND_GARBAGE" value="128">Considered a scent.</item>
+<item key="SOUND_THUMPER" value="256">Keeps certain creatures at bay, such as Antlions.</item>
+<item key="SOUND_BUGBAIT" value="512">Gets the antlion's attention.</item>
+<item key="SOUND_PHYSICS_DANGER" value="1024"></item>
+<item key="SOUND_DANGER_SNIPERONLY" value="2048">Only scares the sniper NPC.</item>
+<item key="SOUND_MOVE_AWAY" value="4096"></item>
+<item key="SOUND_PLAYER_VEHICLE" value="8192"></item>
+<item key="SOUND_READINESS_LOW" value="16384">Changes listener's readiness (Player Companion only)</item>
+<item key="SOUND_READINESS_MEDIUM" value="32768"></item>
+<item key="SOUND_READINESS_HIGH" value="65536"></item>
+
+<item key="SOUND_CONTEXT_FROM_SNIPER" value="1048576">Additional context for SOUND_DANGER</item>
+<item key="SOUND_CONTEXT_GUNFIRE" value="2097152">Added to SOUND_COMBAT</item>
+<item key="SOUND_CONTEXT_MORTAR" value="4194304">Explosion going to happen here.</item>
+<item key="SOUND_CONTEXT_COMBINE_ONLY" value="8388608">Only combine can hear sounds marked this way.</item>
+<item key="SOUND_CONTEXT_REACT_TO_SOURCE" value="16777216">React to sound source's origin, not sound's location</item>
+<item key="SOUND_CONTEXT_EXPLOSION" value="33554432">Context added to SOUND_COMBAT, usually.</item>
+<item key="SOUND_CONTEXT_EXCLUDE_COMBINE" value="67108864">Combine do NOT hear this</item>
+<item key="SOUND_CONTEXT_DANGER_APPROACH" value="134217728">Treat as a normal danger sound if you see the source, otherwise turn to face source.</item>
+<item key="SOUND_CONTEXT_ALLIES_ONLY" value="268435456">Only player allies can hear this sound.</item>
+<item key="SOUND_CONTEXT_PLAYER_VEHICLE" value="536870912">HACK: need this because we're not treating the SOUND_xxx values as true bit values! See switch in OnListened.</item>
+	</items>
+
+</enum>

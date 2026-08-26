@@ -1,0 +1,12 @@
+<function name="OpenDupe" parent="engine" type="libraryfunc">
+	<description>Loads a duplication from the local filesystem.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="dupeName" type="string">Name of the file. (e.g, `engine.OpenDupe("dupes/8b809dd7a1a9a375e75be01cdc12e61f.dupe")`).</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">A table with a simple field:
+* <page>string</page> `data` - Compressed dupe data. Use util.JSONToTable to make it into a format useable by the duplicator tool.
+</ret>
+	</rets>
+</function>

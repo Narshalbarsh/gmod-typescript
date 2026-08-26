@@ -1,0 +1,40 @@
+<function name="GetAutoComplete" parent="DTextEntry" type="panelfunc">
+	<description>Called by the DTextEntry when a list of autocompletion options is requested. Meant to be overridden.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="inputText" type="string">Player's current input.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">If a table is returned, the values of the table will show up as autocomplete suggestions for the user.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Shows a list of players to choose from.</description>
+	<code>
+local frame = vgui.Create( "DFrame" )
+frame:SetSize( 300, 300 )
+frame:SetTitle( "Autocompletion Example" )
+frame:Center()
+frame:MakePopup()
+
+local label = vgui.Create( "DLabel", frame )
+label:SetText( "Type a player..." )
+label:Dock( TOP )
+
+local textentry = vgui.Create( "DTextEntry", frame )
+textentry:Dock( TOP )
+function textentry:GetAutoComplete( text )
+    local suggestions = {}
+
+    for _, ply in ipairs( player.GetAll() ) do -- For every player,
+        if string.StartsWith( ply:Nick(), text ) then -- if the player's name starts with it...
+            table.insert( suggestions, ply:Nick() ) -- ... insert it into the list.
+        end
+    end
+
+	return suggestions
+end
+	</code>
+	<output><image src="autocomplete_example.png"/></output>
+</example>

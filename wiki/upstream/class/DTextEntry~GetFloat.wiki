@@ -1,0 +1,8 @@
+<function name="GetFloat" parent="DTextEntry" type="panelfunc">
+	<description>Returns the contents of the DTextEntry as a number.</description>
+	<realm>Client and Menu</realm>
+	<file line="388-L392">lua/vgui/dtextentry.lua</file>
+	<rets>
+		<ret name="" type="number">Text of the DTextEntry as a float, or nil if it cannot be converted to a number using <page>Global.tonumber</page>.</ret>
+	</rets>
+</function>

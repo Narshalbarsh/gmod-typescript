@@ -1,0 +1,15 @@
+<function name="IsGranted" parent="permissions" type="libraryfunc">
+	<description>
+Returns whether the player has granted the current server a specific permission.
+	</description>
+	<added>2021.06.09</added>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="permission" type="string">The permission to poll. Currently only 2 permission are valid:
+* `"connect"`
+* `"voicerecord"`</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether the permission is granted or not.</ret>
+	</rets>
+</function>

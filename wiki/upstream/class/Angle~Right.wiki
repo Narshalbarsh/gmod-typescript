@@ -1,0 +1,7 @@
+<function name="Right" parent="Angle" type="classfunc">
+	<description>Returns a normal vector facing in the direction that points right relative to the angle's direction.</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="Vector">The right direction of the angle</ret>
+	</rets>
+</function>

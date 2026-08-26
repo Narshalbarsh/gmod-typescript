@@ -1,0 +1,9 @@
+<function name="GetPan" parent="IGModAudioChannel" type="classfunc">
+	<description>Gets the relative volume of the left and right channels.
+	</description>
+	<realm>Client</realm>
+	<added>2020.04.29</added>
+	<rets>
+		<ret name="pan" type="number">Relative volume between the left and right channels. `-1` means only in left channel, `0` is center and `1` is only in the right channel. `0` by default.</ret>
+	</rets>
+</function>

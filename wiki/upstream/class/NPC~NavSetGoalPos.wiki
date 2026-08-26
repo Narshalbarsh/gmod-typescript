@@ -1,0 +1,15 @@
+<function name="NavSetGoalPos" parent="NPC" type="classfunc">
+	<description>Creates a path to closest node at given position. This won't actually force the NPC to move.
+
+<note>This will call either <page>NPC:TaskComplete</page> or <page>NPC:TaskFail</page> for the current schedule and task, forcing the current task to progress to next task or fail. </note>
+
+See also <page>NPC:NavSetRandomGoal</page>.</description>
+	<realm>Server</realm>
+	<added>2022.06.08</added>
+	<args>
+		<arg name="pos" type="Vector">The position to calculate a path to.</arg>
+	</args>
+	<rets>
+		<ret type="boolean">Whether path generation was successful or not.</ret>
+	</rets>
+</function>

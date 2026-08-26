@@ -1,0 +1,25 @@
+<function name="PlayerLoadout" parent="GM" type="hook">
+	<description>
+Called to give players the default set of weapons.
+
+
+<note>This function may not work in your custom gamemode if you have overridden your <page>GM:PlayerSpawn</page> and you do not use self.BaseClass.PlayerSpawn or <page>hook.Call</page>.</note>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ply" type="Player">Player to give weapons to.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Gives the player only a pistol.</description>
+	<code>
+function GM:PlayerLoadout( ply )
+	ply:Give( "weapon_pistol" )
+
+	-- Prevent default Loadout.
+	return true
+end
+	</code>
+
+</example>

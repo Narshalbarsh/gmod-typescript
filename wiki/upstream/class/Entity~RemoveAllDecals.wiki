@@ -1,0 +1,14 @@
+<function name="RemoveAllDecals" parent="Entity" type="classfunc">
+	<description>Removes all decals from the entities surface.</description>
+	<realm>Shared</realm>
+</function>
+
+<example>
+	<description>Removes all decals from all props in world.</description>
+	<code>
+for i, ent in ipairs( ents.FindByClass( "prop_physics" ) ) do
+	ent:RemoveAllDecals()
+end
+	</code>
+
+</example>

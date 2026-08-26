@@ -1,0 +1,7 @@
+<function name="GetMarkedArea" parent="navmesh" type="libraryfunc">
+	<description>Returns the currently marked <page>CNavArea</page>, for use with editing console commands.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="CNavArea">The currently marked <page>CNavArea</page>.</ret>
+	</rets>
+</function>

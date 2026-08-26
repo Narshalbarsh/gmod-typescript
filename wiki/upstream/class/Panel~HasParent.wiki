@@ -1,0 +1,10 @@
+<function name="HasParent" parent="Panel" type="classfunc">
+	<description>Returns whether the panel is a descendent of the given panel.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="parentPanel" type="Panel"></arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">True if the panel is contained within parentPanel.</ret>
+	</rets>
+</function>

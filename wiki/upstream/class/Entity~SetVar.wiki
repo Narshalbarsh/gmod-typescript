@@ -1,0 +1,13 @@
+<function name="SetVar" parent="Entity" type="classfunc">
+	<description>
+Allows to quickly set variable to entity's <page>Entity:GetTable</page>.
+
+<note>This will not network the variable to client(s). You want <page>Entity:SetNWString</page> and similar functions for that</note>
+	</description>
+	<realm>Shared</realm>
+	<file line="102-L106">lua/includes/extensions/entity.lua</file>
+	<args>
+		<arg name="key" type="any">Key of the value to set</arg>
+		<arg name="value" type="any">Value to set the variable to</arg>
+	</args>
+</function>

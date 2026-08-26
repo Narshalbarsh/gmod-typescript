@@ -1,0 +1,5 @@
+<function name="Toggle" parent="DDrawer" type="panelfunc">
+	<description>Toggles the <page>DDrawer</page>.</description>
+	<realm>Client and Menu</realm>
+	<file line="48-L56">lua/vgui/ddrawer.lua</file>
+</function>

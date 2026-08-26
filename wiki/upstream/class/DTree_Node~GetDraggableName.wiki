@@ -1,0 +1,11 @@
+<function name="GetDraggableName" parent="DTree_Node" type="panelfunc">
+	<description>
+<internal></internal>
+
+Returns what is set by <page>DTree_Node:SetDraggableName</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="string"></ret>
+	</rets>
+</function>

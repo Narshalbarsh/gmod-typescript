@@ -1,0 +1,8 @@
+<function name="InvalidateBoneCache" parent="Entity" type="classfunc">
+	<description>
+Resets the entity's bone cache values in order to prepare for a model change.
+
+This should be called after calling <page>Entity:SetPoseParameter</page>.
+	</description>
+	<realm>Client</realm>
+</function>

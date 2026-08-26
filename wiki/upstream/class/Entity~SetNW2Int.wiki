@@ -1,0 +1,21 @@
+<function name="SetNW2Int" parent="Entity" type="classfunc">
+	<description>
+Sets a networked integer (whole number) value on the entity.
+
+The value can then be accessed with <page>Entity:GetNW2Int</page> both from client and server.
+
+See <page>Entity:SetNW2Float</page> for numbers that aren't integers.
+<bug issue="5455">You should not use the NW2 System on entities that are based on a Lua Entity or else NW2Vars could get mixed up, updated multiple times or not be set.</bug>
+<warning>The value will only be updated clientside if the entity is or enters the clients PVS.  
+The integer has a 32 bit limit. Use <page>Entity:SetNWInt</page> instead</warning>
+
+<note>Running this function clientside will only set it for the client it is called on.  
+The value will only be networked if it isn't the same as the current value and unlike SetNW*
+the value will only be networked once and not every 10 seconds.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="key" type="string">The key to associate the value with</arg>
+		<arg name="value" type="number">The value to set</arg>
+	</args>
+</function>

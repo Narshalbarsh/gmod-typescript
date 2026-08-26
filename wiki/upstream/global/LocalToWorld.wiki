@@ -1,0 +1,40 @@
+<function name="LocalToWorld" parent="Global" type="libraryfunc">
+	<description>
+Translates a vector and angle from a local coordinate system into a global coordinate system.
+
+For the reverse of this function see <page>Global.WorldToLocal</page>.
+
+For working with an entity's local space vectors/angles you might consider using <page>Entity:LocalToWorld</page>/<page>Entity:LocalToWorldAngles</page> instead.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="localPos" type="Vector">A vector from a local coordinate system.</arg>
+		<arg name="localAng" type="Angle">An angle from a local coordinate system.
+
+Pass a zero angle if you don't need to translate an angle.</arg>
+		<arg name="originPos" type="Vector">The origin of a global coordinate system, in worldspace coordinates.</arg>
+		<arg name="originAngle" type="Angle">The angles of a global coordinate system, as a worldspace angle.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">The corresponding worldspace vector to `localPos`.</ret>
+		<ret name="" type="Angle">The corresponding worldspace angle to `localAng`.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>A matrix math that shows how this is calculated internally.</description>
+	<code>
+local localTransform = Matrix()
+localTransform:SetTranslation( localPos )
+localTransform:SetAngles( localAng )
+
+local worldTransform = Matrix()
+worldTransform:SetTranslation( originPos )
+worldTransform:SetAngles( originAngle )
+
+-- Transform the local coordinates using the world transform as a transformation matrix
+local localToWorld = worldTransform * localTransform
+
+print( localToWorld:GetTranslation(), localToWorld:GetAngles() )
+	</code>
+</example>

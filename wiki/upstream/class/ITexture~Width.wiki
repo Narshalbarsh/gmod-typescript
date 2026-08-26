@@ -1,0 +1,7 @@
+<function name="Width" parent="ITexture" type="classfunc">
+	<description>Returns the modified width of the texture, this value may be affected by mipmapping and other factors.</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="number">width</ret>
+	</rets>
+</function>

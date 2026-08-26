@@ -1,0 +1,7 @@
+<function name="GetSizeX" parent="CNavArea" type="classfunc">
+	<description>Returns the width this Nav Area.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number"></ret>
+	</rets>
+</function>

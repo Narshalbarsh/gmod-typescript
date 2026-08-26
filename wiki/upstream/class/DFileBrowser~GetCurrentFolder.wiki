@@ -1,0 +1,8 @@
+<function name="GetCurrentFolder" parent="DFileBrowser" type="panelfunc">
+	<description>An <page>Global.AccessorFunc</page> that returns the current directory/folder being displayed.</description>
+	<realm>Client</realm>
+	<file line="8">lua/vgui/dfilebrowser.lua</file>
+	<rets>
+		<ret name="" type="string">The directory the file list is currently displaying.</ret>
+	</rets>
+</function>

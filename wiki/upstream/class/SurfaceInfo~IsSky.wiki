@@ -1,0 +1,11 @@
+<function name="IsSky" parent="SurfaceInfo" type="classfunc">
+	<description>
+Checks if the brush surface is displaying the skybox.
+
+<note>This internally checks the SURFDRAW_SKY flag.</note>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">Returns true if the surface is the sky.</ret>
+	</rets>
+</function>

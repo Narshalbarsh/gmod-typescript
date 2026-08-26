@@ -1,0 +1,8 @@
+<function name="GWEN_SetMin" parent="Panel" type="classfunc">
+	<description><internal></internal> Used by <page>Panel:ApplyGWEN</page> to apply the `Min` property to a  <page>DNumberWang</page>, <page>Slider</page>, <page>DNumSlider</page> or <page>DNumberScratch</page>. This calls `SetMin` on one of the previously listed methods.</description>
+	<realm>Client and Menu</realm>
+	<file line="206">lua/derma/derma_gwen.lua</file>
+	<args>
+		<arg name="minValue" type="number">The minimum value the element is to permit.</arg>
+	</args>
+</function>

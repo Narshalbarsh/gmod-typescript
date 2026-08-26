@@ -1,0 +1,29 @@
+<function name="Add" parent="Vector" type="classfunc">
+	<description>Adds the values of the argument vector to the original vector. This function is the same as vector1 + vector2 without creating a new vector object, skipping object construction and garbage collection.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="vector" type="Vector">The vector to add.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Adds the components of the vectors together.</description>
+	<code>
+a = Vector(1, 1, 1)
+a:Add(Vector(1, 2, 3))
+print(a)
+	</code>
+	<output>2 3 4</output>
+
+</example>
+
+
+<example>
+	<description>If you don't want to set your vector to the result, and just return a new vector as the result. You can use a '+' operator to add two vectors together. The original vector will remain unchanged.</description>
+	<code>
+a = Vector(1, 1, 1)
+print(a + Vector(1, 2, 3))
+	</code>
+	<output>2 3 4</output>
+
+</example>

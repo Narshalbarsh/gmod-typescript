@@ -1,0 +1,7 @@
+<function name="ReadVector" parent="bf_read" type="classfunc">
+	<description>Reads a special encoded vector from the bitstream and returns it, this function is not suitable to send normals.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="Vector">vec</ret>
+	</rets>
+</function>

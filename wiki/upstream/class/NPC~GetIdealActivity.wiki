@@ -1,0 +1,10 @@
+<function name="GetIdealActivity" parent="NPC" type="classfunc">
+	<description>Returns the ideal activity the NPC currently wants to achieve.
+	<note>By default, base NPCs will automatically attempt to play a sequence bound to the ideal activity. To prevent ideal activity from overriding NPC's active sequence, set this to `ACT_DO_NOT_DISTURB`.</note>
+	</description>
+	<realm>Server</realm>
+	<added>2021.01.27</added>
+	<rets>
+		<ret name="" type="number">The ideal activity. <page>Enums/ACT</page>.</ret>
+	</rets>
+</function>

@@ -1,0 +1,34 @@
+<cat>gameevent</cat>
+<title>hltv_status</title>
+
+<structure>
+	<realm>Shared and Menu</realm>
+	<description>
+		Called when the HLTVServer stats are updated.  
+		They should be updated every 8 seconds.  
+		All of these stats are global and shared by the master server.  
+	</description>
+	<fields>
+		<item type="string" name="master">The address of the master.</item>
+		<item type="number" name="clients">The number of total clients.</item>
+		<item type="number" name="slots">The number of total slots.</item>
+		<item type="number" name="proxies">The number of total proxies.</item>
+	</fields>
+</structure>
+
+# Examples
+<example>
+	<description>This is a basic template with the purpose of including all arguments / table variables to make it easily known which values can be accessed.</description>
+	<code>
+gameevent.Listen( "hltv_status" )
+hook.Add( "hltv_status", "hltv_status_example", function( data )
+	local master = data.master -- The master server address
+	local clients = data.clients -- The number of total clients.
+	local slots = data.slots -- The number of total slots.
+	local proxies = data.proxies -- The number of total proxies.
+
+	-- Called when the stats are updated.
+	
+end )
+	</code>
+</example>

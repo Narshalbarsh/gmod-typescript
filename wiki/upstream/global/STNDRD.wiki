@@ -1,0 +1,18 @@
+<function name="STNDRD" parent="Global" type="libraryfunc">
+	<description>Returns the ordinal suffix of a given number.</description>
+	<realm>Shared and Menu</realm>
+	<file line="338-L349">lua/includes/util.lua</file>
+	<args>
+		<arg name="number" type="number">The number to find the ordinal suffix of.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">suffix</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Returns the ordinal suffix of 72.</description>
+	<code>print( 72 .. STNDRD(72) )</code>
+	<output>72nd</output>
+
+</example>

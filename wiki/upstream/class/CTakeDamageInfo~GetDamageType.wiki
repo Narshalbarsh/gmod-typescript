@@ -1,0 +1,25 @@
+<function name="GetDamageType" parent="CTakeDamageInfo" type="classfunc">
+	<description>
+Returns a bitflag which indicates the damage type(s) of the damage.
+
+Consider using <page>CTakeDamageInfo:IsDamageType</page> instead. Value returned by this function can contain multiple damage types.
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number{DMG}">Damage type(s), a combination of <page>Enums/DMG</page></ret>
+	</rets>
+</function>
+
+<example>
+    <description>All of these expressions are equivalent to each other, evaluating to `true` if the damageinfo contains bullet, explosive, or club damage:
+```lua
+bit.band(dmginfo:GetDamageType(), bit.bor(DMG_BULLET, DMG_BLAST, DMG_CLUB)) ~= 0
+```
+```lua
+dmginfo:IsDamageType(DMG_BULLET + DMG_BLAST + DMG_CLUB)
+```
+```lua
+dmginfo:IsBulletDamage() or dmginfo:IsExplosionDamage() or dmginfo:IsDamageType(DMG_CLUB)
+```
+    </description>
+</example>

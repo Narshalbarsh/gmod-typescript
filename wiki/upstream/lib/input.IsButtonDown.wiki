@@ -1,0 +1,14 @@
+<function name="IsButtonDown" parent="input" type="libraryfunc">
+	<description>
+Gets whether the specified button code is down.
+
+Unlike <page>input.IsKeyDown</page> this can also detect joystick presses from <page>Enums/JOYSTICK</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="button" type="number{BUTTON_CODE}">The button, valid values are in the range of <page>Enums/BUTTON_CODE</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Is the button down?</ret>
+	</rets>
+</function>

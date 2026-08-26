@@ -1,0 +1,63 @@
+<function name="Approach" parent="math" type="libraryfunc">
+	<description>Gradually approaches the target value by the specified amount.</description>
+	<realm>Shared and Menu</realm>
+	<file line="173-L183">lua/includes/extensions/math.lua</file>
+	<args>
+		<arg name="current" type="number">The value we're currently at.</arg>
+		<arg name="target" type="number">The target value. This function will never overshoot this value.</arg>
+		<arg name="change" type="number">The amount that the current value is allowed to change by to approach the target. (It makes no difference whether this is positive or negative.)</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">New current value, closer to the target than it was previously.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Demonstrates what this function does</description>
+	<code>
+print( math.Approach( 0, 5, 1 ) ) -- attempts to increment 0 by 1, 0 + 1 is less than 5 so returns 1
+print( math.Approach( 4, 5, 3 ) ) -- attempts to increment 4 by 3, 4 + 3 = 7 is greater than 5 so returns 5
+	</code>
+	<output>
+```
+1
+5
+```
+	</output>
+
+</example>
+
+
+<example>
+	<description>Common usage example of this function with a control variable.</description>
+	<code>
+local MyNumber = 0
+local Target = 0
+local LastThink = 0
+local ChangeRate = 1
+
+hook.Add( "Think", "math.Approach Example", function()
+	local now = CurTime()
+	local timepassed = now - LastThink
+	LastThink = now
+
+	MyNumber = math.Approach( MyNumber, Target, ChangeRate * timepassed )
+
+	-- Normally, you would use MyNumber in code that appears here.
+end )
+
+-- The following functions are for example only:
+function GetMyNumber()
+	return MyNumber
+end
+
+function SetMyNumberTarget( newtarget )
+	Target = newtarget
+end
+
+function SetMyNumberChangeRate( newrate )
+	ChangeRate = newrate
+end
+	</code>
+
+</example>

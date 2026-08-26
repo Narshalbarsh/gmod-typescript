@@ -1,0 +1,9 @@
+<function name="WriteColor" parent="net" type="libraryfunc">
+	<description>Appends a <page>Color</page> to the current net message.</description>
+	<realm>Shared</realm>
+	<file line="103-L116">lua/includes/extensions/net.lua</file>
+	<args>
+		<arg name="Color" type="Color">The <page>Color</page> you want to append to the net message.</arg>
+		<arg name="writeAlpha" type="boolean" default="true">If we should write the alpha of the color or not.</arg>
+	</args>
+</function>

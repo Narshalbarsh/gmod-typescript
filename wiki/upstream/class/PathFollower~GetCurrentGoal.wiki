@@ -1,0 +1,7 @@
+<function name="GetCurrentGoal" parent="PathFollower" type="classfunc">
+	<description>Returns the current goal data. Can return nil if the current goal is invalid, for example immediately after <page>PathFollower:Update</page>.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="table">A table with <page>Structures/PathSegment</page>.</ret>
+	</rets>
+</function>

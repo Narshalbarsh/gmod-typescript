@@ -1,0 +1,7 @@
+<function name="WriteInt" parent="ISave" type="classfunc">
+	<description>Writes an integer <page>number</page> to the save object.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="int" type="number">The integer number to write.</arg>
+	</args>
+</function>

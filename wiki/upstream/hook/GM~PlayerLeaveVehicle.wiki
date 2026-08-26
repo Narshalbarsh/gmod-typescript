@@ -1,0 +1,32 @@
+<function name="PlayerLeaveVehicle" parent="GM" type="hook">
+	<description>
+Called when a player leaves a vehicle for any reason, including <page>Player:ExitVehicle</page>. 
+
+See <page>GM:PlayerEnteredVehicle</page> for the opposite hook.
+
+<note>For vehicles with exit animations, this will be called **at the end** of the animation, **not at the start**!</note>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ply" type="Player">Player who left a vehicle.</arg>
+		<arg name="veh" type="Vehicle">Vehicle the player left.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Make the vehicle continue running (or more precisely start its engine again) when a player exists it, unless the player holds their Reload key.</description>
+	<code>
+hook.Add( "PlayerLeaveVehicle", "PlayerLeaveVehicleTurnOn", function( ply, veh )
+	if ( ply:KeyDown( IN_RELOAD ) ) then return end
+
+	-- We need to wait a few frames for the vehicle to stop working
+	timer.Create( "magic timer" .. veh:EntIndex(), 0, 2, function()
+		-- Only run on the last time the timer is fired
+		if ( timer.RepsLeft( "magic timer" .. veh:EntIndex() ) > 0 ) then return end
+
+		veh:StartEngine( true ) -- Start the engine back up
+		veh:ReleaseHandbrake() -- Release the handbrake
+	end )
+end )
+	</code>
+</example>

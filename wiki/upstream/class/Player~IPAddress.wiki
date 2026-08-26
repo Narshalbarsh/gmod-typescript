@@ -1,0 +1,14 @@
+<function name="IPAddress" parent="Player" type="classfunc">
+	<description>Returns the player's IP address and connection port in ip:port form
+<note>Returns `Error!` for bots.</note></description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="ip" type="string">The player's IP address and connection port</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints the player's IP and port</description>
+	<code>print( Entity( 1 ):IPAddress() )</code>
+	<output>192.168.1.101:27005</output>
+</example>

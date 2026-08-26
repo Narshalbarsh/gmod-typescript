@@ -1,0 +1,13 @@
+<function name="GetEnemyLastKnownPos" parent="NPC" type="classfunc">
+	<description>Returns the last known position of an NPC's enemy.
+
+Similar to <page>NPC:GetEnemyLastSeenPos</page>, but the known position will be a few seconds ahead of the last seen position.</description>
+	<realm>Server</realm>
+	<added>2020.06.24</added>
+	<args>
+		<arg name="enemy" type="Entity" default="GetEnemy()">The enemy to check.</arg>
+	</args>
+	<rets>
+		<ret name="pos" type="Vector">The last known position.</ret>
+	</rets>
+</function>

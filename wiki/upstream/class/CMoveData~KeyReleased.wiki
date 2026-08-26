@@ -1,0 +1,10 @@
+<function name="KeyReleased" parent="CMoveData" type="classfunc">
+	<description>Returns whether the key was released</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="key" type="number">A key to test, see <page>Enums/IN</page></arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Was the key released or not.</ret>
+	</rets>
+</function>

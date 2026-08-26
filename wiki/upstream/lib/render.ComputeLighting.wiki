@@ -1,0 +1,54 @@
+<function name="ComputeLighting" parent="render" type="libraryfunc">
+	<description>Calculates the light color at a certain position.
+
+This includes both ambient light and dynamic light.
+
+See <page>render.ComputeDynamicLighting</page> for dynamic light only.
+
+See <page>render.GetAmbientLightColor</page> for map-wide ambient color.
+</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="position" type="Vector">The position to get the light at.</arg>
+		<arg name="normal" type="Vector">The direction of an imaginary surface to get the light at.
+
+Pointing away from walls will get the lighting the wall receives. Pointing towards walls will not.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">A vector representing the light at that point.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>
+	Visualizes light level at the spot player is looking at.
+	</description>
+	<code>
+hook.Add( "HUDPaint", "test_navmesh", function()
+	local ply = LocalPlayer()
+	local tr = ply:GetEyeTrace()
+
+	local startPos = tr.HitPos
+
+	local color = render.ComputeLighting( startPos, tr.HitNormal )
+	local colorDyn = render.ComputeDynamicLighting( startPos, tr.HitNormal )
+	local colorAmbi = color - colorDyn
+
+	local pos2D = startPos:ToScreen()
+	pos2D.x = pos2D.x + 30
+
+	draw.RoundedBox( 4, pos2D.x - 25, pos2D.y - 5, 250, 60, Color(0,0,0, 200 ) )
+
+	draw.SimpleText( "Color: " .. tostring(color), "Default", pos2D.x, pos2D.y, color_white )
+	draw.SimpleText( "Dynamic Color: " .. tostring(colorDyn), "Default", pos2D.x, pos2D.y + 20, color_white )
+	draw.SimpleText( "Ambient Color: " .. tostring(colorAmbi), "Default", pos2D.x, pos2D.y + 40, color_white )
+
+	draw.RoundedBox( 4, pos2D.x - 20, pos2D.y, 10, 10, Color( color.x * 255, color.y * 255, color.z * 255 ) )
+	draw.RoundedBox( 4, pos2D.x - 20, pos2D.y + 20, 10, 10, Color( colorDyn.x * 255, colorDyn.y * 255, colorDyn.z * 255 ) )
+	draw.RoundedBox( 4, pos2D.x - 20, pos2D.y + 40, 10, 10, Color( colorAmbi.x * 255, colorAmbi.y * 255, colorAmbi.z * 255 ) )
+end )
+	</code>
+	<output>
+		<upload src="70c/8ded78d9538dee7.gif" size="3507824" name="July01-2855-gmod_win64.gif" />
+	</output>
+</example>

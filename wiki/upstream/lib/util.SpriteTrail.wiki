@@ -1,0 +1,29 @@
+<function name="SpriteTrail" parent="util" type="libraryfunc">
+	<description>Adds a trail to the specified entity.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ent" type="Entity">Entity to attach trail to</arg>
+		<arg name="attachmentID" type="number">Attachment ID of the entities model to attach trail to. If you are not sure, set this to 0</arg>
+		<arg name="color" type="Color">Color of the trail</arg>
+		<arg name="additive" type="boolean">Should the trail be additive or not</arg>
+		<arg name="startWidth" type="number">Start width of the trail</arg>
+		<arg name="endWidth" type="number">End width of the trail</arg>
+		<arg name="lifetime" type="number">How long it takes to transition from startWidth to endWidth</arg>
+		<arg name="textureRes" type="number">The resolution of trails texture. A good value can be calculated using this formula: 1 / ( startWidth + endWidth ) * 0.5</arg>
+		<arg name="texture" type="string">Path to the texture to use as a trail.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Entity">Entity of created trail ([env_spritetrail](https://developer.valvesoftware.com/wiki/Env_spritetrail))</ret>
+	</rets>
+</function>
+
+<example>
+	<description>A console command that gives the player a red trail.</description>
+	<code>
+concommand.Add( "givetrail", function( ply )
+	local trail = util.SpriteTrail( ply, 0, Color( 255, 0, 0 ), false, 15, 1, 4, 1 / ( 15 + 1 ) * 0.5, "trails/plasma" )
+	print( trail )
+end )
+	</code>
+
+</example>

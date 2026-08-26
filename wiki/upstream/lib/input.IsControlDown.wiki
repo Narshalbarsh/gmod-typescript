@@ -1,0 +1,7 @@
+<function name="IsControlDown" parent="input" type="libraryfunc">
+	<description>Returns whether a control key is being pressed.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Is Ctrl key down or not?</ret>
+	</rets>
+</function>

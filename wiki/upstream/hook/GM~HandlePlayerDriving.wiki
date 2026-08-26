@@ -1,0 +1,11 @@
+<function name="HandlePlayerDriving" parent="GM" type="hook">
+	<description>Allows to override player driving animations.</description>
+	<realm>Shared</realm>
+	<file line="139-L192">gamemodes/base/gamemode/animations.lua</file>
+	<args>
+		<arg name="ply" type="Player">Player to process</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return true if we've changed/set the animation, false otherwise</ret>
+	</rets>
+</function>

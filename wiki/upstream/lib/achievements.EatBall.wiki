@@ -1,0 +1,4 @@
+<function name="EatBall" parent="achievements" type="libraryfunc">
+	<description><internal></internal>Adds one to the count of balls eaten. Once this count reaches 200, the 'Ball Eater' achievement is unlocked.</description>
+	<realm>Client</realm>
+</function>

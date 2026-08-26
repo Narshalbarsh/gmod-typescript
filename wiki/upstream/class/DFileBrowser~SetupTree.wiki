@@ -1,0 +1,8 @@
+<function name="SetupTree" parent="DFileBrowser" type="panelfunc">
+	<description><internal></internal> Called to set up the <page>DTree</page> by <page>DFileBrowser:Setup</page>.</description>
+	<realm>Client</realm>
+	<file line="143-L167">lua/vgui/dfilebrowser.lua</file>
+	<rets>
+		<ret name="" type="boolean">Whether or not the tree was set up successfully.</ret>
+	</rets>
+</function>

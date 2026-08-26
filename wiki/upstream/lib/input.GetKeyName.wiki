@@ -1,0 +1,14 @@
+<function name="GetKeyName" parent="input" type="libraryfunc">
+	<description>
+Gets the button name from a numeric button code. The name needs to be translated with <page>language.GetPhrase</page> before being displayed.
+
+<note>Despite the name of the function, this also works for the full range of keys in <page>Enums/BUTTON_CODE</page>.</note>
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="button" type="number{BUTTON_CODE}">The button, see <page>Enums/BUTTON_CODE</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">Button name.</ret>
+	</rets>
+</function>

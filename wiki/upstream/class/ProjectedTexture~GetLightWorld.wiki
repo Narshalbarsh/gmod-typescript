@@ -1,0 +1,8 @@
+<function name="GetLightWorld" parent="ProjectedTexture" type="classfunc">
+	<description>Returns whenever or not the Texture should light up world geometry.</description>
+	<realm>Client</realm>
+	<added>2023.06.28</added>
+	<rets>
+		<ret name="lightworld" type="boolean">`true` if the Texture should light up world geometry.</ret>
+	</rets>
+</function>

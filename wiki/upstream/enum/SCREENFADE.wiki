@@ -1,0 +1,22 @@
+<enum>
+	<realm>Shared</realm>
+	<description>Bitflags used by <page>Player:ScreenFade</page>.</description>
+	<items>
+<item key="" value="0">Instant fade in, wait for hold time AND fade time, instant fade out.
+
+Not a real flag, but rather describes what happens when given none. 
+</item>
+<item key="SCREENFADE.IN" value="1">Instant fade in, slowly fade out (based on fade time given) after the hold time has passed</item>
+
+<item key="SCREENFADE.OUT" value="2">Slowly fade in (based on fade time given), hold time passes, instantly disappear</item>
+
+<item key="SCREENFADE.MODULATE" value="4">Instead of blending multiple active screen fades, modulate them. (TODO: What does this mean?) Internally this flag switches what material will be used to render the screen fade. Practically it forces the color to black.</item>
+
+<item key="SCREENFADE.STAYOUT" value="8">Never disappear. Does nothing by itself, as if no flags were given.</item>
+
+<item key="SCREENFADE.PURGE" value="16">Used to purge all currently active screen fade effects, meant to be used in conjunction with flags above as a "priority effect".
+
+Does nothing by itself, acts as if no flags were given</item>
+	</items>
+
+</enum>

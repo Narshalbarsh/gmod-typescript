@@ -1,5 +1,22 @@
+// Page names that differ from the type they declare, filled in by the generator from the container pages.
+// Wiki page names are case-insensitive, so the File class lives at file_class with <type name="File"> inside,
+// and other pages reference it as type="file_class"
+const pageTypeNames = new Map<string, string>();
+
+export function registerPageTypeNames(names: Record<string, string>): void {
+    for (const [page, declared] of Object.entries(names)) pageTypeNames.set(page, declared);
+}
+
+function applyPageTypeNames(t: string): string {
+    for (const [page, declared] of pageTypeNames) {
+        const escaped = page.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        t = t.replace(new RegExp(`(^|[^A-Za-z0-9_])${escaped}(?![A-Za-z0-9_])`, 'g'), `$1${declared}`);
+    }
+    return t;
+}
+
 export function transformType(type: string) {
-    let t = (type || '').trim();
+    let t = applyPageTypeNames((type || '').trim());
 
     t = t.replace(
         /\b(?:Structures?|Structure|Enums?|Enum|Classes?|Class|Panels?|Panel|Libraries?|Library)\/([A-Za-z0-9_.]+)/gi,

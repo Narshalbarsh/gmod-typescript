@@ -1,0 +1,7 @@
+<function name="SetColor" parent="DLabelURL" type="panelfunc">
+	<description>Alias of <page>DLabelURL:SetTextColor</page>.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="col" type="Color">The <page>Color</page> to use.</arg>
+	</args>
+</function>

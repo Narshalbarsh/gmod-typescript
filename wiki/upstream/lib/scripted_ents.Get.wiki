@@ -1,0 +1,33 @@
+<function name="Get" parent="scripted_ents" type="libraryfunc">
+	<file line="159-L193">lua/includes/modules/scripted_ents.lua</file>
+	<description>
+		Returns a copy of the ENT table for a class, including functions defined by the base class.
+		<internal></internal>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="classname" type="string">The classname of the ENT table to return, can be an alias.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">The ENT table.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Use of PrintTable function to print the contents of base_entity SENT table.</description>
+	<code>PrintTable(scripted_ents.Get("base_entity"))</code>
+	<output>
+```
+AdminOnly	=	false
+Base	=	base_entity
+ClassName	=	base_entity
+Folder	=	entities/base_entity
+Initialize	=	function: 0x2a205b50
+OnRestore	=	function: 0x2a6d4b90
+Spawnable	=	false
+Think	=	function: 0x2a153780
+Type	=	anim
+```
+	</output>
+
+</example>

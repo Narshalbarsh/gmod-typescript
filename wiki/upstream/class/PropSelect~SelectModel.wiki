@@ -1,0 +1,12 @@
+<function name="SelectModel" parent="PropSelect" type="panelhook">
+	<description>
+<internal>Use <page>PropSelect:FindAndSelectButton</page> instead.</internal>
+
+Selects a given spawnicon panel.
+</description>
+	<realm>Client</realm>
+	<added>2024.09.02</added>
+	<args>
+		<arg name="icon" type="SpawnIcon">The spawnicon to select, retrieved via <page>PropSelect:FindModelByValue</page>.</arg>
+	</args>
+</function>

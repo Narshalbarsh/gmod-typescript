@@ -1,0 +1,12 @@
+<function name="FromButton" parent="numpad" type="libraryfunc">
+	<description>
+Returns true during a function added with <page>numpad.Register</page> when the third argument to <page>numpad.Activate</page> is true.
+
+This is caused when a numpad function is triggered by a button SENT being used.
+	</description>
+	<realm>Server</realm>
+	<file line="30-L34">lua/includes/modules/numpad.lua</file>
+	<rets>
+		<ret name="" type="boolean">wasButton</ret>
+	</rets>
+</function>

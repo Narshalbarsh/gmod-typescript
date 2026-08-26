@@ -1,0 +1,9 @@
+<function name="SetTile" parent="DTileLayout" type="panelfunc">
+	<description><internal></internal> Called to set the occupied state of a tile.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="x" type="number">The x coordinate of the tile.</arg>
+		<arg name="y" type="number">The y coordinate of the tile.</arg>
+		<arg name="state" type="any">The new state of the tile, normally `1` or `nil`.</arg>
+	</args>
+</function>

@@ -1,0 +1,11 @@
+<function name="IsTableOfEntitiesValid" parent="Global" type="libraryfunc">
+	<description>Returns whether or not every element within a table is a valid entity</description>
+	<realm>Shared and Menu</realm>
+	<file line="67-L80">lua/includes/util.lua</file>
+	<args>
+		<arg name="table" type="table">Table containing entities to check</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">All entities valid</ret>
+	</rets>
+</function>

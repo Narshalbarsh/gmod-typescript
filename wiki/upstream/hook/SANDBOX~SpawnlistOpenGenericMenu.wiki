@@ -1,0 +1,11 @@
+<function name="SpawnlistOpenGenericMenu" parent="SANDBOX" type="hook">
+	<description>
+<internal>Use <page>SANDBOX:SpawnmenuIconMenuOpen</page> if you wish to add new options to spawnmenu icon right click menus.</internal>
+Called when there's one or more items selected in the spawnmenu by the player, to open the multi selection right click menu (<page>DMenu</page>)
+
+</description>
+	<realm>Client</realm>
+	<args>
+		<arg type="Panel" name="canvas">The canvas that has the selection. (<page>Panel:GetSelectionCanvas</page>)</arg>
+	</args>
+</function>

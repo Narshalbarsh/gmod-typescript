@@ -1,0 +1,10 @@
+<function name="AddLine" parent="DListView" type="panelfunc">
+	<description>Adds a line to the list view.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="text" type="vararg">Values for a new row in the DListView, If several arguments are supplied, each argument will correspond to a respective column in the DListView.</arg>
+	</args>
+	<rets>
+		<ret name="" type="DListView_Line">The newly created <page>DListView_Line</page>.</ret>
+	</rets>
+</function>

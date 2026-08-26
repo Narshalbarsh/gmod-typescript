@@ -1,0 +1,8 @@
+<function name="OnKeyCode" parent="DTextEntry" type="panelhook">
+	<description>Called from <page>DTextEntry</page>'s <page>TextEntry:OnKeyCodeTyped</page> override whenever a valid character is typed while the text entry is focused.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="keyCode" type="number">They key code of the key pressed, see <page>Enums/KEY</page>.</arg>
+	</args>
+</function>

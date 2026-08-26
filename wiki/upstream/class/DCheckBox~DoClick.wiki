@@ -1,0 +1,5 @@
+<function name="DoClick" parent="DCheckBox" type="panelfunc">
+	<description>Calls <page>DCheckBox:Toggle</page></description>
+	<realm>Client and Menu</realm>
+	<file line="39-L43">lua/vgui/dcheckbox.lua</file>
+</function>

@@ -1,0 +1,14 @@
+<function name="GetMaxHealth" parent="Entity" type="classfunc">
+	<description>Returns the max health that the entity was given. It can be set via <page>Entity:SetMaxHealth</page>.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">Max health.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints the maximum health set for player 1.</description>
+	<code>print( Entity( 1 ):GetMaxHealth() )</code>
+	<output>By default, 100.</output>
+
+</example>

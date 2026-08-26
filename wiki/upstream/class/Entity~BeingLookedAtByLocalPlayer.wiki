@@ -1,0 +1,11 @@
+<function name="BeingLookedAtByLocalPlayer" parent="Entity" type="classfunc">
+	<description>Returns true if the entity is being looked at by the local player and is within 256 units of distance.
+
+<note>This function is only available in entities that are based off of sandbox's base_gmodentity.</note>
+</description>
+	<realm>Client</realm>
+	<file line="10-L35">gamemodes/sandbox/entities/entities/base_gmodentity.lua</file>
+	<rets>
+		<ret name="" type="boolean">Is the entity being looked at by the local player and within 256 units.</ret>
+	</rets>
+</function>

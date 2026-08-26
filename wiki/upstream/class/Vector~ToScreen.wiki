@@ -1,0 +1,41 @@
+<function name="ToScreen" parent="Vector" type="classfunc">
+	<description>
+Returns where on the screen the specified position vector would appear. A related function is <page>gui.ScreenToVector</page>, which converts a 2D coordinate to a 3D direction.
+
+<note>Should be called from a 3D rendering environment or after <page>cam.Start3D</page> or it may not work correctly.</note>
+
+<bug issue="462">Errors in a render hook can make this value incorrect until the player restarts their game.</bug>
+
+<bug issue="1404"><page>cam.Start3D</page> or 3D context <page>cam.Start</page> with non-default parameters incorrectly sets the reference FOV for this function, causing incorrect return values. This can be fixed by creating and ending a default 3D context (<page>cam.Start3D</page> with no arguments).</bug>
+	</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="table{ToScreenData}">The created <page>Structures/ToScreenData</page>.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Draw some text on certain entities/positions in-world.</description>
+	<code>
+hook.Add( "HUDPaint", "ToScreenExample", function()
+
+	-- Get a list of all props and draw a marker on screen for each prop
+	for _, ent in ipairs( ents.FindByClass( "prop_*" ) ) do
+
+		local point = ent:GetPos() + ent:OBBCenter() -- Gets the position of the entity, specifically the center
+		local data2D = point:ToScreen() -- Gets the position of the entity on your screen
+
+		-- The position is not visible from our screen, don't draw and continue onto the next prop
+		if ( not data2D.visible ) then continue end
+
+		-- Draw a simple text over where the prop is
+		draw.SimpleText( "Prop here", "Default", data2D.x, data2D.y, Color( 255, 255, 255 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
+
+	end
+
+end )
+	</code>
+	<output>
+		<upload src="70c/8d7e20f173a4dae.png" size="485139" name="image.png" />
+	</output>
+</example>

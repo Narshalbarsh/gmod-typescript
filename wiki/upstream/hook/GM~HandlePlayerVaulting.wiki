@@ -1,0 +1,12 @@
+<function name="HandlePlayerVaulting" parent="GM" type="hook">
+	<description>Allows to override player flying ( in mid-air, not noclipping ) animations.</description>
+	<realm>Shared</realm>
+	<file line="100-L111">gamemodes/base/gamemode/animations.lua</file>
+	<args>
+		<arg name="ply" type="Player">The player</arg>
+		<arg name="velocity" type="Vector">Players velocity</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return true if we've changed/set the animation, false otherwise</ret>
+	</rets>
+</function>

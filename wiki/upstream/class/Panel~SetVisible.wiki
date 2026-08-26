@@ -1,0 +1,7 @@
+<function name="SetVisible" parent="Panel" type="classfunc">
+	<description>Sets the "visibility" of the panel.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="visible" type="boolean">The visibility of the panel.</arg>
+	</args>
+</function>

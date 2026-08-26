@@ -1,0 +1,8 @@
+<function name="AddAttributes" parent="CNavArea" type="classfunc">
+	<description>Adds given attributes to given <page>CNavArea</page>. See <page>CNavArea:HasAttributes</page> and <page>CNavArea:SetAttributes</page>.</description>
+	<realm>Server</realm>
+	<added>2023.10.05</added>
+	<args>
+		<arg name="attribs" type="number">The attributes to add, as a bitflag. See <page>Enums/NAV_MESH</page>.</arg>
+	</args>
+</function>

@@ -1,0 +1,11 @@
+<function name="GetDrawBackground" parent="DCollapsibleCategory" type="panelfunc">
+	<description>
+<deprecated>You should use <page>DCollapsibleCategory:GetPaintBackground</page> instead.</deprecated>
+
+Returns whether or not the panel background is being drawn. Alias of <page>DCollapsibleCategory:GetPaintBackground</page>.</description>
+	<realm>Client and Menu</realm>
+	<file line="52">lua/vgui/dcategorycollapse.lua</file>
+	<rets>
+		<ret name="" type="boolean">True if the panel background is drawn, false otherwise.</ret>
+	</rets>
+</function>

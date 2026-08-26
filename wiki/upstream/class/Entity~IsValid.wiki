@@ -1,0 +1,67 @@
+<function name="IsValid" parent="Entity" type="classfunc">
+	<description>
+Returns whether the entity is a valid entity or not.
+
+An entity is valid if:
+* It is not a <page text="NULL">Global_Variables</page> entity
+* It is not the worldspawn entity (<page>game.GetWorld</page>)
+
+<note>Instead of calling this method directly, it's a good idea to call the global <page>Global.IsValid</page> instead, however if you're sure the variable you're using is always an entity object it's better to use this method</note>
+
+It will check whether the given variable contains an object (an Entity) or nothing at all for you. See examples.
+
+<warning>NULL entities can still be assigned with key/value pairs, but they will be instantly negated. See example 3</warning>
+This might be a cause for a lot of headache. Usually happening during networking etc., when completely valid entities suddenly become invalid on the client, but are never filtered with IsValid(). See <page>GM:InitPostEntity</page> for more details.
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">true if the entity is valid, false otherwise</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Shows how to use the global <page>Global.IsValid</page> function instead of using this method directly.</description>
+	<code>
+if ( entity && entity:IsValid() ) then
+	-- Do stuff
+end
+
+-- The above can be replaced with the following for the same effect (and cleaner code)
+
+if ( IsValid( entity ) ) then
+	-- Do stuff
+end
+	</code>
+
+</example>
+
+
+<example>
+	<code>print( LocalPlayer():IsValid() )</code>
+	<output>Outputs 'true' to the console if the player is in-game.</output>
+
+</example>
+
+
+<example>
+	<code>
+local newPlayer = net.ReadEntity() --server found a new player on the server and sent it to us after 
+print( "1/4" )              -- it determined it was valid (newPlayer is NULL in this realm)
+
+if not isnumber(newPlayer.ImportantGameData) then --If it doesn't have a specific field, assign a value to it
+	print( "2/4" )
+	newPlayer.ImportantGameData = 42 
+end
+print( "3/4" )
+
+print( newPlayer.ImportantGameData * 69 ) --Attempting to do arithmetics on the new field
+print( "4/4" )
+	</code>
+	<output>
+1/4 ... 3/4
+* A lua error telling us 'ImportantGameData' is a nil value and thus can't perform math on it
+----
+But this shouldn't be possible, because we just created a value there. No red flags are present up until this point; all code up until this will run fine. Make sure to add an IsValid() check when the seemingly impossible happens.
+	</output>
+
+</example>

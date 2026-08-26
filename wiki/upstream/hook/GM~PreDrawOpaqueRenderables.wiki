@@ -1,0 +1,20 @@
+<function name="PreDrawOpaqueRenderables" parent="GM" type="hook">
+	<description>
+Called before all opaque entities are drawn.
+
+See also <page>GM:PreDrawTranslucentRenderables</page> and  <page>GM:PostDrawOpaqueRenderables</page>.
+
+<rendercontext hook="true" type="3D"></rendercontext>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="isDrawingDepth" type="boolean">Whether the current draw is writing depth.</arg>
+		<arg name="isDrawSkybox" type="boolean">Whether the current draw is drawing the 3D or 2D skybox.
+
+In case of 2D skyboxes it is possible for this hook to always be called with this parameter set to `true`.</arg>
+		<arg name="isDraw3DSkybox" type="boolean">Whether the current draw is drawing the 3D.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return true to prevent opaque renderables from drawing.</ret>
+	</rets>
+</function>

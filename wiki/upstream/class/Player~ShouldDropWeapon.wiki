@@ -1,0 +1,11 @@
+<function name="ShouldDropWeapon" parent="Player" type="classfunc">
+	<description>
+Sets whether the player's current weapon should drop on death.
+
+<note>This is reset on spawn to the <page text="player class">Player_Classes</page>'s **DropWeaponOnDie** field by <page>player_manager.OnPlayerSpawn</page>.</note>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="drop" type="boolean">Whether to drop the player's current weapon or not</arg>
+	</args>
+</function>

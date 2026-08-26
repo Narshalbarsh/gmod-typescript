@@ -1,0 +1,5 @@
+<function name="ToggleVisible" parent="Panel" type="classfunc">
+	<file line="418-L420">lua/includes/extensions/client/panel.lua</file>
+	<description>Toggles the visibility of a panel and all its children.</description>
+	<realm>Client and Menu</realm>
+</function>

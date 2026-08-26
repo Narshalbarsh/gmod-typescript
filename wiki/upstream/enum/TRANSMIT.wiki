@@ -1,0 +1,12 @@
+<enum>
+	<realm>Shared</realm>
+	<description>Enumerations used in <page>ENTITY:UpdateTransmitState</page> hook.</description>
+	<items>
+<item key="TRANSMIT_ALWAYS" value="0">Always transmit the entity</item>
+
+<item key="TRANSMIT_NEVER" value="1">Never transmit the entity, default for point entities</item>
+
+<item key="TRANSMIT_PVS" value="2">Transmit when entity is in players [PVS (Potential Visibility Set)](https://developer.valvesoftware.com/wiki/PVS "PVS - Valve Developer Community")</item>
+	</items>
+
+</enum>

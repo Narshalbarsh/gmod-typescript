@@ -1,0 +1,7 @@
+<function name="Size" parent="File" type="classfunc">
+	<rets>
+		<ret name="size" type="number"></ret>
+	</rets>
+	<description>Returns the size of the file in bytes.</description>
+	<realm>Shared and Menu</realm>
+</function>

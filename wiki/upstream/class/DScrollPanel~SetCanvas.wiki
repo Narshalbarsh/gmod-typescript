@@ -1,0 +1,10 @@
+<function name="SetCanvas" parent="DScrollPanel" type="panelfunc">
+	<description>
+		<internal></internal>
+		Sets the canvas of the DScrollPanel.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="canvas" type="Panel">The new canvas</arg>
+	</args>
+</function>

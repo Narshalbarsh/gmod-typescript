@@ -1,0 +1,12 @@
+<function name="GetChildPosition" parent="Panel" type="classfunc">
+	<file line="442-L458">lua/includes/extensions/client/panel.lua</file>
+	<description>Gets a child object's position relative to this panel object. The number of levels is not relevant; the child may have many parents between itself and the object on which the method is called.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="pnl" type="Panel">The panel to get the position of.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The horizontal (x) position of the child relative to this panel object.</ret>
+		<ret name="" type="number">The vertical (y) position of the child relative to this panel object.</ret>
+	</rets>
+</function>

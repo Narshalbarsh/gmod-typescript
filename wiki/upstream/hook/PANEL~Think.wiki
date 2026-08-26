@@ -1,0 +1,4 @@
+<function name="Think" parent="PANEL" type="hook">
+	<description>Called every frame while <page>Panel:IsVisible</page> is true.</description>
+	<realm>Client and Menu</realm>
+</function>

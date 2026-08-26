@@ -1,0 +1,4 @@
+<function name="IncBystander" parent="achievements" type="libraryfunc">
+	<description><internal></internal>Adds one to the count of innocent animals killed. Once this count reaches 1000, the 'Innocent Bystander' achievement is unlocked.</description>
+	<realm>Client</realm>
+</function>

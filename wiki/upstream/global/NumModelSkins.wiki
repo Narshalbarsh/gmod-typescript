@@ -1,0 +1,15 @@
+<function name="NumModelSkins" parent="Global" type="libraryfunc">
+	<description>
+Returns the amount of skins the specified model has if the model has ever been loaded before, without loading the model directly.
+
+See also <page>Entity:SkinCount</page> if you have an entity.
+	</description>
+	<realm>Client</realm>
+	<file line="80-L93">lua/includes/util/model_database.lua</file>
+	<args>
+		<arg name="modelName" type="string">Model to return amount of skins of</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">Amount of skins</ret>
+	</rets>
+</function>

@@ -1,0 +1,7 @@
+<type name="umsg" category="libraryfunc" is="library">
+	<summary><deprecated>You should be using the <page>net</page> library instead</deprecated>
+
+The umsg (user message) library was previously the most common way of sending information from the server to the client. 
+
+<warning>Usermessages have a limit of only 256 bytes!</warning></summary>
+</type>

@@ -1,0 +1,14 @@
+<function name="wait" parent="coroutine" type="libraryfunc">
+	<description>
+Repeatedly yields the coroutine for the given duration before continuing. 
+
+Only works inside a coroutine. Only useful in nextbot coroutine think function. 
+
+This function uses <page>Global.CurTime</page> instead of <page>Global.RealTime</page>.
+	</description>
+	<realm>Shared</realm>
+	<file line="15-L26">lua/includes/extensions/coroutine.lua</file>
+	<args>
+		<arg name="duration" type="number">The number of seconds to wait.</arg>
+	</args>
+</function>

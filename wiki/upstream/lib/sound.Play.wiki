@@ -1,0 +1,24 @@
+<function name="Play" parent="sound" type="libraryfunc">
+	<description>
+Plays a sound from the specified position in the world.
+If you want to play a sound without a position, such as a UI sound, use <page>surface.PlaySound</page> instead.
+
+This function is similar to <page>Global.EmitSound</page>, but with less options.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="snd" type="string">The sound to play. This should either be a sound script name (<page>sound.Add</page>) or a file path relative to the `sound/` folder. (Make note that it's not sound**s**)
+</arg>
+		<arg name="pos" type="Vector">Where the sound should play.</arg>
+		<arg name="level" type="number" default="75">Sound level in decibels. 75 is normal. Ranges from 20 to 180, where 180 is super loud. This affects how far away the sound will be heard, see <page>Enums/SNDLVL</page>.</arg>
+		<arg name="pitch" type="number" default="100">The sound pitch. Range is from 0 to 255. 100 is normal pitch.</arg>
+		<arg name="volume" type="number" default="1">Output volume of the sound in range 0 to 1.</arg>
+		<arg name="dsp" type="number" added="2024.02.26" default="0">The DSP preset for this sound. <page text="DSP Presets">DSP_Presets</page></arg>
+	</args>
+</function>
+
+<example>
+	<description>Plays an explosion sound at the (0, 0, 0) map coordinates.</description>
+	<code>sound.Play( "ambient/explosions/exp1.wav", Vector(0, 0, 0) )</code>
+
+</example>

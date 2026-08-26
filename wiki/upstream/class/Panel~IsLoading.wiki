@@ -1,0 +1,13 @@
+<function name="IsLoading" parent="Panel" type="classfunc">
+	<description>Determines whether or not a <page>HTML</page> or <page>DHTML</page> element is currently loading a page.
+
+<note>Before calling <page>Panel:SetHTML</page> or <page>DHTML:OpenURL</page>, the result seems to be `false` with the Awesomium web renderer and `true` for the Chromium web renderer. This difference can be used to determine the available HTML5 capabilities.</note>
+<note>On Awesomium, the result remains `true` until the root document is loaded and when in-page content is loading (when adding pictures, frames, etc.). During this state, the HTML texture is not refreshed and the panel is not painted (it becomes invisible).
+
+On Chromium, the value is only `true` when the root document is not ready. The rendering is not suspended when in-page elements are loading.</note>
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Whether or not the (D)HTML object is loading.</ret>
+	</rets>
+</function>

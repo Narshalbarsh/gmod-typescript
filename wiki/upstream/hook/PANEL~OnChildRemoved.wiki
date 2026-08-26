@@ -1,0 +1,7 @@
+<function name="OnChildRemoved" parent="PANEL" type="hook">
+	<description>Called whenever a child of the panel is about to removed.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="child" type="Panel">The child which is about to be removed.</arg>
+	</args>
+</function>

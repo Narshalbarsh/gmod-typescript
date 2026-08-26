@@ -1,0 +1,15 @@
+<function name="GetSequenceName" parent="Entity" type="classfunc">
+	<description>
+Return the name of the sequence for the index provided.
+Refer to <page>Entity:GetSequence</page> to find the current active sequence on this entity.
+
+See <page>Entity:LookupSequence</page> for a function that does the opposite.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="index" type="number">The index of the sequence to look up.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">Name of the sequence, `"Unknown"` if it was out of bounds or `"Not Found!"` if -1 is provided.</ret>
+	</rets>
+</function>

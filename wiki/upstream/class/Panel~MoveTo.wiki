@@ -1,0 +1,41 @@
+<function name="MoveTo" parent="Panel" type="classfunc">
+	<file line="146-L157">lua/includes/extensions/client/panel/animation.lua</file>
+	<description>Moves the panel to the specified position using animation.
+    <note>Setting the ease argument to 0 will result in the animation happening instantly, this applies to all MoveTo/SizeTo functions</note>
+</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="posX" type="number">The target x coordinate of the panel.</arg>
+		<arg name="posY" type="number">The target y coordinate of the panel.</arg>
+		<arg name="time" type="number">The time to perform the animation within.</arg>
+		<arg name="delay" type="number" default="0">The delay before the animation starts.</arg>
+		<arg name="ease" type="number" default="-1">The easing of the start and/or end speed of the animation. See <page>Panel:NewAnimation</page> for how this works.</arg>
+		<arg name="callback" type="function" default="nil">The function to be called once the animation finishes.
+<callback>
+<arg type="table" name="animData">The <page>Structures/AnimationData</page> that was used.</arg>
+<arg type="Panel" name="targetPanel">The panel object that was animated.</arg>
+</callback>
+</arg>
+	</args>
+</function>
+
+<example>
+	<description>Move panel to center</description>
+	<code>
+local frame = vgui.Create("DFrame")
+frame:SetSize(ScrW() / 4, ScrH() / 4)
+frame:SetPos(ScrW() / 4, ScrH() / 2)
+frame:SetTitle("MoveTo Example")
+
+local btn = vgui.Create("DButton", frame)
+btn:SetSize(frame:GetWide() / 2, frame:GetTall() / 3)
+btn:Center()
+btn:SetText("Move !")
+btn.DoClick = function(self)
+	frame:MoveTo(ScrW() / 2 - frame:GetWide() / 2, ScrH() / 2 - frame:GetTall() / 2, 1, 0, -1, function()
+		self:SetText("Yeah !")
+	end)
+end
+	</code>
+
+</example>

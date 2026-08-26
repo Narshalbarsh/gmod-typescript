@@ -1,0 +1,31 @@
+<function name="GetKeys" parent="table" type="libraryfunc">
+	<description>Returns all keys of a table.</description>
+	<realm>Shared and Menu</realm>
+	<file line="755-L767">lua/includes/extensions/table.lua</file>
+	<args>
+		<arg name="tabl" type="table">The table to get keys of</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">Table of keys</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Example usage</description>
+	<code>
+local tabl = {
+one = "A",
+two = "B",
+}
+PrintTable( table.GetKeys( tabl ) )
+	</code>
+	<output>
+
+```
+1	=	one
+2	=	two
+```
+
+	</output>
+
+</example>

@@ -1,0 +1,10 @@
+<function name="SetTask" parent="ENTITY" type="hook">
+	<description>Sets the current task, to be used in a Lua schedule.
+<note>This is a helper function only available if your SENT is based on `base_ai`</note>
+</description>
+	<realm>Server</realm>
+	<file line="93">gamemodes/base/entities/entities/base_ai/schedules.lua</file>
+	<args>
+		<arg name="task" type="table">The task to set.</arg>
+	</args>
+</function>

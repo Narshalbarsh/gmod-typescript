@@ -1,0 +1,11 @@
+<enum>
+	<realm>Shared</realm>
+	<description>Enumerations used internally by death notice system.
+
+This enumeration is a bit field/bitflag, which means that you can combine multiple death flags using the <page>bit</page> library. You can use <page>bit.band</page> to test if a specific death flag is set.
+</description>
+	<items>
+<item key="DEATH_NOTICE_FRIENDLY_VICTIM" value="1">Was the victim friendly?</item>
+<item key="DEATH_NOTICE_FRIENDLY_ATTACKER" value="2">Was the attacker friendly?</item>
+	</items>
+</enum>

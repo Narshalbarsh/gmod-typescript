@@ -1,0 +1,10 @@
+<function name="UpdateConVar" parent="DColorMixer" type="panelfunc">
+	<description><internal></internal></description>
+	<realm>Client and Menu</realm>
+	<file line="257-L264">lua/vgui/dcolormixer.lua</file>
+	<args>
+		<arg name="cvar" type="string">The <page>ConVar</page> name</arg>
+		<arg name="part" type="string">The color part to set the cvar to. "r", "g", "b" or "a".</arg>
+		<arg name="clr" type="Color">The <page>Color</page></arg>
+	</args>
+</function>

@@ -1,0 +1,7 @@
+<function name="GetDefaultValue" parent="DNumSlider" type="panelfunc">
+	<description>Returns the default value of the slider, if one was set by <page>DNumSlider:SetDefaultValue</page></description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The default value of the slider</ret>
+	</rets>
+</function>

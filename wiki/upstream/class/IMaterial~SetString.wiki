@@ -1,0 +1,8 @@
+<function name="SetString" parent="IMaterial" type="classfunc">
+	<description>Sets the specified material value to the specified string, does nothing on a type mismatch.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="materialString" type="string">The name of the material string.</arg>
+		<arg name="string" type="string">The new string.</arg>
+	</args>
+</function>

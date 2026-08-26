@@ -1,0 +1,3 @@
+<type name="Player" parent="Entity" category="classfunc" is="class">
+	<summary>This is a list of all methods only available for players. It is also possible to call <page>Entity</page> functions on the Player.</summary>
+</type>

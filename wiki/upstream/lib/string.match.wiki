@@ -1,0 +1,45 @@
+<function name="match" parent="string" type="libraryfunc">
+	<description>Finds a <page text="Pattern">Patterns</page> in a string.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="string" type="string">String which should be searched in for matches.</arg>
+		<arg name="pattern" type="string">The pattern that defines what should be matched.</arg>
+		<arg name="startPosition" type="number" default="1">The start index to start the matching from, can be negative to start the match from a position relative to the end.</arg>
+	</args>
+	<rets>
+		<ret name="" type="vararg">Matched text(s)</ret>
+	</rets>
+</function>
+
+<example>
+	<code>
+local toMatch = "this is a sample text"
+print( string.match( toMatch, "sample" ) )
+-- patterns work
+print( string.match( toMatch, "^[a-z]" ) )
+print( string.match( toMatch, "^this" ) )
+print( string.match( toMatch, "^..is" ) )
+print( string.match( toMatch, "text$" ) )
+-- entire string
+print( string.match( toMatch, "^.*$" ) )
+-- multiple return values
+print( string.match( toMatch, "(this) is a (%w+)" ) )
+-- nil
+print( string.match( toMatch, "this$" ) )
+print( string.match( toMatch, "nil" ) )
+	</code>
+	<output>
+```
+sample  
+t  
+this  
+this  
+text  
+this is a sample text  
+this	sample  
+nil  
+nil
+```
+	</output>
+
+</example>

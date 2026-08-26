@@ -1,0 +1,8 @@
+<function name="GetArrivalDirection" parent="NPC" type="classfunc">
+	<description>Returns the direction from the NPC origin to its current navigational destination.</description>
+	<realm>Server</realm>
+	<added>2023.09.06</added>
+	<rets>
+		<ret name="" type="Vector">The arrival direction.</ret>
+	</rets>
+</function>

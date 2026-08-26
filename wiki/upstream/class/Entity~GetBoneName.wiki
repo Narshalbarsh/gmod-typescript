@@ -1,0 +1,109 @@
+<function name="GetBoneName" parent="Entity" type="classfunc">
+	<description>Returns name of given bone id.
+
+	See <page>Entity:LookupBone</page> for the inverse of this function.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="index" type="number">ID of bone to lookup name of, starting at index 0.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The name of given bone.
+
+* `"__INVALIDBONE__"` in case the name cannot be read or the index is out of range, or we failed or entity doesn't have a model.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Will print name of bone name with id 0 for first player.</description>
+	<code>print( Entity( 1 ):GetBoneName( 0 ) )</code>
+	<output>
+```
+ValveBiped.Bip01_Pelvis
+```
+	</output>
+
+</example>
+
+
+<example>
+	<description>Prints all the bones of an entity.</description>
+	<code>
+function PrintBones( entity )
+    for i = 0, entity:GetBoneCount() - 1 do
+        print( i, entity:GetBoneName( i ) )
+    end
+end
+	</code>
+	<output>
+```
+0	ValveBiped.Bip01_Pelvis
+1	ValveBiped.Bip01_Spine
+2	ValveBiped.Bip01_Spine1
+3	ValveBiped.Bip01_Spine2
+4	ValveBiped.Bip01_Spine4
+5	ValveBiped.Bip01_Neck1
+6	ValveBiped.Bip01_Head1
+7	ValveBiped.forward
+8	ValveBiped.Bip01_R_Clavicle
+9	ValveBiped.Bip01_R_UpperArm
+10	ValveBiped.Bip01_R_Forearm
+11	ValveBiped.Bip01_R_Hand
+12	ValveBiped.Anim_Attachment_RH
+13	ValveBiped.Bip01_L_Clavicle
+14	ValveBiped.Bip01_L_UpperArm
+15	ValveBiped.Bip01_L_Forearm
+16	ValveBiped.Bip01_L_Hand
+17	ValveBiped.Anim_Attachment_LH
+18	ValveBiped.Bip01_R_Thigh
+19	ValveBiped.Bip01_R_Calf
+20	ValveBiped.Bip01_R_Foot
+21	ValveBiped.Bip01_R_Toe0
+22	ValveBiped.Bip01_L_Thigh
+23	ValveBiped.Bip01_L_Calf
+24	ValveBiped.Bip01_L_Foot
+25	ValveBiped.Bip01_L_Toe0
+26	ValveBiped.Bip01_L_Finger4
+27	ValveBiped.Bip01_L_Finger41
+28	ValveBiped.Bip01_L_Finger42
+29	ValveBiped.Bip01_L_Finger3
+30	ValveBiped.Bip01_L_Finger31
+31	ValveBiped.Bip01_L_Finger32
+32	ValveBiped.Bip01_L_Finger2
+33	ValveBiped.Bip01_L_Finger21
+34	ValveBiped.Bip01_L_Finger22
+35	ValveBiped.Bip01_L_Finger1
+36	ValveBiped.Bip01_L_Finger11
+37	ValveBiped.Bip01_L_Finger12
+38	ValveBiped.Bip01_L_Finger0
+39	ValveBiped.Bip01_L_Finger01
+40	ValveBiped.Bip01_L_Finger02
+41	ValveBiped.Bip01_R_Finger4
+42	ValveBiped.Bip01_R_Finger41
+43	ValveBiped.Bip01_R_Finger42
+44	ValveBiped.Bip01_R_Finger3
+45	ValveBiped.Bip01_R_Finger31
+46	ValveBiped.Bip01_R_Finger32
+47	ValveBiped.Bip01_R_Finger2
+48	ValveBiped.Bip01_R_Finger21
+49	ValveBiped.Bip01_R_Finger22
+50	ValveBiped.Bip01_R_Finger1
+51	ValveBiped.Bip01_R_Finger11
+52	ValveBiped.Bip01_R_Finger12
+53	ValveBiped.Bip01_R_Finger0
+54	ValveBiped.Bip01_R_Finger01
+55	ValveBiped.Bip01_R_Finger02
+56	ValveBiped.Bip01_L_Elbow
+57	ValveBiped.Bip01_L_Ulna
+58	ValveBiped.Bip01_R_Ulna
+59	ValveBiped.Bip01_R_Shoulder
+60	ValveBiped.Bip01_L_Shoulder
+61	ValveBiped.Bip01_R_Trapezius
+62	ValveBiped.Bip01_R_Wrist
+63	ValveBiped.Bip01_R_Bicep
+64	ValveBiped.Bip01_L_Bicep
+65	ValveBiped.Bip01_L_Trapezius
+66	ValveBiped.Bip01_L_Wrist
+67	ValveBiped.Bip01_R_Elbow
+```
+	</output>
+</example>

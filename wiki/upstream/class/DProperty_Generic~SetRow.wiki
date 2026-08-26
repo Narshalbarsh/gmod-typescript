@@ -1,0 +1,7 @@
+<function name="SetRow" parent="DProperty_Generic" type="panelfunc">
+	<description><internal></internal>Called internally by <page>DProperties</page>.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="row" type="Panel">The new row panel.</arg>
+	</args>
+</function>

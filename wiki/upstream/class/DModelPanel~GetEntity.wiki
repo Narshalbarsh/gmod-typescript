@@ -1,0 +1,25 @@
+<function name="GetEntity" parent="DModelPanel" type="panelfunc">
+	<description>Returns the entity being rendered by the model panel.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="CSEnt">The rendered entity (client-side)</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Creates an antlion model panel and sets the antlion's skin to 1.</description>
+	<code>
+BGPanel = vgui.Create("DPanel")
+BGPanel:SetPos(20, 20)
+BGPanel:SetSize(200, 200)
+	
+local mdl = vgui.Create("DModelPanel", BGPanel)
+mdl:SetSize(200, 200)
+mdl:SetModel("models/antlion.mdl")
+mdl:SetLookAt(Vector(0, 0, 20))
+
+mdl:GetEntity():SetSkin(1)
+	</code>
+	<output><image src="DModelPanel_GetEntity_example1.jpg"/></output>
+
+</example>

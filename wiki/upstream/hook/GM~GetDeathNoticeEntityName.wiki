@@ -1,0 +1,13 @@
+<function name="GetDeathNoticeEntityName" parent="GM" type="hook">
+	<description>
+An internal function used to get an untranslated string to show in the kill feed as the entity's name. See <page>GM:SendDeathNotice</page>
+	</description>
+	<realm>Server</realm>
+	<file line="49-L79">gamemodes/base/gamemode/npc.lua</file>
+	<args>
+		<arg name="name" type="string|Entity">The name of the entity.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The untranslated name for given NPC. The translation/localization would happen on the client.</ret>
+	</rets>
+</function>

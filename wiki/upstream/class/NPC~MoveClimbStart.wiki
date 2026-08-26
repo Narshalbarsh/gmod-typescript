@@ -1,0 +1,13 @@
+<function name="MoveClimbStart" parent="NPC" type="classfunc">
+	<description>Starts a climb move.
+
+Related functions are <page>NPC:MoveClimbExec</page> and <page>NPC:MoveClimbStop</page>.</description>
+	<realm>Server</realm>
+	<added>2021.03.31</added>
+	<args>
+		<arg name="destination" type="Vector">The destination of the climb.</arg>
+		<arg name="dir" type="Vector">The direction of the climb.</arg>
+		<arg name="distance" type="number">The distance.</arg>
+		<arg name="yaw" type="number">The yaw angle.</arg>
+	</args>
+</function>

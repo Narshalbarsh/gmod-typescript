@@ -1,0 +1,7 @@
+<function name="PacketLoss" parent="Player" type="classfunc">
+    <description>Returns the percentage of packets lost by the client. It is not networked so it only returns 0 when run clientside.</description>
+    <realm>Shared</realm>
+    <rets>
+        <ret name="" type="number">Percentage of packets lost (0-100)</ret>
+    </rets>
+</function>

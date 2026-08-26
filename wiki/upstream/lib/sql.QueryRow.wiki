@@ -1,0 +1,19 @@
+<function name="QueryRow" parent="sql" type="libraryfunc">
+	<description>
+Performs the <page>sql.Query</page> and returns the n'th row.
+
+This function is equivalent to safely returning
+```lua
+sql.Query(query)[row]
+```
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="52-L66">lua/includes/util/sql.lua</file>
+	<args>
+		<arg name="query" type="string">The query as used in sql.Query</arg>
+		<arg name="row" type="number" default="1">The row number.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">The returned row.</ret>
+	</rets>
+</function>

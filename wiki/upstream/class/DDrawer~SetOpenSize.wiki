@@ -1,0 +1,8 @@
+<function name="SetOpenSize" parent="DDrawer" type="panelfunc">
+	<description>An <page>Global.AccessorFunc</page> that sets the height of DDrawer</description>
+	<realm>Client and Menu</realm>
+	<file line="4">lua/vgui/ddrawer.lua</file>
+	<args>
+		<arg name="Value" type="number">Height of DDrawer. Default is `100`.</arg>
+	</args>
+</function>

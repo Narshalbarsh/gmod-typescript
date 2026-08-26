@@ -1,0 +1,14 @@
+<function name="ReadPixel" parent="render" type="libraryfunc">
+	<description>Reads the color of the specified pixel from the RenderTarget sent by <page>render.CapturePixels</page></description>
+	<realm>Client</realm>
+	<args>
+		<arg name="x" type="number">The x coordinate.</arg>
+		<arg name="y" type="number">The y coordinate.</arg>
+	</args>
+	<rets>
+		<ret name="r" type="number">The red channel value.</ret>
+		<ret name="g" type="number">The green channel value.</ret>
+		<ret name="b" type="number">The blue channel value.</ret>
+		<ret name="a" type="number">The alpha channel value or <page>no value</page> if the render target has no alpha channel.</ret>
+	</rets>
+</function>

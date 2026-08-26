@@ -1,0 +1,4 @@
+<function name="KillFocus" parent="Panel" type="classfunc">
+	<description>Remove the focus from the panel.</description>
+	<realm>Client and Menu</realm>
+</function>

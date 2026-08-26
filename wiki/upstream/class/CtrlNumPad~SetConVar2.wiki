@@ -1,0 +1,8 @@
+<function name="SetConVar2" parent="CtrlNumPad" type="panelfunc">
+	<description>If set and label2 is set, the name of the convar that will store the key code for player selected key of the right key binder.</description>
+	<realm>Client</realm>
+	<file line="53-L56">gamemodes/sandbox/gamemode/spawnmenu/controls/ctrlnumpad.lua</file>
+	<args>
+		<arg name="cvar" type="string">The convar that will be used in the event of a key change by a player.</arg>
+	</args>
+</function>

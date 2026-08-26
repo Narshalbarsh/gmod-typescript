@@ -1,0 +1,26 @@
+<panel>
+	<parent>Panel</parent>
+	<realm>Client</realm>
+	<description>
+		<deprecated><page>DImage</page> should be used instead (with `.png` or `.jpg` images). `TGAImage` panel has no advantages.</deprecated>
+
+		A panel capable of loading `.tga` images.
+	</description>
+</panel>
+
+
+<example>
+	<description>Creates a TGAImage panel and loads the image defined by line 4.</description>
+	<code>
+local panel = vgui.Create( "DFrame" )
+panel:SetSize( 500, 500 )
+panel:MakePopup()
+panel:Center()
+
+local image = vgui.Create( "TGAImage", panel )
+image:SetSize( 32, 32 )
+image:SetPos( 50, 50 )
+image:LoadTGAImage( "materials/addon.tga", "" )
+	</code>
+
+</example>

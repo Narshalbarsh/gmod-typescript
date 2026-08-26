@@ -1,0 +1,13 @@
+<function name="EditVariable" parent="DEntityProperties" type="panelfunc">
+	<description>
+<internal></internal>
+
+Called internally by <page>DEntityProperties:RebuildControls</page>.
+	</description>
+	<realm>Client</realm>
+	<file line="59-L94">lua/vgui/dentityproperties.lua</file>
+	<args>
+		<arg name="varname" type="string"></arg>
+		<arg name="editdata" type="table"></arg>
+	</args>
+</function>

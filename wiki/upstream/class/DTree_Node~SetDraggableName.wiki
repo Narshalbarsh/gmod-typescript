@@ -1,0 +1,11 @@
+<function name="SetDraggableName" parent="DTree_Node" type="panelfunc">
+	<description>
+<internal></internal>
+
+Used to store name for sub elements for a <page>Panel:Droppable</page> call.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="name" type="string"></arg>
+	</args>
+</function>

@@ -1,0 +1,10 @@
+<function name="GetClosestPosition" parent="PathFollower" type="classfunc">
+	<description>The closest position along the path to a position</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="position" type="Vector">The point we're querying for</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">The closest position on the path</ret>
+	</rets>
+</function>

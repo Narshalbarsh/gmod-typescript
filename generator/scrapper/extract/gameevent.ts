@@ -1,29 +1,6 @@
-import * as https from 'https';
-import { GetPage, GetPagesInCategory } from '../scrapper';
+import { GetPage, GetPagesInCategory } from '../../wiki/local';
 import { TSField, TSTypeMap, TSTypeMapEntry } from '../../ts_types';
 import { transformIdentifier, transformType } from '../../transformer/util';
-
-const agent = new https.Agent({ maxSockets: 8 });
-
-function fetchHtml(path: string): Promise<string> {
-    const options: https.RequestOptions = {
-        hostname: 'wiki.facepunch.com',
-        path,
-        method: 'GET',
-        agent,
-        headers: { Accept: 'text/html' },
-    };
-
-    return new Promise((resolve, reject) => {
-        let response = '';
-        const req = https.request(options, (res) => {
-            res.on('data', (chunk) => (response += chunk));
-        });
-        req.on('close', () => resolve(response));
-        req.on('error', reject);
-        req.end();
-    });
-}
 
 function stripTags(s: string): string {
     return s
@@ -38,16 +15,21 @@ function descriptionFromMarkup(markup: string): string {
     return m ? stripTags(m[1]) : '';
 }
 
-function descriptionFromHtml(html: string): string {
-    if (!html) return '';
-
-    // content after the <h1>gameevent</h1> and before the first <ul> or next section header
-    const section =
-        (html.match(/<h1[^>]*>\s*gameevent\s*<\/h1>([\s\S]*?)(?:<ul\b|<h2\b)/i) || [])[1] || '';
-
-    // top <p> blocks
-    const paras = [...section.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/gi)].map((m) => stripTags(m[1]));
-    return paras.join('\n\n').trim();
+// The gameevent page is a <type> page, its text is in <summary>.
+// Keep the plain paragraphs and drop the <note> and the <pagelist>, the type map already lists the events
+function libraryIntroFromMarkup(markup: string): string {
+    if (!markup) return '';
+    const m = markup.match(/<summary>([\s\S]*?)<\/summary>/i);
+    if (!m) return '';
+    const body = m[1]
+        .replace(/<note>[\s\S]*?<\/note>/gi, '')
+        .replace(/<pagelist\b[^>]*>[\s\S]*?<\/pagelist>/gi, '')
+        .replace(/<pagelist\b[^>]*\/?>/gi, '');
+    return body
+        .split(/\n\s*\n/)
+        .map((p) => stripTags(p))
+        .filter(Boolean)
+        .join('\n\n');
 }
 
 function membersFromMarkup(markup: string): TSField[] {
@@ -79,14 +61,9 @@ function membersFromMarkup(markup: string): TSField[] {
 }
 
 export async function fetchGameEventTypeMap(): Promise<TSTypeMap> {
-    const [main, html] = await Promise.all([
-        GetPage('/gmod/gameevent'),
-        fetchHtml('/gmod/gameevent'),
-    ]);
-
-    const htmlIntro = descriptionFromHtml(html);
-    const markupIntro = descriptionFromMarkup(main.markup || '');
-    const topDoc = htmlIntro || markupIntro;
+    const main = await GetPage('/gmod/gameevent');
+    const topDoc =
+        libraryIntroFromMarkup(main.markup || '') || descriptionFromMarkup(main.markup || '');
 
     const all = await GetPagesInCategory('gameevent');
     const eventPaths = all.filter((p) => /^\/gmod\/gameevent\/[A-Za-z0-9_]+$/.test(p));

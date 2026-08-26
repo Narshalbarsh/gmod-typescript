@@ -1,0 +1,16 @@
+<function name="PushFilterMin" parent="render" type="libraryfunc">
+	<description>
+		Pushes (Adds) a texture filter onto the minification texture filter stack.  
+		This will modify how textures are compressed to a lower resolution than their native resolution for upcoming rendering and drawing operations.  
+		For a version of this same function that modifies filtering for texture sizes larger than their native resolution, see <page text="render.PushFilterMag()">render.PushFilterMag</page>
+
+		Always be sure to call <page text="render.PopFilterMin()">render.PopFilterMin</page> afterwards to avoid texture filtering problems.
+
+		For more detailed information and a usage example, see <page text="the texture minification and magnification render reference.">render_min_mag_filters</page>
+
+</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="texFilterType" type="number">The texture filter to use. For available options, see <page>Enums/TEXFILTER</page>.</arg>
+	</args>
+</function>

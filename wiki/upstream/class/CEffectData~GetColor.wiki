@@ -1,0 +1,7 @@
+<function name="GetColor" parent="CEffectData" type="classfunc">
+	<description>Returns byte which represents the color of the effect.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The color of the effect</ret>
+	</rets>
+</function>

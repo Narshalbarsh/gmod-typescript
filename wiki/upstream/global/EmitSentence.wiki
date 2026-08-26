@@ -1,0 +1,21 @@
+<function name="EmitSentence" parent="Global" type="libraryfunc">
+	<description>Plays a sentence from `scripts/sentences.txt`</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="soundName" type="string">The sound to play</arg>
+		<arg name="position" type="Vector">The position to play at</arg>
+		<arg name="entity" type="number">The entity to emit the sound from. Must be <page>Entity:EntIndex</page></arg>
+		<arg name="channel" type="number" default="CHAN_AUTO">The sound channel, see <page>Enums/CHAN</page>.</arg>
+		<arg name="volume" type="number" default="1">The volume of the sound, from 0 to 1</arg>
+		<arg name="soundLevel" type="number" default="75">The sound level of the sound, see <page>Enums/SNDLVL</page></arg>
+		<arg name="soundFlags" type="number" default="0">The flags of the sound, see <page>Enums/SND</page></arg>
+		<arg name="pitch" type="number" default="100">The pitch of the sound, 0-255</arg>
+		<arg name="DSP" type="number" default="0">Digital Sound Processor for this sound. <page text="DSP Presets">DSP_Presets</page></arg>
+	</args>
+</function>
+
+<example>
+	<description>Plays random combine death sound on first player.</description>
+	<code>EmitSentence( "COMBINE_DIE" .. math.random( 0, 2 ), Entity( 1 ):GetPos(), 1, CHAN_AUTO, 1, 75, 0, 100 )</code>
+ 
+</example>

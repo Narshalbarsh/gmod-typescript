@@ -1,0 +1,5 @@
+<function name="UnselectAll" parent="Panel" type="classfunc">
+	<file line="35-L43">lua/includes/extensions/client/panel/selections.lua</file>
+	<description>Recursively deselects this panel object and all of its children. This will cascade to all child objects at every level below the parent.</description>
+	<realm>Client and Menu</realm>
+</function>

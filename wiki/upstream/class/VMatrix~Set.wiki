@@ -1,0 +1,7 @@
+<function name="Set" parent="VMatrix" type="classfunc">
+	<description>Copies values from the given matrix object.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="src" type="VMatrix">The matrix to copy values from.</arg>
+	</args>
+</function>

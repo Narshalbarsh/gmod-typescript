@@ -1,0 +1,19 @@
+<function name="PlayerSpawnedProp" parent="SANDBOX" type="hook">
+	<description>Called when a player has successfully spawned a prop from the Q menu.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ply" type="Player">The player who spawned a prop.</arg>
+		<arg name="model" type="string">Path to the model of the prop the player is attempting to spawn.</arg>
+		<arg name="entity" type="Entity">The entity that was spawned.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Turns the spawned prop green.</description>
+	<code>
+function GM:PlayerSpawnedProp(ply, model, ent)
+	ent:SetColor(Color(0, 255, 0))
+end
+	</code>
+
+</example>

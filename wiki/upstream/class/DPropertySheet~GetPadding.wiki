@@ -1,0 +1,8 @@
+<function name="GetPadding" parent="DPropertySheet" type="panelfunc">
+	<file line="152">lua/vgui/dpropertysheet.lua</file>
+	<description>Gets the padding from the parent panel to child panels.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">Padding</ret>
+	</rets>
+</function>

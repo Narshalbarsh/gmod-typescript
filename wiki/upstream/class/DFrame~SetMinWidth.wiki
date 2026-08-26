@@ -1,0 +1,11 @@
+<function name="SetMinWidth" parent="DFrame" type="panelfunc">
+	<description>
+Sets the minimum width the DFrame can be resized to by the user.
+
+This only applies to users attempting to resize the frame; <page>Panel:SetWide</page> and similar methods will not be affected. You must call <page>DFrame:SetSizable</page> before the user can resize the frame.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="minW" type="number">The minimum width the user can resize the frame to.</arg>
+	</args>
+</function>

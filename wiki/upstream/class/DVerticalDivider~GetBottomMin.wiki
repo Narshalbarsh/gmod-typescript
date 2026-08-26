@@ -1,0 +1,7 @@
+<function name="GetBottomMin" parent="DVerticalDivider" type="panelfunc">
+	<description>Returns the minimum height of the bottom content panel.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">The minimum height of the bottom content panel.</ret>
+	</rets>
+</function>

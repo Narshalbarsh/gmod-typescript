@@ -1,0 +1,48 @@
+<function name="DoAnimationEvent" parent="GM" type="hook">
+	<description>Called upon an animation event, this is the ideal place to call player animation functions such as <page>Player:AddVCDSequenceToGestureSlot</page>, <page>Player:AnimRestartGesture</page> and so on.</description>
+	<realm>Shared</realm>
+	<file line="352-L396">gamemodes/base/gamemode/animations.lua</file>
+	<args>
+		<arg name="ply" type="Player">Player who is being animated</arg>
+		<arg name="event" type="number">Animation event. See <page>Enums/PLAYERANIMEVENT</page></arg>
+		<arg name="data" type="number" default="0">The data for the event. This is interpreted as an <page>Enums/ACT</page> by `PLAYERANIMEVENT_CUSTOM` and `PLAYERANIMEVENT_CUSTOM_GESTURE`, or a sequence by `PLAYERANIMEVENT_CUSTOM_SEQUENCE`.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The translated activity to send to the weapon. See <page>Enums/ACT</page>. Return `ACT_INVALID` if you don't want to send an activity.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>
+Fires a custom animation event with `PLAYERANIMEVENT_ATTACK_GRENADE` as the event, and 123 as the extra data on primary attack, and 321 as the secondary attack.
+The player will play the item throw gesture on the primary attack, and the drop one on secondary.
+	</description>
+	<code>
+function SWEP:PrimaryAttack()
+	self:GetOwner():DoCustomAnimEvent( PLAYERANIMEVENT_ATTACK_GRENADE , 123 )
+	self:SetNextPrimaryFire(CurTime() + 0.5 )
+	self:SetNextSecondaryFire(CurTime() + 0.5 )
+end
+
+function SWEP:SecondaryAttack()
+	self:GetOwner():DoCustomAnimEvent( PLAYERANIMEVENT_ATTACK_GRENADE , 321 )
+	self:SetNextPrimaryFire(CurTime() + 0.5 )
+	self:SetNextSecondaryFire(CurTime() + 0.5 )
+end
+
+hook.Add("DoAnimationEvent" , "AnimEventTest" , function( ply , event , data )
+	if event == PLAYERANIMEVENT_ATTACK_GRENADE then
+		if data == 123 then
+			ply:AnimRestartGesture( GESTURE_SLOT_GRENADE, ACT_GMOD_GESTURE_ITEM_THROW, true )
+			return ACT_INVALID
+		end
+		
+		if data == 321 then
+			ply:AnimRestartGesture( GESTURE_SLOT_GRENADE, ACT_GMOD_GESTURE_ITEM_DROP, true )
+			return ACT_INVALID
+		end
+	end
+end)
+	</code>
+
+</example>

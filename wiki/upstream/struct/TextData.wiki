@@ -1,0 +1,13 @@
+<structure>
+	<realm>Client and Menu</realm>
+	<description>Used for <page>draw.Text</page>.</description>
+	<fields>
+<item name="text" type="string">Text to be drawn.</item>
+<item name="font" type="string" default="DermaDefault">The font to draw with. List of default fonts can be found <page text="here">Default_Fonts</page>.</item>
+<item name="pos" type="table">This holds the X and Y coordinates. Key value 1 is x, key value 2 is y.</item>
+<item name="xalign" type="number{TEXT_ALIGN}" default="TEXT_ALIGN_LEFT">The alignment of the X position. See <page>Enums/TEXT_ALIGN</page></item>
+<item name="yalign" type="number{TEXT_ALIGN}" default="TEXT_ALIGN_TOP">The alignment of the Y position. See <page>Enums/TEXT_ALIGN</page></item>
+<item name="color" type="Color" default="color_white">The text color</item>
+	</fields>
+
+</structure>

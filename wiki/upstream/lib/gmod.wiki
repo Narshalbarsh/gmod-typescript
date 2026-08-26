@@ -1,0 +1,3 @@
+<type name="gmod" category="libraryfunc" is="library">
+	<summary>Similar purpose to the <page>game</page> and <page>engine</page>, allows access to various features of the game's engine.</summary>
+</type>

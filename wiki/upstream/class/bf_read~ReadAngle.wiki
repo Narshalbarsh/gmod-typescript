@@ -1,0 +1,7 @@
+<function name="ReadAngle" parent="bf_read" type="classfunc">
+	<description>Reads and returns an angle object from the bitstream.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="Angle">The read angle</ret>
+	</rets>
+</function>

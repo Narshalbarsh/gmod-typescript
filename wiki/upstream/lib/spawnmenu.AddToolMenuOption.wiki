@@ -1,0 +1,68 @@
+<function name="AddToolMenuOption" parent="spawnmenu" type="libraryfunc">
+	<description>Adds an option to the right side of the spawnmenu.
+
+See <page>spawnmenu.AddToolTab</page> to add new right-side tabs. See <page>spawnmenu.AddToolCategory</page> to add new categories.
+</description>
+	<realm>Client</realm>
+	<file line="147-L175">lua/includes/modules/spawnmenu.lua</file>
+	<args>
+		<arg name="tab" type="string">The internal name of the spawnmenu tab to add into (for example "Utilities")</arg>
+		<arg name="category" type="string">The internal name of the category within the tab to add into (for example "Admin")</arg>
+		<arg name="class" type="string">Unique internal identifier of the new option. This is used to reference this option by other code.</arg>
+		<arg name="name" type="string">The nice name of item to show to the player. See <page>Addon Localization</page>.</arg>
+		<arg name="cmd" type="string" default="nil">Console command to execute when the item is selected.</arg>
+		<arg name="config" type="string" default="nil">
+Config name, used in older versions to load tool settings UI from a file.
+
+<deprecated notag="true">Legacy argument, no longer works.</deprecated></arg>
+		<arg name="cpanel" type="function">A function to build the context panel.
+
+<callback>
+<arg type="ControlPanel" name="pnl">A <page>ControlPanel</page> that will be shown in the context menu</arg>
+</callback></arg>
+		<arg name="table" type="table" default="{}">Allows to override the table that will be added to the tool list. Some of the fields will be overwritten by this function.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Adds a new option to the menu with a slider to change the gravity</description>
+	<code>
+hook.Add( "AddToolMenuCategories", "CustomCategory", function()
+	spawnmenu.AddToolCategory( "Utilities", "Stuff", "#Stuff" )
+end )
+
+hook.Add( "PopulateToolMenu", "CustomMenuSettings", function()
+	spawnmenu.AddToolMenuOption( "Utilities", "Stuff", "Custom_Menu", "#My Custom Menu", "", "", function( panel )
+		panel:NumSlider( "Gravity", "sv_gravity", 0, 600 )
+		-- Add stuff here
+	end )
+end )
+	</code>
+	<output><image src="70c/8de155504a2ff1c.png"/></output>
+</example>
+
+
+
+<example>
+	<description>Example on how to add a custom tool tab with a custom tool category and a tool option.</description>
+	<code>
+language.Add( "MyCoolTab.Title", "My Cool Tab" )
+language.Add( "MyCoolTab.Category", "My Cool Category" )
+language.Add( "MyCoolTab.ToolOption", "My Cool Menu Option" )
+
+hook.Add( "AddToolMenuTabs", "myHookClass", function()
+	spawnmenu.AddToolTab( "Internal_MyCoolTab", "#MyCoolTab.Title", "icon16/monkey.png" )
+
+	spawnmenu.AddToolCategory( "Internal_MyCoolTab", "Internal_MyCoolCategory", "#MyCoolTab.Category" )
+end )
+
+hook.Add( "PopulateToolMenu", "CustomMenuSettings", function()
+	spawnmenu.AddToolMenuOption( "Internal_MyCoolTab", "Internal_MyCoolCategory", "Internal_MyCustomMenu", "#MyCoolTab.ToolOption", "", "", function( panel )
+		panel:NumSlider( "Gravity", "sv_gravity", 0, 600 )
+	end )
+end )
+	</code>
+	<output>
+<upload src="70c/8de1555db093d85.png" size="39520" name="image.png" />
+	</output>
+</example>

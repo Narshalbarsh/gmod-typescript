@@ -1,0 +1,10 @@
+<function name="PrintWeaponInfo" parent="WEAPON" type="hook">
+	<description>A convenience function that draws the weapon info box, used in <page>WEAPON:DrawWeaponSelection</page>.</description>
+	<realm>Client</realm>
+	<file line="63-L89">gamemodes/base/entities/weapons/weapon_base/cl_init.lua</file>
+	<args>
+		<arg name="x" type="number">The x co-ordinate of box position</arg>
+		<arg name="y" type="number">The y co-ordinate of box position</arg>
+		<arg name="alpha" type="number">Alpha value for the box</arg>
+	</args>
+</function>

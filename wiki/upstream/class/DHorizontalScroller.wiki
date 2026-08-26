@@ -1,0 +1,66 @@
+<panel>
+	<parent>Panel</parent>
+	<realm>Client and Menu</realm>
+	<file line="">lua/vgui/dhorizontalscroller.lua</file>
+	<description>
+		A very basic horizontal scrollable panel, similar to <page>DScrollPanel</page>.
+
+		Used internally in <page>DPropertySheet</page>.
+	</description>
+</panel>
+
+
+<example>
+	<description>Creates a DHorizontalScroller with a bunch of <page>DImage</page>s attached to it.</description>
+	<code>
+local DFrame = vgui.Create( "DFrame" )
+DFrame:SetTitle( "DHorizontalScroller Example" )
+DFrame:SetSize( 500, 100 )
+DFrame:Center()
+DFrame:MakePopup()
+
+local DHorizontalScroller = vgui.Create( "DHorizontalScroller", DFrame )
+DHorizontalScroller:Dock( FILL )
+DHorizontalScroller:SetOverlap( -4 )
+
+for i = 0, 16 do
+	local DImage = vgui.Create( "DImage", DHorizontalScroller )
+	DImage:SetImage( "scripted/breen_fakemonitor_1" )
+	DHorizontalScroller:AddPanel( DImage )
+end
+	</code>
+
+</example>
+
+
+<example>
+	<description>Creates a DHorizontalScroller with a bunch of <page>DImage</page>s attached to it and demonstrates how to color the left/right scroll buttons.</description>
+	<code>
+local DFrame = vgui.Create( "DFrame" )
+DFrame:SetSize( 500, 100 )
+DFrame:Center()
+DFrame:MakePopup()
+DFrame:SetTitle( "DHorizontalScroller Example" )
+function DFrame:Paint( w, h )
+	draw.RoundedBox( 0, 0, 0, w, h, Color( 0, 100, 100 ) )
+end
+
+local DHorizontalScroller = vgui.Create( "DHorizontalScroller", DFrame )
+DHorizontalScroller:Dock( FILL )
+DHorizontalScroller:SetOverlap( -4 )
+
+function DHorizontalScroller.btnLeft:Paint( w, h )
+	draw.RoundedBox( 0, 0, 0, w, h, Color( 200, 100, 0 ) )
+end
+function DHorizontalScroller.btnRight:Paint( w, h )
+	draw.RoundedBox( 0, 0, 0, w, h, Color( 0, 100, 200 ) )
+end
+
+for i = 0, 16 do
+	local DImage = vgui.Create( "DImage", DHorizontalScroller )
+	DImage:SetImage( "scripted/breen_fakemonitor_1" )
+	DHorizontalScroller:AddPanel( DImage )
+end
+	</code>
+
+</example>

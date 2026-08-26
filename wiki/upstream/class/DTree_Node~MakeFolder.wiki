@@ -1,0 +1,15 @@
+<function name="MakeFolder" parent="DTree_Node" type="panelfunc">
+	<description>
+Makes this node a folder in the filesystem. This will make it automatically populated.
+
+See also <page>DTree_Node:AddFolder</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="folder" type="string">The folder in the filesystem to use, relative to the garrysmod/ folder.</arg>
+		<arg name="path" type="string">The path to search in. See <page>File Search Paths</page></arg>
+		<arg name="showFiles" type="boolean" default="false">Should files be added as nodes (true) or folders only (false)</arg>
+		<arg name="wildcard" type="string" default="*">The wildcard to use when searching for files.</arg>
+		<arg name="dontForceExpandable" type="boolean" default="false">If set to true, don't show the expand buttons on empty nodes.</arg>
+	</args>
+</function>

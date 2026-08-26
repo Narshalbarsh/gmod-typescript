@@ -1,0 +1,8 @@
+<function name="SetValue" parent="DAlphaBar" type="panelfunc">
+	<description>Sets the alpha value or the alpha bar. An <page>Global.AccessorFunc</page></description>
+	<realm>Client and Menu</realm>
+	<file line="7">lua/vgui/dalphabar.lua</file>
+	<args>
+		<arg name="alpha" type="number">The new alpha value to set</arg>
+	</args>
+</function>

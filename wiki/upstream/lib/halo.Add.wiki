@@ -1,0 +1,50 @@
+<function name="Add" parent="halo" type="libraryfunc">
+	<description>
+Applies a <page>halo</page> glow effect to one or multiple entities. It is preferable to add them in <page>GM:PreDrawHalos</page>, but they can be added at any time.
+<note>The ignoreZ parameter will cause the halos to draw over the player's viewmodel. You can work around this using <page>render.DepthRange</page> in the <page>GM:PreDrawViewModel</page>, <page>GM:PostDrawViewModel</page>, <page>GM:PreDrawPlayerHands</page> and <page>GM:PostDrawPlayerHands</page> hooks.</note>
+	</description>
+	<realm>Client</realm>
+	<file line="13-L33">lua/includes/modules/halo.lua</file>
+	<args>
+		<arg name="entities" type="table">A table of entities to add the halo effect to.</arg>
+		<arg name="color" type="Color">The desired color of the halo.</arg>
+		<arg name="blurX" type="number" default="2">The strength of the halo's blur on the x axis.</arg>
+		<arg name="blurY" type="number" default="2">The strength of the halo's blur on the y axis.</arg>
+		<arg name="passes" type="number" default="1">The number of times the halo should be drawn per frame. **Increasing this may hinder player FPS**.</arg>
+		<arg name="additive" type="boolean" default="true">Sets the render mode of the halo to additive.</arg>
+		<arg name="ignoreZ" type="boolean" default="false">Renders the halo through anything when set to `true`.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Adds a halo around all props in the map using an O(n) operation and iterating through unseen objects which can be extremely expensive to process.</description>
+	<code>
+local color_red = Color( 255, 0, 0 )
+
+hook.Add( "PreDrawHalos", "AddPropHalos", function()
+	halo.Add( ents.FindByClass( "prop_physics*" ), color_red, 5, 5, 2 )
+end )
+	</code>
+	<output>
+<image src="halo_example.png" alt="_halo_example.png"/>All the props on the map will be rendered with a red halo, a blur amount of 5, and two passes.
+	</output>
+</example>
+
+<example>
+	<description>Adds a green halo around all admins.</description>
+	<code>
+local color_green = Color( 0, 255, 0 )
+
+hook.Add( "PreDrawHalos", "AddStaffHalos", function()
+	local staff = {}
+
+	for _, ply in player.Iterator() do
+		if ( ply:IsAdmin() ) then
+			staff[ #staff + 1 ] = ply
+		end
+	end
+
+	halo.Add( staff, color_green, 0, 0, 2, true, true )
+end )
+	</code>
+</example>

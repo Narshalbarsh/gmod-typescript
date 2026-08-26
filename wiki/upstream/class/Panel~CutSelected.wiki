@@ -1,0 +1,4 @@
+<function name="CutSelected" parent="Panel" type="classfunc">
+	<description>Performs the <key>CONTROL</key> + <key>X</key> (delete text and copy it to clipboard buffer) action on selected text in a <page>TextEntry</page> or <page>RichText</page> based element.</description>
+	<realm>Client and Menu</realm>
+</function>

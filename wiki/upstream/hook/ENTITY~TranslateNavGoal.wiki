@@ -1,0 +1,21 @@
+<title>ENTITY:TranslateNavGoal</title>
+
+<function name="TranslateNavGoal" parent="ENTITY" type="hook">
+	<added>2024.12.12</added>
+	<description>
+Called by the engine to alter NPC's final position to reach its enemy or target. This is called twice for `GOALTYPE_PATHCORNER`; first is for the first path_corner and second for the next connected path_corner. 
+
+<note>This hook only exists for `ai` type SENTs.</note>
+</description>
+	<realm>Server</realm>
+	<args name="Chasing Enemy">
+		<arg name="target" type="NPC|Entity" default="GetEnemy() or m_hGoalEnt">The enemy being chased or the path_corner in query.</arg>
+		<arg name="currentGoal" type="Vector" default="GetEnemyLastKnownPos() or m_hGoalEnt:GetPos()">The target's origin.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">The actual point that NPC will move to reach its enemy or target. For the path to get updated, the new move path must be away from the current <page>NPC:GetGoalPos</page> by 120 units.
+
+
+Not returning anything, or returning a non vector will perform the [default action](https://github.com/ValveSoftware/source-sdk-2013/blob/master/src/game/server/ai_basenpc_schedule.cpp#L4251).</ret>
+	</rets>
+</function>

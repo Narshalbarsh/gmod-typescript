@@ -1,0 +1,7 @@
+<function name="GetPos" parent="CLuaParticle" type="classfunc">
+	<description>Returns the absolute position of the particle.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="Vector">The absolute position of the particle.</ret>
+	</rets>
+</function>

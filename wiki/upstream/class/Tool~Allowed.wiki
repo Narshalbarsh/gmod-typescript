@@ -1,0 +1,12 @@
+<function name="Allowed" parent="Tool" type="classfunc">
+	<description>
+Returns whether the tool is allowed to be used or not. This function ignores the <page>SANDBOX:CanTool</page> hook.
+
+By default this will always return true clientside and uses `TOOL.AllowedCVar`which is a <page>ConVar</page> object pointing to  `toolmode_allow_*toolname*` convar on the server.
+	</description>
+	<realm>Shared</realm>
+	<file line="90">gamemodes/sandbox/entities/weapons/gmod_tool/stool.lua</file>
+	<rets>
+		<ret name="" type="boolean">Returns true if the tool is allowed.</ret>
+	</rets>
+</function>

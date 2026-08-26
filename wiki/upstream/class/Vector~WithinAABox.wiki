@@ -1,0 +1,46 @@
+<function name="WithinAABox" parent="Vector" type="classfunc">
+	<description>Returns whenever the given vector is in a box created by the 2 other vectors.
+
+<upload src="22674/8d9276d7e6dd0af.png" size="6279" name="image.png" />
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="boxStart" type="Vector">The first vector.</arg>
+		<arg name="boxEnd" type="Vector">The second vector.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Is the vector in the box or not.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Checks if player is within a certain area on the map.</description>
+	<code>
+-- Position to test, we get the position of first player on the server
+local testPos = Entity( 1 ):GetPos()
+
+-- Positions to test, in this case we test if the player is in spawn area of gm_construct
+local pos1 = Vector( 1119, 895, 63 )
+local pos2 = Vector( 656, -896, -144 )
+
+-- This will return true if the player is within the tested area
+print( testPos:WithinAABox( pos1, pos2 ) )
+	</code>
+</example>
+
+<example>
+	<description>Implement a function to check if world position is inside an entity by converting it to local coordinates that are always axis aligned. Do not check when entity is invalid.</description>
+	<code>
+local function IsInside( pos, ent )
+  if ( not IsValid( ent ) ) then return false end
+
+  local vmin = ent:OBBMins()
+  local vmax = ent:OBBMaxs()
+  local vpos = ent:WorldToLocal( pos )
+
+  return vpos:WithinAABox( vmax, vmin )
+end
+
+print( IsInside( trace.HitPos, trace.Entity ) ) -- Trace hit position a part of the entity
+	</code>
+</example>

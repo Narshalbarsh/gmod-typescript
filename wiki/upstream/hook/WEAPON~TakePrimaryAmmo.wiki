@@ -1,0 +1,8 @@
+<function name="TakePrimaryAmmo" parent="WEAPON" type="hook">
+	<description>A convenience function to remove primary ammo from clip.</description>
+	<realm>Shared</realm>
+	<file line="162-L175">gamemodes/base/entities/weapons/weapon_base/shared.lua</file>
+	<args>
+		<arg name="amount" type="number">Amount of primary ammo to remove</arg>
+	</args>
+</function>

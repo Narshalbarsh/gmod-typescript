@@ -1,0 +1,7 @@
+<function name="SetRenderAngles" parent="Player" type="classfunc">
+	<description>Sets the render angles of a player. Value set by this function is reset to player's angles (<page>Entity:GetAngles</page>) right after <page>GM:UpdateAnimation</page>.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="ang" type="Angle">The new render angles to set</arg>
+	</args>
+</function>

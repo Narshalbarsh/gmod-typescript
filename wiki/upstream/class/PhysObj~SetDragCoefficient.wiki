@@ -1,0 +1,8 @@
+<function name="SetDragCoefficient" parent="PhysObj" type="classfunc">
+	<description>Modifies how much drag (air resistance) affects the object.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="drag" type="number">The drag coefficient
+It can be positive or negative.</arg>
+	</args>
+</function>

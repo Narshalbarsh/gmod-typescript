@@ -1,0 +1,7 @@
+<function name="GetBrushSurfaces" parent="Entity" type="classfunc">
+	<description>Returns a table of brushes surfaces for brush model entities.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="table<SurfaceInfo>">A list of <page>SurfaceInfo</page> elements if the entity has a brush model, or `nil` otherwise.</ret>
+	</rets>
+</function>

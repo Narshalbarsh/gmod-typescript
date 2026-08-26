@@ -1,0 +1,82 @@
+<function name="HSVToColor" parent="Global" type="libraryfunc">
+	<file line="45-L74">lua/includes/util/color.lua</file>
+	<description>
+Converts a color from [HSV color space](https://en.wikipedia.org/wiki/HSL_and_HSV) into RGB color space and returns a <page>Color</page>.
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="hue" type="number">The hue in degrees from 0-360.</arg>
+		<arg name="saturation" type="number">The saturation from 0-1.</arg>
+		<arg name="value" type="number">The value from 0-1.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Color">The <page>Color</page> created from the HSV color space.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>A helper function for drawing rainbow text.</description>
+	<code>
+local function DrawRainbowText( frequency, str, font, x, y )
+
+	surface.SetFont( font )
+	surface.SetTextPos( x, y )
+
+	for i = 1, #str do
+		local col = HSVToColor( i * frequency % 360, 1, 1 ) -- Providing 3 numbers to surface.SetTextColor rather
+		surface.SetTextColor( col.r, col.g, col.b )			-- than a single color is faster
+		surface.DrawText( string.sub( str, i, i ) )
+	end
+
+end
+
+-- Solid color rainbow, faster than example above
+local function DrawSimpleRainbowText( speed, str, font, x, y )
+
+	surface.SetFont( font )
+	surface.SetTextColor( HSVToColor(  ( CurTime() * speed ) % 360, 1, 1 ) )
+	surface.SetTextPos( x, y )
+
+	surface.DrawText( str )
+
+end
+
+hook.Add( "HUDPaint", "RainbowPuke", function()
+	DrawRainbowText( 10, "Hello world! This is rainbow text.", "CloseCaption_Bold", 5, 5 )
+	DrawSimpleRainbowText( 100, "Hello world! This is rainbow text.", "CloseCaption_Bold", 5, 55 )
+end )
+	</code>
+	<output><image src="DrawRainbowText.png" alt="300px"/></output>
+
+</example>
+
+
+<example>
+	<description>A helper function for printing rainbow text in the chat.</description>
+	<code>
+local function PrintRainbowText( frequency, str )
+
+	local text = {}
+	local len = #text
+
+	for i = 1, #str do
+		text[len + 1] = HSVToColor( i * frequency % 360, 1, 1 )
+		text[len + 2] = string.sub( str, i, i )
+		len = len + 2
+	end
+
+	-- Print to chat, also prints to console
+	chat.AddText( unpack( text ) )
+
+	-- Uncomment this to print to console only, works serverside too
+	-- MsgC( unpack( text ) )
+
+end
+
+-- The higher the number, the quicker the color will change between each character
+PrintRainbowText( 10, "Hello world!" )
+	</code>
+	<output><image src="ChatPrintRainbow.png" alt="300px"/>
+<image src="ConsolePrintRainbow.png" alt="300px"/></output>
+
+</example>

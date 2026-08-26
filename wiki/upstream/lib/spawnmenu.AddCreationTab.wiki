@@ -1,0 +1,35 @@
+<function name="AddCreationTab" parent="spawnmenu" type="libraryfunc">
+	<description>Inserts a new tab into the CreationMenus table, which will be used by the creation menu to generate its tabs (Spawnlists, Weapons, Entities, etc.)</description>
+	<realm>Client</realm>
+	<file line="182-L190">lua/includes/modules/spawnmenu.lua</file>
+	<args>
+		<arg name="name" type="string">What text will appear on the tab (i.e Spawnlists).</arg>
+		<arg name="function" type="function">The function called to generate the content of the tab.
+<callback>
+<ret type="Panel" name="content">A container panel that holds all of the content for the new tab.</ret>
+</callback>
+</arg>
+		<arg name="material" type="string" default="icon16/exclamation.png">Path to the material that will be used as an icon on the tab. Should be a `.png` file. See <page>Silkicons</page>.</arg>
+		<arg name="order" type="number" default="1000">The order in which this tab should be shown relative to the other tabs on the creation menu.</arg>
+		<arg name="tooltip" type="string" default="nil">The tooltip to be shown for this tab.</arg>
+	</args>
+</function>
+
+<example>
+	<description>An excerpt from the Dupe creation menu tab.</description>
+	<code>
+spawnmenu.AddCreationTab( "#spawnmenu.category.dupes", function()
+
+    HTML = vgui.Create( "DHTML" );
+        JS_Language( HTML )
+        HTML:SetAllowLua( true );
+        HTML:OpenURL( "asset://garrysmod/html/dupes.html" );
+        HTML:Call( "SetDupeSaveState( " .. tostring( DupeInClipboard ).. " );" );        
+
+    return HTML
+
+end, "icon16/control_repeat_blue.png", 200 )
+	</code>
+	<output>A new tab named "Dupes" will be placed in the creation menu.</output>
+
+</example>

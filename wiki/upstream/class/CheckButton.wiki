@@ -1,0 +1,8 @@
+<panel>
+	<realm>Client</realm>
+	<description>
+		<internal>Use <page>DCheckBoxLabel</page> instead.</internal>
+		<deprecated>Use <page>DCheckBoxLabel</page> instead.</deprecated>
+		Engine checkbox
+	</description>
+</panel>

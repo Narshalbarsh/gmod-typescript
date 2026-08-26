@@ -1,0 +1,4 @@
+<function name="SelectFirstItem" parent="DListView" type="panelfunc">
+	<description>Selects the line at the first index of the DListView if one has been added.</description>
+	<realm>Client and Menu</realm>
+</function>

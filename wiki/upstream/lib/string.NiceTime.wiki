@@ -1,0 +1,31 @@
+<function name="NiceTime" parent="string" type="libraryfunc">
+	<description>Formats the supplied number (in seconds) to the highest possible time unit.</description>
+	<realm>Shared and Menu</realm>
+	<file line="210-L242">lua/includes/extensions/string.lua</file>
+	<args>
+		<arg name="num" type="number">The number to format, in seconds.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">A nicely formatted time string.</ret>
+	</rets>
+</function>
+
+<example>
+	<code>
+print(string.NiceTime(600))
+print(string.NiceTime(630))
+print(string.NiceTime(660))
+print(string.NiceTime(4356))
+print(string.NiceTime(43545456))
+	</code>
+	<output>
+```
+10 minutes
+10 minutes
+11 minutes
+1 hour
+1 year
+```
+	</output>
+
+</example>

@@ -1,0 +1,33 @@
+<title>DTextEntry:OnLoseFocus</title>
+
+<function name="OnLoseFocus" parent="DTextEntry" type="panelhook">
+	<description>Called whenever the <page>DTextEntry</page> lose focus.</description>
+	<realm>Client and Menu</realm>
+</function>
+
+<example>
+	<code>
+
+concommand.Add( "test_textentry_onlosefocus", function(ply)
+	local frame = vgui.Create( "DFrame" )
+	frame:SetSize( 400, 200 )
+	frame:Center()
+	frame:MakePopup()
+
+	local default = "Brick with bob"
+
+	local textentry = vgui.Create( "DTextEntry", frame )
+	textentry:SetText( default )
+	textentry:Dock( TOP )
+	textentry.OnLoseFocus = function( self )
+		if ( self:GetText() == "" ) then
+			self:SetText( default )
+		end
+	end
+
+end )
+
+	</code>
+	<output>DTextEntry value reset to default value if the text entered is empty.</output>
+
+</example>

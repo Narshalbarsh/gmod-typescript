@@ -1,0 +1,16 @@
+<enum>
+	<realm>Server</realm>
+	<description>Enumerations used by <page>NPC:Disposition</page> and <page>ENTITY:GetRelationship</page>.</description>
+	<items>
+<item key="D_ER" value="0">Error</item>
+
+<item key="D_HT" value="1">Hate</item>
+
+<item key="D_FR" value="2">Frightened / Fear</item>
+
+<item key="D_LI" value="3">Like</item>
+
+<item key="D_NU" value="4">Neutral</item>
+	</items>
+
+</enum>

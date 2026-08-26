@@ -1,0 +1,14 @@
+<function name="IsHovered" parent="Panel" type="classfunc">
+	<file line="598-L600">lua/includes/extensions/client/panel.lua</file>
+	<description>
+Returns whether the mouse cursor is hovering over this panel or not
+
+Uses <page>vgui.GetHoveredPanel</page> internally.
+
+Requires <page>Panel:SetMouseInputEnabled</page> to be set to true.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">true if the panel is hovered</ret>
+	</rets>
+</function>

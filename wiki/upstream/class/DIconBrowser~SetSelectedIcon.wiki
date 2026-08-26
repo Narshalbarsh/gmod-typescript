@@ -1,0 +1,11 @@
+<function name="SetSelectedIcon" parent="DIconBrowser" type="panelfunc">
+	<description>
+<internal></internal>
+
+Set the currently selected file path. Do not use. Use <page>DIconBrowser:SelectIcon</page> instead.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="str" type="string"></arg>
+	</args>
+</function>

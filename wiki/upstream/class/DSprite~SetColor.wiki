@@ -1,0 +1,7 @@
+<function name="SetColor" parent="DSprite" type="panelfunc">
+	<description>Sets the color modifier for the sprite.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="color" type="Color">The <page>Color</page> to use.</arg>
+	</args>
+</function>

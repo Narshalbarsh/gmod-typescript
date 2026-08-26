@@ -1,0 +1,29 @@
+<function name="SetAutoSize" parent="DPanelList" type="panelfunc">
+	<description>Sets the <page>DPanelList</page> to size its height to its contents. This is set to false by default.</description>
+	<realm>Client and Menu</realm>
+	<file line="4">lua/vgui/dpanellist.lua</file>
+	<args>
+		<arg name="shouldSizeToContents" type="boolean">Whether to size to the height of the <page>DPanelList</page> contents.</arg>
+	</args>
+</function>
+
+
+<example>
+<description>Creates a list with buttons, auto sizes the list to the buttons</description>
+	<code>
+local panelList = vgui.Create("DPanelList", self)
+panelList:SetAutoSize(true)
+
+for i = 1, 5 do
+	local button = vgui.Create("DButton", self)
+	button:SetText("Button " .. i)
+	panelList:AddItem(button)
+end
+
+-- Ensure PerformLayout is called (which sets the list height to the content height)
+panelList:InvalidateLayout()
+	</code>
+<output>
+<upload src="a6216/8dd46150c3fc5d5.png" size="1715" name="list-of-buttons.png" />
+</output>
+</example>

@@ -1,0 +1,11 @@
+<function name="AddToClosedList" parent="CNavArea" type="classfunc">
+	<description>
+Adds this <page>CNavArea</page> to the closed list, a list of areas that have been checked by A* pathfinding algorithm.
+
+Used in pathfinding via the [A* algorithm](https://en.wikipedia.org/wiki/A*_search_algorithm).
+
+
+More information can be found on the <page>Simple Pathfinding</page> page.
+	</description>
+	<realm>Server</realm>
+</function>

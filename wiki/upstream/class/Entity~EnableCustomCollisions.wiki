@@ -1,0 +1,33 @@
+<function name="EnableCustomCollisions" parent="Entity" type="classfunc">
+	<description>Flags an entity as using custom lua defined collisions. Fixes entities having spongy player collisions or not hitting traces, such as after <page>Entity:PhysicsFromMesh</page>
+
+Internally identical to `Entity:AddSolidFlags( bit.bor( FSOLID_CUSTOMRAYTEST, FSOLID_CUSTOMBOXTEST ) )`
+
+Do not confuse this function with <page>Entity:SetCustomCollisionCheck</page>, they are not the same.
+</description>
+	<realm>Shared</realm>
+</function>
+
+<example>
+	<description>Creates a mesh table, and assigns it as the entity's collisions</description>
+	<code>
+function ENT:ProceduralPlatform()
+	local VERTICES = {}
+	for x = 1, 32 do
+		for y = 1, 32 do
+			table.insert( VERTICES, { pos = ( self:GetPos() + Vector( 0, 0, 1 ) ) } )
+			table.insert( VERTICES, { pos = ( self:GetPos() + Vector( 0, y, 1 ) ) } )
+			table.insert( VERTICES, { pos = ( self:GetPos() + Vector( x, y, 1 ) ) } )
+
+			table.insert( VERTICES, { pos = ( self:GetPos() + Vector( 0, 0, 1 ) ) } )
+			table.insert( VERTICES, { pos = ( self:GetPos() + Vector( x, y, 1 ) ) } )
+			table.insert( VERTICES, { pos = ( self:GetPos() + Vector( x, 0, 1 ) ) } )
+		end
+	end
+	self:PhysicsFromMesh( VERTICES )
+	self:GetPhysicsObject():EnableMotion( false )
+	self:EnableCustomCollisions()
+end
+	</code>
+
+</example>

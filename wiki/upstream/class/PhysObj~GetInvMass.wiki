@@ -1,0 +1,9 @@
+<function name="GetInvMass" parent="PhysObj" type="classfunc">
+	<description>Returns 1 divided by the physics object's mass (in kilograms).</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The inverted mass.
+			<warning>Returns 0 on frozen physics objects.</warning>
+		</ret>
+	</rets>
+</function>

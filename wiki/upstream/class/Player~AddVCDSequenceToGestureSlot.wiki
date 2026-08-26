@@ -1,0 +1,12 @@
+<function name="AddVCDSequenceToGestureSlot" parent="Player" type="classfunc">
+	<description>Plays a sequence directly from a sequence number, similar to <page>Player:AnimRestartGesture</page>. This function has the advantage to play sequences that haven't been bound to an existing <page>Enums/ACT</page>
+<warning>This is not automatically networked. This function has to be called on the client to be seen by said client.</warning>
+</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="slot" type="number">Gesture slot using <page>Enums/GESTURE_SLOT</page></arg>
+		<arg name="sequenceId" type="number">The sequence ID to play, can be retrieved with <page>Entity:LookupSequence</page>.</arg>
+		<arg name="cycle" type="number">The cycle to start the animation at, ranges from 0 to 1.</arg>
+		<arg name="autokill" type="boolean" default="false">If the animation should not loop. true = stops the animation, false = the animation keeps playing.</arg>
+	</args>
+</function>

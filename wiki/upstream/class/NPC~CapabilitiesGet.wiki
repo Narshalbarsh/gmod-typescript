@@ -1,0 +1,8 @@
+<function name="CapabilitiesGet" parent="NPC" type="classfunc">
+	<description>Returns the NPC's capabilities along the ones defined on its weapon.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number{CAP}">The capabilities as a bitflag.
+See <page>Enums/CAP</page></ret>
+	</rets>
+</function>

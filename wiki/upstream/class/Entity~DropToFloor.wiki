@@ -1,0 +1,31 @@
+<function name="DropToFloor" parent="Entity" type="classfunc">
+	<description>
+Move an entity down until it collides with something.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="mask" type="number" default="MASK_SOLID" added="2025.09.18">Trace mask.</arg>
+		<arg name="ignoreEnt" type="Entity" default="nil" added="2025.09.18">Trace ignore entity.</arg>
+		<arg name="maxDist" type="number" default="256" added="2025.09.18">Max trace dist.</arg>
+	</args>	
+</function>
+
+<example>
+	<description>Move all props on the server down until they collide with something.</description>
+	<code>
+for _, ent in ipairs( ents.FindByClass( "prop_physics" ) ) do
+	ent:DropToFloor()
+end
+	</code>
+
+</example>
+
+
+<example>
+	<description>Drops players to the ground when they spawn.</description>
+	<code>
+hook.Add( "PlayerSpawn", "DropGround", function( ply )
+	ply:DropToFloor()
+end )
+	</code>
+</example>

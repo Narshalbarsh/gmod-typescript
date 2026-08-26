@@ -1,0 +1,7 @@
+<function name="AddKey" parent="CMoveData" type="classfunc">
+	<description>Adds keys to the move data, as if player pressed them.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="keys" type="number">Keys to add, see <page>Enums/IN</page></arg>
+	</args>
+</function>

@@ -1,0 +1,7 @@
+<function name="InternalMouseReleased" parent="gui" type="libraryfunc">
+	<description>Simulates a mouse key release for the given mouse key.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="key" type="number">The key, see <page>Enums/MOUSE</page>.</arg>
+	</args>
+</function>

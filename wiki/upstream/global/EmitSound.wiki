@@ -1,0 +1,43 @@
+<function name="EmitSound" parent="Global" type="libraryfunc">
+	<description>
+Emits the specified sound at the specified position. See also <page>Entity:EmitSound</page> if you wish to play sounds on a specific entity.
+
+<note>
+Valid 16 bit sample rates: **11025 Hz, 22050 Hz and 44100 Hz**, otherwise you may see this kind of message:
+
+`Unsupported 32-bit wave file your_sound.wav` and 
+`Invalid sample rate (48000) for sound 'your_sound.wav'`
+</note>
+
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="soundName" type="string">The sound to play
+
+This should either be a sound script name (<page>sound.Add</page>) or a file path relative to the `sound/` folder. (Make note that it's not sound**s**)
+</arg>
+		<arg name="position" type="Vector">The position where the sound is meant to play, which is also used for a network filter (`CPASAttenuationFilter`) to decide which players will hear the sound.</arg>
+		<arg name="entity" type="number" default="0">The entity to emit the sound from. Can be an <page>Entity:EntIndex</page> or one of the following:
+* `0` - Plays sound on the world
+* `-1` - Plays sound on the local player (on server acts as `0`)
+* `-2` - Plays UI sound (position set to `0,0,0`, no spatial sound, on server acts as `0`)</arg>
+		<arg name="channel" type="number{CHAN}" default="CHAN_AUTO">The sound channel, see <page>Enums/CHAN</page>.</arg>
+		<arg name="volume" type="number" default="1">The volume of the sound, from 0 to 1</arg>
+		<arg name="soundLevel" type="number{SNDLVL}" default="75">The sound level of the sound, see <page>Enums/SNDLVL</page></arg>
+		<arg name="soundFlags" type="number{SND}" default="0">The flags of the sound, see <page>Enums/SND</page></arg>
+		<arg name="pitch" type="number" default="100">The pitch of the sound, 0-255</arg>
+		<arg name="dsp" type="number" default="1">The DSP preset for this sound. <page text="DSP Presets">DSP_Presets</page></arg>
+		<arg name="filter" type="CRecipientFilter" default="nil" added="2023.10.25">If set serverside, the sound will only be networked to the clients in the filter.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Plays magical sound on first player.</description>
+	<code>
+-- Plays the sound attached to the given entity (by its entity index)
+EmitSound( "garrysmod/save_load1.wav", Entity(1):GetPos(), 1, CHAN_AUTO, 1, 75, 0, 100 )
+
+-- Plays the sound in any custom position
+EmitSound( "Weapon_AR2.Single", Entity(1):GetPos() )
+</code>
+</example>

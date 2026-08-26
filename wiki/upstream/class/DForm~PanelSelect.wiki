@@ -1,0 +1,8 @@
+<function name="PanelSelect" parent="DForm" type="panelfunc">
+	<description><deprecated>This is derived from the deprecated <page>DPanelSelect</page>.</deprecated>Creates a <page>DPanelSelect</page> and docks it to the top of the DForm.</description>
+	<realm>Client and Menu</realm>
+	<file line="269-L275">lua/vgui/dform.lua</file>
+	<rets>
+		<ret name="" type="DPanelSelect">The created <page>DPanelSelect</page>.</ret>
+	</rets>
+</function>

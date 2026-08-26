@@ -1,0 +1,20 @@
+<function name="SetMovementActivity" parent="NPC" type="classfunc">
+	<description>Sets the activity the NPC uses when it moves.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="activity" type="number">The movement activity, see <page>Enums/ACT</page>.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Makes all NPCs walk instead of run.</description>
+	<code>
+function GM:Think()
+	for i, npc in ipairs( ents.FindByClass( "npc_*" ) ) do
+		if IsValid( npc ) and npc:IsNPC() and npc:GetMovementActivity() ~= ACT_WALK then
+			npc:SetMovementActivity( ACT_WALK )
+		end
+	end
+end
+	</code>
+</example>

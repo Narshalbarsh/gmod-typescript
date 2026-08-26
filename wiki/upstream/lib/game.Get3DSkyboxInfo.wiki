@@ -1,0 +1,61 @@
+<function name="Get3DSkyboxInfo" parent="game" type="libraryfunc">
+	<description>
+		Returns information about the currently active 3D skybox.
+	</description>
+	<added>2026.02.13</added>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="sky3dparams" type="table<Structures/Sky3DParams>|nil">The 3D skybox info, or `nil` if the map has no 3d skybox or the function is called too soon during server start up.
+		</ret>
+	</rets>
+</function>
+
+<example>
+	<description>
+		Shows hit position of ray on world and 3d skybox.
+	</description>
+	<code>
+local color_green = Color( 0, 255, 0 )
+
+hook.Add( "PostDrawTranslucentRenderables", "MySuper3DHook", function()
+	local sky3dparams = game.Get3DSkyboxInfo()
+	if ( !sky3dparams ) then return end
+
+	local skyboxOrigin = sky3dparams.origin
+	local skyboxScale = sky3dparams.scale
+
+	local client = LocalPlayer()
+	local eyepos = client:EyePos()
+
+	local dir = client:EyeAngles():Forward() * 100000000
+
+	local tr = util.TraceLine({
+	    start = eyepos;
+	    endpos = eyepos + dir;
+	    filter = {client:GetVehicle(), client:GetViewEntity() or client};
+	    mask = MASK_BLOCKLOS_AND_NPCS;
+	})
+
+	local hitPos = tr.HitPos
+	local hitSky = tr.HitSky
+
+	if hitSky and GetConVar("r_3dsky"):GetBool() == true then
+	    local eye_sky = skyboxOrigin + eyepos / skyboxScale -- transform eyepos to 3d skybox space
+
+	    local tr = util.TraceLine({
+		    start = eye_sky;
+		    endpos = eye_sky + dir;
+		    mask = MASK_BLOCKLOS_AND_NPCS;
+		})
+
+		hitPos = ( tr.HitPos - skyboxOrigin ) * skyboxScale -- transform hitpos from 3d skybox space to world space
+	end
+
+	render.SetColorMaterial()
+	render.DrawSphere(hitPos, 64, 16, 16, color_green)
+end )
+	</code>
+	<output>
+		<image src="b5f72/8de6ae3e1295671.gif" size="2946269" name="Sky3D.gif" />
+	</output>
+</example>

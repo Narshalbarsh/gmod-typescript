@@ -1,0 +1,7 @@
+<function name="GetUp" parent="Entity" type="classfunc">
+	<description>Returns the upward vector of the entity, as a normalized direction vector</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Vector">upDir</ret>
+	</rets>
+</function>

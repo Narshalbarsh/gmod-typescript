@@ -1,0 +1,61 @@
+<panel>
+	<parent>DPanel</parent>
+	<realm>Client and Menu</realm>
+	<file line="">lua/vgui/dpanpanel.lua</file>
+	<added>2023.08.08</added>
+	<description>
+A panel similar to <page>DScrollPanel</page>, but that allows the player to pan around, for example a zoomed in image within a small window.
+	</description>
+	<overrides>
+		<page>PANEL:Think</page>
+		<page>PANEL:OnMousePressed</page>
+		<page>PANEL:OnMouseReleased</page>
+		<page>PANEL:PerformLayout</page>
+		<page>PANEL:OnChildAdded</page>
+		<page>Panel:SizeToContents</page>
+		<page>Panel:Clear</page>
+	</overrides>
+</panel>
+
+# Examples
+<example>
+	<code>
+local dpan = vgui.Create( "DFrame" )
+dpan:SetSize( 700, 500 )
+dpan:Center()
+dpan:MakePopup()
+ 
+local dpl = vgui.Create( "DPanel", dpan )
+dpl:SetSize( 200, 200 )
+dpl:SetPos( 100, 100 )
+
+local panl = vgui.Create( "DPanPanel", dpl )
+panl:Dock( FILL )
+
+local bl1 = panl:Add( "DButton" )
+bl1:SetText( "Small" )
+
+local bl2 = panl:Add( "DButton" )
+bl2:SetPos( 100, 100 )
+bl2:SetText( "Contents" )
+
+
+
+local dpr = vgui.Create( "DPanel", dpan )
+dpr:SetSize( 200, 200 )
+dpr:SetPos( 310, 100 )
+
+local panr = vgui.Create( "DPanPanel", dpr )
+panr:Dock( FILL )
+
+local br1 = panr:Add( "DButton" )
+br1:SetText( "Big" )
+
+local br2 = panr:Add( "DButton" )
+br2:SetPos( 300, 300 )
+br2:SetText( "Contents" )
+	</code>
+<output>
+<upload src="70c/8db983b600ccbd3.mp4" size="99078" name="hl2_XcqmZakU2J.mp4" />
+</output>
+</example>

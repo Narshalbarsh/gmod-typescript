@@ -1,0 +1,7 @@
+<function name="SetObserverMode" parent="Player" type="classfunc">
+	<description>Sets the players observer mode. You must start the spectating first with <page>Player:Spectate</page>.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="mode" type="number">Spectator mode using <page>Enums/OBS_MODE</page>.</arg>
+	</args>
+</function>

@@ -1,0 +1,26 @@
+<function name="DisableClipping" parent="Global" type="libraryfunc">
+	<description>
+Sets whether rendering should be limited to being inside a panel or not. Needs to be used inside one of the <page>2d rendering hooks</page>
+
+See also <page>Panel:NoClipping</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="disable" type="boolean">Whether or not clipping should be disabled</arg>
+	</args>
+	<rets>
+		<ret name="oldState" type="boolean" added="2020.03.17">Whether the clipping was enabled or not before this function call</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Renders a white box outside of the panel</description>
+	<code>
+function PANEL:Paint()
+	local old = DisableClipping( true )
+	draw.RoundedBox( 0, -50, -50, 25, 25, color_white )
+	DisableClipping( old )
+end
+	</code>
+
+</example>

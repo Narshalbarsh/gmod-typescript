@@ -1,0 +1,7 @@
+<function name="GetLocalAngularVelocity" parent="Entity" type="classfunc">
+	<description>Returns the non-VPhysics angular velocity of the entity relative to its parent entity.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Angle">The velocity</ret>
+	</rets>
+</function>

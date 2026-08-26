@@ -1,0 +1,51 @@
+<function name="Capture" parent="render" type="libraryfunc">
+	<description>
+Captures a part of the current render target and returns the data as a binary string in the given format.
+
+Since the pixel buffer clears itself every frame, this will return a black screen outside of render hooks. To capture the user's final view, use <page>GM:PostRender</page>. This will not capture the Steam overlay or third-party injections (such as the Discord overlay, Overwolf, and advanced cheats) on the user's screen.
+
+<warning>In PNG mode, this function can produce unexpected result where foreground is rendered as transparent.
+This is caused by <page>render.SetWriteDepthToDestAlpha</page> set to `true` when doing most of render operations, including rendering in `_rt_fullframefb`. If you want to capture render target's content as PNG image only for output quality, set <page>Structures/RenderCaptureData</page>'s `alpha` to `false` when capturing render targets with <page>render.SetWriteDepthToDestAlpha</page> set to `true`.</warning>
+
+<warning>This function will return nil if escape menu is open. </warning>
+
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="captureData" type="table">Parameters of the capture. See <page>Structures/RenderCaptureData</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The binary data.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>How you could use this to save a picture of your screen.</description>
+	<code>
+local ScreenshotRequested = false
+function RequestAScreenshot()
+	gui.HideGameUI()
+	ScreenshotRequested = true
+end
+
+-- For the sake of this example, we use a console command to request a screenshot
+concommand.Add( "make_screenshot", RequestAScreenshot )
+
+hook.Add( "PostRender", "example_screenshot", function()
+	if ( !ScreenshotRequested ) then return end
+	ScreenshotRequested = false
+
+	local data = render.Capture( {
+		format = "png",
+		x = 0,
+		y = 0,
+		w = ScrW(),
+		h = ScrH(),
+        alpha = false -- only needed for the png format to prevent the depth buffer leaking in, see BUG
+	} )
+
+	file.Write( "image.png", data )
+end )
+	</code>
+	<output>You should now have `image.png` in your `garrysmod/data` folder, containing a screenshot.</output>
+</example>

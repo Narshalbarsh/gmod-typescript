@@ -1,0 +1,31 @@
+<function name="SetArmor" parent="Player" type="classfunc">
+	<description>Sets the player armor value.
+
+See <page>GM:HandlePlayerArmorReduction</page> for a hook that allows manipulating what armor does.
+</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="amount" type="number">The amount to set the armor value of the player to.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Sets the player armor to 100 when they types "SetArmor" at the console.</description>
+	<code>
+concommand.Add( "SetArmor", function( ply )
+	ply:SetArmor( 100 )
+end )
+	</code>
+	<output>Sets the player armor to 100</output>
+</example>
+
+<example>
+	<description>Gives the player armor to first vararg when they types "AddArmor" at the console.</description>
+	<code>
+concommand.Add( "AddArmor", function( ply, cmd, args )
+	local Armor = args[1] or 100
+	ply:SetArmor( ply:Armor() + Armor )
+end )
+	</code>
+	<output>Adds the player armor to first vararg</output>
+</example>

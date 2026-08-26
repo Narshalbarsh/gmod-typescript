@@ -1,0 +1,17 @@
+<function name="FinishMove" parent="GM" type="hook">
+	<description>
+Called after <page>GM:Move</page>, applies all the changes from the <page>CMoveData</page> to the player.
+
+See <page>Game Movement</page> for an explanation on the move system.
+	</description>
+	<realm>Shared</realm>
+	<file line="189-L194">gamemodes/base/gamemode/shared.lua</file>
+	<predicted>Yes</predicted>
+	<args>
+		<arg name="ply" type="Player">Player</arg>
+		<arg name="mv" type="CMoveData">Movement data</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return true to suppress default engine behavior, i.e. declare that you have already moved the player according to the move data in a custom way.</ret>
+	</rets>
+</function>

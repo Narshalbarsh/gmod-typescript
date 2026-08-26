@@ -1,0 +1,12 @@
+<function name="DrawTextureToScreen" parent="render" type="libraryfunc">
+	<description>
+Draws a texture over the whole screen.
+
+<rendercontext hook="false" type="2D"></rendercontext>
+	</description>
+	<realm>Client</realm>
+	<file line="148-L156">lua/includes/extensions/client/render.lua</file>
+	<args>
+		<arg name="tex" type="ITexture">The texture to draw.</arg>
+	</args>
+</function>

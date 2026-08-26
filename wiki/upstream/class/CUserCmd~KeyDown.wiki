@@ -1,0 +1,10 @@
+<function name="KeyDown" parent="CUserCmd" type="classfunc">
+	<description>Returns true if the specified button(s) is pressed.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="key" type="number">Bitflag representing which button to check, see <page>Enums/IN</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Is key down or not</ret>
+	</rets>
+</function>

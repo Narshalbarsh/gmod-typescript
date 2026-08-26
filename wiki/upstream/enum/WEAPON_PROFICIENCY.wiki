@@ -1,0 +1,19 @@
+<enum>
+	<realm>Shared</realm>
+	<description>
+Enumerations used by <page>NPC:SetCurrentWeaponProficiency</page> and  
+<page>NPC:GetCurrentWeaponProficiency</page>.
+	</description>
+	<items>
+<item key="WEAPON_PROFICIENCY_POOR" value="0">The NPC will miss a large majority of their shots.</item>
+
+<item key="WEAPON_PROFICIENCY_AVERAGE" value="1">The NPC will miss about half of their shots.</item>
+
+<item key="WEAPON_PROFICIENCY_GOOD" value="2">The NPC will sometimes miss their shots.</item>
+
+<item key="WEAPON_PROFICIENCY_VERY_GOOD" value="3">The NPC will rarely miss their shots.</item>
+
+<item key="WEAPON_PROFICIENCY_PERFECT" value="4">The NPC will almost never miss their shots.</item>
+	</items>
+
+</enum>

@@ -1,0 +1,29 @@
+<function name="GetMotionBlurValues" parent="GM" type="hook">
+	<description>Allows you to modify the Source Engine's motion blur shaders.</description>
+	<realm>Client</realm>
+	<file line="462-L468">gamemodes/base/gamemode/cl_init.lua</file>
+	<args>
+		<arg name="horizontal" type="number">The amount of horizontal blur.</arg>
+		<arg name="vertical" type="number">The amount of vertical  blur.</arg>
+		<arg name="forward" type="number">The amount of forward/radial blur.</arg>
+		<arg name="rotational" type="number">The amount of rotational blur.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">New amount of horizontal blur.</ret>
+		<ret name="" type="number">New amount of vertical blur.</ret>
+		<ret name="" type="number">New amount of forward/radial blur.</ret>
+		<ret name="" type="number">New amount of rotational blur.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Makes your forward/radial blur pulse.</description>
+	<code>
+hook.Add( "GetMotionBlurValues", "GetNewMotionBlurValues", function( horizontal, vertical, forward, rotational )
+    forward = forward * math.sin( CurTime() * 5 )
+    return horizontal, vertical, forward, rotational
+end )
+	</code>
+	<output>Your radial blur pulses.</output>
+
+</example>

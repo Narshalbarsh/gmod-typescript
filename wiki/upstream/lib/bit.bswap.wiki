@@ -1,0 +1,10 @@
+<function name="bswap" parent="bit" type="libraryfunc">
+	<description>Swaps the byte order.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="value" type="number">The value to be byte swapped.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The resulting swapped value.</ret>
+	</rets>
+</function>

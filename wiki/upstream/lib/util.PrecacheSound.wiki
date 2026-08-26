@@ -1,0 +1,12 @@
+<function name="PrecacheSound" parent="util" type="libraryfunc">
+	<description>
+Precaches a sound for later use. Sound is cached after being loaded once.
+<note>Soundcache is limited to 16384 unique sounds on the server. Due to this fact this function is disabled on purpose, as exceeding the limit causes the server to shutdown.</note>
+
+<bug>Ultimately does nothing on client, and only works with sound scripts, not direct paths.</bug>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="soundName" type="string">The sound to precache.</arg>
+	</args>
+</function>

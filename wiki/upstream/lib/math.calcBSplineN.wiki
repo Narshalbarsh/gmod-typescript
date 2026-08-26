@@ -1,0 +1,18 @@
+<function name="calcBSplineN" parent="math" type="libraryfunc">
+	<description>
+<internal>Use <page>math.BSplinePoint</page> instead.</internal>
+
+Basic code for Bezier-Spline algorithm, helper function for <page>math.BSplinePoint</page>.
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="100-L129">lua/includes/extensions/math.lua</file>
+	<args>
+		<arg name="i" type="number"></arg>
+		<arg name="k" type="number"><bug pull="1477">Sending in a value < 1 will result in an infinite loop.</bug></arg>
+		<arg name="t" type="number"></arg>
+		<arg name="tinc" type="number"></arg>
+	</args>
+	<rets>
+		<ret name="" type="number"></ret>
+	</rets>
+</function>

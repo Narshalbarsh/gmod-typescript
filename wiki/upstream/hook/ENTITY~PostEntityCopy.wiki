@@ -1,0 +1,10 @@
+<function name="PostEntityCopy" parent="ENTITY" type="hook">
+	<description>
+Called after the duplicator finished copying the entity, after <page>ENTITY:PreEntityCopy</page>.
+
+Use <page>ENTITY:OnEntityCopyTableFinish</page> to modify the dupe table for this entity.
+
+See also <page>ENTITY:PostEntityPaste</page> for the restore hook.
+	</description>
+	<realm>Server</realm>
+</function>

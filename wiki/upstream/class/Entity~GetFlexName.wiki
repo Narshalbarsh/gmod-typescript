@@ -1,0 +1,10 @@
+<function name="GetFlexName" parent="Entity" type="classfunc">
+	<description>Returns the flex controller name at given index.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="id" type="number">The flex index to look up name of. The range is between `0` and <page>Entity:GetFlexNum</page> - 1.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The flex name, or <page>no value</page> if the requested ID is out of bounds.</ret>
+	</rets>
+</function>

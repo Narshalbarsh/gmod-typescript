@@ -1,0 +1,8 @@
+<function name="UpdateSubscribedAddons" parent="Global" type="libraryfunc">
+	<description>
+		<internal></internal>
+		Updates the Addons list.
+	</description>
+	<realm>Menu</realm>
+	<file line="555-L565">lua/menu/mainmenu.lua</file>
+</function>

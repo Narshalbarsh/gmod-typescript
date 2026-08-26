@@ -1,0 +1,11 @@
+<function name="GetDamagePosition" parent="CTakeDamageInfo" type="classfunc">
+	<description>
+Returns the position where the damage was or is going to be applied to.
+
+Can be set using <page>CTakeDamageInfo:SetDamagePosition</page>.
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Vector">The damage position</ret>
+	</rets>
+</function>

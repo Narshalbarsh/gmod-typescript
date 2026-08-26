@@ -1,0 +1,33 @@
+<function name="SetLookAt" parent="DModelPanel" type="panelfunc">
+	<description>Makes the panel's camera face the given position. Basically sets the camera's angles (<page>DModelPanel:SetLookAng</page>) after doing some math.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="pos" type="Vector">The position to orient the camera toward.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Creates a model panel focused on Colonel Odessa Cubbage's face.</description>
+	<code>
+BGPanel = vgui.Create("DPanel")
+BGPanel:SetPos(20, 20)
+BGPanel:SetSize(200, 200)		
+	
+local mdl = vgui.Create("DModelPanel", BGPanel)
+mdl:SetSize(BGPanel:GetSize())
+mdl:SetModel("models/player/odessa.mdl")
+
+function mdl:LayoutEntity( Entity ) return end	-- Disable cam rotation
+
+local headpos = mdl.Entity:GetBonePosition(mdl.Entity:LookupBone("ValveBiped.Bip01_Head1"))
+mdl:SetLookAt(headpos)
+
+mdl:SetCamPos(headpos-Vector(-15, 0, 0))	-- Move cam in front of face
+
+--mdl.Entity:SetEyeTarget(headpos-Vector(-15, 0, 0))
+-- Makes Odessa look at the camera
+-- Commented out because the result is funnier without this
+	</code>
+	<output><image src="DModelPanel_SetLookAt_example1.jpg"/></output>
+
+</example>

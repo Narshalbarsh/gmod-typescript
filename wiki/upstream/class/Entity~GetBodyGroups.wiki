@@ -1,0 +1,14 @@
+<function name="GetBodyGroups" parent="Entity" type="classfunc">
+	<description>
+		Returns a list of information about each Body Group present on the <page text="Entity's">Entity</page> model.
+		<note>
+			Weapons will return results from their viewmodels.
+		</note>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="table">
+			A table of Body Group information where each value is a <page>Structures/BodyGroupData</page>.
+		</ret>
+	</rets>
+</function>

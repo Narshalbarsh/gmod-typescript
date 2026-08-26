@@ -1,0 +1,8 @@
+<function name="SetValue" parent="DBinder" type="panelfunc">
+	<description>Alias of <page>DBinder:SetSelectedNumber</page>.</description>
+	<realm>Client</realm>
+	<file line="77-L81">lua/vgui/dbinder.lua</file>
+	<args>
+		<arg name="keyCode" type="number">The key code of the key to bind. See <page>Enums/KEY</page>.</arg>
+	</args>
+</function>

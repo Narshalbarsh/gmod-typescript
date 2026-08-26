@@ -1,0 +1,5 @@
+<function name="OpenMenu" parent="DComboBox" type="panelfunc">
+	<description>Opens the combo box drop down menu. Called when the combo box is clicked.</description>
+	<file line="176-L234">lua/vgui/dcombobox.lua</file>
+	<realm>Client and Menu</realm>
+</function>

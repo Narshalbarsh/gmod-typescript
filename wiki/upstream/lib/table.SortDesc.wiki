@@ -1,0 +1,36 @@
+<function name="SortDesc" parent="table" type="libraryfunc">
+	<description>
+		Sorts a table in reverse order from <page>table.sort</page>.
+<note>This function modifies the table you give to it. Like table.sort, it does not return anything.</note>
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="133-L135">lua/includes/extensions/table.lua</file>
+	<args>
+		<arg name="tbl" type="table">The table to sort in descending order.</arg>
+	</args>
+</function>
+
+<example>
+	<description></description>
+	<code>
+local tbl = {
+    20,
+    10,
+    50,
+    30,
+    40,
+}
+
+table.SortDesc(tbl)
+PrintTable(tbl)
+	</code>
+	<output>```
+1	=	50
+2	=	40
+3	=	30
+4	=	20
+5	=	10
+```
+	</output>
+
+</example>

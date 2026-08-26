@@ -1,0 +1,17 @@
+<function name="SetLifeTime" parent="CLuaParticle" type="classfunc">
+	<description>
+Sets the 'life time' of the particle, how long the particle existed since its creation.
+
+This value should always be between 0 and <page>CLuaParticle:GetDieTime</page>.
+
+
+It changes automatically as time goes.
+
+
+If the life time of the particle will be more than <page>CLuaParticle:GetDieTime</page>, it will be removed.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="lifeTime" type="number">The new life time of the particle.</arg>
+	</args>
+</function>

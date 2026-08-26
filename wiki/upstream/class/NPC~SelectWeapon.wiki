@@ -1,0 +1,8 @@
+<function name="SelectWeapon" parent="NPC" type="classfunc">
+	<description>Forces the NPC to switch to a specific weapon the NPC owns. See <page>NPC:GetWeapons</page>.</description>
+	<realm>Server</realm>
+	<added>2020.06.24</added>
+	<args>
+		<arg name="weapon" type="string|Weapon">A classname of the weapon or a <page>Weapon</page> entity to switch to.</arg>
+	</args>
+</function>

@@ -1,0 +1,18 @@
+<function name="GetIncomingConnectionsAtSide" parent="CNavArea" type="classfunc">
+	<description>
+Returns a table of all the <page>CNavArea</page>s that have a one-way connection **to** this <page>CNavArea</page> from given direction.
+
+If a <page>CNavArea</page> has a two-way connection **to or from** this <page>CNavArea</page> then it will not be returned from this function, use <page>CNavArea:GetAdjacentAreas</page> to get outgoing ( one and two way ) connections.
+
+See <page>CNavArea:GetIncomingConnections</page> for a function that returns one-way incoming connections from  all sides/directions.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="navDir" type="number">The direction, from which to look for <page>CNavArea</page>s, see <page>Enums/NavDir</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">A table of all <page>CNavArea</page>s with one-way connection **to** this <page>CNavArea</page> from given direction.
+
+Returns an empty table if there are no one-way incoming connections **to** this <page>CNavArea</page> from given direction.</ret>
+	</rets>
+</function>

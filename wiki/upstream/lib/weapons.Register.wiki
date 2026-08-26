@@ -1,0 +1,18 @@
+<function name="Register" parent="weapons" type="libraryfunc">
+	<description>
+Registers a Scripted Weapon (SWEP) class manually. When the engine spawns an entity, weapons registered with this function will be created if the class names match.
+
+See also <page>scripted_ents.Register</page> for Scripted Entities (SENTs)
+
+<bug pull="1300">Sub-tables provided in the first argument will not carry over their metatable, and will receive a BaseClass key if the table was merged with the base's. Userdata references, which includes Vectors, Angles, Entities, etc. will not be copied.</bug>
+	</description>
+	<realm>Shared</realm>
+	<file line="46-L106">lua/includes/modules/weapons.lua</file>
+	<args>
+		<arg name="ENT" type="table">
+			The SWEP table to register.  
+			For the table's format and available options see the <page>Structures/SWEP</page> page.
+		</arg>
+		<arg name="classname" type="string">Classname to assign to that swep</arg>
+	</args>
+</function>

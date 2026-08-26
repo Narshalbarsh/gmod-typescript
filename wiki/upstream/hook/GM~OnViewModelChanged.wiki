@@ -1,0 +1,14 @@
+<function name="OnViewModelChanged" parent="GM" type="hook">
+<file line="251-L258">gamemodes/base/gamemode/shared.lua</file>
+	<description>
+Called when the player changes their weapon to another one - and their viewmodel model changes.
+
+<bug issue="2473">This is not always called clientside.</bug>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="viewmodel" type="Entity">The viewmodel that is changing</arg>
+		<arg name="oldModel" type="string">The old model</arg>
+		<arg name="newModel" type="string">The new model</arg>
+	</args>
+</function>

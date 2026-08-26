@@ -1,0 +1,9 @@
+<function name="IsWorldClickingDisabled" parent="Player" type="classfunc">
+	<description>Returns whether the world clicking is disabled for given player or not. See <page>Player:DisableWorldClicking</page>.
+</description>
+	<realm>Shared</realm>
+	<added>2023.01.25</added>
+	<rets>
+		<ret type="boolean">Whether the world clicking is disabled or not.</ret>
+	</rets>
+</function>

@@ -1,0 +1,4 @@
+<function name="Reset" parent="navmesh" type="libraryfunc">
+	<description>Deletes every <page>CNavArea</page> and <page>CNavLadder</page> on the map **without saving the changes**.</description>
+	<realm>Server</realm>
+</function>

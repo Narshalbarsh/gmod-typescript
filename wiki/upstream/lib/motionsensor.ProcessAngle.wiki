@@ -1,0 +1,17 @@
+<function name="ProcessAngle" parent="motionsensor" type="libraryfunc">
+	<description><internal></internal> Used internally by <page>motionsensor.ProcessAnglesTable</page>. See <page>Using The Kinect</page> and <page>Kinect developing</page>.</description>
+	<realm>Shared</realm>
+	<file line="60-L121">lua/includes/extensions/motionsensor.lua</file>
+	<args>
+		<arg name="translator" type="table"></arg>
+		<arg name="sensor" type="table"></arg>
+		<arg name="pos" type="Vector"></arg>
+		<arg name="ang" type="Angle"></arg>
+		<arg name="special_vectors" type="table"></arg>
+		<arg name="boneid" type="number"></arg>
+		<arg name="v" type="table"></arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return nil on failure</ret>
+	</rets>
+</function>

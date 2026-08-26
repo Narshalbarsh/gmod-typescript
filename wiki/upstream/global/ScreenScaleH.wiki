@@ -1,0 +1,16 @@
+<function name="ScreenScaleH" parent="Global" type="libraryfunc">
+	<file line="10-L12">lua/includes/extensions/client/globals.lua</file>
+	<description>Returns a number based on the `size` argument and players' screen height. The height is scaled in relation to `640x480` resolution.  This function is primarily used for scaling font sizes.
+
+See <page>Global.ScreenScale</page> for a function that scales from width.
+
+</description>
+	<realm>Client</realm>
+	<added>2023.08.08</added>
+	<args>
+		<arg name="size" type="number">The number you want to scale.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The scaled number based on your screen's height.</ret>
+	</rets>
+</function>

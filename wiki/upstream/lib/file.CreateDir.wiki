@@ -1,0 +1,18 @@
+<function name="CreateDir" parent="file" type="libraryfunc">
+	<description>Creates a directory that is relative to the `data` folder.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="name" type="string">The directory's name.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Creates a directory named `sample` in the `data` folder.</description>
+	<code>file.CreateDir("sample")</code>
+</example>
+
+<example>
+	<description>This function will create all subfolders you specify.</description>
+	<code>file.CreateDir("a/b/c/d/e/f/g")</code>
+	<output>A folder named `a` is created in the data folder, which contains the folder named `b`, which contains a folder named `c`, etc.</output>
+</example>

@@ -1,0 +1,29 @@
+<function name="DeleteOnRemove" parent="Entity" type="classfunc">
+	<description>Whenever the entity is removed, entityToRemove will be removed also.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="entityToRemove" type="Entity">The entity to be removed</arg>
+	</args>
+</function>
+
+<example>
+	<description>Creates a second chair in spawned jeeps that is removed when the jeep is removed</description>
+	<code>
+hook.Add("PlayerSpawnedVehicle", "VehicleUpgrade", function(ply,vehicle)
+	if vehicle:GetClass() == "prop_vehicle_jeep" then
+		local seat = ents.Create( 'prop_vehicle_prisoner_pod' )
+		seat:SetModel( "models/nova/jeep_seat.mdl" )
+		seat:SetPos( vehicle:LocalToWorld(Vector(21,-32,18)) )
+		seat:SetAngles( vehicle:LocalToWorldAngles(Angle(0,-3.5,0)) )
+		seat:Spawn()
+		seat:SetKeyValue( "limitview", 0 )
+		table.Merge( seat, { HandleAnimation = function(_,ply) return ply:SelectWeightedSequence( ACT_HL2MP_SIT ) end } )
+		gamemode.Call( "PlayerSpawnedVehicle", ply, seat )
+		vehicle.PassengerSeat = seat
+		vehicle:DeleteOnRemove(seat) //&lt;--
+		constraint.Weld(seat, vehicle)
+	end
+end)
+	</code>
+
+</example>

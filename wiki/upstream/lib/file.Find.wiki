@@ -1,0 +1,148 @@
+<function name="Find" parent="file" type="libraryfunc">
+	<description>
+		Returns a list of files and directories inside a single folder.
+		<warning>It seems that paths with capital letters (e.g. lua/MyFolder/*) don't work as expected on Linux.</warning>
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="name" type="string">The wildcard to search for. `models/*.mdl` will list **.mdl** files in the `models/` folder.</arg>
+		<arg name="path" type="string">The path to look for the files and directories in. See <page text="this list">File_Search_Paths</page> for a list of valid paths.</arg>
+		<arg name="sorting" type="string" default="nameasc">The sorting to be used, **optional**.
+
+* `nameasc` sort the files ascending by name.
+* `namedesc` sort the files descending by name.
+* `dateasc` sort the files ascending by date.
+* `datedesc` sort the files descending by date.
+		</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">A table of found files, or `nil` if the path is invalid.</ret>
+		<ret name="" type="table">A table of found directories, or `nil` if the path is invalid.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints the first file and the first directory in the `data` folder.</description>
+	<code>
+local files, directories = file.Find( "*", "DATA" )
+
+print( "File: " .. files[1], "Folder: " .. directories[1] )
+	</code>
+	<output>
+```
+File: helloworld.txt
+Folder: ctp
+```
+	</output>
+</example>
+
+<example>
+	<description>A poor-mans `whereis file` that can directly look inside a specific addon or all of them, recursively searches engine.GetAddons+addon titles for specific files inside them.</description>
+	<code>
+		local function recurseListContents(path, addon, direct, pattern)
+    local files, dirs = file.Find(path.."*", addon)
+    local matchedFiles = {}
+
+    for _, v in ipairs(files) do
+        local fullPath = path..v
+        if not pattern or string.match(fullPath, pattern) then
+            table.insert(matchedFiles, fullPath)
+        end
+    end
+    if direct then return matchedFiles end
+
+    for _, dir in ipairs(dirs) do
+        local subFiles = recurseListContents(path..dir.."/", addon, false, pattern)
+        for _, file in ipairs(subFiles) do
+            table.insert(matchedFiles, file)
+        end
+    end
+
+    return matchedFiles
+end
+
+function FindContentInAddon(the_special_content, in_a_specific_addon)
+    local addons = engine.GetAddons()
+
+    if not the_special_content then
+        for _, addon in ipairs(addons) do
+            local title = addon.title
+            print("\nListing contents:", title)
+            recurseListContents("", title, false)
+        end
+        return
+    end
+
+    local found = {}
+    for _, addon in ipairs(addons) do
+        local title = in_a_specific_addon or addon.title
+        local path = addon.file
+        local pattern = the_special_content:gsub("%*", ".*")
+
+        local files = recurseListContents("", title, false, pattern)
+        if #files > 0 then
+            table.insert(found, {title, files, path})
+        end
+
+        if in_a_specific_addon then break end
+    end
+
+    if #found > 0 then
+        for _, v in ipairs(found) do
+            local matches = #v[2]
+            print(matches.." Match/es found in addon \""..v[1].."\" mounted at "..v[3])
+            for _, filePath in ipairs(v[2]) do
+                print(" - "..filePath)
+            end
+        end
+    else
+        if in_a_specific_addon then
+            print(the_special_content.." not found in "..in_a_specific_addon.."!")
+        else
+            print(" - "..the_special_content.." not found!")
+        end
+    end
+end
+concommand.Add("find_content", function(ply, cmd, args) FindContentInAddon(args[1], args[2]) end)
+	</code>
+	<output>
+```
+] find_content *
+	- lists all content in all addons, wildcards supported :)
+
+] find_content *.lua
+	2 Match/es found in addon "Extended Spawnmenu" mounted at content/4000/104603291/104603291.gma
+		- lua/autorun/rb655_extended_spawnmenu.lua
+		- lua/autorun/rb655_legacy_addon_props.lua
+	9 Match/es found in addon "Seamless Portals" mounted at content/4000/2773737445/gmpublisher.gma
+		- lua/autorun/sh_detours.lua
+		- lua/autorun/sh_portal_movement.lua
+		- lua/autorun/client/cl_render_core.lua
+		- lua/autorun/server/sv_portals_pvs.lua
+		- lua/autorun/server/sv_prop_teleport.lua
+		- lua/entities/seamless_portal.lua
+		- lua/weapons/portal_gun.lua
+		- lua/weapons/gmod_tool/stools/portal_creator_tool.lua
+		- lua/weapons/gmod_tool/stools/portal_resizer_tool.lua
+	7 Match/es found in addon "Track Assembly Tool" mounted at content/4000/287012681/TrackAssemblyTool.gma
+		- lua/autorun/trackassembly_init.lua
+		- lua/autorun/z_autorun_[shinji85_s_rails].lua
+		- lua/entities/gmod_wire_expression2/core/custom/cl_trackasmlib_wire.lua
+		- lua/entities/gmod_wire_expression2/core/custom/trackasmlib_wire.lua
+		- lua/trackassembly/trackasmlib.lua
+		- lua/vgui/dasminsliderbutton.lua
+		- lua/weapons/gmod_tool/stools/trackassembly.lua
+	1 Match/es found in addon "Collision Resizer (ENHANCED)" mounted at cache/workshop/217376234.gma
+		- lua/weapons/gmod_tool/stools/advresizer.lua
+	4 Match/es found in addon "Advanced Material | REBORN" mounted at content/4000/3118788923/gmpublisher.gma
+		- lua/autorun/sh_mateditor_loader.lua
+		- lua/mateditor/sh_advmat_footsteps.lua
+		- lua/mateditor/sh_mateditor.lua
+		- lua/weapons/gmod_tool/stools/advmat.lua
+
+] find_content m_anm.mdl
+1 Match/es found in addon "[wOS] Animation Extension - Base (Full Version)" mounted at content/4000/757604550/wiltos_animation_base.gma
+	- models/m_anm.mdl
+```
+	</output>
+</example>

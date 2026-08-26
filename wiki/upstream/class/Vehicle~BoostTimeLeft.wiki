@@ -1,0 +1,7 @@
+<function name="BoostTimeLeft" parent="Vehicle" type="classfunc">
+	<description>Returns the remaining boosting time left.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">The remaining boosting time left</ret>
+	</rets>
+</function>

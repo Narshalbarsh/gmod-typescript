@@ -1,0 +1,7 @@
+<function name="SetDefaultValue" parent="DNumSlider" type="panelfunc">
+	<description>Sets the default value of the slider, to be used by <page>DNumSlider:ResetToDefaultValue</page> or by middle mouse clicking the draggable knob of the slider.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="default" type="number">The new default value of the slider to set</arg>
+	</args>
+</function>

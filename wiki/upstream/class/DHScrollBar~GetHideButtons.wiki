@@ -1,0 +1,7 @@
+<function name="GetHideButtons" parent="DHScrollBar" type="panelfunc">
+	<description>Returns whether or not the manual left/right scroll buttons are visible or not. Set by <page>DHScrollBar:SetHideButtons</page>.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Whether or not the manual left/right scroll buttons are visible or not.</ret>
+	</rets>
+</function>

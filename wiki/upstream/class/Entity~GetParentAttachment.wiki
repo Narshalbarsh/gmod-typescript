@@ -1,0 +1,14 @@
+<function name="GetParentAttachment" parent="Entity" type="classfunc">
+	<description>
+Returns the attachment/bone index of the entity's parent. Returns 0 if the entity is not parented to an attachment/bone or if it isn't parented at all.
+
+This is set by second argument of <page>Entity:SetParent</page> or the **SetParentAttachment** input.
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">
+The parented attachment/bone index
+<note>Will return bone index instead of attachment index if the **EF_FOLLOWBONE** effect is active on the entity. See <page>Entity:IsEffectActive</page>.</note>
+	</ret>
+	</rets>
+</function>

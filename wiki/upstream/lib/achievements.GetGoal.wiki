@@ -1,0 +1,19 @@
+<function name="GetGoal" parent="achievements" type="libraryfunc">
+	<description>Retrieves the end progress goal of the given achievement.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="achievementID" type="number">The ID of the achievement.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The end progress goal.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints your current progress and the goal for every achievement into the console.</description>
+	<code>
+for i = 1, achievements.Count() - 1 do
+	print( achievements.GetName( i ), achievements.GetCount( i ) .. " / " .. achievements.GetGoal( i ) )
+end
+	</code>
+</example>

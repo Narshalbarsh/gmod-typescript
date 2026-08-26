@@ -1,0 +1,13 @@
+<function name="OnTraceAttack" parent="NEXTBOT" type="hook">
+	<description>
+Called when a trace attack is done against the nextbot, allowing override of the damage being dealt by altering the <page>CTakeDamageInfo</page>.
+
+This is called before <page>NEXTBOT:OnInjured</page>.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="info" type="CTakeDamageInfo">The damage info</arg>
+		<arg name="dir" type="Vector">The direction the damage goes in</arg>
+		<arg name="trace" type="table">The <page>Structures/TraceResult</page> of the attack, containing the hitgroup.</arg>
+	</args>
+</function>

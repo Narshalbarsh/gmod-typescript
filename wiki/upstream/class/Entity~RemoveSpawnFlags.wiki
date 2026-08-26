@@ -1,0 +1,34 @@
+<function name="RemoveSpawnFlags" parent="Entity" type="classfunc">
+	<description>
+Removes a SpawnFlag from the current SpawnFlags of an Entity.
+
+SpawnFlags can easily be found on https://developer.valvesoftware.com/wiki/.
+
+	<note>See also <page>Entity:AddSpawnFlags</page>, <page>Entity:SetSpawnFlags</page>
+
+	Using <page text="SF Enumerations">Enums/SF</page> won't work, if this function is ran clientside due to the enumerations being defined only Serverside. Use the actual SpawnFlag number.
+	</note>
+
+	</description>
+	<added>2024.12.04</added>
+	<realm>Shared</realm>
+	<file line="15-L17">lua/includes/extensions/entity.lua</file>	
+
+	<args>
+		<arg name="flag" type="number">The SpawnFlag to remove from the Entity</arg>
+	</args>
+</function>
+
+<example>
+	<description>When a turret Entity is created, it removes the `Out of Ammo` SpawnFlag, if it has it. Therefore it now has ammo.</description>
+	<code>
+hook.Add( "OnEntityCreated", "RemoveSpawnFlagsExample", function( ent )
+	timer.Simple( 0.1, function()
+		if ( !IsValid(ent) or ent:GetClass() != "npc_turret_floor" ) then return end
+		if ( !ent:HasSpawnFlags(256) ) then return end
+
+		ent:RemoveSpawnFlags(256) -- https://developer.valvesoftware.com/wiki/Npc_turret_floor#Flags
+	end )
+end )
+	</code>
+</example>

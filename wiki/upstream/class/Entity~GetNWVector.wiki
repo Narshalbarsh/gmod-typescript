@@ -1,0 +1,11 @@
+<function name="GetNWVector" parent="Entity" type="classfunc">
+	<description>Retrieves a networked vector value at specified index on the entity that is set by <page>Entity:SetNWVector</page>.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="key" type="string">The key that is associated with the value</arg>
+		<arg name="fallback" type="any" default="Vector( 0, 0, 0 )">The value to return if we failed to retrieve the value. (If it isn't set)</arg>
+	</args>
+	<rets>
+		<ret name="" type="any">The value associated with the key</ret>
+	</rets>
+</function>

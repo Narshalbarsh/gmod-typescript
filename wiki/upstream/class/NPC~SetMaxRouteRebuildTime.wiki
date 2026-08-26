@@ -1,0 +1,7 @@
+<function name="SetMaxRouteRebuildTime" parent="NPC" type="classfunc">
+	<description>Sets how long to try rebuilding path before failing task.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="time" type="number">How long to try rebuilding path before failing task</arg>
+	</args>
+</function>

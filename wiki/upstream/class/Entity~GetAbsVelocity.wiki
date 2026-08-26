@@ -1,0 +1,11 @@
+<function name="GetAbsVelocity" parent="Entity" type="classfunc">
+	<description>
+Returns the entity's velocity.
+
+<note>Actually binds to CBaseEntity::GetLocalVelocity() which retrieves the velocity of the entity due to its movement in the world from forces such as gravity. Does not include velocity from entity-on-entity collision.</note>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Vector">The velocity of the entity.</ret>
+	</rets>
+</function>

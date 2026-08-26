@@ -1,0 +1,95 @@
+<function name="GetTools" parent="spawnmenu" type="libraryfunc">
+	<description>Gets a table of tools on the client.</description>
+	<realm>Client</realm>
+	<file line="28-L30">lua/includes/modules/spawnmenu.lua</file>
+	<rets>
+		<ret name="" type="table">A table with groups of tools, along with information on each tool.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints the output</description>
+	<code>PrintTable( spawnmenu.GetTools() )</code>
+	<output>
+```
+1:
+        Icon    =   icon16/wrench.png
+        Items:
+                1:
+                        1:
+                                CPanelFunction  =   function: 0x341391a8
+                                Command =   gmod_tool axis
+                                Controls    =   axis
+                                ItemName    =   axis
+                                Text    =   #tool.axis.name
+                        2:
+                                CPanelFunction  =   function: 0x341c7368
+                                Command =   gmod_tool ballsocket
+                                Controls    =   ballsocket
+                                ItemName    =   ballsocket
+                                Text    =   #tool.ballsocket.name
+                        3:
+                                CPanelFunction  =   function: 0x343826e8
+                                Command =   gmod_tool elastic
+                                Controls    =   elastic
+                                ItemName    =   elastic
+                                Text    =   #tool.elastic.name
+                        ...
+                        ItemName    =   Constraints
+                        Text    =   #spawnmenu.tools.constraints
+                2:
+                        1:
+                                CPanelFunction  =   function: 0x342138f0
+                                Command =   gmod_tool balloon
+                                Controls    =   balloon
+                                ItemName    =   balloon
+                                Text    =   #tool.balloon.name
+                        2:
+                                CPanelFunction  =   function: 0x340d7628
+                                Command =   gmod_tool button
+                                Controls    =   button
+                                ItemName    =   button
+                                Text    =   #tool.button.name
+                        3:
+                                CPanelFunction  =   function: 0x34302670
+                                Command =   gmod_tool duplicator
+                                Controls    =   duplicator
+                                ItemName    =   duplicator
+                                Text    =   #tool.duplicator.name
+                        ...
+                        ItemName    =   Construction
+                        Text    =   #spawnmenu.tools.construction
+               ...
+        Label   =   #spawnmenu.tools_tab
+        Name    =   AAAAAAA_Main
+2:
+        Icon    =   icon16/page_white_wrench.png
+        Items:
+                1:
+                        1:
+                                CPanelFunction  =   function: 0x34236090
+                                Command =   
+                                Controls    =   
+                                ItemName    =   User_Cleanup
+                                Text    =   #spawnmenu.utilities.cleanup
+                        2:
+                                CPanelFunction  =   function: 0x34236418
+                                Command =   
+                                Controls    =   
+                                ItemName    =   PhysgunSettings
+                                Text    =   #spawnmenu.utilities.physgunsettings
+                        3:
+                                CPanelFunction  =   function: 0x34232640
+                                Command =   
+                                Controls    =   
+                                ItemName    =   Undo
+                                Text    =   #spawnmenu.utilities.undo
+                        ItemName    =   User
+                        Text    =   #spawnmenu.utilities.user
+               ...
+        Label   =   #spawnmenu.utilities_tab
+        Name    =   Utilities
+```
+	</output>
+
+</example>

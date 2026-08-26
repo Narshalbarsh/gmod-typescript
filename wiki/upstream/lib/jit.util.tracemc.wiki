@@ -1,0 +1,14 @@
+<function name="util.tracemc" parent="jit" type="libraryfunc">
+	<description><deprecated>This function was disabled due to security concerns. It will always return 3 `0`s.</deprecated>
+
+</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="tr" type="number"></arg>
+	</args>
+	<rets>
+		<ret name="" type="string">mcode</ret>
+		<ret name="" type="number">address</ret>
+		<ret name="" type="number">loop</ret>
+	</rets>
+</function>

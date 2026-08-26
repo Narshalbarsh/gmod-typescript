@@ -1,0 +1,37 @@
+<function name="Mesh" parent="Global" type="libraryfunc">
+	<description>Returns a new static mesh object.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="mat" type="IMaterial" default="nil">The material the mesh is intended to be rendered with. It's merely a hint that tells that mesh what vertex format it should use.</arg>
+		<arg name="boneWeights" type="number" default="0">Number of bone weights per vertex. This value can be set to 2 to enable skinning and rendering via <page>IMesh:DrawSkinned</page>. This was recently added and is only available on the <page>Dev Branch</page> right now.</arg>
+	</args>
+	<rets>
+		<ret name="" type="IMesh">The created object.</ret>
+	</rets>
+</function>
+
+<note> This function does not work with "WorldVertexTransition" materials, UnlitGeneric works, however VertexLitGeneric suffers shading issues as well.</note>
+
+<example>
+	<description>Draws a triangle near Vector( 0, 0, 0 ) in the map.</description>
+	<code>
+local mat = Material( "editor/wireframe" ) -- The material (a wireframe)
+local obj = Mesh() -- Create the IMesh object
+
+local verts = { -- A table of 3 vertices that form a triangle
+	{ pos = Vector( 0,  0,  0 ), u = 0, v = 0 }, -- Vertex 1
+	{ pos = Vector( 10, 0,  0 ), u = 1, v = 0 }, -- Vertex 2
+	{ pos = Vector( 10, 10, 0 ), u = 1, v = 1 }, -- Vertex 3
+}
+
+obj:BuildFromTriangles( verts ) -- Load the vertices into the IMesh object
+
+hook.Add( "PostDrawOpaqueRenderables", "IMeshTest", function()
+
+	render.SetMaterial( mat ) -- Apply the material
+	obj:Draw() -- Draw the mesh
+
+end )
+	</code>
+
+</example>

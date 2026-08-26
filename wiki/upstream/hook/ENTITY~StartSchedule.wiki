@@ -1,0 +1,14 @@
+<function name="StartSchedule" parent="ENTITY" type="hook">
+	<description>
+Starts a schedule previously created by <page>ai_schedule.New</page>.
+
+Not to be confused with <page>ENTITY:StartEngineSchedule</page> or <page>NPC:SetSchedule</page> which start an Engine-based schedule.
+
+<note>This is a helper function only available if your SENT is based on `base_ai`</note>
+	</description>
+	<realm>Server</realm>
+	<file line="50">gamemodes/base/entities/entities/base_ai/schedules.lua</file>
+	<args>
+		<arg name="sched" type="Schedule">Schedule to start.</arg>
+	</args>
+</function>

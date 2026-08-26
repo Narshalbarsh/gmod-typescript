@@ -1,0 +1,70 @@
+<function name="AnimRestartGesture" parent="Player" type="classfunc">
+	<description>
+Restart a gesture on a player, within a gesture slot.
+
+<warning>This is not automatically networked. This function has to be called on the client to be seen by said client.</warning>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="slot" type="number">Gesture slot using <page>Enums/GESTURE_SLOT</page></arg>
+		<arg name="activity" type="number">The activity ( see <page>Enums/ACT</page> ) or sequence that should be played</arg>
+		<arg name="autokill" type="boolean" default="false">Whether the animation should be automatically stopped. true = stops the animation, false = the animation keeps playing/looping</arg>
+	</args>
+</function>
+
+<example>
+	<description>Defines part of a SWEP with pistol whipping functionality by using a pistol hold type and AnimRestartGesture for the melee attack animation.</description>
+	<code>
+function SWEP:Initialize()
+	self:SetHoldType("pistol")
+end
+
+function SWEP:PrimaryAttack()
+
+	-- Weapon attack delay
+	self:SetNextPrimaryFire(CurTime()+0.5)
+
+	-- Get entity in front of us
+	local tr = util.TraceLine(util.GetPlayerTrace(self:GetOwner()))
+	
+	local ent = tr.Entity
+	
+	-- If there's an enemy under 50 units in front of us
+	if(IsValid(ent) && self:GetOwner():GetShootPos():Distance(tr.HitPos) < 50) then
+	
+		-- Play the melee attack animation
+		self:GetOwner():AnimRestartGesture(GESTURE_SLOT_ATTACK_AND_RELOAD, ACT_HL2MP_GESTURE_RANGE_ATTACK_MELEE, true)
+		
+		-- Create damage info (server-side)
+		if SERVER then
+		
+			local dmg = DamageInfo()		
+			dmg:SetDamage(math.random(5, 10))
+			dmg:SetAttacker(self:GetOwner())
+			dmg:SetInflictor(self)
+			dmg:SetDamageForce(self:GetOwner():GetAimVector()*300)
+			dmg:SetDamagePosition(tr.HitPos)
+			dmg:SetDamageType(DMG_CLUB)
+		
+			-- Apply damage to enemy
+			ent:TakeDamageInfo(dmg)
+			
+		end
+		
+		-- Play impact sound
+		ent:EmitSound("physics/flesh/flesh_impact_bullet"..math.random(1, 5)..".wav")
+		
+		-- Make viewmodel pistol whip effect
+		self:GetOwner():ViewPunch(Angle(0, 45, 0))
+		
+	else
+	
+		-- Typical pistol shot code goes here
+		-- Some can be found in 'weapon_base/shared.lua'
+	
+	end
+	
+end
+	</code>
+
+</example>

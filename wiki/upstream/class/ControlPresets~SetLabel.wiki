@@ -1,0 +1,8 @@
+<function name="SetLabel" parent="ControlPresets" type="panelfunc">
+	<description>Set the name label text.</description>
+	<realm>Client</realm>
+	<file line="42-L46">gamemodes/sandbox/gamemode/spawnmenu/controls/control_presets.lua</file>
+	<args>
+		<arg name="name" type="string">The text to put in the label</arg>
+	</args>
+</function>

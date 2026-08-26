@@ -1,0 +1,18 @@
+<function name="ServerFrameTime" parent="engine" type="libraryfunc">
+	<description>Returns an estimate of the server's performance. Equivalent to calling <page>Global.FrameTime</page> from the server, according to source code.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">Frame time.</ret>
+		<ret name="" type="number">Server framerate [standard deviation](https://en.wikipedia.org/wiki/Standard_deviation).</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Get the servers tickrate. Can be used to indicate lag.</description>
+	<code>print( "Server Tick: " .. ( 1 / engine.ServerFrameTime() ) )</code>
+	<output>
+```
+Server Tick: 66.666668156783
+```
+	</output>
+</example>

@@ -1,0 +1,11 @@
+<function name="GetUp" parent="VMatrix" type="classfunc">
+	<description>
+Gets the up direction of the matrix.
+
+ie. The third column of the matrix, excluding the w coordinate.
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Vector">The up direction of the matrix.</ret>
+	</rets>
+</function>

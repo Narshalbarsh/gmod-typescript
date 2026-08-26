@@ -1,0 +1,22 @@
+<function name="IsWindowed" parent="system" type="libraryfunc">
+	<description>
+Returns whether the game is being run in a window or in fullscreen (you can change this by opening the menu, clicking 'Options', then clicking the 'Video' tab, and changing the Display Mode using the dropdown menu):
+
+<image src="DisplayModeDropdown.jpeg"/>
+	</description>
+	<realm>Client and Menu</realm>
+	<info>Returns true if the game is currently running windowed, false if it is fullscreen.</info>
+	<rets>
+		<ret name="" type="boolean">Is the game running in a window?</ret>
+	</rets>
+</function>
+
+<example>
+	<description>If the game is windowed, then the game window will flash</description>
+	<code>
+if system.IsWindowed() then
+	system.FlashWindow()
+end
+	</code>
+
+</example>

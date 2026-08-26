@@ -1,0 +1,9 @@
+<function name="PreRestore" parent="saverestore" type="libraryfunc">
+	<description>
+<internal></internal>
+
+Called by the engine just before <page>saverestore.LoadGlobal</page> is.
+	</description>
+	<realm>Shared</realm>
+	<file line="55-L60">lua/includes/modules/saverestore.lua</file>
+</function>

@@ -1,0 +1,7 @@
+<function name="SetAngles" parent="CEffectData" type="classfunc">
+	<description>Sets the angles of the effect.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="ang" type="Angle">The new angles to be set.</arg>
+	</args>
+</function>

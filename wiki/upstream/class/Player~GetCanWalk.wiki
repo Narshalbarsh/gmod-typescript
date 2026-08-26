@@ -1,0 +1,7 @@
+<function name="GetCanWalk" parent="Player" type="classfunc">
+	<description>Returns true if the player is able to walk using the (default) alt key.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">AbleToWalk</ret>
+	</rets>
+</function>

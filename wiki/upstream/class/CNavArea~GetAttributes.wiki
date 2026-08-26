@@ -1,0 +1,10 @@
+<function name="GetAttributes" parent="CNavArea" type="classfunc">
+	<description>Returns the attribute mask for the given <page>CNavArea</page>.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">Attribute mask for this <page>CNavArea</page>, see <page>Enums/NAV_MESH</page> for the specific flags.
+
+
+<note>A navmesh that was generated with nav_quicksave set to 1 will have all <page>CNavArea</page>s attribute masks set to 0</note></ret>
+	</rets>
+</function>

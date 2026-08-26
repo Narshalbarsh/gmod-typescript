@@ -1,0 +1,53 @@
+<function name="GetAll" parent="player" type="libraryfunc">
+	<description>
+Gets all the current players in the server (not including connecting clients).
+
+This function returns bots as well as human players. See <page>player.GetBots</page> and  <page>player.GetHumans</page>.
+
+<note>This function returns a sequential table, meaning it should be looped with <page>Global.ipairs</page> instead of <page>Global.pairs</page> for efficiency reasons.</note>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="table<Player>">All <page>Player</page>s currently in the server.</ret>
+	</rets>
+</function>
+
+
+<example>
+	<description>Prints all the players currently in the server.</description>
+	<code>PrintTable( player.GetAll() )</code>
+	<output>
+```
+1 = [Player][1][Player1]
+2 = [Player][2][Bot01]
+3 = [Player][3][Bot02]
+```
+	</output>
+
+</example>
+
+<example>
+	<description>Prints the number of players in the server. The same output can be achieved more efficiently with <page>player.GetCount</page>.</description>
+	<code>print(#player.GetAll())</code>
+	<output>
+```
+3
+```
+	</output>
+
+</example>
+
+<example>
+	<description>The output of the players name in the console.</description>
+	<code>for i, v in ipairs( player.GetAll() ) do
+    print( v:Nick() )
+end</code>
+	<output>
+```
+Player1
+Player2
+Player3
+```
+	</output>
+
+</example>

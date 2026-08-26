@@ -1,0 +1,11 @@
+<function name="DestroyShadow" parent="Entity" type="classfunc">
+	<description>
+Removes the shadow for the entity.
+
+The shadow will be recreated as soon as the entity wakes.
+
+<note>
+Doesn't affect shadows from flashlight/lamps/env_projectedtexture.</note>
+	</description>
+	<realm>Client</realm>
+</function>

@@ -1,0 +1,31 @@
+<function name="DoImpactEffect" parent="WEAPON" type="hook">
+	<description>Called so the weapon can override the impact effects it makes.
+<note>If the bullet was fired in a predicted environment, the hook will not be called on the `CLIENT` realm. </note>
+<note>This hook will also be called when `WEAPON:GetOwner():FireBullets` is called. While in `MULTIPLAYER`, this hook will be called on the respective state, but in `SINGLEPLAYER`, this hook will always be called on the `CLIENT` realm even if `FireBullets` was called on the `SERVER`. </note>
+</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="tr" type="table">A <page>Structures/TraceResult</page> from player's eyes to the impact point</arg>
+		<arg name="damageType" type="number">The damage type of bullet. See <page>Enums/DMG</page></arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return true to not do the default thing - which is to call `UTIL_ImpactTrace` in C++</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Makes the SWEP have the AR2 bullet impact effect.</description>
+	<code>
+function SWEP:DoImpactEffect( tr, nDamageType )
+
+	if ( tr.HitSky ) then return end
+	
+	local effectdata = EffectData()
+	effectdata:SetOrigin( tr.HitPos + tr.HitNormal )
+	effectdata:SetNormal( tr.HitNormal )
+	util.Effect( "AR2Impact", effectdata )
+
+end
+	</code>
+
+</example>

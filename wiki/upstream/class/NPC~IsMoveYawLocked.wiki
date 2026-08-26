@@ -1,0 +1,8 @@
+<function name="IsMoveYawLocked" parent="NPC" type="classfunc">
+	<description>Returns if the current movement is locked on the Yaw axis.</description>
+	<realm>Server</realm>
+	<added>2021.03.31</added>
+	<rets>
+		<ret name="" type="boolean">Whether the movement is yaw locked or not.</ret>
+	</rets>
+</function>

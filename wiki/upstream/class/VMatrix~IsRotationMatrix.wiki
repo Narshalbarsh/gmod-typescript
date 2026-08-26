@@ -1,0 +1,11 @@
+<function name="IsRotationMatrix" parent="VMatrix" type="classfunc">
+	<description>
+Returns whether the matrix is a rotation matrix or not.
+
+Technically it checks if the forward, right and up vectors are orthogonal and normalized.
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">Is the matrix a rotation matrix or not</ret>
+	</rets>
+</function>

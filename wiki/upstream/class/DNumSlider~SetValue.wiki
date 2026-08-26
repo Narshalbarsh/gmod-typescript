@@ -1,0 +1,7 @@
+<function name="SetValue" parent="DNumSlider" type="panelfunc">
+	<description>Sets the value of the <page>DNumSlider</page>.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="val" type="number">The value to set.</arg>
+	</args>
+</function>

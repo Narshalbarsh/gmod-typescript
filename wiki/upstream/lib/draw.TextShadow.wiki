@@ -1,0 +1,18 @@
+<function name="TextShadow" parent="draw" type="libraryfunc">
+	<description>
+Works like <page>draw.Text</page>, but draws the text with a shadow.
+
+<rendercontext hook="false" type="2D"></rendercontext>
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="279-L295">lua/includes/modules/draw.lua</file>
+	<args>
+		<arg name="textdata" type="table">The text properties. See <page>Structures/TextData</page>.</arg>
+		<arg name="distance" type="number">How far away the shadow appears.</arg>
+		<arg name="alpha" type="number" default="200">How visible the shadow is (0-255).</arg>
+	</args>
+	<rets>
+		<ret name="textWidth" type="number">The width of drawn text.</ret>
+		<ret name="textHeight" type="number">The height of drawn text.</ret>
+	</rets>
+</function>

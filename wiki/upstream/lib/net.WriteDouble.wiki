@@ -1,0 +1,7 @@
+<function name="WriteDouble" parent="net" type="libraryfunc">
+	<description>Appends a double-precision number to the current net message.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="double" type="number">The double to be sent</arg>
+	</args>
+</function>

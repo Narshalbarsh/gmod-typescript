@@ -1,0 +1,8 @@
+<function name="GetCreator" parent="Entity" type="classfunc">
+	<description>Gets the creator of the SENT.</description>
+	<realm>Server</realm>
+	<file line="81-L83">lua/includes/extensions/entity.lua</file>
+	<rets>
+		<ret name="" type="Player">The creator, NULL for no creator.</ret>
+	</rets>
+</function>

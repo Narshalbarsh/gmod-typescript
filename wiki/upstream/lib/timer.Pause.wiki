@@ -1,0 +1,7 @@
+<function name="Pause" parent="timer" type="libraryfunc">
+	<description>Pauses the given timer.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="identifier" type="any">Identifier of the timer.</arg>
+	</args>
+</function>

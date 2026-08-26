@@ -1,0 +1,4 @@
+<function name="RagdollUpdatePhysics" parent="Entity" type="classfunc">
+	<description>Makes the physics objects follow the set bone positions. This is used alongside Kinect in <page>Entity:SetRagdollBuildFunction</page>, for more info see ragdoll_motion entity.</description>
+	<realm>Server</realm>
+</function>

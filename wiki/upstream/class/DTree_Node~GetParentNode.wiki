@@ -1,0 +1,7 @@
+<function name="GetParentNode" parent="DTree_Node" type="panelfunc">
+	<description>Returns the parent <page>DTree_Node</page>. Note that <page>Panel:GetParent</page> will not be the same!</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="Panel">The parent node.</ret>
+	</rets>
+</function>

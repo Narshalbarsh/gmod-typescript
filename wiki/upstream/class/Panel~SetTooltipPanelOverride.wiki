@@ -1,0 +1,46 @@
+<function name="SetTooltipPanelOverride" parent="Panel" type="classfunc">
+	<file line="316-L318">lua/includes/extensions/client/panel.lua</file>
+	<description>
+Sets the panel class to be created instead of <page>DTooltip</page> when the player hovers over this panel and a tooltip needs creating.
+	</description>
+	<realm>Client and Menu</realm>
+	<added>2020.04.29</added>
+	<args>
+		<arg name="override" type="string">The panel class to override the default <page>DTooltip</page>. The new panel class must have the following methods:
+* <page text="SetText">Panel:SetText</page> - If you are using <page>Panel:SetTooltip</page>.
+* <page text="SetContents">DTooltip:SetContents</page> - If you are using <page>Panel:SetTooltipPanel</page>.
+* <page text="OpenForPanel">DTooltip:OpenForPanel</page> - A "hook" type function that gets called shortly after creation (and after the above 2) to open and position the tooltip. You can see this logic in `lua/includes/util/tooltips.lua`.
+</arg>
+	</args>
+</function>
+
+
+<example>
+	<description>Create a custom drawn tooltip.</description>
+	<code>
+local PANEL = {}
+function PANEL:Paint( w, h )
+	-- My fancy white background
+	draw.RoundedBox( 5, 0, 0, w, h, Color( 255, 255, 255, 255 ) )
+end
+vgui.Register( "MyCustomTooltipPanel", PANEL, "DTooltip" )
+
+concommand.Add( "test_custom_tooltip", function( ply )
+	local DFrame = vgui.Create( "DFrame" )
+	DFrame:SetSize( 200, 200 )
+	DFrame:Center()
+	DFrame:MakePopup()
+
+	local btn = DFrame:Add( "DButton" )
+	btn:SetPos( 20, 40 )
+	btn:SetSize( 100, 64 )
+	btn:SetText( "Hover over me!" )
+	btn:SetTooltip( "I am the tooltip text with a custom panel!" )
+	btn:SetTooltipPanelOverride( "MyCustomTooltipPanel" )
+
+end )
+	</code>
+	<output>
+<upload src="70c/8de029f2c873514.png" size="36982" name="image.png" />
+</output>
+</example>

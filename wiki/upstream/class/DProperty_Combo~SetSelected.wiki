@@ -1,0 +1,20 @@
+<function name="SetSelected" parent="DProperty_Combo" type="panelfunc">
+	<description>Set the selected option.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="Id" type="number">Id of the choice to be selected.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Set the second option selected.</description>
+	<code>
+local choice = DP:CreateRow( "Choices", "Hello world" )
+choice:Setup( "Combo" )
+choice:AddChoice( "Choice #1", {} )
+choice:AddChoice( "Choice #2", 8 )
+choice:AddChoice( "Choice #3", "Hello world", true )
+choice:SetSelected( 2 ) -- Even if "Choice #3" is selected by default, "Choice #2" will be selected.
+	</code>
+
+</example>

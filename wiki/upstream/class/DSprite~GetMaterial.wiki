@@ -1,0 +1,7 @@
+<function name="GetMaterial" parent="DSprite" type="panelfunc">
+	<description>Gets the material the sprite is using.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="IMaterial">The material in use.</ret>
+	</rets>
+</function>

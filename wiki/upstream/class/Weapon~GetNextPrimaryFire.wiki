@@ -1,0 +1,7 @@
+<function name="GetNextPrimaryFire" parent="Weapon" type="classfunc">
+	<description>Gets the next time the weapon can primary fire. ( Can call <page>WEAPON:PrimaryAttack</page> )</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The time, relative to <page>Global.CurTime</page></ret>
+	</rets>
+</function>

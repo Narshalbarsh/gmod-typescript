@@ -1,0 +1,63 @@
+<function name="SetRGB" parent="DRGBPicker" type="panelfunc">
+	<description>
+Sets the color stored in the color picker.
+
+<note>This function is meant to be called internally and will not update the position of the color picker line or call <page>DRGBPicker:OnChange</page></note>
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="color" type="Color">The color to set, see <page>Color</page>.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Defines a new function SetColor which will allow proper modification of the color picker directly.</description>
+	<code>
+-- Background panel
+BGPanel = vgui.Create("DPanel")
+BGPanel:SetSize(100, 200)
+BGPanel:Center()
+
+-- Color picker
+local color_picker = vgui.Create("DRGBPicker", BGPanel)
+color_picker:SetSize(30, 150)
+color_picker:Center()
+
+-- Custom function that sets color picker position and updates color
+function color_picker:SetColor(col)
+
+	-- Get hue
+	local h = ColorToHSV(col)
+	
+	-- Maximize saturation and vibrance
+	col = HSVToColor(h, 1, 1)
+
+	-- Set color var
+	self:SetRGB(col)
+	
+	-- Calculate position of color picker line
+	local _, height = self:GetSize()
+	self.LastY = height*(1-(h/360))
+	
+	-- Register that a change has occured
+	self:OnChange(self:GetRGB())
+
+end
+
+-- Update background color
+function color_picker:OnChange(col)
+
+	BGPanel:SetBackgroundColor(col)
+
+end
+
+-- Set to random color every second for 10 seconds
+timer.Create("RandomizeColorPicker", 1, 10, function ()
+
+	color_picker:SetColor(Color(math.random(0, 255), math.random(0, 255), math.random(0, 255), 255))
+	
+end)
+	</code>
+	<output><image src="DRGBPicker_SetRGB_example1.gif"/></output>
+
+</example>

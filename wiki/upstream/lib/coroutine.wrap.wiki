@@ -1,0 +1,49 @@
+<function name="wrap" parent="coroutine" type="libraryfunc">
+	<description>Returns a function which calling is equivalent with calling <page>coroutine.resume</page> with the coroutine and all extra parameters.
+
+The values returned by the returned function only contain the values passed to the inner <page>coroutine.yield</page> call and do not include the *no error* status that <page>coroutine.resume</page> provides. In case of failure, an error is thrown instead.
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="coroutine" type="function">Coroutine to resume.</arg>
+	</args>
+	<rets>
+		<ret name="" type="function"></ret>
+	</rets>
+</function>
+
+<example>
+	<description>Performs a standard HTTP request while waiting for the server response to continue executing the code. Useful to improve the readability of the code and avoid using callback functions.</description>
+	<code>
+local function HTTPRequest( url, headers )
+    local running = coroutine.running()
+
+    local function onSuccess( body, length, header, code )
+        coroutine.resume( running, true, body )
+    end
+
+    local function onFailure( err )
+        coroutine.resume( running, false, err )
+    end
+
+    http.Fetch( url, onSuccess, onFailure, headers )
+
+    return coroutine.yield()
+end
+
+coroutine.wrap( function()
+    local state, response = HTTPRequest( "https://www.google.com/" )
+
+    if state then
+        -- Success!
+        print( "HTTP body:" .. response )
+    else
+        -- Error(?)
+        print( "HTTP request error: " .. response )
+    end
+
+	-- Important code to be performed after the request is completed..
+end )()
+</code>
+	<output>The body of the HTTP page if the request was successful, otherwise the error code in case of failure.</output>
+</example>

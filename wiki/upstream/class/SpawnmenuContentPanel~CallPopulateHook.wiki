@@ -1,0 +1,17 @@
+<function name="CallPopulateHook" parent="SpawnmenuContentPanel" type="panelfunc">
+	<description>
+Changes the Spawnmenu category to search in
+	</description>
+	<args>
+		<arg name="hookname" type="string">The Hook name</arg>
+	</args>
+	<realm>Client</realm>
+	<file line="52-L56">gamemodes/sandbox/gamemode/spawnmenu/creationmenu/content/content.lua</file>
+</function>
+
+<example>
+	<code>
+local ctrl = vgui.Create( "SpawnmenuContentPanel" )
+ctrl:CallPopulateHook( "PopulateWeapons" )
+	</code>
+</example>

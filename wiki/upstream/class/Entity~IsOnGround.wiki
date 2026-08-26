@@ -1,0 +1,23 @@
+<function name="IsOnGround" parent="Entity" type="classfunc">
+	<description>
+Returns whether the entity is on ground or not.
+
+Internally, this checks if <page text="FL_ONGROUND">Enums/FL</page> is set on the entity.
+
+This function is an alias of <page>Entity:OnGround</page>.
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the entity is on ground or not.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Demonstrates the use of this function.</description>
+	<code>
+print( Entity( 1 ):IsOnGround() )
+print( IsValid( Entity( 1 ):GetGroundEntity() ) ) -- This should give the exact output as the first line
+	</code>
+	<output>Outputs 'true' to the console if the player 1 is on ground.</output>
+
+</example>

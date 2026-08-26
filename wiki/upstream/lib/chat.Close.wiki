@@ -1,0 +1,4 @@
+<function name="Close" parent="chat" type="libraryfunc">
+	<description>Closes the chat window.</description>
+	<realm>Client</realm>
+</function>

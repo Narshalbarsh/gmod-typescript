@@ -1,0 +1,7 @@
+<function name="WriteByte" parent="File" type="classfunc">
+	<description>Write an 8-bit unsigned integer to the file.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="uint8" type="number">The 8-bit unsigned integer to be written to the file.</arg>
+	</args>
+</function>

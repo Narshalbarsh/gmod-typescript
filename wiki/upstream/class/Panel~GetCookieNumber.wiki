@@ -1,0 +1,16 @@
+<function name="GetCookieNumber" parent="Panel" type="classfunc">
+	<file line="202-L209">lua/includes/extensions/client/panel.lua</file>
+	<description>
+Gets the value of a cookie stored by the panel object, as a number. This can also be done with <page>cookie.GetNumber</page>, using the panel's cookie name, a fullstop, and then the actual name of the cookie.
+
+Make sure the panel's cookie name has not changed since writing, or the cookie will not be accessible. This can be done with <page>Panel:GetCookieName</page> and <page>Panel:SetCookieName</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="cookieName" type="string">The name of the cookie from which to retrieve the value.</arg>
+		<arg name="default" type="number">The default value to return if the cookie does not exist.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The number value of the stored cookie, or the default value should the cookie not exist.</ret>
+	</rets>
+</function>

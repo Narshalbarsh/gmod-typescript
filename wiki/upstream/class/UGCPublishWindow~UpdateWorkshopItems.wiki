@@ -1,0 +1,4 @@
+<function name="UpdateWorkshopItems" parent="UGCPublishWindow" type="panelfunc">
+	<description>updated the Workshop items list.</description>
+	<realm>Menu</realm>
+</function>

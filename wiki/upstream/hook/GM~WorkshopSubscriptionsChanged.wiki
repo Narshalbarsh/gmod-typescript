@@ -1,0 +1,4 @@
+<function name="WorkshopSubscriptionsChanged" parent="GM" type="hook">
+	<description>Called when UGC subscription status changes.</description>
+	<realm>Menu</realm>
+</function>

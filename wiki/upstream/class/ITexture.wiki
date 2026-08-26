@@ -1,0 +1,8 @@
+<type name="ITexture" category="classfunc" is="class">
+	<summary>An object representing game texture, such as those loaded from a `.vtf` file.
+
+Do not confuse with <page>IMaterial</page>. Materials use textures. Game uses materials.
+
+Returned by <page>IMaterial:GetTexture</page>
+</summary>
+</type>

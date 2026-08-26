@@ -1,0 +1,7 @@
+<function name="SetName" parent="Panel" type="classfunc">
+	<description>Sets the internal name of the panel. Can be retrieved with <page>Panel:GetName</page>.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="name" type="string">The new name of the panel.</arg>
+	</args>
+</function>

@@ -1,0 +1,33 @@
+<function name="MouthMoveAnimation" parent="GM" type="hook">
+	<description>Override this gamemode function to disable mouth movement when talking on voice chat. By default, it is not called anywhere on the server.</description>
+	<realm>Shared</realm>
+	<file line="276-L294">gamemodes/base/gamemode/animations.lua</file>
+	<args>
+		<arg name="ply" type="Player">Player in question</arg>
+	</args>
+</function>
+
+<example>
+	<description>The default functionality taken from the base gamemode.</description>
+<code>
+function GM:MouthMoveAnimation( ply )
+
+	local flexes = {
+		ply:GetFlexIDByName( "jaw_drop" ),
+		ply:GetFlexIDByName( "left_part" ),
+		ply:GetFlexIDByName( "right_part" ),
+		ply:GetFlexIDByName( "left_mouth_drop" ),
+		ply:GetFlexIDByName( "right_mouth_drop" )
+	}
+
+	local weight = ply:IsSpeaking() && math.Clamp( ply:VoiceVolume() * 2, 0, 2 ) || 0
+
+	for k, v in pairs( flexes ) do
+
+		ply:SetFlexWeight( v, weight )
+
+	end
+
+end
+</code>
+</example>

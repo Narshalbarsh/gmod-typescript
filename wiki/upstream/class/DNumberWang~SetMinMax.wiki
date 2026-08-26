@@ -1,0 +1,8 @@
+<function name="SetMinMax" parent="DNumberWang" type="panelfunc">
+	<description>Sets the minimum and maximum value allowed by the number selector.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="min" type="number">The minimum value.</arg>
+		<arg name="max" type="number">The maximum value.</arg>
+	</args>
+</function>

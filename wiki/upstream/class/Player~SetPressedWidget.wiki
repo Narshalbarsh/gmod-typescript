@@ -1,0 +1,11 @@
+<function name="SetPressedWidget" parent="Player" type="classfunc">
+	<description>
+Sets the widget that is currently in use by the player's mouse.
+
+Having a pressed widget stops the player from firing their weapon to allow input to be passed onto the widget.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="pressedWidget" type="Entity" default="NULL">The widget the player is currently using.</arg>
+	</args>
+</function>

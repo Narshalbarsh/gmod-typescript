@@ -1,0 +1,8 @@
+<function name="SetMaterial" parent="ContentIcon" type="panelfunc">
+	<description>Sets the material to be displayed as the content icon.</description>
+	<realm>Client</realm>
+	<file line="66-L88">gamemodes/sandbox/gamemode/spawnmenu/creationmenu/content/contenticon.lua</file>
+	<args>
+		<arg name="path" type="string">Path to the icon to use.</arg>
+	</args>
+</function>

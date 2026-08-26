@@ -1,0 +1,3 @@
+<type name="ai" category="libraryfunc" is="library">
+	<summary>The ai library.</summary>
+</type>

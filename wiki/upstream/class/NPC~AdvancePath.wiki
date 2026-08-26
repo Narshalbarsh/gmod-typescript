@@ -1,0 +1,29 @@
+<function name="AdvancePath" parent="NPC" type="classfunc">
+	<description>Advances the NPC on its path to the next waypoint. 
+<warning>Calling this on an NPC without any route will result in an instant crash.</warning> 
+</description>
+	<realm>Server</realm>
+	<added>2023.12.11</added>
+</function>
+
+<example>
+	<description>Make your scripted NPC advance to the next waypoint without exactly having to step on the node, making it advance when the NPC's hull is nearby.</description>
+	<code>
+function ENT:OverrideMode(flInterval)
+	local vecCurWaypoint = self:GetCurWaypointPos()
+	if !vecCurWaypoint:IsZero() then 
+		local threshold = self:BoundingRadius() or 1 
+		local curDistance = self:GetPos():Distance(vecCurWaypoint) 
+		if curDistance < threshold then 
+			if !self:GetNextWaypointPos():IsZero() then 
+				self:AdvancePath() 
+			else 
+				self:ClearGoal() 
+				self:OnMovementComplete() 
+			end 
+		end 
+	end 
+end 
+	</code>
+
+</example>

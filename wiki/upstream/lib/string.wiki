@@ -1,0 +1,36 @@
+<type name="string" category="libraryfunc" is="library">
+	<summary>The string *type* is a sequence of characters.
+
+The string *library* is a standard Lua library which provides functions for the manipulation of strings.[[1]](https://www.lua.org/pil/20.html)
+
+In Garry's Mod there are several extra useful functions and features added to this library.<br/>
+Most notably all strings will access this library through the string metatable index function.[[2]](https://github.com/Facepunch/garrysmod/blob/master/garrysmod/lua/includes/extensions/string.lua#L311-L322)
+
+This means all strings are treated like table objects and the string library as its <page text="Meta Table">Meta_Tables</page>
+
+```lua
+local x = "Kittens"
+function string.Foobar(self) return self:Right(4) end
+
+string.Right(x,4) == x:Right(4) == x:Foobar() == ("Kittens"):Right(4) == x[-4]..x[-3]..x[-2]..x[-1]
+```
+
+
+The string *metatable* however is something else, and to access that you must use `getmetatable("")`.
+
+The difference here is related to <page>Metamethods</page>, such as using (+) instead of (..) to concatenate strings.
+<warning>Using `+` operator for concatenation breaks lua metamethod to sum string as numbers (Example: `"10" + "1"` return `11` (number)) and this is 400 times SLOWER!</warning>
+
+```lua
+local stringmeta = getmetatable("")
+function stringmeta.__add(str,x) return str..x end -- This will work
+function string.__add(str,x) return str..x end -- But this will not.
+
+print("Kittens" + " And " + "Puppies")
+```
+
+See <page>Meta Tables</page> and <page>Metamethods</page> for more information.
+<warning>Making changes to the string *metatable* is not a good idea unless you know what you are doing. Use the string *library* instead.</warning>
+
+This category lists functions available in the string *library*.</summary>
+</type>

@@ -1,0 +1,12 @@
+<function name="ParentToHUD" parent="Panel" type="classfunc">
+	<description>
+Parents the panel to the HUD.
+Makes it invisible on the escape-menu and disables controls.
+	</description>
+	<realm>Client</realm>
+</function>
+
+<example>
+	<code>Panel:ParentToHUD()</code>
+
+</example>

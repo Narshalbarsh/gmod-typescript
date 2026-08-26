@@ -1,0 +1,10 @@
+<function name="PreAutoRefresh" parent="PANEL" type="hook">
+	<description>
+Only works on elements defined with <page>derma.DefineControl</page> and only if the panel has **AllowAutoRefresh** set to true.
+
+Called when <page>derma.DefineControl</page> is called with this panel's class name before applying changes to this panel.
+
+See also <page>PANEL:PostAutoRefresh</page>
+	</description>
+	<realm>Client</realm>
+</function>

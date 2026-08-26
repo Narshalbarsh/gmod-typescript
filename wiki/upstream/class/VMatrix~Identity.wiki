@@ -1,0 +1,4 @@
+<function name="Identity" parent="VMatrix" type="classfunc">
+	<description>Initializes the matrix as Identity matrix.</description>
+	<realm>Shared</realm>
+</function>

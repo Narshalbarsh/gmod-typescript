@@ -1,0 +1,8 @@
+<function name="GetUserGroup" parent="Player" type="classfunc">
+	<description>Returns the player's user group. By default, player user groups are loaded from `garrysmod/settings/users.txt`.</description>
+	<realm>Shared</realm>
+	<file line="44-L48">lua/includes/extensions/player_auth.lua</file>
+	<rets>
+		<ret name="" type="string">The user group of the player. This will return `"user"` if player has no user group.</ret>
+	</rets>
+</function>

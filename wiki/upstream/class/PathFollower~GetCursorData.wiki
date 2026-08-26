@@ -1,0 +1,14 @@
+<function name="GetCursorData" parent="PathFollower" type="classfunc">
+	<description>Returns the cursor data</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="table">A table with 3 keys:
+<page>number</page> curvature
+
+
+<page>Vector</page> forward
+
+
+<page>Vector</page> pos</ret>
+	</rets>
+</function>

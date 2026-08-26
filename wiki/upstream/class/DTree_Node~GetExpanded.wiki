@@ -1,0 +1,8 @@
+<function name="GetExpanded" parent="DTree_Node" type="panelfunc">
+	<description>Returns whether the node is expanded or not.</description>
+	<realm>Client and Menu</realm>
+	<added>2021.03.31</added>
+	<rets>
+		<ret name="" type="boolean">Expanded or not.</ret>
+	</rets>
+</function>

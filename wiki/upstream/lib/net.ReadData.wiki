@@ -1,0 +1,14 @@
+<function name="ReadData" parent="net" type="libraryfunc">
+	<description>
+Reads pure binary data from the message.
+
+<warning>You **must** read information in same order as you write it.</warning>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="length" type="number">The length of the data to be read, in **bytes**.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The binary data read, or a string containing one character with a byte of `0` if no data could be read.</ret>
+	</rets>
+</function>

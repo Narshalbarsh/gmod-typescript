@@ -1,0 +1,18 @@
+<function name="MoveBy" parent="Panel" type="classfunc">
+	<description>Moves the panel by the specified coordinates using animation.</description>
+	<realm>Client and Menu</realm>
+	<file line="286-L292">lua/includes/extensions/client/panel/animation.lua</file>
+	<args>
+		<arg name="moveX" type="number">The number of pixels to move by in the horizontal (x) direction.</arg>
+		<arg name="moveY" type="number">The number of pixels to move by in the vertical (y) direction.</arg>
+		<arg name="time" type="number">The time (in seconds) in which to perform the animation.</arg>
+		<arg name="delay" type="number" default="0">The delay (in seconds) before the animation begins.</arg>
+		<arg name="ease" type="number" default="-1">The easing of the start and/or end speed of the animation. See <page>Panel:NewAnimation</page> for how this works.</arg>
+		<arg name="callback" type="function" default="nil">The function to be called once the animation is complete. 
+<callback>
+<arg type="table" name="animData">The <page>Structures/AnimationData</page> that was used.</arg>
+<arg type="Panel" name="targetPanel">The panel object that was animated.</arg>
+</callback>
+</arg>
+	</args>
+</function>

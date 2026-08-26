@@ -1,0 +1,8 @@
+<function name="PerformFullScreenStencilOperation" parent="render" type="libraryfunc">
+	<description>
+		Performs a Stencil operation on every pixel in the active <page text="Render Target">render_rendertargets</page> without performing a draw operation.
+
+		For more detailed information on the Stencil system, including usage examples, see the <page text="Stencils Render Reference">render_stencils</page> page.
+	</description>
+	<realm>Client and Menu</realm>
+</function>

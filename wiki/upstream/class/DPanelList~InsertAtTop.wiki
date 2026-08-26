@@ -1,0 +1,8 @@
+<function name="InsertAtTop" parent="DPanelList" type="panelfunc">
+	<description>Insert given panel at the top of the list.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="insert" type="Panel">The panel to insert</arg>
+		<arg name="strLineState" type="string">If set to "ownline", no other panels will be placed to the left or right of the panel we are inserting</arg>
+	</args>
+</function>

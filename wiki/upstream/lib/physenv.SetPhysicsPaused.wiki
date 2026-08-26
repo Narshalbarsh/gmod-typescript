@@ -1,0 +1,8 @@
+<function name="SetPhysicsPaused" parent="physenv" type="libraryfunc">
+	<description>Pauses or unpauses the physics simulation globally. See <page>physenv.GetPhysicsPaused</page> for the getter.</description>
+	<realm>Shared</realm>
+	<added>2024.12.12</added>
+	<args>
+		<arg name="pause" type="boolean">`true` to pause, `false` to unpause.</arg>
+	</args>
+</function>

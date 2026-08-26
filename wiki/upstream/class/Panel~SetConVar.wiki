@@ -1,0 +1,35 @@
+<function name="SetConVar" parent="Panel" type="classfunc">
+	<description>
+<warning>This function does not exist on all panels</warning>
+<warning>This function cannot interact with serverside convars unless you are host</warning>
+<note>Blocked convars will not work with this, see <page>Blocked ConCommands</page></note>
+
+Sets this panel's convar. When the convar changes this panel will update automatically.
+
+For developer implementation, see <page>Global.Derma_Install_Convar_Functions</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="convar" type="string">The console variable to check.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Makes a checkbox linked to the **cl_drawhud** convar.</description>
+	<code>
+local DermaPanel = vgui.Create( "DFrame" )
+DermaPanel:SetPos( 100, 100 )
+DermaPanel:SetSize( 300, 200 )
+DermaPanel:SetTitle( "My new Derma frame" )
+DermaPanel:SetDraggable( true )
+DermaPanel:MakePopup()
+
+local Checkbox = vgui.Create( "DCheckBoxLabel", DermaPanel )
+Checkbox:SetConVar( "cl_drawhud" )
+Checkbox:SetText( "Enable HUD?" )
+Checkbox:SetPos( 5, 25 )
+Checkbox:SizeToContents()
+	</code>
+	<output><image src="panel_setcvar.png"/></output>
+
+</example>

@@ -1,0 +1,8 @@
+<function name="PlayerSpawnedVehicle" parent="SANDBOX" type="hook">
+	<description>Called after the player spawned a vehicle.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ply" type="Player">The player that spawned the vehicle</arg>
+		<arg name="ent" type="Entity">The vehicle itself</arg>
+	</args>
+</function>

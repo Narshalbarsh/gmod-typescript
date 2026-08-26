@@ -1,0 +1,16 @@
+<enum>
+	<realm>Shared</realm>
+	<description>For use with <page>Entity:PhysicsInit</page>, <page>Entity:SetSolid</page> and <page>Entity:GetSolid</page>.</description>
+	<items>
+<item key="SOLID_NONE" value="0">Does not collide with anything.
+<note>No physics object will be created when using this with <page>Entity:PhysicsInit</page>.</note></item>
+<item key="SOLID_BSP" value="1">The entity has a brush model defined by the map. Does not collide with other SOLID_BSP entities.</item>
+<item key="SOLID_BBOX" value="2">Uses the entity's axis-aligned bounding box for collisions.</item>
+<item key="SOLID_OBB" value="3">Uses the entity's object-aligned bounding box for collisions.</item>
+<item key="SOLID_OBB_YAW" value="4">Same as SOLID_OBB but restricts orientation to the Z-axis.
+<note>Seems to be broken.</note></item>
+<item key="SOLID_CUSTOM" value="5">Always call the entity's `ICollideable::TestCollision` method for traces regardless of the presence of `FSOLID_CUSTOMRAYTEST` or `FSOLID_CUSTOMBOXTEST`. This will only be called back to Lua as <page>ENTITY:TestCollision</page> for `"anim"` type SENTs.</item>
+<item key="SOLID_VPHYSICS" value="6">Uses the <page>PhysObj</page>ects of the entity.</item>
+	</items>
+
+</enum>

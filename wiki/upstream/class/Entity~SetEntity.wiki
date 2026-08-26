@@ -1,0 +1,22 @@
+<function name="SetEntity" parent="Entity" type="classfunc">
+	<description>Allows you to set the Start or End entity attachment for the rope.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="name" type="string">The name of the variable to modify.
+Accepted names are StartEntity and EndEntity.</arg>
+		<arg name="entity" type="Entity">The entity to apply to the specific attachment.</arg>
+	</args>
+</function>
+
+<example>
+	<description>As seen in the constraints module.</description>
+	<code>
+local rope = ents.Create( "keyframe_rope" )
+
+-- Attachment point 1
+rope:SetEntity( "StartEntity", 	Entity(1) )
+-- Attachment point 2
+rope:SetEntity( "EndEntity", 	Entity(2) )
+	</code>
+
+</example>

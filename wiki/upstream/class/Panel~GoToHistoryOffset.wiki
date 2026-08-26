@@ -1,0 +1,7 @@
+<function name="GoToHistoryOffset" parent="Panel" type="classfunc">
+	<description>Goes to the page in the HTML panel's history at the specified relative offset.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="offset" type="number">The offset in the panel's back/forward history, relative to the current page, that you would like to skip to. Because this is relative, 0 = current page while negative goes back and positive goes forward. For example, -2 will go back 2 pages in the history.</arg>
+	</args>
+</function>

@@ -1,0 +1,7 @@
+<function name="SetPopupStayAtBack" parent="Panel" type="classfunc">
+	<description>If this panel object has been made a popup with <page>Panel:MakePopup</page>, this method will prevent it from drawing in front of other panels when it receives input focus.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="stayAtBack" type="boolean">If `true`, the popup panel will not draw in front of others when it gets focus, for example when it is clicked.</arg>
+	</args>
+</function>

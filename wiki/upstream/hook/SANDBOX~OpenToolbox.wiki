@@ -1,0 +1,8 @@
+<function name="OpenToolbox" parent="SANDBOX" type="hook">
+	<description>
+<internal></internal>
+This hook is called when the player edits a category in the Spawnmenu
+	</description>
+	<file line="50">gamemodes/sandbox/gamemode/spawnmenu/creationmenu/content/contenttypes/custom.lua</file>
+	<realm>Client</realm>
+</function>

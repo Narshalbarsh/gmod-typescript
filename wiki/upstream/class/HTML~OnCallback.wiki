@@ -1,0 +1,12 @@
+<function name="OnCallback" parent="HTML" type="panelhook">
+	<description>Called by the engine when a callback function is called.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="library" type="string">Library name of the JS function that was called.</arg>
+		<arg name="name" type="string">Name of the JS function that was called.</arg>
+		<arg name="arguments" type="table">Table containing all arguments passed to the JS function.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return `true` to suppress default engine action.</ret>
+	</rets>
+</function>

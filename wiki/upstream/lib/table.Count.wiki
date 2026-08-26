@@ -1,0 +1,62 @@
+<function name="Count" parent="table" type="libraryfunc">
+	<description>
+Counts the amount of keys in a table. This should only be used when a table is not numerically and sequentially indexed. For those tables, consider the length (**#**) operator.
+
+If you only want to test if the table is empty or not, use <page>table.IsEmpty</page> instead as it is a lot faster.
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="158-L166">lua/includes/extensions/table.lua</file>
+	<args>
+		<arg name="tbl" type="table">The table to count the keys of.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The number of keyvalue pairs. This includes non-numeric and non-sequential keys, unlike the length (**#**) operator.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>There are 4 keys in this table. So it will output "4"</description>
+	<code>
+local Table = { A = "1", B = "2", C = "3", D = "4" }
+
+print( table.Count( Table ) )
+	</code>
+	<output>
+```
+4
+```
+	</output>
+
+</example>
+
+
+<example>
+	<description>
+Difference between the length (**#**) operator and this function.
+
+The length (**#**) operator is generally considered faster, but has limitations.
+	</description>
+	<code>
+local Table = { A = "1", B = "2", C = "3", D = "4" }
+
+print( table.Count( Table ), #Table ) -- #Table will return 0 because the table contains no numeric keys
+
+local Table2 = { "test1", "test2", "test3" } -- 1 = "test1", 2 = "test2"
+
+print( table.Count( Table2 ), #Table2 ) -- Both will be 3
+
+Table2[ 5 ] = "test5" -- Insert a new value at index 5, so index 4 does not exist
+
+-- table.Count here will return correct value, #Table2 will return 3 because
+-- the new value is non sequential ( there is nothing at index 4 )
+print( table.Count( Table2 ), #Table2 )
+	</code>
+	<output>
+```
+4 0
+3 3
+4 3
+```
+	</output>
+
+</example>

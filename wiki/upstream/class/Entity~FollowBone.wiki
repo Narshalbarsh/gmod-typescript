@@ -1,0 +1,15 @@
+<function name="FollowBone" parent="Entity" type="classfunc">
+	<description>
+Makes an entity follow another entity's bone.
+
+Internally this function calls <page>Entity:SetParent</page>( parent, boneid ), <page>Entity:AddEffects</page>( EF_FOLLOWBONE 
+ ) and sets an internal flag to always rebuild all bones.
+<note>If the entity vibrates or stops following the parent, you probably need to run <page>Entity:SetPredictable</page>( true ) clientside.</note>
+<warning>This function will not work if the target bone's parent bone is invalid or if the bone is not used by VERTEX LOD0</warning>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="parent" type="Entity" default="NULL">The entity to follow the bone of. If unset, removes the FollowBone effect.</arg>
+		<arg name="boneid" type="number">The bone to follow</arg>
+	</args>
+</function>

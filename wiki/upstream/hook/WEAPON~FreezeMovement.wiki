@@ -1,0 +1,10 @@
+<function name="FreezeMovement" parent="WEAPON" type="hook">
+	<description>
+This hook allows you to freeze players screen.
+<note>Player will still be able to move or shoot</note>
+	</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="boolean">Return true to freeze moving the view</ret>
+	</rets>
+</function>

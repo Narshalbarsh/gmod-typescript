@@ -1,0 +1,21 @@
+<function name="AddChoice" parent="DProperty_Combo" type="panelfunc">
+	<description>Add a choice to your combo control.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="Text" type="string">Shown text.</arg>
+		<arg name="data" type="any">Stored Data.</arg>
+		<arg name="select" type="boolean" default="false">Select this element?</arg>
+	</args>
+</function>
+
+<example>
+	<description>Set the "I am selected" option selected.</description>
+	<code>
+local choice = DP:CreateRow( "Choices", "Hello world" )
+choice:Setup( "Combo" )
+choice:AddChoice( "I am a choice", {} )
+choice:AddChoice( "I am selected", 8, true )
+choice:AddChoice( "I am not selected", "Hello world" )
+	</code>
+
+</example>

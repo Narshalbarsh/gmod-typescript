@@ -1,0 +1,8 @@
+<function name="LayoutTree" parent="DTree" type="panelfunc">
+	<description>
+<deprecated></deprecated>
+
+Does nothing.
+	</description>
+	<realm>Client and Menu</realm>
+</function>

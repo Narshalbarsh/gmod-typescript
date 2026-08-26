@@ -1,0 +1,36 @@
+<function name="ManipulateBoneScale" parent="Entity" type="classfunc">
+	<description>
+Sets custom bone scale.
+<bug issue="3502">This does not scale procedural bones.</bug>
+<note>This silently fails when given a Vector with nan values, hiding the vertices associated with the bone. See example below.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="boneID" type="number">Index of the bone you want to manipulate</arg>
+		<arg name="scale" type="Vector">Scale vector to apply. Note that the scale is relative to the original bone scale, not relative to the world or the entity.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Shows the difference between nan and zeroing scale.</description>
+<code>
+-- Scales the head bone down, essentially pinching the vertices
+concommand.Add( "scale_player_head", function( ply, cmd, args )
+	local ply = Entity(1)
+	local bone = ply:LookupBone("ValveBiped.Bip01_Head1")
+	
+	if not bone then return end
+	ply:ManipulateBoneScale( bone, Vector(0,0,0) )
+end )
+
+-- Hides the part of the mesh that follows the head bone
+concommand.Add( "hide_player_head", function( ply, cmd, args )
+	local ply = Entity(1)
+	local bone = ply:LookupBone("ValveBiped.Bip01_Head1")
+	local nan = 0/0
+	
+	if not bone then return end
+	ply:ManipulateBoneScale( bone, Vector(nan,nan,nan) )
+end )
+</code>
+</example>

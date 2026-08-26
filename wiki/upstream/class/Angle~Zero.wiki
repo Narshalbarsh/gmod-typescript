@@ -1,0 +1,7 @@
+<function name="Zero" parent="Angle" type="classfunc">
+	<description>
+Sets pitch, yaw and roll to 0.
+This function is faster than doing it manually.
+	</description>
+	<realm>Shared and Menu</realm>
+</function>

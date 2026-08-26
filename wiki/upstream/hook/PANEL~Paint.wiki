@@ -1,0 +1,36 @@
+<function name="Paint" parent="PANEL" type="hook">
+	<description>
+Called whenever the panel should be drawn. 
+
+This hook will not run if the panel is completely off the screen, and will still run if any parts of the panel are still on screen.
+
+You can create panels with a customized appearance by overriding their `Paint()` function, which will prevent the default appearance from being drawn.
+
+See also <page>PANEL:PaintOver</page>.
+
+<note>Render operations from the <page>surface</page> library (and consequentially the <page>draw</page> library) are always offset by the global position of this panel, as seen in the example below</note>
+
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="width" type="number">The panel's width.</arg>
+		<arg name="height" type="number">The panel's height.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Returning true prevents the background from being drawn.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Creates a DPanel and overrides its Paint() function to draw a 100x100 pixel black rounded box in the center of the screen.</description>
+	<code>
+local panel = vgui.Create( "DPanel" )
+panel:SetSize( 100, 100 )
+panel:SetPos( ScrW() / 2 - 50, ScrH() / 2 - 50 )
+
+function panel:Paint( w, h )
+    draw.RoundedBox( 8, 0, 0, w, h, color_black )
+end
+	</code>
+
+</example>

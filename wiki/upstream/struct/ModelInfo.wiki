@@ -1,0 +1,89 @@
+<structure>
+	<realm>Shared</realm>
+	<description>
+Table returned by <page>util.GetModelInfo</page>.
+	</description>
+	<fields>
+<item name="SkinCount" type="number">Identical to <page>Entity:SkinCount</page>.</item>
+
+<item name="KeyValues" type="string">Valve key-value formatted info about the model's physics (Constraint Info, etc). This is limited to 4096 characters.
+
+This data can be parsed into a Lua table via <page>util.KeyValuesToTablePreserveOrder</page></item>
+<item name="ModelKeyValues" type="string">Valve key-value formatted info about the model (`$keyvalues` command in the `.qc` of the model), if present. 
+
+Can describe things like health of a prop, flammability, etc.</item>
+
+<item name="MeshCount" type="number">Number of meshes the model has. This could be 0 for animation only models.</item>
+<item name="BoneCount" type="number">Number of bones the model has.</item>
+
+<item name="Flags" type="number">Model flags. See [this page on Valve Developer Wiki](https://developer.valvesoftware.com/wiki/MDL#Model_flags) for explanation of each one.</item>
+
+
+<item name="StaticProp" type="boolean">Whether the model is meant to be a static prop (checks a specific model flag)</item>
+
+<item name="MaterialCount" type="number" added="2025.04.01">Number of materials used by this model.</item>
+<item name="SequenceCount" type="number" added="2025.04.01">Number of sequences the model has.</item>
+<item name="AttachmentCount" type="number" added="2025.04.01">Number of attachments the model has.</item>
+<item name="ModelName" type="string" added="2025.04.01">Name of the model, as embedded in the model file itself. This may be different from the model path of the model on disk.</item>
+<item name="Version" type="number" added="2025.04.01">Model version. This should be 48 most of the time, but can be different from mountable games.</item>
+<item name="Checksum" type="number" added="2025.04.01">Checksum (CRC32) of the model. This value should be identical across all files for the same model. (.vtx, .mdl, .vvd, etc.)</item>
+<item name="SurfacePropName" type="string" added="2025.04.01">Name of the surface property for this model. See <page>util.GetSurfaceData</page> for more details about what they are.</item>
+
+<item name="EyePosition" type="Vector" added="2025.04.01">If present, position of the eyes of the model, for NPCs.</item>
+<item name="IllumPosition" type="Vector" added="2025.04.01">Illumination position for the model, for cases where the model root would be potentially outside of the world.</item>
+<item name="HullMin" type="Vector" added="2025.04.01">Mins of the model's bounding box.</item>
+<item name="HullMax" type="Vector" added="2025.04.01">Maxs of the model's bounding box.</item>
+
+<item name="Attachments" type="table<table>" added="2025.04.01">A list of attachments the model has.
+
+Each attachment is a table with the following info:
+* Name
+* Bone
+* Offset
+</item>
+<item name="Bones" type="table<table>" added="2025.04.01">A list of bones the model has. Please node that the keys of this table are **not** bone IDs, it's just a list, <validate>but it might be safe to assume the keys are (BoneID-1) due to Lua table indexes starting at 1.</validate>.
+
+Each bone in the list has the following fields:
+* Name
+* Parent
+* Flags
+* PhysObj
+* SurfacePropName
+* Position
+* Angle
+</item>
+<item name="Sequences" type="table<table>" added="2025.04.01">A list of sequences the model has, including the ones from `$includemodel`s.
+
+Each sequence is a table with the following info:
+* <page>string</page> Name
+* <page>string</page> Activity
+* <page added="2026.02.17">number</page> ActivityID
+* <page added="2026.02.17">number</page> ActivityWeight
+* <page>table</page> Events
+
+`Events` table is a list of tables with following members:
+* <page>number</page> Cycle
+* <page>number</page> Event
+* <page>string</page> Name
+* <page>number</page> Type
+* <page>string</page> Options
+</item>
+<item name="Materials" type="table<string>" added="2025.04.01">A list of materials the model uses, across all its meshes.</item>
+<item name="MaterialDirectories" type="table<string>" added="2025.04.01">A list of folders the game will look in for the **Materials**.</item>
+
+<item name="IncludeModelCount" type="number" added="2025.05.19">Number of other models this model includes for their animations.</item>
+<item name="IncludeModels" type="table<string>" added="2025.05.19">The list of models this model includes for their animations.</item>
+<item name="HitBoxSets" type="table<table>" added="2025.05.19">A list of hitbox sets this model has. Each hitbox set has the following structure:
+* Name
+* Count
+* HitBoxes - a table of hitboxes within this set
+
+Each hitbox has the following format:
+* Mins
+* Maxs
+* Bone
+
+</item>
+	</fields>
+
+</structure>

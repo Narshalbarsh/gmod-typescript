@@ -1,0 +1,13 @@
+<function name="SetFrags" parent="Player" type="classfunc">
+	<description>Sets a player's frags (kills)</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="fragCount" type="number">Number of frags (positive or negative)</arg>
+	</args>
+</function>
+
+<example>
+	<description>Sets the frags of player 1 to 9001</description>
+	<code>Entity( 1 ):SetFrags( 9001 )</code>
+
+</example>

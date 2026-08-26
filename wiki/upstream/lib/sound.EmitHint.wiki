@@ -1,0 +1,12 @@
+<function name="EmitHint" parent="sound" type="libraryfunc">
+	<description>Emits a sound hint to the game elements to react to, for example to repel or attract antlions.</description>
+	<realm>Server</realm>
+	<added>2020.10.14</added>
+	<args>
+		<arg name="hint" type="number">The hint to emit. This can be a bit flag. See <page>Enums/SOUND</page></arg>
+		<arg name="pos" type="Vector">The position to emit the hint at</arg>
+		<arg name="volume" type="number">The volume or radius of the hint</arg>
+		<arg name="duration" type="number">The duration of the hint in seconds</arg>
+		<arg name="owner" type="Entity" default="NULL">If set, the sound hint will be ignored/deleted when the given entity is destroyed.</arg>
+	</args>
+</function>

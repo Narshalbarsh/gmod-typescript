@@ -1,0 +1,20 @@
+<function name="SetPlayerClass" parent="player_manager" type="libraryfunc">
+	<description>Sets a player's class.</description>
+	<realm>Shared</realm>
+	<file line="377-L388">lua/includes/modules/player_manager.lua</file>
+	<args>
+		<arg name="ply" type="Player">Player to set class.</arg>
+		<arg name="className" type="string">Name of class to set.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Sets the player's class to 'player_default' every time they spawn.</description>
+	<code>
+function GM:PlayerSpawn( ply )
+	player_manager.SetPlayerClass(ply, "player_default")
+end
+	</code>
+	<output></output>
+
+</example>

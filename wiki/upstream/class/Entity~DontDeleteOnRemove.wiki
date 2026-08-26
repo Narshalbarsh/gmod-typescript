@@ -1,0 +1,9 @@
+<function name="DontDeleteOnRemove" parent="Entity" type="classfunc">
+	<description>This removes the argument entity from an ent's list of entities to 'delete on remove'
+	<note>Also see <page>Entity:DeleteOnRemove</page></note>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="entityToUnremove" type="Entity">The entity to be removed from the list of entities to delete</arg>
+	</args>
+</function>

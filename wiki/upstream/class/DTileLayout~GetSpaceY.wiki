@@ -1,0 +1,7 @@
+<function name="GetSpaceY" parent="DTileLayout" type="panelfunc">
+	<description>Returns the Y axis spacing between 2 elements set by <page>DTileLayout:SetSpaceY</page>.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number"></ret>
+	</rets>
+</function>

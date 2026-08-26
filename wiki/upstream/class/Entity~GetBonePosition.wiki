@@ -1,0 +1,59 @@
+<function name="GetBonePosition" parent="Entity" type="classfunc">
+	<description>
+Returns the position and angle of the given attachment, relative to the world.
+
+<warning>This function can return entity's `GetPos()` instead if the entity doesn't have it's bone cache set up.
+
+To ensure the bone position is correct use this:
+```lua
+local pos = ent:GetBonePosition(0)
+if pos == ent:GetPos() then
+	pos = ent:GetBoneMatrix(0):GetTranslation()
+end
+```
+</warning>
+
+<note>This function returns the bone position from the last tick, so if your framerate is higher than the server's tickrate it may appear to lag behind if used on a fast moving entity. You can fix this by using the bone's matrix instead:
+```lua
+local matrix = entity:GetBoneMatrix(0)
+local pos = matrix:GetTranslation()
+local ang = matrix:GetAngles()
+```
+</note>
+
+<bug issue="884">This can return the server's position during server lag.</bug>
+
+<bug issue="3285">This can return garbage serverside or <page>Global.Vector</page>(0,0,0) for v49 models.</bug>
+
+<bug issue="3739">This can return garbage if a trace passed through the target bone during bone matrix access.</bug>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="boneIndex" type="number">The bone index of the bone to get the position of, starting at index 0. See <page>Entity:LookupBone</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">The bone's position relative to the world. It can return nothing if the requested bone is out of bounds, or the entity has no model.</ret>
+		<ret name="" type="Angle">The bone's angle relative to the world.</ret>
+	</rets>
+</function>
+
+
+<example>
+	<description>Prints positions of all bones on an entity</description>
+	<code>
+-- Get the first NPC on map
+local ent = ents.FindByClass( "npc_*" )[ 1 ]
+
+-- If one is found
+if ( IsValid( ent ) ) then
+	-- For each bone
+	for i = 0, ent:GetBoneCount() - 1 do
+		-- Print the entity, bone ID and bone position
+		print( ent, i, ent:GetBonePosition( i ) )
+	end
+end
+
+</code>
+	<output></output>
+
+</example>

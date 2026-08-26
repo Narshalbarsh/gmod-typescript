@@ -1,0 +1,19 @@
+<enum>
+	<realm>Shared</realm>
+	<description>
+Enumerations used by <page>Entity:SetUseType</page>. Affects when <page>ENTITY:Use</page> is triggered.
+
+Not to be confused with <page>Enums/USE</page> used for <page>ENTITY:Use</page> and others.
+	</description>
+	<items>
+<item key="CONTINUOUS_USE" value="0">Fire a <page text="USE_ON">Enums/USE</page> signal every tick as long as the player holds their use key and aims at the target.</item>
+<item key="ONOFF_USE" value="1">Fires a <page text="USE_ON">Enums/USE</page> signal when starting to use an entity, and a <page text="USE_OFF">Enums/USE</page> signal when letting go.
+
+<warning>There is no guarantee to receive both ON and OFF signals. A signal will only be sent when pushing or letting go of the use key while actually aiming at the entity, so an ON signal might not be followed by an OFF signal if the player is aiming somewhere else when releasing the key, and similarly, an OFF signal may not be preceded by an ON signal if the player started aiming at the entity only after pressing the key.
+
+Therefore, this method of input is unreliable and should not be used.</warning></item>
+<item key="DIRECTIONAL_USE" value="2">Like a wheel turning.</item>
+<item key="SIMPLE_USE" value="3">Fire a <page text="USE_ON">Enums/USE</page> signal only once when player presses their use key while aiming at the target.</item>
+	</items>
+
+</enum>

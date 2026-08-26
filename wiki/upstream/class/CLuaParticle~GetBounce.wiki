@@ -1,0 +1,15 @@
+<function name="GetBounce" parent="CLuaParticle" type="classfunc">
+	<description>Returns the 'bounciness' of the particle.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">The 'bounciness' of the particle
+
+2 means it will gain 100% of its previous velocity,
+
+
+1 means it will not lose velocity,
+
+
+0.5 means it will lose half of its velocity with each bounce.</ret>
+	</rets>
+</function>

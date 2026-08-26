@@ -1,0 +1,10 @@
+<function name="CollisionRulesChanged" parent="Entity" type="classfunc">
+	<description>
+Declares that the collision rules of the entity have changed, and subsequent calls for <page>GM:ShouldCollide</page> with this entity may return a different value than they did previously.
+
+<warning>This function must **not** be called inside of <page>GM:ShouldCollide</page>. Instead, it must be called in advance when the condition is known to change.</warning>
+
+<warning>Failure to use this function correctly will result in a crash of the physics engine.</warning>
+	</description>
+	<realm>Shared</realm>
+</function>

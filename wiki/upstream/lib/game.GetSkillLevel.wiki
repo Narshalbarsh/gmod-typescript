@@ -1,0 +1,13 @@
+<function name="GetSkillLevel" parent="game" type="libraryfunc">
+	<description>
+Returns the difficulty level of the game.
+
+**TIP:** You can use this function in your scripted NPCs or Nextbots to make them stronger, however, it is a good idea to lock powerful attacks behind the highest difficulty instead of just increasing the health.
+
+<note>Internally this is tied to the gamerules entity, so you'll have to wait until <page>GM:InitPostEntity</page> is called to return the skill level.</note>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The difficulty level, Easy (1), Normal (2), Hard (3).</ret>
+	</rets>
+</function>

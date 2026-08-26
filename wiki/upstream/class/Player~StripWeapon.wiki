@@ -1,0 +1,15 @@
+<function name="StripWeapon" parent="Player" type="classfunc">
+	<description>Removes the specified weapon class from a certain player  
+	<note>this function will call the <page>Entity:OnRemove</page> but if you try use <page>Entity:GetOwner</page> it will return nil</note></description>
+	<realm>Server</realm>
+	<args>
+		<arg name="weapon" type="string">The weapon class to remove</arg>
+	</args>
+</function>
+
+<example>
+	<description>Removes the crowbar from the player with the ID 1</description>
+	<code>Entity( 1 ):StripWeapon( "weapon_crowbar" )</code>
+	<output>Crowbar removed from player 1</output>
+
+</example>

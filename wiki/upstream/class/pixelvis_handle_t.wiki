@@ -1,0 +1,5 @@
+<type name="pixelvis_handle_t" category="classfunc" is="class">
+<summary>
+Created by <page>util.GetPixelVisibleHandle</page> and used by <page>util.PixelVisible</page>.
+</summary>
+</type>

@@ -1,0 +1,36 @@
+<panel>
+	<parent>DPanel</parent>
+	<realm>Client</realm>
+	<description>
+		The default SpawnmenuContentPanel
+		<internal></internal>
+	</description>
+	<file line="20-L81">./gamemodes/sandbox/gamemode/spawnmenu/creationmenu/content/content.lua</file>
+	<overrides>
+		<page>PANEL:Init</page>
+	</overrides>
+</panel>
+
+<example>
+	<description>How the SpawnmenuContentPanel is created</description>
+	<code>
+local function CreateContentPanel()
+
+	local ctrl = vgui.Create( "SpawnmenuContentPanel" )
+
+	ctrl.OldSpawnlists = ctrl.ContentNavBar.Tree:AddNode( "#spawnmenu.category.browse", "icon16/cog.png" )
+
+	ctrl:EnableModify()
+	hook.Call( "PopulatePropMenu", GAMEMODE )
+	ctrl:CallPopulateHook( "PopulateContent" )
+
+	ctrl.OldSpawnlists:MoveToFront()
+	ctrl.OldSpawnlists:SetExpanded( true )
+
+	return ctrl
+
+end
+
+spawnmenu.AddCreationTab( "#spawnmenu.content_tab", CreateContentPanel, "icon16/application_view_tile.png", -10 )
+	</code>
+</example>

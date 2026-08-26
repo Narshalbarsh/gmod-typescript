@@ -1,0 +1,11 @@
+<function name="IsPenetrating" parent="PhysObj" type="classfunc">
+	<description>
+Returns whenever the physics object is penetrating another physics object.
+
+This is internally implemented as `PhysObj:HasGameFlag( FVPHYSICS_PENETRATING )` and thus is only updated for non-static physics objects.
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the physics object is penetrating another object.</ret>
+	</rets>
+</function>

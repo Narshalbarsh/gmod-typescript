@@ -1,0 +1,10 @@
+<function name="SetLastShootTime" parent="Weapon" type="classfunc">
+	<description>Sets the time since this weapon last fired in seconds. Used in conjunction with <page>Weapon:LastShootTime</page>.
+
+This value is **not** networked to the client if set from server.
+</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="time" type="number" default="CurTime()">The time in seconds when the last time the weapon was fired.</arg>
+	</args>
+</function>

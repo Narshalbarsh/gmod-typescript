@@ -1,0 +1,14 @@
+<function name="Init" parent="matproxy" type="libraryfunc">
+	<description>
+<internal></internal>
+Called by the engine from `OnBind`. Calls <page text="init">Structures/MatProxyData#init</page> method of the Lua material proxy.
+</description>
+	<realm>Client</realm>
+	<file line="63-L79">lua/includes/modules/matproxy.lua</file>
+	<args>
+		<arg name="name" type="string">Name of the material proxy.</arg>
+		<arg name="uname" type="string">Name for the active material proxy instance.</arg>
+		<arg name="mat" type="IMaterial">Material the material proxy is applied to.</arg>
+		<arg name="values" type="table">`.vmt` shader parameters of the material.</arg>
+	</args>
+</function>

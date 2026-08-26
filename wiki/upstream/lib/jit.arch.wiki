@@ -1,0 +1,7 @@
+<function name="arch" parent="jit" type="libraryfield">
+	<description>A variable containing the target architecture name: `x86`, `x64`, `arm`, `ppc`, `ppcspe`, or `mips`. This will be `x86` or `x64` in GMod.</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="string">The system architecture.</ret>
+	</rets>
+</function>

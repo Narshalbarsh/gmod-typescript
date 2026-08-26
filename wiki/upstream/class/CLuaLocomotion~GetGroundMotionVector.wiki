@@ -1,0 +1,7 @@
+<function name="GetGroundMotionVector" parent="CLuaLocomotion" type="classfunc">
+	<description>Return unit vector in XY plane describing our direction of motion - even if we are currently not moving</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="Vector">A vector representing the X and Y movement</ret>
+	</rets>
+</function>

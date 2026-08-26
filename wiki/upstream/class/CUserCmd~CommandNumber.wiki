@@ -1,0 +1,11 @@
+<function name="CommandNumber" parent="CUserCmd" type="classfunc">
+	<description>
+Returns an increasing number representing the index of the user cmd.
+
+<warning>The value returned is occasionally 0 inside <page>GM:CreateMove</page> and <page>GM:StartCommand</page>. It is advised to check for a non-zero value if you wish to get the correct number.</warning>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The command number</ret>
+	</rets>
+</function>

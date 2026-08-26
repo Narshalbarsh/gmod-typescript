@@ -1,0 +1,5 @@
+<function name="Toggle" parent="DCheckBox" type="panelfunc">
+	<description>Toggles the checked state of the checkbox, and calls the checkbox's <page>DCheckBox:OnChange</page> and <page>Panel:ConVarChanged</page> methods. <page>DCheckBox:DoClick</page> is an alias of this function.</description>
+	<realm>Client and Menu</realm>
+	<file line="45-L49">lua/vgui/dcheckbox.lua</file>
+</function>

@@ -1,0 +1,15 @@
+<function name="ReadPlayer" parent="net" type="libraryfunc">
+	<description>
+Reads a player entity that was written with <page>net.WritePlayer</page> from the received net message.
+
+You should always check if the specified entity exists as it may have been removed and therefore `NULL` if it is outside of the local players [PVS](https://developer.valvesoftware.com/wiki/PVS) or was already removed.
+
+<warning>You **must** read information in same order as you write it.</warning>
+	</description>
+	<realm>Shared</realm>
+	<file line="89-L97">lua/includes/extensions/net.lua</file>
+	<added>2023.10.06</added>
+	<rets>
+		<ret name="" type="Player">The player, or `Entity(0)` if no entity could be read.</ret>
+	</rets>
+</function>

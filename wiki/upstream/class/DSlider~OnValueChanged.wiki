@@ -1,0 +1,9 @@
+<function name="OnValueChanged" parent="DSlider" type="panelhook">
+	<description>Called when the values of this slider panel were changed.</description>
+	<realm>Client and Menu</realm>
+	<added>2023.01.25</added>
+	<args>
+		<arg name="x" type="number">The X axis position of the slider in range 0-1</arg>
+		<arg name="y" type="number">The Y axis position of the slider in range 0-1</arg>
+	</args>
+</function>

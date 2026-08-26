@@ -1,0 +1,61 @@
+<function name="Effect" parent="util" type="libraryfunc">
+	<description>
+Creates an effect with the specified data.
+
+For Orange Box `.pcf` particles, see <page>Global.ParticleEffect</page>, <page>Global.ParticleEffectAttach</page> and  <page>Global.CreateParticleSystem</page>.
+
+	<note>
+When dispatching an effect from the server, some values may be clamped for networking optimizations. Visit the Set accessors on <page>CEffectData</page> to see which ones are affected.
+
+You will need to couple this function with <page>Global.IsFirstTimePredicted</page> if you want to use it in a <page text="predicted hook">Prediction</page>.
+	</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="effectName" type="string">The name of the effect to create.
+
+You can find a list of <page text="built-in engine effects here">Default_Effects</page>. You can create your own in LUA, [example effects can be found here](https://github.com/Facepunch/garrysmod/tree/master/garrysmod/gamemodes/sandbox/entities/effects) and [here](https://github.com/Facepunch/garrysmod/tree/master/garrysmod/gamemodes/base/entities/effects).
+
+	<warning>
+If you use this function with Lua effects more than 2048 times in a single frame,   
+
+you will get errors: `Broke possible Lua Effect creation infinite loop` and `Too many Lua Effects (2049)! Are you killing them properly?`.  
+	</warning>
+</arg>
+		<arg name="effectData" type="CEffectData">The effect data describing the effect.</arg>
+		<arg name="allowOverride" type="boolean" default="true">Whether Lua-defined effects should override engine-defined effects with the same name for this/single function call.</arg>
+		<arg name="ignorePredictionOrRecipientFilter" type="boolean|CRecipientFilter" default="nil">Can either be a boolean to ignore the prediction filter or a <page>CRecipientFilter</page>.
+
+Set this to true if you wish to call this function in multiplayer from server.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Creates a `HelicopterMegaBomb` effect at the origin of the map. ( 0, 0, 0 )</description>
+	<code>
+local vPoint = Vector( 0, 0, 0 )
+local effectdata = EffectData()
+effectdata:SetOrigin( vPoint )
+util.Effect( "HelicopterMegaBomb", effectdata )
+	</code>
+</example>
+
+<example>
+	<description>Example usage of the impact effect, makes bullet holes without firing a bullet.</description>
+	<code>
+concommand.Add( "test_impact", function( ply )
+
+	local tr = ply:GetEyeTrace()
+
+	local effectdata = EffectData()
+	effectdata:SetOrigin( tr.HitPos )
+	effectdata:SetStart( tr.StartPos )
+	effectdata:SetSurfaceProp( tr.SurfaceProps ) // For the sound
+	effectdata:SetEntity( tr.Entity ) // The hit entity
+	effectdata:SetHitBox( tr.HitBoxBone || 0 ) // For the decal
+	effectdata:SetDamageType( DMG_BULLET ) // For the decal
+	util.Effect( "Impact", effectdata )
+
+end )
+	</code>
+</example>

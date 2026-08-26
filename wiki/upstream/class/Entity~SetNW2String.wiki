@@ -1,0 +1,51 @@
+<function name="SetNW2String" parent="Entity" type="classfunc">
+	<description>
+Sets a networked string value on the entity.
+
+The value can then be accessed with <page>Entity:GetNW2String</page> both from client and server.
+<bug issue="5455">You should not use the NW2 System on entities that are based on a Lua Entity or else NW2Vars could get mixed up, updated multiple times or not be set.</bug>
+<warning>The value will only be updated clientside if the entity is or enters the clients PVS. use <page>Entity:SetNWString</page> instead</warning>
+
+<note>Running this function clientside will only set it for the client it is called on.  
+The value will only be networked if it isn't the same as the current value and unlike SetNW*
+the value will only be networked once and not every 10 seconds.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="key" type="string">The key to associate the value with, up to 1023 characters</arg>
+		<arg name="value" type="string">The value to set, up to 511 characters.</arg>
+	</args>
+</function>
+
+<example>
+	<description>
+		Adds a tag after player's hud target (When you aim at someone)
+	</description>
+	<code>
+hook.Add("PlayerSay", "WriteTag", function(ply, text)
+    if not text:StartsWith("!tag ") then return end
+
+    --Gets the text after "!tag "
+    local tag = text:sub(6)
+    if tag == "" then
+        return "Tag cannot be empty!"
+    elseif #tag > 511 then --Text cannot be longer than 511 characters
+        return "Tag is too long! (Max 511 characters)"
+    end
+
+    ply:SetNW2String("PlayerTag", tag)
+    return ply:Nick() .. " changed his tag to: " .. tag --Notifies players of such change
+end)
+
+hook.Add("HUDDrawTargetID", "DrawTag", function()
+    local target = LocalPlayer():GetEyeTrace().Entity
+    if not IsValid(target) or not target:IsPlayer() then return end --If we are not looking at a player, do nothing
+
+    local tag = target:GetNW2String("PlayerTag", "")
+    if tag == "" then return end --If the player has no tag, do nothing
+
+    --Displays tag after player name + health
+    draw.SimpleText(tag, "TargetIDSmall", ScrW() / 2, ScrH() / 2 + 48, color_white, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
+end)
+	</code>
+</example>

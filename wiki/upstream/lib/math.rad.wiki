@@ -1,0 +1,33 @@
+<function name="rad" parent="math" type="libraryfunc">
+	<description>Converts an angle in degrees to it's equivalent in radians.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="degrees" type="number">The angle measured in degrees.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">radians</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Convert various angles in degrees to their equivalent in radians.</description>
+	<code>
+print( "Degrees: 360, Radians: " .. math.rad( 360 ) ) -- 2*pi
+print( "Degrees: 180, Radians: " .. math.rad( 180 ) ) -- pi
+print( "Degrees: 90, Radians: " .. math.rad( 90 ) ) -- pi/2
+print( "Degrees: 1, Radians: " .. math.rad( 1 ) ) -- pi/180
+	</code>
+	<output>
+Degrees: 360, Radians: 6.2831853071796
+
+
+Degrees: 180, Radians: 3.1415926535898
+
+
+Degrees: 90, Radians: 1.5707963267949
+
+
+Degrees: 1, Radians: 0.017453292519943
+	</output>
+
+</example>

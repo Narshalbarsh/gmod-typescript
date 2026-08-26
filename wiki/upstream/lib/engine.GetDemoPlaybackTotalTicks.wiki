@@ -1,0 +1,11 @@
+<function name="GetDemoPlaybackTotalTicks" parent="engine" type="libraryfunc">
+	<description>
+Returns total amount of ticks of currently loaded demo.
+
+If not playing a demo, returns 0 or the value of last played demo.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">Total amount of ticks of currently loaded demo.</ret>
+	</rets>
+</function>

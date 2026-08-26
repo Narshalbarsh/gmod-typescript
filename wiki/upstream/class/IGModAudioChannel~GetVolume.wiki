@@ -1,0 +1,7 @@
+<function name="GetVolume" parent="IGModAudioChannel" type="classfunc">
+	<description>Returns volume of a sound channel</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">The volume of the sound channel</ret>
+	</rets>
+</function>

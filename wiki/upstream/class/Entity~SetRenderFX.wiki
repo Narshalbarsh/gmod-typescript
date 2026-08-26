@@ -1,0 +1,21 @@
+<function name="SetRenderFX" parent="Entity" type="classfunc">
+	<description>Sets entity's render FX. Requires the entitys rendermode to support transparency.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="renderFX" type="number">The new render FX to set, see <page>Enums/kRenderFx</page></arg>
+	</args>
+</function>
+
+<example>
+	<description>Fades a entity out and removes it.</description>
+	<code>
+local ent = Entity( 5 )
+ent:SetRenderMode( RENDERMODE_TRANSCOLOR )
+ent:SetRenderFX( kRenderFxFadeSlow )
+
+timer.Simple( 3, function()
+	SafeRemoveEntity( ent )
+end )
+	</code>
+
+</example>

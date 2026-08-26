@@ -1,0 +1,8 @@
+<function name="GetGoalTarget" parent="NPC" type="classfunc">
+	<description>Returns the entity we are trying to reach, if any.</description>
+	<realm>Server</realm>
+	<added>2023.10.04</added>
+	<rets>
+		<ret name="" type="Entity">The entity we are trying to reach, or `NULL`.</ret>
+	</rets>
+</function>

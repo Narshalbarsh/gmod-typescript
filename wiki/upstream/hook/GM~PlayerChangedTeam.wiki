@@ -1,0 +1,26 @@
+<function name="PlayerChangedTeam" parent="GM" type="hook">
+	<description>
+Called when a player has changed team using <page>Player:SetTeam</page>.
+	<warning>Avoid calling <page>Player:SetTeam</page> in this hook as it may cause an infinite loop!</warning>
+	<warning><page>Player:Team</page> inside this hook will return `oldTeam`.</warning>
+	</description>
+	<realm>Server</realm>
+	<added>2020.03.17</added>
+	<args>
+		<arg name="ply" type="Player">Player whose team has changed.</arg>
+		<arg name="oldTeam" type="number">Index of the team the player was originally in. See <page>team.GetName</page> and the <page>team</page> library.</arg>
+		<arg name="newTeam" type="number">Index of the team the player has changed to.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Print the old Team name and the new Team name of players.</description>
+	<code>
+hook.Add( "PlayerChangedTeam", "PrintOldAndNewTeam", function( ply, oldTeam, newTeam )
+	PrintMessage( HUD_PRINTTALK, ply:Nick() .. " switched from " .. team.GetName( oldTeam ) .. " to " .. team.GetName( newTeam ) )
+end )
+	</code>
+
+<upload src="8e3f9/8d8138b08ccd3ed.png" size="37088" name="image.png" />
+	<output>Player1 switched from Team1 to Team2</output>
+</example>

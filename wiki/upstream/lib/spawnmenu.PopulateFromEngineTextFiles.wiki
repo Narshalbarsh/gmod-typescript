@@ -1,0 +1,9 @@
+<function name="PopulateFromEngineTextFiles" parent="spawnmenu" type="libraryfunc">
+	<file line="240-L257">lua/includes/modules/spawnmenu.lua</file>
+	<description>
+<internal></internal>
+
+Calls <page>spawnmenu.PopulateFromTextFiles</page>.
+	</description>
+	<realm>Client</realm>
+</function>

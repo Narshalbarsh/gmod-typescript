@@ -1,0 +1,13 @@
+<function name="SetLayerBlendIn" parent="Entity" type="classfunc">
+	<description> Sets the interval the layer will fully blend in since startup, based on <page>Entity:GetLayerCycle</page>. Setting this above 0 will enable internal blending of <page>Entity:GetLayerWeight</page>.
+<note>This function only works on <page>BaseAnimatingOverlay</page> entites!</note>
+<bug> Enabling this will prevent looping gestures with autokill disabled to be removed with <page>Entity:RemoveGesture</page> or <page>Entity:RemoveAllGestures</page> because layer removal functions mark the layer to decrement <page>Entity:GetLayerWeight</page> and unallocate layer ID in next frames if the layer weight is `0`, but blending functions will still keep manipulating layer weight. 
+
+Therefore; before calling layer cleanup functions, make sure both <page>Entity:SetLayerBlendIn</page> and <page>Entity:SetLayerBlendOut</page> are set to `0`. </bug>
+</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="layerID" type="number">The Layer ID</arg>
+		<arg name="blendIn" type="number">Blend range from 0 to 1.</arg>
+	</args>
+</function>

@@ -1,0 +1,26 @@
+<function name="GetImageColor" parent="DImage" type="panelfunc">
+	<description>Returns the color override of the image panel.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="col" type="Color">The color override of the image. Uses <page>Color</page>.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Creates an image panel and prints the default color override to console.</description>
+	<code>
+-- Generic image panel
+local img = vgui.Create("DImage")
+img:SetSize(128, 128)
+img:Center()
+img:SetImage("cantop")
+
+print(img:GetImageColor())
+	</code>
+	<output>
+```
+255 255 255 255
+```
+</output>
+
+</example>

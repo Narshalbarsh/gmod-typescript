@@ -1,0 +1,11 @@
+<function name="GetBitsPerSample" parent="IGModAudioChannel" type="classfunc">
+	<description>
+Retrieves the number of bits per sample of the sound channel.
+
+Doesn't work for mp3 and ogg files.
+	</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">Number of bits per sample, or 0 if unknown.</ret>
+	</rets>
+</function>

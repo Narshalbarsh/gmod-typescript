@@ -1,0 +1,10 @@
+<function name="GetTabHeight" parent="DTab" type="panelfunc">
+	<description>
+<internal></internal>
+
+Returns the target height of this tab. Used internally by <page>DTab</page>'s <page>PANEL:ApplySchemeSettings</page>.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">Either 20, or 28 if <page>DTab:IsActive</page>.</ret>
+	</rets>
+</function>

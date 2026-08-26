@@ -1,0 +1,14 @@
+<enum>
+	<realm>Client</realm>
+	<description>Enumerations used by <page>IGModAudioChannel:GetState</page>. Clientside only.</description>
+	<items>
+<item key="GMOD_CHANNEL_STOPPED" value="0">The channel is stopped</item>
+
+<item key="GMOD_CHANNEL_PLAYING" value="1">The channel is playing</item>
+
+<item key="GMOD_CHANNEL_PAUSED" value="2">The channel is paused</item>
+
+<item key="GMOD_CHANNEL_STALLED" value="3">The channel is buffering</item>
+	</items>
+
+</enum>

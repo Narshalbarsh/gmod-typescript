@@ -1,0 +1,30 @@
+<function name="DrawToolScreen" parent="TOOL" type="hook">
+	<description>
+Called after the default tool screen has been drawn from <page>WEAPON:RenderScreen</page>.
+
+<note>If this method exists on the TOOL object table, the default scrolling text will not be drawn</note>
+<note>Materials rendered in this hook require $ignorez parameter to draw properly.</note>
+	</description>
+	<realm>Client</realm>
+	<file line="62">gamemodes/sandbox/entities/weapons/gmod_tool/cl_viewscreen.lua</file>
+	<args>
+		<arg name="width" type="number">The width of the tool's screen in pixels.</arg>
+		<arg name="height" type="number">The height of the tool's screen in pixels.</arg>
+	</args>
+</function>
+
+<example>
+	<description>White text that says "Hello world!" on a black background.</description>
+	<code>
+function TOOL:DrawToolScreen( width, height )
+	-- Draw black background
+	surface.SetDrawColor( Color( 20, 20, 20 ) )
+	surface.DrawRect( 0, 0, width, height )
+	
+	-- Draw white text in middle
+	draw.SimpleText( "Hello world!", "DermaLarge", width / 2, height / 2, Color( 200, 200, 200 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
+end
+	</code>
+	<output><image src="drawtoolscreen.jpg"/></output>
+
+</example>

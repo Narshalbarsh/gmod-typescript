@@ -1,0 +1,10 @@
+<function parent="physenv" name="GetTimeScale" type="libraryfunc">
+	<description>
+		Returns the physics time scale set with <page>physenv.SetTimeScale</page>.
+	</description>
+	<added>2026.05.05</added>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The current physics time scale.</ret>
+	</rets>
+</function>

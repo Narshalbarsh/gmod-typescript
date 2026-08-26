@@ -1,0 +1,12 @@
+<function name="SetSearch" parent="DFileBrowser" type="panelfunc">
+	<description>
+An <page>Global.AccessorFunc</page> that sets the search filter for the file tree.
+
+This accepts the same wildcards as <page>file.Find</page>.
+	</description>
+	<realm>Client</realm>
+	<file line="68-L79">lua/vgui/dfilebrowser.lua</file>
+	<args>
+		<arg name="filter" type="string" default="*">The filter to use on the file tree.</arg>
+	</args>
+</function>

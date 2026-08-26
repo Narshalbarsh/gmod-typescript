@@ -1,0 +1,8 @@
+<function name="OnChange" parent="DBinder" type="panelhook">
+	<description>Called when the player selects a new bind. Meant to be Overridden</description>
+	<realm>Client</realm>
+	<file line="89-L90">lua/vgui/dbinder.lua</file>
+	<args>
+		<arg name="iNum" type="number">The new bound key. See <page>input.GetKeyName</page>.</arg>
+	</args>
+</function>

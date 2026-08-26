@@ -1,0 +1,29 @@
+<function name="DataChanged" parent="DProperty_Combo" type="panelfunc">
+	<description>Called after the user selects a new value.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="data" type="any">The new data that was selected.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Click on the "Table" choice.</description>
+	<code>
+local choice = DP:CreateRow( "Choices", "Combo #2: Custom default text" )
+choice:Setup( "Combo", "Select type..." )
+choice:AddChoice( "Table", {} )
+choice:AddChoice( "Function", function() end )
+choice:AddChoice( "String", "Hello world" )
+choice.DataChanged = function( self, data )
+
+   print( "You selected: ", data )
+
+end
+	</code>
+	<output>
+```
+You selected:	table: 0x8e05f3b8
+```
+</output>
+
+</example>

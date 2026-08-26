@@ -1,0 +1,14 @@
+<function name="GetBoneController" parent="Entity" type="classfunc">
+	<description>
+Returns the value of the bone controller with the specified ID.
+
+<note>This is the precursor of pose parameters, and only works for Half Life 1: Source models supporting it.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="boneID" type="number">ID of the bone controller. Goes from 0 to 3.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The value set on the bone controller.</ret>
+	</rets>
+</function>

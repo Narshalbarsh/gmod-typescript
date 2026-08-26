@@ -1,0 +1,7 @@
+<function name="OnRemove" parent="WEAPON" type="hook">
+	<description>Called when the <page text="Scripted Weapon">Scripted Entities</page> is about to be removed.
+
+<page>Entity:GetOwner</page> may be unset at this point, see <page>WEAPON:OnDrop</page> and <page>WEAPON:OwnerChanged</page>.
+</description>
+	<realm>Shared</realm>
+</function>

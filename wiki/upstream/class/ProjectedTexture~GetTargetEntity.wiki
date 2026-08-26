@@ -1,0 +1,11 @@
+<function name="GetTargetEntity" parent="ProjectedTexture" type="classfunc">
+	<description>
+Returns the target entity of this projected texture.
+
+	</description>
+	<added>2021.03.31</added>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="Entity">The current target entity.</ret>
+	</rets>
+</function>

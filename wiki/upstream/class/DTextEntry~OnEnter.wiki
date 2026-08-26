@@ -1,0 +1,35 @@
+<function name="OnEnter" parent="DTextEntry" type="panelhook">
+	<description>
+Called whenever enter is pressed on a <page>DTextEntry</page>.
+
+<note><page>DTextEntry:IsEditing</page> will still return true in this callback!</note>
+	</description>
+	<realm>Client and Menu</realm>
+
+	<args>
+		<arg name="value" type="string" added="2020.06.24">The current text of the <page>DTextEntry</page></arg>
+	</args>
+
+</function>
+
+<example>
+	<code>
+local TextEntry = vgui.Create( "DTextEntry" )
+
+function TextEntry:OnEnter( value )
+    print("You typed: ", value)
+end
+	</code>
+</example>
+
+<example>
+	<code>
+local TextEntry = vgui.Create( "DTextEntry" )
+
+TextEntry.OnEnter = function( self )		-- Alternative method, outputs DTextEntry object.
+    print("You typed: ", self:GetValue()) 	-- Use self:GetValue() to grab the string.
+end
+	</code>
+	<output>Whatever string was typed into the DTextEntry appears in console when enter is pressed.</output>
+
+</example>

@@ -1,0 +1,7 @@
+<function name="GetLightingOriginEntity" parent="Entity" type="classfunc">
+	<description>Returns the entity that is being used as the light origin position for this entity.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="Entity">The lighting entity. This will usually be NULL.</ret>
+	</rets>
+</function>

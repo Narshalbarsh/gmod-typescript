@@ -1,0 +1,13 @@
+<function name="SetPersistent" parent="Entity" type="classfunc">
+	<description>
+Sets whether or not the given entity is persistent. A persistent entity will be saved on server shutdown and loaded back when the server starts up. Additionally, by default persistent entities cannot be grabbed with the physgun and tools cannot be used on them.
+
+In sandbox, this can be set on an entity by opening the context menu, right clicking the entity, and choosing `"Make Persistent"`.
+
+<note>Persistence can only be enabled with the sbox_persist convar, which works as an identifier for the current set of persistent entities. An empty identifier (which is the default value) disables this feature.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="persist" type="boolean">Whether or not the entity should be persistent.</arg>
+	</args>
+</function>

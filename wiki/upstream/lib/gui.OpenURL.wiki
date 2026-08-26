@@ -1,0 +1,25 @@
+<function name="OpenURL" parent="gui" type="libraryfunc">
+	<description>
+Opens specified URL in the steam overlay browser.
+
+<note>When called clientside, user will be asked for confirmation before the website will open.</note>
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="url" type="string">URL to open, it has to start with either `http://` or `https://`.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Opens a page when a button is clicked.</description>
+	<code>
+local button = vgui.Create( "DButton" )
+button:SetSize( 125, 90 )
+button:Center() 
+button:SetText( "Join our Discord!" )
+button.DoClick = function()
+    gui.OpenURL( "https://discord.gg/gmod" )
+end
+	</code>
+
+</example>

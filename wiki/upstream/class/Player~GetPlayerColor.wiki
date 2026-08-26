@@ -1,0 +1,25 @@
+<function name="GetPlayerColor" parent="Player" type="classfunc">
+	<description>Returns a player's character model color.
+
+The part of the model that is colored is determined by the model's materials, and is therefore different for each model.
+
+See <page>Player:GetWeaponColor</page> for the accompanying function for the weapon color.
+
+<note>Override this function clientside on any Entity (including a player) with a supported model set (such as default player models) and returned color will apply to the model. This is done via the `PlayerColor` <page>matproxy</page>.</note>
+</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Vector">The format is `Vector(r,g,b)`, and each color component should be between 0 and 1.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Gets player 1's model color, and prints it to console</description>
+	<code>print( Entity( 1 ):GetPlayerColor() )</code>
+	<output>
+```
+Vector( 1, 1, 1 )
+```
+</output>
+
+</example>

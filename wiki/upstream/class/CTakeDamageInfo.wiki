@@ -1,0 +1,22 @@
+<type name="CTakeDamageInfo" category="classfunc" is="class">
+	<summary>A class used to store and modify all the data concerning a damage event.
+An empty CTakeDamageInfo object can be created with <page>Global.DamageInfo</page>
+
+List of hooks that this object is passed to:
+* <page>ENTITY:OnTakeDamage</page>
+* <page>GM:DoPlayerDeath</page>
+* <page>GM:EntityTakeDamage</page>
+* <page>GM:PostEntityTakeDamage</page>
+* <page>GM:OnDamagedByExplosion</page>
+* <page>GM:ScaleNPCDamage</page>
+* <page>GM:ScalePlayerDamage</page>
+* <page>NEXTBOT:OnInjured</page>
+* <page>NEXTBOT:OnKilled</page>
+* <page>NEXTBOT:OnOtherKilled</page>
+
+List of functions that use this object:
+* <page>util.BlastDamageInfo</page>
+* <page>Entity:TakeDamageInfo</page>
+* <page>Entity:TakePhysicsDamage</page>
+* <page>Entity:DispatchTraceAttack</page></summary>
+</type>

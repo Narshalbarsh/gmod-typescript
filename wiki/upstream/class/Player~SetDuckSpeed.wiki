@@ -1,0 +1,11 @@
+<function name="SetDuckSpeed" parent="Player" type="classfunc">
+	<description>
+Sets how quickly a player ducks.
+
+<bug issue="2722">This will not work for values &gt;= 1.</bug>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="duckSpeed" type="number">How quickly the player will duck.</arg>
+	</args>
+</function>

@@ -1,0 +1,10 @@
+<function name="Give" parent="NPC" type="classfunc">
+	<description>Used to give a weapon to an already spawned NPC.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="weapon" type="string">Class name of the weapon to equip to the NPC.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Weapon">The weapon entity given to the NPC.</ret>
+	</rets>
+</function>

@@ -1,0 +1,7 @@
+<function name="SetScreenLock" parent="DFrame" type="panelfunc">
+	<description>Sets whether the DFrame is restricted to the boundaries of the screen resolution.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="lock" type="boolean">If `true`, the frame cannot be dragged outside of the screen bounds</arg>
+	</args>
+</function>

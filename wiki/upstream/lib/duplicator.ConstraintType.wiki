@@ -1,0 +1,7 @@
+<function name="ConstraintType" parent="duplicator" type="libraryfield">
+	<description>A list of all <page>constraint</page>s that can be duplicated. Registered with <page>duplicator.RegisterConstraint</page>.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="table">The list of all constraints that can be duplicated. Key = classname, Value = table.</ret>
+	</rets>
+</function>

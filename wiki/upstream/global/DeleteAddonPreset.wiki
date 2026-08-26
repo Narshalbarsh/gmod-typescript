@@ -1,0 +1,10 @@
+<function name="DeleteAddonPreset" parent="Global" type="libraryfunc">
+	<description>
+		Deletes the given Preset.
+	</description>
+	<realm>Menu</realm>
+	<file line="611-L620">lua/menu/mainmenu.lua</file>
+	<args>
+		<arg name="name" type="string">The name of the Preset to delete.</arg>
+	</args>
+</function>

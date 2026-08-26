@@ -1,0 +1,12 @@
+<function name="SetChecked" parent="ImageCheckBox" type="panelfunc">
+	<description>
+Sets the checked state of the checkbox.
+
+Checked state can be obtained via <page>ImageCheckBox:GetChecked</page>
+	</description>
+	<realm>Client</realm>
+	<file line="18-L24">lua/vgui/imagecheckbox.lua</file>
+	<args>
+		<arg name="bOn" type="boolean">true for checked, false otherwise</arg>
+	</args>
+</function>

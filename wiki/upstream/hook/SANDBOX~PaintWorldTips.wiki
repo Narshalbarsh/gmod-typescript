@@ -1,0 +1,9 @@
+<function name="PaintWorldTips" parent="SANDBOX" type="hook">
+	<description>
+Called from <page>GM:HUDPaint</page> to draw world tips. By default, enabling cl_drawworldtooltips will stop world tips from being drawn here.<br/>
+See <page>Global.AddWorldTip</page> for more information.
+
+<note>This cannot be used with <page>hook.Add</page></note>
+	</description>
+	<realm>Client</realm>
+</function>

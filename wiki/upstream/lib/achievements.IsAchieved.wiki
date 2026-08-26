@@ -1,0 +1,19 @@
+<function name="IsAchieved" parent="achievements" type="libraryfunc">
+	<description>Returns whether the given achievement is obtained or not.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="achievementID" type="number">The ID of the achievement.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">The state.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints the current status for every your achievement into the console.</description>
+	<code>
+for i = 1, achievements.Count() - 1 do
+	print( achievements.GetName( i ), achievements.IsAchieved( i ) )
+end
+	</code>
+</example>

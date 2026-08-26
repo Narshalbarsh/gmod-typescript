@@ -1,0 +1,7 @@
+<function name="GetPerformanceSettings" parent="physenv" type="libraryfunc">
+	<description>Gets the current performance settings in table form.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="table">Performance settings or <page>nil</page> if called too early. See <page>Structures/PhysEnvPerformanceSettings</page></ret>
+	</rets>
+</function>

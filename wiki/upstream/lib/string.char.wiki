@@ -1,0 +1,53 @@
+<function name="char" parent="string" type="libraryfunc">
+	<description>Takes the given numerical bytes and converts them to a string.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="bytes" type="vararg">The bytes to create the string from.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">String built from given bytes</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints a string consisting of the bytes 72, 101, 108, 108, 111</description>
+	<code>print( string.char( 72, 101, 108, 108, 111 ) )</code>
+	<output>
+```
+Hello
+```
+	</output>
+
+</example>
+
+
+<example>
+	<description>Helper function to create a random string.</description>
+	<code>
+function string.Random( length )
+
+	local length = tonumber( length )
+
+    if length < 1 then return end
+
+    local result = {} -- The empty table we start with
+
+    for i = 1, length do
+
+        result[i] = string.char( math.random(32, 126) )
+
+    end
+
+    return table.concat(result)
+
+end
+
+print( string.Random( 10 ) )
+	</code>
+	<output>
+```
+oEjkv2?h:T
+```
+	</output>
+
+</example>

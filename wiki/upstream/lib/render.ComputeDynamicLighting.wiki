@@ -1,0 +1,14 @@
+<function name="ComputeDynamicLighting" parent="render" type="libraryfunc">
+	<description>Calculates the lighting caused by dynamic lights (such as <page>Global.DynamicLight</page> and the Light Sandbox tool) for the specified surface. This will not include map ambient light.
+
+See also <page>render.ComputeLighting</page> for a function that also includes map's ambient lighting.
+</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="position" type="Vector">The position to sample from.</arg>
+		<arg name="normal" type="Vector">The normal of the surface.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">A vector representing the light at that point.</ret>
+	</rets>
+</function>

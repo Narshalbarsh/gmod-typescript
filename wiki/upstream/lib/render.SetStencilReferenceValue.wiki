@@ -1,0 +1,14 @@
+<function name="SetStencilReferenceValue" parent="render" type="libraryfunc">
+	<description>
+		Sets the Stencil system's Reference Value which is compared against each pixel's corresponding Stencil Buffer value in the <page text="Compare Function">render.SetStencilCompareFunction</page> and can be used to modify the Stencil Buffer value of those same pixels in the <page text="Pass">render.SetStencilPassOperation</page>, <page text="Fail">render.SetStencilFailOperation</page>, and <page text="Z Fail">render.SetStencilZFailOperation</page> operations.
+		
+		For more detailed information on the Stencil system, including usage examples, see the <page text="Stencils Render Reference">render_stencils</page> page.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="referenceValue" type="number">
+			The value that the Compare function and the pass, fail, and z-fail operations will use.  
+			This is an 8-bit (`byte`) unsigned integer value in the range [`0-255`].
+		</arg>
+	</args>
+</function>

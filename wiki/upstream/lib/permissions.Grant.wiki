@@ -1,0 +1,8 @@
+<function name="Grant" parent="permissions" type="libraryfunc">
+	<description>Grants permission to the current connected server.</description>
+	<realm>Menu</realm>
+	<args>
+		<arg name="permission" type="string">Permission to grant for the server the player is currently connected.</arg>
+		<arg name="temporary" type="boolean">`true` if the permission should be granted temporary.</arg>
+	</args>
+</function>

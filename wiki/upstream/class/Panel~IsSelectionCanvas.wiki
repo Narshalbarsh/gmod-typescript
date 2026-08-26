@@ -1,0 +1,8 @@
+<function name="IsSelectionCanvas" parent="Panel" type="classfunc">
+	<file line="17-L21">lua/includes/extensions/client/panel/selections.lua</file>
+	<description>Determines if the panel object is a selection canvas or not. This is set with <page>Panel:SetSelectionCanvas</page>.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="any">The value (if any) set by <page>Panel:SetSelectionCanvas</page>.</ret>
+	</rets>
+</function>

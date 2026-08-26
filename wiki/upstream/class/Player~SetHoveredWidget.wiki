@@ -1,0 +1,7 @@
+<function name="SetHoveredWidget" parent="Player" type="classfunc">
+	<description>Sets the widget that is currently hovered by the player's mouse.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="widget" type="Entity" default="NULL">The widget entity that the player is hovering.</arg>
+	</args>
+</function>

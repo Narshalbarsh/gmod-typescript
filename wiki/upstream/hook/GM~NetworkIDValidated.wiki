@@ -1,0 +1,24 @@
+<function name="NetworkIDValidated" parent="GM" type="hook">
+	<description>
+Called when a player's SteamID has been validated by Steam.
+
+See also <page>GM:PlayerAuthed</page> and <page>Player:IsFullyAuthenticated</page>.
+
+<note>This hook doesn't work intentionally in singleplayer [because the SteamID is not validated](https://github.com/Facepunch/garrysmod-issues/issues/4906#issuecomment-819337130) in that case. This also applies to `sv_lan 1` servers for every duplicate `-multirun` client.</note>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="name" type="string">Player name</arg>
+		<arg name="steamID" type="string">Player SteamID</arg>
+		<arg name="ownerID" type="string" added="2024.07.22">SteamID64 of the game license owner, in case Family Sharing is used. See also <page>Player:OwnerSteamID64</page></arg>
+	</args>
+</function>
+
+<example>
+<description>Simply prints out the values the hook receives.</description>
+<code>
+hook.Add( "NetworkIDValidated", "NetworkIDValidatedTest", function( name, steamID )
+	print( "NetworkIDValidated", name, steamID )
+end )
+</code>
+</example>

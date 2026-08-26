@@ -1,0 +1,13 @@
+<function name="UserData" parent="mesh" type="libraryfunc">
+	<description>
+		A set of four numbers that can be used for arbitrary purposes by <page>Material</page> shaders.  
+		This is most commonly used to provide tangent information about each vertex to the Material's shader.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="tangentX" type="number"></arg>
+		<arg name="tangentY" type="number"></arg>
+		<arg name="tangentZ" type="number"></arg>
+		<arg name="tangentHandedness" type="number"></arg>
+	</args>
+</function>

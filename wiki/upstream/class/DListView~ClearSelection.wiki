@@ -1,0 +1,4 @@
+<function name="ClearSelection" parent="DListView" type="panelfunc">
+	<description>Clears the current selection in the DListView.</description>
+	<realm>Client and Menu</realm>
+</function>

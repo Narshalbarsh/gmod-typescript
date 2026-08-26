@@ -1,0 +1,7 @@
+<function name="GetSideMove" parent="CUserCmd" type="classfunc">
+	<description>The speed the client wishes to move sideways with, positive if it wants to move right, negative if it wants to move left.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">requestSpeed</ret>
+	</rets>
+</function>

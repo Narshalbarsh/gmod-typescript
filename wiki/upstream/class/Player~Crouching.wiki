@@ -1,0 +1,7 @@
+<function name="Crouching" parent="Player" type="classfunc">
+	<description>Returns whether the player is crouching or not (<page text="FL_DUCKING">Enums/FL</page> flag).</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the player is crouching.</ret>
+	</rets>
+</function>

@@ -1,0 +1,11 @@
+<function name="SetRight" parent="VMatrix" type="classfunc">
+	<description>
+Sets the right direction of the matrix.
+
+ie. The second column of the matrix, negated, excluding the w coordinate.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="right" type="Vector">The right direction of the matrix.</arg>
+	</args>
+</function>

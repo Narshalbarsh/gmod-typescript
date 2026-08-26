@@ -1,0 +1,26 @@
+<cat>gameevent</cat>
+<title>ragdoll_dissolved</title>
+
+<structure>
+	<realm>Shared and Menu</realm>
+	<description>
+		Called when a Ragdoll is going to be Dissolved.
+	</description>
+	<fields>
+		<item type="number" name="entindex">The <page text="EntIndex">Entity:EntIndex</page> of the disolved Ragdoll.</item>
+	</fields>
+</structure>
+
+# Examples
+<example>
+	<description>This is a basic template with the purpose of including all arguments / table variables to make it easily known which values can be accessed.</description>
+	<code>
+gameevent.Listen( "ragdoll_dissolved" )
+hook.Add( "ragdoll_dissolved", "ragdoll_dissolved_example", function( data )
+	local entindex = data.entindex	// The Entity:EntIndex() of the disolved Ragdoll.
+
+	// Called when a Ragdoll is going to be Dissolved.
+	
+end )
+	</code>
+</example>

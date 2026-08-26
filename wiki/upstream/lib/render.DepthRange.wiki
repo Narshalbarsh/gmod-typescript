@@ -1,0 +1,93 @@
+<function name="DepthRange" parent="render" type="libraryfunc">
+	<description>Set's the depth range of the upcoming render.
+<note>Viewmodels get drawn with a depth range of `0` to `0.1` instead of the normal `0` to `1`. Incorrectly resetting the value can cause rendering issues.</note></description>
+	<realm>Client</realm>
+	<args>
+		<arg name="depthmin" type="number">The minimum depth of the upcoming render. `0.0` = render normally; `1.0` = render nothing.</arg>
+		<arg name="depthmax" type="number">The maximum depth of the upcoming render. `0.0` = render everything (through walls); `1.0` = render normally.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Perform a downward screen wipe effect on all opaque objects once the client connects.</description>
+	<code>
+local depthmin = 1.0
+
+hook.Add( "PreDrawOpaqueRenderables", "simple_effect", function( bDrawingDepth, bDrawingSkybox )
+	render.DepthRange( depthmin, 1.0 )
+	
+	if ( depthmin > 0.0 ) then
+		depthmin = depthmin - 0.001
+	end
+end )
+	</code>
+</example>
+
+<example>
+	<description>Same effect as above but with a dark shadow skin present where the model is being drawn.</description>
+	<code>
+local depthmin = 1.0
+local spawn_copies = {}	-- The shadow copies
+local custom_white_color = Color( 255, 255, 255, 92 )
+
+hook.Add( "PreDrawOpaqueRenderables", "advanced_effect", function( bDrawingDepth, bDrawingSkybox )
+	render.DepthRange( depthmin, 1.0 )
+	
+	if ( !spawn_copies ) then return false end
+	
+	if ( depthmin > 0.0 ) then
+		depthmin = depthmin - 0.001
+	else
+		local alpha = 0
+		local valid_copies = 0
+		
+		-- Fade out the shadow copies and remove them.
+		for _, spawncopy in ipairs(spawn_copies) do
+			if ( IsValid( spawncopy ) ) then
+				alpha = spawncopy:GetColor().a
+
+				if ( alpha > 0 ) then
+					spawncopy:SetColor( Color( 255, 255, 255, alpha - 1 ) )
+				else
+					spawncopy:Remove()
+				end
+
+				valid_copies = valid_copies + 1
+			end
+		end
+		
+		-- Nullify table since we aren't using it anymore.
+		if ( valid_copies == 0 ) then
+			spawn_copies = nil
+		end	
+	end
+end )
+
+hook.Add( "OnEntityCreated", "advanced_effect", function( ent )
+	if ( !spawn_copies ) then return end
+	
+	-- Prevents infinite loop and other errors.
+	if ( ent:GetClass() ~= "class C_BaseFlex" and
+		ent:GetRenderGroup() == RENDERGROUP_OPAQUE and
+		ent:GetClass() ~= "gmod_hands" ) then
+	
+		local mdl = ent:GetModel()
+		
+		-- Check that the entity is a model and not a brush.
+		if ( string.EndsWith( mdl, ".mdl" ) ) then
+			local spawncopy = ClientsideModel( mdl )
+			
+			-- A material with $ignorez set to 1 works best here.
+			spawncopy:SetMaterial( "models/overlay_rendertarget" )
+			spawncopy:AddEffects( EF_BONEMERGE )
+			spawncopy:SetParent( ent )
+			spawncopy:SetRenderMode( RENDERMODE_TRANSALPHA )
+			spawncopy:SetColor( custom_white_color )
+
+			table.insert( spawn_copies, spawncopy )
+		end
+	end
+end )
+	</code>
+	<output><upload src="DepthRange_example.webm" name="DepthRange_example.webm" /></output>
+</example>

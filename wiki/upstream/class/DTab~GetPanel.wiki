@@ -1,0 +1,8 @@
+<function name="GetPanel" parent="DTab" type="panelfunc">
+	<description>Returns the panel that the tab represents.</description>
+	<realm>Client and Menu</realm>
+	<file line="5">lua/vgui/dpropertysheet.lua</file>
+	<rets>
+		<ret name="" type="Panel">Panel added to the sheet using <page>DPropertySheet:AddSheet</page>.</ret>
+	</rets>
+</function>

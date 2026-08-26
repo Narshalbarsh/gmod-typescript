@@ -1,0 +1,21 @@
+<function name="Think" parent="GM" type="hook">
+	<description>
+Called every rendered frame on client, except when the game is paused.
+
+Called every game tick on the server. This will be the same as <page>GM:Tick</page> on the server when there is no lag, but will only be called once every processed server frame during lag.
+<page>Global.CurTime</page> is guaranteed to be different with each call to this hook on the server.
+
+See <page>GM:Tick</page> for a hook that runs every tick on both the client and server.
+
+<note>On server, this hook **WILL NOT** run if the server is empty, unless you set the <page>ConVar</page> `sv_hibernate_think` to `1`.</note>
+	</description>
+	<realm>Shared and Menu</realm>
+</function>
+
+<example>
+<code>
+hook.Add( "Think", "MyCoolThinkFunction", function()
+	print("Do something every frame/tick") -- This prints every frame/tick
+end )
+</code>
+</example>

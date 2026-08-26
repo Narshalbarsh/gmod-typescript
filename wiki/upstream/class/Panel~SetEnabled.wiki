@@ -1,0 +1,45 @@
+<function name="SetEnabled" parent="Panel" type="classfunc">
+	<description>
+Sets the enabled state of a panel object that supports being disabled, such as a <page>DButton</page> or <page>DTextEntry</page>.
+
+Disabled panels cannot be interacted with, and have a different appearance to indicate this.
+
+See <page>Panel:IsEnabled</page> for a function that retrieves the "enabled" state of a panel.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="enable" type="boolean">Whether to enable or disable the panel object.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Crates a panel that is enabled and a panel that is disabled.</description>
+	<code>
+
+local frame = vgui.Create( "DFrame" )
+frame:SetSize( 300, 250 )
+frame:Center()
+frame:MakePopup()
+
+local DermaButton = vgui.Create( "DButton", frame )
+DermaButton:SetText( "Say hi" )
+DermaButton:SetPos( 25, 50 )
+DermaButton:SetSize( 250, 30 )
+DermaButton.DoClick = function()
+	RunConsoleCommand( "say", "Hi" )
+end
+
+-- This panel is disabled, so the button won't be clickable
+local DisabledButton = vgui.Create( "DButton", frame )
+DisabledButton:SetText( "Can't touch me" )
+DisabledButton:SetEnabled( false )
+DisabledButton:SetPos( 25, 100 )
+DisabledButton:SetSize( 250, 30 )
+DisabledButton.DoClick = function()
+	RunConsoleCommand( "say", "This will never show up" )
+end
+	</code>
+	<output>
+		<upload src="70c/8de3d8855c1c53d.png" size="5405" name="image.png" />
+	</output>
+</example>

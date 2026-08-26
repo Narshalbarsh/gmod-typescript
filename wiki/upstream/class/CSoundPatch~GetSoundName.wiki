@@ -1,0 +1,8 @@
+<function name="GetSoundName" parent="CSoundPatch" type="classfunc">
+	<description>Returns the sound name of this sound patch. This may be name of a sound script (<page>sound.Add</page>) or a file path.</description>
+	<realm>Shared</realm>
+	<added>2026.06.19</added>
+	<rets>
+		<ret name="" type="string">The sound name.</ret>
+	</rets>
+</function>

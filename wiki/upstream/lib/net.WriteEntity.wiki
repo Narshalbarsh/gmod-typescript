@@ -1,0 +1,11 @@
+<function name="WriteEntity" parent="net" type="libraryfunc">
+	<description>Appends an entity to the current net message using its <page>Entity:EntIndex</page>.
+
+See <page>net.ReadEntity</page> for the function to read the entity.
+	</description>
+	<realm>Shared</realm>
+	<file line="56-L64">lua/includes/extensions/net.lua</file>
+	<args>
+		<arg name="entity" type="Entity">The entity to be sent.</arg>
+	</args>
+</function>

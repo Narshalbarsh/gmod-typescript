@@ -1,0 +1,10 @@
+<function name="SetDesiredSpeed" parent="CLuaLocomotion" type="classfunc">
+	<description>Sets how far the NextBot will need to move each time <page>CLuaLocomotion:Approach</page> is called to move at given speed.
+
+The default amount is 0. This means the bot will not move if this value has not been set.
+</description>.
+	<realm>Server</realm>
+	<args>
+		<arg name="speed" type="number" default="0">The new desired speed</arg>
+	</args>
+</function>

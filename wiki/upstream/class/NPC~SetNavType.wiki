@@ -1,0 +1,8 @@
+<function name="SetNavType" parent="NPC" type="classfunc">
+	<description>Sets the navigation type of the NPC.</description>
+	<realm>Server</realm>
+	<added>2021.03.31</added>
+	<args>
+		<arg name="navtype" type="number">The new nav type. See <page>Enums/NAV</page>.</arg>
+	</args>
+</function>

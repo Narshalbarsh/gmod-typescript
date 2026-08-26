@@ -1,0 +1,25 @@
+<function name="Get" parent="list" type="libraryfunc">
+	<description>Returns a copy of the list stored at identifier.
+	<warning>This function uses <page>table.Copy</page> which can be very slow for larger lists. You should avoid calling it repeatedly or in performance sensitive hooks such as <page>GM:Think</page>.</warning>
+	Where possible you should use the much faster helper functions:
+	  <page>list.Contains</page>,
+	  <page>list.HasEntry</page>, or
+	  <page>list.GetEntry</page>.
+
+	There is also the more dangerous option of calling <page>list.GetForEdit</page> to get the unprotected list if you absolutely must iterate through it in a think hook.
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="10-L14">lua/includes/modules/list.lua</file>
+	<args>
+		<arg name="identifier" type="string">The list identifier.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">The copy of the list.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Get every available NPC from the client:</description>
+	<code>PrintTable( list.Get( "NPC" ) )</code>
+
+</example>

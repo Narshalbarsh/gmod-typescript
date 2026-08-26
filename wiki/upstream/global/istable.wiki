@@ -1,0 +1,38 @@
+<function name="istable" parent="Global" type="libraryfunc">
+	<description>Returns if the passed object is a <page>table</page>.
+	<note>Will return `true` if the argument has a metatable. It will return `true` for variables of type <page>Color</page> as well.</note>
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="variable" type="any">The variable to perform the type check for.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">True if the variable is a <page>table</page>.</ret>
+	</rets>
+</function>
+
+
+<example>
+	<description>Second object has a string conversion but it is still a table</description>
+	<code>
+local mt1 = {}
+function new1()
+  self = {}; setmetatable(self, mt1)
+  mt1.__index = mt1
+  return self
+end
+
+local mt2 = {}
+function new2()
+  self = {}; setmetatable(self, mt2)
+  mt2.__index = mt2
+  mt2.__tostring = function(o) return "TEST" end
+  return self
+end
+	</code>
+	<output>
+```
+table: 0x01c98390	true	TEST	true	table: 0x019f29f8	true
+```
+	</output>
+</example>

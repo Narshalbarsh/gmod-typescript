@@ -1,0 +1,11 @@
+<function name="GetPredictable" parent="Entity" type="classfunc">
+	<description>
+Returns whether this entity is predictable or not.
+
+See <page>Entity:SetPredictable</page> for more information
+	</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="boolean">Whether this entity is predictable or not.</ret>
+	</rets>
+</function>

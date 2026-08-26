@@ -1,0 +1,8 @@
+<function name="SetSelectedNumber" parent="DBinder" type="panelfunc">
+	<description>Sets the current key bound by the <page>DBinder</page>, and updates the button's text as well as the <page>ConVar</page>.</description>
+	<realm>Client</realm>
+	<file line="41-L48">lua/vgui/dbinder.lua</file>
+	<args>
+		<arg name="keyCode" type="number">The key code of the key to bind. See <page>Enums/KEY</page>.</arg>
+	</args>
+</function>

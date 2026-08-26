@@ -1,0 +1,36 @@
+<function name="GetNPCState" parent="NPC" type="classfunc">
+	<description>Returns the NPC's state.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">The NPC's current state, see <page>Enums/NPC_STATE</page>.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Function which prints out a list of idle NPCs to the server console.</description>
+	<code>
+function ReportIdleNPCs()
+	for i, npc in ipairs( ents.FindByClass( "npc_*" ) ) do
+		if IsValid( npc ) and npc:IsNPC() and npc:GetNPCState() == NPC_STATE_IDLE then
+			print( "Ent #" .. npc:EntIndex() .. ": " .. npc:GetClass() .. " is idle." )
+		end
+	end
+end
+	</code>
+	<output>
+(To server console)
+
+
+Ent #111: npc_citizen is idle.
+
+
+Ent #120: npc_citizen is idle.
+
+
+Ent #122: npc_citizen is idle.
+
+
+Ent #124: npc_citizen is idle.
+	</output>
+
+</example>

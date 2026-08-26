@@ -1,0 +1,15 @@
+<function name="AddSheet" parent="DColumnSheet" type="panelfunc">
+	<description>Adds a new column/tab.</description>
+	<realm>Client and Menu</realm>
+	<file line="24-L62">lua/vgui/dcolumnsheet.lua</file>
+	<args>
+		<arg name="name" type="string">Name of the column/tab</arg>
+		<arg name="pnl" type="Panel">Panel to be used as contents of the tab. This normally would be a <page>DPanel</page></arg>
+		<arg name="icon" type="string" default="nil">Icon for the tab. This will ideally be a <page text="silkicon">Silkicons</page>, but any material name can be used.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">A table containing the following keys:
+* <page>DButton</page> / <page>DImageButton</page> Button - The created tab button that will switch to the given panel.
+* <page>Panel</page> Panel - The given panel to switch to when the button is pressed.</ret>
+	</rets>
+</function>

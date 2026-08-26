@@ -1,0 +1,3 @@
+<type name="render" category="libraryfunc" is="library">
+	<summary>The render library is a powerful set of functions that let you control how the world and its contents are rendered. It can also be used to draw some 3D clientside effects such as beams, boxes and spheres.</summary>
+</type>

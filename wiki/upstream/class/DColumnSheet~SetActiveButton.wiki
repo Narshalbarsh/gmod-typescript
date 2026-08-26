@@ -1,0 +1,12 @@
+<function name="SetActiveButton" parent="DColumnSheet" type="panelfunc">
+	<description>
+<internal></internal>
+
+An <page>Global.AccessorFunc</page> that makes a button an active button for this <page>DColumnSheet</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="64-L83">lua/vgui/dcolumnsheet.lua</file>
+	<args>
+		<arg name="active" type="Panel">The button to make active button</arg>
+	</args>
+</function>

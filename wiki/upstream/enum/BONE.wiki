@@ -1,0 +1,48 @@
+<enum>
+	<realm>Shared</realm>
+	<description>Used by <page>Entity:BoneHasFlag</page>.</description>
+	<items>
+<item key="BONE_PHYSICALLY_SIMULATED" value="1">Bone is physically simulated when physics are active</item>
+
+<item key="BONE_PHYSICS_PROCEDURAL" value="2">Procedural when physics is active</item>
+
+<item key="BONE_ALWAYS_PROCEDURAL" value="4">Bone is always procedurally animated</item>
+
+<item key="BONE_SCREEN_ALIGN_SPHERE" value="8">Bone aligns to the screen, not constrained in motion.</item>
+
+<item key="BONE_SCREEN_ALIGN_CYLINDER" value="16">Bone aligns to the screen, constrained by it's own axis.</item>
+
+<item key="BONE_CALCULATE_MASK" value="31"></item>
+
+<item key="BONE_USED_BY_HITBOX" value="256">A hitbox is attached to this bone</item>
+
+<item key="BONE_USED_BY_ATTACHMENT" value="512">An attachment is attached to this bone</item>
+
+<item key="BONE_USED_BY_VERTEX_LOD0" value="1024"></item>
+
+<item key="BONE_USED_BY_VERTEX_LOD1" value="2048"></item>
+
+<item key="BONE_USED_BY_VERTEX_LOD2" value="4096"></item>
+
+<item key="BONE_USED_BY_VERTEX_LOD3" value="8192"></item>
+
+<item key="BONE_USED_BY_VERTEX_LOD4" value="16384"></item>
+
+<item key="BONE_USED_BY_VERTEX_LOD5" value="32768"></item>
+
+<item key="BONE_USED_BY_VERTEX_LOD6" value="65536"></item>
+
+<item key="BONE_USED_BY_VERTEX_LOD7" value="131072"></item>
+
+<item key="BONE_USED_BY_VERTEX_MASK" value="261120"></item>
+
+<item key="BONE_USED_BY_BONE_MERGE" value="262144">Bone is available for bone merge to occur against it</item>
+
+<item key="BONE_USED_BY_ANYTHING" value="524032">Is this bone used by anything?
+
+( If any BONE_USED_BY_* flags are true )</item>
+
+<item key="BONE_USED_MASK" value="524032"></item>
+	</items>
+
+</enum>

@@ -1,0 +1,16 @@
+<function name="SetPos" parent="Panel" type="classfunc">
+	<description>
+Sets the position of the panel's top left corner.
+
+This will trigger <page>PANEL:PerformLayout</page>. You should avoid calling this function in <page>PANEL:PerformLayout</page> to avoid infinite loops.
+
+See also <page>Panel:SetX</page> and <page>Panel:SetY</page>.
+
+<note>If you wish to position and re-size panels without much guesswork and have them look good on different screen resolutions, you may find <page>Panel:Dock</page> useful</note>
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="posX" type="number">The x coordinate of the position.</arg>
+		<arg name="posY" type="number">The y coordinate of the position.</arg>
+	</args>
+</function>

@@ -1,0 +1,29 @@
+<function name="WorldSpaceAABB" parent="Entity" type="classfunc">
+	<description>Returns two vectors representing the minimum and maximum extent of the entity's axis-aligned bounding box (which is calculated from entity's collision bounds.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Vector">The minimum vector for the entity's bounding box in world space.</ret>
+		<ret name="" type="Vector">The maximum vector for the entity's bounding box in world space.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints Entity(1)'s maximum bounding box vector.</description>
+	<code>
+local min, max = Entity(1):WorldSpaceAABB()
+print( max )
+	</code>
+	<output>-496.828125 11730.426758 5189.393066</output>
+</example>
+
+<example>
+	<description>With `developer` set to `1`, draws the AABB of given entity using <page>debugoverlay</page>.</description>
+	<code>
+local e = Entity(123)
+
+local mi2, ma2 = e:WorldSpaceAABB()
+
+debugoverlay.Box( vector_origin, mi2, ma2, 10,  Color( 255, 255, 255, 32 ) )
+	</code>
+	<output><upload src="70c/8da74add0f1dc5b.png" size="566262" name="image.png" /></output>
+</example>

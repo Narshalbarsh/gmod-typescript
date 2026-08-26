@@ -1,0 +1,8 @@
+<function name="SetChecked" parent="DCheckBoxLabel" type="panelfunc">
+	<description>Sets the checked state of the checkbox. Does not call <page>DCheckBoxLabel:OnChange</page> or <page>Panel:ConVarChanged</page>, unlike <page>DCheckBoxLabel:SetValue</page>.</description>
+	<file line="110-L112">lua/vgui/dcheckbox.lua</file>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="checked" type="boolean">Whether the box should be checked or not.</arg>
+	</args>
+</function>

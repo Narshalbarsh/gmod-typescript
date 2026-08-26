@@ -1,0 +1,37 @@
+<function name="DynamicLight" parent="Global" type="libraryfunc">
+	<description>
+Creates or replaces a dynamic light with the given id.
+
+<note>Only 32 dlights and 64 elights can be active at once.</note>
+<warning>It is not safe to hold a reference to this object after creation since its data can be replaced by another dlight at any time.</warning>
+<bug issue="4649">Dynamic lights affect the world (brushwork, static props) and entities (dynamic props, etc.) differently.</bug>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="index" type="number">An unsigned Integer. Usually an <page text="entity index">Entity:EntIndex</page> is used here.</arg>
+		<arg name="elight" type="boolean" default="false">Allocates an elight instead of a dlight. Elights have a higher light limit and do not light the world (making the "noworld" parameter have no effect).</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">A DynamicLight structured table. See <page>Structures/DynamicLight</page></ret>
+	</rets>
+</function>
+
+<example>
+	<description>Emits a bright white light from local players eyes.</description>
+	<code>
+hook.Add( "Think", "Think_Lights!", function()
+	local dlight = DynamicLight( LocalPlayer():EntIndex() )
+	if ( dlight ) then
+		dlight.pos = LocalPlayer():GetShootPos()
+		dlight.r = 255
+		dlight.g = 255
+		dlight.b = 255
+		dlight.brightness = 2
+		dlight.decay = 1000
+		dlight.size = 256
+		dlight.dietime = CurTime() + 1
+	end
+end )
+	</code>
+
+</example>

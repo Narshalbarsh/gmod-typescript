@@ -1,0 +1,11 @@
+<function name="GetAnimCount" parent="Entity" type="classfunc">
+	<description>Returns the amount of animations (not to be confused with sequences) the entity's model has. A sequence can consist of multiple animations.
+
+See also <page>Entity:GetAnimInfo</page>
+</description>
+	<added>2022.06.08</added>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The amount of animations the entity's model has.</ret>
+	</rets>
+</function>

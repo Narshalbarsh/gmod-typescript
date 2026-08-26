@@ -1,0 +1,12 @@
+<function name="Remove" parent="Panel" type="classfunc">
+	<description>
+Marks a panel for deletion so it will be deleted on the next frame.
+
+This will not mark child panels for deletion this frame, but they will be marked and deleted in the next frame.
+
+See also <page>Panel:IsMarkedForDeletion</page>
+
+Will automatically call <page>Panel:InvalidateParent</page>.
+	</description>
+	<realm>Client and Menu</realm>
+</function>

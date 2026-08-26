@@ -1,0 +1,7 @@
+<function name="Think" parent="EFFECT" type="hook">
+	<description>Called when the effect should think, return false to kill the effect.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="boolean">Return false to remove this effect.</ret>
+	</rets>
+</function>

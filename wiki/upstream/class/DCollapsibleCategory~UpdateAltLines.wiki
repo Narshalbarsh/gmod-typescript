@@ -1,0 +1,9 @@
+<function name="UpdateAltLines" parent="DCollapsibleCategory" type="panelfunc">
+	<description>
+<internal></internal>
+
+Used internally to update the "AltLine" property on all "child" panels.
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="136-L142">lua/vgui/dcategorycollapse.lua</file>
+</function>

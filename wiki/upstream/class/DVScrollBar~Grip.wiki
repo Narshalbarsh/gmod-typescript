@@ -1,0 +1,8 @@
+<function name="Grip" parent="DVScrollBar" type="panelfunc">
+	<description>
+<internal></internal>
+
+Called from within <page>DScrollBarGrip</page>
+	</description>
+	<realm>Client and Menu</realm>
+</function>

@@ -1,0 +1,42 @@
+<structure>
+	<realm>Shared</realm>
+	<description>
+Table structure that describes a Source Engine ammo type.
+
+
+See <page>game.AddAmmoType</page> and <page>game.GetAmmoData</page>.
+	</description>
+	<fields>
+<item name="dmgtype" type="number{DMG}" default="DMG_BULLET">Damage type using <page>Enums/DMG</page>.
+
+Related function is <page>game.GetAmmoDamageType</page>.</item>
+<item name="force" type="number" default="1000">The force of the ammo.
+
+Related function is <page>game.GetAmmoForce</page>.</item>
+<item name="maxsplash" type="number" default="0">The maximum water splash size.</item>
+<item name="minsplash" type="number" default="0">The minimum water splash size.</item>
+<item name="name" type="string">Name of the ammo.
+
+Related functions are <page>game.GetAmmoName</page> and <page>game.GetAmmoID</page>.</item>
+<item name="npcdmg" type="number" default="10">The damage dealt to NPCs.
+
+Related function is <page>game.GetAmmoNPCDamage</page>.
+
+Can also be a string with the name of a <page>convar</page>. The value will automatically update with the convar's.
+</item>
+<item name="plydmg" type="number" default="10">The damage dealt to players.
+
+Related function is <page>game.GetAmmoPlayerDamage</page>.
+
+Can also be a string with the name of a <page>convar</page>. The value will automatically update with the convar's.</item>
+<item name="tracer" type="number{TRACER}" default="TRACER_NONE">Tracer type using <page>Enums/TRACER</page>.</item>
+<item name="maxcarry" type="number" default="9999">Maximum amount of ammo of this type the player should be able to carry in reserve. `-2` makes this ammo type infinite.
+
+Related function is <page>game.GetAmmoMax</page>.
+
+Can also be a string with the name of a <page>convar</page>. The value will automatically update with the convar's.
+<warning>`gmod_maxammo` convar will override this value if set to above 0, **which it is by default**.</warning></item>
+<item name="flags" type="number{AMMO}" default="0">Flags for the ammo type using <page>Enums/AMMO</page>.</item>
+	</fields>
+
+</structure>

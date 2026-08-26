@@ -1,0 +1,8 @@
+<function name="GetValue" parent="DAlphaBar" type="panelfunc">
+	<description>Returns the alpha value of the alpha bar. An <page>Global.AccessorFunc</page> </description>
+	<realm>Client and Menu</realm>
+	<file line="7">lua/vgui/dalphabar.lua</file>
+	<rets>
+		<ret name="" type="number">The current alpha value.</ret>
+	</rets>
+</function>

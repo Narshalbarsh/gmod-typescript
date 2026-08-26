@@ -1,0 +1,40 @@
+<function name="CanTool" parent="ENTITY" type="hook">
+	<description>
+Controls if a tool can be used on this entity or not.
+
+This hook will only work in Sandbox derived gamemodes that do not have <page>SANDBOX:CanTool</page> overridden.
+
+<note>This hook will work on ALL entities, not just the scripted ones (SENTs)</note>
+	</description>
+	<realm>Shared</realm>
+	<file line="73">gamemodes/sandbox/gamemode/shared.lua</file>
+	<args>
+		<arg name="ply" type="Player">Player, that tried to use the tool</arg>
+		<arg name="tr" type="table{TraceResult}">The trace of the tool.
+<warning>Returns only the <page text="world">game.GetWorld</page> in the <page text="Entity">Structures/TraceResult#Entity</page> key and returns false in the <page text="Hit">Structures/TraceResult#Hit</page> key when the 5th argument returns `4`.</warning></arg>
+		<arg name="toolname" type="string">Class of the tool that is tried to use, for example - `weld`</arg>
+		<arg name="tool" type="table">The tool mode table the player currently has selected.</arg>
+		<arg name="button" type="number">The tool button pressed.
+* `1` - left click
+* `2` - right click
+* `3` - reload
+* `4` - spawn menu (No interaction with the toolgun). **Client-side only**
+</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return `false` to disallow using that tool on this entity, return `true` to allow.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prevents usage of the remover tool on this entity.</description>
+	<code>
+function ENT:CanTool( ply, trace, mode, tool, button )
+
+	if ( mode == "remover" ) then return false end
+
+	return true
+
+end
+	</code>
+</example>

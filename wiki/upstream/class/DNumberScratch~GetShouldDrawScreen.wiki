@@ -1,0 +1,7 @@
+<function name="GetShouldDrawScreen" parent="DNumberScratch" type="panelfunc">
+	<description>Returns whether the scratch window should be visible or not.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean"></ret>
+	</rets>
+</function>

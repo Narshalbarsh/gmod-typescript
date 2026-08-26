@@ -1,0 +1,34 @@
+<function name="OutputDebugInfo" parent="PhysObj" type="classfunc">
+	<description>Prints debug info about the state of the physics object to the console.</description>
+	<realm>Shared</realm>
+</function>
+
+<example>
+	<description>Outputs physics info about the entity the player is looking at to the console.</description>
+	<code>Entity(1):GetEyeTrace().Entity:GetPhysicsObject():OutputDebugInfo()</code>
+	<output>
+
+```
+-----------------
+Object: models/props_borealis/bluebarrel001.mdl
+Mass: 60.0 (inv 0.017)
+Inertia: 8.69, 8.69, 2.46 (inv 0.115, 0.115, 0.406)
+Velocity: 0.00, 0.00, -0.00 
+Ang Velocity: 0.00, 0.00, -0.00 
+Damping 0.00 linear, 0.00 angular
+Linear Drag: 0.02, 0.01, 0.01 (factor 1.00)
+Angular Drag: 0.01, 0.02, 0.01 (factor 1.00)
+attached to 5 controllers
+4) sys:friction
+3) sys:friction
+2) sys:friction
+1) vphysics:drag
+0) sys:gravity
+State: Asleep, Collision Enabled, Motion Enabled, Flags 1127 (game 0000, index 0)
+Material: plastic_barrel : density(500.0), thickness(0.25), friction(0.80), elasticity(0.01)
+CollisionModel: Compact Surface: 1 convex pieces no outer hull
+```
+
+	</output>
+
+</example>

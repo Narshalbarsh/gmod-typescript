@@ -1,0 +1,9 @@
+<function name="GetHitBoxGroupCount" parent="Entity" type="classfunc">
+	<description><deprecated>You should use <page>Entity:GetHitboxSetCount</page> instead.</deprecated>
+
+Returns the number of hit box sets that an entity has. Functionally identical to <page>Entity:GetHitboxSetCount</page></description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">number of hit box sets</ret>
+	</rets>
+</function>

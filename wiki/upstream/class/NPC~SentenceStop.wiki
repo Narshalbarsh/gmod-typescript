@@ -1,0 +1,8 @@
+<function name="SentenceStop" parent="NPC" type="classfunc">
+	<description>
+Stops any sounds (speech) the NPC is currently playing.
+
+Equivalent to `Entity:EmitSound( "AI_BaseNPC.SentenceStop" )`
+	</description>
+	<realm>Server</realm>
+</function>

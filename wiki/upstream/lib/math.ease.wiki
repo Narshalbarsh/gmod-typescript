@@ -1,0 +1,38 @@
+<type name="math.ease" category="libraryfunc" is="library">
+	<summary>An easing library that allows you to interpolate with various kinds of smoothing [functions](https://easings.net/). To use with <page>Global.Lerp</page>, input what you would to the fraction argument in one of these easing functions and then the output of that into the <page>Global.Lerp</page> fraction argument.
+<example>
+	<description>Example usage with Lerp and <page>math.ease.InSine</page></description>
+	<code>
+-- Define a wrapper function to make it easier to work with
+local function easedLerp(fraction, from, to)
+	return Lerp(math.ease.InSine(fraction), from, to)
+end
+
+-- Compare with the non-eased version of Lerp
+print(easedLerp(0.25, 0, 1))
+print(Lerp(0.25, 0, 1))
+
+print(easedLerp(0.25, 0, 5))
+print(Lerp(0.25, 0, 5))
+	</code>
+	<output>
+```
+0.076120467488713
+0.25
+
+0.38060233744357
+1.25
+```
+	</output>
+
+</example>
+
+<example>
+	<description>
+		A brief visual example of different easing methods
+		<upload src="ab571/8dc38906fb4cfbe.gif" size="4162886" name="easing_examples.gif" />
+	</description>
+</example>
+</summary>
+<added>2021.12.15</added>
+</type>

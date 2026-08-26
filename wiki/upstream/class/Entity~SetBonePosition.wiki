@@ -1,0 +1,33 @@
+<function name="SetBonePosition" parent="Entity" type="classfunc">
+	<description>Sets the bone position and angles.
+	
+	<validate>For changes to happen, this must be called in a <page text="rendering">Render_Order</page> hook.</validate>
+
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="bone" type="number">The bone ID to manipulate</arg>
+		<arg name="pos" type="Vector">The position to set</arg>
+		<arg name="ang" type="Angle">The angles to set</arg>
+	</args>
+</function>
+
+<example>
+	<description>Sets the head of every player above their character</description>
+	<code>
+hook.Add("PrePlayerDraw", "HeadsUp", function(ply, flags)
+	local bone = ply:LookupBone( "ValveBiped.Bip01_Head1" )
+	
+	if not bone then 
+		return
+	end
+
+	local angle = ply:EyeAngles() + Angle(-90,0,90)
+	local position = ply:LocalToWorld( Vector(0,0,100) )
+		
+	ply:SetBonePosition( bone, position , angle )
+	
+end)
+	</code>
+<output><upload src="b56d9/8dcc485f762eac0.jpg" size="137703" name="SetBonePosExample.jpg" /></output>
+</example>

@@ -1,0 +1,20 @@
+<function name="ConCommand" parent="Player" type="classfunc">
+	<description>
+Runs the concommand on the player. This does not work on bots. If used clientside, always runs the command on the local player.
+
+If you wish to directly modify the movement input of bots, use <page>GM:StartCommand</page> instead.
+
+<note>Some commands/convars are blocked from being run/changed using this function, usually to prevent harm/annoyance to clients. For a list of blocked commands, see <page>Blocked ConCommands</page>.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="command" type="string">command to run</arg>
+	</args>
+</function>
+
+<example>
+	<description>Kills the player using the concommand</description>
+	<code>Entity( 1 ):ConCommand( "kill" )</code>
+	<output>The Player1 dies.</output>
+
+</example>

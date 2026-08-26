@@ -1,0 +1,43 @@
+<function name="Decal" parent="util" type="libraryfunc">
+	<description>Performs a trace and paints a decal to the surface hit.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="name" type="string">The name of the decal to paint.</arg>
+		<arg name="start" type="Vector">The start of the trace.</arg>
+		<arg name="end" type="Vector">The end of the trace.</arg>
+		<arg name="filter" type="Entity" alttype="table<Entity>" default="NULL">If set, the decal will not be able to be placed on given entity. Can also be a table of entities.</arg>
+	</args>
+</function>
+
+##  Built in Decals 
+Here's a list of all the decal names that should be possible to use by default.
+* BeerSplash
+* BirdPoop
+* Blood
+* BulletProof
+* Cross
+* Dark
+* ExplosiveGunshot
+* Eye
+* FadingScorch
+* GlassBreak
+* Impact.Antlion
+* Impact.BloodyFlesh
+* Impact.Flesh
+* Impact.Concrete
+* Impact.Glass
+* Impact.Metal
+* Impact.Sand
+* Impact.Wood
+* Light
+* ManhackCut
+* Nought
+* Noughtsncrosses
+* PaintSplatBlue
+* PaintSplatGreen
+* PaintSplatPink
+* Scorch
+* SmallScorch
+* Smile
+* Splash.Large
+* YellowBlood

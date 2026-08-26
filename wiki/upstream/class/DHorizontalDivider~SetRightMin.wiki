@@ -1,0 +1,7 @@
+<function name="SetRightMin" parent="DHorizontalDivider" type="panelfunc">
+	<description>Sets the minimum width of the right side</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="minWidth" type="number">The minimum width of the right side</arg>
+	</args>
+</function>

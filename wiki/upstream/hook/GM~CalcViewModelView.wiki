@@ -1,0 +1,17 @@
+<function name="CalcViewModelView" parent="GM" type="hook">
+	<description>Allows overriding the position and angle of the viewmodel.</description>
+	<realm>Client</realm>
+<file line="555">gamemodes/base/gamemode/cl_init.lua</file>
+	<args>
+		<arg name="wep" type="Weapon">The weapon entity</arg>
+		<arg name="vm" type="Entity">The viewmodel entity</arg>
+		<arg name="oldPos" type="Vector">Original position (before viewmodel bobbing and swaying)</arg>
+		<arg name="oldAng" type="Angle">Original angle (before viewmodel bobbing and swaying)</arg>
+		<arg name="pos" type="Vector">Current position</arg>
+		<arg name="ang" type="Angle">Current angle</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">New position</ret>
+		<ret name="" type="Angle">New angle</ret>
+	</rets>
+</function>

@@ -1,0 +1,5 @@
+<function name="QuickSavePreset" parent="ControlPresets" type="panelfunc">
+	<description></description>
+	<realm>Client</realm>
+	<file line="82-L95">gamemodes/sandbox/gamemode/spawnmenu/controls/control_presets.lua</file>
+</function>

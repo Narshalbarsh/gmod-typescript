@@ -1,0 +1,7 @@
+<function name="GetTranslation" parent="VMatrix" type="classfunc">
+	<description>Returns the absolute translation of the matrix.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Vector">Absolute translation of the matrix</ret>
+	</rets>
+</function>

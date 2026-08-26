@@ -1,0 +1,7 @@
+<function name="IsWorldClicker" parent="Panel" type="classfunc">
+	<description>Returns if a panel allows world clicking set by <page>Panel:SetWorldClicker</page>.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">If the panel allows world clicking.</ret>
+	</rets>
+</function>

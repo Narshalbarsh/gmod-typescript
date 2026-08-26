@@ -1,0 +1,9 @@
+<function name="Get3DEnabled" parent="IGModAudioChannel" type="classfunc">
+	<description>Returns if the sound channel is currently in 3D mode or not. This value will be affected by <page>IGModAudioChannel:Set3DEnabled</page>.
+	</description>
+	<realm>Client</realm>
+	<added>2020.04.29</added>
+	<rets>
+		<ret name="" type="boolean">Is currently 3D or not.</ret>
+	</rets>
+</function>

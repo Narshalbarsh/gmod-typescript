@@ -1,0 +1,8 @@
+<function name="ClearStencil" parent="render" type="libraryfunc">
+	<description>
+		Sets the Stencil Buffer value to `0` for all pixels in the currently active <page text="Render Target">render_rendertargets</page>.
+		
+		For more detailed information on the Stencil system, including usage examples, see the <page text="Stencils Render Reference">render_stencils</page> page.
+	</description>
+	<realm>Client and Menu</realm>
+</function>

@@ -1,0 +1,3 @@
+<type name="cvars" category="libraryfunc" is="library">
+	<summary>The cvars library allows you to control what happens when a cvar (console variable) is changed.</summary>
+</type>

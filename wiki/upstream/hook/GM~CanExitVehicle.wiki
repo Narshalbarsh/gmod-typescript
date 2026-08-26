@@ -1,0 +1,25 @@
+<function name="CanExitVehicle" parent="GM" type="hook">
+	<description>Determines if the player can exit the vehicle on their own. <page>Player:ExitVehicle</page> will bypass this hook.
+
+See <page>GM:CanPlayerEnterVehicle</page> for the opposite hook.  
+See also <page>GM:PlayerLeaveVehicle</page> for a hook that will be called whenever a player exits any vehicle for any reason.
+</description>
+	<realm>Server</realm>
+<file line="567">gamemodes/base/gamemode/player.lua</file>
+	<args>
+		<arg name="veh" type="Vehicle">The vehicle entity</arg>
+		<arg name="ply" type="Player">The player</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">True if the player can exit the vehicle.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Only lets player exit vehicle if it is not in motion.</description>
+	<code>
+hook.Add( "CanExitVehicle", "PlayerMotion", function( veh, ply )
+    return ( veh:GetVelocity() == Vector( 0, 0, 0 ) )
+end )
+	</code>
+</example>

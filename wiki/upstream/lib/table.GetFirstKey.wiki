@@ -1,0 +1,16 @@
+<function name="GetFirstKey" parent="table" type="libraryfunc">
+	<description>
+<deprecated>Instead, expect the first key to be 1.
+
+Non-numerically indexed tables are not ordered and do not have a first key.</deprecated>
+Returns the first key found in the given table
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="636-L642">lua/includes/extensions/table.lua</file>
+	<args>
+		<arg name="tab" type="table">Table to retrieve key from</arg>
+	</args>
+	<rets>
+		<ret name="" type="any">Key</ret>
+	</rets>
+</function>

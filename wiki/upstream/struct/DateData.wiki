@@ -1,0 +1,18 @@
+<structure>
+	<realm>Shared and Menu</realm>
+	<description>Table returned by <page>os.date</page> and used by <page>os.time</page>.</description>
+	<fields>
+<item name="day" type="number">Day of the month</item>
+<item name="hour" type="number">Hour</item>
+<item name="isdst" type="boolean">Daylight saving enabled</item>
+<item name="min" type="number">Minute</item>
+<item name="month" type="number">Month
+January: 1, December: 12</item>
+<item name="sec" type="number">Second</item>
+<item name="wday" type="number">Day of the week
+Sunday: 1, Saturday: 7</item>
+<item name="yday" type="number">Day of the year</item>
+<item name="year" type="number">Year</item>
+	</fields>
+
+</structure>

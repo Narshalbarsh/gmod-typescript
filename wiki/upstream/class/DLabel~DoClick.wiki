@@ -1,0 +1,33 @@
+<function name="DoClick" parent="DLabel" type="panelhook">
+	<description>
+Called when the label is left clicked (on key release) by the player.
+
+This will be called after <page>DLabel:OnDepressed</page> and <page>DLabel:OnReleased</page>.
+
+This can be overridden; by default, it calls <page>DLabel:Toggle</page>.
+
+See also <page>DLabel:DoRightClick</page>, <page>DLabel:DoMiddleClick</page> and <page>DLabel:DoDoubleClick</page>.
+	</description>
+	<realm>Client and Menu</realm>
+</function>
+
+<example>
+	<description>Creates a label in the center of the screen, that prints `I was clicked!` to the console and disappears when clicked.</description>
+	<code>
+local lbl = vgui.Create( "DLabel" ) -- Creates our label
+lbl:SetFont( "DermaLarge" )
+lbl:SetText( "Click me!" )
+lbl:SizeToContents()
+lbl:Center()
+lbl:SetMouseInputEnabled( true ) -- We must accept mouse input
+function lbl:DoClick() -- Defines what should happen when the label is clicked
+	print("I was clicked!")
+	self:Remove()
+end
+	</code>
+	<output>
+```
+I was clicked!
+```
+ When the label is clicked.</output>
+</example>

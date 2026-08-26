@@ -1,0 +1,7 @@
+<function name="ViewPunchReset" parent="Player" type="classfunc">
+	<description>Resets the player's view punch (and the view punch velocity, read more at <page>Player:ViewPunch</page>) effect back to normal.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="tolerance" type="number" default="0">Reset all ViewPunch below this threshold.</arg>
+	</args>
+</function>

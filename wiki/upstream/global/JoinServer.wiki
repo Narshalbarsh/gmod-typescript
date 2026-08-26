@@ -1,0 +1,13 @@
+<function name="JoinServer" parent="Global" type="libraryfunc">
+	<description>Joins the server with the specified IP.</description>
+	<realm>Menu</realm>
+	<args>
+		<arg name="IP" type="string">The IP of the server to join</arg>
+	</args>
+</function>
+
+<example>
+	<description>Joins the server running on your machine.</description>
+	<code>JoinServer("localhost")</code>
+
+</example>

@@ -1,0 +1,13 @@
+<function name="FireProblemFromEngine" parent="Global" type="libraryfunc">
+	<description>
+		<internal>Internally uses <page>Global.FireProblem</page> to create / fire the Problem.</internal>
+		This function is called from the engine to notify the player about a problem in a more user friendly way compared to a console message.
+	</description>
+	<realm>Menu</realm>
+	<file line="188-L203">lua/menu/problems/problems.lua</file>
+	<args>
+		<arg name="id" type="string">The Problem ID.</arg>
+		<arg name="severity" type="number">The Problem severity.</arg>
+		<arg name="params" type="string">Additional Parameters.</arg>
+	</args>
+</function>

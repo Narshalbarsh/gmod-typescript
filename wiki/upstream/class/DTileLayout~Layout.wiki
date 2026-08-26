@@ -1,0 +1,4 @@
+<function name="Layout" parent="DTileLayout" type="panelfunc">
+	<description>Resets the last width/height info, and invalidates the panel's layout, causing it to recalculate all child positions. It is called whenever a child is added or removed, and can be called to refresh the panel.</description>
+	<realm>Client</realm>
+</function>

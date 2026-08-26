@@ -1,0 +1,18 @@
+<function name="RemoveDecalsAt" parent="util" type="libraryfunc">
+	<description>
+Removes world decals at given position, in given radius. Does not remove decals on models!
+	</description>
+	<realm>Client</realm>
+	<added>2025.02.06</added>
+	<args>
+		<arg name="pos" type="Vector">The position at which to remove decals.</arg>
+		<arg name="distance" type="number">Radius of the sphere to remove decals in.</arg>
+		<arg name="limit" type="number" default="0">If set to above 0, only remove this many decals.</arg>
+		<arg name="permanent" type="boolean" default="false">Whether to remove map-spawned decals (`true`), or only gameplay-spawned decals 
+ such as bullet holes or anything placed by <page>util.Decal</page> and similar(`false`)</arg>
+	</args>
+
+	<rets>
+		<ret name="removed" type="number">How many decals were removed.</ret>
+	</rets>
+</function>

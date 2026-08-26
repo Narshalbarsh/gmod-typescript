@@ -1,0 +1,7 @@
+<function name="SetRecordSound" parent="IVideoWriter" type="classfunc">
+	<description>Sets whether to record sound or not.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="record" type="boolean">Record.</arg>
+	</args>
+</function>

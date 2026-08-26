@@ -1,0 +1,4 @@
+<function name="off" parent="jit" type="libraryfunc">
+	<description>Disables LuaJIT Lua compilation.</description>
+	<realm>Shared and Menu</realm>
+</function>

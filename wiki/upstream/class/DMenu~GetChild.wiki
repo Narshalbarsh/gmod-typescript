@@ -1,0 +1,9 @@
+<function name="GetChild" parent="DMenu" type="panelfunc">
+	<description>Gets a child by its index.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="childIndex" type="number">The index of the child to get.
+
+<note>Unlike <page>Panel:GetChild</page>, this index starts at 1.</note></arg>
+	</args>
+</function>

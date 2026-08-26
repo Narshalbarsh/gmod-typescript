@@ -1,0 +1,21 @@
+<function name="StripExtension" parent="string" type="libraryfunc">
+	<description>Removes the extension of a path.
+
+See <page>string.GetExtensionFromFilename</page> for a function to retrieve the extension instead.
+</description>
+	<realm>Shared and Menu</realm>
+	<file line="137-L145">lua/includes/extensions/string.lua</file>
+	<args>
+		<arg name="path" type="string">The string eg. file-path to strip the extension.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">File-path without extension or unmodified string.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Demonstrates the use of string.StripExtension</description>
+	<code>MsgN(string.StripExtension("garrysmod/lua/modules/string.lua"))</code>
+	<output>"garrysmod/lua/modules/string"</output>
+
+</example>

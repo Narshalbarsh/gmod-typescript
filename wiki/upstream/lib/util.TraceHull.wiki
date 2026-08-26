@@ -1,0 +1,96 @@
+<function name="TraceHull" parent="util" type="libraryfunc">
+	<description>
+Performs an AABB hull (axis-aligned bounding box, aka not rotated) trace with the given trace data.
+
+This trace type cannot hit hitboxes.
+
+See <page>util.TraceLine</page> for a simple line ("ray") trace.
+
+<note>This function may not always give desired results clientside due to certain physics mechanisms not existing on the client. Use it serverside for accurate results.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="TraceData" type="table{HullTrace}">The trace data to use. See <page>Structures/HullTrace</page></arg>
+	</args>
+	<rets>
+		<ret name="" type="table{TraceResult}">Trace result. See <page>Structures/TraceResult</page></ret>
+	</rets>
+</function>
+
+<example>
+	<description>Visual representation of a Hull Trace.</description>
+	<code>
+function ENT:Draw()
+
+	self:DrawModel()
+
+	-- Entity model's bounding box
+	local mins = self:OBBMins()
+	local maxs = self:OBBMaxs()
+
+	local startpos = self:GetPos() -- Origin point for the trace
+	local dir = self:GetUp() -- Direction for the trace, as a unit vector
+	local len = 128 -- Maximum length of the trace
+
+	-- Perform the trace
+	local tr = util.TraceHull( {
+		start = startpos,
+		endpos = startpos + dir * len,
+		maxs = maxs,
+		mins = mins,
+		filter = self
+	} )
+
+	-- Draw a line between start and end of the performed trace
+	render.DrawLine( tr.HitPos, startpos + dir * len, color_white, true )
+	render.DrawLine( startpos, tr.HitPos, Color( 0, 0, 255 ), true )
+
+	-- Choose a color, if the trace hit - make the color red
+	local clr = color_white
+	if ( tr.Hit ) then clr = Color( 255, 0, 0 ) end
+
+	-- Draw the trace bounds at the start and end positions
+	render.DrawWireframeBox( startpos, Angle( 0, 0, 0 ), mins, maxs, Color( 255, 255, 255 ), true )
+	render.DrawWireframeBox( tr.HitPos, Angle( 0, 0, 0 ), mins, maxs, clr, true )
+
+end
+	</code>
+	<output><image src="HullTrace.gif"/></output>
+
+</example>
+
+
+<example>
+	<description>Trace a player sized hull to detect if a player can spawn here without getting stuck inside anything.</description>
+	<code>
+local pos = Entity(1):GetPos() -- Choose your position.
+
+local tr = {
+	start = pos,
+	endpos = pos,
+	mins = Vector( -16, -16, 0 ),
+	maxs = Vector( 16, 16, 71 )
+}
+
+local hullTrace = util.TraceHull( tr )
+if ( hullTrace.Hit ) then
+    -- Find a new spawnpoint
+end
+	</code>
+
+</example>
+
+<example>
+	<description>From a SWEP:PrimaryAttack()</description>
+	<code>
+local tr = util.TraceHull( {
+	start = self:GetOwner():GetShootPos(),
+	endpos = self:GetOwner():GetShootPos() + ( self:GetOwner():GetAimVector() * 100 ),
+	filter = self:GetOwner(),
+	mins = Vector( -10, -10, -10 ),
+	maxs = Vector( 10, 10, 10 ),
+	mask = MASK_SHOT_HULL
+} )
+	</code>
+
+</example>

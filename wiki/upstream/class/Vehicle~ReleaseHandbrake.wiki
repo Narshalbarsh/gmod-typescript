@@ -1,0 +1,8 @@
+<function name="ReleaseHandbrake" parent="Vehicle" type="classfunc">
+	<description>
+Releases the vehicle's handbrake (Jeep) so it can roll without any passengers.
+
+This will be overwritten if the vehicle has a driver. Same as <page>Vehicle:SetHandbrake</page>( false )
+	</description>
+	<realm>Server</realm>
+</function>

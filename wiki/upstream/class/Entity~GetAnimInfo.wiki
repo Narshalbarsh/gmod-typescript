@@ -1,0 +1,48 @@
+<function name="GetAnimInfo" parent="Entity" type="classfunc">
+	<description>
+Returns a table containing the number of frames, flags, name, and FPS of an entity's animation ID.
+
+<note>Animation ID is not the same as sequence ID. See <page>Entity:GetAnimCount</page></note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="animIndex" type="number">The animation ID to look up, starting at 0.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table|nil">Information about the animation, or `nil` if the index is out of bounds.
+
+A table with the following keys:
+* <page>string</page> label - Animation name
+* <page>number</page> fps - How many frames per second the animation should be played at
+* <page>number</page> flags - [STUDIO_](https://github.com/ZeqMacaw/Crowbar/blob/0d46f3b6a694b74453db407c72c12a9685d8eb1d/Crowbar/Core/GameModel/SourceCommon/SourceMdlFileData/SourceMdlAnimationDesc.vb#L181) flags, such as looping
+* <page>number</page> numframes - Number of frames the animation has
+</ret>
+	</rets>
+</function>
+
+<example>
+	<description>A function that finds an entity sequence's corresponding animation and returns the animation info.</description>
+	<code>
+function GetAnimInfoSequence( ent, seq )
+
+	if( !IsValid( ent ) ) then return nil end
+
+	local seqname = ent:GetSequenceName( seq )
+	if( seqname == "Unknown" ) then return nil end
+
+	for i=0, ent:GetAnimCount() do
+	
+		local info = ent:GetAnimInfo(i)
+		
+		if ( string.find( info.label, "@" .. seqname, 0, true ) or string.find( info.label, "a_" .. seqname, 0, true ) ) then
+			return info
+		end
+
+	end
+
+	return nil
+
+end
+	</code>
+
+</example>

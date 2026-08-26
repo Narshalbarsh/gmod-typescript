@@ -1,0 +1,10 @@
+<function name="KeyDown" parent="CMoveData" type="classfunc">
+	<description>Returns whether the key is down or not</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="key" type="number">The key to test, see <page>Enums/IN</page></arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Is the key down or not</ret>
+	</rets>
+</function>

@@ -1,0 +1,22 @@
+<function name="Listen" parent="gameevent" type="libraryfunc">
+	<description>
+		Adds a [game event](gameevent) listener, creating a new hook using the <page>hook</page> library, which can be listened to via <page>hook.Add</page> with the given `eventName` as event.
+		<note>
+			All gameevents are called in the **Menu State**, but if you want to use them you need to use some DLL(like [this](https://github.com/RaphaelIT7/gmod-gameevent) one) or you need to create your own.
+		</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="eventName" type="string">The event to listen to. List of valid events (with examples) can be found [here](gameevent).</arg>
+	</args>
+</function>
+
+<example>
+<description>Example usage of this function. Listens to the <page text="player_disconnect">gameevent/player_disconnect</page> game event and prints a message every time it is ran.</description>
+<code>
+gameevent.Listen( "player_disconnect" )
+hook.Add( "player_disconnect", "my_player_disconnect_hook", function( ... )
+	print( "player_disconnect", ... )
+end)
+</code>
+</example>

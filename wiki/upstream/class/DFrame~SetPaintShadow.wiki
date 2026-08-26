@@ -1,0 +1,7 @@
+<function name="SetPaintShadow" parent="DFrame" type="panelfunc">
+	<description>Sets whether or not the shadow effect bordering the DFrame should be drawn.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="shouldPaint" type="boolean">Whether or not to draw the shadow. This is `true` by default.</arg>
+	</args>
+</function>

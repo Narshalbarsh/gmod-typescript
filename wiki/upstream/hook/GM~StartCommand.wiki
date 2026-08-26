@@ -1,0 +1,78 @@
+<function name="StartCommand" parent="GM" type="hook">
+	<description>
+Allows you to change the players inputs before they are processed by the server. This function is also called for bots, making it the best solution to control them.
+
+This is basically a shared version of <page>GM:CreateMove</page>.
+
+
+<note>This hook is predicted, but not by usual means, it is called when a <page>CUserCmd</page> is generated on the client, and on the server when it is received, so it is necessary for this hook to be called clientside even on singleplayer</note>
+	</description>
+	<predicted>Yes</predicted>
+	<realm>Shared</realm>
+	<args>
+		<arg name="ply" type="Player">The player</arg>
+		<arg name="ucmd" type="CUserCmd">The usercommand</arg>
+	</args>
+</function>
+
+<example>
+	<description>
+Example of how you'd control a bot using this hook.
+
+The example causes all bots to go kill any players they can get to with crowbars.
+	</description>
+	<code>
+hook.Add( "StartCommand", "StartCommandExample", function( ply, cmd )
+
+	-- If the player is not a bot or the bot is dead, do not do anything
+	-- TODO: Maybe spawn the bot manually here if the bot is dead
+	if ( !ply:IsBot() or !ply:Alive() ) then return end
+
+	-- Clear any default movement or actions
+	cmd:ClearMovement() 
+	cmd:ClearButtons()
+
+	-- Bot has no enemy, try to find one
+	if ( !IsValid( ply.CustomEnemy ) ) then
+		-- Scan through all players and select one not dead
+		for id, pl in ipairs( player.GetAll() ) do
+			if ( !pl:Alive() or pl == ply ) then continue end -- Don't select dead players or self as enemies 
+			ply.CustomEnemy = pl
+		end
+		-- TODO: Maybe add a Line Of Sight check so bots won't walk into walls to try to get to their target
+		-- Or add path finding so bots can find their way to enemies
+	end
+
+	-- We failed to find an enemy, don't do anything
+	if ( !IsValid( ply.CustomEnemy ) ) then return end
+
+	-- Move forwards at the bots normal walking speed
+	cmd:SetForwardMove( ply:GetWalkSpeed() )
+
+	-- Aim at our enemy
+	if ( ply.CustomEnemy:IsPlayer() ) then
+		cmd:SetViewAngles( ( ply.CustomEnemy:GetShootPos() - ply:GetShootPos() ):GetNormalized():Angle() )
+		ply:SetEyeAngles( ( ply.CustomEnemy:GetShootPos() - ply:GetShootPos() ):GetNormalized():Angle() )
+	else
+		cmd:SetViewAngles( ( ply.CustomEnemy:GetPos() - ply:GetShootPos() ):GetNormalized():Angle() )
+		ply:SetEyeAngles( ( ply.CustomEnemy:GetPos() - ply:GetShootPos() ):GetNormalized():Angle() )
+	end
+
+	-- Give the bot a crowbar if the bot doesn't have one yet
+	if ( SERVER and !ply:HasWeapon( "weapon_crowbar" ) ) then ply:Give( "weapon_crowbar" ) end
+
+	-- Select the crowbar
+	cmd:SelectWeapon( ply:GetWeapon( "weapon_crowbar" ) )
+
+	-- Hold Mouse 1 to cause the bot to attack
+	cmd:SetButtons( IN_ATTACK )
+
+	-- Enemy is dead, clear our enemy so that we may acquire a new one
+	if ( !ply.CustomEnemy:Alive() ) then
+		ply.CustomEnemy = nil
+	end
+
+end )
+	</code>
+
+</example>

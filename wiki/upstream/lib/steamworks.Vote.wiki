@@ -1,0 +1,14 @@
+<function name="Vote" parent="steamworks" type="libraryfunc">
+	<description><internal></internal> Makes the user vote for the specified addon</description>
+	<realm>Menu</realm>
+	<args>
+		<arg name="workshopItemID" type="string">The ID of workshop item.</arg>
+		<arg name="upOrDown" type="boolean">Sets if the user should vote up/down. True makes them upvote, false down</arg>
+	</args>
+</function>
+
+<example>
+	<description>Give the Gm_construct_Beta Steam Workshop item a thumbs up.</description>
+	<code>steamworks.Vote( 21197, true )</code>
+
+</example>

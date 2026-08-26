@@ -1,0 +1,13 @@
+<function name="GetHoveredPanel" parent="vgui" type="libraryfunc">
+	<description>
+Returns the panel the cursor is hovering above.
+
+<warning>This returns a cached value that is only updated after rendering and `before` the next VGUI Think/Layout pass.
+
+ie. it lags one frame behind panel layout and is completely unhelpful for <page>PANEL:Paint</page> if your panels are moving around under the mouse a lot every frame.</warning>
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="Panel">The panel that the user is currently hovering over with their cursor.</ret>
+	</rets>
+</function>

@@ -1,0 +1,12 @@
+<function name="GetWheelContactPoint" parent="Vehicle" type="classfunc">
+	<description>Returns the wheel contact point.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="wheel" type="number">The wheel to check</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">The contact position</ret>
+		<ret name="" type="number">The Surface Properties ID of hit surface.</ret>
+		<ret name="" type="boolean">Whether the wheel is on ground or not</ret>
+	</rets>
+</function>

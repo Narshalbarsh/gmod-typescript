@@ -1,0 +1,8 @@
+<function name="GetIdealMoveSpeed" parent="NPC" type="classfunc">
+	<description>Returns the ideal move speed of the NPC.</description>
+	<realm>Server</realm>
+	<added>2021.03.31</added>
+	<rets>
+		<ret name="" type="number">The ideal move speed.</ret>
+	</rets>
+</function>

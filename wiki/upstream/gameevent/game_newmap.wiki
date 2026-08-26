@@ -1,0 +1,31 @@
+<cat>gameevent</cat>
+<title>game_newmap</title>
+
+<structure>
+	<realm>Menu</realm>
+	<description>
+		Called when a map is loaded.
+
+		<note>
+			This is only available in the Menu state because this is called before the Client State has even started. 
+		</note>
+	</description>
+	<fields>
+		<item type="string" name="mapname">The Map name.</item>
+	</fields>
+</structure>
+
+# Examples
+<example>
+	<description>This is a basic template with the purpose of including all arguments / table variables to make it easily known which values can be accessed. [This](https://github.com/RaphaelIT7/gmod-gameevent) Binary Module has been used.</description>
+	<code>
+require("gameevent") -- using a Binary Module because the Menu State doesn't has gameevent.Listen
+gameevent.Listen( "game_newmap" )
+hook.Add( "game_newmap", "game_newmap_example", function( data )
+	local mapname = data.mapname	// The Map name.
+
+	// Called when a map is loaded.
+	
+end )
+	</code>
+</example>

@@ -1,0 +1,22 @@
+<function name="Freeze" parent="Player" type="classfunc">
+	<description>
+Freeze the player. Frozen players cannot move, look around, or attack. Key bindings are still called. Similar to <page>Player:Lock</page> but the player can still take damage.
+
+Manages the <page text="FL_FROZEN">Enums/FL#FL_FROZEN</page> flag on the player.
+
+	</description>
+	<realm>Server</realm>
+	<file line="212-L220">lua/includes/extensions/player.lua</file>
+	<args>
+		<arg name="frozen" type="boolean" default="false">Whether the player should be frozen.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Freezes all players</description>
+	<code>
+for _, ply in ipairs( player.GetAll() ) do
+    ply:Freeze( true )
+end
+	</code>
+</example>

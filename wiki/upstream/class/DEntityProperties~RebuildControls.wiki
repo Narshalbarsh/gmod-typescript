@@ -1,0 +1,9 @@
+<function name="RebuildControls" parent="DEntityProperties" type="panelfunc">
+	<description>
+<internal></internal>
+
+Called internally by <page>DEntityProperties:SetEntity</page> to rebuild the controls.
+	</description>
+	<realm>Client</realm>
+	<file line="26-L54">lua/vgui/dentityproperties.lua</file>
+</function>

@@ -1,0 +1,15 @@
+<function name="util.tracek" parent="jit" type="libraryfunc">
+	<description>
+<deprecated>This function was disabled due to security concerns.</deprecated>
+</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="tr" type="number"></arg>
+		<arg name="index" type="number"></arg>
+	</args>
+	<rets>
+		<ret name="" type="any">k</ret>
+		<ret name="" type="number">t</ret>
+		<ret name="" type="number">slot; optional</ret>
+	</rets>
+</function>

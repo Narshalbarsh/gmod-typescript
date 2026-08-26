@@ -1,0 +1,88 @@
+<panel>
+	<parent>Panel</parent>
+	<realm>Client and Menu</realm>
+	<file line="">lua/vgui/dcategorycollapse.lua</file>
+	<description>
+		The collapsible category allows you to create numerous sections of controls, and have the ability to contract/expand them.
+
+		Consider using <page>DCategoryList</page> if you plan on using more than 1 of these.
+	</description>
+	<overrides>
+		<page>Panel:Init</page>
+		<page>Panel:Paint</page>
+		<page>Panel:Think</page>
+		<page>Panel:LoadCookies</page>
+		<page>Panel:PerformLayout</page>
+		<page>Panel:OnMousePressed</page>
+		<page>Panel:GenerateExample</page>
+		<page>Panel:UnselectAll</page>
+	</overrides>
+</panel>
+
+<example>
+	<description>Creates a `DCollapsibleCategory` panel using a sub panel for its content.</description>
+	<code>
+local frame = vgui.Create( "DFrame" )
+frame:SetSize( 300, 300 )
+frame:Center()
+frame:MakePopup()
+
+local DCollapsible = vgui.Create( "DCollapsibleCategory", frame )	-- Create a collapsible category
+DCollapsible:SetLabel( "My Collapsible Category" )					-- Set the name ( label )
+DCollapsible:SetPos( 25, 50 )		-- Set position
+DCollapsible:SetSize( 250, 15 )		-- Set size
+DCollapsible:SetExpanded( false )	-- Collapsed by default
+
+local DermaList = vgui.Create( "DPanel" )	-- Make a list of items to add to our category (collection of controls)
+DermaList:DockPadding( 5, 5, 5, 5 )			-- Set padding for the list
+Derma_Hook( DermaList, "Paint", "Paint", "CategoryList" )
+DCollapsible:SetContents( DermaList )		-- Add DPanelList to our Collapsible Category
+
+local myCheckbox = vgui.Create( "DCheckBoxLabel", DermaList )	-- This section creates a checkbox and
+myCheckbox:SetText( "God mode" )					-- sets up its settings
+myCheckbox:SetConVar( "sbox_godmode" )
+myCheckbox:SetValue( false )
+myCheckbox:SetDark( true )
+myCheckbox:Dock( TOP )
+
+local myLabel = vgui.Create( "DLabel", DermaList )		-- Make some more content
+myLabel:SetText( "Hello" )
+myLabel:SetDark( true )
+myLabel:Dock( TOP )
+	</code>
+	<output>
+<upload src="70c/8de7946b8eab419.gif" size="12327" name="March03-2389-gmod.gif" />
+	</output>
+
+</example>
+
+
+<example>
+	<description>Creates a `DCollapsibleCategory` of simple selectable text options, exactly like the toolgun section of the spawnmenu.</description>
+	<code>
+local frame = vgui.Create( "DFrame" )
+frame:SetSize( 300, 300 )
+frame:Center()
+frame:MakePopup()
+
+
+local DermaList = vgui.Create( "DPanel", frame )
+DermaList:Dock( FILL )
+Derma_Hook( DermaList, "Paint", "Paint", "CategoryList" ) -- Use the background from DCategoryList panel (via the derma skin system)
+
+
+local DCollapsible = vgui.Create( "DCollapsibleCategory", DermaList )
+DCollapsible:SetLabel( "Collapsible List" )
+DCollapsible:Dock( TOP )
+
+local btn = DCollapsible:Add( "Option one" )
+btn.DoClick = function() Derma_Message("Clicked option one", "Info", "OK") end
+DCollapsible:Add( "Option 2" )
+DCollapsible:Add( "Option III" )
+
+	</code>
+	<output>
+<upload src="70c/8de7947b955f134.gif" size="240240" name="March03-2392-gmod.gif" />
+	</output>
+
+</example>

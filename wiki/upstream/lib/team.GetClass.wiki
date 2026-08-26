@@ -1,0 +1,11 @@
+<function name="GetClass" parent="team" type="libraryfunc">
+	<description>Returns the selectable classes for the given team. This can be added to with <page>team.SetClass</page></description>
+	<file line="98-L103">lua/includes/modules/team.lua</file>
+	<realm>Shared</realm>
+	<args>
+		<arg name="index" type="number">Index of the team</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">Selectable classes</ret>
+	</rets>
+</function>

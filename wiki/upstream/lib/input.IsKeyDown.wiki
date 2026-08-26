@@ -1,0 +1,20 @@
+<function name="IsKeyDown" parent="input" type="libraryfunc">
+	<description>Gets whether a key is down.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="key" type="number">The key, see <page>Enums/KEY</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Is the key down?</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Show cursor if you press <key>ALT</key>.</description>
+	<code>
+-- Note this may prevent the cursor from naturally appearing without alt
+hook.Add( "Think", "BM_Clients_Key", function()
+	gui.EnableScreenClicker( input.IsKeyDown( KEY_LALT ) )
+end )
+	</code>
+</example>

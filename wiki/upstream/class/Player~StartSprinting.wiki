@@ -1,0 +1,27 @@
+<function name="StartSprinting" parent="Player" type="classfunc">
+	<description>
+<deprecated>This appears to be a direct binding to internal functionality that is overridden by the engine every frame so calling these functions may not have any or expected effect.</deprecated>
+
+Doesn't appear to do anything.
+	</description>
+	<realm>Shared</realm>
+</function>
+
+<example>
+	<description>An example alternative to this function.</description>
+	<code>
+local vDelay = 0
+local prevDown = 0
+hook.Add( "StartCommand", "TestFunc", function( ply, cmd )
+    if ( cmd:KeyDown( IN_FORWARD ) and prevDown == false ) then
+        vDelay = CurTime() + 0.4
+    elseif ( cmd:KeyDown( IN_FORWARD ) ) then
+        if ( vDelay < CurTime() )then
+            cmd:SetButtons( bit.bor( cmd:GetButtons(), IN_SPEED ) )
+        end
+    end
+	prevDown = cmd:KeyDown( IN_FORWARD )
+end )
+	</code>
+
+</example>

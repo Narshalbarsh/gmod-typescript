@@ -1,0 +1,7 @@
+<function name="SetUndefined" parent="IMaterial" type="classfunc">
+	<description>Unsets the value for the specified material value.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="materialValueName" type="string">The name of the material value to be unset.</arg>
+	</args>
+</function>

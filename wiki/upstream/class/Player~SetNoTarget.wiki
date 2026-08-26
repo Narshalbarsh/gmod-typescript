@@ -1,0 +1,11 @@
+<function name="SetNoTarget" parent="Player" type="classfunc">
+	<description>
+Sets the players visibility towards NPCs.
+
+Internally this toggles the <page text="FL_NOTARGET">Enums/FL</page> flag, which you can manually test for using <page>Entity:IsFlagSet</page>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="visibility" type="boolean">The visibility.</arg>
+	</args>
+</function>

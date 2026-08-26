@@ -1,0 +1,12 @@
+<function name="SetControlPointOrientation" parent="CNewParticleEffect" type="classfunc">
+	<description>Sets the orientation for given control point.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="cpID" type="number">The control point ID, 0 to 63.</arg>
+		<arg name="forward" type="Vector">The forward direction for given control point.
+
+This can also be an <page>Angle</page>, in which case the other 2 arguments are not used.</arg>
+		<arg name="right" type="Vector">The right direction for given control point</arg>
+		<arg name="up" type="Vector">The up direction for given control point</arg>
+	</args>
+</function>

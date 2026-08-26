@@ -1,0 +1,14 @@
+<function name="PostPlayerDeath" parent="GM" type="hook">
+	<description>
+Called right after <page>GM:DoPlayerDeath</page>, <page>GM:PlayerDeath</page> and <page>GM:PlayerSilentDeath</page>.
+
+This hook will be called for all deaths, including <page>Player:KillSilent</page>
+
+<note><page>Player:Alive</page> will return false in this hook.</note>
+
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ply" type="Player">The player</arg>
+	</args>
+</function>

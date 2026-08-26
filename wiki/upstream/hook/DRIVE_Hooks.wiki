@@ -1,0 +1,8 @@
+<title>DRIVE</title>
+<type name="DRIVE" category="hook" is="class">
+	<summary>
+Represents a drive mode or "method" to be registered with <page>drive.Register</page>.
+
+This page lists all possible fields and hooks a drive mode can have.
+	</summary>
+</type>

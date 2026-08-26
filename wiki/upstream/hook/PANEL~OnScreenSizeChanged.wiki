@@ -1,0 +1,14 @@
+<function name="OnScreenSizeChanged" parent="PANEL" type="hook">
+	<description>
+Called when the player's screen resolution of the game changes.
+
+<page>Global.ScrW</page> and <page>Global.ScrH</page> will return the new values when this hook is called.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="oldWidth" type="number">The previous width  of the game's window</arg>
+		<arg name="oldHeight" type="number">The previous height of the game's window</arg>
+		<arg name="newWidth" type="number" added="2023.10.24">The new/current width of the game's window.</arg>
+		<arg name="newHeight" type="number" added="2023.10.24">The new/current height of the game's window.</arg>
+	</args>
+</function>

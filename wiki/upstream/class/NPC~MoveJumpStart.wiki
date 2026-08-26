@@ -1,0 +1,10 @@
+<function name="MoveJumpStart" parent="NPC" type="classfunc">
+	<description>Starts a jump move.
+
+Related functions are <page>NPC:MoveJumpExec</page> and <page>NPC:MoveJumpStop</page>.</description>
+	<realm>Server</realm>
+	<added>2021.03.31</added>
+	<args>
+		<arg name="vel" type="Vector">The jump velocity.</arg>
+	</args>
+</function>

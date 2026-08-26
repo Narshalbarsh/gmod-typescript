@@ -1,0 +1,7 @@
+<function name="SetMax" parent="DNumberScratch" type="panelfunc">
+	<description>Sets the max value that can be selected on the number scratch</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="max" type="number">The maximum number</arg>
+	</args>
+</function>

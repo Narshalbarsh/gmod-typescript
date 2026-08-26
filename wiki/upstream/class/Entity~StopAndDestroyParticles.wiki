@@ -1,0 +1,4 @@
+<function name="StopAndDestroyParticles" parent="Entity" type="classfunc">
+	<description>Stops all particle effects parented to the entity and immediately destroys them.</description>
+	<realm>Client</realm>
+</function>

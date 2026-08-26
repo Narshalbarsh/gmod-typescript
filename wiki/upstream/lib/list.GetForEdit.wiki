@@ -1,0 +1,12 @@
+<function name="GetForEdit" parent="list" type="libraryfunc">
+	<description>Returns the actual table of the list stored at identifier. Modifying this will affect the stored list.</description>
+	<realm>Shared and Menu</realm>
+	<file line="16-L27">lua/includes/modules/list.lua</file>
+	<args>
+		<arg name="identifier" type="string">The list identifier.</arg>
+		<arg name="dontCreate" type="boolean" default="false">If the list at given identifier does not exist, do **not** create it.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">The actual list.</ret>
+	</rets>
+</function>

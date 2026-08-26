@@ -1,0 +1,9 @@
+<ambig page="Panel:SetKeyboardInputEnabled(lowercase)">You might be looking for <page text="Panel:SetKeyboardInputEnabled">Panel:SetKeyboardInputEnabled(lowercase)</page> (lowercase `board`), which has the same name but isn't deprecated.</ambig>
+
+<function name="SetKeyBoardInputEnabled" parent="Panel" type="classfunc">
+	<description><deprecated>Alias of <page text="Panel:SetKeyboardInputEnabled">Panel:SetKeyboardInputEnabled(lowercase)</page></deprecated>Enables or disables the keyboard input for the panel.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="keyboardInput" type="boolean">Whether to enable or disable keyboard input.</arg>
+	</args>
+</function>

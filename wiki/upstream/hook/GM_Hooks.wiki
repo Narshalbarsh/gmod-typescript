@@ -1,0 +1,7 @@
+<cat>Hook</cat>
+<type name="GM" category="hook" is="class">
+	<summary>Hooks that are available for all gamemodes based on base gamemode.
+	
+	See also: <page>Structures/GM</page>.
+	</summary>
+</type>

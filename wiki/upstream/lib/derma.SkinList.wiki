@@ -1,0 +1,7 @@
+<function name="SkinList" parent="derma" type="libraryfield">
+	<description>This is NOT a function, it's a variable containing all registered via <page>derma.DefineSkin</page> derma skins.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="table">The list of all registered derma skins.</ret>
+	</rets>
+</function>

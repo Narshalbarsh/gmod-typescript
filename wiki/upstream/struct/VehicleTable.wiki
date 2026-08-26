@@ -1,0 +1,50 @@
+<structure>
+	<realm>Shared</realm>
+	<description>
+Table structure passed to <page>SANDBOX:PlayerSpawnVehicle</page>, describing a spawnable Vehicle in Sandbox gamemode.
+
+Example usage in defined a custom spawnable vehicle:
+```
+list.Set( "Vehicles", "Jeep", {
+	-- Required information
+	Name = "Jeep",
+	Model = "models/buggy.mdl",
+	Class = "prop_vehicle_jeep_old",
+	Category = "Half-Life 2",
+
+	-- Optional information
+	Author = "VALVe",
+	Information = "The regular old jeep",
+
+	KeyValues = {
+		vehiclescript = "scripts/vehicles/jeep_test.txt"
+	}
+} )
+```
+	</description>
+	<fields>
+<item name="Class" type="string">Entity class name for this vehicle.</item>
+<item name="Name" type="string" realm="client">Nice name for this vehicle, for UI purposes.</item>
+<item name="Model" type="string" realm="server">Model of the vehicle.</item>
+<item name="KeyValues" type="table" realm="server">A list of key-value pairs to apply to the vehicle entity.
+Possible valid keys that can be set are:
+
+| Key | Description |
+|:-------:|:------------|
+| `vehiclescript` | The vehicle script files contained in scripts\vehicles\ define the behaviour and handling of a vehicle.
+| `limitview` | Limit vertical view of the vehicles to +/-70 degrees (90 for unlimited)
+| `vehiclelocked` | Players cannot enter vehicle until it is unlocked.
+| `cargovisible` | Is the Magnusson cargo hopper visible?
+| `EnableGun` | Whether the Tau Cannon is enabled or disabled. Doesn't work correctly with the Episode Two jalopy model.
+| `NoHazardLights`| Stops the jalopy's hazard lights from turning on and flashing when the player exits the vehicle.
+</item>
+
+<item name="Offset" type="number" default="nil" realm="server">Offset away the surface player is looking at to spawn at.</item>
+<item name="Members" type="table" default="nil" realm="server">Set these members on the spawned vehicle's table (<page>Entity:GetTable</page>) to given values.</item>
+<item name="Author" type="string" default="" realm="client">Author of the vehicle, for UI purposes.</item>
+<item name="Category" type="string" default="Other" realm="client">Category of this vehicle, for UI purposes.</item>
+<item name="Information" type="string" default="" realm="client">A small description of the vehicle, for UI purposes.</item>
+
+	</fields>
+
+</structure>

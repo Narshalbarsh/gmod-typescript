@@ -1,0 +1,28 @@
+<function name="setupvalue" parent="debug" type="libraryfunc">
+	<description>
+<removed>This function was removed due to security concerns.</removed>
+
+Sets the variable indexed from func.
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="func" type="function">The function to index the upvalue from.</arg>
+		<arg name="index" type="number">The index from func.</arg>
+		<arg name="val" type="any" default="nil">The value to set the upvalue to.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">Returns nil if there is no upvalue with the given index, otherwise it returns the upvalue's name.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>An example demonstrating a function overwrite.</description>
+	<code>
+local function my_isfunction(f)
+	return type(f) == "function" or f == "coolguy"	
+end
+
+print(debug.setupvalue(hook.Add, 1, my_isfunction))
+	</code>
+
+</example>

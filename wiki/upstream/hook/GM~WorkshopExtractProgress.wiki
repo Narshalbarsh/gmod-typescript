@@ -1,0 +1,21 @@
+<function name="WorkshopExtractProgress" parent="GM" type="hook">
+	<description>Called while an addon from the Steam workshop is extracting. Used by default to update details on the fancy workshop download panel.</description>
+	<realm>Menu</realm>
+	<file line="52-62">lua/menu/mount/mount.lua</file>
+	<args>
+		<arg name="id" type="number">Workshop ID of addon.</arg>
+		<arg name="ImageID" type="number">ID of addon's preview image.
+
+
+
+For example, for **Extended Spawnmenu** addon, the image URL is
+
+```
+http://cloud-4.steamusercontent.com/ugc/702859018846106764/9E7E1946296240314751192DA0AD15B6567FF92D/
+```
+
+So, the value of this argument would be **702859018846106764**.</arg>
+		<arg name="title" type="string">Name of addon.</arg>
+		<arg name="percent" type="number">Current bytes of addon extracted.</arg>
+	</args>
+</function>

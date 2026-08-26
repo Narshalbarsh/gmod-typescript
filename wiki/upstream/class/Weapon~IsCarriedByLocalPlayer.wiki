@@ -1,0 +1,7 @@
+<function name="IsCarriedByLocalPlayer" parent="Weapon" type="classfunc">
+	<description>Returns whenever the weapon is carried by the local player.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="boolean">Is the weapon is carried by the local player or not</ret>
+	</rets>
+</function>

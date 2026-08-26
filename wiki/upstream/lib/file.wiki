@@ -1,0 +1,13 @@
+<ambig page="file_class">You might be looking for the File class, which has the same name as this library.</ambig>
+
+<type name="file" category="libraryfunc" is="library">
+    <summary>The file library provides functions for finding, reading and writing to files. <br/>
+The following path values are most commonly used:
+* `LUA` searches the lua files (in /lua/, in your gamemodes, in all the addons).
+* `GAME` searches all the mounted content (main folder, addons, mounted games etc).
+* `MOD` searches only the garrysmod folder.
+* `DATA` searches in the data folder.
+
+See <page>File Search Paths</page> for the descriptive list of path values.
+For the full list of path values, type `path` in the console.</summary>
+</type>

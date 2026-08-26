@@ -1,0 +1,13 @@
+<function name="ApplyAddons" parent="steamworks" type="libraryfunc">
+	<description>Refreshes clients addons.</description>
+	<realm>Menu</realm>
+</function>
+
+<example>
+	<description>Subscribes to gm_construct_beta and reloads addons.</description>
+	<code>
+steamworks.Subscribe( 21197 )
+steamworks.ApplyAddons()
+	</code>
+
+</example>

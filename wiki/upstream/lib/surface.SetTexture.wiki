@@ -1,0 +1,14 @@
+<function name="SetTexture" parent="surface" type="libraryfunc">
+	<description>
+Sets the texture to be used in all upcoming draw operations using the surface library.
+
+This is a legacy method, and should probably not be used, see <page>surface.SetMaterial</page> and <page>IMaterial</page> for a better alternative.
+
+
+
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="textureID" type="number">The ID of the texture to draw with returned by <page>surface.GetTextureID</page>.</arg>
+	</args>
+</function>

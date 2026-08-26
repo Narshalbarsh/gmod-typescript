@@ -1,0 +1,12 @@
+<function name="RenderedEntity" parent="halo" type="libraryfunc">
+	<description>
+Returns the entity the halo library is currently rendering the halo for.
+
+The main purpose of this function is to be used in <page>ENTITY:Draw</page> in order not to draw certain parts of the entity when the halo is being rendered, so there's no halo around unwanted entity parts, such as lasers, 3D2D displays, etc.
+	</description>
+	<realm>Client</realm>
+	<file line="35-L37">lua/includes/modules/halo.lua</file>
+	<rets>
+		<ret name="" type="Entity">If set, the currently rendered entity by the halo library.</ret>
+	</rets>
+</function>

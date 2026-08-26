@@ -1,0 +1,28 @@
+<enum>
+	<realm>Shared</realm>
+	<description>Sound flags used by <page>Global.EmitSound</page> and <page>Entity:EmitSound</page>.</description>
+	<items>
+<item key="SND_NOFLAGS" value="0">To keep the compiler happy</item>
+
+<item key="SND_CHANGE_VOL" value="1">Change sound volume. If the sound is already being emitted by the entity, its volume will be changed, instead of playing another sound.</item>
+
+<item key="SND_CHANGE_PITCH" value="2">Change sound pitch. If the sound is already being emitted by the entity, its pitch will be changed, instead of playing another sound.</item>
+
+<item key="SND_STOP" value="4">Stop the sound. Used internally for <page>Entity:StopSound</page>.</item>
+
+<item key="SND_SPAWNING" value="8">We're spawning, used in some cases for ambients. Not sent over net, only a param between dll and server.</item>
+
+<item key="SND_DELAY" value="16">Sound has an initial delay.</item>
+
+<item key="SND_STOP_LOOPING" value="32">Stop all looping sounds on the entity.</item>
+
+<item key="SND_SHOULDPAUSE" value="128">This sound should be paused if the game is paused.</item>
+
+<item key="SND_IGNORE_PHONEMES" value="256">If the sound has any associated phoneme (character lip-sync) data, ignore it.</item>
+
+<item key="SND_IGNORE_NAME" value="512">Used to change all sounds (e.g. with SND_CHANGE_VOL) emitted by an entity, regardless of scriptname.</item>
+
+<item key="SND_DO_NOT_OVERWRITE_EXISTING_ON_CHANNEL" value="1024">Unused/legacy; does nothing.</item>
+	</items>
+
+</enum>

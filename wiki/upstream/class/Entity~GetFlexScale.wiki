@@ -1,0 +1,7 @@
+<function name="GetFlexScale" parent="Entity" type="classfunc">
+	<description>Returns the flex scale of the entity.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The flex scale</ret>
+	</rets>
+</function>

@@ -1,0 +1,22 @@
+<function name="NavSetWanderGoal" parent="NPC" type="classfunc">
+	<description>Sets a goal in x, y offsets for the NPC to wander to</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="xOffset" type="number">X offset</arg>
+		<arg name="yOffset" type="number">Y offset</arg>
+	</args>
+	<rets>
+		<ret type="boolean">Whether path generation was successful or not</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Given an NPC makes them wander to a location 100 units in both the x and y directions</description>
+	<code>
+if IsValid( npc ) then
+    npc:NavSetWanderGoal( 100, 100 )
+    npc:SetSchedule( SCHED_IDLE_WANDER )
+end
+	</code>
+
+</example>

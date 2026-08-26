@@ -1,0 +1,11 @@
+<function name="SetName" parent="DForm" type="panelfunc">
+	<description>Sets the title (header) name of the DForm. This is `Label` until set.
+
+<deprecated>This is an alias of derived <page>DCollapsibleCategory:SetLabel</page></deprecated>
+</description>
+	<realm>Client and Menu</realm>
+	<file line="24-L28">lua/vgui/dform.lua</file>
+	<args>
+		<arg name="name" type="string">The new header name.</arg>
+	</args>
+</function>

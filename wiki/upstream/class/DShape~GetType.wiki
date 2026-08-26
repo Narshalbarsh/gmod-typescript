@@ -1,0 +1,11 @@
+<function name="GetType" parent="DShape" type="panelfunc">
+	<description>
+Returns the current type of shape this panel is set to display.
+
+See <page>DShape:SetType</page>.
+	</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="string">Current shape type.</ret>
+	</rets>
+</function>

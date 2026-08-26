@@ -1,0 +1,32 @@
+<function name="len" parent="string" type="libraryfunc">
+	<description>Counts the number of characters in the string (length). This is equivalent to using the length operator (#).</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="str" type="string">The string to find the length of.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">Length of the string</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Demonstrates the use of this function.</description>
+	<code>
+print( string.len( "hi" ) )
+print( string.len( "drakehawke" ) )
+print( string.len( "" ) )
+print( string.len( "test" ) == #"test" )
+	</code>
+	<output>
+<br/>
+
+2
+
+10
+
+0
+
+true
+	</output>
+
+</example>

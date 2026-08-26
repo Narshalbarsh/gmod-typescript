@@ -1,0 +1,7 @@
+<function name="GetSelectedIcon" parent="DIconBrowser" type="panelfunc">
+	<description>Returns the currently selected icon's file path.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="string">The currently selected icon's file path.</ret>
+	</rets>
+</function>

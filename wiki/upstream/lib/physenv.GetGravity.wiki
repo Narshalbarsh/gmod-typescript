@@ -1,0 +1,7 @@
+<function name="GetGravity" parent="physenv" type="libraryfunc">
+	<description>Gets the gravitational acceleration used for physics objects in `source_unit/s^2`.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Vector">Gravity direction and strength.</ret>
+	</rets>
+</function>

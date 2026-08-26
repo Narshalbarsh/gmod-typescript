@@ -1,0 +1,29 @@
+<function name="VariableEdited" parent="GM" type="hook">
+	<description>
+		Called when a variable is edited on an Entity (called by Edit Properties... menu). See <page>Editable Entities</page> for more information.
+
+		<warning>This hook is called to change a variable and not after a variable was changed</warning>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ent" type="Entity">The entity being edited</arg>
+		<arg name="ply" type="Player">The player doing the editing</arg>
+		<arg name="key" type="string">The name of the variable</arg>
+		<arg name="val" type="string">The new value, as a string which will later be converted to its appropriate type</arg>
+		<arg name="editor" type="table">The edit table defined in <page>Entity:NetworkVar</page></arg>
+	</args>
+</function>
+
+<example>
+	<description>From base/gamemode/variable_edit.lua</description>
+	<code>
+function GM:VariableEdited( ent, ply, key, val, editor )
+    if ( !IsValid( ent ) ) then return end
+    if ( !IsValid( ply ) ) then return end
+    local CanEdit = hook.Run( "CanEditVariable", ent, ply, key, val, editor )
+    if ( !CanEdit ) then return end
+    ent:EditValue( key, val )
+end
+	</code>
+
+</example>

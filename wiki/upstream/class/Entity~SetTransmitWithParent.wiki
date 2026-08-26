@@ -1,0 +1,11 @@
+<function name="SetTransmitWithParent" parent="Entity" type="classfunc">
+	<description>
+When this flag is set the entity will only transmit to the player when its parent is transmitted. This is useful for things like viewmodel attachments since without this flag they will transmit to everyone (and cause the viewmodels to transmit to everyone too).
+
+<note>In the case of scripted entities, this will override <page>ENTITY:UpdateTransmitState</page></note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="onoff" type="boolean">Will set the TransmitWithParent flag on or off</arg>
+	</args>
+</function>

@@ -1,0 +1,50 @@
+<function name="OnLuaError" parent="GM" type="hook">
+	<description>
+Called when a Lua error occurs.
+If you want to retrieve client errors on the server side, you can use this hook: <page>GM:OnClientLuaError</page> 
+<note>On the <page text="server realm">States</page>, this hook will only account for server-side errors, not client-side ones.</note>
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="">lua/menu/errors.lua</file>
+	<args>
+		<arg name="error" type="string">The error that occurred.</arg>
+		<arg name="realm" type="string">Where the Lua error took place, "client", or "server"</arg> <!-- needs "menu" possibly, not tested -->
+		<arg name="stack" type="table">The Lua error stack trace</arg>
+		<arg name="name" type="string">Title of the addon that is creating the Lua errors, or nil if addon is not found.</arg>
+		<arg name="id" type="string">Steam Workshop ID of the addon creating Lua errors, if it is an addon.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Replicate [lua_error_url](https://wiki.facepunch.com/gmod/Lua_Error_Logging)'s functionality using the hook, while adding new values to the payload.</description>
+	<code>
+--
+-- Called on logic errors such as nil functions being called or nil being used
+-- to index a table.
+--
+hook.Add( "OnLuaError", "mock_lua_error_url", function( error, realm, stack, name, addon_id )
+
+    --
+    -- Send a POST request to the given URL with 
+    -- information relating to the error that could be useful for logging.
+    --
+    http.Post( "https://example.com/report_lua_error.php", {
+        error = error,
+        stack = util.TableToJSON(stack, false),
+        realm = realm,
+        addon = addon_id or 0,
+        gamemode = engine.ActiveGamemode(),
+        gmv = VERSIONSTR,
+        os = jit.os,
+
+        --
+        -- New data extending upon lua_error_url for demonstrative purposes,
+        -- not that these are very useful.
+        --
+        addon_name = name,
+        time = os.time(),
+        player_count = player.GetCount()
+    } )
+end )
+	</code>
+</example>

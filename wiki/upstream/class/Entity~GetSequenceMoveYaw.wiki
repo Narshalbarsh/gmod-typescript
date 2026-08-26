@@ -1,0 +1,10 @@
+<function name="GetSequenceMoveYaw" parent="Entity" type="classfunc">
+	<description>Returns the change in heading direction in between the start and the end of the sequence.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="seq" type="number">The sequence index. See <page>Entity:LookupSequence</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The yaw delta. Returns 99999 for no movement.</ret>
+	</rets>
+</function>

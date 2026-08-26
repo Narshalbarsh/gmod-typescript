@@ -1,0 +1,36 @@
+<function name="IsValidVehicle" parent="Vehicle" type="classfunc">
+	<description>
+Determines whether a given <page>Vehicle</page> is fully initialized.
+
+It is possible, in uncommon circumstances, for a <page text="valid">Global.IsValid</page> <page text="vehicle">Entity:IsVehicle</page> entity to be in an invalid state, such as before <page>Entity:Spawn</page> is called on the vehicle after creation.
+
+If this function returns `false`, then the <page>Vehicle</page> functions are not usable on this vehicle, while <page>Entity</page> functions are.
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">
+			`true` if the Vehicle is in a valid state, or `false` if the Vehicle is in an invalid state.
+		</ret>
+	</rets>
+</function>
+
+<example>
+	<description>
+Below is an example demonstrating a way that a Vehicle can return `true` to <page>Global.IsValid</page> and <page>Entity:IsVehicle</page> but still be in an invalid Vehicle state.
+	</description>
+	<code>
+
+-- Create a new jeep, but leave it in an unfinished state
+local jeep = ents.Create( "prop_vehicle_jeep" )
+
+print( IsValid( jeep ) ) -- Prints "true"
+print( jeep:IsVehicle() ) -- Prints "true"
+print( jeep:IsValidVehicle() ) -- Prints "false"
+
+timer.Simple( 1, function()
+	-- Finalize the jeep's creation and put it into a valid Vehicle state
+	jeep:Spawn()
+	print( jeep:IsValidVehicle() ) -- Prints "true"
+end )
+	</code>	
+</example>

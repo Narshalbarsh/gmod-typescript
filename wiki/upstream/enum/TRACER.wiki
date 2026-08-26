@@ -1,0 +1,12 @@
+<enum>
+	<realm>Shared</realm>
+	<description>Enumerations used by <page>Structures/AmmoData</page>.</description>
+	<items>
+<item key="TRACER_NONE" value="0">Generates no tracer effects</item>
+<item key="TRACER_LINE" value="1">Generates tracer effects</item>
+<item key="TRACER_RAIL" value="2">Unused.</item>
+<item key="TRACER_BEAM" value="3">Unused.</item>
+<item key="TRACER_LINE_AND_WHIZ" value="4">Generates tracer and makes whizzing noises if the bullet flies past the player being shot at</item>
+	</items>
+
+</enum>

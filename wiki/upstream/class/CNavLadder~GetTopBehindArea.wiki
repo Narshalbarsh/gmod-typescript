@@ -1,0 +1,7 @@
+<function name="GetTopBehindArea" parent="CNavLadder" type="classfunc">
+	<description>Returns the top behind <page>CNavArea</page> of the <page>CNavLadder</page>.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="CNavArea">The top behind <page>CNavArea</page> of the <page>CNavLadder</page>.</ret>
+	</rets>
+</function>

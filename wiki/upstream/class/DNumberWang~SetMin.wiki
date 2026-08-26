@@ -1,0 +1,7 @@
+<function name="SetMin" parent="DNumberWang" type="panelfunc">
+	<description>Sets the minimum numeric value allowed by the number selector.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="min" type="number">The minimum value.</arg>
+	</args>
+</function>

@@ -1,0 +1,16 @@
+<function name="SetNetworkedInt" parent="Entity" type="classfunc">
+	<description>
+<deprecated>You should use <page>Entity:SetNWInt</page> instead.</deprecated>
+
+Sets a networked integer value at specified index on the entity.
+
+The value then can be accessed with <page>Entity:GetNetworkedInt</page> both from client and server.
+
+<note>Running this function clientside will only set it clientside for the client it is called on.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="key" type="string">The key to associate the value with</arg>
+		<arg name="value" type="number" default="0">The value to set</arg>
+	</args>
+</function>

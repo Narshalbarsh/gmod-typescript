@@ -1,0 +1,10 @@
+<function name="SizeToContents" parent="Panel" type="classfunc">
+	<description>
+Resizes the panel so that its width and height fit all of the content inside.
+
+<note>Only works on <page>Label</page> derived panels such as <page>DLabel</page> by default, and on any panel that manually implemented the <page>Panel:SizeToContents</page> method, such as <page>DNumberWang</page> and <page>DImage</page>.</note>
+
+<warning>You must call this function **AFTER** setting text/font, adjusting child panels or otherwise altering the panel.</warning>
+	</description>
+	<realm>Client and Menu</realm>
+</function>

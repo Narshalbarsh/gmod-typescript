@@ -1,0 +1,22 @@
+<function name="CanConstrain" parent="constraint" type="libraryfunc">
+	<description>Basic checks to make sure that the specified entity and bone are valid. Returns false if we should not be constraining the entity.</description>
+	<realm>Server</realm>
+	<file line="269-L278">lua/includes/modules/constraint.lua</file>
+	<args>
+		<arg name="ent" type="Entity">The entity to check.</arg>
+		<arg name="bone" type="number">The bone of the entity to check (use 0 for mono boned ents).</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether a constraint can or should be created.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>From modules/constraint.lua</description>
+	<code>
+function Weld( Ent1, Ent2, Bone1, Bone2, forcelimit, nocollide, deleteonbreak )
+ if ( !CanConstrain( Ent1, Bone1 ) ) then return false end
+ if ( !CanConstrain( Ent2, Bone2 ) ) then return false end
+	</code>
+
+</example>

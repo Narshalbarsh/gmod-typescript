@@ -1,0 +1,10 @@
+<function name="deg" parent="math" type="libraryfunc">
+	<description>Converts radians to degrees.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="radians" type="number">Value to be converted to degrees.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">degrees</ret>
+	</rets>
+</function>

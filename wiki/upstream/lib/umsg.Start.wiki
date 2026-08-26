@@ -1,0 +1,14 @@
+<function name="Start" parent="umsg" type="libraryfunc">
+	<description>
+<deprecated>You should be using <page>net</page> instead</deprecated>
+
+Starts a new usermessage.
+
+<warning>Usermessages have a limit of only 256 bytes!</warning>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="name" type="string">The name of the message to be sent.</arg>
+		<arg name="filter" type="Player" default="nil">If passed a player object, it will only be sent to the player, if passed a <page>CRecipientFilter</page> of players, it will be sent to all specified players, if passed `nil` (or another invalid value), the message will be sent to all players.</arg>
+	</args>
+</function>

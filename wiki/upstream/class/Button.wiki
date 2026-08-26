@@ -1,0 +1,43 @@
+<panel>
+	<parent>DButton</parent>
+	<realm>Client and Menu</realm>
+	<description>
+		<deprecated>
+			Only exists for backwards compatibility with <page>Panel:SetActionFunction</page>. Use <page>DButton</page> instead.
+		</deprecated>
+		Creates a button that players can click on.
+	[View source](https://github.com/Facepunch/garrysmod/blob/dfdafba0f04e75be122961291a56d9c1714a3d8a/garrysmod/lua/vgui/dbutton.lua#L181-L193)
+	
+	</description>
+	<overrides>
+		<page>PANEL:Init</page>
+		<page>PANEL:Paint</page>
+		<page>PANEL:PerformLayout</page>
+		<page>Panel:GenerateExample</page>
+		<page>Panel:SetActionFunction</page>
+		<page>DButton:DoClick</page>
+		<page>DButton:DoRightClick</page>
+	</overrides>
+</panel>
+
+
+<example>
+	<description>Creates a button with the text `"Click Me"` that when pressed prints "Hello World!" in the console.</description>
+	<code>
+local frame = vgui.Create( "DFrame" )
+frame:SetTitle( "Button example" )
+frame:SetSize( 200, 100 )
+frame:MakePopup()
+frame:Center()
+
+local button = vgui.Create( "Button" , frame )
+button:Dock( FILL )
+button:SetVisible( true )
+button:SetText( "Click Me" )
+function button:OnMousePressed()
+	print( "Hello World!" )
+end
+	</code>
+
+	<output><upload src="b04e5/8db62a0d5b7f44e.png" size="2821" name="Button_Example.png" /></output>
+</example>

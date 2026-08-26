@@ -1,0 +1,14 @@
+<function name="GetNPCBulletSpread" parent="WEAPON" type="hook">
+	<description>
+Called when the weapon is used by NPCs to determine how accurate the bullets fired should be.
+
+The inaccuracy is simulated by changing the <page>NPC:GetAimVector</page> based on the value returned from this hook.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="proficiency" type="number">How proficient the NPC is with this gun. See <page>Enums/WEAPON_PROFICIENCY</page></arg>
+	</args>
+	<rets>
+		<ret name="" type="number">An amount of degrees the bullets should deviate from the NPC's <page>NPC:GetAimVector</page>. Default is 15.</ret>
+	</rets>
+</function>

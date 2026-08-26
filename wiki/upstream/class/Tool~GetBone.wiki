@@ -1,0 +1,11 @@
+<function name="GetBone" parent="Tool" type="classfunc">
+	<description>Retrieves a physics bone number previously stored using <page>Tool:SetObject</page>.</description>
+	<realm>Shared</realm>
+	<file line="81">gamemodes/sandbox/entities/weapons/gmod_tool/object.lua</file>
+	<args>
+		<arg name="id" type="number">The id of the object which was set in <page>Tool:SetObject</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">Associated physics bone with given id.</ret>
+	</rets>
+</function>

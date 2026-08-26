@@ -1,0 +1,11 @@
+<enum>
+	<realm>Client</realm>
+	<description>Enumerations used by <page>render.CullMode</page>. Clientside only.</description>
+	<items>
+<item key="MATERIAL_CULLMODE_CCW" value="0">Cull back faces with counterclockwise vertices.</item>
+
+<item key="MATERIAL_CULLMODE_CW" value="1">Cull back faces with clockwise vertices.</item>
+<item key="MATERIAL_CULLMODE_NONE" value="2" added="2025.09.23">Do not cull back faces at all.</item>
+	</items>
+
+</enum>

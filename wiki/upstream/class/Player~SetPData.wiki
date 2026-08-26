@@ -1,0 +1,26 @@
+<function name="SetPData" parent="Player" type="classfunc">
+	<description>
+Writes a **P**ersistent **Data** key-value pair to the SQL database. (`sv.db` when called on server, `cl.db` when called on client)
+
+Internally uses the <page>sql</page> library. See <page>util.SetPData</page> for cases when the player is not currently on the server.
+
+<note>This function internally uses <page>Player:SteamID64</page>, it previously utilized <page>Player:UniqueID</page> which could have caused collisions (two or more players sharing the same PData entry). <page>Player:SetPData</page> now replaces all instances of <page>Player:UniqueID</page> with <page>Player:SteamID64</page> when running <page>Player:SetPData</page></note>
+
+<note>PData is not networked from servers to clients!</note>
+	</description>
+	<realm>Shared</realm>
+	<file line="133-L146">lua/includes/extensions/player.lua</file>
+	<args>
+		<arg name="key" type="string">Name of the PData key</arg>
+		<arg name="value" type="any">Value to write to the key (**must** be an SQL valid data type, such as a string or integer)</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether the operation was successful or not</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Sets the key "money" from player 1's PData to 100</description>
+	<code>Entity( 1 ):SetPData( "money", 100 )</code>
+
+</example>

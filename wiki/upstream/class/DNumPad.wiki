@@ -1,0 +1,11 @@
+<panel>
+	<parent>DPanel</parent>
+	<realm>Client</realm>
+	<description>
+		<deprecated>
+			You should use <page>DBinder</page> instead.
+		</deprecated>
+
+		GMod 12 style "number pad" panel used by tools for binding keys to tool actions. Deprecated in favor of <page>DBinder</page>.
+	</description>
+</panel>

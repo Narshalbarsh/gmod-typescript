@@ -1,0 +1,13 @@
+<function name="SetEnableShadows" parent="ProjectedTexture" type="classfunc">
+	<description>
+Enable or disable shadows cast from the projected texture.
+
+<note>As with all types of projected textures (including the player's flashlight and env_projectedtexture), there can only be 8 projected textures with shadows enabled in total.<br/><br/>This limit can be increased with the launch parameter `-numshadowtextures LIMIT` where `LIMIT` is the new limit.<br/><br/>Naturally, many projected lights with shadows enabled will drastically decrease framerate.</note>
+
+You must call <page>ProjectedTexture:Update</page> after using this function for it to take effect.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="newState" type="boolean"></arg>
+	</args>
+</function>

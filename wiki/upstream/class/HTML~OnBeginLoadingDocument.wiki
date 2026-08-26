@@ -1,0 +1,7 @@
+<function name="OnBeginLoadingDocument" parent="HTML" type="panelhook">
+	<description>Called when this panel begins loading a page.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="url" type="string">The URL of the current page.</arg>
+	</args>
+</function>

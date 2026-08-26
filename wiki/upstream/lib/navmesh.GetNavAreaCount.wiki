@@ -1,0 +1,7 @@
+<function name="GetNavAreaCount" parent="navmesh" type="libraryfunc">
+	<description>Returns the total count of nav areas on the map. If you want to get all nav areas, use <page>navmesh.GetAllNavAreas</page> instead as nav areas IDs are not always sequential.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">The total count of nav areas on the map.</ret>
+	</rets>
+</function>

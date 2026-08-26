@@ -1,0 +1,8 @@
+<function name="SetPos" parent="IGModAudioChannel" type="classfunc">
+	<description>Sets position of sound channel in case the sound channel has a 3d option set.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="pos" type="Vector">The position to put the sound into</arg>
+		<arg name="dir" type="Vector" default="Vector( 0, 0, 0 )">The direction of the sound</arg>
+	</args>
+</function>

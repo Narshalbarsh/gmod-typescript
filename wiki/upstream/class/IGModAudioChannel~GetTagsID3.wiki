@@ -1,0 +1,15 @@
+<function name="GetTagsID3" parent="IGModAudioChannel" type="classfunc">
+	<added>2020.04.29</added>
+	<description>Retrieves the ID3 version 1 info from a bass channel created by <page>sound.PlayFile</page> or <page>sound.PlayURL</page>, if available.
+
+ID3v2 is not supported.
+	</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="info" type="table">A table containing the information, or `nil` if no information is available.
+
+The table will always have the following keys, filled out based on what is available:  
+`album`, `artist`, `comment`, `genre`, `id`, `title`, `year`
+</ret>
+	</rets>
+</function>

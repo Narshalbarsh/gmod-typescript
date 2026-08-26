@@ -1,0 +1,11 @@
+<function name="SetMouseY" parent="CUserCmd" type="classfunc">
+	<description>
+Sets the delta of the angular vertical mouse movement of the player.
+
+See also <page>CUserCmd:SetMouseX</page>.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="speed" type="number">Angular vertical move delta.</arg>
+	</args>
+</function>

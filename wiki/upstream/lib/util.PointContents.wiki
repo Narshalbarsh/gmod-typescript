@@ -1,0 +1,32 @@
+<function name="PointContents" parent="util" type="libraryfunc">
+	<description>
+		Returns the contents of the position specified.
+		<note>This function will sample only the world environments. It can be used to check if <page>Entity:GetPos</page> is underwater for example unlike <page>Entity:WaterLevel</page> which works for players only.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="position" type="Vector">Position to get the contents sample from.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number{CONTENTS}">Contents bitflag, see <page>Enums/CONTENTS</page></ret>
+	</rets>
+</function>
+
+<example>
+	<description>Check if the trace position is underwater.</description>
+	<code>
+local tr = Entity( 1 ):GetEyeTrace()
+print( bit.band( util.PointContents( tr.HitPos ), CONTENTS_WATER ) == CONTENTS_WATER )
+	</code>
+
+</example>
+
+<example>
+	<description>Check if the trace entity position is underwater assuming the object is already valid.</description>
+	<code>
+if ( bit.band( util.PointContents( tr.Entity:GetPos() ), CONTENTS_WATER ) == CONTENTS_WATER ) then
+	-- Do stuff here when the entity's position is underwater.
+end
+	</code>
+
+</example>

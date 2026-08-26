@@ -1,0 +1,7 @@
+<function name="gcinfo" parent="Global" type="libraryfunc">
+	<description><deprecated>This function was deprecated in Lua 5.1 and is removed in Lua 5.2. Use <page>Global.collectgarbage</page>( "count" ) instead.</deprecated> Returns the current floored dynamic memory usage of Lua in kilobytes.</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="number">The current floored dynamic memory usage of Lua, in kilobytes.</ret>
+	</rets>
+</function>

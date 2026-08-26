@@ -1,0 +1,3 @@
+<type name="video" category="libraryfunc" is="library">
+	<summary>The video library.</summary>
+</type>

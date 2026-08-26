@@ -1,0 +1,39 @@
+<function name="SetMin" parent="DNumSlider" type="panelfunc">
+	<description>Sets the minimum value for the slider</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="min" type="number">The value to set as minimum for the slider.</arg>
+	</args>
+</function>
+
+<example>
+	<description>An example usage of the function</description>
+	<code>
+--This creates the frame.
+local Frame = vgui.Create( "DFrame" )
+Frame :Center() -- or Frame:SetPos( x, y )
+Frame:SetSize( 300, 150 )
+Frame:SetTitle( "Test" )
+Frame:SetVisible( true )
+Frame:SetDraggable( true )
+Frame:ShowCloseButton( true )
+Frame:MakePopup()
+--Here we create the slider.
+local DermaSlider = vgui.Create( "DNumSlider", Frame )
+DermaSlider:SetPos( 25, 85 )
+DermaSlider:SetWide( 275 )
+DermaSlider:SetMin( 0 ) -- Or 3 for second image
+DermaSlider:SetMax( 5 )
+DermaSlider:SetValue( 0.5 )
+DermaSlider:SetDecimals( 2 )
+	</code>
+	<output>
+<image src="DermaSlider_Test.jpeg"/>
+
+
+
+
+<image src="DermaSlider_min_3.jpeg"/>
+	</output>
+
+</example>

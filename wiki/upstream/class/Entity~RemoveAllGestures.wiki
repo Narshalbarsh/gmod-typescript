@@ -1,0 +1,9 @@
+<function name="RemoveAllGestures" parent="Entity" type="classfunc">
+	<description>
+Removes and stops all gestures.
+
+<note>This function only works on <page>BaseAnimatingOverlay</page> entites!</note>
+<note>Layer removal procedures aren't immediate. Layer removal functions actually manipulate <page>Entity:GetLayerWeight</page> down to 0, then remove the layer in next intervals. If the targeted layer's weight keeps changing, your layer will not be removed.</note>
+	</description>
+	<realm>Server</realm>
+</function>

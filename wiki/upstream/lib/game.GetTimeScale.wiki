@@ -1,0 +1,45 @@
+<function name="GetTimeScale" parent="game" type="libraryfunc">
+	<description>
+		Returns the time scale set with <page>game.SetTimeScale</page>.
+
+		If you want to get the value of `host_timescale`, use:
+		```lua
+local timescale = GetConVar( "host_timescale" ):GetFloat()
+		```
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The time scale.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Printing the true timescale.</description>
+	<code>
+-- getting the true timescale.
+local host_timescale = math.Round( GetConVar( "host_timescale" ):GetFloat(), 1 ) -- it will return 1.0000000149012 so we use math.Round
+local game_timescale = game.GetTimeScale()
+print( "True Timescale: " .. host_timescale  * game_timescale )
+
+-- example of the true timescale
+if SERVER then
+	RunConsoleCommand( "host_timescale", 0.2 ) -- we cannot use SetFloat on a ConVar not created by Lua.
+	game.SetTimeScale(5)
+end
+
+local host_timescale = math.Round( GetConVar( "host_timescale" ):GetFloat(), 1 ) -- it will return 0.20000000298023 so we use math.Round
+local game_timescale = game.GetTimeScale()
+print( "Host_TimeScale: " .. host_timescale )
+print( "Game_TimeScale: " .. game_timescale )
+print( "True Timescale: " .. host_timescale  * game_timescale ) -- should be 1 because 0.2 * 5 is 1.
+	</code>
+	<output>
+```lua
+True Timescale: 1
+
+Host_TimeScale: 0.2
+Game_TimeScale: 5
+True Timescale: 1
+```
+	</output>
+</example>

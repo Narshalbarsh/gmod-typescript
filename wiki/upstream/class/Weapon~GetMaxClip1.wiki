@@ -1,0 +1,7 @@
+<function name="GetMaxClip1" parent="Weapon" type="classfunc">
+	<description>Returns maximum primary clip size</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">Maximum primary clip size</ret>
+	</rets>
+</function>

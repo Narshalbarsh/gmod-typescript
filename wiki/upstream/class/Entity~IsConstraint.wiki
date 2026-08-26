@@ -1,0 +1,19 @@
+<function name="IsConstraint" parent="Entity" type="classfunc">
+	<description>Returns if entity is constraint or not.
+
+This also means that <page>Entity:GetConstrainedPhysObjects</page>. <page>Entity:GetConstrainedEntities</page> and  <page>Entity:SetPhysConstraintObjects</page> can be used on this entity.
+
+<warning>For some constraint entities, such as `phys_spring`, `phys_slideconstraint`, `phys_torque` and `logic_collision_pair`, this function will return `false`!</warning>
+</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="boolean">Is the entity a constraint or not</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Returns true if player 1 is aiming at constraint.</description>
+	<code>print( Entity(1):GetEyeTrace().Entity:IsConstraint() )</code>
+	<output>false</output>
+
+</example>

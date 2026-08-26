@@ -1,0 +1,7 @@
+<function name="GetActive" parent="DNumberScratch" type="panelfunc">
+	<description>Returns whether this panel is active or not, i.e. if the player is currently changing its value.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean"></ret>
+	</rets>
+</function>

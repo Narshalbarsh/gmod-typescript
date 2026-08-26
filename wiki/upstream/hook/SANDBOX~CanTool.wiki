@@ -1,0 +1,33 @@
+<function name="CanTool" parent="SANDBOX" type="hook">
+	<description>Called when a player attempts to fire their tool gun. Return true to specifically allow the attempt, false to block it.</description>
+	<realm>Shared</realm>
+	<predicted>Yes</predicted>
+	<args>
+		<arg name="ply" type="Player">The player who attempted to use their toolgun.</arg>
+		<arg name="tr" type="table{TraceResult}">A trace from the players eye to where in the world their crosshair/cursor is pointing.
+<warning>Returns only the <page text="world">game.GetWorld</page> in the <page text="Entity">Structures/TraceResult#Entity</page> key and returns false in the <page text="Hit">Structures/TraceResult#Hit</page> key when the 5th argument returns `4`.</warning></arg>
+		<arg name="toolname" type="string">The tool mode the player currently has selected.</arg>
+		<arg name="tool" type="table">The tool mode table the player currently has selected.</arg>
+		<arg name="button" type="number">The tool button pressed.
+* `1` - left click
+* `2` - right click
+* `3` - reload
+* `4` - spawn menu (No interaction with the toolgun). **Client-side only**
+	</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Can use toolgun or not.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Stops players from removing doors.</description>
+	<code>
+hook.Add( "CanTool", "CanToolExample", function( ply, tr, toolname, tool, button )
+   if toolname == "remover" and IsValid( tr.Entity ) and tr.Entity:GetClass() == "prop_door_rotating" then
+      return false
+   end
+end )
+	</code>
+
+</example>

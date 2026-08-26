@@ -1,0 +1,14 @@
+<enum>
+	<realm>Shared</realm>
+	<description>Enumerations used by <page>Player:PrintMessage</page> and <page>Global.PrintMessage</page>.</description>
+	<items>
+<item key="HUD_PRINTNOTIFY" value="1">No longer works; now same as HUD_PRINTCONSOLE</item>
+
+<item key="HUD_PRINTCONSOLE" value="2">Console</item>
+
+<item key="HUD_PRINTTALK" value="3">Chat, also prints to console</item>
+
+<item key="HUD_PRINTCENTER" value="4">Center of the screen, nothing on client</item>
+	</items>
+
+</enum>

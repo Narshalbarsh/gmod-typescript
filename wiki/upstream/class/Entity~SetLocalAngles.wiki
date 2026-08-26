@@ -1,0 +1,7 @@
+<function name="SetLocalAngles" parent="Entity" type="classfunc">
+	<description>Sets angles relative to angles of <page>Entity:GetParent</page></description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="ang" type="Angle">The local angle</arg>
+	</args>
+</function>

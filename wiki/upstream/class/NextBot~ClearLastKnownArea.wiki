@@ -1,0 +1,5 @@
+<function name="ClearLastKnownArea" parent="NextBot" type="classfunc">
+	<description>Clears this bot's last known area. See <page>NextBot:GetLastKnownArea</page>.</description>
+	<realm>Server</realm>
+	<added>2022.02.14</added>
+</function>

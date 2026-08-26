@@ -1,0 +1,12 @@
+<function name="SetWeapon" parent="CTakeDamageInfo" type="classfunc">
+	<description>
+Sets the damage-inflicting weapon of the damage event.
+
+This should be a <page>Weapon</page> entity, not a projectile. See also <page>CTakeDamageInfo:SetInflictor</page>.
+	</description>
+	<added>2025.01.15</added>
+	<realm>Shared</realm>
+	<args>
+		<arg name="" type="Entity">The damage-inflicting weapon or <page>NULL</page>.</arg>
+	</args>
+</function>

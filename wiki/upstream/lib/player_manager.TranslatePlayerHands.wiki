@@ -1,0 +1,17 @@
+<function name="TranslatePlayerHands" parent="player_manager" type="libraryfunc">
+	<description>Retrieves correct hands for given player model. By default returns citizen hands.
+
+<note>See <page>player_manager.AddValidHands</page> for defining/linking hands to a model - this must be defined somewhere otherwise the model will return citizen hands here.</note></description>
+	<realm>Shared</realm>
+	<file line="69-L79">lua/includes/modules/player_manager.lua</file>
+	<args>
+		<arg name="name" type="string">Player model name.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">A table with following contents:
+* <page>string</page> model - Model of hands.
+* <page>number</page> skin - Skin of hands.
+* <page>string</page> body - Bodygroups of hands.
+* <page>boolean</page> matchBodySkin - Use player skinIndex.</ret>
+	</rets>
+</function>

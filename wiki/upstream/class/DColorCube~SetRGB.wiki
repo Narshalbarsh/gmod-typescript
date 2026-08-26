@@ -1,0 +1,12 @@
+<function name="SetRGB" parent="DColorCube" type="panelfunc">
+	<description>
+<internal></internal>
+
+	An <page>Global.AccessorFunc</page> that used internally to set the real "output" color of the panel.
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="6">lua/vgui/dcolorcube.lua</file>
+	<args>
+		<arg name="clr" type="Color">A <page>Color</page></arg>
+	</args>
+</function>

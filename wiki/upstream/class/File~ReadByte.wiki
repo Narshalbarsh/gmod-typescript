@@ -1,0 +1,7 @@
+<function name="ReadByte" parent="File" type="classfunc">
+	<description>Reads one unsigned 8-bit integer from the file.</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="number">The unsigned 8-bit integer from the file.</ret>
+	</rets>
+</function>

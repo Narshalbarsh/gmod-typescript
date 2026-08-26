@@ -1,0 +1,8 @@
+<function name="OnContextMenuOpen" parent="GM" type="hook">
+	<description>
+Called when the context menu keybind (`+menu_context`) is pressed, which by default is <key>C</key>.
+
+See also <page>GM:OnContextMenuClose</page>.
+	</description>
+	<realm>Client</realm>
+</function>

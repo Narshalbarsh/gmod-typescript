@@ -1,0 +1,8 @@
+<function name="Remove" parent="numpad" type="libraryfunc">
+	<description>Removes a function added by either <page>numpad.OnUp</page> or <page>numpad.OnDown</page></description>
+	<realm>Server</realm>
+	<file line="229-L236">lua/includes/modules/numpad.lua</file>
+	<args>
+		<arg name="ID" type="number">The impulse ID returned by <page>numpad.OnUp</page> or <page>numpad.OnDown</page></arg>
+	</args>
+</function>

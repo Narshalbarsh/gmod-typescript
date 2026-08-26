@@ -1,0 +1,15 @@
+<function name="EffectData" parent="Global" type="libraryfunc">
+	<description>
+Returns a <page>CEffectData</page> object to be used with <page>util.Effect</page>.
+
+<bug issue="2771">This does not create a unique object, but instead returns a shared reference. That means you cannot use two or more of these objects at once.
+
+As a result any values previously set (Origin, Magnitude, Scale etc) will carry over to all future calls of this function, and may unexpectedly affect effects created via <page>util.Effect</page>.
+</bug>
+
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="CEffectData">The <page>CEffectData</page> object.</ret>
+	</rets>
+</function>

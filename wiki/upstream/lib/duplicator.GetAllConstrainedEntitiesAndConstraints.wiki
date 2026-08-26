@@ -1,0 +1,14 @@
+<function name="GetAllConstrainedEntitiesAndConstraints" parent="duplicator" type="libraryfunc">
+	<description><internal></internal> Fills entStorageTable with all of the entities in a group connected with constraints. Fills constraintStorageTable with all of the constraints constraining the group.</description>
+	<realm>Server</realm>
+	<file line="921-L969">lua/includes/modules/duplicator.lua</file>
+	<args>
+		<arg name="ent" type="Entity">The entity to start from</arg>
+		<arg name="entStorageTable" type="table">The table the entities will be inserted into.</arg>
+		<arg name="constraintStorageTable" type="table">The table the constraints will be inserted into.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">entStorageTable</ret>
+		<ret name="" type="table">constraintStorageTable</ret>
+	</rets>
+</function>

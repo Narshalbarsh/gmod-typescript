@@ -1,0 +1,21 @@
+<function name="DrawSunbeams" parent="Global" type="libraryfunc">
+	<description>Renders the post-processing effect of beams of light originating from the map's sun. Utilises the `pp/sunbeams` material.</description>
+	<realm>Client</realm>
+	<file line="14-L29">lua/postprocess/sunbeams.lua</file>
+	<args>
+		<arg name="darken" type="number">`$darken` property for sunbeams material.</arg>
+		<arg name="multiplier" type="number">`$multiply` property for sunbeams material.</arg>
+		<arg name="sunSize" type="number">`$sunsize` property for sunbeams material.</arg>
+		<arg name="sunX" type="number">`$sunx` property for sunbeams material.</arg>
+		<arg name="sunY" type="number">`$suny` property for sunbeams material.</arg>
+	</args>
+</function>
+
+<example>
+	<code>DrawSunbeams( 0.3, 0.12, 1, 1.2, 1.2 )</code>
+</example>
+
+<example>
+	<description>Smaller sunbeams (more realistic)</description>
+	<code>DrawSunbeams( 0.1, 0.013, 0.14, 0.2, 0.6 )</code>
+</example>

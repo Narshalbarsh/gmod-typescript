@@ -1,0 +1,4 @@
+<function name="ClearSchedule" parent="NPC" type="classfunc">
+	<description>Stops the current schedule that the NPC is doing.</description>
+	<realm>Server</realm>
+</function>

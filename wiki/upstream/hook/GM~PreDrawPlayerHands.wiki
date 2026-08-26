@@ -1,0 +1,18 @@
+<function name="PreDrawPlayerHands" parent="GM" type="hook">
+	<description>Called before the player hands are drawn.
+
+See <page>GM:PreDrawViewModel</page> for the view model alternative.  
+See <page>GM:PostDrawPlayerHands</page> for a hook that is called just before view model hands are drawn.
+</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="hands" type="Entity">This is the gmod_hands entity before it is drawn.</arg>
+		<arg name="vm" type="Entity">This is the view model entity before it is drawn.</arg>
+		<arg name="ply" type="Player">The the owner of the view model.</arg>
+		<arg name="weapon" type="Weapon">This is the weapon that is from the view model.</arg>
+		<arg name="flags" type="number" added="2025.12.17">The <page text="STUDIO_">Enums/STUDIO</page> flags for this render operation.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return true to prevent the viewmodel hands from rendering</ret>
+	</rets>
+</function>

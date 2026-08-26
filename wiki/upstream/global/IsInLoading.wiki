@@ -1,0 +1,9 @@
+<cat>global</cat>
+<function name="IsInLoading" parent="Global" type="libraryfunc">
+	<description>Returns true when the loading panel is active.</description>
+	<realm>Menu</realm>
+	<file line="239-L247">lua/menu/loading.lua</file>
+	<rets>
+		<ret name="" type="boolean">True if loading panel is active.</ret>
+	</rets>
+</function>

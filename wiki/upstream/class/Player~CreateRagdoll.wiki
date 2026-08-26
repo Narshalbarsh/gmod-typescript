@@ -1,0 +1,12 @@
+<function name="CreateRagdoll" parent="Player" type="classfunc">
+	<description>
+Creates the player's death ragdoll entity and deletes the old one.
+
+This is normally used when a player dies, to create their death ragdoll.
+
+The ragdoll will be created with the player's properties such as <page text="Position">Entity:GetPos</page>, <page text="Angles">Entity:GetAngles</page>, <page text="PlayerColor">Player:GetPlayerColor</page>, <page text="Velocity">Entity:GetVelocity</page> and <page text="Model">Entity:GetModel</page>.
+
+You can retrieve the entity this creates with <page>Player:GetRagdollEntity</page>.
+	</description>
+	<realm>Server</realm>
+</function>

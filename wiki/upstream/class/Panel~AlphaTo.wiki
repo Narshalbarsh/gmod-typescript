@@ -1,0 +1,17 @@
+<function name="AlphaTo" parent="Panel" type="classfunc">
+	<description>Uses animation to transition the current alpha value of a panel to a new alpha, over a set period of time and after a specified delay.</description>
+	<realm>Client and Menu</realm>
+	<file line="263-L269">lua/includes/extensions/client/panel/animation.lua</file>
+	<args>
+		<arg name="alpha" type="number">The alpha value (0-255) to approach.</arg>
+		<arg name="duration" type="number">The time in seconds it should take to reach the alpha.</arg>
+		<arg name="delay" type="number" default="0">The delay before the animation starts.</arg>
+		<arg name="callback" type="function" default="nil">The function to be called once the animation finishes. 
+
+<callback>
+<arg type="table" name="animData">The <page>Structures/AnimationData</page> that was used.</arg>
+<arg type="Panel" name="targetPanel">The panel object that was animated.</arg>
+</callback>
+</arg>
+	</args>
+</function>

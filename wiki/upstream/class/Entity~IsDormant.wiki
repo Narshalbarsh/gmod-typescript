@@ -1,0 +1,12 @@
+<function name="IsDormant" parent="Entity" type="classfunc">
+	<description>Returns whether the entity is dormant or not.
+
+Networked entities become dormant clientside when they leave the [PVS (Potential Visibility Set)](https://developer.valvesoftware.com/wiki/PVS "PVS - Valve Developer Community"). This typically means they are no longer visible by the local player, and will not receive updates from the server.
+
+Server side, entities can only be dormant during level transitions by default.
+</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the entity is dormant or not.</ret>
+	</rets>
+</function>

@@ -1,0 +1,13 @@
+<function name="PreDrawSkyBox" parent="GM" type="hook">
+	<description>
+Called before the 3D sky box is drawn. This will not be called for maps with no 3D skybox, or when the 3d skybox is disabled. (`r_3dsky 0`)
+
+See also <page>GM:PostDrawSkyBox</page>
+
+<rendercontext hook="true" type="3D"></rendercontext>
+	</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="boolean">Return true to disable skybox drawing (both 2D and 3D skybox)</ret>
+	</rets>
+</function>

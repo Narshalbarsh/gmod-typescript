@@ -1,0 +1,9 @@
+<function name="WorkshopDownloadedFile" parent="GM" type="hook">
+	<description>Called when an addon from the Steam workshop finishes downloading. Used by default to update details on the workshop downloading panel.</description>
+	<realm>Menu</realm>
+	<file line="32-38">lua/menu/mount/mount.lua</file>
+	<args>
+		<arg name="id" type="number">Workshop ID of addon.</arg>
+		<arg name="title" type="string">Name of addon.</arg>
+	</args>
+</function>

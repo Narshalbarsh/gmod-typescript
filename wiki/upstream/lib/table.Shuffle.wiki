@@ -1,0 +1,11 @@
+<function name="Shuffle" parent="table" type="libraryfunc">
+	<description>
+Performs an inline [Fisher-Yates shuffle](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle) on the table in `O(n)` time
+	</description>
+	<realm>Shared and Menu</realm>
+	<added>2021.12.15</added>
+	<file line="185-L191">lua/includes/extensions/table.lua</file>
+	<args>
+		<arg name="target" type="table">The table to shuffle.</arg>
+	</args>
+</function>

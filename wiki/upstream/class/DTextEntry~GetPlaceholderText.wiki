@@ -1,0 +1,7 @@
+<function name="GetPlaceholderText" parent="DTextEntry" type="panelfunc">
+	<description>Returns the placeholder text set with <page>DTextEntry:SetPlaceholderText</page>.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret type="string" ></ret>
+	</rets>
+</function>

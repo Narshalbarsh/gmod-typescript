@@ -1,0 +1,26 @@
+<cat>gameevent</cat>
+<title>hltv_title</title>
+
+<structure>
+	<realm>Client and Menu</realm>
+	<description>
+			Called when the SourceTV client is spawned.
+	</description>
+	<fields>
+		<item type="string" name="text">The SourceTV Name.</item>
+	</fields>
+</structure>
+
+# Examples
+<example>
+	<description>This is a basic template with the purpose of including all arguments / table variables to make it easily known which values can be accessed.</description>
+	<code>
+gameevent.Listen( "hltv_title" )
+hook.Add( "hltv_title", "hltv_title_example", function( data )
+	local text = data.text	-- The SourceTV
+
+	-- Called when the SourceTV client is spawned
+	
+end )
+	</code>
+</example>

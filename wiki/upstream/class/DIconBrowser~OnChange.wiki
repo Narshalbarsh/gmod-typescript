@@ -1,0 +1,4 @@
+<function name="OnChange" parent="DIconBrowser" type="panelfunc">
+	<description>Called when the selected icon was changed. Use <page>DIconBrowser:GetSelectedIcon</page> to get the selected icon's filepath.</description>
+	<realm>Client and Menu</realm>
+</function>

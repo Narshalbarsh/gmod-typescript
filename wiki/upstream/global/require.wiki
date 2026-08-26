@@ -1,0 +1,17 @@
+<function name="require" parent="Global" type="libraryfunc">
+	<description>
+First tries to load a binary module with the given name, if unsuccessful, it tries to load a Lua module with the given name.
+
+<bug issue="2498" request="813">Running this function with <page>Global.pcall</page> or <page>Global.xpcall</page> will still print an error that counts towards sv_kickerrornum.</bug>
+<note>This function will try to load local client file if `sv_allowcslua` is set to `1`</note>
+<note>
+	Binary modules can't be installed as part of an addon and have to be put directly into ``garrysmod/lua/bin/`` to be detected.
+	This is a safety measure, because modules can be malicious and harm the system.
+</note>
+
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="name" type="string">The name of the module to be loaded.</arg>
+	</args>
+</function>

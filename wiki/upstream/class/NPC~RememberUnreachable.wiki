@@ -1,0 +1,9 @@
+<function name="RememberUnreachable" parent="NPC" type="classfunc">
+	<description>Makes the NPC remember an entity or an enemy as unreachable, for a specified amount of time. Use <page>NPC:IsUnreachable</page> to check if an entity is still unreachable.</description>
+	<realm>Server</realm>
+	<added>2020.06.24</added>
+	<args>
+		<arg name="ent" type="Entity">The entity to mark as unreachable.</arg>
+		<arg name="time" type="number" default="3">For how long to remember the entity as unreachable. Negative values will act as `3` seconds.</arg>
+	</args>
+</function>

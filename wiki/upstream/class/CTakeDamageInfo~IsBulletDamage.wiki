@@ -1,0 +1,7 @@
+<function name="IsBulletDamage" parent="CTakeDamageInfo" type="classfunc">
+	<description>Returns true if the damage was caused by a bullet.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">isBulletDmg</ret>
+	</rets>
+</function>

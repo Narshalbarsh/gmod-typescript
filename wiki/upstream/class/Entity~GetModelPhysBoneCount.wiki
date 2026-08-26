@@ -1,0 +1,7 @@
+<function name="GetModelPhysBoneCount" parent="Entity" type="classfunc">
+	<description>Gets the physics bone count of the entity's model. This is only applicable to `anim` type <page>Scripted Entities</page> with ragdoll models.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">How many physics bones exist on the model.</ret>
+	</rets>
+</function>

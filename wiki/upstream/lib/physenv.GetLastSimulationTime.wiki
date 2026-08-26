@@ -1,0 +1,19 @@
+<function name="GetLastSimulationTime" parent="physenv" type="libraryfunc">
+	<description>
+		Returns the last simulation duration of the in-game physics.
+	</description>
+	<realm>Shared</realm>
+	<added>2023.01.25</added>
+	<rets>
+		<ret name="" type="number">The last simulation duration of the in-game physics in seconds</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints a message when physics lag of over 100ms is detected</description>
+	<code>hook.Add("Think", "LagDetector", function ()
+	if physenv.GetLastSimulationTime() * 1000 > 100 then
+		print("Physics lag detected!")
+	end
+end)</code>
+</example>

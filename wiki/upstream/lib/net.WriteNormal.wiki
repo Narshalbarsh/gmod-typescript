@@ -1,0 +1,64 @@
+<function name="WriteNormal" parent="net" type="libraryfunc">
+	<description>
+Writes a normalized/direction vector ( Vector with length of 1 ) to the net message.
+
+This function uses less bandwidth compared to <page>net.WriteVector</page> and will not send vectors with length of > 1 properly.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="normal" type="Vector">The normalized/direction vector to be send.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Showcases the difference between this function and <page>net.WriteVector</page>.</description>
+	<code>
+if ( SERVER ) then
+	util.AddNetworkString( "test1" )
+	util.AddNetworkString( "test2" )
+	
+	timer.Simple( 1, function()
+		net.Start( "test1" )
+			net.WriteVector( Vector( 1.23456789, 2.3456789, 3.456789 ) )
+		net.Broadcast()
+	
+		net.Start( "test2" )
+			net.WriteNormal( Vector( 1.23456789, 2.3456789, 3.456789 ) )
+		net.Broadcast()
+
+		net.Start( "test2" )
+			net.WriteNormal( Vector( 1.23456789, 2.3456789, 3.456789 ):GetNormalized() )
+		net.Broadcast()
+	
+		net.Start( "test2" )
+			net.WriteNormal( Vector( 0.5, -0.5, 0.23 ) )
+		net.Broadcast()
+	end )
+else
+	net.Receive( "test1", function( ... )
+		print( ... ) 
+		print( net.ReadVector() ) 
+	end )
+	
+	net.Receive( "test2", function( ... )
+		print( ... ) 
+		print( net.ReadNormal() ) 
+	end )
+end
+	</code>
+	<output>
+
+```
+69	nil
+1.218750 2.343750 3.437500
+27	nil
+1.000000 1.000000 0.000000
+27	nil
+0.283341 0.538349 0.793661
+27	nil
+0.499756 -0.499756 0.707452
+```
+
+	</output>
+
+</example>

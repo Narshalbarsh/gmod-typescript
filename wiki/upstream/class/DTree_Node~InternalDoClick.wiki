@@ -1,0 +1,8 @@
+<function name="InternalDoClick" parent="DTree_Node" type="panelfunc">
+	<description>
+<internal></internal>
+
+See <page>DTree_Node:DoClick</page>
+	</description>
+	<realm>Client and Menu</realm>
+</function>

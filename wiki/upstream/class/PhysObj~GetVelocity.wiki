@@ -1,0 +1,7 @@
+<function name="GetVelocity" parent="PhysObj" type="classfunc">
+	<description>Returns the absolute directional velocity of the physobject.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Vector">velocity</ret>
+	</rets>
+</function>

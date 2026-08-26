@@ -1,0 +1,28 @@
+<function name="GetPlayerName" parent="steamworks" type="libraryfunc">
+	<description>
+<deprecated>You should use the callback of <page>steamworks.RequestPlayerInfo</page> instead.</deprecated>
+
+Retrieves players name by their 64bit SteamID.
+
+You must call <page>steamworks.RequestPlayerInfo</page> a decent amount of time before calling this function.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="steamID64" type="string">The 64bit Steam ID ( aka Community ID ) of the player</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The name of that player</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Retrieves name of local player.</description>
+	<code>
+steamworks.RequestPlayerInfo( LocalPlayer():SteamID64() )
+timer.Simple( 1, function() -- this is not instant!
+	print( steamworks.GetPlayerName( LocalPlayer():SteamID64() ) )
+end )
+	</code>
+	<output>A name of local player is printed into console.</output>
+
+</example>

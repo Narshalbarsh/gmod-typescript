@@ -1,0 +1,8 @@
+<function name="GetBarColor" parent="DAlphaBar" type="panelfunc">
+	<description>Returns the base color of the alpha bar. This is the color for which the alpha channel is being modified. An <page>Global.AccessorFunc</page></description>
+	<realm>Client and Menu</realm>
+	<file line="8">lua/vgui/dalphabar.lua</file>
+	<rets>
+		<ret name="" type="Color">The current base <page>Color</page>.</ret>
+	</rets>
+</function>

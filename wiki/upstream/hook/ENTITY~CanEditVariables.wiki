@@ -1,0 +1,13 @@
+<function name="CanEditVariables" parent="ENTITY" type="hook">
+	<description>
+Called by the Sandbox gamemode from the default implementation of <page>GM:CanEditVariable</page>.
+
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ply" type="Player">The player is trying to edit a variable on this entity.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">`true` to allow the edit, `false` to disallow.</ret>
+	</rets>
+</function>

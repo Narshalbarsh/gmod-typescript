@@ -1,0 +1,8 @@
+<function name="EndBlock" parent="IRestore" type="classfunc">
+	<description>
+Ends current data block started with <page>IRestore:StartBlock</page> and returns to the parent block.
+
+To avoid all sorts of errors, you **must** end all blocks you start.
+	</description>
+	<realm>Shared</realm>
+</function>

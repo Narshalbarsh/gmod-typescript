@@ -1,0 +1,40 @@
+<function name="UpdateColor" parent="DColorCube" type="panelfunc">
+	<description>
+<internal></internal>
+
+Updates the color cube RGB based on the given x and y position. Similar to <page>DColorCube:TranslateValues</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="74-L87">lua/vgui/dcolorcube.lua</file>
+	<args>
+		<arg name="x" type="number" default="nil">The x position to set color to/the percentage of saturation to remove from the color (ranges from 0.0 to 1.0).</arg>
+		<arg name="y" type="number" default="nil">The y position to set color to/the percentage of brightness or value to remove from the color (ranges from 0.0 to 1.0).</arg>
+	</args>
+</function>
+
+<example>
+	<description>Creates a yellow color cube and updates/prints out the color at the (0.1, 0.6) position.</description>
+	<code>
+local color_cube = vgui.Create("DColorCube")
+color_cube:SetSize(200, 200)
+color_cube:Center()
+
+-- Set base color to yellow
+color_cube:SetColor(Color(255, 255, 0))
+
+-- 10% less saturation, 60% darker
+color_cube:UpdateColor(0.1, 0.6)
+
+-- Get new color
+local new_color = color_cube:GetRGB()
+
+-- Print new color
+print("Color( "..new_color.r..", "..new_color.g..", "..new_color.b..", "..new_color.a.." )")
+	</code>
+	<output>
+```
+Color( 102, 102, 10, 255 )
+```
+	</output>
+
+</example>

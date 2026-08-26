@@ -1,0 +1,17 @@
+<function name="Box" parent="debugoverlay" type="libraryfunc">
+	<description>
+Displays a solid coloured box at the specified position.
+
+<note>This function will silently fail if the `developer` <page>ConVar</page> is set to `0`.  
+It is not networked to clients, except for the <page text="listen server host">Player:IsListenServerHost</page>.  
+It will not work when the game is paused.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="origin" type="Vector">Position origin.</arg>
+		<arg name="mins" type="Vector">Minimum bounds of the box.</arg>
+		<arg name="maxs" type="Vector">Maximum bounds of the box.</arg>
+		<arg name="lifetime" type="number" default="1">Number of seconds to appear.</arg>
+		<arg name="color" type="Color" default="Color( 255, 255, 255, 255 )">The color of the box.</arg>
+	</args>
+</function>

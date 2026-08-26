@@ -1,0 +1,10 @@
+<function name="OnSelect" parent="PropSelect" type="panelhook">
+	<description>Called when the player selects a model.
+</description>
+	<realm>Client</realm>
+	<added>2024.09.02</added>
+	<args>
+		<arg name="pnl" type="Panel">The <page>Spawnicon</page> that was clicked.</arg>
+		<arg name="model" type="string">Path of the selected model, or its "value".</arg>
+	</args>
+</function>

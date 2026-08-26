@@ -1,0 +1,4 @@
+<function name="HideWang" parent="DNumberWang" type="panelfunc">
+	<description>Hides the number selector arrows.</description>
+	<realm>Client and Menu</realm>
+</function>

@@ -1,0 +1,5 @@
+<function name="FireAddonConflicts" parent="Global" type="libraryfunc">
+	<description>Refreshes all Addon Conflicts and Fires a Problem. Internally uses <page>Global.FireProblem</page></description>
+	<realm>Menu</realm>
+	<file line="321-L342">lua/menu/problems/problems.lua</file>
+</function>

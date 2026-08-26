@@ -1,0 +1,5 @@
+<function name="HideTeam" parent="GM" type="hook">
+	<description>Hides the team selection panel.</description>
+	<realm>Client</realm>
+	<file line="58-L65">gamemodes/base/gamemode/cl_pickteam.lua</file>
+</function>

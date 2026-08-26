@@ -1,0 +1,8 @@
+<function name="GetIsMenu" parent="DMenuBar" type="panelfunc">
+	<description>
+Returns whether or not the panel is a menu. Used for closing menus when another panel is selected.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Is a menu</ret>
+	</rets>
+</function>

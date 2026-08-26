@@ -1,0 +1,29 @@
+<function name="FindByModel" parent="ents" type="libraryfunc">
+	<description>
+Gets all entities with the given model, supports wildcards.
+
+This works internally by iterating over <page>ents.GetAll</page>.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="model" type="string">The model of the entities to find.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table<Entity>">A table of all found entities.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Print all entities with a female citizen model.</description>
+	<code>
+for k, v in ipairs(ents.FindByModel("models/player/Group01/female_*")) do
+	print(v)
+end
+	</code>
+	<output>
+```
+1       =       Player [1][Luiggi33]
+2       =       Entity [90][prop_ragdoll]
+```
+	</output>
+</example>

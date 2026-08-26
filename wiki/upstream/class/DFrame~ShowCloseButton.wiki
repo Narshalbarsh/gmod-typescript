@@ -1,0 +1,8 @@
+<function name="ShowCloseButton" parent="DFrame" type="panelfunc">
+	<description>Determines whether the DFrame's control box (close, minimise and maximise buttons) is displayed.</description>
+	<realm>Client and Menu</realm>
+	<file line="69-L75">lua/vgui/dframe.lua</file>
+	<args>
+		<arg name="show" type="boolean">`false` hides the control box; this is `true` by default.</arg>
+	</args>
+</function>

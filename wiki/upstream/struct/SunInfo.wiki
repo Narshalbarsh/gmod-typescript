@@ -1,0 +1,24 @@
+<structure>
+	<realm>Client</realm>
+	<description>Returned by <page>util.GetSunInfo</page>.</description>
+	<fields>
+<item name="direction" type="Vector">The sun's direction relative to 0,0,0.</item>
+
+<item name="obstruction" type="number">Indicates how obstructed the sun is, 1 not visible, 0 fully visible.</item>
+
+<item name="overlayColor" type="table{Color}" added="2026.01.07">Color of sun's overlay in `0`-`255` range as <page>Color</page> structure.</item>
+
+<item name="overlayMaterial" type="string" added="2026.01.07">The sun's overlay name of material. For example: `sprites/light_glow02_add_noz.vmt`.</item>
+
+<item name="overlaySize" type="number" added="2026.01.07">Size of sun's overlay.</item>
+
+<item name="sunColor" type="table{Color}" added="2026.01.07">Color of sun in `0`-`255` range as <page>Color</page> structure.</item>
+
+<item name="sunMaterial" type="string" added="2026.01.07">The sun's name of material.</item>
+
+<item name="sunSize" type="number" added="2026.01.07">Size of sun.</item>
+
+<item name="enabled" type="boolean" added="2026.01.12">State of sun.</item>
+	</fields>
+
+</structure>

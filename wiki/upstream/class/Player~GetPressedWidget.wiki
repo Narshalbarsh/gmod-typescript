@@ -1,0 +1,11 @@
+<function name="GetPressedWidget" parent="Player" type="classfunc">
+	<description>
+Returns the widget entity the player is using.
+
+Having a pressed widget stops the player from firing their weapon to allow input to be passed onto the widget.
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Entity">The pressed widget.</ret>
+	</rets>
+</function>

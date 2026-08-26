@@ -1,0 +1,25 @@
+<function name="SetPos" parent="Entity" type="classfunc">
+	<description>
+Moves the entity to the specified position.
+
+Some entities, such as ragdolls, will continually reset their position. Consider using <page>PhysObj:SetPos</page> on every physics object to move ragdolls.
+
+<note>If the new position doesn't take effect right away, you can use <page>Entity:SetupBones</page> to force it to do so. This issue is especially common when trying to render the same entity twice or more in a single frame at different positions.
+</note>
+
+<warning>Entities with <page>Entity:GetSolid</page> of `SOLID_BBOX` will have their angles reset!</warning>
+
+<bug issue="2447">This will fail inside of predicted functions called during player movement processing. This includes <page>WEAPON:PrimaryAttack</page> and <page>WEAPON:Think</page>.</bug>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="position" type="Vector">The position to move the entity to.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Sets the player's position to (0, 0, 0)</description>
+	<code>Entity( 1 ):SetPos( Vector( 0, 0, 0 ) )</code>
+	<output>The player is now located at Vector(0, 0, 0)</output>
+
+</example>

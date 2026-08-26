@@ -1,0 +1,7 @@
+<function name="GetLoadStatus" parent="Global" type="libraryfunc">
+	<description>Returns the current status of the server join progress.</description>
+	<realm>Menu</realm>
+	<rets>
+		<ret name="" type="string">The current status</ret>
+	</rets>
+</function>

@@ -1,0 +1,52 @@
+<enum>
+	<realm>Server</realm>
+	<description>
+Enumerations describing certain spawnflags. Everything except for SF_PHYS* and SF_WEAPON* is serverside only.
+
+Spawnflags are set using <page>Entity:SetKeyValue</page> with **"spawnflags"** as the key, or using <page>Entity:SetSpawnFlags</page>, <page>Entity:AddSpawnFlags</page>, <page>Entity:RemoveSpawnFlags</page>.
+
+* SF_CITIZEN_* spawnflags represent spawnflags only usable on [npc_citizen](https://developer.valvesoftware.com/wiki/Npc_citizen).
+* SF_NPC_* - Usable on all NPCs
+* SF_PHYSBOX_* - Usable on [func_physbox](https://developer.valvesoftware.com/wiki/Func_physbox)
+* SF_PHYSPROP_* - Usable on [prop_physics](https://developer.valvesoftware.com/wiki/Prop_physics) entities
+* SF_WEAPON_* - Usable on <page text="Weapons">Weapon</page>
+
+<note>This is not a full list of available spawnflags, there are **a lot** more, each unique to each entity, you can find out more on the [Valve Developer Community](https://developer.valvesoftware.com/wiki/Main_Page) website for the entities in question.</note>
+	</description>
+	<items>
+<item key="SF_CITIZEN_AMMORESUPPLIER" value="524288">Citizen that resupplies ammo</item>
+<item key="SF_CITIZEN_FOLLOW" value="65536">"Follow the player as soon as I spawn"</item>
+<item key="SF_CITIZEN_IGNORE_SEMAPHORE" value="2097152">"Work outside the speech semaphore system"</item>
+<item key="SF_CITIZEN_MEDIC" value="131072">Makes the citizen a medic</item>
+<item key="SF_CITIZEN_NOT_COMMANDABLE" value="1048576">Citizen cannot join players squad, and will not able to be commanded by the Half-Life 2 command system for Citizens</item>
+<item key="SF_CITIZEN_RANDOM_HEAD" value="262144">Gives the citizen a random head</item>
+<item key="SF_CITIZEN_RANDOM_HEAD_FEMALE" value="8388608">Gives the citizen a random female head</item>
+<item key="SF_CITIZEN_RANDOM_HEAD_MALE" value="4194304">Gives the citizen a random male head</item>
+<item key="SF_CITIZEN_USE_RENDER_BOUNDS" value="16777216">"Use render bounds instead of human hull for guys sitting in chairs, etc". Must be set before Spawn() is called to take effect</item>
+<item key="SF_FLOOR_TURRET_CITIZEN" value="512">Makes the floor turret friendly</item>
+<item key="SF_NPC_ALTCOLLISION" value="4096">Do Alternate collision for this NPC (player avoidance)</item>
+<item key="SF_NPC_ALWAYSTHINK" value="1024">[Think outside PVS](https://developer.valvesoftware.com/wiki/NPC_Sensing)</item>
+<item key="SF_NPC_DROP_HEALTHKIT" value="8">NPC Drops health kit when it dies. Also works on player. </item>
+<item key="SF_NPC_FADE_CORPSE" value="512">Fade Corpse</item>
+<item key="SF_NPC_FALL_TO_GROUND" value="4">If not set, means *teleport* to ground</item>
+<item key="SF_NPC_GAG" value="2">No IDLE sounds until angry</item>
+<item key="SF_NPC_LONG_RANGE" value="256">Long Visibility/Shoot</item>
+<item key="SF_NPC_NO_PLAYER_PUSHAWAY" value="16384">Ignore player push - Don't give way to player</item>
+<item key="SF_NPC_NO_WEAPON_DROP" value="8192">NPC Doesn't drop weapon on death</item>
+<item key="SF_NPC_START_EFFICIENT" value="16">Don't acquire enemies or avoid obstacles</item>
+<item key="SF_NPC_TEMPLATE" value="2048">This entity is a template for the [npc_template_maker](https://developer.valvesoftware.com/wiki/Npc_template_maker). It will not spawn automatically and cannot be used with [point_template](https://developer.valvesoftware.com/wiki/Point_template).</item>
+<item key="SF_NPC_WAIT_FOR_SCRIPT" value="128">Wait for script</item>
+<item key="SF_NPC_WAIT_TILL_SEEN" value="1">Wait till seen</item>
+<item key="SF_PHYSBOX_MOTIONDISABLED" value="32768">If set, calls <page>PhysObj:EnableMotion</page>( false ) on the func_physbox when the physics are created</item>
+<item key="SF_PHYSBOX_ALWAYS_PICK_UP" value="1048576">Gravity gun is ALWAYS allowed to pick this up.</item>
+<item key="SF_PHYSBOX_NEVER_PICK_UP" value="2097152">Gravity gun is NOT allowed to pick this up.</item>
+<item key="SF_PHYSBOX_NEVER_PUNT" value="4194304">Gravity gun is NOT allowed to punt this entity.</item>
+<item key="SF_PHYSPROP_MOTIONDISABLED" value="8">If set, calls <page>PhysObj:EnableMotion</page>( false ) on the func_physbox when the physics are created. See [Physics optimization](https://developer.valvesoftware.com/wiki/Physics_optimization).</item>
+<item key="SF_PHYSPROP_PREVENT_PICKUP" value="512">Prevent that physbox from being picked up.</item>
+<item key="SF_PHYSPROP_IS_GIB" value="4194304">This flag is set if the entity is gib.</item>
+<item key="SF_ROLLERMINE_FRIENDLY" value="65536">Makes the rollermine friendly.</item>
+<item key="SF_WEAPON_START_CONSTRAINED" value="1">If set before <page>Entity:Spawn</page>, the weapon will be constrained and will not simply fall to the ground.</item>
+<item key="SF_WEAPON_NO_PLAYER_PICKUP" value="2">Player is NOT allowed to pick this up.</item>
+<item key="SF_WEAPON_NO_PHYSCANNON_PUNT" value="4">Physgun is NOT allowed to pick this up.</item>
+	</items>
+</enum>

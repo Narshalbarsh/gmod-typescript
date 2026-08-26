@@ -1,0 +1,20 @@
+<function name="SetOperation" parent="Tool" type="classfunc">
+	<description>
+Sets the current operation of the tool. Does nothing clientside. See also <page>Tool:SetStage</page>.
+
+Operations and stages work as follows:
+* Operation 1
+* * Stage 1
+* * Stage 2
+* * Stage 3
+* Operation 2
+* * Stage 1
+* * Stage 2
+* * Stage ...
+	</description>
+	<realm>Shared</realm>
+	<file line="20">gamemodes/sandbox/entities/weapons/gmod_tool/object.lua</file>
+	<args>
+		<arg name="operation" type="number">The new operation ID to set.</arg>
+	</args>
+</function>

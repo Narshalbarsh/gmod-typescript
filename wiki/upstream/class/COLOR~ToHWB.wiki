@@ -1,0 +1,11 @@
+<function name="ToHWB" parent="Color" type="classfunc">
+	<file line="158-L163">lua/includes/util/color.lua</file>
+	<description>Converts a <page>Color</page> into [HWB color space](https://en.wikipedia.org/wiki/HWB_color_model). See <page>Global.HWBToColor</page> for more info.</description>
+	<realm>Shared and Menu</realm>
+	<added>2025.01.23</added>
+	<rets>
+		<ret name="hue" type="number">The hue in degrees [0, 360).</ret>
+		<ret name="whiteness" type="number">The whiteness in the range [0, 1].</ret>
+		<ret name="blackness" type="number">The blacknessin the range [0, 1].</ret>
+	</rets>
+</function>

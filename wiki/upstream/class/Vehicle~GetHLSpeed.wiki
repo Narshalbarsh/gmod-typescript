@@ -1,0 +1,7 @@
+<function name="GetHLSpeed" parent="Vehicle" type="classfunc">
+	<description>Returns the current speed of the vehicle in Half-Life Hammer Units (in/s). Same as <page>Entity:GetVelocity</page> + <page>Vector:Length</page>.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">The speed of the vehicle</ret>
+	</rets>
+</function>

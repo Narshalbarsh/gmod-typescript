@@ -1,0 +1,22 @@
+<function name="GetHostName" parent="Global" type="libraryfunc">
+	<description>Returns the name of the current server.
+
+<note>GetHostName returns information from <page text="ConVar">ConVars_In_Garrysmod#cvarlistdump</page> hostname</note>
+</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="string">The name of the server.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Print the current hostname.</description>
+	<code>
+MsgN( GetHostName( ) ) -- Loopback server, expected output: Garry's Mod.
+	</code>
+	<output>
+```
+Garry's Mod
+```
+	</output>
+</example>

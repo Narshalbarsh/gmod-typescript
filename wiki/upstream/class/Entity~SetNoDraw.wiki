@@ -1,0 +1,13 @@
+<function name="SetNoDraw" parent="Entity" type="classfunc">
+	<description>
+Sets if the entity's model should render at all.
+
+If set on the server, this entity will no longer network to clients, and for all intents and purposes cease to exist clientside.
+
+The entity can still be manually rendered via <page>Entity:DrawModel</page> in appropriate hooks.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="shouldNotDraw" type="boolean">true disables drawing</arg>
+	</args>
+</function>

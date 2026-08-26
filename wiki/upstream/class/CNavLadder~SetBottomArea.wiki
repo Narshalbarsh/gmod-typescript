@@ -1,0 +1,7 @@
+<function name="SetBottomArea" parent="CNavLadder" type="classfunc">
+	<description>Sets the bottom area of the <page>CNavLadder</page>.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="area" type="CNavArea"></arg>
+	</args>
+</function>

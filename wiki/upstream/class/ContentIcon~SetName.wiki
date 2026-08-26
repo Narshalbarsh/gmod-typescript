@@ -1,0 +1,8 @@
+<function name="SetName" parent="ContentIcon" type="panelfunc">
+	<description>Sets the tool tip and the "nice" name to be displayed by the content icon.</description>
+	<realm>Client</realm>
+		<file line="58-L64">gamemodes/sandbox/gamemode/spawnmenu/creationmenu/content/contenticon.lua</file>
+	<args>
+		<arg name="name" type="string">"Nice" name to display.</arg>
+	</args>
+</function>

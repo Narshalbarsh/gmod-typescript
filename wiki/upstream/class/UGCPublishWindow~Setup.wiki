@@ -1,0 +1,10 @@
+<function name="Setup" parent="UGCPublishWindow" type="panelfunc">
+	<description>updated the Workshop items list.</description>
+	<realm>Menu</realm>
+	<args>
+		<arg name="ugcType" type="string">The type / namespace of the <page>WorkshopFileBase</page> that created this panel</arg>
+		<arg name="file" type="string">The File to publish</arg>
+		<arg name="imageFile" type="string">The Image</arg>
+		<arg name="handler" type="WorkshopFileBase">The <page>WorkshopFileBase</page> that created this panel</arg>
+	</args>
+</function>

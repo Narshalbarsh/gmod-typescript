@@ -1,0 +1,38 @@
+<function name="AddToolCategory" parent="spawnmenu" type="libraryfunc">
+	<description>
+Used to create a new category in the list inside of a spawnmenu Tool Tab.
+
+You must call this function from <page>SANDBOX:AddToolMenuCategories</page> for it to work properly.
+
+See <page>spawnmenu.AddToolTab</page> to add new tool tabs.  
+See <page>spawnmenu.AddToolMenuOption</page> to add new sub options to a newly created tool category.
+	</description>
+	<realm>Client</realm>
+	<file line="131-L145">lua/includes/modules/spawnmenu.lua</file>
+	<args>
+		<arg name="tabName" type="string">The internal tool tab name, as created with <page>spawnmenu.AddToolTab</page>.
+
+You can also use the default Tool Tab names `"Main"` and `"Utilities"`.</arg>
+		<arg name="className" type="string">The unique identifier name, which will be used to add tool option to this category.</arg>
+		<arg name="printName" type="string">The nice name to be displayed to the player. See <page>Addon Localization</page>.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Adds the Constraints category to the Main ToolTab. See `lua\includes\modules\spawnmenu.lua`.</description>
+	<code>
+hook.Add( "AddToolMenuTabs", "myHookName", function()
+	spawnmenu.AddToolCategory( "Main", "Constraints", "#spawnmenu.tools.constraints" )
+end )</code>
+
+</example>
+
+
+<example>
+	<description>Adds the User category to the Utilities ToolTab. See `lua\autorun\utilities_menu.lua`.</description>
+	<code>
+hook.Add( "AddToolMenuTabs", "myHookName2", function()
+	spawnmenu.AddToolCategory( "Utilities", "User", "#spawnmenu.utilities.user" )
+end )</code>
+
+</example>

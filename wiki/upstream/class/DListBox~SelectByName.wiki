@@ -1,0 +1,9 @@
+<function name="SelectByName" parent="DListBox" type="panelfunc">
+	<description>
+Select a <page>DListBoxItem</page> based on its value.
+</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="val" type="string"><page>Panel:GetValue</page> of a <page>DListBoxItem</page> to select.</arg>
+	</args>
+</function>

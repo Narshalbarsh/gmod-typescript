@@ -1,0 +1,11 @@
+<function name="SetValue" parent="DTextEntry" type="panelfunc">
+	<description>Sets the text of the <page>DTextEntry</page> and calls <page>DTextEntry:OnValueChange</page>.
+
+        <note>The text of the <page>DTextEntry</page> only changes if it's not currently being typed in. If you would rather set the text regardless, use <page>Panel:SetText</page>.</note>
+        </description>
+	<realm>Client and Menu</realm>
+	<file line="277-L290">lua/vgui/dtextentry.lua</file>
+	<args>
+		<arg name="text" type="string">The value to set.</arg>
+	</args>
+</function>

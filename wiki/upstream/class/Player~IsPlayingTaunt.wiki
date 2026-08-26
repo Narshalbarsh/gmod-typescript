@@ -1,0 +1,7 @@
+<function name="IsPlayingTaunt" parent="Player" type="classfunc">
+	<description>Returns true if the player is playing a taunt.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the player is playing a taunt.</ret>
+	</rets>
+</function>

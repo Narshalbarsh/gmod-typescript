@@ -1,0 +1,92 @@
+<function name="SetLightmapTexture" parent="render" type="libraryfunc">
+	<description>
+Sets the texture to be used as the lightmap in upcoming rendering operations. This is required when rendering meshes using a material with a lightmapped shader such as `LightmappedGeneric`.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="tex" type="ITexture">The texture to be used as the lightmap.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Creates a mesh with LightmappedGeneric material on it.</description>
+	<code>
+-- LightmappedGeneric material that we'll use for our mesh
+local meshMat = Material( "concrete/concretefloor001a" )
+
+-- Mesh vertices (notice that it's not MeshVertex structure format, just something similar)
+-- Notice that we have 2 UV coordinates channels, one for texture, one for lightmap
+local meshVertices = {
+
+	{ pos = Vector( 0, 0, 0 ), u0 = 0, v0 = 0, u1 = 0, v1 = 0, n = Vector( 1, 0, 0 ) },
+	{ pos = Vector( 0, 100, 0 ), u0 = 1, v0 = 0, u1 = 3, v1 = 0, n = Vector( 1, 0, 0 ) },
+	{ pos = Vector( 0, 100, -100 ), u0 = 1, v0 = 1, u1 = 3, v1 = 3, n = Vector( 1, 0, 0 ) },
+	{ pos = Vector( 0, 0, -100 ), u0 = 0, v0 = 1, u1 = 0, v1 = 3, n = Vector( 1, 0, 0 ) },
+}
+
+-- Run this command while ingame to create the mesh at map origin
+concommand.Add( "meshtest", function()
+
+	-- Creating a render target to be used as lightmap texture
+	meshLightmap = GetRenderTarget( "test_mesh_lightmap", 128, 128, false )
+
+	-- Filling the lightmap texture with some stuff for visualization
+	render.PushRenderTarget( meshLightmap )
+
+		cam.Start2D()
+
+			-- Resetting lightmap to be monotone gray
+			render.Clear( 128, 128, 128, 255 )
+
+			-- Drawing a dark rectangle
+			render.SetColorMaterial()
+			surface.SetDrawColor( 80, 80, 80, 255 )
+			surface.DrawRect( 32, 32, 64, 64 )
+
+			-- And some color text, why not! Lightmaps support RGB color
+			draw.SimpleText( "This is lightmap", "DermaDefault", 64, 64, Color( 255, 0, 0, 255 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
+
+		cam.End2D()
+
+	render.PopRenderTarget()
+
+	-- Creating the mesh. Don't forget to pass the material you're gonna use with it!
+	-- Shader of the material defines some features of the mesh, vertex structure
+	-- specifically (LightmappedGeneric requires each vertex to store 2 UV channels,
+	-- for instance. This is important in this case)
+	myTestMesh = Mesh( meshMat )
+
+	-- Creating the mesh
+	mesh.Begin( myTestMesh, MATERIAL_QUADS, 1 )
+
+		for i, vertex in pairs( meshVertices ) do
+
+			mesh.Position( vertex.pos )
+
+			-- Texture coordinates go to channel 0
+			mesh.TexCoord( 0, vertex.u0, vertex.v0 )
+
+			-- Lightmap texture coordinates go to channel 1
+			mesh.TexCoord( 1, vertex.u1, vertex.v1 )
+
+			mesh.Normal( vertex.n )
+			mesh.AdvanceVertex()
+		end
+
+	mesh.End()
+end )
+
+hook.Add( "PostDrawOpaqueRenderables", "LightmappedMeshTest", function()
+
+	if myTestMesh and myTestMesh ~= NULL then
+
+		render.SetMaterial( meshMat )
+		render.SetLightmapTexture( meshLightmap )
+
+		myTestMesh:Draw()
+	end
+end )
+	</code>
+	<output><image src="LightmappedGenericMeshPreview.jpeg" alt="512px|thumb"/></output>
+
+</example>

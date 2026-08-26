@@ -1,0 +1,7 @@
+<function name="GetUpSpeed" parent="CMoveData" type="classfunc">
+	<description>Returns the vertical speed of the player. ( Z axis of <page>CMoveData:GetVelocity</page> )</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">Vertical speed</ret>
+	</rets>
+</function>

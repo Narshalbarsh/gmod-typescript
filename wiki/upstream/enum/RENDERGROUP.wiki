@@ -1,0 +1,36 @@
+<enum>
+	<realm>Shared</realm>
+	<description>Enumerations used by <page>Global.ClientsideModel</page>, `ENT.RenderGroup` in <page>Structures/ENT</page> and <page>Entity:GetRenderGroup</page>.</description>
+	<items>
+<item key="RENDERGROUP_STATIC_HUGE" value="0">Huge static prop, possibly leftover from goldsrc</item>
+
+<item key="RENDERGROUP_OPAQUE_HUGE" value="1">Huge opaque entity, possibly leftover from goldsrc</item>
+
+<item key="RENDERGROUP_STATIC" value="6">Static props?</item>
+
+
+<item key="RENDERGROUP_OPAQUE" value="7">For non transparent/solid entities.
+
+
+For scripted entities, this will have <page>ENTITY:Draw</page> called</item>
+
+<item key="RENDERGROUP_TRANSLUCENT" value="8">For translucent/transparent entities
+
+
+For scripted entities, this will have <page>ENTITY:DrawTranslucent</page> called</item>
+
+<item key="RENDERGROUP_BOTH" value="9">For both translucent/transparent and opaque/solid anim entities
+
+
+For scripted entities, this will have both, <page>ENTITY:Draw</page> and <page>ENTITY:DrawTranslucent</page> called</item>
+
+<item key="RENDERGROUP_VIEWMODEL" value="10">Solid weapon view models</item>
+
+<item key="RENDERGROUP_VIEWMODEL_TRANSLUCENT" value="11">Transparent overlays etc</item>
+
+<item key="RENDERGROUP_OPAQUE_BRUSH" value="12">For brush entities</item>
+
+<item key="RENDERGROUP_OTHER" value="13">Unclassfied. Won't get drawn.</item>
+	</items>
+
+</enum>

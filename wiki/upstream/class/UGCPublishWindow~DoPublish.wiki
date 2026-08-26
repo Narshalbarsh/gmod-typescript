@@ -1,0 +1,8 @@
+<function name="DoPublish" parent="UGCPublishWindow" type="panelfunc">
+	<description>Publishes the Item or throws an error if the Title or Tags are invalid</description>
+	<realm>Menu</realm>
+	<args>
+		<arg name="wsid" type="string">The workshop id</arg>
+		<arg name="err" type="string">If wsid is nil, this will be the error message</arg>
+	</args>
+</function>

@@ -1,0 +1,7 @@
+<function name="GetColor" parent="DShape" type="panelfunc">
+	<description>Returns the color set to display the shape with.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="Color">The shape <page>Color</page></ret>
+	</rets>
+</function>

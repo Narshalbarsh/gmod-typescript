@@ -1,0 +1,41 @@
+<function name="CreateTextureNormal" parent="GWEN" type="libraryfunc">
+	<description>
+Helper function that returns a specialized drawing function for rendering a texture that scales freely to fit the given area.
+
+
+
+The texture is taken from `SKIN.GwenTexture` when the `material` is not supplied.</description>
+	<realm>Client and Menu</realm>
+	<file line="58-L85">lua/derma/derma_gwen.lua</file>
+	<args>
+		<arg name="x" type="number">The X coordinate on the texture.</arg>
+		<arg name="y" type="number">The Y coordinate on the texture.</arg>
+		<arg name="w" type="number">Width of the area on texture.</arg>
+		<arg name="h" type="number">Height of the area on texture.</arg>
+		<arg name="material" type="IMaterial" default="nil">If set, given material will be used over the SKIN's default material, which is `SKIN.GwenTexture`.</arg>
+	</args>
+	<rets>
+		<ret name="" type="function">The drawing function.
+
+<callback>
+	<arg name="x" type="number">X coordinate for the box.</arg>
+	<arg name="y" type="number">Y coordinate for the box.</arg>
+	<arg name="w" type="number">Width of the box.</arg>
+	<arg name="h" type="number">Height of the box.</arg>
+	<arg name="clr" type="Color" default="color_white">Optional color, default is white.</arg>
+</callback>
+</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Draws a huge checked checkbox in the top left corner of the screen using current skins texture.</description>
+	<code>
+local paintBox = GWEN.CreateTextureNormal( 448, 32, 15, 15 )
+hook.Add( "HUDPaint", "PaintStuff", function()
+    paintBox( 0, 0, 100, 100 )
+end )
+	</code>
+	<output>If using default skin, it will be a 100x100px checked checkbox in top left corner of the screen.</output>
+
+</example>

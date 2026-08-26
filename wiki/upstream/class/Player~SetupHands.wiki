@@ -1,0 +1,8 @@
+<function name="SetupHands" parent="Player" type="classfunc">
+	<description>Sets up the player's hands for the viewmodel. Calls <page>GM:PlayerSetHandsModel</page> to determine the model. If no entity is provided, uses the player's own hands model. If spectating another entity, pass that entity to use its hands model instead.</description>
+	<realm>Server</realm>
+	<file line="185-L200">lua/includes/extensions/player.lua</file>
+	<args>
+		<arg name="ent" type="Entity" default="nil">If the player is spectating an entity, this should be the entity the player is spectating, so we can use its hands model instead.</arg>
+	</args>
+</function>

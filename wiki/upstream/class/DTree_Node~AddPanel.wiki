@@ -1,0 +1,11 @@
+<function name="AddPanel" parent="DTree_Node" type="panelfunc">
+	<description>
+<internal></internal>
+
+Adds the given panel to the child nodes list, a <page>DListLayout</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="pnl" type="Panel">The panel to add.</arg>
+	</args>
+</function>

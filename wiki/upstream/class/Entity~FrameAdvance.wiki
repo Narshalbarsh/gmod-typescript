@@ -1,0 +1,12 @@
+<function name="FrameAdvance" parent="Entity" type="classfunc">
+	<description>
+Advances the cycle of an animated entity.
+
+Animations that loop will automatically reset the cycle so you don't have to - ones that do not will stop animating once you reach the end of their sequence.
+
+<warning>Do not call this function multiple times a frame, as it can cause unexpected results, such as animations playing at increased rate, etc.
+
+<page>NextBot:BodyMoveXY</page> calls this internally, so do not call this function before or after <page>NextBot:BodyMoveXY</page>.</warning>
+	</description>
+	<realm>Shared</realm>
+</function>

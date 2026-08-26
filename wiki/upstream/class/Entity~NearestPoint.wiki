@@ -1,0 +1,12 @@
+<function name="NearestPoint" parent="Entity" type="classfunc">
+	<description>Performs a Ray-Orientated Bounding Box intersection from the given position to the origin of the OBBox with the entity and returns the hit position on the OBBox.
+
+This relies on the entity having a collision mesh (not a physics object) and will be affected by `SOLID_NONE`</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="position" type="Vector">The vector to start the intersection from.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">The nearest hit point of the entity's bounding box in world coordinates.</ret>
+	</rets>
+</function>

@@ -1,0 +1,3 @@
+<type name="concommand" category="libraryfunc" is="library">
+	<summary>The concommand library is used to create console commands which can be used to network (basic) information & events between the client and the server.</summary>
+</type>

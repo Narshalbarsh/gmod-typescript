@@ -1,0 +1,41 @@
+<function name="GetWindSpeed" parent="game" type="libraryfunc">
+	<description>
+Returns the wind's velocity at a given position, as influenced by current map's [env_wind](https://developer.valvesoftware.com/wiki/Env_wind) entities.
+	</description>
+	<added>2026.01.17</added>
+	<realm>Shared</realm>
+	<args>
+		<arg name="pos" type="Vector" default="nil">
+The point to get wind speed at.
+
+If specified, wind controllers with `windradius` other than `-1` will be taken into account, if the point is within their radius.  
+If omitted, only the global wind controller will be used (if one exists).
+		<note>
+			This argument will be ignored on the `CLIENT` <page text="realm">States</page> and will be treated as `nil` because the position of `env_wind` is not currently networked to clients.
+		</note>
+		</arg>
+	</args>
+	<rets>
+		<ret name="windVelocity" type="Vector">`windDir * windSpeed` — the current wind direction multiplied by the current total wind speed.
+
+See [env_wind_shared.cpp#L255-L258](https://github.com/ValveSoftware/source-sdk-2013/blob/master/src/game/shared/env_wind_shared.cpp#L255-L258) for how it's calculated.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>
+		Visualizes the wind's speed and direction with a line in the center of the screen.
+	</description>
+	<code>
+local lineColor = Color( 175, 219, 245 )
+
+hook.Add( "PostDrawTranslucentRenderables", "VisualizeWindVector", function()
+	local windCheckPos = LocalPlayer():EyePos() + LocalPlayer():EyeAngles():Forward() * 100
+
+	render.DrawLine( windCheckPos, windCheckPos + game.GetWindSpeed( windCheckPos ), lineColor )
+end )
+	</code>
+	<output>
+		<image src="b2b4c/8de5835cfe4c192.gif" size="840549" name="WindDirection.gif" />
+	</output>
+</example>

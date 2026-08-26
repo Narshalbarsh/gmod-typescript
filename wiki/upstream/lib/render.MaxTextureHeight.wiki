@@ -1,0 +1,7 @@
+<function name="MaxTextureHeight" parent="render" type="libraryfunc">
+	<description>Returns the maximum texture height the renderer can handle.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The max height.</ret>
+	</rets>
+</function>

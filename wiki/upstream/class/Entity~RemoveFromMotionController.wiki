@@ -1,0 +1,13 @@
+<function name="RemoveFromMotionController" parent="Entity" type="classfunc">
+	<description>
+Removes a <page>PhysObj</page>ect from the entity's motion controller so that <page>ENTITY:PhysicsSimulate</page> will no longer be called for given <page>PhysObj</page>ect.
+
+You must first create a motion controller with <page>Entity:StartMotionController</page>.
+
+<note>Only works on a scripted <page>Entity</page> of anim type</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="physObj" type="PhysObj">The <page>PhysObj</page> to remove from the motion controller.</arg>
+	</args>
+</function>

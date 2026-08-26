@@ -1,0 +1,13 @@
+<function name="SteamIDFrom64" parent="util" type="libraryfunc">
+	<description>Given a <page text="64bit SteamID">Player:SteamID64</page> will return a <page text="STEAM_0:0:0">Player:SteamID</page> style Steam ID.
+
+<note>This operation induces data loss. Not all fields of a [64bit SteamID](https://developer.valvesoftware.com/wiki/SteamID) can be represented using the `STEAM_0:0:0` format, specifically the "account type" and "account instance" fields.</note>
+</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="id" type="string">The 64 bit Steam ID</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">String <page text="STEAM_0:0:0">Player:SteamID</page> style Steam ID representation.</ret>
+	</rets>
+</function>

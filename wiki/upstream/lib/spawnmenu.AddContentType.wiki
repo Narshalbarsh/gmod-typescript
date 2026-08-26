@@ -1,0 +1,37 @@
+<function name="AddContentType" parent="spawnmenu" type="libraryfunc">
+	<description>
+Registers a new content type that is saveable into spawnlists.
+Created/called by <page>spawnmenu.CreateContentIcon</page>.
+	</description>
+	<realm>Client</realm>
+	<file line="285-L287">lua/includes/modules/spawnmenu.lua</file>
+	<args>
+		<arg name="name" type="string">An unique name of the content type.</arg>
+		<arg name="constructor" type="function">A function that is called whenever we need create a new panel for this content type.
+
+<callback>
+<arg type="Panel" name="container">The container/parent of the new panel from <page>spawnmenu.CreateContentIcon</page></arg>
+<arg type="table" name="data">Data for the content type passed from <page>spawnmenu.CreateContentIcon</page>.</arg>
+
+<ret type="Panel" name="pnl">The created panel</ret>
+</callback>
+</arg>
+	</args>
+</function>
+
+<example>
+	<description>A simple header content type.</description>
+	<code>
+spawnmenu.AddContentType( "header", function( container, obj )
+
+	if ( !obj.text or type(obj.text) != "string" ) then return end
+
+	local label = vgui.Create( "ContentHeader", container )
+	label:SetText( obj.text )
+	
+	container:Add( label )
+	
+end )
+	</code>
+
+</example>

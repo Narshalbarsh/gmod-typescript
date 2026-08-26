@@ -1,0 +1,7 @@
+<function name="GetEditCursorPosition" parent="navmesh" type="libraryfunc">
+	<description>Returns the position of the edit cursor when nav_edit is set to 1.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="Vector">The position of the edit cursor.</ret>
+	</rets>
+</function>

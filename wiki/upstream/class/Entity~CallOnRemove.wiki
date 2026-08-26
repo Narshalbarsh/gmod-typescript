@@ -1,0 +1,26 @@
+<function name="CallOnRemove" parent="Entity" type="classfunc">
+	<description>
+Causes a specified function to be run if the entity is removed by any means. This can later be undone by <page>Entity:RemoveCallOnRemove</page> if you need it to not run.
+
+<warning>This hook is called clientside during full updates. See <page>GM:EntityRemoved</page> for more information.</warning>
+<warning>An error being thrown inside `removeFunc` will stop other `EntityRemoved` hooks from executing. </warning>
+	</description>
+	<realm>Shared</realm>
+	<file line="120-L132">lua/includes/extensions/entity.lua</file>
+	<args>
+		<arg name="identifier" type="any">Identifier that can be optionally used with <page>Entity:RemoveCallOnRemove</page> to undo this call on remove.</arg>
+		<arg name="removeFunc" type="function">Function to be called on remove.
+
+<callback>
+<arg type="Entity" name="ent">The entity about to be removed.</arg>
+<arg type="vararg" name="data">Data passed from the arguments to `CallOnRemove`.</arg>
+</callback>
+</arg>
+		<arg name="args" type="vararg">Optional arguments to pass to removeFunc. Do note that the first argument passed to the function will always be the entity being removed, and the arguments passed on here start after that.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Stops an engine sound when the entity is removed</description>
+	<code>Entity:CallOnRemove( "StopEngineSound", function( ent ) ent:StopSound( "enginenoise.wav" ) end )</code>
+</example>

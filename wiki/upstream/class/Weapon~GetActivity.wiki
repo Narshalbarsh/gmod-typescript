@@ -1,0 +1,25 @@
+<function name="GetActivity" parent="Weapon" type="classfunc">
+	<description>
+Returns the sequence enumeration number that the weapon is playing.
+
+<bug issue="2543">This can return inconsistent results between the server and client.</bug>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">Current activity, see <page>Enums/ACT</page>. Returns 0 if the weapon doesn't have active sequence.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>This will return the ACT_ENUM that is currently active for the weapon.</description>
+	<code>
+local wep = Entity(1):GetActiveWeapon()
+ 
+if ( IsValid( wep ) ) then // Makes sure that wep exists
+ 
+    print( wep:GetActivity() ) // Prints the sequence number
+ 
+end
+	</code>
+
+</example>

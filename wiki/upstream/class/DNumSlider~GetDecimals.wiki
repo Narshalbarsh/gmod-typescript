@@ -1,0 +1,7 @@
+<function name="GetDecimals" parent="DNumSlider" type="panelfunc">
+	<description>Returns the amount of numbers after the decimal point.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">0 for whole numbers only, 1 for one number after the decimal point, etc.</ret>
+	</rets>
+</function>

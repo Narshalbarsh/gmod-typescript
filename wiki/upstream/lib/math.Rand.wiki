@@ -1,0 +1,16 @@
+<function name="Rand" parent="math" type="libraryfunc">
+	<description>
+Returns a random float between min and max.
+
+See also <page>math.random</page>
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="61-L63">lua/includes/extensions/math.lua</file>
+	<args>
+		<arg name="min" type="number">The minimum value.</arg>
+		<arg name="max" type="number">The maximum value.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">Random float between min and max.</ret>
+	</rets>
+</function>

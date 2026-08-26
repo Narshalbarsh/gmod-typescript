@@ -1,0 +1,18 @@
+<function name="SetTimeScale" parent="game" type="libraryfunc">
+	<description>
+Sets the time scale of the game logic.
+
+To slow down or speed up the movement of a specific player, use <page>Player:SetLaggedMovementValue</page> instead.
+
+See <page>physenv.SetTimeScale</page> if you wish to only scale the physics timescale.
+
+This function is meant to remove the need of using the `host_timescale` convar, which is cheat protected.  
+The true timescale will be `host_timescale` multiplied by <page>game.GetTimeScale</page>.
+
+Like `host_timescale`, this method does not affect sounds, if you wish to change that, look into <page>GM:EntityEmitSound</page>.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="timeScale" type="number">The new timescale, minimum value is 0.001 and maximum is 5.</arg>
+	</args>
+</function>

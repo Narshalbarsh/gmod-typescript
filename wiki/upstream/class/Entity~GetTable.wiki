@@ -1,0 +1,13 @@
+<function name="GetTable" parent="Entity" type="classfunc">
+	<description>
+		Returns a <page>table</page> that contains all lua-based key-value pairs saved on the <page>Entity</page>.
+
+		For retrieving engine-based key-value pairs, see <page>Entity:GetSaveTable</page>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="table">
+			A table of the lua data stored on the Entity, or `nil` if the Entity is NULL.
+		</ret>
+	</rets>
+</function>

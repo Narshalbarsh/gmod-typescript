@@ -1,0 +1,15 @@
+<function name="Input" parent="Entity" type="classfunc">
+	<description>
+Fires input to the entity with the ability to make another entity responsible, bypassing the event queue system.
+
+You should only use this function over <page>Entity:Fire</page> if you know what you are doing.
+
+See <page>Entity:Fire</page> for a function that conforms to the internal map IO event queue and <page>GM:AcceptInput</page> for a hook that can intercept inputs.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="input" type="string">The name of the input to fire</arg>
+		<arg name="activator" type="Entity" default="nil">The entity that caused this input (i.e. the player who pushed a button)</arg>
+		<arg name="caller" type="Entity" default="nil">The entity that is triggering this input (i.e. the button that was pushed)</arg><arg name="param" type="string|number|boolean" default="nil">The value to give to the input. Can be either a <page>string</page>, a <page>number</page> or a <page>boolean</page>.</arg>
+	</args>
+</function>

@@ -1,0 +1,17 @@
+<function name="CalcVehicleView" parent="GM" type="hook">
+	<description>
+Called from <page>GM:CalcView</page> when player is in driving a vehicle.
+
+This hook may not be called in gamemodes that override <page>GM:CalcView</page>.
+	</description>
+	<realm>Client</realm>
+<file line="305">gamemodes/base/gamemode/cl_init.lua</file>
+	<args>
+		<arg name="veh" type="Vehicle">The vehicle the player is driving</arg>
+		<arg name="ply" type="Player">The vehicle driver</arg>
+		<arg name="view" type="table">The view data containing players FOV, view position and angles, see <page>Structures/CamData</page></arg>
+	</args>
+	<rets>
+		<ret name="" type="table">The modified view table containing new values, see <page>Structures/CamData</page></ret>
+	</rets>
+</function>

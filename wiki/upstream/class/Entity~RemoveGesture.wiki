@@ -1,0 +1,12 @@
+<function name="RemoveGesture" parent="Entity" type="classfunc">
+	<description>
+Removes and stops the gesture with given activity. Same as <page>Entity:RemoveLayer</page> with <page>Entity:FindGestureLayer</page>.
+
+<note>This function only works on <page>BaseAnimatingOverlay</page> entites!</note>
+<note>Layer removal procedures aren't immediate. Layer removal functions actually manipulate <page>Entity:GetLayerWeight</page> down to 0, then remove the layer in next intervals. If the targeted layer's weight keeps changing, your layer will not be removed.</note>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="activity" type="number">The activity remove. See <page>Enums/ACT</page>.</arg>
+	</args>
+</function>

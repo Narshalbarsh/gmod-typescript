@@ -1,0 +1,31 @@
+<function name="DrawColorModify" parent="Global" type="libraryfunc">
+	<description>Draws the Color Modify shader, which can be used to adjust colors on screen.</description>
+	<realm>Client</realm>
+	<file line="20-L33">lua/postprocess/color_modify.lua</file>
+	<args>
+		<arg name="modifyParameters" type="table">Color modification parameters. See <page>Shaders/g_colourmodify</page> and the example below. Note that if you leave out a field, it will retain its last value which may have changed if another caller uses this function.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Draws color modify with bright yellow and green colors.</description>
+	<code>
+local tab = {
+	[ "$pp_colour_addr" ] = 0.02,
+	[ "$pp_colour_addg" ] = 0.02,
+	[ "$pp_colour_addb" ] = 0,
+	[ "$pp_colour_brightness" ] = 0,
+	[ "$pp_colour_contrast" ] = 1,
+	[ "$pp_colour_colour" ] = 3,
+	[ "$pp_colour_mulr" ] = 0,
+	[ "$pp_colour_mulg" ] = 0.02,
+	[ "$pp_colour_mulb" ] = 0
+}
+
+hook.Add( "RenderScreenspaceEffects", "color_modify_example", function()
+
+	DrawColorModify( tab )
+
+end )
+	</code>
+</example>

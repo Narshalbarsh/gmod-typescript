@@ -1,0 +1,49 @@
+<function name="Create" parent="undo" type="libraryfunc">
+	<description>Begins a new undo entry</description>
+	<realm>Server</realm>
+	<file line="213-L221">lua/includes/modules/undo.lua</file>
+	<args>
+		<arg name="name" type="string">Name of the undo message to show to players</arg>
+	</args>
+</function>
+
+<example>
+	<description>This example creates a prop_physics, and adds it to Player's undo list.</description>
+	<code>
+prop = ents.Create("prop_physics")
+prop:SetModel("models/props_junk/wood_crate001a.mdl")
+prop:Spawn()
+undo.Create("prop")
+ undo.AddEntity(prop)
+ undo.SetPlayer(Player)
+undo.Finish()
+	</code>
+
+</example>
+
+<example>
+	<description>When you need to override the undo messages for a spawnable entity inside [`ENT:SpawnFunction(user, trace)`](https://wiki.facepunch.com/gmod/ENTITY:SpawnFunction) and apply a custom text, calling `undo.Create()` will not work and will in fact double the undo entries in the list pointing to the same entity created. Otherwise you will see `Scripted Entity (entity_class)` when you create it. This is defined in [commands.lua](https://github.com/Facepunch/garrysmod/blob/master/garrysmod/gamemodes/sandbox/gamemode/commands.lua) and you must return `nil`, then add the remaining hooks and function calls to account for the missing stuff:
+
+</description>
+	<code>
+local prop = ents.Create("prop_physics")
+if ( prop:IsValid() ) then
+  -- This will update your custom undo message by returning `nil`
+  -- Otherwise the undo message will be `Scripted Entity (prop_physics)`
+  undo.Create("Test ["..prop:EntIndex().."]")
+    undo.AddEntity(prop) -- Add out custom prop
+    undo.SetPlayer(user) -- Apply undo for the player
+  undo.Finish() -- Make your custom undo
+
+  gamemode.Call("PlayerSpawnedSENT", user, prop) -- Account for missing hook
+
+  user:AddCount("sents", prop) -- Add to the SENTs count ( ownership )
+  user:AddCount("my_props", prop) -- Add count to our personal count
+  user:AddCleanup("sents", prop) -- Add item to the sents cleanup
+  user:AddCleanup("my_props", prop) -- Add item to the cleanup
+end
+
+return nil -- Return nil, so the game will not create undo entry
+	</code>
+
+</example>

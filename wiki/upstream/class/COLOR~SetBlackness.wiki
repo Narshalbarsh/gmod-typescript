@@ -1,0 +1,9 @@
+<function name="SetBlackness" parent="Color" type="classfunc">
+	<description>Converts a <page>Color</page> into [HWB color space](https://en.wikipedia.org/wiki/HWB_color_model), sets the "blackness" and converts it back into an RGB color.
+</description>
+	<realm>Shared and Menu</realm>
+	<added>2025.01.23</added>
+	<args>
+		<arg name="blackness" type="number">The new "blackness" value in range [0, 1]</arg>
+	</args>
+</function>

@@ -1,0 +1,13 @@
+<function name="AddBrightness" parent="Color" type="classfunc">
+	<description>Converts a <page>Color</page> into [HSV color space](https://en.wikipedia.org/wiki/HSL_and_HSV), adds given value to the [brightness also known as "value"](https://en.wikipedia.org/wiki/Brightness) and converts it back into an RGB color.
+
+A slightly more efficient combination of <page>COLOR:GetBrightness</page> & <page>COLOR:SetBrightness</page>
+
+This is useful to quickly change the saturation of the color without changing hue or luminance, allowing for things like easy theming.
+</description>
+	<realm>Shared and Menu</realm>
+	<added>2025.01.23</added>
+	<args>
+		<arg name="saturation" type="number">The brightness value to add in range [0, 1]</arg>
+	</args>
+</function>

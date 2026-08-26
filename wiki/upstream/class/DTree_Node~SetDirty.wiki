@@ -1,0 +1,11 @@
+<function name="SetDirty" parent="DTree_Node" type="panelfunc">
+	<description>
+<deprecated></deprecated>
+
+Appears to have no effect on the <page>DTree_Node</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="dirty" type="boolean"></arg>
+	</args>
+</function>

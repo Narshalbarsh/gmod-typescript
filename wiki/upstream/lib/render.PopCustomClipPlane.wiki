@@ -1,0 +1,4 @@
+<function name="PopCustomClipPlane" parent="render" type="libraryfunc">
+	<description>Removes the current active clipping plane from the clip plane stack.</description>
+	<realm>Client and Menu</realm>
+</function>

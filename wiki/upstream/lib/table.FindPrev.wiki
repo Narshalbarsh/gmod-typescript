@@ -1,0 +1,26 @@
+<function name="FindPrev" parent="table" type="libraryfunc">
+	<description>
+<deprecated>Instead, iterate your table with ipairs, storing the previous value and checking for the target. Non-numerically indexed tables are not ordered.</deprecated>
+Returns the value positioned before the supplied value in a table. If it isn't found then the last element in the table is returned
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="669-L679">lua/includes/extensions/table.lua</file>
+	<args>
+		<arg name="tbl" type="table">Table to search</arg>
+		<arg name="value" type="any">Value to return element before</arg>
+	</args>
+	<rets>
+		<ret name="" type="any">Found element</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Print the previous item the value "b" of the table</description>
+	<code>
+local tbl = {"a", "b", "c"}
+
+print(table.FindPrev(tbl, "b"))
+	</code>
+	<output>a in console</output>
+
+</example>

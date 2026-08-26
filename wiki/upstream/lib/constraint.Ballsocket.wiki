@@ -1,0 +1,22 @@
+<function name="Ballsocket" parent="constraint" type="libraryfunc">
+	<description>Creates a ballsocket joint. See See <page>constraint.AdvBallsocket</page> if you also wish to limit rotation angles in some way.</description>
+	<realm>Server</realm>
+	<file line="1232-L1276">lua/includes/modules/constraint.lua</file>
+	<args>
+		<arg name="ent1" type="Entity">First entity.</arg>
+		<arg name="ent2" type="Entity">Second entity.</arg>
+		<arg name="bone1" type="number"><page>PhysObj</page> number of first entity to constrain to. (0 for non-ragdolls).
+
+See <page>Entity:TranslateBoneToPhysBone</page>.</arg>
+		<arg name="bone2" type="number"><page>PhysObj</page> number of second entity to constrain to. (0 for non-ragdolls).
+
+See <page>Entity:TranslateBoneToPhysBone</page>.</arg>
+		<arg name="localPos" type="Vector">Center position of the joint, relative to the **second** entity's physics object.</arg>
+		<arg name="forceLimit" type="number" default="0">Amount of force until it breaks (0 = unbreakable).</arg>
+		<arg name="torqueLimit" type="number" default="0">Amount of torque (rotational force) until it breaks (0 = unbreakable).</arg>
+		<arg name="nocollide" type="number" default="0">Whether the constrained entities should collided with each other or not.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Entity">The created constraint. ([phys_ballsocket](https://developer.valvesoftware.com/wiki/Phys_ballsocket)) Will return `false` if the constraint could not be created.</ret>
+	</rets>
+</function>

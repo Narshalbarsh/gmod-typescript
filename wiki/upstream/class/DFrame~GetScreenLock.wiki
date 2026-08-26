@@ -1,0 +1,8 @@
+<function name="GetScreenLock" parent="DFrame" type="panelfunc">
+	<description>Gets whether or not the DFrame is restricted to the boundaries of the screen resolution.</description>
+	<realm>Client and Menu</realm>
+	<file line="7">lua/vgui/dframe.lua</file>
+	<rets>
+		<ret name="" type="boolean">Whether or not the frame is restricted.</ret>
+	</rets>
+</function>

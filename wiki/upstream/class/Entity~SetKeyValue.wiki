@@ -1,0 +1,24 @@
+<function name="SetKeyValue" parent="Entity" type="classfunc">
+	<description>
+Sets Hammer key values on an entity.
+
+You can look up which entities have what key values on the [Valve Developer Community](https://developer.valvesoftware.com/wiki/) on entity pages. A  list of basic entities can be found [here](https://developer.valvesoftware.com/wiki/List_of_entities).
+
+Alternatively you can look at the `.fgd` files shipped with Garry's Mod in the `bin/` folder with a text editor to see the key values as they appear in Hammer.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="key" type="string">The internal key name</arg>
+		<arg name="value" type="string" alttype="number">The value to set</arg>
+	</args>
+</function>
+
+<example>
+	<description>
+Makes an NPC not drop their weapon and drop a healthkit on death, using <page text="SF Enumerations">Enums/SF</page> on a Combine Soldier.
+
+A list of spawnflags a Combine Soldier has can be found [here](https://developer.valvesoftware.com/wiki/Npc_combine_s#Flags).
+	</description>
+	<code>npc:SetKeyValue( "spawnflags", bit.bor( SF_NPC_NO_WEAPON_DROP, SF_NPC_DROP_HEALTHKIT ) )</code>
+
+</example>

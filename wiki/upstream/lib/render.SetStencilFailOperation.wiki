@@ -1,0 +1,15 @@
+<function name="SetStencilFailOperation" parent="render" type="libraryfunc">
+	<description>
+		Sets the <page text="Stencil Operation">Enums/STENCILOPERATION</page> that will be performed on the Stencil Buffer values of pixels affected by draw operations if the <page text="Compare Function">render.SetStencilCompareFunction</page> did **not** <page text="Pass">render.SetStencilPassOperation</page> the pixel.  
+
+		For more detailed information on the Stencil system, including usage examples, see the <page text="Stencils Render Reference">render_stencils</page> page.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="failOperation" type="number{STENCILOPERATION}">
+			The Stencil Operation to be performed if the Compare Function does not Pass a pixel.
+		</arg>
+	</args>
+</function>
+
+<image src="b2b4c/8dc4ea6db700938.png" size="76553" name="FailOperationFlowChart.png" />

@@ -1,0 +1,16 @@
+<function name="IsConCommandBlocked" parent="Global" type="libraryfunc">
+	<description>
+		Determines whether or not the provided console command will be blocked if it's ran through Lua functions, such as <page>Global.RunConsoleCommand</page> or <page>Player:ConCommand</page>.
+
+		For more info on blocked console commands, check out <page text="Blocked ConCommands">Blocked_ConCommands</page>.
+		<internal></internal>
+	</description>
+	<realm>Shared and Menu</realm>
+	<added>2021.07.01</added>
+	<args>
+		<arg name="name" type="string">The console command to test.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether the command will be blocked.</ret>
+	</rets>
+</function>

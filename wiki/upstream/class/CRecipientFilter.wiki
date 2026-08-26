@@ -1,0 +1,3 @@
+<type name="CRecipientFilter" category="classfunc" is="class">
+	<summary>List of all possible functions to manipulate Recipient Filters. Can be created with <page>Global.RecipientFilter</page>.</summary>
+</type>

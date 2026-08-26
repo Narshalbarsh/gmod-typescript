@@ -1,0 +1,4 @@
+<function name="OnModified" parent="DIconLayout" type="panelhook">
+	<description>Called when the panel is modified.</description>
+	<realm>Client and Menu</realm>
+</function>

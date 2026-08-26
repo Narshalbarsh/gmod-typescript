@@ -1,0 +1,10 @@
+<function name="GetBoneContents" parent="Entity" type="classfunc">
+	<description>Returns the contents of the specified bone.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="bone" type="number">The bone id, starting at index 0. See <page>Entity:LookupBone</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The contents as a <page>Enums/CONTENTS</page> or 0 on failure.</ret>
+	</rets>
+</function>

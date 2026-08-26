@@ -1,0 +1,11 @@
+<function name="GetTall" parent="Panel" type="classfunc">
+	<description>Returns the height of the panel.
+
+See <page>Panel:GetWide</page> for the width of the panel. See also <page>Panel:GetSize</page> for a function that returns both.
+
+</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">height</ret>
+	</rets>
+</function>

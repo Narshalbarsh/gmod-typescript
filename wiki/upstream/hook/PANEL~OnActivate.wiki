@@ -1,0 +1,4 @@
+<function name="OnActivate" parent="PANEL" type="hook">
+	<description><internal></internal>Called when we are activated during level load. Used by the loading screen panel.</description>
+	<realm>Client and Menu</realm>
+</function>

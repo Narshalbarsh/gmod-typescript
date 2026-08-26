@@ -1,0 +1,10 @@
+<function name="GetAimVector" parent="NPC" type="classfunc">
+	<description>Returns the aim vector of the NPC. NPC alternative of <page>Player:GetAimVector</page>.
+
+<note> If the NPC has both <page>NPC:GetEnemy</page> and <page>NPC:GetActiveWeapon</page>, engine will automatically call <page>ENTITY:GetAttackSpread</page> to add random spread degrees to the return value. </note>
+</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="Vector">The aim direction of the NPC, usually a noisy direction to it's <page>NPC:GetEnemy</page>. This will default to <page>Entity:GetForward</page> when there's no enemy. Thus, <page>NPC:GetCurrentWeaponProficiency</page> will be used. </ret>
+	</rets>
+</function>

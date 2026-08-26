@@ -1,0 +1,33 @@
+<function name="SetMinWidth" parent="DListView_Column" type="panelfunc">
+	<description>Sets the minimum width of a column.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="width" type="number">The number value which will determine a minimum width.</arg>
+	</args>
+</function>
+
+<example>
+	<description>
+Creates a DListView and populates it with two columns and two items, only one of which can be selected at a time.
+
+The second column can't be smaller than the argument value.
+	</description>
+	<code>
+local Frame = vgui.Create( "DFrame" )
+Frame:SetSize( 500, 500 )
+Frame:Center()
+Frame:MakePopup()
+
+local SimpleList = vgui.Create( "DListView", Frame )
+SimpleList:Dock( FILL )
+SimpleList:SetMultiSelect( false )
+
+SimpleList:AddColumn( "Column 1" )
+SimpleList:AddColumn( "Column 2" ):SetMinWidth(125)
+
+SimpleList:AddLine( "First", "Column" )
+SimpleList:AddLine( "Second", "Column" )
+	</code>
+	<output><image src="DListView_Column_SetMinWidth.png"/></output>
+
+</example>

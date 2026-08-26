@@ -1,0 +1,52 @@
+<function name="SetBGColor" parent="Panel" type="classfunc">
+	<file line="32-L40">lua/includes/extensions/client/panel.lua</file>
+	<description>
+Sets the background color of a panel such as a <page>RichText</page>, <page>Label</page>, <page>DColorCube</page> or the base <page>Panel</page>.
+
+For many panels, such as <page>DLabel</page> and <page>Panel</page>, you must use <page>Panel:SetPaintBackgroundEnabled</page>( true ) for the background to appear.
+
+Please note that for most panels the engine will overwrite the foreground and background colors a frame after panel creation via the <page>PANEL:ApplySchemeSettings</page> hook, so you may want to set the color in that hook instead.
+
+See <page>Panel:SetFGColor</page> for the foreground color.
+
+<note>This doesn't apply to all VGUI elements and its function varies between them</note>
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="r" type="number">The red channel of the color.</arg>
+		<arg name="g" type="number">The green channel of the color.</arg>
+		<arg name="b" type="number">The blue channel of the color.</arg>
+		<arg name="a" type="number">The alpha channel of the color.</arg>
+	</args>
+	<args name="Use color object">
+		<arg name="color" type="Color">A <page>Color</page> object/table to read the color from. This is slower than providing four numbers. You could use <page>Color:Unpack</page> to address this. You should also cache your color objects if you wish to use them, for performance reasons.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Creates a RichText panel that mimics a [blue screen of death](http://en.wikipedia.org/wiki/Blue_Screen_of_Death).</description>
+	<code>
+-- Create a window frame
+TextFrame = vgui.Create("DFrame")
+TextFrame:SetSize(300, 100)
+TextFrame:Center()
+TextFrame:SetTitle("Windows XP Blue Screen")
+TextFrame:MakePopup()
+
+-- RichText panel
+local richtext = vgui.Create("RichText", TextFrame)
+richtext:Dock(FILL)
+
+-- Sample text
+richtext:SetText("A problem has been detected and Windows has been shut down to prevent damage to your computer.\n\nMOTHERBOARD_FRIED")
+
+-- When the panel is ready for layout, set the background color to blue
+function richtext:PerformLayout()
+	
+	self:SetBGColor(Color(0, 0, 255))
+	
+end
+	</code>
+	<output><image src="RichText_SetBGColor_example1.png"/></output>
+
+</example>

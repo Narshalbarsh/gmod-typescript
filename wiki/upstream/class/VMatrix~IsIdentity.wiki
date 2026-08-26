@@ -1,0 +1,7 @@
+<function name="IsIdentity" parent="VMatrix" type="classfunc">
+	<description>Returns whether the matrix is equal to Identity matrix or not.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">Is the matrix an Identity matrix or not</ret>
+	</rets>
+</function>

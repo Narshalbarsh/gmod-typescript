@@ -1,0 +1,7 @@
+<function name="IsEngineEnabled" parent="Vehicle" type="classfunc">
+	<description>Returns whether the engine is enabled or not, i.e. whether it can be started.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the engine is enabled</ret>
+	</rets>
+</function>

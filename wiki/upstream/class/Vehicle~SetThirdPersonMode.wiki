@@ -1,0 +1,8 @@
+<function name="SetThirdPersonMode" parent="Vehicle" type="classfunc">
+	<description>Sets the third person mode state.</description>
+	<realm>Shared</realm>
+	<file line="665-L669">lua/includes/extensions/entity.lua</file>
+	<args>
+		<arg name="enable" type="boolean">Enable or disable the third person mode for this vehicle</arg>
+	</args>
+</function>

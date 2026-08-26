@@ -1,0 +1,7 @@
+<function name="RemoveSolidFlags" parent="Entity" type="classfunc">
+	<description>Removes solid flag(s) from the entity.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="flags" type="number">The flag(s) to remove, see <page>Enums/FSOLID</page>.</arg>
+	</args>
+</function>

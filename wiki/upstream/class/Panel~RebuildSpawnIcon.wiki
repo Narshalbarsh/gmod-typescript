@@ -1,0 +1,4 @@
+<function name="RebuildSpawnIcon" parent="Panel" type="classfunc">
+	<description>Causes a <page>SpawnIcon</page> to rebuild its model image.</description>
+	<realm>Client</realm>
+</function>

@@ -1,0 +1,4 @@
+<function name="Pause" parent="IGModAudioChannel" type="classfunc">
+	<description>Pauses the stream. It can be started again using <page>IGModAudioChannel:Play</page></description>
+	<realm>Client</realm>
+</function>

@@ -1,0 +1,7 @@
+<function name="GetItems" parent="DGrid" type="panelfunc">
+	<description>Returns a list of panels in the grid.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="table">A list of <page>Panel</page>s.</ret>
+	</rets>
+</function>

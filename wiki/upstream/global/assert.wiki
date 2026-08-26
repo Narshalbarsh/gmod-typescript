@@ -1,0 +1,50 @@
+<function name="assert" parent="Global" type="libraryfunc">
+	<description>If the result of the first argument is false or nil, an error is thrown with the second argument as the message.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="expression" type="any">The expression to assert.</arg>
+		<arg name="errorMessage" type="string" default="assertion failed!">The error message to throw when assertion fails. This is only type-checked if the assertion fails.</arg>
+		<arg name="returns" type="vararg" default="nil">Any arguments past the error message will be returned by a successful assert.</arg>
+	</args>
+	<rets>
+		<ret name="" type="any">If successful, returns the first argument.</ret>
+		<ret name="" type="any">If successful, returns the error message. This will be nil if the second argument wasn't specified.
+
+Since the second argument is only type-checked if the assertion fails, this doesn't have to be a string.</ret>
+		<ret name="" type="vararg">Returns any arguments past the error message.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>The assertion is successful, and the result of the first argument is returned.</description>
+	<code>
+local ABC = assert(print)
+print(ABC)
+	</code>
+	<output>function: builtin#25</output>
+
+</example>
+
+
+<example>
+	<description>Since the first argument evaluates to false, an error is thrown.</description>
+	<code>assert(print == 1, "print is not equal to 1!")</code>
+	<output>[ERROR] lua_run:1: print is not equal to 1!</output>
+
+</example>
+
+
+<example>
+	<description>Examples of return behaviour.</description>
+	<code>
+print(assert(5))
+print(assert(true, "foo", 2, {}))
+	</code>
+	<output>
+```
+5
+true	foo	2	table: 0x36409278
+```
+	</output>
+
+</example>

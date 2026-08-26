@@ -1,0 +1,46 @@
+<function name="GetAmmoCount" parent="Player" type="classfunc">
+	<description>Gets the amount of ammo the player has.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="ammotype" type="any">The ammunition type. Can be either <page>number</page> ammo ID or <page>string</page> ammo name.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The amount of ammo player has in reserve.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>A function that returns the ammo for the weapon the player is currently holding.</description>
+	<code>
+function GetAmmoForCurrentWeapon( ply )
+	if ( !IsValid( ply ) ) then return -1 end
+
+	local wep = ply:GetActiveWeapon()
+	if ( !IsValid( wep ) ) then return -1 end
+ 
+	return ply:GetAmmoCount( wep:GetPrimaryAmmoType() )
+end
+	</code>
+	<output>31</output>
+
+</example>
+
+
+<example>
+	<description>Example usage. "pistol" ammo type has ID of 3.</description>
+	<code>
+print( Entity( 1 ):GetAmmoCount( 3 ) )
+print( Entity( 1 ):GetAmmoCount( "3" ) )
+print( Entity( 1 ):GetAmmoCount( "pistol" ) )
+	</code>
+	<output>
+
+```
+255
+0
+255
+```
+
+	</output>
+
+</example>

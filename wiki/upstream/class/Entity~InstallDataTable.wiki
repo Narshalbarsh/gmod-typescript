@@ -1,0 +1,5 @@
+<function name="InstallDataTable" parent="Entity" type="classfunc">
+	<description><internal></internal> Sets up Data Tables from entity to use with <page>Entity:NetworkVar</page>.</description>
+	<realm>Shared</realm>
+	<file line="217-L590">lua/includes/extensions/entity.lua</file>
+</function>

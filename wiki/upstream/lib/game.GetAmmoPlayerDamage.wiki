@@ -1,0 +1,10 @@
+<function name="GetAmmoPlayerDamage" parent="game" type="libraryfunc">
+	<description>Returns the damage given ammo type should do to players.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="id" type="number">Ammo ID to retrieve the damage info of. Starts from 1.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number"></ret>
+	</rets>
+</function>

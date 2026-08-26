@@ -1,0 +1,14 @@
+<function name="GetCallbacks" parent="Entity" type="classfunc">
+	<description>
+Returns the specified hook callbacks for this entity added with <page>Entity:AddCallback</page>
+
+The callbacks can then be removed with <page>Entity:RemoveCallback</page>.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="hook" type="string">The hook to retrieve the callbacks from, see <page>Entity Callbacks</page> for the possible hooks.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">A table containing the callbackid and function of all the callbacks for the specified hook</ret>
+	</rets>
+</function>

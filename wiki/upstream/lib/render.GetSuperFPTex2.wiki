@@ -1,0 +1,7 @@
+<function name="GetSuperFPTex2" parent="render" type="libraryfunc">
+	<description>See <page>render.GetSuperFPTex</page>.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="ITexture">Render target named `__rt_SuperTexture2`.</ret>
+	</rets>
+</function>

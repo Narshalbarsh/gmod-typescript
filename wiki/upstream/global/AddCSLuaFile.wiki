@@ -1,0 +1,100 @@
+<function name="AddCSLuaFile" parent="Global" type="libraryfunc">
+	<description>
+		Marks a Lua file to be sent to clients when they join the server. Doesn't do anything on the client - this means you can use it in a shared file without problems.
+
+		<warning>If the file trying to be added is empty, an error will occur, and the file will not be sent to the client.
+		
+		The string cannot have whitespace.</warning>
+
+		<note>
+			This function is not needed for scripts located in these paths because they are automatically sent to clients:   
+			**lua/matproxy/**  
+			**lua/postprocess/**  
+			**lua/vgui/**  
+			**lua/skins/**  
+			**lua/autorun/**  
+			**lua/autorun/client/**  
+			
+			You can add up to **8192** files. Each file can be up to **64KB** compressed (LZMA).
+		</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="file" type="string" default="current file">The name/path to the Lua file that should be sent, **relative to the garrysmod/lua folder**. If no parameter is specified, it sends the current file.
+
+The file path can be relative to the script it's ran from. For example, if your script is in `lua/myfolder/stuff.lua`, calling <page>Global.AddCSLuaFile</page>("otherstuff.lua") and <page>Global.AddCSLuaFile</page>("myfolder/otherstuff.lua") is the same thing.
+
+<note>Please make sure your file names are unique, the filesystem is shared across all addons, so a file named `lua/config.lua` in your addon may be overwritten by the same file in another addon.</note></arg>
+	</args>
+</function>
+
+<example>
+	<description>Adds the cl_init.lua file in the `lua` folder to be downloaded by connecting clients. This is required, and is normally done in init.lua.</description>
+	<code>AddCSLuaFile( "cl_init.lua" )</code>
+</example>
+
+<example>
+	<description>Adds the current file to the list of files to be downloaded by clients. This is usually done at the top of a shared file.</description>
+	<code>AddCSLuaFile()</code>
+</example>
+
+<example>
+	<description>Allows to send a clientside script when a user joins the server. This kind of code can be found in some addons which load scripts to a custom folder to prevent conflicts between others files.</description>
+	<code>
+if SERVER then
+	-- The server doesn't need to run this script through include() because it is intended only for the client unless your using it for a shared file.
+	AddCSLuaFile( "client_script.lua" )
+end
+
+if CLIENT then
+	-- The client must have received the file, let's run it!
+	include( "client_script.lua" )
+end
+	</code>
+</example>
+
+<example>
+	<description>Specify a base folder and recursively include cl, sh and sv files without having to specify them.</description>
+	<code>
+local function AddFile(File, dir)
+    local fileSide = string.lower(string.Left(File, 3))
+    if SERVER and fileSide == "sv_" then
+        include(dir..File)
+        print("[AUTOLOAD] SV INCLUDE: " .. File)
+    elseif fileSide == "sh_" then
+        if SERVER then 
+            AddCSLuaFile(dir..File)
+            print("[AUTOLOAD] SH ADDCS: " .. File)
+        end
+        include(dir..File)
+        print("[AUTOLOAD] SH INCLUDE: " .. File)
+    elseif fileSide == "cl_" then
+        if SERVER then 
+            AddCSLuaFile(dir..File)
+            print("[AUTOLOAD] CL ADDCS: " .. File)
+        else
+            include(dir..File)
+            print("[AUTOLOAD] CL INCLUDE: " .. File)
+        end
+    end
+end
+
+local function IncludeDir(dir)
+    dir = dir .. "/"
+    local File, Directory = file.Find(dir.."*", "LUA")
+
+    for k, v in ipairs(File) do
+        if string.EndsWith(v, ".lua") then
+            AddFile(v, dir)
+        end
+    end
+    
+    for k, v in ipairs(Directory) do
+        print("[AUTOLOAD] Directory: " .. v)
+        IncludeDir(dir..v)
+    end
+end
+
+IncludeDir("folder_name")
+	</code>
+</example>

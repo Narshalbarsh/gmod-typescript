@@ -1,0 +1,7 @@
+<function name="SetOverlap" parent="DHorizontalScroller" type="panelfunc">
+	<description>Controls the spacing between elements of the horizontal scroller.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="overlap" type="number">Overlap in pixels. Positive numbers will make elements `overlap` each other, negative will add spacing.</arg>
+	</args>
+</function>

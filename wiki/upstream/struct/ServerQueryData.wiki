@@ -1,0 +1,38 @@
+<structure>
+  <realm>Menu</realm>
+  <description>Used for <page>serverlist.Query</page>.</description>
+  <fields>
+    <item name="GameDir" type="string" default="garrysmod">The game directory to get the servers for</item>
+    <item name="Type" type="string">Type of servers to retrieve. Valid values are `internet`, `favorite`, `history` and `lan`</item>
+    <item name="AppID" type="number" default="4000">Steam application ID to get the servers for</item>
+    <item name="Callback" type="function">Called when a new server is found and queried.
+
+<callback>
+<arg type="number" name="ping">Latency to the server.</arg>
+<arg type="string" name="name">Name of the server</arg>
+<arg type="string" name="desc">"Nice" gamemode name</arg>
+<arg type="string" name="map">Current map</arg>
+<arg type="number" name="players">Total player number ( bot + human )</arg>
+<arg type="number" name="maxplayers">Maximum reported amount of players</arg>
+<arg type="number" name="botplayers">Amount of bots on the server</arg>
+<arg type="boolean" name="pass">Whether this server has password or not</arg>
+<arg type="number" name="lastplayed">Time when you last played on this server, as UNIX timestamp or 0</arg>
+<arg type="string" name="address">IP Address of the server</arg>
+<arg type="string" name="gamemode">Gamemode folder name</arg>
+<arg type="number" name="workshopid">Gamemode Steam Workshop ID</arg>
+<arg type="boolean" name="isanon">Is the server signed into an anonymous account?</arg>
+<arg type="string" name="version">Version number, same format as <page>jit.version_num</page></arg>
+<arg type="string" name="localization">Two digit country code, `us` if <page>nil</page></arg>
+<arg type="string" name="gmcategory">Category of the gamemode, ex. `pvp`, `pve`, `rp` or `roleplay`</arg>
+
+<ret type="boolean" name="stop">Return `false` to stop the query.</ret>
+</callback>
+
+
+    </item>
+    <item name="CallbackFailed" type="function">
+      Called if the query has failed, called with the servers IP Address
+    </item>
+    <item name="Finished" type="function">Called when the query is finished. No arguments</item>
+  </fields>
+</structure>

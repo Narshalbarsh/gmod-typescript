@@ -1,0 +1,12 @@
+<function name="GetString" parent="cookie" type="libraryfunc">
+	<description>Gets the value of a cookie on the client as a string.</description>
+	<realm>Shared and Menu</realm>
+	<file line="85-L93">lua/includes/modules/cookie.lua</file>
+	<args>
+		<arg name="name" type="string">The name of the cookie that you want to get.</arg>
+		<arg name="default" type="any" default="nil">Value to return if the cookie does not exist.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The cookie value.</ret>
+	</rets>
+</function>

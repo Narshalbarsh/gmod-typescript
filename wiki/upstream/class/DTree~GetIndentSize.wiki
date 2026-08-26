@@ -1,0 +1,11 @@
+<function name="GetIndentSize" parent="DTree" type="panelfunc">
+	<description>
+Returns the indentation size of the <page>DTree</page>, the distance between each "level" of the tree is offset on the left from the previous level.
+
+Currently this feature has no effect on the <page>DTree</page> element.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The indentation size.</ret>
+	</rets>
+</function>

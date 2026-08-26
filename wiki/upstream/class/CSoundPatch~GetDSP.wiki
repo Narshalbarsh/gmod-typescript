@@ -1,0 +1,11 @@
+<function name="GetDSP" parent="CSoundPatch" type="classfunc">
+	<description>Returns the DSP (Digital Signal Processor) effect ID for the sound.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="dspEffectId" type="number">
+			The numerical ID for the DSP effect currently enabled on the sound.
+
+			For a list of the available IDs and their meaning, see <page text="DSP Presets">DSP_Presets</page>.
+		</ret>
+	</rets>
+</function>

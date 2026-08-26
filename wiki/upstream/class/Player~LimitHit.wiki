@@ -1,0 +1,20 @@
+<function name="LimitHit" parent="Player" type="classfunc">
+	<description>Shows "limit hit" notification in sandbox.
+<note>This function is only available in Sandbox and its derivatives.</note>
+	</description>
+	<realm>Server</realm>
+	<file line="120-L124">gamemodes/sandbox/gamemode/player_extension.lua</file>
+	<args>
+		<arg name="type" type="string">Type of hit limit.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Sends a fake `limit hit` notification.</description>
+	<code>
+for _, ply in ipairs( player.GetAll() ) do
+	ply:LimitHit( "test" )
+end
+	</code>
+	<output>A notification pops up saying `You have hit the test limit!`. It will use the following location: hint.hitXlimit</output>
+</example>

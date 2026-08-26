@@ -1,0 +1,35 @@
+<function name="Draw" parent="MarkupObject" type="classfunc">
+	<description>Draws the computed markupobject to the screen. See <page>markup.Parse</page>.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="xOffset" type="number">The X coordinate on the screen.</arg>
+		<arg name="yOffset" type="number">The Y coordinate on the screen.</arg>
+		<arg name="xAlign" type="number" default="TEXT_ALIGN_LEFT">The alignment of the x coordinate within the text using <page>Enums/TEXT_ALIGN</page></arg>
+		<arg name="yAlign" type="number" default="TEXT_ALIGN_TOP">The alignment of the y coordinate within the text using <page>Enums/TEXT_ALIGN</page></arg>
+		<arg name="alphaoverride" type="number" default="255">Sets the alpha of all drawn objects to this value.</arg>
+		<arg name="textAlign" type="number" default="TEXT_ALIGN_LEFT">The alignment of the text horizontally using <page>Enums/TEXT_ALIGN</page></arg>
+	</args>
+</function>
+
+<example>
+	<description>Shows the difference between xAlign and textAlign.</description>
+	<code>
+local parsed = markup.Parse( "<font=Default>changed font</font>\n<color=255,0,255,255>changed color with a long text</color>" )
+
+hook.Add( "HUDPaint", "MarkupTest", function()
+	-- xAlign = LEFT
+	draw.RoundedBox( 0, 200, 300, parsed:GetWidth(), parsed:GetHeight(), Color( 0, 0, 0, 100 ) )
+	parsed:Draw( 200, 300 )
+
+	-- xAlign = CENTER
+	draw.RoundedBox( 0, 200 - parsed:GetWidth() / 2, 350, parsed:GetWidth(), parsed:GetHeight(), Color( 0, 0, 0, 100 ) )
+	parsed:Draw( 200, 350, TEXT_ALIGN_CENTER )
+
+	-- textAlign = RIGHT
+	draw.RoundedBox( 0, 200, 400, parsed:GetMaxWidth(), parsed:GetHeight(), Color( 0, 0, 0, 100 ) )
+	parsed:Draw( 200, 400, nil, nil, nil, TEXT_ALIGN_RIGHT )
+end )
+	</code>
+	<output><upload src="70c/8d9bb26dbfc9f9d.png" size="28939" name="image.png" /></output>
+
+</example>

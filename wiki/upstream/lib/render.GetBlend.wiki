@@ -1,0 +1,7 @@
+<function name="GetBlend" parent="render" type="libraryfunc">
+	<description>Returns the current alpha blending.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">Current alpha blending in range 0 to 1.</ret>
+	</rets>
+</function>

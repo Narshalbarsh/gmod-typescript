@@ -1,0 +1,36 @@
+<function name="DamageInfo" parent="Global" type="libraryfunc">
+	<description>
+Returns an <page>CTakeDamageInfo</page> object.
+
+<bug issue="2771">This does not create a unique object, but instead returns a shared reference. That means you cannot use two or more of these objects at once.</bug>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="CTakeDamageInfo">The <page>CTakeDamageInfo</page> object.</ret>
+	</rets>
+</function>
+
+
+<example>
+	<description>Example usage</description>
+<code>
+function TakeDamage( victim, damage, attacker, inflictor )
+	local dmg = DamageInfo() -- Create a server-side damage information class
+	dmg:SetDamage( damage )
+	dmg:SetAttacker( attacker )
+	dmg:SetInflictor( inflictor )
+	dmg:SetDamageType( DMG_ENERGYBEAM )
+	victim:TakeDamageInfo( dmg )
+end
+
+concommand.Add( "kill_this_entity", function( ply, cmd, args )
+	local target = ply:GetEyeTrace().Entity
+	if ( target:IsVehicle() ) then
+		target = target:GetDriver() -- Convert this to damage the plater inside
+	end
+
+	-- When target is a player in a vehicle will not get damaged
+	TakeDamage( target, target:Health(), ply, ply:GetActiveWeapon() )
+end )
+</code>
+</example>

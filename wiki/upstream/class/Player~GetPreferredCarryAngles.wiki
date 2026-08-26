@@ -1,0 +1,14 @@
+<function name="GetPreferredCarryAngles" parent="Player" type="classfunc">
+	<description>
+Returns the preferred carry angles of an object, if any are set.
+
+Calls <page>GM:GetPreferredCarryAngles</page> with the target entity and returns the carry angles.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="carryEnt" type="Entity">Entity to retrieve the carry angles of.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Angle">Carry angles or nil if the entity has no preferred carry angles.</ret>
+	</rets>
+</function>

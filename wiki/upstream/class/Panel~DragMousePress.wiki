@@ -1,0 +1,8 @@
+<function name="DragMousePress" parent="Panel" type="classfunc">
+	<file line="412-L429">lua/includes/extensions/client/panel/dragdrop.lua</file>
+	<description>Called to inform the <page>dragndrop</page> that a mouse button is being held down on a panel object.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="mouseCode" type="number">The code for the mouse button pressed, passed by, for example, <page>PANEL:OnMousePressed</page>. See the <page>Enums/MOUSE</page>.</arg>
+	</args>
+</function>

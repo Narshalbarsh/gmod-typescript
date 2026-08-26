@@ -1,0 +1,14 @@
+<function name="TranslateBoneToPhysBone" parent="Entity" type="classfunc">
+	<description>
+Returns the ID of a <page>PhysObj</page> attached to the given bone.
+
+See <page>Entity:TranslatePhysBoneToBone</page> for reverse function.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="boneID" type="number">The ID of a bone to look up the "physics root" bone of.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The <page>PhysObj</page> ID of the given bone to be used with <page>Entity:GetPhysicsObjectNum</page> or `-1` if we cannot translate for some reason, such as a model bone having no physics object associated with it.</ret>
+	</rets>
+</function>

@@ -1,0 +1,64 @@
+<function name="Add" parent="matproxy" type="libraryfunc">
+	<description>
+		Register a material proxy. See <page>matproxy</page> for more general explanation of what they are.
+		<note>The `bind` function is required. The `init` function won't run without it set.</note>
+	</description>
+	<realm>Client</realm>
+	<file line="20-L45">lua/includes/modules/matproxy.lua</file>
+	<args>
+		<arg name="matProxyData" type="table">The information about the proxy. See <page>Structures/MatProxyData</page></arg>
+	</args>
+</function>
+
+<example>
+	<description>Adds `PlayerColor` proxy. Example taken from `lua/matproxy/player_color.lua`.</description>
+	<code>
+matproxy.Add( {
+    name = "PlayerColor", 
+    init = function( self, mat, values )
+        -- Store the name of the variable we want to set
+        self.ResultTo = values.resultvar
+    end,
+    bind = function( self, mat, ent )
+        -- If the target ent has a function called GetPlayerColor then use that
+        -- The function SHOULD return a Vector with the chosen player's colour.
+
+        -- In sandbox this function is created as a network function, 
+        -- in player_sandbox.lua in SetupDataTables
+       if ( ent.GetPlayerColor ) then
+           mat:SetVector( self.ResultTo, ent:GetPlayerColor() )
+       end
+   end 
+} )
+	</code>
+	<output>Adds PlayerColor proxy.</output>
+
+</example>
+
+
+<example>
+	<description>
+Material proxy values are stored like this:
+
+* In the `.vmt`:
+
+```
+Proxies {
+    PlayerColor {
+       resultVar $color2
+       myVariable $color
+    }
+}
+```
+
+
+* In Lua ( The **Init** function of <page>Structures/MatProxyData</page> )
+	</description>
+	<code>
+values = {
+    resultvar = "$color2"
+    myvariable = "$color"
+}
+	</code>
+
+</example>

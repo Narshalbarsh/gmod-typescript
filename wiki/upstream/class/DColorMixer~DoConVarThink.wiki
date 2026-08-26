@@ -1,0 +1,8 @@
+<function name="DoConVarThink" parent="DColorMixer" type="panelfunc">
+	<description><internal></internal></description>
+	<realm>Client and Menu</realm>
+	<file line="362-L374">lua/vgui/dcolormixer.lua</file>
+	<args>
+		<arg name="cvar" type="string"></arg>
+	</args>
+</function>

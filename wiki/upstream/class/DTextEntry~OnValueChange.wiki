@@ -1,0 +1,18 @@
+<function name="OnValueChange" parent="DTextEntry" type="panelhook">
+	<description>
+Called when the text changes of the <page>DTextEntry</page> are applied. (And set to the attached console variable, if one is given)
+
+See also <page>DTextEntry:OnChange</page> for a function that is called on every text change, even if the console variable is not updated.
+
+You should override this function to define custom behavior when the text changes.
+
+This method is called:
+* When Enter is pressed after typing
+* When <page>DTextEntry:SetValue</page> is used
+* For every key typed - only if <page>DTextEntry:SetUpdateOnType</page> was set to true (default is false)
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="value" type="string">The DTextEntry text.</arg>
+	</args>
+</function>

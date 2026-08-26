@@ -1,0 +1,16 @@
+<function name="LoadPresets" parent="Global" type="libraryfunc">
+	<description>
+<internal></internal>
+
+Loads all preset settings for the <page>presets</page> and returns them in a table</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="table">Preset data</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints all of the presets in to the console</description>
+	<code>PrintTable(LoadPresets())</code>
+
+</example>

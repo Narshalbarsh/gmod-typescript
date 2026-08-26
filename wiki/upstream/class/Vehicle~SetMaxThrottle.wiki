@@ -1,0 +1,7 @@
+<function name="SetMaxThrottle" parent="Vehicle" type="classfunc">
+	<description>Sets maximum forward throttle</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="maxThrottle" type="number">The new maximum throttle.</arg>
+	</args>
+</function>

@@ -1,0 +1,4 @@
+<function name="CreateSchedulesInternal" parent="ENTITY" type="hook">
+	<description><internal></internal>Called just before <page>ENTITY:Initialize</page> for "ai" type entities only.</description>
+	<realm>Server</realm>
+</function>

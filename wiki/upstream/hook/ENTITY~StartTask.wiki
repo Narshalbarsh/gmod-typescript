@@ -1,0 +1,10 @@
+<function name="StartTask" parent="ENTITY" type="hook">
+	<description>Called once when a LUA schedule has started a task. 
+<note>This is a helper function only available if your SENT is based on `base_ai`</note>
+</description>
+	<realm>Server</realm>
+	<file line="129">gamemodes/base/entities/entities/base_ai/schedules.lua</file>
+	<args>
+		<arg name="task" type="Task">The task to start, created by <page>ai_task.New</page>.</arg>
+	</args>
+</function>

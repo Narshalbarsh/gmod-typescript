@@ -1,0 +1,11 @@
+<function name="GetMapChangeCount" parent="game" type="libraryfunc">
+	<description>Returns the current map change count for the server.
+
+This is useful to determine whether the current map is the initial map, or whether a `changelevel` (using `map` command is also detected) has occurred at any point in the server's session.
+</description>
+	<added>2025.11.28</added>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">The current map change count. Will start at `1`.</ret>
+	</rets>
+</function>

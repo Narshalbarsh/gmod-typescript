@@ -1,0 +1,37 @@
+<function name="RebuildSpawnIconEx" parent="Panel" type="classfunc">
+	<description>
+Re-renders a spawn icon with customized cam data.
+
+<page>Global.PositionSpawnIcon</page> can be used to easily calculate the necessary camera parameters.
+
+<note>This function does **not** accept the standard <page>Structures/CamData</page>.</note>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="data" type="table">A four-membered table containing the information needed to re-render:
+* <page>Vector</page> cam_pos - The relative camera position the model is viewed from.
+* <page>Angle</page> cam_ang - The camera angle the model is viewed from.
+* <page>number</page> cam_fov - The camera's field of view (FOV).
+* <page>Entity</page> ent - The entity object of the model.
+See the example below for how to retrieve these values.</arg>
+	</args>
+</function>
+
+<example>
+	<description>The `RenderIcon` method used by <page>IconEditor</page>. `SpawnIcon` is a <page>SpawnIcon</page> and `ModelPanel` is a <page>DAdjustableModelPanel</page>.</description>
+	<code>
+function PANEL:RenderIcon()
+	
+	local ent = self.ModelPanel:GetEntity()
+	
+	local tab = {}
+	tab.ent		= ent
+	tab.cam_pos = self.ModelPanel:GetCamPos()
+	tab.cam_ang = self.ModelPanel:GetLookAng()
+	tab.cam_fov = self.ModelPanel:GetFOV()
+
+	self.SpawnIcon:RebuildSpawnIconEx( tab )
+end
+	</code>
+
+</example>

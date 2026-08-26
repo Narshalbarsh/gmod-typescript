@@ -1,0 +1,8 @@
+<function name="Restored" parent="GM" type="hook">
+	<description>
+Called when the game is reloaded from a Source Engine save system ( not the Sandbox saves or dupes ).
+
+See <page>GM:Saved</page> for a hook that is called when such a save file is created.
+	</description>
+	<realm>Shared</realm>
+</function>

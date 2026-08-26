@@ -1,0 +1,10 @@
+<function name="ismatrix" parent="Global" type="libraryfunc">
+	<description>Returns whether the passed object is a <page>VMatrix</page>.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="variable" type="any">The variable to perform the type check for.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">True if the variable is a <page>VMatrix</page>.</ret>
+	</rets>
+</function>

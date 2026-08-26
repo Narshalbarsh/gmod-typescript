@@ -1,0 +1,9 @@
+<function name="AskToConnect" parent="permissions" type="libraryfunc">
+	<description>
+Requests the player to connect to a specified server. The player will be prompted with a confirmation window.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="address" type="string">The address to ask to connect to. If a port is not given, the default `:27015` port will be added.</arg>
+	</args>
+</function>

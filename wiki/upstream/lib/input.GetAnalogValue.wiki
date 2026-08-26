@@ -1,0 +1,18 @@
+<function name="GetAnalogValue" parent="input" type="libraryfunc">
+	<description>Returns the digital value of an analog stick on the current (set up via convars) controller.</description>
+	<realm>Client and Menu</realm>
+	<added>2021.01.27</added>
+	<args>
+		<arg name="axis" type="number{ANALOG}">The analog axis to poll. See <page>Enums/ANALOG</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The digital value. 
+<note>A joystick axis returns `-32768` when it's pushed completely up/completely left, & returns `32767` when it's pushed completely down/completely right.
+
+A mouse wheel starts @ `0` & increases by `1` for every unit of scroll up/decreases by `1` for every unit of scroll down.
+
+A mouse axis is `0` when the arrow is @ the top or left of the screen; When the arrow is @ the bottom right of the screen, the mouse y axis is the height of the screen & the mouse x axis is the width of the screen (in pixels). Note that in game, the “arrow” stays near the middle of the screen.
+
+Trigger axis always return `0` (verify).</note></ret>
+	</rets>
+</function>

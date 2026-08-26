@@ -1,0 +1,4 @@
+<function name="SetDefaultLighting" parent="IconEditor" type="panelfunc">
+	<description><internal></internal> Sets up the default ambient and directional lighting for the <page>DAdjustableModelPanel</page>. Called by <page>IconEditor:Refresh</page>.</description>
+	<realm>Client</realm>
+</function>

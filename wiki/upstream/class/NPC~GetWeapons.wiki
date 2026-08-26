@@ -1,0 +1,8 @@
+<function name="GetWeapons" parent="NPC" type="classfunc">
+	<description>Returns a table of the NPC's weapons.</description>
+	<realm>Server</realm>
+	<added>2020.06.24</added>
+	<rets>
+		<ret name="" type="table<Weapon>">A list of the weapons the NPC currently has.</ret>
+	</rets>
+</function>

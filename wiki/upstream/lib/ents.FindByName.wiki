@@ -1,0 +1,14 @@
+<function name="FindByName" parent="ents" type="libraryfunc">
+	<description>
+Gets all entities with the given hammer targetname. This works internally by iterating over <page>ents.GetAll</page>.
+
+Doesn't do anything on client.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="name" type="string">The targetname to look for.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table<Entity>">A table of all found entities.</ret>
+	</rets>
+</function>

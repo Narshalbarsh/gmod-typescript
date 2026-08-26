@@ -1,0 +1,14 @@
+<enum>
+	<realm>Server</realm>
+	<description>
+Enumerations used by <page>game.SetGlobalState</page> and <page>game.GetGlobalState</page>.
+
+Serverside only.
+	</description>
+	<items>
+<item key="GLOBAL_OFF" value="0">Initial state, the global state is off.</item>
+<item key="GLOBAL_ON" value="1">The global state is enabled.</item>
+<item key="GLOBAL_DEAD" value="2">The global state is dead and is no longer active. It will be cleared.</item>
+	</items>
+
+</enum>

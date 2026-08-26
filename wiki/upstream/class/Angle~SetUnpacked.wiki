@@ -1,0 +1,9 @@
+<function name="SetUnpacked" parent="Angle" type="classfunc">
+	<description>Sets the p, y, and r of the angle.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="p" type="number">The pitch component of the Angle</arg>
+		<arg name="y" type="number">The yaw component of the Angle</arg>
+		<arg name="r" type="number">The roll component of the Angle</arg>
+	</args>
+</function>

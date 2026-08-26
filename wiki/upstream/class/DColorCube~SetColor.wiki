@@ -1,0 +1,57 @@
+<function name="SetColor" parent="DColorCube" type="panelfunc">
+	<description>Sets the base color of the color cube and updates the slider position.</description>
+	<realm>Client and Menu</realm>
+	<file line="95-L105">lua/vgui/dcolorcube.lua</file>
+	<args>
+		<arg name="color" type="Color">The color to set, uses <page>Color</page>.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Picks the color at the center screen pixel and applies it to the base color of a color cube and its background panel.</description>
+	<code>
+function makeCMenuPicker() -- creating the element
+    local c_w, c_h = ScrW()/2, ScrH()/2
+
+    PickerPanel = vgui.Create("DPanel", g_ContextMenu) -- lazy parented to C menu (sandbox + derivatives), normally you would use DFrame
+    PickerPanel:SetSize(120, 120)
+    PickerPanel:SetPos( c_w-60, c_h-150 )
+    
+    local color_cube = vgui.Create("DColorCube", PickerPanel) -- Color cube
+    color_cube:Dock(FILL)
+    color_cube:DockMargin(15, 15, 15, 0)
+    PickerPanel.cube = color_cube
+
+    local color_label = vgui.Create("DLabel", PickerPanel)
+    color_label:Dock(BOTTOM)
+    color_label:SetContentAlignment(5)
+    PickerPanel.label = color_label
+end
+hook.Add("InitPostEntity", "create_colorpicker_vgui", function() makeCMenuPicker() end)
+
+local function updateCube() -- updating the element
+    if !IsValid(PickerPanel) then return end
+
+    hook.Add("PostRender", "capture_center_pixel", function()
+        render.CapturePixels() -- capture those pixels!
+
+        local p_r, p_g, p_b = render.ReadPixel(ScrW()/2, ScrH()/2) -- Get the color of the pixel at the center of the screen
+        local to_color = Color(p_r, p_g, p_b)
+
+        PickerPanel:SetBackgroundColor(to_color)
+        PickerPanel.cube:SetColor(to_color) -- Set the color to the center pixel color
+        PickerPanel.label:SetText(tostring(to_color))
+
+        local c, b, va = ColorToHSV(to_color)
+        if va > 0.6 then -- check the brightness and set black if its too light
+            PickerPanel.label:SetTextColor(color_black)
+        end
+
+        hook.Remove("PostRender", "capture_center_pixel")
+    end)
+end
+hook.Add("OnContextMenuOpen", "capture_on_context_open", function() updateCube() end) -- update it on c menu opening!
+	</code>
+	<output><image src="70c/8dc388ff3f43f7a.png"/></output>
+
+</example>

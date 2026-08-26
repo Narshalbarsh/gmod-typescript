@@ -1,0 +1,11 @@
+<function name="SetExpensiveShadow" parent="Panel" type="classfunc">
+	<description>Adds a shadow falling to the bottom right corner of the panel's text.
+
+<note>This works only on  panels that derive from <page>Label</page>.</note>
+</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="distance" type="number">The distance of the shadow from the panel.</arg>
+		<arg name="Color" type="Color">The color of the shadow. Uses <page>Color</page>.</arg>
+	</args>
+</function>

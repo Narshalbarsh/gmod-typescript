@@ -1,0 +1,7 @@
+<function name="SetMaterial" parent="DSprite" type="panelfunc">
+	<description>Sets the source material for the sprite.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="material" type="IMaterial">The material to use. This will ideally be an [UnlitGeneric](https://developer.valvesoftware.com/wiki/UnlitGeneric).</arg>
+	</args>
+</function>

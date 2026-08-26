@@ -1,0 +1,55 @@
+<panel>
+	<name>DTileLayout</name>
+	<parent>DDragBase</parent>
+	<realm>Client</realm>
+	<file line="">lua/vgui/dtilelayout.lua</file>
+	<description>
+		Similarly to <page>DIconLayout</page>, this lays out panels in two dimensions as tiles.
+
+		The difference between this and <page>DIconLayout</page> is that <page>DIconLayout</page> items all have the same height while
+		<page>DTileLayout</page> items do not have this enforcement. 
+		<page>DTileLayout</page> will find the best way to "pack" its children.  
+		For example, in a two column layout, a item of height 2 units will be placed in one column while 
+		two items of height 1 unit will be placed in the other column. 
+
+		It is worth noting however that because this panel iterates through its children in an undefined order and lays out while
+		it is iterating, there is no guarantee that this packing will lead to the lowest possible height.
+
+		This is used by the spawnmenu to arrange spawnicons.
+
+		The base size defines the smallest a tile can be, and it will resize vertically to accommodate all child panels.
+		The number of elements in each row is determined by the base size and width.
+
+		It also optionally permits the rearrangement of these tiles.
+		To enable this functionality, call <page>DDragBase:MakeDroppable</page> on the DTileLayout with a unique identifier.
+		All panels added following this will be moveable.
+	</description>
+</panel>
+
+
+<example>
+	<description>Creates a DTileLayout within a <page>DFrame</page>, sets the base size and adds 32 <page>DLabel</page>s.</description>
+	<code>
+local frame = vgui.Create("DFrame")
+frame:SetSize(300, 300)
+frame:SetTitle("DTileLayout Example")
+frame:MakePopup()
+frame:Center()
+
+local layout = vgui.Create("DTileLayout", frame)
+layout:SetBaseSize(32) -- Tile size
+layout:Dock(FILL)
+
+//Draw a background so we can see what it's doing
+layout:SetDrawBackground(true)
+layout:SetBackgroundColor(Color(0, 100, 100))
+
+layout:MakeDroppable("unique_name") -- Allows us to rearrange children
+
+for i = 1, 32 do
+	layout:Add(Label(" Label " .. i))
+end
+	</code>
+	<output><upload src="8c9ed/8d7d1b87cd890a9.png" size="7590" name="DTileLayout.png" /></output>
+
+</example>

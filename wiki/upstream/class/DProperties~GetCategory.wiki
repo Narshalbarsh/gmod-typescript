@@ -1,0 +1,17 @@
+<function name="GetCategory" parent="DProperties" type="panelfunc">
+	<description>
+<internal></internal>
+
+Returns (or creates) a category of properties.
+
+See <page>DProperties:CreateRow</page> for adding actual properties.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="name" type="string">Name of the category</arg>
+		<arg name="create" type="boolean" default="false">Create a new category if it doesn't exist.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Panel">An internal panel.</ret>
+	</rets>
+</function>

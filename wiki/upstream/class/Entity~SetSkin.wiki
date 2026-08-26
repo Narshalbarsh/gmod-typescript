@@ -1,0 +1,10 @@
+<function name="SetSkin" parent="Entity" type="classfunc">
+	<description>Sets the skin of the entity.
+
+<page>Entity:GetSkin</page> returns current skin and <page>Entity:SkinCount</page> returns amount of skins.
+</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="skinIndex" type="number">0-based index of the skin to use.</arg>
+	</args>
+</function>

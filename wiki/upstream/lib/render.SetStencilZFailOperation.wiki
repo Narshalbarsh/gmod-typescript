@@ -1,0 +1,58 @@
+<function name="SetStencilZFailOperation" parent="render" type="libraryfunc">
+	<description>
+		Sets the <page text="Stencil Operation">Enums/STENCILOPERATION</page> that will be performed on the Stencil Buffer values of pixels affected by draw operations if the <page text="Compare Function">render.SetStencilCompareFunction</page> Passed a given pixel, but it did **not** Pass the Depth Test.
+
+		For more detailed information on the Stencil system, including usage examples, see the <page text="Stencils Render Reference">render_stencils</page> page.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="zFailOperation" type="number{STENCILOPERATION}">
+			The Stencil Operation to be performed if the Compare Function Passes a pixel, but the pixel fails the Depth Test.
+		</arg>
+	</args>
+</function>
+
+<image src="b2b4c/8dc4ea9609eac76.png" size="77491" name="ZFailOperationFlowChart.png" />
+
+<example>
+	<description>This shows how to reveal hidden sections of entities, wallhack style (from 
+[Lex's Stencil Tutorial](https://github.com/Lexicality/stencil-tutorial)).</description>
+	<code>
+hook.Add( "PostDrawOpaqueRenderables", "Stencil Tutorial Example", function()
+	-- Reset everything to known good
+	render.SetStencilWriteMask( 0xFF )
+	render.SetStencilTestMask( 0xFF )
+	render.SetStencilReferenceValue( 0 )
+	render.SetStencilCompareFunction( STENCIL_ALWAYS )
+	render.SetStencilPassOperation( STENCIL_KEEP )
+	render.SetStencilFailOperation( STENCIL_KEEP )
+	render.SetStencilZFailOperation( STENCIL_KEEP )
+	render.ClearStencil()
+
+	-- Enable stencils
+	render.SetStencilEnable( true )
+	-- Set the reference value to 1. This is what the compare function tests against
+	render.SetStencilReferenceValue( 1 )
+	-- Always draw everything
+	render.SetStencilCompareFunction( STENCIL_ALWAYS )
+	-- If something would draw to the screen but is behind something, set the pixels it draws to 1
+	render.SetStencilZFailOperation( STENCIL_REPLACE )
+
+	-- Draw our entities. They will draw as normal
+	for _, ent in ipairs( ents.FindByClass( "prop_physics" ) ) do
+		ent:DrawModel()
+	end
+
+	-- Now, only draw things that have their pixels set to 1. This is the hidden parts of the stencil tests.
+	render.SetStencilCompareFunction( STENCIL_EQUAL )
+	-- Flush the screen. This will draw teal over all hidden sections of the stencil tests
+	render.ClearBuffersObeyStencil( 0, 148, 133, 255, false )
+
+	-- Let everything render normally again
+	render.SetStencilEnable( false )
+end )
+	</code>
+	<output>
+		<image src="basic_zfail_operation.jpg" alt="800px"/>
+	</output>
+</example>

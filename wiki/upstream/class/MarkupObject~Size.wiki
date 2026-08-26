@@ -1,0 +1,8 @@
+<function name="Size" parent="MarkupObject" type="classfunc">
+	<description>Gets computed the width and height of the markupobject.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The computed width.</ret>
+		<ret name="" type="number">The computed height.</ret>
+	</rets>
+</function>

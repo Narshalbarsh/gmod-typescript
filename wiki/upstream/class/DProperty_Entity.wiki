@@ -1,0 +1,9 @@
+<title>DProperty_Entity</title>
+<panel>
+	<parent>DProperty_Generic</parent>
+	<realm>Client</realm>
+	<description>
+		<internal></internal>
+		Entity picker control for the <page>DProperties</page> panel.
+	</description>
+</panel>

@@ -1,0 +1,32 @@
+<function name="SetTexture" parent="IMaterial" type="classfunc">
+	<description>Sets the specified material texture to the specified texture, does nothing on a type mismatch.
+
+Calls <page>IMaterial:Recompute</page> internally.
+</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="materialTexture" type="string">The name of the keyvalue on the material to store the texture on.</arg>
+		<arg name="texture" type="ITexture" alttype="string">The new texture. This can also be a string, the name of the new texture.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Example usage of this function.</description>
+	<code>
+local blur_mat = Material( "pp/bokehblur" )
+
+blur_mat:SetTexture( "$basetexture", render.GetScreenEffectTexture() )
+	</code>
+
+</example>
+
+
+<example>
+	<description>Equivalent of Example 1, demonstrating the use of a texture's name.</description>
+	<code>
+local blur_mat = Material( "pp/bokehblur" )
+
+blur_mat:SetTexture( "$basetexture", "_rt_fullframefb" )
+	</code>
+
+</example>

@@ -1,0 +1,27 @@
+<function name="IsServerBlacklisted" parent="Global" type="libraryfunc">
+	<description>Checks if the given server data is blacklisted or not.</description>
+	<realm>Menu</realm>
+	<file line="313-L362">lua/menu/mainmenu.lua</file>
+	<args>
+		<arg name="address" type="string">Server ip. can end with *</arg>
+		<arg name="hostname" type="string">Server name</arg>
+		<arg name="description" type="string">description to check</arg>
+		<arg name="gm" type="string">Gamemode name</arg>
+		<arg name="map" type="string">Map name</arg>
+	</args>
+	<rets>
+		<ret name="result" type="string">Returns the reason why the server is blacklisted or nil if the server is not blacklisted.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Example of a blacklisted hostname.</description>
+	<code>
+print(IsServerBlacklisted("127.0.0.1", "reconnect", "", "", ""))
+	</code>
+	<output>
+```lua
+host: reconnect
+```
+	</output>
+</example>

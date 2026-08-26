@@ -1,0 +1,27 @@
+<function name="byte" parent="string" type="libraryfunc">
+	<description>
+		Returns the given string's characters in their numeric ASCII representation.
+		<warning>This function will throw an error if the slice length is greater than 8000 characters.</warning>
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="string" type="string">The string to get the chars from.</arg>
+		<arg name="startPos" type="number" default="1">The first character of the string to get the byte of.</arg>
+		<arg name="endPos" type="number" default="startPos">The last character of the string to get the byte of.</arg>
+	</args>
+	<rets>
+		<ret name="" type="vararg">Numerical bytes</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints the first 4 numerical bytes from the string "Hello, World!"</description>
+	<code>print(string.byte("Hello, World!", 1, 4))</code>
+	<output>
+72
+101
+108
+108
+	</output>
+
+</example>

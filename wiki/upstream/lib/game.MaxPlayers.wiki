@@ -1,0 +1,7 @@
+<function name="MaxPlayers" parent="game" type="libraryfunc">
+	<description>Returns the maximum amount of players (including bots) that the server can have.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The maximum amount of players.</ret>
+	</rets>
+</function>

@@ -1,0 +1,31 @@
+<panel>
+	<parent>DPanel</parent>
+	<realm>Client</realm>
+	<file line="">lua/vgui/dhorizontaldivider.lua</file>
+	<preview>DHorizontalDivider_ex1.png</preview>
+	<description>Creates an invisible vertical divider between two GUI elements.</description>
+</panel>
+
+
+<example>
+	<description>Insert a horizontal divider between two <page>DPanel</page>s in a <page>DFrame</page>.</description>
+	<code>
+local f = vgui.Create( "DFrame" )
+f:SetSize( 400, 200 )
+f:Center()
+f:MakePopup()
+
+local LeftPanel = vgui.Create( "DPanel", f ) -- Can be any panel, it will be stretched
+local RightPanel = vgui.Create( "DPanel", f )
+
+local div = vgui.Create( "DHorizontalDivider", f )
+div:Dock( FILL ) -- Make the divider fill the space of the DFrame
+div:SetLeft( LeftPanel ) -- Set what panel is in left side of the divider
+div:SetRight( RightPanel )
+div:SetDividerWidth( 4 ) -- Set the divider width. Default is 8
+div:SetLeftMin( 20 ) -- Set the Minimum width of left side
+div:SetRightMin( 20 )
+div:SetLeftWidth( 50 ) -- Set the default left side width
+	</code>
+
+</example>

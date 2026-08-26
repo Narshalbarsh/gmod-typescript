@@ -1,0 +1,11 @@
+<function name="ShouldDropOnDie" parent="WEAPON" type="hook">
+	<description>
+Should this weapon be dropped when its owner dies?
+
+This only works if the player has <page>Player:ShouldDropWeapon</page> set to true.
+	</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="boolean">Return true to drop the weapon, false otherwise. Default ( if you don't return anything ) is false.</ret>
+	</rets>
+</function>

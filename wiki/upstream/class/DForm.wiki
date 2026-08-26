@@ -1,0 +1,11 @@
+<panel>
+	<name>DForm</name>
+	<realm>Client and Menu</realm>
+	<file line="">lua/vgui/dform.lua</file>
+	<parent>DCollapsibleCategory</parent>
+	<description>An easy form with functions to quickly add form elements</description>
+	<overrides>
+		<page>Panel:Clear</page>
+		<page>Panel:GenerateExample</page>
+	</overrides>
+</panel>

@@ -1,0 +1,24 @@
+<cat>gameevent</cat>
+<title>user_data_downloaded</title>
+
+<structure>
+	<realm>Menu</realm>
+	<description>
+		Called when the Achievement Manager received the steam user stat data.  
+		As soon as this is called, all achievement data should be valid.  
+		Trying to access any achievement data before this may return in inaccurate data.  
+	</description>
+</structure>
+
+# Examples
+<example>
+	<description>This is a basic template with the purpose of including all arguments / table variables to make it easily known which values can be accessed.</description>
+	<code>
+gameevent.Listen( "user_data_downloaded" )
+hook.Add( "user_data_downloaded", "user_data_downloaded_example", function( data )
+
+	-- Called when the steam user stat data was received. We now can safely use any achievement.* function.
+	
+end )
+	</code>
+</example>

@@ -1,0 +1,10 @@
+<function name="PlaySound" parent="chat" type="libraryfunc">
+	<description>Plays the chat "tick" sound.</description>
+	<realm>Client</realm>
+</function>
+
+<example>
+	<description>Plays an obnoxious tick sound.</description>
+	<code>chat.PlaySound()</code>
+
+</example>

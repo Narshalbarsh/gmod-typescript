@@ -1,0 +1,18 @@
+<enum>
+	<realm>Shared and Menu</realm>
+	<description>
+Enumerations used by <page>render.PushFilterMin</page> and <page>render.PushFilterMag</page>.
+
+See [this](https://msdn.microsoft.com/en-us/library/windows/desktop/bb172615(v=vs.85).aspx) and [this page](https://en.wikipedia.org/wiki/Texture_filtering) for more information on texture filtering.
+	</description>
+	<items>
+<item key="TEXFILTER.NONE" value="0">Disables any filter override.</item>
+
+<item key="TEXFILTER.POINT" value="1">Point sampling, no interpolation.</item>
+
+<item key="TEXFILTER.LINEAR" value="2">Basic interpolation between 2 samples.</item>
+
+<item key="TEXFILTER.ANISOTROPIC" value="3">Highest quality filter. Most useful for textures on 3D geometry.</item>
+	</items>
+
+</enum>

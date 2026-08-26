@@ -1,0 +1,16 @@
+<type name="Color" category="classfunc" is="class">
+	<summary>List of all possible functions to manipulate colors.
+
+Colors are implemented in Lua thus <page>Global.type</page>(color) == "table" and <page>Global.TypeID</page>(color) == <page text="TYPE_TABLE">Enums/TYPE#table</page>.
+
+For type checking use <page>Global.IsColor</page>.
+
+Created by <page>Global.Color</page>, <page>Global.HSVToColor</page>, and <page>Global.HSLToColor</page>.
+
+| Type                | Name  | Description                       |
+| ------------------- | ----- | --------------------------------- |
+| <page>number</page> | **r** | The red component of the color.   |
+| <page>number</page> | **g** | The green component of the color. |
+| <page>number</page> | **b** | The blue component of the color.  |
+| <page>number</page> | **a** | The alpha component of the color. |</summary>
+</type>

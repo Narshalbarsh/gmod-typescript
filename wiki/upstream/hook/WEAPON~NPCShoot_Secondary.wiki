@@ -1,0 +1,14 @@
+<function name="NPCShoot_Secondary" parent="WEAPON" type="hook">
+	<description>
+A utility function to seperate your SWEPs secondary firing from players. 
+
+Unlike <page>WEAPON:NPCShoot_Primary</page>, this won't be called by the engine for `TASK_RANGE_ATTACK2`. 
+
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="shootPos" type="Vector" default="GetShootPos()">The world position the NPC will use as attack starting position. You can create your projectiles here. </arg>
+		<arg name="shootDir" type="Vector" default="GetAimVector()">The direction the NPC wants to shoot at. </arg>
+	</args>
+	<file line="83">gamemodes/base/entities/weapons/weapon_base/init.lua</file>
+</function>

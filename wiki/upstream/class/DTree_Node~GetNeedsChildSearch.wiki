@@ -1,0 +1,7 @@
+<function name="GetNeedsChildSearch" parent="DTree_Node" type="panelfunc">
+	<description><internal></internal><deprecated>Seems to be unused entirely.</deprecated>Returns whether the node still needs a filesystem search for sub-nodes.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the node still needs a filesystem search.</ret>
+	</rets>
+</function>

@@ -1,0 +1,18 @@
+<function name="PropBreak" parent="GM" type="hook">
+	<description>Called when a prop has been destroyed.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="attacker" type="Player">The person who broke the prop. This can be a NULL entity for cases where the prop was not broken by a player.</arg>
+		<arg name="prop" type="Entity">The entity that has been broken by the attacker.</arg>
+	</args>
+</function>
+
+<example>
+	<description>This kills a player when a person breaks a prop (i.e. a wooden crate).</description>
+	<code>
+hook.Add( "PropBreak", "PropVengeance", function( client, prop )
+	if ( IsValid( client ) ) then client:Kill() end
+end )
+	</code>
+
+</example>

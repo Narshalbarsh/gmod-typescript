@@ -1,0 +1,7 @@
+<function name="GetBlockingEntity" parent="NPC" type="classfunc">
+	<description>Returns the entity blocking the NPC along its path.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="Entity">Blocking entity</ret>
+	</rets>
+</function>

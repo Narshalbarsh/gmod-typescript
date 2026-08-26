@@ -1,0 +1,10 @@
+<function name="CapturePixels" parent="render" type="libraryfunc">
+	<description><rendercontext hook="false" type="2D"></rendercontext>
+	Dumps the current render target and allows the pixels to be accessed by <page>render.ReadPixel</page>. 
+
+	Capturing outside a render hook will return an image filled with `0 0 0 255`.
+
+	See also <page>render.Capture</page>.
+</description>
+	<realm>Client</realm>
+</function>

@@ -1,0 +1,32 @@
+<function name="SimpleText" parent="draw" type="libraryfunc">
+	<description>
+Draws text on the screen.
+<note>This function does not handle newlines properly. See <page>draw.DrawText</page> for a function that does.</note>
+<rendercontext hook="false" type="2D"></rendercontext>
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="51-L94">lua/includes/modules/draw.lua</file>
+	<args>
+		<arg name="text" type="string">The text to be drawn.</arg>
+		<arg name="font" type="string" default="DermaDefault">The font. See <page>surface.CreateFont</page> to create your own, or see <page>Default Fonts</page> for a list of default fonts.</arg>
+		<arg name="x" type="number" default="0">The X Coordinate.</arg>
+		<arg name="y" type="number" default="0">The Y Coordinate.</arg>
+		<arg name="color" type="Color" default="Color( 255, 255, 255, 255 )">The color of the text.</arg>
+		<arg name="xAlign" type="number" default="TEXT_ALIGN_LEFT">The alignment of the X coordinate using <page>Enums/TEXT_ALIGN</page>.</arg>
+		<arg name="yAlign" type="number" default="TEXT_ALIGN_TOP">The alignment of the Y coordinate using <page>Enums/TEXT_ALIGN</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The width of the text. Same value as if you were calling <page>surface.GetTextSize</page>.</ret>
+		<ret name="" type="number">The height of the text. Same value as if you were calling <page>surface.GetTextSize</page>.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Example usage:</description>
+	<code>
+hook.Add( "HUDPaint", "HelloThere", function()
+	draw.SimpleText( "Hello there!", "DermaDefault", 50, 50, color_white )
+end )
+	</code>
+
+</example>

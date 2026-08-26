@@ -1,0 +1,31 @@
+
+<panel>
+	<name>DAdjustableModelPanel</name>
+	<parent>DModelPanel</parent>
+	<realm>Client</realm>
+	<file line="">lua/vgui/dadjustablemodelpanel.lua</file>
+	
+
+<description>
+A derivative of the DModelPanel in which the user may modify the perspective of the model with their mouse and keyboard by clicking and dragging.
+
+The keyboard keys <key>W</key> <key>S</key> <key>A</key> <key>D</key> <key>Up</key> <key>Down</key> <key>Left</key> <key>Right</key> <key>Space</key> and <key>Ctrl</key> can be used when the right mouse is held down, with <key>Shift</key> acting as a speed multiplier. When the left mouse is used, the Shift key holds the current `y` angle steady.
+
+This is used by <page>IconEditor</page> for modifying spawn icons.
+	</description>
+</panel>
+
+
+<example>
+<description> Code used to create the example for `derma_controls` concmd </description>
+<code>
+local ctrl = vgui.Create( "DAdjustableModelPanel" )
+ctrl:SetSize( 300, 300 )
+ctrl:SetModel( "models/props_junk/PlasticCrate01a.mdl" )
+ctrl:GetEntity():SetSkin( 2 )
+ctrl:SetLookAng( Angle( 45, 0, 0 ) )
+ctrl:SetCamPos( Vector( -20, 0, 20 ) )
+</code>
+</example>
+
+<upload src="aaf9e/8dc31b685a47f09.gif" size="3311013" name="DAdjustableModelPanel.gif" />

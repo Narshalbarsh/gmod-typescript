@@ -1,0 +1,7 @@
+<function name="SetMaxDamage" parent="CTakeDamageInfo" type="classfunc">
+	<description>Sets the "maximum damage" for this damage event. See <page>CTakeDamageInfo:GetMaxDamage</page> for details. </description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="maxDamage" type="number">Maximum damage value.</arg>
+	</args>
+</function>

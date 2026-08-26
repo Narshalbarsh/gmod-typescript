@@ -1,0 +1,8 @@
+<function name="GrabEarAnimation" parent="GM" type="hook">
+	<description>Override this hook to disable/change ear-grabbing in your gamemode. By default, it is not called anywhere on the server.</description>
+	<realm>Shared</realm>
+	<file line="249-L271">gamemodes/base/gamemode/animations.lua</file>
+	<args>
+		<arg name="ply" type="Player">Player</arg>
+	</args>
+</function>

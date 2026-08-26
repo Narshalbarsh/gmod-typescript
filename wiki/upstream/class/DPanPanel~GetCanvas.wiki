@@ -1,0 +1,9 @@
+<function name="GetCanvas" parent="DPanPanel" type="panelfunc">
+	<description>
+The internal canvas panel.
+</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="Panel">The canvas panel.</ret>
+	</rets>
+</function>

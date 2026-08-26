@@ -1,0 +1,7 @@
+<function name="StripAmmo" parent="Player" type="classfunc">
+	<description>
+<deprecated>Alias of <page>Player:RemoveAllAmmo</page></deprecated>
+
+Removes all ammo from the player.</description>
+	<realm>Server</realm>
+</function>

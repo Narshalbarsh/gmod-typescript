@@ -1,0 +1,8 @@
+<function name="DoAttackEvent" parent="Player" type="classfunc">
+	<description>
+Starts the player's attack animation. The attack animation is determined by the weapon's HoldType.
+
+Similar to other animation event functions, calls <page>GM:DoAnimationEvent</page> with <page text="PLAYERANIMEVENT_ATTACK_PRIMARY">Enums/PLAYERANIMEVENT</page> as the event and no extra data.
+	</description>
+	<realm>Shared</realm>
+</function>

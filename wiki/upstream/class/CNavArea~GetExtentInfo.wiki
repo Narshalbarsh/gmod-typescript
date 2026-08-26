@@ -1,0 +1,13 @@
+<function name="GetExtentInfo" parent="CNavArea" type="classfunc">
+	<description>Returns size info about the nav area.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="table">Returns a table containing the following keys:
+* <page>Vector</page> hi - "Maxs" of the nav area in world space
+* <page>Vector</page> lo - "Mins" of the nav area in world space
+* <page>number</page> SizeX - Size on the X axis
+* <page>number</page> SizeY - Size on the Y axis
+* <page>number</page> SizeZ - Size of the Z axis
+</ret>
+	</rets>
+</function>

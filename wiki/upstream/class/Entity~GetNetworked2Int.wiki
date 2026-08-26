@@ -1,0 +1,15 @@
+<function name="GetNetworked2Int" parent="Entity" type="classfunc">
+	<description>
+Retrieves a networked integer (whole number) value that was previously set by <page>Entity:SetNetworked2Int</page>.
+<deprecated>You should be using <page>Entity:GetNW2Int</page> instead.</deprecated>
+<warning>The integer has a 32 bit limit. Use <page>Entity:SetNWInt</page> and <page>Entity:GetNWInt</page> instead</warning>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="key" type="string">The key that is associated with the value</arg>
+		<arg name="fallback" type="any" default="0">The value to return if we failed to retrieve the value (If it isn't set).</arg>
+	</args>
+	<rets>
+		<ret name="" type="any">The value associated with the key</ret>
+	</rets>
+</function>

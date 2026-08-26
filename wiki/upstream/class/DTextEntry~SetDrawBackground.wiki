@@ -1,0 +1,7 @@
+<function name="SetDrawBackground" parent="DTextEntry" type="panelfunc">
+	<description><deprecated></deprecated> Alias of <page>DTextEntry:SetPaintBackground</page>. Use that instead.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="show" type="boolean"></arg>
+	</args>
+</function>

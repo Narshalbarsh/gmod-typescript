@@ -1,0 +1,7 @@
+<function name="ReadBool" parent="File" type="classfunc">
+	<description>Reads one byte of the file and returns whether that byte was not 0.</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">val</ret>
+	</rets>
+</function>

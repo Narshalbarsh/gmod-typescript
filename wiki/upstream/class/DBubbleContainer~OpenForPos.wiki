@@ -1,0 +1,35 @@
+<function name="OpenForPos" parent="DBubbleContainer" type="panelfunc">
+	<description>Sets the speech bubble position and size along with the dialog point position.</description>
+	<realm>Client</realm>
+	<file line="14-L29">lua/vgui/dbubblecontainer.lua</file>
+	<args>
+		<arg name="x" type="number">The x position of the dialog point. If this is set to a value greater than half of the set width, the entire bubble container will be moved in addition to the dialog point.</arg>
+		<arg name="y" type="number">The y position of the bubble container. Has no effect unless set to a value greater than the set height + 64 pixels.</arg>
+		<arg name="w" type="number">The width of the bubble container.</arg>
+		<arg name="h" type="number">The height of the bubble container.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Creates a bubble container that properly fits a 200x200 background panel.</description>
+	<code>
+-- Length and width of background panel
+local size = 200
+		
+-- Background panel
+BGPanel = vgui.Create("DPanel")
+BGPanel:SetSize(size, size)
+BGPanel:Center()
+
+
+local bubble1 = vgui.Create("DBubbleContainer", BGPanel)
+
+-- x = 100 (Set pointer in the middle of the speech bubble)
+-- y = 0 (Don't adjust height)
+-- w = 180 (20 pixel right margin)
+-- h = 184 (16 pixel bottom margin)
+bubble1:OpenForPos(size/2, 0, size-20, size-16)
+	</code>
+	<output><image src="DBubbleContainer_OpenForPos_example1.jpg"/></output>
+
+</example>

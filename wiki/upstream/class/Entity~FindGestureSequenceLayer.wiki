@@ -1,0 +1,14 @@
+<function name="FindGestureSequenceLayer" parent="Entity" type="classfunc">
+	<description>
+Searches the currently active layers for a layer playing animation with given sequence.
+<note>This function only works on <page>BaseAnimatingOverlay</page> entites!</note>
+	</description>
+	<added>2025.07.31</added>
+	<realm>Server</realm>
+	<args>
+		<arg name="sequenceID" type="number">The sequence ID to search for. See <page>Entity:LookupSequence</page>.</arg>
+	</args>
+	<rets>
+		<ret name="layerID" type="number">A layer ID for given sequence, or `-1` if not found.</ret>
+	</rets>
+</function>

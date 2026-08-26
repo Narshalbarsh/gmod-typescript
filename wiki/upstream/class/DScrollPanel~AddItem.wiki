@@ -1,0 +1,8 @@
+<function name="AddItem" parent="DScrollPanel" type="panelfunc">
+	<description>Parents the passed panel to the DScrollPanel's canvas.</description>
+	<file line="33-L37">lua/vgui/dscrollpanel.lua</file>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="pnl" type="Panel">The panel to add.</arg>
+	</args>
+</function>

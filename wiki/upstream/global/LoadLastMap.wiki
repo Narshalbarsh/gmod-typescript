@@ -1,0 +1,5 @@
+<function name="LoadLastMap" parent="Global" type="libraryfunc">
+	<description><internal></internal>This function is used to get the last map and category to which the map belongs from the cookie saved with <page>Global.SaveLastMap</page>.</description>
+	<realm>Menu</realm>
+	<file line="451-L464">lua/menu/getmaps.lua</file>
+</function>

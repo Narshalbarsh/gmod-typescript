@@ -1,0 +1,22 @@
+<function name="AlignAngles" parent="Entity" type="classfunc">
+	<description>
+Returns an angle based on the ones inputted that you can use to align an object.
+
+<note>This function doesn't change the angle of the entity on its own (see example).</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="from" type="Angle">The angle you want to align from</arg>
+		<arg name="to" type="Angle">The angle you want to align to</arg>
+	</args>
+	<rets>
+		<ret name="" type="Angle">The resulting aligned angle</ret>
+	</rets>
+</function>
+
+<example>
+	<description>This example will make ent1 face up from ent2.</description>
+	<code>ent1:SetAngles(ent1:AlignAngles(ent1:GetForward():Angle(), ent2:GetUp():Angle()))</code>
+	<output>Sets ent1's angle to one where ent1 faces up from ent2.</output>
+
+</example>

@@ -1,0 +1,15 @@
+<structure>
+	<realm>Menu</realm>
+	<description>Table used by <page>Global.FireProblem</page> function.</description>
+	<fields>
+		<item name="id" type="string">The Problem ID.</item>
+		<item name="text" type="string">The Text to Display.</item>
+		<item name="severity" type="number"> The Problem severity.</item>
+		<item name="type" type="string">The Problem Type. Possible values are:
+* config
+* hardware
+* addons
+		</item>
+		<item name="fix" type="function">a Function that fixes the Problem.</item>
+	</fields>
+</structure>

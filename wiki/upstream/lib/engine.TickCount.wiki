@@ -1,0 +1,7 @@
+<function name="TickCount" parent="engine" type="libraryfunc">
+	<description>Returns the number of ticks since the game server started.</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="number">Number of ticks since the game server started.</ret>
+	</rets>
+</function>

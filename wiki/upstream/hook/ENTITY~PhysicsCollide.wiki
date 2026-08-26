@@ -1,0 +1,25 @@
+<function name="PhysicsCollide" parent="ENTITY" type="hook">
+	<description>
+Called when the entity collides with anything via [physics objects](PhysObj). The [move type](Enums/MOVETYPE) and [solid mode](Enums/SOLID) must be `VPHYSICS` for the hook to be called.  
+This hook only works for `anim` type entities.
+
+This is different from <page>ENTITY:Touch</page>.
+
+<note>If you want to use this hook on default/engine/non-Lua entities (like `prop_physics`), use <page>Entity:AddCallback</page> instead! This page describes a hook for Lua scripted entities</note>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="colData" type="table">Information regarding the collision. See <page>Structures/CollisionData</page>.</arg>
+		<arg name="collider" type="PhysObj">The physics object that collided.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Play a sound when we hit something.</description>
+	<code>
+function ENT:PhysicsCollide( data, phys )
+	if ( data.Speed > 50 ) then self:EmitSound( Sound( "Flashbang.Bounce" ) ) end
+end
+	</code>
+
+</example>

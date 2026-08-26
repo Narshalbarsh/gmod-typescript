@@ -1,0 +1,14 @@
+<function name="RemoveCallOnRemove" parent="Entity" type="classfunc">
+	<description>Removes a function previously added via <page>Entity:CallOnRemove</page>.</description>
+	<realm>Shared</realm>
+	<file line="122-L132">lua/includes/extensions/entity.lua</file>
+	<args>
+		<arg name="identifier" type="any">Identifier of the function given to <page>Entity:CallOnRemove</page>.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Removes the call to stop an engine's sounds when the entity is removed</description>
+	<code>Entity:RemoveCallOnRemove("StopEngineSound")</code>
+
+</example>

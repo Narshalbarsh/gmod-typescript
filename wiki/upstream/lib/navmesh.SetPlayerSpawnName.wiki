@@ -1,0 +1,7 @@
+<function name="SetPlayerSpawnName" parent="navmesh" type="libraryfunc">
+	<description>Sets the classname of the default spawn point entity, used before generating a new navmesh with <page>navmesh.BeginGeneration</page>.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="spawnPointClass" type="string">The classname of what the player uses to spawn, automatically adds it to the walkable positions during map generation.</arg>
+	</args>
+</function>

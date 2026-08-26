@@ -1,0 +1,7 @@
+<function name="SetHullType" parent="NPC" type="classfunc">
+	<description>Sets the hull type for the NPC.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="hullType" type="number">Hull type. See <page>Enums/HULL</page></arg>
+	</args>
+</function>

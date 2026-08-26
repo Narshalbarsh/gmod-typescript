@@ -1,0 +1,18 @@
+<function name="util.tracesnap" parent="jit" type="libraryfunc">
+	<description><deprecated>This function was disabled due to security concerns.</deprecated>
+
+Return table fields:
+* 0 (ref) (number): first IR ref for the snapshot
+* 1 (nslots) (number): the number of valid slots 
+* all indexes except first 2 and last (there might not be any of these): the snapshot map
+* last index in table (number): -16777216 (255 &lt;&lt; 24)
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="tr" type="number">trace index to retrieve snapshot for (gotten via <page>jit.attach</page>)</arg>
+		<arg name="sn" type="number">snapshot index for trace (starting from 0 to nexit - 1, nexit gotten via <page>jit.util.traceinfo</page>)</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">snapshot</ret>
+	</rets>
+</function>

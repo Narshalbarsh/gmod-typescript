@@ -1,0 +1,11 @@
+<function name="InOutQuad" parent="math.ease" type="libraryfunc">
+	<description>Eases in and out by squaring the fraction.</description>
+	<realm>Shared and Menu</realm>
+	<file line="57-L59">lua/includes/extensions/math/ease.lua</file>
+	<args>
+		<arg name="fraction" type="number">Fraction of the progress to ease, from 0 to 1</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">"Eased" Value, from 0 to 1</ret>
+	</rets>
+</function>

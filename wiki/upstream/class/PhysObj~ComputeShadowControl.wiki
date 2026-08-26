@@ -1,0 +1,38 @@
+<function name="ComputeShadowControl" parent="PhysObj" type="classfunc">
+	<description>Allows you to move a PhysObj to a point and angle in 3D space. Works with any PhysObj, not just physics shadows.</description>
+<realm>Shared</realm>
+	<args>
+		<arg name="shadowparams" type="table">The parameters for the shadow. See <page>Structures/ShadowControlParams</page>.</arg>
+	</args>
+</function>
+
+<example>
+
+	<description>Move a PhysObj to vector 0 0 0 with angles 0 0 0.</description>
+	<code>
+function ENT:Initialize()
+ 
+	self:StartMotionController()
+	self.ShadowParams = {}
+ 
+end
+function ENT:PhysicsSimulate( phys, deltatime )
+ 
+	phys:Wake()
+ 
+	self.ShadowParams.secondstoarrive = 1 
+	self.ShadowParams.pos = Vector( 0, 0, 0 )
+	self.ShadowParams.angle = Angle( 0, 0, 0 )
+	self.ShadowParams.maxangular = 5000
+	self.ShadowParams.maxangulardamp = 10000
+	self.ShadowParams.maxspeed = 1000000
+	self.ShadowParams.maxspeeddamp = 10000
+	self.ShadowParams.dampfactor = 0.8
+	self.ShadowParams.teleportdistance = 200
+	self.ShadowParams.delta = deltatime
+ 
+	phys:ComputeShadowControl(self.ShadowParams)
+ 
+end
+	</code>
+</example>

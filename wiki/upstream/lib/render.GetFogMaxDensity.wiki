@@ -1,0 +1,8 @@
+<function name="GetFogMaxDensity" parent="render" type="libraryfunc">
+	<description>Get the maximum density of the fog.</description>
+	<realm>Client</realm>
+	<added>2025.10.08</added>
+	<rets>
+		<ret name="maxDensity" type="number">The maximum density of the fog, 0-1.</ret>
+	</rets>
+</function>

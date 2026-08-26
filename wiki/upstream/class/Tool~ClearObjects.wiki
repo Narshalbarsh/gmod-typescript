@@ -1,0 +1,5 @@
+<function name="ClearObjects" parent="Tool" type="classfunc">
+	<description>Clears all objects previously set with <page>Tool:SetObject</page>.</description>
+	<realm>Shared</realm>
+	<file line="34">gamemodes/sandbox/entities/weapons/gmod_tool/object.lua</file>
+</function>

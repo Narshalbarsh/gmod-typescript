@@ -1,0 +1,7 @@
+<function name="GetRange" parent="DNumSlider" type="panelfunc">
+	<description>Returns the range of the slider, basically maximum value - minimum value.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The range of the slider</ret>
+	</rets>
+</function>

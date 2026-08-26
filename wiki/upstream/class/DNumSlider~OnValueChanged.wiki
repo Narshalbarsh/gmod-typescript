@@ -1,0 +1,8 @@
+<function name="OnValueChanged" parent="DNumSlider" type="panelhook">
+	<description>Called when the value of the slider is changed, through code or changing the slider.</description>
+	<realm>Client and Menu</realm>
+	<file line="193-L197">lua/vgui/dnumslider.lua</file>
+	<args>
+		<arg name="value" type="number">The new value of the DNumSlider.</arg>
+	</args>
+</function>

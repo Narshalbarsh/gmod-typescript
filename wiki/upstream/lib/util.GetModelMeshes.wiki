@@ -1,0 +1,89 @@
+<function name="GetModelMeshes" parent="util" type="libraryfunc">
+	<description>
+
+		Retrieves vertex, triangle, and bone data for the visual meshes of a given model.
+
+		<note>
+			This does not work on brush models (Models with names in the format `*number`)
+		</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="model" type="string">
+			The full path to the model to get the visual meshes of.
+		</arg>
+		<arg name="lod" type="number" default="0">
+			Which of the model's Level of Detail (LOD) models to retrieve.
+
+			`0` is the best quality with higher numbers progressively lowering the quality.
+		</arg>
+		<arg name="bodygroupMask" type="string|number" default="0">
+			The combination of bodygroups to retrieve meshes for. This can also be a specially formatted bitflag.
+			
+			For more information, see <page>Entity:SetBodyGroups</page>.
+		</arg>
+		<arg name="skin" type="number" default="0" added="2025.10.16">
+			Skin index. Affects the `.material` of <page>Structures/ModelMeshData</page>.
+			
+			For more information, see <page>Entity:GetSkin</page>.
+		</arg>
+	</args>
+	<rets>
+		<ret name="modelMeshes" type="table<Structures/ModelMeshData>">
+			Each index in this table corresponds to a mesh within the model passed as an argument to this function.
+
+The mesh data is raw, and is not transformed via bone transformations. That's what the second return value is for.
+		</ret>
+		<ret name="modelBindPoses" type="table<Structures/BoneBindPose>">
+			This tables indices are bone IDs for the <page>Structures/BoneBindPose</page> stored at each index.
+		</ret>
+	</rets>
+</function>
+
+<example>
+	<description>
+		A snippet of Entity code that renders a wireframe helicopter bomb by retrieving the model's mesh and using it to create a new mesh.
+	</description>
+	<code>
+-- The default material to render with in case we for some reason don't have one
+local myMaterial = Material( "models/wireframe" ) -- models/debug/debugwhite
+
+function ENT:CreateMesh()
+	-- Destroy any previous meshes
+	if ( self.Mesh ) then self.Mesh:Destroy() end
+
+	-- Get a list of all meshes of a model
+	local visualMeshes = util.GetModelMeshes( "models/combine_helicopter/helicopter_bomb01.mdl" )
+
+	-- Make sure the model exists before continuing
+	if ( !visualMeshes ) then return end
+
+	-- Select the first mesh
+	local visualMesh = visualMeshes[ 1 ]
+
+	-- Set the material to draw the mesh with from the model data
+	myMaterial = Material( visualMesh.material )
+
+	-- You can apply any changes to visualMesh.verticies table here, distorting the mesh
+	-- or any other changes you can come up with
+
+	-- Create and build the mesh
+	self.Mesh = Mesh()
+	self.Mesh:BuildFromTriangles( visualMesh.triangles )
+end
+
+-- A special hook to override the normal mesh for rendering
+function ENT:GetRenderMesh()
+	-- If the mesh doesn't exist, create it!
+	if ( !self.Mesh ) then return self:CreateMesh() end
+
+	return { Mesh = self.Mesh, Material = myMaterial }
+end
+
+function ENT:Draw()
+	-- Draw the entity's model normally, this will internally call ENT:GetRenderMesh()
+	self:DrawModel()
+end
+	</code>
+
+</example>

@@ -1,0 +1,7 @@
+<function name="GetWeight" parent="Weapon" type="classfunc">
+	<description>Returns the "weight" of the weapon, which is used when deciding which <page>Weapon</page> is better by the engine.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The weapon "weight".</ret>
+	</rets>
+</function>

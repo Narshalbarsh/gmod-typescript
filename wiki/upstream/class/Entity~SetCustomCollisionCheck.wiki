@@ -1,0 +1,12 @@
+<function name="SetCustomCollisionCheck" parent="Entity" type="classfunc">
+	<description>Marks the entity to call <page>GM:ShouldCollide</page>. Not to be confused with <page>Entity:EnableCustomCollisions</page>.
+		<note>
+			Make sure to use <page>Entity:CollisionRulesChanged</page> after changing this value.
+			Otherwise it can cause crashes.
+		</note>
+</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="enable" type="boolean">Enable or disable the custom collision check</arg>
+	</args>
+</function>

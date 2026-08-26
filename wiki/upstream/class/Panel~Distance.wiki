@@ -1,0 +1,11 @@
+<function name="Distance" parent="Panel" type="classfunc">
+	<file line="422-L428">lua/includes/extensions/client/panel.lua</file>
+	<description>Returns the linear distance from the center of this panel object and another. **Both panels must have the same parent for this function to work properly.**</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="tgtPanel" type="Panel">The target object with which to compare position.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The linear (straight-line) distance between the center of the two objects.</ret>
+	</rets>
+</function>

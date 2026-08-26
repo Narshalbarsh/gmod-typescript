@@ -1,0 +1,15 @@
+<function name="AddFolder" parent="DTree_Node" type="panelfunc">
+	<description>A helper function that adds a new node and calls to <page>DTree_Node:MakeFolder</page> on it.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="name" type="string">The name of the new node</arg>
+		<arg name="folder" type="string">The folder in the filesystem to use, relative to the garrysmod/ folder.</arg>
+		<arg name="path" type="string">The path to search in. See <page>File Search Paths</page></arg>
+		<arg name="showFiles" type="boolean" default="false">Should files be added as nodes (true) or folders only (false)</arg>
+		<arg name="wildcard" type="string" default="*">The wildcard to use when searching for files.</arg>
+		<arg name="bDontForceExpandable" type="boolean" default="false"></arg>
+	</args>
+	<rets>
+		<ret type="DTree_Node">The created <page>DTree_Node</page></ret>
+	</rets>
+</function>

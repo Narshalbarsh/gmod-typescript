@@ -1,0 +1,12 @@
+<function name="GetSelectedLine" parent="DListView" type="panelfunc">
+	<description>
+Gets the currently selected <page>DListView_Line</page> index.
+
+If <page>DListView:SetMultiSelect</page> is set to true, only the first line of all selected lines will be returned. Use <page>DListView:GetSelected</page> instead to get all of the selected lines.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The index of the currently selected line.</ret>
+		<ret name="" type="Panel">The currently selected <page>DListView_Line</page>.</ret>
+	</rets>
+</function>

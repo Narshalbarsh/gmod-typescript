@@ -1,0 +1,13 @@
+<function name="GravGunOnPickedUp" parent="GM" type="hook">
+	<description>Called when an entity is picked up by a gravity gun.
+
+See <page>GM:OnPlayerPhysicsPickup</page> for the player `+use` pickup variant.<br/>
+See <page>GM:OnPhysgunPickup</page> for the Physics Gun pickup variant.
+</description>
+	<realm>Server</realm>
+	<file line="25-L26">gamemodes/base/gamemode/gravitygun.lua</file>
+	<args>
+		<arg name="ply" type="Player">The player wielding the gravity gun</arg>
+		<arg name="ent" type="Entity">The entity that has been picked up by the gravity gun</arg>
+	</args>
+</function>

@@ -1,0 +1,11 @@
+<function name="SetLocalVelocity" parent="Entity" type="classfunc">
+	<description>
+Sets the entity's local velocity which is their velocity due to movement in the world from forces such as gravity. Does not include velocity from entity-on-entity collision or other world movement.
+
+<warning>Same as <page>Entity:SetAbsVelocity</page>, but clamps the given velocity, and is not recommended to be used because of that.</warning>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="velocity" type="Vector">The new velocity to set.</arg>
+	</args>
+</function>

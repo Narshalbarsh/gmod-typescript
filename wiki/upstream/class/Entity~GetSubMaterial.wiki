@@ -1,0 +1,16 @@
+<function name="GetSubMaterial" parent="Entity" type="classfunc">
+	<description>
+Returns the material override for the given index. 
+
+Returns "" if no material override exists. Use <page>Entity:GetMaterials</page> to list it's default materials.
+
+<bug issue="3362">The server's value takes priority on the client.</bug>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="index" type="number">The index of the sub material. Acceptable values are from 0 to 31.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The material that overrides this index, if any.</ret>
+	</rets>
+</function>

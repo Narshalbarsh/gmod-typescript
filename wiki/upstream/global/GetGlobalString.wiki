@@ -1,0 +1,17 @@
+<function name="GetGlobalString" parent="Global" type="libraryfunc">
+	<description>Returns a string that is shared between the server and all clients.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="index" type="string">The unique index to identify the global value with.</arg>
+		<arg name="default" type="string" default="">The value to return if the global value is not set.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The global value, or the default if the global value is not set.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints the current server name if set, otherwise "Garry's Mod 13".</description>
+	<code>print( GetGlobalString("ServerName", "Garry's Mod 13") )</code>
+
+</example>

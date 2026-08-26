@@ -1,0 +1,7 @@
+<function name="SetWide" parent="Panel" type="classfunc">
+	<description>Sets width of a panel. An alias of <page>Panel:SetWidth</page>.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="width" type="number">Desired width to set</arg>
+	</args>
+</function>

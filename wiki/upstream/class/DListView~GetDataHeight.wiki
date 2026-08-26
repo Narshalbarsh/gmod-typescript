@@ -1,0 +1,11 @@
+<function name="GetDataHeight" parent="DListView" type="panelfunc">
+	<description>
+Returns the height of the data of the <page>DListView</page>.
+
+See also <page>DListView:SetDataHeight</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The height of the data of the <page>DListView</page>.</ret>
+	</rets>
+</function>

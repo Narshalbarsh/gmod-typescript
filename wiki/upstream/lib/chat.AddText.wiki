@@ -1,0 +1,39 @@
+<function name="AddText" parent="chat" type="libraryfunc">
+	<description>Adds text to the local player's chat box (which only they can read).</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="arguments" type="vararg">
+The message to be added to the chat box.  
+
+Arguments can be:
+* <page>Color</page> - Will set the color for all following strings until the next Color argument.
+* <page>string</page> - Text to be added to the chat box.
+* <page>Player</page> - Adds the name of the player in the player's team color to the chat box.
+* <page>any</page> - Any other type, such as <page>Entity</page> will be converted to string and added as text.
+
+These argument types can be combined to create formatted messages.
+		</arg>
+	</args>
+</function>
+
+<example>
+	<description>Prints the player's name and current weapon to their chat area.</description>
+	<code>
+local ply = LocalPlayer()
+chat.AddText(
+	-- Sets the text color of upcoming strings to blue
+	Color( 100, 100, 255 ),
+	-- A Player whose name will be automatically colored according to their team color
+	-- Note: this will ignore the string color set on the line above
+	ply,
+	-- A string which will be colored blue because of the text color set above
+	", you are holding ",
+	-- Sets the text color to green
+	Color( 100, 255, 100 ),
+	-- A string which will be colored green
+	ply:GetActiveWeapon():GetClass()
+)
+	</code>
+	<output><image src="chat_AddText.png" alt="center"/></output>
+
+</example>

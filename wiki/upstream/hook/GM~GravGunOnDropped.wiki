@@ -1,0 +1,12 @@
+<function name="GravGunOnDropped" parent="GM" type="hook">
+	<description>Called when an entity is released by a gravity gun.
+
+See <page>GM:PhysgunDrop</page> for the Physics Gun drop variant.
+</description>
+	<realm>Server</realm>
+	<file line="33-L34">gamemodes/base/gamemode/gravitygun.lua</file>
+	<args>
+		<arg name="ply" type="Player">Player who is wielding the gravity gun</arg>
+		<arg name="ent" type="Entity">The entity that has been dropped</arg>
+	</args>
+</function>

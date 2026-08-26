@@ -1,0 +1,27 @@
+<function name="GetPreferredCarryAngles" parent="GM" type="hook">
+	<description>
+Called to determine preferred carry angles for the entity. It works for both, +use pickup and gravity gun pickup.
+
+<warning>Due to nature of the gravity gun coding in multiplayer, this hook **MAY** seem to not work ( but rest assured it does ), due to clientside prediction not knowing the carry angles. The +use pickup doesn't present this issue as it doesn't predict the player carrying the object clientside ( as you may notice by the prop lagging behind in multiplayer )</warning>
+
+<note>This hook can **not** override preferred carry angles of props such as the sawblade and the harpoon.</note>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ent" type="Entity">The entity to generate carry angles for</arg>
+		<arg name="ply" type="Player">The player who is holding the object</arg>
+	</args>
+	<rets>
+		<ret name="" type="Angle">The preferred carry angles for the entity.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Makes all pickupable entities default to Angle( 0, 0, 0 ) relatively to players aim direction.</description>
+	<code>
+hook.Add( "GetPreferredCarryAngles", "MyPreferredCarryAngles", function( ent )
+	return Angle( 0, 0, 0 )
+end )
+	</code>
+
+</example>

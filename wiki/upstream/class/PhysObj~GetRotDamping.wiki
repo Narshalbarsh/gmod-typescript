@@ -1,0 +1,7 @@
+<function name="GetRotDamping" parent="PhysObj" type="classfunc">
+	<description>Returns the rotation damping of the physics object.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The rotation damping</ret>
+	</rets>
+</function>

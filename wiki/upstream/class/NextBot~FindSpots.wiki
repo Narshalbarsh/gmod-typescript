@@ -1,0 +1,18 @@
+<function name="FindSpots" parent="NextBot" type="classfunc">
+	<description>Returns a table of hiding spots.</description>
+	<realm>Server</realm>
+	<file line="189">gamemodes/base/entities/entities/base_nextbot/sv_nextbot.lua</file>
+	<args>
+		<arg name="specs" type="table">This table should contain the search info.
+* <page>string</page> type - The type (optional, only `hiding` supported)
+* <page>Vector</page> pos - the position to search.
+* <page>number</page> radius - the radius to search.
+* <page>number</page> stepup - the highest step to step up.
+* <page>number</page> stepdown - the highest we can step down without being hurt.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">An unsorted table of tables containing:
+* <page>Vector</page> vector - The position of the hiding spot
+* <page>number</page> distance - the distance to that position</ret>
+	</rets>
+</function>

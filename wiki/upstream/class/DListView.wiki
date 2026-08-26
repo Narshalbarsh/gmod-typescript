@@ -1,0 +1,44 @@
+<panel>
+	<parent>DPanel</parent>
+	<preview>dlistview.png</preview>
+	<realm>Client and Menu</realm>
+	<file line="">lua/vgui/dlistview.lua</file>
+	<description>A data view with rows and columns.</description>
+</panel>
+
+<example>
+	<description>
+Creates a DListView and populates it with two columns and three items, only one of which can be selected at a time.
+
+Selecting a row will print a console message containing the text of the row and its index.
+	</description>
+	<code>
+local f = vgui.Create( "DFrame" )
+f:SetSize( 500, 500 )
+f:Center()
+f:MakePopup()
+
+local AppList = vgui.Create( "DListView", f )
+AppList:Dock( FILL )
+AppList:SetMultiSelect( false )
+AppList:AddColumn( "Application" )
+AppList:AddColumn( "Size" )
+
+AppList:AddLine( "PesterChum", "2mb" )
+AppList:AddLine( "Lumitorch", "512kb" )
+AppList:AddLine( "Troj-on", "661kb" )
+
+AppList.OnRowSelected = function( lst, index, pnl )
+	print( "Selected " .. pnl:GetColumnText( 1 ) .. " ( " .. pnl:GetColumnText( 2 ) .. " ) at index " .. index )
+end
+	</code>
+	<output>
+<image src="dlistview.png" />
+
+```
+Selected PesterChum ( 2mb ) at index 1
+Selected Lumitorch ( 512kb ) at index 2
+Selected Troj-on ( 661kb ) at index 3
+```
+	</output>
+</example>

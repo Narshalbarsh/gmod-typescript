@@ -1,0 +1,40 @@
+<cat>gameevent</cat>
+<title>client_beginconnect</title>
+
+<structure>
+	<realm>Menu</realm>
+	<description>
+		Called when trying to connect to a Server.
+
+		<note>
+			This is only available in the Menu state because this is called before the Client State has even started.  
+			When this is event is called, it will reset <page>engine.TickCount</page> back to **1**. 
+		</note>
+	</description>
+	<fields>
+		<item type="string" name="address">The Server address. Will be `localhost:27015` in hosted games.</item>
+		<item type="number" name="ip">The IP of the Server. Will be `16777343` in hosted games. Use the `address` instead of this.</item>
+		<item type="number" name="port">The port of the Server. Will be `27015` in hosted games.</item>
+		<item type="string" name="source">The Source why the client is trying to connect to the Server.
+			<note>If you use `connect [IP:Port]` to connect to a Server, this will be an empty string.</note>
+		</item>
+	</fields>
+</structure>
+
+# Examples
+<example>
+	<description>This is a basic template with the purpose of including all arguments / table variables to make it easily known which values can be accessed. [This](https://github.com/RaphaelIT7/gmod-gameevent) Binary Module has been used.</description>
+	<code>
+require("gameevent") -- using a Binary Module because the Menu State doesn't has gameevent.Listen
+gameevent.Listen( "client_beginconnect" )
+hook.Add( "client_beginconnect", "client_beginconnect_example", function( data )
+	local address = data.address		// The Server address.
+	local ip = data.ip					// The Server IP. Use the address instead!
+	local port = data.port				// The Server Port.
+	local source = data.source			// The Source, why the client is connecting to the Server.
+
+	// Called when trying to connect to aServer.
+	
+end )
+	</code>
+</example>

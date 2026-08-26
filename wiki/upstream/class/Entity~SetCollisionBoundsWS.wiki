@@ -1,0 +1,10 @@
+<function name="SetCollisionBoundsWS" parent="Entity" type="classfunc">
+	<description>
+A convenience function that sets the collision bounds for the entity in world space coordinates by transforming given vectors to entity's local space and passing them to <page>Entity:SetCollisionBounds</page>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="vec1" type="Vector">The first vector of the bounds.</arg>
+		<arg name="vec2" type="Vector">The second vector of the bounds.</arg>
+	</args>
+</function>

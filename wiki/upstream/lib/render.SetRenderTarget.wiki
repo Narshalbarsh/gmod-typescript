@@ -1,0 +1,7 @@
+<function name="SetRenderTarget" parent="render" type="libraryfunc">
+	<description>Sets the render target to the specified rt.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="texture" type="ITexture">The new render target to be used.</arg>
+	</args>
+</function>

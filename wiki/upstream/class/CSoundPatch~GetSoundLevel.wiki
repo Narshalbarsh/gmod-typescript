@@ -1,0 +1,7 @@
+<function name="GetSoundLevel" parent="CSoundPatch" type="classfunc">
+	<description>Returns the current sound level.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The current sound level, see <page>Enums/SNDLVL</page>.</ret>
+	</rets>
+</function>

@@ -1,0 +1,10 @@
+<function name="GetTextColor" parent="surface" type="libraryfunc">
+	<description>
+Returns the current color affecting text draw operations.
+
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="Color">The color that text drawing operations will use.</ret>
+	</rets>
+</function>

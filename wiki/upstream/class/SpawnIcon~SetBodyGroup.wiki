@@ -1,0 +1,20 @@
+<function name="SetBodyGroup" parent="SpawnIcon" type="panelfunc">
+	<description>
+		<internal>This is done automatically by SpawnIcon. You do not need to call this. Doing so may cause unforeseen consequences.</internal>
+
+		Sets the active <page text="Sub Model ID">Structures/BodyGroupData#submodels</page> for the given <page text="Body Group 		ID">Structures/BodyGroupData#id</page>, so it can be retrieved with <page>SpawnIcon:GetBodyGroup</page>.  
+
+		Use <page>Panel:SetModel</page> instead.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="bodyGroupId" type="number">
+			The Body Group ID to set the active Sub Model ID for.  
+			Body Group IDs start at `0`.
+		</arg>
+		<arg name="activeSubModelId" type="number">
+			The Sub Model ID to set as active.  
+			Sub Model IDs start at `0`.
+		</arg>
+	</args>
+</function>

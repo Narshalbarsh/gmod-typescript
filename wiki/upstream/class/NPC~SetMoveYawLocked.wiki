@@ -1,0 +1,8 @@
+<function name="SetMoveYawLocked" parent="NPC" type="classfunc">
+	<description>Sets whether the current movement should locked on the Yaw axis or not.</description>
+	<realm>Server</realm>
+	<added>2021.03.31</added>
+	<args>
+		<arg name="lock" type="boolean">Whether the movement should yaw locked or not.</arg>
+	</args>
+</function>

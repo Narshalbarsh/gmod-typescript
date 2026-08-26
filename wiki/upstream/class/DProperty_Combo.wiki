@@ -1,0 +1,39 @@
+<title>DProperty_Combo</title>
+<panel>
+	<parent>DProperty_Generic</parent>
+	<realm>Client</realm>
+	<preview>DProperty_Combo_preview.png</preview>
+	<file line="">lua/vgui/prop_combo.lua</file>
+	<description>
+		<internal></internal>
+
+		<page>DComboBox</page> control for a <page>DProperties</page> panel.
+	</description>
+</panel>
+
+
+<example>
+	<code>
+local Panel = vgui.Create( "DFrame" )
+Panel:SetSize( 500, 500 )
+Panel:MakePopup()
+
+local DP = vgui.Create( "DProperties", Panel )
+DP:Dock( FILL )
+
+local choice = DP:CreateRow( "Choices", "Combo #1: Default" )
+choice:Setup( "Combo", {} )
+choice:AddChoice( "Allow", true )
+choice:AddChoice( "Disallow", false )
+
+local choice = DP:CreateRow( "Choices", "Combo #2: Custom default text" )
+choice:Setup( "Combo", { text = "Select type..." } )
+choice:AddChoice( "Table", {} )
+choice:AddChoice( "Function", function() end )
+choice:AddChoice( "String", "Hello world" )
+choice.DataChanged = function( self, data )
+    print( "You selected: ", data )
+end
+	</code>
+
+</example>

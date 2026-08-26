@@ -1,0 +1,11 @@
+<function name="WritePlayer" parent="net" type="libraryfunc">
+	<description>Appends a player entity to the current net message using its <page>Entity:EntIndex</page>. This saves a small amount of network bandwidth over <page>net.WriteEntity</page>.
+
+See <page>net.ReadPlayer</page> for the function to read the entity.</description>
+	<realm>Shared</realm>
+	<file line="76-L87">lua/includes/extensions/net.lua</file>
+	<added>2023.10.06</added>
+	<args>
+		<arg name="ply" type="Player">The player to be sent.</arg>
+	</args>
+</function>

@@ -1,0 +1,3 @@
+<type name="physenv" category="libraryfunc" is="library">
+	<summary>The physenv library allows you to control the physics environment created by the engine, and lets you modify constants such as gravity and maximum velocity.</summary>
+</type>

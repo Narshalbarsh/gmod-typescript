@@ -1,0 +1,7 @@
+<function name="SetCaretPos" parent="Panel" type="classfunc">
+	<description>Sets the position of the caret (or text cursor) in a text-based panel object.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="offset" type="number">Caret position/offset from the start of text. A value of `0` places the caret before the first character.</arg>
+	</args>
+</function>

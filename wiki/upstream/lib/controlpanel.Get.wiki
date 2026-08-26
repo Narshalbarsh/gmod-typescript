@@ -1,0 +1,19 @@
+<function name="Get" parent="controlpanel" type="libraryfunc">
+	<description>Returns (or creates if not exists) a control panel.</description>
+	<realm>Client</realm>
+	<file line="21-L41">lua/includes/modules/controlpanel.lua</file>
+	<args>
+		<arg name="name" type="string">The name of the panel. For normal tools this will be equal to `TOOL.Mode` (the tool's filename without the extension).
+
+When you create a tool/option via <page>spawnmenu.AddToolMenuOption</page>, the internal control panel name is `TOOL.Mode .. "_" .. tool_tab:lower() .. "_" .. tool_category:lower()`.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Panel">The <page>ControlPanel</page> panel.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Get the Contextmenus panel for the weld tool.</description>
+	<code>local ControlPanel = controlpanel.Get( "Weld" )</code>
+
+</example>

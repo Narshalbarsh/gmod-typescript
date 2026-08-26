@@ -1,0 +1,34 @@
+<function name="OnPlayerChat" parent="GM" type="hook">
+	<description>
+Called whenever a player sends a chat message. For the serverside equivalent, see <page>GM:PlayerSay</page>.
+<note>The input (or suppression) of this hook is based on the output from <page>GM:PlayerSay</page>. Chat events suppressed serverside do not call this hook.</note>
+	</description>
+	<realm>Client</realm>
+	<file line="142-L182">gamemodes/base/gamemode/cl_init.lua</file>
+	<args>
+		<arg name="ply" type="Player">The player</arg>
+		<arg name="text" type="string">The message's text</arg>
+		<arg name="teamChat" type="boolean">Is the player typing in team chat?</arg>
+		<arg name="isDead" type="boolean">Is the player dead?</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Should the message be suppressed?</ret>
+	</rets>
+</function>
+
+<example>
+	<description>How you could create a clientside only chat command.</description>
+	<code>
+hook.Add( "OnPlayerChat", "HelloCommand", function( ply, strText, bTeam, bDead ) 
+    if ( ply != LocalPlayer() ) then return end
+
+	strText = string.lower( strText ) -- make the string lower case
+
+	if ( strText == "/hello" ) then -- if the player typed /hello then
+		print( "Hello world!" ) -- print Hello world to the console
+		return true -- this suppresses the message from being shown
+	end
+end )
+	</code>
+	<output>Prints `Hello world!` to the console when you type `/hello` in the chat.</output>
+</example>

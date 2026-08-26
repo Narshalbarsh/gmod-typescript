@@ -1,0 +1,5 @@
+<type name="bf_read" category="classfunc" is="class">
+	<summary>This is the object passed to <page>usermessage.Hook</page> when a message is received. It contains each value stored in the message in sequential order. You should read values from it in the order you wrote them.
+<deprecated>You should be using <page>net</page> instead</deprecated>
+</summary>
+</type>

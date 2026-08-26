@@ -1,0 +1,11 @@
+<function name="UserID" parent="Player" type="classfunc">
+	<description>
+Returns the player's user ID. This number will always be unique, but will reset if the player reconnects. (Always increments for each connecting player)
+
+You can use <page>Global.Player</page> global function to get a player by their user ID.
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The player's user ID</ret>
+	</rets>
+</function>

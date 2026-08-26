@@ -1,0 +1,38 @@
+<cat>gameevent</cat>
+<title>hltv_fixed</title>
+
+<structure>
+	<realm>Client and Menu</realm>
+	<description>
+			Called when the fixed view changes.
+	</description>
+	<fields>
+		<item type="number" name="posx">The X position.</item>
+		<item type="number" name="posy">The Y position.</item>
+		<item type="number" name="posz">The Z position.</item>
+		<item type="number" name="phi">The phi.</item>
+		<item type="number" name="target">The <page text="EntIndex">Entity:EntIndex</page> of the target.</item>
+		<item type="number" name="theta">The theta.</item>
+		<item type="number" name="fov">The FOV.</item>
+	</fields>
+</structure>
+
+# Examples
+<example>
+	<description>This is a basic template with the purpose of including all arguments / table variables to make it easily known which values can be accessed.</description>
+	<code>
+gameevent.Listen( "hltv_fixed" )
+hook.Add( "hltv_fixed", "hltv_fixed_example", function( data )
+	local posx = data.posx		-- The X position
+	local posy = data.posy		-- The Y position
+	local posz = data.posz		-- Z position
+	local phi = data.phi		-- The phi
+	local target = data.target	-- The Entity:EntIndex() of our Target
+	local theta = data.theta	-- The theta
+	local fov = data.fov		-- The FOV
+
+	-- Called when the fixed view changes
+	
+end )
+	</code>
+</example>

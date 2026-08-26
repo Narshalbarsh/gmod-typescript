@@ -1,0 +1,7 @@
+<function name="GetColor" parent="DSprite" type="panelfunc">
+	<description>Gets the color the sprite is using as a modifier.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="Color">The <page>Color</page> being used.</ret>
+	</rets>
+</function>

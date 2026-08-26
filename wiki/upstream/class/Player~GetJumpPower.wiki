@@ -1,0 +1,14 @@
+<function name="GetJumpPower" parent="Player" type="classfunc">
+	<description>Returns the jump power of the player</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">Jump power</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints 1st player's jump power</description>
+	<code>print( Entity( 1 ):GetJumpPower() )</code>
+	<output>200</output>
+
+</example>

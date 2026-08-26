@@ -1,0 +1,8 @@
+<function name="SetMagnitude" parent="CEffectData" type="classfunc">
+	<description>Sets the magnitude of the effect.
+<note>Internally stored as a float with 12 bit precision for networking purposes, limited to range of 0-1023.</note></description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="magnitude" type="number">The magnitude of the effect.</arg>
+	</args>
+</function>

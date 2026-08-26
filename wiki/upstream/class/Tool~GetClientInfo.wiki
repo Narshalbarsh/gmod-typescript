@@ -1,0 +1,11 @@
+<function name="GetClientInfo" parent="Tool" type="classfunc">
+	<description>Attempts to grab a clientside tool <page>ConVar</page> as a <page>string</page>.</description>
+	<realm>Shared</realm>
+	<file line="67">gamemodes/sandbox/entities/weapons/gmod_tool/stool.lua</file>
+	<args>
+		<arg name="name" type="string">Name of the convar to retrieve. The function will automatically add the `mytoolfilename_` part to it.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The value of the requested <page>ConVar</page>.</ret>
+	</rets>
+</function>

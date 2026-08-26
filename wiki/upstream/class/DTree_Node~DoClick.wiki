@@ -1,0 +1,11 @@
+<function name="DoClick" parent="DTree_Node" type="panelhook">
+	<description>
+Called when the node is clicked.
+
+See also <page>DTree_Node:DoRightClick</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Return true to prevent DoClick from being called on parent nodes or the <page>DTree</page> itself.</ret>
+	</rets>
+</function>

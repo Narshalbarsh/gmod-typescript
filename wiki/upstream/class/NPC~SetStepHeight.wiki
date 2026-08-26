@@ -1,0 +1,12 @@
+<function name="SetStepHeight" parent="NPC" type="classfunc">
+	<description>Sets the SNPC step height.
+
+<note>This only works for <page text="scripted NPCs">Scripted_Entities</page>.</note>
+</description>
+	<realm>Server</realm>
+	<added>2024.05.14</added>
+
+	<args>
+		<arg name="height" type="number">The new step height. Default is 18 Hammer Units.</arg>
+	</args>
+</function>

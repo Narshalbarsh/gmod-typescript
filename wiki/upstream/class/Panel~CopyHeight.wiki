@@ -1,0 +1,8 @@
+<function name="CopyHeight" parent="Panel" type="classfunc">
+	<file line="108-L110">lua/includes/extensions/client/panel.lua</file>
+	<description>Copies the height of the panel.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="base" type="Panel">Panel to copy the height from.</arg>
+	</args>
+</function>

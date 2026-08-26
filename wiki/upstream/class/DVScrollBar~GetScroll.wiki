@@ -1,0 +1,7 @@
+<function name="GetScroll" parent="DVScrollBar" type="panelfunc">
+	<description>Returns the amount of scroll level from the top in pixels</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The amount of scroll level from the top</ret>
+	</rets>
+</function>

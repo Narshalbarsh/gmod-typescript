@@ -1,0 +1,8 @@
+<function name="SetupUI" parent="undo" type="libraryfunc">
+	<description>
+<internal></internal>
+Adds a hook (CPanelPaint) to the control panel paint function so we can determine when it is being drawn.
+	</description>
+	<realm>Client</realm>
+	<file line="149-L160">lua/includes/modules/undo.lua</file>
+</function>

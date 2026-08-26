@@ -1,0 +1,26 @@
+<function name="MsgN" parent="Global" type="libraryfunc">
+	<description>
+Same as <page>Global.print</page>, except it concatinates the arguments without inserting any whitespace in between them.
+
+See also <page>Global.Msg</page>, which doesn't add a newline (`"\n"`) at the end.
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="args" type="vararg">List of values to print. They can be of any type and will be converted to strings with <page>Global.tostring</page>.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Prints "Hello, World!" in two lines to the console.</description>
+	<code>
+MsgN("Hello,")
+MsgN("World!")
+	</code>
+	<output>
+```
+Hello,
+World!
+```
+	</output>
+
+</example>

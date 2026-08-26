@@ -1,0 +1,12 @@
+<panel>
+	<parent>DLabel</parent>
+	<realm>Client and Menu</realm>
+	<file line="">lua/vgui/dtooltip.lua</file>
+	<description>
+		<internal></internal>
+
+		The panel used internally for tooltips. See <page>Panel:SetTooltip</page> for more information.
+
+		<upload src="70c/8de029dfe107ffc.gif" size="12567" name="October03-1797-gmod.gif" />
+	</description>
+</panel>

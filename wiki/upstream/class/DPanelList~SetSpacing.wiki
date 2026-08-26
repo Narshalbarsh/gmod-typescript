@@ -1,0 +1,7 @@
+<function name="SetSpacing" parent="DPanelList" type="panelfunc">
+	<description>Sets distance between list items</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="Distance" type="number">Distance between panels</arg>
+	</args>
+</function>

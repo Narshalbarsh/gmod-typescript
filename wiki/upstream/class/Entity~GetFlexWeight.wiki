@@ -1,0 +1,10 @@
+<function name="GetFlexWeight" parent="Entity" type="classfunc">
+	<description>Returns current weight ( value ) of given flex controller. Please see <page>Entity:SetFlexWeight</page> regarding limitations.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="flex" type="number">The ID of the flex to get weight of</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The current weight of the flex, or 0 if out of bounds.</ret>
+	</rets>
+</function>

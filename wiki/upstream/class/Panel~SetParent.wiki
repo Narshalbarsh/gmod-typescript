@@ -1,0 +1,9 @@
+<function name="SetParent" parent="Panel" type="classfunc">
+	<description>Sets the parent of the panel.
+	<note>Panels parented to the context menu will not be clickable unless <page>Panel:SetMouseInputEnabled</page> and <page text="Panel:SetKeyboardInputEnabled">Panel:SetKeyboardInputEnabled(lowercase)</page> are both true or <page>Panel:MakePopup</page> has been called. If you want the panel to have mouse input but you do not want to prevent players from moving, set <page text="Panel:SetKeyboardInputEnabled">Panel:SetKeyboardInputEnabled(lowercase)</page> to false immediately after calling <page>Panel:MakePopup</page>.</note>
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="parent" type="Panel">The new parent of the panel.</arg>
+	</args>
+</function>

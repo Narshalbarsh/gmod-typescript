@@ -1,0 +1,11 @@
+<function name="PopulateChildrenAndSelf" parent="DTree_Node" type="panelfunc">
+	<description>
+<internal></internal>
+
+Called automatically from <page>DTree_Node:SetExpanded</page> (or when user manually expands the node) to populate the node with sub-nodes from the filesystem if this was enabled via <page>DTree_Node:MakeFolder</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="expand" type="boolean">Expand self once population process is finished.</arg>
+	</args>
+</function>

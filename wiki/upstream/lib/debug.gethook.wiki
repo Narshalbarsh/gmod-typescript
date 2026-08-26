@@ -1,0 +1,15 @@
+<function name="gethook" parent="debug" type="libraryfunc">
+	<description>
+<deprecated></deprecated>
+
+Returns the current hook settings of the passed thread. The thread argument can be omitted. This is completely different to gamemode hooks. More information on hooks can be found at http://www.lua.org/pil/23.2.html. This function will simply return the function, mask, and count of the last called <page>debug.sethook</page>.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="thread" type="thread" default="nil">Which thread to retrieve it's hook from, doesn't seem to actually work.</arg>
+	</args>
+	<rets>
+		<ret name="" type="function">Hook function.</ret>
+		<ret name="" type="string">Hook mask. This is reversed of the <page>debug.sethook</page> mask ("clr" would be "rlc").</ret>
+		<ret name="" type="number">Hook count.</ret>
+	</rets>
+</function>

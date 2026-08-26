@@ -1,0 +1,12 @@
+<function name="GetSize" parent="Panel" type="classfunc">
+	<description>
+Returns the size of the panel.
+
+If you require both the panel's position and size, consider using <page>Panel:GetBounds</page> instead.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The panel's width. (<page>Panel:GetWide</page>)</ret>
+		<ret name="" type="number">The panel's height (<page>Panel:GetTall</page>)</ret>
+	</rets>
+</function>

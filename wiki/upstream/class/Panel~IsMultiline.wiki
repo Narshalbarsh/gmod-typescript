@@ -1,0 +1,7 @@
+<function name="IsMultiline" parent="Panel" type="classfunc">
+	<description>Determines whether or not a <page>TextEntry</page> panel is in multi-line mode. This is set with <page>Panel:SetMultiline</page>.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the object is in multi-line mode or not.</ret>
+	</rets>
+</function>

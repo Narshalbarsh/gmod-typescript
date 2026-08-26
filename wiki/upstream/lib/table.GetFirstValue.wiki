@@ -1,0 +1,16 @@
+<function name="GetFirstValue" parent="table" type="libraryfunc">
+	<description>
+<deprecated>Instead, index the table with a key of 1.
+
+Non-numerically indexed tables are not ordered and do not have a first key.</deprecated>
+Returns the first value found in the given table
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="644-L647">lua/includes/extensions/table.lua</file>
+	<args>
+		<arg name="tab" type="table">Table to retrieve value from</arg>
+	</args>
+	<rets>
+		<ret name="" type="any">Value</ret>
+	</rets>
+</function>

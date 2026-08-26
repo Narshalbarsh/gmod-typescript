@@ -1,0 +1,117 @@
+# Angle
+
+<type name="Angle" category="classfunc" is="class">
+	<summary>
+
+		List of all possible functions to manipulate angles.
+
+		Created by <page>Global.Angle</page>.
+
+		| Type                | Name                                 | Description                      |
+		| ------------------- | ------------------------------------ | -------------------------------- |
+		| <page>number</page> | `p` or `pitch` or `x` or `1` | The pitch component of the angle. |
+		| <page>number</page> | `y` or `yaw` or `2` | The yaw component of the angle. |
+		| <page>number</page> | `r` or `roll`  or `z` or `3` | The roll  component of the angle. |
+
+		Metamethod | Second Operand | Description
+		---------- | -------------- | -----------
+		`__add` | <page>Angle</page> | Returns new <page>Angle</page> with the result of addition.
+		`__div` | <page>number</page> | Returns new <page>Angle</page> with the result of division.
+		`__eq` | <page>any</page> | Compares 2 operands, if they both are <page>Angle</page>, compares each individual component. <br/>Doesn't normalize the angles (360 is not equal to 0).
+		`__index` | <page>number</page> or <page>string</page> | Gets the component of the <page>Angle</page>. Returns a <page>number</page>.
+		`__mul` | <page>number</page> | Returns new <page>Angle</page> with the result of multiplication.
+		`__newindex` | <page>number</page> or <page>string</page> | Sets the component of the <page>Angle</page>. Accepts <page>number</page> and <page>string</page>.
+		`__sub` | <page>Angle</page> | Returns new <page>Angle</page> with the result of subtraction.
+		`__tostring` | | Returns `p y r`.
+		`__unm` | | Returns new <page>Angle</page> with the result of negation.
+
+	</summary>
+</type>
+
+<br/>
+
+---
+
+<br/>
+
+<example name = 'Shorthand Angular Index' >
+
+	<description>
+
+		Indexing by angular single-character component.
+
+	</description>
+
+	<code>
+
+local a = Angle( 1, 2, 3 )
+print( a.p, a.y, a.r )
+
+	</code>
+
+	<output>1 2 3</output>
+
+</example>
+
+<br/>
+
+<example name = 'Named Angular Index' >
+
+	<description>
+
+		Indexing by angular named component.
+
+	</description>
+
+	<code>
+
+local a = Angle( 1, 2, 3 )
+print( a.pitch, a.yaw, a.roll )
+
+	</code>
+
+	<output>1 2 3</output>
+
+</example>
+
+<br/>
+
+<example name = 'Vector Index' >
+
+	<description>
+
+		Indexing by vector single-character component.
+
+	</description>
+
+	<code>
+
+local a = Angle( 1, 2, 3 )
+print( a.x, a.y, a.z )
+
+	</code>
+
+	<output>1 2 3</output>
+
+</example>
+
+<br/>
+
+<example name = 'Numeric Index' >
+
+	<description>
+
+		Indexing by number (most efficient!).
+
+	</description>
+
+	<code>
+
+local a = Angle( 1, 2, 3 )
+print( a[1], a[2], a[3] )
+
+	</code>
+
+	<output>1 2 3</output>
+
+</example>

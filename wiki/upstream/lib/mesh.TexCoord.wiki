@@ -1,0 +1,15 @@
+<function name="TexCoord" parent="mesh" type="libraryfunc">
+	<description>
+Sets the texture coordinates for the next vertex for the current mesh. (See <page>mesh.Begin</page>)
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="set" type="number">The texture coordinate set, 0 to 7.
+
+Non-zero values require the currently bound material to support it. For example, any `LightmappedGeneric` material supports sets 1 and 2 (lightmap texture coordinates and bump map texture coords?).</arg>
+		<arg name="s" type="number">S coordinate.</arg>
+		<arg name="t" type="number">T coordinate. Will be optional in the next update.</arg>
+		<arg name="u" type="number" default="nil" added="2025.08.25">U coordinate.</arg>
+		<arg name="v" type="number" default="nil" added="2025.08.25">V coordinate.</arg>
+	</args>
+</function>

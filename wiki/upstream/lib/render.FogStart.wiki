@@ -1,0 +1,8 @@
+<function name="FogStart" parent="render" type="libraryfunc">
+	<description>Sets the distance at which the fog starts showing up.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="fogStart" type="number">The distance at which the fog starts showing up.
+<note>If used in <page>GM:SetupSkyboxFog</page>, this value **must** be scaled by the first argument of the hook</note></arg>
+	</args>
+</function>

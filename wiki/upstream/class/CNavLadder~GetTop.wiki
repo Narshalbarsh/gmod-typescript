@@ -1,0 +1,7 @@
+<function name="GetTop" parent="CNavLadder" type="classfunc">
+	<description>Returns the topmost position of the ladder.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="Vector">The topmost position of the ladder.</ret>
+	</rets>
+</function>

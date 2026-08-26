@@ -1,0 +1,15 @@
+<function name="PlayerEnteredVehicle" parent="GM" type="hook">
+	<description>
+Called when a player enters a vehicle.
+
+Called just after <page>GM:CanPlayerEnterVehicle</page>.
+
+See also <page>GM:PlayerLeaveVehicle</page>.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ply" type="Player">Player who entered vehicle.</arg>
+		<arg name="veh" type="Vehicle">Vehicle the player entered.</arg>
+		<arg name="role" type="number">The seat number.</arg>
+	</args>
+</function>

@@ -1,0 +1,22 @@
+<panel>
+	<parent>DLabel</parent>
+	<realm>Client</realm>
+	<file line="">lua/vgui/dlabeleditable.lua</file>
+	<description>
+		An editable <page>DLabel</page>, double click on it to edit.
+
+		This is used in the spawnmenu spawnlist headers.
+	</description>
+</panel>
+
+
+<example>
+	<description>Creates a DLabelEditable.</description>
+	<code>
+local EditLabel = vgui.Create( "DLabelEditable" )
+EditLabel:SetPos( 40, 40 )
+EditLabel:SetSize( 70, 30)
+EditLabel:SetText( "Hello, world!" )
+	</code>
+
+</example>

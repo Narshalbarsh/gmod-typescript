@@ -1,0 +1,17 @@
+<function name="fmod" parent="math" type="libraryfunc">
+	<description>
+Returns the modulus of the specified values.
+
+While this is similar to the `%` operator, **it will return a negative value if the first argument is negative**, whereas the % operator will return a **positive** value **even if the first operand is negative**.
+
+This function is also slower than the `%` operator.
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="base" type="number">The base value.</arg>
+		<arg name="modulator" type="number">The modulator.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The calculated modulus.</ret>
+	</rets>
+</function>

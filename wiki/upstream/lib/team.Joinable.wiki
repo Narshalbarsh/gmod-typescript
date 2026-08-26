@@ -1,0 +1,11 @@
+<function name="Joinable" parent="team" type="libraryfunc">
+	<description>Returns if a team is joinable or not. This is set in <page>team.SetUp</page>.</description>
+	<file line="47-L52">lua/includes/modules/team.lua</file>
+	<realm>Shared</realm>
+	<args>
+		<arg name="index" type="number">The index of the team.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">True if the team is joinable. False otherwise.</ret>
+	</rets>
+</function>

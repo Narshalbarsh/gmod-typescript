@@ -1,0 +1,10 @@
+<function name="TaskFinished" parent="ENTITY" type="hook">
+	<description>Returns true if the current running <page>Task</page> is finished. 
+Tasks finish whenever <page>NPC:TaskComplete</page> is called, which sets `TASKSTATUS_COMPLETE` for all NPCs, also sets `self.bTaskComplete` for `ai` type [SENTs](Scripted_Entities).
+<note>This hook only exists for `ai` type [SENTs](Scripted_Entities).</note>
+</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="boolean">Is the current running Task is finished or not.</ret>
+	</rets>
+</function>

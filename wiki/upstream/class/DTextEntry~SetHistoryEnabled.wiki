@@ -1,0 +1,23 @@
+<function name="SetHistoryEnabled" parent="DTextEntry" type="panelfunc">
+	<description>Enables or disables the history functionality of  <page>DTextEntry</page>. This allows the player to scroll through history elements using up and down arrow keys.
+
+See <page>DTextEntry:AddHistory</page>.
+</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="enable" type="boolean">Whether to enable history or not.</arg>
+	</args>
+</function>
+
+<example>
+	<description>A common example.</description>
+	<code>
+local textentry = vgui.Create("DTextEntry")
+textentry:SetHistoryEnabled(true)
+textentry.History = {
+	"Message 1",
+	"Message 2"
+}
+	</code>
+
+</example>

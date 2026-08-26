@@ -1,0 +1,37 @@
+<function name="CreateConVar" parent="Global" type="libraryfunc">
+	<description>Creates a console variable (<page>ConVar</page>).
+
+Generally these are used for settings, which can be stored automatically across sessions if desired. They are usually set via an accompanying user interface clientside, or listed somewhere for dedicated server usage, in which case they might be set via `server.cfg` on server start up.
+
+		<warning>Do not use the FCVAR_NEVER_AS_STRING and FCVAR_REPLICATED flags together, as this can cause the console variable to have strange values on the client.</warning>
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="name" type="string">Name of the <page>ConVar</page>.
+
+This cannot be a name of an engine console command or console variable. It will throw an error if it is. If it is the same name as another lua ConVar, it will return that ConVar object.</arg>
+		<arg name="value" type="string">Default value of the convar. Can also be a number.</arg>
+		<arg name="flags" type="number{FCVAR}|table<number>" default="FCVAR_NONE">Flags of the convar, see <page>Enums/FCVAR</page>, either as bitflag or as table.</arg>
+		<arg name="helptext" type="string" default="">The help text to show in the console.</arg>
+		<arg name="min" type="number" default="nil">If set, the ConVar cannot be changed to a number lower than this value.</arg>
+		<arg name="max" type="number" default="nil">If set, the ConVar cannot be changed to a number higher than this value.</arg>
+	</args>
+	<rets>
+		<ret name="" type="ConVar">The convar created, or `nil` if convar could not be created. (such as when there's a console command with the same name)
+
+If a ConVar already exists (including engine ones), it will simply return the already existing ConVar without modifying it in any way.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Code that will create a Convar and a chatprint with the content of the convar.</description>
+	<code>
+local convar_example = CreateConVar("convar_example", "1", {FCVAR_ARCHIVE, FCVAR_NOTIFY, FCVAR_REPLICATED}, "This is a server-side convar.")
+
+concommand.Add("print_convar", function(ply)
+  ply:ChatPrint("Server ConVar value: " .. convar_example:GetString())
+end)
+	</code>
+	<output>Server ConVar value: 1</output>
+
+</example>

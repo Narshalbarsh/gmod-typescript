@@ -1,0 +1,17 @@
+<function name="TraceBox" parent="PhysCollide" type="classfunc">
+	<description>Performs a trace against this PhysCollide with the given parameters. This can be used for both line traces and box traces.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="origin" type="Vector">The origin for the PhysCollide during the trace</arg>
+		<arg name="angles" type="Angle">The angles for the PhysCollide during the trace</arg>
+		<arg name="rayStart" type="Vector">The start position of the trace</arg>
+		<arg name="rayEnd" type="Vector">The end position of the trace</arg>
+		<arg name="rayMins" type="Vector">The mins of the trace's bounds</arg>
+		<arg name="rayMaxs" type="Vector">The maxs of the trace's bounds</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">Hit position of the trace. This is false if the trace did not hit.</ret>
+		<ret name="" type="Vector">Hit normal of the trace</ret>
+		<ret name="" type="number">Fraction of the trace. This is calculated from the distance between startPos, hitPos, and endPos.</ret>
+	</rets>
+</function>

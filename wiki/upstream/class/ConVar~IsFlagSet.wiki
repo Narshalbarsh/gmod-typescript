@@ -1,0 +1,10 @@
+<function name="IsFlagSet" parent="ConVar" type="classfunc">
+	<description>Returns whether the specified flag is set on the <page>ConVar</page></description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="flag" type="number">The <page>Enums/FCVAR</page> flag to test</arg>
+	</args>
+	<rets>
+		<ret type="boolean">Whether the flag is set or not</ret>
+	</rets>
+</function>

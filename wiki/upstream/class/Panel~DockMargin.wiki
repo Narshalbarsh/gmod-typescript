@@ -1,0 +1,36 @@
+<function name="DockMargin" parent="Panel" type="classfunc">
+	<description>
+Sets the dock margin of the panel.
+
+The dock margin is the extra space that will be left around the edge when this element is docked inside its parent element.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="marginLeft" type="number">The left margin to the parent.</arg>
+		<arg name="marginTop" type="number">The top margin to the parent.</arg>
+		<arg name="marginRight" type="number">The right margin to the parent.</arg>
+		<arg name="marginBottom" type="number">The bottom margin to the parent.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Example showing the effects of DockMargin and DockPadding</description>
+	<code>
+local frame = vgui.Create("DFrame")
+frame:SetSize(600, 300)
+frame:SetTitle("Docking Demonstration")
+frame:Center()
+frame:MakePopup(true)
+
+local panel = vgui.Create("DPanel", frame)
+panel:DockMargin(10, 20, 30, 40)
+panel:DockPadding(40, 30, 20, 10)
+panel:Dock(FILL)
+
+local button = vgui.Create("DButton", panel)
+button:SetText("Lopsided proportions!")
+button:Dock(FILL)
+	</code>
+	<output><image src="panel_dockmargin_dockpadding.png"/></output>
+
+</example>

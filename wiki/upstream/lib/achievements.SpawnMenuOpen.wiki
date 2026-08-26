@@ -1,0 +1,4 @@
+<function name="SpawnMenuOpen" parent="achievements" type="libraryfunc">
+	<description><internal></internal>Adds one to the count of how many times the spawnmenu has been opened. Once this count reaches 100,000, the 'Menu User' achievement is unlocked.</description>
+	<realm>Client</realm>
+</function>

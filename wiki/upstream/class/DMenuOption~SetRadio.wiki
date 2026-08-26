@@ -1,0 +1,11 @@
+<function name="SetRadio" parent="DMenuOption" type="panelfunc">
+	<description>Sets whether this <page>DMenuOption</page> should act like a radio button.
+
+Checking a radio button automatically unchecks all adjacent radio buttons.
+</description>
+	<added>2024.02.20</added>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="checked" type="boolean">`true` to set as a radio button.</arg>
+	</args>
+</function>

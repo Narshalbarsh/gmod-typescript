@@ -1,0 +1,12 @@
+<function name="CanCreateUndo" parent="GM" type="hook">
+	<description>Called whenever a players tries to create an undo.</description>
+	<realm>Server</realm>
+	<file line="328-L328">lua/includes/modules/undo.lua</file>
+	<args>
+		<arg name="ply" type="Player">The player who tried to create something.</arg>
+		<arg name="undo" type="table">The undo table as a <page>Structures/Undo</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return false to disallow creation of the undo.</ret>
+	</rets>
+</function>

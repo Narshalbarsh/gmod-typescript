@@ -1,0 +1,7 @@
+<function name="Mul" parent="Angle" type="classfunc">
+	<description>Multiplies a scalar to all the values of the orignal angle. This functions the same as num * angle without creating a new angle object, skipping object construction and garbage collection.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="scalar" type="number">The number to multiply.</arg>
+	</args>
+</function>

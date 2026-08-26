@@ -1,0 +1,9 @@
+<function name="GetTagsWMA" parent="IGModAudioChannel" type="classfunc">
+	<added>2025.10.03</added>
+	<description>Retrieves `.WMA` media info, from a bass channel created by <page>sound.PlayURL</page> or <page>sound.PlayFile</page>, if available.
+	</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="info" type="table<string>">A list of available information in no particular order, or `nil` if no information is available.</ret>
+	</rets>
+</function>

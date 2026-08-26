@@ -1,0 +1,12 @@
+<function name="SetUpMove" parent="CUserCmd" type="classfunc">
+	<description>
+Sets speed the client wishes to move upwards with, negative to move down.
+
+See also <page>CUserCmd:SetSideMove</page> and  <page>CUserCmd:SetForwardMove</page>.
+<note>This function does **not** move the client up/down ladders. To force ladder movement, consider <page>CUserCMD:SetButtons</page> and use IN_FORWARD from <page>Enums/IN</page>.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="speed" type="number">The new speed to request.</arg>
+	</args>
+</function>

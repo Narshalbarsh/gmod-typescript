@@ -1,0 +1,41 @@
+<panel>
+	<name>IconEditor</name>
+	<parent>DFrame</parent>
+	<realm>Client</realm>
+	<file line="">gamemodes/sandbox/gamemode/gui/iconeditor.lua</file>
+	<description>
+An icon editor that permits a user to modify a <page>SpawnIcon</page> and re-render it. This is used by the spawn menu and is what is shown when you right-click an icon and select `Edit Icon`.
+
+This makes use of the <page>DAdjustableModelPanel</page> element.
+
+<note>This panel is only available in Sandbox and Sandbox derived gamemodes!</note>
+<image src="IconEditor.jpg"/>
+	</description>
+	
+
+</panel>
+
+
+<example>
+	<description>Creates a SpawnIcon with model "models/props_borealis/bluebarrel001.mdl" and an IconEditor to modify it.</description>
+	<code>
+local frame = vgui.Create( "DFrame" ) -- Container for the SpawnIcon
+frame:SetPos( 200, 200 )
+frame:SetSize( 200, 200 )
+frame:SetTitle( "Icon Editor Example" )
+frame:MakePopup()
+
+local icon = vgui.Create( "SpawnIcon" , frame ) -- SpawnIcon, with blue barrel model
+icon:Center()
+-- It is important below to include the SkinID (0 = default skin); the IconEditor will not work otherwise
+icon:SetModel( "models/props_borealis/bluebarrel001.mdl", 0 )
+
+local editor = vgui.Create( "IconEditor" ) -- Create IconEditor
+editor:SetIcon( icon ) -- Set the SpawnIcon to modify
+editor:Refresh() -- Sets up the internal DAdjustableModelPanel and SpawnIcon
+editor:MakePopup()
+editor:Center()
+	</code>
+	<output>A <page>DFrame</page> containing a <page>SpawnIcon</page>, and a window identical to that in the preview above.</output>
+
+</example>

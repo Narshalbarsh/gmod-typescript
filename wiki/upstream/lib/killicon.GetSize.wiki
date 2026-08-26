@@ -1,0 +1,13 @@
+<function name="GetSize" parent="killicon" type="libraryfunc">
+	<description>Returns the size of a kill icon.</description>
+	<realm>Client</realm>
+	<file line="51-L95">lua/includes/modules/killicon.lua</file>
+	<args>
+		<arg name="name" type="string">Classname of the kill icon.</arg>
+		<arg name="dontEqualizeHeight" type="boolean" default="false" added="2023.10.17">If set to `true`, returns the real size of the kill icon, without trying to equalize the height to match the default kill icon font.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">Width of the kill icon.</ret>
+		<ret name="" type="number">Height of the kill icon.</ret>
+	</rets>
+</function>

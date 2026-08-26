@@ -1,0 +1,8 @@
+<function name="SetWheelFriction" parent="Vehicle" type="classfunc">
+	<description>Sets friction of given wheel.  This function may be broken.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="wheel" type="number">The wheel to change the friction of</arg>
+		<arg name="friction" type="number">The new friction to set</arg>
+	</args>
+</function>

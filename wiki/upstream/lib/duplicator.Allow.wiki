@@ -1,0 +1,17 @@
+<function name="Allow" parent="duplicator" type="libraryfunc">
+	<description>Allow entities with given class name to be duplicated. See <page>duplicator.Disallow</page> for the opposite effect.
+
+<page>duplicator.IsAllowed</page> can be used to poll the status of a particular entity class. 
+
+`duplicator.Allow` is automatically called by <page>scripted_ents.Register</page> and <page>weapons.Register</page>, unless the associated entity table has `ENT.DisableDuplicator` set to `true`.
+
+This is also automatically called by <page>duplicator.RegisterEntityClass</page>.
+
+In addition to that most spawnmenu content, such as engine weapons and pickup-ables, as well as most engine NPCs in Sandbox-derived gamemodes are also allowed by default.
+</description>
+	<realm>Shared</realm>
+	<file line="331-L335">lua/includes/modules/duplicator.lua</file>
+	<args>
+		<arg name="classname" type="string">An entity's classname to allow duplicating.</arg>
+	</args>
+</function>

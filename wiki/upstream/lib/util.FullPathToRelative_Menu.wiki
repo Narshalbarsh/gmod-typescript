@@ -1,0 +1,26 @@
+<function name="FullPathToRelative_Menu" parent="util" type="libraryfunc">
+	<description>
+		Converts the full path of the given file to a relative path.  
+		You can use <page>util.RelativePathToFull_Menu</page> to convert the relative path back to the full path.
+	</description>
+	<realm>Menu</realm>
+	<args>
+		<arg name="fullPath" type="string">The **full** path to a file.</arg>
+		<arg name="fsPath" type="string" default="MOD">The path to look for the files and directories in. See <page text="this list">File_Search_Paths</page> for a list of valid paths.</arg>
+	</args>
+	<rets>
+		<ret name="relativePath" type="string">The relative path to the given file.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Searches for a .gma file in your addons folder and converts the path to a full path.</description>
+	<code>
+print( util.FullPathToRelative_Menu( "[Steam folder]\common\garrysmod\garrysmod\addons\[Name HERE].gma", "GAME" ) ) -- prints the relative path of the GMA file.
+	</code>
+	<output>
+```lua
+addons\[Name].gma
+```
+	</output>
+</example>

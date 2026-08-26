@@ -1,0 +1,82 @@
+<panel>
+	<parent>Button</parent>
+	<realm>Client</realm>
+	<file line="">lua/vgui/imagecheckbox.lua</file>
+	<description>
+A checkbox panel similar to <page>DCheckBox</page> and <page>DImageButton</page> with customizable checked state image.
+
+Uses the <page>Material</page> panel internally. Can't have a label.
+
+<note>Will error if no material was set.</note>
+	</description>
+	<overrides>
+		<page>PANEL:Paint</page>
+		<page>PANEL:PerformLayout</page>
+	</overrides>
+	<file>lua/vgui/imagecheckbox.lua</file>
+
+</panel>
+
+
+<example>
+	<description>Example of <page>ImageCheckBox</page> usage.</description>
+	<code>
+local DFrame = vgui.Create( "DFrame" ) -- Create DFrame
+DFrame:SetSize( 300, 305 ) -- Set its size
+DFrame:Center() -- Center it
+DFrame:SetTitle( "Check list" ) -- Set a title for it
+DFrame:MakePopup() -- Make popup
+DFrame.Items = {} -- Create table to store lines
+
+local Head = DFrame:Add( "DPanel" ) -- Create head line
+Head:Dock( TOP ) -- Dock it
+Head:SetHeight( 20 ) -- Set height
+
+function Head:Paint( w, h )
+	local completed = 0 -- Variable to store amount of checked ImageCheckBox'es
+
+	for k, v in ipairs( DFrame.Items ) do
+		if ( v.ImageCheckBox:GetChecked() ) then
+			completed = completed + 1 -- Get ImageCheckBox'es state and count checked
+		end
+	end
+
+	draw.SimpleText( "You've completed " .. completed .. " of " .. #DFrame.Items .. " items", "DermaDefaultBold", w / 2, h / 2, Color( 255, 255, 255 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER ) -- Draw the text
+end
+
+-- Convenience function to quickly add items
+local function addItem( text )
+	local RulePanel = DFrame:Add( "DPanel" ) -- Create container for this item
+	RulePanel:Dock( TOP ) -- Dock it
+	RulePanel:DockMargin( 0, 1, 0, 0 ) -- Add 1 pixel spacing in between each item
+	table.insert( DFrame.Items, RulePanel ) -- Add to list of lines
+
+	local ImageCheckBox = RulePanel:Add( "ImageCheckBox" ) -- Create checkbox with image
+	ImageCheckBox:SetMaterial( "icon16/accept.png" ) -- Set its image
+	ImageCheckBox:SetWidth( 24 ) -- Make the check box a bit wider than the image so it looks nicer
+	ImageCheckBox:Dock( LEFT ) -- Dock it
+	ImageCheckBox:SetChecked( false ) -- Set unchecked
+	RulePanel.ImageCheckBox = ImageCheckBox -- Add reference to call
+
+	local DLabel = RulePanel:Add( "DLabel" ) -- Create text
+	DLabel:SetText( text ) -- Set the text
+	DLabel:Dock( FILL ) -- Dock it
+	DLabel:DockMargin( 5, 0, 0, 0 ) -- Move the text to the right a little
+	DLabel:SetTextColor( Color( 0, 0, 0 ) ) -- Set text color to black
+end
+
+-- Adding items
+addItem( "Learn something" )
+addItem( "Do something" )
+addItem( "Make something" )
+addItem( "Create something" )
+addItem( "Play something" )
+addItem( "Test something" )
+addItem( "Write a really long item for testing purposes" )
+addItem( "Break something" )
+addItem( "Rebuild something" )
+addItem( "Release something" )
+	</code>
+	<output><image src="ImageCheckBox_Example.gif"/></output>
+
+</example>

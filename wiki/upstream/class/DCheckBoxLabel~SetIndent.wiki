@@ -1,0 +1,8 @@
+<function name="SetIndent" parent="DCheckBoxLabel" type="panelfunc">
+	<description>An <page>Global.AccessorFunc</page> that sets the indentation of the element on the X axis.</description>
+	<realm>Client and Menu</realm>
+	<file line="81">lua/vgui/dcheckbox.lua</file>
+	<args>
+		<arg name="ident" type="number">How much in pixels to move the content to the right</arg>
+	</args>
+</function>

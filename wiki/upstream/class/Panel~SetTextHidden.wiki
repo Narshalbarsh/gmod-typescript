@@ -1,0 +1,10 @@
+<function name="SetTextHidden" parent="Panel" type="classfunc">
+	<description>
+Makes <page>TextEntry</page>'s text be replaced by `*` characters, just like a password-entry text field would.
+	</description>
+	<added>2025.09.22</added>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="" type="boolean">Whether to have the text be hidden.</arg>
+	</args>
+</function>

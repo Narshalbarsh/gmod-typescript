@@ -1,0 +1,11 @@
+<function name="CreateSaveNotification" parent="ContentSidebar" type="panelfunc">
+	<description>
+Creates a Save Notification which will be shown when <page>SANDBOX:SpawnlistContentChanged</page> has been called.
+	</description>
+	<args>
+		<arg name="style" type="string"></arg>
+		<arg name="hookname" type="string" default="PopulateContent">A Populate Hook like PopulateEntities</arg>
+	</args>
+	<realm>Client</realm>
+	<file line="42-L84">gamemodes/sandbox/gamemode/spawnmenu/creationmenu/content/contentsidebar.lua</file>
+</function>

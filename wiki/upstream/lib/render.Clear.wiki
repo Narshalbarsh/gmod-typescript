@@ -1,0 +1,16 @@
+<function name="Clear" parent="render" type="libraryfunc">
+	<description>
+Clears the current render target and the specified buffers.
+
+<bug issue="2085">This sets the alpha incorrectly for <page>surface</page> draw calls for render targets.</bug>
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="r" type="number">Red component to clear to.</arg>
+		<arg name="g" type="number">Green component to clear to.</arg>
+		<arg name="b" type="number">Blue component to clear to.</arg>
+		<arg name="a" type="number">Alpha component to clear to.</arg>
+		<arg name="clearDepth" type="boolean" default="false">Clear the depth.</arg>
+		<arg name="clearStencil" type="boolean" default="false">Clear the stencil.</arg>
+	</args>
+</function>

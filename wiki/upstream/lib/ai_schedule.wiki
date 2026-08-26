@@ -1,0 +1,3 @@
+<type name="ai_schedule" category="libraryfunc" is="library">
+	<summary>Allows you to set up a schedule for NPCs to follow. This lets you dictate their actions.</summary>
+</type>

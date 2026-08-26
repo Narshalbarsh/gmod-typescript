@@ -1,0 +1,10 @@
+<structure>
+	<realm>Shared and Menu</realm>
+	<description>Table created by the <page>string.FormattedTime</page> function if no format is given to it.</description>
+	<fields>
+		<item name="ms" type="number">milliseconds</item>
+		<item name="s" type="number">seconds</item>
+		<item name="m" type="number">minutes</item>
+		<item name="h" type="number">hours</item>
+	</fields>
+</structure>

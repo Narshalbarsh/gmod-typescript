@@ -1,0 +1,16 @@
+<function name="ClearLuaErrorGroup" parent="Global" type="libraryfunc">
+	<description>Clears all Lua Errors with the given group id.</description>
+	<realm>Menu</realm>
+	<file line="73-L86">lua/menu/problems/problems.lua</file>
+	<args>
+		<arg name="group_id" type="string">group_id to remove. Will be "[addon-name]-0" or "Other-"</arg>
+	</args>
+</function>
+
+<example>
+	<description>Creating an Error and Removing it from the Problems menu.</description>
+	<code>
+RunString("Error") -- Errors not created by an addon count as Other-
+ClearLuaErrorGroup("Other-")
+	</code>
+</example>

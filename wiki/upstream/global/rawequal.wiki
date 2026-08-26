@@ -1,0 +1,11 @@
+<function name="rawequal" parent="Global" type="libraryfunc">
+	<description>Compares the two values without calling their __eq operator.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="value1" type="any">The first value to compare.</arg>
+		<arg name="value2" type="any">The second value to compare.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether or not the two values are equal.</ret>
+	</rets>
+</function>

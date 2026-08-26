@@ -1,0 +1,16 @@
+<function name="WorldToLocalVector" parent="PhysObj" type="classfunc">
+	<description>
+Rotationally transforms a worldspace vector into the physics object's local space by the inverted <page>PhysObj:GetPositionMatrix</page>.
+
+For example, in GMod this is used in thrusters, for working out linear force for local acceleration.
+
+<note>In contrast to <page>PhysObj:WorldToLocal</page>, this function doesn't translate the vector.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="vec" type="Vector">A worldspace vector.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">The resulting vector from the rotational transformation.</ret>
+	</rets>
+</function>

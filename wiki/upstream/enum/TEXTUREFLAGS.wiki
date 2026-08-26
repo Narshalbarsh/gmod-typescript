@@ -1,0 +1,58 @@
+<enum>
+	<realm>Client</realm>
+	<description>
+Bit flags used by <page>Global.GetRenderTargetEx</page>. Information taken from [VTF (Valve Texture Format) - Texture flags](https://developer.valvesoftware.com/wiki/Valve_Texture_Format#Texture_flags)
+
+<warning>These enumerations do not exist in game and are listed here only for reference</warning>
+	</description>
+	<items>
+<item key="TEXTUREFLAGS_POINTSAMPLE" value="1">Low quality, "pixel art" texture filtering.</item>
+<item key="TEXTUREFLAGS_TRILINEAR" value="2">Medium quality texture filtering.</item>
+<item key="TEXTUREFLAGS_CLAMPS" value="4">Clamp S coordinates.</item>
+<item key="TEXTUREFLAGS_CLAMPT" value="8">Clamp T coordinates.</item>
+<item key="TEXTUREFLAGS_ANISOTROPIC" value="16">High quality texture filtering.</item>
+<item key="TEXTUREFLAGS_HINT_DXT5" value="32">Used in skyboxes. Makes sure edges are seamless.</item>
+<item key="TEXTUREFLAGS_PWL_CORRECTED" value="64">Purpose unknown.</item>
+<item key="TEXTUREFLAGS_NORMAL" value="128">Texture is a normal map.</item>
+<item key="TEXTUREFLAGS_NOMIP" value="256">Render largest mipmap only. (Does not delete existing mipmaps, just disables them.)</item>
+<item key="TEXTUREFLAGS_NOLOD" value="512">Not affected by texture resolution settings.</item>
+<item key="TEXTUREFLAGS_ALL_MIPS" value="1024">No Minimum Mipmap</item>
+<item key="TEXTUREFLAGS_PROCEDURAL" value="2048">Texture is an procedural texture (code can modify it).</item>
+<item key="TEXTUREFLAGS_ONEBITALPHA" value="4096">One bit alpha channel used.</item>
+<item key="TEXTUREFLAGS_EIGHTBITALPHA" value="8192">Eight bit alpha channel used.</item>
+<item key="TEXTUREFLAGS_ENVMAP" value="16384">Texture is an environment map.</item>
+<item key="TEXTUREFLAGS_RENDERTARGET" value="32768">Texture is a render target.</item>
+<item key="TEXTUREFLAGS_DEPTHRENDERTARGET" value="65536">Texture is a depth render target.</item>
+<item key="TEXTUREFLAGS_NODEBUGOVERRIDE" value="131072"></item>
+<item key="TEXTUREFLAGS_SINGLECOPY" value="262144"></item>
+<item key="TEXTUREFLAGS_STAGING_MEMORY" value="524288">
+<deprecated notag="true"></deprecated>
+
+Aka TEXTUREFLAGS_UNUSED_00080000</item>
+<item key="TEXTUREFLAGS_IMMEDIATE_CLEANUP" value="1048576">
+<deprecated notag="true"></deprecated>
+Immediately destroy this texture when its reference count hits zero.
+
+Aka TEXTUREFLAGS_UNUSED_00100000</item>
+<item key="TEXTUREFLAGS_IGNORE_PICMIP" value="2097152">
+<deprecated notag="true"></deprecated>
+
+Aka TEXTUREFLAGS_UNUSED_00200000</item>
+<item key="TEXTUREFLAGS_UNUSED_00400000" value="4194304"></item>
+<item key="TEXTUREFLAGS_NODEPTHBUFFER" value="8388608">Do not buffer for Video Processing, generally render distance.</item>
+<item key="TEXTUREFLAGS_UNUSED_01000000" value="16777216"></item>
+<item key="TEXTUREFLAGS_CLAMPU" value="33554432">Clamp U coordinates (for volumetric textures).</item>
+<item key="TEXTUREFLAGS_VERTEXTEXTURE" value="67108864">Usable as a vertex texture</item>
+<item key="TEXTUREFLAGS_SSBUMP" value="134217728">Texture is a SSBump. (SSB)</item>
+<item key="TEXTUREFLAGS_UNUSED_10000000" value="268435456"></item>
+<item key="TEXTUREFLAGS_BORDER" value="536870912">Clamp to border colour on all texture coordinates</item>
+<item key="TEXTUREFLAGS_STREAMABLE_COARSE" value="1073741824">
+<deprecated notag="true"></deprecated>
+
+Aka TEXTUREFLAGS_UNUSED_40000000</item>
+<item key="TEXTUREFLAGS_STREAMABLE_FINE" value="2147483648">
+<deprecated notag="true"></deprecated>
+
+Aka TEXTUREFLAGS_UNUSED_80000000</item>
+	</items>
+</enum>

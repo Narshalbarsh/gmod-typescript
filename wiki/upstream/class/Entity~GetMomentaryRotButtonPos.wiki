@@ -1,0 +1,14 @@
+<function name="GetMomentaryRotButtonPos" parent="Entity" type="classfunc">
+	<description>
+Returns the amount a momentary_rot_button entity is turned based on the given angle. 0 meaning completely turned closed, 1 meaning completely turned open.
+
+<warning>This only works on momentary_rot_button entities.</warning>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="turnAngle" type="Angle">The angle of rotation to compare - usually should be <page>Entity:GetAngles</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The amount the momentary_rot_button is turned, ranging from 0 to 1, or nil if the entity is not a momentary_rot_button.</ret>
+	</rets>
+</function>

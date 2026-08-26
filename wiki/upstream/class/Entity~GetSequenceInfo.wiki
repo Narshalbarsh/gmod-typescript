@@ -1,0 +1,43 @@
+<function name="GetSequenceInfo" parent="Entity" type="classfunc">
+	<description>Returns a table of information about an entity's sequence.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="sequenceId" type="number">The sequence id of the entity.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">Table of information about the entity's sequence, or `nil` is ID is out of range. See <page>Structures/SequenceInfo</page>.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Draw each player's current sequence bounding box with sequence name, activity number, and activity name above their head.</description>
+	<code>
+hook.Add( "PostPlayerDraw", "Sequence_Name", function( ply )
+
+	local seqinfo = ply:GetSequenceInfo( ply:GetSequence() )
+	seqinfo.player = ply
+	
+	render.DrawWireframeBox( ply:GetPos(), ply:GetAngles(), seqinfo.bbmin, seqinfo.bbmax, color_white, true )
+	
+end )
+
+hook.Add( "HUDPaint", "Sequence_Name", function()
+
+	for _, ply in ipairs( player.GetAll() ) do
+	
+		local seqinfo = ply:GetSequenceInfo( ply:GetSequence() )
+		local textpos = ( ply:GetPos() + Vector( 0, 0, seqinfo.bbmax.z + 10 ) ):ToScreen()
+	
+		if textpos.visible then
+		
+			draw.SimpleText( seqinfo.label, "GModNotify", textpos.x, textpos.y, color_white, TEXT_ALIGN_CENTER )
+			draw.SimpleText( seqinfo.activity .. ": " .. seqinfo.activityname, "GModNotify", textpos.x, textpos.y + 20, color_white, TEXT_ALIGN_CENTER )
+		
+		end
+	
+	end
+
+end )
+	</code>
+	<output><image src="GetSequenceInfo_Example.jpg"/></output>
+</example>

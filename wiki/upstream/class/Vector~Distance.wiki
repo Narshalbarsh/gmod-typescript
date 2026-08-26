@@ -1,0 +1,24 @@
+<function name="Distance" parent="Vector" type="classfunc">
+	<description>
+Returns the Euclidean distance between the vector and the other vector.
+
+<note>This function is more expensive than <page>Vector:DistToSqr</page>. However, please see the notes for <page>Vector:DistToSqr</page> before using it as squared distances are not the same as euclidean distances.</note>
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="otherVector" type="Vector">The vector to get the distance to.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">Distance between the vectors.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Gets the distance from A to B.</description>
+	<code>print( Vector( 0, 0, 0 ):Distance( Vector( 2, 3, 4 ) ) )</code>
+	<output>
+```
+5.3851647377014
+```
+	</output>
+</example>

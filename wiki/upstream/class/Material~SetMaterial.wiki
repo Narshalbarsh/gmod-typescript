@@ -1,0 +1,35 @@
+<function name="SetMaterial" parent="Material" type="panelfunc">
+	<description>
+Sets the material used by the panel.
+
+<note>If the material is not showing up as the correct size, try setting the Material panel's `AutoSize` variable to **false**</note>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="matname" type="string">The file path of the material to set (relative to "garrysmod/materials/").</arg>
+	</args>
+</function>
+
+<example>
+	<description>Creates a Material panel and sets the material to a screen space effect.</description>
+	<code>
+-- Black background panel
+BGPanel = vgui.Create("DPanel")
+BGPanel:SetSize(200, 200)
+BGPanel:Center()
+BGPanel:SetBackgroundColor(Color(0, 0, 0, 255))
+		
+local mat = vgui.Create("Material", BGPanel)
+mat:SetPos(5, 5)
+mat:SetSize(190, 190)
+
+-- It's not really good to use a models material for VGUI drawing
+-- But it looks good enough for a quick demo
+mat:SetMaterial("models/screenspace")
+
+-- Stretch to fit
+mat.AutoSize = false
+	</code>
+	<output><image src="Material_SetMaterial_example1.jpg"/></output>
+
+</example>

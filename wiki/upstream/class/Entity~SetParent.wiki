@@ -1,0 +1,21 @@
+<function name="SetParent" parent="Entity" type="classfunc">
+	<description>
+Sets the parent of this entity, making it move with its parent. This will make the child entity non solid, nothing can interact with them, including traces (but <page>util.TraceHull</page> will work).
+
+All children of the parent get removed whenever it gets removed.
+
+<note>This does not work on <page text="the world">game.GetWorld</page>.</note>
+<warning>This can cause undefined physics behavior when used on entities that don't support parenting. See the [Valve developer wiki](https://developer.valvesoftware.com/wiki/Entity_Hierarchy_(parenting)) for more information.</warning>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="parent" type="Entity" default="NULL">The entity to parent to. Setting this to nil will clear the parent.</arg>
+		<arg name="attachmentOrBoneId" type="number" default="-1">The attachment or bone id to use when parenting. Defaults to -1 or whatever the parent had set previously.
+
+Use <page>Entity:AddEffects</page>( EF_FOLLOWBONE ) to treat this argument as a Bone ID instead of an Attachment ID. Similar to <page>Entity:FollowBone</page>.
+
+
+<note>You must call <page>Entity:SetMoveType</page>( MOVETYPE_NONE ) on the child for this argument to have any effect!</note>
+<note>Parenting to attachment IDs more than `255` is unsupported and will output a LUA error.</note></arg>
+	</args>
+</function>

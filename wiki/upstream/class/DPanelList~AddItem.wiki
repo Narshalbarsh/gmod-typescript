@@ -1,0 +1,8 @@
+<function name="AddItem" parent="DPanelList" type="panelfunc">
+	<description>Adds a existing panel to the end of <page>DPanelList</page>.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="pnl" type="Panel">Panel to be used as element of list</arg>
+		<arg name="state" type="string" default="nil">If set to "ownline", the item will take its own entire line.</arg>
+	</args>
+</function>

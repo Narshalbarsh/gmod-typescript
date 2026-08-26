@@ -1,0 +1,12 @@
+<function name="GetMovementScale" parent="DAdjustableModelPanel" type="panelfunc">
+	<description>Returns the movement speed multiplier set by <page>DAdjustableModelPanel:SetMovementScale</page>.
+
+	An <page>Global.AccessorFunc</page>
+	</description>
+	<realm>Client</realm>
+	<added>2024.05.09</added>
+	<file line="5">lua/vgui/dadjustablemodelpanel.lua</file>
+	<rets>
+		<ret name="" type="number">The movement scale, where `1` is normal, `2` is double, etc.</ret>
+	</rets>
+</function>

@@ -1,0 +1,7 @@
+<function name="IsScripted" parent="Weapon" type="classfunc">
+	<description>Checks if the weapon is a SWEP or a built-in weapon.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">Returns true if weapon is scripted ( SWEP ), false if not ( A built-in HL2/HL:S weapon )</ret>
+	</rets>
+</function>

@@ -1,0 +1,18 @@
+<function name="EnterVehicle" parent="Player" type="classfunc">
+	<description>Force puts the player into a specified vehicle.
+This **does not** bypass <page>GM:CanPlayerEnterVehicle</page>.
+</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="vehicle" type="Vehicle">Vehicle the player will enter</arg>
+	</args>
+</function>
+
+<example>
+	<description>Enters the player into the vehicle they're looking at</description>
+	<code>
+local jeep = Entity( 1 ):GetEyeTrace().Entity
+Entity( 1 ):EnterVehicle( jeep )
+	</code>
+
+</example>

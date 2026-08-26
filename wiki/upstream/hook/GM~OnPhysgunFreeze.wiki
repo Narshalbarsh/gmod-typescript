@@ -1,0 +1,31 @@
+<function name="OnPhysgunFreeze" parent="GM" type="hook">
+	<description>
+Called when a player freezes an entity with the physgun.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="weapon" type="Entity">The weapon that was used to freeze the entity.</arg>
+		<arg name="physobj" type="PhysObj">Physics object of the entity.</arg>
+		<arg name="ent" type="Entity">The target entity.</arg>
+		<arg name="ply" type="Player">The player who tried to freeze the entity.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return `false` to block the unfreeze.
+
+<warning>The unfreezing is handled by the base gamemode hook. This hook has no return value, returning any value will prevent the gamemode hook from running, which is true for every hook.</warning>
+</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Only allows admins to freeze things, by preventing the default base gamemode code from running due to how the hook library functions.  
+ See <page>hook.Add</page> for explanation. The return value does not matter, as long as it is not `nil`, the base code will not run.</description>
+	<code>
+hook.Add( "OnPhysgunFreeze", "PhysFreeze", function( weapon, phys, ent, ply )
+  	if not ply:IsAdmin() then
+		return false
+	end
+end )
+	</code>
+
+</example>

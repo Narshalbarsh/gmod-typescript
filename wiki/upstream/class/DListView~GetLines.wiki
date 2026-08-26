@@ -1,0 +1,30 @@
+<function name="GetLines" parent="DListView" type="panelfunc">
+	<description>Gets all of the lines added to the DListView.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="table">The lines added to the DListView.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Loops through all of the lines of a DListView and prints their first value.</description>
+	<code>
+local list = vgui.Create( "DListView" )
+list:AddColumn( "Fruit" )
+
+for _, line in ipairs( { "Apple", "Orange", "Banana" } ) do
+    list:AddLine( line )
+end
+
+for k, line in ipairs( list:GetLines() ) do
+    print( k, line:GetValue( 1 ) )
+end
+	</code>
+	<output>
+```
+1	Apple
+2	Orange
+3	Banana
+```
+	</output>
+</example>

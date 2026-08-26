@@ -1,0 +1,4 @@
+<function name="LoadNextMap" parent="game" type="libraryfunc">
+	<description>Loads the next map according to the `nextlevel` convar, or from the current `mapcyclefile` set by the respective convar.</description>
+	<realm>Server</realm>
+</function>

@@ -1,0 +1,12 @@
+<function name="SetLadderClimbSpeed" parent="Player" type="classfunc">
+	<description>
+Sets the player's ladder climbing speed.
+
+See <page>Player:SetWalkSpeed</page> for normal walking speed, <page>Player:SetRunSpeed</page> for sprinting speed and <page>Player:SetSlowWalkSpeed</page> for slow walking speed.
+	</description>
+	<realm>Shared</realm>
+	<added>2020.03.17</added>
+	<args>
+		<arg name="speed" type="number">The ladder climbing speed.</arg>
+	</args>
+</function>

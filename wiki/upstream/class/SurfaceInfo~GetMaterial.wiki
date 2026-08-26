@@ -1,0 +1,7 @@
+<function name="GetMaterial" parent="SurfaceInfo" type="classfunc">
+	<description>Returns the brush surface's material.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="IMaterial">Material of one portion of a brush model.</ret>
+	</rets>
+</function>

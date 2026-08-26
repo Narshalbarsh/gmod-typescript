@@ -1,0 +1,14 @@
+<function name="IsOpen" parent="CNavArea" type="classfunc">
+	<description>
+Returns whether this area is in the Open List.
+
+Used in pathfinding via the [A* algorithm](https://en.wikipedia.org/wiki/A*_search_algorithm).
+
+
+More information can be found on the <page>Simple Pathfinding</page> page.
+	</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="boolean">Whether this area is in the Open List.</ret>
+	</rets>
+</function>

@@ -1,0 +1,19 @@
+<function name="SaveHideNews" parent="Global" type="libraryfunc">
+	<description>
+		<internal></internal>
+		Hides the News List when set to true.
+		<note>If you call this don't forget to call <page>Global.LoadNewsList</page> to update the News List.</note>
+	</description>
+	<realm>Menu</realm>
+	<file line="309-L311">lua/menu/mainmenu.lua</file>
+	<args>
+		<arg name="hide" type="boolean">true if it should hide the News.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Manually Hides the News List.</description>
+	<code>
+cookie.Set( "hide_newslist", "true" )
+	</code>
+</example>

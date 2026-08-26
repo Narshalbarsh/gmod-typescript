@@ -1,0 +1,12 @@
+<function name="Begin" parent="sql" type="libraryfunc">
+	<description>
+Tells the engine a set of queries is coming. Will wait until <page>sql.Commit</page> is called to run them.<br/>
+This is most useful when you run more than 100+ queries.<br/>
+This is equivalent to :
+```
+sql.Query( "BEGIN;" )
+```
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="87-L93">lua/includes/util/sql.lua</file>
+</function>

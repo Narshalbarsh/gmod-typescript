@@ -1,0 +1,19 @@
+<function name="AngleRand" parent="Global" type="libraryfunc">
+	<description>Returns an angle with a randomized pitch, yaw, and roll between min(inclusive), max(exclusive).</description>
+	<realm>Shared and Menu</realm>
+	<file line="139-L144">lua/includes/util.lua</file>
+	<args>
+		<arg name="min" type="number" default="-90 for pitch, -180 for yaw and roll">Min bound inclusive.</arg>
+		<arg name="max" type="number" default="90 for pitch, 180 for yaw and roll">Max bound exclusive.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Angle">The randomly generated angle.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints out a random angle.</description>
+	<code>print( AngleRand() )</code>
+	<output>-6.949 113.388 130.879</output>
+
+</example>

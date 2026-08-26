@@ -1,0 +1,7 @@
+<function name="GetDragging" parent="DSlider" type="panelfunc">
+	<description>Identical to <page>DSlider:IsEditing</page></description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean"></ret>
+	</rets>
+</function>

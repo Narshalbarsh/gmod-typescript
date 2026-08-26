@@ -1,0 +1,12 @@
+<function name="SetUp" parent="DVScrollBar" type="panelfunc">
+	<description>
+Sets up the scrollbar for use.
+
+The scrollbar will automatically disable itself if the total height of the canvas is lower than the height of the panel that holds the canvas during this function call.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="barSize" type="number">The size of the panel that holds the canvas, basically size of "1 page".</arg>
+		<arg name="canvasSize" type="number">The total size of the canvas, this typically is the bigger number.</arg>
+	</args>
+</function>

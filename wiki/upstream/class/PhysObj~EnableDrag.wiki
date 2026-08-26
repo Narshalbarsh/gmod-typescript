@@ -1,0 +1,7 @@
+<function name="EnableDrag" parent="PhysObj" type="classfunc">
+	<description>Sets whenever the physics object should be affected by drag.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="enable" type="boolean">True to enable, false to disable.</arg>
+	</args>
+</function>

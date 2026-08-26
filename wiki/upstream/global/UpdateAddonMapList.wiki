@@ -1,0 +1,8 @@
+<function name="UpdateAddonMapList" parent="Global" type="libraryfunc">
+	<description>
+		<internal></internal>
+		This function is called by <page>Global.UpdateMapList</page> to pass the AddonMaps to JS to be used for the Search.
+	</description>
+	<realm>Menu</realm>
+	<file line="271-L278">lua/menu/getmaps.lua</file>
+</function>

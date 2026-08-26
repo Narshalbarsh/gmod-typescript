@@ -1,0 +1,7 @@
+<function name="GetTabbingDisabled" parent="DPanel" type="panelfunc">
+	<description><deprecated></deprecated>Does nothing. Returns value set by <page>DPanel:SetTabbingDisabled</page>.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="draw" type="boolean"></ret>
+	</rets>
+</function>

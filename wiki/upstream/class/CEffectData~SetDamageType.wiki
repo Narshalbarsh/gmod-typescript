@@ -1,0 +1,7 @@
+<function name="SetDamageType" parent="CEffectData" type="classfunc">
+	<description>Sets the damage type of the effect to be created with this effect data.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="damageType" type="number">Damage type, see <page>Enums/DMG</page>.</arg>
+	</args>
+</function>

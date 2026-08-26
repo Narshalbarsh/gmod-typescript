@@ -1,0 +1,25 @@
+<function name="PhysicsInitShadow" parent="Entity" type="classfunc">
+	<description>
+Initializes the entity's <page text="physics object">PhysObj</page> as a *physics shadow*. Physics shadows can react to the environment physically (see the arguments to the function), and can push other physics objects around, but are ultimately constrained to the entity's position and angles: the physics object will attempt to return to the entity's coordinates every simulation tick.
+
+Internally, this creates a new physics object, copies the properties of the current physics object to it if one exists, and replaces the entity's physics object with the shadow. This is used internally for Player and NPC physics objects, certain HL2 entities such as the crane and barnacle tongue, parented physics entities, etc.
+
+A physics shadow can be used to have static physics entities that never move by setting both arguments to false.
+
+The created physics object will depend on the entity's solidity `SOLID_NONE` will not create a physics object, `SOLID_BBOX` will create a Axis-Aligned BBox one, `SOLID_OBB` will create Orientated Bounding Box one, and anything else will use the models' physics mesh.
+
+See also <page>Structures/ShadowControlParams</page>.
+
+<bug issue="5060">Clientside physics objects on serverside entities do not move properly in some cases. Physics objects should only created on the server or you will experience incorrect physgun beam position, prediction issues, and other unexpected behavior.
+
+A workaround is available on the <page>Entity:PhysicsInitConvex</page> page.</bug>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="allowPhysicsMovement" type="boolean" default="true">Whether to allow the physics shadow to move under stress.</arg>
+		<arg name="allowPhysicsRotation" type="boolean" default="true">Whether to allow the physics shadow to rotate under stress.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return `true` on success, `false` otherwise.</ret>
+	</rets>
+</function>

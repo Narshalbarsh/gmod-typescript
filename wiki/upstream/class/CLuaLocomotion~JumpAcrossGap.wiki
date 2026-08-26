@@ -1,0 +1,8 @@
+<function name="JumpAcrossGap" parent="CLuaLocomotion" type="classfunc">
+	<realm>Server</realm>
+	<description>Makes the bot jump across a gap. The bot must be on ground (<page>Entity:IsOnGround</page>) and its model must have `ACT_JUMP` activity.</description>
+	<args>
+		<arg name="landingGoal" type="Vector"></arg>
+		<arg name="landingForward" type="Vector"></arg>
+	</args>
+</function>

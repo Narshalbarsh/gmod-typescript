@@ -1,0 +1,14 @@
+<function name="Send" parent="net" type="libraryfunc">
+    <description>Sends the current net message to the specified player(s)</description>
+    <realm>Server</realm>
+    
+    <args name="Send to Single Player">
+        <arg name="ply" type="Player">The player to send the message to.</arg>
+    </args>
+    <args name="Send to Multiple Players">
+        <arg name="plys" type="table<Player>">A table of players to send the message to.</arg>
+    </args>
+    <args name="Send using Filter">
+        <arg name="filter" type="CRecipientFilter">A recipient filter specifying message targets.</arg>
+    </args>
+</function>

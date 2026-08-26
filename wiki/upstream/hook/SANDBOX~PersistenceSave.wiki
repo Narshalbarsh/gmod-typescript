@@ -1,0 +1,7 @@
+<function name="PersistenceSave" parent="SANDBOX" type="hook">
+	<description>Called when persistent props are saved.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="name" type="string">Where to save. By default is convar "sbox_persist".</arg>
+	</args>
+</function>

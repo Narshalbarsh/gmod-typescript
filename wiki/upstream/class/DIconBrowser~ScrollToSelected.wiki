@@ -1,0 +1,4 @@
+<function name="ScrollToSelected" parent="DIconBrowser" type="panelfunc">
+	<description>Scrolls the browser to the selected icon</description>
+	<realm>Client and Menu</realm>
+</function>

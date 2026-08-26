@@ -1,0 +1,7 @@
+<function name="IsHoveringWorld" parent="vgui" type="libraryfunc">
+	<description>Returns whenever the cursor is hovering the world panel.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">isHoveringWorld</ret>
+	</rets>
+</function>

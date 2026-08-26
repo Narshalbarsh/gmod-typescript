@@ -1,0 +1,7 @@
+<function name="Unloaded" parent="DImage" type="panelfunc">
+	<description>Returns true if the image is **not** yet loaded.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean"></ret>
+	</rets>
+</function>

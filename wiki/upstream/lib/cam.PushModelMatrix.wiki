@@ -1,0 +1,168 @@
+<function name="PushModelMatrix" parent="cam" type="libraryfunc">
+	<description>
+Pushes the specified matrix onto the render matrix stack. Each pushed matrix must be popped via <page>cam.PopModelMatrix</page>.
+
+When used in <page>PANEL:Paint</page>, if you want to rely on the top-left position of the panel, you must use <page>VMatrix:Translate</page> with the (0, 0) position of the panel relative to the screen.
+
+If trying to use it with with <page>cam.Start3D2D</page>, set `multiply` to `true`, since **cam.Start3D2D** pushes its own model matrix.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="matrix" type="VMatrix">The matrix to push.</arg>
+		<arg name="multiply" type="boolean" default="false">If set, multiplies given matrix with currently active matrix (<page>cam.GetModelMatrix</page>) before pushing.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Simple function to draw rotated and/or scaled text.</description>
+	<code>
+local vector_one = Vector( 1, 1, 1 )
+function draw.RotatedText( text, font, x, y, color, ang, scale )
+	render.PushFilterMag( TEXFILTER.ANISOTROPIC )
+	render.PushFilterMin( TEXFILTER.ANISOTROPIC )
+
+	local m = Matrix()
+	m:Translate( Vector( x, y, 0 ) )
+	m:Rotate( Angle( 0, ang, 0 ) )
+	m:Scale( vector_one * ( scale or 1 ) )
+
+	surface.SetFont( font )
+	local w, h = surface.GetTextSize( text )
+
+	m:Translate( Vector( -w / 2, -h / 2, 0 ) )
+
+	cam.PushModelMatrix( m, true )
+		draw.DrawText( text, font, 0, 0, color )
+	cam.PopModelMatrix()
+
+	render.PopFilterMag()
+	render.PopFilterMin()
+end
+
+hook.Add("HUDPaint", "2d rotation test", function()
+	local w, h = ScrW(), ScrH()
+	local ang = RealTime() * 50
+	local scale = ( math.sin( ang / 10 ) + 2 ) * 0.5
+	draw.RotatedText( "My fancy Rotating Text", "DermaLarge", w / 2, h / 2, color_white, ang, scale )
+end)
+	</code>
+<output>
+<upload src="70c/8dc53b786182f21.mp4" size="411916" name="hl2_QmJKFXNAVS.mp4" />
+</output>
+</example>
+
+<example>
+	<description>Rotating a box while keeping it's matrix positions relative to the panel.</description>
+	<code>
+concommand.Add("test_matrix", function()
+	local menu = vgui.Create( "DFrame" )
+	menu:SetSize( 200, 200 )
+	menu:SetTitle("Matrix rotation example")
+	menu:SetPos( 200, 200 )
+
+	local panel = menu:Add( "DPanel" )
+	panel:SetSize( 100, 100 )
+	panel:Center()
+
+	local grin = Material("icon16/emoticon_evilgrin.png", "smooth noclamp")
+	local angle = 0
+	function panel:Paint(w, h)
+		draw.RoundedBox( 8, 0, 0, w, h, color_white )
+
+		-- time to draw our matrix
+		local m = Matrix()
+		
+		-- to keep the matrix relative to the panel, we get the center of it relative to the screen
+		local x, y = self:LocalToScreen( w / 2, h / 2 )
+		local center = Vector( x, y, 0 )
+
+		m:Translate( center )
+		m:Rotate( Angle( 0, angle, 0 ) )
+		m:Translate( -center )
+		
+		-- rotate the angle after drawing for next time
+		angle = angle + FrameTime() * 60
+
+		-- push a filter mag to take away the crispiness
+		render.PushFilterMag( TEXFILTER.ANISOTROPIC )
+		render.PushFilterMin( TEXFILTER.ANISOTROPIC )
+
+			cam.PushModelMatrix( m )
+				draw.RoundedBox( 8, 0, 0, w, h, color_black )
+				surface.SetDrawColor( 255, 255, 255, 255 )
+				surface.SetMaterial( grin )
+				surface.DrawTexturedRect( w/2-16, h/2-16, 32, 32 )
+			cam.PopModelMatrix()
+
+		render.PopFilterMag()
+		render.PopFilterMin()
+	end
+
+end)
+	</code>
+<output>
+<upload src="50e40/8dcab076b160bde.gif" size="486812" name="gmod_UtOWgVrILW.gif" />
+</output>
+</example>
+
+<example>
+	<description>
+Draws a mesh at where the local player is looking at, without regenerating the mesh every frame.
+	</description>
+<code>
+local mat = Material( "models/shadertest/shader5" ) -- The material
+local mat2 = Material( "models/wireframe" ) -- The material (a wireframe)
+
+local segCount = 18
+local radius = 100
+
+-- Generate the vertices for a circle mesh, using simple trigonometry.
+-- We also calculate UV coordinates for texturing the mesh.
+local center = { pos = Vector( 0, 0, 0 ), u = 0.5, v = 0.5 }
+local verts = {}
+for j = 1, segCount do
+	local angle1 = ( ( j - 1 ) / segCount ) * math.pi * -2
+	local angle2 = ( j / segCount ) * math.pi * -2
+
+	local v1 = {
+		pos = Vector( math.cos( angle1 ) * radius, math.sin( angle1 ) * radius, 0 ),
+		u = math.cos( angle1 ) * 0.5 + 0.5, v = math.sin( angle1 ) * 0.5 + 0.5
+	}
+	local v2 = {
+		pos = Vector( math.cos( angle2 ) * radius, math.sin( angle2 ) * radius, 0 ),
+		u = math.cos( angle2 ) * 0.5 + 0.5, v = math.sin( angle2 ) * 0.5 + 0.5
+	}
+	verts[#verts + 1] = center
+	verts[#verts + 1] = v1
+	verts[#verts + 1] = v2
+end
+
+local obj = Mesh() -- Create the IMesh object
+mesh.Begin( obj, MATERIAL_TRIANGLES, segCount ) -- Begin writing to the static mesh
+for i = 1, #verts do
+	mesh.Position( verts[i].pos ) -- Set the position
+	mesh.TexCoord( 0, verts[i].u, verts[i].v ) -- Set the texture UV coordinates
+	mesh.AdvanceVertex() -- Write the vertex
+end
+mesh.End() -- Finish writing to the IMesh
+
+hook.Add( "PostDrawOpaqueRenderables", "MeshLibTest", function()
+	render.UpdateRefractTexture()
+	render.SetMaterial( mat )
+
+	local playerTrace = LocalPlayer():GetEyeTrace()
+
+	local m = Matrix()
+	m:Translate( playerTrace.HitPos + playerTrace.HitNormal * 10 )
+	m:Rotate( playerTrace.HitNormal:Angle() )
+	m:Rotate( Angle( 0, -90, -90 ) )
+
+	render.ResetModelLighting( 1, 1, 1 )
+	cam.PushModelMatrix( m )
+	obj:Draw() -- Draw the mesh
+	cam.PopModelMatrix()
+end )
+
+</code>
+<output><upload src="70c/8de786a81499d8b.png" size="292259" name="image.png" /></output>
+</example>

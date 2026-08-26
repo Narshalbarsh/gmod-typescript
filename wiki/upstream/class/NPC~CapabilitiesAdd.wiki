@@ -1,0 +1,12 @@
+<function name="CapabilitiesAdd" parent="NPC" type="classfunc">
+	<description>Adds a capability to the NPC.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="capabilities" type="number{CAP}">Capabilities to add, see <page>Enums/CAP</page>.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Adds the `CAP_USE_SHOT_REGULATOR` to the NPC's capabilities.</description>
+	<code>self:CapabilitiesAdd( CAP_USE_SHOT_REGULATOR )</code>
+</example>

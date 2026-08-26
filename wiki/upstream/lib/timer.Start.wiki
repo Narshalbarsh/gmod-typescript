@@ -1,0 +1,11 @@
+<function name="Start" parent="timer" type="libraryfunc">
+	<description>
+Restarts the given timer.
+
+<warning>Timers won't advance while the client is timing out from the server.</warning>
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="identifier" type="any">Identifier of the timer.</arg>
+	</args>
+</function>

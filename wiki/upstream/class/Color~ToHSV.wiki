@@ -1,0 +1,25 @@
+<function name="ToHSV" parent="Color" type="classfunc">
+
+	<file line="149-L153">lua/includes/util/color.lua</file>
+	<realm>Shared and Menu</realm>
+
+	<description>
+
+		Encodes a RGB <page>Color</page> into the [HSV color space](https://en.wikipedia.org/wiki/HSL_and_HSV).
+
+		This function uses <page>Global.ColorToHSV</page> internally.
+
+	</description>
+	
+	<rets>
+		<ret name="hue" type="number">
+			Hue in degrees in range [0, 360)
+		</ret>
+		<ret name="saturation" type="number">
+			Saturation in range [0, 1]
+		</ret>
+		<ret name="brightness" type="number">
+			Brightness in range [0, 1]
+		</ret>
+	</rets>
+</function>

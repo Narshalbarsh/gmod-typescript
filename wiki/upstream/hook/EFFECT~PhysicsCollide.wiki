@@ -1,0 +1,8 @@
+<function name="PhysicsCollide" parent="EFFECT" type="hook">
+	<description>Called when the effect collides with anything.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="colData" type="table">Information regarding the collision. See <page>Structures/CollisionData</page></arg>
+		<arg name="collider" type="PhysObj">The physics object of the entity that collided with the effect.</arg>
+	</args>
+</function>

@@ -1,0 +1,9 @@
+<function name="PostUndo" parent="GM" type="hook">
+	<description>Called just after performing an undo.</description>
+	<realm>Server</realm>
+	<added>2021.03.31</added>
+	<args>
+		<arg name="undo" type="table">The undo table. See <page text="Undo">Structures/Undo</page> struct.</arg>
+		<arg name="count" type="number">The amount of props/actions undone. This will be `0` for undos that are skipped in cases where for example the entity that is meant to be undone is already deleted.</arg>
+	</args>
+</function>

@@ -1,0 +1,17 @@
+<function name="WasMouseDoublePressed" parent="input" type="libraryfunc">
+	<description>
+Returns whether a mouse key was double pressed in the same frame this function was called.
+
+
+If this function returns true, <page>input.WasMousePressed</page> will return false.
+
+This function only works in Move hooks, and will detect mouse events even in main menu or when a typing in a text field.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="button" type="number">The mouse button to test, see <page>Enums/MOUSE</page></arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether the mouse key was double pressed or not.</ret>
+	</rets>
+</function>

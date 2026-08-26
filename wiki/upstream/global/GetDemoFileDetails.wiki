@@ -1,0 +1,10 @@
+<function name="GetDemoFileDetails" parent="Global" type="libraryfunc">
+	<description>Retrieves data about the demo with the specified filename. Similar to <page>Global.GetSaveFileDetails</page>.</description>
+	<realm>Menu</realm>
+	<args>
+		<arg name="filename" type="string">The file name of the demo.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">Demo data.</ret>
+	</rets>
+</function>

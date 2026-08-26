@@ -1,0 +1,6 @@
+<function name="End" parent="umsg" type="libraryfunc">
+	<description>
+<deprecated>You should be using the <page>net</page> instead</deprecated>
+Dispatches the usermessage to the client(s).</description>
+	<realm>Server</realm>
+</function>

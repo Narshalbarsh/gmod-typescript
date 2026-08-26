@@ -1,0 +1,13 @@
+<function name="SetLayerAutokill" parent="Entity" type="classfunc">
+	<description>
+Sets the autokill flag on the layer, making the layer be automatically removed once the animation playback finishes.
+
+<note>This function only works on <page>BaseAnimatingOverlay</page> entites!</note>
+	</description>
+	<added>2025.07.31</added>
+	<realm>Server</realm>
+	<args>
+		<arg name="layerID" type="number">The layer ID to change.</arg>
+		<arg name="autoKill" type="boolean">Whether to set or unset the autokill flag.</arg>
+	</args>
+</function>

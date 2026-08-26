@@ -1,0 +1,7 @@
+<function name="SetScroll" parent="DHScrollBar" type="panelfunc">
+	<description>Sets the scroll level in pixels.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="scroll" type="number">The new scroll value.</arg>
+	</args>
+</function>

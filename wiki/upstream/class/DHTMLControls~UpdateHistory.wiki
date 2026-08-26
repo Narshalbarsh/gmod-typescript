@@ -1,0 +1,11 @@
+<function name="UpdateHistory" parent="DHTMLControls" type="panelfunc">
+	<description>
+<internal></internal>
+
+Basically adds an URL to the history.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="url" type="string"></arg>
+	</args>
+</function>

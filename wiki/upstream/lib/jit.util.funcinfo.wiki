@@ -1,0 +1,66 @@
+<function name="util.funcinfo" parent="jit" type="libraryfunc">
+	<description>
+Retrieves LuaJIT information about a given function, similarly to <page>debug.getinfo</page>. Possible table fields:
+* linedefined: as for <page>debug.getinfo</page>
+* lastlinedefined: as for <page>debug.getinfo</page>
+* params: the number of parameters the function takes
+* stackslots: the number of stack slots the function's local variable use
+* upvalues: the number of upvalues the function uses
+* bytecodes: the number of bytecodes it the compiled function
+* gcconsts: the number of garbage collectable constants
+* nconsts: the number of lua_Number (double) constants
+* children: Boolean representing whether the function creates closures
+* currentline: as for <page>debug.getinfo</page>
+* isvararg: if the function is a vararg function
+* source: as for <page>debug.getinfo</page>
+* loc: a string describing the source and currentline, like "&lt;source&gt;:&lt;line&gt;"
+* ffid: the fast function id of the function (if it is one). In this case only upvalues above and addr below are valid
+* addr: the address of the function (if it is not a Lua function). If it's a C function rather than a fast function, only upvalues above is valid*
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="func" type="function">Function or Proto to retrieve info about.</arg>
+		<arg name="pos" type="number" default="0"></arg>
+	</args>
+	<rets>
+		<ret name="" type="table">Information about the supplied function/proto.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Demonstrates output of this function.</description>
+	<code>
+PrintTable(jit.util.funcinfo(print))
+
+local print = print
+_G.print = function(...) print(...) end -- redefine print
+
+PrintTable(jit.util.funcinfo(print))
+	</code>
+	<output>
+
+```
+-- First PrintTable output:
+addr	=	1773317824
+ffid	=	25
+upvalues	=	1
+
+-- Second PrintTable output:
+linedefined	=	1
+currentline	=	1
+params	=	0
+stackslots	=	2
+source	=	@lua_run
+lastlinedefined	=	1
+children	=	false
+upvalues	=	1
+nconsts	=	0
+isvararg	=	true
+loc	=	lua_run:1
+bytecodes	=	5
+gcconsts	=	0
+```
+
+	</output>
+
+</example>

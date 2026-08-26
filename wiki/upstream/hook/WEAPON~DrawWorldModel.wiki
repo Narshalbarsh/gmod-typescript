@@ -1,0 +1,71 @@
+<function name="DrawWorldModel" parent="WEAPON" type="hook">
+	<description>Called when we are about to draw the opaque parts of the weapon's world model.
+
+See <page>WEAPON:DrawWorldModelTranslucent</page> for translucent pass callback.
+See <page>WEAPON:ViewModelDrawn</page> for view model rendering.
+
+<rendercontext hook="true" type="3D"></rendercontext>
+</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="flags" type="number">The <page text="STUDIO_">Enums/STUDIO</page> flags for this render operation.</arg>
+	</args>
+</function>
+
+<example>
+	<description>The default action - render the world model.</description>
+	<code>
+function SWEP:DrawWorldModel( flags )
+	self:DrawModel( flags )
+end
+	</code>
+
+</example>
+
+
+<example>
+	<description>Draw the world model on the player without bonemerging it.</description>
+	<code>
+SWEP.WorldModel= "some_model.mdl"
+
+if CLIENT then
+	local WorldModel = ClientsideModel(SWEP.WorldModel)
+
+	-- Settings...
+	WorldModel:SetSkin(1)
+	WorldModel:SetNoDraw(true)
+
+	function SWEP:DrawWorldModel()
+		local _Owner = self:GetOwner()
+
+		if (IsValid(_Owner)) then
+            -- Specify a good position
+			local offsetVec = Vector(5, -2.7, -3.4)
+			local offsetAng = Angle(180, 90, 0)
+			
+			local boneid = _Owner:LookupBone("ValveBiped.Bip01_R_Hand") -- Right Hand
+			if !boneid then return end
+
+			local matrix = _Owner:GetBoneMatrix(boneid)
+			if !matrix then return end
+
+			local newPos, newAng = LocalToWorld(offsetVec, offsetAng, matrix:GetTranslation(), matrix:GetAngles())
+
+			WorldModel:SetPos(newPos)
+			WorldModel:SetAngles(newAng)
+
+            WorldModel:SetupBones()
+		else
+			WorldModel:SetPos(self:GetPos())
+			WorldModel:SetAngles(self:GetAngles())
+		end
+
+		WorldModel:DrawModel()
+	end
+end
+	</code>
+	<output>
+<image src="DrawWorldModel_example2.JPG" alt="thumb|left|The_World_model_is_in_the_Players_hand,_with_a_skin_applied."/>
+<image src="DrawWorldModel_example2_2.JPG" alt="thumb|left|The_World_model_when_dropped."/>
+	</output>
+</example>

@@ -1,0 +1,37 @@
+<function name="PlayerBindPress" parent="GM" type="hook">
+	<description>
+Runs when a bind has been pressed. Allows to block commands.
+
+<note>By using the "alias" console command, this hook can be effectively circumvented. To prevent this use <page>input.TranslateAlias</page>.
+
+To stop the user from using `+attack`, `+left` and any other movement commands of the sort, please look into using <page>GM:StartCommand</page> instead.</note>
+
+<bug issue="1176">The third argument will always be true.</bug>
+
+<bug issue="2888">This does not run for function keys binds (F1-F12).</bug>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="ply" type="Player">The player who used the command; this will always be equal to <page>Global.LocalPlayer</page>.</arg>
+		<arg name="bind" type="string">The bind command.</arg>
+		<arg name="pressed" type="boolean">If the bind was activated or deactivated.</arg>
+		<arg name="code" type="number">The button code. See <page text="BUTTON_CODE">Enums/BUTTON_CODE</page> Enums.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return `true` to prevent the bind.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prevents players from using flashlight.</description>
+	<code>
+hook.Add( "PlayerBindPress", "PlayerBindPressExample", function( ply, bind, pressed )
+	--To block more commands, you could add another line similar to
+	--the one below, just replace the command
+	if ( string.find( bind, "impulse 100" ) ) then
+		return true
+	end
+end )
+	</code>
+
+</example>

@@ -1,0 +1,9 @@
+<function name="GetFixedWidth" parent="DListView_Column" type="panelfunc">
+	<description>
+		Returns the fixed width of this column.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="width" type="number">The fixed width.</ret>
+	</rets>
+</function>

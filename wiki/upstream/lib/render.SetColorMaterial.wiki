@@ -1,0 +1,27 @@
+<function name="SetColorMaterial" parent="render" type="libraryfunc">
+	<description>
+Sets the current drawing material to "color".
+
+The material is defined as:
+```
+
+ "UnlitGeneric"
+ {
+ 	"$basetexture" "color/white"
+ 	"$model" 		1
+ 	"$translucent" 	1
+ 	"$vertexalpha" 	1
+ 	"$vertexcolor" 	1
+ }
+```
+
+	</description>
+	<realm>Client</realm>
+	<file line="74-L76">lua/includes/extensions/client/render.lua</file>
+</function>
+
+<example>
+	<description>Equivalent of this function. Internally, the material used is cached so it is not created every frame like the code below implies.</description>
+	<code>render.SetMaterial( Material( "color" ) )</code>
+
+</example>

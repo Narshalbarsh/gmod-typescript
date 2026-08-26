@@ -1,0 +1,7 @@
+<function name="IsErrorTexture" parent="ITexture" type="classfunc">
+	<description>Returns whenever the texture is the error texture (pink and black checkerboard pattern).</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the texture is the error texture or not.</ret>
+	</rets>
+</function>

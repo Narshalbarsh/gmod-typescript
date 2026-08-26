@@ -1,0 +1,5 @@
+<function name="Queue" parent="Panel" type="classfunc">
+	<file line="84-L88">lua/includes/extensions/client/panel/animation.lua</file>
+	<description>Enables the queue for panel animations. If enabled, the next new animation will begin after all current animations have ended. This must be called before <page>Panel:NewAnimation</page> to work, and only applies to the next new animation. If you want to queue many, you must call this before each.</description>
+	<realm>Client and Menu</realm>
+</function>

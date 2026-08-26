@@ -1,0 +1,7 @@
+<function name="SinglePlayer" parent="game" type="libraryfunc">
+	<description>Returns whether the current session is a single player game.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">isSinglePlayer.</ret>
+	</rets>
+</function>

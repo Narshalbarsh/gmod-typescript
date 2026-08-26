@@ -1,0 +1,19 @@
+<enum>
+	<realm>Server</realm>
+	<description>
+Enumerations used by <page>CNavArea</page> methods.
+These Enums correspond to each side of a <page>CNavArea</page>
+
+<warning>These enumerations do not exist in game and are listed here only for reference</warning>
+	</description>
+	<items>
+<item key="NORTH" value="0">North from given <page>CNavArea</page></item>
+
+<item key="EAST" value="1">East from given <page>CNavArea</page></item>
+
+<item key="SOUTH" value="2">South from given <page>CNavArea</page></item>
+
+<item key="WEST" value="3">West from given <page>CNavArea</page></item>
+	</items>
+
+</enum>

@@ -1,0 +1,7 @@
+<function name="PlayStepSound" parent="Player" type="classfunc">
+	<description>Plays the correct step sound according to what the player is staying on.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="volume" type="number" default="1">Volume for the sound, in range from 0 to 1</arg>
+	</args>
+</function>

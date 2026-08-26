@@ -1,0 +1,7 @@
+<type name="debugoverlay" category="libraryfunc" is="library">
+	<summary>The debugoverlay library is mainly useful for 3D debugging, it can be used to draw shapes on the screen for debug purposes.
+
+<note>These functions will not do anything unless the `developer` console variable is set to non 0.</note>
+<bug issue="5972#issuecomment-2275751896">There's some code that prevents debugoverlay from being added if the game is paused, i.e. when console is open in singleplayer.</bug>
+</summary>
+</type>

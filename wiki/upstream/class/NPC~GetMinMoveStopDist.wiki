@@ -1,0 +1,11 @@
+<function name="GetMinMoveStopDist" parent="NPC" type="classfunc">
+	<description>Returns how far before the NPC can come to a complete stop. </description>
+	<realm>Server</realm>
+	<added>2021.03.31</added>
+	<args>
+		<arg name="minResult " type="number" default="10">The minimum value that will be returned by this function.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The minimum stop distance.</ret>
+	</rets>
+</function>

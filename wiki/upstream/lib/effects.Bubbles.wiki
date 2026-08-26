@@ -1,0 +1,27 @@
+<function name="Bubbles" parent="effects" type="libraryfunc">
+	<description>Creates a bunch of bubbles inside a defined box.</description>
+	<realm>Shared</realm>
+	<added>2020.04.29</added>
+	<args>
+		<arg name="mins" type="Vector">The lowest extents of the box.</arg>
+		<arg name="maxs" type="Vector">The highest extents of the box.</arg>
+		<arg name="count" type="number">How many bubbles to spawn. There's a hard limit of 500 tempents at any time.</arg>
+		<arg name="height" type="number">How high the bubbles can fly up before disappearing.</arg>
+		<arg name="speed" type="number" default="0">How quickly the bubbles move.</arg>
+		<arg name="delay" type="number" default="0">Delay in seconds after the function call and before the effect actually spawns.</arg>
+	</args>
+</function>
+
+<example>
+
+<code>
+concommand.Add( "giveme_bubbles", function( ply )
+	local pos = ply:GetEyeTrace().HitPos
+	local mins = Vector( 100, 100, 0 )
+	local maxs = Vector( 100, 100, 100 )
+
+	effects.Bubbles( pos - mins, pos + maxs, 100, 200, 0 )
+end )
+</code>
+<output><upload src="70c/8dc3a0b60ed84f5.png" size="1032297" name="image.png" /></output>
+</example>

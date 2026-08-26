@@ -1,0 +1,8 @@
+<function name="PerformRootNodeLayout" parent="DTree_Node" type="panelfunc">
+	<description>
+<internal></internal>
+
+Called automatically to perform layout on this node if this node <page>DTree_Node:IsRootNode</page>.
+	</description>
+	<realm>Client and Menu</realm>
+</function>

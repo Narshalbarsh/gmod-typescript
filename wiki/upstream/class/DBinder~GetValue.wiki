@@ -1,0 +1,8 @@
+<function name="GetValue" parent="DBinder" type="panelfunc">
+	<description>Gets the code of the key currently bound by the DBinder. Same as <page>DBinder:GetSelectedNumber</page>.</description>
+	<realm>Client</realm>
+	<file line="83-L87">lua/vgui/dbinder.lua</file>
+	<rets>
+		<ret name="" type="number">The key code of the bound key. See <page>Enums/KEY</page>.</ret>
+	</rets>
+</function>

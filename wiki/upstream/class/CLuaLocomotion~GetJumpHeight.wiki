@@ -1,0 +1,7 @@
+<function name="GetJumpHeight" parent="CLuaLocomotion" type="classfunc">
+	<description>Gets the height of the bot's jump</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">Current jump height</ret>
+	</rets>
+</function>

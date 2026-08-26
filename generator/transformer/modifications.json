@@ -95,6 +95,36 @@
             "omits": ["SetIcon"]
         }
     ],
+    "DButton": [
+        {
+            "kind": "OmitParentField",
+            "omits": ["DoClick"]
+        }
+    ],
+    "DListView_Line": [
+        {
+            "kind": "OmitParentField",
+            "omits": ["GetValue"]
+        }
+    ],
+    "DTextEntry": [
+        {
+            "kind": "OmitParentField",
+            "omits": ["OnTextChanged"]
+        }
+    ],
+    "ImageCheckBox": [
+        {
+            "kind": "OmitParentField",
+            "omits": ["SetMaterial"]
+        }
+    ],
+    "Material": [
+        {
+            "kind": "OmitParentField",
+            "omits": ["SetMaterial"]
+        }
+    ],
     "Angle": [
         {
             "kind": "AddField",
@@ -149,14 +179,6 @@
             "field": {
                 "docComment": "The pitch component of the angle.",
                 "identifier": "x",
-                "type": "number"
-            }
-        },
-        {
-            "kind": "AddField",
-            "field": {
-                "docComment": "The yaw component of the angle.",
-                "identifier": "y",
                 "type": "number"
             }
         },
@@ -371,14 +393,6 @@
             "prefix": "util"
         }
     ],
-    "file.Open": [
-        {
-            "kind": "ModifyReturn",
-            "return": {
-                "type": "File"
-            }
-        }
-    ],
     "spawnmenu.AddContentType": [
         {
             "kind": "ModifiyArgument",
@@ -386,6 +400,12 @@
                 "identifier": "constructor",
                 "type": "(pnl: Panel, tbl: any) => void"
             }
+        }
+    ],
+    "Global.Error": [
+        {
+            "kind": "Skip",
+            "reason": "collides with the Error that lib.es5 declares, and TSTL compiles any Error call to its lualib class regardless, use GmodError from extras.d.ts"
         }
     ],
     "GM:OnClientLuaError": [

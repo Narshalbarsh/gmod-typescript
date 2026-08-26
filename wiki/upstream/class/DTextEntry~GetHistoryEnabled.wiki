@@ -1,0 +1,8 @@
+<function name="GetHistoryEnabled" parent="DTextEntry" type="panelfunc">
+	<description>Returns whether the history functionality of  <page>DTextEntry</page> is enabled. See <page>DTextEntry:AddHistory</page>.
+</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the history is enabled or not.</ret>
+	</rets>
+</function>

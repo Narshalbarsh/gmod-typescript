@@ -1,0 +1,7 @@
+<function name="CreatedByMap" parent="Entity" type="classfunc">
+	<description>Returns whether the entity was created by map or not.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">Is created by map?</ret>
+	</rets>
+</function>

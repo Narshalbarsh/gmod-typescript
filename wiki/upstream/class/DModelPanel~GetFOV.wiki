@@ -1,0 +1,21 @@
+<function name="GetFOV" parent="DModelPanel" type="panelfunc">
+	<description>Returns the FOV (field of view) the camera is using.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">The FOV of the camera.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints out the default camera FOV.</description>
+	<code>
+local mdl = vgui.Create("DModelPanel")
+mdl:SetPos(20, 20)
+mdl:SetSize(200, 200)
+mdl:SetModel("models/props_junk/watermelon01.mdl")
+
+print(mdl:GetFOV())
+	</code>
+	<output>70</output>
+
+</example>

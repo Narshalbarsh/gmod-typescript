@@ -1,0 +1,15 @@
+<function name="OverrideMove" parent="ENTITY" type="hook">
+	<added>2023.12.06</added>
+	<description>
+Called to completely override NPC movement. This can be used for example for flying NPCs.
+
+<note>This hook only exists for `ai` type SENTs.</note>
+</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="interval" type="number">Time interval for the movement, in seconds. Usually time since last movement.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return `true` to disable the default movement code.</ret>
+	</rets>
+</function>

@@ -1,0 +1,14 @@
+<function name="SizeToContentsY" parent="Panel" type="classfunc">
+	<file line="330-L337">lua/includes/extensions/client/panel.lua</file>
+	<description>
+Resizes the panel object's height to accommodate all child objects/contents.
+
+Only works on <page>Label</page> derived panels such as <page>DLabel</page> by default, and on any panel that manually implemented <page>Panel:GetContentSize</page> method.
+
+<note>You must call this function **AFTER** setting text/font or adjusting child panels.</note>
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="addVal" type="number" default="0">The number of extra pixels to add to the height.</arg>
+	</args>
+</function>

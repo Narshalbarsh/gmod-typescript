@@ -1,0 +1,7 @@
+<function name="FogMaxDensity" parent="render" type="libraryfunc">
+	<description>Sets the maximum density of the fog.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="maxDensity" type="number">The maximum density of the fog, 0-1.</arg>
+	</args>
+</function>

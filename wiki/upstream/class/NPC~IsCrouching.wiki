@@ -1,0 +1,8 @@
+<function name="IsCrouching" parent="NPC" type="classfunc">
+	<description>Returns whether the NPC is currently crouching or not. Citizens and Combine Soldiers are capable of this behavior by default.</description>
+	<added>2025.08.04</added>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the NPC is currently crouching.</ret>
+	</rets>
+</function>

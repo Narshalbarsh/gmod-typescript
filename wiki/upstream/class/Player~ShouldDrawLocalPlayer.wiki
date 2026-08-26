@@ -1,0 +1,10 @@
+<function name="ShouldDrawLocalPlayer" parent="Player" type="classfunc">
+	<description>Returns whether the **local player's** player model will be drawn at the time the function is called.
+
+Despite this being a method on a player object, this will always represent the state of the <page text="local player">Global.LocalPlayer</page>, not of the player entity this method is used on.
+</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="boolean">`true` if the player's playermodel is visible</ret>
+	</rets>
+</function>

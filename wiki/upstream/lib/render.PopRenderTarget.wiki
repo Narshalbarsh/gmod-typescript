@@ -1,0 +1,8 @@
+<function name="PopRenderTarget" parent="render" type="libraryfunc">
+	<description>
+Pops the last render target and viewport from the RT stack and sets them as the current render target and viewport.
+
+This is should be called to restore the previous render target and viewport after a call to <page>render.PushRenderTarget</page>.
+	</description>
+	<realm>Client</realm>
+</function>

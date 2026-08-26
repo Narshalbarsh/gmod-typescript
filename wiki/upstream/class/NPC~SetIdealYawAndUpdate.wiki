@@ -1,0 +1,11 @@
+<function name="SetIdealYawAndUpdate" parent="NPC" type="classfunc">
+	<description>Sets the ideal yaw angle (left-right rotation) for the NPC and forces them to turn to that angle.</description>
+	<realm>Server</realm>
+	<added>2020.06.24</added>
+	<args>
+		<arg name="angle" type="number">The aim direction to set, the `yaw` component.</arg>
+		<arg name="speed" type="number" default="-1">The turn speed. Special values are:
+* `-1` - Calculate automatically
+* `-2` - Keep the previous yaw speed</arg>
+	</args>
+</function>

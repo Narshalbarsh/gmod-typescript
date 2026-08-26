@@ -1,0 +1,8 @@
+<function name="StartEntityDriving" parent="GM" type="hook">
+	<description>Called right before an entity starts driving. Overriding this hook will cause it to not call <page>drive.Start</page> and the player will not begin driving the entity.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="ent" type="Entity">The entity that is going to be driven</arg>
+		<arg name="ply" type="Player">The player that is going to drive the entity</arg>
+	</args>
+</function>

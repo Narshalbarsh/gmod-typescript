@@ -1,0 +1,13 @@
+<function name="DOFModeHack" parent="Global" type="libraryfunc">
+	<description>
+A hacky method used to fix some bugs regarding DoF. What this basically does it force all `C_BaseAnimating` entities to have the translucent <page text="rendergroup">Enums/RENDERGROUP</page>, even if they use opaque or two-pass models.
+
+This is specifically to do with <page>GM:NeedsDepthPass</page>
+
+<internal></internal>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="enable" type="boolean">Enables or disables depth-of-field mode</arg>
+	</args>
+</function>

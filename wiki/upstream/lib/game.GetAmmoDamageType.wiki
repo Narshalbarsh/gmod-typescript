@@ -1,0 +1,10 @@
+<function name="GetAmmoDamageType" parent="game" type="libraryfunc">
+	<description>Returns the damage type of given ammo type.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="id" type="number">Ammo ID to retrieve the damage type of. Starts from 1.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">See <page>Enums/DMG</page>.</ret>
+	</rets>
+</function>

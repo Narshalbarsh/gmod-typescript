@@ -1,0 +1,64 @@
+<function name="GetToolMenu" parent="spawnmenu" type="libraryfunc">
+	<description>Returns an existing tool tab by name from the right side of the spawnmenu (usually during the <page>SANDBOX:AddToolMenuTabs</page> hook)
+
+If the requested tooltab does not exist, it will be added. See also <page>spawnmenu.AddToolTab</page>.</description>
+	<realm>Client</realm>
+	<file line="32-L58">lua/includes/modules/spawnmenu.lua</file>
+	<args>
+		<arg name="name" type="string">The internal name of the tab. This is used for sorting.</arg>
+		<arg name="label" type="string" default="name">The 'nice' name of the tab</arg>
+		<arg name="icon" type="string" default="icon16/wrench.png">The file path to the icon of the tab. Should be a `.png` file. See <page>Silkicons</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">A table of tables representing categories and items in the left part of the tab. See example below to example structure.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints out the contents of the default Tool Tab.</description>
+	<code>PrintTable( spawnmenu.GetToolMenu( "Main" ) )</code>
+	<output>
+```
+1:
+		1:
+				CPanelFunction	=	function: 0x48a60408
+				Command	=	gmod_tool axis
+				Controls	=	axis
+				ItemName	=	axis
+				Text	=	#tool.axis.name
+		2:
+				CPanelFunction	=	function: 0x48a6b218
+				Command	=	gmod_tool ballsocket
+				Controls	=	ballsocket
+				ItemName	=	ballsocket
+				Text	=	#tool.ballsocket.name
+		3:
+				CPanelFunction	=	function: 0x48a8be48
+				Command	=	gmod_tool elastic
+				Controls	=	elastic
+				ItemName	=	elastic
+				Text	=	#tool.elastic.name
+		4:
+				CPanelFunction	=	function: 0x48ab5998
+				Command	=	gmod_tool hydraulic
+				Controls	=	hydraulic
+				ItemName	=	hydraulic
+				Text	=	#tool.hydraulic.name
+...
+		ItemName	=	Constraints
+		Text	=	#spawnmenu.tools.constraints
+2:
+		1:
+				CPanelFunction	=	function: 0x3a4235c8
+				Command	=	gmod_tool balloon
+				Controls	=	balloon
+				ItemName	=	balloon
+				Text	=	#tool.balloon.name
+...
+		ItemName	=	Construction
+		Text	=	#spawnmenu.tools.construction
+...
+```
+	</output>
+
+</example>

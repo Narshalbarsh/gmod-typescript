@@ -1,0 +1,4 @@
+<function name="Destroy" parent="IMesh" type="classfunc">
+	<description>Deletes the mesh and frees the memory used by it.</description>
+	<realm>Client</realm>
+</function>

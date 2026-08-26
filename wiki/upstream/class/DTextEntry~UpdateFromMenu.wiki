@@ -1,0 +1,6 @@
+<function name="UpdateFromMenu" parent="DTextEntry" type="panelfunc">
+	<description>
+<internal></internal>
+Used internally to set text from the autocomplete menu.</description>
+	<realm>Client and Menu</realm>
+</function>

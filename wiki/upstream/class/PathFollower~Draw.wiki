@@ -1,0 +1,4 @@
+<function name="Draw" parent="PathFollower" type="classfunc">
+	<description>Draws the path. This is meant for debugging - and uses <page>debugoverlay</page>.</description>
+	<realm>Server</realm>
+</function>

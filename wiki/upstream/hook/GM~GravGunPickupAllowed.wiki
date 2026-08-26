@@ -1,0 +1,19 @@
+<function name="GravGunPickupAllowed" parent="GM" type="hook">
+	<description>
+Called every tick to poll whether a player is allowed to pick up an entity with the gravity gun or not.
+
+See <page>GM:AllowPlayerPickup</page> for the +USE pickup variant.<br/>
+See <page>GM:PhysgunPickup</page> for the Physics Gun pickup variant.
+
+Calls <page>ENTITY:GravGunPickupAllowed</page> on the entity being hovered every frame in Sandbox-derived gamemodes.
+	</description>
+	<realm>Server</realm>
+	<file line="15-L17">gamemodes/base/gamemode/gravitygun.lua</file>
+	<args>
+		<arg name="ply" type="Player">The player wielding the gravity gun</arg>
+		<arg name="ent" type="Entity">The entity the player is attempting to pick up</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return true to allow entity pick up</ret>
+	</rets>
+</function>

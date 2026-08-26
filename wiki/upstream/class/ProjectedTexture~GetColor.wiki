@@ -1,0 +1,9 @@
+<function name="GetColor" parent="ProjectedTexture" type="classfunc">
+	<description>
+Returns the color of the ProjectedTexture, which was previously set by <page>ProjectedTexture:SetColor</page>.
+	</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="Color">The <page>Color</page> of the ProjectedTexture.</ret>
+	</rets>
+</function>

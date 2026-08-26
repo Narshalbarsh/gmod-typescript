@@ -1,0 +1,11 @@
+<function name="SetAngles" parent="Entity" type="classfunc">
+	<description>
+Sets the angles of the entity.
+
+<note>To set a player's angles, use <page>Player:SetEyeAngles</page> instead.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="angles" type="Angle">The new angles.</arg>
+	</args>
+</function>

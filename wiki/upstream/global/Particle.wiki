@@ -1,0 +1,11 @@
+<function name="Particle" parent="Global" type="libraryfunc">
+	<description>Calls <page>game.AddParticles</page> and returns given string.</description>
+	<realm>Shared and Menu</realm>
+	<file line="174-L182">lua/includes/util.lua</file>
+	<args>
+		<arg name="file" type="string">The particle file.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The particle file.</ret>
+	</rets>
+</function>

@@ -1,0 +1,17 @@
+<function name="GetName" parent="team" type="libraryfunc">
+	<description>Returns the name of the team.</description>
+	<file line="155-L160">lua/includes/modules/team.lua</file>
+	<realm>Shared</realm>
+	<args>
+		<arg name="teamIndex" type="number">The team index.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The team name. If the team is not defined, returns an empty string.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Returns the teams name as a string.</description>
+	<code>print(team.GetName(Entity(1):Team()))</code>
+
+</example>

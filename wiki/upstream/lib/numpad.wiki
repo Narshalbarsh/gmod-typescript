@@ -1,0 +1,3 @@
+<type name="numpad" category="libraryfunc" is="library">
+	<summary>The numpad module allows you to execute functions on a key press or release.</summary>
+</type>

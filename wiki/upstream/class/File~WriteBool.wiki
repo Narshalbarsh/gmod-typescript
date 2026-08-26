@@ -1,0 +1,7 @@
+<function name="WriteBool" parent="File" type="classfunc">
+	<description>Writes a boolean value to the file as one **byte**.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="bool" type="boolean">The bool to be written to the file.</arg>
+	</args>
+</function>

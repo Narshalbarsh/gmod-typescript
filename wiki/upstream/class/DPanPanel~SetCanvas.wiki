@@ -1,0 +1,11 @@
+<function name="SetCanvas" parent="DPanPanel" type="panelfunc">
+	<description>
+<internal></internal>
+
+Used internally.
+</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="pnl" type="Panel">The canvas panel.</arg>
+	</args>
+</function>

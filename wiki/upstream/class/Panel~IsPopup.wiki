@@ -1,0 +1,8 @@
+<function name="IsPopup" parent="Panel" type="classfunc">
+	<description>Returns if the panel was made popup or not. See <page>Panel:MakePopup</page></description>
+	<realm>Client and Menu</realm>
+	<added>2021.01.27</added>
+	<rets>
+		<ret name="" type="boolean">`true` if the panel was made popup.</ret>
+	</rets>
+</function>

@@ -1,0 +1,11 @@
+<function name="WriteVar" parent="saverestore" type="libraryfunc">
+	<description>Writes a variable to the save game file that is being saved.</description>
+	<realm>Shared</realm>
+	<file line="151-L178">lua/includes/modules/saverestore.lua</file>
+	<args>
+		<arg name="value" type="any">The value to save.
+
+It can be one of the following types: <page>number</page>, <page>boolean</page>, <page>string</page>, <page>Entity</page>, <page>Angle</page>, <page>Vector</page> or <page>table</page>.</arg>
+		<arg name="save" type="ISave">The save object to write the variable to.</arg>
+	</args>
+</function>

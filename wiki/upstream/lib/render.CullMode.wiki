@@ -1,0 +1,7 @@
+<function name="CullMode" parent="render" type="libraryfunc">
+	<description>Sets the cull mode. The culling mode defines how back faces are culled when rendering geometry.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="cullMode" type="number">Cullmode, see <page>Enums/MATERIAL_CULLMODE</page>.</arg>
+	</args>
+</function>

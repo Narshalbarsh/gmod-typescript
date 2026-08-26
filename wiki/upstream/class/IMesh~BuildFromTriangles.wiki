@@ -1,0 +1,17 @@
+<function name="BuildFromTriangles" parent="IMesh" type="classfunc">
+	<description>
+Builds the mesh from a table mesh vertexes.
+
+When modifying a previously built mesh, your new mesh must match the vertex count!
+
+See <page>Global.Mesh</page> and <page>util.GetModelMeshes</page> for examples.
+
+<warning><page>IMesh</page> appears to have a limit of 65535 vertices. You should split your mesh into multiple meshes when above this limit. 
+
+Exceeding the limit may lead to undefined rendering behavior.</warning>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="vertexes" type="table">A table consisting of <page>Structures/MeshVertex</page>s.</arg>
+	</args>
+</function>

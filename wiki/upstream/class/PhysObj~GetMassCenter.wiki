@@ -1,0 +1,7 @@
+<function name="GetMassCenter" parent="PhysObj" type="classfunc">
+	<description>Returns the center of mass of the physics object as a local vector.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Vector">The center of mass of the physics object.</ret>
+	</rets>
+</function>

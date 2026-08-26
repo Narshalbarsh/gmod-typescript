@@ -1,0 +1,11 @@
+<function name="TableExists" parent="sql" type="libraryfunc">
+	<description>Returns true if the table with the specified name exists.</description>
+	<realm>Shared and Menu</realm>
+	<file line="30-L39">lua/includes/util/sql.lua</file>
+	<args>
+		<arg name="tableName" type="string">The name of the table to check.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">exists</ret>
+	</rets>
+</function>

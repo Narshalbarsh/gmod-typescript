@@ -1,0 +1,5 @@
+<function name="OnEntityLost" parent="DEntityProperties" type="panelhook">
+	<description>Called when we were editing an entity and then it became invalid (probably removed). For Override</description>
+	<realm>Client</realm>
+	<file line="106-L110">lua/vgui/dentityproperties.lua</file>
+</function>

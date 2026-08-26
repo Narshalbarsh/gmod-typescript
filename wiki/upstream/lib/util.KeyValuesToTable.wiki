@@ -1,0 +1,41 @@
+<function name="KeyValuesToTable" parent="util" type="libraryfunc">
+	<description>
+Converts a Valve KeyValue string (typically from <page>util.TableToKeyValues</page>) to a Lua table.
+
+<note>Due to how <page>table</page>s work in Lua, keys will not repeat within a table. See <page>util.KeyValuesToTablePreserveOrder</page> for alternative.</note>
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="keyValues" type="string">The KeyValue string to convert.</arg>
+		<arg name="usesEscapeSequences" type="boolean" default="false">If set to true, will replace `\t`, `\n`, `\"` and `\\` in the input text with their escaped variants</arg>
+		<arg name="preserveKeyCase" type="boolean" default="false">Whether we should preserve key case (may fail) or not (always lowercase)</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">The converted table</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Example usage and output of this function. Note how there's only one "solid" key in the table despite the fact that input string contains multiple.</description>
+	<code>
+local ModelInfo = util.GetModelInfo("models/combine_gate_vehicle.mdl" )
+PrintTable( util.KeyValuesToTable( ModelInfo.KeyValues ) )
+	</code>
+	<output>
+```
+editparams:
+		rootname	=	
+		totalmass	=	1
+solid:
+		damping	=	0
+		index	=	4
+		inertia	=	1
+		mass	=	1
+		name	=	Vehicle_Gate.Gate1_L
+		rotdamping	=	0
+		surfaceprop	=	metal
+		volume	=	68522.8828125
+```
+	</output>
+
+</example>

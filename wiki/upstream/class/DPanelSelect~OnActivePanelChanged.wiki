@@ -1,0 +1,8 @@
+<function name="OnActivePanelChanged" parent="DPanelSelect" type="panelhook">
+	<description>Called when the selected panel changes.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="oldPnl" type="Panel">Old selected panel.</arg>
+		<arg name="newPnl" type="Panel">New selected panel.</arg>
+	</args>
+</function>

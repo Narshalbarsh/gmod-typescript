@@ -1,0 +1,25 @@
+<function name="PhysicsInitBox" parent="Entity" type="classfunc">
+	<description>
+Makes the physics object of the entity a AABB.
+
+This function will automatically destroy any previous physics objects and do the following:
+* <page>Entity:SetSolid</page>( `SOLID_BBOX` )
+* <page>Entity:SetMoveType</page>( `MOVETYPE_VPHYSICS` )
+* <page>Entity:SetCollisionBounds</page>( `mins`, `maxs` )
+
+<note>If the volume of the resulting box is 0 (the mins and maxs are the same), the mins and maxs will be changed to <page>Global.Vector</page>( -1, -1, -1 ) and <page>Global.Vector</page>( 1, 1, 1 ), respectively.</note>
+
+<bug issue="5060">Clientside physics objects on serverside entities do not move properly in some cases. Physics objects should only created on the server or you will experience incorrect physgun beam position, prediction issues, and other unexpected behavior.
+
+A workaround is available on the <page>Entity:PhysicsInitConvex</page> page.</bug>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="mins" type="Vector">The minimum position of the box. This is automatically ordered with the maxs.</arg>
+		<arg name="maxs" type="Vector">The maximum position of the box. This is automatically ordered with the mins.</arg>
+		<arg name="surfaceprop" type="string" added="2023.01.25" default="default">Physical material from [surfaceproperties.txt](https://github.com/Facepunch/garrysmod/blob/master/garrysmod/scripts/surfaceproperties.txt) or added with <page>physenv.AddSurfaceData</page>.</arg><arg name="massCenterOverride" type="Vector" default="nil" added="2024.10.29">If set, overwrites the center of mass for the created physics object.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Returns `true` on success, `nil` otherwise. This fails when the game cannot create any more <page>PhysCollide</page>s.</ret>
+	</rets>
+</function>

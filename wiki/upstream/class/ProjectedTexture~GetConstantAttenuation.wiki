@@ -1,0 +1,7 @@
+<function name="GetConstantAttenuation" parent="ProjectedTexture" type="classfunc">
+	<description>Returns the constant attenuation of the projected texture, which can also be set by <page>ProjectedTexture:SetConstantAttenuation</page>.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">The constant attenuation</ret>
+	</rets>
+</function>

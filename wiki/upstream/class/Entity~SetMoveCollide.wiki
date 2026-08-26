@@ -1,0 +1,7 @@
+<function name="SetMoveCollide" parent="Entity" type="classfunc">
+	<description>Sets the move collide type of the entity. The move collide is the way a physics object reacts to hitting an object - will it bounce, slide?</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="moveCollideType" type="number">The move collide type, see <page>Enums/MOVECOLLIDE</page></arg>
+	</args>
+</function>

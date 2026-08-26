@@ -1,0 +1,8 @@
+<function name="MakeUIDirty" parent="undo" type="libraryfunc">
+	<description>
+<internal></internal>
+Makes the UI dirty - it will re-create the controls the next time it is viewed.
+	</description>
+	<realm>Client</realm>
+	<file line="116-L120">lua/includes/modules/undo.lua</file>
+</function>

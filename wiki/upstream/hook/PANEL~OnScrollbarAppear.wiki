@@ -1,0 +1,4 @@
+<function name="OnScrollbarAppear" parent="PANEL" type="hook">
+	<description>Called when the panel a child <page>DVScrollBar</page> or <page>DHScrollBar</page> becomes visible.</description>
+	<realm>Client</realm>
+</function>

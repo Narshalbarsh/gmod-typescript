@@ -1,0 +1,16 @@
+<function name="Controls" parent="derma" type="libraryfield">
+	<description>
+This is NOT a function, it's a variable containing all derma controls, registered with <page>derma.DefineControl</page>.
+
+Use <page>derma.GetControlList</page> to retrieve this list.
+
+It's a list of tables, each having 3 keys, all from <page>derma.DefineControl</page> arguments:
+* <page>string</page> ClassName - The class name of the panel.
+* <page>string</page> Description - The description of the panel.
+* <page>string</page> BaseClass - The base class of the panel.
+</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="table">The list of all registered derma controls.</ret>
+	</rets>
+</function>

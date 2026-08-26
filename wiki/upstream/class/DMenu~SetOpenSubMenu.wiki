@@ -1,0 +1,11 @@
+<function name="SetOpenSubMenu" parent="DMenu" type="panelfunc">
+	<description>
+<internal></internal>
+
+Used internally to store the open submenu by <page>DMenu:Hide</page>, <page>DMenu:OpenSubMenu</page>, <page>DMenu:CloseSubMenu</page>
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="item" type="Panel">The menu to store</arg>
+	</args>
+</function>

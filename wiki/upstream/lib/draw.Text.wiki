@@ -1,0 +1,29 @@
+<function name="Text" parent="draw" type="libraryfunc">
+	<description>
+Works like <page>draw.SimpleText</page> but uses a table structure instead.
+
+<rendercontext hook="false" type="2D"></rendercontext>
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="269-L273">lua/includes/modules/draw.lua</file>
+	<args>
+		<arg name="textdata" type="table">The text properties. See the <page>Structures/TextData</page></arg>
+	</args>
+	<rets>
+		<ret name="" type="number">Width of drawn text.</ret>
+		<ret name="" type="number">Height of drawn text.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Example usage</description>
+	<code>
+hook.Add( "HUDPaint", "drawTextExample", function()
+	draw.Text( {
+		text = "test",
+		pos = { 50, 50 }
+	} )
+end )
+	</code>
+
+</example>

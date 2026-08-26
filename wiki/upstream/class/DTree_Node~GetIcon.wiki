@@ -1,0 +1,7 @@
+<function name="GetIcon" parent="DTree_Node" type="panelfunc">
+	<description>Returns the image path to the icon of this node.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="string">The path to the image</ret>
+	</rets>
+</function>

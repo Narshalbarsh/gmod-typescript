@@ -1,0 +1,33 @@
+<function name="DrawTexturedRect" parent="surface" type="libraryfunc">
+	<description>
+Draw a textured rectangle with the given position and dimensions on the screen, using the current active texture set with <page>surface.SetMaterial</page>. It is also affected by <page>surface.SetDrawColor</page>.
+
+See also <page>render.SetMaterial</page> and <page>render.DrawScreenQuadEx</page>.  
+See also <page>surface.DrawTexturedRectUV</page> and <page>surface.DrawTexturedRectRotated</page>.
+
+<rendercontext hook="false" type="2D"></rendercontext>
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="x" type="number">The X integer co-ordinate.</arg>
+		<arg name="y" type="number">The Y integer co-ordinate.</arg>
+		<arg name="width" type="number">The integer width of the rectangle.</arg>
+		<arg name="height" type="number">The integer height of the rectangle.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Draws a 512x512 textured rectangle with the wireframe texture.</description>
+	<code>
+-- Calling Material() every frame is quite expensive
+-- So we call it once, outside of any hooks, and cache the result in a local variable
+local ourMat = Material( "models/wireframe" )
+
+hook.Add( "HUDPaint", "PutAUniqueHookNameHere", function()
+	surface.SetDrawColor( 255, 255, 255, 255 ) -- Set the drawing color
+	surface.SetMaterial( ourMat ) -- Use our cached material
+	surface.DrawTexturedRect( 0, 0, 512, 512 ) -- Actually draw the rectangle
+end )
+	</code>
+
+</example>

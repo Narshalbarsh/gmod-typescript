@@ -1,0 +1,31 @@
+<function name="GetInfo" parent="Player" type="classfunc">
+	<description>
+Retrieves the value of a client-side <page>ConVar</page>. The <page>ConVar</page> must have a <page text="FCVAR_USERINFO">Enums/FCVAR</page> flag for this to work.
+
+On client this function will return value of the local player, regardless of which player the function was called on!
+
+See <page>Player:GetInfoNum</page> for the same function that automatically converts the string to a number.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="cVarName" type="string">The name of the client-side <page>ConVar</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The value of the <page>ConVar</page>. Or an empty string if the convar doesn't exist.
+
+<warning>The returned value is truncated to 259 bytes.</warning>
+</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Creates clientside <page>ConVar</page> `Apple` and retrieves value of it.</description>
+	<code>
+if CLIENT then
+	CreateConVar( "Apple", "ILikeApples", FCVAR_USERINFO )
+else
+	MsgN( Entity( 1 ):GetInfo( "Apple" ) )
+end
+	</code>
+	<output>ILikeApples</output>
+</example>

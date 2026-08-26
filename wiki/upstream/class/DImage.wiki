@@ -1,0 +1,67 @@
+<panel>
+	<name>DImage</name>
+	<parent>DPanel</parent>
+	<realm>Client and Menu</realm>
+	<file line="">lua/vgui/dimage.lua</file>
+	<preview>DImage_preview.jpg</preview>
+	<description>
+		<page>DImage</page> is an advanced, more robust version of the <page>Material</page> panel.
+
+		See <page>DImageButton</page> for a click-able version of this panel.
+	</description>
+</panel>
+
+
+<example>
+	<description>Creates a `DImage` that renders a `.png` image.</description>
+	<code>
+-- Frame
+local Frame = vgui.Create("DFrame")
+Frame:SetSize( 200, 200 )
+Frame:Center()
+Frame:SetTitle( "A PNG image" )
+Frame:MakePopup()
+
+-- Image panel
+local breen_img = vgui.Create( "DImage", Frame )	-- Add image to Frame
+breen_img:SetPos( 10, 35 )	-- Move it into frame
+breen_img:SetSize( 150, 150 )	-- Size it to 150x150
+
+-- Set material relative to "garrysmod/materials/"
+breen_img:SetImage( "entities/weapon_physgun.png" )
+	</code>
+<output>
+<upload src="70c/8de6e48613006a1.png" size="45461" name="image.png" />
+</output>
+</example>
+
+<example>
+	<description>Creates three `DImage` panels and arranges them into a new image.</description>
+	<code>
+-- Container panel
+local BGPanel = vgui.Create( "DFrame" )
+BGPanel:SetSize( 400, 420 )
+BGPanel:Center()
+BGPanel:MakePopup()
+
+-- Wood background
+local img_bg = vgui.Create( "DImage", BGPanel )
+local parentW, parentH = BGPanel:GetSize()
+img_bg:SetPos( 0, 20 )
+img_bg:SetSize( parentW, parentH - 20 )
+img_bg:SetImage( "models/props_foliage/oak_tree01" )
+
+-- Blurred out screenshot of Construct
+local img_construct = vgui.Create( "DImage", BGPanel )
+img_construct:SetPos( 10, 30 )
+img_construct:SetSize( 380, 380 )
+img_construct:SetImage( "hlmv/background" )
+
+-- Flatgrass sign
+local img_text = vgui.Create( "DImage", BGPanel )
+img_text:SetPos( 10, 40 )
+img_text:SetSize( 380, 130 )
+img_text:SetImage( "gm_construct/flatsign" )
+	</code>
+	<output><image src="DImage_example2.jpg"/></output>
+</example>

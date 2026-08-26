@@ -1,0 +1,7 @@
+<function name="SetArrivalDistance" parent="NPC" type="classfunc">
+	<description>Sets the distance to goal at which the NPC should stop moving and continue to other business such as doing the rest of their tasks in a schedule.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="dist" type="number">The distance to goal that is close enough for the NPC</arg>
+	</args>
+</function>

@@ -1,0 +1,19 @@
+<function name="PlayerDeathThink" parent="GM" type="hook">
+	<description>
+Called every think while the player is dead. The return value will determine if the player respawns.
+
+Overwriting this function will prevent players from respawning by pressing space or clicking.
+
+<bug issue="1577">This hook is not called for players with the <page text="FL_FROZEN">Enums/FL</page> flag applied.</bug>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ply" type="Player">The player affected in the hook.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">
+<note>This hook does not define a return value. The description below just describes how the hook library works in general.</note>
+
+Return a non-nil value to prevent the current gamemode from handling this event. In the `base` gamemode, the gamemode handles player respawning in this hook. So blocking the gamemode hook will prevent player from respawning, in this specific case.</ret>
+	</rets>
+</function>

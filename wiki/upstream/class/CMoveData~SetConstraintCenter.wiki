@@ -1,0 +1,8 @@
+<function name="SetConstraintCenter" parent="CMoveData" type="classfunc">
+	<description>Sets the center of the player movement constraint. See <page>CMoveData:SetConstraintRadius</page>.</description>
+	<added>2021.06.09</added>
+	<realm>Shared</realm>
+	<args>
+		<arg name="pos" type="Vector">The constraint origin.</arg>
+	</args>
+</function>

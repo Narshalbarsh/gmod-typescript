@@ -1,0 +1,7 @@
+<function name="GetTexture" parent="ProjectedTexture" type="classfunc">
+	<description>Returns the texture of the ProjectedTexture, which was previously set by <page>ProjectedTexture:SetTexture</page></description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="ITexture">The texture of the ProjectedTexture.</ret>
+	</rets>
+</function>

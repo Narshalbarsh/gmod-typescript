@@ -1,0 +1,43 @@
+<function name="SetFontInternal" parent="Panel" type="classfunc">
+	<description>
+Sets the font used to render this panel's text. This works for <page>Label</page>, <page>TextEntry</page> and <page>RichText</page>, but it's a better idea to use their local `SetFont` (<page>DTextEntry:SetFont</page>, <page>DLabel:SetFont</page>) methods when available.
+
+To retrieve the font used by a panel, call <page>Panel:GetFont</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="fontName" type="string">The name of the font.
+
+See <page text="here">Default_Fonts</page> for a list of existing fonts.
+Alternatively, use <page>surface.CreateFont</page> to create your own custom font.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Sets the font of a <page>RichText</page> element to match the chat box font.</description>
+	<code>
+-- Create a window frame
+local TextFrame = vgui.Create( "DFrame" )
+TextFrame:SetSize( 300, 200 )
+TextFrame:Center()
+TextFrame:SetTitle( "This is a font test" )
+TextFrame:MakePopup()
+
+-- RichText panel
+local richtext = vgui.Create( "RichText", TextFrame )
+richtext:Dock( FILL )
+
+-- Sample text
+richtext:SetText( "This is a sample of text using the chat box font." )
+
+-- Ensure font and text color changes are applied
+-- We have to wait until after the internals of RichText set the default font
+function richtext:PerformLayout()
+
+	if ( self:GetFont() != "ChatFont" ) then self:SetFontInternal( "ChatFont" ) end
+	self:SetFGColor( color_white )
+	
+end
+	</code>
+	<output><image src="RichText_SetFontInternal_example1.png"/></output>
+</example>

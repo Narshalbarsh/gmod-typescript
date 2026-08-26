@@ -1,0 +1,10 @@
+<function name="RemoveRagdolls" parent="game" type="libraryfunc">
+	<description>Removes all the clientside ragdolls. On server, it will remove all `prop_ragdolls` that have the `SF_RAGDOLLPROP_USE_LRU_RETIREMENT` (4096) spawnflag.</description>
+	<realm>Shared</realm>
+</function>
+
+<example>
+	<description>This will remove all the client ragdolls every 3 seconds.</description>
+	<code>timer.Create( "removeRagdolls", 3, 0, function() game.RemoveRagdolls() end )</code>
+
+</example>

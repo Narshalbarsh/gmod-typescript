@@ -1,0 +1,11 @@
+<function name="IsWater" parent="SurfaceInfo" type="classfunc">
+	<description>
+Checks if the brush surface is water.
+
+<note>This internally checks the SURFDRAW_WATER flag.</note>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">Returns true if the surface is water.</ret>
+	</rets>
+</function>

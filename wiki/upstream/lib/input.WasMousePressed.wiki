@@ -1,0 +1,27 @@
+<function name="WasMousePressed" parent="input" type="libraryfunc">
+	<description>
+Returns whether a mouse key was initially pressed in the same frame this function was called.
+
+
+If <page>input.WasMouseDoublePressed</page> returns true, this function will return false.
+
+This function only works in Move hooks, and will detect mouse events even in main menu or when a typing in a text field.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="key" type="number">The key, see <page>Enums/MOUSE</page></arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">True if the mouse key was initially pressed the same frame that this function was called, false otherwise.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Example usage</description>
+	<code>
+hook.Add( "CreateMove", "fafawefafwf", function()
+	if ( input.WasMousePressed( MOUSE_LEFT ) ) then print( "Left mouse button was pressed" ) end
+end )
+	</code>
+
+</example>

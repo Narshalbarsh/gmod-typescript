@@ -1,0 +1,7 @@
+<type name="usermessage" category="libraryfunc" is="library">
+	<summary><deprecated>You should be using the <page>net</page> instead</deprecated>
+
+The usermessage library is used to receive user messages from the server on the client.
+
+<warning>Usermessages have a limit of only 256 bytes!</warning></summary>
+</type>

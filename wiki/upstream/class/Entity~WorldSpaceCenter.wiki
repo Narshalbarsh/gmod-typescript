@@ -1,0 +1,7 @@
+<function name="WorldSpaceCenter" parent="Entity" type="classfunc">
+	<description>Returns the center of the entity according to its collision model.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Vector">The center of the entity</ret>
+	</rets>
+</function>

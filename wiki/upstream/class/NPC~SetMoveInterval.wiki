@@ -1,0 +1,8 @@
+<function name="SetMoveInterval" parent="NPC" type="classfunc">
+	<description>Sets the timestep the internal NPC motor is working on.</description>
+	<realm>Server</realm>
+	<added>2021.03.31</added>
+	<args>
+		<arg name="time" type="number">The new timestep.</arg>
+	</args>
+</function>

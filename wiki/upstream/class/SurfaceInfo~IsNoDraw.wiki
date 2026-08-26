@@ -1,0 +1,11 @@
+<function name="IsNoDraw" parent="SurfaceInfo" type="classfunc">
+	<description>
+Checks if the brush surface is a nodraw surface, meaning it will not be drawn by the engine.
+
+<note>This internally checks the SURFDRAW_NODRAW flag.</note>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">Returns true if this surface won't be drawn.</ret>
+	</rets>
+</function>

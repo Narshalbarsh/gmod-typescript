@@ -1,0 +1,12 @@
+<function name="IsLineOfSightClear" parent="Entity" type="classfunc">
+	<description>Returns true if the target is in line of sight.
+		<note>This will only work when called on CBaseCombatCharacter entities. This includes players, NPCs, grenades, RPG rockets, crossbow bolts, and physics cannisters.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="target" type="Vector">The target to test. You can also supply an <page>Entity</page> instead of a <page>Vector</page></arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Returns true if the line of sight is clear</ret>
+	</rets>
+</function>

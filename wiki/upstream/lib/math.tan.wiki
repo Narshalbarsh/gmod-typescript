@@ -1,0 +1,10 @@
+<function name="tan" parent="math" type="libraryfunc">
+	<description>Returns the tangent of the given angle.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="value" type="number">Angle in radians</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The tangent of the given angle.</ret>
+	</rets>
+</function>

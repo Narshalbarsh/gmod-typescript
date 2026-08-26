@@ -1,0 +1,12 @@
+<function name="AutoComplete" parent="concommand" type="libraryfunc">
+	<description><internal></internal> Used by the engine to call the autocomplete function for a console command, and retrieve returned options.</description>
+	<realm>Shared and Menu</realm>
+	<file line="63-L75">lua/includes/modules/concommand.lua</file>
+	<args>
+		<arg name="command" type="string">Name of command.</arg>
+		<arg name="arguments" type="string">Arguments given to the command.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">Possibilities for auto-completion. This is the return value of the auto-complete callback.</ret>
+	</rets>
+</function>

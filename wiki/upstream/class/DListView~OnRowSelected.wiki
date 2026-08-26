@@ -1,0 +1,32 @@
+<function name="OnRowSelected" parent="DListView" type="panelhook">
+	<description>Called internally by <page>DListView:OnClickLine</page> when a line is selected. This is the function you should override to define the behavior when a line is selected.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="rowIndex" type="number">The index of the row/line that the user clicked on.</arg>
+		<arg name="row" type="Panel">The <page>DListView_Line</page> that the user clicked on.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Prints the first two column values of the row that was clicked. In this example it's the nickname and kills of the player selected in the list</description>
+	<code>
+local frame = vgui.Create( "DFrame" )
+frame:SetSize( 300, 300 )
+frame:MakePopup()
+
+local listView = frame:Add( "DListView" )
+listView:Dock( FILL )
+
+listView:AddColumn( "Nick" )
+listView:AddColumn( "Frags" )
+
+for i, ply in ipairs( player.GetAll() ) do
+	listView:AddLine( ply:Nick(), ply:Frags() )
+end
+listView.OnRowSelected = function( panel, rowIndex, row )
+	print( row:GetValue( 1 ) )
+	print( row:GetValue( 2 ) )
+end
+	</code>
+
+</example>

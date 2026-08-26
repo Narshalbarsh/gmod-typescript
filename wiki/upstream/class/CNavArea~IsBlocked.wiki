@@ -1,0 +1,13 @@
+<function name="IsBlocked" parent="CNavArea" type="classfunc">
+	<description>Returns whether the nav area is blocked or not, i.e. whether it can be walked through or not.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="teamID" type="number" default="-2">The team ID to test, -2 = any team.
+
+Only 2 actual teams are available, 0 and 1.</arg>
+		<arg name="ignoreNavBlockers" type="boolean" default="false">Whether to ignore [func_nav_blocker](https://developer.valvesoftware.com/wiki/Func_nav_blocker) entities.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether the area is blocked or not</ret>
+	</rets>
+</function>

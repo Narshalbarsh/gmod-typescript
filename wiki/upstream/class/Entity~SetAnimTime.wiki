@@ -1,0 +1,20 @@
+<function name="SetAnimTime" parent="Entity" type="classfunc">
+	<description>Sets the start time (relative to <page>Global.CurTime</page>) of the current animation, which is used to determine <page>Entity:GetCycle</page>. Should be less than CurTime to play an animation from the middle.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="time" type="number">The time the animation was supposed to begin.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Sets each player's animation time to 1 second in the future, which causes their animations to freeze in place.</description>
+	<code>
+function GM:PrePlayerDraw(ply)
+
+	ply:SetAnimTime(CurTime()+1)
+
+end
+	</code>
+	<output><image src="Entity_SetAnimTime_example1.gif"/></output>
+
+</example>

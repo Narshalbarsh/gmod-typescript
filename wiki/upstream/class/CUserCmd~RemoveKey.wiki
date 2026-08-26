@@ -1,0 +1,9 @@
+<function name="RemoveKey" parent="CUserCmd" type="classfunc">
+	<description>Removes a key bit from the current key bitflag.
+
+For movement you will want to use <page>CUserCmd:SetForwardMove</page>, <page>CUserCmd:SetUpMove</page> and <page>CUserCmd:SetSideMove</page>.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="button" type="number">Bitflag to be removed from the key bitflag, see <page>Enums/IN</page>.</arg>
+	</args>
+</function>

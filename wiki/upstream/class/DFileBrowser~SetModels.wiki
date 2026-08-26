@@ -1,0 +1,12 @@
+<function name="SetModels" parent="DFileBrowser" type="panelfunc">
+	<description>
+Enables or disables the model viewer mode. In this mode, files are displayed as <page>SpawnIcon</page>s instead of a list.
+
+<note>This should only be used for `.mdl` files; the spawn icons will display error models for others. See <page>DFileBrowser:SetFileTypes</page></note>
+	</description>
+	<realm>Client</realm>
+	<file line="92-L102">lua/vgui/dfilebrowser.lua</file>
+	<args>
+		<arg name="showModels" type="boolean" default="false">Whether or not to display files using <page>SpawnIcon</page>s.</arg>
+	</args>
+</function>

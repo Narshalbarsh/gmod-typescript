@@ -1,0 +1,9 @@
+<function name="IsListenServerHost" parent="Player" type="classfunc">
+	<description>Returns if a player is the host of the current session.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">`true` if the player is the listen server host, `false` otherwise.
+
+This will always be `true` in single player, and `false` on a dedicated server.</ret>
+	</rets>
+</function>

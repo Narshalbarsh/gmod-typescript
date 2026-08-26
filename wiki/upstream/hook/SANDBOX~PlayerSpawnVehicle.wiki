@@ -1,0 +1,13 @@
+<function name="PlayerSpawnVehicle" parent="SANDBOX" type="hook">
+	<description>Called to ask if player allowed to spawn a particular vehicle or not.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ply" type="Player">The player that wants to spawn that vehicle</arg>
+		<arg name="model" type="string">The vehicle model that player wants to spawn</arg>
+		<arg name="name" type="string">Vehicle name</arg>
+		<arg name="table" type="table">Table of that vehicle, containing info about it See <page>Structures/VehicleTable</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return false to disallow spawning that vehicle</ret>
+	</rets>
+</function>

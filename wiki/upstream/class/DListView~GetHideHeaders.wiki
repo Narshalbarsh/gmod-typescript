@@ -1,0 +1,7 @@
+<function name="GetHideHeaders" parent="DListView" type="panelfunc">
+	<description>Returns whether the header line should be visible on not.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the header line should be visible on not.</ret>
+	</rets>
+</function>

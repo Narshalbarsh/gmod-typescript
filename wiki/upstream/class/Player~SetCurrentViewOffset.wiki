@@ -1,0 +1,11 @@
+<function name="SetCurrentViewOffset" parent="Player" type="classfunc">
+	<description>
+Sets the **actual** view offset which equals the difference between the players actual position and their view when standing.
+
+Do not confuse with <page>Player:SetViewOffset</page> and <page>Player:SetViewOffsetDucked</page>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="viewOffset" type="Vector">The new view offset.</arg>
+	</args>
+</function>

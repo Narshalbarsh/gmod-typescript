@@ -1,0 +1,7 @@
+<function name="NeedsDepthPass" parent="GM" type="hook">
+	<description>Returning true in this hook will cause it to render depth buffers defined with <page>render.GetResolvedFullFrameDepth</page>.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="boolean">Render depth buffer</ret>
+	</rets>
+</function>

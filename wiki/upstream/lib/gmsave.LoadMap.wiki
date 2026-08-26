@@ -1,0 +1,10 @@
+<function name="LoadMap" parent="gmsave" type="libraryfunc">
+	<description>Loads a saved map.</description>
+	<realm>Server</realm>
+	<file line="11-L78">lua/includes/gmsave.lua</file>
+	<args>
+		<arg name="mapData" type="string">The JSON encoded string containing all the map data.</arg>
+		<arg name="ply" type="Player" default="NULL">The player to load positions for.</arg>
+		<arg name="callback" type="function" default="nil">A function to be called after all the entities have been placed.</arg>
+	</args>
+</function>

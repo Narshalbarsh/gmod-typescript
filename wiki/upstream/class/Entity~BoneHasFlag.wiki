@@ -1,0 +1,11 @@
+<function name="BoneHasFlag" parent="Entity" type="classfunc">
+	<description>Returns whether the entity's bone has the flag or not.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="boneID" type="number">Bone ID to test flag of.</arg>
+		<arg name="flag" type="number{BONE}">The flag to test, see <page>Enums/BONE</page></arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether the bone has that flag or not</ret>
+	</rets>
+</function>

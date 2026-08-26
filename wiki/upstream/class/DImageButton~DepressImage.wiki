@@ -1,0 +1,8 @@
+<function name="DepressImage" parent="DImageButton" type="panelfunc">
+	<description>
+<internal></internal>
+
+Used internally to briefly scale the image when clicked.
+	</description>
+	<realm>Client and Menu</realm>
+</function>

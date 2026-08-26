@@ -1,0 +1,7 @@
+<function name="IsDragEnabled" parent="PhysObj" type="classfunc">
+	<description>Returns whenever the entity is affected by drag.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">dragEnabled</ret>
+	</rets>
+</function>

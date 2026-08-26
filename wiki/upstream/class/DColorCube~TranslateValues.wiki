@@ -1,0 +1,50 @@
+<function name="TranslateValues" parent="DColorCube" type="panelfunc">
+	<description>
+<internal></internal>
+
+Updates the color cube RGB based on the given x and y position and returns its arguments. Similar to <page>DColorCube:UpdateColor</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="65-L72">lua/vgui/dcolorcube.lua</file>
+	<args>
+		<arg name="x" type="number" default="nil">The x position to sample color from/the percentage of saturation to remove from the color (ranges from 0.0 to 1.0).</arg>
+		<arg name="y" type="number" default="nil">The y position to sample color from/the percentage of brightness or value to remove from the color (ranges from 0.0 to 1.0).</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The given x position.</ret>
+		<ret name="" type="number">The given y position.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Creates a green color cube and prints out the color at the (0.2, 0.4) position.</description>
+	<code>
+local color_cube = vgui.Create("DColorCube")
+color_cube:SetSize(200, 200)
+color_cube:Center()
+
+-- Set base color to green
+color_cube:SetColor(Color(0, 255, 0))
+
+-- 20% desaturated, 40% darker
+color_cube:TranslateValues(0.2, 0.4)
+
+-- Get new color
+local new_color = color_cube:GetRGB()
+
+-- Update slider position
+color_cube:SetColor(new_color)
+
+-- Print out new color
+print("Color( "..new_color.r..", "..new_color.g..", "..new_color.b..", "..new_color.a.." )")
+	</code>
+	<output>
+
+```
+Color( 30, 153, 30, 255 )
+```
+
+<image src="DColorCube_TranslateValues_example1.png"/>
+	</output>
+
+</example>

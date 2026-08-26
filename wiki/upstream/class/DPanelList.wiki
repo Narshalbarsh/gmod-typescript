@@ -1,0 +1,14 @@
+<panel>
+	<parent>DPanel</parent>
+	<realm>Client and Menu</realm>
+	<file line="">lua/vgui/dpanellist.lua</file>
+	<description>
+		Displays elements in a horizontal or vertical list. A scrollbar is automatically shown if necessary.
+		You can get its vertical bar via `DPanelList.VBar`.  
+		<page>DPanelList</page> was succeeded in version 13 by more specialised layout elements.
+
+		<deprecated>
+			<br/> Use a combination of <page>DIconLayout</page>, <page>DListLayout</page> and <page>DScrollPanel</page> instead.
+		</deprecated>
+	</description>
+</panel>

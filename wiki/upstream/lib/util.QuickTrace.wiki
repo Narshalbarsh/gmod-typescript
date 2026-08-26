@@ -1,0 +1,18 @@
+<function name="QuickTrace" parent="util" type="libraryfunc">
+	<description>
+Performs a trace with the given origin, direction, and filter.
+<note>
+This function will throw an error in the menu realm because it internally uses util.TraceLine which doesn't exist in the menu realm and thus error.
+</note>
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="52-L66">lua/includes/extensions/util.lua</file>
+	<args>
+		<arg name="origin" type="Vector">The origin of the trace.</arg>
+		<arg name="dir" type="Vector">The direction of the trace times the distance of the trace. This is added to the origin to determine the endpos.</arg>
+		<arg name="filter" type="Entity|table<Entity>|table<string>|function" default="nil">Entity which should be ignored by the trace. Can also be a table of entities or a function - see <page>Structures/Trace</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table{TraceResult}">Trace result. See <page>Structures/TraceResult</page>.</ret>
+	</rets>
+</function>

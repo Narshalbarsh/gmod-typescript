@@ -1,0 +1,5 @@
+<function name="ClearTiles" parent="DTileLayout" type="panelfunc">
+
+	<description><internal></internal> Clears the panel's tile table. Used by <page>DTileLayout:LayoutTiles</page>.</description>
+	<realm>Client</realm>
+</function>

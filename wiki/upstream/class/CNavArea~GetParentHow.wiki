@@ -1,0 +1,7 @@
+<function name="GetParentHow" parent="CNavArea" type="classfunc">
+	<description>Returns how this <page>CNavArea</page> is connected to its parent.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">See <page>Enums/NavTraverseType</page></ret>
+	</rets>
+</function>

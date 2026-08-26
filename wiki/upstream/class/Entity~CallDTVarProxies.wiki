@@ -1,0 +1,31 @@
+<function name="CallDTVarProxies" parent="Entity" type="classfunc">
+	<description>Calls all <page>Entity:NetworkVarNotify</page> functions with the given new value, but doesn't change the real value.</description>
+	<realm>Shared</realm>
+	<file line="344-L351">lua/includes/extensions/entity.lua</file>
+	<args>
+		<arg name="type" type="string">The NetworkVar Type. Supported choices:
+
+* `String` (up to 511 characters)
+* `Bool`
+* `Float`
+* `Int` (32-bit signed integer)
+* `Vector`
+* `Angle`
+* `Entity`</arg>
+		<arg name="slot" type="number">The NetworkVar slot. See <page>Entity:NetworkVar</page> for more detailed explanation.</arg>
+		<arg name="newValue" type="any">The new value.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Calls the NetworkVarNotify function with the given new value but doesn't changes the real value.</description>
+	<code>
+Entity(1):NetworkVar("String", 0, "Example")
+Entity(1):SetExample("hello")
+Entity(1):NetworkVarNotify("Example", function(ent, var, old, new) print(ent, var, old, new) end)
+Entity(1):CallDTVarProxies("String", 0, "world")
+print("Value:" .. Entity(1):GetExample())
+	</code>
+	<output>Player [1][Raphael]	Example	hello	world  
+Value: hello</output>
+</example>

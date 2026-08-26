@@ -1,0 +1,106 @@
+<function name="GetAttachment" parent="Entity" type="classfunc">
+	<description>
+Gets the orientation and position of the attachment by its ID, returns nothing if the attachment does not exist.
+
+<note>The update rate of this function is limited by the setting of ENT.AutomaticFrameAdvance for <page>Scripted Entities</page>!</note>
+
+<bug issue="1255">This will return improper values for viewmodels if used in <page>GM:CalcView</page>.</bug>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="attachmentId" type="number">The internal ID of the attachment.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table{AngPos}|nil">The table with angle and position of the attachment or `nil` if does not exist. See the <page>Structures/AngPos</page>. Most notably, the table contains the keys `Ang` and `Pos` as well as `Bone`.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Grabs the muzzle position of a player's view model.</description>
+	<code>
+local vm = ply:GetViewModel()
+local obj = vm:LookupAttachment( "muzzle" )
+
+if (obj > 0) then
+	local muzzle = vm:GetAttachment( obj )
+	print( muzzle.Pos, muzzle.Ang )
+end
+	</code>
+
+</example>
+
+<example>
+	<description>Draws a green cube at the player's view model muzzle if the model has a "muzzle" attachment. This properly translates the attachment into the view model projection space.</description>
+	<code>
+local function FormatViewModelAttachment(vOrigin, bFrom --[[= false]])
+
+	local view = render.GetViewSetup()
+
+	local vEyePos = view.origin
+	local aEyesRot = view.angles
+	local vOffset = vOrigin - vEyePos
+	local vForward = aEyesRot:Forward()
+
+	local nViewX = math.tan( view.fovviewmodel_unscaled * math.pi / 360)
+
+	if (nViewX == 0) then
+		vForward:Mul(vForward:Dot(vOffset))
+		vEyePos:Add(vForward)
+
+		return vEyePos
+	end
+
+	local nWorldX = math.tan( view.fov_unscaled * math.pi / 360)
+
+	if (nWorldX == 0) then
+		vForward:Mul(vForward:Dot(vOffset))
+		vEyePos:Add(vForward)
+
+		return vEyePos
+	end
+
+	local vRight = aEyesRot:Right()
+	local vUp = aEyesRot:Up()
+
+	if (bFrom) then
+		local nFactor = nWorldX / nViewX
+		vRight:Mul(vRight:Dot(vOffset) * nFactor)
+		vUp:Mul(vUp:Dot(vOffset) * nFactor)
+	else
+		local nFactor = nViewX / nWorldX
+		vRight:Mul(vRight:Dot(vOffset) * nFactor)
+		vUp:Mul(vUp:Dot(vOffset) * nFactor)
+	end
+
+	vForward:Mul(vForward:Dot(vOffset))
+
+	vEyePos:Add(vRight)
+	vEyePos:Add(vUp)
+	vEyePos:Add(vForward)
+
+	return vEyePos
+end
+
+SWEP.BoxAttachment = "muzzle"
+SWEP.BoxMins = Vector(-2, -2, -2)
+SWEP.BoxMaxs = Vector(2, 2, 2)
+SWEP.BoxColor = Color(0, 255, 0)
+
+function SWEP:ViewModelDrawn()
+	local pOwner = self:GetOwner()
+	if (not pOwner:IsValid()) then return end
+
+	local pViewModel = pOwner:GetViewModel()
+	if (not pViewModel:IsValid()) then return end
+
+	local uAttachment = pViewModel:LookupAttachment(self.BoxAttachment)
+	if (uAttachment < 1) then return end
+
+	local tAttachment = pViewModel:GetAttachment(uAttachment)
+	if (tAttachment == nil) then return end
+
+	render.DrawWireframeBox(FormatViewModelAttachment(tAttachment.Pos, false), tAttachment.Ang, self.BoxMins, self.BoxMaxs, self.BoxColor, true)
+end
+	</code>
+
+</example>

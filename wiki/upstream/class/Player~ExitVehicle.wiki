@@ -1,0 +1,14 @@
+<function name="ExitVehicle" parent="Player" type="classfunc">
+	<description>Forces the player to exit the vehicle if they're in one.
+
+This function will bypass <page>GM:CanExitVehicle</page>. See also <page>GM:PlayerLeaveVehicle</page>
+</description>
+	<realm>Server</realm>
+</function>
+
+<example>
+	<description>Makes player 1 leave their vehicle if they're in one.</description>
+	<code>Entity( 1 ):ExitVehicle()</code>
+	<output>Player 1 will exit the the vehicle that they're currently in.</output>
+
+</example>

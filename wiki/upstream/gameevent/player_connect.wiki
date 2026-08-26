@@ -1,0 +1,40 @@
+<cat>gameevent</cat>
+<title>player_connect</title>
+
+<structure>
+	<realm>Shared and Menu</realm>
+	<description>
+		Called when a player connects to the server.
+
+		<note>This is only called serverside AND clientside for the listen server host. In other cases it's called serverside.</note>
+	</description>
+	<fields>
+		<item type="number" name="bot">0 if the player isn't a bot, 1 if they are.</item>
+		<item type="string" name="networkid">
+			The <page text="SteamID">Player:SteamID</page> the player has.
+			<note>Will be `BOT` for bots, `STEAM_0:0:0` or `STEAM_ID_PENDING` in single-player, and `STEAM_ID_LAN` when using the `-multirun` client option.</note>
+		</item>
+		<item type="string" name="name">The <page text="name">Player:Nick</page> the player has.</item>
+		<item type="number" name="userid">The <page text="UserID">Player:UserID</page> the player has.</item>
+		<item type="number" name="index">The <page text="entity index">Entity:EntIndex</page> of the player, minus one.</item>
+		<item type="string" name="address">
+			The <page text="IPAddress">Player:IPAddress</page> of the connecting player. 
+			Will be `none` for bots and `loopback` for listen server and single-player hosts.
+		</item>
+	</fields>
+</structure>
+
+# Examples
+<example>
+	<description>Announce to everyone that a player has connected.</description>
+	<code>
+gameevent.Listen( "player_connect" )
+hook.Add("player_connect", "AnnounceConnection", function( data )
+	for i, ply in ipairs( player.GetAll() ) do
+		ply:ChatPrint( data.name .. " has connected to the server." )
+	end
+end)
+	</code>
+	<output>`Player1 has connected to the server.`</output>
+
+</example>

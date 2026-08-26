@@ -1,0 +1,16 @@
+<function name="GetChildren" parent="Panel" type="classfunc">
+	<description>Returns a table with all the child panels of the panel.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="table">All direct children of this panel.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Print the classnames of the children on the panel.</description>
+	<code>
+for _, v in ipairs( panel:GetChildren() ) do
+	print( v:GetClassName() )
+end
+	</code>
+</example>

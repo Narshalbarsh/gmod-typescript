@@ -1,0 +1,9 @@
+<function name="GetTimeoutSeconds" parent="Player" type="classfunc">
+	<description>Returns the number of seconds that the player has been timing out for. You can check if a player is timing out with <page>Player:IsTimingOut</page>.
+
+<note>This function is relatively useless because it is tied to the value of the `sv_timeout` ConVar, which is irrelevant to the description above. [This is not considered as a bug](https://discord.com/channels/565105920414318602/567617926991970306/748970396224585738).</note></description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">Timeout seconds.</ret>
+	</rets>
+</function>

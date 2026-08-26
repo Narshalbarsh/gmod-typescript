@@ -1,0 +1,7 @@
+<function name="RecordFrame" parent="menu" type="libraryfunc">
+	<description>
+<internal></internal>
+
+Used by "Demo to Video" to record the frame.</description>
+	<realm>Client</realm>
+</function>

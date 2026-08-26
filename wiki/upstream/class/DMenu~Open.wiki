@@ -1,0 +1,10 @@
+<function name="Open" parent="DMenu" type="panelfunc">
+	<description>Opens the <page>DMenu</page> at given position.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="x" type="number" default="gui.MouseX()">Position (X coordinate) to open the menu at.</arg>
+		<arg name="y" type="number" default="gui.MouseY()">Position (Y coordinate) to open the menu at.</arg>
+		<arg name="skipanimation" type="any" default="nil">This argument does nothing.</arg>
+		<arg name="ownerpanel" type="Panel" default="nil">If `x` and `y` are not set manually, setting this argument will offset the `y` position of the opened menu by the height of given panel.</arg>
+	</args>
+</function>

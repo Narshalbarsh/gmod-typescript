@@ -1,0 +1,10 @@
+<function name="ColumnWidth" parent="DListView" type="panelfunc">
+	<description>Gets the width of a column.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="column" type="number">The column to get the width of.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">Width of the column.</ret>
+	</rets>
+</function>

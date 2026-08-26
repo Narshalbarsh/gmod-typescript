@@ -1,0 +1,8 @@
+<function name="ToTable" parent="Color" type="classfunc">
+	<description>Returns the color as a table (an array or a list) with four elements.</description>
+	<realm>Shared</realm>
+	<file line="103-L107">lua/includes/util/color.lua</file>
+	<rets>
+		<ret name="" type="table<number>">The table with elements 1 = r, 2 = g, 3 = b, 4 = a,( `{ r, g, b, a }` )</ret>
+	</rets>
+</function>

@@ -1,0 +1,18 @@
+<function name="GetBoneCount" parent="Entity" type="classfunc">
+	<description>
+Returns the amount of bones in the entity.
+
+<note>Will return `0` for <page>Global.ClientsideModel</page> or undrawn entities until <page>Entity:SetupBones</page> is called on the entity.</note>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The amount of bones in given entity, starting at index 0.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints amount of bones in player 1</description>
+	<code>print( Entity(1):GetBoneCount() )</code>
+	<output>The amount of bones in player 1, which normally would be 68.</output>
+
+</example>

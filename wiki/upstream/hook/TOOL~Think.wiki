@@ -1,0 +1,4 @@
+<function name="Think" parent="TOOL" type="hook">
+	<description>Called when <page>WEAPON:Think</page> of the toolgun is called. This only happens when the tool gun is currently equipped/selected by the player and the selected tool is this tool.</description>
+	<realm>Shared</realm>
+</function>

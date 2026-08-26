@@ -1,0 +1,10 @@
+<function name="log10" parent="math" type="libraryfunc">
+	<description>Returns the base-10 logarithm of x. This is usually more accurate than math.log(x, 10).</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="x" type="number">The value to get the base from exponent from.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The result.</ret>
+	</rets>
+</function>

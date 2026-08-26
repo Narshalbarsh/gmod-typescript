@@ -1,0 +1,12 @@
+<function name="IsBinaryModuleInstalled" parent="util" type="libraryfunc">
+	<added>2023.01.25</added>
+	<description>Returns whether a binary module is installed and is resolvable by <page>Global.require</page>.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="name" type="string">Name of the binary module, exactly the same as you would enter it as the argument to <page>Global.require</page>.</arg>
+	</args>
+	<file line="394-L418">lua/includes/extensions/util.lua</file>
+	<rets>
+		<ret name="" type="boolean">Whether the binary module is installed and <page>Global.require</page> can resolve it.</ret>
+	</rets>
+</function>

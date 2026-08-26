@@ -1,0 +1,8 @@
+<function name="SetLabel" parent="DCollapsibleCategory" type="panelfunc">
+	<description>Sets the name of the DCollapsibleCategory.</description>
+	<realm>Client and Menu</realm>
+	<file line="150-L154">lua/vgui/dcategorycollapse.lua</file>
+	<args>
+		<arg name="label" type="string">The label/name of the DCollapsibleCategory.</arg>
+	</args>
+</function>

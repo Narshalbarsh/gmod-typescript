@@ -1,0 +1,10 @@
+<function name="GetFullScreenDepthTexture" parent="render" type="libraryfunc">
+	<description>
+<deprecated>Alias of <page>render.GetPowerOfTwoTexture</page> in practice.</deprecated>
+
+Returns the full screen depth texture.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="ITexture">The `_rt_FullFrameDepth` texture, which is an alias of `_rt_PowerOfTwoFB` on PC.</ret>
+	</rets>
+</function>

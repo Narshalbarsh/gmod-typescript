@@ -1,0 +1,30 @@
+<structure>
+	<realm>Client</realm>
+	<description>
+		This table is returned by <page>surface.GetPanelPaintState</page>.
+	</description>
+	<fields>
+		<item name="translate_x" type="number">
+			The X coordinate for the top-left corner of the <page>Panel</page> currently being drawn.
+		</item>
+		<item name="translate_y" type="number">
+			The Y coordinate for the top-left corner of the <page>Panel</page> currently being drawn.
+		</item>
+		<item name="scissor_left" type="number">
+			The X coordinate for the left edge of the <page text="ScissorRect">render.SetScissorRect</page> that surrounds the <page>Panel</page> that is currently being drawn.
+		</item>
+		<item name="scissor_top" type="number">
+			The Y coordinate for the top edge of the <page text="ScissorRect">render.SetScissorRect</page> that surrounds the <page>Panel</page> that is currently being drawn.
+		</item>
+		<item name="scissor_right" type="number">
+			The X coordinate for the right edge of the <page text="ScissorRect">render.SetScissorRect</page> that surrounds the <page>Panel</page> that is currently being drawn.
+		</item>
+		<item name="scissor_bottom" type="number">
+			The Y coordinate for the bottom edge of the <page text="ScissorRect">render.SetScissorRect</page> that surrounds the <page>Panel</page> that is currently being drawn.
+		</item>
+		<item name="scissor_enabled" type="boolean">
+			Whether or not the <page>Panel</page> currently being drawn has <page>render.SetScissorRect</page> active.
+		</item>
+	</fields>
+
+</structure>

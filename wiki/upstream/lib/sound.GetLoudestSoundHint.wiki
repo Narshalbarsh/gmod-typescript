@@ -1,0 +1,12 @@
+<function name="GetLoudestSoundHint" parent="sound" type="libraryfunc">
+	<description>Returns the most dangerous/closest sound hint based on given location and types of sounds to sense.</description>
+	<realm>Server</realm>
+	<added>2021.06.09</added>
+	<args>
+		<arg name="types" type="number">The types of sounds to choose from. See <page text="SOUND_ enums">Enums/SOUND</page>.</arg>
+		<arg name="pos" type="Vector">The position to sense sounds at.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">A table with <page text="SoundHintData">Structures/SoundHintData</page> structure or `nil` if no sound hints are nearby.</ret>
+	</rets>
+</function>

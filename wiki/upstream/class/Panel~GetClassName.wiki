@@ -1,0 +1,7 @@
+<function name="GetClassName" parent="Panel" type="classfunc">
+	<description>Returns the class name of the panel. This would be the class name of the base engine-level panel, not Lua classname. The latter is stored usually in <page>Panel:GetName</page>.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="string">The panel's class name.</ret>
+	</rets>
+</function>

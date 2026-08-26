@@ -1,0 +1,7 @@
+<function name="GetZoom" parent="DNumberScratch" type="panelfunc">
+	<description>Returns the zoom level of the scratch window</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number"></ret>
+	</rets>
+</function>

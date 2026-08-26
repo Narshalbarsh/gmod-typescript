@@ -1,0 +1,7 @@
+<function name="GetForwardMove" parent="CUserCmd" type="classfunc">
+	<description>The speed the client wishes to move forward with, negative if the clients wants to move backwards.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The desired speed</ret>
+	</rets>
+</function>

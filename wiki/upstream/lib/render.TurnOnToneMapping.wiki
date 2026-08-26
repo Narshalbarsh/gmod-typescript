@@ -1,0 +1,4 @@
+<function name="TurnOnToneMapping" parent="render" type="libraryfunc">
+	<description>Enables HDR tone mapping which influences the brightness.</description>
+	<realm>Client</realm>
+</function>

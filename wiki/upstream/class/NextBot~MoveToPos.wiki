@@ -1,0 +1,17 @@
+<function name="MoveToPos" parent="NextBot" type="classfunc">
+	<description>To be called in the behaviour coroutine only! Will yield until the bot has reached the goal or is stuck</description>
+	<realm>Server</realm>
+	<file line="299">gamemodes/base/entities/entities/base_nextbot/sv_nextbot.lua</file>
+	<args>
+		<arg name="pos" type="Vector">The position we want to get to</arg>
+		<arg name="options" type="table">A table containing a bunch of tweakable options.
+* <page>number</page> lookahead - Minimum look ahead distance.
+* <page>number</page> tolerance - How close we must be to the goal before it can be considered complete.
+* <page>boolean</page> draw - Draw the path. Only visible on listen servers and single player.
+* <page>number</page> maxage - Maximum age of the path before it times out.
+* <page>number</page> repath - Rebuilds the path after this number of seconds.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">Either `"failed"`, `"stuck"`, `"timeout"` or `"ok"` - depending on how the NPC got on</ret>
+	</rets>
+</function>

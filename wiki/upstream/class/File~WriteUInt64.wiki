@@ -1,0 +1,11 @@
+<function name="WriteUInt64" parent="File" type="classfunc">
+	<description>Writes an unsigned 64-bit integer to the file.</description>
+	<realm>Shared and Menu</realm>
+	<added>2023.08.30</added>
+	<args>
+		<arg name="uint64" type="string">The unsigned 64-bit integer to be written to the file.
+
+<note>Since Lua cannot store full 64-bit integers, this function takes a string. It is mainly aimed at usage with <page>Player:SteamID64</page>.</note>
+</arg>
+	</args>
+</function>

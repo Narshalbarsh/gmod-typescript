@@ -1,0 +1,20 @@
+<enum>
+	<realm>Shared</realm>
+	<description>Enumerations used by <page>PhysObj:AddGameFlag</page>, <page>PhysObj:HasGameFlag</page> and <page>PhysObj:ClearGameFlag</page>.</description>
+	<items>
+<item key="FVPHYSICS_CONSTRAINT_STATIC" value="2">Won't receive physics forces from collisions and won't collide with other <page>PhysObj</page> with the same flag set.</item>
+<item key="FVPHYSICS_DMG_DISSOLVE" value="512">Colliding with entities will cause 1000 damage with DMG_DISSOLVE as the damage type, but only if EFL_NO_DISSOLVE is not set.</item>
+<item key="FVPHYSICS_DMG_SLICE" value="1">Does slice damage, not just blunt damage.</item>
+<item key="FVPHYSICS_HEAVY_OBJECT" value="32">Will deal high physics damage even with a small mass.</item>
+<item key="FVPHYSICS_MULTIOBJECT_ENTITY" value="16">This <page>PhysObj</page> is part of an entity with multiple <page>PhysObj</page> , such as a ragdoll or a vehicle , and will be considered during collision damage events.</item>
+<item key="FVPHYSICS_NO_IMPACT_DMG" value="1024">Colliding with entities won't cause physics damage.</item>
+<item key="FVPHYSICS_NO_NPC_IMPACT_DMG" value="2048">Like FVPHYSICS_NO_IMPACT_DMG, but only checks for NPCs. Usually set on Combine Balls fired by Combine Soldiers.</item>
+<item key="FVPHYSICS_NO_PLAYER_PICKUP" value="128">Doesn't allow the player to pick this <page>PhysObj</page> with the Gravity Gun or +use pickup.</item>
+<item key="FVPHYSICS_NO_SELF_COLLISIONS" value="32768">We won't collide with other <page>PhysObj</page> associated to the same entity, only used for vehicles and ragdolls held by the Super Gravity Gun.</item>
+<item key="FVPHYSICS_PART_OF_RAGDOLL" value="8">This <page>PhysObj</page> is part of a ragdoll.</item>
+<item key="FVPHYSICS_PENETRATING" value="64">Set by the physics engine when two <page>PhysObj</page> are penetrating each other. This is only automatically updated for non-static physics objects.</item>
+<item key="FVPHYSICS_PLAYER_HELD" value="4">Set when the player is holding this <page>PhysObj</page> with the Physics Gun, Gravity Gun or +use pickup.</item>
+<item key="FVPHYSICS_WAS_THROWN" value="256">This object was thrown by the Gravity Gun , stuns Antlion guards, Hunters, and squashes Antlion grubs.</item>
+	</items>
+
+</enum>

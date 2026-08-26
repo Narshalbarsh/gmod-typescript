@@ -1,0 +1,15 @@
+<function name="CopyEnts" parent="duplicator" type="libraryfunc">
+	<description>Copies the passed table of entities to save for later.</description>
+	<realm>Server</realm>
+	<file line="647-L659">lua/includes/modules/duplicator.lua</file>
+	<args>
+		<arg name="ents" type="table">A table of entities to save/copy.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">A table containing duplication info which includes the following members:
+* <page>table</page> Entities
+* <page>table</page> Constraints
+* <page>Vector</page> Mins
+* <page>Vector</page> Maxs</ret>
+	</rets>
+</function>

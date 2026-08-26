@@ -1,0 +1,4 @@
+<function name="Remover" parent="achievements" type="libraryfunc">
+	<description><internal></internal>Adds one to the count of things removed. Once this count reaches 5000, the 'Destroyer' achievement is unlocked.</description>
+	<realm>Client</realm>
+</function>

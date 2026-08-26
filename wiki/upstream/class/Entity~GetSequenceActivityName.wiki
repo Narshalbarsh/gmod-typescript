@@ -1,0 +1,10 @@
+<function name="GetSequenceActivityName" parent="Entity" type="classfunc">
+	<description>Returns the activity name for the given sequence id.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="sequenceId" type="number">The sequence id.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The <page>Enums/ACT</page> as a string, returns "Not Found!" with an invalid sequence and "No model!" when no model is set.</ret>
+	</rets>
+</function>

@@ -1,0 +1,22 @@
+<function name="Right" parent="string" type="libraryfunc">
+	<description>Returns the last n-th characters of the string.</description>
+	<realm>Shared and Menu</realm>
+	<file line="245">lua/includes/extensions/string.lua</file>
+	<args>
+		<arg name="str" type="string">The string to extract from.</arg>
+		<arg name="num" type="number">Amount of chars relative to the end (starting from 1).</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">Returns a string containing a specified number of characters from the right side of a string.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Extracts "mod" from "garrys mod" string.</description>
+	<code>
+local text = "garrys mod"
+print( string.Right( text, 3 ) )
+	</code>
+	<output>mod</output>
+
+</example>

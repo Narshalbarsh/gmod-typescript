@@ -1,0 +1,145 @@
+<function name="Approach" parent="CLuaLocomotion" type="classfunc">
+	<description>
+Moves the <page text="NextBot">NextBot</page> incrementally closer to the provided goal location.
+
+Each time this function is called, the NextBot moves towards the goal position passed as an argument by the amount previously set by <page>CLuaLocomotion:SetDesiredSpeed</page>.
+
+To achieve smooth movement, this function must be called frequently.  
+This is commonly accomplished by calling it in the <page>ENTITY:Think</page> hook.
+</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="goal" type="Vector">The vector we want to get to.</arg>
+		<arg name="goalWeight" type="number">How influential the movement should be, in case of this function being called multiple times in between physical movements of the entity.
+
+If unsure then set this to `1`.</arg>
+	</args>
+</function>
+
+<example>
+	<description>
+A <page text="NextBot">NextBot</page> follows `Player 1` & shoots `Player 2` (if applicable). The <page text="NextBot">NextBot</page> doesn't require a <page text="Navigation Mesh">navmesh</page>.
+
+Notice that `Approach` is in the <page text="Think">ENTITY:Think</page> hook while functions for controlling the bot's animation & orientation are in the <page text="RunBehavior">NEXTBOT:RunBehaviour</page> hook.
+	</description>
+	<code>
+AddCSLuaFile()
+
+ENT.Type = "nextbot"
+ENT.Base = "base_nextbot"
+
+if CLIENT then
+	return
+end
+
+util.PrecacheModel( "models/police.mdl" )
+util.PrecacheModel( "models/combine_soldier.mdl" )
+
+function ENT:Initialize()
+	self.BotTeam = math.random( 1, 2 )
+	self:SetCollisionGroup( COLLISION_GROUP_WORLD )
+	self:SetHealth( 100 )
+	self:AddFlags( FL_OBJECT )
+	self:SetNWInt( "BotTeam", self.BotTeam )
+	
+	if self.BotTeam == 1 then
+		self:SetModel( "models/police.mdl" )
+	else
+		self:SetModel( "models/combine_soldier.mdl" )
+	end
+
+	self.WeaponMount = self:LookupAttachment( "anim_attachment_RH" ) -- The bot's weapon will mount to the bot's hand.
+	self.WeaponPosition = self:GetAttachment( self.WeaponMount ) -- Before parenting; the bot's weapon will be set to the orientation & position of the bot's hand.
+
+	self.Weapon = ents.Create( "prop_dynamic" ) -- The bot will hold a weapon-looking entity that'll fire bullets on its behalf.
+	self.Weapon:SetPos( self.WeaponPosition.Pos )
+	self.Weapon:SetAngles( self.WeaponPosition.Ang )
+	self.Weapon:SetModel( "models/weapons/w_smg1.mdl" )
+	self.Weapon:Spawn()
+	self.Weapon:SetParent( self, self.WeaponMount )
+
+	self:StartActivity( ACT_IDLE_SMG1 )
+
+	self.head = self:LookupBone( "ValveBiped.Bip01_Head1" ) -- The bot's head will be used to simulate vision.
+	self.Active = true -- Used for breaking loops when the bot dies.
+
+	self.loco:SetDesiredSpeed( 100 )
+end
+
+function ENT:Think()
+	self.targetLocation = Entity( 1 ) -- Temporary; a different block of code shall determine the bot's target location.
+	self.targetEnemy = Entity( 2 ) -- Temporary; a different block of code shall determine the bot's enemy in the future.
+
+	if self.targetLocation then -- If the bot has a target location (i.e., an ally), go for it.
+		self.loco:Approach( self.targetLocation:GetPos(), 1 )
+	end
+
+	if IsValid( self.targetEnemy ) then -- If the bot is shooting an enemy while following an ally, its pose parameters must be updated so it animates appropriately.
+		self.faceDir = self:GetForward() -- Where is the bot facing @ this instant?
+		self.moveDir = self:WorldToLocal( self.targetEnemy:GetBonePosition( self.head ) ) -- Where is the bot headed @ this instant? (The bot may be walking sideways as it shoots the enemy while following the ally.)
+		self.yaw = self.moveDir:AngleEx( self.faceDir ) -- What is the difference ≬ these directions?
+		
+		self:SetPoseParameter( "move_yaw", self.yaw.yaw )
+		self:SetPoseParameter( "aim_pitch", self.yaw.pitch )
+		self:SetPoseParameter( "aim_yaw", self.yaw.yaw )
+		
+		self.Weapon:FireBullets( {
+			Attacker = self,
+			Callback = DisplayTurretDamageInfo,
+			Damage = 5,
+			Force = 1,
+			Distance = 2400,
+			HullSize = 1,
+			Num = 2,
+			Tracer = 4,
+			AmmoType = "smg1",
+			TracerName = "MuzzleEffect",
+			Dir = self.Weapon:GetForward(),
+			Spread = vector_origin,
+			Src = self.Weapon:GetPos(),
+			IgnoreEntity = self
+		}, true )
+	else -- If the bot is just following an ally, it'll face the ally. Pose parameters will be used to insure that the bot's animation is always consistant with where it's facing vs. where it's moving.
+		self.faceDir = self:GetForward() -- Where is the bot facing @ this instant?
+		self.moveDir = self:WorldToLocal( self.targetLocation:GetPos() ) -- Where is the bot headed @ this instant? (The bot may take a few frames to be fully facing its ally.)
+		self.yaw = self.moveDir:AngleEx( self.faceDir ) -- What is the difference ≬ these directions?
+		
+		self:SetPoseParameter( "move_yaw", self.yaw.yaw )
+	end
+end
+
+function ENT:RunBehaviour()
+	repeat
+		-- Now updating the nextbot's animation...
+		if self.targetLocation && self:GetActivity() != ACT_RUN_RIFLE then -- If the bot is chasing something (it has a target) & the bot isn't appropriately animated already...
+			self:StartActivity( ACT_RUN_RIFLE ) -- ...set its animation.
+		elseif !self.targetLocation && self:GetActivity() != ACT_IDLE_SMG1 then -- Evidentely, the bot isn't chasing anything. If its animation isn't set already...
+			self:StartActivity( ACT_IDLE_SMG1 ) -- ...do so now.
+		end
+
+		-- Now updating the nextbot's bearings...
+		if IsValid( self.targetEnemy ) then
+			self.loco:FaceTowards( self.targetEnemy:GetPos() ) -- Face the enemy.
+		else
+			self.loco:FaceTowards( self.targetLocation:GetPos() ) -- Face the ally.
+		end
+
+		coroutine.wait( 0.1 )
+	until ( !self.Active )
+end
+
+function ENT:OnKilled()
+	self:StartActivity( ACT_DIERAGDOLL )
+	
+	local drop = ents.Create( "weapon_smg1" )
+	drop:SetPos( self.Weapon:GetPos() )
+	drop:Spawn()
+
+	self.Active = false -- The NEXTBOT:RunBehaviour() will now terminate.
+	self:AddFlags( FL_KILLME )
+
+	self.Weapon:Remove()
+	self:Remove()
+end
+	</code>
+</example>

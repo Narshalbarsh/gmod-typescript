@@ -1,0 +1,7 @@
+<function name="GetSkeleton" parent="motionsensor" type="libraryfunc">
+	<description>Returns players skeletal data if they are using Kinect. See <page>Using The Kinect</page> and <page>Kinect developing</page>.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret type="table">The skeleton data.</ret>
+	</rets>
+</function>

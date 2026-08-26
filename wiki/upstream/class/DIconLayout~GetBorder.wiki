@@ -1,0 +1,7 @@
+<function name="GetBorder" parent="DIconLayout" type="panelfunc">
+	<description>Returns the size of the border.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number"></ret>
+	</rets>
+</function>

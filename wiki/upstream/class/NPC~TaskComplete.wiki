@@ -1,0 +1,8 @@
+<function name="TaskComplete" parent="NPC" type="classfunc">
+	<description>
+Marks the current NPC task as completed.
+
+This is meant to be used alongside <page>NPC:TaskFail</page> to complete or fail custom Lua defined tasks. (<page>Schedule:AddTask</page>)
+	</description>
+	<realm>Server</realm>
+</function>

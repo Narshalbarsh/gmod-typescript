@@ -1,0 +1,15 @@
+<function name="GetStored" parent="weapons" type="libraryfunc">
+	<description>
+Gets the REAL weapon table, not a copy. The produced table does *not* inherit fields from the weapon's base class, unlike <page>weapons.Get</page>.
+
+<warning>Modifying this table will modify what is stored by the weapons library. Take a copy or use <page>weapons.Get</page> to avoid this.</warning>
+	</description>
+	<realm>Shared</realm>
+	<file line="169-L171">lua/includes/modules/weapons.lua</file>
+	<args>
+		<arg name="weapon_class" type="string">Weapon class to retrieve weapon table of</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">The weapon table</ret>
+	</rets>
+</function>

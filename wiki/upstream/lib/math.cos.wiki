@@ -1,0 +1,17 @@
+<function name="cos" parent="math" type="libraryfunc">
+	<description>Returns the [cosine](https://en.wikipedia.org/wiki/Trigonometric_functions#cos) of given angle.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="number" type="number">Angle in radians</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">Cosine of given angle in the range (-1, 1)</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints the cosine of 3.14159265 (Pi)</description>
+	<code>print( math.cos( 3.14159265 ) )</code>
+	<output>-1</output>
+
+</example>

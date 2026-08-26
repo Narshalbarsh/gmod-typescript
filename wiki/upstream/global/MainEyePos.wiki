@@ -1,0 +1,12 @@
+<function name="MainEyePos" parent="Global" type="libraryfunc">
+	<description>
+Returns the origin of the main view, as it was at the start of the latest main view render.
+
+This is a good alternative to <page>Global.EyePos</page> which is affected by other rendering operations, including <page>render.RenderView</page>.
+	</description>
+	<added>2025.10.02</added>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="Vector">Main camera position.</ret>
+	</rets>
+</function>

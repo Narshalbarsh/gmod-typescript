@@ -1,0 +1,9 @@
+<function name="Commit" parent="sql" type="libraryfunc">
+	<description>
+Tells the engine to execute a series of queries queued for execution, must be preceded by <page>sql.Begin</page>.
+
+This is equivalent to `sql.Query( "COMMIT;" )`.
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="96-L101">lua/includes/util/sql.lua</file>
+</function>

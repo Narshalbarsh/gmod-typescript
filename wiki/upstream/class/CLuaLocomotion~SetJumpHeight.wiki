@@ -1,0 +1,7 @@
+<function name="SetJumpHeight" parent="CLuaLocomotion" type="classfunc">
+	<description>Sets the height of the bot's jump</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="height" type="number" default="58">Height</arg>
+	</args>
+</function>

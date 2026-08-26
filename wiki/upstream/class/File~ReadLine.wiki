@@ -1,0 +1,36 @@
+<function name="ReadLine" parent="File" type="classfunc">
+	<description>
+Returns the contents of the file from the current position up until the end of the current line.
+
+<note>This function will look specifically for `Line Feed` characters `\n` and will **completely ignore `Carriage Return` characters** `\r`.
+
+It will also stop at a `\0` or `NULL` character, but will add a new line instead.
+
+This function will not return more than 8192 characters. The return value will include the `\n` character.</note>
+	</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="string">The string of data from the read line.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Open a file in read only mode, reads a line, tells where the current file pointer is at and then closes the file handle.</description>
+	<code>
+local f = file.Open( "cfg/mapcycle.txt", "r", "MOD" )
+print( f:ReadLine() )
+print( f:ReadLine() )
+print( f:Tell() )
+f:Close()
+	</code>
+	<output>
+```
+//
+
+// Default mapcycle file for Garry's Mod.
+
+45
+```
+	</output>
+
+</example>

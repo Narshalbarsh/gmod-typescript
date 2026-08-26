@@ -1,0 +1,8 @@
+<function name="OnRestore" parent="ENTITY" type="hook">
+	<description>
+Called when the entity is reloaded from a Source Engine save (not the Sandbox saves or dupes) or on a changelevel (for example Half-Life 2 campaign level transitions).
+
+For the <page>duplicator</page> callbacks, see <page>ENTITY:OnDuplicated</page>.
+	</description>
+	<realm>Shared</realm>
+</function>

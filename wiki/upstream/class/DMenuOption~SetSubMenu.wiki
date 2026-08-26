@@ -1,0 +1,11 @@
+<function name="SetSubMenu" parent="DMenuOption" type="panelfunc">
+	<description>
+<internal></internal>
+
+Used internally by <page>DMenuOption:AddSubMenu</page> to create the submenu arrow and assign the created submenu to be opened when this option is hovered.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="menu" type="Panel">The sub <page>DMenu</page> this option belongs to.</arg>
+	</args>
+</function>

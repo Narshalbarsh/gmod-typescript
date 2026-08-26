@@ -1,0 +1,31 @@
+<function name="Split" parent="string" type="libraryfunc">
+	<description>Splits the string into a table of strings, separated by the second argument.
+
+This is an alias of <page>string.Explode</page>, but with flipped arguments.</description>
+	<realm>Shared and Menu</realm>
+	<file line="106-L108">lua/includes/extensions/string.lua</file>
+	<args>
+		<arg name="input" type="string">String to split</arg>
+		<arg name="separator" type="string">Character(s) to split with.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table<string>">Split table</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Demonstrates the use of this function.</description>
+	<code>
+local mystring = "This is some text"
+PrintTable( string.Split( mystring, " " ) )
+	</code>
+	<output>
+```
+1 = This
+2 = is
+3 = some
+4 = text
+```
+	</output>
+
+</example>

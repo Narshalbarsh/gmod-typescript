@@ -1,0 +1,8 @@
+<function name="BeginGeneration" parent="navmesh" type="libraryfunc">
+	<description>
+Starts the generation of a new navmesh.
+
+<note>This process is highly resource intensive and it's not wise to use during normal gameplay</note>
+	</description>
+	<realm>Server</realm>
+</function>

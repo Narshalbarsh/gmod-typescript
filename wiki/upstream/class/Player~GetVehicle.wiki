@@ -1,0 +1,10 @@
+<function name="GetVehicle" parent="Player" type="classfunc">
+	<description>Returns the vehicle the player is driving.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Vehicle">The vehicle the player is currently driving, if any.
+
+Returns <page>NULL</page> entity if the player is not driving.
+</ret>
+	</rets>
+</function>

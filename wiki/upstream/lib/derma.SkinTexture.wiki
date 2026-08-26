@@ -1,0 +1,25 @@
+<function name="SkinTexture" parent="derma" type="libraryfunc">
+	<description>Returns a function to draw a specified texture of panels skin.
+
+These are usually generated via <page>GWEN.CreateTextureBorder</page> and similar.
+</description>
+	<realm>Client and Menu</realm>
+	<file line="207-L217">lua/derma/derma.lua</file>
+	<args>
+		<arg name="name" type="string">The identifier of the texture.</arg>
+		<arg name="pnl" type="Panel">Panel to get the skin of.</arg>
+		<arg name="fallback" type="function" alttype="any" default="nil">What to return if we failed to retrieve the texture.</arg>
+	</args>
+	<rets>
+		<ret name="" type="function">A function that is created with the <page>GWEN</page> library to draw a texture.
+
+<callback>
+	<arg name="x" type="number">X coordinate for the box.</arg>
+	<arg name="y" type="number">Y coordinate for the box.</arg>
+	<arg name="w" type="number">Width of the box.</arg>
+	<arg name="h" type="number">Height of the box.</arg>
+	<arg name="clr" type="Color" default="color_white">Optional color, default is white.</arg>
+</callback>
+</ret>
+	</rets>
+</function>

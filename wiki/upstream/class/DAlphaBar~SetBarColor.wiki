@@ -1,0 +1,8 @@
+<function name="SetBarColor" parent="DAlphaBar" type="panelfunc">
+	<description>Sets the base color of the alpha bar. This is the color for which the alpha channel is being modified. An <page>Global.AccessorFunc</page> </description>
+	<realm>Client and Menu</realm>
+	<file line="8">lua/vgui/dalphabar.lua</file>
+	<args>
+		<arg name="clr" type="Color">The new <page>Color</page> to set. See <page>Global.Color</page>.</arg>
+	</args>
+</function>

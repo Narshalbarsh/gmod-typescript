@@ -1,0 +1,7 @@
+<function name="GetSideSpeed" parent="CMoveData" type="classfunc">
+	<description>Returns the strafe speed of the player.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">speed</ret>
+	</rets>
+</function>

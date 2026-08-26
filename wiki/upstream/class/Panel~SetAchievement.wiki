@@ -1,0 +1,7 @@
+<function name="SetAchievement" parent="Panel" type="classfunc">
+	<description>Sets the achievement to be displayed by <page>AchievementIcon</page>.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="id" type="number">Achievement number ID</arg>
+	</args>
+</function>

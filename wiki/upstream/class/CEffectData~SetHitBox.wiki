@@ -1,0 +1,11 @@
+<function name="SetHitBox" parent="CEffectData" type="classfunc">
+	<description>
+Sets the hit box index of the effect. Used by various effects for various purposes.
+
+<note>Internally stored as an integer, but only first 11 bits are networked, effectively limiting this function to 0-2047 range.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="hitBoxIndex" type="number">The hit box index of the effect, for example from <page>Structures/TraceResult#HitBox</page></arg>
+	</args>
+</function>

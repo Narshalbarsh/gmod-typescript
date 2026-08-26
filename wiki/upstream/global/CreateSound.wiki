@@ -1,0 +1,69 @@
+<function name="CreateSound" parent="Global" type="libraryfunc">
+	<description>
+Returns a sound parented to the specified entity.
+
+<note>You can only create one CSoundPatch per audio file, per entity at the same time.</note>
+<note>
+Valid sample rates: **11025 Hz, 22050 Hz and 44100 Hz**, otherwise you may see this kind of message:
+
+`Unsupported 32-bit wave file your_sound.wav` and 
+`Invalid sample rate (48000) for sound 'your_sound.wav'`
+</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="targetEnt" type="Entity">The target entity.</arg>
+		<arg name="soundName" type="string">The sound to play. (Sound path or a <page text="soundscript">sound.Add</page>) [Soundscript Characters](https://developer.valvesoftware.com/wiki/Soundscripts/en#Sound_Characters) are supported.</arg>
+		<arg name="filter" type="CRecipientFilter" default="nil">A <page>CRecipientFilter</page> of the players that will have this sound networked to them.
+
+If not set, the default is a [CPASAttenuationFilter](https://developer.valvesoftware.com/wiki/CRecipientFilter#Derived_classes).
+
+<note>This argument only works serverside.</note></arg>
+	</args>
+	<rets>
+		<ret name="" type="CSoundPatch">The sound object. You should keep a reference to this object for as long as you wish the sound to play!</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Play a sound everywhere, similar to <page>surface.PlaySound</page> but available clientside and serverside.</description>
+	<code>
+local LoadedSounds
+if CLIENT then
+	LoadedSounds = {} -- this table caches existing CSoundPatches
+end
+
+local function ReadSound( FileName )
+	local sound
+	local filter
+	if SERVER then
+		filter = RecipientFilter()
+		filter:AddAllPlayers()
+	end
+	if SERVER or !LoadedSounds[FileName] then
+		-- The sound is always re-created serverside because of the RecipientFilter.
+		sound = CreateSound( game.GetWorld(), FileName, filter ) -- create the new sound, parented to the worldspawn (which always exists)
+		if sound then
+			sound:SetSoundLevel( 0 ) -- play everywhere
+			if CLIENT then
+				LoadedSounds[FileName] = { sound, filter } -- cache the CSoundPatch
+			end
+		end
+	else
+		sound = LoadedSounds[FileName][1]
+		filter = LoadedSounds[FileName][2]
+	end
+	if sound then
+		if CLIENT then
+			sound:Stop() -- it won't play again otherwise
+		end
+		sound:Play()
+	end
+	return sound -- useful if you want to stop the sound yourself
+end
+
+-- When we are ready, we play the sound:
+ReadSound( "phx/hmetal1.wav" )
+	</code>
+
+</example>

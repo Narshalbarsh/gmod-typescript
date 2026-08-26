@@ -1,0 +1,7 @@
+<function name="GetOrigin" parent="CEffectData" type="classfunc">
+	<description>Returns the origin position of the effect.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Vector">The origin position of the effect.</ret>
+	</rets>
+</function>

@@ -1,0 +1,9 @@
+<function name="AnimationThinkInternal" parent="Panel" type="classfunc">
+	<file line="20-L59">lua/includes/extensions/client/panel/animation.lua</file>
+	<description>
+<internal></internal> Performs the per-frame operations required for panel animations.
+
+This is called every frame by <page>PANEL:AnimationThink</page>.
+	</description>
+	<realm>Client and Menu</realm>
+</function>

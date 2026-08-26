@@ -1,0 +1,11 @@
+<function name="GetWorkshopID" parent="Entity" type="classfunc">
+	<description>
+<deprecated>The function **currently** does nothing and always returns nil</deprecated>
+
+Returns ID of workshop addon that the entity is from.
+	</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">The workshop ID</ret>
+	</rets>
+</function>

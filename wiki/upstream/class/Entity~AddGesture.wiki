@@ -1,0 +1,19 @@
+<function name="AddGesture" parent="Entity" type="classfunc">
+	<description>
+Adds a gesture animation to the entity and plays it.
+
+
+See <page>Entity:AddGestureSequence</page> and <page>Entity:AddLayeredSequence</page> for functions that takes sequences instead of <page>Enums/ACT</page>.
+
+<note>This function only works on <page>BaseAnimatingOverlay</page> entites!</note>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="activity" type="number">The activity to play as the gesture. See <page>Enums/ACT</page>.</arg>
+		<arg name="autokill" type="boolean" default="true">Automatically remove the gesture when it fully plays (<page>Entity:GetLayerCycle</page> reaches 1). </arg>
+	</args>
+	<rets>
+		<ret name="" type="number">Layer ID of the started gesture, used to manipulate the played gesture by other functions. 
+<note>If a layer has already been allocated for supplied <page>Enums/ACT</page>, it will return existing layer ID instead of allocating a new layer. </note> </ret>
+	</rets>
+</function>

@@ -1,0 +1,96 @@
+<enum>
+	<realm>Server</realm>
+	<description>Enumerations for NPC schedules, used by <page>ENTITY:StartEngineSchedule</page>, <page>ENTITY:TranslateSchedule</page> and <page>NPC:SetSchedule</page>. Serverside only.</description>
+	<items>
+<item key="LAST_SHARED_SCHEDULE" value="88">The schedule enum limit</item>
+<item key="SCHED_AISCRIPT" value="56">Begins AI script based on NPC's `m_hCine` save value.</item>
+<item key="SCHED_ALERT_FACE" value="5">Idle stance and face ideal yaw angles.</item>
+<item key="SCHED_ALERT_FACE_BESTSOUND" value="6"></item>
+<item key="SCHED_ALERT_REACT_TO_COMBAT_SOUND" value="7"></item>
+<item key="SCHED_ALERT_SCAN" value="8">Rotate 180 degrees and back to check for enemies.</item>
+<item key="SCHED_ALERT_STAND" value="9">Remain idle until an enemy is heard or found.</item>
+<item key="SCHED_ALERT_WALK" value="10">Walk until an enemy is heard or found.</item>
+<item key="SCHED_AMBUSH" value="52">Remain idle until provoked or an enemy is found.</item>
+<item key="SCHED_ARM_WEAPON" value="48">Performs ACT_ARM.</item>
+<item key="SCHED_BACK_AWAY_FROM_ENEMY" value="24">Back away from enemy. If not possible to back away then go behind enemy.</item>
+<item key="SCHED_BACK_AWAY_FROM_SAVE_POSITION" value="26">Requires valid enemy, backs away from SaveValue: m_vSavePosition</item>
+<item key="SCHED_BIG_FLINCH" value="23">Heavy damage was taken for the first time in a while.</item>
+<item key="SCHED_CHASE_ENEMY" value="17">Begin chasing an enemy.</item>
+<item key="SCHED_CHASE_ENEMY_FAILED" value="18">Failed to chase enemy.</item>
+<item key="SCHED_COMBAT_FACE" value="12">Face current enemy.</item>
+<item key="SCHED_COMBAT_PATROL" value="75">Will walk around patrolling an area until an enemy is found.</item>
+<item key="SCHED_COMBAT_STAND" value="15"></item>
+<item key="SCHED_COMBAT_SWEEP" value="13"></item>
+<item key="SCHED_COMBAT_WALK" value="16"></item>
+<item key="SCHED_COWER" value="40">When not moving, will perform ACT_COWER.</item>
+<item key="SCHED_DIE" value="53">Regular NPC death.</item>
+<item key="SCHED_DIE_RAGDOLL" value="54">Plays NPC death sound (doesn't kill NPC).</item>
+<item key="SCHED_DISARM_WEAPON" value="49">Holsters active weapon. (Only works with NPC's that can holster weapons)</item>
+<item key="SCHED_DROPSHIP_DUSTOFF" value="79"></item>
+<item key="SCHED_DUCK_DODGE" value="84">Preform Ducking animation. (Only works with npc_alyx)</item>
+<item key="SCHED_ESTABLISH_LINE_OF_FIRE" value="35">Search for a place to shoot current enemy.</item>
+<item key="SCHED_ESTABLISH_LINE_OF_FIRE_FALLBACK" value="36">Fallback from an established line of fire.</item>
+<item key="SCHED_FAIL" value="81">Failed doing current schedule.</item>
+<item key="SCHED_FAIL_ESTABLISH_LINE_OF_FIRE" value="38">Failed to establish a line of fire.</item>
+<item key="SCHED_FAIL_NOSTOP" value="82"></item>
+<item key="SCHED_FAIL_TAKE_COVER" value="31">Failed to take cover.</item>
+<item key="SCHED_FALL_TO_GROUND" value="78">Fall to ground when in the air.</item>
+<item key="SCHED_FEAR_FACE" value="14">Will express fear face. (Only works on NPCs with expressions)</item>
+<item key="SCHED_FLEE_FROM_BEST_SOUND" value="29"></item>
+<item key="SCHED_FLINCH_PHYSICS" value="80">Plays ACT_FLINCH_PHYSICS.</item>
+<item key="SCHED_FORCED_GO" value="71">Force walk to SaveValue: m_vecLastPosition (debug).</item>
+<item key="SCHED_FORCED_GO_RUN" value="72">Force run to SaveValue: m_vecLastPosition (debug).</item>
+<item key="SCHED_GET_HEALTHKIT" value="66">Pick up item if within a radius of 5 units.</item>
+<item key="SCHED_HIDE_AND_RELOAD" value="50">Take cover and reload weapon.</item>
+<item key="SCHED_IDLE_STAND" value="1">Idle stance</item>
+<item key="SCHED_IDLE_WALK" value="2">Walk to position.</item>
+<item key="SCHED_IDLE_WANDER" value="3">Walk to random position within a radius of 200 units.</item>
+<item key="SCHED_INTERACTION_MOVE_TO_PARTNER" value="85"></item>
+<item key="SCHED_INTERACTION_WAIT_FOR_PARTNER" value="86"></item>
+<item key="SCHED_INVESTIGATE_SOUND" value="11"></item>
+<item key="SCHED_MELEE_ATTACK1" value="41"></item>
+<item key="SCHED_MELEE_ATTACK2" value="42"></item>
+<item key="SCHED_MOVE_AWAY" value="68">Move away from player.</item>
+<item key="SCHED_MOVE_AWAY_END" value="70">Stop moving and continue enemy scan.</item>
+<item key="SCHED_MOVE_AWAY_FAIL" value="69">Failed to move away; stop moving.</item>
+<item key="SCHED_MOVE_AWAY_FROM_ENEMY" value="25">Move away from enemy while facing it and checking for new enemies.</item>
+<item key="SCHED_MOVE_TO_WEAPON_RANGE" value="34">Move to the range the weapon is preferably used at.</item>
+<item key="SCHED_NEW_WEAPON" value="63">Pick up a new weapon if within a radius of 5 units.</item>
+<item key="SCHED_NEW_WEAPON_CHEAT" value="64">Fail safe: Create the weapon that the NPC went to pick up if it was removed during pick up schedule.</item>
+<item key="SCHED_NONE" value="0">No schedule is being performed.</item>
+<item key="SCHED_NPC_FREEZE" value="73">Prevents movement until COND.NPC_UNFREEZE(68) is set.</item>
+<item key="SCHED_PATROL_RUN" value="76">Run to random position and stop if enemy is heard or found.</item>
+<item key="SCHED_PATROL_WALK" value="74">Walk to random position and stop if enemy is heard or found.</item>
+<item key="SCHED_PRE_FAIL_ESTABLISH_LINE_OF_FIRE" value="37"></item>
+<item key="SCHED_RANGE_ATTACK1" value="43"></item>
+<item key="SCHED_RANGE_ATTACK2" value="44"></item>
+<item key="SCHED_RELOAD" value="51">Stop moving and reload until danger is heard.</item>
+<item key="SCHED_RUN_FROM_ENEMY" value="32">Retreat from the established enemy.</item>
+<item key="SCHED_RUN_FROM_ENEMY_FALLBACK" value="33"></item>
+<item key="SCHED_RUN_FROM_ENEMY_MOB" value="83"></item>
+<item key="SCHED_RUN_RANDOM" value="77">Run to random position within a radius of 500 units.</item>
+<item key="SCHED_SCENE_GENERIC" value="62"></item>
+<item key="SCHED_SCRIPTED_CUSTOM_MOVE" value="59"></item>
+<item key="SCHED_SCRIPTED_FACE" value="61"></item>
+<item key="SCHED_SCRIPTED_RUN" value="58"></item>
+<item key="SCHED_SCRIPTED_WAIT" value="60"></item>
+<item key="SCHED_SCRIPTED_WALK" value="57"></item>
+<item key="SCHED_SHOOT_ENEMY_COVER" value="39">Shoot cover that the enemy is behind.</item>
+<item key="SCHED_SLEEP" value="87">Sets the NPC to a sleep-like state.</item>
+<item key="SCHED_SMALL_FLINCH" value="22"></item>
+<item key="SCHED_SPECIAL_ATTACK1" value="45"></item>
+<item key="SCHED_SPECIAL_ATTACK2" value="46"></item>
+<item key="SCHED_STANDOFF" value="47"></item>
+<item key="SCHED_SWITCH_TO_PENDING_WEAPON" value="65"></item>
+<item key="SCHED_TAKE_COVER_FROM_BEST_SOUND" value="28"></item>
+<item key="SCHED_TAKE_COVER_FROM_ENEMY" value="27">Take cover from current enemy.</item>
+<item key="SCHED_TAKE_COVER_FROM_ORIGIN" value="30">Flee from SaveValue: vLastKnownLocation</item>
+<item key="SCHED_TARGET_CHASE" value="21">Chase set NPC target.</item>
+<item key="SCHED_TARGET_FACE" value="20">Face NPC target.</item>
+<item key="SCHED_VICTORY_DANCE" value="19">Human victory dance.</item>
+<item key="SCHED_WAIT_FOR_SCRIPT" value="55"></item>
+<item key="SCHED_WAIT_FOR_SPEAK_FINISH" value="67"></item>
+<item key="SCHED_WAKE_ANGRY" value="4">Spot an enemy and go from an idle state to combat state.</item>
+</items>
+
+</enum>

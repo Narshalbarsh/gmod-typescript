@@ -1,0 +1,14 @@
+<function name="PlayerCanJoinTeam" parent="GM" type="hook">
+	<description>
+		Returns whether or not a player is allowed to join a team
+		<warning>This hook will not work with <page>hook.Add</page> and it is only called manually from <page>GM:PlayerJoinTeam</page> by the base gamemode</warning>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ply" type="Player">Player attempting to switch teams</arg>
+		<arg name="team" type="number">Index of the team</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Allowed to switch</ret>
+	</rets>
+</function>

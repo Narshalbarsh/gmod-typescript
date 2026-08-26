@@ -1,0 +1,24 @@
+<function name="GetContentType" parent="spawnmenu" type="libraryfunc">
+	<description>Returns the function to create an vgui element for a specified content type, previously defined by <page>spawnmenu.AddContentType</page>.
+
+If a content type doesn't exist, a dummy function will be returned, and a warning printed to the console.
+
+You probably want to use <page>spawnmenu.CreateContentIcon</page> to create icons.
+</description>
+	<realm>Client</realm>
+	<file line="289-L299">lua/includes/modules/spawnmenu.lua</file>
+	<args>
+		<arg name="contentType" type="string">The content type name.</arg>
+	</args>
+	<rets>
+		<ret name="" type="function">The panel creation function.
+
+<callback>
+<arg type="Panel" name="container">The container panel to parent the created icon to.</arg>
+<arg type="table" name="data">Data for the content type passed from <page>spawnmenu.CreateContentIcon</page>.</arg>
+
+<ret type="Panel" name="pnl">The created panel</ret>
+</callback>
+</ret>
+	</rets>
+</function>

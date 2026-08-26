@@ -1,0 +1,15 @@
+<function name="AcceptInput" parent="ENTITY" type="hook">
+	<description>Called when another entity fires an event to this entity.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="inputName" type="string">The name of the input that was triggered.</arg>
+		<arg name="activator" type="Entity">The initial cause for the input getting triggered. (e.g. the player who pushed a button)</arg>
+		<arg name="caller" type="Entity">The entity that directly triggered the input. (e.g. the button that was pushed)</arg>
+		<arg name="param" type="string">The input parameter.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Should we suppress the default action for this input?
+
+Returning `true` for unknown inputs will also prevent the game complaining about the unknown input in console with `developer 2`.</ret>
+	</rets>
+</function>

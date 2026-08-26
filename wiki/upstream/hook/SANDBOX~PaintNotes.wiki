@@ -1,0 +1,8 @@
+<function name="PaintNotes" parent="SANDBOX" type="hook">
+	<description>
+Called from <page>GM:HUDPaint</page>; does nothing by default.
+
+<note>This cannot be used with <page>hook.Add</page></note>
+	</description>
+	<realm>Client</realm>
+</function>

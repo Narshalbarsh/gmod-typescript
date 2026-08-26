@@ -1,0 +1,32 @@
+<function name="AddAmmoType" parent="game" type="libraryfunc">
+	<description>
+Adds a new ammo type to the game.
+
+You can find a list of default ammo types [here](https://wiki.facepunch.com/gmod/Default_Ammo_Types).
+
+<warning>This function **must** be called on both the client and server in <page>GM:Initialize</page> or you will have unexpected problems.</warning>
+<note>There is a limit of 256 ammo types, including the default ones.</note>
+	</description>
+	<realm>Shared</realm>
+	<file line="2-L40">lua/includes/extensions/game.lua</file>
+	<args>
+		<arg name="ammoData" type="table{AmmoData}">The attributes of the ammo. See the <page>Structures/AmmoData</page>.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Add an ammo type.</description>
+	<code>
+game.AddAmmoType( {
+	name = "BULLET_PLAYER_556MM", -- Note that whenever picked up, the localization string will be '#BULLET_PLAYER_556MM_ammo'
+	dmgtype = DMG_BULLET, 
+	tracer = TRACER_LINE,
+	plydmg = 0, -- This can either be a number or a ConVar name.
+	npcdmg = 0, -- Ditto.
+	force = 2000,
+	maxcarry = 120, -- Ditto.
+	minsplash = 10,
+	maxsplash = 5
+} )
+	</code>
+</example>

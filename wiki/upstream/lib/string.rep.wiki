@@ -1,0 +1,27 @@
+<function name="rep" parent="string" type="libraryfunc">
+	<description>Repeats a string by the provided number, with an optional separator.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="str" type="string">The string to convert.</arg>
+		<arg name="repetitions" type="number">Times to repeat, this value gets rounded internally.</arg>
+		<arg name="separator" type="string" default="">String that will separate the repeated piece. Notice that it doesn't add this string to the start or the end of the result, only between the repeated parts.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">Repeated string.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Repeating "abc" 5 times.</description>
+	<code>print(string.rep("abc", 5))</code>
+	<output>abcabcabcabcabc</output>
+
+</example>
+
+
+<example>
+	<description>Repeating "hello world" 3 times, with the separator " " (space).</description>
+	<code>print(string.rep("hello world", 3, " "))</code>
+	<output>hello world hello world hello world</output>
+
+</example>

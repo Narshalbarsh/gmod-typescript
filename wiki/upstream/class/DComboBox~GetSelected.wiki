@@ -1,0 +1,9 @@
+<function name="GetSelected" parent="DComboBox" type="panelfunc">
+	<description>Returns the currently selected option's text and data</description>
+	<realm>Client and Menu</realm>
+	<file line="112-L118">lua/vgui/dcombobox.lua</file>
+	<rets>
+		<ret name="" type="string">The option's text value.</ret>
+		<ret name="" type="any">The option's stored data.</ret>
+	</rets>
+</function>

@@ -1,0 +1,24 @@
+<function name="CreateConstraintFromTable" parent="duplicator" type="libraryfunc">
+	<description><internal></internal> Creates a constraint from a saved/copied constraint table.</description>
+	<realm>Server</realm>
+	<file line="726-L791">lua/includes/modules/duplicator.lua</file>
+	<args>
+		<arg name="constraint" type="table">Saved/copied constraint table.</arg>
+		<arg name="entityList" type="table">The list of entities that are to be constrained.</arg>
+	</args>
+	<rets>
+		<ret type="Entity">The newly created constraint entity, if any.
+
+For example, an entity of class `phys_pulleyconstraint` or `phys_spring`, etc., the functional entity of the constraint.</ret>
+		<ret type="Entity">The second constraint related entity, if any.
+
+For a most constraints, this would be a `keyframe_rope` for the visual part of a constraint.</ret>
+		<ret type="Entity">The third constraint related entity, if any.
+
+For example, a Hydraulic constraint would return the `gmod_winch_controller` entity here. A pulley would have another `keyframe_rope`.
+</ret>
+		<ret type="Entity">The fourth constraint related entity, if any.
+
+For example, a Hydraulic constraint would return the `phys_slideconstraint` entity here. A pulley would have yet another `keyframe_rope`.</ret>
+	</rets>
+</function>

@@ -1,0 +1,9 @@
+<function name="GetTable" parent="list" type="libraryfunc">
+	<description>Returns a list of all lists currently in use.</description>
+	<realm>Shared and Menu</realm>
+	<file line="29-L33">lua/includes/modules/list.lua</file>
+	<added>2020.10.14</added>
+	<rets>
+		<ret name="" type="table">The list of all lists, i.e. a table containing names of all lists.</ret>
+	</rets>
+</function>

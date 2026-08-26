@@ -1,0 +1,14 @@
+<function name="SpawnlistContentChanged" parent="SANDBOX" type="hook">
+	<description>Called when changes were made to the spawnmenu like creating a new category.</description>
+	<realm>Client</realm>
+	<file line="44">gamemodes/sandbox/gamemode/spawnmenu/creationmenu/content/contenttypes/custom.lua</file>
+</function>
+
+<example>
+	<description>Plays a sound every time it's called.</description>
+	<code>
+hook.Add("SpawnlistContentChanged", "Example", function()
+	surface.PlaySound( "ambient/water/drip" .. math.random( 1, 4 ) .. ".wav" )
+end)
+	</code>
+</example>

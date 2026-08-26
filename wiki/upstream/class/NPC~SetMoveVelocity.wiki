@@ -1,0 +1,8 @@
+<function name="SetMoveVelocity" parent="NPC" type="classfunc">
+	<description>Sets the move velocity of the NPC</description>
+	<realm>Server</realm>
+	<added>2021.03.31</added>
+	<args>
+		<arg name="vel" type="Vector">The new movement velocity.</arg>
+	</args>
+</function>

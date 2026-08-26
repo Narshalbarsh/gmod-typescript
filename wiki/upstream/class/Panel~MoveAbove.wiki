@@ -1,0 +1,9 @@
+<function name="MoveAbove" parent="Panel" type="classfunc">
+	<file line="137-L137">lua/includes/extensions/client/panel.lua</file>
+	<description>Places the panel above the passed panel with the specified offset.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="panel" type="Panel">Panel to position relatively to.</arg>
+		<arg name="offset" type="number" default="0">The align offset.</arg>
+	</args>
+</function>

@@ -1,0 +1,4 @@
+<function name="CopySelected" parent="Panel" type="classfunc">
+	<description>Performs the <key>CONTROL</key> + <key>C</key> key combination effect ( Copy selection to clipboard ) on selected text in a <page>TextEntry</page> or <page>RichText</page> based element.</description>
+	<realm>Client and Menu</realm>
+</function>

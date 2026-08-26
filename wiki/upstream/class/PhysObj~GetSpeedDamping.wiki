@@ -1,0 +1,7 @@
+<function name="GetSpeedDamping" parent="PhysObj" type="classfunc">
+	<description>Returns the speed damping of the physics object.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">speedDamping</ret>
+	</rets>
+</function>

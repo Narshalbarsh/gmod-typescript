@@ -1,0 +1,7 @@
+<function name="SetPaintBackground" parent="DPanel" type="panelfunc">
+	<description>Sets whether or not to paint/draw the panel background.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="paint" type="boolean">True to show the panel's background, false to hide it.</arg>
+	</args>
+</function>

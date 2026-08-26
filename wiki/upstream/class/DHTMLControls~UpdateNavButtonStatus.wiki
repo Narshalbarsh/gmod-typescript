@@ -1,0 +1,4 @@
+<function name="UpdateNavButtonStatus" parent="DHTMLControls" type="panelfunc">
+	<description><internal></internal></description>
+	<realm>Client and Menu</realm>
+</function>

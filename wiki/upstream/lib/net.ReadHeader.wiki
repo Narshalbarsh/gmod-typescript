@@ -1,0 +1,11 @@
+<function name="ReadHeader" parent="net" type="libraryfunc">
+	<description>
+<internal></internal>
+
+Reads a word, basically unsigned short. This is used internally to read the "header" of the message which is an unsigned short which can be converted to the corresponding message name via <page>util.NetworkIDToString</page>.
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The header number</ret>
+	</rets>
+</function>

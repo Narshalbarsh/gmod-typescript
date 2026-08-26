@@ -1,0 +1,7 @@
+<function name="ShouldSkipFrame" parent="frame_blend" type="libraryfunc">
+	<description>Returns whether we should skip frame or not.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="boolean">Should the frame be skipped or not.</ret>
+	</rets>
+</function>

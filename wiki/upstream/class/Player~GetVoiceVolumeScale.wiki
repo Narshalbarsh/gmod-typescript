@@ -1,0 +1,8 @@
+<function name="GetVoiceVolumeScale" parent="Player" type="classfunc">
+	<description>Returns the current voice volume scale for given player on client.</description>
+	<realm>Client</realm>
+	<added>2021.06.09</added>
+	<rets>
+		<ret name="" type="number">The voice volume scale, where 0 is 0% and 1 is 100%.</ret>
+	</rets>
+</function>

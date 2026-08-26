@@ -1,0 +1,13 @@
+<function name="HandleDroppedInGame" parent="dragndrop" type="libraryfunc">
+	<description>Allows you to capture the panel that was dropped into the game (dropped onto the root panel). This function is meant to be overridden.</description>
+	<realm>Client and Menu</realm>
+	<file line="29-L35">lua/includes/extensions/client/panel/dragdrop.lua</file>
+</function>
+
+<example>
+<code>
+dragndrop.HandleDroppedInGame = function()
+	print("This panel was dropped inside the game:", dragndrop.m_DraggingMain)
+end
+</code>
+</example>

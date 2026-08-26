@@ -1,0 +1,21 @@
+<function name="Draw" parent="CNavArea" type="classfunc">
+	<description>Draws this navarea on debug overlay. (So limitations of <page>debugoverlay</page> library apply)</description>
+	<realm>Server</realm>
+</function>
+
+<example>
+<description>Draws every navarea on debug overlay. Careful, this will get laggy fast.</description>
+<code>
+if ( SERVER ) then
+local LastDraw = 0
+hook.Add( "Think", "DrawAllNavAreas", function()
+	if ( CurTime() - LastDraw < 0.100 ) then return end
+	LastDraw = CurTime()
+
+	for id, area in pairs( navmesh.GetAllNavAreas() ) do
+		area:Draw()
+	end
+end )
+end
+</code>
+</example>

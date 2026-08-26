@@ -1,0 +1,59 @@
+<function name="ManipulateBoneAngles" parent="Entity" type="classfunc">
+	<description>
+Sets custom bone angles.
+
+<bug issue="5148">When used repeatedly serverside, this method is strongly discouraged due to the huge network traffic produced
+
+As of update `2024.10.29` this has been resolved. However, network traffic is still generated and should be taken into consideration.
+</bug>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="boneID" type="number">Index of the bone you want to manipulate</arg>
+		<arg name="ang" type="Angle">Angle to apply.
+
+The angle is relative to the original bone angle, not relative to the world or the entity.</arg>
+		<arg name="networking" type="boolean" default="true">boolean to network these changes (if called from server)</arg>
+	</args>
+</function>
+
+<example>
+	<description>
+This example shows the network usage impact of repeatedly using bone manipulation serverside.
+
+To see the difference, type in client's console: `net_graph 3`.
+
+The rotation is not smooth when using <page>Entity:SetNWFloat</page> because it does not update the value on every frame.
+	</description>
+	<code>
+local server_only = true -- Change the value!
+
+if server_only then
+	if SERVER then
+		hook.Add( "Think", "bone_manipulation_test", function()
+			for _, ent in ipairs( ents.FindByModel( "models/buggy.mdl" ) ) do
+				ent:ManipulateBoneAngles( 28, Angle( 0, 0, RealTime() * 180 ) )
+			end
+		end )
+	else
+		hook.Remove( "Think", "bone_manipulation_test" )
+	end
+else
+	if SERVER then
+		hook.Add( "Think", "bone_manipulation_test", function()
+			for _, ent in ipairs( ents.FindByModel( "models/buggy.mdl" ) ) do
+				-- Entity:SetNW....() do not broadcast new values instantly.
+				ent:SetNWFloat( "bone_manipulation_test", RealTime() * 180 )
+			end
+		end )
+	else
+		hook.Add( "Think", "bone_manipulation_test", function()
+			for _, ent in ipairs( ents.FindByModel( "models/buggy.mdl" ) ) do
+				ent:ManipulateBoneAngles( 28, Angle( 0, 0, ent:GetNWFloat( "bone_manipulation_test" ) ) )
+			end
+		end )
+	end
+end
+	</code>
+	<output>Rotation of the ammo box of all HL2 buggies.</output>
+</example>

@@ -1,0 +1,15 @@
+<function name="GetGroundHeight" parent="navmesh" type="libraryfunc">
+	<description>
+Finds the closest standable ground at, above, or below the provided position.
+
+<note>The ground must have at least 32 units of empty space above it to be considered by this function, unless 16 layers are tested without finding valid ground.</note>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="pos" type="Vector">Position to find the closest ground for.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The height of the ground layer.</ret>
+		<ret name="" type="Vector">The normal of the ground layer.</ret>
+	</rets>
+</function>

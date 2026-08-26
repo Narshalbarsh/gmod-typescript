@@ -1,0 +1,12 @@
+<function name="SetLayerPlaybackRate" parent="Entity" type="classfunc">
+	<description>
+Sets the layer playback rate. See also <page>Entity:SetLayerDuration</page>.
+
+<note>This function only works on <page>BaseAnimatingOverlay</page> entities.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="layerID" type="number">The Layer ID</arg>
+		<arg name="rate" type="number">The new playback rate.</arg>
+	</args>
+</function>

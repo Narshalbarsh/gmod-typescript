@@ -1,0 +1,18 @@
+<function name="IsOBBIntersectingOBB" parent="util" type="libraryfunc">
+	<description>Performs OBB on OBB intersection test.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="box1Origin" type="Vector">The center of the first box.</arg>
+		<arg name="box1Angles" type="Angle">The angles of the first box.</arg>
+		<arg name="box1Mins" type="Vector">The min position of the first box.</arg>
+		<arg name="box1Maxs" type="Vector">The max position of the first box.</arg>
+		<arg name="box2Origin" type="Vector">The center of the second box.</arg>
+		<arg name="box2Angles" type="Angle">The angles of the second box.</arg>
+		<arg name="box2Mins" type="Vector">The min position of the second box.</arg>
+		<arg name="box2Maxs" type="Vector">The max position of the second box.</arg>
+		<arg name="tolerance" type="number">Tolerance for error. Leave at 0 if unsure.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether there is an intersection.</ret>
+	</rets>
+</function>

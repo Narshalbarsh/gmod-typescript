@@ -1,0 +1,37 @@
+<function name="Iterator" parent="ents" type="libraryfunc">
+	<description>
+		Returns a [Stateless Iterator](https://www.lua.org/pil/7.3.html) for all entities.
+		Intended for use in [Generic For-Loops](https://www.lua.org/pil/4.3.5.html).  
+		See <page>player.Iterator</page> for a similar function for all players.
+
+		<note>Internally, this function uses cached values that are stored in Lua, as opposed to <page>ents.GetAll</page>, which is a C++ function.
+		Because a call operation from Lua to C++ *and* with a return back to Lua is quite costly, this function will be more efficient than <page>ents.GetAll</page>.</note>
+	</description>
+	<added>2023.10.13</added>
+	<realm>Shared</realm>
+	<file line="4-L11">lua/includes/extensions/entity_iter.lua</file>
+	<rets>
+		<ret name="" type="function">The Iterator Function from <page text="ipairs">Global.ipairs</page>.</ret>
+		<ret name="" type="table<Entity>">Table of all existing <page text="Entities">Entity</page>.  This is a cached copy of <page>ents.GetAll</page>.
+<warning>This table is intended to be read-only.
+
+Modifying the return table will affect all subsequent calls to this function until the cache is refreshed, replacing all of your ents.GetAll usages may come with unintended side effects because of this.</warning>
+</ret>
+		<ret name="" type="number">
+			The starting index for the table of players.  
+			This is always `0` and is returned for the benefit of [Generic For-Loops](https://www.lua.org/pil/4.3.5.html).
+		</ret>
+	</rets>
+</function>
+
+
+<example>
+	<description>Deletes all physics props.</description>
+	<code>
+for _, ent in ents.Iterator() do
+	if ( ent:GetClass() == "prop_physics" ) then
+		ent:Remove()
+	end
+end
+	</code>
+</example>

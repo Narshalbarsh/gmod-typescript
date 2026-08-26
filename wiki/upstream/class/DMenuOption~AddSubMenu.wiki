@@ -1,0 +1,7 @@
+<function name="AddSubMenu" parent="DMenuOption" type="panelfunc">
+	<description>Creates a sub <page>DMenu</page> and returns it. Has no duplicate call protection.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="DMenu">The created <page>DMenu</page> to add options to.</ret>
+	</rets>
+</function>

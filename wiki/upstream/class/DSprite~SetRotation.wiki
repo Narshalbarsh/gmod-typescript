@@ -1,0 +1,7 @@
+<function name="SetRotation" parent="DSprite" type="panelfunc">
+	<description>Sets the 2D rotation angle of the sprite, in the plane of the screen.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="ang" type="number">The anti-clockwise rotation in degrees.</arg>
+	</args>
+</function>

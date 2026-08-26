@@ -1,0 +1,10 @@
+<function name="ClearHighlights" parent="DMenu" type="panelfunc">
+	<description>
+<deprecated></deprecated>
+
+Clears all highlights made by <page>DMenu:HighlightItem</page>.
+
+Doesn't appear to be used or do anything.
+	</description>
+	<realm>Client and Menu</realm>
+</function>

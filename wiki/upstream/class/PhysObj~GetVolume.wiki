@@ -1,0 +1,7 @@
+<function name="GetVolume" parent="PhysObj" type="classfunc">
+	<description>Returns the volume in source units³. Or nil if the PhysObj is a generated sphere or box.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number|nil">The volume or `nil` if the PhysObj is a generated sphere or box.</ret>
+	</rets>
+</function>

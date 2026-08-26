@@ -1,0 +1,31 @@
+<panel>
+	<parent>DImageButton</parent>
+	<realm>Client and Menu</realm>
+	<file line="">lua/vgui/dnumberscratch.lua</file>
+	<description>
+		Choose a number from a number line, with zooming for precision.
+		Zoom in by moving your mouse forward and moving back does the opposite. Looks like a blue circle until you click and hold on it
+	</description>
+</panel>
+
+
+<example>
+	<description>
+	Create the Number Scratch with the minimum number
+	being 0 and the max being 20
+	</description>
+	<code>
+local frame = vgui.Create( "DFrame" )
+frame:SetSize( 300, 250 )
+frame:Center()
+frame:MakePopup()
+
+local Scratch = vgui.Create( "DNumberScratch", frame )
+Scratch:SetPos( 50, 50 )
+Scratch:SetValue( 5 )
+Scratch:SetMin( 0 )
+Scratch:SetMax( 20 )
+	</code>
+	<output><image src="DNumberScratch.gif"/></output>
+
+</example>

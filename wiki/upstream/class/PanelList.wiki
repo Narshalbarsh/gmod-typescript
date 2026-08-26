@@ -1,0 +1,30 @@
+<panel>
+	<parent>Panel</parent>
+	<realm>Client</realm>
+	<description>
+		A panel list with a custom vertical scroll bar that doesn't have up/down buttons and has a momentum to scrolling.
+
+		<deprecated>You should use <page>DScrollPanel</page> instead</deprecated>
+	</description>
+</panel>
+
+
+<example>
+	<description>Example usage of the panel</description>
+	<code>
+local frame = vgui.Create( "DFrame" )
+frame:SetSize( 300, 500 )
+frame:Center()
+frame:MakePopup()
+
+local pnl = frame:Add( "PanelList" )
+pnl:Dock( FILL )
+pnl:EnableVerticalScrollbar()
+
+for i = 0, 100 do
+	local button = pnl:Add( "DButton" )
+	pnl:AddItem( button )
+end
+	</code>
+
+</example>

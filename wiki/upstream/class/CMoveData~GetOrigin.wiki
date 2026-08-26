@@ -1,0 +1,17 @@
+<function name="GetOrigin" parent="CMoveData" type="classfunc">
+	<description>Gets the player's position.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Vector">The player's position.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Print's the players position.</description>
+	<code>
+function GM:SetupMove( ply, movedata )
+    print( movedata:GetOrigin() )
+end
+	</code>
+
+</example>

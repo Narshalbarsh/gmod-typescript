@@ -1,0 +1,40 @@
+<function name="ParticleEffect" parent="Global" type="libraryfunc">
+	<description>
+Creates a particle effect. See also <page>Global.CreateParticleSystem</page>.
+
+<note>The particle effect must be precached **serverside** with <page>Global.PrecacheParticleSystem</page> and the file its from must be added via <page>game.AddParticles</page> before it can be used! This is due to the function using networked IDs for particle names, not directly networking particle system name.
+
+Clientside, you can use <page>Global.CreateParticleSystemNoEntity</page> (and similar) instead.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="particleName" type="string">The name of the particle effect.</arg>
+		<arg name="position" type="Vector">The start position of Control Point 0 for the particle system.</arg>
+		<arg name="angles" type="Angle">The orientation of Control Point 0 for the particle system.
+
+You must provide the entity argument for the angles to take effect.</arg>
+		<arg name="parent" type="Entity" default="NULL">If set, the particle will be parented to the entity.</arg>
+	</args>
+</function>
+
+<example>
+	<description>
+Example usage of the function. Precaches `ExplosionCore_wall` particle from `particles/explosion.pcf`, a Team Fortress 2 particle file.
+
+You can then test the particle by using the `particleitup` console command.
+
+You can find a list of particles inside a .pcf file using the [Particle Editor Tool](https://developer.valvesoftware.com/wiki/Particle_Editor)
+	</description>
+	<code>
+game.AddParticles( "particles/explosion.pcf" )
+PrecacheParticleSystem( "ExplosionCore_wall" )
+
+if ( SERVER ) then
+	-- A test console command to see if the particle works, spawns the particle where the player is looking at. 
+	concommand.Add( "particleitup", function( ply, cmd, args )
+		ParticleEffect( "ExplosionCore_wall", ply:GetEyeTrace().HitPos, Angle( 0, 0, 0 ) )
+	end )
+end
+	</code>
+
+</example>

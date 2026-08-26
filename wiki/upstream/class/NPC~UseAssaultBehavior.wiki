@@ -1,0 +1,9 @@
+<function name="UseAssaultBehavior" parent="NPC" type="classfunc">
+	<realm>Server</realm>
+	<description> Enables the AI's [Assault Behavior](https://developer.valvesoftware.com/wiki/Assault "Assault Behavior") when an `ai_goal_assault` is set for this SENT. 
+<note>This function only works on `ai` type [SENTs](Scripted_Entities).</note>
+	</description>
+	<rets>
+		<ret name="" type="boolean">Whether the action succeeded.</ret>
+	</rets>
+</function>

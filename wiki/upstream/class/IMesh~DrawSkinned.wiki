@@ -1,0 +1,90 @@
+<function name="DrawSkinned" parent="IMesh" type="classfunc">
+	<description>Renders the mesh with the active matrix and given bone matrices.</description>
+	<realm>Client</realm>
+	<added>2026.02.25</added>
+	<args>
+		<arg type="table<VMatrix>" name="bones">A list of matrices to use as bones. Up to 52 of them.</arg>
+		<arg type="boolean" name="multiply" default="false">If set, multiplies given matrices with currently active model matrix (<page>cam.GetModelMatrix</page>). This incurs a performance hit.</arg>
+	</args>
+</function>
+
+<example>
+	<description>
+Example usage. Draws a dancing cube using skeletal animation at maps 0, 0, 0 position. (gm_construct's spawn)
+	</description>
+	<code>
+
+local mat = Material( "models/debug/debugwhite" )
+local ZMin, ZMax = -10, 10
+local pos = Vector( 0, 0, 0 )
+local function SetPosZ( i )
+	pos[3] = math.Remap( math.sin( ( CurTime() * 7 ) + ( i / 2 ) ), -1, 1, ZMin, ZMax )
+	return pos
+end
+
+local s = 50
+
+local v = {
+	Vector( -s, -s, -s ), Vector( s, -s, -s ), Vector( s, s, -s ), Vector( -s, s, -s ),
+	Vector( -s, -s, s ), Vector( s, -s, s ), Vector( s, s, s ), Vector( -s, s, s ),
+}
+
+local tris = {
+	{1, 2, 3}, {1, 3, 4}, {5, 8, 7}, {5, 7, 6}, {1, 5, 6}, {1, 6, 2},
+	{2, 6, 7}, {2, 7, 3}, {3, 7, 8}, {3, 8, 4}, {4, 8, 5}, {4, 5, 1}
+}
+
+local normals = {
+	Vector( 0, 0,-1 ), Vector( 0, 0,-1 ), Vector( 0, 0, 1 ),
+	Vector( 0, 0, 1 ), Vector( 0,-1, 0 ), Vector( 0,-1, 0 ),
+	Vector( 1, 0, 0 ), Vector( 1, 0, 0 ), Vector( 0, 1, 0 ),
+	Vector( 0, 1, 0 ), Vector( -1, 0, 0 ), Vector( -1, 0, 0 )
+}
+
+local imesh = Mesh( mat, 2 )
+
+mesh.Begin( imesh, MATERIAL_TRIANGLES, 12 )
+	for ti, t in ipairs( tris ) do
+		local n = normals[ti]
+		for _, i in ipairs( t ) do
+			mesh.Position( v[i] )
+			mesh.BoneData( 0, i, 1 )
+			mesh.BoneData( 1, i, 0 )
+			mesh.Normal( n )
+			mesh.Color( 255, 255, 255, 255 )
+			mesh.AdvanceVertex()
+		end
+	end
+mesh.End()
+
+local boneCount = 8
+local boneTable = {}
+for i = 1, boneCount do
+	boneTable[i] = Matrix()
+end
+
+hook.Add("PostDrawOpaqueRenderables", "Cube", function()
+
+	-- Update bone matrices
+	for i = 1, boneCount do
+		boneTable[i]:Identity()
+		boneTable[i]:Translate( SetPosZ( i ) )
+	end
+
+	-- Setup model lighting
+	render.ResetModelLighting( 0.5, 0.5, 0.5 )
+	render.SetModelLighting( BOX_FRONT, 1, 1, 1 )
+	render.SetModelLighting( BOX_LEFT, 1, 0, 0 )
+	render.SetModelLighting( BOX_RIGHT, 0, 1, 0 )
+	render.SetModelLighting( BOX_TOP, 0, 0, 1 )
+
+	-- Set the render material
+	render.SetMaterial( mat )
+
+	-- Draw the mesh with the bone table
+	imesh:DrawSkinned( boneTable )
+
+end)
+	</code>
+
+</example>

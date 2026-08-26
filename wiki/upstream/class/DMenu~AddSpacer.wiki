@@ -1,0 +1,22 @@
+<function name="AddSpacer" parent="DMenu" type="panelfunc">
+	<description>Adds a horizontal line spacer.</description>
+	<realm>Client and Menu</realm>
+</function>
+
+<example>
+	<description>Creates a DMenu with 3 options and adds a spacer before the third.</description>
+	<code>
+local m = DermaMenu()
+
+m:AddOption( "Kill yourself", function() RunConsoleCommand( "kill" ) end ) -- Add first option
+m:AddOption( "Disconnect", function() RunConsoleCommand( "disconnect" ) end ) -- Add second option
+
+m:AddSpacer() -- Add a spacer
+
+m:AddOption( "Say hi", function() RunConsoleCommand( "say", "Hi!" ) end ) -- Add third option
+
+m:Open() -- Show our menu
+	</code>
+	<output><image src="DMenu_spacer.png"/></output>
+
+</example>

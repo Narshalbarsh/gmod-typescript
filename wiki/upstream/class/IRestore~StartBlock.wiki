@@ -1,0 +1,29 @@
+<function name="StartBlock" parent="IRestore" type="classfunc">
+	<description>Loads next block of data to be read inside current block. Blocks **must** be ended with <page>IRestore:EndBlock</page>.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="string">The name of the next data block to be read.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Example usage.</description>
+	<code>
+saverestore.AddRestoreHook( "HookNameHere", function( save )
+	local name = save:StartBlock()
+	local myval = save:ReadString()
+	save:EndBlock()
+
+	print( name, myval )
+end )
+	</code>
+	<output>
+With example from <page>ISave:StartBlock</page>
+
+```
+Test myawesomestring
+```
+
+	</output>
+
+</example>

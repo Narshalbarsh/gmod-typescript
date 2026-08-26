@@ -1,0 +1,16 @@
+<function name="SetFont" parent="DTextEntry" type="panelfunc">
+	<description>Changes the font of the DTextEntry.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="font" type="string">The name of the font to be changed to.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Restores the original font the the DTextEntry.</description>
+	<code>
+local textentry = vgui.Create("DTextEntry")
+textentry:SetFont("DermaDefault")
+	</code>
+
+</example>

@@ -1,0 +1,24 @@
+<function name="SendViewModelMatchingSequence" parent="Entity" type="classfunc">
+	<description>
+Sends sequence animation to the view model. It is recommended to use this for view model animations, instead of <page>Entity:ResetSequence</page>.
+
+This function is only usable on view models.
+
+<note>Predicted viewmodels will have their sequence and cycle reset during prediction checks, making this function appear to do nothing unless also called on the server.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="seq" type="number">The sequence ID returned by <page>Entity:LookupSequence</page> or  <page>Entity:SelectWeightedSequence</page>.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Converting an `ACT_VM_*` enumeration to a sequence usable by the function.</description>
+	<code>
+local VModel = self:GetOwner():GetViewModel()
+local EnumToSeq = VModel:SelectWeightedSequence( ACT_VM_PRIMARYATTACK )
+
+VModel:SendViewModelMatchingSequence( EnumToSeq )
+	</code>
+	<output>Sends the primary attack enumeration sequence to the view model and plays it.</output>
+</example>

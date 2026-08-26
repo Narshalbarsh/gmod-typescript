@@ -1,0 +1,43 @@
+<function name="Mul" parent="Vector" type="classfunc">
+	<description>Scales the vector by the given <page>number</page> (that means x, y and z are multiplied by that value), a <page>Vector</page> (X, Y, and Z of each vector are multiplied) or a <page>VMatrix</page> (Transforms the vector by the matrix's rotation/translation).</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="multiplier" type="number">The value to multiply the vector with.</arg>
+	</args>
+	<args>
+		<arg name="multiplier" type="Vector">The vector to multiply the vector with.</arg>
+	</args>
+	<args>
+		<arg name="matrix" type="VMatrix">The matrix to transform the vector by.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Scales a vector by 250.</description>
+	<code>
+a = Vector(1, 1, 1)
+a:Mul(250)
+print(a)
+	</code>
+	<output>
+```
+250 250 250
+```
+	</output>
+
+</example>
+
+
+<example>
+	<description>If you don't want to modify your existing vector and instead return a new vector as the result, you can use the `*` operator.</description>
+	<code>
+a = Vector(1, 1, 1)
+print(a*250)
+	</code>
+	<output>
+```
+250 250 250
+```
+	</output>
+
+</example>

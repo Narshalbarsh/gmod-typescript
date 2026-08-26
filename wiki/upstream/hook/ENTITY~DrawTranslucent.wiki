@@ -1,0 +1,25 @@
+<function name="DrawTranslucent" parent="ENTITY" type="hook">
+	<description>Called when the entity should be drawn translucently. If your scripted entity has a translucent model, it will be invisible unless it is drawn here.
+
+See <page>ENTITY:Draw</page> for the opaque rendering alternative to this hook.
+</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="flags" type="number">The bit flags from <page>Enums/STUDIO</page></arg>
+	</args>
+</function>
+
+<example>
+	<description>The default action for this hook is to call <page>ENTITY:Draw</page>.</description>
+	<code>
+function ENT:DrawTranslucent( flags )
+
+	-- This is here just to make it backwards compatible.
+	-- You shouldn't really be drawing your model here unless it's translucent
+
+	self:Draw( flags )
+
+end
+	</code>
+
+</example>

@@ -1,0 +1,7 @@
+<function name="Forward" parent="Angle" type="classfunc">
+	<description>Returns a normal vector facing in the direction that the angle points.</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="Vector">The forward direction of the angle</ret>
+	</rets>
+</function>

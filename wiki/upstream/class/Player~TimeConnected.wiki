@@ -1,0 +1,9 @@
+<function name="TimeConnected" parent="Player" type="classfunc">
+	<description>Returns the time in seconds since the player connected.
+
+Bots will always return value 0.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="connectedTime" type="number">How long this player was connected to the server for, in seconds.</ret>
+	</rets>
+</function>

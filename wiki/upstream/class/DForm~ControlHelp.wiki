@@ -1,0 +1,11 @@
+<function name="ControlHelp" parent="DForm" type="panelfunc">
+	<description>Adds a <page>DLabel</page> onto the <page>DForm</page>. Unlike <page>DForm:Help</page>, this is indented and is colored blue, depending on the derma skin.</description>
+	<realm>Client and Menu</realm>
+	<file line="225-L247">lua/vgui/dform.lua</file>
+	<args>
+		<arg name="help" type="string">The help message to be displayed.</arg>
+	</args>
+	<rets>
+		<ret name="" type="DLabel">The created <page>DLabel</page></ret>
+	</rets>
+</function>

@@ -1,0 +1,67 @@
+<enum>
+	<realm>Shared</realm>
+	<description>Enumerations used in <page>Structures/TraceResult</page> and <page>Structures/SurfacePropertyData</page>, and by <page>Entity:GetMaterialType</page>.
+
+<note>
+These aren't <page text="VMT materials">IMaterial</page>!
+
+[Material types](https://developer.valvesoftware.com/wiki/Material_Types) are a [holdover from GoldSrc](https://developer.valvesoftware.com/wiki/Material_surface_properties) and Quake before it. They were previously used to classify textures and entities into categories, defining their physical properties. In practice, this really only changed impact sounds and effects, and player footstep sounds. For example, `func_breakable` (in GoldSrc) used it to select which gibs to spawn when broken. Raw texture files were given these properties by assigning them to a material. These were tracked in the single file `materials.txt`, which contained mappings of material types to texture names. Materials are indexed using a letter—for example `MAT_METAL` was indexed in `materials.txt` with the letter "M". The value of `MAT_METAL` is 77, because the ASCII value for M is 77. Some entities could also be assigned materials directly in their <page text="keyvalues">Entity:GetSaveTable</page> using the same system.
+
+In Source, materials were moved out of the single `materials.txt` file; now every texture has its own associated <page text="material">Materials_and_Textures</page> file, called [VMT](https://developer.valvesoftware.com/wiki/VMT) (**V**alve **M**aterial **T**ype). VMTs contain all the information legacy materials used to provide and more, including including shader, transparency, physical properties, animations...
+
+Rather than place the properties directly inside the VMT (which would prevent them from being assigned directly to entities like legacy materials could), <page text="surface properties">Structures/SurfacePropertyData</page> were added, which can be selected in the VMT using the `$surfaceprop` key. Surface properties are what determine impact sounds, buoyancy, friction, and other such properties. These do not use letters as identifiers and instead use <page text="string names">util.GetSurfaceIndex</page>. You can view the surface properties Garry's Mod loads by looking in the [`GarrysMod/sourceengine/scripts/surfaceproperties.txt`](https://github.com/Facepunch/garrysmod/blob/master/garrysmod/scripts/surfaceproperties.txt) file.
+
+However, legacy materials still exist in Source. They are called game materials or <page text="material types">Entity:GetMaterialType</page> to separate them from the new material system where confusion between the two is a concern. For example, surface property definitions contain a `gamematerial` parameter; this field assigns a legacy game material to a surface property, which is then assigned to VMTs and entities.
+
+The main thing legacy game materials are used for nowadays are picking impact effects and decals, like in GoldSrc. Otherwise, surface properties and VMTs replace most other functionality.
+</note>
+</description>
+	<items>
+<item key="MAT_ANTLION" value="65">Antlions</item>
+
+<item key="MAT_BLOODYFLESH" value="66">Similar to MAT_FLESH, only used by "bloodyflesh" surface property, has different impact sound</item>
+
+<item key="MAT_CONCRETE" value="67">Concrete</item>
+
+<item key="MAT_DIRT" value="68">Dirt</item>
+
+<item key="MAT_EGGSHELL" value="69">The egg sacs in the antlion tunnels in HL2: EP2</item>
+
+<item key="MAT_FLESH" value="70">Flesh</item>
+
+<item key="MAT_GRATE" value="71">Grates, chainlink fences</item>
+
+<item key="MAT_ALIENFLESH" value="72">Alien flesh - headcrabs and vortigaunts</item>
+
+<item key="MAT_CLIP" value="73">Unused</item>
+
+<item key="MAT_SNOW" value="74">Snow</item>
+
+<item key="MAT_PLASTIC" value="76">Plastic</item>
+
+<item key="MAT_METAL" value="77">Metal</item>
+
+<item key="MAT_SAND" value="78">Sand</item>
+
+<item key="MAT_FOLIAGE" value="79">Plants, only used by the "foliage" surface property</item>
+
+<item key="MAT_COMPUTER" value="80">Electronics, only used by "computer" surface property</item>
+
+<item key="MAT_SLOSH" value="83">Water, slime</item>
+
+<item key="MAT_TILE" value="84">Floor tiles</item>
+
+<item key="MAT_GRASS" value="85">Grass</item>
+
+<item key="MAT_VENT" value="86">Metallic vents</item>
+
+<item key="MAT_WOOD" value="87">Wood</item>
+
+<item key="MAT_DEFAULT" value="88">Skybox or nodraw texture</item>
+
+<item key="MAT_GLASS" value="89">Glass</item>
+
+<item key="MAT_WARPSHIELD" value="90">"wierd-looking jello effect for advisor shield."</item>
+	</items>
+
+</enum>

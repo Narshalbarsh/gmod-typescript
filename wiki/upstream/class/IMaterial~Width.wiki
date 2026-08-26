@@ -1,0 +1,7 @@
+<function name="Width" parent="IMaterial" type="classfunc">
+	<description>Returns the width of the member texture set for `$basetexture`.</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="number">Width of the base texture.</ret>
+	</rets>
+</function>

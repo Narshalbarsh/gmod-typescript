@@ -1,0 +1,7 @@
+<function name="GetMoveCollide" parent="Entity" type="classfunc">
+	<description>Returns the move collide type of the entity. The move collide is the way a physics object reacts to hitting an object - will it bounce, slide?</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The move collide type, see <page>Enums/MOVECOLLIDE</page></ret>
+	</rets>
+</function>

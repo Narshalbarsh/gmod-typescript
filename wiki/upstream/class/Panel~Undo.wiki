@@ -1,0 +1,8 @@
+<function name="Undo" parent="Panel" type="classfunc">
+	<description>
+Restores the last saved state (caret position and the text inside) of a <page>TextEntry</page>. Should act identically to pressing CTRL+Z in a <page>TextEntry</page>.
+
+See also <page>Panel:SaveUndoState</page>.
+	</description>
+	<realm>Client and Menu</realm>
+</function>

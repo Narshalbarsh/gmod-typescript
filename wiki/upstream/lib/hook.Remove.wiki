@@ -1,0 +1,29 @@
+<function name="Remove" parent="hook" type="libraryfunc">
+	<description>Removes the hook with the supplied identifier from the given event.</description>
+	<realm>Shared and Menu</realm>
+	<file line="45-L61">lua/includes/modules/hook.lua</file>
+	<args>
+		<arg name="eventName" type="string">The event name.</arg>
+		<arg name="identifier" type="any">The unique identifier of the hook to remove, usually a string.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Darkens the player's screen for 15 seconds.</description>
+	<code>
+hook.Add( "HUDPaint", "my_hook_identifier", function()
+	
+	surface.SetDrawColor( 0, 0, 0, 150 )
+	surface.DrawRect( 0, 0, ScrW(), ScrH() )
+	
+end )
+
+timer.Simple( 15, function()
+
+	hook.Remove( "HUDPaint", "my_hook_identifier" )
+
+end )
+	</code>
+	<output>After the hook gets removed, the dark overlay doesn't appear anymore.</output>
+
+</example>

@@ -1,0 +1,14 @@
+<function name="OnSizeChanged" parent="PANEL" type="hook">
+	<description>
+Called just after the panel size changes.
+
+All size functions will return the new values when this hook is called.
+
+<warning>Changing the panel size in this hook will cause an infinite loop!</warning>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="newWidth" type="number">The new width of the panel</arg>
+		<arg name="newHeight" type="number">The new height of the panel</arg>
+	</args>
+</function>

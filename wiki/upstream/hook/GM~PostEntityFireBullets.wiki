@@ -1,0 +1,44 @@
+<function name="PostEntityFireBullets" parent="GM" type="hook">
+	<description>
+Called every time a bullet pellet (i.e. this hook is called multiple times for a shotgun shot) is fired from an entity. Notably this hook will have the final damage and aim direction for the bullet pellet.
+
+See <page>GM:EntityFireBullets</page> if you wish to modify the bullets before they are fired.
+
+<warning>This hook is called directly from <page>Entity:FireBullets</page>. Due to this, you cannot call <page>Entity:FireBullets</page> inside this hook or an infinite loop will occur crashing the game.</warning>
+	</description>
+	<added>2023.11.16</added>
+	<realm>Shared</realm>
+	<args>
+		<arg name="entity" type="Entity">
+			The entity that fired the bullet
+		</arg>
+		<arg name="data" type="table{FiredBullet}">
+			A table of data about the bullet that was fired.
+
+			See <page>Structures/FiredBullet</page>.
+		</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return `false` to suppress the bullet.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Shows client and server bullet traces/hitpos when `developer 1` is enabled.</description>
+	<code>
+local bulletColor = SERVER and Color( 3, 169, 244, 100 ) or Color( 222, 169, 9, 100 )
+local missColor = SERVER and Color( 137, 222, 255, 100 ) or Color( 255, 222, 102, 100 )
+hook.Add( "PostEntityFireBullets", "ShowBulletTracers", function( ent, data )
+    if not ent:IsPlayer() then return end
+
+    local tr = data.Trace
+    local col = bulletColor
+    if tr.Entity == game.GetWorld() then
+        col = missColor
+    end
+
+    debugoverlay.Line( tr.StartPos, tr.HitPos, 10, col, true )
+    debugoverlay.Box( tr.HitPos, Vector( -1, -1, -1 ), Vector( 1, 1, 1 ), 10, col, true )
+end )
+	</code>
+</example>

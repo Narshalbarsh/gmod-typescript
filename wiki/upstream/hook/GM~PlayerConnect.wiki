@@ -1,0 +1,26 @@
+<function name="PlayerConnect" parent="GM" type="hook">
+	<description>
+Executes when a player connects to the server. Called before the player has been assigned a <page text="UserID">Player:UserID</page> and entity. See the <page text="player_connect">gameevent/player_connect</page> gameevent for a version of this hook called after the player entity has been created.
+
+<note>This is only called clientside for listen server hosts.</note>
+<note>This is not called clientside for the local player.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="name" type="string">The player's name.</arg>
+		<arg name="ip" type="string">The player's IP address. Will be "none" for bots.
+
+<note>This argument will only be passed serverside.</note></arg>
+	</args>
+</function>
+
+<example>
+	<description>prints a message to the chatbox when a player joins the game</description>
+	<code>
+hook.Add( "PlayerConnect", "JoinGlobalMessage", function( name, ip )
+	PrintMessage( HUD_PRINTTALK, name .. " has joined the game." )
+end )
+	</code>
+	<output>Player1 has joined the game.</output>
+
+</example>

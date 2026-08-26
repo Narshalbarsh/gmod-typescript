@@ -1,0 +1,7 @@
+<function name="SetMaxReverseThrottle" parent="Vehicle" type="classfunc">
+	<description>Sets maximum reverse throttle</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="maxRevThrottle" type="number">The new maximum throttle. This number must be negative.</arg>
+	</args>
+</function>

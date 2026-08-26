@@ -1,0 +1,14 @@
+<function name="TimeLeft" parent="timer" type="libraryfunc">
+	<description>
+Returns amount of time left (in seconds) before the timer executes its function.
+
+<note>If the timer is paused, the amount will be negative.</note>
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="identifier" type="any">Identifier of the timer.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The amount of time left (in seconds).</ret>
+	</rets>
+</function>

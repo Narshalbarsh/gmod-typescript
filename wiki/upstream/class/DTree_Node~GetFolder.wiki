@@ -1,0 +1,7 @@
+<function name="GetFolder" parent="DTree_Node" type="panelfunc">
+	<description>Returns the folder path to search in, set by <page>DTree_Node:MakeFolder</page>.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="string">The folder path.</ret>
+	</rets>
+</function>

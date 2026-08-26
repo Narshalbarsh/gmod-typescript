@@ -1,0 +1,11 @@
+<function name="SetSelected" parent="DTree_Node" type="panelfunc">
+	<description>
+<internal></internal>
+
+Called automatically to update the "selected" status of this node.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="selected" type="boolean">Whether this node is currently selected or not.</arg>
+	</args>
+</function>

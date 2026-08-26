@@ -1,0 +1,12 @@
+<function name="ProcessPositionTable" parent="motionsensor" type="libraryfunc">
+	<description><internal></internal> Used internally by <page>motionsensor.BuildSkeleton</page>. See <page>Using The Kinect</page> and <page>Kinect developing</page>.</description>
+	<realm>Shared</realm>
+	<file line="195-L216">lua/includes/extensions/motionsensor.lua</file>
+	<args>
+		<arg name="translator" type="table"></arg>
+		<arg name="sensor" type="table"></arg>
+	</args>
+	<rets>
+		<ret name="" type="table">Positions. if `!translator.PositionTable` then return - `{}`</ret>
+	</rets>
+</function>

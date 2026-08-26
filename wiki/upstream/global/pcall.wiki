@@ -1,0 +1,29 @@
+<function name="pcall" parent="Global" type="libraryfunc">
+	<description>
+Calls a function and catches an error that can be thrown while the execution of the call.
+
+<bug issue="2036">This cannot stop errors from hooks called from the engine.</bug>
+
+<bug issue="2498">This does not stop <page>Global.Error</page> and <page>Global.ErrorNoHalt</page> from sending error messages to the server (if called clientside) or calling the <page>GM:OnLuaError</page> hook. The success boolean returned will always return true and thus you will not get the error message returned. <page>Global.error</page> does not exhibit these behaviours.</bug>
+
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="func" type="function">Function to be executed and of which the errors should be caught of</arg>
+		<arg name="arguments" type="vararg">Arguments to call the function with.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">If the function had no errors occur within it.</ret>
+		<ret name="" type="vararg">If an error occurred, this will be a string containing the error message. Otherwise, this will be the return values of the function passed in.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Catch an error.</description>
+	<code>
+local succ, err = pcall(function() aisj() end)
+print(succ, err)
+	</code>
+	<output>false attempt to call global 'aisj' (a nil value)</output>
+
+</example>

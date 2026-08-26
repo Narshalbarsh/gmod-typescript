@@ -1,0 +1,14 @@
+<panel>
+	<parent>DPanelList</parent>
+	<realm>Client</realm>
+	<file line="">lua/vgui/dpanelselect.lua</file>
+	<description>
+		<deprecated>
+			This is derived from the deprecated <page>DPanelList</page>.
+		</deprecated>
+
+		A base panel for things like <page>DModelSelect</page>.
+		Basically, a list of panels that can be selected.
+		Selected panel can be retrieved and has visual indication of being selected.
+	</description>
+</panel>

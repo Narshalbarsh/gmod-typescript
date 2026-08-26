@@ -1,0 +1,64 @@
+<function name="LocalToScreen" parent="Panel" type="classfunc">
+	
+<description>
+
+Takes X and Y coordinates relative to the panel and returns their corresponding positions relative to the screen.
+
+See also <page>Panel:ScreenToLocal</page>.
+
+<warning>This function uses a cached value for the screen position of the panel, computed at the end of the last VGUI Think/Layout pass, so inaccurate results may be returned if the panel or any of its ancestors have been re-positioned outside of <page>PANEL:Think</page> or <page>PANEL:PerformLayout</page> within the last frame.</warning>
+
+<note>If the panel uses <page>Panel:Dock</page>, this function will return 0, 0 when the panel was created. The position will be updated in the next frame.</note>
+	
+</description>
+	
+
+
+<realm>Client and Menu</realm>
+	<args>
+		<arg name="posX" type="number">The X coordinate of the position on the panel to translate.</arg>
+		<arg name="posY" type="number">The Y coordinate of the position on the panel to translate.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The X coordinate relative to the screen.</ret>
+		<ret name="" type="number">The Y coordinate relative to the screen.</ret>
+	</rets>
+</function>
+
+<example name = 'Basic Usages' >
+	<description>Here we create a <page>DFrame</page> derivative and use it to display the screen coordinates of the center of the panel. For and explanation of the design structure read <page>VGUI Creating Custom Elements</page> </description>
+	<code>
+--Creating the table that we will use to make our table
+local PANEL = {}
+
+function PANEL:Init()
+    self:SetSize(200,200)
+    self:Center()
+	self:MakePopup()
+
+    self.Text = vgui.Create("DLabel",self) --Creating the DLabel to display our coordinates 
+    self.Text:Center()
+    self.Text:SetColor(color_black)
+    
+end
+
+function PANEL:Think()
+    self.BaseClass.Think(self) --Allows us to keep the default DFrame think hook without overriding it.
+
+	
+	--Here we use the function to translate the center coordinate of our panel to the screen coordinate of at that same spot.
+    self.ScreenXPos, self.ScreenYPos = self:LocalToScreen(self:GetWide() / 2,self:GetTall() / 2)
+    
+	--Updating our text display
+	self.Text:SetText("X: " .. self.ScreenXPos .. " | Y: " .. self.ScreenYPos)
+    self.Text:SizeToContents()
+end
+
+
+vgui.Register("WikiExample", PANEL, "DFrame")
+
+--You can create this panel using vgui.Create("WikiExample")
+</code>
+
+	<output><image src="aaf9e/8dc93bb0caa838e.png" size="21025" name="image.png" /></output>
+</example>

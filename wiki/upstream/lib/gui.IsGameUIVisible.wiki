@@ -1,0 +1,7 @@
+<function name="IsGameUIVisible" parent="gui" type="libraryfunc">
+	<description>Returns whether the game menu overlay ( main menu ) is open or not.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the game menu overlay ( main menu ) is open or not</ret>
+	</rets>
+</function>

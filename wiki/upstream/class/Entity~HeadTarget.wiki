@@ -1,0 +1,14 @@
+<function name="HeadTarget" parent="Entity" type="classfunc">
+	<description>
+Returns the position of the head of this entity, NPCs use this internally to aim at their targets.
+
+<note>This only works on players and NPCs.</note>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="origin" type="Vector">The vector of where the attack comes from.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">The head position.</ret>
+	</rets>
+</function>

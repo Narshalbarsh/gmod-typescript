@@ -1,0 +1,7 @@
+<function name="SendWeaponAnim" parent="Weapon" type="classfunc">
+	<description>Forces weapon to play activity/animation.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="act" type="number">Activity to play. See the <page>Enums/ACT</page> (specifically `ACT_VM_`).</arg>
+	</args>
+</function>

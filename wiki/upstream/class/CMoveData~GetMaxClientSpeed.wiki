@@ -1,0 +1,7 @@
+<function name="GetMaxClientSpeed" parent="CMoveData" type="classfunc">
+	<description>Returns the maximum client speed of the player</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The maximum client speed</ret>
+	</rets>
+</function>

@@ -1,0 +1,16 @@
+<function name="GravGunPunt" parent="GM" type="hook">
+	<description>
+Called when an entity is about to be punted with the gravity gun (primary fire).
+
+By default this function makes <page>ENTITY:GravGunPunt</page> work in Sandbox derived gamemodes.
+	</description>
+	<realm>Shared</realm>
+	<file line="7-L9">gamemodes/base/gamemode/gravitygun.lua</file>
+	<args>
+		<arg name="ply" type="Player">The player wielding the gravity gun</arg>
+		<arg name="ent" type="Entity">The entity the player is attempting to punt</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return true to allow and false to disallow.</ret>
+	</rets>
+</function>

@@ -1,0 +1,17 @@
+<function name="SetUp" parent="team" type="libraryfunc">
+	<description>Creates a new team. See <page>GM:CreateTeams</page> for the hook to call this in.</description>
+	<file line="25-L31">lua/includes/modules/team.lua</file>
+	<realm>Shared</realm>
+	<args>
+		<arg name="teamIndex" type="number">The team index.</arg>
+		<arg name="teamName" type="string">The team name.</arg>
+		<arg name="teamColor" type="Color">The team color. Uses the <page>Color</page>.</arg>
+		<arg name="isJoinable" type="boolean" default="true">Whether the team is joinable or not.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Create team 2 with name `Mingebags` and color red</description>
+	<code>team.SetUp(2, "Mingebags", Color(255, 0, 0))</code>
+
+</example>

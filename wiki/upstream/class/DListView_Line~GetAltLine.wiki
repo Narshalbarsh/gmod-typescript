@@ -1,0 +1,7 @@
+<function name="GetAltLine" parent="DListView_Line" type="panelfunc">
+	<description>Returns whether this line is odd or even in the list. This is internally used (and set) to change the looks of every other line.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="alt" type="boolean">Whether this line is 'alternative'.</ret>
+	</rets>
+</function>

@@ -1,0 +1,7 @@
+<function name="GetSlotPos" parent="Weapon" type="classfunc">
+	<description>Returns slot position of the weapon</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The slot position of the weapon</ret>
+	</rets>
+</function>

@@ -1,0 +1,9 @@
+<function name="AddCleanup" parent="Player" type="classfunc">
+	<description><note>This function is only available in Sandbox and its derivatives.</note>Adds an entity to the player's clean up list. This uses <page>cleanup.Add</page> internally.</description>
+	<realm>Server</realm>
+	<file line="107-L111">gamemodes/sandbox/gamemode/player_extension.lua</file>
+	<args>
+		<arg name="type" type="string">The Cleanup type for this Entity.</arg>
+		<arg name="ent" type="Entity">The Entity to add.</arg>
+	</args>
+</function>

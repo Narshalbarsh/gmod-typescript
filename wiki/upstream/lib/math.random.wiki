@@ -1,0 +1,110 @@
+<function name="random" parent="math" type="libraryfunc">
+	<description>
+When called without arguments, returns a uniform pseudo-random real number in the range 0 to 1 which includes 0 but excludes 1.
+
+When called with an integer number m, returns a uniform pseudo-random integer in the range 1 to m inclusive.
+
+When called with two integer numbers m and n, returns a uniform pseudo-random integer in the range m to n inclusive.
+
+See also <page>math.Rand</page>
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="m" type="number" default="nil">
+If m is the only parameter: upper limit.
+
+If n is also provided: lower limit.
+
+If provided, this must be an integer.</arg>
+		<arg name="n" type="number" default="nil">Upper limit.
+
+If provided, this must be an integer.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">Random value</ret>
+	</rets>
+</function>
+
+<br/>
+
+---
+
+<br/>
+
+<example name = 'Random in Range' >
+
+	<description>
+
+		Generate a random number between 1 and 400 with both math.random and math.Rand.
+
+	</description>
+
+	<code>
+
+print( 'Random Integer [ 1 , 400 ) :' , math.random( 1 , 400 ) )
+
+	</code>
+	<output>
+
+```
+Random Integer [ 1 , 400 ) : 317
+```
+
+	</output>
+
+</example>
+
+
+<br/>
+
+<example name = 'Random Table Key' >
+
+	<description>
+
+		Select a random key from a table, where the keys have a different probability of being selected.
+
+	</description>
+
+	<code>
+
+function GetWeightedRandomKey( tab )
+	local sum = 0
+
+	for _, chance in pairs( tab ) do
+		sum = sum + chance
+	end
+
+	local select = math.random() * sum
+
+	for key, chance in pairs( tab ) do
+		select = select - chance
+		if select < 0 then return key end
+	end
+end
+
+-- Example usage:
+local fruit = {
+	Grape = 4.5,
+	Orange = 20,
+	Banana = 3.14
+}
+
+for i = 1, 5 do
+	print( GetWeightedRandomKey( fruit ) )
+end
+
+	</code>
+
+	<output>
+
+```
+Banana
+Grape
+Banana
+Orange
+Orange
+```
+
+	</output>
+
+</example>

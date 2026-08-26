@@ -1,0 +1,7 @@
+<function name="SetTop" parent="DVerticalDivider" type="panelfunc">
+	<description>Sets the passed panel as the top content of the <page>DVerticalDivider</page>.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="pnl" type="Panel">The panel to set as the top content.</arg>
+	</args>
+</function>

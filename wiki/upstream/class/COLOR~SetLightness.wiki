@@ -1,0 +1,11 @@
+<function name="SetLightness" parent="Color" type="classfunc">
+	<description>Converts a <page>Color</page> into [HSL color space](https://en.wikipedia.org/wiki/HSL_and_HSV), sets the ["lightness"](https://en.wikipedia.org/wiki/Lightness) and converts it back into an RGB color.
+
+This is useful to quickly change the lightness of the color without changing hue or saturation, allowing for things like easy theming.
+</description>
+	<realm>Shared and Menu</realm>
+	<added>2025.01.23</added>
+	<args>
+		<arg name="lightness" type="number">The new lightness value in range [0, 1]</arg>
+	</args>
+</function>

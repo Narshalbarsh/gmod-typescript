@@ -1,0 +1,9 @@
+<function name="PlayerSpawnedRagdoll" parent="SANDBOX" type="hook">
+	<description>Called after the player spawned a ragdoll.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ply" type="Player">The player that spawned the ragdoll</arg>
+		<arg name="model" type="string">The ragdoll model that player wants to spawn</arg>
+		<arg name="ent" type="Entity">The spawned ragdoll itself</arg>
+	</args>
+</function>

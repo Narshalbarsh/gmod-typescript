@@ -1,0 +1,7 @@
+<function name="Prepare" parent="Panel" type="classfunc">
+	<description>
+<internal></internal>
+Installs Lua defined functions into the panel.
+	</description>
+	<realm>Client and Menu</realm>
+</function>

@@ -1,0 +1,39 @@
+<function name="SetAnimSpeed" parent="DModelPanel" type="panelfunc">
+	<description>
+Sets the speed used by <page>DModelPanel:RunAnimation</page> to advance frame on an entity sequence.
+
+<note><page>Entity:FrameAdvance</page> doesn't seem to have any functioning arguments and therefore changing this will not have any affect on the panel entity's sequence speed without reimplementation. It only affects the value returned by <page>DModelPanel:GetAnimSpeed</page></note>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="animSpeed" type="number">The animation speed.</arg>
+	</args>
+</function>
+
+<example>
+	<description>A reimplementation of <page>DModelPanel:LayoutEntity</page> which will modify the entity's sequence playback rate based on the set animation speed. This example has Alyx run twice as fast as normal.</description>
+	<code>
+local mdl = vgui.Create("DModelPanel")
+mdl:SetPos(20, 20)
+mdl:SetSize(200, 200)
+mdl:SetModel("models/alyx.mdl")
+
+-- Play sequence twice as fast
+mdl:SetAnimSpeed(2)
+	
+-- Make Alyx run
+mdl:GetEntity():SetSequence(mdl:GetEntity():LookupSequence("run_all"))
+
+-- Play animation
+function mdl:LayoutEntity(ent)
+
+	-- Playback rate based on anim speed
+	ent:SetPlaybackRate(self:GetAnimSpeed())
+	
+	-- Advance frame
+	ent:FrameAdvance()
+
+end
+	</code>
+
+</example>

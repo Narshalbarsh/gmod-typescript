@@ -1,0 +1,11 @@
+<function name="SetDoubleClickingEnabled" parent="DLabel" type="panelfunc">
+	<description>
+Sets whether or not double clicking should call <page>DLabel:DoDoubleClick</page>.
+
+This is enabled by default.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="enable" type="boolean">true to enable, false to disable</arg>
+	</args>
+</function>

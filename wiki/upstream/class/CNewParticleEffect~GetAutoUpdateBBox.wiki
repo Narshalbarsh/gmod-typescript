@@ -1,0 +1,6 @@
+<function name="GetAutoUpdateBBox" parent="CNewParticleEffect" type="classfunc">
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="boolean"></ret>
+	</rets>
+</function>

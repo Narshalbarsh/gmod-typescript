@@ -1,0 +1,24 @@
+<function name="ConVarStringThink" parent="Panel" type="classfunc">
+	<description>
+A think hook for <page text="panels">Panel</page> using ConVars as a value. Call it in the Think hook. Sets the panel's value should the convar change.
+
+This function is best for: text inputs, read-only inputs, dropdown selects
+
+For a number alternative, see <page>Panel:ConVarNumberThink</page>.
+
+<note>Make sure your Panel has a SetValue function, else you may get errors.</note>
+	</description>
+	<file line="94-L104">lua/derma/init.lua</file>
+	<realm>Client and Menu</realm>
+</function>
+
+<example>
+	<description>How it should be implemented into your input.</description>
+	<code>
+function PANEL:Think()
+	self:ConVarStringThink()
+end
+	</code>
+	<output>Panel's value is changed when the convar changes.</output>
+
+</example>

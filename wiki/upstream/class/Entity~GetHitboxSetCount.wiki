@@ -1,0 +1,17 @@
+<function name="GetHitboxSetCount" parent="Entity" type="classfunc">
+	<description>Returns the amount of hitbox sets in the entity.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The amount of hitbox sets in the entity.</ret>
+	</rets>
+</function>
+
+
+<example>
+	<description>Prints how many hit box sets the client has</description>
+	<code>
+local numHitBoxGroups = LocalPlayer():GetHitboxSetCount()
+print(numHitBoxGroups)
+	</code>
+
+</example>

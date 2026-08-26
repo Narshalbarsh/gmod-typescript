@@ -1,0 +1,26 @@
+<cat>gameevent</cat>
+<title>hltv_cameraman</title>
+
+<structure>
+	<realm>Client and Menu</realm>
+	<description>
+			Called when a Client becomes the Cameraman.
+	</description>
+	<fields>
+		<item type="number" name="index">The <page text="EntIndex">Entity:EntIndex</page> of the new Cameraman.</item>
+	</fields>
+</structure>
+
+# Examples
+<example>
+	<description>This is a basic template with the purpose of including all arguments / table variables to make it easily known which values can be accessed.</description>
+	<code>
+gameevent.Listen( "hltv_cameraman" )
+hook.Add( "hltv_cameraman", "hltv_cameraman_example", function( data )
+	local index = data.index	-- The Entity:EntIndex() of the new Cameramen
+
+	-- Called when a Client becomes the Cameraman
+	
+end )
+	</code>
+</example>

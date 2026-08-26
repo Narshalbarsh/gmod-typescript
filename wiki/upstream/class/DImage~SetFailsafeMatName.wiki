@@ -1,0 +1,11 @@
+<function name="SetFailsafeMatName" parent="DImage" type="panelfunc">
+	<description>
+<internal></internal>
+
+Sets the backup material to be loaded when the image is first rendered. Used by <page>DImage:SetOnViewMaterial</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="backupMat" type="string"></arg>
+	</args>
+</function>

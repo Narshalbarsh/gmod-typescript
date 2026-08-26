@@ -1,0 +1,10 @@
+<function name="GetLife" parent="DNotify" type="panelfunc">
+	<description>
+Returns the display time in seconds of the DNotify. This is set with 
+<page>DNotify:SetLife</page>.
+	</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">The display time in seconds.</ret>
+	</rets>
+</function>

@@ -1,0 +1,11 @@
+<function name="GetNetworkOrigin" parent="Entity" type="classfunc">
+	<description>Gets networked origin for entity.
+		<note>
+			On the Client, this seems to return the position relative to the parent (if it has one). On the server-side this will return what you expect even if it has a parent.
+		</note>
+</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Vector">The last received origin of the entity.</ret>
+	</rets>
+</function>

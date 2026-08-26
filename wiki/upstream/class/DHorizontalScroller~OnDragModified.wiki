@@ -1,0 +1,4 @@
+<function name="OnDragModified" parent="DHorizontalScroller" type="panelhook">
+	<description>Called when the panel is scrolled.</description>
+	<realm>Client and Menu</realm>
+</function>

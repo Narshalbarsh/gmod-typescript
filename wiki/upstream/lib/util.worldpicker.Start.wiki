@@ -1,0 +1,13 @@
+<function name="worldpicker.Start" parent="util" type="libraryfunc">
+	<description>Starts picking an entity in the world. This will suppress the next mouse click, and instead use it as a direction in the trace sent to the callback.</description>
+	<realm>Client</realm>
+	<file line="18-L24">lua/includes/extensions/util/worldpicker.lua</file>
+	<args>
+		<arg name="callback" type="function">Function to call after an entity choice has been made.
+
+<callback>
+<arg type="table" name="tr"><page text="TraceResult">Structures/TraceResult</page> from the mouse press. `tr.Entity` will return the entity clicked</arg>
+</callback>
+</arg>
+	</args>
+</function>

@@ -1,0 +1,19 @@
+<function name="PrintMessage" parent="Global" type="libraryfunc">
+	<description>
+Displays a message in the chat, console, or center of screen of every player.
+
+This uses the archaic user message system (<page>umsg</page>) and hence is limited to 255 characters.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="type" type="number">Which type of message should be sent to the players (see <page>Enums/HUD</page>)</arg>
+		<arg name="message" type="string">Message to be sent to the players</arg>
+	</args>
+</function>
+
+<example>
+	<description>Prints into every player's chat: "I'm new here."</description>
+	<code>PrintMessage(HUD_PRINTTALK, "I'm new here.")</code>
+	<output>I'm new here.</output>
+
+</example>

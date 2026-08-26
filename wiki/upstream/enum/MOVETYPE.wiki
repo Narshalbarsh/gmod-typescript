@@ -1,0 +1,51 @@
+<enum>
+	<realm>Shared</realm>
+	<description>Enumerations used by <page>Entity:SetMoveType</page> and <page>Entity:GetMoveType</page>.</description>
+	<items>
+<item key="MOVETYPE_NONE" value="0">Don't move</item>
+
+<item key="MOVETYPE_ISOMETRIC" value="1">For players, in TF2 commander view, etc</item>
+
+<item key="MOVETYPE_WALK" value="2">Player only, moving on the ground</item>
+
+<item key="MOVETYPE_STEP" value="3">Monster/NPC movement</item>
+
+<item key="MOVETYPE_FLY" value="4">Fly, no gravity</item>
+
+<item key="MOVETYPE_FLYGRAVITY" value="5">Fly, with gravity</item>
+
+<item key="MOVETYPE_VPHYSICS" value="6">Physics movetype</item>
+
+<item key="MOVETYPE_PUSH" value="7">
+	Doesn't collide with the world, but does push and crush entities.  
+	This is what is used by the engine for elevators, trains, doors, moving water, etc.
+
+	In order to work properly, the entity needs to have specific Save Values/Internal Variables set which tell it how long it should be moving for.
+	
+	**Note:** This same process can be done for both position and angle.
+
+	1. You'll need to <page text="Get an existing Save Value">Entity:GetInternalVariable</page> called `ltime`  
+	2. Calculate how long (in seconds) the entity will be moving before it reaches its destination.  
+	As a simple example, this can be done via `duration = distance / speed`  
+	3. <page text="Set the Save Value">Entity:SetSaveValue</page> for `m_flMoveDoneTime` to the value you retrieved for `ltime` plus the duration calculated in step 2.  
+	Put more simply: `m_flMoveDoneTime = ltime + duration`  
+	4. Set the entity's velocity to move it to the destination at the speed used in step 2.
+
+	Once the duration of the move has elapsed, the entity will stop moving.  If you have done your calculations correctly, it should stop exactly at the desired destination.
+
+	<note>
+		MOVETYPE_PUSH entities only move during <page>Entity:Think</page> so if you want smooth movement, you need to set <page>Entity:NextThink</page> to <page>Global.CurTime</page>, which instructs the entity to execute <page>Entity:Think</page> as quickly as possible.
+	</note>
+
+</item>
+
+<item key="MOVETYPE_NOCLIP" value="8">Noclip</item>
+
+<item key="MOVETYPE_LADDER" value="9">For players, when moving on a ladder</item>
+
+<item key="MOVETYPE_OBSERVER" value="10">Spectator movetype. DO **NOT** use this to make player spectate</item>
+
+<item key="MOVETYPE_CUSTOM" value="11">Custom movetype, can be applied to the player to prevent the default movement code from running, while still calling the related hooks</item>
+	</items>
+
+</enum>

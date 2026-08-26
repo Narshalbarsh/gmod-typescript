@@ -1,0 +1,7 @@
+<function name="SetMiddle" parent="DVerticalDivider" type="panelfunc">
+	<description>Places the passed panel in between the top and bottom content panels of the <page>DVerticalDivider</page>.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="pnl" type="Panel">The panel to set as the middle content.</arg>
+	</args>
+</function>

@@ -1,0 +1,50 @@
+<function name="GetVBar" parent="DScrollPanel" type="panelfunc">
+	<description>Returns the vertical scroll bar of the panel.</description>
+	<realm>Client and Menu</realm>
+	<file line="51-L55">lua/vgui/dscrollpanel.lua</file>
+	<rets>
+		<ret name="" type="Panel{DVScrollBar}">The <page>DVScrollBar</page>.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Example of styling a scrollbar</description>
+	<code>
+local DFrame = vgui.Create("DFrame")
+DFrame:SetSize(500, 500)
+DFrame:Center()
+DFrame:MakePopup()
+DFrame:SetTitle("Scrollbar Example")
+function DFrame:Paint(w, h)
+	draw.RoundedBox(0, 0, 0, w, h, Color(0, 100, 100))
+end
+
+local DScrollPanel = vgui.Create("DScrollPanel", DFrame)
+DScrollPanel:SetSize(400, 250)
+DScrollPanel:Center()
+
+local sbar = DScrollPanel:GetVBar()
+function sbar:Paint(w, h)
+	draw.RoundedBox(0, 0, 0, w, h, Color(0, 0, 0, 100))
+end
+function sbar.btnUp:Paint(w, h)
+	draw.RoundedBox(0, 0, 0, w, h, Color(200, 100, 0))
+end
+function sbar.btnDown:Paint(w, h)
+	draw.RoundedBox(0, 0, 0, w, h, Color(200, 100, 0))
+end
+function sbar.btnGrip:Paint(w, h)
+	draw.RoundedBox(0, 0, 0, w, h, Color(100, 200, 0))
+end
+
+local str = ""
+for i = 1, 50 do str = str .. "more space!\n" end
+
+local DLabel = vgui.Create("DLabel", DScrollPanel)
+DLabel:SetText(str)
+DLabel:Center()
+DLabel:SizeToContents()
+	</code>
+	<output><image src="scrollbar_style_example.png"/></output>
+
+</example>

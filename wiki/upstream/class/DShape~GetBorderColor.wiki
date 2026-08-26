@@ -1,0 +1,11 @@
+<function name="GetBorderColor" parent="DShape" type="panelfunc">
+	<description>
+Returns the current type of shape this panel is set to display.
+
+See <page>DShape:SetBorderColor</page>.
+	</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="Color">The border <page>Color</page></ret>
+	</rets>
+</function>

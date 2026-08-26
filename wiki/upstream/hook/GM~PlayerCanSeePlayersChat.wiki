@@ -1,0 +1,15 @@
+<function name="PlayerCanSeePlayersChat" parent="GM" type="hook">
+	<description>Returns whether or not the player can see the other player's chat.
+<note>The **speaker** parameter does not have to be a valid <page>Player</page> object which happens when console messages are displayed for example.</note></description>
+	<file line="L763-L776">gamemodes/base/gamemode/player.lua</file>
+	<realm>Server</realm>
+	<args>
+		<arg name="text" type="string">The chat text</arg>
+		<arg name="teamOnly" type="boolean">If the message is team-only</arg>
+                <arg name="listener" type="Player">The player receiving the message</arg>
+		<arg name="speaker" type="Player">The player sending the message.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Can see other player's chat</ret>
+	</rets>
+</function>

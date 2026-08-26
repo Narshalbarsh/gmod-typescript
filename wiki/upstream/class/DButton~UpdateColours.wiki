@@ -1,0 +1,15 @@
+<function name="UpdateColours" parent="DButton" type="panelfunc">
+	<file line="86-L94">lua/vgui/dbutton.lua</file>
+	<description>A hook called from within <page>DLabel</page>'s <page>PANEL:ApplySchemeSettings</page> to determine the color of the text on display.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="skin" type="table">A table supposed to contain the color values listed above.</arg>
+	</args>
+</function>
+
+Condition |  Value |
+----------|-------|
+|  | skin.Colours.Button.Disabled |
+| self.Depressed | skin.Colours.Button.Down |
+| self.m_bSelected | skin.Colours.Button.Down |
+| self.Hovered | skin.Colours.Button.Hover |

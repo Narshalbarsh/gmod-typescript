@@ -1,0 +1,21 @@
+<function name="Frags" parent="Player" type="classfunc">
+	<description>
+Returns the amount of frags a player has.
+
+<note>The value will change depending on the player's kill or suicide: +1 for a kill, -1 for a suicide. </note>
+</description>
+
+
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">frags</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints the users frags in console.</description>
+
+	<code>print( Entity( 1 ):Frags() )</code>
+	<output>`0`</output>
+
+</example>

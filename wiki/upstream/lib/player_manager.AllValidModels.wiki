@@ -1,0 +1,18 @@
+<function name="AllValidModels" parent="player_manager" type="libraryfunc">
+	<description>Returns the entire list of valid player models.</description>
+	<realm>Shared</realm>
+	<file line="36-L41">lua/includes/modules/player_manager.lua</file>
+	<rets>
+		<ret name="" type="table<string,string>">List of all valid player models.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Store the list of valid player models in a local variable, and print the valid model path for "Alyx".</description>
+	<code>
+local models = player_manager.AllValidModels()
+print(models["alyx"])
+	</code>
+	<output>Console outputs: "models/player/alyx.mdl"</output>
+
+</example>

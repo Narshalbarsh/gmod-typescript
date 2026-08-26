@@ -1,0 +1,11 @@
+<function name="TaskFail" parent="NPC" type="classfunc">
+	<description>
+Marks the current NPC task as failed.
+
+This is meant to be used alongside <page>NPC:TaskComplete</page> to complete or fail custom Lua defined tasks. (<page>Schedule:AddTask</page>)
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="failReason" type="string">Fail reason to be passed onto <page>ENTITY:OnTaskFailed</page>. The fail reason can also be seen when the NPC's `ent_text` is active.</arg>
+	</args>
+</function>

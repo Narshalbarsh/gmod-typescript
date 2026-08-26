@@ -1,0 +1,12 @@
+<function name="GWEN_SetMargin" parent="Panel" type="classfunc">
+	<description><internal></internal> Used by <page>Panel:ApplyGWEN</page> to apply the `Margin` property to a  panel object. This calls <page>Panel:DockMargin</page>.</description>
+	<realm>Client and Menu</realm>
+	<file line="205">lua/derma/derma_gwen.lua</file>
+	<args>
+		<arg name="margins" type="table">A four-membered table containing the margins as numbers:
+* <page>number</page> left - The left margin.
+* <page>number</page> top - The top margin.
+* <page>number</page> right - The right margin.
+* <page>number</page> bottom - The bottom margin.</arg>
+	</args>
+</function>

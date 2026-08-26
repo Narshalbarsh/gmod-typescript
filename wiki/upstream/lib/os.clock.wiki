@@ -1,0 +1,17 @@
+<function name="clock" parent="os" type="libraryfunc">
+	<description>
+Returns the approximate cpu time the application ran.
+See also <page>Global.SysTime</page>
+<note>This function has different precision on Linux (1/100).</note>
+	</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="number">runtime</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints the amount of time since Garry's Mod has been open to the console.</description>
+	<code>print(os.clock())</code>
+
+</example>

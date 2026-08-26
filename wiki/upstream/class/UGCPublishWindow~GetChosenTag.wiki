@@ -1,0 +1,7 @@
+<function name="GetChosenTag" parent="UGCPublishWindow" type="panelfunc">
+	<description>Returns the name of the current selected tag.</description>
+	<realm>Menu</realm>
+	<rets>
+		<ret name="tag" type="string">The choosen tag, or nil if none is selected.</ret>
+	</rets>
+</function>

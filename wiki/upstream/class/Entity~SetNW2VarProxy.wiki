@@ -1,0 +1,35 @@
+<function name="SetNW2VarProxy" parent="Entity" type="classfunc">
+
+	<description>
+Sets a function to be called when the NW2Var changes. Internally uses <page>GM:EntityNetworkedVarChanged</page> to call the function.  
+Alias of <page>Entity:SetNetworked2VarProxy</page>
+<bug issue="5455">You should not use the NW2 System on entities that are based on a Lua Entity, or else this will be called multiple times and the NW2Var could get mixed up with other ones.</bug>
+<note>Only one NW2VarProxy can be set per-var  
+Running this function will only set it for the realm it is called on.</note></description>
+	<realm>Shared</realm>
+	<file line="626">lua/includes/extensions/entity.lua</file>
+	<args>
+		<arg name="key" type="string">The key of the NW2Var to add callback for.</arg>
+		<arg name="callback" type="function">The function to be called when the NW2Var changes. It has 4 arguments:
+* <page>Entity</page> ent - The entity
+* <page>string</page> name - Name of the NW2Var that has changed
+* <page>any</page> oldval - The old value
+* <page>any</page> newval - The new value</arg>
+	</args>
+</function>
+
+<example>
+	<description>Prints all changes to a NW2Var called "Key" of Player 1.</description>
+	<code>
+Entity( 1 ):SetNW2VarProxy( "Key", print )
+Entity( 1 ):SetNW2String( "Key", "Value" )
+Entity( 1 ):SetNW2String( "Key", "Table" )
+	</code>
+	<output>
+```
+Player [1][Player1]	Key	nil	Value
+Player [1][Player1]	Key	Value	Table
+```
+	</output>
+
+</example>

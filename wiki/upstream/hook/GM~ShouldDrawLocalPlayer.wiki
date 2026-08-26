@@ -1,0 +1,19 @@
+<function name="ShouldDrawLocalPlayer" parent="GM" type="hook">
+	<description>
+Called to determine if the <page>Global.LocalPlayer</page> should be drawn.
+
+If you're using this hook to draw a player for a <page>GM:CalcView</page> hook, then you may want to consider using the `drawviewer` variable you can use in your <page>Structures/CamData</page> table instead.
+
+<note>
+This hook has an internal cache that is reset at the start of every frame. This will prevent this hook from running in certain cases. This cache is reset in <page>cam.Start</page> and in a future update in <page>render.RenderView</page> when rendering extra views. 
+</note>
+	</description>
+	<realm>Client</realm>
+	<file line="406-L410">gamemodes/base/gamemode/cl_init.lua</file>
+	<args>
+		<arg name="ply" type="Player">The player.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">`true` to draw the player, `false` to hide.</ret>
+	</rets>
+</function>

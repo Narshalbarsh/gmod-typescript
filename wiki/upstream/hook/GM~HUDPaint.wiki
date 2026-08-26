@@ -1,0 +1,26 @@
+<function name="HUDPaint" parent="GM" type="hook">
+	<description>
+		Called whenever the HUD should be drawn.
+
+		This is the ideal place to draw custom HUD elements.
+
+		To prevent the default game HUD from drawing, use <page>GM:HUDShouldDraw</page>.
+
+		This hook does **not** get called when the Camera SWEP is held, or when the <key>esc</key> menu is open.  
+		If you need to draw in those situations, use <page>GM:DrawOverlay</page> instead.
+
+		<rendercontext hook="true" type="2D"></rendercontext>
+	</description>
+	<realm>Client</realm>
+	<file line="80-L86">gamemodes/base/gamemode/cl_init.lua</file>
+</function>
+
+<example>
+	<description>Draws a transparent black box in the top left corner of the screen.</description>
+	<code>
+hook.Add( "HUDPaint", "HUDPaint_DrawABox", function()
+	surface.SetDrawColor( 0, 0, 0, 128 )
+	surface.DrawRect( 50, 50, 128, 128 )
+end )
+	</code>
+</example>

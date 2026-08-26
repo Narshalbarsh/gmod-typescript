@@ -1,0 +1,15 @@
+<function name="GetPreferredCarryAngles" parent="Entity" type="classfunc">
+	<description>
+Called to override the preferred carry angles of this object.
+
+<note>This callback is only called for `anim` and `ai` type entities. For rest use <page>GM:GetPreferredCarryAngles</page>.</note>
+	</description>
+	<realm>Server</realm>
+	<added>2021.01.27</added>
+	<args>
+		<arg name="ply" type="Player">The player who is holding the object.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Angle">Return an angle to override the carry angles.</ret>
+	</rets>
+</function>

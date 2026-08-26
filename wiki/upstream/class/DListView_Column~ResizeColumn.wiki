@@ -1,0 +1,11 @@
+<function name="ResizeColumn" parent="DListView_Column" type="panelfunc">
+	<description>Resizes the column, additionally adjusting the size of the column to the right, if any.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="size" type="number">
+			The amount to add to the current column's width.
+
+			Positive values will make it wider, and negative values will make it thinner.
+		</arg>
+	</args>
+</function>

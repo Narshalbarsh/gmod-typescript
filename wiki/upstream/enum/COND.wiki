@@ -1,0 +1,86 @@
+<enum>
+	<realm>Server</realm>
+	<description>
+Enumerations for NPC conditions, used by <page>NPC:SetCondition</page>. Serverside only.
+
+<note>
+	Unlike other Enums `COND` is a table that contains all the enums.
+
+	There are more conditions than listed here after **COND_NO_CUSTOM_INTERRUPTS**(70) 
+	but the name depends on what's returned by <page>NPC:ConditionName</page>
+</note>
+	</description>
+	<items>
+<item key="COND.BEHIND_ENEMY" value="29"></item>
+<item key="COND.BETTER_WEAPON_AVAILABLE" value="46"></item>
+<item key="COND.CAN_MELEE_ATTACK1" value="23"></item>
+<item key="COND.CAN_MELEE_ATTACK2" value="24"></item>
+<item key="COND.CAN_RANGE_ATTACK1" value="21"></item>
+<item key="COND.CAN_RANGE_ATTACK2" value="22"></item>
+<item key="COND.ENEMY_DEAD" value="30"></item>
+<item key="COND.ENEMY_FACING_ME" value="28"></item>
+<item key="COND.ENEMY_OCCLUDED" value="13"></item>
+<item key="COND.ENEMY_TOO_FAR" value="27"></item>
+<item key="COND.ENEMY_UNREACHABLE" value="31"></item>
+<item key="COND.ENEMY_WENT_NULL" value="12"></item>
+<item key="COND.FLOATING_OFF_GROUND" value="61"></item>
+<item key="COND.GIVE_WAY" value="48"></item>
+<item key="COND.HAVE_ENEMY_LOS" value="15"></item>
+<item key="COND.HAVE_TARGET_LOS" value="16"></item>
+<item key="COND.HEALTH_ITEM_AVAILABLE" value="47"></item>
+<item key="COND.HEAR_BUGBAIT" value="52"></item>
+<item key="COND.HEAR_BULLET_IMPACT" value="56"></item>
+<item key="COND.HEAR_COMBAT" value="53"></item>
+<item key="COND.HEAR_DANGER" value="50"></item>
+<item key="COND.HEAR_MOVE_AWAY" value="58"></item>
+<item key="COND.HEAR_PHYSICS_DANGER" value="57"></item>
+<item key="COND.HEAR_PLAYER" value="55"></item>
+<item key="COND.HEAR_SPOOKY" value="59"></item>
+<item key="COND.HEAR_THUMPER" value="51"></item>
+<item key="COND.HEAR_WORLD" value="54"></item>
+<item key="COND.HEAVY_DAMAGE" value="18"></item>
+<item key="COND.IDLE_INTERRUPT" value="2"></item>
+<item key="COND.IN_PVS" value="1"></item>
+<item key="COND.LIGHT_DAMAGE" value="17"></item>
+<item key="COND.LOST_ENEMY" value="11"></item>
+<item key="COND.LOST_PLAYER" value="33"></item>
+<item key="COND.LOW_PRIMARY_AMMO" value="3"></item>
+<item key="COND.MOBBED_BY_ENEMIES" value="62"></item>
+<item key="COND.NEW_ENEMY" value="26"></item>
+<item key="COND.NO_CUSTOM_INTERRUPTS" value="70"></item>
+<item key="COND.NO_HEAR_DANGER" value="60"></item>
+<item key="COND.NO_PRIMARY_AMMO" value="4"></item>
+<item key="COND.NO_SECONDARY_AMMO" value="5"></item>
+<item key="COND.NO_WEAPON" value="6"></item>
+<item key="COND.NONE" value="0">No additional conditions are being played</item>
+<item key="COND.NOT_FACING_ATTACK" value="40"></item>
+<item key="COND.NPC_FREEZE" value="67">Freezes NPC movement</item>
+<item key="COND.NPC_UNFREEZE" value="68">Unfreezes NPC movement</item>
+<item key="COND.PHYSICS_DAMAGE" value="19"></item>
+<item key="COND.PLAYER_ADDED_TO_SQUAD" value="64"></item>
+<item key="COND.PLAYER_PUSHING" value="66"></item>
+<item key="COND.PLAYER_REMOVED_FROM_SQUAD" value="65"></item>
+<item key="COND.PROVOKED" value="25"></item>
+<item key="COND.RECEIVED_ORDERS" value="63"></item>
+<item key="COND.REPEATED_DAMAGE" value="20"></item>
+<item key="COND.SCHEDULE_DONE" value="36"></item>
+<item key="COND.SEE_DISLIKE" value="9"></item>
+<item key="COND.SEE_ENEMY" value="10"></item>
+<item key="COND.SEE_FEAR" value="8"></item>
+<item key="COND.SEE_HATE" value="7"></item>
+<item key="COND.SEE_NEMESIS" value="34"></item>
+<item key="COND.SEE_PLAYER" value="32"></item>
+<item key="COND.SMELL" value="37"></item>
+<item key="COND.TALKER_RESPOND_TO_QUESTION" value="69"></item>
+<item key="COND.TARGET_OCCLUDED" value="14"></item>
+<item key="COND.TASK_FAILED" value="35"></item>
+<item key="COND.TOO_CLOSE_TO_ATTACK" value="38"></item>
+<item key="COND.TOO_FAR_TO_ATTACK" value="39"></item>
+<item key="COND.WAY_CLEAR" value="49"></item>
+<item key="COND.WEAPON_BLOCKED_BY_FRIEND" value="42"></item>
+<item key="COND.WEAPON_HAS_LOS" value="41"></item>
+<item key="COND.WEAPON_PLAYER_IN_SPREAD" value="43"></item>
+<item key="COND.WEAPON_PLAYER_NEAR_TARGET" value="44"></item>
+<item key="COND.WEAPON_SIGHT_OCCLUDED" value="45"></item>
+	</items>
+</enum>

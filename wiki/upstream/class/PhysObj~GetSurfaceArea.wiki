@@ -1,0 +1,7 @@
+<function name="GetSurfaceArea" parent="PhysObj" type="classfunc">
+	<description>Returns the surface area of the physics object in source-units². Or nil if the PhysObj is a generated sphere or box.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number|nil">The surface area or `nil` if the PhysObj is a generated sphere or box.</ret>
+	</rets>
+</function>

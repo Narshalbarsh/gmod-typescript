@@ -1,0 +1,20 @@
+<function name="CalcAbsolutePosition" parent="ENTITY" type="hook">
+	<description>
+Called whenever the entity's position changes. A callback for when an entity's angle changes is available via <page>Entity:AddCallback</page>.
+
+Like <page>ENTITY:RenderOverride</page>, this hook works on any entity (scripted or not) it is applied on.
+
+<note>If EFL_DIRTY_ABSTRANSFORM is set on the entity, this will be called serverside only; otherwise, this will be called clientside only. This means serverside calls of <page>Entity:SetPos</page> without the EFL_DIRTY_ABSTRANSFORM flag enabled (most cases) will be called clientside only.</note>
+
+<note>The give concommand will call this hook serverside only upon entity spawn.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="pos" type="Vector">The entity's actual position. May differ from <page>Entity:GetPos</page></arg>
+		<arg name="ang" type="Angle">The entity's actual angles. May differ from <page>Entity:GetAngles</page></arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">New position</ret>
+		<ret name="" type="Angle">New angles</ret>
+	</rets>
+</function>

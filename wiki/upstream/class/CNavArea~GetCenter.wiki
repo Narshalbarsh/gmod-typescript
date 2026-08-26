@@ -1,0 +1,7 @@
+<function name="GetCenter" parent="CNavArea" type="classfunc">
+	<description>Returns the center most vector point for the given <page>CNavArea</page>.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="Vector">The center vector.</ret>
+	</rets>
+</function>

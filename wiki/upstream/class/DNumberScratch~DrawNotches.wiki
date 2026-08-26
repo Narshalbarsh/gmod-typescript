@@ -1,0 +1,19 @@
+<function name="DrawNotches" parent="DNumberScratch" type="panelfunc">
+	<description>
+<internal></internal>
+
+Used by <page>DNumberScratch:DrawScreen</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="level" type="number"></arg>
+		<arg name="x" type="number"></arg>
+		<arg name="y" type="number"></arg>
+		<arg name="w" type="number"></arg>
+		<arg name="h" type="number"></arg>
+		<arg name="range" type="number"></arg>
+		<arg name="value" type="number"></arg>
+		<arg name="min" type="number"></arg>
+		<arg name="max" type="number"></arg>
+	</args>
+</function>

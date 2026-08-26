@@ -1,0 +1,13 @@
+<function name="GetHeaderHeight" parent="DCollapsibleCategory" type="panelfunc">
+	<description>
+Returns the header height of the <page>DCollapsibleCategory</page>.
+
+See also <page>DCollapsibleCategory:SetHeaderHeight</page>.
+	</description>
+	<added>2020.08.12</added>
+	<realm>Client and Menu</realm>
+	<file line="162-L166">lua/vgui/dcategorycollapse.lua</file>
+	<rets>
+		<ret name="height" type="number">The current height of the header.</ret>
+	</rets>
+</function>

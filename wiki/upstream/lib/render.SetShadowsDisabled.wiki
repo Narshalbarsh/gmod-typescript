@@ -1,0 +1,11 @@
+<function name="SetShadowsDisabled" parent="render" type="libraryfunc">
+	<description>Sets whether all shadow rendering should be disabled.
+
+Internally sets `r_shadows_gamecontrol` convar, exactly like `shadow_control` does via its `SetShadowsDisabled` input.
+
+</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="disable" type="boolean">`true` to disable shadows, `false` to enable.</arg>
+	</args>
+</function>

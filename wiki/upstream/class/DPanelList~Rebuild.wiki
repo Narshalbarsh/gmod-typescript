@@ -1,0 +1,7 @@
+<function name="Rebuild" parent="DPanelList" type="panelfunc">
+	<description>
+<internal></internal>
+Used internally to rebuild the child panel positions.
+</description>
+	<realm>Client and Menu</realm>
+</function>

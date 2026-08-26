@@ -1,0 +1,7 @@
+<function name="Is3D" parent="CLuaEmitter" type="classfunc">
+	<description>Returns whether this emitter is 3D or not. This is set when creating the emitter with <page>Global.ParticleEmitter</page>.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="boolean">Whether this emitter is 3D or not.</ret>
+	</rets>
+</function>

@@ -1,0 +1,24 @@
+<function name="SetNWAngle" parent="Entity" type="classfunc">
+	<description>
+Sets a networked angle value on the entity.
+
+The value can then be accessed with <page>Entity:GetNWAngle</page> both from client and server.
+<warning>There's a 4095 slots Network limit. If you need more, consider using the <page>net</page> library or <page>Entity:SetNW2Angle</page>. You should also consider the fact that you have way too many variables. You can learn more about this limit here: <page>Networking_Usage#nwlimits</page></warning>
+<note>Running this function clientside will only set it for the client it is called on.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="key" type="string">The key to associate the value with</arg>
+		<arg name="value" type="Angle">The value to set</arg>
+	</args>
+</function>
+
+<example>
+	<description>This will set the networked angle 'direction' on all clients that is pointing straight up.</description>
+	<code>
+for i, ply in ipairs( player.GetAll() ) do
+    ply:SetNWAngle( 'direction', Angle( -90, 0, 0 ) )
+end
+	</code>
+
+</example>

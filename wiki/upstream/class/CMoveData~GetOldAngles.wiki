@@ -1,0 +1,7 @@
+<function name="GetOldAngles" parent="CMoveData" type="classfunc">
+	<description>Gets the aim angle. Only works clientside, server returns same as <page>CMoveData:GetAngles</page>.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Angle">The aim angle</ret>
+	</rets>
+</function>

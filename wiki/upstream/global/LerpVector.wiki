@@ -1,0 +1,23 @@
+<function name="LerpVector" parent="Global" type="libraryfunc">
+	<description>Linear interpolation between two vectors. It is commonly used to smooth movement between two vectors
+<note>This function is not meant to be used with constant value in the first argument, if you're dealing with animation! Use a value that changes over time</note></description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="fraction" type="number">Fraction ranging from 0 to 1</arg>
+		<arg name="from" type="Vector">The initial Vector</arg>
+		<arg name="to" type="Vector">The desired Vector</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">The lerped vector.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Get the middle point (50%) between two vectors.</description>
+	<code>local output = LerpVector( 0.5, Vector( 0, 0, 100 ), Vector( 0, 0, 200 ) )</code>
+	<output>Vector( 0, 0, 150 )</output>
+
+</example>
+
+
+If you do it each frame to smooth positions, you should couple it with FrameTime()

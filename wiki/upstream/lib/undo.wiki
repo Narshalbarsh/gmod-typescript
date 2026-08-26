@@ -1,0 +1,3 @@
+<type name="undo" category="libraryfunc" is="library">
+	<summary>The undo library allows you to add custom entities to the undo list, allowing users to "undo" their creation with their undo (default: <key>Z</key>) key.</summary>
+</type>

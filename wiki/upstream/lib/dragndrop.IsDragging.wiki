@@ -1,0 +1,8 @@
+<function name="IsDragging" parent="dragndrop" type="libraryfunc">
+	<description>Returns whether the user is dragging something with the drag'n'drop system.</description>
+	<realm>Client and Menu</realm>
+	<file line="21-L27">lua/includes/extensions/client/panel/dragdrop.lua</file>
+	<rets>
+		<ret name="" type="boolean">True if the user is dragging something with the drag'n'drop system.</ret>
+	</rets>
+</function>

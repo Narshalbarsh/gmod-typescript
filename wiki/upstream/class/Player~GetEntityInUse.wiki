@@ -1,0 +1,7 @@
+<function name="GetEntityInUse" parent="Player" type="classfunc">
+	<description>Returns the entity the player is currently using, like func_tank mounted turrets or +use prop pickups.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Entity">Entity in use, or NULL entity otherwise. For +use prop pickups, this will be NULL clientside.</ret>
+	</rets>
+</function>

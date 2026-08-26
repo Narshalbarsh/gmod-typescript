@@ -1,0 +1,9 @@
+<function name="GetHighlightColor" parent="DTextEntry" type="panelfunc">
+	<description>
+Returns the highlight/text selection color of the text entry. If it was not overwritten, it will return the derma skin value. (`colTextEntryTextHighlight`)
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="Color">The highlight <page>Global.Color</page>.</ret>
+	</rets>
+</function>

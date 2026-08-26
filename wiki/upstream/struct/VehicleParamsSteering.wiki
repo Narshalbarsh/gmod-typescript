@@ -1,0 +1,26 @@
+<structure>
+	<realm>Server</realm>
+	<description>The structure used by <page>Structures/VehicleParams</page>.</description>
+	<fields>
+<item name="boostSteeringRateFactor" type="number"></item>
+<item name="boostSteeringRestRateFactor" type="number"></item>
+<item name="brakeSteeringRateFactor" type="number"></item>
+<item name="degreesBoost" type="number">The maximum angle at which the vehicle can turn while boosting</item>
+<item name="degreesFast" type="number">The maximum angle at which the vehicle can turn while moving at max speed and not boosting</item>
+<item name="degreesSlow" type="number">The maximum angle at which the vehicle can turn while moving slowest</item>
+<item name="dustCloud" type="boolean">Disabled in Garry's Mod. In Half-Life 2: Episode 2 this dictates whether the vehicle should leave wheel dust effects when driving around</item>
+<item name="isSkidAllowed" type="boolean">Whether the vehicle is allowed to skid/drift</item>
+<item name="powerSlideAccel" type="number">In Hammer Units</item>
+<item name="speedFast" type="number"></item>
+<item name="speedSlow" type="number"></item>
+<item name="steeringExponent" type="number"></item>
+<item name="steeringRateFast" type="number"></item>
+<item name="steeringRateSlow" type="number"></item>
+<item name="steeringRestRateFast" type="number"></item>
+<item name="steeringRestRateSlow" type="number"></item>
+<item name="throttleSteeringRestRateFactor" type="number"></item>
+<item name="turnThrottleReduceFast" type="number"></item>
+<item name="turnThrottleReduceSlow" type="number"></item>
+	</fields>
+
+</structure>

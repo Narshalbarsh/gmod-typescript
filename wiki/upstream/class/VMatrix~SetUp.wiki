@@ -1,0 +1,11 @@
+<function name="SetUp" parent="VMatrix" type="classfunc">
+	<description>
+Sets the up direction of the matrix.
+
+ie. The third column of the matrix, excluding the w coordinate.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="up" type="Vector">The up direction of the matrix.</arg>
+	</args>
+</function>

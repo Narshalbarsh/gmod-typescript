@@ -1,0 +1,11 @@
+<function name="MarkTookDamageFromEnemy" parent="NPC" type="classfunc">
+	<description>Marks the NPC as took damage from given entity.
+
+See also <page>NPC:GetLastTimeTookDamageFromEnemy</page>.
+	</description>
+	<added>2022.06.08</added>
+	<realm>Server</realm>
+	<args>
+		<arg name="enemy" type="Entity" default="nil">The enemy to mark. Defaults to currently active enemy (<page>NPC:GetEnemy</page>)</arg>
+	</args>
+</function>

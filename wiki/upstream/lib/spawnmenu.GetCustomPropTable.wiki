@@ -1,0 +1,12 @@
+<function name="GetCustomPropTable" parent="spawnmenu" type="libraryfunc">
+	<description>
+Similar to <page>spawnmenu.GetPropTable</page>, but only returns spawnlists created by addons via <page>spawnmenu.AddPropCategory</page>.
+
+These spawnlists are shown in a separate menu in-game.
+	</description>
+	<realm>Client</realm>
+	<file line="218-L222">lua/includes/modules/spawnmenu.lua</file>
+	<rets>
+		<ret name="" type="table">See <page>spawnmenu.GetPropTable</page> for table format.</ret>
+	</rets>
+</function>

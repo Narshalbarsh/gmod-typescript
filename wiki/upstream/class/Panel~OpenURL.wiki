@@ -1,0 +1,46 @@
+<function name="OpenURL" parent="Panel" type="classfunc">
+	<description>Instructs a HTML control to download and parse a HTML script using the passed URL.
+
+This function can only be used on [HTML](HTML) panel and its derivatives.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="URL" type="string">URL to open. It has to start or be one of the following:
+* `http://`
+* `https://`
+* `asset://`
+* `about:blank`
+* `chrome://credits/`
+</arg>
+	</args>
+</function>
+
+<example>
+	<description>Displays the Garry's Mod wiki page.</description>
+	<code>
+local frame = vgui.Create( "DFrame" )
+frame:SetTitle( "HTML Example" )
+frame:SetSize( ScrW() * 0.75, ScrH() * 0.75 )
+frame:Center()
+frame:MakePopup()
+
+local html = vgui.Create( "DHTML", frame )
+html:Dock( FILL )
+html:OpenURL( "wiki.facepunch.com/gmod" )
+	</code>
+</example>
+
+<example>
+	<description>Displays the default loading screen from the HTML folder.</description>
+	<code>
+local frame = vgui.Create( "DFrame" )
+frame:SetTitle( "HTML Example" )
+frame:SetSize( ScrW() * 0.75, ScrH() * 0.75 )
+frame:Center()
+frame:MakePopup()
+
+local html = vgui.Create( "HTML", frame )
+html:Dock( FILL )
+html:OpenURL( "asset://garrysmod/html/loading.html" )
+	</code>
+	<output><image src="html_openurl_example.png" alt="800px"/></output>
+</example>

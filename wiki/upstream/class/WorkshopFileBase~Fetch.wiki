@@ -1,0 +1,20 @@
+<function name="Fetch" parent="WorkshopFileBase" type="classfunc">
+	<description>
+		Fetches all subscriptions for the set namespace and type
+		<note>
+			If you want to use the type `local` you need to implement the `:FetchLocal(offset, perpage)` function!
+		</note>
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="type" type="string">The type to search for. (`local`, `subscribed`, `subscribed_ugc`, `mine`, `favorite`)</arg>
+		<arg name="offset" type="number">Skips the first x results.</arg>
+		<arg name="perpage" type="number">How many results per page should be returned.</arg>
+		<arg name="extratags" type="table">additional tags to filter the results.</arg>
+		<arg name="searchText" type="string">text that needs to be in the addon title. Use an empty string for none</arg>
+		<arg name="filter" type="number" default="nil">The filter for the results. (`enabledonly`, `disabledonly`)</arg>
+		<arg name="sort" type="string" default="nil">
+			How it should be sorted. If set to `nil`, it will fallback to `timeadded`. (`title`, `size`, `updated`)
+		</arg>
+	</args>
+</function>

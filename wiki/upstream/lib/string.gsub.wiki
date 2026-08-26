@@ -1,0 +1,25 @@
+<function name="gsub" parent="string" type="libraryfunc">
+	<description>This function's main purpose is to replace certain character sequences in a string using <page>Patterns</page>.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="string" type="string">String which should be modified.</arg>
+		<arg name="pattern" type="string">The pattern that defines what should be matched and eventually be replaced.</arg>
+		<arg name="replacement" type="string">In case of a string, the matched sequence will be replaced with it.
+
+In case of a table, the matched sequence will be used as a key, and the table will be tested for the key. If a value exists, it will be used as the replacement.
+
+In case of a function, all matches will be passed as parameters to the function. The return value(s) of the function will then be used as the replacement.</arg>
+		<arg name="maxReplaces" type="number" default="nil">Maximum number of replacements to be made. Leave it empty to replace all matches.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">replaceResult</ret>
+		<ret name="" type="number">replaceCount</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Replaces "hello" with "hi" in the string "hello there!"</description>
+	<code>string.gsub("hello there!", "hello", "hi")</code>
+	<output>hi there!</output>
+
+</example>

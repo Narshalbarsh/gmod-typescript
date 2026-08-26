@@ -1,0 +1,7 @@
+<function name="GetElasticity" parent="Entity" type="classfunc">
+	<description>Returns the elasticity of this entity, used by some flying entities such as the Helicopter NPC to determine how much it should bounce around when colliding.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">elasticity</ret>
+	</rets>
+</function>

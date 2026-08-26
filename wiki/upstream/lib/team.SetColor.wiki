@@ -1,0 +1,9 @@
+<function name="SetColor" parent="team" type="libraryfunc">
+	<description>Sets the team's color.</description>
+	<file line="162-L169">lua/includes/modules/team.lua</file>
+	<realm>Shared</realm>
+	<args>
+		<arg name="teamIndex" type="number">The team index.</arg>
+		<arg name="color" type="Color">The team's new color as a <page>Color</page>.</arg>
+	</args>
+</function>

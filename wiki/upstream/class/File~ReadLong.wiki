@@ -1,0 +1,7 @@
+<function name="ReadLong" parent="File" type="classfunc">
+	<description>Reads a signed little-endian 32-bit integer from the file.</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="number">A signed 32-bit integer</ret>
+	</rets>
+</function>

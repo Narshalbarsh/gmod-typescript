@@ -1,0 +1,4 @@
+<function name="Draw" parent="CLuaEmitter" type="classfunc">
+	<description>Manually renders all particles the emitter has created.</description>
+	<realm>Client</realm>
+</function>

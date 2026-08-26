@@ -1,0 +1,33 @@
+<structure>
+	<realm>Shared</realm>
+	<description>Table returned by <page>util.GetSurfaceData</page>.</description>
+	<fields>
+<item name="name" type="string">The name of the surface property, identical to <page>util.GetSurfacePropName</page>.</item>
+<item name="hardnessFactor" type="number">How hard a surface is. If this is greater than or equal to another surfaces's hardThreshold, a hard impact sound will be used.</item>
+<item name="hardThreshold" type="number">Hardness threshold for impact sounds. HitSurface.hardnessFactor &gt;= InflictorSurface.hardThreshold - hard impact sound (depends on hardVelocityThreshold's value), HitSurface.hardnessFactor &lt; InflictorSurface.hardThreshold - soft impact sound (always).</item>
+<item name="hardVelocityThreshold" type="number">Velocity threshold for impact sounds. impactSpeed &gt;= HitSurface.hardVelocityThreshold - hard impact sound (depends on hardThreshold's value), impactSpeed &lt; HitSurface.hardVelocityThreshold - soft impact sound (always).</item>
+<item name="reflectivity" type="number">Amount of sound reflected from the surface represented as a number 0.0 - 1.0. 0 - no reflection, 1 - fully reflected.</item>
+<item name="roughnessFactor" type="number">How rough a surface is. If this is greater than or equal to another surfaces's roughThreshold, a rough scrape sound will be used.</item>
+<item name="roughThreshold" type="number">Roughness threshold for friction sounds. HitSurface.roughnessFactor &gt;= InflictorSurface.roughThreshold - rough friction sound, HitSurface.roughnessFactor &lt; InflictorSurface.roughThreshold - soft friction sound.</item>
+<item name="climbable" type="number">Indicates whether or not the surface is a ladder. Used to detect whether a player is on a ladder. 0 - false, &gt; 0 - true.</item>
+<item name="jumpFactor" type="number">Scalar multiplier for player jump height - or more accurately, applied z-axis velocity on a surface. For example, 1 - normal jump, 2 - twice as high, and 0.5 - half as high.</item>
+<item name="material" type="number{MAT}">The surface material. See <page>Enums/MAT</page>.</item>
+<item name="maxSpeedFactor" type="number">Scalar multiplier for player speed. Achieves this by multiplying <page>CMoveData:SetMaxSpeed</page> in <page>GM:Move</page>.</item>
+<item name="dampening" type="number">This is the physical drag on an object when in contact with this surface (0 - x, 0 none to x a lot).</item>
+<item name="density" type="number">Material density in kg / m^3 (water is 1000). If a surface's density is &lt; 1000, it will float in water. This is used to calculate the total mass of an object.</item>
+<item name="elasticity" type="number">Collision elasticity - used to compute coefficient of restitution represented as a number 0.0 - 1.0. 0.01 is soft, 1.0 is hard.</item>
+<item name="friction" type="number">Physical friction used to slow entities touching the surface represented as a number 0.0 - 1.0. 0.01 is slick, 1.0 is completely rough.</item>
+<item name="thickness" type="number">Material thickness. If this is 0, the material is not volumetrically solid, and thus the object mass will be calculated as "volume * 0.0254^3 * density" where 0.0254 is meters per inch. If non-zero, the mass will be "surfacearea * thickness * 0.0254^3 * density".</item>
+<item name="breakSound" type="string">Sound to play when a prop or func_breakable is broken.</item>
+<item name="bulletImpactSound" type="string">Bullet impact sound with this surface.</item>
+<item name="impactHardSound" type="string">Physical impact sound when hitting surfaces hard.</item>
+<item name="impactSoftSound" type="string">Physical impact sound when hitting surfaces softly.</item>
+<item name="rollingSound" type="string">Unused sound.</item>
+<item name="scrapeRoughSound" type="string">Friction sound when roughly scraping against an entity.</item>
+<item name="scrapeSmoothSound" type="string">Friction sound when smoothly scraping against an entity.</item>
+<item name="stepLeftSound" type="string">Footstep sound for left foot.</item>
+<item name="stepRightSound" type="string">Footstep sound for right foot.</item>
+<item name="strainSound" type="string">Unused sound.</item>
+	</fields>
+
+</structure>

@@ -1,0 +1,7 @@
+<function name="GetAirResistance" parent="CLuaParticle" type="classfunc">
+	<description>Returns the air resistance of the particle.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">The air resistance of the particle</ret>
+	</rets>
+</function>

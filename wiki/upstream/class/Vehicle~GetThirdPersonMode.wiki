@@ -1,0 +1,8 @@
+<function name="GetThirdPersonMode" parent="Vehicle" type="classfunc">
+	<description>Returns if vehicle has thirdperson mode enabled or not.</description>
+	<realm>Shared</realm>
+	<file line="696-L700">lua/includes/extensions/entity.lua</file>
+	<rets>
+		<ret name="" type="boolean">Returns `true` if third person mode enabled, `false` otherwise</ret>
+	</rets>
+</function>

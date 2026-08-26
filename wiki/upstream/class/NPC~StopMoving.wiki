@@ -1,0 +1,8 @@
+<function name="StopMoving" parent="NPC" type="classfunc">
+	<description>Resets the NPC's movement animation and velocity. Does not actually stop the NPC from moving.</description>
+	<realm>Server</realm>
+
+	<args>
+		<arg name="immediate" type="boolean" default="true" added="2024.05.13">Whether to stop moving even when currently active goal doesn't want us to.</arg>
+	</args>
+</function>

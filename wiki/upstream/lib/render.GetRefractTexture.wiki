@@ -1,0 +1,10 @@
+<function name="GetRefractTexture" parent="render" type="libraryfunc">
+	<description>
+<deprecated>Alias of <page>render.GetPowerOfTwoTexture</page>.</deprecated>
+
+Alias of <page>render.GetPowerOfTwoTexture</page>.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="ITexture">The <page>render.GetPowerOfTwoTexture</page>.</ret>
+	</rets>
+</function>

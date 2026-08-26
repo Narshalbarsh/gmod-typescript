@@ -1,0 +1,11 @@
+<function name="CloseSubMenu" parent="DMenu" type="panelfunc">
+	<description>
+<internal></internal>
+
+Used internally by <page>DMenu:OpenSubMenu</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="menu" type="Panel">The menu to close</arg>
+	</args>
+</function>

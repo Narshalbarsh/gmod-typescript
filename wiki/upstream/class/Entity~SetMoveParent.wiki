@@ -1,0 +1,28 @@
+<function name="SetMoveParent" parent="Entity" type="classfunc">
+	<description>
+Sets the Movement Parent of an entity to another entity.
+
+Similar to <page>Entity:SetParent</page>, except the object's coordinates are not translated automatically before parenting.
+
+Does nothing on client.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="Parent" type="Entity">The entity to change this entity's Movement Parent to.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Sets the Movement Entity of a new entity to Player 1.</description>
+	<code>
+local hat = ents.Create("prop_physics")
+//Position and angles are relative to our future parent.
+hat:SetPos(Vector(0,0,10))
+hat:SetAngles(Angle(0,90,0))
+
+hat:SetMoveParent(Entity(1))
+
+hat:Spawn()
+	</code>
+
+</example>

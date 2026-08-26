@@ -1,0 +1,12 @@
+<function name="SetGlobal2Angle" parent="Global" type="libraryfunc">
+	<description>
+Defines an angle to be automatically networked to clients
+
+<note>Running this function clientside will only set it clientside for the client it is called on!</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="index" type="any">Index to identify the global angle with</arg>
+		<arg name="angle" type="Angle">Angle to be networked</arg>
+	</args>
+</function>

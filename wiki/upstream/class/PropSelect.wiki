@@ -1,0 +1,50 @@
+<panel>
+	<realm>Client</realm>
+	<parent>ContextBase</parent>
+	<overrides>
+<page>Panel:Clear</page>
+<page>ContextBase:TestForChanges</page>
+<page>PANEL:Init</page>
+<page>PANEL:PerformLayout</page>
+	</overrides>
+	<description>Used in Sandbox tools to allow the player to select models out of a list. Despite being only used in Sandbox, it is **not** exclusive to that gamemode.
+
+See also <page>MatSelect</page> for the material selecting alternative.
+</description>
+</panel>
+
+<example>
+<description>
+Example usage of the panel.
+</description>
+<code>
+local frame = vgui.Create( "DFrame" )
+frame:SetSize( 500, 500 )
+frame:Center()
+frame:MakePopup()
+
+local PropSelect = vgui.Create( "PropSelect", frame )
+PropSelect:Dock( TOP )
+
+--PropSelect:SetConVar( "my_convar_name" ) 
+
+local items = {
+	"models/props_c17/FurnitureWashingmachine001a.mdl",
+	"models/props_junk/PlasticCrate01a.mdl",
+	"models/props_junk/wood_pallet001a.mdl"
+}
+
+for k, model in pairs( items ) do
+	PropSelect:AddModelEx( model, model, 0 )
+end
+
+function PropSelect:OnSelect( model, pnl )
+	print( "Selected model", model, pnl )
+end
+</code>
+
+<output>
+<upload src="70c/8dccb703b98e2fa.png" size="42655" name="image.png" />
+</output>
+
+</example>

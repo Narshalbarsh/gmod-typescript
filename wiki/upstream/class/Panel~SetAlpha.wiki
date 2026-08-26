@@ -1,0 +1,7 @@
+<function name="SetAlpha" parent="Panel" type="classfunc">
+	<description>Sets the alpha multiplier for the panel</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="alpha" type="number">The alpha value in the range of 0-255.</arg>
+	</args>
+</function>

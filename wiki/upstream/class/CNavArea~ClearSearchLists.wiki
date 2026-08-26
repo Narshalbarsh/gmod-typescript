@@ -1,0 +1,11 @@
+<function name="ClearSearchLists" parent="CNavArea" type="classfunc">
+	<description>
+Clears the open and closed lists for a new search.
+
+Used in pathfinding via the [A* algorithm](https://en.wikipedia.org/wiki/A*_search_algorithm).
+
+
+More information can be found on the <page>Simple Pathfinding</page> page.
+	</description>
+	<realm>Server</realm>
+</function>

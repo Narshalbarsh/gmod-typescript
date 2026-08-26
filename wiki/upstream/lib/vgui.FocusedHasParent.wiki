@@ -1,0 +1,10 @@
+<function name="FocusedHasParent" parent="vgui" type="libraryfunc">
+	<description>Returns whether the currently focused panel is a child of the given one.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="parent" type="Panel">The parent panel to check the currently focused one against. This doesn't need to be a direct parent (focused panel can be a child of a child and so on).</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether or not the focused panel is a child of the passed one.</ret>
+	</rets>
+</function>

@@ -1,0 +1,11 @@
+<function name="PlayerShouldTaunt" parent="GM" type="hook">
+	<description>Allows to suppress player taunts.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ply" type="Player">Player who tried to taunt</arg>
+		<arg name="act" type="number">Act ID of the taunt player tries to do, see <page>Enums/ACT</page></arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return false to disallow player taunting</ret>
+	</rets>
+</function>

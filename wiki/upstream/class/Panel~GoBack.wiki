@@ -1,0 +1,4 @@
+<function name="GoBack" parent="Panel" type="classfunc">
+	<description>Goes back one page in the HTML panel's history if available.</description>
+	<realm>Client and Menu</realm>
+</function>

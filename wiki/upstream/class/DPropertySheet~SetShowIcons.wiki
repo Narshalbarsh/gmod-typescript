@@ -1,0 +1,12 @@
+<function name="SetShowIcons" parent="DPropertySheet" type="panelfunc">
+	<file line="155">lua/vgui/dpropertysheet.lua</file>
+	<description>
+<deprecated></deprecated>
+
+Does nothing.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="show" type="boolean"></arg>
+	</args>
+</function>

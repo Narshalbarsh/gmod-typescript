@@ -1,0 +1,34 @@
+<function name="Copy" parent="table" type="libraryfunc">
+	<description>
+Creates a deep copy and returns that copy.
+
+<warning>This function is very slow! If you know the table structure, it is better to write your own copying mechanism</warning>
+<warning>This function does NOT copy userdata, such as <page>Vector</page>s and <page>Angle</page>s!</warning>
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="22-L47">lua/includes/extensions/table.lua</file>
+	<args>
+		<arg name="originalTable" type="table">The table to be copied.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">A deep copy of the original table</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Creates a deep copy of table Fruit</description>
+	<code>
+local Fruit = {"Orange", "Apple", "Banana"}
+local FruitCopy = table.Copy(Fruit)
+
+PrintTable(FruitCopy)
+	</code>
+<output>
+```
+1	Orange
+2	Apple
+3	Banana
+```
+</output>
+
+</example>

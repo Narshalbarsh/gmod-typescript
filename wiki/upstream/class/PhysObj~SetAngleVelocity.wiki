@@ -1,0 +1,8 @@
+<function name="SetAngleVelocity" parent="PhysObj" type="classfunc">
+	<description>Sets the specified [angular velocity](https://en.wikipedia.org/wiki/Angular_velocity) on the <page>PhysObj</page></description>
+	<realm>Shared</realm>
+	<added>2021.06.09</added>
+	<args>
+		<arg name="angularVelocity" type="Vector">The new velocity in `degrees/s`. (Local frame)</arg>
+	</args>
+</function>

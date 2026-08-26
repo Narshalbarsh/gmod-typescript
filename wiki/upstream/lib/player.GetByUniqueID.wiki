@@ -1,0 +1,17 @@
+<function name="GetByUniqueID" parent="player" type="libraryfunc">
+	<description><deprecated>Use <page>player.GetBySteamID64</page>, <page>player.GetBySteamID</page> or <page>player.GetByAccountID</page> to get a player by a unique identifier instead.</deprecated>
+
+Gets the player with the specified uniqueID (not recommended way to identify players).
+
+<warning>It is highly recommended to use <page>player.GetByAccountID</page>, <page>player.GetBySteamID</page> or <page>player.GetBySteamID64</page> instead as this function can have collisions ( be same for different people ) while SteamID is guaranteed to unique to each player.</warning>
+	<warning>Internally this function iterates over all players in the server, meaning it can be quite expensive in a performance-critical context.</warning>
+	</description>
+	<realm>Shared</realm>
+	<file line="276-L285">lua/includes/extensions/player.lua</file>
+	<args>
+		<arg name="uniqueID" type="string">The <page>Player:UniqueID</page> to find the player by.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Player|boolean">Player if one is found, `false` otherwise.</ret>
+	</rets>
+</function>

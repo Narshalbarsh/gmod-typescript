@@ -1,0 +1,7 @@
+<function name="AddItem" parent="DGrid" type="panelfunc">
+	<description>Adds a new item to the grid.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="item" type="Panel">The item to add. It will be forced visible and parented to the <page>DGrid</page>.</arg>
+	</args>
+</function>

@@ -1,0 +1,7 @@
+<function name="SetRollDelta" parent="CLuaParticle" type="classfunc">
+	<description>Sets the rotation speed of the particle in radians. This should only be used for 2D particles.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="rollDelta" type="number">The new rotation speed of the particle in radians.</arg>
+	</args>
+</function>

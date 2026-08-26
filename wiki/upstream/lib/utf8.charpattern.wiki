@@ -1,0 +1,13 @@
+<function name="charpattern" parent="utf8" type="libraryfield">
+	<description>
+This is NOT a function, it's a <page text="pattern">Patterns</page> (a string, not a function) which matches exactly one UTF-8 byte sequence, assuming that the subject is a valid UTF-8 string.
+</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="string">
+```
+"[%z\x01-\x7F\xC2-\xF4][\x80-\xBF]*"
+```
+</ret>
+	</rets>
+</function>

@@ -1,0 +1,16 @@
+<function name="SetGlobalCounter" parent="game" type="libraryfunc">
+	<description>
+Sets the counter of a Global State.
+
+See <page>Global States</page> for more information.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="name" type="string">The name of the Global State to set. 
+
+If the Global State by that name does not exist, it will be created.
+
+See <page>Global States</page> for a list of default global states.</arg>
+		<arg name="count" type="number">The value to set for that Global State.</arg>
+	</args>
+</function>

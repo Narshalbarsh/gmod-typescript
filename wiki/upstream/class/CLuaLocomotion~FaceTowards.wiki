@@ -1,0 +1,7 @@
+<function name="FaceTowards" parent="CLuaLocomotion" type="classfunc">
+	<description>Sets the direction we want to face</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="goal" type="Vector">The vector we want to face</arg>
+	</args>
+</function>

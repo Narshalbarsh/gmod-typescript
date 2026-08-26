@@ -1,0 +1,4 @@
+<function name="ExitScriptedSequence" parent="NPC" type="classfunc">
+	<description>Makes an NPC exit a scripted sequence, if one is playing.</description>
+	<realm>Server</realm>
+</function>

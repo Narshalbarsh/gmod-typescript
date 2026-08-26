@@ -1,0 +1,9 @@
+<function name="GetMoBlurTex0" parent="render" type="libraryfunc">
+	<realm>Client</realm>
+	<description><internal>You probably want to just use a custom render target. See <page>Global.GetRenderTargetEx</page>.</internal>
+
+Returns the first render target texture that is used internally for Motion Blur and Frame Blend post processing effects.</description>
+	<rets>
+		<ret name="" type="ITexture">The render target named `s_pMoBlurTex0`.</ret>
+	</rets>
+</function>

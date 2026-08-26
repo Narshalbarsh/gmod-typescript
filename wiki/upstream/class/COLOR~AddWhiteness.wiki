@@ -1,0 +1,11 @@
+<function name="AddWhiteness" parent="Color" type="classfunc">
+	<description>Converts a <page>Color</page> into [HWB color space](https://en.wikipedia.org/wiki/HWB_color_model), adds given value to the "whiteness" and converts it back into an RGB color.
+
+A slightly more efficient combination of <page>COLOR:GetWhiteness</page> & <page>COLOR:SetWhiteness</page>
+</description>
+	<realm>Shared and Menu</realm>
+	<added>2025.01.23</added>
+	<args>
+		<arg name="whiteness" type="number">The "whiteness" value to add in range [0, 1]</arg>
+	</args>
+</function>

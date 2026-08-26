@@ -1,0 +1,7 @@
+<function name="GetDefault" parent="ConVar" type="classfunc">
+	<description>Returns the default value of the <page>ConVar</page></description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="string">The default value of the console variable.</ret>
+	</rets>
+</function>

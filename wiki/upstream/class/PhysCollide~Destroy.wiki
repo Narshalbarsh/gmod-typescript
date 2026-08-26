@@ -1,0 +1,4 @@
+<function name="Destroy" parent="PhysCollide" type="classfunc">
+	<description>Destroys the <page>PhysCollide</page> object.</description>
+	<realm>Shared</realm>
+</function>

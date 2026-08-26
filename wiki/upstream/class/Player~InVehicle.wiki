@@ -1,0 +1,7 @@
+<function name="InVehicle" parent="Player" type="classfunc">
+	<description>Returns if the player is in a vehicle</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the player is in a vehicle.</ret>
+	</rets>
+</function>

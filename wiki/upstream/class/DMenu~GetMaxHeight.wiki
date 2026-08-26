@@ -1,0 +1,7 @@
+<function name="GetMaxHeight" parent="DMenu" type="panelfunc">
+	<description>Returns the maximum height of the <page>DMenu</page>.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The maximum height in pixels</ret>
+	</rets>
+</function>

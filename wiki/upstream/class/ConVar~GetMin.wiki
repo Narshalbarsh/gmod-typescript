@@ -1,0 +1,7 @@
+<function name="GetMin" parent="ConVar" type="classfunc">
+	<description>Returns the minimum value of the <page>ConVar</page></description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret type="number">The minimum value of the <page>ConVar</page></ret>
+	</rets>
+</function>

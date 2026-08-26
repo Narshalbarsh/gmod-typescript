@@ -1,0 +1,11 @@
+<function name="PopulateVehicles" parent="SANDBOX" type="hook">
+	<description>Called by the spawnmenu when the Vehicles tab is generated
+	<warning>Creating an error in this Hook will result in a completely broken vehicles Tab</warning></description>
+	<realm>Client</realm>
+	<file line="77">gamemodes/sandbox/gamemode/spawnmenu/creationmenu/content/contenttypes/vehicles.lua</file>
+	<args>
+		<arg name="pnlContent" type="Panel">The SpawnmenuContentPanel</arg>
+		<arg name="tree" type="Panel">The ContentNavBar tree from the SpawnmenuContentPanel</arg>
+		<arg name="node" type="Panel">The old Spawnlists</arg>
+	</args>
+</function>

@@ -1,0 +1,31 @@
+<function name="len" parent="utf8" type="libraryfunc">
+	<description>Returns the number of UTF-8 sequences in the given string between positions startPos and endPos (both inclusive). If it finds any invalid UTF-8 byte sequence, returns false as well as the position of the first invalid byte.</description>
+	<realm>Shared and Menu</realm>
+	<file line="202-L229">lua/includes/modules/utf8.lua</file>
+	<args>
+		<arg name="string" type="string">The string to calculate the length of.</arg>
+		<arg name="startPos" type="number" default="1">The starting position to get the length from.</arg>
+		<arg name="endPos" type="number" default="-1">The ending position to get the length from.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The number of UTF-8 characters in the string. If there are invalid bytes, this will be false.</ret>
+		<ret name="" type="number">The position of the first invalid byte. If there were no invalid bytes, this will be nil.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Demonstrates output of this function compared to <page>string.len</page> when given a string that contains Russian text.</description>
+	<code>
+print( string.len( "Мёнём" ) )
+print( utf8.len( "Мёнём" ) )
+	</code>
+	<output>
+
+```
+11
+5
+```
+
+	</output>
+
+</example>

@@ -1,0 +1,17 @@
+<function name="GetNumAnimationFrames" parent="ITexture" type="classfunc">
+	<description>Returns the number of animation frames in this texture.</description>
+	<realm>Shared and Menu</realm>
+	<added>2021.01.27</added>
+	<rets>
+		<ret name="" type="number">The number of animation frames in this texture.</ret>
+	</rets>
+</function>
+
+<example>
+<code>
+local m = Material( "effects/prisonmap_disp" )
+local t = m:GetTexture( "$basetexture" )
+print( t:GetNumAnimationFrames() )
+</code>
+<output>`39`</output>
+</example>

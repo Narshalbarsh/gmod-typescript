@@ -1,0 +1,7 @@
+<function name="GetAge" parent="PathFollower" type="classfunc">
+	<description>Returns the age since the path was built</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">Path age</ret>
+	</rets>
+</function>

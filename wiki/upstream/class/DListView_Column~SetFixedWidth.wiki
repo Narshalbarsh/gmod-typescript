@@ -1,0 +1,38 @@
+<function name="SetFixedWidth" parent="DListView_Column" type="panelfunc">
+	<description>
+		Sets the fixed width of the column.
+		<note>
+			Internally this will set <page text="SetMinWidth">DListView_Column:SetMinWidth</page> and <page text="SetMaxWidth">DListView_Column:SetMaxWidth</page> to the value provided
+		</note>
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="width" type="number">The number value which will determine a fixed width.</arg>
+	</args>
+</function>
+
+<example>
+	<description>
+Creates a DListView and populates it with two columns and two items, only one of which can be selected at a time.
+
+The first column will be longer than the second column.
+	</description>
+	<code>
+local Frame = vgui.Create( "DFrame" )
+Frame:SetSize( 500, 500 )
+Frame:Center()
+Frame:MakePopup()
+
+local SimpleList = vgui.Create( "DListView", Frame )
+SimpleList:Dock( FILL )
+SimpleList:SetMultiSelect( false )
+
+SimpleList:AddColumn( "Column 1" )
+SimpleList:AddColumn( "Column 2" ):SetFixedWidth(125)
+
+SimpleList:AddLine( "First", "Column" )
+SimpleList:AddLine( "Second", "Column" )
+	</code>
+	<output><image src="DListView_Column_SetFixedWidth.png"/></output>
+
+</example>

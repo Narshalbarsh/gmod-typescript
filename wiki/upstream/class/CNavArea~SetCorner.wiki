@@ -1,0 +1,8 @@
+<function name="SetCorner" parent="CNavArea" type="classfunc">
+	<description>Sets the position of a corner of a nav area.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="corner" type="number">The corner to set, uses <page>Enums/NavCorner</page></arg>
+		<arg name="position" type="Vector">The new position to set.</arg>
+	</args>
+</function>

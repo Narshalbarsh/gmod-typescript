@@ -1,0 +1,10 @@
+<function name="OnSelect" parent="MatSelect" type="panelhook">
+	<description>Called when the player selects a material.
+</description>
+	<realm>Client</realm>
+	<added>2024.09.02</added>
+	<args>
+		<arg name="material" type="string">Material path of the selected material, not including any file extension.</arg>
+		<arg name="pnl" type="Panel">The <page>DImageButton</page> that was clicked.</arg>
+	</args>
+</function>

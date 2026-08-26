@@ -1,0 +1,14 @@
+<function name="SetIsMenu" parent="DPanel" type="panelfunc">
+	<description>
+Used internally by <page>DMenu</page>.
+
+
+Sets whether the frame is part of a derma menu or not.
+
+If this is set to `true`, <page>Global.CloseDermaMenus</page> will not be called when the frame is clicked, and thus any open menus will remain open.
+</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="isMenu" type="boolean">Whether this pane is a Menu Component</arg>
+	</args>
+</function>

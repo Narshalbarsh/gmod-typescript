@@ -1,0 +1,15 @@
+<function name="PlayerTick" parent="widgets" type="libraryfunc">
+	<description><internal></internal> Automatically called to update all widgets.</description>
+	<realm>Shared</realm>
+	<file line="92-L105">lua/includes/modules/widget.lua</file>
+	<args>
+		<arg name="ply" type="Player">The player</arg>
+		<arg name="mv" type="CMoveData">Player move data</arg>
+	</args>
+</function>
+
+<example>
+	<description>That's how it is used in **lua/includes/modules/widget.lua**</description>
+	<code>hook.Add( "PlayerTick", "TickWidgets", function( pl, mv ) widgets.PlayerTick( pl, mv ) end )</code>
+
+</example>

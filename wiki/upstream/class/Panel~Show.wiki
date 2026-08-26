@@ -1,0 +1,5 @@
+<function name="Show" parent="Panel" type="classfunc">
+	<file line="602-L604">lua/includes/extensions/client/panel.lua</file>
+	<description>Makes a panel visible.</description>
+	<realm>Client and Menu</realm>
+</function>

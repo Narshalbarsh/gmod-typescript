@@ -7,12 +7,13 @@ export function transformDescription(description: string): string {
 
     const descriptionEscaped = description.replace(/\/\*/g, '/').replace(/\*\//g, '\\');
 
-    const descriptionWithMarkdownLinks = descriptionEscaped.replace(
-        /<page>(.*?)<\/page>/g,
-        (_, pagePath) => {
-            return `[${pagePath}](https://wiki.facepunch.com/gmod/${pagePath.replace(/ /g, '_')})`;
-        },
-    );
+    const pageUrl = (pagePath: string) => `https://wiki.facepunch.com/gmod/${pagePath.trim().replace(/ /g, '_')}`;
+    const descriptionWithMarkdownLinks = descriptionEscaped
+        // <page>Foo</page> and <page text="label">Foo</page>
+        .replace(/<page\b([^>]*)>(.*?)<\/page>/g, (_, attrs: string, pagePath: string) => {
+            const label = /(?:^|\s)text="([^"]*)"/.exec(attrs)?.[1] || pagePath;
+            return `[${label}](${pageUrl(pagePath)})`;
+        });
 
     const descriptionObj = parseMarkup(descriptionWithMarkdownLinks);
 
@@ -75,7 +76,18 @@ export function transformDescription(description: string): string {
         .replace(/&gt;/g, '>')
         .replace(/&grave;/g, '`');
 
-    return unescapedResult;
+    // <key> and <image> are not wiki schema tags, so parseMarkup entity-escapes them,
+    // they are only recognizable again after the unescape above
+    return (
+        unescapedResult
+            // <key>Ctrl</key> is the wiki's keyboard-key formatting
+            .replace(/<key>(.*?)<\/key>/g, (_, key: string) => `\`${key.trim()}\``)
+            // <image src="X"/> lives on the wiki's file host
+            .replace(
+                /<image\b[^>]*\bsrc="([^"]+)"[^>]*\/?>/g,
+                (_, src: string) => `![${src}](https://files.facepunch.com/wiki/files/${src})`,
+            )
+    );
 }
 
 function realmEmojis(realm: string): string {

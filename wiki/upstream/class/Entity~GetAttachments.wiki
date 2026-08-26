@@ -1,0 +1,87 @@
+<function name="GetAttachments" parent="Entity" type="classfunc">
+	<description>
+Returns a table containing all attachments of the given entity's model.
+
+<bug issue="3167">This can have inconsistent results in single-player.</bug>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="table">Attachment data. See <page>Structures/AttachmentData</page>.
+
+Returns an empty table in case its model has no attachments or there's a some kind of other issue.
+</ret>
+	</rets>
+</function>
+
+<example>
+	<description>All the attachments present on the Kleiner player model</description>
+	<code>PrintTable(LocalPlayer():GetAttachments())</code>
+	<output>
+```
+1:
+		id	=	1
+		name	=	eyes
+2:
+		id	=	2
+		name	=	lefteye
+3:
+		id	=	3
+		name	=	righteye
+4:
+		id	=	4
+		name	=	nose
+5:
+		id	=	5
+		name	=	mouth
+6:
+		id	=	6
+		name	=	tie
+7:
+		id	=	7
+		name	=	pen
+8:
+		id	=	8
+		name	=	chest
+9:
+		id	=	9
+		name	=	hips
+10:
+		id	=	10
+		name	=	lefthand
+11:
+		id	=	11
+		name	=	righthand
+12:
+		id	=	12
+		name	=	forward
+13:
+		id	=	13
+		name	=	anim_attachment_RH
+14:
+		id	=	14
+		name	=	anim_attachment_LH
+15:
+		id	=	15
+		name	=	anim_attachment_head
+```
+	</output>
+
+</example>
+
+
+<example>
+	<description>Displays all the attachment names for all players</description>
+	<code>hook.Add( "PostPlayerDraw", "DrawAttachments", function( ply )
+    local attachments = ply:GetAttachments()
+    for _, att in pairs( attachments ) do
+        local attPos = ply:GetAttachment( att.id )
+        cam.Start2D()
+        local toScreen = attPos.Pos:ToScreen()
+        draw.DrawText( att.name, nil, toScreen.x, toScreen.y, nil, TEXT_ALIGN_CENTER )
+        cam.End2D()
+    end
+end )</code>
+	<output>
+	<upload src="b3c8c/8dd19076f415df3.png" size="1438950" name="image.png" />
+	</output>
+</example>

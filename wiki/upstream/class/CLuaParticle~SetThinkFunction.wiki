@@ -1,0 +1,24 @@
+<function name="SetThinkFunction" parent="CLuaParticle" type="classfunc">
+	<description>Sets the think function of the particle.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="thinkFunc" type="function">Think function.
+
+<callback>
+<arg type="CLuaParticle" name="particle">The particle the think hook is set on</arg>
+</callback>
+</arg>
+	</args>
+</function>
+
+<example>
+	<description>Example on how to use a think function, randomizes the colors of a particle</description>
+	<code>
+p:SetNextThink( CurTime() ) -- Makes sure the think hook is used on all particles of the particle emitter
+p:SetThinkFunction( function( pa )
+	pa:SetColor( math.random( 0, 255 ), math.random( 0, 255 ), math.random( 0, 255 ) ) -- Randomize it
+	pa:SetNextThink( CurTime() ) -- Makes sure the think hook is actually ran.
+end )
+	</code>
+
+</example>

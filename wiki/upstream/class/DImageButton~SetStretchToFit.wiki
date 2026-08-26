@@ -1,0 +1,11 @@
+<function name="SetStretchToFit" parent="DImageButton" type="panelfunc">
+	<description>
+Sets whether the image inside the <page>DImageButton</page> should be stretched to fill the entire size of the button, without preserving aspect ratio.
+
+If set to false, the image will not be resized at all.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="stretch" type="boolean">True to stretch, false to not to stretch</arg>
+	</args>
+</function>

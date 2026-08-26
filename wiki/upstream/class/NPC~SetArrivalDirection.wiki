@@ -1,0 +1,7 @@
+<function name="SetArrivalDirection" parent="NPC" type="classfunc">
+	<description>Sets the direction from the NPC origin to its current navigational destination.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="dir" type="Vector">The new arrival direction.</arg>
+	</args>
+</function>

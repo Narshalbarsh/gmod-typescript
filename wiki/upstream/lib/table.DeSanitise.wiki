@@ -1,0 +1,11 @@
+<function name="DeSanitise" parent="table" type="libraryfunc">
+	<description>Converts a table that has been sanitised with <page>table.Sanitise</page> back to its original form</description>
+	<realm>Shared and Menu</realm>
+	<file line="346-L393">lua/includes/extensions/table.lua</file>
+	<args>
+		<arg name="tbl" type="table">Table to be de-sanitised</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">De-sanitised table</ret>
+	</rets>
+</function>

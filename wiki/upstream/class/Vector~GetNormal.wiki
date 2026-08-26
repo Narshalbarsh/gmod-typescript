@@ -1,0 +1,11 @@
+<function name="GetNormal" parent="Vector" type="classfunc">
+	<description>
+<deprecated>Use <page>Vector:GetNormalized</page> instead.</deprecated>
+
+Returns a normalized version of the vector. This is a alias of <page>Vector:GetNormalized</page>.
+	</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="Vector">Normalized version of the vector.</ret>
+	</rets>
+</function>

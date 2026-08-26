@@ -1,0 +1,14 @@
+<function name="GodEnable" parent="Player" type="classfunc">
+	<description>Enables god mode on the player. Adds the <page text="FL_GODMODE">Enums/FL#FL_GODMODE</page> flag to the player.</description>
+	<realm>Server</realm>
+	<file line="222-L230">lua/includes/extensions/player.lua</file>
+</function>
+
+<example>
+	<description>Enable god mode on all players.</description>
+	<code>
+for _, ply in ipairs( player.GetAll() ) do
+    ply:GodEnable()
+end
+	</code>
+</example>

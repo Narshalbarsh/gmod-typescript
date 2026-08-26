@@ -1,0 +1,12 @@
+<function name="GetLastTimeTookDamageFromEnemy" parent="NPC" type="classfunc">
+	<description>Returns <page>Global.CurTime</page> based time since this NPC last received damage from given enemy. The last damage time is set when <page>NPC:MarkTookDamageFromEnemy</page> is called. 
+	</description>
+	<added>2022.06.08</added>
+	<realm>Server</realm>
+	<args>
+		<arg name="enemy" type="Entity" default="nil">The enemy to test. Defaults to currently active enemy (<page>NPC:GetEnemy</page>)</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">Time since this NPC last received damage from given enemy.</ret>
+	</rets>
+</function>

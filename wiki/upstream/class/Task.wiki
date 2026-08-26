@@ -1,0 +1,3 @@
+<type name="Task" category="classfunc" is="class">
+	<summary>A single AI task. Returned by <page>ai_task.New</page>.</summary>
+</type>

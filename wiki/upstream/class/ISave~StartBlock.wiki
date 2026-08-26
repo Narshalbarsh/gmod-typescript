@@ -1,0 +1,19 @@
+<function name="StartBlock" parent="ISave" type="classfunc">
+	<description>Starts a new block of data that you can write to inside current block. Blocks **must** be ended with <page>ISave:EndBlock</page>.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="name" type="string">Name of the new block. Used for determining which block is which, returned by <page>IRestore:StartBlock</page> during game load.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Example usage</description>
+	<code>
+saverestore.AddSaveHook( "HookNameHere", function( save )
+	save:StartBlock( "Test" )
+		save:WriteString( "myawesomestring" )
+	save:EndBlock()
+end )
+	</code>
+
+</example>

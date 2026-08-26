@@ -1,0 +1,8 @@
+<function name="IsEditing" parent="DTextEntry" type="panelfunc">
+	<description>Returns whether this DTextEntry is being edited or not. (i.e. has focus)</description>
+	<realm>Client and Menu</realm>
+	<file line="64-L66">lua/vgui/dtextentry.lua</file>
+	<rets>
+		<ret name="" type="boolean">Whether this DTextEntry is being edited or not</ret>
+	</rets>
+</function>

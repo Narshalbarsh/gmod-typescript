@@ -1,0 +1,7 @@
+<type name="list" category="libraryfunc" is="library">
+	<summary>The list library allows you add and retrieve values to and from lists. The list library is basically a fancy wrapper for a table, but with much more limited functionality.
+
+It is used extensively in the built-in Sandbox gamemode for addon-extensible lists of things (list of wheel models, list of thruster effects, etc) , without using global tables for this task.
+
+See <page>Default Lists</page> for a page of default Sandbox lists.</summary>
+</type>

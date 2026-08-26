@@ -1,0 +1,46 @@
+<function name="PlayerUse" parent="GM" type="hook">
+	<description>Triggered when the player presses use on an object. Continuously runs until USE is released but will not activate other Entities until the USE key is released; dependent on activation type of the Entity.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ply" type="Player">The player pressing the "use" key.</arg>
+		<arg name="ent" type="Entity">The entity which the player is looking at / activating USE on.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return `false` if the player is not allowed to USE the entity.
+
+Do not return `true` if using a hook, otherwise other mods may not get a chance to block a player's use.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>The arguments will continue to be output as long as the user holds their USE key. If the user activates one object, say a door, and looks at a different object, say a different door, then the print statement will reflect the new Entity, however even when true is returned the new Entity will not be activated until the user lets go of USE and depresses it once again; this is dependent on the USE TYPE of the Entity.</description>
+
+	<code>
+hook.Add( "PlayerUse", "some_unique_name2", function( ply, ent )
+	print( ply, ent )
+end )
+	</code>
+	<output>
+After holding it for a VERY brief moment looking at one door in a way that I would look at the other door once the first opens.
+```
+Player [1][Example_User_Name] 	Entity [369][func_door_rotating]
+Player [1][Example_User_Name] 	Entity [369][func_door_rotating]
+Player [1][Example_User_Name] 	Entity [368][func_door_rotating]
+Player [1][Example_User_Name] 	Entity [368][func_door_rotating]
+```
+	</output>
+</example>
+
+<example>
+	<description>Prevent users from using the ammo cache on the back of a Jeep.</description>
+	<code>
+hook.Add( "PlayerUse", "some_unique_name", function( ply, ent )
+	if ( !IsValid( ent ) or !ent:IsVehicle() ) then return end
+	
+	if ( ply:GetEyeTrace().HitGroup == 5 ) then
+		return false
+	end
+end )
+	</code>
+</example>

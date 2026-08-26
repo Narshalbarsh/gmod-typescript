@@ -1,0 +1,9 @@
+<function name="CreateTeams" parent="GM" type="hook">
+	<description>
+Teams are created within this hook using <page>team.SetUp</page>.
+
+This hook is called before <page>GM:PreGamemodeLoaded</page>.
+	</description>
+	<realm>Shared</realm>
+	<file line="127-L149">gamemodes/base/gamemode/shared.lua</file>
+</function>

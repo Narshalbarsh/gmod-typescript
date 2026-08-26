@@ -1,0 +1,10 @@
+<function name="Setup" parent="DTab" type="panelfunc">
+	<description><internal></internal> Used internally by <page>DPropertySheet:AddSheet</page>.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="label" type="string">Label of the tab</arg>
+		<arg name="sheet" type="Panel">The <page>DPropertySheet</page> this tab belongs to.</arg>
+		<arg name="pnl" type="Panel">Panel to be used as contents of the tab. This normally should be a <page>DPanel</page>.</arg>
+		<arg name="icon" type="string" default="nil">Icon for the tab. This will typically be a <page text="silkicon">Silkicons</page>, but any material name can be used.</arg>
+	</args>
+</function>

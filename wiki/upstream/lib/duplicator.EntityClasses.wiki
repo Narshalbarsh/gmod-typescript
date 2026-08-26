@@ -1,0 +1,10 @@
+<function name="EntityClasses" parent="duplicator" type="libraryfield">
+	<description>A list of all entity classes have a custom duplication spawn function. Registered with <page>duplicator.RegisterEntityClass</page>.
+
+If you wish to get a specific entity class table, use <page>duplicator.FindEntityClass</page>.
+</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="table">The list of all entity classes with a custom duplication handler. Key = classname, Value = table.</ret>
+	</rets>
+</function>

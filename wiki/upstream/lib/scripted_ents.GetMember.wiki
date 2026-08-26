@@ -1,0 +1,12 @@
+<function name="GetMember" parent="scripted_ents" type="libraryfunc">
+	<file line="262-L278">lua/includes/modules/scripted_ents.lua</file>
+	<description>Retrieves a member of entity's table.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="class" type="string">Entity's class name</arg>
+		<arg name="name" type="string">Name of member to retrieve</arg>
+	</args>
+	<rets>
+		<ret name="" type="any">The member or nil if failed</ret>
+	</rets>
+</function>

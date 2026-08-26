@@ -1,0 +1,7 @@
+<function name="GetIsToggle" parent="DLabel" type="panelfunc">
+	<description>Returns whether the toggle functionality is enabled for a label. Set with <page>DLabel:SetIsToggle</page>.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Whether or not toggle functionality is enabled.</ret>
+	</rets>
+</function>

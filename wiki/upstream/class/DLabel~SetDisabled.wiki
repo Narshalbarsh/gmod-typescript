@@ -1,0 +1,13 @@
+<function name="SetDisabled" parent="DLabel" type="panelfunc">
+	<description>
+<deprecated>Use <page>Panel:SetEnabled</page> instead.</deprecated>
+
+Sets the disabled state of the <page>DLabel</page>.
+
+When disabled, the label does not respond to click, toggle or drag & drop actions.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="disable" type="boolean">`true` to disable the DLabel, `false` to enable it.</arg>
+	</args>
+</function>

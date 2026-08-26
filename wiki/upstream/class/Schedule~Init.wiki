@@ -1,0 +1,8 @@
+<function name="Init" parent="Schedule" type="classfunc">
+	<description><internal></internal> Initialises the Schedule. Called by <page>ai_schedule.New</page> when the Schedule is created.</description>
+	<realm>Server</realm>
+	<file line="21-L27">lua/includes/modules/ai_schedule.lua</file>
+	<args>
+		<arg name="debugName" type="string">The name passed from <page>ai_schedule.New</page>.</arg>
+	</args>
+</function>

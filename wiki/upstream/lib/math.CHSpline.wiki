@@ -1,0 +1,54 @@
+<function name="CHSpline" parent="math" type="libraryfunc">
+	<description>Cubic Hermite spline algorithm.</description>
+	<realm>Shared and Menu</realm>
+	<file line="148-L159">lua/includes/extensions/math.lua</file>
+	<added>2023.08.08</added>
+	<args>
+		<arg name="frac" type="number">From 0 to 1, where alongside the spline the point will be.</arg>
+		<arg name="point0" type="Vector">First point for the spline.</arg>
+		<arg name="tan0" type="Vector">Tangent for the first point for the spline.</arg>
+		<arg name="point1" type="Vector">Second point for the spline.</arg>
+		<arg name="tan1" type="Vector">Tangent for the second point for the spline.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">Point on the cubic Hermite spline, at given fraction.</ret>
+	</rets>
+</function>
+
+<example>
+<code>
+
+local points = {
+	Vector( 128, 128 ), -- point 1
+	Vector( 384, 128 ), -- tangent pos 1
+	Vector( 128, 384 ), -- point 2
+	Vector( 384, 384 ) -- tangent pos 2
+}
+
+hook.Add( "HUDPaint", "math.BezierLerp", function()
+	local frac = RealTime() % 1
+	local point = math.CHSpline( frac, unpack( points ) )
+
+	surface.SetDrawColor( 255, 255, 0 )
+	surface.DrawRect( point.x - 4, point.y - 4, 8, 8 )
+
+	surface.DrawRect( points[1].x - 4, points[1].y - 4, 8, 8 )
+	surface.DrawRect( points[3].x - 4, points[3].y - 4, 8, 8 )
+	surface.SetDrawColor( 255, 0, 0 )
+	surface.DrawRect( points[2].x - 4, points[2].y - 4, 8, 8 )
+	surface.DrawRect( points[4].x - 4, points[4].y - 4, 8, 8 )
+	
+	-- Draw the spline
+	for i=0,20 do
+	
+		local point = math.CHSpline( i / 20, unpack( points ) )
+
+		surface.SetDrawColor( 0, 255, 0 )
+		surface.DrawRect( point.x - 2, point.y - 2, 4, 4 )
+	end
+end )
+</code>
+<output>
+<upload src="70c/8db983d5bad2ef0.png" size="28227" name="image.png" />
+</output>
+</example>

@@ -1,0 +1,40 @@
+<function name="setfenv" parent="Global" type="libraryfunc">
+	<description>Sets the environment for a function or a stack level. Can be used to sandbox code.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="location" type="function">The function to set the environment for, or a number representing stack level.</arg>
+		<arg name="environment" type="table">Table to be used as the the environment.</arg>
+	</args>
+	<rets>
+		<ret name="" type="function">The function passed, otherwise nil.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Use setfenv to create a sandbox</description>
+	<code>
+local sandbox = {}
+
+-- Define a print function in the sandbox
+sandbox.print = function(s)
+	return print("[Sandbox] " .. s)	
+end
+
+local sandboxedCode = function()
+	print("Hello")
+	string.format("%s", "error please")
+end
+
+-- change environment for sandboxedCode to the sandbox table
+setfenv(sandboxedCode, sandbox)
+
+sandboxedCode()
+	</code>
+	<output>
+```
+[Sandbox] Hello
+
+Script:11: attempt to index global 'string' (a nil value)
+```
+	</output>
+</example>

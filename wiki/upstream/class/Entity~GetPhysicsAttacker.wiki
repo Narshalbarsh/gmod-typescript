@@ -1,0 +1,12 @@
+<function name="GetPhysicsAttacker" parent="Entity" type="classfunc">
+	<description>Returns player who is claiming kills of physics damage the entity deals.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="timeLimit" type="number" default="1">The time to check if the entity was still a proper physics attacker.
+
+<note>Some entities such as the Combine Ball disregard the time limit and always return the physics attacker.</note></arg>
+	</args>
+	<rets>
+		<ret name="" type="Player">The player. If entity that was set is not a player, it will return NULL entity.</ret>
+	</rets>
+</function>

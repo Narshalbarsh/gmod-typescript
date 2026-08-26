@@ -1,0 +1,11 @@
+<function name="difftime" parent="os" type="libraryfunc">
+	<description>Subtracts the second from the first value and rounds the result.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="timeA" type="number">The first value.</arg>
+		<arg name="timeB" type="number">The value to subtract.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">diffTime</ret>
+	</rets>
+</function>

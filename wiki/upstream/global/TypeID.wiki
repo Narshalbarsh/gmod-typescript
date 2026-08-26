@@ -1,0 +1,72 @@
+<function name="TypeID" parent="Global" type="libraryfunc">
+	<description>
+Gets the associated type ID of the variable. Unlike <page>Global.type</page>, this does not work with <page>no value</page> - an argument must be provided. 
+
+<warning>This will return `TYPE_TABLE` for <page>Color</page> objects.
+
+All subclasses of <page>Entity</page> will return `TYPE_ENTITY`.</warning>
+
+<bug request="1120">This returns garbage for _LOADLIB objects.</bug>
+<bug request="1459">This returns `TYPE_NIL` for <page>proto</page>s.</bug>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="variable" type="any">The variable to get the type ID of.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The type ID of the variable. See the <page>Enums/TYPE</page>.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Check the variable return on a few types.</description>
+	<code>
+MsgN( TypeID( "Hello" ) )
+MsgN( TypeID( function( ) end ) )
+MsgN( TypeID( { } ) )
+MsgN( TypeID( 80 ) )
+MsgN( TypeID( false ) )
+	</code>
+	<output>
+```
+4 (TYPE_STRING)
+6 (TYPE_FUNCTION)
+5 (TYPE_TABLE)
+3 (TYPE_NUMBER)
+1 (TYPE_BOOL)
+```
+	</output>
+</example>
+
+<example>
+	<description>Show output of a <page>vararg</page>.</description>
+	<code>
+-- This should output whatever you put in the first argument.
+local function Example( ... )
+	MsgN( TypeID( ... ) )
+end
+
+Example( 1, "Hello" ) -- TYPE_NUMBER
+Example( "Hello", 1 ) -- TYPE_STRING
+
+-- This should output the table of data in a vararg.
+local function Example2( ... )
+	for k,v in pairs( { ... } ) do 
+		MsgN( TypeID( v ) )
+	end 
+end
+
+Example2( "Hello", 1, { } ) -- TYPE_STRING, TYPE_NUMBER, TYPE_TABLE
+
+	</code>
+	<output>
+```
+3 (TYPE_NUMBER)
+4 (TYPE_STRING)
+
+4 (TYPE_STRING)
+3 (TYPE_NUMBER)
+5 (TYPE_TABLE)
+```
+	</output>
+</example>

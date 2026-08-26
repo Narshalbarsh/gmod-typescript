@@ -1,0 +1,28 @@
+<function name="ScreenShake" parent="util" type="libraryfunc">
+	<description>Makes the screen shake.
+
+<note>The screen shake effect is rendered by modifying the view origin on the client. If you override the view origin in <page>GM:CalcView</page> you may not be able to see the shake effect.</note></description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="pos" type="Vector">The origin of the effect.
+			
+Used serverside only, to determine which clients the event should be networked to.
+		</arg>
+		<arg name="amplitude" type="number">The strength of the effect. How far away from its origin the camera will move while shaking.</arg>
+		<arg name="frequency" type="number">How many times per second to change the direction of the camera wobble. 40 is generally enough; values higher are hardly distinguishable.</arg>
+		<arg name="duration" type="number">The duration of the effect in seconds.</arg>
+		<arg name="radius" type="number">The range from the origin within which views will be affected, in Hammer units.
+
+This is used when networking the event to clients only.
+		</arg>
+		<arg name="airshake" type="boolean" default="false" added="2023.09.11">Whether players in the air should also be affected.
+
+Used serverside only to determine which clients to send the event to.</arg>
+		<arg name="filter" type="CRecipientFilter" default="nil" added="2024.02.17">If set, will only network the screen shake event to players present in the filter.</arg>
+	</args>
+</function>
+
+<example>
+	<description>This will shake the screen, from the position 0, 0, 0 (X, Y, Z) and 5000 units away, with 5 amp, frequency 5, for 10 seconds.</description>
+	<code>util.ScreenShake( Vector(0, 0, 0), 5, 5, 10, 5000 )</code>
+</example>

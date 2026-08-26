@@ -1,0 +1,11 @@
+<function name="OutQuart" parent="math.ease" type="libraryfunc">
+	<description>Eases out by raising the fraction to the power of 4.</description>
+	<realm>Shared and Menu</realm>
+	<file line="77-L79">lua/includes/extensions/math/ease.lua</file>
+	<args>
+		<arg name="fraction" type="number">Fraction of the progress to ease, from 0 to 1</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">"Eased" Value, from 0 to 1</ret>
+	</rets>
+</function>

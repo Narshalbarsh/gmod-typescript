@@ -1,0 +1,10 @@
+<function name="GWEN_SetPosition" parent="Panel" type="classfunc">
+	<description><internal></internal> Used by <page>Panel:ApplyGWEN</page> to apply the `Position` property to a  panel object. This calls <page>Panel:SetPos</page>.</description>
+	<realm>Client and Menu</realm>
+	<file line="201">lua/derma/derma_gwen.lua</file>
+	<args>
+		<arg name="pos" type="table">A two-membered table containing the x and y coordinates as numbers:
+* <page>number</page> x - The x coordinate.
+* <page>number</page> y - The y coordinate.</arg>
+	</args>
+</function>

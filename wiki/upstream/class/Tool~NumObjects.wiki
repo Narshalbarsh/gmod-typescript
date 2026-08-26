@@ -1,0 +1,11 @@
+<function name="NumObjects" parent="Tool" type="classfunc">
+	<description>
+Returns the amount of stored objects ( <page>Entity</page>s ) the tool has.
+<validate>Are TOOLs limited to 4 entities?</validate>
+	</description>
+	<realm>Shared</realm>
+	<file line="149">gamemodes/sandbox/entities/weapons/gmod_tool/object.lua</file>
+	<rets>
+		<ret name="" type="number">The amount of stored objects, or <page>Tool:GetStage</page> clientide.</ret>
+	</rets>
+</function>

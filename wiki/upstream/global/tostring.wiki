@@ -1,0 +1,21 @@
+<function name="tostring" parent="Global" type="libraryfunc">
+	<description>
+Attempts to convert the value to a string. If the value is an object and its metatable has defined the __tostring metamethod, this will call that function.
+
+<page>Global.print</page> also uses this functionality.
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="value" type="any">The object to be converted to a string.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The string representation of the value.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Convert a number to a string.</description>
+	<code>print(tostring(0x16))</code>
+	<output>22</output>
+
+</example>

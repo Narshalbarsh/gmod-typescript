@@ -1,0 +1,7 @@
+<function name="GetBorder" parent="DTileLayout" type="panelfunc">
+	<description>Returns the border spacing set by <page>DTileLayout:SetBorder</page>.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">The border spacing</ret>
+	</rets>
+</function>

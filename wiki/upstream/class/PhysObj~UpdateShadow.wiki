@@ -1,0 +1,16 @@
+<function name="UpdateShadow" parent="PhysObj" type="classfunc">
+	<description>
+Unlike <page>PhysObj:SetPos</page> and <page>PhysObj:SetAngles</page>, this allows the movement of a physobj while leaving physics interactions intact.<br/>
+This is used internally by the motion controller of the Gravity Gun , the +use pickup and the Physics Gun, and entities such as the crane.
+
+<note>This is the ideal function to move a physics shadow created with <page>Entity:PhysicsInitShadow</page> or <page>Entity:MakePhysicsObjectAShadow</page>.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="targetPosition" type="Vector">The position we should move to.</arg>
+		<arg name="targetAngles" type="Angle">The angle we should rotate towards.</arg>
+		<arg name="frameTime" type="number">The frame time to use for this movement, can be generally filled with <page>Global.FrameTime</page> or <page>ENTITY:PhysicsSimulate</page> with the deltaTime. 
+
+Can be set to 0 when you need to update the physics object just once.</arg>
+	</args>
+</function>

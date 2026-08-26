@@ -1,0 +1,8 @@
+<function name="GetHeadDirection" parent="NPC" type="classfunc">
+	<description>Returns the 2D head direction of the NPC.</description>
+	<realm>Server</realm>
+	<added>2025.03.07</added>
+	<rets>
+		<ret name="" type="Vector">The head direction.</ret>
+	</rets>
+</function>

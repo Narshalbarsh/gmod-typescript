@@ -1,0 +1,40 @@
+<function name="DEFINE_BASECLASS" parent="Global" type="libraryfunc">
+	<description>
+		Generates and provides a local variable `BaseClass` that can be used to call the original version of a class functions after modifying it.
+
+		This is a preprocessor keyword that is directly replaced with the following text:
+```lua
+local BaseClass = baseclass.Get
+```
+
+Because this is a simple preprocessor keyword and not a function, it will cause problems if not used properly
+
+See <page>baseclass.Get</page> for more information.
+	<warning>The preprocessor is not smart enough to know when substitution doesn't make sense, such as: table keys and strings.  
+
+Running `print("DEFINE_BASECLASS")` is the same as `print("local BaseClass = baseclass.Get")`</warning>
+
+For more information, including usage examples, see the <page>BaseClasses</page> reference page.
+
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="value" type="string">Baseclass name</arg>
+	</args>
+</function>
+
+<example>
+	<description>Showcase Demonstration from the sandbox gamemode code</description>
+	<code>
+DEFINE_BASECLASS( "gamemode_base" )		--Establish the var BaseClass to hold the original base gamemode functions
+
+function GM:PlayerSpawn( pl, transiton )	--overriding the original function with our own
+
+	player_manager.SetPlayerClass( pl, "player_sandbox" )	--Adding our extended functionality
+
+	BaseClass.PlayerSpawn( self, pl, transiton )	-- Calling the original GM:PlayerSpawn so still get original functionality
+
+end
+	</code>
+	<output>Original Spawning Mechanics with the addition that players now spawn with `player_sandbox` class </output>
+</example>

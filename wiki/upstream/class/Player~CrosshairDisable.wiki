@@ -1,0 +1,10 @@
+<function name="CrosshairDisable" parent="Player" type="classfunc">
+	<description>Disables the default player's crosshair. Can be reenabled with <page>Player:CrosshairEnable</page>. This will affect <page>WEAPON:DoDrawCrosshair</page>.</description>
+	<realm>Server</realm>
+</function>
+
+<example>
+	<description>Disables crosshair of the first player on the server.</description>
+	<code>Entity( 1 ):CrosshairDisable()</code>
+
+</example>

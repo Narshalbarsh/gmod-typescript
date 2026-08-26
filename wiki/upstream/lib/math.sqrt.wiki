@@ -1,0 +1,10 @@
+<function name="sqrt" parent="math" type="libraryfunc">
+	<description>Returns the square root of the number.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="value" type="number">Value to get the square root of.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">squareRoot</ret>
+	</rets>
+</function>

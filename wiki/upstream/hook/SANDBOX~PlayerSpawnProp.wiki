@@ -1,0 +1,23 @@
+<function name="PlayerSpawnProp" parent="SANDBOX" type="hook">
+	<description>Called when a player attempts to spawn a prop from the Q menu.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ply" type="Player">The player who attempted to spawn a prop.</arg>
+		<arg name="model" type="string">Path to the model of the prop the player is attempting to spawn.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Should the player be able to spawn the prop or not.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Stops non-admins from spawning props.</description>
+	<code>
+function GM:PlayerSpawnProp( ply, model )
+	if ( !ply:IsAdmin() ) then
+		return false
+	end
+end
+	</code>
+
+</example>

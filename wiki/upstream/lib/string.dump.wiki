@@ -1,0 +1,15 @@
+<function name="dump" parent="string" type="libraryfunc">
+	<description>
+Returns the binary bytecode of the given function.
+
+<note>This does not work with functions created in C/C++. An error will be thrown if it is</note>
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="func" type="function">The function to get the bytecode of</arg>
+		<arg name="stripDebugInfo" type="boolean" default="false">True to strip the debug data, false to keep it</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">Bytecode</ret>
+	</rets>
+</function>

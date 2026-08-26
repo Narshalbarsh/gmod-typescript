@@ -1,0 +1,21 @@
+<function name="Ignite" parent="Entity" type="classfunc">
+	<description>
+Sets the entity on fire.
+
+See also <page>Entity:Extinguish</page>.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="length" type="number">How long to keep the entity ignited, in seconds.</arg>
+		<arg name="radius" type="number" default="0">The radius of the ignition, will ignite everything around the entity that is in this radius.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Ignite all props on the map for 30 seconds.</description>
+	<code>
+for _, ent in ipairs( ents.FindByClass( "prop_physics" ) ) do
+   ent:Ignite( 30 )
+end
+	</code>
+</example>

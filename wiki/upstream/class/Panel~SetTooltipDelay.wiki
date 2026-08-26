@@ -1,0 +1,12 @@
+<function name="SetTooltipDelay" parent="Panel" type="classfunc">
+	<file line="323-L325">lua/includes/extensions/client/panel.lua</file>
+	<description>Sets the tooltip delay. (time between hovering over the panel, and the tooltip showing up)
+
+Can be retrieved with <page>Panel:GetTooltipDelay</page>.
+</description>
+	<realm>Client and Menu</realm>
+	<added>2023.04.19</added>
+	<args>
+		<arg name="tooltip" type="number">The tooltip delay to set.</arg>
+	</args>
+</function>

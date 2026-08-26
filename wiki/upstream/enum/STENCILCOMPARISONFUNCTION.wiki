@@ -1,0 +1,24 @@
+<enum>
+	<realm>Client</realm>
+	<description>
+Enumerations for use with <page>render.SetStencilCompareFunction</page>.
+
+The comparison is between the reference value set by <page>render.SetStencilReferenceValue</page>, and the value of each pixel in the stencil buffer.
+
+Clientside only.
+<note>These enumerations are also mirrored as <page>Enums/STENCIL</page>.</note>
+
+Also see this corresponding MSDN entry: http://msdn.microsoft.com/en-us/library/windows/desktop/ff476101%28v=vs.85%29.aspx.
+	</description>
+	<items>
+<item key="STENCILCOMPARISONFUNCTION_NEVER" value="1">Never passes.</item>
+<item key="STENCILCOMPARISONFUNCTION_LESS" value="2">Passes where the reference value is less than the stencil value.</item>
+<item key="STENCILCOMPARISONFUNCTION_EQUAL" value="3">Passes where the reference value is equal to the stencil value.</item>
+<item key="STENCILCOMPARISONFUNCTION_LESSEQUAL" value="4">Passes where the reference value is less than or equal to the stencil value.</item>
+<item key="STENCILCOMPARISONFUNCTION_GREATER" value="5">Passes where the reference value is greater than the stencil value.</item>
+<item key="STENCILCOMPARISONFUNCTION_NOTEQUAL" value="6">Passes where the reference value is not equal to the stencil value.</item>
+<item key="STENCILCOMPARISONFUNCTION_GREATEREQUAL" value="7">Passes where the reference value is greater than or equal to the stencil value.</item>
+<item key="STENCILCOMPARISONFUNCTION_ALWAYS" value="8">Always passes.</item>
+	</items>
+
+</enum>

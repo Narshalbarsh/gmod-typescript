@@ -1,0 +1,7 @@
+<function name="ReadBool" parent="bf_read" type="classfunc">
+	<description>Reads 1 bit and returns a bool representing the bit.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="boolean">bit</ret>
+	</rets>
+</function>

@@ -1,0 +1,64 @@
+<function name="CreateClientRope" parent="ents" type="libraryfunc">
+    <description>
+Creates a clientside only rope, similar to those used by the Dog and Fast Zombie models from Half-Life 2.
+
+Created ropes will be automatically cleaned up when one of the attached entities is removed.
+
+<warning>It doesn’t work exactly the same way as <page>constraint.CreateKeyframeRope</page> or <page>constraint.Rope</page>, you can see it when you try to use Slack with <page>constraint.CreateKeyframeRope</page> or addlength on <page>constraint.Rope</page>.</warning>
+
+    </description>
+    <realm>Client</realm>
+    <added>2025.05.23</added>
+    <args>
+        <arg name="ent1" type="Entity">The first entity to attach the rope to.</arg>
+        <arg name="ent1attach" type="number|Vector">The attachment ID on the first entity to attach the rope to, or a local Vector relative to the first entity.</arg>
+        <arg name="ent2" type="Entity">The second entity to attach the rope to.</arg>
+        <arg name="ent2attach" type="number|Vector">The attachment ID on the second entity to attach the rope to, or a local Vector relative to the second entity.</arg>
+        <arg name="extra" type="table" default="nil">Extra optional settings for the rope. Possible values are:
+* slack - How much extra rope to add to the length. (default: 0)
+* width - Width of the rope. (default: 2)
+* segments - How many segments the rope should have (default: 8, valid range is [2,10])
+* material - Which material should the rope have. (default: `"cable/cable"`)
+* nogravity - If set, the rope should have no gravity. (default: 0)
+
+</arg>
+    </args>
+    <rets>
+        <ret name="" type="Entity">Created entity (`C_RopeKeyframe`).</ret>
+    </rets>
+</function>
+
+<example>
+<description>Sample usage, creates a clientside rope between the player entity, and the entity the player is looking at.</description>
+<code>
+concommand.Add( "test_rope", function( ply, cmd, args )
+    local ent = ply:GetEyeTrace().Entity
+    local ent2 = ply
+
+    local ropeEnt = ents.CreateClientRope( ent, 0, ent2, 1, { slack = tonumber( args[ 1 ] ) or 0, material ="models/wireframe" } )
+    print( ropeEnt )
+end )
+</code>
+</example>
+
+<example>
+<description>Sample usage: stores the entity you’re looking at as the first endpoint, then on a second command creates a client-side rope like what we can got with <page>constraint.CreateKeyframeRope</page> or <page>constraint.Rope</page> server side.</description>
+<code>
+local firstEnt = nil
+local addlength = 100
+concommand.Add( "test_rope_first", function( ply, cmd, args )
+    firstEnt = ply:GetEyeTrace().Entity
+    print("First entity: ",firstEnt)
+end)
+
+concommand.Add( "test_rope", function( ply, cmd, args )
+    if not IsValid(firstEnt) then return end
+    local ent1 = firstEnt
+    local ent2 = ply:GetEyeTrace().Entity
+    local dist = ent1:GetPos():Distance(ent2:GetPos())
+
+    local ropeEnt = ents.CreateClientRope( ent1, 0, ent2, 1, { slack = dist+(addlength/2), material ="models/wireframe" } )
+    print(ropeEnt)
+end)
+</code>
+</example>

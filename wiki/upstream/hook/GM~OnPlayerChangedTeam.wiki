@@ -1,0 +1,14 @@
+<function name="OnPlayerChangedTeam" parent="GM" type="hook">
+	<description>
+<deprecated>Use <page>GM:PlayerChangedTeam</page> instead, which works for every <page>Player:SetTeam</page> call.</deprecated>
+Called when a player has changed team using <page>GM:PlayerJoinTeam</page>.
+
+<warning>This hook will not work with <page>hook.Add</page> and it is only called manually from <page>GM:PlayerJoinTeam</page> by the base gamemode</warning>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ply" type="Player">Player who has changed team</arg>
+		<arg name="oldTeam" type="number">Index of the team the player was originally in</arg>
+		<arg name="newTeam" type="number">Index of the team the player has changed to</arg>
+	</args>
+</function>

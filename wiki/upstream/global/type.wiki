@@ -1,0 +1,58 @@
+<function name="type" parent="Global" type="libraryfunc">
+	<file line="51-L65">lua/includes/util.lua</file>
+	<description>
+Returns a string representing the name of the type of the passed object.
+<warning>This will return `table` if the input is <page>Global.Color</page>, consider using <page>Global.IsColor</page> in that case.</warning>
+</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="var" type="any">The object to get the type of.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The name of the object's type.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Print the name of a few types.</description>
+	<code>
+print( type( 2 ) )
+print( type( "hai" ) )
+print( type( {} ) )
+print( type( Color( 1, 1, 1 ) ) )
+	</code>
+	<output>
+```
+number
+string
+table
+table
+```
+	</output>
+</example>
+
+<example>
+	<description>Returns `no value` if called with 0 arguments/parameters.</description>
+	<code>print( type() )</code>
+	<output>no value</output>
+</example>
+
+<example>
+	<description>A list of code showing how you can use the type function in replacement with any of the `is*` functions. (example being <page>Global.istable</page>, <page>Global.isentity</page>, etc.)</description>
+	<code>
+print( type( LocalPlayer() ) )
+print( type( Vector() ) )
+print( type( Angle() ) )
+print( type( Entity( num ) ) ) -- num is the EntIndex for the entity
+print( type( vgui.Create( "DFrame" ) ) )
+	</code>
+	<output>
+```
+Player
+Vector
+Angle
+Entity
+Panel
+```
+	</output>
+</example>

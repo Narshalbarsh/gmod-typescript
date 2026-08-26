@@ -1,0 +1,7 @@
+<function name="FilterByText" parent="DIconBrowser" type="panelfunc">
+	<description>A simple unused search feature, hides all icons that do not contain given text in their file path.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="text" type="string">The text to search for</arg>
+	</args>
+</function>

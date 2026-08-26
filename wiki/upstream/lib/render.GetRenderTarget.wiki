@@ -1,0 +1,35 @@
+<function name="GetRenderTarget" parent="render" type="libraryfunc">
+	<description>
+Returns the currently active render target.
+
+Instead of saving the current render target using this function and restoring to it later, it is generally better practice to use <page>render.PushRenderTarget</page> and <page>render.PopRenderTarget</page>.
+	</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="ITexture">The currently active Render Target.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Render something to a different render target, then restore the old render target.</description>
+	<code>
+local w, h = ScrW(), ScrH()
+local customRt = GetRenderTarget( "some_unique_render_target_nameeeee", w, h, true )
+
+render.PushRenderTarget( customRt )
+    render.Clear( 0, 0, 255, 255, true ) -- fill the background with blue!
+
+    -- draw all props on the blue background!
+    for key, prop in ipairs( ents.FindByClass( "prop_physics" ) ) do
+        prop:DrawModel()
+    end
+
+    -- save the picture to the garrysmod/data folder.  ~format="jpg" will not work.
+    local data = render.Capture({ format = "jpeg", quality = 70, x = 0, y = 0, h = h, w = w })	
+    local pictureFile = file.Open( "RenderTargetsAreAwesome.jpg", "wb", "DATA" )	
+    pictureFile:Write( data )
+    pictureFile:Close()
+render.PopRenderTarget()
+	</code>
+
+</example>

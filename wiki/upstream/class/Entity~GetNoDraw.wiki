@@ -1,0 +1,11 @@
+<function name="GetNoDraw" parent="Entity" type="classfunc">
+	<description>
+Returns if the entity's rendering and transmitting has been disabled.
+
+<note>This is equivalent to calling <page>Entity:IsEffectActive</page>( EF_NODRAW )</note>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the entity's rendering and transmitting has been disabled.</ret>
+	</rets>
+</function>

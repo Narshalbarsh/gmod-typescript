@@ -1,0 +1,15 @@
+<function name="FindGestureLayer" parent="Entity" type="classfunc">
+	<description>
+Searches the currently active layers for a layer playing animation with given activity.
+
+<note>This function only works on <page>BaseAnimatingOverlay</page> entites!</note>
+	</description>
+	<added>2025.07.31</added>
+	<realm>Server</realm>
+	<args>
+		<arg name="activity" type="number{ACT}">The activity to search for.</arg>
+	</args>
+	<rets>
+		<ret name="layerID" type="number">A layer ID for given activity, or `-1` if not found.</ret>
+	</rets>
+</function>

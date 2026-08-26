@@ -1,0 +1,71 @@
+<function name="ipairs" parent="Global" type="libraryfunc">
+	<description>
+Returns a [Stateless Iterator](https://www.lua.org/pil/7.3.html) for a [Generic For Loops](https://www.lua.org/pil/4.3.5.html), to return ordered key-value pairs from a table.
+
+This will only iterate through **numerical** keys, and these must also be **sequential**; starting at 1 with no gaps.
+
+For unordered pairs, see <page>Global.pairs</page>.
+
+For pairs sorted by key in alphabetical order, see <page>Global.SortedPairs</page>.
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="tab" type="table">The table to iterate over.</arg>
+	</args>
+	<rets>
+		<ret name="" type="function">The iterator function.</ret>
+		<ret name="" type="table">The table being iterated over.</ret>
+		<ret name="" type="number">The origin index **=0**.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Demonstrates how this differs from <page>Global.pairs</page>.</description>
+	<code>
+local tbl = { two = 2, one = 1, "alpha", "bravo", [3] = "charlie", [5] = "echo", [6] = "foxtrot" }
+
+print( "pairs:" )
+for k, v in pairs( tbl ) do
+	print( k, v )
+end
+
+print( "\nipairs:" )
+for k, v in ipairs( tbl ) do
+	print( k, v )
+end
+	</code>
+	<output>
+```
+pairs:
+1	alpha
+2	bravo
+3	charlie
+5	echo
+6	foxtrot
+one	1
+two	2
+
+ipairs:
+1	alpha
+2	bravo
+3	charlie
+```
+	</output>
+</example>
+
+<example>
+	<description>From `UpdateUI` in [undo.lua](https://github.com/Facepunch/garrysmod/blob/master/garrysmod/lua/includes/modules/undo.lua#L40-L50), this adds the first 100 undo entries to the `Undo` panel in the spawnmenu.</description>
+	<code>
+local Limit = 100
+local Count = 0
+for k, v in ipairs( ClientUndos ) do
+
+	local Item = ComboBox:AddItem( tostring( v.Name ) )
+	Item.DoClick = function() RunConsoleCommand( "gmod_undonum", tostring( v.Key ) ) end
+
+	Count = Count + 1
+	if ( Count > Limit ) then break end
+
+end
+	</code>
+</example>

@@ -1,0 +1,7 @@
+<function name="GetRandomPoint" parent="CNavArea" type="classfunc">
+	<description>Returns a random point on the nav area.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="Vector">The random point on the nav area.</ret>
+	</rets>
+</function>

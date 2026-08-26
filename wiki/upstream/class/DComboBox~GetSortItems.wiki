@@ -1,0 +1,12 @@
+<function name="GetSortItems" parent="DComboBox" type="panelfunc">
+	<description>
+An <page>Global.AccessorFunc</page> that returns an whether the items in the dropdown will be alphabetically sorted or not.
+
+See <page>DComboBox:SetSortItems</page>.
+	</description>
+	<file line="8">lua/vgui/dcombobox.lua</file>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">True if enabled, false otherwise.</ret>
+	</rets>
+</function>

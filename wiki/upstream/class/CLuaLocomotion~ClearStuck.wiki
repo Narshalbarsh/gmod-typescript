@@ -1,0 +1,4 @@
+<function name="ClearStuck" parent="CLuaLocomotion" type="classfunc">
+	<description>Removes the stuck status from the bot</description>
+	<realm>Server</realm>
+</function>

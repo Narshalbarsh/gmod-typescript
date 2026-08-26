@@ -1,0 +1,19 @@
+<function name="SetEditable" parent="DTextEntry" type="panelfunc">
+	<description>Disables Input on a DTextEntry. This differs from <page>DTextEntry:SetDisabled</page> - SetEditable will not affect the appearance of the textbox.</description>
+	<realm>Client and Menu</realm>
+	<file line="329-L334">lua/vgui/dtextentry.lua</file>
+	<args>
+		<arg name="enabled" type="boolean">Whether the DTextEntry should be editable</arg>
+	</args>
+</function>
+
+<example>
+	<code>
+local TextEntry = vgui.Create( "DTextEntry", frame ) -- create the form as a child of frame
+TextEntry:SetPos( 25, 50 )
+TextEntry:SetSize( 75, 85 )
+TextEntry:SetText( "Sample String" )
+TextEntry:SetEditable( false )
+	</code>
+
+</example>

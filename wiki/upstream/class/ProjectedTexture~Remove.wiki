@@ -1,0 +1,4 @@
+<function name="Remove" parent="ProjectedTexture" type="classfunc">
+	<description>Removes the projected texture. After calling this, <page>ProjectedTexture:IsValid</page> will return false, and any hooks with the projected texture as the identifier will be automatically deleted.</description>
+	<realm>Client</realm>
+</function>

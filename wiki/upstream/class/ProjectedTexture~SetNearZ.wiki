@@ -1,0 +1,15 @@
+<function name="SetNearZ" parent="ProjectedTexture" type="classfunc">
+	<description>
+Sets the distance at which the projected texture begins its projection.
+
+You must call <page>ProjectedTexture:Update</page> after using this function for it to take effect.
+
+<note>Setting this to 0 will disable the projected texture completely! This may be useful if you want to disable a projected texture without actually removing it</note>
+
+<note>This seems to affect the rendering of shadows - a higher Near Z value will have shadows begin to render closer to their casting object. Comparing a low Near Z value (like 1) with a normal one (12) or high one (1000) is the easiest way to understand this artifact</note>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="nearZ" type="number"></arg>
+	</args>
+</function>

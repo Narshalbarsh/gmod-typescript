@@ -1,0 +1,4 @@
+<function name="ActivateGameUI" parent="gui" type="libraryfunc">
+	<description>Opens the game main menu as if the player pressed their Escape key.</description>
+	<realm>Client and Menu</realm>
+</function>

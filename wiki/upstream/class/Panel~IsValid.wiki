@@ -1,0 +1,7 @@
+<function name="IsValid" parent="Panel" type="classfunc">
+	<description>Returns if the panel is valid and not marked for deletion.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">True if the object is valid.</ret>
+	</rets>
+</function>

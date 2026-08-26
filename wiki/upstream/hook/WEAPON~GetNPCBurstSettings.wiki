@@ -1,0 +1,9 @@
+<function name="GetNPCBurstSettings" parent="WEAPON" type="hook">
+	<description>Called when the weapon is used by NPCs to tell the NPC how to use this weapon. Controls how long the NPC can or should shoot continuously.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">Minimum amount of bullets per burst. Default is 1.</ret>
+		<ret name="" type="number">Maximum amount of bullets per burst. Default is 1.</ret>
+		<ret name="" type="number">Delay between each shot, aka firerate. Default is 1.</ret>
+	</rets>
+</function>

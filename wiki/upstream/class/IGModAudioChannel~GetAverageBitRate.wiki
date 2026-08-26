@@ -1,0 +1,7 @@
+<function name="GetAverageBitRate" parent="IGModAudioChannel" type="classfunc">
+	<description>Returns the average bit rate of the sound channel.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">The average bit rate of the sound channel.</ret>
+	</rets>
+</function>

@@ -1,0 +1,7 @@
+<function name="IsValid" parent="CNewParticleEffect" type="classfunc">
+	<description>Returns whether the particle system is valid or not.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the particle system is valid or not.</ret>
+	</rets>
+</function>

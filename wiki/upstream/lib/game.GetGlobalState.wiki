@@ -1,0 +1,18 @@
+<function name="GetGlobalState" parent="game" type="libraryfunc">
+	<description>
+Returns whether a Global State is off, active or dead ( inactive ).
+
+See <page>Global States</page> for more information.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="name" type="string">The name of the Global State to retrieve the state of. 
+
+If the Global State by that name does not exist, **GLOBAL_DEAD** will be returned.
+
+See <page>Global States</page> for a list of default global states.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The state of the Global State. See <page>Enums/GLOBAL</page>.</ret>
+	</rets>
+</function>

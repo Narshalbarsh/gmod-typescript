@@ -1,0 +1,19 @@
+<function name="GetByID" parent="player" type="libraryfunc">
+	<description>
+Gets the player with the specified connection ID.
+
+Connection ID can be retrieved via <page>gameevent.Listen</page> events.
+
+For a function that returns a player based on their <page>Entity:EntIndex</page>, see <page>Global.Entity</page>.
+
+
+For a function that returns a player based on their <page>Player:UserID</page>, see <page>Global.Player</page>.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="connectionID" type="number">The connection ID to find the player by.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Player|NULL">Player if one is found, `NULL` otherwise.</ret>
+	</rets>
+</function>

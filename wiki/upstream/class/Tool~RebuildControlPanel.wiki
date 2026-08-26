@@ -1,0 +1,9 @@
+<function name="RebuildControlPanel" parent="Tool" type="classfunc">
+	<description>Automatically forces the tool's control panel to be rebuilt.</description>
+	<realm>Client</realm>
+	<added>2023.01.25</added>
+	<file line="12">gamemodes/sandbox/entities/weapons/gmod_tool/stool_cl.lua</file>
+	<args>
+		<arg name="extra_args" type="vararg">Any arguments given to this function will be added to <page>TOOL.BuildCPanel</page>'s arguments.</arg>
+	</args>
+</function>

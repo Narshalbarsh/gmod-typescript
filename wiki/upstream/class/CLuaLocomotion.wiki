@@ -1,0 +1,3 @@
+<type name="CLuaLocomotion" category="classfunc" is="class">
+	<summary>This class is essentially what controls a <page>NextBot</page> NPC. You can access it in a <page>NextBot</page> NPC by using **self.loco** variable.</summary>
+</type>

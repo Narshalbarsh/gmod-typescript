@@ -18,7 +18,7 @@ declare function SortedPairsByMemberValue<
 ): LuaIterable<LuaMultiReturn<[K, NonNullable<V>]>>;
 
 declare function SortedPairsByMemberValue<
-    K,
+    K extends AnyNotNil,
     V extends object,
     M extends keyof V
 >(

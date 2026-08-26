@@ -1,0 +1,7 @@
+<function name="GetFileName" parent="DTree_Node" type="panelfunc">
+	<description>Returns the filepath of the file attached to this node.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="string"></ret>
+	</rets>
+</function>

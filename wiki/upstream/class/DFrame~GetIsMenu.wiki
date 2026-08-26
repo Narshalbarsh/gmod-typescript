@@ -1,0 +1,9 @@
+<function name="GetIsMenu" parent="DFrame" type="panelfunc">
+	<description>
+Gets whether or not the frame is part of a derma menu. This is set with <page>DFrame:SetIsMenu</page>.</description>
+	<realm>Client and Menu</realm>
+	<file line="4">lua/vgui/dframe.lua</file>
+	<rets>
+		<ret name="" type="boolean">Whether or not this frame is a menu component.</ret>
+	</rets>
+</function>

@@ -1,0 +1,16 @@
+<function name="StartLoopingSound" parent="Entity" type="classfunc">
+	<description>
+Starts a "looping" sound. As with any other sound playing methods, this function expects the sound file to be looping itself and will not automatically loop a non looping sound file as one might expect.
+
+This function is almost identical to <page>Global.CreateSound</page>, with the exception of the sound being created in the STATIC channel and with normal attenuation.
+
+See also <page>Entity:StopLoopingSound</page>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="sound" type="string">Sound to play. Can be either a sound script or a filepath.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The ID number of started sound starting with 0, or -1 if we failed for some reason.</ret>
+	</rets>
+</function>

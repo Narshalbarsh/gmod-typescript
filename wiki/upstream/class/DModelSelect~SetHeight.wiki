@@ -1,0 +1,11 @@
+<function name="SetHeight" parent="DModelSelect" type="panelfunc">
+	<description>
+Sets the height of the panel **in the amount of 64px spawnicons**.
+
+Overrides <page>Panel:SetHeight</page>.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="num" type="number" default="2">Basically how many rows of 64x64 px spawnicons should fit in this DModelSelect</arg>
+	</args>
+</function>

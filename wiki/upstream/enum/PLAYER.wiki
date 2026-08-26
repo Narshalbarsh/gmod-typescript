@@ -1,0 +1,17 @@
+<enum>
+	<realm>Shared</realm>
+	<description>Enumerations used by <page>Entity:SetAnimation</page></description>
+	<items>
+<item key="PLAYER_IDLE" value="0"></item>
+<item key="PLAYER_WALK" value="1"></item>
+<item key="PLAYER_JUMP" value="2"></item>
+<item key="PLAYER_SUPERJUMP" value="3"></item>
+<item key="PLAYER_DIE" value="4"></item>
+<item key="PLAYER_ATTACK1" value="5">Player attack according to current hold type, used in SWEPs</item>
+<item key="PLAYER_IN_VEHICLE" value="6"></item>
+<item key="PLAYER_RELOAD" value="7">Player reload according to current hold type, used in SWEPs</item>
+<item key="PLAYER_START_AIMING" value="8"></item>
+<item key="PLAYER_LEAVE_AIMING" value="9"></item>
+	</items>
+
+</enum>

@@ -1,0 +1,7 @@
+<function name="GetParent" parent="CNavArea" type="classfunc">
+	<description>Returns the parent <page>CNavArea</page></description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="CNavArea">The parent <page>CNavArea</page></ret>
+	</rets>
+</function>

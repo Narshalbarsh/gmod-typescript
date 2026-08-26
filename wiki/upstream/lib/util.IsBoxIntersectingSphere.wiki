@@ -1,0 +1,14 @@
+<function name="IsBoxIntersectingSphere" parent="util" type="libraryfunc">
+	<description>Performs a box-sphere intersection and returns whether there was an intersection or not.</description>
+	<realm>Shared</realm>
+	<added>2023.08.08</added>
+	<args>
+		<arg name="boxMin" type="Vector">The minimum extents of the Axis-Aligned box.</arg>
+		<arg name="boxMax" type="Vector">The maximum extents of the Axis-Aligned box.</arg>
+		<arg name="shpere2Position" type="Vector">Any position of the sphere.</arg>
+		<arg name="sphere2Radius" type="number">The radius of the sphere.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">`true` if there is an intersection, `false` otherwise.</ret>
+	</rets>
+</function>

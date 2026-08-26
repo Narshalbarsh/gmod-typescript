@@ -1,0 +1,32 @@
+<function name="AddCaption" parent="gui" type="libraryfunc">
+	<description>
+Pushes text to the closed caption box.
+<warning>The function will not work, if the console command variable `closecaption` is set to 0.</warning>
+</description>
+	<realm>Client</realm>
+	<added>2023.09.19</added>
+	<args>
+		<arg name="captionStream" type="string">The caption to emit. See [Closed Captions](https://developer.valvesoftware.com/wiki/Closed_Captions) for more info.
+
+Note the ability to add special commands to captions, such as `<sfx>` to mark the caption as a sound effect caption, which would be hidden if `cc_subtitles` is set to 1. (To only show dialogue subtitles)</arg>
+		<arg name="duration" type="number">How long the caption should stay for</arg>
+		<arg name="fromPlayer" type="boolean" default="false">Is this caption coming from the player?
+
+This is used to give different colors to the caption to differentiate, for example, whether the SMG is fired by the player or an NPC.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Prints "Hello World" in bold</description>
+	<code>
+// For the sake of the test: activate the caption system.
+// You should not be forcing this option on players, it should be up to the player to choose whether they want to see captions or not.
+RunConsoleCommand( "closecaption", "1" )
+
+// Push a new caption text to the UI
+gui.AddCaption( "<B>Hello World!<B>", 5 )
+	</code>
+	<output>
+<upload src="b58a0/8dda6157895b35e.png" size="545375" name="image.png" />
+</output>
+</example>

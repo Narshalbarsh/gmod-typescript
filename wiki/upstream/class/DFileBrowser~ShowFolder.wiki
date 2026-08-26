@@ -1,0 +1,12 @@
+<function name="ShowFolder" parent="DFileBrowser" type="panelfunc">
+	<description>
+<internal></internal>Builds the file or icon list for the current directory.
+
+You should use <page>DFileBrowser:SetCurrentFolder</page> to change the directory.
+	</description>
+	<realm>Client</realm>
+	<file line="210-L257">lua/vgui/dfilebrowser.lua</file>
+	<args>
+		<arg name="currentDir" type="string">The directory to populate the list from.</arg>
+	</args>
+</function>

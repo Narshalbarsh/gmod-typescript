@@ -1,0 +1,25 @@
+<function name="RemoveServerFromFavorites" parent="serverlist" type="libraryfunc">
+	<description>
+		Removes the given server address from their favorites.
+	</description>
+	<args>
+		<arg name="address" type="string">Server Address. **IP:Port like "127.0.0.1:27015"**</arg>
+	</args>
+	<realm>Menu</realm>
+</function>
+
+<example>
+	<description>Adds a server address to their favorites and removes it.</description>
+	<code>
+serverlist.AddServerToFavorites( "127.0.0.1:27015" )
+print( serverlist.IsServerFavorite( "127.0.0.1:27015" ) )
+serverlist.RemoveServerFromFavorites( "127.0.0.1:27015" )
+print( serverlist.IsServerFavorite( "127.0.0.1:27015" ) )
+	</code>
+	<output>
+```lua
+true
+false
+```
+	</output>
+</example>

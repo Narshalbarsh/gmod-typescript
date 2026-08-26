@@ -1,0 +1,19 @@
+<function name="Decompress" parent="util" type="libraryfunc">
+	<description>Decompresses the given string using [LZMA](https://en.wikipedia.org/wiki/LZMA) algorithm. Used to decompress strings previously compressed with <page>util.Compress</page>.
+
+<warning>When reading user data, always try to specify `maxSize` argument, otherwise the server can be [decompression bombed](https://en.wikipedia.org/wiki/Zip_bomb) with bad data that will fill up all Lua memory</warning>
+<note>This function expects the compressed input data to have the uncompressed size of the data prepended to it as an 8-byte little-endian integer. [Source](https://github.com/garrynewman/bootil/blob/beb4cec8ad29533965491b767b177dc549e62d23/src/Bootil/Utility/CompressionLZMA.cpp#L101)
+
+If your compressed input data was compressed by <page>util.Compress</page>, you don't need to worry about this - the uncompressed size of the data is already prepended to its output.
+
+However, if your compressed data was produced using standard tools **_outside of Garry's Mod_**, you will need to manually prepend the length of the uncompressed data to its compressed form as an 8-byte little endian integer.</note>
+</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="compressedString" type="string">The compressed string to decompress.</arg>
+		<arg name="maxSize" type="number" default="nil">The maximum size of uncompressed data in bytes, if greater it fails.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string|nil">The original, decompressed string or `nil` on failure or invalid input. Also returns empty string if the input string was zero length ("").</ret>
+	</rets>
+</function>

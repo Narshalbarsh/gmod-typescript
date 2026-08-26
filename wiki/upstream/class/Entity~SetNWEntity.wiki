@@ -1,0 +1,24 @@
+<function name="SetNWEntity" parent="Entity" type="classfunc">
+	<description>
+Sets a networked entity value on the entity.
+
+The value can then be accessed with <page>Entity:GetNWEntity</page> both from client and server.
+<warning>There's a 4096 slots Network limit. If you need more, consider using the <page>net</page> library or <page>Entity:SetNW2Entity</page>. You should also consider the fact that you have way too many variables. You can learn more about this limit here: <page>Networking_Usage#nwlimits</page></warning>
+<note>Running this function clientside will only set it for the client it is called on.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="key" type="string">The key to associate the value with</arg>
+		<arg name="value" type="Entity">The value to set</arg>
+	</args>
+</function>
+
+<example>
+	<description>This will set the networked entity 'owner' on all clients to themselves.</description>
+	<code>
+for i, ply in ipairs( player.GetAll() ) do
+    ply:SetNWEntity( "owner", ply )
+end
+	</code>
+
+</example>

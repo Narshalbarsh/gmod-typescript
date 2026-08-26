@@ -1,0 +1,13 @@
+<function name="GetCurrentCommand" parent="Player" type="classfunc">
+	<description>
+Returns the last command which was sent by the specified player. This can only be called on the player which <page>Global.GetPredictionPlayer</page>() returns.
+
+<note>When called clientside in singleplayer during <page>WEAPON:Think</page>, it will return nothing as the hook is not technically predicted in that instance. See the note on the page.</note>
+
+<bug issue="3302">This will fail in <page>GM:StartCommand</page>.</bug>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="CUserCmd">Last user commands</ret>
+	</rets>
+</function>

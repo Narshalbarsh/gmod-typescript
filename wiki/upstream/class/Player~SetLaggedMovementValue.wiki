@@ -1,0 +1,15 @@
+<function name="SetLaggedMovementValue" parent="Player" type="classfunc">
+	<description>
+Slows down the player movement simulation by the timescale, this is used internally in the HL2 weapon stripping sequence.
+
+It achieves such behavior by multiplying the <page>Global.FrameTime</page> by the specified timescale at the start of the movement simulation and then restoring it afterwards.
+
+<note>This is reset to 1 on spawn.
+
+There is no weapon counterpart to this, you'll have to hardcode the multiplier in the weapon or call <page>Weapon:SetNextPrimaryFire</page> / <page>Weapon:SetNextSecondaryFire</page> manually.</note>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="timescale" type="number">The timescale multiplier.</arg>
+	</args>
+</function>

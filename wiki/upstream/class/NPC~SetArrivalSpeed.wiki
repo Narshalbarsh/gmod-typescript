@@ -1,0 +1,7 @@
+<function name="SetArrivalSpeed" parent="NPC" type="classfunc">
+	<description>Sets the arrival speed? of the NPC</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="speed" type="number">The new arrival speed</arg>
+	</args>
+</function>

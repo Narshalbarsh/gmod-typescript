@@ -1,0 +1,14 @@
+<function name="DistanceToLine" parent="util" type="libraryfunc">
+	<description>Gets the distance between a line and a point in 3d space.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="lineStart" type="Vector">Start of the line.</arg>
+		<arg name="lineEnd" type="Vector">End of the line.</arg>
+		<arg name="pointPos" type="Vector">The position of the point.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">Distance from line.</ret>
+		<ret name="" type="Vector">Nearest point on line.</ret>
+		<ret name="" type="number">Distance along line from start.</ret>
+	</rets>
+</function>

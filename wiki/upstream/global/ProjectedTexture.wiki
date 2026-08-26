@@ -1,0 +1,47 @@
+<function name="ProjectedTexture" parent="Global" type="libraryfunc">
+	<description>Creates a new <page>ProjectedTexture</page>.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="ProjectedTexture">Newly created projected texture.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>
+Creates a simple ProjectedTexture attached to a <page text="Scripted Entity">Scripted_Entities</page>.
+
+Note that this code must be ran on clientside only, not shared.
+	</description>
+	<code>
+function ENT:OnRemove()
+	if ( IsValid( self.lamp ) ) then
+		self.lamp:Remove()
+	end
+end
+
+function ENT:Think()
+	-- Keep updating the light so it's attached to our entity
+	-- you might want to call other functions here, you can do animations here as well
+	local pos = self:GetPos()
+	local angles = self:GetAngles()
+
+	if ( IsValid( self.lamp ) ) then
+		self.lamp:SetPos( pos )
+		self.lamp:SetAngles( angles )
+		self.lamp:Update()
+	else
+		local lamp = ProjectedTexture() -- Create a projected texture
+		self.lamp = lamp -- Assign it to the entity table so it may be accessed later
+
+		-- Set it all up
+		lamp:SetTexture( "effects/flashlight001" )
+		lamp:SetFarZ( 500 ) -- How far the light should shine
+
+		lamp:SetPos( pos ) -- Initial position and angles
+		lamp:SetAngles( angles )
+		lamp:Update()
+	end
+end
+	</code>
+
+</example>

@@ -1,0 +1,7 @@
+<function name="GetImpulse" parent="CUserCmd" type="classfunc">
+	<description>Gets the current impulse from the client, usually 0. [See impulses list](https://developer.valvesoftware.com/wiki/Impulse) and some <page text="GMod specific impulses">CUserCmd:SetImpulse</page>.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The impulse</ret>
+	</rets>
+</function>

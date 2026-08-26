@@ -1,0 +1,4 @@
+<function name="Layout" parent="DIconLayout" type="panelfunc">
+	<description>Resets layout vars before calling <page>Panel:InvalidateLayout</page>. This is called when children are added or removed, and must be called when the spacing, border or layout direction is changed.</description>
+	<realm>Client and Menu</realm>
+</function>

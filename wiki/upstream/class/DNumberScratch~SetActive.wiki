@@ -1,0 +1,13 @@
+<function name="SetActive" parent="DNumberScratch" type="panelfunc">
+	<description>
+<internal></internal>
+
+Sets whether or not the panel is 'active'.
+
+Forcing this panel to be active may not work.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="active" type="boolean">true to activate, false to deactivate.</arg>
+	</args>
+</function>

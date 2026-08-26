@@ -1,0 +1,9 @@
+<function name="PreDrawHalos" parent="GM" type="hook">
+	<description>
+Called before rendering the halos. This is the place to call <page>halo.Add</page>. This hook is actually running inside of <page>GM:PostDrawEffects</page>.
+
+<rendercontext hook="true" type="3D"></rendercontext>
+	</description>
+	<realm>Client</realm>
+	<file line="148">lua/includes/modules/halo.lua</file>
+</function>

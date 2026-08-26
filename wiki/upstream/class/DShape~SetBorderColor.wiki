@@ -1,0 +1,11 @@
+<function name="SetBorderColor" parent="DShape" type="panelfunc">
+	<description>
+Sets the border color of the shape.
+
+Currently does nothing.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="clr" type="Color">The desired border color. See <page>Color</page></arg>
+	</args>
+</function>

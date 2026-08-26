@@ -1,0 +1,11 @@
+<function name="HasEnemyMemory" parent="NPC" type="classfunc">
+	<description>Polls the enemy memory to check if the NPC has any memory of given enemy.</description>
+	<realm>Server</realm>
+	<added>2020.06.24</added>
+	<args>
+		<arg name="enemy" type="Entity" default="GetEnemy()">The entity to test.</arg>
+	</args>
+	<rets>
+		<ret name="eluded" type="boolean">If we have any memory on given enemy.</ret>
+	</rets>
+</function>

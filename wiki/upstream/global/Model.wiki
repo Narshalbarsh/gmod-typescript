@@ -1,0 +1,21 @@
+<function name="Model" parent="Global" type="libraryfunc">
+	<description>Runs <page>util.PrecacheModel</page> and returns the string.</description>
+	<realm>Shared and Menu</realm>
+	<file line="166-L172">lua/includes/util.lua</file>
+	<args>
+		<arg name="model" type="string">The model to precache.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The same string entered as an argument.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>From [entities/gmod_cameraprop.lua](https://github.com/Facepunch/garrysmod/blob/master/garrysmod/gamemodes/sandbox/entities/entities/gmod_cameraprop.lua).</description>
+	<code>
+local CAMERA_MODEL = Model( "models/dav0r/camera.mdl" )
+function ENT:Initialize()
+	self:SetModel( CAMERA_MODEL )
+end
+	</code>
+</example>

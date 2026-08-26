@@ -1,0 +1,46 @@
+<function name="SetLookAng" parent="DModelPanel" type="panelfunc">
+	<description>Sets the angles of the camera.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="ang" type="Angle">The angles to set the camera to.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Creates a model panel with Eli rotating normally and the camera angles rotating sideways.</description>
+	<code>
+BGPanel = vgui.Create("DPanel")
+BGPanel:SetPos(20, 20)
+BGPanel:SetSize(400, 400)
+BGPanel:SetBackgroundColor(Color(0, 0, 0, 255))
+
+local mdl = vgui.Create("DModelPanel", BGPanel)
+mdl:SetSize(BGPanel:GetSize())
+mdl:SetModel("models/eli.mdl")
+
+-- Position camera
+mdl:SetCamPos(Vector(0, 60, 36))
+
+local yaw = 0
+
+function mdl:LayoutEntity(ent)
+
+	-- Point camera toward the look pos
+	local lookAng = (self.vLookatPos-self.vCamPos):Angle()
+	
+	-- Rotate the look angles based on incrementing yaw value
+	lookAng:RotateAroundAxis(Vector(0, 1, 0), yaw)
+	
+	-- Set camera look angles
+	self:SetLookAng(lookAng)
+	
+	-- Make entity rotate like normal
+	ent:SetAngles(Angle(0, RealTime()*30,  0))
+	
+	yaw = yaw + 1
+
+end
+	</code>
+	<output><image src="DModelPanel_SetLookAng_example1.gif"/></output>
+
+</example>

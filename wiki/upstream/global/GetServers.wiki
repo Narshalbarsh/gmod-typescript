@@ -1,0 +1,13 @@
+<function name="GetServers" parent="Global" type="libraryfunc">
+	<description>
+		<internal></internal>
+		Starts Searching for Servers in the given Category. Can be stopped with <page>Global.DoStopServers</page>.  
+		Internally uses <page>serverlist.Query</page> to search for Servers.
+	</description>
+	<realm>Menu</realm>
+	<file line="387-L445">lua/menu/mainmenu.lua</file>
+	<args>
+		<arg name="category" type="string">The Category to start searching the Servers in. **Working Values: internet, favorite, history, lan**</arg>
+		<arg name="id" type="number">Some ID. can be a random number?</arg>
+	</args>
+</function>

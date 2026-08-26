@@ -1,0 +1,11 @@
+<function name="GetSelected" parent="DColorButton" type="panelfunc">
+	<description>
+<deprecated></deprecated>
+An <page>Global.AccessorFunc</page> that is an alias of <page>Panel:IsSelected</page>.
+</description>
+	<realm>Client and Menu</realm>
+	<file line="7">lua/vgui/dcolorbutton.lua</file>
+	<rets>
+		<ret name="" type="boolean"></ret>
+	</rets>
+</function>

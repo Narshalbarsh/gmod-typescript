@@ -1,0 +1,15 @@
+<function name="Normalize" parent="Angle" type="classfunc">
+	<description>Normalizes the angles by applying a modulo with 360 to pitch, yaw and roll.</description>
+	<realm>Shared and Menu</realm>
+</function>
+
+<example>
+	<description>Example usage of the function.</description>
+	<code>
+local a = Angle( 0, 181, 1 )
+a:Normalize()
+print( a )
+	</code>
+	<output>0.000 -179.000 1.000</output>
+
+</example>

@@ -1,0 +1,23 @@
+<function name="AddEntity" parent="undo" type="libraryfunc">
+	<description>Adds an entity to the current undo block</description>
+	<realm>Server</realm>
+	<file line="237-L244">lua/includes/modules/undo.lua</file>
+	<args>
+		<arg name="ent" type="Entity">The entity to add</arg>
+	</args>
+</function>
+
+<example>
+	<description>This example creates a prop_physics, and adds it to the players undo list.</description>
+	<code>
+prop = ents.Create("prop_physics")
+prop:SetModel("models/props_junk/wood_crate001a.mdl")
+prop:Spawn()
+
+undo.Create("prop")
+	undo.AddEntity(prop)
+	undo.SetPlayer(Player)
+undo.Finish()
+	</code>
+
+</example>

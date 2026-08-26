@@ -1,0 +1,7 @@
+<function name="Start" parent="motionsensor" type="libraryfunc">
+	<description>This starts access to the kinect sensor. Note that this usually freezes the game for a couple of seconds.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">`true` if the access has been started</ret>
+	</rets>
+</function>

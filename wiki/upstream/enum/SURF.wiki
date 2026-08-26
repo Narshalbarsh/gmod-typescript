@@ -1,0 +1,38 @@
+<enum>
+	<realm>Shared</realm>
+	<description>Surface flags, used by the <page>Structures/TraceResult</page>.</description>
+	<items>
+<item key="SURF_LIGHT" value="1">Value will hold the light strength</item>
+
+<item key="SURF_SKY2D" value="2">The surface is a 2D skybox</item>
+
+<item key="SURF_SKY" value="4">This surface is a skybox, equivalent to HitSky in <page>Structures/TraceResult</page></item>
+
+<item key="SURF_WARP" value="8">This surface is animated water</item>
+
+<item key="SURF_TRANS" value="16">This surface is translucent</item>
+
+<item key="SURF_NOPORTAL" value="32">This surface cannot have portals placed on, used by Portal's gun</item>
+
+<item key="SURF_TRIGGER" value="64">This surface is a trigger</item>
+
+<item key="SURF_NODRAW" value="128">This surface is an invisible entity, equivalent to HitNoDraw in <page>Structures/TraceResult</page></item>
+
+<item key="SURF_HINT" value="256">Make a primary bsp splitter</item>
+
+<item key="SURF_SKIP" value="512">This surface can be ignored by impact effects</item>
+
+<item key="SURF_NOLIGHT" value="1024">This surface has no lights calculated</item>
+
+<item key="SURF_BUMPLIGHT" value="2048">Calculate three lightmaps for the surface for bumpmapping</item>
+
+<item key="SURF_NOSHADOWS" value="4096">No shadows are cast on this surface</item>
+
+<item key="SURF_NODECALS" value="8192">No decals are applied to this surface</item>
+
+<item key="SURF_NOCHOP" value="16384">Don't subdivide patches on this surface</item>
+
+<item key="SURF_HITBOX" value="32768">This surface is part of an entity's hitbox</item>
+	</items>
+
+</enum>

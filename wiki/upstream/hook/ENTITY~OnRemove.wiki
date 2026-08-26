@@ -1,0 +1,48 @@
+<function name="OnRemove" parent="ENTITY" type="hook">
+	<description>
+Called when the entity is about to be removed.
+
+See also <page>Entity:CallOnRemove</page>, which can even be used on engine (non-Lua) entities.
+
+<example>
+	<description>Create an explosion when the entity will be removed. To create an entity, you can read <page>ents.Create</page>.</description>
+	<code>
+function ENT:OnRemove()
+	local explosion = ents.Create( "env_explosion" ) -- The explosion entity
+	explosion:SetPos( self:GetPos() ) -- Put the position of the explosion at the position of the entity
+	explosion:Spawn() -- Spawn the explosion
+	explosion:SetKeyValue( "iMagnitude", "50" ) -- the magnitude of the explosion
+	explosion:Fire( "Explode", 0, 0 ) -- explode
+end
+	</code>
+</example>
+
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="fullUpdate" type="boolean">Whether the removal is happening due to a full update clientside.
+
+The entity may or **may not** be recreated immediately after, depending on whether it is in the local player's [PVS](https://developer.valvesoftware.com/wiki/PVS "PVS - Valve Developer Community"). (See <page>Entity:IsDormant</page>)
+	</arg>
+	</args>
+</function>
+
+# Clientside behaviour remarks
+
+This hook may be called at odd times (when entity has actually not yet been removed from the server). This happens during the "full update" mechanism with the <page>ENTITY:Initialize</page> function not being called even when the entity reappears. Such calls can be differentiated via the `fullUpdate` argument of this hook.
+You can debug this behaviour by enabling `sv_cheats` and running `cl_fullupdate` on the client.
+
+<page>GM:NotifyShouldTransmit</page> can be used to circumvent this problem. <page>ENTITY:Think</page> can also be used to detect that the entity has reappeared. You may reinitialize any necessary data in these hooks. Another way to fix this problem can be found below.
+
+<example>
+<description>Another way to circumvent the problem where the client thinks the entity is removed even though it has not is to test if the entity is valid using a tick delay.</description>
+	<code>
+function ENT:OnRemove()
+	timer.Simple( 0, function()
+		if not IsValid( self ) then
+			-- Your remove code here
+		end
+	end)
+end
+	</code>
+</example>

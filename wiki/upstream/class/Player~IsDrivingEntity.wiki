@@ -1,0 +1,20 @@
+<function name="IsDrivingEntity" parent="Player" type="classfunc">
+	<description>Used to find out if a player is currently 'driving' an entity (by which we mean 'right click &gt; drive' ).</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">A value representing whether or not the player is 'driving' an entity.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Kills every player currently 'driving' an entity.</description>
+	<code>
+for i, ply in ipairs( player.GetAll() ) do
+    if ( ply:IsDrivingEntity() ) then
+        ply:Kill()
+    end
+end
+	</code>
+	<output>Every player 'driving' an entity will die a painful death.</output>
+
+</example>

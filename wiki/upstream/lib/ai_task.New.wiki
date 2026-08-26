@@ -1,0 +1,8 @@
+<function name="New" parent="ai_task" type="libraryfunc">
+	<description>Create a new empty task. Used by <page>Schedule:AddTask</page> and <page>Schedule:EngTask</page>.</description>
+	<realm>Server</realm>
+	<file line="109-L123">lua/includes/modules/ai_task.lua</file>
+	<rets>
+		<ret name="" type="Task">The new task object.</ret>
+	</rets>
+</function>

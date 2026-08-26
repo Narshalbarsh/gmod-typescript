@@ -1,0 +1,20 @@
+<function name="SetCrouchedWalkSpeed" parent="Player" type="classfunc">
+	<description>
+Sets the crouched walk speed multiplier.
+
+Has no effect for values above 1.
+
+See also <page>Player:SetWalkSpeed</page> and <page>Player:GetCrouchedWalkSpeed</page>.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="speed" type="number">The walk speed multiplier that crouch speed should be.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Set the crouch speed to be as fast as the players walk speed.</description>
+	<code>Entity( 1 ):SetCrouchedWalkSpeed( 1 )</code>
+	<output>The player will crouch-walk as fast as normal walking.</output>
+
+</example>

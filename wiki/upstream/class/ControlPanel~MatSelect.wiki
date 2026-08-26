@@ -1,0 +1,15 @@
+<function name="MatSelect" parent="ControlPanel" type="panelfunc">
+	<description>Creates a <page>MatSelect</page> panel and adds it as an <page text="item">ControlPanel:AddPanel</page>.</description>
+	<realm>Client</realm>
+	<file line="36-L57">gamemodes/sandbox/gamemode/spawnmenu/controlpanel.lua</file>
+	<args>
+		<arg name="convar" type="string">Calls <page>MatSelect</page>:<page text="SetConVar">ContextBase:SetConVar</page> with this value.</arg>
+		<arg name="options" type="table" default="nil">If specified, calls <page>MatSelect:AddMaterial</page>(key, value) for each table entry. If the table key is a number, the function will instead be called with the value as both arguments.</arg>
+		<arg name="autostretch" type="boolean" default="nil">If specified, calls <page>MatSelect:SetAutoHeight</page> with this value.</arg>
+		<arg name="width" type="number" default="nil">If specified, calls <page>MatSelect:SetItemWidth</page> with this value.</arg>
+		<arg name="height" type="number" default="nil">If specified, calls <page>MatSelect:SetItemHeight</page> with this value.</arg>
+	</args>
+	<rets>
+		<ret name="" type="MatSelect">The created MatSelect panel.</ret>
+	</rets>
+</function>

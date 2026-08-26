@@ -1,0 +1,19 @@
+<function name="Rename" parent="file" type="libraryfunc">
+	<description>
+Attempts to rename a file with the given name to another given name.
+
+This function is constrained to the `data/` folder.
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="orignalFileName" type="string">The original file or folder name. See <page>file.Write</page> for details on filename restrictions when writing to files.
+
+**This argument will be forced lowercase.**</arg>
+		<arg name="targetFileName" type="string">The target file or folder name. See <page>file.Write</page> for details on filename restrictions when writing to files.
+
+**This argument will be forced lowercase.**</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">`true` on success, `false` otherwise.</ret>
+	</rets>
+</function>

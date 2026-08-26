@@ -1,0 +1,11 @@
+<function name="SetPos" parent="ProjectedTexture" type="classfunc">
+	<description>
+Move the Projected Texture to the specified position.
+
+You must call <page>ProjectedTexture:Update</page> after using this function for it to take effect.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="position" type="Vector"></arg>
+	</args>
+</function>

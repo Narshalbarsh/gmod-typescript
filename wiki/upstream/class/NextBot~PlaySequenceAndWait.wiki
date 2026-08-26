@@ -1,0 +1,9 @@
+<function name="PlaySequenceAndWait" parent="NextBot" type="classfunc">
+	<description>To be called in the behaviour coroutine only! Plays an animation sequence and waits for it to end before returning.</description>
+	<realm>Server</realm>
+	<file line="298-317">gamemodes/base/entities/entities/base_nextbot/sv_nextbot.lua</file>
+	<args>
+		<arg name="name" type="string">The sequence name</arg>
+		<arg name="speed" type="number" default="1">Playback Rate of that sequence</arg>
+	</args>
+</function>

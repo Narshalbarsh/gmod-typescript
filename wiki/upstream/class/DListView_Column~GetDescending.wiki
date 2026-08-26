@@ -1,0 +1,7 @@
+<function name="GetDescending" parent="DListView_Column" type="panelfunc">
+	<description>Returns whether the column is sorted in descending order or not.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="desc" type="boolean">Whether the column is sorted in descending order or not.</ret>
+	</rets>
+</function>

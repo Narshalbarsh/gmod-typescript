@@ -1,0 +1,12 @@
+<enum>
+	<realm>Shared</realm>
+	<description>Default defined teams in Garry's Mod. This does not include any custom teams created in custom gamemodes. Enumerations to use with <page>Player:Team</page></description>
+	<items>
+<item key="TEAM_CONNECTING" value="0">Connecting team ID, set when player connects to the server</item>
+
+<item key="TEAM_UNASSIGNED" value="1001">Unassigned team ID, set right after player connected</item>
+
+<item key="TEAM_SPECTATOR" value="1002">Spectator team ID</item>
+	</items>
+
+</enum>

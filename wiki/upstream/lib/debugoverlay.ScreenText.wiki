@@ -1,0 +1,17 @@
+<function name="ScreenText" parent="debugoverlay" type="libraryfunc">
+	<description>
+Displays text triangle at the specified coordinates.
+
+<note>This function will silently fail if the `developer` <page>ConVar</page> is set to `0`.  
+It is not networked to clients, except for the <page text="listen server host">Player:IsListenServerHost</page>.  
+It will not work when the game is paused.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="x" type="number">The position of the text, from 0 ( left ) to 1 ( right ).</arg>
+		<arg name="y" type="number">The position of the text, from 0 ( top ) to 1 ( bottom ).</arg>
+		<arg name="text" type="string">The text to display.</arg>
+		<arg name="lifetime" type="number" default="1">Number of seconds to appear.</arg>
+		<arg name="color" type="Color" default="Color( 255, 255, 255 )">The color of the box.</arg>
+	</args>
+</function>

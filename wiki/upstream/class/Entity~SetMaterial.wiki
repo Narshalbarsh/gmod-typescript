@@ -1,0 +1,17 @@
+<function name="SetMaterial" parent="Entity" type="classfunc">
+	<description>
+Sets the rendering material override of the entity.
+
+To set a Lua material created with <page>Global.CreateMaterial</page>, just prepend a "!" to the material name.
+
+If you wish to override a single material on the model, use <page>Entity:SetSubMaterial</page> instead.
+
+<note>To apply materials to models, that material **must** have **VertexLitGeneric** shader. For that reason you cannot apply map textures onto models, map textures use a different material shader - **LightmappedGeneric**, which can be used on brush entities.</note>
+
+<bug issue="3362">The server's value takes priority on the client.</bug>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="materialName" type="string">New material name. Use an empty string ("") to reset to the default materials.</arg>
+	</args>
+</function>

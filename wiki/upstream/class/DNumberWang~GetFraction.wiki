@@ -1,0 +1,36 @@
+<function name="GetFraction" parent="DNumberWang" type="panelfunc">
+	<description>Returns a fraction representing the current number selector value to number selector min/max range ratio. If argument `val` is supplied, that number will be computed instead.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="val" type="number">The fraction numerator.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Prints out some fractions based on a number selector with a min/max range of 0 to 255.</description>
+	<code>
+local numinput = vgui.Create("DNumberWang")
+numinput:SetPos(5, 5)
+numinput:SetSize(90, 20)
+
+numinput:SetMinMax(0, 255)
+
+numinput:SetValue(64)
+
+print(numinput:GetFraction())	-- Should return ~0.25
+print(numinput:GetFraction(128))	-- Should return ~0.5
+print(numinput:GetFraction(192))	-- Should return ~0.75
+print(numinput:GetFraction(255))	-- Should return 1
+	</code>
+	<output>
+
+```
+0.25098039215686
+0.50196078431373
+0.75294117647059
+1
+```
+
+	</output>
+
+</example>

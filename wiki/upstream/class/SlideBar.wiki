@@ -1,0 +1,10 @@
+<panel>
+	<parent>Panel</parent>
+	<realm>Client</realm>
+	<description>
+		Used as scroll bar for <page>PanelList</page>
+		<deprecated>
+			Used in deprecated  <page>PanelList</page>. Use <page>DVScrollBar</page> (Used in <page>DScrollPanel</page>).
+		</deprecated>
+	</description>
+</panel>

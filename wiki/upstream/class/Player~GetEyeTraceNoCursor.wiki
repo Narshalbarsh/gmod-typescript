@@ -1,0 +1,16 @@
+<function name="GetEyeTraceNoCursor" parent="Player" type="classfunc">
+	<description>
+Returns the trace according to the players view direction, ignoring their mouse (holding <key>C</key> and moving the mouse in Sandbox).
+
+The results of this function are **cached** clientside every frame.
+
+Uses <page>util.GetPlayerTrace</page> internally and is therefore bound by its limits.
+
+See also <page>Player:GetEyeTrace</page>.
+	</description>
+	<realm>Shared</realm>
+	<file line="194-L213">gamemodes/base/gamemode/obj_player_extend.lua</file>
+	<rets>
+		<ret name="" type="table{TraceResult}">Trace result. See <page>Structures/TraceResult</page>.</ret>
+	</rets>
+</function>

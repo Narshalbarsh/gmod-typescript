@@ -1,0 +1,7 @@
+<function name="SetTopForwardArea" parent="CNavLadder" type="classfunc">
+	<description>Sets the top forward area of the <page>CNavLadder</page>.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="area" type="CNavArea"></arg>
+	</args>
+</function>

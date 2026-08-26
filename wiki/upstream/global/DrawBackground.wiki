@@ -1,0 +1,9 @@
+<function name="DrawBackground" parent="Global" type="libraryfunc">
+	<description>
+<internal></internal> Draws the currently active main menu background image and handles transitioning between background images.
+
+This is called by default in the menu panel's Paint hook.
+	</description>
+	<realm>Menu</realm>
+	<file line="73-L93">lua/menu/background.lua</file>
+</function>

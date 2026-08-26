@@ -1,0 +1,27 @@
+<function name="Round" parent="math" type="libraryfunc">
+	<description>Rounds the given value to the nearest whole number or to the given decimal places.</description>
+	<realm>Shared and Menu</realm>
+	<file line="162-L165">lua/includes/extensions/math.lua</file>
+	<args>
+		<arg name="value" type="number">The value to round.</arg>
+		<arg name="decimals" type="number" default="0">The decimal places to round to.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The rounded value.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Rounds a number to the nearest whole number.</description>
+	<code>print(math.Round(104.6256712))</code>
+	<output>105</output>
+
+</example>
+
+
+<example>
+	<description>Rounds the number to two decimal places.</description>
+	<code>print(math.Round(104.6256712, 2))</code>
+	<output>104.63</output>
+
+</example>

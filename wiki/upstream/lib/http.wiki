@@ -1,0 +1,5 @@
+<type name="http" category="libraryfunc" is="library">
+	<summary>
+The http library allows either the server or client to communicate with external websites via HTTP, both `GET` (<page>http.Fetch</page>) and `POST` (<page>http.Post</page>) are supported. A more powerful & advanced method can be used via the global <page>Global.HTTP</page> function.
+	</summary>	
+</type>

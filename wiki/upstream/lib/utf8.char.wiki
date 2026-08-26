@@ -1,0 +1,11 @@
+<function name="char" parent="utf8" type="libraryfunc">
+	<description>Receives zero or more integers, converts each one to its corresponding UTF-8 byte sequence and returns a string with the concatenation of all these sequences.</description>
+	<realm>Shared and Menu</realm>
+	<file line="95-L144">lua/includes/modules/utf8.lua</file>
+	<args>
+		<arg name="codepoints" type="vararg">Unicode code points to be converted in to a UTF-8 string.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">UTF-8 string generated from given arguments.</ret>
+	</rets>
+</function>

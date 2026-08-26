@@ -1,0 +1,47 @@
+<function name="Start3D" parent="cam" type="libraryfunc">
+<file line="115-L144">lua/includes/extensions/client/render.lua</file>
+	<description>
+Sets up a new 3D rendering context. Must be finished by <page>cam.End3D</page>.
+
+For more advanced settings such as an orthographic view, use <page>cam.Start</page> instead, which this is an alias of basically.
+
+All parameters are optional, and fall back parameters that of the "current" or "last" render operation.
+
+<rendercontext hook="true" type="3D"></rendercontext>
+
+<bug issue="1995">Negative x/y values won't work.</bug>
+
+<bug issue="2682">This will not update current view properties.</bug>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="pos" type="Vector" default="nil">Render cam position.</arg>
+		<arg name="angles" type="Angle" default="nil">Render cam angles.</arg>
+		<arg name="fov" type="number" default="nil">Field of view.</arg>
+		<arg name="x" type="number" default="nil">X coordinate of where to start the new view port.</arg>
+		<arg name="y" type="number" default="nil">Y coordinate of where to start the new view port.</arg>
+		<arg name="w" type="number" default="nil">Width of the new viewport.</arg>
+		<arg name="h" type="number" default="nil">Height of the new viewport.</arg>
+		<arg name="zNear" type="number" default="nil">Distance to near clipping plane.
+<note>Both `zNear` and `zFar` need a value before any of them work.
+
+zNear also requires a value higher than 0.
+</note>
+</arg>
+		<arg name="zFar" type="number" default="nil">Distance to far clipping plane.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Set up a 3D rendering environment in a 2D rendering hook to render models on HUD.</description>
+	<code>
+hook.Add( "HUDPaint", "3d_camera_example", function()
+	cam.Start3D()
+		for id, ply in ipairs( player.GetAll() ) do
+			ply:DrawModel()
+		end
+	cam.End3D()
+end )
+	</code>
+	<output>All players can be seen through walls.</output>
+</example>

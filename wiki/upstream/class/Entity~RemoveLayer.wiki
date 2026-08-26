@@ -1,0 +1,13 @@
+<function name="RemoveLayer" parent="Entity" type="classfunc">
+	<description>
+Removes the given layer by ID. See also <page>Entity:RemoveGesture</page>.
+
+<note>This function only works on <page>BaseAnimatingOverlay</page> entites!</note>
+<note>Layer removal procedures aren't immediate. Layer removal functions actually manipulate <page>Entity:GetLayerWeight</page> down to 0, then remove the layer in next intervals. If the targeted layer's weight keeps changing, your layer will not be removed.</note>
+	</description>
+	<added>2025.07.31</added>
+	<realm>Server</realm>
+	<args>
+		<arg name="layerID" type="number">The layer ID to remove.</arg>
+	</args>
+</function>

@@ -1,0 +1,8 @@
+<function name="GetMaterial" parent="CLuaParticle" type="classfunc">
+	<description>Returns the current material of the particle.</description>
+	<realm>Client</realm>
+	<added>2020.03.17</added>
+	<rets>
+		<ret name="mat" type="IMaterial">The material.</ret>
+	</rets>
+</function>

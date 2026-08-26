@@ -1,0 +1,30 @@
+<function name="OnKeyCodePressed" parent="PANEL" type="hook">
+	<description>
+Called whenever a keyboard key was pressed while the panel is focused.
+
+<bug issue="2886">This is not run for ESC/"cancelselect" binding.</bug>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="keyCode" type="number">The key code of the pressed key, see <page>Enums/KEY</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return `true` to suppress default action.</ret>
+	</rets>
+</function>
+
+<example>
+<description>Prints some text into console when the player presses any button while the panel is opened. In this example the panel is opened via the `testvgui` console command.</description>
+<code>
+concommand.Add( "testvgui", function( ply )
+	local DFrame = vgui.Create( "DFrame" )	-- The name of the panel, we don't have to parent it
+	DFrame:SetPos( 100, 100 )				-- Set the position to 100x by 100y 
+	DFrame:SetSize( 300, 200 )				-- Set the size to 300x by 200y
+	DFrame:SetTitle( "Derma Frame" )		-- Set the title in the top left to 'Derma Frame'
+	DFrame:MakePopup()						-- Make the frame take user's input
+	function DFrame:OnKeyCodePressed( ... ) 
+		print( "OnKeyCodePressed", ... )	-- Print something when a key is pressed
+	end
+end )
+</code>
+</example>

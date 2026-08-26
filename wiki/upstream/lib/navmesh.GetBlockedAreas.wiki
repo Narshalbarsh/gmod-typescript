@@ -1,0 +1,8 @@
+<function name="GetBlockedAreas" parent="navmesh" type="libraryfunc">
+	<description>Returns a table of all blocked <page>CNavArea</page>s on the current map. See <page>CNavArea:MarkAsBlocked</page>.</description>
+	<realm>Server</realm>
+	<added>2023.10.05</added>
+	<rets>
+		<ret name="" type="table">A table of all the blocked <page>CNavArea</page>s on the current map.</ret>
+	</rets>
+</function>

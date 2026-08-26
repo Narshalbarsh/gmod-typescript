@@ -1,0 +1,3 @@
+<type name="jit" category="libraryfunc" is="library">
+	<summary>Library to work with the [LuaJIT](http://luajit.org/) functionality of gmod.</summary>
+</type>

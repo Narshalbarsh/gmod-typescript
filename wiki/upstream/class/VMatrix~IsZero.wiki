@@ -1,0 +1,7 @@
+<function name="IsZero" parent="VMatrix" type="classfunc">
+	<description>Checks whenever all fields of the matrix are 0, aka if this is a [null matrix](https://en.wikipedia.org/wiki/Zero_matrix).</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">If the matrix is a null matrix.</ret>
+	</rets>
+</function>

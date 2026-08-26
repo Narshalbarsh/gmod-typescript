@@ -1,0 +1,94 @@
+<function name="DrawPoly" parent="surface" type="libraryfunc">
+	<description>
+Draws a textured polygon (secretly a triangle fan) with a maximum of 4096 vertices.
+Only works properly with convex polygons. You may try to render concave polygons, but there is no guarantee that things wont get messed up.
+
+Unlike most surface library functions, non-integer coordinates are not rounded.
+
+<warning>You must reset the drawing color and texture before calling the function to ensure consistent results. See examples below.</warning>
+
+<rendercontext hook="false" type="2D"></rendercontext>
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="vertices" type="table">A table containing integer vertices. See the <page>Structures/PolygonVertex</page>.
+
+**The vertices must be in clockwise order.**</arg>
+	</args>
+</function>
+
+<example>
+	<description>Draws a red triangle in the top left corner of the screen.</description>
+	<code>
+local triangle = {
+	{ x = 100, y = 200 },
+	{ x = 150, y = 100 },
+	{ x = 200, y = 200 }
+}
+
+hook.Add("HUDPaint", "PolygonTest", function()
+	
+	surface.SetDrawColor( 255, 0, 0, 255 )
+	draw.NoTexture()
+	surface.DrawPoly( triangle )
+
+end )
+	</code>
+	<output><image src="draw_poly.png"/></output>
+</example>
+
+
+<example>
+	<description>Draws a yellow polygon in the top left corner of the screen.</description>
+	<code>
+
+local triangle = {
+	{ x = 100, y = 200 },
+
+	{ x = 150, y = 100 },
+	{ x = 200, y = 200 },
+	{ x = 150, y = 300 },
+	{ x = 100, y = 300 },
+}
+
+hook.Add("HUDPaint", "PolygonExample", function()
+
+	surface.SetDrawColor( 255, 255, 0, 255 )
+	draw.NoTexture()
+	surface.DrawPoly( triangle )
+
+end )
+	</code>
+	<output><upload src="70c/8d8323cd4ef9932.png" size="48448" name="drawpoly_example.png" /></output>
+</example>
+
+<example>
+	<description>A helper function to draw a circle using surface.DrawPoly.</description>
+	<code>
+function draw.Circle( x, y, radius, seg )
+	local cir = {}
+
+	table.insert( cir, { x = x, y = y, u = 0.5, v = 0.5 } )
+	for i = 0, seg do
+		local a = math.rad( ( i / seg ) * -360 )
+		table.insert( cir, { x = x + math.sin( a ) * radius, y = y + math.cos( a ) * radius, u = math.sin( a ) / 2 + 0.5, v = math.cos( a ) / 2 + 0.5 } )
+	end
+
+	local a = math.rad( 0 ) -- This is needed for non absolute segment counts
+	table.insert( cir, { x = x + math.sin( a ) * radius, y = y + math.cos( a ) * radius, u = math.sin( a ) / 2 + 0.5, v = math.cos( a ) / 2 + 0.5 } )
+
+	surface.DrawPoly( cir )
+end
+
+hook.Add("HUDPaint", "PolygonCircleTest", function()
+	
+	surface.SetDrawColor( 0, 0, 0, 200)
+	draw.NoTexture()
+	draw.Circle( ScrW() / 2, ScrH() / 2, 200, math.sin( CurTime() ) * 20 + 25 )
+
+	--Usage:
+	--draw.Circle( x, y, radius, segments )
+
+end )
+	</code>
+</example>

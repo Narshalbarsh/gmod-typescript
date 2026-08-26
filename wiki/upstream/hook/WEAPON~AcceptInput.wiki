@@ -1,0 +1,34 @@
+<function name="AcceptInput" parent="WEAPON" type="hook">
+	<description>Called when another entity fires an event to this entity.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="inputName" type="string">The name of the input that was triggered.</arg>
+		<arg name="activator" type="Entity">The initial cause for the input getting triggered.</arg>
+		<arg name="called" type="Entity">The entity that directly trigger the input.</arg>
+		<arg name="data" type="string">The data passed.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Should we suppress the default action for this input?</ret>
+	</rets>
+</function>
+
+<example>
+	<description>A workaround for weapons created by maps not taking into account spawnflags.</description>
+	<code>
+function SWEP:AcceptInput( name, activator, caller, data )
+
+	-- Check for input and spawnflag
+	if ( name == "ConstraintBroken" && self:HasSpawnFlags( 1 ) ) then
+
+		-- Freeze the weapon
+		local phys = self:GetPhysicsObject()
+		if ( IsValid( phys ) ) then phys:EnableMotion( false ) end
+	
+		-- Remove the spawnflag so it doesn't freeze the weapon when it is dropped
+		local newflags = bit.band( self:GetSpawnFlags(), bit.bnot( 1 ) )
+		self:SetKeyValue( "spawnflags", newflags )
+	end
+end
+	</code>
+
+</example>

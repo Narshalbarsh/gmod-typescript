@@ -1,0 +1,13 @@
+<function name="SetFilePlayed" parent="steamworks" type="libraryfunc">
+	<description>
+Sets whether you have played this addon or not. This will be shown to the user in the Steam Workshop itself:
+<image src="steamworksSetFilePlayedExample.png"/>
+	</description>
+	<realm>Menu</realm>
+	<args>
+		<arg name="workshopid" type="string">The Steam Workshop item ID</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">Whatever you have put in as first argument</ret>
+	</rets>
+</function>

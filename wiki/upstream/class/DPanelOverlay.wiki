@@ -1,0 +1,30 @@
+<panel>
+	<parent>DPanel</parent>
+	<realm>Client and Menu</realm>
+	<file line="">lua/vgui/dpaneloverlay.lua</file>
+	<description>Adds curved corners.</description>
+</panel>
+
+
+<example>
+	<description>Creates a <page>DPanel</page> with a DPanelOverlay and adds a <page>DLabel</page> to it</description>
+	<code>
+local DFrame = vgui.Create( "DFrame" )
+DFrame:SetSize( 350, 200 ) -- Set the size of the panel
+DFrame:Center()
+DFrame:MakePopup()
+
+local DPanel = vgui.Create( "Panel", DFrame )
+DPanel:Dock( FILL )
+
+local DLabel = vgui.Create( "DLabel", DPanel )
+DLabel:SetPos( 10, 10 ) -- Set the position of the label
+DLabel:SetText( "I'm a DLabel inside a DPanel that has a DPanelOverlay border!" ) -- Set the text of the label
+DLabel:SizeToContents() -- Size the label to fit the text in it
+
+local DPanelOverlay = vgui.Create( "DPanelOverlay", DPanel )
+DPanelOverlay:SetType( 1 ) -- Sets the type of overlay to add to the DPanel
+DPanelOverlay:SetColor( Color( 255, 0, 0 ) ) -- Sets the colour of the borders
+	</code>
+
+</example>

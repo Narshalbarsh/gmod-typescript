@@ -1,0 +1,31 @@
+<function name="OnPlayerHitGround" parent="GM" type="hook">
+	<description>Called when a player makes contact with the ground after a jump or a fall.</description>
+	<realm>Shared</realm>
+	<predicted>Yes</predicted>
+	<args>
+		<arg name="player" type="Entity">Player</arg>
+		<arg name="inWater" type="boolean">Did the player land in water?</arg>
+		<arg name="onFloater" type="boolean">Did the player land on an object floating in the water?</arg>
+		<arg name="speed" type="number">The speed at which the player hit the ground</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return true to suppress default action</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Explode players when they hit the ground too hard.</description>
+	<code>
+hook.Add( "OnPlayerHitGround", "ExplosiveFall", function( ply, inWater, onFloater, speed )
+    if speed > 1000 and not inWater then
+        local exp = ents.Create( "env_explosion" )
+        exp:SetPos( ply:GetPos() )
+        exp:Spawn()
+        exp:SetKeyValue( "iMagnitude", "0" )
+        exp:Fire( "Explode", 0, 0 )
+ 
+        ply:Kill()
+    end
+end )
+	</code>
+</example>

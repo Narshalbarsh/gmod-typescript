@@ -1,0 +1,8 @@
+<function name="GetDefaultSkin" parent="derma" type="libraryfunc">
+	<description>Returns the default skin table, which can be changed with the hook <page>GM:ForceDermaSkin</page>.</description>
+	<realm>Client and Menu</realm>
+	<file line="163-L178">lua/derma/derma.lua</file>
+	<rets>
+		<ret name="" type="table">The default skin table.</ret>
+	</rets>
+</function>

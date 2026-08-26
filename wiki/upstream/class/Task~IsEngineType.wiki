@@ -1,0 +1,5 @@
+<function name="IsEngineType" parent="Task" type="classfunc">
+	<description>Determines if the task is an engine task (`TYPE_ENGINE`, 1).</description>
+	<realm>Server</realm>
+	<file line="67">lua/includes/modules/ai_task.lua</file>
+</function>

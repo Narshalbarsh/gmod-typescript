@@ -1,0 +1,13 @@
+<function name="RestartGesture" parent="Entity" type="classfunc">
+	<description>
+Restarts the entity's animation gesture. If the given gesture is already playing, it will reset it and play it from the beginning.
+
+<note>This function only works on <page>BaseAnimatingOverlay</page> entites.</note>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="activity" type="number">The activity number to send to the entity. See <page>Enums/ACT</page> and <page>Entity:GetSequenceActivity</page></arg>
+		<arg name="addIfMissing" type="boolean" default="true">Add/start the gesture to if it has not been yet started.</arg>
+		<arg name="autokill" type="boolean" default="true"></arg>
+	</args>
+</function>

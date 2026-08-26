@@ -1,0 +1,7 @@
+<function name="GetEFlags" parent="Entity" type="classfunc">
+	<description>Returns a bit flag of all engine flags of the entity.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">Engine flags, see <page>Enums/EFL</page></ret>
+	</rets>
+</function>

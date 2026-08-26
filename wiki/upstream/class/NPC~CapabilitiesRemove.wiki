@@ -1,0 +1,13 @@
+<function name="CapabilitiesRemove" parent="NPC" type="classfunc">
+	<description>Remove a certain capability.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="capabilities" type="number">Capabilities to remove, see <page>Enums/CAP</page></arg>
+	</args>
+</function>
+
+<example>
+	<description>Removes the CAP_USE_SHOT_REGULATOR capability, if the NPC has it.</description>
+	<code>self:CapabilitiesRemove(CAP_USE_SHOT_REGULATOR)</code>
+
+</example>

@@ -1,0 +1,3 @@
+<type name="CNewParticleEffect" category="classfunc" is="class">
+	<summary>This object represents a .pcf ( Orange Box ) particle system. Created by <page>Entity:CreateParticleEffect</page> and <page>Global.CreateParticleSystem</page>.</summary>
+</type>

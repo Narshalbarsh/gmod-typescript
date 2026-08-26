@@ -1,0 +1,47 @@
+<function name="IsNearlyEqual" parent="math" type="libraryfunc">
+	<description>Checks if two floating point numbers are nearly equal.
+
+This is useful to mitigate  [accuracy issues in floating point numbers](https://en.wikipedia.org/wiki/Floating-point_arithmetic#Accuracy_problems). See examples below.
+
+	</description>
+	<realm>Shared and Menu</realm>
+	<added>2025.01.22</added>
+	<file line="267-L273">lua/includes/extensions/math.lua</file>
+	<args>
+		<arg name="a" type="number">The first number to compare.</arg>
+		<arg name="b" type="number">The second number to compare.</arg>
+		<arg name="tolerance" type="number" default="1e-8">The maximum difference between the two numbers to consider them equal.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">True if the difference between the two numbers is less than or equal to the tolerance.</ret>
+	</rets>
+</function>
+
+<example>
+	<description> Shows the problem known as a [floating-point error](https://en.wikipedia.org/wiki/Floating-point_arithmetic#Accuracy_problems), due to the limited precision of decimal numbers in hardware. </description>
+	<code>
+print( 0.1 + 0.2 == 0.3 ) -- Which is mathematically true.
+print( string.format( "%.32f", 0.1 + 0.2 ) ) -- Outputs the result with up to 32 decimal numbers.
+	</code>
+	<output>
+```
+false
+0.30000000000000004440892098500626
+```
+	</output>
+
+</example>
+
+<example>
+	<description> Shows the workaround using `math.IsNearlyEqual()`. </description>
+	<code>
+print( math.IsNearlyEqual( 0.1 + 0.2, 0.3 ) )
+print( string.format( "%.32f", 0.1 + 0.2 ) )
+	</code>
+	<output>
+```
+true
+0.30000000000000004440892098500626
+```
+	</output>
+</example>

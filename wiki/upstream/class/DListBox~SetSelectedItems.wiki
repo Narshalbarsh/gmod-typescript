@@ -1,0 +1,9 @@
+<function name="SetSelectedItems" parent="DListBox" type="panelfunc">
+	<description>
+<internal></internal>
+Sets selected items.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="items" type="table">The items to select. A list of <page>DListBoxItem</page>.</arg>
+	</args>
+</function>

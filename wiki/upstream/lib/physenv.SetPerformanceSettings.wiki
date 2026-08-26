@@ -1,0 +1,7 @@
+<function name="SetPerformanceSettings" parent="physenv" type="libraryfunc">
+	<description>Sets the performance settings.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="performanceSettings" type="table">The new performance settings. See <page>Structures/PhysEnvPerformanceSettings</page></arg>
+	</args>
+</function>

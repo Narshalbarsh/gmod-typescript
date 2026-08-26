@@ -1,0 +1,7 @@
+<function name="GetPlaybackRate" parent="Entity" type="classfunc">
+	<description>Returns the playback rate of the main sequence on this entity, with 1.0 being the default speed.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The playback rate.</ret>
+	</rets>
+</function>

@@ -1,0 +1,7 @@
+<function name="SetDeceleration" parent="CLuaLocomotion" type="classfunc">
+	<description>Sets the deceleration speed.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="deceleration" type="number" default="400">New deceleration speed.</arg>
+	</args>
+</function>

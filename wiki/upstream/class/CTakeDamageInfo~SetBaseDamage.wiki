@@ -1,0 +1,12 @@
+<function name="SetBaseDamage" parent="CTakeDamageInfo" type="classfunc">
+	<description>Sets the initial damage, unmodified by the current skill level (<page>game.GetSkillLevel</page>). This is usually set automatically by the game when dealing damage.
+
+This function will not modify the real damage that will be dealt (<page>CTakeDamageInfo:GetDamage</page>).
+
+Use this only if you know what you are doing. Otherwise use <page>CTakeDamageInfo:SetDamage</page>.</description>
+	<realm>Shared</realm>
+	<added>2020.10.14</added>
+	<args>
+		<arg name="" type="number">The base damage.</arg>
+	</args>
+</function>

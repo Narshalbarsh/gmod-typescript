@@ -1,0 +1,9 @@
+<function name="OnTaskComplete" parent="ENTITY" type="hook">
+	<description>
+Called from the engine when TaskComplete is called.
+This allows us to move onto the next task - even when TaskComplete was called from an engine side task.
+
+<note>This hook only exists for `ai` type [SENTs](Scripted_Entities).</note>
+	</description>
+	<realm>Server</realm>
+</function>

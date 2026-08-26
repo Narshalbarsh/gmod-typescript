@@ -1,0 +1,13 @@
+<function name="InstallDraggable" parent="DTree_Node" type="panelfunc">
+	<description>
+<internal></internal>
+
+Called automatically internally.
+
+Makes the target node compatible with this node's drag'n'drop.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="node" type="Panel">The <page>DTree_Node</page>.</arg>
+	</args>
+</function>

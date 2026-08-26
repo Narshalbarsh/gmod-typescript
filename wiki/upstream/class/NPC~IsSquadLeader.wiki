@@ -1,0 +1,8 @@
+<function name="IsSquadLeader" parent="NPC" type="classfunc">
+	<description>Returns whether the current NPC is the leader of the squad it is in.</description>
+	<realm>Server</realm>
+	<added>2021.01.27</added>
+	<rets>
+		<ret name="is_leader" type="boolean">Whether the NPC is the leader of the squad or not.</ret>
+	</rets>
+</function>

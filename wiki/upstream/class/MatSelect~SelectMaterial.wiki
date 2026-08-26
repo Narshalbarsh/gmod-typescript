@@ -1,0 +1,11 @@
+<function name="SelectMaterial" parent="MatSelect" type="panelfunc">
+	<description>
+<internal>Use <page>MatSelect:FindAndSelectMaterial</page> instead.</internal>
+
+Selects a given material panel.</description>
+	<realm>Client</realm>
+	<added>2023.09.08</added>
+	<args>
+		<arg name="mat" type="DImageButton">The material to select, found by <page>MatSelect:FindMaterialByValue</page></arg>
+	</args>
+</function>

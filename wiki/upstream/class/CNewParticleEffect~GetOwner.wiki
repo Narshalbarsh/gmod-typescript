@@ -1,0 +1,7 @@
+<function name="GetOwner" parent="CNewParticleEffect" type="classfunc">
+	<description>Returns the owner of the particle system, the entity the particle system is attached to.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="Entity">The owner of the particle system.</ret>
+	</rets>
+</function>

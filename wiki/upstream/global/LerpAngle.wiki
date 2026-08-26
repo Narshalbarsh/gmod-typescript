@@ -1,0 +1,28 @@
+<function name="LerpAngle" parent="Global" type="libraryfunc">
+	<description>Returns point between first and second angle using given fraction and linear interpolation
+<note>This function is not meant to be used with constant value in the first argument, if you're dealing with animation! Use a value that changes over time</note></description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="ratio" type="number">Ratio of progress through values</arg>
+		<arg name="angleStart" type="Angle">Angle to begin from</arg>
+		<arg name="angleEnd" type="Angle">Angle to end at</arg>
+	</args>
+	<rets>
+		<ret name="" type="Angle">angle</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Turns an entity 180 degrees linearly over ten seconds</description>
+	<code>
+local startAngle = Angle(0, 0, 0)
+local endAngle = Angle(0, 180, 0)
+local ratio = 0
+
+timer.Create("Turn", 0.1, 10, function()
+    ratio = ratio + 0.1
+    entity:SetAngles(LerpAngle(ratio, startAngle, endAngle))
+end)
+	</code>
+
+</example>

@@ -1,0 +1,12 @@
+<function name="worldpicker.Finish" parent="util" type="libraryfunc">
+	<description>
+<internal></internal>
+
+Finishes the world picking. This is called when a user presses their mouse after calling <page>util.worldpicker.Start</page>.
+	</description>
+	<realm>Client</realm>
+	<file line="29-L35">lua/includes/extensions/util/worldpicker.lua</file>
+	<args>
+		<arg name="tr" type="table"><page>Structures/TraceResult</page> from the mouse press</arg>
+	</args>
+</function>

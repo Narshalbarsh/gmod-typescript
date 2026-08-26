@@ -1,0 +1,15 @@
+<function name="ReadColor" parent="net" type="libraryfunc">
+	<description>
+Reads a <page>Color</page> from the current net message.
+
+<warning>You **must** read information in same order as you write it.</warning>
+	</description>
+	<realm>Shared</realm>
+	<file line="118-L131">lua/includes/extensions/net.lua</file>
+	<args>
+		<arg name="hasAlpha" type="boolean" default="true">If the color has alpha written or not. **Must match what was given to <page>net.WriteColor</page>.**</arg>
+	</args>	
+	<rets>
+		<ret name="" type="Color">The <page>Color</page> read from the current net message, or `Color( 0, 0, 0, 0 )` if the color could not be read.</ret>
+	</rets>
+</function>

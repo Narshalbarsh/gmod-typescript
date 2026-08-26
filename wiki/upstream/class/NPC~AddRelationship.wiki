@@ -1,0 +1,20 @@
+<function name="AddRelationship" parent="NPC" type="classfunc">
+	<description>Changes how an NPC feels towards another NPC.  If you want to setup relationship towards a certain `entity`, use <page>NPC:AddEntityRelationship</page>.
+
+<warning>Avoid using this in <page>GM:OnEntityCreated</page> to prevent crashing due to infinite loops. This function may create an entity with given class and delete it immediately after.</warning>
+</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="relationstring" type="string">A string representing how the relationship should be set up.
+Should be formatted as `"npc_class `<page>Enums/D</page>` numberPriority"`.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Spawns a manhack and makes it hate floor turrets.</description>
+	<code>
+local manhack = ents.Create( "npc_manhack" )
+manhack:Spawn()
+manhack:AddRelationship( "npc_turret_floor D_HT 99" )
+	</code>
+</example>

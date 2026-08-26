@@ -1,0 +1,24 @@
+<function name="Receivers" parent="net" type="libraryfield">
+	<description>
+<internal></internal>
+
+This is NOT a function, it's a table used internally by the net library to store net receivers added with <page>net.Receive</page>.
+
+The key is the lowercase net message name and the value is the message's callback function.
+
+<note>Modifying <page>net.Receivers</page> won't affect the net string pool used in <page>util.AddNetworkString</page>.</note>
+</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="table">The list of all registered net receivers.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Disables a net message by removing its function in <page>net.Receivers</page>.</description>
+	<code>
+function net.Remove( name )
+	net.Receivers[ name ] = nil
+end
+	</code>
+</example>

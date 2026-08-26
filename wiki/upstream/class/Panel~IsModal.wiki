@@ -1,0 +1,8 @@
+<function name="IsModal" parent="Panel" type="classfunc">
+	<description>Returns whether the panel was made modal or not. See <page>Panel:DoModal</page>.</description>
+	<realm>Client and Menu</realm>
+	<added>2021.01.27</added>
+	<rets>
+		<ret name="" type="boolean">True if the panel is modal.</ret>
+	</rets>
+</function>

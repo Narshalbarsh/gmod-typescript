@@ -1,0 +1,11 @@
+<function name="SetButtons" parent="CUserCmd" type="classfunc">
+	<description>
+Sets the buttons as a bitflag. See also <page>CUserCmd:GetButtons</page>.
+
+<note>If you are looking to affect player movement, you may need to use <page>CUserCmd:SetForwardMove</page> instead of setting the keys.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="buttons" type="number">Bitflag representing which buttons are "down", see <page>Enums/IN</page>.</arg>
+	</args>
+</function>

@@ -1,0 +1,16 @@
+<function name="DropAction_Copy" parent="DDragBase" type="panelfunc">
+	<description>
+<internal></internal>
+
+Internal function used in <page>DDragBase:MakeDroppable</page>
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="47-L51">lua/vgui/ddragbase.lua</file>
+	<args>
+		<arg name="drops" type="table"></arg>
+		<arg name="bDoDrop" type="boolean"></arg>
+		<arg name="command" type="string"></arg>
+		<arg name="y" type="number"></arg>
+		<arg name="x" type="number"></arg>
+	</args>
+</function>

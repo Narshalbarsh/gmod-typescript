@@ -1,0 +1,7 @@
+<function name="IsViewModelEffect" parent="CNewParticleEffect" type="classfunc">
+	<description>Returns whether the particle system is intended to be used on a view model?</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="boolean"></ret>
+	</rets>
+</function>

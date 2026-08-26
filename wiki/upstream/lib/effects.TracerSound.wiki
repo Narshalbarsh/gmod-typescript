@@ -1,0 +1,21 @@
+<function name="TracerSound" parent="effects" type="libraryfunc">
+	<description>Imitates the "near miss" tracer sound, with the ability to override the sound played.
+
+The frequency of the sound is limited internally, as to not overwhelm the player. (same as normal tracers)
+</description>
+	<added>2025.09.16</added>
+	<realm>Client</realm>
+	<args>
+		<arg name="start" type="Vector">Start position of the tracer.</arg>
+		<arg name="endpos" type="Vector">End position of the tracer.</arg>
+		<arg name="tracerType" type="number" default="1">Tracer type. Acceptable values are:
+* 1 - Normal bullet.
+* 2 - Gunship bullet.
+* 4 - Strider bullet.
+* 8 - Underwater bullet.
+
+This affects the default sound, as well as the distance from which the sound can be heard compared to the closest point on the tracer line to the <page text="player's eyes">Player:GetShootPos</page>.
+</arg>
+		<arg name="soundOverride" type="string" default="nil">If set, this sound will be played instead of the default sound.</arg>
+	</args>
+</function>

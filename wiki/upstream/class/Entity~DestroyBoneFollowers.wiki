@@ -1,0 +1,8 @@
+<function name="DestroyBoneFollowers" parent="Entity" type="classfunc">
+	<description>Destroys bone followers created by <page>Entity:CreateBoneFollowers</page>.
+
+<note>This function only works on `anim` type entities.</note>
+</description>
+	<realm>Server</realm>
+	<added>2021.01.27</added>
+</function>

@@ -1,0 +1,18 @@
+<function name="GetWalkSpeed" parent="Player" type="classfunc">
+	<description>
+Returns the player's normal walking speed. Not sprinting, not slow walking. (+walk)
+
+See also <page>Player:SetWalkSpeed</page>, <page>Player:GetMaxSpeed</page> and <page>Player:GetRunSpeed</page>.
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The normal walking speed.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Gets player 1's walk speed, and prints it to console</description>
+	<code>print( Entity( 1 ):GetWalkSpeed() )</code>
+	<output>200 in console by default</output>
+
+</example>

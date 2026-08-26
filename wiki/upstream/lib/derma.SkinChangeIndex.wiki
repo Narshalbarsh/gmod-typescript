@@ -1,0 +1,8 @@
+<function name="SkinChangeIndex" parent="derma" type="libraryfunc">
+	<description>Returns how many times <page>derma.RefreshSkins</page> has been called.</description>
+	<realm>Client and Menu</realm>
+	<file line="234-L238">lua/derma/derma.lua</file>
+	<rets>
+		<ret name="" type="number">Amount of times <page>derma.RefreshSkins</page> has been called.</ret>
+	</rets>
+</function>

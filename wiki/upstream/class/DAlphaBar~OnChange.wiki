@@ -1,0 +1,8 @@
+<function name="OnChange" parent="DAlphaBar" type="panelhook">
+	<description>Called when user changes the desired alpha value with the control. This function is meant to be overridden</description>
+	<realm>Client and Menu</realm>
+	<file line="45-L46">lua/vgui/dalphabar.lua</file>
+	<args>
+		<arg name="alpha" type="number">The new alpha value</arg>
+	</args>
+</function>

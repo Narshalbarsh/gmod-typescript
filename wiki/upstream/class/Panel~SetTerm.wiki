@@ -1,0 +1,11 @@
+<function name="SetTerm" parent="Panel" type="classfunc">
+	<file line="10-L15">lua/includes/extensions/client/panel/animation.lua</file>
+	<description>
+Removes the panel after given time in seconds.
+<note>This function will not work if <page>PANEL:AnimationThink</page> is overridden, unless <page>Panel:AnimationThinkInternal</page> is called every frame.</note>
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="delay" type="number">Delay in seconds after which the panel should be removed.</arg>
+	</args>
+</function>

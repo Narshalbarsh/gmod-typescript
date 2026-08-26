@@ -1,0 +1,13 @@
+<function name="GetColor" parent="ITexture" type="classfunc">
+	<description>
+Returns the color of the specified pixel, only works for textures created from PNG files.
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="x" type="number">The X coordinate.</arg>
+		<arg name="y" type="number">The Y coordinate.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Color">The color of the pixel as a <page>Color</page>.</ret>
+	</rets>
+</function>

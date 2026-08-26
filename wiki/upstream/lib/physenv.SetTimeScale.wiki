@@ -1,0 +1,16 @@
+<function name="SetTimeScale" parent="physenv" type="libraryfunc">
+	<description>
+Sets the time scale of the physics simulation.
+
+This will affect serverside-only physics if called on server, and clientside-only physics if used on the client.
+
+See <page>game.SetTimeScale</page> for a function that also affects all game logic.
+
+The true timescale will be `phys_timescale` (`cl_phys_timescale` on client) multiplied by <page>physenv.GetTimeScale</page>.
+	</description>
+	<added>2026.05.05</added>
+	<realm>Shared</realm>
+	<args>
+		<arg name="timeScale" type="number">The new timescale, minimum value is 0.001 and maximum is 5.</arg>
+	</args>
+</function>

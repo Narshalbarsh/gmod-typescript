@@ -1,0 +1,9 @@
+<function name="DoRightClick" parent="DListView_Column" type="panelhook">
+	<description>
+Called when the column is right clicked (on key release) by the client.
+
+See also <page>DListView_Column:DoClick</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="98-L100">lua/vgui/dlistview_column.lua</file>
+</function>

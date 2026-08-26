@@ -1,0 +1,12 @@
+<function name="GetSizable" parent="DFrame" type="panelfunc">
+	<description>
+Gets whether or not the DFrame can be resized by the user.
+
+This is achieved by clicking and dragging in the bottom right corner of the frame.
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="6">lua/vgui/dframe.lua</file>
+	<rets>
+		<ret name="" type="boolean">Whether the frame can be resized or not.</ret>
+	</rets>
+</function>

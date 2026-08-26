@@ -1,0 +1,43 @@
+<function name="Flip" parent="table" type="libraryfunc">
+	<description>
+Flips key-value pairs of each element within a table, so that each value becomes the key, and each key becomes the value.
+
+<warning>Take care when using this function, as a Lua table cannot contain multiple instances of the same key. As such, data loss is possible when using this function on tables with duplicate values.
+
+```
+local test = { test = 1, test2 = 1 }
+local f = table.Flip( test )
+PrintTable( f )
+-- Outputs "1	=	test2"
+```
+</warning>
+	</description>
+	<realm>Shared and Menu</realm>
+	<added>2023.08.08</added>
+	<file line="766-L776">lua/includes/extensions/table.lua</file>
+	<args>
+		<arg name="input" type="table">The table to flip items of.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">The flipped table.</ret>
+	</rets>
+</function>
+
+<example>
+	<code>
+local productIngredients = { "Cocoa Mass", "Cocoa Butter", "Vanilla", "Cocoa Solids: 70% min" }
+
+local flipped = table.Flip( productIngredients )
+ 
+PrintTable( flipped )
+	</code>
+<output>
+```
+Cocoa Butter	=	2
+Cocoa Mass	=	1
+Cocoa Solids: 70% min	=	4
+Vanilla	=	3
+```
+</output>
+
+</example>

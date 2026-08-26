@@ -1,0 +1,13 @@
+<ambig page="ENTITY:Use">You might be looking for the "ENTITY:Use" hook, which has the same name as this method.</ambig>
+<function name="Use" parent="Entity" type="classfunc">
+	<description>
+Simulates a `+use` action on an entity.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="activator" type="Entity">The entity that caused this input. This will usually be the player who pressed their use key</arg>
+		<arg name="caller" type="Entity" default="NULL">The entity responsible for the input. This will typically be the same as `activator` unless some other entity is acting as a proxy</arg>
+		<arg name="useType" type="number{USE}" default="USE_ON">Use type, see <page>Enums/USE</page>.</arg>
+		<arg name="value" type="number" default="0">Any value.</arg>
+	</args>
+</function>

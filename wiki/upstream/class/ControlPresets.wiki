@@ -1,0 +1,11 @@
+<panel>
+	<name>ControlPresets</name>
+	<parent>Panel</parent>
+	<realm>Client</realm>
+		<file line="148-L431">gamemodes/sandbox/gamemode/spawnmenu/controls/control_presets.lua</file>
+	<description>
+		A preset manager, found at the top of almost every default tool's C-menu.
+
+		This control only exists in Sandbox derived gamemodes.
+	</description>
+</panel>

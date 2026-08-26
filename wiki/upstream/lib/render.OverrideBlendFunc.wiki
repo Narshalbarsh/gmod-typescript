@@ -1,0 +1,19 @@
+<function name="OverrideBlendFunc" parent="render" type="libraryfunc">
+	<description>
+<deprecated>Use <page>render.OverrideBlend</page> instead.</deprecated>
+
+Overrides the internal graphical functions used to determine the final color and alpha of a rendered texture.
+
+See also <page>render.OverrideAlphaWriteEnable</page>.
+
+<note>Doing <page>surface</page> draw calls with alpha set to 0 is a no-op and will never have any effect.</note>
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="enabled" type="boolean">true to enable, false to disable. No other arguments are required when disabling.</arg>
+		<arg name="srcBlend" type="number">The source color blend function <page>Enums/BLEND</page>. Determines how a rendered texture's final color should be calculated.</arg>
+		<arg name="destBlend" type="number"></arg>
+		<arg name="srcBlendAlpha" type="number" default="nil">The source alpha blend function <page>Enums/BLEND</page>. Determines how a rendered texture's final alpha should be calculated.</arg>
+		<arg name="destBlendAlpha" type="number" default="nil"></arg>
+	</args>
+</function>

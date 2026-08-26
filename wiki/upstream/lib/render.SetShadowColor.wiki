@@ -1,0 +1,9 @@
+<function name="SetShadowColor" parent="render" type="libraryfunc">
+	<description>Sets the shadow color.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="red" type="number">The red channel of the shadow color.</arg>
+		<arg name="green" type="number">The green channel of the shadow color.</arg>
+		<arg name="blue" type="number">The blue channel of the shadow color.</arg>
+	</args>
+</function>

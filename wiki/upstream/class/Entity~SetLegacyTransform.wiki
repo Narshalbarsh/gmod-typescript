@@ -1,0 +1,11 @@
+<function name="SetLegacyTransform" parent="Entity" type="classfunc">
+	<description>
+This forces an entity to use the bone transformation behaviour from versions prior to **8 July 2014**.
+
+This behaviour affects <page>Entity:EnableMatrix</page> and <page>Entity:SetModelScale</page> and is incorrect, therefore this function be used exclusively as a quick fix for old scripts that rely on it.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="enabled" type="boolean">Whether the entity should use the old bone transformation behaviour or not.</arg>
+	</args>
+</function>

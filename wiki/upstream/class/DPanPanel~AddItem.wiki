@@ -1,0 +1,7 @@
+<function name="AddItem" parent="DPanPanel" type="panelfunc">
+	<description>Parents the passed panel to the <page>DPanPanel:GetCanvas</page>.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="pnl" type="Panel">The panel to add.</arg>
+	</args>
+</function>

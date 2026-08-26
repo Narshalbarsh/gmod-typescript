@@ -1,0 +1,29 @@
+<function name="offset" parent="utf8" type="libraryfunc">
+	<description>Returns the byte-index of the n'th UTF-8-character after the given startPos (nil if none). startPos defaults to 1 when n is positive and -1 when n is negative. If n is zero, this function instead returns the byte-index of the UTF-8-character startPos lies within.</description>
+	<realm>Shared and Menu</realm>
+	<file line="231-L301">lua/includes/modules/utf8.lua</file>
+	<args>
+		<arg name="string" type="string">The string that you will get the byte position from.</arg>
+		<arg name="n" type="number">The position to get the beginning byte position from.</arg>
+		<arg name="startPos" type="number" default="1 when n>=0, -1 otherwise">The offset for n.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">Starting byte-index of the given position.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Returns the byte-index where the character at the 5th byte begins.</description>
+	<code>print(utf8.offset("( ͡° ͜ʖ ͡°)", 5))</code>
+	<output>7</output>
+</example>
+
+<example>
+	<description>Safely truncates the string that may contain UTF-8 characters. The first print demonstrates the problem of string.sub</description>
+	<code>local s = 'Текст - Cyrillic text example'
+print(string.sub(s,1,5))
+print(string.sub(s,1,utf8.offset(s,5)))</code>
+	<output>Те?
+Текст 
+</output>
+</example>

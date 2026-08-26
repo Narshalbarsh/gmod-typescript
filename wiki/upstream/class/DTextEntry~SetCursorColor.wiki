@@ -1,0 +1,36 @@
+<function name="SetCursorColor" parent="DTextEntry" type="panelfunc">
+	<description>Sets the cursor's color in  DTextEntry (the blinking line).</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="color" type="Color">The color to set the cursor to.</arg>
+	</args>
+</function>
+
+<example>
+	<description>
+Creates a panel and a DTextEntry, and then sets the cursor color. 
+(As seen on https://maurits.tv/data/garrysmod/wiki/wiki.garrysmod.com/index9051.html)
+	</description>
+	<code>
+local ParentPanel = vgui.Create("DFrame")
+	ParentPanel:SetSize(ScrW()/7, ScrH()/12)
+	ParentPanel:Center()
+	ParentPanel:SetTitle("Cursor Color Test")
+	ParentPanel:SetDeleteOnClose(true)
+	ParentPanel:MakePopup()
+ 
+local TextEntry = vgui.Create( "DTextEntry", ParentPanel )
+	TextEntry:SetSize(ScrW()/9, ScrH()/30)
+	TextEntry:SetValue("Cursor Color Test ")
+	TextEntry:SetPos(ParentPanel:GetWide()/2-TextEntry:GetWide()/2,
+	ParentPanel:GetTall()/2-TextEntry:GetTall()/5)
+	TextEntry:SetEnterAllowed(false)
+ 
+	-- Uses Simple RGBA (Red, Green, Blue, Alpha) Colors. --
+	TextEntry:SetCursorColor(Color(255,0,0,255))
+ 
+	TextEntry:RequestFocus()
+	</code>
+	<output>Makes the text entry's cursor color red.</output>
+
+</example>

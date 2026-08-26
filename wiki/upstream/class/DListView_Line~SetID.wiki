@@ -1,0 +1,10 @@
+<function name="SetID" parent="DListView_Line" type="panelfunc">
+	<description>
+		<internal></internal>
+		Sets the ID of this line, used internally by <page>DListView:AddLine</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="id" type="number">The ID for this line.</arg>
+	</args>
+</function>

@@ -1,0 +1,21 @@
+<function name="KeyDownLast" parent="Player" type="classfunc">
+	<description>Gets whether a key was down one tick ago.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="key" type="number">The key, see <page>Enums/IN</page></arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Is key down ?</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints whenever the first player stopped pressing <key>+FORWARD</key> key (<key>W</key> on QWERTY keyboards) last tick</description>
+	<code>
+hook.Add( "Tick", "CheckPlayer1Forward", function()
+	if !Entity( 1 ):KeyDown( IN_FORWARD ) and Entity( 1 ):KeyDownLast( IN_FORWARD ) then
+		print( "Player1 is no longer holding W!" )
+	end
+end )
+	</code>
+</example>

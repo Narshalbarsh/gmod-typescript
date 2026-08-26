@@ -1,0 +1,12 @@
+<function name="ApplyGWEN" parent="Panel" type="classfunc">
+	<description>
+Used by <page>Panel:LoadGWENFile</page> and <page>Panel:LoadGWENString</page> to apply a GWEN controls table to a panel object.
+
+You can do this manually using <page>file.Read</page> and <page>util.JSONToTable</page> to import and create a GWEN table structure from a `.gwen` file. This method can then be called, passing the GWEN table's `Controls` member.
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="166-L196">lua/derma/derma_gwen.lua</file>
+	<args>
+		<arg name="GWENTable" type="table">The GWEN controls table to apply to the panel.</arg>
+	</args>
+</function>

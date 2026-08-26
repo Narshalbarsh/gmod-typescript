@@ -1,0 +1,7 @@
+<function name="AddSolidFlags" parent="Entity" type="classfunc">
+	<description>Adds solid flag(s) to the entity.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="flags" type="number">The flag(s) to apply, see <page>Enums/FSOLID</page>.</arg>
+	</args>
+</function>

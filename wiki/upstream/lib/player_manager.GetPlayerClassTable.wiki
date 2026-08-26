@@ -1,0 +1,11 @@
+<function name="GetPlayerClassTable" parent="player_manager" type="libraryfunc">
+	<description>Gets a players' class table.</description>
+	<realm>Shared</realm>
+	<added>2024.07.09</added>
+	<args>
+		<arg name="ply" type="Player">Player to get class of.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">The players class table.</ret>
+	</rets>
+</function>

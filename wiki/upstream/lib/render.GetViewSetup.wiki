@@ -1,0 +1,11 @@
+<function name="GetViewSetup" parent="render" type="libraryfunc">
+	<description>Returns the current view setup.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="noPlayer" type="boolean" default="false">If `true`, returns the `view->GetViewSetup`, if `false` - returns `view->GetPlayerViewSetup`.</arg>
+	</args>
+
+	<rets>
+		<ret name="" type="table">Current current view setup. See <page>Structures/ViewSetup</page>.</ret>
+	</rets>
+</function>

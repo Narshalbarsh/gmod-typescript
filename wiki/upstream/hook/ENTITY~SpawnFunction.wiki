@@ -1,0 +1,63 @@
+<function name="SpawnFunction" parent="ENTITY" type="hook">
+	<description>
+This is the spawn function. It's called when a player spawns the entity from the spawnmenu.
+
+If you want to make your SENT spawnable you need this function to properly create the entity.
+
+<warning>Unlike other ENTITY functions, the "self" parameter of this function is not an entity but rather the table used to generate the SENT. This table is equivalent to <page>scripted_ents.GetStored</page>("ent_name").</warning>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ply" type="Player">The player that is spawning this SENT</arg>
+		<arg name="tr" type="table">A <page>Structures/TraceResult</page> from player eyes to their aim position</arg>
+		<arg name="ClassName" type="string">The classname of your entity</arg>
+	</args>
+</function>
+
+<example>
+	<description>This is how it is defined in sent_ball</description>
+	<code>
+function ENT:SpawnFunction( ply, tr, ClassName )
+
+	if ( !tr.Hit ) then return end
+
+	local SpawnPos = tr.HitPos + tr.HitNormal * 16
+
+	local ent = ents.Create( ClassName )
+	ent:SetPos( SpawnPos )
+	ent:SetBallSize( math.random( 16, 48 ) )
+	ent:Spawn()
+	ent:Activate()
+
+	return ent
+
+end
+	</code>
+
+</example>
+
+
+<example>
+	<description>This is how base_edit spawns (also rotates the entity to face the player, remove * 10 if it spawns in the air)</description>
+	<code>
+function ENT:SpawnFunction( ply, tr, ClassName )
+
+	if ( !tr.Hit ) then return end
+	
+	local SpawnPos = tr.HitPos + tr.HitNormal * 10
+	local SpawnAng = ply:EyeAngles()
+	SpawnAng.p = 0
+	SpawnAng.y = SpawnAng.y + 180
+	
+	local ent = ents.Create( ClassName )
+	ent:SetPos( SpawnPos )
+	ent:SetAngles( SpawnAng )
+	ent:Spawn()
+	ent:Activate()
+	
+	return ent
+	
+end
+	</code>
+
+</example>

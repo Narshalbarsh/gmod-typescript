@@ -1,0 +1,16 @@
+<function name="pow" parent="math" type="libraryfunc">
+	<description>
+Returns `x` raised to the power `y`.
+In particular, `math.pow(1.0, x)` and `math.pow(x, 0.0)` always return `1`, even when `x` is a zero or a <page>nan</page>. If both `x` and `y` are finite, `x` is negative, and `y` is not an integer then `math.pow(x, y)` is undefined.
+
+Alias of `x ^ y`
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="x" type="number">Base.</arg>
+		<arg name="y" type="number">Exponent.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">y power of x</ret>
+	</rets>
+</function>

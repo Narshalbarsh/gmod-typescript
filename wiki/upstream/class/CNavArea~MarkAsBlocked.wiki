@@ -1,0 +1,8 @@
+<function name="MarkAsBlocked" parent="CNavArea" type="classfunc">
+	<description>Marks the area as blocked and unable to be traversed. See <page>CNavArea:IsBlocked</page> and <page>CNavArea:MarkAsUnblocked</page>.</description>
+	<realm>Server</realm>
+	<added>2023.10.05</added>
+	<args>
+		<arg name="teamID" type="number" default="-2">TeamID to mark the area as blocked for. `-2` means all teams. Only 2 valid teamIDs are supported: `0` and `1`.</arg>
+	</args>
+</function>

@@ -1,0 +1,7 @@
+<function name="GetMaterial" parent="DImage" type="panelfunc">
+	<description>Returns the current <page>Global.Material</page> of the <page>DImage</page>.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="IMaterial"></ret>
+	</rets>
+</function>

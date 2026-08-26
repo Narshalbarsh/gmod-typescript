@@ -1,0 +1,23 @@
+<function name="Time" parent="file" type="libraryfunc">
+	<description>Returns when the file or folder was last modified in Unix time.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="path" type="string">The **file** or **folder** path.</arg>
+		<arg name="gamePath" type="string">The path to look for the files and directories in. See <page text="this list">File_Search_Paths</page> for a list of valid paths.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">Seconds passed since Unix epoch, or `0` if the file is not found.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints out the last modified date of **file** helloworld.txt.</description>
+	<code>print( os.date("%d.%m.%Y", file.Time("helloworld.txt", "DATA") ) )</code>
+	<output>04.08.2012</output>
+</example>
+
+<example>
+	<description>Prints out the last modified date of **folder** lua.</description>
+	<code>print( os.date( "%d.%m.%Y", file.Time( "lua", "GAME" ) ) )</code>
+	<output>31.01.2016</output>
+</example>

@@ -1,0 +1,12 @@
+<function name="SetDnD" parent="DDragBase" type="panelfunc">
+	<description><internal></internal> Used internally by <page>DDragBase:MakeDroppable</page>. 
+
+See also <page>DDragBase:GetDnD</page> 
+
+An <page>Global.AccessorFunc</page> </description>
+	<realm>Client and Menu</realm>
+	<file line="4">lua/vgui/ddragbase.lua</file>
+	<args>
+		<arg name="name" type="string">Name of the DnD family.</arg>
+	</args>
+</function>

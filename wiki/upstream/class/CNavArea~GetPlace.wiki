@@ -1,0 +1,7 @@
+<function name="GetPlace" parent="CNavArea" type="classfunc">
+	<description>Returns the Place of the nav area.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="string">The place of the nav area, or no value if it doesn't have a place set.</ret>
+	</rets>
+</function>

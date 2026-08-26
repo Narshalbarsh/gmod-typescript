@@ -1,0 +1,9 @@
+<function name="GetFOV" parent="NextBot" type="classfunc">
+	<description>Returns the Field of View of the Nextbot NPC, used for its vision functionality, such as <page>NextBot:IsAbleToSee</page>.</description>
+	<realm>Server</realm>
+	<added>2020.08.12</added>
+	<rets>
+		<ret name="fov" type="number">The current FOV of the nextbot</ret>
+	</rets>
+	
+</function>

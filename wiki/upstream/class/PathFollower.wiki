@@ -1,0 +1,3 @@
+<type name="PathFollower" category="classfunc" is="class">
+	<summary>Path object for a NextBot NPC and bots created by <page>player.CreateNextbot</page>. Returned by <page>Global.Path</page>.</summary>
+</type>

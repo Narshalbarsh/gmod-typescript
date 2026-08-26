@@ -1,0 +1,11 @@
+<function name="OnChangeActivity" parent="ENTITY" type="hook">
+	<description>Called when the NPC has changed its activity.
+
+<note>This hook only works for `ai` type entities.</note>
+	</description>
+	<realm>Server</realm>
+	<added>2020.06.24</added>
+	<args>
+		<arg name="act" type="number">The new activity. See <page>Enums/ACT</page>.</arg>
+	</args>
+</function>

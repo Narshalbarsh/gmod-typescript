@@ -1,0 +1,18 @@
+<function name="TotalFrags" parent="team" type="libraryfunc">
+	<description>Get's the total frags in a team.</description>
+	<file line="117-L127">lua/includes/modules/team.lua</file>
+	<realm>Shared</realm>
+	<args>
+		<arg name="Entity or number" type="Entity">Entity or number.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">index</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Get's the total frags in a team.</description>
+	<code>print(team.TotalFrags(ply:Team()),team.TotalFrags(1))</code>
+	<output>1</output>
+
+</example>

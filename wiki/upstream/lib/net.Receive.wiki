@@ -1,0 +1,96 @@
+<function name="Receive" parent="net" type="libraryfunc">
+	<description>
+Adds a net message handler. Only one receiver can be used to receive the net message.
+
+You can use the `net.Read*` functions within the message handler callback.
+
+<warning>You **should** put this function **outside** of any other function or hook for it to work properly unless you know what you are doing!
+
+You **must** read information in the same order as you write it.
+
+Each net message has a length limit of **64KB**!</warning>
+	</description>
+	<realm>Shared</realm>
+	<file line="14-L18">lua/includes/extensions/net.lua</file>
+	<args>
+		<arg name="messageName" type="string">The message name to hook to.
+
+<note>The message-name is converted to lower-case so the message-names "`BigBlue`" and "`bigblue`" would be equal.</note>
+</arg>
+		<arg name="callback" type="function">The function to be called if the specified message was received.
+
+<callback>
+<arg type="number" name="len">Length of the message, in bits.</arg>
+<arg type="Player" name="ply">The player that sent the message, works **only** server-side.</arg>
+</callback></arg>
+	</args>
+</function>
+
+<example>
+	<description>An example with receiving message clientside, when sent from the server.</description>
+	<code>
+if ( SERVER ) then
+	util.AddNetworkString( "message_to_clients" )
+
+	concommand.Add( "send_message", function( ply, cmd, args )
+		net.Start( "message_to_clients" )
+		net.WriteString( args[ 1 ] or "my very cool message, yeah!" )
+		net.WriteUInt( 1337, 16 )
+		net.Broadcast()
+	end )
+else
+	net.Receive( "message_to_clients", function( len, ply )
+		print( "Message from server received. Its length is " .. len .. "." )
+
+		-- We read in the same order as we written
+		local message = net.ReadString()
+		local myCoolNumber = net.ReadUInt( 16 )
+		print( "The message was: ", message )
+		print( "The cool number was: ", myCoolNumber )
+	end )
+end
+	</code>
+	<output>
+```
+] send_message test
+Message from server received. Its length is 56.
+The message was: 	test
+The cool number was: 	1337
+```
+	</output>
+</example>
+
+
+<example>
+	<description>An example with receiving message serverside, when sent from a client.</description>
+	<code>
+if ( SERVER ) then
+	util.AddNetworkString( "message_to_server" )
+
+	net.Receive( "message_to_server", function( len, ply )
+		print( "Message from " .. ply:Nick() .. " received. Its length is " .. len .. "." )
+
+		-- We read in the same order as we written
+		local message = net.ReadString()
+		local myCoolNumber = net.ReadUInt( 16 )
+		print( "The message was: ", message )
+		print( "The cool number was: ", myCoolNumber )
+	end )
+else
+	concommand.Add( "send_message_to_server", function( ply, cmd, args )
+		net.Start( "message_to_server" )
+		net.WriteString( args[ 1 ] or "my very cool message, yeah!" )
+		net.WriteUInt( 1337, 16 )
+		net.SendToServer()
+	end )
+end
+	</code>
+	<output>
+```
+] send_message_to_server test
+Message from Rubat received. Its length is 56.
+The message was: 	test
+The cool number was: 	1337
+```
+	</output>
+</example>

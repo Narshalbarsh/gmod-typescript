@@ -1,0 +1,11 @@
+<function name="SentenceDuration" parent="Global" type="libraryfunc">
+	<description>Returns approximate duration of a sentence by name. See <page>Global.EmitSentence</page>.</description>
+	<realm>Shared</realm>
+	<added>2020.04.29</added>
+	<args>
+		<arg name="name" type="string">The sentence name.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The approximate duration.</ret>
+	</rets>
+</function>

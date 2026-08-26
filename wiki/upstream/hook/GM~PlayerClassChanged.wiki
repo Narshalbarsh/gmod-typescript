@@ -1,0 +1,15 @@
+<function name="PlayerClassChanged" parent="GM" type="hook">
+	<description>
+<internal></internal>
+
+Called whenever a player's class is changed on the server-side with <page>player_manager.SetPlayerClass</page>.
+	</description>
+	<realm>Client</realm>
+	<file line="680-L695">gamemodes/base/gamemode/cl_init.lua</file>
+	<args>
+		<arg name="ply" type="Player">The player whose class has been changed.</arg>
+		<arg name="newID" type="number">The network ID of the player class's name string, or `0` if we are clearing a player class from the player.
+
+Pass this into <page>util.NetworkIDToString</page> to retrieve the proper name of the player class.</arg>
+	</args>
+</function>

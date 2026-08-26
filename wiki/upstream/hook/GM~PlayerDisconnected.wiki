@@ -1,0 +1,22 @@
+<function name="PlayerDisconnected" parent="GM" type="hook">
+	<description>
+Called when a player leaves the server. See the <page text="player_disconnect gameevent">gameevent/player_disconnect</page> for a shared version of this hook that includes the disconnect reason too.
+
+<bug issue="3523">This is not called in single-player or listen servers for the host.</bug>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ply" type="Player">the player</arg>
+	</args>
+</function>
+
+<example>
+	<description>Print a message to the chatbox upon player disconnect</description>
+	<code>
+hook.Add( "PlayerDisconnected", "Playerleave", function(ply)
+    PrintMessage( HUD_PRINTTALK, ply:Name().. " has left the server. " )
+end )
+	</code>
+	<output>Player1 has left the server.</output>
+
+</example>

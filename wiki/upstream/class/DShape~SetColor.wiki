@@ -1,0 +1,7 @@
+<function name="SetColor" parent="DShape" type="panelfunc">
+	<description>Sets the color to display the shape with.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="clr" type="Color">The <page>Color</page></arg>
+	</args>
+</function>

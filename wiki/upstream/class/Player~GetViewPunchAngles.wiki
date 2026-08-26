@@ -1,0 +1,7 @@
+<function name="GetViewPunchAngles" parent="Player" type="classfunc">
+	<description>Returns players screen punch effect angle.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Angle">The punch angle</ret>
+	</rets>
+</function>

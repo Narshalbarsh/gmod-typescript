@@ -1,0 +1,7 @@
+<function name="SetCollide" parent="CLuaParticle" type="classfunc">
+	<description>Sets the whether the particle should collide with the world or not.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="shouldCollide" type="boolean">Whether the particle should collide with the world or not</arg>
+	</args>
+</function>

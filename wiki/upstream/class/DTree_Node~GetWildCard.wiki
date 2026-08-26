@@ -1,0 +1,7 @@
+<function name="GetWildCard" parent="DTree_Node" type="panelfunc">
+	<description>Returns the wildcard set by <page>DTree_Node:MakeFolder</page>.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="string">The search wildcard</ret>
+	</rets>
+</function>

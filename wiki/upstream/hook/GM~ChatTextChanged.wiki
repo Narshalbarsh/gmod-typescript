@@ -1,0 +1,8 @@
+<function name="ChatTextChanged" parent="GM" type="hook">
+	<description>Called whenever the content of the user's chat input box is changed.</description>
+	<realm>Client</realm>
+	<file line="243-L244">gamemodes/base/gamemode/cl_init.lua</file>
+	<args>
+		<arg name="text" type="string">The new contents of the input box</arg>
+	</args>
+</function>

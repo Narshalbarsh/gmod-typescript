@@ -1,0 +1,14 @@
+<function name="GetSurfaceIndex" parent="util" type="libraryfunc">
+	<description>
+Returns the matching surface property index for the given surface property name.
+
+See also <page>util.GetSurfaceData</page> and <page>util.GetSurfacePropName</page> for opposite function.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="surfaceName" type="string">The name of the surface.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The surface property index, or -1 if name doesn't correspond to a valid surface property.</ret>
+	</rets>
+</function>

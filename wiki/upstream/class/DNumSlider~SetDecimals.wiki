@@ -1,0 +1,15 @@
+<function name="SetDecimals" parent="DNumSlider" type="panelfunc">
+	<description>Sets the desired amount of numbers after the decimal point.
+		<note>
+			This doesn't affect values passed to <page>DNumSlider:OnValueChanged</page>.
+		</note>
+
+		<note>
+			To get right values passed to <page>DNumSlider:OnValueChanged</page> use <page>math.Round</page>.
+		</note>
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="decimals" type="number">0 for whole numbers only, 1 for one number after the decimal point, etc.</arg>
+	</args>
+</function>

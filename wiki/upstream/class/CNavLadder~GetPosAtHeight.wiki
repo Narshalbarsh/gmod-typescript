@@ -1,0 +1,10 @@
+<function name="GetPosAtHeight" parent="CNavLadder" type="classfunc">
+	<description>Returns the world position based on given height relative to the ladder.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="height" type="number">The Z position in world space coordinates.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">The closest point on the ladder to that height.</ret>
+	</rets>
+</function>

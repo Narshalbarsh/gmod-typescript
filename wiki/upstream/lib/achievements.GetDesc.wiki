@@ -1,0 +1,52 @@
+<function name="GetDesc" parent="achievements" type="libraryfunc">
+	<description>Retrieves the description of the given achievement.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="achievementID" type="number">The ID of the achievement.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The description.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints the description of every achievement into the console.</description>
+	<code>
+for i = 1, achievements.Count() - 1 do
+	print( achievements.GetDesc( i ) )
+end
+	</code>
+	<output>
+```
+Play singleplayer at least once
+Play multiplayer at least once
+Start Garry's Mod 1000 times
+Say the secret phrase
+You have wasted a year of your life playing GMod!
+Play 20 different maps
+Play a gamemode that isn't sandbox
+Killed 1000 Baddies
+Play with 10 friends
+Play on the same server as garry
+Play on the same server & map for 8 hours
+24 hours of your life wasted
+One whole week of your life wasted
+One whole month of your life wasted
+Play on the same server & map for 4 hours
+Kill 1000 innocent animals
+Kill 1000 friendly NPCs
+Eat 200 balls
+Spawn 5000 props
+Burst 1000 balloons
+Remove 5000 things
+Open the spawnmenu 100,000 times
+Experience 500 Lua programming errors
+Spawn 1000 NPCs
+Spawn 2000 ragdolls
+Your Workshop uploads got 10 thumbs
+Your workshop uploads got 100 thumbs
+Your Workshop uploads got 1000 thumbs
+Get 1000 thumbs on a single upload (then go to jail)
+```
+	</output>
+</example>

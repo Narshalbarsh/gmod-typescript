@@ -1,0 +1,16 @@
+<function name="IsRayIntersectingRay" parent="util" type="libraryfunc">
+	<description>Performs a ray-ray intersection and returns whether there was an intersection or not.</description>
+	<realm>Shared</realm>
+	<added>2024.02.02</added>
+	<args>
+		<arg name="ray1Start" type="Vector">Start position of the first ray.</arg>
+		<arg name="ray1End" type="Vector">End position of the first ray.</arg>
+		<arg name="ray2Start" type="Vector">Start position of the second ray.</arg>
+		<arg name="ray2End" type="Vector">End position of the second ray.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">`true` if there is an intersection, `false` otherwise.</ret>
+		<ret name="" type="number">Distance from start of ray 1 to the intersection, if there was one.</ret>
+		<ret name="" type="number">Distance from start of ray 2 to the intersection, if there was one.</ret>
+	</rets>
+</function>

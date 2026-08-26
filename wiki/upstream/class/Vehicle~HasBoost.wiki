@@ -1,0 +1,7 @@
+<function name="HasBoost" parent="Vehicle" type="classfunc">
+	<description>Returns whether this vehicle has boost at all.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="boolean">Whether this vehicle has boost at all.</ret>
+	</rets>
+</function>

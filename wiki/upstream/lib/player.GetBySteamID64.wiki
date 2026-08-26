@@ -1,0 +1,13 @@
+<function name="GetBySteamID64" parent="player" type="libraryfunc">
+	<description>Gets the player with the specified SteamID64.
+	<warning>Internally this function iterates over all players in the server, meaning it can be quite expensive in a performance-critical context.</warning>
+</description>
+	<realm>Shared</realm>
+	<file line="299-L308">lua/includes/extensions/player.lua</file>
+	<args>
+		<arg name="steamID64" type="string">The <page>Player:SteamID64</page> to find the player by.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Player|boolean">Player if one is found, `false` otherwise.</ret>
+	</rets>
+</function>

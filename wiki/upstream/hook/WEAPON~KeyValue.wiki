@@ -1,0 +1,18 @@
+<function name="KeyValue" parent="WEAPON" type="hook">
+	<description>
+Called when the engine sets a value for this scripted weapon.
+
+See <page>GM:EntityKeyValue</page> for a hook that works for all entities.
+
+
+See <page>ENTITY:KeyValue</page> for an  hook that works for scripted entities.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="key" type="string">The key that was affected.</arg>
+		<arg name="value" type="string">The new value.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return true to suppress this KeyValue or return false or nothing to apply this key value.</ret>
+	</rets>
+</function>

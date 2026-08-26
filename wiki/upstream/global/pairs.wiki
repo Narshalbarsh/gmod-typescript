@@ -1,0 +1,35 @@
+<function name="pairs" parent="Global" type="libraryfunc">
+	<description>
+Returns an iterator function(<page>Global.next</page>) for a for loop that will return the values of the specified table in an arbitrary order.
+
+* For alphabetical **key** order use <page>Global.SortedPairs</page>.
+* For alphabetical **value** order use <page>Global.SortedPairsByValue</page>.
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="tab" type="table">The table to iterate over.</arg>
+	</args>
+	<rets>
+		<ret name="" type="function">The iterator (<page>Global.next</page>).</ret>
+		<ret name="" type="table">The table being iterated over.</ret>
+		<ret name="" type="any">**nil** (for the constructor).</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Iterates through all <page text="PlayerInitialSpawn">GM:PlayerInitialSpawn</page> hooks on the server and prints their unique identifiers and called function.</description>
+	<code>
+for k, v in pairs( hook.GetTable().PlayerInitialSpawn ) do
+
+	-- The custom name given in the second argument of the hook.Add function.
+	-- Example : "myCustomSpawnFunc".
+	print( "Unique identifier:", k )
+
+	-- The hook function.
+	-- Example : "function: 0x3a3f2c80".
+	print( "Called function:", v )
+
+end
+	</code>
+	<output>A list of all hooks.</output>
+</example>

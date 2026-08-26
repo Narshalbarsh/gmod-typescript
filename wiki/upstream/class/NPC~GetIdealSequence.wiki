@@ -1,0 +1,8 @@
+<function name="GetIdealSequence" parent="NPC" type="classfunc">
+	<description>Returns the ideal sequence the NPC currently wants to achieve.</description>
+	<realm>Server</realm>
+	<added>2024.02.02</added>
+	<rets>
+		<ret name="" type="number">The ideal sequence, specific to the NPCs model.</ret>
+	</rets>
+</function>

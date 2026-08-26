@@ -1,0 +1,12 @@
+<function name="GetVisibleAreas" parent="CNavArea" type="classfunc">
+	<description>
+		Returns all <page>CNavArea</page>s that are visible from this <page>CNavArea</page>.
+	</description>
+	<added>2023.06.28</added>
+	<realm>Server</realm>
+	<rets>
+		<ret name="areas" type="table">
+			A sequential table containing all <page>CNavArea</page>s that are visible from this <page>CNavArea</page>.					
+		</ret>
+	</rets>
+</function>

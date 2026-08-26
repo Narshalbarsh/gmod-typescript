@@ -1,0 +1,22 @@
+<function name="RegisterBoneModifier" parent="duplicator" type="libraryfunc">
+	<description>
+Registers a function to be called on each of an entity's bones when <page>duplicator.ApplyBoneModifiers</page> is called.
+
+<note>This function is available to call on the client, but registered functions aren't used anywhere!</note>
+	</description>
+	<realm>Shared</realm>
+	<file line="405">lua/includes/modules/duplicator.lua</file>
+	<args>
+		<arg name="key" type="any">The type of the key doesn't appear to matter, but it is preferable to use a string.</arg>
+		<arg name="boneModifier" type="function">Function called on each bone that an ent has. Called during <page>duplicator.ApplyBoneModifiers</page>.
+
+<callback>
+<arg type="Player" name="ply">The player that is spawning the entity.</arg>
+<arg type="Entity" name="ent">The entity being spawned in.</arg>
+<arg type="number" name="boneID"></arg>
+<arg type="PhysObj" name="bone"></arg>
+<arg type="table" name="data">What you pass to <page>duplicator.StoreBoneModifier</page>.</arg>
+</callback>
+</arg>
+	</args>
+</function>

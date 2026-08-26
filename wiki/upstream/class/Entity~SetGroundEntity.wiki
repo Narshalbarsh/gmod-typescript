@@ -1,0 +1,39 @@
+<function name="SetGroundEntity" parent="Entity" type="classfunc">
+	<description>Sets the ground the entity is standing on.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="ground" type="Entity">The ground entity.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Gives all players the ability to (sort of) walk on water.</description>
+	<code>
+-- shared.lua tick
+function GM:Tick()
+	
+	local trace = {}
+	local world = Entity( 0 )
+	
+	for p, ply in ipairs( player.GetAll() ) do
+	
+		trace = util.TraceLine( {
+			start = ply:GetPos() + Vector( 0, 0, 72),
+			endpos = ply:GetPos() + Vector( 0, 0, -3 ),
+			mask = MASK_WATER,
+			filter = function( ent ) return true end
+		} )
+		
+		if( trace.Hit ) then
+			ply:SetGravity( 0.0001 )
+			ply:SetGroundEntity( world )
+		else
+			ply:SetGravity( 1.0 )
+		end
+		
+	end
+	
+end
+	</code>
+
+</example>

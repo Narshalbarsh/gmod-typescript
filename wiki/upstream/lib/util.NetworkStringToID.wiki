@@ -1,0 +1,10 @@
+<function name="NetworkStringToID" parent="util" type="libraryfunc">
+	<description>Returns the networked ID associated with the given string from the string table.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="networkString" type="string">String to get the associated networked ID from.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The networked ID of the string, or 0 if it hasn't been networked with <page>util.AddNetworkString</page>.</ret>
+	</rets>
+</function>

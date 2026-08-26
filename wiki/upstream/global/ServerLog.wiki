@@ -1,0 +1,10 @@
+<function name="ServerLog" parent="Global" type="libraryfunc">
+	<description>Prints `ServerLog: PARAM` without a newline, to the server log and console.
+
+As of June 2022, if `sv_logecho` is set to `0` (defaults to `1`) the message will not print to console and will only be written to the server's log file.
+</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="parameter" type="string">The value to be printed to console.</arg>
+	</args>
+</function>

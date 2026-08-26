@@ -1,0 +1,7 @@
+<function name="GetAmmoTypes" parent="game" type="libraryfunc">
+	<description>Returns a list of all ammo types currently registered.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="table<number,string>">A table containing all ammo types. The keys are ammo IDs, the values are the names associated with those IDs.</ret>
+	</rets>
+</function>

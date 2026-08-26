@@ -1,0 +1,18 @@
+<function name="Model" parent="render" type="libraryfunc">
+	<description>
+Creates a new <page>Global.ClientsideModel</page>, renders it at the specified pos/ang, and removes it. Can also be given an existing <page>CSEnt</page> to reuse instead.
+
+<note>This function is only meant to be used in a single render pass kind of scenario, if you need to render a model continuously, use a cached <page>Global.ClientsideModel</page> and provide it as a second argument.</note>
+
+<bug issue="2688">Using this with a map model (<page>game.GetWorld</page>():<page text="GetModel">Entity:GetModel</page>()) crashes the game.</bug>
+	</description>
+	<realm>Client</realm>
+	<file line="175-L199">lua/includes/extensions/client/render.lua</file>
+	<args>
+		<arg name="settings" type="table">Requires:
+* <page>string</page> model - The model to draw.
+* <page>Vector</page> pos - The position to draw the model at.
+* <page>Angle</page> angle - The angles to draw the model at.</arg>
+		<arg name="ent" type="CSEnt" default="nil">If provided, this entity will be reused instead of creating a new one with <page>Global.ClientsideModel</page>. Note that the ent's model, position and angles will be changed, and <page>Entity:SetNoDraw</page> will be set to true.</arg>
+	</args>
+</function>

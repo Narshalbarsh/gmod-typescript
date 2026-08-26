@@ -1,0 +1,17 @@
+<function name="GetActiveWeapon" parent="Player" type="classfunc">
+	<description>Returns the player's active weapon.
+
+If used on a <page>Global.LocalPlayer</page>() and the player is spectating another player with `OBS_MODE_IN_EYE`, the weapon returned will be of the spectated player.
+</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Weapon">The weapon the player currently has equipped or NULL if the player doesn't have an active weapon eg. when they're dead.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints the player's active weapon's class name.</description>
+	<code>print( Entity( 1 ):GetActiveWeapon():GetClass() )</code>
+	<output>The active weapon's class. For example, if you are holding the tool gun then this will be "gmod_tool".</output>
+
+</example>

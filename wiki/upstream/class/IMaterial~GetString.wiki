@@ -1,0 +1,10 @@
+<function name="GetString" parent="IMaterial" type="classfunc">
+	<description>Returns the specified material string, or nil if the value is not set or if the value can not be converted to a string.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="materialString" type="string">The name of the material string.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The value as a string</ret>
+	</rets>
+</function>

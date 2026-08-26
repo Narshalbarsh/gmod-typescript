@@ -1,0 +1,18 @@
+<function name="Name" parent="Player" type="classfunc">
+	<description>
+<deprecated>Use <page>Player:Nick</page>.</deprecated>
+
+Returns the player's nick name. Identical to <page>Player:Nick</page> and <page>Player:GetName</page>.</description>
+	<realm>Shared</realm>
+	<file line="57-L57">lua/includes/extensions/player.lua</file>
+	<rets>
+		<ret name="" type="string">Player's name.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints the players name in console.</description>
+	<code>print( Entity( 1 ):Name() )</code>
+	<output>Player1</output>
+
+</example>

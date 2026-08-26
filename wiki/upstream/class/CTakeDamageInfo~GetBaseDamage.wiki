@@ -1,0 +1,7 @@
+<function name="GetBaseDamage" parent="CTakeDamageInfo" type="classfunc">
+	<description>Returns the initial unmodified by skill level ( <page>game.GetSkillLevel</page> ) damage.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">baseDamage</ret>
+	</rets>
+</function>

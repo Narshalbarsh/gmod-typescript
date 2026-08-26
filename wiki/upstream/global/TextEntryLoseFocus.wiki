@@ -1,0 +1,5 @@
+<function name="TextEntryLoseFocus" parent="Global" type="libraryfunc">
+	<file line="415-L437">lua/vgui/dtextentry.lua</file>
+	<description>Clears focus from any text entries player may have focused.</description>
+	<realm>Client and Menu</realm>
+</function>

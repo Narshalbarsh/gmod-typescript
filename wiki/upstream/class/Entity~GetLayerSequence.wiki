@@ -1,0 +1,15 @@
+<function name="GetLayerSequence" parent="Entity" type="classfunc">
+	<description>
+Returns the sequence id of given layer.
+
+<note>This function only works on <page>BaseAnimatingOverlay</page> entities.</note>
+	</description>
+	<added>2020.06.24</added>
+	<realm>Shared</realm>
+	<args>
+		<arg name="layerID" type="number">The Layer ID.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The sequenceID of the layer.</ret>
+	</rets>
+</function>

@@ -1,0 +1,3 @@
+<type name="gamemode" category="libraryfunc" is="library">
+	<summary>The gamemode library provides functions relating to the gamemode system in Garry's Mod. This entire library also passes through the C -> Lua bridge.</summary>
+</type>

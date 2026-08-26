@@ -1,0 +1,50 @@
+<function name="CreateFont" parent="surface" type="libraryfunc">
+	<description>
+Creates a new font.
+
+To prevent the font from displaying incorrectly when using the `outline` setting, set `antialias` to false. This will ensure the text properly fills out the entire outline.
+
+Be sure to check the <page text="List of Default Fonts">Default_Fonts</page> first! Those fonts can be used without using this function.
+
+See Also: <page>Finding the Font Name</page>.
+
+<warning>Due to the static nature of fonts, do **NOT** create the font more than once. You should only be creating them once, it is recommended to create them at the top of your script. Do not use this function within <page>GM:HUDPaint</page> or any other hook!
+
+Define fonts that you will actually use, as fonts are very taxing on performance and will cause crashes! Do not create fonts for every size.</warning>
+
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="fontName" type="string">The new font name.</arg>
+		<arg name="fontData" type="table{FontData}">The font properties. See the <page>Structures/FontData</page>.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Creates a font with all the defaults showing (any of the fields could be left out for an equivalent font)</description>
+	<code>
+surface.CreateFont( "TheDefaultSettings", {
+	font = "Arial", -- On Windows/macOS, use the font-name which is shown to you by your operating system Font Viewer. On Linux, the font-name *may* work, but using the file name is more reliable
+	extended = false,
+	size = 13,
+	weight = 500,
+	blursize = 0,
+	scanlines = 0,
+	antialias = true,
+	underline = false,
+	italic = false,
+	strikeout = false,
+	symbol = false,
+	rotary = false,
+	shadow = false,
+	additive = false,
+	outline = false,
+} )
+
+hook.Add( "HUDPaint", "HelloThere", function()
+	draw.SimpleText( "Hello there!", "TheDefaultSettings", ScrW() * 0.5, ScrH() * 0.25, color_white, TEXT_ALIGN_CENTER )
+end )
+	</code>
+
+
+</example>

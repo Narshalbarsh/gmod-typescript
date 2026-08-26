@@ -1,0 +1,12 @@
+<function name="GetMoveDelay" parent="NPC" type="classfunc">
+	<description>
+Returns the movement delay for given NPC.
+
+See <page>NPC:SetMoveDelay</page>.
+	</description>
+	<realm>Server</realm>
+	<added>2024.12.11</added>
+	<rets>
+		<ret type="number">The movement delay.</ret>
+	</rets>
+</function>

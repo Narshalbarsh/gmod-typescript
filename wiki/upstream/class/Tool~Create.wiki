@@ -1,0 +1,11 @@
+<function name="Create" parent="Tool" type="classfunc">
+	<description>
+<internal>This is called automatically for all tools.</internal>
+Initializes the tool object
+	</description>
+	<realm>Shared</realm>
+	<file line="11">gamemodes/sandbox/entities/weapons/gmod_tool/stool.lua</file>
+	<rets>
+		<ret name="tool" type="Tool">The created tool object.</ret>
+	</rets>
+</function>

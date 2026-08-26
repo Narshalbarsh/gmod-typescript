@@ -1,0 +1,11 @@
+<function name="GetColor" parent="DLabel" type="panelfunc">
+	<description>
+Returns the actual color of the text.
+
+See also <page>DLabel:GetTextColor</page> and <page>DLabel:GetTextStyleColor</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="Color">The the actual <page>Color</page> of the text.</ret>
+	</rets>
+</function>

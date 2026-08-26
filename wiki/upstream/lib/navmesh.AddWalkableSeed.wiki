@@ -1,0 +1,8 @@
+<function name="AddWalkableSeed" parent="navmesh" type="libraryfunc">
+	<description>Add this position and normal to the list of walkable positions, used before map generation with <page>navmesh.BeginGeneration</page></description>
+	<realm>Server</realm>
+	<args>
+		<arg name="pos" type="Vector">The terrain position.</arg>
+		<arg name="dir" type="Vector">The normal of this terrain position.</arg>
+	</args>
+</function>

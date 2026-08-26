@@ -1,0 +1,40 @@
+<panel>
+	<parent>DPanel</parent>
+	<realm>Client and Menu</realm>
+	<file line="">lua/vgui/dscrollpanel.lua</file>
+	<description>
+DScrollPanel is a VGUI Element similar to DPanel however it has a vertical scrollbar docked to the right which can be used to put more content in a smaller area. DScrollPanels are essentially <page>DPanel</page>s with the Scroll Bar.
+
+This can be used to replace the <page>DPanelList</page> with <page>DPanelList:EnableVerticalScrollbar</page> and get similar functionality as well as using a non-deprecated element.
+
+If you would like to paint or edit the elements of the scrollbar use <page>DScrollPanel:GetVBar</page>. If you want to see if the scrollbar is visible then use the VBar.Enabled variable on the scrollbar's VBar.
+
+<note><page>Panel:DockPadding</page> will not have an effect on children of this panel. Use the function on <page>DScrollPanel:GetCanvas</page> instead.</note>
+	</description>
+	<overrides>
+		<page>PANEL:OnVScroll</page>
+		<page>Panel:Clear</page>
+	</overrides>
+</panel>
+
+
+<example>
+	<description>Creates a <page>DScrollPanel</page> and adds 100 <page>DButton</page>s to it.</description>
+	<code>
+local frame = vgui.Create( "DFrame" )
+frame:SetSize( 500, 500 )
+frame:Center()
+frame:MakePopup()
+
+local DScrollPanel = vgui.Create( "DScrollPanel", frame )
+DScrollPanel:Dock( FILL )
+
+for i=0, 100 do
+	local DButton = DScrollPanel:Add( "DButton" )
+	DButton:SetText( "Button #" .. i )
+	DButton:Dock( TOP )
+	DButton:DockMargin( 0, 0, 0, 5 )
+end
+	</code>
+	<output><image src="DScrollPanel.png"/></output>
+</example>

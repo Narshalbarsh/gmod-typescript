@@ -1,0 +1,14 @@
+<function name="MakeGhostEntity" parent="Tool" type="classfunc">
+	<description>
+Initializes the ghost entity with the given model. Removes any old ghost entity if called multiple times.
+
+The ghost is a regular prop_physics entity in singleplayer games, and a clientside prop in multiplayer games.
+	</description>
+	<realm>Shared</realm>
+	<file line="6">gamemodes/sandbox/entities/weapons/gmod_tool/ghostentity.lua</file>
+	<args>
+		<arg name="model" type="string">The model of the new ghost entity</arg>
+		<arg name="pos" type="Vector">Position to initialize the ghost entity at, usually not needed since this is updated in <page>Tool:UpdateGhostEntity</page>.</arg>
+		<arg name="angle" type="Angle">Angle to initialize the ghost entity at, usually not needed since this is updated in <page>Tool:UpdateGhostEntity</page>.</arg>
+	</args>
+</function>

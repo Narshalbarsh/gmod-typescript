@@ -1,0 +1,55 @@
+<panel>
+	<parent>DPanel</parent>
+	<realm>Client and Menu</realm>
+	<file line="">lua/vgui/dmenubar.lua</file>
+	<description>A simple menu bar.</description>
+</panel>
+
+<example>
+	<description>Creates a DMenuBar in a DFrame.</description>
+	<code>
+local Frame = vgui.Create( "DFrame" )
+Frame:SetSize( 300, 200 )
+Frame:Center()
+Frame:MakePopup()
+
+local MenuBar = vgui.Create( "DMenuBar", Frame )
+MenuBar:DockMargin( -3, -6, -3, 0 ) --corrects MenuBar pos
+
+local M1 = MenuBar:AddMenu( "File" )
+M1:AddOption("New", function() Msg("Chose File:New\n") end):SetIcon("icon16/page_white_go.png")
+M1:AddOption("Open", function() Msg("Chose File:Open\n") end):SetIcon("icon16/folder_go.png")
+
+local M2 = MenuBar:AddMenu("Edit")
+M2:AddOption("Copy", function() Msg("Chose Edit:Copy\n") end)
+
+local M3 = MenuBar:AddMenu("Help")
+M3:AddOption("About", function() Msg("Chose Help:About\n") end)
+	</code>
+	<output>
+<upload src="70c/8dccb467ee5791e.png" size="3707" name="image.png" /></output>
+</example>
+
+
+<example>
+	<description>A sub menu example</description>
+	<code>
+local frame = vgui.Create( "DFrame" )
+frame:SetSize( 300, 200 )
+frame:Center()
+frame:MakePopup()
+
+local menuBar = vgui.Create( "DMenuBar", frame )
+menuBar:DockMargin( -3, -6, -3, 0 )
+
+local option1 = menuBar:AddMenu( "Option 1" )
+option1:AddOption( "Dummy option", function() MsgN( "Chose Dummy option" ) end )
+
+local sub = option1:AddSubMenu( "Sub Menu" )
+sub:SetDeleteSelf( false ) -- Necessary so the sub menu is not automatically removed on close
+for i = 0, 5 do
+	sub:AddOption( "Option " .. i, function() MsgN( "Chose sub menu option " .. i ) end )
+end
+	</code>
+
+</example>

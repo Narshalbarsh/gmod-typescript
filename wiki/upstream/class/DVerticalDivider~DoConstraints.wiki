@@ -1,0 +1,4 @@
+<function name="DoConstraints" parent="DVerticalDivider" type="panelfunc">
+	<description><internal></internal>Used internally to clamp the vertical divider to <page>DVerticalDivider:GetTopMin</page> and <page>DVerticalDivider:GetBottomMin</page>.</description>
+	<realm>Client</realm>
+</function>

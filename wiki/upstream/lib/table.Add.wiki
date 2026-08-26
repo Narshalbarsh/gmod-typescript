@@ -1,0 +1,28 @@
+<function name="Add" parent="table" type="libraryfunc">
+	<description>
+Adds all values from `source` table into the `target` table. This is most useful for sequential tables, not "dictionary" or "map" tables. See <page>table.Merge</page> if you want to merge 2 tables into one.
+
+See <page>table.insert</page> for a function that adds a single value, and <page>table.Inherit</page> for a function that inherits keys from one table to another.
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="116-L129">lua/includes/extensions/table.lua</file>
+	<args>
+		<arg name="target" type="table">The table to insert the new values into.</arg>
+		<arg name="source" type="table">The table to retrieve the values from.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">The target table.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Demonstrates the use of this function. Note that duplicate values will be added.</description>
+	<code>
+local Test1 = {"One","Two","Three", "Four"}
+local Test2 = {"Four", "Five", "Six"}
+table.Add( Test1, Test2 )
+print( table.concat(Test1, " ") )
+	</code>
+	<output>```One Two Three Four Four Five Six```</output>
+
+</example>

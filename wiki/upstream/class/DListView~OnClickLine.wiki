@@ -1,0 +1,12 @@
+<function name="OnClickLine" parent="DListView" type="panelfunc">
+	<description>
+<internal>Use <page>DListView:OnRowSelected</page> instead!</internal>
+
+Called whenever a line is clicked.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="line" type="Panel">The selected line.</arg>
+		<arg name="isSelected" type="boolean">Boolean indicating whether the line is selected.</arg>
+	</args>
+</function>

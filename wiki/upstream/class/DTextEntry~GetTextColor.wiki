@@ -1,0 +1,17 @@
+<function name="GetTextColor" parent="DTextEntry" type="panelfunc">
+	<description>Returns the text color of a DTextEntry.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="Color">The color of the text as a <page>Color</page>.</ret>
+	</rets>
+</function>
+
+<example>
+	<code>
+local TextEntry = vgui.Create( "DTextEntry" )
+TextEntry:SetTextColor( Color( 255, 0, 0, 255 ))
+PrintTable( TextEntry:GetTextColor() )
+	</code>
+	<output>Prints the R, G, B and A of the text color.</output>
+
+</example>

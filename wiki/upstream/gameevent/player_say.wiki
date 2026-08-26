@@ -1,0 +1,35 @@
+<cat>gameevent</cat>
+<title>player_say</title>
+
+<structure>
+	<realm>Shared and Menu</realm>
+	<description>
+			Called when the player says a message.
+
+		<note>
+			This is called after <page>GM:PlayerSay</page> so you could just use that hook serverside.  
+		</note>
+	</description>
+	<fields>
+		<item type="number" name="priority" realm="Server">Event priority number used by HLTV. Hardcoded to be 1.</item>
+		<item type="number" name="userid">The <page text="UserID">Player:UserID</page> of the Player. For Console the UserID is 0.</item>
+		<item type="string" name="text">The text that was said.</item>
+		<item type="number" name="teamonly" realm="Server">`1` If it's only for the team, else `0`.</item>
+	</fields>
+</structure>
+
+# Examples
+<example>
+	<description>This is a basic template with the purpose of including all arguments / table variables to make it easily known which values can be accessed.</description>
+	<code>
+gameevent.Listen( "player_say" )
+hook.Add( "player_say", "player_say_example", function( data ) 
+	local priority = SERVER and data.Priority or 1 	// Priority ??
+	local id = data.userid				// Same as Player:UserID() for the speaker
+	local text = data.text				// The written text.
+
+	// Called when a player writes text ( Called by the SERVER on the client AFTER the PlayerSay hook )
+
+end )
+	</code>
+</example>

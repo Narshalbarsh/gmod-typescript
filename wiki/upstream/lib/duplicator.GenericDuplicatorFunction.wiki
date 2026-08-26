@@ -1,0 +1,17 @@
+<function name="GenericDuplicatorFunction" parent="duplicator" type="libraryfunc">
+	<description>
+"Generic function for duplicating stuff" 
+
+
+This is called when <page>duplicator.CreateEntityFromTable</page> can't find an entity factory to build with. It calls <page>duplicator.DoGeneric</page> and <page>duplicator.DoGenericPhysics</page> to apply standard duplicator stored things such as the model and position.
+	</description>
+	<realm>Server</realm>
+	<file line="472-L505">lua/includes/modules/duplicator.lua</file>
+	<args>
+		<arg name="ply" type="Player">The player who wants to create something.</arg>
+		<arg name="data" type="table">The duplication data to build the entity with.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Entity">The newly created entity.</ret>
+	</rets>
+</function>

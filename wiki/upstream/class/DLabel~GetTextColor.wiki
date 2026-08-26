@@ -1,0 +1,7 @@
+<function name="GetTextColor" parent="DLabel" type="panelfunc">
+	<description>Returns the "override" text color, set by <page>DLabel:SetTextColor</page>.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="Color">The <page>Color</page> of the text, or nil.</ret>
+	</rets>
+</function>

@@ -1,0 +1,14 @@
+<function name="CreateX" parent="vgui" type="libraryfunc">
+	<description><internal></internal> Creates an engine panel.</description>
+	<realm>Client and Menu</realm>
+    <file line="13-13">lua/includes/extensions/client/panel/scriptedpanels.lua</file>
+
+	<args>
+		<arg name="class" type="string">Class of the panel to create</arg>
+		<arg name="parent" type="Panel" default="nil">If specified, parents created panel to given one</arg>
+		<arg name="name" type="string" default="nil">Name of the created panel</arg>
+	</args>
+	<rets>
+		<ret name="" type="Panel">Created panel</ret>
+	</rets>
+</function>

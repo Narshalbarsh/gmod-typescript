@@ -1,0 +1,8 @@
+<function name="AddItem" parent="DNotify" type="panelfunc">
+	<description>Adds a panel to the notification</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="pnl" type="Panel">The panel to add</arg>
+		<arg name="lifeLength" type="number" default="nil">If set, overrides <page>DNotify:SetLife</page> for when the given panel should be removed.</arg>
+	</args>
+</function>

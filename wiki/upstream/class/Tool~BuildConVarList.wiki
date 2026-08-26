@@ -1,0 +1,8 @@
+<function name="BuildConVarList" parent="Tool" type="classfunc">
+	<description>Builds a list of all ConVars set via the ClientConVar variable on the <page>Structures/TOOL</page> and their default values. This is used for the preset system.</description>
+	<realm>Shared</realm>
+	<file line="67">gamemodes/sandbox/entities/weapons/gmod_tool/stool.lua</file>
+	<rets>
+		<ret name="convars" type="table">A list of all convars and their default values.</ret>
+	</rets>
+</function>

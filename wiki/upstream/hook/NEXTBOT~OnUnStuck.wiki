@@ -1,0 +1,5 @@
+<function name="OnUnStuck" parent="NEXTBOT" type="hook">
+	<description>Called when the bot thinks it is un-stuck.</description>
+	<realm>Server</realm>
+	<file line="118">gamemodes/base/entities/entities/base_nextbot/sv_nextbot.lua</file>
+</function>

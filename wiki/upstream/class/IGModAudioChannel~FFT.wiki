@@ -1,0 +1,23 @@
+<function name="FFT" parent="IGModAudioChannel" type="classfunc">
+	<description>
+Computes the [DFT (discrete Fourier transform)](https://en.wikipedia.org/wiki/Discrete_Fourier_transform) of the sound channel.
+
+The size parameter specifies the number of consecutive audio samples to use as the input to the DFT and is restricted to a power of two. A [Hann window](https://en.wikipedia.org/wiki/Hann_function) is applied to the input data.
+
+The computed DFT has the same number of frequency bins as the number of samples. Only half of this DFT is returned, since [the DFT magnitudes are symmetric for real input data](https://en.wikipedia.org/wiki/Discrete_Fourier_transform#The_real-input_DFT). The magnitudes of the DFT (values from 0 to 1) are used to fill the output table, starting at index 1.
+
+**Visualization protip:** For a size N DFT, bin k (1-indexed) corresponds to a frequency of (k - 1) / N * sampleRate.
+
+**Visualization protip:** Sound energy is proportional to the square of the magnitudes. Adding magnitudes together makes no sense physically, but adding energies does.
+
+**Visualization protip:** The human ear works on a logarithmic amplitude scale. You can convert to [decibels](https://en.wikipedia.org/wiki/Decibel) by taking 20 * <page>math.log10</page> of frequency magnitudes, or 10 * <page>math.log10</page> of energy. The decibel values will range from -infinity to 0.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="tbl" type="table<number>">The table to output the DFT magnitudes (numbers between 0 and 1) into. Indices start from 1.</arg>
+		<arg name="size" type="number{FFT}">The number of samples to use. See <page>Enums/FFT</page></arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The number of frequency bins that have been filled in the output table.</ret>
+	</rets>
+</function>

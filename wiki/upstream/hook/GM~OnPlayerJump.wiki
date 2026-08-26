@@ -1,0 +1,10 @@
+<function name="OnPlayerJump" parent="GM" type="hook">
+	<description>Called when a player jumps.</description>
+	<realm>Shared</realm>
+	<predicted>Yes</predicted>
+	<added>2023.09.13</added>
+	<args>
+		<arg name="player" type="Entity">Player</arg>
+		<arg name="speed" type="number">The velocity/impulse of the jump</arg>
+	</args>
+</function>

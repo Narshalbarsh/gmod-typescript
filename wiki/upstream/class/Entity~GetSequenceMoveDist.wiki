@@ -1,0 +1,55 @@
+<function name="GetSequenceMoveDist" parent="Entity" type="classfunc">
+	<description>Returns an entity's sequence move distance (the change in position over the course of the entire sequence).
+
+See <page>Entity:GetSequenceMovement</page> for a similar function with more options.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="sequenceId" type="number">The sequence index.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The move distance of the sequence.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Experiment which demonstrates that dividing the sequence move distance by <page>Entity:SequenceDuration</page> results in a value extremely close to <page>Entity:GetSequenceGroundSpeed</page>.</description>
+	<code>
+local ply, seq, move_dist, seq_dur, ground_speed = nil, nil, nil, nil, nil
+
+function GM:Think()
+
+	-- Player 1
+	ply = Entity(1)
+	
+	-- Current sequence
+	seq = ply:GetSequence()
+	
+	-- The move distance
+	move_dist = ply:GetSequenceMoveDist(seq)
+	
+	if(move_dist == 0) then return end	-- If it doesn't move, don't bother
+	
+	-- The sequence duration
+	seq_dur = ply:SequenceDuration(seq)
+	
+	-- Actual sequence ground speed
+	ground_speed = ply:GetSequenceGroundSpeed(seq)
+	
+	-- Compare the calculated value to the actual value
+	print(tostring(ground_speed-(move_dist/seq_dur)))
+
+end
+	</code>
+	<output>
+A sample of some of the calculated vs. actual value differences during a sprint forward followed by an abrupt stop.
+
+```
+-3.3345255872064e-006
+3.3614563506035e-006
+0
+1.557984873557e-006
+```
+
+	</output>
+
+</example>

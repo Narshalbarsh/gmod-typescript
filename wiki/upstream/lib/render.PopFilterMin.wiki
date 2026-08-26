@@ -1,0 +1,10 @@
+<function name="PopFilterMin" parent="render" type="libraryfunc">
+	<description>
+		Pops (Removes) the texture filter most recently pushed (Added) onto the minification texture filter stack.  
+		
+		This function should only be called *after* a minification filter has been pushed via <page text="render.PushFilterMin()">render.PushFilterMin</page>.
+
+		For more detailed information and a usage example, see <page text="the texture minification and magnification render reference.">render_min_mag_filters</page>
+	</description>
+	<realm>Client and Menu</realm>
+</function>

@@ -1,0 +1,11 @@
+<function name="IsNPC" parent="Entity" type="classfunc">
+	<description>
+Checks if the entity is an <page>NPC</page> or not.
+
+This will return false for <page>NextBot</page>s, see <page>Entity:IsNextBot</page> for that.
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the entity is an NPC.</ret>
+	</rets>
+</function>

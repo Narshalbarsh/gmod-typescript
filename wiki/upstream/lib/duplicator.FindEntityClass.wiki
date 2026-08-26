@@ -1,0 +1,13 @@
+<function name="FindEntityClass" parent="duplicator" type="libraryfunc">
+	<description>Returns the entity class factory registered with <page>duplicator.RegisterEntityClass</page>.</description>
+	<realm>Shared</realm>
+	<file line="395-L400">lua/includes/modules/duplicator.lua</file>
+	<args>
+		<arg name="name" type="string">The name of the entity class factory.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">Is compromised of the following members:
+* <page>function</page> Func - The function that creates the entity.
+* <page>table</page> Args - Arguments to pass to the function.</ret>
+	</rets>
+</function>

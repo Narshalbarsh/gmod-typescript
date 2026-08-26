@@ -1,0 +1,22 @@
+<function name="GetColor" parent="Entity" type="classfunc">
+	<description>
+Returns the color the entity is set to.
+	</description>
+	<realm>Shared</realm>
+	<file line="167-L176">lua/includes/extensions/entity.lua</file>
+	<rets>
+		<ret name="" type="Color">The color of the entity as a <page>Color</page>.</ret>
+	</rets>
+</function>
+
+<example>
+	<code>
+for key, ply in ipairs( player.GetAll() ) do -- Loop through all players on the server
+	local col = ply:GetColor() -- Gets the players color and assigns it to local variable col
+ 
+	print( "Printing " .. ply:Nick() .. "'s color!" ) -- Say we are printing the players name's color
+	PrintTable( col ) -- Pass col into PrintTable to print to contents of col
+end
+	</code>
+	<output>Loop through all players, and print their color.</output>
+</example>

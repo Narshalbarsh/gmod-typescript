@@ -1,0 +1,16 @@
+<function name="Clip2" parent="Weapon" type="classfunc">
+	<description>Returns how much secondary ammo is in the magazine.
+	<note>This is not shared between clients and will instead return the maximum secondary clip size.</note>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The amount of secondary ammo in the magazine.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints the amount of secondary ammo in the magazine of the weapon the 1st player has equipped.</description>
+	<code>print( Entity( 1 ):GetActiveWeapon():Clip2() )</code>
+	<output>Will print -1 for all HL2 weapons.</output>
+
+</example>

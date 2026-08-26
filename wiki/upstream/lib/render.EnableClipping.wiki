@@ -1,0 +1,48 @@
+<function name="EnableClipping" parent="render" type="libraryfunc">
+	<description>
+Sets the status of the clip renderer, returning previous state.
+
+<warning>To prevent unintended rendering behavior of other mods/the game, you must reset the clipping state to its previous value.</warning>
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="state" type="boolean">New clipping state.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Previous clipping state.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Properly using the function.</description>
+	<code>
+-- Inside some rendering hook
+
+local oldclip = render.EnableClipping( true )
+
+-- Your code here
+
+render.EnableClipping( oldclip )
+	</code>
+
+</example>
+
+
+<example>
+	<description>Clips the lower half of your custom entity</description>
+	<code>
+function ENT:Draw()
+    local normal = self:GetUp() -- Everything "behind" this normal will be clipped
+    local position = normal:Dot( self:GetPos() ) -- self:GetPos() is the origin of the clipping plane
+
+    local oldEC = render.EnableClipping( true )
+    render.PushCustomClipPlane( normal, position )
+
+    self:DrawModel()
+
+    render.PopCustomClipPlane()
+    render.EnableClipping( oldEC )
+end
+	</code>
+
+</example>

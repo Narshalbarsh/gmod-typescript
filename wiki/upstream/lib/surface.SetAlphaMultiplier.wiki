@@ -1,0 +1,9 @@
+<function name="SetAlphaMultiplier" parent="surface" type="libraryfunc">
+	<description>Sets the alpha multiplier that will influence all upcoming drawing operations.
+See also <page>render.SetBlend</page>.
+</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="multiplier" type="number">The multiplier ranging from 0 to 1.</arg>
+	</args>
+</function>

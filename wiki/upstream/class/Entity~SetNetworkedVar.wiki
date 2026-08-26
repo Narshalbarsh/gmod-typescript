@@ -1,0 +1,29 @@
+<function name="SetNetworkedVar" parent="Entity" type="classfunc">
+	<description>
+Sets a networked value on the entity.
+
+The value can then be accessed with <page>Entity:GetNetworkedVar</page> both from client and server.
+
+| Allowed Types   |  
+| --------------- |  
+| Angle           |  
+| Boolean         |  
+| Entity          |  
+| Float           |  
+| Int             |  
+| String          |  
+| Vector          |  
+<deprecated></deprecated>
+<warning>Trying to network a type that is not listed above leads to the value not being networked!  
+the value will only be updated clientside if the entity is or enters the clients PVS.</warning>
+
+<note>Running this function clientside will only set it for the client it is called on.  
+The value will only be networked if it isn't the same as the current value and unlike SetNW*
+the value will only be networked once and not every 10 seconds.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="key" type="string">The key to associate the value with</arg>
+		<arg name="value" type="any">The value to set</arg>
+	</args>
+</function>

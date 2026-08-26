@@ -1,0 +1,34 @@
+<function name="Motor" parent="constraint" type="libraryfunc">
+	<description>Creates a motor constraint, a player controllable <page>constraint.Axis</page>.</description>
+	<realm>Server</realm>
+	<file line="1037-L1130">lua/includes/modules/constraint.lua</file>
+	<args>
+		<arg name="ent1" type="Entity">First entity.</arg>
+		<arg name="ent2" type="Entity">Second entity.</arg>
+		<arg name="bone1" type="number"><page>PhysObj</page> number of first entity to constrain to. (0 for non-ragdolls).
+
+See <page>Entity:TranslateBoneToPhysBone</page>.</arg>
+		<arg name="bone2" type="number"><page>PhysObj</page> number of second entity to constrain to. (0 for non-ragdolls). Must be different from `bone1`.
+
+See <page>Entity:TranslateBoneToPhysBone</page>.</arg>
+		<arg name="localPos1" type="Vector">Position relative to the the first physics object to constrain to.</arg>
+		<arg name="localPos2" type="Vector">Position relative to the the second physics object to constrain to.</arg>
+		<arg name="friction" type="number">Motor friction.</arg>
+		<arg name="torque" type="number">Motor torque.</arg>
+		<arg name="forcetime" type="number">Automatic shut-off after this time has passed. A value of 0 means to stay on forever or until deactivated.</arg>
+		<arg name="nocollide" type="number" default="0">Whether the entities should be no-collided.</arg>
+		<arg name="toggle" type="number" default="false">Whether the constraint is on toggle.</arg>
+		<arg name="player" type="Player" default="NULL">The player that will control the motor. Used to to call <page>numpad.OnDown</page> and <page>numpad.OnUp</page>.</arg>
+		<arg name="forcelimit" type="number" default="0">Amount of force until it breaks (0 = unbreakable).</arg>
+		<arg name="key_fwd" type="number" default="nil">The key binding for "forward", corresponding to an <page>Enums/KEY</page>.</arg>
+		<arg name="key_bwd" type="number" default="nil">The key binding for "backwards", corresponding to an <page>Enums/KEY</page>.</arg>
+		<arg name="direction" type="number" default="1">Either `1` or `-1` signifying which direction the motor should spin.</arg>
+		<arg name="localAxis" type="Vector" default="nil">Overrides axis of rotation?
+<validate></validate>
+</arg>
+	</args>
+	<rets>
+		<ret name="" type="Entity">The created constraint. ([phys_torque](https://developer.valvesoftware.com/wiki/Phys_torque)) Will return `false` if the constraint could not be created.</ret>
+		<ret name="" type="Entity">The created axis constraint. ([phys_hinge](https://developer.valvesoftware.com/wiki/Phys_hinge)) Will return `nil` if the constraint could not be created.</ret>
+	</rets>
+</function>

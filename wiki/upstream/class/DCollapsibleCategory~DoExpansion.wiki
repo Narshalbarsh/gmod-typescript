@@ -1,0 +1,8 @@
+<function name="DoExpansion" parent="DCollapsibleCategory" type="panelfunc">
+	<description>Forces the category to open or collapse</description>
+	<realm>Client and Menu</realm>
+	<file line="233-L238">lua/vgui/dcategorycollapse.lua</file>
+	<args>
+		<arg name="expand" type="boolean">True to open, false to collapse</arg>
+	</args>
+</function>

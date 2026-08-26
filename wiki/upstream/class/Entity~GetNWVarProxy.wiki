@@ -1,0 +1,35 @@
+<function name="GetNWVarProxy" parent="Entity" type="classfunc">
+	<description>Returns callback function for given NWVar of this entity, previously set by <page>Entity:SetNWVarProxy</page>.
+<removed>This function was superseded by <page>Entity:GetNW2VarProxy</page>. This page still exists an archive in case anybody ever stumbles across old code and needs to know what it is</removed></description>
+	<realm>Shared</realm> 
+	<args>
+		<arg name="key" type="string">The key of the NWVar to get callback of.</arg>
+	</args>
+	<rets>
+		<ret name="" type="function">The callback of given NWVar, or nil if not found.
+
+<callback>
+<arg type="Entity" name="ent">The entity</arg>
+<arg type="string" name="name">Name of the NWVar that has changed</arg>
+<arg type="any" name="oldval">The old value</arg>
+<arg type="any" name="newval">The new value</arg>
+</callback>
+</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints callback function of a NWVar called "Key" of Player 1.</description>
+	<code>
+print( Entity(1):GetNWVarProxy( "Key" ) )
+Entity(1):SetNWVarProxy( "Key", print )
+print( Entity(1):GetNWVarProxy( "Key" ) )
+	</code>
+	<output>
+```
+nil
+function: builtin#25
+```
+	</output>
+
+</example>

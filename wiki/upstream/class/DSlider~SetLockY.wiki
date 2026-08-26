@@ -1,0 +1,13 @@
+<function name="SetLockY" parent="DSlider" type="panelfunc">
+	<description>
+Sets the lock on the Y axis. 
+
+For example the value 0.5 will lock the draggable panel to half the height of the slider's panel.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="lockY" type="number" default="nil">Set to nil to reset lock.
+
+The value range is from 0 to 1.</arg>
+	</args>
+</function>

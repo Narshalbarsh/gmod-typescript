@@ -1,0 +1,4 @@
+<function name="OnCursorEntered" parent="PANEL" type="hook">
+	<description>Called whenever the cursor entered the panels bounds.</description>
+	<realm>Client</realm>
+</function>

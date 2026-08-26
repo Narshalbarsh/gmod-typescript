@@ -1,0 +1,41 @@
+<function name="PopulateContent" parent="SANDBOX" type="hook">
+	<description>Called by the spawnmenu when the content tab is generated
+	<warning>Creating an error in this Hook will result in a completely broken Content Tab</warning></description>
+	<realm>Client</realm>
+	<file line="91">gamemodes/sandbox/gamemode/spawnmenu/creationmenu/content/content.lua</file>
+	<args>
+		<arg name="pnlContent" type="Panel">The SpawnmenuContentPanel</arg>
+		<arg name="tree" type="Panel">The ContentNavBar tree from the SpawnmenuContentPanel</arg>
+		<arg name="node" type="Panel">The old Spawnlists</arg>
+	</args>
+</function>
+
+<example>
+	<description>Generates an Example Category with a Models panel</description>
+	<code>
+hook.Add( "PopulateContent", "Example", function( pnlContent, tree, node )
+	local ViewPanel = vgui.Create( "ContentContainer", pnlContent )
+	ViewPanel:SetVisible( false )
+	ViewPanel.IconList:SetReadOnly( true )
+
+	ExampleNode = node:AddNode( "Example", "icon16/folder_database.png" )
+	ExampleNode.pnlContent = pnlContent
+	ExampleNode.ViewPanel = ViewPanel
+
+	local models = ExampleNode:AddNode( "Models", "icon16/exclamation.png" )
+	models.DoClick = function()
+		ViewPanel:Clear( true )
+
+		local cp = spawnmenu.GetContentType( "model" )
+		if cp then
+			for k, v in ipairs( file.Find( "models/*.mdl", "GAME" ) ) do
+				cp( ViewPanel, { model = "models/" .. v } )
+			end
+		end
+
+		ExampleNode.pnlContent:SwitchPanel( ViewPanel )
+	end
+end)
+	</code>
+	<output><image src="ab571/8dc38944923f207.png" alt="Tree menu" /></output>
+</example>

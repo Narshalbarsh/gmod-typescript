@@ -1,0 +1,14 @@
+<function name="GetChatBoxPos" parent="chat" type="libraryfunc">
+	<description>Returns the chatbox position.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">The X coordinate of the chatbox's position.</ret>
+		<ret name="" type="number">The Y coordinate of the chatbox's position.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints the x and y coordinates of the chatbox.</description>
+	<code>print( chat.GetChatBoxPos() )</code>
+
+</example>

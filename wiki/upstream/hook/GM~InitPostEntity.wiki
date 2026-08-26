@@ -1,0 +1,24 @@
+<function name="InitPostEntity" parent="GM" type="hook">
+	<description>
+Called after all the entities are initialized. Starting from this hook <page>Global.LocalPlayer</page> will return valid object.
+
+<note>At this point the client only knows about the entities that are within the spawnpoints' [PVS (Potential Visibility Set)](https://developer.valvesoftware.com/wiki/PVS "PVS - Valve Developer Community"). For instance, if the server sends an entity that is not within this PVS, the client will receive it as NULL entity.</note>
+	</description>
+	<realm>Shared</realm>
+</function>
+
+<example>
+	<description>Some message will be printed in the console when the entities initialize.</description>
+	<code>
+function GM:InitPostEntity()
+	print( "All Entities have initialized" )
+end
+
+-- That way you are overriding the default hook.
+-- You can use hook.Add to make more functions get called when this event occurs.
+hook.Add( "InitPostEntity", "some_unique_name", function()
+	print( "Initialization hook called" )
+end )
+	</code>
+	<output>`Initialization hook called` and `All Entities have initialized`.</output>
+</example>

@@ -1,0 +1,27 @@
+<function name="LookupBone" parent="Entity" type="classfunc">
+	<description>Gets the bone index of the given bone name, returns `nil` if the bone does not exist. 
+<note>When called on <page>Weapon</page>s equipped by any Player, this will return their viewmodel's bone index instead of worldmodel.</note>
+
+See <page>Entity:GetBoneName</page> for the inverse of this function.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="boneName" type="string">The name of the bone.
+
+Common generic bones ( for player models and some HL2 models ): 
+* ValveBiped.Bip01_Head1
+* ValveBiped.Bip01_Spine
+* ValveBiped.Anim_Attachment_RH
+
+Common hand bones (left hand equivalents also available, replace _R_ with _L_)
+* ValveBiped.Bip01_R_Hand
+* ValveBiped.Bip01_R_Forearm
+* ValveBiped.Bip01_R_Foot
+* ValveBiped.Bip01_R_Thigh
+* ValveBiped.Bip01_R_Calf
+* ValveBiped.Bip01_R_Shoulder
+* ValveBiped.Bip01_R_Elbow</arg>
+	</args>
+	<rets>
+		<ret name="" type="number|nil">Index of the given bone name, or `nil` if the bone doesn't exist on the Entity.</ret>
+	</rets>
+</function>

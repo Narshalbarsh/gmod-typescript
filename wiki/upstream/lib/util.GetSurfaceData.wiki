@@ -1,0 +1,50 @@
+<function name="GetSurfaceData" parent="util" type="libraryfunc">
+	<description>Returns data of a [surface property](https://developer.valvesoftware.com/wiki/Material_surface_properties) at given ID. New surface properties can be added via <page>physenv.AddSurfaceData</page>.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="id" type="number">Surface property ID. You can get it from <page>Structures/TraceResult</page> or using <page>util.GetSurfaceIndex</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table{SurfacePropertyData}">The data or no value if there is no valid surface property at given index.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints the Surface Property Data of the place the player is looking at when executing the console command.</description>
+	<code>
+concommand.Add( "surfprop", function( ply )
+	local surface = ply:GetEyeTrace().SurfaceProps
+	PrintTable( util.GetSurfaceData( surface ) )
+end )
+	</code>
+	<output>
+```
+breakSound	=	
+bulletImpactSound	=	concrete.bulletimpact
+climbable	=	0
+dampening	=	0
+density	=	2400
+elasticity	=	0.20000000298023
+friction	=	0.80000001192093
+hardThreshold	=	0.5
+hardVelocityThreshold	=	0
+hardnessFactor	=	1
+impactHardSound	=	concrete.impacthard
+impactSoftSound	=	concrete.impactsoft
+jumpFactor	=	1
+material	=	67
+maxSpeedFactor	=	1
+name	=	concrete
+reflectivity	=	0.66000002622604
+rollingSound	=	
+roughThreshold	=	0.5
+roughnessFactor	=	1
+scrapeRoughSound	=	concrete.scraperough
+scrapeSmoothSound	=	concrete.scrapesmooth
+stepLeftSound	=	concrete.stepleft
+stepRightSound	=	concrete.stepright
+strainSound	=	
+thickness	=	0
+```
+	</output>
+</example>

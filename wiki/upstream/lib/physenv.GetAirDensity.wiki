@@ -1,0 +1,9 @@
+<function name="GetAirDensity" parent="physenv" type="libraryfunc">
+	<description>Returns the air density used to calculate drag on physics objects.
+		<validate>The unit is in `kg/m³`.</validate>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="airDensity" type="number">Default value is 2.</ret>
+	</rets>
+</function>

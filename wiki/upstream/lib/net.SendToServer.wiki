@@ -1,0 +1,36 @@
+<function name="SendToServer" parent="net" type="libraryfunc">
+	<description>Sends the current net message (see <page>net.Start</page>) to the server. The player object must exist on the server for the net message to be received successfully by the server.
+
+<warning>Each net message has a length limit of 65,533 bytes (approximately 64 KiB) and your net message will error and fail to send if it is larger than this.
+
+The message name must be pooled with <page>util.AddNetworkString</page> beforehand!</warning>
+	</description>
+	<realm>Client</realm>
+</function>
+
+<example>
+	<description>Sends a simple `hello_world` message with the string `Hi` to the server as soon as possible after joining the game.</description>
+	<code>
+if ( SERVER ) then
+	util.AddNetworkString( "hello_world" )
+	net.Receive( "hello_world", function( len, ply )
+		print( len, ply, net.ReadString() )
+	end )
+else
+
+	hook.Add("OnEntityCreated", "SendMessageToServer", function(ent)
+		if ( ent != LocalPlayer() ) then return end
+		net.Start( "hello_world" )
+			net.WriteString( "Hi" )
+		net.SendToServer()
+		hook.Remove( "OnEntityCreated", "SendMessageToServer" )
+	end)
+
+end
+	</code>
+	<output>
+The network message `hello_world` is sent to the server. The server can handle this with <page>net.Receive</page>.
+
+Remember that **any** client has the potential to send any net message at any time. **Don't trust the client-side!** On your server-side <page>net.Receive</page>, make sure to verify the message sender's permissions whenever you can and prevent expensive functions from being run too often.
+	</output>
+</example>

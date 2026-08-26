@@ -1,0 +1,11 @@
+<function name="GetHue" parent="DColorCube" type="panelfunc">
+	<description>
+	<deprecated></deprecated>
+	An <page>Global.AccessorFunc</page> that returns the value set by <page>DColorCube:SetHue</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="4">lua/vgui/dcolorcube.lua</file>
+	<rets>
+		<ret name="" type="number"></ret>
+	</rets>
+</function>

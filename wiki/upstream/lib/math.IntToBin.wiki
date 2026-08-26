@@ -1,0 +1,18 @@
+<function name="IntToBin" parent="math" type="libraryfunc">
+	<description>Converts an integer to a binary (base-2) string.</description>
+	<realm>Shared and Menu</realm>
+	<file line="44-L47">lua/includes/extensions/math.lua</file>
+	<args>
+		<arg name="int" type="number">Number to be converted.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">Binary number string. The length of this will always be a multiple of 3.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints the binary representation of 4</description>
+	<code>print(math.IntToBin(4))</code>
+	<output>100</output>
+
+</example>

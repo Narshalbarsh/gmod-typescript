@@ -1,0 +1,7 @@
+<function name="InternalMouseWheeled" parent="gui" type="libraryfunc">
+	<description>Simulates a mouse wheel scroll with the given delta.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="delta" type="number">The amount of scrolling to simulate.</arg>
+	</args>
+</function>

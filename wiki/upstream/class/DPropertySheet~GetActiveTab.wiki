@@ -1,0 +1,8 @@
+<function name="GetActiveTab" parent="DPropertySheet" type="panelfunc">
+	<file line="151">lua/vgui/dpropertysheet.lua</file>
+	<description>Returns the active <page>DTab</page> of this <page>DPropertySheet</page>.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="Panel">The <page>DTab</page></ret>
+	</rets>
+</function>

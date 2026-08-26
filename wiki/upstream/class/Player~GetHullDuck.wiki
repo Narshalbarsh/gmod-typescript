@@ -1,0 +1,36 @@
+<function name="GetHullDuck" parent="Player" type="classfunc">
+	<description>
+		Retrieves the minimum and maximum <page text="Vectors">Vector</page> of the [Axis-Aligned Bounding Box (AABB)](https://en.wikipedia.org/wiki/Minimum_bounding_box) used for the <page text="Player's">Player</page> physics and movement <page text="Hull Traces">util.TraceHull</page> while they are crouching (or "Ducking").
+
+		See also: <page>Player:SetHullDuck</page>, <page>Player:GetHull</page>, <page>Player:SetHull</page>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="mins" type="Vector">
+			The hull mins, the lowest corner of the Player's bounding box while crouching.
+		</ret>
+		<ret name="maxs" type="Vector">
+			The hull maxs, the highest corner of the Player's crouching bounding box, opposite of the mins.
+		</ret>
+	</rets>
+</function>
+
+<example>
+	<description>
+		Prints the crouching mins and maxs of all Players.
+	</description>
+	<code>
+for _, ply in ipairs( player.GetAll() ) do
+	local bottom, top = ply:GetHullDuck()
+
+	print(bottom)
+	print(top)
+end
+	</code>
+	<output> With one Player on the Server:
+```
+-16.000000 -16.000000 0.000000
+16.000000 16.000000 36.000000
+```
+	</output>
+</example>

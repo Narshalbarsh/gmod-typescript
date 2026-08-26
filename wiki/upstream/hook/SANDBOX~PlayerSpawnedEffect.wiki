@@ -1,0 +1,9 @@
+<function name="PlayerSpawnedEffect" parent="SANDBOX" type="hook">
+	<description>Called after the player spawned an effect.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ply" type="Player">The player that spawned the effect</arg>
+		<arg name="model" type="string">The model of spawned effect</arg>
+		<arg name="ent" type="Entity">The spawned effect itself</arg>
+	</args>
+</function>

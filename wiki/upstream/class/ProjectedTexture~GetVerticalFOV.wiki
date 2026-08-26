@@ -1,0 +1,7 @@
+<function name="GetVerticalFOV" parent="ProjectedTexture" type="classfunc">
+	<description>Returns the vertical FOV of the ProjectedTexture, which was previously set by <page>ProjectedTexture:SetVerticalFOV</page> or <page>ProjectedTexture:SetFOV</page></description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">The vertical FOV of the ProjectedTexture.</ret>
+	</rets>
+</function>

@@ -1,0 +1,7 @@
+<function name="IsAvailable" parent="motionsensor" type="libraryfunc">
+	<description>Returns true if we have detected that there's a kinect connected to the PC</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Connected or not</ret>
+	</rets>
+</function>

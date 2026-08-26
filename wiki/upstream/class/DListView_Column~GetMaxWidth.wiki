@@ -1,0 +1,7 @@
+<function name="GetMaxWidth" parent="DListView_Column" type="panelfunc">
+	<description>Returns the maximum width set with <page>DListView_Column:SetMaxWidth</page>.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="width" type="number">The maximum width</ret>
+	</rets>
+</function>

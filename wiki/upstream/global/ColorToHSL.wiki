@@ -1,0 +1,12 @@
+<function name="ColorToHSL" parent="Global" type="libraryfunc">
+	<description>Converts a <page>Color</page> into HSL color space.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="color" type="Color">The <page>Color</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The hue in degrees `[0, 360]`.</ret>
+		<ret name="" type="number">The saturation in the range `[0, 1]`.</ret>
+		<ret name="" type="number">The lightness in the range `[0, 1]`.</ret>
+	</rets>
+</function>

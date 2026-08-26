@@ -1,0 +1,11 @@
+<function name="HasEnemyEluded" parent="NPC" type="classfunc">
+	<description>Polls the enemy memory to check if the given entity has eluded us or not.</description>
+	<realm>Server</realm>
+	<added>2020.06.24</added>
+	<args>
+		<arg name="enemy" type="Entity" default="GetEnemy()">The enemy to test.</arg>
+	</args>
+	<rets>
+		<ret name="eluded" type="boolean">If the enemy has eluded us.</ret>
+	</rets>
+</function>

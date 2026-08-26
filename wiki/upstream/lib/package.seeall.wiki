@@ -1,0 +1,7 @@
+<function name="seeall" parent="package" type="libraryfunc">
+	<description>Sets a metatable for module with its __index field referring to the global environment, so that this module inherits values from the global environment. To be used as an option to <page>Global.module</page>.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="module" type="table">The module table to be given a metatable</arg>
+	</args>
+</function>

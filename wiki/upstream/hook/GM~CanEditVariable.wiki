@@ -1,0 +1,37 @@
+<function name="CanEditVariable" parent="GM" type="hook">
+	<description>
+Called when a variable is about to be edited on an Entity (called by `Edit Properties...` menu), to determine if the edit should be permitted.
+
+See <page text="Editable entities">Editable_Entities</page> for more details about the system.
+
+By default, Sandbox will also call <page>ENTITY:CanEditVariables</page> if no hook returns a value.
+	</description>
+	<realm>Server</realm>
+<file line="28">gamemodes/base/gamemode/variable_edit.lua</file>
+	<args>
+		<arg name="ent" type="Entity">The entity being edited.</arg>
+		<arg name="ply" type="Player">The player doing the editing.</arg>
+		<arg name="key" type="string">The name of the variable.</arg>
+		<arg name="value" type="string">The new value, as a string which will later be converted to its appropriate type.</arg>
+		<arg name="editor" type="table">The edit table defined in <page>Entity:NetworkVar</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return `false` to disallow editing.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>
+From `base/gamemode/variable_edit.lua`.
+
+Makes `Edit Properties...` right click property admin only.
+	</description>
+	<code>
+hook.Add( "CanEditVariable", "AdminEditVar", function( ent, ply, key, val, editor )
+	if ( !ply:IsAdmin() ) then return false end
+
+	-- Do not return anything when allowed, to allow other hooks to run and potentially block the edit
+end )
+	</code>
+
+</example>

@@ -1,0 +1,11 @@
+<function name="SetLocalModelLights" parent="render" type="libraryfunc">
+	<description>
+Sets up the local lighting for any upcoming render operation. Up to 4 local lights can be defined, with one of three different types (point, directional, spot).
+
+Disables all local lights if called with no arguments.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="lights" type="table<Structures/LocalLight>" default="{}">A table containing up to 4 tables for each light source that should be set up. Each of these tables should contain the properties of its associated light source, see <page>Structures/LocalLight</page>.</arg>
+	</args>
+</function>

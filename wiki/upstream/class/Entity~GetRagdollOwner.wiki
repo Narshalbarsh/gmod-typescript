@@ -1,0 +1,25 @@
+<function name="GetRagdollOwner" parent="Entity" type="classfunc">
+	<description>Returns the entity which the ragdoll came from. The opposite of <page>Player:GetRagdollEntity</page>.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Entity">The entity who owns the ragdoll.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Loop through all player ragdolls and print their owners.</description>
+	<code>
+local strRagdoll = SERVER and "hl2mp_ragdoll" or "class C_HL2MPRagdoll" 
+for _, ent in ipairs( ents.FindByClass( strRagdoll ) ) do 
+	if ( IsValid( ent:GetRagdollOwner() ) ) then
+		print( ent:GetRagdollOwner() )
+	end
+end
+	</code>
+	<output>
+While a player is dead and their ragdoll is spawned this returns: 
+```
+Player [1][PlayerName]
+```
+	</output>
+</example>

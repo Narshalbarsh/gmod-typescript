@@ -1,0 +1,10 @@
+<function name="GetNPCClass" parent="ENTITY" type="classfunc">
+	<file line="14">gamemodes/base/entities/entities/base_ai/init.lua</file>
+	<description>Gets the NPC classification. Internally gets the `m_iClass` variable which is polled by the engine. This will be equivalent to <page>NPC:Classify</page>. 
+
+<note>This is a helper function only available if your SENT is based on `base_ai`</note></description>
+	<realm>Server</realm>
+<rets>
+		<ret name="" type="number">See <page>Enums/CLASS</page></ret>
+	</rets>
+</function>

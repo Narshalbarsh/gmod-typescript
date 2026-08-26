@@ -1,0 +1,20 @@
+<function name="SetVolume" parent="IGModAudioChannel" type="classfunc">
+	<description>Sets the volume of a sound channel</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="volume" type="number">Volume to set. 1 meaning 100% volume, 0.5 is 50% and 3 is 300%, etc.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Plays the a Half-Life 1 sound track at 300% volume</description>
+	<code>
+sound.PlayFile( "sound/music/hl1_song20.mp3", "", function( channel )
+	if ( IsValid( channel ) ) then
+		channel:Play()
+		channel:SetVolume( 3 )
+	end
+end )
+	</code>
+
+</example>

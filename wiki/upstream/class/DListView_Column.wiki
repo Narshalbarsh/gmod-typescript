@@ -1,0 +1,18 @@
+<title>DListView_Column</title>
+<panel>
+	<parent>Panel</parent>
+	<realm>Client and Menu</realm>
+	<file line="">lua/vgui/dlistview_column.lua</file>
+	<description>
+		<internal></internal>
+
+		A single column, used by <page>DListView</page>.
+	</description>
+	<overrides>
+		<page>Panel:Init</page>
+		<page>Panel:Paint</page>
+		<page>Panel:SetName</page>
+		<page>Panel:SetWidth</page>
+		<page>Panel:PerformLayout</page>
+	</overrides>
+</panel>

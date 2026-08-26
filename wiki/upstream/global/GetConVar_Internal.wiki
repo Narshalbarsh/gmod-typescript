@@ -1,0 +1,14 @@
+<function name="GetConVar_Internal" parent="Global" type="libraryfunc">
+	<description>
+	<internal></internal>
+	<warning>This function is very slow and not recommended. See <page>Global.GetConVar</page> for an example on how to properly store the return of what you're using so you can avoid using this function as much as possible.</warning>
+	Gets the ConVar with the specified name. This function doesn't cache the convar.
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="name" type="string">Name of the ConVar to get</arg>
+	</args>
+	<rets>
+		<ret name="" type="ConVar">The ConVar object</ret>
+	</rets>
+</function>

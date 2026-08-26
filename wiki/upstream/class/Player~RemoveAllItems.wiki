@@ -1,0 +1,4 @@
+<function name="RemoveAllItems" parent="Player" type="classfunc">
+	<description>Removes all weapons and ammo from the player.</description>
+	<realm>Server</realm>
+</function>

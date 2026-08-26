@@ -1,0 +1,11 @@
+<function name="PhysicsUpdate" parent="ENTITY" type="hook">
+	<description>
+Called whenever a physics object of this entity is updated.
+
+This hook won't be called if the Entity's <page>PhysObj</page> goes asleep, or doesn't exist.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="phys" type="PhysObj">The physics object of the entity.</arg>
+	</args>
+</function>

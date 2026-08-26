@@ -1,0 +1,9 @@
+<function name="LoadEntity" parent="saverestore" type="libraryfunc">
+	<description>Loads <page>Entity:GetTable</page> from the save game file that is being loaded and merges it with the given entitys <page>Entity:GetTable</page>.</description>
+	<realm>Shared</realm>
+	<file line="334-L350">lua/includes/modules/saverestore.lua</file>
+	<args>
+		<arg name="ent" type="Entity">The entity which will receive the loaded values from the save.</arg>
+		<arg name="save" type="IRestore">The restore object to read the <page>Entity:GetTable</page> from.</arg>
+	</args>
+</function>

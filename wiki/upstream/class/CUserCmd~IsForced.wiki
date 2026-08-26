@@ -1,0 +1,11 @@
+<function name="IsForced" parent="CUserCmd" type="classfunc">
+	<description>
+When players are not sending usercommands to the server (often due to lag), their last usercommand will be executed multiple times as a backup. This function returns true if that is happening.
+
+This will never return true clientside.
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">isForced</ret>
+	</rets>
+</function>

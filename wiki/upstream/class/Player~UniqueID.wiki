@@ -1,0 +1,34 @@
+<function name="UniqueID" parent="Player" type="classfunc">
+	<description>
+<deprecated><br/>  
+**This function has collisions,** where more than one player can have the same UniqueID. It is **highly** recommended to use <page>Player:SteamID64</page>, <page>Player:SteamID</page> or <page>Player:AccountID</page> instead, which are guaranteed to be unique to each player.</deprecated>
+
+Returns a 32 bit integer that remains constant for a player across joins/leaves and across different servers. This can be used when a string is inappropriate - e.g. in a database primary key.
+
+
+
+<note>In Singleplayer, this function will always return 1.</note>
+<bug issue="6389">In a `-multirun` environment, the value returned is different on the serverside and clientside.</bug>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The player's Unique ID</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Gets the Unique ID of a player.</description>
+	<code>Entity( 1 ):UniqueID()</code>
+	<output>Something like 1592073762</output>
+
+</example>
+
+<example>
+	<description>You can retrieve the UniqueID if the player is not on the server. To do this, you will need the player's <page>Player:SteamID</page> and execute the following line:</description>
+	<code>
+local iUniqueID = util.CRC(("gm_%s_gm"):format(Entity( 1 ):SteamID():upper()))
+print(iUniqueID == Entity(1):UniqueID())
+</code>
+	<output><page text="true">boolean</page></output>
+
+</example>

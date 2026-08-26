@@ -1,0 +1,7 @@
+<function name="IsValid" parent="CLuaEmitter" type="classfunc">
+	<description>Returns whether this <page>CLuaEmitter</page> is valid or not.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="boolean">Whether this <page>CLuaEmitter</page> is valid or not.</ret>
+	</rets>
+</function>

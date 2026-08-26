@@ -1,0 +1,8 @@
+<function name="worldpicker.Active" parent="util" type="libraryfunc">
+	<description>Returns if the user is currently picking an entity.</description>
+	<realm>Client</realm>
+	<file line="37">lua/includes/extensions/util/worldpicker.lua</file>
+	<rets>
+		<ret name="" type="boolean">Is world picking</ret>
+	</rets>
+</function>

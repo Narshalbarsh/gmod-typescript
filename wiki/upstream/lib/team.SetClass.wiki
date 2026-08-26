@@ -1,0 +1,15 @@
+<function name="SetClass" parent="team" type="libraryfunc">
+	<description>Sets valid classes for use by a team. Classes can be created using <page>player_manager.RegisterClass</page></description>
+	<file line="89-L96">lua/includes/modules/team.lua</file>
+	<realm>Shared</realm>
+	<args>
+		<arg name="index" type="number">Index of the team</arg>
+		<arg name="classes" type="any">A class ID or table of class IDs</arg>
+	</args>
+</function>
+
+<example>
+	<description>Allows TEAM_RED to access the "Soldier" class</description>
+	<code>team.SetClass( TEAM_RED, {"Soldier"} )</code>
+
+</example>

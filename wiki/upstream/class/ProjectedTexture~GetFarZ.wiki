@@ -1,0 +1,7 @@
+<function name="GetFarZ" parent="ProjectedTexture" type="classfunc">
+	<description>Returns the projection distance of the ProjectedTexture, which was previously set by <page>ProjectedTexture:SetFarZ</page></description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">The projection distance of the ProjectedTexture.</ret>
+	</rets>
+</function>

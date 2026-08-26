@@ -1,0 +1,7 @@
+<function name="EnableLooping" parent="IGModAudioChannel" type="classfunc">
+	<description>Enables or disables looping of audio channel, requires noblock flag.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="enable" type="boolean">Enable or disable looping of this audio channel.</arg>
+	</args>
+</function>

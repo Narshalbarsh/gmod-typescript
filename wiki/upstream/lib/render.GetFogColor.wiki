@@ -1,0 +1,9 @@
+<function name="GetFogColor" parent="render" type="libraryfunc">
+	<description>Returns the current fog color.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">Red part of the color.</ret>
+		<ret name="" type="number">Green part of the color</ret>
+		<ret name="" type="number">Blue part of the color</ret>
+	</rets>
+</function>

@@ -1,0 +1,37 @@
+<function name="GetNetworkedVarProxy" parent="Entity" type="classfunc">
+	<description>
+<removed>This function was superseded by <page>Entity:GetNetworked2VarProxy</page>. This page still exists an archive in case anybody ever stumbles across old code and needs to know what it is</removed>
+Returns callback function for given NWVar of this entity, previously set by <page>Entity:SetNWVarProxy</page>.
+	</description> 
+	<realm>Shared</realm>
+	<file line="495-L506">lua/includes/extensions/entity.lua</file>
+	<args>
+		<arg name="name" type="string">The name of the NWVar to get callback of.</arg>
+	</args>
+	<rets>
+		<ret name="" type="function">The callback of given NWVar, if any.
+<callback>
+<arg type="Entity" name="ent">The entity</arg>
+<arg type="string" name="name">Name of the NWVar that has changed</arg>
+<arg type="any" name="oldval">The old value</arg>
+<arg type="any" name="newval">The new value</arg>
+</callback>
+</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints callback function of a NWVar called "Key" of Player 1.</description>
+	<code>
+print( Entity(1):GetNetworkedVarProxy( "Key" ) )
+Entity(1):SetNetworkedVarProxy( "Key", print )
+print( Entity(1):GetNetworkedVarProxy( "Key" ) )
+	</code>
+	<output>
+```
+nil
+function: builtin#25
+```
+	</output>
+
+</example>

@@ -1,0 +1,8 @@
+<function name="SetLightWorld" parent="ProjectedTexture" type="classfunc">
+	<description>Set whenever or not the Texture should light up world geometry.</description>
+	<realm>Client</realm>
+	<added>2023.06.28</added>
+	<args>
+		<arg name="lightworld" type="boolean">Set it to `true` if the Texture should light up world geometry.</arg>
+	</args>
+</function>

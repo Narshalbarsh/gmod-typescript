@@ -1,0 +1,11 @@
+<function name="WriteBit" parent="net" type="libraryfunc">
+	<description>
+Appends a boolean (as `1` or `0`) to the current net message.
+
+Please note that the bit is written here from a <page>boolean</page> (`true/false`) but <page>net.ReadBit</page> returns a number.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="boolean" type="boolean">Bit status (false = `0`, true = `1`).</arg>
+	</args>
+</function>

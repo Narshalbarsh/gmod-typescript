@@ -1,0 +1,5 @@
+<function name="ShootEffects" parent="WEAPON" type="hook">
+	<description>A convenience function to create shoot effects.</description>
+	<realm>Shared</realm>
+	<file line="122-L130">gamemodes/base/entities/weapons/weapon_base/shared.lua</file>
+</function>

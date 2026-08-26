@@ -1,0 +1,12 @@
+<function name="IsEqualTol" parent="Angle" type="classfunc">
+	<description>Returns if the angle is equal to another angle with the given tolerance.</description>
+	<realm>Shared and Menu</realm>
+	<added>2023.08.30</added>
+	<args>
+		<arg name="compare" type="Angle">The angle to compare to.</arg>
+		<arg name="tolerance" type="number">The tolerance range for each component.</arg>
+	</args>
+	<rets>
+		<ret name="eq" type="boolean">Are each of the the angle components equal or not within given tolerance. </ret>
+	</rets>
+</function>

@@ -1,0 +1,5 @@
+<type name="navmesh" category="libraryfunc" is="library">
+	<summary>The navigation mesh library. To be used with <page>CNavArea</page>.
+
+The navigation mesh is used by <page>NextBot</page> to calculate path to its target.</summary>
+</type>

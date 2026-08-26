@@ -1,0 +1,7 @@
+<function name="SetVelocity" parent="PhysObj" type="classfunc">
+	<description>Sets the velocity of the physics object for the next iteration.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="velocity" type="Vector">The new velocity of the physics object in `source_unit/s`. (World frame)</arg>
+	</args>
+</function>

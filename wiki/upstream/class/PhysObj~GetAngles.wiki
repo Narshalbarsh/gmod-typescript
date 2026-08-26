@@ -1,0 +1,7 @@
+<function name="GetAngles" parent="PhysObj" type="classfunc">
+	<description>Returns the angles of the physics object in degrees.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Angle">The angles of the physics object.</ret>
+	</rets>
+</function>

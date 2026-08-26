@@ -1,0 +1,44 @@
+<function name="TestHover" parent="PANEL" type="hook">
+	<description>Called to test if the panel is being `hovered` by the mouse. This will only be called if the panel's parent is being hovered.</description>
+	<realm>Client</realm>
+	<added>2020.04.29</added>
+	<args>
+		<arg name="x" type="number">The x coordinate of the cursor, in screen space.</arg>
+		<arg name="y" type="number">The y coordinate of the cursor, in screen space.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return false when the cursor is not considered on the panel, true if it is considered on the panel. Do not return anything for default behavior.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Makes the button detect clicks as if the button was circular - not rectangular.</description>
+	<code>
+concommand.Add( "testvgui1", function()
+	local frame = vgui.Create( "DFrame" )
+	frame:SetSize( 300, 400 )
+	frame:Center()
+	frame:MakePopup()
+
+	local DermaButton = vgui.Create( "DButton", frame )
+	DermaButton:SetText( "Say hi" )
+	DermaButton:SetPos( 25, 50 )
+	DermaButton:SetSize( 250, 250 )
+	function DermaButton:DoClick( self ) chat.AddText( "Hello world" ) end
+	function DermaButton:TestHover( x, y )
+		local x, y = self:ScreenToLocal( x, y ) -- Convert to local coordinates
+		local dist = math.sqrt( (x - self:GetWide() / 2) ^ 2 + ( y - self:GetTall() / 2 ) ^ 2 ) -- Simple distance calculation
+		return dist < math.min( self:GetWide(), self:GetTall() ) / 2 -- Return true if the cursor is within the buttons circular radius
+	end
+	
+	function DermaButton:Paint( w, h )
+		-- Original size
+		draw.RoundedBox( 0, 0, 0, w, h, Color( 255, 255, 255, 128 ) )
+
+		-- Circular visualization
+		local size = math.min( w, h ) / 2
+		surface.DrawCircle( w / 2, h / 2, size, Color( 255, 120, 0 ) )
+	end
+end )
+	</code>
+</example>

@@ -1,0 +1,9 @@
+<function name="RemoveChangeCallback" parent="cvars" type="libraryfunc">
+	<description>Removes a callback for a convar using the the callback's identifier. The identifier should be the third argument specified for <page>cvars.AddChangeCallback</page>.</description>
+	<realm>Shared and Menu</realm>
+	<file line="87-L102">lua/includes/modules/cvars.lua</file>
+	<args>
+		<arg name="name" type="string">The name of the convar to remove the callback from.</arg>
+		<arg name="indentifier" type="string">The callback's identifier.</arg>
+	</args>
+</function>

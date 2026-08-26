@@ -1,0 +1,26 @@
+<function name="ForceDermaSkin" parent="GM" type="hook">
+	<description>
+Called to allow override of the default Derma skin for all panels.
+
+<note>This hook is only called on Lua start up, changing its value (or adding new hooks) after it has been already called will not have any effect.</note>
+<note>You can <page>Panel:SetSkin</page> "Default" (or other skins) on the frame/base panel and they will still take priority</note>
+	</description>
+	<realm>Client</realm>
+	<file line="437-L442">gamemodes/base/gamemode/cl_init.lua</file>
+	<rets>
+		<ret name="" type="string">A **case sensitive** Derma skin name to be used as default, registered previously via <page>derma.DefineSkin</page>.
+
+
+Returning nothing, nil or invalid name will make it fallback to the "Default" skin.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Example on how to use this hook. This will make all panels use specified skin.</description>
+	<code>
+hook.Add( "ForceDermaSkin", "my_new_skin", function()
+	return "some_skin"
+end )
+	</code>
+
+</example>

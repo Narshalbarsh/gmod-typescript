@@ -1,0 +1,10 @@
+<function name="PostAutoRefresh" parent="PANEL" type="hook">
+	<description>
+Only works on elements defined with <page>derma.DefineControl</page> and only if the panel has **AllowAutoRefresh** set to true.
+
+Called after <page>derma.DefineControl</page> is called with panel's class name.
+
+See also <page>PANEL:PreAutoRefresh</page>
+	</description>
+	<realm>Client</realm>
+</function>

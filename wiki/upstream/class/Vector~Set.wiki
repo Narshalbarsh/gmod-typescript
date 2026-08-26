@@ -1,0 +1,19 @@
+<function name="Set" parent="Vector" type="classfunc">
+	<description>Copies the values from the second vector to the first vector.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="vector" type="Vector">The vector to copy from.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Sets vector B to vector A's value.</description>
+	<code>
+a = Vector(1, 2, 3)
+b = Vector()
+b:Set(a)
+print(b)
+	</code>
+	<output>1, 2, 3.</output>
+
+</example>

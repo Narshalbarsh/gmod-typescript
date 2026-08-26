@@ -1,0 +1,30 @@
+<panel>
+	<parent>DButton</parent>
+	<realm>Client and Menu</realm>
+	<file line="">lua/vgui/dimagebutton.lua</file>
+	<description>
+		An image button.
+
+		This panel inherits all methods of <page>DButton</page>, such as <page>DLabel:DoClick</page>.
+	</description>
+</panel>
+
+<example>
+	<description>The DImageButton is the same as the DImage, but you can click it. When you hover over it, you will get the default link cursor on Windows.</description>
+	<code>
+local frame = vgui.Create( "DFrame" )
+frame:SetSize( 300, 250 )
+frame:Center()
+frame:MakePopup()
+
+local DermaImageButton = vgui.Create( "DImageButton", frame )
+DermaImageButton:SetPos( 25, 50 )				-- Set position
+-- DermaImageButton:SetSize( 16, 16 )			-- OPTIONAL: Use instead of SizeToContents() if you know/want to fix the size
+DermaImageButton:SetImage( "icon16/bomb.png" )	-- Set the material - relative to /materials/ directory
+DermaImageButton:SizeToContents()				-- OPTIONAL: Use instead of SetSize if you want to resize automatically ( without stretching )
+DermaImageButton.DoClick = function()
+	MsgN( "You clicked the image!" )
+end
+	</code>
+	<output><image src="DImageButton.png"/></output>
+</example>

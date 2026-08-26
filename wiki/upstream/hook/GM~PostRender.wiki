@@ -1,0 +1,4 @@
+<function name="PostRender" parent="GM" type="hook">
+	<description>Called after the frame has been rendered. Will not be called if <page>GM:PreRender</page> returned `true`, disabling all further rendering operations for the current frame.</description>
+	<realm>Client</realm>
+</function>

@@ -1,0 +1,14 @@
+<function name="RemoveAllAmmo" parent="Player" type="classfunc">
+	<description>Removes all ammo from a certain player</description>
+	<realm>Server</realm>
+</function>
+
+<example>
+	<description>A console command that removes ammo on the player that used it.</description>
+	<code>
+concommand.Add( "removeammo", function( ply )
+	ply:RemoveAllAmmo()
+end )
+	</code>
+
+</example>

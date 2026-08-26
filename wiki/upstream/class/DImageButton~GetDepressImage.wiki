@@ -1,0 +1,9 @@
+<function name="GetDepressImage" parent="DImageButton" type="panelfunc">
+	<description>
+Returns whether <page>DImageButton:DepressImage</page> is functional or not.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="enable" type="boolean">`true` to enable image depressing when clicked.</ret>
+	</rets>
+</function>

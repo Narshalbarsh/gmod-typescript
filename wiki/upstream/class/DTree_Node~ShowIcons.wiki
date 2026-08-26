@@ -1,0 +1,11 @@
+<function name="ShowIcons" parent="DTree_Node" type="panelfunc">
+	<description>
+Returns whether or not the <page>DTree</page> this node is in has icons enabled.
+
+See <page>DTree:ShowIcons</page> for more info.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">Whether the icons are shown or not</ret>
+	</rets>
+</function>

@@ -1,0 +1,7 @@
+<function name="SetModelName" parent="Entity" type="classfunc">
+	<description>Alter the model name returned by <page>Entity:GetModel</page>. Does not affect the entity's actual model.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="modelname" type="string">The new model name.</arg>
+	</args>
+</function>

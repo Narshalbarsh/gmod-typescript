@@ -1,0 +1,7 @@
+<function name="SetBackgroundBlur" parent="DFrame" type="panelfunc">
+	<description>Indicate that the background elements won't be usable.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="blur" type="boolean">Whether or not to block mouse on background panels or not.</arg>
+	</args>
+</function>

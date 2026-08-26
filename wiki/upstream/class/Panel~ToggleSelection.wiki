@@ -1,0 +1,5 @@
+<function name="ToggleSelection" parent="Panel" type="classfunc">
+	<file line="29-L33">lua/includes/extensions/client/panel/selections.lua</file>
+	<description>Toggles the selected state of a selectable panel object. This functionality is set with <page>Panel:SetSelectable</page> and checked with <page>Panel:IsSelectable</page>. To check whether the object is selected or not, <page>Panel:IsSelected</page> is used.</description>
+	<realm>Client and Menu</realm>
+</function>

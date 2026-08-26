@@ -1,0 +1,92 @@
+<function name="SharedRandom" parent="util" type="libraryfunc">
+	<description>
+Generates a random float value that should be the same on client and server.
+
+<note>This function is best used in a <page text="predicted hook">prediction</page>.</note>
+
+This uses a different method of obtaining random numbers and is unaffected by <page>math.randomseed</page>. Instead it uses an internal seed that is based on the player's current predicted command and is fixed to a value of -1 outside of prediction.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="uniqueName" type="string">The seed for the random value</arg>
+		<arg name="min" type="number">The minimum value of the random range</arg>
+		<arg name="max" type="number">The maximum value of the random range</arg>
+		<arg name="additionalSeed" type="number" default="0">The additional seed</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The random float value</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Example usage of the function. Generates some random values.</description>
+	<code>
+print( util.SharedRandom( "23", 0, 100 ) )
+print( util.SharedRandom( "23", 0, 100 ) )
+print( util.SharedRandom( "23", 0, 100, 0 ) )
+print( util.SharedRandom( "23", 0, 100, 1337 ) )
+print( util.SharedRandom( "lol", 0, 100, 1337 ) )
+	</code>
+	<output>
+
+```
+15.979786317786
+15.979786317786
+15.979786317786
+24.08124470342
+78.480193614252
+```
+
+	</output>
+</example>
+
+<example>
+	<description>A demonstration of how this function interacts with prediction.</description>
+	<code>
+local function printValues()
+	print(util.SharedRandom("a seed", 0, 100))
+end
+
+function SWEP:PrimaryAttack()
+	-- Because it's being called in prediction these values will change every time you fire, as the
+	-- internal seed is being updated every tick.
+	print("Predicted")
+	printValues()
+	
+	-- The internal seed only ever updates between commands, so the same arguments will give
+	-- the same results when executed during the same tick.
+	printValues()
+	
+	-- Timers break prediction, so the code below uses an internal seed of -1 and will
+	-- always return the same value regardless of game tick.
+	timer.Simple(0, function()
+		print("Unpredicted")
+		printValues()
+	end)
+end
+	</code>
+	<output>
+```
+Predicted
+1.4230553998719
+1.4230553998719
+
+Unpredicted
+43.928178187426
+---
+Predicted
+46.720645319075
+46.720645319075
+
+Unpredicted
+43.928178187426
+---
+Predicted
+99.127414868738
+99.127414868738
+
+Unpredicted
+43.928178187426
+```
+	</output>
+</example>

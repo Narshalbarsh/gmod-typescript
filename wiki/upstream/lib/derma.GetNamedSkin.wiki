@@ -1,0 +1,11 @@
+<function name="GetNamedSkin" parent="derma" type="libraryfunc">
+	<description>Returns the skin table of the skin with the supplied name.</description>
+	<realm>Client and Menu</realm>
+	<file line="183-L187">lua/derma/derma.lua</file>
+	<args>
+		<arg name="name" type="string">Name of skin.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">The skin table.</ret>
+	</rets>
+</function>

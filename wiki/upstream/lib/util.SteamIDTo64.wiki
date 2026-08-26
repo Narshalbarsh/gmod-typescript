@@ -1,0 +1,10 @@
+<function name="SteamIDTo64" parent="util" type="libraryfunc">
+	<description>Converts a <page text="STEAM_0:0:0">Player:SteamID</page> style SteamID to a <page text="64bit SteamID">Player:SteamID64</page>.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="id" type="string">The <page text="STEAM_0:0:0">Player:SteamID</page> format SteamID</arg>
+	</args>
+	<rets>
+		<ret name="" type="string"><page text="64bit SteamID">Player:SteamID64</page> or 0 (as a string) on fail</ret>
+	</rets>
+</function>

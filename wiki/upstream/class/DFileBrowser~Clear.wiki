@@ -1,0 +1,5 @@
+<function name="Clear" parent="DFileBrowser" type="panelfunc">
+	<description>Clears the file tree and list, and resets all values.</description>
+	<realm>Client</realm>
+	<file line="273-L283">lua/vgui/dfilebrowser.lua</file>
+</function>

@@ -1,0 +1,10 @@
+<function name="LookupKeyBinding" parent="input" type="libraryfunc">
+	<description>Returns the bind string that the given key is bound to.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="key" type="number{BUTTON_CODE}">Key from <page>Enums/BUTTON_CODE</page></arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The bind string of the given key.</ret>
+	</rets>
+</function>

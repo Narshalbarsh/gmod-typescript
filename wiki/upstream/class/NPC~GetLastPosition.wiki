@@ -1,0 +1,12 @@
+<function name="GetLastPosition" parent="NPC" type="classfunc">
+	<description>
+Returns the last registered or memorized position of the NPC. When using scheduling, the NPC will focus on navigating to the last position via nodes.
+
+See <page>NPC:SetLastPosition</page>.
+	</description>
+	<realm>Server</realm>
+	<added>2024.12.11</added>
+	<rets>
+		<ret name="position" type="Vector">Where the NPC's last position was set to.</ret>
+	</rets>
+</function>

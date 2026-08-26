@@ -1,0 +1,21 @@
+<function name="GiveAmmo" parent="Player" type="classfunc">
+	<description>Gives ammo to a player</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="amount" type="number">Amount of ammo</arg>
+		<arg name="type" type="string" alttype="number">Type of ammo.
+This is a string for named ammo types, and a number for ammo ID.
+
+You can find a list of default ammo types <page text="here">Default_Ammo_Types</page>.</arg>
+		<arg name="hidePopup" type="boolean" default="false">Hide display popup when giving the ammo</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">Ammo given.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Give the player 200 rounds for the pistol, hiding the popup.</description>
+	<code>Entity( 1 ):GiveAmmo( 200, "Pistol", true )</code>
+
+</example>

@@ -1,0 +1,11 @@
+<function name="SetFOV" parent="Player" type="classfunc">
+	<description>Set a player's FOV (Field Of View) over a certain amount of time.
+
+This is meant to be called on the server or shared (for prediction), it will have no effect if called clientside only. You may want to use <page>GM:CalcView</page> for that instead.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="fov" type="number">the angle of perception (FOV). Set to 0 to return to default user FOV. ( Which is ranging from 75 to 100, depending on user settings )</arg>
+		<arg name="time" type="number" default="0">the time it takes to transition to the FOV expressed in a floating point.</arg>
+		<arg name="requester" type="Entity" default="self" added="2020.03.17">The requester or "owner" of the zoom event. Only this entity will be able to change the player's FOV until it is set back to 0.</arg>
+	</args>
+</function>

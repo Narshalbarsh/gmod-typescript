@@ -1,0 +1,28 @@
+<function name="GetColor" parent="IMaterial" type="classfunc">
+	<description>
+Returns the color of the specified pixel of the `$basetexture`, only works for materials created from PNG files.
+
+Basically identical to <page>ITexture:GetColor</page> used on <page>IMaterial:GetTexture</page>`( "$basetexture" )`.
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="x" type="number">The X coordinate.</arg>
+		<arg name="y" type="number">The Y coordinate.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Color">The color of the pixel as a <page>Color</page>.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Identical functionality.</description>
+	<code>
+local m = Material( "gui/colors_dark.png" )
+local t = m:GetTexture("$basetexture")
+
+PrintTable( t:GetColor( 5, 5 ) )
+PrintTable( m:GetColor( 5, 5 ) )
+	</code>
+	<output>Both printouts will return identical color, which at the time of testing is RGBA - 255, 244, 242, 255.</output>
+
+</example>

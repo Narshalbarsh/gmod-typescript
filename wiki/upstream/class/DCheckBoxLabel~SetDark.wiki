@@ -1,0 +1,10 @@
+<function name="SetDark" parent="DCheckBoxLabel" type="panelfunc">
+	<description>
+Sets the text of the <page>DCheckBoxLabel</page> to be dark colored in accordance with the currently active Derma skin.
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="94-L96">lua/vgui/dcheckbox.lua</file>
+	<args>
+		<arg name="darkify" type="boolean">True to be dark, false to be default</arg>
+	</args>
+</function>

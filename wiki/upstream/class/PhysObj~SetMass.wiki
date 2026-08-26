@@ -1,0 +1,13 @@
+<function name="SetMass" parent="PhysObj" type="classfunc">
+	<description>Sets the mass of the physics object.
+
+<warning>This resets <page>PhysObj:SetBuoyancyRatio</page> (Recalculated based materials' and the physics objects' densities, latter of which is dependent on mass).
+
+If you used a custom ratio, you will have to re-set it again after `SetMass`.
+</warning>
+</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="mass" type="number">The mass in kilograms, in range `[0, 50000]`</arg>
+	</args>
+</function>

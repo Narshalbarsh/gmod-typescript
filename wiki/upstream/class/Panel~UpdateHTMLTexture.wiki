@@ -1,0 +1,8 @@
+<function name="UpdateHTMLTexture" parent="Panel" type="classfunc">
+	<description>
+Forcibly updates the panels' HTML Material, similar to when Paint is called on it.<br />This is only useful if the panel is not normally visible, i.e the panel exists purely for its HTML Material.
+<note>Only works on with panels that have a HTML Material. See <page>Panel:GetHTMLMaterial</page> for more details.</note>
+<note>A good place to call this is in the <page>GM:PreRender</page> hook</note>
+	</description>
+	<realm>Client and Menu</realm>
+</function>

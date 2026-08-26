@@ -1,0 +1,4 @@
+<function name="DisableScrollbar" parent="DListView" type="panelfunc">
+	<description>Removes the scrollbar.</description>
+	<realm>Client and Menu</realm>
+</function>

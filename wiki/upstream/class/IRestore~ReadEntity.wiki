@@ -1,0 +1,7 @@
+<function name="ReadEntity" parent="IRestore" type="classfunc">
+	<description>Reads next bytes from the restore object as an <page>Entity</page>.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Entity">The entity that has been read.</ret>
+	</rets>
+</function>

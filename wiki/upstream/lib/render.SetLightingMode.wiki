@@ -1,0 +1,59 @@
+<function name="SetLightingMode" parent="render" type="libraryfunc">
+	<description>
+Sets lighting mode when rendering something.
+
+<note>**Do not forget to restore the default value** to avoid unexpected behavior, like the world and the HUD/UI being affected.</note>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="Mode" type="number">Lighting render mode.
+
+Possible values are:
+* 0 - Default.
+* 1 - Total fullbright, similar to `mat_fullbright 1` but excluding some weapon view models.
+* 2 - Increased brightness(?), models look fullbright.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Draws a fullbright quad on 2D skybox.</description>
+	<code>
+local MATERIAL = Material("skybox/trainup")
+
+hook.Add("PostDraw2DSkyBox", "Quaddrawer", function()
+	render.OverrideDepthEnable( true, false )
+	render.SetLightingMode(2)
+
+	cam.Start3D(Vector(0, 0, 0), EyeAngles())
+		render.SetMaterial(MATERIAL)
+		render.DrawQuadEasy(Vector(200,0,0), Vector(-1,0,0), 64, 64, Color(255,255,255), 180)
+	cam.End3D()
+
+	render.OverrideDepthEnable( false, false )
+	render.SetLightingMode(0)
+end)
+	</code>
+
+</example>
+
+
+<example>
+	<description>Display everything the same way as when you set `mat_fullbright` to 1.</description>
+	<code>
+local LightingModeChanged = false
+hook.Add( "PreRender", "fullbright", function()
+	render.SetLightingMode( 1 )
+	LightingModeChanged = true
+end )
+
+local function EndOfLightingMod()
+	if LightingModeChanged then
+		render.SetLightingMode( 0 )
+		LightingModeChanged = false
+	end
+end
+hook.Add( "PostRender", "fullbright", EndOfLightingMod )
+hook.Add( "PreDrawHUD", "fullbright", EndOfLightingMod )
+	</code>
+
+</example>

@@ -1,0 +1,7 @@
+<function name="GetActivity" parent="NextBot" type="classfunc">
+	<description>Returns the currently running activity</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">The current activity</ret>
+	</rets>
+</function>

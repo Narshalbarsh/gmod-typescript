@@ -1,0 +1,11 @@
+<function name="GetPassenger" parent="Vehicle" type="classfunc">
+	<description>Gets the passenger of the vehicle, returns <page>NULL</page> if no drivers is present.
+</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="passenger" type="number">The index of the passenger ( 0 is the driver )</arg>
+	</args>
+	<rets>
+		<ret name="" type="Entity">The passenger</ret>
+	</rets>
+</function>

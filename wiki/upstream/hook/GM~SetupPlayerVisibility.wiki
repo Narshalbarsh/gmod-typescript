@@ -1,0 +1,8 @@
+<function name="SetupPlayerVisibility" parent="GM" type="hook">
+	<description>Allows you to add extra positions to the player's [PVS (Potential Visibility Set)](https://developer.valvesoftware.com/wiki/PVS "PVS - Valve Developer Community"). This is the place to call <page>Global.AddOriginToPVS</page>.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ply" type="Player">The player</arg>
+		<arg name="viewEntity" type="Entity">Players <page>Player:GetViewEntity</page></arg>
+	</args>
+</function>

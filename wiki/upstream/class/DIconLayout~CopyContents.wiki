@@ -1,0 +1,7 @@
+<function name="CopyContents" parent="DIconLayout" type="panelfunc">
+	<description>Copies the contents (Child elements) of another <page>DIconLayout</page> to itself.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="from" type="Panel"><page>DIconLayout</page> to copy from.</arg>
+	</args>
+</function>

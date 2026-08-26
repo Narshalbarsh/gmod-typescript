@@ -1,0 +1,25 @@
+<panel>
+	<name>DPanel</name>
+	<parent>Panel</parent>
+	<realm>Client and Menu</realm>
+	<file line="">lua/vgui/dpanel.lua</file>
+	<description>A simple rectangular box, commonly used for parenting other elements to. Pretty much all elements are based on this.</description>
+</panel>
+
+
+<example>
+	<description>Creates a DPanel and adds a <page>DLabel</page> to it</description>
+	<code>
+local DPanel = vgui.Create( "DPanel" )
+DPanel:SetPos( 10, 30 ) -- Set the position of the panel
+DPanel:SetSize( 200, 200 ) -- Set the size of the panel
+
+local DLabel = vgui.Create( "DLabel", DPanel )
+DLabel:SetPos( 10, 10 ) -- Set the position of the label
+DLabel:SetText( "I'm a DLabel inside a DPanel! :)" ) --  Set the text of the label
+DLabel:SizeToContents() -- Size the label to fit the text in it
+DLabel:SetDark( 1 ) -- Set the colour of the text inside the label to a darker one
+	</code>
+	<output><image src="DPanel_large.png"/></output>
+
+</example>

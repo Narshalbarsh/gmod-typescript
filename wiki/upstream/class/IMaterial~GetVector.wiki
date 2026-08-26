@@ -1,0 +1,14 @@
+<function name="GetVector" parent="IMaterial" type="classfunc">
+	<description>
+Returns the specified material vector, or nil if the value is not set.
+
+See also <page>IMaterial:GetVectorLinear</page>
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="materialVector" type="string">The name of the material vector.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">The color vector</ret>
+	</rets>
+</function>

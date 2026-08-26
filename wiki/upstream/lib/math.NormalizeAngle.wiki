@@ -1,0 +1,11 @@
+<function name="NormalizeAngle" parent="math" type="libraryfunc">
+	<description>Normalizes angle, so it returns value between -180 and 180.</description>
+	<realm>Shared and Menu</realm>
+	<file line="189-L191">lua/includes/extensions/math.lua</file>
+	<args>
+		<arg name="angle" type="number">The angle to normalize, in degrees.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The normalized angle, in the range of -180 to 180 degrees.</ret>
+	</rets>
+</function>

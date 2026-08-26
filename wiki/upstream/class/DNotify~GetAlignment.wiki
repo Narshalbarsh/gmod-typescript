@@ -1,0 +1,7 @@
+<function name="GetAlignment" parent="DNotify" type="panelfunc">
+	<description>Returns the current alignment of this notification panel. Set by <page>DNotify:SetAlignment</page>.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number{ContentAlignment}">The direction of the content, based on the number pad. See <page>Enums/ContentAlignment</page>.</ret>
+	</rets>
+</function>

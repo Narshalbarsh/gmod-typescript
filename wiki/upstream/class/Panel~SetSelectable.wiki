@@ -1,0 +1,8 @@
+<function name="SetSelectable" parent="Panel" type="classfunc">
+	<file line="23-L27">lua/includes/extensions/client/panel/selections.lua</file>
+	<description>Sets whether the panel object can be selected or not (like icons in the Spawn Menu, holding <key>Shift</key>). If enabled, this will affect the function of a <page>DButton</page> whilst <key>Shift</key> is pressed. <page>Panel:SetSelected</page> can be used to select/deselect the object.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="selectable" type="boolean">Whether the panel object should be selectable or not.</arg>
+	</args>
+</function>

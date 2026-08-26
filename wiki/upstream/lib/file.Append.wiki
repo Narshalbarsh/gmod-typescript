@@ -1,0 +1,22 @@
+<function name="Append" parent="file" type="libraryfunc">
+	<description>Appends data to a file in the `data/` folder.</description>
+	<realm>Shared and Menu</realm>
+	<file line="31-L39">lua/includes/extensions/file.lua</file>
+	<args>
+		<arg name="name" type="string">The file's name.</arg>
+		<arg name="content" type="string">The content which should be appended to the file.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean" added="2025.01.10">If the operation was successful.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Adds "Append!" to `helloworld.txt`, then prints it.</description>
+	<code>
+file.Append( "helloworld.txt", "Append!" )
+
+print( file.Read( "helloworld.txt", "DATA" ) )
+	</code>
+	<output>This is the content!Append!</output>
+</example>

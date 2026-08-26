@@ -1,0 +1,8 @@
+<function name="SetIcon" parent="DButton" type="panelfunc">
+	<description>Sets an image to be displayed as the button's background. Alias of <page>DButton:SetImage</page></description>
+	<realm>Client and Menu</realm>
+	<file line="52">lua/vgui/dbutton.lua</file>
+	<args>
+		<arg name="img" type="string" default="nil">The image file to use, relative to `/materials`. If this is nil, the image background is removed.</arg>
+	</args>
+</function>

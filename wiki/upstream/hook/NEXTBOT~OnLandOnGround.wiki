@@ -1,0 +1,8 @@
+<function name="OnLandOnGround" parent="NEXTBOT" type="hook">
+	<description>Called when the bot's feet return to the ground.</description>
+	<realm>Server</realm>
+	<file line="94">gamemodes/base/entities/entities/base_nextbot/sv_nextbot.lua</file>
+	<args>
+		<arg name="ent" type="Entity">The entity the nextbot has landed on.</arg>
+	</args>
+</function>

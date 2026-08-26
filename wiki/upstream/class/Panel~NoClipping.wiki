@@ -1,0 +1,19 @@
+<function name="NoClipping" parent="Panel" type="classfunc">
+
+<description>
+Sets whether this panel's drawings should be clipped within the parent panel's bounds.
+
+See <page>render.SetScissorRect</page> if you wish to set the clipping rect instead.
+
+<note>
+This only disabled clipping for the Paint Related functions (as far as i can tell at the current moment, more testing should be done) so things like the text of a <page>DLabel</page> will still be clipped to the parent.
+
+To fully disable the clipping of any children see <page>Global.DisableClipping</page>.
+</note> 
+</description>
+
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="disableClipping" type="boolean">Whether to disable clipping or not. `true` to disable clipping, `false` to enable clipping.</arg>
+	</args>
+</function>

@@ -1,0 +1,26 @@
+<function name="CopyFromTo" parent="table" type="libraryfunc">
+	<description>Empties the target table, and merges all values from the source table into it.</description>
+	<realm>Shared and Menu</realm>
+	<file line="71-L79">lua/includes/extensions/table.lua</file>
+	<args>
+		<arg name="source" type="table">The table to copy from.</arg>
+		<arg name="target" type="table">The table to write to.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Demonstrates the use of this function.</description>
+	<code>
+local Test1 = {A = "String keys", B = "Table 1"}
+local Test2 = {"Numeric keys", "Table 2"}
+table.CopyFromTo( Test2, Test1 )
+PrintTable( Test1 )
+	</code>
+	<output>
+```
+1 = Numeric keys
+2 = Table 2
+```
+	</output>
+
+</example>

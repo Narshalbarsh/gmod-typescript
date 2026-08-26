@@ -1,0 +1,11 @@
+<function name="Start" parent="cam" type="libraryfunc">
+	<description>
+Sets up a new rendering context. This is an extended version of <page>cam.Start3D</page> and <page>cam.Start2D</page>. Must be finished by <page>cam.End3D</page> or <page>cam.End2D</page>.
+
+<bug issue="2682">This will not update current view properties for 3D contexts.</bug>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="dataTbl" type="table">Render context config. See <page>Structures/RenderCamData</page>.</arg>
+	</args>
+</function>

@@ -1,0 +1,7 @@
+<function name="SetAutoDelete" parent="Panel" type="classfunc">
+	<description>Sets whenever the panel should be removed if the parent was removed.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="autoDelete" type="boolean">Whenever to delete if the parent was removed or not.</arg>
+	</args>
+</function>

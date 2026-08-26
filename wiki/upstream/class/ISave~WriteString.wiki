@@ -1,0 +1,7 @@
+<function name="WriteString" parent="ISave" type="classfunc">
+	<description>Writes a **null terminated** <page>string</page> to the save object.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="str" type="string">The string to write.</arg>
+	</args>
+</function>

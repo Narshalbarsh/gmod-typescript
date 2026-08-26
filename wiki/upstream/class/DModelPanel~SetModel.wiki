@@ -1,0 +1,23 @@
+<function name="SetModel" parent="DModelPanel" type="panelfunc">
+	<description>Sets the model of the rendered entity.
+
+	<note>This function may give a different model than expected. This is not a bug, however this problem may appear with some player models which are renamed several times in a wrong way. To solve that, you can use <page>Entity:SetModel</page> and <page>Entity:SetModelName</page> on the internal panel entity. More information : https://github.com/Facepunch/garrysmod-issues/issues/4534.</note>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="model" type="string">The model to apply to the entity.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Creates a new DModelPanel with the Kleiner playermodel.</description>
+	<code>
+local modelPanel = vgui.Create( "DModelPanel" )
+modelPanel:SetPos( 0, 0 )
+modelPanel:SetSize( 200, 200 )
+modelPanel:SetModel( "models/player/kleiner.mdl" )
+	</code>
+	<output>
+		<upload src="22674/8d8e01367a4ebd3.png" size="88682" name="image.png" />
+	</output>
+</example>

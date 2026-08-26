@@ -1,0 +1,8 @@
+<function name="AppendTextWithURLs" parent="Panel" type="classfunc">
+	<description>Appends text to a <page>RichText</page> element (exactly like <page>Panel:AppendText</page>), while also parsing and adding valid URLs (<page>Panel:InsertClickableTextStart</page>). This does not automatically add a new line.</description>
+	<realm>Client and Menu</realm>
+	<added>2023.10.25</added>
+	<args>
+		<arg name="txt" type="string">The text to append (add on).</arg>
+	</args>
+</function>

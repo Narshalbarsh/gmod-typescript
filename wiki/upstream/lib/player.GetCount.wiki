@@ -1,0 +1,27 @@
+<function name="GetCount" parent="player" type="libraryfunc">
+	<description>
+Returns the active player count.
+
+<note>Similar to **#**<page>player.GetAll</page>() but with better performance since the player table doesn't have to be generated. If <page>player.GetAll</page> is already being called for iteration, then using the **#** operator on the table will be faster than calling this function since it is JITted.</note>
+<note>Players who are currently connecting to the server will not be counted. See function: <page>player.GetCountConnecting</page></note>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">Number of players.</ret>
+	</rets>
+</function>
+
+<example>
+<description> Sending message in chat every 300 secs.</description>
+<code>
+timer.Create("CountAdvert", 300, 0, function()
+    local playerCount = player.GetCount() -- Getting the number of players on the server
+    local message = "There are currently " .. playerCount .. " people playing on the server." -- Our message
+
+    -- Send in chat for everyone
+    for _, ply in player.Iterator() do
+        ply:ChatPrint(message)
+    end
+end)
+</code>
+</example>

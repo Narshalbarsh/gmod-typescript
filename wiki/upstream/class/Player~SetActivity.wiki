@@ -1,0 +1,8 @@
+<function name="SetActivity" parent="Player" type="classfunc">
+	<description>Sets the player's activity.</description>
+	<added>2021.03.31</added>
+	<realm>Server</realm>
+	<args>
+		<arg name="act" type="number">The new activity to set. See <page>Enums/ACT</page>.</arg>
+	</args>
+</function>

@@ -1,0 +1,5 @@
+<function name="IsFNameType" parent="Task" type="classfunc">
+	<description>Determines if the task is an NPC method-based task (`TYPE_FNAME`, 2).</description>
+	<realm>Server</realm>
+	<file line="75">lua/includes/modules/ai_task.lua</file>
+</function>

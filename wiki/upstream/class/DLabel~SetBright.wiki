@@ -1,0 +1,13 @@
+<function name="SetBright" parent="DLabel" type="panelfunc">
+	<description>
+Sets the color of the text to the bright text color defined in the skin.
+
+Disables <page>DLabel:SetDark</page>. Gets overridden by <page>DLabel:SetHighlight</page>.
+
+You should only consider using this if you are using background elements that are not manually painted and are using the skin colors. Otherwise use <page>DLabel:SetTextColor</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="bright" type="boolean">Whenever to set the text to bright or not.</arg>
+	</args>
+</function>

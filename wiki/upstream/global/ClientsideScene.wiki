@@ -1,0 +1,17 @@
+<function name="ClientsideScene" parent="Global" type="libraryfunc">
+	<description>Creates a scene entity based on the scene name and the entity.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="name" type="string">The name of the scene.</arg>
+		<arg name="targetEnt" type="Entity">The entity to play the scene on.</arg>
+	</args>
+	<rets>
+		<ret name="" type="CSEnt">C_SceneEntity</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Plays "I guess you should go with Alyx" line from HL2.</description>
+	<code>ClientsideScene( "scenes/eli_lab/mo_gowithalyx01.vcd", LocalPlayer() )</code>
+
+</example>

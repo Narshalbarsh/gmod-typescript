@@ -1,0 +1,20 @@
+<function name="SetColor4Part" parent="Entity" type="classfunc">
+	<description>Sets the color of an entity without usage of a <page>Global.Color</page> object.
+
+<internal>Used internally to implement <page>Entity:SetColor</page>.</internal>
+</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="r" type="number"></arg>
+		<arg name="g" type="number"></arg>
+		<arg name="b" type="number"></arg>
+		<arg name="a" type="number"></arg>
+	</args>
+</function>
+
+<example>
+	<description>Sets the color of the first player to black</description>
+	<code>
+Entity(1):SetColor4Part(0, 0, 0, 0)
+	</code>
+</example>

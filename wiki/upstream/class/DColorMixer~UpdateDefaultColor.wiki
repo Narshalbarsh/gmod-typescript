@@ -1,0 +1,5 @@
+<function name="UpdateDefaultColor" parent="DColorMixer" type="panelfunc">
+	<description>sets the default color of the element to the currently selected color</description>
+	<realm>Client and Menu</realm>
+	<file line="204-L222">lua/vgui/dcolormixer.lua</file>
+</function>

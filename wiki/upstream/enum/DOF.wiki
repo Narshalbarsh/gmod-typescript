@@ -1,0 +1,10 @@
+<enum>
+	<realm>Client</realm>
+	<description>Internal globals for SimpleDoF.</description>
+	<items>
+<item key="DOF_OFFSET" value="256"></item>
+
+<item key="DOF_SPACING" value="512"></item>
+	</items>
+
+</enum>

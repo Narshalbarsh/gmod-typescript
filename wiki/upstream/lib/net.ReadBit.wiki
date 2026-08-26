@@ -1,0 +1,11 @@
+<function name="ReadBit" parent="net" type="libraryfunc">
+	<description>
+Reads a bit from the received net message.
+
+<warning>You **must** read information in same order as you write it.</warning>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">`0` or `1`, or `0` if the bit could not be read.</ret>
+	</rets>
+</function>

@@ -1,0 +1,7 @@
+<function name="SetDamagePosition" parent="CTakeDamageInfo" type="classfunc">
+	<description>Sets the position of where the damage gets applied to.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="pos" type="Vector">The position where the damage will be applied.</arg>
+	</args>
+</function>

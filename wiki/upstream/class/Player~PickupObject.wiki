@@ -1,0 +1,25 @@
+<function name="PickupObject" parent="Player" type="classfunc">
+	<description>
+This makes the player hold (same as pressing <key>E</key> on a small prop) given entity.
+
+Not to be confused with picking up items like ammo or health kits.
+
+This picks up the passed entity regardless of its mass or distance from the player.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="entity" type="Entity">Entity to pick up.</arg>
+	</args>
+</function>
+
+<example>
+	<description>An extra function to make sure the object isn't held before being picked up.</description>
+	<code>
+function PlayerPickupObject( ply, obj )
+	if ( obj:IsPlayerHolding() ) then return end
+
+	ply:PickupObject( obj )
+end
+	</code>
+
+</example>

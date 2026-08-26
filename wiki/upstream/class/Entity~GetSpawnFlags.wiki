@@ -1,0 +1,19 @@
+<function name="GetSpawnFlags" parent="Entity" type="classfunc">
+	<description>Returns the bitwise spawn flags used by the entity. These can be set by <page>Entity:SetKeyValue</page>.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The spawn flags of the entity, see <page text="SF_Enums">Enums/SF</page>.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>An alternative to <page>Entity:HasSpawnFlags</page></description>
+	<code>
+local sf = ent:GetSpawnFlags()
+
+if( bit.band( sf, SF_PHYSPROP_PREVENT_PICKUP ) > 0 ) then
+	print( "This prop cannot be picked up." )
+end
+	</code>
+
+</example>

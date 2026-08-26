@@ -1,0 +1,7 @@
+<function name="FogMode" parent="render" type="libraryfunc">
+	<description>Sets the mode of fog.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="fogMode" type="number{MATERIAL_FOG}">Fog mode, see <page>Enums/MATERIAL_FOG</page>.</arg>
+	</args>
+</function>

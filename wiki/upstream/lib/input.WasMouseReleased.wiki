@@ -1,0 +1,14 @@
+<function name="WasMouseReleased" parent="input" type="libraryfunc">
+	<description>
+Returns whether a mouse key was released in the same frame this function was called.
+
+This function only works in Move hooks, and will detect mouse events even in main menu or when a typing in a text field.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="key" type="number">The key to test, see <page>Enums/MOUSE</page></arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">True if the mouse key was released the same frame that this function was called, false otherwise.</ret>
+	</rets>
+</function>

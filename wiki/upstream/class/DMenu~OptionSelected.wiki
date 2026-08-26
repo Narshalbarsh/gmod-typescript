@@ -1,0 +1,8 @@
+<function name="OptionSelected" parent="DMenu" type="panelfunc">
+	<description>Called when a option has been selected</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="option" type="Panel">The <page>DMenuOption</page> that was selected</arg>
+		<arg name="optionText" type="string">The options text</arg>
+	</args>
+</function>

@@ -1,0 +1,32 @@
+<function name="DoImpactEffect" parent="ENTITY" type="hook">
+	<description>
+Called so the entity can override the bullet impact effects it makes. This is called when the entity itself fires bullets via <page>Entity:FireBullets</page>, not when it gets hit.
+
+<note>This hook only works for the `anim` type entities.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="tr" type="table">A <page>Structures/TraceResult</page> from the bullet's start point to the impact point</arg>
+		<arg name="damageType" type="number">The damage type of bullet. See <page>Enums/DMG</page></arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return true to not do the default thing - which is to call `UTIL_ImpactTrace` in C++</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Makes the ENT have the AR2 bullet impact effect.</description>
+	<code>
+function ENT:DoImpactEffect( tr, nDamageType )
+
+	if ( tr.HitSky ) then return end
+	
+	local effectdata = EffectData()
+	effectdata:SetOrigin( tr.HitPos + tr.HitNormal )
+	effectdata:SetNormal( tr.HitNormal )
+	util.Effect( "AR2Impact", effectdata )
+
+end
+	</code>
+
+</example>

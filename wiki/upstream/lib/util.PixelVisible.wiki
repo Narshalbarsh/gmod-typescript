@@ -1,0 +1,47 @@
+<function name="PixelVisible" parent="util" type="libraryfunc">
+	<description>Returns the visibility of a square that is always pointed at the camera in the world-space.
+
+This is typically used for in-game sprites or "billboards". (<page>render.DrawSprite</page>)
+</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="position" type="Vector">The center of the visibility test.</arg>
+		<arg name="size" type="number">The size of the square to check for visibility.</arg>
+		<arg name="PixVis" type="pixelvis_handle_t">The PixVis handle created with <page>util.GetPixelVisibleHandle</page>.
+		<warning>Don't use the same handle twice per tick or it will give unpredictable results.</warning>
+		</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">Visibility percentage, in range of `[0-1]`. `0` when none of the area is visible, `0.5` when half the area is visible, `1` when all of it is visible, etc.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Demonstrates approximately what this function does.</description>
+	<code>
+local PixVis
+local material = Material( "sprites/splodesprite" )
+
+-- Position and size of the pixvis thing
+local vPos = Vector( 0, 0, 0 )
+local vSize = 16
+
+hook.Add( "HUDPaint", "TestPixelVisibility", function()
+	if ( !PixVis ) then PixVis = util.GetPixelVisibleHandle() end
+
+	local visible = util.PixelVisible( vPos, vSize, PixVis )
+
+	local pos2D = vPos:ToScreen()
+	draw.SimpleTextOutlined( "Visibility: " .. math.floor( visible * 100 ), "Default", pos2D.x, pos2D.y, color_white, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER, 2, color_black )
+end )
+
+hook.Add( "PreDrawOpaqueRenderables", "TestPixelVisibility", function()
+	-- Approximate visualization of the pixel visibility area
+	render.SetMaterial( material )
+	render.DrawSprite( vPos, vSize * 1.5, vSize * 1.5, color_white )
+end )
+	</code>
+	<output>
+<upload src="70c/8ddbe2f412a51d4.mp4" size="2242779" name="July08-1502-gmod.mp4" />
+	</output>
+</example>

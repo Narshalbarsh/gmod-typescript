@@ -1,0 +1,7 @@
+<function name="GetPaintBackground" parent="DTextEntry" type="panelfunc">
+	<description>Whether the background is displayed or not</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="show" type="boolean">`false` hides the background; this is `true` by default.</ret>
+	</rets>
+</function>

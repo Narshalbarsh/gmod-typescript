@@ -1,0 +1,7 @@
+<function name="GetEnd" parent="PathFollower" type="classfunc">
+	<description>Returns the path end position</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="Vector">The end position</ret>
+	</rets>
+</function>

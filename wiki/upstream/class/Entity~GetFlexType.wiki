@@ -1,0 +1,11 @@
+<function name="GetFlexType" parent="Entity" type="classfunc">
+	<description>Returns flex controller type or "category". Used internally by Faceposer to categorize flex controllers.</description>
+	<realm>Shared</realm>
+	<added>2024.06.28</added>
+	<args>
+		<arg name="id" type="number">The flex index to look up type of. The range is between `0` and <page>Entity:GetFlexNum</page> - 1.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The flex type, or <page>no value</page> if the requested ID is out of bounds.</ret>
+	</rets>
+</function>

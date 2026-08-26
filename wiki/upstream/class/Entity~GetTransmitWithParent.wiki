@@ -1,0 +1,7 @@
+<function name="GetTransmitWithParent" parent="Entity" type="classfunc">
+	<description>Returns true if the TransmitWithParent flag is set or not.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">Is the TransmitWithParent flag is set or not</ret>
+	</rets>
+</function>

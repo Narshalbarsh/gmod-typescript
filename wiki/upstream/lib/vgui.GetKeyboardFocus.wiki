@@ -1,0 +1,7 @@
+<function name="GetKeyboardFocus" parent="vgui" type="libraryfunc">
+	<description>Returns the panel which is currently receiving keyboard input.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="Panel">The panel with keyboard focus</ret>
+	</rets>
+</function>

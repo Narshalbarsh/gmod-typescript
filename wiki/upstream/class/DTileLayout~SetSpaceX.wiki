@@ -1,0 +1,7 @@
+<function name="SetSpaceX" parent="DTileLayout" type="panelfunc">
+	<description>Sets the spacing between 2 elements in the <page>DTileLayout</page> on the X axis.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="spacingX" type="number">New X axis spacing.</arg>
+	</args>
+</function>

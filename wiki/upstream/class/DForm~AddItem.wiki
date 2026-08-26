@@ -1,0 +1,14 @@
+<function name="AddItem" parent="DForm" type="panelfunc">
+	<description>
+Adds one or two items to the DForm.
+If this method is called with only one argument, it is added to the bottom of the form. If two arguments are passed, they are placed side-by-side at the bottom of the form.
+
+Internally, this function is used by the various DForm functions to, for example, add labels to the left of buttons.
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="42-L73">lua/vgui/dform.lua</file>
+	<args>
+		<arg name="left" type="Panel">Left-hand element to add to the DForm.</arg>
+		<arg name="right" type="Panel" default="nil">Right-hand element to add to the DForm.</arg>
+	</args>
+</function>

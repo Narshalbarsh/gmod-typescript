@@ -1,0 +1,13 @@
+<function name="SendOmit" parent="net" type="libraryfunc">
+	<description>
+		Sends the current message (see <page>net.Start</page>) to all except the player or players specified.
+	</description>
+	<realm>Server</realm>
+	
+	<args name="Ommit Single Player">
+		<arg name="ply" type="Player">The player to **NOT** send the message to.</arg>
+	</args>
+	<args name="Ommit Multiple Players">
+		<arg name="plys" type="table<Player>">A table of players to **NOT** send the message to.</arg>
+	</args>
+</function>

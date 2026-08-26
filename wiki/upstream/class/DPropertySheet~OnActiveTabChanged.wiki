@@ -1,0 +1,12 @@
+<function name="OnActiveTabChanged" parent="DPropertySheet" type="panelhook">
+	<file line="238-L240">lua/vgui/dpropertysheet.lua</file>
+	<description>
+		Called when a player switches the tabs.
+
+		Source code states that this is meant to be overridden.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="old" type="Panel">The previously active <page>DTab</page></arg>
+		<arg name="new" type="Panel">The newly active <page>DTab</page></arg>
+	</args>
+</function>

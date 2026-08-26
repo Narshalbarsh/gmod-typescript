@@ -1,0 +1,27 @@
+<function name="GetTracerOrigin" parent="WEAPON" type="hook">
+	<description>Allows you to override where the tracer effect comes from. ( Visual bullets )</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="Vector">The new position to start tracer effect from</ret>
+	</rets>
+</function>
+
+<example>
+<description>Alternating muzzle flash position for dual wield gun, with view model and 3rd person view support.</description>
+<code>
+function SWEP:GetTracerOrigin()
+	local Owner = self:GetOwner()
+	local ent = Owner:ShouldDrawLocalPlayer() and self or Owner:GetViewModel()
+
+	if ( self.Tracer ) then
+		self.Tracer = false
+		local att = ent:GetAttachment( ent:LookupAttachment( "muzzle" ) ) or ent:GetAttachment( ent:LookupAttachment( "1" ) )
+		return att.Pos
+	else
+		self.Tracer = true
+		local att = ent:GetAttachment( ent:LookupAttachment( "muzzle2" ) ) or ent:GetAttachment( ent:LookupAttachment( "2" ) )
+		return att.Pos
+	end
+end
+</code>
+</example>

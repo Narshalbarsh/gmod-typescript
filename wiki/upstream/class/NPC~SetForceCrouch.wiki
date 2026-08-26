@@ -1,0 +1,8 @@
+<function name="SetForceCrouch" parent="NPC" type="classfunc">
+	<description>Forces given NPC to crouch, if it is able to do so. Only Citizens and Combine Soldiers can by default.</description>
+	<added>2025.08.08</added>
+	<realm>Server</realm>
+	<args>
+		<arg name="force" type="boolean">Whether to force the NPC to crouch or not. `false` clears the "force crouch" flag, but does not guarantee to force the NPC to stand back up.</arg>
+	</args>
+</function>

@@ -1,0 +1,10 @@
+<title>TOOL</title>
+<type name="TOOL" category="hook" parent="Tool" is="class">
+	<summary>
+<note>This function or feature is only available in the Sandbox gamemode and its <page text="derivatives">Global.DeriveGamemode</page>.</note>
+
+A list of hooks (or callbacks) that are available for you to override in a tool. This is only applicable to sandbox and sandbox-derived gamemodes.
+
+See also: <page>Structures/TOOL</page> and <page>Tool</page>.
+	</summary>
+</type>

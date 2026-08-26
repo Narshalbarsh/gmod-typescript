@@ -1,0 +1,7 @@
+<function name="GetPixelVisibleHandle" parent="util" type="libraryfunc">
+	<description>Creates a new PixVis handle. See <page>util.PixelVisible</page>.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="pixelvis_handle_t">PixVis</ret>
+	</rets>
+</function>

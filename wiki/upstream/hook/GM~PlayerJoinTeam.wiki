@@ -1,0 +1,8 @@
+<function name="PlayerJoinTeam" parent="GM" type="hook">
+	<description>Makes the player join a specified team. This is a convenience function that calls <page>Player:SetTeam</page> and runs the <page>GM:OnPlayerChangedTeam</page> hook.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ply" type="Player">Player to force</arg>
+		<arg name="team" type="number">The team to put player into</arg>
+	</args>
+</function>

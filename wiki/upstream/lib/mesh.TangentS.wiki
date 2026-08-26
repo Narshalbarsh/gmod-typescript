@@ -1,0 +1,18 @@
+<function name="TangentS" parent="mesh" type="libraryfunc">
+	<description>
+Sets the `S` tangent to be used, also known as "binormal".
+
+Tangents and binormals are using in bumpmap rendering.
+
+See also <page>mesh.TangentT</page> and <page>mesh.Begin</page>.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="tangentS" type="Vector">The S tangent.</arg>
+	</args>
+	<args name="Direct numbers input">
+		<arg name="x" type="number">The X part of the vertex' tangent S.</arg>
+		<arg name="y" type="number">The Y part of the vertex' tangent S.</arg>
+		<arg name="z" type="number">The Z part of the vertex' tangent S.</arg>
+	</args>
+</function>

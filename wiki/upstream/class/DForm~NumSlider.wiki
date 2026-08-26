@@ -1,0 +1,15 @@
+<function name="NumSlider" parent="DForm" type="panelfunc">
+	<description>Adds a <page>DNumSlider</page> onto the <page>DForm</page></description>
+	<realm>Client and Menu</realm>
+	<file line="174-L190">lua/vgui/dform.lua</file>
+	<args>
+		<arg name="label" type="string">A short label for the slider.</arg>
+		<arg name="convar" type="string">The [console variable](ConVars) to change when the slider is changed</arg>
+		<arg name="min" type="number">The minimum value of the slider</arg>
+		<arg name="max" type="number">The maximum value of the slider</arg>
+		<arg name="decimals" type="number" default="2">The number of decimals to allow for the slider value.</arg>
+	</args>
+	<rets>
+		<ret name="" type="DNumSlider">The created <page>DNumSlider</page>.</ret>
+	</rets>
+</function>

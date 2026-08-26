@@ -1,0 +1,7 @@
+<function name="SetBottomMin" parent="DVerticalDivider" type="panelfunc">
+	<description>Sets the minimum height of the bottom content panel.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="height" type="number">The minimum height of the bottom content panel. Default is 50.</arg>
+	</args>
+</function>

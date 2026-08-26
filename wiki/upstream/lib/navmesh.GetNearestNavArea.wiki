@@ -1,0 +1,21 @@
+<function name="GetNearestNavArea" parent="navmesh" type="libraryfunc">
+	<description>
+Returns the closest <page>CNavArea</page> to given position at the same height, or beneath it.
+
+This function will ignore blocked <page>CNavArea</page>s. See <page>navmesh.GetNavArea</page> for a function that does see blocked areas.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="pos" type="Vector">The position to look from</arg>
+		<arg name="anyZ" type="boolean" default="false">This argument is ignored and has no effect</arg>
+		<arg name="maxDist" type="number" default="10000">This is the maximum distance from the given position that the function will look for a <page>CNavArea</page></arg>
+		<arg name="checkLOS" type="boolean" default="false">If this is set to true then the function will internally do a <page>util.TraceLine</page> from the starting position to each potential <page>CNavArea</page> with a [MASK_NPCSOLID_BRUSHONLY](https://wiki.facepunch.com/gmod/Enums/MASK). If the trace fails then the <page>CNavArea</page> is ignored.
+
+If this is set to false then the function will find the closest <page>CNavArea</page> through anything, including the world.</arg>
+		<arg name="checkGround" type="boolean" default="true">If checkGround is true then this function will internally call <page>navmesh.GetNavArea</page> to check if there is a <page>CNavArea</page> directly below the position, and return it if so, before checking anywhere else.</arg>
+		<arg name="team" type="number" default="TEAM_ANY=-2">This will internally call <page>CNavArea:IsBlocked</page> to check if the target <page>CNavArea</page> is not to be navigated by the given team. Currently this appears to do nothing.</arg>
+	</args>
+	<rets>
+		<ret name="" type="CNavArea">The closest <page>CNavArea</page> found with the given parameters, or a NULL <page>CNavArea</page> if one was not found.</ret>
+	</rets>
+</function>

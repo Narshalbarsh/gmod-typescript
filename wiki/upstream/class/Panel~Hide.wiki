@@ -1,0 +1,5 @@
+<function name="Hide" parent="Panel" type="classfunc">
+	<file line="606-L608">lua/includes/extensions/client/panel.lua</file>
+	<description>Makes a panel invisible.</description>
+	<realm>Client and Menu</realm>
+</function>

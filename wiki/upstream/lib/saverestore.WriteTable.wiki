@@ -1,0 +1,9 @@
+<function name="WriteTable" parent="saverestore" type="libraryfunc">
+	<description>Write a table to a save game file that is being saved.</description>
+	<realm>Shared</realm>
+	<file line="220-L265">lua/includes/modules/saverestore.lua</file>
+	<args>
+		<arg name="table" type="table">The table to write</arg>
+		<arg name="save" type="ISave">The save object to write the table to.</arg>
+	</args>
+</function>

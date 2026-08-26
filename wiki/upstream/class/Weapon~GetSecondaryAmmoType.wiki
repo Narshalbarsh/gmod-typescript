@@ -1,0 +1,7 @@
+<function name="GetSecondaryAmmoType" parent="Weapon" type="classfunc">
+	<description>Gets the ammo type of the given weapons secondary fire.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The secondary ammo type ID, or -1 if not found.</ret>
+	</rets>
+</function>

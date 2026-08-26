@@ -1,0 +1,36 @@
+<structure>
+	<realm>Client</realm>
+	<description>Table used by panel animation methods, primarily <page>Panel:AnimationThinkInternal</page>, and returned by <page>Panel:NewAnimation</page>.</description>
+	<fields>
+<item name="StartTime" type="number">The system time value returned by <page>Global.SysTime</page> when the animation starts/will start.</item>
+<item name="EndTime" type="number">The system time value returned by <page>Global.SysTime</page> when the animation ends/will end.</item>
+<item name="Ease" type="number" default="-1">The ease in/out level of the animation.</item>
+<item name="OnEnd" type="function">The callback function that will be called upon completion of the animation.
+
+<callback>
+<arg type="table" name="animData">This structure.</arg>
+<arg type="Panel" name="tgtPanel">The panel the animation was run on.</arg>
+</callback>
+</item>
+<item name="Think" type="function">The `think` function called every frame that will animate the panel object. This varies based on the animation. You can create a custom function for this if you aren't using the stock panel methods.
+
+<callback>
+<arg type="table" name="animData">This structure.</arg>
+<arg type="Panel" name="tgtPanel">The panel the animation is being run on.</arg>
+</callback>
+<arg type="number" name="fraction">The progress fraction of the animation, between 0 and 1. The change rate of this number will not be linear if you are easing.</arg>
+</item>
+<item name="Pos" type="Vector">The target position, or target translation of the panel object. Used by <page>Panel:MoveTo</page> and <page>Panel:MoveBy</page> respectively.</item>
+<item name="StartPos" type="Vector">The position of the panel object when the animation started. Used by <page>Panel:MoveTo</page> and <page>Panel:MoveBy</page>.</item>
+<item name="SizeX" type="boolean">Whether to resize the panel horizontally or not. Only used by <page>Panel:SizeTo</page>.</item>
+<item name="SizeY" type="boolean">Whether to resize the panel vertically or not. Only used by <page>Panel:SizeTo</page>.</item>
+<item name="Size" type="Vector" default="(0, 0, 0)">The target size of the panel object. Only used by <page>Panel:SizeTo</page>.</item>
+<item name="StartSize" type="Vector">The size of the panel object when the animation started. Only used by <page>Panel:SizeTo</page>.</item>
+<item name="Color" type="Color">The target colour of the panel object. Only used by <page>Panel:ColorTo</page>.</item>
+<item name="StartColor" type="Color">The colour of the panel object when the animation started. Only used by <page>Panel:ColorTo</page>.</item>
+<item name="Alpha" type="number">The target alpha (0-255) of the panel object. Only used by <page>Panel:AlphaTo</page>.</item>
+<item name="StartAlpha" type="number">The alpha (0-255) of the panel object when the animation started. Only used by <page>Panel:AlphaTo</page>.</item>
+<item name="Speed" type="number">The speed to use for transitions when using linear interpolation (Lerp) animations. Only used by <page>Panel:LerpPositions</page>.</item>
+<item name="UseGravity" type="boolean">Whether or not to use easing to make the panel 'jump' at its target, slowing as it approaches. Only used by <page>Panel:LerpPositions</page>.</item>
+	</fields>
+</structure>

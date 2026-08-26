@@ -1,0 +1,19 @@
+<function name="SetCurrentWeaponProficiency" parent="NPC" type="classfunc">
+	<description>Sets the weapon proficiency of an NPC (how skilled an NPC is with its current weapon).</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="proficiency" type="number">The proficiency for the NPC's current weapon. See <page>Enums/WEAPON_PROFICIENCY</page>.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Makes all NPCs suck at using their current weapons.</description>
+	<code>
+for _, v in ents.Iterator() do
+	if ( v:IsNPC() ) then
+		npc:SetCurrentWeaponProficiency( WEAPON_PROFICIENCY_POOR )
+	end
+end
+	</code>
+
+</example>

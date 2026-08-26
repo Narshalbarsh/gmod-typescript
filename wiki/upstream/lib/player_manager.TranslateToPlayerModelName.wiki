@@ -1,0 +1,17 @@
+<function name="TranslateToPlayerModelName" parent="player_manager" type="libraryfunc">
+	<description>
+Returns the simplified name for a valid model path of a player model.
+
+Opposite of <page>player_manager.TranslatePlayerModel</page>.
+
+Will default to `"kleiner"` if there is no registered player model with given model path.
+	</description>
+	<realm>Shared</realm>
+	<file line="57-L67">lua/includes/modules/player_manager.lua</file>
+	<args>
+		<arg name="model" type="string">The model path to a player model.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The simplified name for that model.</ret>
+	</rets>
+</function>

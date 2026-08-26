@@ -1,0 +1,7 @@
+<function name="GetBaseSize" parent="DTileLayout" type="panelfunc">
+	<description>Returns the size of each single tile, set with <page>DTileLayout:SetBaseSize</page>.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">Base tile size.</ret>
+	</rets>
+</function>

@@ -1,0 +1,10 @@
+<function name="SetFinalIdealVelocity" parent="CMoveData" type="classfunc">
+	<description>
+Sets an internal player movement variable `m_outWishVel`.
+	</description>
+	<added>2021.06.09</added>
+	<realm>Shared</realm>
+	<args>
+		<arg name="idealVel" type="Vector"></arg>
+	</args>
+</function>

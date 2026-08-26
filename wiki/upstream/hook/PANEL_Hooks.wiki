@@ -1,0 +1,10 @@
+<cat>Hook</cat>
+<title>PANEL</title>
+<type name="PANEL" category="hook" parent="Panel" is="class">
+	<summary>
+This is a list of hooks that are available on all panels.
+
+Specific panels can have their own hooks, they are listed on their category.
+<note>These hooks are called on your panel. They can't be <page text="hooked">hook.Add</page></note>
+	</summary>
+</type>

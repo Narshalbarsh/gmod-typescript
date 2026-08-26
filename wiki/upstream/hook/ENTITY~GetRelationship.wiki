@@ -1,0 +1,13 @@
+<function name="GetRelationship" parent="ENTITY" type="hook">
+<file line="84">gamemodes/base/entities/entities/base_ai/init.lua</file>
+	<description>Called when scripted NPC needs to check how he "feels" against another entity, such as when <page>NPC:Disposition</page> is called. 
+<note>Scripted NPCs will not select other entities using same <page>Entity:GetModel</page> as this Scripted NPC's <page>Entity:GetModel</page> as enemy, unless <page>NPC:AddEntityRelationship</page> is cast.</note>
+</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ent" type="Entity">The entity in question</arg>
+	</args>
+	<rets>
+		<ret name="" type="number{D}">How our scripter NPC "feels" towards the entity in question. See <page>Enums/D</page>. Not returning any value will make <page>NPC:Disposition</page> return the default disposition for this SNPC's given `m_iClass` by the engine. </ret>
+	</rets>
+</function>

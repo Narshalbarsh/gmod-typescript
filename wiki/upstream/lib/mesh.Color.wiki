@@ -1,0 +1,11 @@
+<function name="Color" parent="mesh" type="libraryfunc">
+	<description>Sets the color to be used for the next vertex. This is `COLOR0` semantic of 
+Vertex Shader. See <page>mesh.Begin</page>.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="r" type="number">Red component.</arg>
+		<arg name="g" type="number">Green component.</arg>
+		<arg name="b" type="number">Blue component.</arg>
+		<arg name="a" type="number">Alpha component.</arg>
+	</args>
+</function>

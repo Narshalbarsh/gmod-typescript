@@ -1,0 +1,10 @@
+<function name="GetGamemode" parent="gmod" type="libraryfunc">
+	<description>Returns the <page>GAMEMODE</page> table.
+
+You will want to wait until <page>GM:OnGamemodeLoaded</page> for it to return a valid value.
+</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="table{GM}">The `GAMEMODE` table.</ret>
+	</rets>
+</function>

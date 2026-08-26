@@ -1,0 +1,8 @@
+<function name="GetActivity" parent="Player" type="classfunc">
+	<description>Returns the player's current activity.</description>
+	<added>2021.03.31</added>
+	<realm>Server</realm>
+	<rets>
+		<ret name="act" type="number">The player's current activity. See <page>Enums/ACT</page>.</ret>
+	</rets>
+</function>

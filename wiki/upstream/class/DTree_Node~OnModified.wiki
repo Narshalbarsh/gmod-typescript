@@ -1,0 +1,4 @@
+<function name="OnModified" parent="DTree_Node" type="panelhook">
+	<description>Called when sub-nodes of this <page>DTree_Node</page> were changed, such as being rearranged if that functionality is enabled.</description>
+	<realm>Client and Menu</realm>
+</function>

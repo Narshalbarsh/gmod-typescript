@@ -1,0 +1,12 @@
+<function name="Factorial" parent="math" type="libraryfunc">
+	<description>Simple function that calculates [factorial](https://en.wikipedia.org/wiki/Factorial) of a whole number.</description>
+	<realm>Shared and Menu</realm>
+	<added>2023.11.14</added>
+	<file line="248-L261">lua/includes/extensions/math.lua</file>
+	<args>
+		<arg name="val_in" type="number">An whole number to get a factorial of. Decimal numbers will be treated as whole numbers.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The factorial of given number.</ret>
+	</rets>
+</function>

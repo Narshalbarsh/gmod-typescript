@@ -1,0 +1,7 @@
+<function name="GetCurrentWeaponProficiency" parent="NPC" type="classfunc">
+	<description>Returns how proficient (skilled) an NPC is with its current weapon.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">NPC's proficiency for current weapon. See <page>Enums/WEAPON_PROFICIENCY</page>.</ret>
+	</rets>
+</function>

@@ -1,0 +1,8 @@
+<function name="IsActive" parent="DFrame" type="panelfunc">
+	<description>Determines if the frame or one of its children has the screen focus.</description>
+	<realm>Client and Menu</realm>
+	<file line="112-L119">lua/vgui/dframe.lua</file>
+	<rets>
+		<ret name="" type="boolean">Whether or not the frame has focus.</ret>
+	</rets>
+</function>

@@ -1,0 +1,9 @@
+<function name="GetRenderBounds" parent="CNewParticleEffect" type="classfunc">
+	<description>Returns the bounding box of the particle effect, including all the particles it emitted.</description>
+	<realm>Client</realm>
+	<added>2024.05.20</added>
+	<rets>
+		<ret name="" type="Vector">Mins of the bounding box.</ret>
+		<ret name="" type="Vector">Maxs of the bounding box.</ret>
+	</rets>
+</function>

@@ -1,0 +1,14 @@
+<function name="Health" parent="Entity" type="classfunc">
+	<description>Returns the health of the entity.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">health</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints if the entity's health is at full or more.</description>
+	<code>print( Entity( 1 ):Health() >= Entity( 1 ):GetMaxHealth() )</code>
+	<output>"true" entity's health is greater than or equal to their max health, or "false" otherwise.</output>
+
+</example>

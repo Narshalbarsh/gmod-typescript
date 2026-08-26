@@ -1,0 +1,13 @@
+<function name="ListBox" parent="DForm" type="panelfunc">
+	<description>Adds a <page>DListBox</page> onto the <page>DForm</page>
+<deprecated>Use <page>DListView</page> with <page>DForm:AddItem</page> instead.</deprecated></description>
+	<realm>Client and Menu</realm>
+	<file line="277-L295">lua/vgui/dform.lua</file>
+	<args>
+		<arg name="label" type="string" default="nil">The label to set on the DListBox</arg>
+	</args>
+	<rets>
+		<ret name="" type="DListBox">The created <page>DListBox</page></ret>
+		<ret name="" type="DLabel">The created <page>DLabel</page> if label string was specified</ret>
+	</rets>
+</function>

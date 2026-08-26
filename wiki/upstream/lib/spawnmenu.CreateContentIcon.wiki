@@ -1,0 +1,26 @@
+<function name="CreateContentIcon" parent="spawnmenu" type="libraryfunc">
+	<description>Creates a new <page>ContentIcon</page> previously defined via <page>spawnmenu.AddContentType</page>.</description>
+	<realm>Client</realm>
+	<file line="301-L306">lua/includes/modules/spawnmenu.lua</file>
+	<args>
+		<arg name="type" type="string">The type of the content icon.
+
+Default content types are:
+* model
+
+Sandbox only content types:
+* tool
+* header
+* entity
+* vehicle
+* npc
+* weapon
+* postprocess
+</arg>
+		<arg name="parent" type="Panel" default="nil">The parent to add the <page>ContentIcon</page> to.</arg>
+		<arg name="data" type="table">The data to send to the content icon in <page>spawnmenu.AddContentType</page>. Data required will depend on the content type.</arg>
+	</args>
+	<rets>
+		<ret name="" type="ContentIcon">The created <page>ContentIcon</page>, if it was returned by <page>spawnmenu.AddContentType</page>.</ret>
+	</rets>
+</function>

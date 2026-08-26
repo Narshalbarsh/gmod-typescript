@@ -1,0 +1,46 @@
+<function name="GetEditingData" parent="Entity" type="classfunc">
+	<description>
+		Returns internal data about editable <page>Entity:NetworkVar</page>s.
+
+		This is used internally by <page>DEntityProperties</page> and <page>Editable Entities</page> system.
+
+		<note>This function will only work on entities which had <page>Entity:InstallDataTable</page> called on them, which is done automatically for players and all <page>Scripted Entities</page>
+</note>
+</description>
+	<realm>Shared</realm>
+	<file line="300-L302">lua/includes/extensions/entity.lua</file>
+	<rets>
+		<ret name="data" type="table">The internal data</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Example output, if used on a `edit_sun`.</description>
+	<code>local ent = ents.FindByClass("edit_sun")[ 1 ]
+PrintTable( ent:GetNetworkVars() )</code>
+	<output>
+```
+overlaycolor:
+		order	=	4
+		title	=	OverlayColor
+		type	=	VectorColor
+overlaysize:
+		max	=	200
+		min	=	0
+		order	=	2
+		title	=	OverlaySize
+		type	=	Float
+suncolor:
+		order	=	3
+		title	=	SunColor
+		type	=	VectorColor
+sunsize:
+		max	=	100
+		min	=	0
+		order	=	1
+		title	=	SunSize
+		type	=	Float
+
+```
+</output>
+</example>

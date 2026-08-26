@@ -1,0 +1,10 @@
+<function name="GetInertia" parent="PhysObj" type="classfunc">
+	<description>Returns the principal moments of inertia `(Ixx, Iyy, Izz)` of the physics object, in the local frame, with respect to the center of mass.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="angularInertia" type="Vector">The moment of inertia in `kg * m^2`
+			<note>The unit conversion between meters and source units in this case is `1 meter ≈ 39.37 source units (100/2.54 exactly)`</note>
+			<note>This value changes proportionally to the physics object's mass (e.g. making the object twice as heavy will result in it having twice the angular inertia)</note>
+		</ret>
+	</rets>
+</function>

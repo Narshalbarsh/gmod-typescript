@@ -1,0 +1,25 @@
+<function name="RemoveConstraints" parent="constraint" type="libraryfunc">
+	<description>Attempts to remove all constraints of a specified type associated with an entity</description>
+	<realm>Server</realm>
+	<file line="146-L182">lua/includes/modules/constraint.lua</file>
+	<args>
+		<arg name="ent" type="Entity">The entity to check.</arg>
+		<arg name="type" type="string">The constraint type to remove (eg. `"Weld"`, `"Elastic"`, `"NoCollide"`).</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether we removed any constraints or not.</ret>
+		<ret name="" type="number">The amount of constraints removed.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>From stools/axis.lua.</description>
+	<code>
+function TOOL:Reload( trace )
+	if (!trace.Entity:IsValid() or trace.Entity:IsPlayer() ) then return false end
+	local bool = constraint.RemoveConstraints( trace.Entity, "Axis" )
+	return bool
+end
+	</code>
+
+</example>

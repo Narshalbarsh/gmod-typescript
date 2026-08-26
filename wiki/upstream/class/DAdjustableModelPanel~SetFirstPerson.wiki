@@ -1,0 +1,14 @@
+<function name="SetFirstPerson" parent="DAdjustableModelPanel" type="panelfunc">
+	<description>
+Enables mouse and keyboard-based adjustment of the perspective.
+
+This is set to `true` automatically each time mouse capture is enabled, and hence doesn't serve as a usable setting, other than to disable this functionality after the <page>PANEL:OnMousePressed</page> event.
+
+An <page>Global.AccessorFunc</page>
+	</description>
+	<realm>Client</realm>
+	<file line="4">lua/vgui/dadjustablemodelpanel.lua</file>
+	<args>
+		<arg name="enable" type="boolean">Whether to enable/disable first person controls. See <page>DAdjustableModelPanel:FirstPersonControls</page>.</arg>
+	</args>
+</function>

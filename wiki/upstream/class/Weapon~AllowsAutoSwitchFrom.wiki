@@ -1,0 +1,7 @@
+<function name="AllowsAutoSwitchFrom" parent="Weapon" type="classfunc">
+	<description>Returns whether the weapon allows to being switched from when a better ( <page>Weapon:GetWeight</page> ) weapon is being picked up.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the weapon allows to being switched from.</ret>
+	</rets>
+</function>

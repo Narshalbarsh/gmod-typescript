@@ -1,0 +1,16 @@
+<function name="NotifyShouldTransmit" parent="GM" type="hook">
+	<description>
+Called whenever this entity changes its transmission state for this <page>Global.LocalPlayer</page>, such as exiting or re entering the [PVS (Potential Visibility Set)](https://developer.valvesoftware.com/wiki/PVS "PVS - Valve Developer Community").
+
+<note>
+	This is the best place to handle the reset of <page>Entity:SetPredictable</page>, as this would be usually called when the player lags and requests a full packet update.
+
+	When the entity stops transmitting, <page>Entity:IsDormant</page> will only return true **after** this hook.
+</note>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="entity" type="Entity">The entity that changed its transmission state.</arg>
+		<arg name="shouldtransmit" type="boolean">`True` if we started transmitting to this client and `false` if we stopped.</arg>
+	</args>
+</function>

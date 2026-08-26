@@ -1,0 +1,11 @@
+<function name="SetMaterial" parent="render" type="libraryfunc">
+	<description>
+Sets the material to be used in any upcoming render operation using the <page>render</page>.
+
+Not to be confused with <page>surface.SetMaterial</page>.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="mat" type="IMaterial">The material to be used.</arg>
+	</args>
+</function>

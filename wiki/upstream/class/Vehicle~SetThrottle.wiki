@@ -1,0 +1,7 @@
+<function name="SetThrottle" parent="Vehicle" type="classfunc">
+	<description>Sets the throttle of the vehicle. It is possible that this function does not work with a valid driver in it.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="throttle" type="number">The new throttle.</arg>
+	</args>
+</function>

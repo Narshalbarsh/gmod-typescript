@@ -1,0 +1,26 @@
+<function name="DisableLerp" parent="Panel" type="classfunc">
+	<file line="359-L365">lua/includes/extensions/client/panel/animation.lua</file>
+	<description>
+Resets the panel object's <page>Panel:SetPos</page> method and removes its animation table (`Panel.LerpAnim`). This effectively undoes the changes made by <page>Panel:LerpPositions</page>.
+
+In order to use Lerp animation again, you must call <page>Panel:Stop</page> before setting its `SetPosReal` property to `nil`. See the example below.
+	</description>
+	<realm>Client and Menu</realm>
+</function>
+
+<example>
+	<description>Creates a function for changing the Lerp animation speed of a panel.</description>
+	<code>
+function ChangeLerpSpeed( pnl, newSpeed, ease )
+	
+	if not IsValid(pnl) then return end -- Make sure panel is valid
+	
+	pnl:DisableLerp()
+	pnl:Stop()
+	pnl.SetPosReal = nil
+	
+	pnl:LerpPositions( newSpeed, ease )
+	
+end
+	</code>
+</example>

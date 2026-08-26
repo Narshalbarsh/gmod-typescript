@@ -1,0 +1,11 @@
+<function name="SetKeepAspect" parent="DImageButton" type="panelfunc">
+	<description>
+Sets whether the <page>DImageButton</page> should keep the aspect ratio of its image. Equivalent of <page>DImage:SetKeepAspect</page>.
+
+Note that this will not try to fit the image inside the button, but instead it will fill the button with the image.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="keep" type="boolean">true to keep the aspect ratio, false not to</arg>
+	</args>
+</function>

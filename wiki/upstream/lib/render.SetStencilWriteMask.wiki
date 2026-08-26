@@ -1,0 +1,18 @@
+<function name="SetStencilWriteMask" parent="render" type="libraryfunc">
+	<description>
+		Sets the unsigned 8-bit (`byte`) bitflag mask that will be bitwise ANDed with all values as they are written to the Stencil Buffer
+
+		This can be considered a "niche" Stencil function as it is not required for many Stencil use-cases.
+
+		This is a companion function to <page>render.SetStencilTestMask</page> which modifies Stencil Buffer values as they are read.
+
+		For more detailed information on the Stencil system, including usage examples, see the <page text="Stencils Render Reference">render_stencils</page> page.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="bitMask" type="number">
+			The 8-bit (`byte`) mask.  
+			Set to `255` to make no change to written Stencil Buffer values.
+		</arg>
+	</args>
+</function>

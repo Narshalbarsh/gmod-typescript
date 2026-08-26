@@ -1,0 +1,46 @@
+<function name="GetViewModelPosition" parent="WEAPON" type="hook">
+	<description>This hook allows you to adjust view model position and angles.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="EyePos" type="Vector">Current position</arg>
+		<arg name="EyeAng" type="Angle">Current angle</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">New position</ret>
+		<ret name="" type="Angle">New angle</ret>
+	</rets>
+</function>
+
+<example>
+	<description>This moves and rotates the original viewmodel based on fixed offsets, changing its idle position in front of the player.</description>
+	<code>
+-- Adjust these variables to move the viewmodel's position
+SWEP.IronSightsPos  = Vector(9.49, 10.5, -12.371)
+SWEP.IronSightsAng  = Vector(12, 65, -22.19)
+
+function SWEP:GetViewModelPosition(EyePos, EyeAng)
+	local Mul = 1.0
+
+	local Offset = self.IronSightsPos
+
+	if (self.IronSightsAng) then
+        EyeAng = EyeAng * 1
+        
+		EyeAng:RotateAroundAxis(EyeAng:Right(), 	self.IronSightsAng.x * Mul)
+		EyeAng:RotateAroundAxis(EyeAng:Up(), 		self.IronSightsAng.y * Mul)
+		EyeAng:RotateAroundAxis(EyeAng:Forward(),   self.IronSightsAng.z * Mul)
+	end
+
+	local Right 	= EyeAng:Right()
+	local Up 		= EyeAng:Up()
+	local Forward 	= EyeAng:Forward()
+
+	EyePos = EyePos + Offset.x * Right * Mul
+	EyePos = EyePos + Offset.y * Forward * Mul
+	EyePos = EyePos + Offset.z * Up * Mul
+	
+	return EyePos, EyeAng
+end
+	</code>
+
+</example>

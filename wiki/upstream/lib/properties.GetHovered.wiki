@@ -1,0 +1,12 @@
+<function name="GetHovered" parent="properties" type="libraryfunc">
+	<description>Returns an entity player is hovering over with their cursor.</description>
+	<realm>Client</realm>
+	<file line="122-L156">lua/includes/modules/properties.lua</file>
+	<args>
+		<arg name="pos" type="Vector">Eye position of local player, <page>Entity:EyePos</page></arg>
+		<arg name="aimVec" type="Vector">Aim vector of local player, <page>Player:GetAimVector</page></arg>
+	</args>
+	<rets>
+		<ret name="" type="Entity">The hovered entity</ret>
+	</rets>
+</function>

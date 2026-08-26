@@ -1,0 +1,15 @@
+<function name="GetNetworkedVector" parent="Entity" type="classfunc">
+	<description>
+<deprecated>You should use <page>Entity:GetNWVector</page> instead.</deprecated>
+
+Retrieves a networked vector value at specified index on the entity that is set by <page>Entity:SetNetworkedVector</page>.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="key" type="string">The key that is associated with the value</arg>
+		<arg name="fallback" type="Vector" default="Vector( 0, 0, 0 )">The value to return if we failed to retrieve the value. ( If it isn't set )</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">The retrieved value</ret>
+	</rets>
+</function>

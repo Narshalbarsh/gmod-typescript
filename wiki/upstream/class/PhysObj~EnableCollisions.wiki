@@ -1,0 +1,15 @@
+<function name="EnableCollisions" parent="PhysObj" type="classfunc">
+	<description>
+Sets whether the physics object should collide with anything or not, including world.
+
+<warning>This function currently has major problems with player collisions, and as such should be avoided at all costs.
+
+
+
+A better alternative to this function would be using <page>Entity:SetCollisionGroup</page>( COLLISION_GROUP_WORLD ).</warning>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="enable" type="boolean">True to enable, false to disable.</arg>
+	</args>
+</function>

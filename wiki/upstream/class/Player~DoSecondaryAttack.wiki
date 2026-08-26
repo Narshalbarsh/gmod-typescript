@@ -1,0 +1,8 @@
+<function name="DoSecondaryAttack" parent="Player" type="classfunc">
+	<description>
+Sends a third person secondary fire animation event to the player.
+
+Similar to other animation event functions, calls <page>GM:DoAnimationEvent</page> with <page text="PLAYERANIMEVENT_ATTACK_SECONDARY">Enums/PLAYERANIMEVENT</page> as the event and no extra data.
+	</description>
+	<realm>Shared</realm>
+</function>

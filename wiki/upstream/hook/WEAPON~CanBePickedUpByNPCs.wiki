@@ -1,0 +1,7 @@
+<function name="CanBePickedUpByNPCs" parent="WEAPON" type="hook">
+	<description>Called when a Citizen NPC is looking around to a (better) weapon to pickup.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="boolean">Return true to allow this weapon to be picked up by NPCs.</ret>
+	</rets>
+</function>

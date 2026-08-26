@@ -1,0 +1,7 @@
+<function name="SetManual" parent="DIconBrowser" type="panelfunc">
+	<description>Sets whether or not the browser should automatically fill itself with icons.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="manual" type="boolean"></arg>
+	</args>
+</function>

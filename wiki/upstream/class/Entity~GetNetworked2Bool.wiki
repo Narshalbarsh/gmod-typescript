@@ -1,0 +1,13 @@
+<function name="GetNetworked2Bool" parent="Entity" type="classfunc">
+	<description>Retrieves a networked boolean value at specified index on the entity that is set by <page>Entity:SetNetworked2Bool</page>.
+<deprecated>You should be using <page>Entity:GetNW2Bool</page> instead.</deprecated>
+</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="key" type="string">The key that is associated with the value</arg>
+		<arg name="fallback" type="any" default="false">The value to return if we failed to retrieve the value. (If it isn't set)</arg>
+	</args>
+	<rets>
+		<ret name="" type="any">The value associated with the key</ret>
+	</rets>
+</function>

@@ -1,0 +1,10 @@
+<function name="BoneData" parent="mesh" type="libraryfunc">
+	<description>Sets the bone matrix ID and bone weight to be used for the next vertex. See <page>mesh.Begin</page>.</description>
+	<realm>Client</realm>
+	<added>2026.02.25</added>
+	<args>
+		<arg type="number" name="index">The slot index for the vertex, either 0 or 1.</arg>
+		<arg type="number" name="matrixId">The matrix index for the vertex, in the range of 0 -> 52. This is the index into <page>IMesh:DrawSkinned</page>'s ``bones`` argument, minus 1.</arg>
+		<arg type="number" name="weight">How much influence that matrix will have on this vertex, in the range of 0 -> 1.</arg>
+	</args>
+</function>

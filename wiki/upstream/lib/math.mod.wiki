@@ -1,0 +1,15 @@
+<function name="mod" parent="math" type="libraryfunc">
+	<description>
+<deprecated>This is removed in Lua versions later than what GMod is currently using. You should use the % operator or <page>math.fmod</page> instead.</deprecated>
+
+Returns the modulus of the specified values. Same as <page>math.fmod</page>.
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="base" type="number">The base value</arg>
+		<arg name="modulator" type="number">Modulator</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The calculated modulus</ret>
+	</rets>
+</function>

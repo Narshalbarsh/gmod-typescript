@@ -1,0 +1,16 @@
+<function name="PostDrawPlayerHands" parent="GM" type="hook">
+	<description>Called after the player hands are drawn.
+
+See <page>GM:PostDrawViewModel</page> for the view model alternative.  
+See <page>GM:PreDrawPlayerHands</page> for a hook that is called just before view model hands are drawn.
+
+</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="hands" type="Entity">This is the gmod_hands entity.</arg>
+		<arg name="vm" type="Entity">This is the view model entity.</arg>
+		<arg name="ply" type="Player">The the owner of the view model.</arg>
+		<arg name="weapon" type="Weapon">This is the weapon that is from the view model.</arg>
+		<arg name="flags" type="number" added="2025.12.17">The <page text="STUDIO_">Enums/STUDIO</page> flags for this render operation.</arg>
+	</args>
+</function>

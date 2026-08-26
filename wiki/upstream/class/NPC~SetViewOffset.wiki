@@ -1,0 +1,10 @@
+<function name="SetViewOffset" parent="NPC" type="classfunc">
+	<description>Sets the view offset of the NPC. Player alternative of <page>Player:SetViewOffset</page>.
+
+This affects NPC's <page>NPC:GetShootPos</page>.</description>
+	<realm>Server</realm>
+	<added>2023.09.26</added>
+	<args>
+		<arg name="" type="Vector">The view offset to set.</arg>
+	</args>
+</function>

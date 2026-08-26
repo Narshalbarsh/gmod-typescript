@@ -1,0 +1,26 @@
+<function name="SetVehicleParams" parent="Vehicle" type="classfunc">
+	<description>
+Sets the vehicle parameters for given vehicle.
+
+<note>Not all variables from the <page>Structures/VehicleParams</page> can be set.</note>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="params" type="table">The new new vehicle parameters. See <page>Structures/VehicleParams</page>.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Adds 25 horsepower to every vehicle spawned.</description>
+	<code>
+hook.Add("PlayerSpawnedVehicle", "VehicleParamsExample", function(ply, entity)
+
+    local params = entity:GetVehicleParams()
+
+    params.engine.horsepower = params.engine.horsepower + 25
+
+    entity:SetVehicleParams(params)
+
+end)
+	</code>
+</example>

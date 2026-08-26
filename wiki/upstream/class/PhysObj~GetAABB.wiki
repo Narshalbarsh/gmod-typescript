@@ -1,0 +1,8 @@
+<function name="GetAABB" parent="PhysObj" type="classfunc">
+	<description>Returns the mins and max of the physics object Axis-Aligned Bounding Box.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Vector|nil">The minimum extents of the bounding box, or `nil` for runtime generated physics object.</ret>
+		<ret name="" type="Vector">The maximum extents of the bounding box.</ret>
+	</rets>
+</function>

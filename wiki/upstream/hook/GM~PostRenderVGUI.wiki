@@ -1,0 +1,8 @@
+<function name="PostRenderVGUI" parent="GM" type="hook">
+	<description>
+Called after the VGUI has been drawn.
+
+<rendercontext hook="true" type="2D"></rendercontext>
+	</description>
+	<realm>Client</realm>
+</function>

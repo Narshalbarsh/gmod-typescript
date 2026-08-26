@@ -1,0 +1,9 @@
+<function name="VGUIMousePressed" parent="GM" type="hook">
+	<description>Called when a mouse button is pressed on a VGUI element or menu.</description>
+	<realm>Client and Menu</realm>
+	<file line="71">lua/derma/derma_menus.lua</file>
+	<args>
+		<arg name="pnl" type="Panel">Panel that currently has focus.</arg>
+		<arg name="mouseCode" type="number">The key that the player pressed using <page>Enums/MOUSE</page>.</arg>
+	</args>
+</function>

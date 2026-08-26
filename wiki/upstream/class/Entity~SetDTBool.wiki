@@ -1,0 +1,13 @@
+<function name="SetDTBool" parent="Entity" type="classfunc">
+	<description>
+<internal></internal>
+This is called internally by the <page>Entity:NetworkVar</page> system, you can use this in cases where using NetworkVar is not possible.
+
+Sets the specified bool on the entity's datatable.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="key" type="number">Goes from 0 to 31.</arg>
+		<arg name="bool" type="boolean">The boolean to write on the entity's metatable.</arg>
+	</args>
+</function>

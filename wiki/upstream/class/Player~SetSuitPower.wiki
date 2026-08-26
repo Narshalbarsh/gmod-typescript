@@ -1,0 +1,11 @@
+<function name="SetSuitPower" parent="Player" type="classfunc">
+	<description>
+Sets the player's HEV suit power.
+
+<bug issue="3449">This will only work for the local player when used clientside.</bug>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="power" type="number">The new suit power.</arg>
+	</args>
+</function>

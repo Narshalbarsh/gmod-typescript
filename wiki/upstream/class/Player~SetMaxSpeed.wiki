@@ -1,0 +1,11 @@
+<function name="SetMaxSpeed" parent="Player" type="classfunc">
+	<description>
+Sets the maximum speed which the player can move at.
+
+<note>This is called automatically by the engine. If you wish to limit player speed without setting their run/sprint speeds, see <page>CMoveData:SetMaxClientSpeed</page>.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="walkSpeed" type="number">The maximum speed.</arg>
+	</args>
+</function>

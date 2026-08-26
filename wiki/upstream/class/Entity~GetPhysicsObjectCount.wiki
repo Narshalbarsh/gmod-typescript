@@ -1,0 +1,20 @@
+<function name="GetPhysicsObjectCount" parent="Entity" type="classfunc">
+	<description>Returns the number of physics objects an entity has (usually 1 for non-ragdolls)</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">numObjects</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Finds all the Physics Objects in a ragdoll and applies an upward force</description>
+	<code>
+for i=0, ragdoll:GetPhysicsObjectCount() - 1 do -- "ragdoll" being a ragdoll entity
+ 
+	local phys = ragdoll:GetPhysicsObjectNum(i)
+	phys:ApplyForceCenter( Vector( 0, 0, 10000 ) )
+
+end
+	</code>
+
+</example>

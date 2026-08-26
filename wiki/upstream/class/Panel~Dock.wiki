@@ -1,0 +1,92 @@
+<function name="Dock" parent="Panel" type="classfunc">
+	<description>
+Sets the dock type for the panel, making the panel "dock" in a certain direction, modifying it's position and size.
+
+You can set the inner spacing of a panel's docking using <page>Panel:DockPadding</page>, which will affect docked child panels, and you can set the outer spacing of a panel's docking using <page>Panel:DockMargin</page>, which affects how docked siblings are positioned/sized.
+
+You may need to use <page>Panel:SetZPos</page> to ensure child panels (<page>DTextEntry</page>) stay in a specific order.
+
+<note>After using this function, if you want to get the correct panel's bounds (position, size), use <page>Panel:InvalidateParent</page> (use `true` as argument if you need to update immediately)</note>
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="dockType" type="number{DOCK}">Dock type using <page>Enums/DOCK</page>.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Example docking including DockMargin. Provided by Walrus Viking in [this](http://facepunch.com/showthread.php?t=1439021&p=47095061&viewfull=1#post47095061) Facepunch post.</description>
+	<code>
+local f = vgui.Create( "DFrame" )
+f:SetTitle( "Dock Test" )
+f:SetSize( 256, 256 )
+f:Center()
+f:MakePopup()
+
+local p = vgui.Create( "DPanel", f )
+p:Dock( FILL )
+p:DockMargin( 0, 0, 0, 0 )
+
+for i = 0, 10 do
+	local l = vgui.Create( "DLabel", p )
+	l:Dock( TOP )
+	l:DockMargin( 4, 0, 0, 0 ) -- shift to the right
+	l:SetColor( color_black )
+	l:SetText( "Hi! I'm a label!" )
+end
+	</code>
+	<output><image src="panel_dock_example1.png"/></output>
+
+</example>
+
+
+<example>
+	<description>Example showing how multiple docked elements behave.</description>
+	<code>
+local frame = vgui.Create("DFrame")
+frame:SetSize(600, 300)
+frame:SetTitle("Docking Demonstration")
+frame:Center()
+frame:MakePopup(true)
+
+local panel = vgui.Create("DPanel", frame) --Create a panel on the left
+panel:SetSize(300, 0) --Height doesn't matter since we're docking it to the left anyways
+panel:Dock(LEFT)
+local fill = vgui.Create("DButton", panel) --Create a button and dock it
+fill:SetText("FILL")
+fill:Dock(FILL)
+local left = vgui.Create("DButton", panel)
+left:SetText("LEFT")
+left:Dock(LEFT)
+local right = vgui.Create("DButton", panel)
+right:SetText("RIGHT")
+right:Dock(RIGHT)
+local top = vgui.Create("DButton", panel)
+top:SetText("TOP")
+top:Dock(TOP)
+local bottom = vgui.Create("DButton", panel)
+bottom:SetText("BOTTOM")
+bottom:Dock(BOTTOM)
+
+local panel = vgui.Create("DPanel", frame) --Do the same thing on the right, but this time with top and bottom before left and right
+panel:SetSize(300, 0)
+panel:Dock(RIGHT)
+local fill = vgui.Create("DButton", panel)
+fill:SetText("FILL")
+fill:Dock(FILL)
+local top = vgui.Create("DButton", panel)
+top:SetText("TOP")
+top:Dock(TOP)
+local bottom = vgui.Create("DButton", panel)
+bottom:SetText("BOTTOM")
+bottom:Dock(BOTTOM)
+local left = vgui.Create("DButton", panel)
+left:SetText("LEFT")
+left:Dock(LEFT)
+local right = vgui.Create("DButton", panel)
+right:SetText("RIGHT")
+right:Dock(RIGHT)
+	</code>
+	<output><image src="panel_dock_example_2.png"/></output>
+
+</example>

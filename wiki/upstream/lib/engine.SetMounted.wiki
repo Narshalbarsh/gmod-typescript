@@ -1,0 +1,8 @@
+<function name="SetMounted" parent="engine" type="libraryfunc">
+	<description>Sets the mounting options for mountable content.</description>
+	<realm>Menu</realm>
+	<args>
+		<arg name="depotID" type="string">The depot id of the game to mount.</arg>
+		<arg name="doMount" type="boolean">The mount state, true to mount, false to unmount</arg>
+	</args>
+</function>

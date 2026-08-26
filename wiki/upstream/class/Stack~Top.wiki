@@ -1,0 +1,8 @@
+<function name="Top" parent="Stack" type="classfunc">
+	<description>Get the item at the top of the stack</description>
+	<realm>Shared and Menu</realm>
+	<file line="307-L315">lua/includes/extensions/util.lua</file>
+	<rets>
+		<ret name="" type="any">The item at the top of the stack</ret>
+	</rets>
+</function>

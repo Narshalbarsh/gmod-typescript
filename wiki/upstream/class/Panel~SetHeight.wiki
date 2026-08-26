@@ -1,0 +1,15 @@
+<function name="SetHeight" parent="Panel" type="classfunc">
+	<file line="45-L47">lua/includes/extensions/client/panel.lua</file>
+	<description>
+Sets the height of the panel.
+
+Calls <page>PANEL:OnSizeChanged</page> and marks this panel for layout (<page>Panel:InvalidateLayout</page>).
+Automatically rounds the height down
+
+See also <page>Panel:SetSize</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="height" type="number">The height to be set.</arg>
+	</args>
+</function>

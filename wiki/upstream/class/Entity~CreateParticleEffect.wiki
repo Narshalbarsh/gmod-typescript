@@ -1,0 +1,21 @@
+<function name="CreateParticleEffect" parent="Entity" type="classfunc">
+	<description>
+Creates a clientside particle system attached to the entity. See also <page>Global.CreateParticleSystem</page>
+
+<note>The particle effect must be precached with <page>Global.PrecacheParticleSystem</page> and the file its from must be added via <page>game.AddParticles</page> before it can be used!</note>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="particle" type="string">The particle name to create</arg>
+		<arg name="attachment" type="number">Attachment ID to attach the particle to</arg>
+		<arg name="options" type="table" default="nil">A table of tables ( IDs 1 to 64 ) having the following structure:
+* <page>number</page> attachtype - The particle attach type. See <page text='PATTACH'>Enums/PATTACH</page>. **Default:** PATTACH_ABSORIGIN
+* <page>Entity</page> entity - The parent entity? **Default:** NULL
+* <page>Vector</page> position - The offset position for given control point. **Default:**  nil
+
+This only affects the control points of the particle effects and will do nothing if the effect doesn't use control points.</arg>
+	</args>
+	<rets>
+		<ret name="" type="CNewParticleEffect">The created particle system.</ret>
+	</rets>
+</function>

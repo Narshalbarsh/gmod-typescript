@@ -1,0 +1,25 @@
+<function name="GetColor" parent="DModelPanel" type="panelfunc">
+	<description>Returns the color of the rendered entity.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="Color">The color of the entity.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints out the default entity color.</description>
+	<code>
+local mdl = vgui.Create("DModelPanel")
+mdl:SetPos(20, 20)
+mdl:SetSize(200, 200)
+mdl:SetModel("models/props_junk/watermelon01.mdl")
+
+print(mdl:GetColor())
+	</code>
+	<output>
+```
+255 255 255 255
+```
+</output>
+
+</example>

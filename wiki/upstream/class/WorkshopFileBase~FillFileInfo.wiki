@@ -1,0 +1,10 @@
+<function name="FillFileInfo" parent="WorkshopFileBase" type="classfunc">
+	<description>
+		Updates the set HTML panel with the newly fetched results
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="results" type="table">The type to search for. (`local`, `subscribed`, `subscribed_ugc`, `mine`, `favorite`)</arg>
+		<arg name="isUGC" type="boolean">Skips the first x results.</arg>
+	</args>
+</function>

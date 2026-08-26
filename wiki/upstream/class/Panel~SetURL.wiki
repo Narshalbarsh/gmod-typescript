@@ -1,0 +1,7 @@
+<function name="SetURL" parent="Panel" type="classfunc">
+	<description>Sets the URL of a link-based panel such as <page>DLabelURL</page>.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="url" type="string">The URL to set. It **must** begin with either `http://` or `https://`.</arg>
+	</args>
+</function>

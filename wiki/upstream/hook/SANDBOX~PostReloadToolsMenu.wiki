@@ -1,0 +1,4 @@
+<function name="PostReloadToolsMenu" parent="SANDBOX" type="hook">
+	<description>Called right after the Lua Loaded tool menus are reloaded. This is a good place to set up any <page>ControlPanel</page>s.</description>
+	<realm>Client</realm>
+</function>

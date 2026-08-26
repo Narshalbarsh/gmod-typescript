@@ -1,0 +1,7 @@
+<function name="UpdatePowerOfTwoTexture" parent="render" type="libraryfunc">
+	<description>Updates the power of two texture.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="ITexture">The <page>render.GetPowerOfTwoTexture</page>.</ret>
+	</rets>
+</function>

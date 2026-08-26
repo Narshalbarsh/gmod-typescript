@@ -1,0 +1,9 @@
+<function name="CaptureVideo" parent="GM" type="hook">
+	<description>
+Called each frame to record demos to video using <page>IVideoWriter</page>. 
+
+<note>This hook is called every frame regardless of whether or not a demo is being recorded</note>
+	</description>
+	<realm>Menu</realm>
+	<file line="286-310">lua/menu/demo_to_video.lua</file>
+</function>

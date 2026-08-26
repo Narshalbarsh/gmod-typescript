@@ -1,0 +1,14 @@
+<enum>
+	<realm>Client</realm>
+	<description>Enumerations used by <page>render.SetLocalModelLights</page>. Clientside only.</description>
+	<items>
+<item key="MATERIAL_LIGHT_DISABLE" value="0">No light</item>
+
+<item key="MATERIAL_LIGHT_POINT" value="1">Point light</item>
+
+<item key="MATERIAL_LIGHT_DIRECTIONAL" value="2">Directional light</item>
+
+<item key="MATERIAL_LIGHT_SPOT" value="3">Spot light</item>
+	</items>
+
+</enum>

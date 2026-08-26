@@ -1,0 +1,16 @@
+<function name="HWBToColor" parent="Global" type="libraryfunc">
+	<file line="107-L117">lua/includes/util/color.lua</file>
+	<description>
+Converts a color from [HWB color space](https://en.wikipedia.org/wiki/HWB_color_model) (Hue-Whiteness-Blackness) into RGB color space and returns a <page>Color</page>.
+	</description>
+	<realm>Shared and Menu</realm>
+	<added>2025.01.23</added>
+	<args>
+		<arg name="hue" type="number">The hue of the color in degrees from 0-360.</arg>
+		<arg name="whiteness" type="number">The whiteness of the color from 0-1.</arg>
+		<arg name="blackness" type="number">The blackness of the color from 0-1.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Color">The <page>Color</page> created from the HWB color space.</ret>
+	</rets>
+</function>

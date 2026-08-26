@@ -1,0 +1,23 @@
+<function name="GibBreakServer" parent="Entity" type="classfunc">
+	<description>
+Causes the entity to break into its current models gibs, if it has any.
+
+You must call <page>Entity:PrecacheGibs</page> on the entity before using this function, or it will not create any gibs.
+
+The gibs will be spawned on the server and be synchronized with all clients.
+
+Note, that this function will not remove or hide the entity it is called on.
+
+This function is affected by `props_break_max_pieces_perframe`, `props_break_max_pieces`, `prop_active_gib_limit` and `prop_active_gib_max_fade_time` console variables.
+
+<warning>Large numbers of serverside gibs will cause lag.
+
+You can avoid this cost by spawning the gibs on the client using <page>Entity:GibBreakClient</page></warning>
+
+<note>Despite existing on client, it doesn't actually do anything on client.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="force" type="Vector">The force to apply to the created gibs</arg>
+	</args>
+</function>

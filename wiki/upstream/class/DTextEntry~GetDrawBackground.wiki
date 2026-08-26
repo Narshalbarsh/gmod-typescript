@@ -1,0 +1,10 @@
+<function name="GetDrawBackground" parent="DTextEntry" type="panelfunc">
+	<description>
+<deprecated></deprecated> Alias of <page>DTextEntry:GetPaintBackground</page>. Use that instead.
+
+Whether the background is displayed or not.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean"></ret>
+	</rets>
+</function>

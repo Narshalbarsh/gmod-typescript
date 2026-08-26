@@ -1,0 +1,20 @@
+<function name="PopulateFromTextFiles" parent="spawnmenu" type="libraryfunc">
+	<description>
+<internal></internal>
+Loads spawnlists from text files. You probably are looking for <page>spawnmenu.AddPropCategory</page>.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="callback" type="function">The function to call.
+
+<callback>
+<arg type="string" name="strFilename">The file name for the spawnlist.</arg>
+<arg type="string" name="strName">The "nice" title for the spawnlist.</arg>
+<arg type="table" name="tabContents">The list of contents for this spawnlist.</arg>
+<arg type="string" name="icon">Path to an `.png` icon of the spawnlist, should be 16x16 image.</arg>
+<arg type="number" name="id">Unique ID of the spawnlist</arg>
+<arg type="number" name="parentid">UniqueID of the parents spawnlist ID</arg>
+<arg type="string" name="needsapp">If not empty, the internal folder name of an mountable game that is required for this spawnlist to show up.</arg>
+</callback>
+</arg>
+	</args>
+</function>

@@ -1,0 +1,15 @@
+<function name="SelectWeightedSequenceSeeded" parent="Entity" type="classfunc">
+	<description>
+Returns the sequence ID corresponding to given activity ID, and uses the provided seed for random selection. The seed should be the same server-side and client-side if used in a predicted environment.
+
+See <page>Entity:SelectWeightedSequence</page> for a provided-seed version of this function.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="act" type="number">The activity ID, see <page>Enums/ACT</page>.</arg>
+		<arg name="seed" type="number">The seed to use for randomly selecting a sequence in the case the activity ID has multiple sequences bound to it. <page>Entity:SelectWeightedSequence</page> uses the same seed as <page>util.SharedRandom</page> internally for this.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The sequence ID, or `-1` if not found.</ret>
+	</rets>
+</function>

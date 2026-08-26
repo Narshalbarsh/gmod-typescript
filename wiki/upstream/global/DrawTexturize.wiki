@@ -1,0 +1,23 @@
+<function name="DrawTexturize" parent="Global" type="libraryfunc">
+	<description>Draws the texturize shader, which replaces each pixel on your screen with a different part of the texture depending on its brightness. See <page text="g_texturize">Shaders/g_texturize</page> for information on making the texture.</description>
+	<realm>Client</realm>
+	<file line="8-L19">lua/postprocess/texturize.lua</file>
+	<args>
+		<arg name="Scale" type="number">Scale of the texture. A smaller number creates a larger texture.</arg>
+		<arg name="BaseTexture" type="number">This will be the texture to use in the effect. Make sure you use <page>Global.Material</page> to get the texture number.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Draws the texturize shader with a pattern texture.</description>
+	<code>
+local pattern = Material("pp/texturize/pattern1.png")
+
+hook.Add( "RenderScreenspaceEffects", "TexturizeShader", function()
+
+	DrawTexturize( 1, pattern )
+
+end )
+	</code>
+
+</example>

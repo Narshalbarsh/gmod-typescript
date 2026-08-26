@@ -1,0 +1,15 @@
+<function name="SetPData" parent="util" type="libraryfunc">
+	<description>Sets persistent data for offline player using their SteamID.
+
+See also <page>Player:SetPData</page> for a more convenient version of this function for online players, <page>util.RemovePData</page> and 
+ <page>util.GetPData</page> for the other accompanying functions.
+<note>This function internally uses <page>util.SteamIDTo64</page>, it previously utilized <page>Player:UniqueID</page> which could have caused collisions (two or more players sharing the same PData entry).</note>
+</description>
+	<realm>Shared and Menu</realm>
+	<file line="359-L364">lua/includes/extensions/util.lua</file>
+	<args>
+		<arg name="steamID" type="string">SteamID of the player, in the `STEAM_0:0:0` format. See <page>Player:SteamID</page>.</arg>
+		<arg name="name" type="string">Variable name to store the value in.</arg>
+		<arg name="value" type="any">The value to store.</arg>
+	</args>
+</function>

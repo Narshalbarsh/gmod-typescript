@@ -1,0 +1,17 @@
+<function name="GetMouseWheel" parent="CUserCmd" type="classfunc">
+	<description>Returns the scroll delta as whole number.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">Scroll delta</ret>
+	</rets>
+</function>
+
+<example>
+
+<code>
+hook.Add( "StartCommand", "StartCommandExample", function( ply, cmd )
+	if ( cmd:GetMouseWheel() != 0 ) then print( ply, " scrolled ", cmd:GetMouseWheel()) end
+end )
+</code>
+
+</example>

@@ -1,0 +1,9 @@
+<function name="BuildControls" parent="DColorCombo" type="panelfunc">
+	<description>
+<internal></internal>
+
+Called internally to create panels necessary for this panel to work.
+	</description>
+	<realm>Client</realm>
+	<file line="14-L55">lua/vgui/dcolorcombo.lua</file>
+</function>

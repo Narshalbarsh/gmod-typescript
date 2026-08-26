@@ -1,0 +1,7 @@
+<function name="SetMin" parent="DNumberScratch" type="panelfunc">
+	<description>Sets the minimum value that can be selected on the number scratch.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="min" type="number">The minimum number</arg>
+	</args>
+</function>

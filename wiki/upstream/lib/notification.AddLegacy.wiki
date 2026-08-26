@@ -1,0 +1,23 @@
+<function name="AddLegacy" parent="notification" type="libraryfunc">
+	<description>Adds a standard notification to your screen.</description>
+	<realm>Client</realm>
+	<file line="66-L85">lua/includes/modules/notification.lua</file>
+	<args>
+		<arg name="text" type="string">The text to display.</arg>
+		<arg name="type" type="number">Determines the notification method (e.g. icon) for displaying the notification. See the <page>Enums/NOTIFY</page>.</arg>
+		<arg name="length" type="number">The number of seconds to display the notification for.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Adds a prop undo notification to the screen, like in Sandbox.</description>
+	<code>
+notification.AddLegacy( "Undone Prop", NOTIFY_UNDO, 2 )
+surface.PlaySound( "buttons/button15.wav" )
+Msg( "Prop undone\n" )
+	</code>
+	<output>
+Adds a notice that says `Undone Prop`, plays the undo sound, and adds a message to the console.
+<upload src="adcc2/8d9fd6e327b5068.png" size="94521" name="image.png" />
+	</output>
+</example>

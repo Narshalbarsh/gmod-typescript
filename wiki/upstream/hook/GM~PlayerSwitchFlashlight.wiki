@@ -1,0 +1,24 @@
+<function name="PlayerSwitchFlashlight" parent="GM" type="hook">
+	<description>Called whenever a player attempts to either turn on or off their flashlight, returning false will deny the change.
+<note>Also gets called when using <page>Player:Flashlight</page>.</note>
+
+</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ply" type="Player">The player who attempts to change their flashlight state.</arg>
+		<arg name="enabled" type="boolean">The new state the player requested, true for on, false for off.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Can toggle the flashlight or not</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Only allow the flashlight for admins, you can also use <page>Player:AllowFlashlight</page> for that.</description>
+	<code>
+hook.Add( "PlayerSwitchFlashlight", "BlockFlashLight", function( ply, enabled )
+	return ply:IsAdmin() -- Allow the player to use their flashlight if they are an admin
+end )
+	</code>
+
+</example>

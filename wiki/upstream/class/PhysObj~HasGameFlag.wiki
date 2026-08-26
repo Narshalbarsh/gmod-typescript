@@ -1,0 +1,10 @@
+<function name="HasGameFlag" parent="PhysObj" type="classfunc">
+	<description>Returns whenever the specified flag(s) is/are set.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="flags" type="number">Bitflag, see <page>Enums/FVPHYSICS</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">If flag was set or not</ret>
+	</rets>
+</function>

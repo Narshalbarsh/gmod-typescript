@@ -1,0 +1,8 @@
+<function name="GetChecked" parent="DCheckBoxLabel" type="panelfunc">
+	<description>Gets the checked state of the checkbox. This calls the checkbox's <page>DCheckBox:GetChecked</page> function.</description>
+	<file line="114-L116">lua/vgui/dcheckbox.lua</file>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the box is checked or not.</ret>
+	</rets>
+</function>

@@ -1,0 +1,38 @@
+<panel>
+	<parent>DLabel</parent>
+	<realm>Client and Menu</realm>
+	<file line="">lua/vgui/dcolorbutton.lua</file>
+	<description>
+		Colorful buttons. Used internally by <page>DColorPalette</page>.
+	</description>
+	<overrides>
+		<page>Panel:Init</page>
+		<page>Panel:Paint</page>
+		<page>Panel:GenerateExample</page>
+	</overrides>
+</panel>
+
+
+<example>
+	<description>Creates a DColorButton buton.</description>
+	<code>
+local frame = vgui.Create( "DFrame" )
+frame:SetSize( 500, 500 )
+frame:Center()
+frame:MakePopup()
+
+local DColorButton = vgui.Create( "DColorButton", frame )
+DColorButton:SetPos( 1, 28 )
+DColorButton:SetSize( 100, 30 )
+DColorButton:Paint( 100, 30 )
+DColorButton:SetText( "DColorButton" )
+DColorButton:SetColor( Color( 0, 110, 160 ) )
+function DColorButton:DoClick() -- Callback inherited from DLabel, which is DColorButton's base
+	print( "I am clicked! My color is ", self:GetColor() )
+end
+	</code>
+
+</example>
+
+preview from the `derma_controls` concmd - _mouse is hovering over this button to display tooltip_
+<upload src="aaf9e/8dc31ba7c7c4e2d.png" size="2369" name="image.png" />

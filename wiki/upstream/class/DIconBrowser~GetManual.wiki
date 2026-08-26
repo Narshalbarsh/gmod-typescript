@@ -1,0 +1,7 @@
+<function name="GetManual" parent="DIconBrowser" type="panelfunc">
+	<description>Returns whether or not the browser should fill itself with icons.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean"></ret>
+	</rets>
+</function>

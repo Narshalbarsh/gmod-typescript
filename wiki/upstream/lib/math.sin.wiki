@@ -1,0 +1,10 @@
+<function name="sin" parent="math" type="libraryfunc">
+	<description>Returns the [sine](https://en.wikipedia.org/wiki/Trigonometric_functions) of given angle.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="number" type="number">Angle in radians</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">Sine for given angle in the range (-1, 1) </ret>
+	</rets>
+</function>

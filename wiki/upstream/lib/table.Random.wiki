@@ -1,0 +1,44 @@
+<function name="Random" parent="table" type="libraryfunc">
+	<description>
+Returns a random value from the supplied table.
+
+<warning>This function iterates over the given table **twice**, therefore with sequential tables you should instead use following:
+
+```
+mytable[ math.random( #mytable ) ]
+```
+</warning>
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="172-L179">lua/includes/extensions/table.lua</file>
+	<args>
+		<arg name="haystack" type="table">The table to choose from.</arg>
+	</args>
+	<rets>
+		<ret name="" type="any">A random value from the table.</ret>
+		<ret name="" type="any">The key associated with the random value.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>A simple example of this function using two tables.</description>
+	<code>
+local color = { "green", "red", "blue", "yellow" }
+local object = { "car", "house", "bike" }
+
+print( "I have a " .. table.Random( color ) .. " " .. table.Random( object ) .. "." )
+	</code>
+	<output>I have a green house.</output>
+
+</example>
+
+
+<example>
+	<description>Example of using the alternative with sequential tables for performance reasons.</description>
+	<code>
+local websites = {"facepunch.com", "google.com", "steampowered.com"}
+print("I think the best website ever is " .. websites[math.random(1, #websites)] .. ".")
+	</code>
+	<output>I think the best website ever is google.com.</output>
+
+</example>

@@ -1,0 +1,13 @@
+<function name="OnLoaded" parent="scripted_ents" type="libraryfunc">
+	<file line="144-L157">lua/includes/modules/scripted_ents.lua</file>
+	<description>
+	<internal></internal>
+
+Called after all ENTS have been loaded and runs <page>baseclass.Set</page> on each one.
+
+You can retrieve all the currently registered ENTS with <page>scripted_ents.GetList</page>.
+
+<note>This is not called after an ENT auto refresh, and thus the inherited baseclass functions retrieved with <page>baseclass.Get</page> will not be updated</note>
+	</description>
+	<realm>Shared</realm>
+</function>

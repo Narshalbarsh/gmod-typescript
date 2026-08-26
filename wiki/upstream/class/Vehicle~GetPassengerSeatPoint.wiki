@@ -1,0 +1,11 @@
+<function name="GetPassengerSeatPoint" parent="Vehicle" type="classfunc">
+	<description>Returns the seat position and angle of a given passenger seat.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="role" type="number">The passenger role. ( 0 is the driver )</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">The seat position in worldspace coordinates.</ret>
+		<ret name="" type="Angle">The seat angle in worldspace coordinates.</ret>
+	</rets>
+</function>

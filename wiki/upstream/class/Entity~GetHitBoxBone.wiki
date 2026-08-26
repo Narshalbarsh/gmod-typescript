@@ -1,0 +1,32 @@
+<function name="GetHitBoxBone" parent="Entity" type="classfunc">
+	<description>Gets the bone the hit box is attached to.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="hitbox" type="number">The number of the hit box.</arg>
+		<arg name="hboxset" type="number">The number of the hit box set. This should be 0 in most cases.
+
+Numbering for these sets start from 0. The total amount of sets can be found with <page>Entity:GetHitBoxSetCount</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The number of the bone. Will be nil if the hit box index was out of range.</ret>
+	</rets>
+</function>
+
+<example>
+	<code>
+local ply = LocalPlayer()
+local numHitBoxSets = ply:GetHitboxSetCount()
+
+for hboxset=0, numHitBoxSets - 1 do
+  local numHitBoxes = ply:GetHitBoxCount( hboxset )
+    
+  for hitbox=0, numHitBoxes - 1 do
+    local bone = ply:GetHitBoxBone(hitbox, hboxset )
+
+    print( "Hit box set " .. hboxset .. ", hitbox " .. hitbox .. " is attached to bone " .. ply:GetBoneName(bone) )
+  end
+end
+	</code>
+	<output>Hit box set 0, hit box 0 is attached to bone ValveBiped.Bip01_Head1, etc.</output>
+
+</example>

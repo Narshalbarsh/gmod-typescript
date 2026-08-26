@@ -1,0 +1,8 @@
+<function name="SetConVarY" parent="DSlider" type="panelfunc">
+	<description>Sets the <page>ConVar</page> to be set when the slider changes on the Y axis.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="convar" type="string">Name of the convar to set.</arg>
+	</args>
+</function>

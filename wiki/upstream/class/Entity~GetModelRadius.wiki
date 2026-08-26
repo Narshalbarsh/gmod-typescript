@@ -1,0 +1,17 @@
+<function name="GetModelRadius" parent="Entity" type="classfunc">
+	<description>Gets the models radius.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">
+			The radius of the model.
+			<warning>This can return <page>nil</page> instead of a <page>number</page> in some cases.</warning>
+		</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Example usage of the function, tested on player.</description>
+	<code>print( Entity(1):GetModelRadius() )</code>
+	<output>72</output>
+
+</example>

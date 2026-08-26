@@ -1,0 +1,11 @@
+<function name="SetMaterialIndex" parent="CEffectData" type="classfunc">
+	<description>
+Sets the material index of the effect.
+
+<note>Internally stored as an integer, but only first 12 bits are networked, effectively limiting this function to 0-4095 range.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="materialIndex" type="number">The material index of the effect.</arg>
+	</args>
+</function>

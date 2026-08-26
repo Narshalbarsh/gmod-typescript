@@ -1,0 +1,64 @@
+<structure>
+	<realm>Client and Menu</realm>
+	<description>Table structure used by <page>steamworks.FileInfo</page>.</description>
+	<fields>
+<item name="id" type="number">The Workshop item ID</item>
+<item name="title" type="string">The title of the Workshop item</item>
+<item name="description" type="string">The description of the Workshop item. It will be limited to 255 characters (by Steam) unless <page>steamworks.FileInfo</page> is called with the `extraInfo` parameter set.</item>
+<item name="fileid" type="number">The internal File ID of the workshop item, if any</item>
+<item name="previewid" type="number">The internal File ID of the workshop item preview, if any</item>
+<item name="previewurl" type="string" added="2021.01.27">A URL to the preview image of the workshop item</item>
+<item name="owner" type="number">The SteamID64 of the original uploader of the addon</item>
+<item name="created" type="number">Unix timestamp of when the item was created</item>
+<item name="updated" type="number">Unix timestamp of when the file was last updated</item>
+<item name="banned" type="boolean">Whether the file is banned or not</item>
+<item name="tags" type="string">Comma (,) separated list of tags, may be truncated to some length</item>
+<item name="size" type="number">File size of the workshop item contents in bytes</item>
+<item name="previewsize" type="number">Filesize of the preview file in bytes</item>
+<item name="installed" type="boolean">If the addon is subscribed, this value represents whether it is installed on the client and its files are accessible, false otherwise.</item>
+<item name="disabled" type="boolean">If the addon is subscribed, this value represents whether it is disabled on the client, false otherwise.</item>
+<item name="children" type="table">A list of child Workshop Items for this item.
+
+For collections this will be sub-collections, for workshop items this will be the items they depend on.</item>
+<item name="ownername" type="string"><warning>We advise against using this. It may be changed or removed in a future update.</warning>
+
+The "nice" name of the Uploader, or "Unnammed Player" if we failed to get the data for some reason.
+
+Do not use this field as it will most likely not be updated in time. Use <page>steamworks.RequestPlayerInfo</page> instead.</item>
+<item name="error" type="number">If this key is set, no other data will be present in the response.
+
+Values above 0 represent Steam Error codes (https://steamerrors.com/), values below 0 mean the following:
+* -1 means Failed to create query
+* -2 means Failed to send query
+* -3 means Received 0 or more than 1 result
+* -4 means Failed to get item data from the response
+* -5 means Workshop item ID in the response is invalid
+* -6 means Workshop item ID in response is mismatching the requested file ID</item>
+
+
+<item name="up" type="number">Number of "up" votes for this item.</item>
+<item name="down" type="number">Number of "down" votes for this item.</item>
+<item name="total" type="number">Number of total votes (up and down) for this item. This is NOT `up - down`.</item>
+<item name="score" type="number">The up down vote ratio for this item, i.e. `1` is when every vote is `up`, `0.5` is when half of the total votes are the up votes, etc.</item>
+
+<item name="content_descriptors" type="table<string>">A list of Steam content descriptiors for this Steam Workshop item.
+
+Possible values are:
+* `general_mature`
+* `gore`
+* `suggestive`
+* `nudity`
+* `adult_only`
+</item>
+
+<item name="extra_previews" type="table<table>" added="2026.06.25">If present, a list of additional previews for this Workshop item.
+
+<page>steamworks.FileInfo</page> must be called with `extraInfo` parameter.
+
+It will be a table of tables with the following keys:
+* <page>number</page> `type` - type of additional preview. 0 = is normal image, 1=YouTube video ID
+* <page>string</page> `url` - URL to the additional preview. Format depends on the type.
+</item>
+	</fields>
+
+</structure>

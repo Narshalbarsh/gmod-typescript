@@ -1,0 +1,10 @@
+<function name="ViewModelChanged" parent="PLAYER" type="hook">
+	<description>Called when the player changes their weapon to another one causing their viewmodel model to change</description>
+	<realm>Client</realm>
+	<file line="89-L98">gamemodes/base/gamemode/player_class/player_default.lua</file>
+	<args>
+		<arg name="viewmodel" type="Entity">The viewmodel that is changing</arg>
+		<arg name="old" type="string">The old model</arg>
+		<arg name="new" type="string">The new model</arg>
+	</args>
+</function>

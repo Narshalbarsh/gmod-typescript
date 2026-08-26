@@ -1,0 +1,25 @@
+<function name="MoveGroundStep" parent="NPC" type="classfunc">
+	<description>Similar to other `NPC:Move*` functions, invokes internal code to move the NPC to a given location.
+
+Meant to be used within <page>ENTITY:OverrideMove</page>.</description>
+	<added>2025.09.03</added>
+	<realm>Server</realm>
+	<args>
+		<arg name="pos" type="Vector">The position we want to reach.</arg>
+		<arg name="targetEntity" type="Entity" default="nil">Used to test whether we hit the move target when deciding success.</arg>
+		<arg name="yaw" type="number" default="-1">Target Yaw angle at the end of the move. -1 to keep original yaw. </arg>
+		<arg name="asFarAsCan" type="boolean" default="true">Whether to move as far as possible.</arg>
+		<arg name="testZ" type="boolean" default="true">Also test the Z axis of the target position and NPC position to decide success.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">Whether the movement succeeded or not.
+
+`AIMotorMoveResult_t` enum:
+* AIM_FAILED = 0
+* AIM_SUCCESS = 1
+* AIM_PARTIAL_HIT_NPC = 2
+* AIM_PARTIAL_HIT_WORLD = 3
+* AIM_PARTIAL_HIT_TARGET = 4
+</ret>
+	</rets>
+</function>

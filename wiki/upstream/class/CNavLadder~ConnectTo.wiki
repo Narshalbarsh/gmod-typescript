@@ -1,0 +1,11 @@
+<function name="ConnectTo" parent="CNavLadder" type="classfunc">
+	<description>
+Connects this ladder to a <page>CNavArea</page> with a one way connection. ( From this ladder to the target area ).
+
+See <page>CNavArea:ConnectTo</page> for making the connection from area to ladder.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="area" type="CNavArea">The area this ladder leads to.</arg>
+	</args>
+</function>

@@ -1,0 +1,7 @@
+<function name="SetName" parent="Entity" type="classfunc">
+	<description>Sets the mapping name of the entity.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="mappingName" type="string">The name to set for the entity.</arg>
+	</args>
+</function>

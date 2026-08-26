@@ -1,0 +1,30 @@
+<function name="VoteInfo" parent="steamworks" type="libraryfunc">
+	<description>
+<deprecated>Use data <page>steamworks.FileInfo</page> instead.</deprecated>
+
+Retrieves vote info of supplied addon.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="workshopItemID" type="string">The ID of workshop item.</arg>
+		<arg name="resultCallback" type="function">The function to process retrieved data.
+<callback>
+	<arg type="table" name="data">The vote information. See <page>Structures/UGCFileInfo</page>.</arg>
+</callback>
+</arg>
+	</args>
+</function>
+
+<example>
+	<description>Retrieves vote info of Gm_construct_Beta Steam Workshop addon.</description>
+	<code>steamworks.VoteInfo( 21197, function( result ) PrintTable( result ) end)</code>
+	<output>
+```
+score = 0.97182178497314
+total = 2952
+down = 36
+up = 2916
+```
+	</output>
+
+</example>

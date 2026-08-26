@@ -1,0 +1,75 @@
+<function name="RenderView" parent="render" type="libraryfunc">
+	<description>
+Renders the scene with the specified viewData to the current active render target.
+
+<bug issue="1330">Static props and LODs are rendered improperly due to incorrectly perceived distance.</bug>
+<bug>Using render.RenderView on a RenderTarget texture in a 3d context like SWEP:PostDrawViewModel() while drawing the RenderTarget texture causes screen flickers.</bug>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="view" type="table" default="nil">The view data to be used in the rendering. See <page>Structures/ViewData</page>. Any missing value is assumed to be that of the current view. Similarly, you can make a normal render by simply not passing this table at all.</arg>
+	</args>
+</function>
+
+<example>
+	<description>How you could use this to draw the view on a derma panel.</description>
+	<code>
+local frame = vgui.Create( "DFrame" )
+frame:SetSize( ScrW() - 100, ScrH() - 100 )
+frame:Center()
+frame:MakePopup()
+
+function frame:Paint( w, h )
+
+	local x, y = self:GetPos()
+
+	local old = DisableClipping( true ) -- Avoid issues introduced by the natural clipping of Panel rendering
+	render.RenderView( {
+		origin = Vector( 0, 0, 0 ),
+		angles = Angle( 0, 0, 0 ),
+		x = x, y = y,
+		w = w, h = h
+	} )
+	DisableClipping( old )
+
+end
+	</code>
+	<output><image src="RenderViewResult.jpg" alt="300px"/></output>
+
+</example>
+
+
+<example>
+	<description>Drawing the view to a render target.</description>
+	<code>
+local renderTarget = GetRenderTarget( "ExampleRenderTarget", 1024, 1024 )
+hook.Add("PostRender", "RenderTargetExample", function()
+	render.PushRenderTarget( renderTarget )
+
+	local view = {
+		fov = 90,
+		x = CurTime() * 100 % 1024,
+	}
+
+	cam.Start2D()
+		render.RenderView( view )
+	cam.End2D()
+
+	render.PopRenderTarget()
+end)
+
+local customMaterial = CreateMaterial( "example_rt_mat2", "UnlitGeneric", {
+	["$basetexture"] = renderTarget:GetName(),
+} )
+
+hook.Add( "HUDPaint", "ExampleDraw", function()
+	surface.SetDrawColor( 255, 255, 255, 255 )
+	surface.SetMaterial( customMaterial )
+	surface.DrawTexturedRect( 0, 0, customMaterial:GetTexture( "$basetexture" ):Width() / 2, customMaterial:GetTexture( "$basetexture" ):Height() / 2 )
+end )
+	</code>
+	<output>
+<upload src="70c/8deee7377ce4435.png" size="3877176" name="image.png" />
+</output>
+
+</example>

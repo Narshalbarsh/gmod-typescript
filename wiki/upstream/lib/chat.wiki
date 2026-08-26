@@ -1,0 +1,3 @@
+<type name="chat" category="libraryfunc" is="library">
+	<summary>The chat library's purpose is to interface with the default chatbox.</summary>
+</type>

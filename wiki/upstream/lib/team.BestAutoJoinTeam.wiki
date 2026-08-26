@@ -1,0 +1,8 @@
+<function name="BestAutoJoinTeam" parent="team" type="libraryfunc">
+	<description>Returns the team index of the team with the least players. Falls back to TEAM_UNASSIGNED</description>
+		<file line="190-L211">lua/includes/modules/team.lua</file>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">Team index</ret>
+	</rets>
+</function>

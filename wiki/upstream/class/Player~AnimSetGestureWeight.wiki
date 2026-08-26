@@ -1,0 +1,8 @@
+<function name="AnimSetGestureWeight" parent="Player" type="classfunc">
+	<description>Sets the weight of the animation playing in the given gesture slot.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="slot" type="number">The gesture slot. See <page>Enums/GESTURE_SLOT</page></arg>
+		<arg name="weight" type="number">The weight this slot should be set to. Value must be ranging from 0 to 1.</arg>
+	</args>
+</function>

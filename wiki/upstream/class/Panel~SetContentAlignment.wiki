@@ -1,0 +1,22 @@
+<function name="SetContentAlignment" parent="Panel" type="classfunc">
+	<description>Sets the alignment of the contents.
+
+<note>This function only works on <page>Label</page> panels and its derivatives.</note>
+<note>This function doesnt work, if <page>Panel:SetWrap</page> is true.</note>
+</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="alignment" type="number{ContentAlignment}">The direction of the content, based on the number pad. See <page>Enums/ContentAlignment</page>.
+
+<key>1</key>: **bottom-left** <br/>
+<key>2</key>: **bottom-center** <br/>
+<key>3</key>: **bottom-right** <br/>
+<key>4</key>: **middle-left** <br/>
+<key>5</key>: **center** <br/>
+<key>6</key>: **middle-right** <br/>
+<key>7</key>: **top-left** <br/>
+<key>8</key>: **top-center** <br/>
+<key>9</key>: **top-right** <br/>
+<image src="DLabel_SetContentAlignment.gif"/></arg>
+	</args>
+</function>

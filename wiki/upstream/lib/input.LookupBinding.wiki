@@ -1,0 +1,32 @@
+<function name="LookupBinding" parent="input" type="libraryfunc">
+	<description>Returns the client's bound key for the specified console command. If the player has multiple keys bound to a single command, then the key with the lowest <page>Enums/BUTTON_CODE</page> will be returned.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="binding" type="string">The binding name</arg>
+		<arg name="exact" type="boolean" default="false">True to disable automatic stripping of a single leading `+` character</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The first key found with that binding or no value if no key with given binding was found.
+
+See also <page>input.GetKeyCode</page>.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Demonstrates usage of this function and its arguments.</description>
+	<code>
+print( input.LookupBinding( "+use" ) )
+print( input.LookupBinding( "use" ) )
+print( input.LookupBinding( "+use", true ) )
+print( input.LookupBinding( "use", true ) )
+	</code>
+	<output>
+```
+e
+e
+e
+no value
+```
+	</output>
+
+</example>

@@ -1,0 +1,3 @@
+<type name="CEffectData" category="classfunc" is="class">
+	<summary>List of all possible functions available for effect data. This is the object returned by the <page text="EffectData">Global.EffectData</page> function and is required for <page>util.Effect</page> function.</summary>
+</type>

@@ -1,0 +1,10 @@
+<function name="IsAreaTraversable" parent="CLuaLocomotion" type="classfunc">
+	<description>Returns whether this <page>CLuaLocomotion</page> can reach and/or traverse/move in given <page>CNavArea</page>.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="area" type="CNavArea">The area to test</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether this <page>CLuaLocomotion</page> can traverse given <page>CNavArea</page>.</ret>
+	</rets>
+</function>

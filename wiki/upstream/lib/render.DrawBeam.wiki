@@ -1,0 +1,18 @@
+<function name="DrawBeam" parent="render" type="libraryfunc">
+	<description>
+		<rendercontext hook="false" type="3D"></rendercontext>
+
+		Draws a single-segment Beam made out of a textured, billboarded quad stretching between two points.
+
+		For more detailed information, including usage examples, see the <page text="Beams Render Reference">render_beams</page>.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="startPos" type="Vector">The Beam's start position.</arg>
+		<arg name="endPos" type="Vector">The Beam's end position.</arg>
+		<arg name="width" type="number">The width of the Beam.</arg>
+		<arg name="textureStart" type="number">The starting coordinate of the Beam's texture.</arg>
+		<arg name="textureEnd" type="number">The end coordinate of the Beam's texture.</arg>
+		<arg name="color" type="Color" default="Color( 255, 255, 255 )">What <page>Color</page> to tint the Beam.</arg>
+	</args>
+</function>

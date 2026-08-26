@@ -1,0 +1,7 @@
+<function name="GetRotation" parent="DSprite" type="panelfunc">
+	<description>Gets the 2D rotation angle of the sprite, in the plane of the screen.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">The anti-clockwise rotation in degrees.</ret>
+	</rets>
+</function>

@@ -1,0 +1,7 @@
+<function name="MsgAll" parent="Global" type="libraryfunc">
+	<description>Works exactly like <page>Global.Msg</page> except that, if called on the server, will print to all players consoles plus the server console. Limitations of <page>Global.print</page> apply. </description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="args" type="vararg">List of values to print.</arg>
+	</args>
+</function>

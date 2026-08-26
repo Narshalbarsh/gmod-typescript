@@ -1,0 +1,5 @@
+<type name="CUserCmd" category="classfunc" is="class">
+	<summary>A class used to store the player inputs, such as mouse movement, view angles, <page>Enums/IN</page> buttons pressed and analog movement, the data from this class is then transfered to a <page>CMoveData</page> during actual movement simulation.
+
+Can be modified during <page>GM:CreateMove</page>, <page>GM:StartCommand</page> and used in read only with <page>GM:SetupMove</page> and <page>Player:GetCurrentCommand</page>.</summary>
+</type>

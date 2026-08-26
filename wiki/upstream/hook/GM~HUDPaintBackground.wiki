@@ -1,0 +1,25 @@
+<function name="HUDPaintBackground" parent="GM" type="hook">
+	<description>
+Called before <page>GM:HUDPaint</page> when the HUD background is being drawn.
+
+Just like <page>GM:HUDPaint</page>, this hook will not be called when the main menu is visible. <page>GM:PostDrawHUD</page> does not have this behavior.
+
+Things rendered in this hook will **always** appear behind things rendered in <page>GM:HUDPaint</page>.
+
+<rendercontext hook="true" type="2D"></rendercontext>
+	</description>
+	<realm>Client</realm>
+	<file line="92-L93">gamemodes/base/gamemode/cl_init.lua</file>
+</function>
+
+
+<example>
+	<description>Draws a transparent black box in the top left corner of the screen, behind all other HUD elements.</description>
+	<code>
+hook.Add( "HUDPaintBackground", "HUDPaintBackground_DrawABox", function()
+	surface.SetDrawColor( 0, 0, 0, 128 )
+	surface.DrawRect( 50, 50, 128, 128 )
+end )
+	</code>
+
+</example>

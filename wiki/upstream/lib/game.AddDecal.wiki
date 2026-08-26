@@ -1,0 +1,12 @@
+<function name="AddDecal" parent="game" type="libraryfunc">
+	<description>
+Registers a new decal.
+
+<warning>There's a rather low limit of around 256 for decal materials that may be registered and they are not cleared on map load.</warning>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="decalName" type="string">The name of the decal.</arg>
+		<arg name="materialName" type="string">The material to be used for the decal. May also be a list of material names, in which case a random material from that list will be chosen every time the decal is placed.</arg>
+	</args>
+</function>

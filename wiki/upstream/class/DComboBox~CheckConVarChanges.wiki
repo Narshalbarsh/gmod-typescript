@@ -1,0 +1,5 @@
+<function name="CheckConVarChanges" parent="DComboBox" type="panelfunc">
+	<description><internal></internal>Ran every frame to update the value of this panel to the value of the associated convar. See <page>Panel:SetConvar</page>.</description>
+	<realm>Client and Menu</realm>
+	<file line="247-L258">lua/vgui/dcombobox.lua</file>
+</function>

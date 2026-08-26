@@ -1,0 +1,14 @@
+<function name="AddonMaterial" parent="Global" type="libraryfunc">
+	<description>
+Loads the specified image from the `/cache` folder, used in combination with <page>steamworks.Download</page>. Most addons will provide a 512x512 png image.
+
+<note>This works with any image file with the `.cache` file extension, even outside of the `/cache` folder.</note>
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="name" type="string">The name of the file.</arg>
+	</args>
+	<rets>
+		<ret name="" type="IMaterial">The material, returns `nil` if the cached file is not an image.</ret>
+	</rets>
+</function>

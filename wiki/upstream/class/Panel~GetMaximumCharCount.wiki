@@ -1,0 +1,11 @@
+<function name="GetMaximumCharCount" parent="Panel" type="classfunc">
+	<description>Returns the current maximum character count.
+
+This function will only work on <page>RichText</page> and <page>TextEntry</page> panels and their derivatives.
+	</description>
+	<realm>Client and Menu</realm>
+	<added>2020.03.17</added>
+	<rets>
+		<ret name="maxChar" type="number">The maximum amount of characters this panel is allowed to contain.</ret>
+	</rets>
+</function>

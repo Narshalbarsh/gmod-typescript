@@ -1,0 +1,55 @@
+<function name="SetStencilPassOperation" parent="render" type="libraryfunc">
+	<description>
+		Sets the <page text="Stencil Operation">Enums/STENCILOPERATION</page> that will be performed on the Stencil Buffer values of pixels affected by draw operations if the <page text="Compare Function">render.SetStencilCompareFunction</page> Passes the pixel.  
+
+		For more detailed information on the Stencil system, including usage examples, see the <page text="Stencils Render Reference">render_stencils</page> page.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="passOperation" type="number{STENCILOPERATION}">
+			The Stencil Operation to be performed if the Compare Function Passes a pixel.
+		</arg>
+	</args>
+</function>
+
+<image src="b2b4c/8dc4ea87ccd484a.png" size="77518" name="PassOperationFlowChart.png" />
+
+<example>
+	<description>This uses the pass operation to blank out everything but what we just drew (from 
+[Lex's Stencil Tutorial](https://github.com/Lexicality/stencil-tutorial)).</description>
+	<code>
+hook.Add( "PostDrawOpaqueRenderables", "Stencil Tutorial Example", function()
+	-- Reset everything to known good
+	render.SetStencilWriteMask( 0xFF )
+	render.SetStencilTestMask( 0xFF )
+	render.SetStencilReferenceValue( 0 )
+	render.SetStencilCompareFunction( STENCIL_ALWAYS )
+	render.SetStencilPassOperation( STENCIL_KEEP )
+	render.SetStencilFailOperation( STENCIL_KEEP )
+	render.SetStencilZFailOperation( STENCIL_KEEP )
+	render.ClearStencil()
+
+	-- Enable stencils
+	render.SetStencilEnable( true )
+	-- Set the reference value to 1. This is what the compare function tests against
+	render.SetStencilReferenceValue( 1 )
+	-- Only draw things if their pixels are NOT 1. Currently this is everything.
+	render.SetStencilCompareFunction( STENCIL_NOTEQUAL )
+	-- If something draws to the screen, set the pixels it draws to 1
+	render.SetStencilPassOperation( STENCIL_REPLACE )
+
+	-- Draw our entities. They will draw as normal
+	for _, ent in ipairs( ents.FindByClass( "prop_physics" ) ) do
+		ent:DrawModel()
+	end
+
+	-- At this point, we cannot draw on top of anything that we have already drawn.
+	-- So, if we flush the screen, our entities will still be there.
+	render.ClearBuffersObeyStencil( 0, 148, 133, 255, false )
+
+	-- Let everything render normally again
+	render.SetStencilEnable( false )
+end )
+	</code>
+	<output><image src="basic_pass_operation.jpg" alt="800px"/></output>
+</example>

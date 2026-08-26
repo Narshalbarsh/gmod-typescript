@@ -1,0 +1,11 @@
+<cat>classfunc</cat>
+<function name="GetFlashlightColor" parent="Player" type="classfunc">
+	<description>
+		Returns the color of a player's flashlight.
+	</description>
+	<added>2026.05.13</added>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="Color" default="Color(255,255,255)">Flashlight color</ret>
+	</rets>
+</function>

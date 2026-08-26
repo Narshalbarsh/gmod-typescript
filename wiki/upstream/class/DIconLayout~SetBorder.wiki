@@ -1,0 +1,7 @@
+<function name="SetBorder" parent="DIconLayout" type="panelfunc">
+	<description>Sets the internal border (padding) within the DIconLayout. This will not change its size, only the positioning of children. You must call <page>DIconLayout:Layout</page> in order for the changes to take effect.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="width" type="number">The border (padding) inside the DIconLayout.</arg>
+	</args>
+</function>

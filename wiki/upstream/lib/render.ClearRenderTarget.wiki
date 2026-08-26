@@ -1,0 +1,13 @@
+<function name="ClearRenderTarget" parent="render" type="libraryfunc">
+	<description>
+Clears a render target.
+
+It uses <page>render.Clear</page> then <page>render.SetRenderTarget</page> on the modified render target.
+	</description>
+	<realm>Client</realm>
+	<file line="27-L39">lua/includes/extensions/client/render.lua</file>
+	<args>
+		<arg name="texture" type="ITexture"></arg>
+		<arg name="color" type="Color">The color.</arg>
+	</args>
+</function>

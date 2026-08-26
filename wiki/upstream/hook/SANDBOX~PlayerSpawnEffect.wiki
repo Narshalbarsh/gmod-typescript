@@ -1,0 +1,11 @@
+<function name="PlayerSpawnEffect" parent="SANDBOX" type="hook">
+	<description>Called to ask if player allowed to spawn a particular effect or not.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ply" type="Player">The player that wants to spawn an effect</arg>
+		<arg name="model" type="string">The effect model that player wants to spawn</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return false to disallow spawning that effect</ret>
+	</rets>
+</function>

@@ -1,0 +1,13 @@
+<function name="ShootBullet" parent="WEAPON" type="hook">
+	<description>A convenient function to shoot bullets.</description>
+	<realm>Shared</realm>
+	<file line="132-L148">gamemodes/base/entities/weapons/weapon_base/shared.lua</file>
+	<args>
+		<arg name="damage" type="number">The damage of the bullet</arg>
+		<arg name="num_bullets" type="number">Amount of bullets to shoot</arg>
+		<arg name="aimcone" type="number">Spread of bullets</arg>
+		<arg name="ammo_type" type="string" default="self.Primary.Ammo">Ammo type of the bullets</arg>
+		<arg name="force" type="number" default="1">Force of the bullets</arg>
+		<arg name="tracer" type="number" default="5">Show a tracer on every x bullets</arg>
+	</args>
+</function>

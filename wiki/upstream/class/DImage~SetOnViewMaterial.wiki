@@ -1,0 +1,12 @@
+<function name="SetOnViewMaterial" parent="DImage" type="panelfunc">
+	<description>
+Similar to <page>DImage:SetImage</page>, but will only do the expensive part of actually loading the textures/material if the material is about to be rendered/viewed.
+
+Useful for cases like <page>DIconBrowser</page>, where there are hundreds of small icons in 1 panel in a list that do not need all to be loaded at the same time.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="mat" type="string"></arg>
+		<arg name="backupMat" type="string"></arg>
+	</args>
+</function>

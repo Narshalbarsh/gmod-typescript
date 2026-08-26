@@ -1,0 +1,11 @@
+<function name="GetBodyGroup" parent="SpawnIcon" type="panelfunc">
+	<description>
+		Returns the currently active <page text="Sub Model IDs">Structures/BodyGroupData#submodels</page> for each Body Group of the spawn icon.  
+		
+		This is set by <page>SpawnIcon:SetBodyGroup</page>.
+	</description>
+	<realm>Client</realm>
+	<rets>
+		<ret type="string">The Body Groups of the spawnicon, in format `"00010100"` where each position indicates a bodygroup ID, and each value indicates the bodygroup value for that ID/position, 0-9a-z</ret>
+	</rets>
+</function>

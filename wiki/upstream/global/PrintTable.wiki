@@ -1,0 +1,38 @@
+<function name="PrintTable" parent="Global" type="libraryfunc">
+	<description>Recursively prints the contents of a table to the console.
+
+The table keys will be sorted alphabetically or numerically when printed to the console.
+</description>
+	<realm>Shared and Menu</realm>
+	<file line="90-L128">lua/includes/util.lua</file>
+	<args>
+		<arg name="tableToPrint" type="table">The table to be printed</arg>
+		<arg name="indent" type="number" default="0">Number of tabs to start indenting at. Increases by 2 when entering another table.</arg>
+		<arg name="done" type="table" default="{}">Internal argument, you shouldn't normally change this. Used to check if a nested table has already been printed so it doesn't get caught in a loop.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Prints the table we created.</description>
+	<code>
+local tbl = {
+ "test",
+ 3829.4,
+ {"foo", "baah", 20/5},
+ true
+}
+PrintTable(tbl)
+	</code>
+	<output>
+```
+1 = test
+2 = 3829.4
+3:
+	1 = foo
+	2 = baah
+	3 = 4
+4 = true
+```
+	</output>
+
+</example>

@@ -1,0 +1,4 @@
+<function name="OnSelect" parent="DListView_Line" type="panelhook">
+	<description>Called when the player selects this line.</description>
+	<realm>Client and Menu</realm>
+</function>

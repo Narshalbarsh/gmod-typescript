@@ -1,0 +1,37 @@
+<function name="PlayerSwitchWeapon" parent="GM" type="hook">
+	<description>Called when a player attempts to switch their weapon.
+
+Primary usage of this hook is to prevent/allow weapon switching, **not** to detect weapon switching. It will not be called for <page>Player:SetActiveWeapon</page>.
+</description>
+	<realm>Shared</realm>
+	<predicted>Yes</predicted>
+	<args>
+		<arg name="player" type="Player">The player switching weapons.</arg>
+		<arg name="oldWeapon" type="Weapon">The previous weapon. Will be `NULL` if the previous weapon was removed or the player is switching from nothing.</arg>
+		<arg name="newWeapon" type="Weapon">The weapon the player switched to. Will be `NULL` if the player is switching to nothing.
+
+<bug issue="2922">This can be `NULL` on the client if the weapon hasn't been created over the network yet.</bug></arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return `true` to prevent weapon switch.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>The players weapon information will be printed when the player switched weapons.</description>
+	<code>
+hook.Add( "PlayerSwitchWeapon", "WeaponSwitchExample", function( ply, oldWeapon, newWeapon )
+	-- GetClass() will return the weapons class as a string.
+	MsgN( "You switched weapons! Your old weapon is " .. oldWeapon:GetClass() .."." )
+	MsgN( "Your new weapon is " .. newWeapon:GetClass() .. "." )
+end )
+	</code>
+	<output>
+```
+You switched weapons! Your old weapon is gmod_camera.
+Your new weapon is weapon_crossbow.
+
+```
+	</output>
+
+</example>

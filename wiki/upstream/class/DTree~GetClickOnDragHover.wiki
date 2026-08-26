@@ -1,0 +1,7 @@
+<function name="GetClickOnDragHover" parent="DTree" type="panelfunc">
+	<description>Returns the status of <page>DTree:SetClickOnDragHover</page>. See that for more info.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean"></ret>
+	</rets>
+</function>

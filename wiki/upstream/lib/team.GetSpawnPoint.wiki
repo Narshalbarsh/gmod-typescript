@@ -1,0 +1,11 @@
+<function name="GetSpawnPoint" parent="team" type="libraryfunc">
+	<description>Returns a table of valid spawnpoint classes the team can use. These are set with <page>team.SetSpawnPoint</page>.</description>
+	<file line="54-L59">lua/includes/modules/team.lua</file>
+	<realm>Shared</realm>
+	<args>
+		<arg name="index" type="number">Index of the team</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">Valid spawnpoint classes</ret>
+	</rets>
+</function>

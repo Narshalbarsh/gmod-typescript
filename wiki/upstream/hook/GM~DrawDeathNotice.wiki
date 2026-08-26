@@ -1,0 +1,9 @@
+<function name="DrawDeathNotice" parent="GM" type="hook">
+	<description>This hook is called every frame to draw all of the current death notices.</description>
+	<realm>Client</realm>
+	<file line="254-L292">gamemodes/base/gamemode/cl_deathnotice.lua</file>
+	<args>
+		<arg name="x" type="number">X position to draw death notices as a ratio</arg>
+		<arg name="y" type="number">Y position to draw death notices as a ratio</arg>
+	</args>
+</function>

@@ -1,0 +1,20 @@
+<function name="PhysicsFromMesh" parent="Entity" type="classfunc">
+	<description>
+Initializes the physics mesh of the entity from a triangle soup defined by a table of vertices. The resulting mesh is hollow, may contain holes, and always has a volume of 0.
+
+While this is very useful for static geometry such as terrain displacements, it is advised to use <page>Entity:PhysicsInitConvex</page> or <page>Entity:PhysicsInitMultiConvex</page> for moving solid objects instead.
+
+<page>Entity:EnableCustomCollisions</page> needs to be called if you want players to collide with the entity correctly.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="vertices" type="table">A table of Vectors. Every 3 vertices define a triangle in the physics mesh
+
+Alternatively, you can input a table consisting of <page>Structures/MeshVertex</page> (only the `pos` element is taken into account).</arg>
+		<arg name="surfaceprop" type="string" added="2023.01.25" default="default">Physical material from [surfaceproperties.txt](https://github.com/Facepunch/garrysmod/blob/master/garrysmod/scripts/surfaceproperties.txt) or added with <page>physenv.AddSurfaceData</page>.</arg>
+<arg name="massCenterOveride" type="Vector" default="nil" added="2024.10.29">If set, overwrites the center of mass for the created physics object.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Returns `true` on success, `nil` otherwise.</ret>
+	</rets>
+</function>

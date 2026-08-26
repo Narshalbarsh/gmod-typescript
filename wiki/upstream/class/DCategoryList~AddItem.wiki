@@ -1,0 +1,8 @@
+<function name="AddItem" parent="DCategoryList" type="panelfunc">
+	<description>Adds an element to the list.</description>
+	<realm>Client and Menu</realm>
+	<file line="10-L16">lua/vgui/dcategorylist.lua</file>
+	<args>
+		<arg name="element" type="Panel">VGUI element to add to the list.</arg>
+	</args>
+</function>

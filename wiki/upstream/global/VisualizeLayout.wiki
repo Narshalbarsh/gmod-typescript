@@ -1,0 +1,9 @@
+<function name="VisualizeLayout" parent="Global" type="libraryfunc">
+	<description><internal>Used by the **vgui_visualizelayout** convar</internal>
+Briefly displays layout details of the given panel on-screen</description>
+	<realm>Client and Menu</realm>
+	<file line="33-L41">lua/includes/util/vgui_showlayout.lua</file>
+	<args>
+		<arg name="panel" type="Panel">Panel to display layout details of</arg>
+	</args>
+</function>

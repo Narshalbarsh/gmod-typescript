@@ -1,0 +1,27 @@
+<function name="UpdateServerSettings" parent="Global" type="libraryfunc">
+	<description>
+		<internal>Called from JS when starting a new game</internal>
+		Updates the Server Settings when called.
+	</description>
+	<realm>Menu</realm>
+	<file line="216-L252">lua/menu/mainmenu.lua</file>
+</function>
+
+<example>
+	<description>Updating the Server Setting manually</description>
+	<code>
+if !pnlMainMenu then return end -- pnlMainMenu is the Main Menu panel. (https://github.com/Facepunch/garrysmod/blob/master/garrysmod/lua/menu//garrysmod/lua/menu/mainmenu.lua#L468)
+
+local settings = {
+	hostname = "Example",
+	sv_lan = 0,
+	p2p_enabled = 1,
+}
+
+pnlMainMenu:Call( "UpdateServerSettings(" .. util.TableToJSON( settings ) .. ")" )
+	</code>
+	<output>
+		<image src="ab571/8dc3893a1de4e62.png" name="start_new_game_settings.png" />
+		<note>Only the given settings will be displayed and the gamemode settings will be hidden!</note>
+	</output>
+</example>

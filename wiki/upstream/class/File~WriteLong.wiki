@@ -1,0 +1,7 @@
+<function name="WriteLong" parent="File" type="classfunc">
+	<description>Writes a signed little-endian 32-bit integer to the file.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="int32" type="number">The 32-bit signed integer to be written to the file.</arg>
+	</args>
+</function>

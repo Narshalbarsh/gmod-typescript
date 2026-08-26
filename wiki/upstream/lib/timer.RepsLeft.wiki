@@ -1,0 +1,12 @@
+<function name="RepsLeft" parent="timer" type="libraryfunc">
+	<description>
+		Returns amount of repetitions/executions left before the timer destroys itself.
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="identifier" type="any">Identifier of the timer.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The amount of executions left.</ret>
+	</rets>
+</function>

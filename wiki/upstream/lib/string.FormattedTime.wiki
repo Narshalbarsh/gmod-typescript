@@ -1,0 +1,43 @@
+<function name="FormattedTime" parent="string" type="libraryfunc">
+	<description>Returns the time as a formatted string or as a table if no format is given.</description>
+	<realm>Shared and Menu</realm>
+	<file line="186-L198">lua/includes/extensions/string.lua</file>
+	<args>
+		<arg name="float" type="number">The time in seconds to format.</arg>
+		<arg name="format" type="string" default="nil">An optional formatting to use. If no format it specified, a table will be returned instead.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string|table{FormattedTime}">Returns the time as a formatted string only if a format was specified.
+
+Returns a table if no format was specified.
+</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Formats the time in seconds</description>
+	<code>
+local time = string.FormattedTime( 90, "%02i:%02i:%02i" )
+print( time )
+	</code>
+	<output>01:30:00</output>
+
+</example>
+
+
+<example>
+	<description>Returns a table with the time separated by units.</description>
+	<code>
+local time = string.FormattedTime( 90 )
+PrintTable( time )
+	</code>
+	<output>
+```
+ms = 0
+m = 1
+s = 30
+h = 0
+```
+	</output>
+
+</example>

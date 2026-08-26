@@ -1,0 +1,19 @@
+<panel>
+	<parent>DButton</parent>
+	<realm>Client and Menu</realm>
+	<file line="">lua/vgui/dmenuoption.lua</file>
+	<description>
+		<internal></internal>
+
+		Internal subpanel that represents an option used by <page>DMenu</page>.
+	</description>
+	<overrides>
+		<page>PANEL:Init</page>
+		<page>PANEL:Paint</page>
+		<page>PANEL:PerformLayout</page>
+		<page>PANEL:OnMousePressed</page>
+		<page>PANEL:OnMouseReleased</page>
+		<page>PANEL:OnCursorEntered</page>
+		<page>PANEL:GenerateExample</page>
+	</overrides>
+</panel>

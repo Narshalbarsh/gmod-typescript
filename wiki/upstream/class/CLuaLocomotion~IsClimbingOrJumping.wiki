@@ -1,0 +1,7 @@
+<function name="IsClimbingOrJumping" parent="CLuaLocomotion" type="classfunc">
+	<description>Returns true of the locomotion engine is jumping or climbing</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="boolean">Whether we're climbing or jumping or not</ret>
+	</rets>
+</function>

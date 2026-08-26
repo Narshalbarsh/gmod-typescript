@@ -1,0 +1,8 @@
+<function name="ActiveControlPanel" parent="spawnmenu" type="libraryfunc">
+	<description>Returns currently opened control panel of a tool, post process effect or some other menu in spawnmenu.</description>
+	<realm>Client</realm>
+	<file line="24-L26">lua/includes/modules/spawnmenu.lua</file>
+	<rets>
+		<ret name="" type="Panel">The currently opened control panel, if any.</ret>
+	</rets>
+</function>

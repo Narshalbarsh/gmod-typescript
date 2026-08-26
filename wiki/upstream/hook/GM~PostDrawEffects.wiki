@@ -1,0 +1,10 @@
+<function name="PostDrawEffects" parent="GM" type="hook">
+	<description>
+Called after rendering effects. This is where halos are drawn. Called just before <page>GM:PreDrawHUD</page> (The two hooks are basically identical).
+
+See <page>GM:PreDrawEffects</page> for the associated hook.
+
+<rendercontext hook="true" type="2D"></rendercontext>
+	</description>
+	<realm>Client</realm>
+</function>

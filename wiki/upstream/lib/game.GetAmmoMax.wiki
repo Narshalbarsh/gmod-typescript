@@ -1,0 +1,12 @@
+<function name="GetAmmoMax" parent="game" type="libraryfunc">
+	<description>
+Returns the real maximum amount of ammo of given ammo ID, regardless of the setting of `gmod_maxammo` convar.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="id" type="number">Ammo type ID.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The maximum amount of reserve ammo a player can hold of this ammo type.</ret>
+	</rets>
+</function>

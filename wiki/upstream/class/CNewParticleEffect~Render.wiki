@@ -1,0 +1,10 @@
+<function name="Render" parent="CNewParticleEffect" type="classfunc">
+	<description>
+Forces the particle system to render using current rendering context.
+
+Can be used to render the particle system in vgui panels, etc.
+
+Used in conjunction with <page>CNewParticleEffect:SetShouldDraw</page>.
+	</description>
+	<realm>Client</realm>
+</function>

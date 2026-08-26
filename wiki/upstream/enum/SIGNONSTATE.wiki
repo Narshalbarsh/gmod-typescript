@@ -1,0 +1,16 @@
+<enum>
+	<realm>Shared</realm>
+	<description>
+Used by <page>GM:ClientSignOnStateChanged</page>.
+	</description>
+	<items>
+		<item key="SIGNONSTATE_NONE" value="0"></item>
+		<item key="SIGNONSTATE_CHALLENGE" value="1"></item>
+		<item key="SIGNONSTATE_CONNECTED" value="2"></item>
+		<item key="SIGNONSTATE_NEW" value="3"></item>
+		<item key="SIGNONSTATE_PRESPAWN" value="4"></item>
+		<item key="SIGNONSTATE_SPAWN" value="5"></item>
+		<item key="SIGNONSTATE_FULL" value="6"></item>
+		<item key="SIGNONSTATE_CHANGELEVEL" value="7"></item>
+	</items>
+</enum>

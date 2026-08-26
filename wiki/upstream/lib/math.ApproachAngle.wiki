@@ -1,0 +1,17 @@
+<function name="ApproachAngle" parent="math" type="libraryfunc">
+	<description>
+Increments an angle towards another by specified rate.
+
+<note>This function is for numbers representing angles (0-360), NOT <page>Angle</page> objects!</note>
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="1203-L205">lua/includes/extensions/math.lua</file>
+	<args>
+		<arg name="currentAngle" type="number">The current angle to increase</arg>
+		<arg name="targetAngle" type="number">The angle to increase towards</arg>
+		<arg name="rate" type="number">The amount to approach the target angle by</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">Modified angle</ret>
+	</rets>
+</function>

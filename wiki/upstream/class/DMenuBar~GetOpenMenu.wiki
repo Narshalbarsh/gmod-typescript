@@ -1,0 +1,7 @@
+<function name="GetOpenMenu" parent="DMenuBar" type="panelfunc">
+	<description>If a menu is visible/opened, then the menu is returned.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="Panel">Returns the visible/open menu or nil.</ret>
+	</rets>
+</function>

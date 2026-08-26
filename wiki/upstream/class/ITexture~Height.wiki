@@ -1,0 +1,7 @@
+<function name="Height" parent="ITexture" type="classfunc">
+	<description>Returns the modified height of the texture, this value may be affected by mipmapping and other factors.</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="number">height</ret>
+	</rets>
+</function>

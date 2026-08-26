@@ -1,0 +1,29 @@
+<function name="Add" parent="presets" type="libraryfunc">
+	<description>Adds preset to a preset group.</description>
+	<realm>Client</realm>
+	<file line="33-L46">lua/includes/modules/presets.lua</file>
+	<args>
+		<arg name="groupname" type="string">The preset group name, usually it's tool class name.</arg>
+		<arg name="name" type="string">Preset name, must be unique.</arg>
+		<arg name="values" type="table">A table of preset console commands.</arg>
+	</args>
+</function>
+
+<example>
+	<description>A simple faceposer preset.</description>
+	<code>
+presets.Add( "face", "Open Eyes", {
+	faceposer_flex0	= "1",
+	faceposer_flex1	= "1",
+	faceposer_flex2	= "0",
+	faceposer_flex3	= "0",
+	faceposer_flex4	= "0",
+	faceposer_flex5	= "0",
+	faceposer_flex6	= "0",
+	faceposer_flex7	= "0",
+	faceposer_flex8	= "0",
+	faceposer_flex9	= "0"
+} )
+	</code>
+
+</example>

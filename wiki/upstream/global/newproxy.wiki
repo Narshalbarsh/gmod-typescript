@@ -1,0 +1,16 @@
+<function name="newproxy" parent="Global" type="libraryfunc">
+	<description>
+		<bug issue="5299">Fails under certain conditions when called in coroutines</bug>
+		Creates a new <page>userdata</page> object.
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="addMetatable" type="boolean" default="false">If true, the created <page>userdata</page> will be given its own metatable.</arg>
+	</args>
+	<args name="Userdata Copy">
+		<arg name="userData" type="userdata">Creates a new <page>userdata</page> with the same metatable the <page>userdata</page> passed in had. The <page>userdata</page> passed in **must be** a <page>userdata</page> that has a metatable that was created from this function.</arg>
+	</args> 
+	<rets>
+		<ret name="" type="userdata">The newly created <page>userdata</page>.</ret>
+	</rets>
+</function>

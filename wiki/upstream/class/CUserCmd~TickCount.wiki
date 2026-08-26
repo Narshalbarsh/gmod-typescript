@@ -1,0 +1,13 @@
+<function name="TickCount" parent="CUserCmd" type="classfunc">
+	<description>
+Returns tick count since joining the server.
+
+<note>This will always return 0 for bots.</note>
+
+<note>Returns 0 clientside during prediction calls. If you are trying to use CUserCmd:Set*() on the client in a movement or command hook, keep doing so till TickCount returns a non-zero number to maintain prediction.</note>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The amount of ticks passed since joining the server.</ret>
+	</rets>
+</function>

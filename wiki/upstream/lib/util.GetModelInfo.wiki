@@ -1,0 +1,82 @@
+<function name="GetModelInfo" parent="util" type="libraryfunc">
+	<description>
+Returns a table containing the info about the model. The model will be loaded and cached if it was not previously.
+
+See also <page>util.GetModelMeshes</page>
+
+<note>This function will silently fail if used on models with following strings in them:
+* _shared
+* _anims
+* _gestures
+* _anim
+* _postures
+* _gst
+* _pst
+* _shd
+* _ss
+* _anm
+* _include</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="mdl" type="string">The model path to retrieve information about.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table{ModelInfo}">The model info. See <page>Structures/ModelInfo</page> for details.
+
+		</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Example usage of the function. We use <page>util.KeyValuesToTablePreserveOrder</page> in order to preserve multiple keys with the same name.</description>
+	<code>
+local ModelInfo = util.GetModelInfo("models/combine_gate_vehicle.mdl" )
+print( ModelInfo.SkinCount ) // The skin count
+PrintTable( util.KeyValuesToTablePreserveOrder( ModelInfo.KeyValues ) ) // Physics data
+	</code>
+	<output>
+```
+1:
+		Key	=	solid
+		Value:
+				1:
+						Key	=	index
+						Value	=	0
+				2:
+						Key	=	name
+						Value	=	Vehicle_Gate.Gate2_L
+				3:
+						Key	=	mass
+						Value	=	1
+				4:
+						Key	=	surfaceprop
+						Value	=	metal
+				5:
+						Key	=	damping
+						Value	=	0
+				6:
+						Key	=	rotdamping
+						Value	=	0
+				7:
+						Key	=	inertia
+						Value	=	1
+				8:
+						Key	=	volume
+						Value	=	68522.9296875
+
+...
+
+6:
+		Key	=	editparams
+		Value:
+				1:
+						Key	=	rootname
+						Value	=	
+				2:
+						Key	=	totalmass
+						Value	=	1
+```
+	</output>
+
+</example>

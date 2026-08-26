@@ -1,0 +1,24 @@
+<function name="GetTimeoutInfo" parent="Global" type="libraryfunc">
+	<description>
+Returns if the client is timing out, and time since last ping from the server. Similar to the server side <page>Player:IsTimingOut</page>.
+	</description>
+	<realm>Client</realm>
+	<added>2021.01.27</added>
+	<rets>
+		<ret name="" type="boolean">Is timing out?</ret>
+		<ret name="" type="number">Get time since last pinged received.</ret>
+	</rets>
+</function>
+
+<example>
+	<description></description>
+	<code>
+print( GetTimeoutInfo() )
+	</code>
+	<output>
+```
+false
+0.011438442269421
+```
+	</output>
+</example>

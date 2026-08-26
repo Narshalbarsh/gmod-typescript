@@ -1,0 +1,41 @@
+<function name="Open" parent="file" type="libraryfunc">
+	<description>Attempts to open a file with the given mode.
+		<warning>When trying to open files with the following characteristics, it returns nil:
+
+the file extension is ".db; .mdmp; .dmp" or
+the file is "server.cfg; autoexec.cfg; config.cfg; listenserver.cfg; mount.cfg"</warning>
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="fileName" type="string">The files name. See <page>file.Write</page> for details on filename restrictions when writing to files.</arg>
+		<arg name="fileMode" type="string">The mode to open the file in. Possible values are:
+* **r** - read mode.
+* **w** - write mode.
+* **a** - append mode.
+* **rb** - binary read mode.
+* **wb** - binary write mode.
+* **ab** - binary append mode.</arg>
+		<arg name="gamePath" type="string">The path to look for the files and directories in. See <page text="this list">File_Search_Paths</page> for a list of valid paths.</arg>
+	</args>
+	<rets>
+		<ret name="File" type="file_class">The opened file object, or `nil` if it failed to open due to it not existing or being used by another process.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Open a file in read only mode, reads a line, tells where the current file pointer is at and then closes the file handle.</description>
+	<code>
+local f = file.Open( "cfg/mapcycle.txt", "r", "MOD" )
+print( f:ReadLine() )
+print( f:ReadLine() )
+print( f:Tell() )
+f:Close()
+	</code>
+	<output>
+```
+//
+// Default mapcycle file for Garry's Mod.
+45
+```
+	</output>
+</example>

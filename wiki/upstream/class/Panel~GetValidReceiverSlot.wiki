@@ -1,0 +1,9 @@
+<function name="GetValidReceiverSlot" parent="Panel" type="classfunc">
+	<description>Gets valid receiver slot of currently dragged panel.</description>
+	<realm>Client and Menu</realm>
+	<file line="335-L359">lua/includes/extensions/client/panel/dragdrop.lua</file>
+	<rets>
+		<ret name="" type="Panel">The panel this was called on if a valid receiver slot exists, otherwise false.</ret>
+		<ret name="" type="table">The slot table.</ret>
+	</rets>
+</function>

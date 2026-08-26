@@ -1,0 +1,7 @@
+<function name="IsValid" parent="IGModAudioChannel" type="classfunc">
+	<description>Returns if the sound channel is valid or not.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="boolean">Is the sound channel valid or not</ret>
+	</rets>
+</function>

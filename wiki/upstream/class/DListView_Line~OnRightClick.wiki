@@ -1,0 +1,4 @@
+<function name="OnRightClick" parent="DListView_Line" type="panelhook">
+	<description>Called when the player right clicks this line.</description>
+	<realm>Client and Menu</realm>
+</function>

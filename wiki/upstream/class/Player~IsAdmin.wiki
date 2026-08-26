@@ -1,0 +1,30 @@
+<function name="IsAdmin" parent="Player" type="classfunc">
+	<description>Returns whether the player is an admin or not. It will also return `true` if the player is <page>Player:IsSuperAdmin</page> by default.
+
+Internally this is determined by <page>Player:IsUserGroup</page>.
+</description>
+	<realm>Shared</realm>
+	<file line="9-L16">lua/includes/extensions/player_auth.lua</file>
+	<rets>
+		<ret name="" type="boolean">True if the player is an admin or a super admin.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Every time a player spawns, print in the console whether they are an admin.</description>
+	<code>
+hook.Add( "PlayerSpawn", "PrintIfAdmin", function( ply )
+    if ( ply:IsAdmin() ) then 
+		print( "It's true, " .. ply:Nick() .. " is an admin" )
+    else
+		print( "It's false, " .. ply:Nick() .. " is not an admin" )
+    end
+end )
+	</code>
+	<output>
+```
+It's true, Alice is an admin.
+It's false, Bob is not an admin.
+```
+	</output>
+</example>

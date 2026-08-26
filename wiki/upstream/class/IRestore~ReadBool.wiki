@@ -1,0 +1,7 @@
+<function name="ReadBool" parent="IRestore" type="classfunc">
+	<description>Reads next bytes from the restore object as a <page>boolean</page>.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">The boolean that has been read</ret>
+	</rets>
+</function>

@@ -1,0 +1,5 @@
+<function name="Drop" parent="dragndrop" type="libraryfunc">
+	<description><internal></internal>Handles the drop action of drag'n'drop library.</description>
+	<realm>Client and Menu</realm>
+	<file line="37-L76">lua/includes/extensions/client/panel/dragdrop.lua</file>
+</function>

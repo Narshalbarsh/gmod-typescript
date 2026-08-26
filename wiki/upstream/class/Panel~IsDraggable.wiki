@@ -1,0 +1,8 @@
+<function name="IsDraggable" parent="Panel" type="classfunc">
+	<description>Returns whether this panel is draggable ( if user is able to drag it ) or not.</description>
+	<realm>Client and Menu</realm>
+	<file line="361-L365">lua/includes/extensions/client/panel/dragdrop.lua</file>
+	<rets>
+		<ret name="" type="boolean">Whether this panel is draggable ( if user is able to drag it ) or not.</ret>
+	</rets>
+</function>

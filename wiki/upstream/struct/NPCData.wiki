@@ -1,0 +1,38 @@
+<structure>
+	<realm>Shared</realm>
+	<description>
+Information about the NPC data structure, used to define spawnable NPCs for the Sandbox gamemode.
+
+Example usage:
+```
+list.Set( "NPC", "npc_tf2_ghost", {
+	Name = "Example NPC",
+	Class = "npc_tf2_ghost",
+	Category = "Nextbot"
+} )
+```
+	</description>
+	<fields>
+<item name="Name" type="string" realm="client">The nice name of the NPC for UI display.</item>
+<item name="Class" type="string">Class name of the entity to spawn.</item>
+<item name="Category" type="string" default="Other" realm="client">Spawnmenu category to put the NPCinto.</item>
+<item name="Weapons" type="table" default="{}">A list of weapons this NPC is typically meant to use. One will be picked on spawn at random, unless overwritten by the player.</item>
+
+<item name="KeyValues" type="table" realm="server" default="{}">Key-value pairs to apply to the NPC on spawn. See <page>Entity:SetKeyValue</page>.</item>
+
+<item name="Model" type="string" default="nil" realm="server">Model override for this NPC.</item>
+<item name="SpawnFlags" type="number" default="0" realm="server">Additional spawnflags for this NPC. See <page>Entity:GetSpawnFlags</page>.
+
+Ignored if `TotalSpawnFlags` key is present.</item>
+<item name="TotalSpawnFlags" type="number" default="nil" realm="server">Total spawnflags override for this NPC.</item>
+<item name="OnCeiling" type="boolean" default="false" realm="server">If set to `true`, this NPC can only be spawned on the ceiling. Stacks with `OnFloor`.</item>
+<item name="OnFloor" type="boolean" default="false" realm="server">If set to `true`, this NPC can only be spawned on the floor. Stacks with `OnCeiling`.</item>
+<item name="Offset" type="number" default="0" realm="server">Offset, in Hammer units, away from the surface where the player is looking at for the NPC spawn position.</item>
+<item name="Material" type="string" default="" realm="server">Material override for this NPC. See <page>Entity:SetMaterial</page>.</item>
+<item name="Skin" type="number" default="nil" realm="server">Skin override for the NPC. See <page>Entity:SetSkin</page>.</item>
+<item name="NoDrop" type="boolean" default="false" realm="server">If set to `true`, do not try to teleport the NPC to the ground.</item>
+<item name="Rotate" type="Angle" default="Angle( 0, 0, 0 )" realm="server">Used to add additional rotation the NPC post spawn. Usually all NPCs would be facing the player on spawn. Value of `Angle( 0, 180, 0 )` would make the NPC face away from the player.</item>
+<item name="Health" type="number" default="nil" realm="server">Health override for this NPC. Also sets <page>Entity:SetMaxHealth</page>.</item>
+<item name="OnDuplicated" type="function" default="nil" realm="server">If set, a function to be called when the NPC is pasted using the <page>duplicator</page> library.</item>
+	</fields>
+</structure>

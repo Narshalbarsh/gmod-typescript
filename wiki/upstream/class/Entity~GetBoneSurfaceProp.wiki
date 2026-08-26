@@ -1,0 +1,10 @@
+<function name="GetBoneSurfaceProp" parent="Entity" type="classfunc">
+	<description>Returns the surface property of the specified bone. See <page>util.GetSurfaceData</page> for more details about what they are.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="bone" type="number">The bone id, starting at index 0. See <page>Entity:LookupBone</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The surface property of the bone to be used with <page>util.GetSurfaceIndex</page> or an empty string on failure.</ret>
+	</rets>
+</function>

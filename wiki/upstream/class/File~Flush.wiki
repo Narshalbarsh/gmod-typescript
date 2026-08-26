@@ -1,0 +1,4 @@
+<function name="Flush" parent="File" type="classfunc">
+	<description>Dumps the file changes to disk and saves the file.</description>
+	<realm>Shared and Menu</realm>
+</function>

@@ -1,0 +1,34 @@
+<cat>gameevent</cat>
+<title>player_hurt</title>
+
+<structure>
+	<realm>Shared and Menu</realm>
+	<description>
+			Called when the player takes damage.
+
+		<note>This is called after <page>GM:EntityTakeDamage</page> so you could just use that hook serverside.</note>
+	</description>
+	<fields>
+		<item type="number" name="health">The new health after being damaged.</item>
+		<item type="number" name="priority" realm="Server">Event priority number used by HLTV.</item>
+		<item type="number" name="userid">The <page text="UserID">Player:UserID</page> of the victim.</item>
+		<item type="number" name="attacker">The <page text="UserID">Player:UserID</page> of the attacker.</item>
+	</fields>
+</structure>
+
+# Examples
+<example>
+	<description>This is a basic template with the purpose of including all arguments / table variables to make it easily known which values can be accessed.</description>
+	<code>
+gameevent.Listen( "player_hurt" )
+hook.Add( "player_hurt", "player_hurt_example", function( data ) 
+	local health = data.health				// Remaining health after injury
+	local priority = data.priority or 0 	// Priority
+	local id = data.userid					// Same as Player:UserID()
+	local attackerid = data.attacker		// Same as Player:UserID() but it's the attacker id.
+
+	// Called when the player is injured or dies.
+
+end )
+	</code>
+</example>

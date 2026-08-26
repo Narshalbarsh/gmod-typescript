@@ -1,0 +1,22 @@
+<function name="SetUnpacked" parent="VMatrix" type="classfunc">
+	<description>Sets each component of the matrix.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="e11" type="number"></arg>
+		<arg name="e12" type="number"></arg>
+		<arg name="e13" type="number"></arg>
+		<arg name="e14" type="number"></arg>
+		<arg name="e21" type="number"></arg>
+		<arg name="e22" type="number"></arg>
+		<arg name="e23" type="number"></arg>
+		<arg name="e24" type="number"></arg>
+		<arg name="e31" type="number"></arg>
+		<arg name="e32" type="number"></arg>
+		<arg name="e33" type="number"></arg>
+		<arg name="e34" type="number"></arg>
+		<arg name="e41" type="number"></arg>
+		<arg name="e42" type="number"></arg>
+		<arg name="e43" type="number"></arg>
+		<arg name="e44" type="number"></arg>
+	</args>
+</function>

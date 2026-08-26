@@ -1,0 +1,7 @@
+<function name="GetRenderAngles" parent="Player" type="classfunc">
+	<description>Returns the render angles for the player.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Angle">The render angles of the player. Only **yaw** part of the angle seems to be present.</ret>
+	</rets>
+</function>

@@ -1,0 +1,11 @@
+<function name="OutExpo" parent="math.ease" type="libraryfunc">
+	<description>Eases out using an exponential equation with a base of 2 and where the fraction is used in the exponent.</description>
+	<realm>Shared and Menu</realm>
+	<file line="101-L103">lua/includes/extensions/math/ease.lua</file>
+	<args>
+		<arg name="fraction" type="number">Fraction of the progress to ease, from 0 to 1</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">"Eased" Value, from 0 to 1</ret>
+	</rets>
+</function>

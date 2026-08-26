@@ -1,0 +1,20 @@
+<function name="CanProperty" parent="ENTITY" type="hook">
+	<description>
+Controls if a property can be used on this entity or not.
+
+This hook will only work in Sandbox derived gamemodes that do not have <page>GM:CanProperty</page> overridden.
+
+<note>This hook will work on ALL entities, not just the scripted ones (SENTs)</note>
+	</description>
+	<realm>Shared</realm>
+	<file line="239-L241">gamemodes/sandbox/gamemode/shared.lua</file>
+	<args>
+		<arg name="ply" type="Player">Player, that tried to use the property</arg>
+		<arg name="property" type="string">Class of the property that is tried to use, for example - bonemanipulate</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return false to disallow using that property, return true to allow.
+
+You must return a value. Not returning anything can cause unexpected results.</ret>
+	</rets>
+</function>

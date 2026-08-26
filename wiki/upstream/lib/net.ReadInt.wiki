@@ -1,0 +1,17 @@
+<function name="ReadInt" parent="net" type="libraryfunc">
+	<description>
+Reads an integer from the received net message.
+
+<warning>You **must** read information in same order as you write it.</warning>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="bitCount" type="number">The amount of bits to be read.
+
+This must be set to what you set to <page>net.WriteInt</page>. Read more information at <page>net.WriteInt</page>.
+		</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The read integer number, or `0` if no integer could be read.</ret>
+	</rets>
+</function>

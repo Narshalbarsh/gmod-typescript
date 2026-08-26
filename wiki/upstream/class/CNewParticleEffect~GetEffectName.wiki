@@ -1,0 +1,7 @@
+<function name="GetEffectName" parent="CNewParticleEffect" type="classfunc">
+	<description>Returns the name of the particle effect this system is set to emit.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="string">The name of the particle effect.</ret>
+	</rets>
+</function>

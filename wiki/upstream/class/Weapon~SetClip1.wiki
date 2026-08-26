@@ -1,0 +1,7 @@
+<function name="SetClip1" parent="Weapon" type="classfunc">
+	<description>Lets you change the number of bullets in the given weapons primary clip.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="ammo" type="number">The amount of bullets the clip should contain</arg>
+	</args>
+</function>

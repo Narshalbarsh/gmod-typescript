@@ -1,0 +1,23 @@
+<function name="Chase" parent="PathFollower" type="classfunc">
+	<description>Computes the shortest path to the provided entity arg. PathFollower Object must have `Chase` type. 
+
+For PathFollower objects of the `Follow` type use <page>PathFollower:Compute</page></description>
+	<realm>Server</realm>
+	<args>
+		<arg name="bot" type="NextBot">The bot to update along the path. This can also be a nextbot player (<page>player.CreateNextbot</page>)</arg>
+		<arg name="ent" type="Entity">The entity we want to chase</arg>
+	
+		<arg name="generator" type="function" default="nil" added="2024.05.14">A function that allows you to alter the path generation. See example on <page>PathFollower:Compute</page> for the default function.
+
+<callback>
+	<arg name="area" type="CNavArea">The area to move to.</arg>
+	<arg name="fromArea" type="CNavArea">The area to move from.</arg>
+	<arg name="ladder" type="CNavLadder">The ladder to move to or from (Validation required), if any.</arg>
+	<arg name="elevator" type="Entity">Will probably be always NULL</arg>
+	<arg name="length" type="number">Precomputed length between `area` and `fromArea`.</arg>
+	<ret name="cost" type="number">The cost of movement between `area` and `fromArea`.</ret>
+</callback>
+
+		</arg>
+	</args>
+</function>

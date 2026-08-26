@@ -1,0 +1,10 @@
+<function name="OpenWorkshop" parent="steamworks" type="libraryfunc">
+	<description>Opens the workshop website in the steam overlay browser.</description>
+	<realm>Client and Menu</realm>
+</function>
+
+<example>
+	<description>An alternative to this function.</description>
+	<code>gui.OpenURL( "http://steamcommunity.com/app/4000/workshop/" )</code>
+
+</example>

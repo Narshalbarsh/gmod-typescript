@@ -1,0 +1,8 @@
+<function name="ToggleFavourite" parent="Global" type="libraryfunc">
+	<description>Toggles whether or not the named map is favorited in the new game list.</description>
+	<realm>Menu</realm>
+	<file line="423-439">lua/menu/getmaps.lua</file>
+	<args>
+		<arg name="map" type="string">Map to toggle favorite.</arg>
+	</args>
+</function>

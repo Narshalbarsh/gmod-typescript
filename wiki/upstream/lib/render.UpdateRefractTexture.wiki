@@ -1,0 +1,4 @@
+<function name="UpdateRefractTexture" parent="render" type="libraryfunc">
+	<description>Pretty much alias of <page>render.UpdatePowerOfTwoTexture</page> but does not return the texture.</description>
+	<realm>Client</realm>
+</function>

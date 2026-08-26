@@ -1,0 +1,82 @@
+<function name="Material" parent="Global" type="libraryfunc">
+	<description>
+Either returns the material with the given name, or loads the material interpreting the first argument as the path.
+
+## .png, .jpg and other image formats
+
+This function is capable to loading `.png` or `.jpg` images, generating a texture and material for them on the fly.
+
+PNG, JPEG, GIF, and TGA files will work, but only if they have the `.png` or `.jpg` file extensions (even if the actual image format doesn't match the file extension)
+
+Use <page>Global.AddonMaterial</page> for image files with the `.cache` file extension. (from <page>steamworks.Download</page>)
+
+While images are no longer scaled to Power of 2 (sizes of 8, 16, 32, 64, 128, etc.) sizes since February 2019, it is still a good practice for things like icons, etc.
+
+<warning>Server-side, this function can consistently return an invalid material (with '__error') depending on the file type loaded.</warning>
+
+<warning>This function is very expensive when used in rendering hooks or in operations requiring very frequent calls. It is a good idea to cache the material in a variable (like in the examples).</warning>
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="34-L49">lua/includes/util.lua</file>
+	<args>
+		<arg name="materialName" type="string">The material name or path relative to the `materials/` folder.  
+Paths outside the `materials/` folder like `data/MyImage.jpg` or `maps/thumb/gm_construct.png` will also work for when generating materials.
+
+To retrieve a Lua material created with <page>Global.CreateMaterial</page>, just prepend a `!` to the material name.</arg>
+		<arg name="pngParameters" type="string" default="nil">A string containing space separated keywords which will be used to add material parameters.
+
+See <page>Material Parameters</page> for more information.
+
+<note>This feature only works when importing `.png` or `.jpg` image files.</note></arg>
+	</args>
+	<rets>
+		<ret name="" type="IMaterial">Generated material.</ret>
+		<ret name="" type="number">How long it took for the function to run.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>
+Creates a PNG material with noclamp and smooth parameters set and then draws on screen.
+
+In this example the .png file is located in `materials/vgui/wave.png`.
+	</description>
+	<code>
+local wave = Material( "vgui/wave.png", "noclamp smooth" )
+
+hook.Add( "HUDPaint", "HUDPaint_DrawATexturedBox", function()
+	surface.SetMaterial( wave )
+	surface.SetDrawColor( 255, 255, 255, 255 )
+	surface.DrawTexturedRect( 50, 50, 128, 128 )
+end )
+	</code>
+
+</example>
+
+
+<example>
+	<description>Acquires and uses one of the <page>Post-Processing Materials</page> to make the screen darker and more saturated.</description>
+	<code>
+local mat_color = Material( "pp/colour" ) -- used outside of the hook for performance
+
+hook.Add("RenderScreenspaceEffects", "ColorExample", function()
+	render.UpdateScreenEffectTexture()
+
+	mat_color:SetTexture( "$fbtexture", render.GetScreenEffectTexture() )
+
+	mat_color:SetFloat( "$pp_colour_addr", 0 )
+	mat_color:SetFloat( "$pp_colour_addg", 0 )
+	mat_color:SetFloat( "$pp_colour_addb", 0 )
+	mat_color:SetFloat( "$pp_colour_mulr", 0 )
+	mat_color:SetFloat( "$pp_colour_mulg", 0 )
+	mat_color:SetFloat( "$pp_colour_mulb", 0 )
+	mat_color:SetFloat( "$pp_colour_brightness", 0 )
+	mat_color:SetFloat( "$pp_colour_contrast", 0.5 )
+	mat_color:SetFloat( "$pp_colour_colour", 5 )
+
+	render.SetMaterial( mat_color )
+	render.DrawScreenQuad()
+end )
+	</code>
+
+</example>

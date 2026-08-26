@@ -1,0 +1,8 @@
+<function name="GetCreationTabs" parent="spawnmenu" type="libraryfunc">
+	<description>Returns the list of Creation tabs. Creation tabs are added via <page>spawnmenu.AddCreationTab</page>.</description>
+	<realm>Client</realm>
+	<file line="192-L196">lua/includes/modules/spawnmenu.lua</file>
+	<rets>
+		<ret name="" type="table">The list of Creation tabs. See the <page>Structures/CreationMenus</page>.</ret>
+	</rets>
+</function>

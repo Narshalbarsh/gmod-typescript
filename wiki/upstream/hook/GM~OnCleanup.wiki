@@ -1,0 +1,22 @@
+<function name="OnCleanup" parent="GM" type="hook">
+	<description>Called when the player cleans up something.</description>
+	<realm>Client</realm>
+        <file line="76-L90">gamemodes/sandbox/gamemode/cl_init.lua</file>
+	<args>
+		<arg name="name" type="string">The name of the cleanup type</arg>
+	</args>
+	<rets>
+		<ret name="suppress" type="boolean">Return false to suppress the cleanup notification.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Print a message when the player cleans up something.</description>
+	<code>
+hook.Add( "OnCleanup", "PrintCleanupMessage", function( name )
+     print( "Cleaned up " .. name ) 
+end )
+	</code>
+	<output>Cleaned up &lt;type&gt;</output>
+
+</example>

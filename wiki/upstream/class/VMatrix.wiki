@@ -1,0 +1,17 @@
+<type name="VMatrix" category="classfunc" is="class">
+<summary>A 4x4 matrix.
+
+This page lists all possible functions to manipulate matrices.
+
+This object can be created by <page>Global.Matrix</page>.
+
+Metamethod | Second Operand | Description
+---------- | -------------- | -----------
+`__add` | <page>VMatrix</page> | Returns new <page>VMatrix</page> with the result of addition.
+`__eq` | <page>any</page> | Compares 2 operands, if they both are <page>VMatrix</page>, compares each individual component.
+`__mul` | <page>VMatrix</page> or <page>Vector</page> | Returns new <page>VMatrix</page> or <page>Vector</page> with the result of multiplication.
+`__sub` | <page>VMatrix</page> | Returns new <page>VMatrix</page> with the result of subtraction.
+`__tostring` |  | Returns a <page>string</page> in format `[%f,\t%f,\t%f,\t%f]\n[%f,\t%f,\t%f,\t%f]\n[%f,\t%f,\t%f,\t%f]\n[%f,\t%f,\t%f,\t%f]`.
+`__unm` | | Returns new <page>VMatrix</page> with the result of negation.
+</summary>
+</type>

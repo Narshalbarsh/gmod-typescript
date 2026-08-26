@@ -1,0 +1,14 @@
+<title>BalloonData</title>
+<structure>
+	<realm>Server</realm>
+	<description>Table structure used as balloon spawn data. Default values are applied when the trace hits nothing. This data is required for correctly spawning the balloon. 
+
+See <page>MakeBalloon</page>.
+</description>
+	<fields>
+<item name="Pos" type="Vector" default="Vector(0, 0, 0)">Where the balloon will spawn.</item>
+<item name="Model" type="string" default="models/error.mdl">The balloon’s model.</item>
+<item name="Skin" type="number" default="0">The balloon’s skin.</item>
+	</fields>
+
+</structure>

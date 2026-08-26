@@ -1,0 +1,63 @@
+<function name="SetFGColor" parent="Panel" type="classfunc">
+	<file line="18-L26">lua/includes/extensions/client/panel.lua</file>
+	<description>
+Sets the foreground color of a panel.
+
+For a <page>Label</page> or <page>RichText</page>, this is the color of its text.
+
+This function calls <page>Panel:SetFGColorEx</page> internally. 
+
+Please note that for most panels the engine will overwrite the foreground and background colors a frame after panel creation via the <page>PANEL:ApplySchemeSettings</page> hook, so you may want to set the color in that hook instead.
+
+See <page>Panel:SetBGColor</page> for the background color.
+
+<note>This doesn't apply to all VGUI elements (such as <page>DLabel</page>) and its function varies between them</note>
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="r" type="number">The red channel of the color.</arg>
+		<arg name="g" type="number">The green channel of the color.</arg>
+		<arg name="b" type="number">The blue channel of the color.</arg>
+		<arg name="a" type="number">The alpha channel of the color.</arg>
+	</args>
+	<args name="Use color object">
+		<arg name="color" type="Color">A <page>Color</page> object/table to read the color from. This is slower than providing four numbers. You could use <page>Color:Unpack</page> to address this. You should also cache your color objects if you wish to use them, for performance reasons.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Creates a <page>Label</page> and sets its text color to white.</description>
+	<code>
+local label = vgui.Create( "Label" )
+
+label:SetFGColor( Color( 255, 255, 255, 255 ) )
+	</code>
+
+</example>
+
+
+<example>
+	<description>Sets the foreground color of a <page>RichText</page> to match the chat box format.</description>
+	<code>
+-- Create a window frame
+TextFrame = vgui.Create("DFrame")
+TextFrame:SetSize(200, 50)
+TextFrame:Center()
+TextFrame:SetTitle("This is a color test")
+TextFrame:MakePopup()
+
+-- RichText panel
+local richtext = vgui.Create("RichText", TextFrame)
+richtext:Dock(FILL)
+
+-- Sample text
+richtext:SetText("Here is some light green text.")
+
+-- When the panel is ready for layout, make the text light green
+function richtext:PerformLayout()
+	self:SetFGColor(Color(153, 255, 153))
+end
+	</code>
+	<output><image src="RichText_SetFGColor_example1.png"/></output>
+
+</example>

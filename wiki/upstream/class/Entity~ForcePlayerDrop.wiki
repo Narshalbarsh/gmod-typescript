@@ -1,0 +1,7 @@
+<function name="ForcePlayerDrop" parent="Entity" type="classfunc">
+	<description>Forces the entity to be dropped, if it is being held by a player's Gravity Gun, Physics Gun or `+use` pickup.
+
+See also <page>Player:DropObject</page>.
+</description>
+	<realm>Shared</realm>
+</function>

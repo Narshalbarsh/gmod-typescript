@@ -1,0 +1,4 @@
+<function name="OnSpawnMenuOpen" parent="GM" type="hook">
+	<description>Called when a player presses the `+menu` bind on their keyboard, which is bound to <key>Q</key> by default.</description>
+	<realm>Client</realm>
+</function>

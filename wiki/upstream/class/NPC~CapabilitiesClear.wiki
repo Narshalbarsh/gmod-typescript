@@ -1,0 +1,10 @@
+<function name="CapabilitiesClear" parent="NPC" type="classfunc">
+	<description>Removes all of Capabilities the NPC has.</description>
+	<realm>Server</realm>
+</function>
+
+<example>
+	<description>Removes all of the Capabilities that the NPC has.</description>
+	<code>self:CapabilitiesClear()</code>
+
+</example>

@@ -1,0 +1,8 @@
+<function name="StartDragging" parent="dragndrop" type="libraryfunc">
+	<description>
+<internal></internal>
+Starts the drag'n'drop.
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="78-L111">lua/includes/extensions/client/panel/dragdrop.lua</file>
+</function>

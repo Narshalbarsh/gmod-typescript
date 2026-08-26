@@ -1,0 +1,9 @@
+<function name="GetModelName" parent="SpawnIcon" type="panelfunc">
+	<description>
+Returns the currently set model name. This is set by <page>SpawnIcon:SetModelName</page>.
+	</description>
+	<realm>Client</realm>
+	<rets>
+		<ret type="string">The model name</ret>
+	</rets>
+</function>

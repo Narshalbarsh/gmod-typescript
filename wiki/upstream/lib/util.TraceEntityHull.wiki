@@ -1,0 +1,13 @@
+<function name="TraceEntityHull" parent="util" type="libraryfunc">
+	<description>
+Identical to <page>util.TraceHull</page> but uses an entity's [Axis-Aligned Bounding Box (AABB)](https://en.wikipedia.org/wiki/Minimum_bounding_box) for `mins`/`maxs` inputs. (These 2 keys will be ignored in the provided table)
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="tracedata" type="table{HullTrace}">Trace data. See <page>Structures/HullTrace</page></arg>
+		<arg name="ent" type="Entity">The entity to use mins/maxs of for the hull trace.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table{TraceResult}">Trace result. See <page>Structures/TraceResult</page></ret>
+	</rets>
+</function>

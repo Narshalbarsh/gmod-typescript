@@ -1,0 +1,11 @@
+<function name="ResetToDefaultValue" parent="DSlider" type="panelhook">
+	<description>
+This function is called by the <page>DSlider</page> when user middle mouse clicks on the draggable knob of the slider.
+
+You are meant to override this function to do reset the slider to desired defaults on both axes.
+
+By default, will reset the slider to `0.5` on both axes.
+	</description>
+	<added>2024.05.02</added>
+	<realm>Client and Menu</realm>
+</function>

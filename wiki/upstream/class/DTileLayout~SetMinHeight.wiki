@@ -1,0 +1,7 @@
+<function name="SetMinHeight" parent="DTileLayout" type="panelfunc">
+	<description>Determines the minimum height the DTileLayout will resize to. This is useful if child panels will be added/removed often.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="minH" type="number">The minimum height the panel can shrink to.</arg>
+	</args>
+</function>

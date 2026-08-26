@@ -1,0 +1,15 @@
+<function name="MakePhysicsObjectAShadow" parent="Entity" type="classfunc">
+	<description>
+Turns the <page>Entity:GetPhysicsObject</page> into a physics shadow.
+It's used internally for the Player's and NPC's physics object, and certain HL2 entities such as the crane.
+
+A physics shadow can be used to have static entities that never move by setting both arguments to false.
+
+<note>Unlike <page>Entity:PhysicsInitShadow</page>, this function doesn't remove the current physics object.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="allowPhysicsMovement" type="boolean" default="true">Whether to allow the physics shadow to move under stress.</arg>
+		<arg name="allowPhysicsRotation" type="boolean" default="true">Whether to allow the physics shadow to rotate under stress.</arg>
+	</args>
+</function>

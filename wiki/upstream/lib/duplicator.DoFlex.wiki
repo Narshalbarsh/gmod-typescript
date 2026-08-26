@@ -1,0 +1,10 @@
+<function name="DoFlex" parent="duplicator" type="libraryfunc">
+	<description>Restores the flex data using <page>Entity:SetFlexWeight</page> and <page>Entity:SetFlexScale</page>.</description>
+	<realm>Server</realm>
+	<file line="436-L449">lua/includes/modules/duplicator.lua</file>
+	<args>
+		<arg name="ent" type="Entity">The entity to restore the flexes on.</arg>
+		<arg name="flex" type="table">The flexes to restore.</arg>
+		<arg name="scale" type="number" default="nil">The flex scale to apply. (Flex scale is unchanged if omitted)</arg>
+	</args>
+</function>

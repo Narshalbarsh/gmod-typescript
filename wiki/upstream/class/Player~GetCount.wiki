@@ -1,0 +1,38 @@
+<function name="GetCount" parent="Player" type="classfunc">
+	<description><note>This function is only available in Sandbox and its derivatives.</note>Gets the total amount of entities of an entity type added by <page>Player:AddCount</page>.
+
+Default types:
+```
+balloons
+buttons
+cameras
+dynamite
+effects
+emitters
+hoverballs
+lamps
+lights
+npcs
+props
+ragdolls
+sents
+thrusters
+vehicles
+wheels
+```</description>
+	<realm>Shared</realm>
+	<file line="34-L70">gamemodes/sandbox/gamemode/player_extension.lua</file>
+	<args>
+		<arg name="type" type="string">Type to get entity count of.</arg>
+		<arg name="minus" type="number" default="0">If specified, it will reduce the counter by this value. Works only serverside.</arg>
+	</args>
+	<rets>
+		<ret name="count" type="number">The returned count.</ret>
+	</rets>
+</function>
+
+<example>
+<code>
+print( Entity(1):GetCount("props") )
+</code>
+</example>

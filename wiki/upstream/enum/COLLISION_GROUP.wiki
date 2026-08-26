@@ -1,0 +1,31 @@
+<enum>
+	<realm>Shared</realm>
+	<description>Enumerations used by <page>Entity:SetCollisionGroup</page>, <page>Entity:GetCollisionGroup</page> and <page text="Traces">Structures/Trace#collisiongroup</page>.</description>
+	<items>
+<item key="COLLISION_GROUP_NONE" value="0">Normal</item>
+<item key="COLLISION_GROUP_DEBRIS" value="1">Collides with nothing but world and static stuff</item>
+<item key="COLLISION_GROUP_DEBRIS_TRIGGER" value="2">Same as debris, but hits triggers. Useful for an item that can be shot, but doesn't collide.</item>
+<item key="COLLISION_GROUP_INTERACTIVE_DEBRIS" value="3">Collides with everything except other interactive debris or debris</item>
+<item key="COLLISION_GROUP_INTERACTIVE" value="4">Collides with everything except interactive debris or debris</item>
+<item key="COLLISION_GROUP_PLAYER" value="5">Used by players, but NOT for movement collision. Does not collide with COLLISION_GROUP_PASSABLE_DOOR and COLLISION_GROUP_PUSHAWAY</item>
+<item key="COLLISION_GROUP_BREAKABLE_GLASS" value="6">NPCs can see straight through an Entity with this applied.</item>
+<item key="COLLISION_GROUP_VEHICLE" value="7">Used by driveable vehicles. Always collides against COLLISION_GROUP_VEHICLE_CLIP</item>
+<item key="COLLISION_GROUP_PLAYER_MOVEMENT" value="8">For HL2, same as Collision_Group_Player, for TF2, this filters out other players and CBaseObjects</item>
+<item key="COLLISION_GROUP_NPC" value="9">Generic NPC group</item>
+<item key="COLLISION_GROUP_IN_VEHICLE" value="10">Doesn't collide with anything, no traces</item>
+<item key="COLLISION_GROUP_WEAPON" value="11">Doesn't collide with players and vehicles</item>
+<item key="COLLISION_GROUP_VEHICLE_CLIP" value="12">Only collides with vehicles</item>
+<item key="COLLISION_GROUP_PROJECTILE" value="13">	Set on projectiles. Does not collide with other projectiles.</item>
+<item key="COLLISION_GROUP_DOOR_BLOCKER" value="14">Blocks entities not permitted to get near moving doors</item>
+<item key="COLLISION_GROUP_PASSABLE_DOOR" value="15">Lets the Player through, nothing else.</item>
+<item key="COLLISION_GROUP_DISSOLVING" value="16">Things that are dissolving are in this group</item>
+<item key="COLLISION_GROUP_PUSHAWAY" value="17">Nonsolid on client and server, pushaway in player code</item>
+<item key="COLLISION_GROUP_NPC_ACTOR" value="18">Used so NPCs in scripts ignore the player</item>
+<item key="COLLISION_GROUP_NPC_SCRIPTED" value="19">Used for NPCs in scripts that should not collide with each other</item>
+<item key="COLLISION_GROUP_WORLD" value="20">Doesn't collide with players/props</item>
+<item key="LAST_SHARED_COLLISION_GROUP" value="21">Amount of COLLISION_GROUP_ enumerations</item>
+
+<item key="COLLISION_GROUP_HL2_SPIT" value="22" added="2025.12.18">Half-Life 2 exclusive collision group, acts similarly to `COLLISION_GROUP_PROJECTILE` but is also ignored by player movement.</item>
+	</items>
+
+</enum>

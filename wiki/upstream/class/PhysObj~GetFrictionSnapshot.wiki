@@ -1,0 +1,17 @@
+<function name="GetFrictionSnapshot" parent="PhysObj" type="classfunc">
+	<description>Returns the friction snapshot of this physics object. This is useful for determining if an object touching ground for example.</description>
+	<realm>Server</realm>
+<added>2020.03.17</added>
+	<rets>
+		<ret name="" type="table">A table of tables containing the following data:
+* <page>PhysObj</page> Other - The other physics object we came in contact with
+* <page>number</page> EnergyAbsorbed - 
+* <page>number</page> FrictionCoefficient - 
+* <page>number</page> NormalForce - 
+* <page>Vector</page> Normal - Direction of the friction event
+* <page>Vector</page> ContactPoint - Contact point of the friction event
+* <page>number</page> Material - Surface Property ID of our physics obj
+* <page>number</page> MaterialOther - Surface Property ID of the physics obj we came in contact with
+</ret>
+	</rets>
+</function>

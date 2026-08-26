@@ -1,0 +1,30 @@
+<function name="GetOptionText" parent="DComboBox" type="panelfunc">
+	<description>Returns an option's text based on the given index.</description>
+	<realm>Client and Menu</realm>
+	<file line="42-L46">lua/vgui/dcombobox.lua</file>
+	<args>
+		<arg name="index" type="number">The option index.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The option's text value.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Create a combo box listing some colors and print the 3rd option's text.</description>
+	<code>
+local cbox = vgui.Create("DComboBox")
+cbox:SetPos(5, 5)
+cbox:SetSize(200, 20)
+
+cbox:SetValue("Colors")
+cbox:AddChoice("Red")
+cbox:AddChoice("Green")
+cbox:AddChoice("Blue")
+cbox:AddChoice("Yellow")
+
+print(cbox:GetOptionText(3))
+	</code>
+	<output>Blue</output>
+
+</example>

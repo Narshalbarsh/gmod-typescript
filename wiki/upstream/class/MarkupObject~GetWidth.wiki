@@ -1,0 +1,7 @@
+<function name="GetWidth" parent="MarkupObject" type="classfunc">
+	<description>Gets computed the width of the markupobject.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="Width" type="number">The computed width.</ret>
+	</rets>
+</function>

@@ -1,0 +1,7 @@
+<function name="GetEndSize" parent="CLuaParticle" type="classfunc">
+	<description>Returns the size that the particle will reach on its death.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">The size the particle will reach</ret>
+	</rets>
+</function>

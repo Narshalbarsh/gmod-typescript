@@ -1,0 +1,7 @@
+<function name="SetAirResistance" parent="CLuaParticle" type="classfunc">
+	<description>Sets the air resistance of the the particle.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="airResistance" type="number">New air resistance.</arg>
+	</args>
+</function>

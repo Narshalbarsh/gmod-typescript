@@ -1,0 +1,12 @@
+<function name="FindInBox" parent="navmesh" type="libraryfunc">
+	<description>Returns a list of <page>CNavArea</page>s overlapping the given cube extents.</description>
+	<realm>Server</realm>
+	<added>2023.10.25</added>
+	<args>
+		<arg name="pos1" type="Vector">The start position of the cube to search in.</arg>
+		<arg name="pos2" type="Vector">The "end" position of the cube to search in. This is the opposite corner of the cube, diagonally.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">A list of found <page>CNavArea</page>s.</ret>
+	</rets>
+</function>

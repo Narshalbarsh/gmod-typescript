@@ -1,0 +1,28 @@
+<function name="GetSequenceGroundSpeed" parent="Entity" type="classfunc">
+	<description>Returns the ground speed of the entity's sequence.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="sequenceId" type="number">The sequence ID.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The ground speed of this sequence.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>
+Move the <page>NextBot</page> based on the ground speed of its walking animation (within its <page>coroutine</page>).
+
+<note>In most cases it's better to use <page>NextBot:BodyMoveXY</page> instead.</note>
+	</description>
+	<code>
+local sequence = self:LookupSequence( "walk_all" )
+
+if ( sequence ) then
+	self:StartActivity( ACT_WALK )
+	self:SetSequence( sequence )
+	self.loco:SetDesiredSpeed( self:GetSequenceGroundSpeed( sequence ) )
+end
+	</code>
+
+</example>

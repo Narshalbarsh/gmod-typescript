@@ -1,0 +1,29 @@
+<function name="band" parent="bit" type="libraryfunc">
+	<description>Performs the bitwise `and` for all values specified.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="value" type="number">The value to be manipulated.</arg>
+		<arg name="..." type="vararg">Values bit to perform bitwise "and" with. Optional.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">Result of bitwise "and" operation.</ret>
+	</rets>
+</function>
+
+<example>
+	<code>
+local a = 170    -- 10101010 in binary form
+local b = 146    -- 10010010 in binary form
+print( bit.band( a, b ) )
+	</code>
+	<output>130 (10000010 in binary form)</output>
+</example>
+
+<example>
+	<description>Tests for a specific damage type.</description>
+	<code>
+local myDamage = bit.bor( DMG_BULLET, DMG_RADIATION )
+local isBulletDamage = bit.band( myDamage, DMG_BULLET ) == DMG_BULLET 
+print( isBulletDamage )
+	</code>
+</example>

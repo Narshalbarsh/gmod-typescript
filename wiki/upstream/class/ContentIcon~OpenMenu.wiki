@@ -1,0 +1,5 @@
+<function name="OpenMenu" parent="ContentIcon" type="panelfunc">
+	<description>A hook for override, by default does nothing. Called when user right clicks on the content icon, you are supposed to open a <page>Global.DermaMenu</page> here with additional options.</description>
+	<realm>Client</realm>
+	<file line="104-L105">gamemodes/sandbox/gamemode/spawnmenu/creationmenu/content/contenticon.lua</file>
+</function>

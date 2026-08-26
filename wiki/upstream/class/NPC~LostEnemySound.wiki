@@ -1,0 +1,4 @@
+<function name="LostEnemySound" parent="NPC" type="classfunc">
+	<description>Force an NPC to play their LostEnemy sound.</description>
+	<realm>Server</realm>
+</function>

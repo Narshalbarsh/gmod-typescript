@@ -1,0 +1,10 @@
+<function name="VectorNormal" parent="umsg" type="libraryfunc">
+	<description>
+<deprecated>You should be using the <page>net</page> instead</deprecated>
+
+Writes a vector normal to the usermessage.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="normal" type="Vector">The vector normal to be sent.</arg>
+	</args>
+</function>

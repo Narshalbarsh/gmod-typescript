@@ -1,0 +1,11 @@
+<function name="HasConstraints" parent="constraint" type="libraryfunc">
+	<description>Returns true if the entity has constraints attached to it</description>
+	<realm>Server</realm>
+	<file line="1502-L1524">lua/includes/modules/constraint.lua</file>
+	<args>
+		<arg name="ent" type="Entity">The entity to check.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether the entity has any constraints or not.</ret>
+	</rets>
+</function>

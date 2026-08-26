@@ -1,0 +1,11 @@
+<function name="SetAngles" parent="ProjectedTexture" type="classfunc">
+	<description>
+Sets the angles (direction) of the projected texture.
+
+You must call <page>ProjectedTexture:Update</page> after using this function for it to take effect.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="angle" type="Angle"></arg>
+	</args>
+</function>

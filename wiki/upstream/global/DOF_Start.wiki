@@ -1,0 +1,8 @@
+<function name="DOF_Start" parent="Global" type="libraryfunc">
+	<description>
+Cancels any existing DOF post-process effects.
+Begins the DOF post-process effect.
+	</description>
+	<realm>Client</realm>
+	<file line="32-L46">lua/postprocess/dof.lua</file>
+</function>

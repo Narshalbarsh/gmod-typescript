@@ -1,0 +1,7 @@
+<function name="WriteDouble" parent="File" type="classfunc">
+	<description>Writes an 8-byte little-endian IEEE-754 floating point double to the file.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="double" type="number">The double to be written to the file.</arg>
+	</args>
+</function>

@@ -1,0 +1,8 @@
+<function name="GetNearestSquadMember" parent="NPC" type="classfunc">
+	<description>Returns the nearest member of the squad the NPC is in.</description>
+	<realm>Server</realm>
+	<added>2021.01.27</added>
+	<rets>
+		<ret name="nearest_member" type="NPC">The nearest member of the squad the NPC is in.</ret>
+	</rets>
+</function>

@@ -1,0 +1,17 @@
+<function name="EntityTextAtPosition" parent="debugoverlay" type="libraryfunc">
+	<description>
+Displays 2D text at the specified coordinates.
+
+<note>This function will silently fail if the `developer` <page>ConVar</page> is set to `0`.  
+It is not networked to clients, except for the <page text="listen server host">Player:IsListenServerHost</page>.  
+It will not work when the game is paused.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="pos" type="Vector">The position in 3D to display the text.</arg>
+		<arg name="line" type="number">Line of text, will offset text on the to display the new line unobstructed.</arg>
+		<arg name="text" type="string">The text to display.</arg>
+		<arg name="lifetime" type="number" default="1">Number of seconds to appear.</arg>
+		<arg name="color" type="Color" default="Color( 255, 255, 255 )">The color of the box.</arg>
+	</args>
+</function>

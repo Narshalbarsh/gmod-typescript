@@ -1,0 +1,54 @@
+<function name="tonumber" parent="Global" type="libraryfunc">
+	<description>
+Converts strings containing numbers into actual <page>number</page>s.  
+
+Can also convert numbers from other [numerical bases](https://www.mathsisfun.com/numbers/bases.html) to base 10.
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="value" type="string">
+The value to be converted.  
+
+This string can contain digits from `0` to `9` (inclusive) for numerical bases from `2` to `10` (inclusive), and from `0` to `z` for bases greater than `10`.
+
+The maximum value depends on the specific base value provided, for example for base 3 `0, 1, 2` are permitted. For base 11, `0-9` and `a` are permitted.
+		</arg>
+		<arg name="base" type="number" default="10">
+			The numerical base of the digits in the input value.  
+			Must be an integer between `2` and `36` (inclusive)
+		</arg>
+	</args>
+	<rets>
+		<ret name="" type="number|nil">
+			The base `10` number representation of the input value, or `nil` if the conversion failed.
+		</ret>
+	</rets>
+</function>
+
+<example name="String to number">
+	<description>
+		Converts a <page>string</page> into a <page>number</page>
+	</description>
+	<code>
+print( tonumber( "123" ) )
+	</code>
+	<output>
+		`123`
+	</output>
+</example>
+
+<example name="Number base conversions">
+	<description>
+		Converts a hexadecimal (base `16`) and a binary (base `2`) <page>string</page> into a base `10` <page>number</page>.
+	</description>
+	<code>
+print( tonumber( "2CA88D", 16 ) ) -- 2926733
+print( tonumber( "10010110", 2 ) ) -- 150
+	</code>
+	<output>
+```
+2926733
+150
+```
+	</output>
+</example>

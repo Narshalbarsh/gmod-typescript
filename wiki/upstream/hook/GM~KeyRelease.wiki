@@ -1,0 +1,28 @@
+<function name="KeyRelease" parent="GM" type="hook">
+	<description>
+Runs when a IN key was released by a player.
+
+For a more general purpose function that handles all kinds of input, see <page>GM:PlayerButtonUp</page>.
+See <page>GM:KeyPress</page> for the key press event.
+
+Despite being a predicted hook, it will still be called in singleplayer for your convenience.
+	</description>
+	<realm>Shared</realm>
+	<predicted>Yes</predicted>
+	<args>
+		<arg name="ply" type="Player">The player releasing the key. If running client-side, this will always be <page>Global.LocalPlayer</page>.</arg>
+		<arg name="key" type="number">The key that the player released using <page>Enums/IN</page>.</arg>
+	</args>
+</function>
+
+<example>
+	<description>`hi` will be printed to the console when the player releases the <key>+USE</key> key (<key>E</key>).</description>
+	<code>
+hook.Add( "KeyRelease", "UseExample", function( ply, key )
+    if ( key == IN_USE ) then
+        print( "hi" )
+    end
+end )
+	</code>
+	<output>hi</output>
+</example>

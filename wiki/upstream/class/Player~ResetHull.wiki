@@ -1,0 +1,4 @@
+<function name="ResetHull" parent="Player" type="classfunc">
+	<description>Resets both normal and duck hulls to their default values.</description>
+	<realm>Shared</realm>
+</function>

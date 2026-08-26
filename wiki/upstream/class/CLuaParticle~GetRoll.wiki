@@ -1,0 +1,7 @@
+<function name="GetRoll" parent="CLuaParticle" type="classfunc">
+	<description>Returns the current rotation of the particle in radians, this should only be used for 2D particles.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">The current rotation of the particle in radians</ret>
+	</rets>
+</function>

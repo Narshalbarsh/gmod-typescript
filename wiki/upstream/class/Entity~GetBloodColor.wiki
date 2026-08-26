@@ -1,0 +1,7 @@
+<function name="GetBloodColor" parent="Entity" type="classfunc">
+	<description>Returns the blood color of this entity. This can be set with <page>Entity:SetBloodColor</page>.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number{BLOOD_COLOR}">Color from <page>Enums/BLOOD_COLOR</page> or <page>nil</page></ret>
+	</rets>
+</function>

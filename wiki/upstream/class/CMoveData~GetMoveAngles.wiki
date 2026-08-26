@@ -1,0 +1,7 @@
+<function name="GetMoveAngles" parent="CMoveData" type="classfunc">
+	<description>Returns the angle the player is moving at. For more info, see <page>CMoveData:SetMoveAngles</page>.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Angle">The move direction</ret>
+	</rets>
+</function>

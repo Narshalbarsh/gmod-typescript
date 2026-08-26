@@ -1,0 +1,27 @@
+<function name="SetAmbientLight" parent="DModelPanel" type="panelfunc">
+	<description>Sets the ambient lighting used on the rendered entity.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="color" type="Color">The color of the ambient lighting.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Displays a model panel with a watermelon that has red ambient lighting.</description>
+	<code>
+BGPanel = vgui.Create("DPanel")
+BGPanel:SetPos(20, 20)
+BGPanel:SetSize(200, 200)
+	
+local mdl = vgui.Create("DModelPanel", BGPanel)
+mdl:SetSize(BGPanel:GetSize())
+mdl:SetModel("models/props_junk/watermelon01.mdl")
+
+mdl:SetCamPos(Vector(15, 15, 0))
+mdl:SetLookAt(Vector(0, 0, 0))
+
+mdl:SetAmbientLight(Color(255, 0, 0, 255))
+	</code>
+	<output><image src="DModelPanel_SetAmbientLight_example1.jpg"/></output>
+
+</example>

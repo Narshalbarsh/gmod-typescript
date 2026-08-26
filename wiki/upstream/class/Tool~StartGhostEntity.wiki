@@ -1,0 +1,8 @@
+<function name="StartGhostEntity" parent="Tool" type="classfunc">
+	<description>Initializes the ghost entity based on the supplied entity.</description>
+	<realm>Shared</realm>
+	<file line="54">gamemodes/sandbox/entities/weapons/gmod_tool/ghostentity.lua</file>
+	<args>
+		<arg name="ent" type="Entity">The entity to copy ghost parameters off</arg>
+	</args>
+</function>

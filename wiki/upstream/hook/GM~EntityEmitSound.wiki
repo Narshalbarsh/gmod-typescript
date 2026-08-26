@@ -1,0 +1,50 @@
+<function name="EntityEmitSound" parent="GM" type="hook">
+	<description>
+Called whenever a sound has been played. This will not be called clientside if the server played the sound without the client also calling <page>Entity:EmitSound</page>.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="data" type="table">Information about the played sound. Changes done to this table can be applied by returning `true` from this hook.
+
+See <page>Structures/EmitSoundInfo</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">
+* Return `true` to apply all changes done to the data table.
+* Return `false` to prevent the sound from playing.
+* Return `nil` or nothing to play the sound without altering it.
+		</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Slows down all sounds to reflect <page>game.SetTimeScale</page>.</description>
+	<code>
+local cheats = GetConVar( "sv_cheats" )
+local timeScale = GetConVar( "host_timescale" )
+
+hook.Add( "EntityEmitSound", "TimeWarpSounds", function( t )
+	
+	local p = t.Pitch
+	
+	if ( game.GetTimeScale() ~= 1 ) then
+		p = p * game.GetTimeScale()
+	end
+	
+	if ( timeScale:GetFloat() ~= 1 and cheats:GetBool() ) then
+		p = p * timeScale:GetFloat()
+	end
+	
+	if ( p ~= t.Pitch ) then
+		t.Pitch = math.Clamp( p, 0, 255 )
+		return true
+	end
+	
+	if ( CLIENT and engine.GetDemoPlaybackTimeScale() ~= 1 ) then
+		t.Pitch = math.Clamp( t.Pitch * engine.GetDemoPlaybackTimeScale(), 0, 255 )
+		return true
+	end
+	
+end )
+	</code>
+</example>

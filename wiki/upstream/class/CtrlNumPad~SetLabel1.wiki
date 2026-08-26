@@ -1,0 +1,8 @@
+<function name="SetLabel1" parent="CtrlNumPad" type="panelfunc">
+	<description>The label for the left key binder.</description>
+	<realm>Client</realm>
+	<file line="29-L32">gamemodes/sandbox/gamemode/spawnmenu/controls/ctrlnumpad.lua</file>
+	<args>
+		<arg name="txt" type="string">The label for the left key binder.</arg>
+	</args>
+</function>

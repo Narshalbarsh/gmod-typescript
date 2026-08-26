@@ -1,0 +1,8 @@
+<function name="DoLoadMaterial" parent="DImage" type="panelfunc">
+	<description>
+<internal></internal>
+
+Actually loads the <page>IMaterial</page> to render it. Called from <page>DImage:LoadMaterial</page>.
+	</description>
+	<realm>Client and Menu</realm>
+</function>

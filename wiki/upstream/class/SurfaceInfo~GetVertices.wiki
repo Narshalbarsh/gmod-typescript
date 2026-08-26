@@ -1,0 +1,7 @@
+<function name="GetVertices" parent="SurfaceInfo" type="classfunc">
+	<description>Returns a list of vertices the brush surface is built from.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="table<Vector>">A list of <page>Vector</page> points. This will usually be 4 corners of a quadrilateral in counter-clockwise order.</ret>
+	</rets>
+</function>

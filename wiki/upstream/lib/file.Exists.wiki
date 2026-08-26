@@ -1,0 +1,24 @@
+<function name="Exists" parent="file" type="libraryfunc">
+	<description>
+		Returns a boolean of whether the file or directory exists or not.    
+		If you want to check for a directory, <page>file.IsDir</page> will be faster since it won't check for files.  
+    </description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="name" type="string">The file or directory's name. ( You must include the file extension for files, for example "data.txt" )</arg>
+		<arg name="gamePath" type="string">The path to look for the files and directories in. See <page text="this list">File_Search_Paths</page> for a list of valid paths.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Returns `true` if the file exists and `false` if it does not.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints whether the `data` folder exists in the base directory.</description>
+	<code>print( file.Exists( "data", "GAME" ) )</code>
+	<output>
+```
+true
+```
+	</output>
+</example>

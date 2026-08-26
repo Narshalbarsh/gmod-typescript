@@ -1,0 +1,24 @@
+<function name="GetValue" parent="Panel" type="classfunc">
+	<description>
+Returns the value the panel holds.
+
+In engine is only implemented for <page>CheckButton</page>, <page>Label</page> and <page>TextEntry</page> as a string.
+
+<note>This function is limited to 8092 Bytes. If using <page>DTextEntry</page>, use <page>Panel:GetText</page> for unlimited bytes.</note>
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="any">The value the panel holds.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Returns the string typed in a TextEntry.</description>
+	<code>
+local TextEntry = vgui.Create( "TextEntry" )
+TextEntry:SetText( "Hello world!" )
+print( TextEntry:GetValue() )
+	</code>
+	<output>"Hello world!"</output>
+
+</example>

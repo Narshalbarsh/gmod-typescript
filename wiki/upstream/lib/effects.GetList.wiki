@@ -1,0 +1,9 @@
+<function name="GetList" parent="effects" type="libraryfunc">
+	<description><internal></internal>Returns a list of all Lua-defined effects.</description>
+	<realm>Client</realm>
+	<file line="73-L81">lua/includes/modules/effects.lua</file>
+	<added>2020.04.29</added>
+	<rets>
+		<ret name="" type="table">The effects table.</ret>
+	</rets>
+</function>

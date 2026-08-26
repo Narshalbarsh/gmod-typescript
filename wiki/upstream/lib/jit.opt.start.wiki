@@ -1,0 +1,20 @@
+<function name="opt.start" parent="jit" type="libraryfunc">
+	<description>
+JIT compiler optimization control. The opt sub-module provides the backend for the -O command line LuaJIT option.
+You can also use it programmatically, e.g.:
+
+```
+jit.opt.start(2) -- same as -O2
+jit.opt.start("-dce")
+jit.opt.start("hotloop=10", "hotexit=2")
+```
+
+	A list of LuaJIT -O command line options can be found here(a table of various optimization levels are displayed towards the bottom of the page along with exactly which optimization options are enabled for each level): http://luajit.org/running.html
+
+
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="args" type="vararg"></arg>
+	</args>
+</function>

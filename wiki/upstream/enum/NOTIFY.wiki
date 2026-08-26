@@ -1,0 +1,16 @@
+<enum>
+	<realm>Client and Menu</realm>
+	<description>Enumerations used by <page>notification.AddLegacy</page>. Clientside only.</description>
+	<items>
+<item key="NOTIFY_GENERIC" value="0"><image src="NOTIFY_GENERIC_PREVIEW.png" alt="middle"/> Generic notification</item>
+
+<item key="NOTIFY_ERROR" value="1"><image src="NOTIFY_ERROR_PREVIEW.png" alt="middle"/> Error notification</item>
+
+<item key="NOTIFY_UNDO" value="2"><image src="NOTIFY_UNDO_PREVIEW.png" alt="middle"/> Undo notification</item>
+
+<item key="NOTIFY_HINT" value="3"><image src="NOTIFY_HINT_PREVIEW.png" alt="middle"/> Hint notification</item>
+
+<item key="NOTIFY_CLEANUP" value="4"><image src="NOTIFY_CLEANUP_PREVIEW.png" alt="middle"/> Cleanup notification</item>
+	</items>
+
+</enum>

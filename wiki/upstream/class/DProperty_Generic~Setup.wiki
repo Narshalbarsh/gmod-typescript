@@ -1,0 +1,7 @@
+<function name="Setup" parent="DProperty_Generic" type="panelfunc">
+	<description>Sets up a generic control for use by <page>DProperties</page>.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="data" type="table">See <page>Editable Entities</page>.</arg>
+	</args>
+</function>

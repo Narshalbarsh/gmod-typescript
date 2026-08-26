@@ -1,0 +1,9 @@
+<function name="StartActivity" parent="NextBot" type="classfunc">
+	<description>Start doing an activity (animation).
+
+This function may not produce the desired result if <page>Entity:SetModel</page> has not yet been called on the nextbot entity</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="activity" type="number">One of the <page>Enums/ACT</page></arg>
+	</args>
+</function>

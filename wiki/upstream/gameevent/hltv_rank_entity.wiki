@@ -1,0 +1,30 @@
+<cat>gameevent</cat>
+<title>hltv_rank_entity</title>
+
+<structure>
+	<realm>Server</realm>
+	<description>
+			Called when the HLTV ranks all players.
+	</description>
+	<fields>
+		<item type="number" name="index">The <page text="EntIndex">Entity:EntIndex</page> of the Entity.</item>
+		<item type="number" name="rank">The rank.</item>
+		<item type="number" name="target">The <page text="EntIndex">Entity:EntIndex</page> of the Target.</item>
+	</fields>
+</structure>
+
+# Examples
+<example>
+	<description>This is a basic template with the purpose of including all arguments / table variables to make it easily known which values can be accessed.</description>
+	<code>
+gameevent.Listen( "hltv_rank_entity" )
+hook.Add( "hltv_rank_entity", "hltv_rank_entity_example", function( data )
+	local index = data.index	-- The Entity:EntIndex() of the Entity
+	local rank = data.rank		-- The rank
+	local target = data.target	-- The Entity:EntIndex() of the Target
+
+	-- Called when the HLTV ranks all players
+	
+end )
+	</code>
+</example>

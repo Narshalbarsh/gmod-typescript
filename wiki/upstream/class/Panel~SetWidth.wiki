@@ -1,0 +1,15 @@
+<function name="SetWidth" parent="Panel" type="classfunc">
+	<file line="53-L55">lua/includes/extensions/client/panel.lua</file>
+	<description>
+Sets the width of the panel.
+
+Calls <page>PANEL:OnSizeChanged</page> and marks this panel for layout (<page>Panel:InvalidateLayout</page>).
+Automatically rounds the width down
+
+See also <page>Panel:SetSize</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="width" type="number">The new width of the panel.</arg>
+	</args>
+</function>

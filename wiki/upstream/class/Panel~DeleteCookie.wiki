@@ -1,0 +1,8 @@
+<function name="DeleteCookie" parent="Panel" type="classfunc">
+	<file line="238-L245">lua/includes/extensions/client/panel.lua</file>
+	<description>Deletes a cookie value using the panel's cookie name ( <page>Panel:GetCookieName</page> ) and the passed extension.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="cookieName" type="string">The unique cookie name to delete.</arg>
+	</args>
+</function>

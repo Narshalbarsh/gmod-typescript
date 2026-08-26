@@ -1,0 +1,12 @@
+<enum>
+	<realm>Shared</realm>
+	<description>Enumerations used by <page>Entity:SetMoveCollide</page> and <page>Entity:GetMoveCollide</page>.</description>
+	<items>
+<item key="MOVECOLLIDE_DEFAULT" value="0">Default behavior</item>
+<item key="MOVECOLLIDE_FLY_BOUNCE" value="1">Entity bounces, reflects, based on elasticity of surface and object - applies friction (adjust velocity)</item>
+<item key="MOVECOLLIDE_FLY_CUSTOM" value="2"><page>ENTITY:ResolveCustomFlyCollision</page> will modify the velocity however it likes</item>
+<item key="MOVECOLLIDE_FLY_SLIDE" value="3">Entity slides along surfaces (no bounce) - applies friciton (adjusts velocity)</item>
+<item key="MOVECOLLIDE_COUNT" value="4">Number of different movecollides</item>
+	</items>
+
+</enum>

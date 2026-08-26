@@ -1,0 +1,6 @@
+<function name="FindBestActive" parent="DPanelSelect" type="panelhook">
+	<description><internal></internal>
+
+Used internally by <page>DPanelSelect:AddPanel</page> to select the best default selected panel based on player's convars.</description>
+	<realm>Client</realm>
+</function>

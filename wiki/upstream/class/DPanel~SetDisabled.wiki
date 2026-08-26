@@ -1,0 +1,10 @@
+<function name="SetDisabled" parent="DPanel" type="panelfunc">
+	<description>Sets whether or not to disable the panel.
+
+<deprecated>Use <page>Panel:SetEnabled</page> instead.</deprecated>
+</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="disabled" type="boolean">True to disable the panel (mouse input disabled and background alpha set to 75), false to enable it (mouse input enabled and background alpha set to 255).</arg>
+	</args>
+</function>

@@ -1,0 +1,8 @@
+<panel>
+	<parent>ContextBase</parent>
+	<realm>Client</realm>
+	<description>
+		<internal></internal>
+		A panel used by Sandbox's Finger Poser tool.
+	</description>
+</panel>

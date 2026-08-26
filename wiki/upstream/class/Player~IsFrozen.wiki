@@ -1,0 +1,8 @@
+<function name="IsFrozen" parent="Player" type="classfunc">
+	<description>Returns whether the players movement is currently frozen, controlled by <page>Player:Freeze</page>.</description>
+	<realm>Shared</realm>
+	<file line="244-L252">lua/includes/extensions/player.lua</file>
+	<rets>
+		<ret name="" type="boolean">Whether the players movement is currently frozen or not.</ret>
+	</rets>
+</function>

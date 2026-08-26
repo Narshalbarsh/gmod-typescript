@@ -1,0 +1,14 @@
+<function name="PrecacheSentenceGroup" parent="Global" type="libraryfunc">
+	<description>Precache a sentence group in a sentences.txt definition file.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="group" type="string">The group to precache.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Precache all metropolice sentences.</description>
+	<code>PrecacheSentenceGroup( "METROPOLICE" )</code>
+	<output>Precaches sounds used in all sentences starting with "METROPOLICE".</output>
+
+</example>

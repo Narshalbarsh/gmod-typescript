@@ -1,0 +1,11 @@
+<function name="arshift" parent="bit" type="libraryfunc">
+	<description>Returns the arithmetically shifted value.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="value" type="number">The value to be manipulated.</arg>
+		<arg name="shiftCount" type="number">Amounts of bits to shift.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The shifted value.</ret>
+	</rets>
+</function>

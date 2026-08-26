@@ -1,0 +1,11 @@
+<function name="GetText" parent="Panel" type="classfunc">
+	<description>
+Returns the panel's text (where applicable).
+
+This method returns a maximum of 1023 bytes, except for <page>TextEntry</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="string">The panel's text.</ret>
+	</rets>
+</function>

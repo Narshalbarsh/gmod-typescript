@@ -1,0 +1,25 @@
+<function name="DrawOutlinedRect" parent="surface" type="libraryfunc">
+	<description>
+Draws a hollow box with a given border width.
+
+<rendercontext hook="false" type="2D"></rendercontext>
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="x" type="number">The start x integer coordinate.</arg>
+		<arg name="y" type="number">The start y integer coordinate.</arg>
+		<arg name="w" type="number">The integer width.</arg>
+		<arg name="h" type="number">The integer height.</arg>
+		<arg name="thickness" type="number" default="1">The thickness of the outlined box border.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Draws a 100x100 outlined rectangle in top left corner of which the outline thickness pulses from 5 to 15 indefinitely.</description>
+	<code>
+hook.Add( "HUDPaint", "DrawOutlinedRect", function()
+	surface.SetDrawColor( 255, 255, 255, 128 )
+	surface.DrawOutlinedRect( 25, 25, 100, 100, math.floor( math.sin( CurTime() * 5 ) * 5 ) + 10 )
+end )
+	</code>
+</example>

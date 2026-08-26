@@ -1,0 +1,48 @@
+<function name="ChildrenSize" parent="Panel" type="classfunc">
+	<description>Returns the width and height of the space between the position of the panel (upper-left corner) and the max bound of the children panels (farthest reaching lower-right corner).</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The children size width.</ret>
+		<ret name="" type="number">The children size height.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>
+Creates a recursively generated box of panels where the size of each panel is determined by the parent panel's children size + 10x10 pixels.
+
+Also they flash bluish colors, just for good measure.
+	</description>
+	<code>
+-- Parent panel
+BGPanel = vgui.Create("DPanel")
+BGPanel:SetSize(200, 200)
+BGPanel:Center()
+
+local panel, child_size_w, child_size_h = nil, 0, 0
+
+-- Create increasingly large blocks until children size exceeds the size of the panel
+while(BGPanel:ChildrenSize() < BGPanel:GetSize()) do
+
+	child_w, child_h = BGPanel:ChildrenSize()
+
+	panel = vgui.Create("DPanel", BGPanel)
+	panel:SetPos(0, 0)
+	
+	-- Increase size based on the children size
+	panel:SetSize(child_w+10, child_h+10)
+	
+	-- Random bluish color every frame
+	function panel:PerformLayout()
+		self:InvalidateLayout()	-- Call this again next frame
+		self:SetBackgroundColor(Color(math.random(0, 255), 255, math.random(0, 255)))
+	end
+	
+	-- Move to back so we can see the effect
+	panel:MoveToBack()
+	
+end
+	</code>
+	<output><image src="Panel_ChildrenSize_example1.gif"/></output>
+
+</example>

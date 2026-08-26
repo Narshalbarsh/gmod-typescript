@@ -1,0 +1,7 @@
+<function name="GetRow" parent="DProperty_Generic" type="panelfunc">
+	<description>Returns the internal row panel of a <page>DProperties</page> that this panel belongs to.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="Panel">The row panel.</ret>
+	</rets>
+</function>

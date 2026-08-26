@@ -1,0 +1,43 @@
+<title>TraceResult</title>
+<structure>
+	<realm>Shared</realm>
+	<description>Table structure used as trace result. Default values are when the trace hits nothing.
+
+See <page>util.TraceLine</page> and <page>util.TraceHull</page>.
+</description>
+	<fields>
+<item name="Entity" type="Entity" default="NULL">The entity hit by the trace.</item>
+<item name="Fraction" type="number" default="1">This indicates the how much of your trace length was used from 0-1 (resultLength/originalLength).</item>
+<item name="FractionLeftSolid" type="number" default="0">Given the trace started in a solid enviroment, this will return at what distance the trace left the solid from 0-1. Doesn't work if the trace hit a non-worldspawn entity.</item>
+<item name="Hit" type="boolean" default="false">Indicates whether the trace hit something.</item>
+<item name="HitBox" type="number" default="0">The ID of the hitbox hit by the trace, or ID of the static prop hit in case of hitting the world.</item>
+<item name="HitGroup" type="number{HITGROUP}" default="0"><page>Enums/HITGROUP</page> describing what hitgroup the trace hit (not the same as HitBox).</item>
+<item name="HitNoDraw" type="boolean" default="false">Indicates whenever the trace hit a no-draw brush.</item>
+<item name="HitNonWorld" type="boolean" default="false">Indicates whenever the trace did not hit the world.</item>
+<item name="HitNormal" type="Vector" default="Global.Vector(0, 0, 0)">The direction of the surface that was hit as a normal vector (vector with <page text="length">Vector:Length</page> of 1).</item>
+<item name="HitPos" type="Vector">The position the trace stopped. This will be the provided endpos if the trace hit nothing.</item>
+<item name="HitSky" type="boolean" default="false">Indicates whenever the trace hit the sky.</item>
+<item name="HitTexture" type="string" default="** empty **">The surface material (not texture) of whatever the trace hit. Will be `**displacement**` if the trace hit a displacement, and `**studio**` if it hit a prop.</item>
+<item name="HitWorld" type="boolean" default="false">Indicates whenever the trace hit the world.</item>
+<item name="MatType" type="number{MAT}" default="nil"><page>Enums/MAT</page> of the material hit by the trace.</item>
+<item name="Normal" type="Vector">The direction of the trace as a normal vector (vector with <page text="length">Vector:Length</page> of 1).
+
+Equivalent to: `( traceRes.HitPos - traceRes.StartPos ):Normalize()`
+</item>
+<item name="PhysicsBone" type="number" default="0">The <page>PhysObj</page> ID that was hit.
+
+Used for <page>Entity:GetPhysicsObjectNum</page>.</item>
+<item name="StartPos" type="Vector">The origin of the trace. Will match the provided startpos.</item>
+<item name="SurfaceProps" type="number" default="0">ID of hit surface property from `scripts/surfaceproperties.txt`.
+You can get the name using <page>util.GetSurfacePropName</page>.
+
+Used for <page>CEffectData:SetSurfaceProp</page>.</item>
+<item name="StartSolid" type="boolean" default="false">Indicates whenever the trace started in a solid enviroment.</item>
+<item name="AllSolid" type="boolean" default="false">True if the entire trace is inside a solid.</item>
+<item name="SurfaceFlags" type="number{SURF}" default="0">The surface flags of the hit surface. See <page>Enums/SURF</page>.</item>
+<item name="DispFlags" type="number{DISPSURF}" default="0">The displacement flags of the hit surface. See <page>Enums/DISPSURF</page>.</item>
+<item name="Contents" type="number{CONTENTS}" default="0">The contents of the hit surface. See <page>Enums/CONTENTS</page>.</item>
+<item name="HitBoxBone" type="number" default="nil">BoneID on the model that the hit hitbox is attached to, if available.</item>
+	</fields>
+
+</structure>

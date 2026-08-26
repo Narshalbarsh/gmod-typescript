@@ -1,0 +1,7 @@
+<function name="SetBloodColor" parent="Entity" type="classfunc">
+	<description>Sets the blood color this entity uses.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="bloodColor" type="number{BLOOD_COLOR}">An integer corresponding to <page>Enums/BLOOD_COLOR</page>.</arg>
+	</args>
+</function>

@@ -1,0 +1,58 @@
+<function name="CreateClientProp" parent="ents" type="libraryfunc">
+	<description>
+Creates a clientside only prop with optional physics. See also <page>Global.ClientsideModel</page> if physics is not needed.
+
+For physics to work you're expected to use the `model` argument. A simple <page>Entity:SetModel</page> will not be enough — the <page>Entity:PhysicsInit</page>* function will be needed.
+<bug issue="861">Parented clientside prop will become detached if the parent entity leaves the PVS. **A workaround is available on its github page.**</bug>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="model" type="string" default="models/error.mdl">The model for the entity to be created.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Entity">Created entity (`C_PhysPropClientside`).</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Creates a clientside prop at the player location.</description>
+	<code>
+function GhostBarrel( ply )
+	local c_Model = ents.CreateClientProp()
+	c_Model:SetPos( ply:GetPos() )
+	c_Model:SetModel( "models/props_borealis/bluebarrel001.mdl" )
+	c_Model:SetParent( ply )
+	c_Model:Spawn()
+end
+	</code>
+</example>
+
+<example>
+	<description>Creates a clientside prop with physics.</description>
+	<code>
+concommand.Add( "testent", function( ply )
+	local plyTr = ply:GetEyeTrace()
+
+	local csEnt = ents.CreateClientProp( "models/props_combine/combine_light001b.mdl" )
+	csEnt:SetPos( plyTr.HitPos + plyTr.HitNormal * 24 )
+	csEnt:Spawn()
+end )
+	</code>
+</example>
+
+<example>
+	<description>The same as previous, but physics is initialized manually.</description>
+	<code>
+concommand.Add( "testent", function( ply )
+	local plyTr = ply:GetEyeTrace()
+
+	local csEnt = ents.CreateClientProp()
+	csEnt:SetPos( plyTr.HitPos + plyTr.HitNormal * 24 )
+	csEnt:SetModel( "models/props_combine/combine_light001b.mdl" )
+	csEnt:PhysicsInit( SOLID_VPHYSICS )
+	csEnt:Spawn()
+
+	csEnt:PhysWake()
+end )
+	</code>
+</example>

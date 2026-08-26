@@ -1,0 +1,11 @@
+<function name="SetIndentSize" parent="DTree" type="panelfunc">
+	<description>
+Sets the indentation size of the <page>DTree</page>, the distance between each "level" of the tree is offset on the left from the previous level.
+
+Currently this feature has no effect on the <page>DTree</page> element.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="size" type="number">The new indentation size.</arg>
+	</args>
+</function>

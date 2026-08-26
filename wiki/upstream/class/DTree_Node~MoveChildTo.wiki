@@ -1,0 +1,11 @@
+<function name="MoveChildTo" parent="DTree_Node" type="panelfunc">
+	<description>
+Moves given panel to the top of the children of this node.
+
+Despite name of this function, it cannot move the children to any position but the topmost.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="node" type="Panel">The node to move.</arg>
+	</args>
+</function>

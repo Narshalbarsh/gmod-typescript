@@ -1,0 +1,8 @@
+<function name="IsSelected" parent="Panel" type="classfunc">
+	<file line="59-L64">lua/includes/extensions/client/panel/selections.lua</file>
+	<description>Returns if the panel object is selected (like icons in the Spawn Menu, holding <key>Shift</key>). This can be set in Lua using <page>Panel:SetSelected</page>.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the panel object is selected or not. Always returns false if the object is not selectable. This can be modified using <page>Panel:SetSelectable</page>.</ret>
+	</rets>
+</function>

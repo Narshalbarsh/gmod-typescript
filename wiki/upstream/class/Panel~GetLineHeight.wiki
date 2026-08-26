@@ -1,0 +1,10 @@
+<function name="GetLineHeight" parent="Panel" type="classfunc">
+	<description>
+Returns the height of a single line of a <page>RichText</page> panel.
+	</description>
+	<realm>Client and Menu</realm>
+	<added>2023.10.25</added>
+	<rets>
+		<ret name="" type="number">The line height.</ret>
+	</rets>
+</function>

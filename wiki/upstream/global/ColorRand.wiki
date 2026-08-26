@@ -1,0 +1,11 @@
+<function name="ColorRand" parent="Global" type="libraryfunc">
+	<description>Creates a <page>Color</page> with randomized red, green, and blue components. If the alpha argument is true, alpha will also be randomized.</description>
+	<realm>Shared and Menu</realm>
+	<file line="149-L155">lua/includes/util.lua</file>
+	<args>
+		<arg name="a" type="boolean" default="false">Should alpha be randomized.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Color">The created <page>Color</page>.</ret>
+	</rets>
+</function>

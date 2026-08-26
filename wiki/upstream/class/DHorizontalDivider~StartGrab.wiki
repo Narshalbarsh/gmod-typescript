@@ -1,0 +1,4 @@
+<function name="StartGrab" parent="DHorizontalDivider" type="panelfunc">
+	<description><internal></internal><validate>TODO Document me</validate></description>
+	<realm>Client</realm>
+</function>

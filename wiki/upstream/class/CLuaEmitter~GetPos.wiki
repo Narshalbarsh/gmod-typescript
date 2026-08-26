@@ -1,0 +1,7 @@
+<function name="GetPos" parent="CLuaEmitter" type="classfunc">
+	<description>Returns the position of this emitter. This is set when creating the emitter with <page>Global.ParticleEmitter</page>.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="Vector">Position of this particle emitter.</ret>
+	</rets>
+</function>

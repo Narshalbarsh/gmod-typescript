@@ -1,0 +1,7 @@
+<function name="GetConstraintRadius" parent="CMoveData" type="classfunc">
+	<description>Returns the radius that constrains the players movement. See <page>CMoveData:SetConstraintRadius</page>.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The constraint radius</ret>
+	</rets>
+</function>

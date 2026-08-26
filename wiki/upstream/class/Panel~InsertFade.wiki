@@ -1,0 +1,104 @@
+<function name="InsertFade" parent="Panel" type="classfunc">
+	<description>
+Begins a text fade for a <page>RichText</page> element where the last appended text segment is fully faded out after a specific amount of time, at a specific speed.
+
+The alpha of the text at any given time is determined by the text's base alpha * ((`sustain` - <page>Global.CurTime</page>) / `length`) where <page>Global.CurTime</page> is added to `sustain` when this method is called.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="sustain" type="number">The number of seconds the text remains visible.</arg>
+		<arg name="length" type="number">The number of seconds it takes the text to fade out.
+
+If set **lower** than `sustain`, the text will not begin fading out until (`sustain` - `length`) seconds have passed.
+
+If set **higher** than `sustain`, the text will begin fading out immediately at a fraction of the base alpha.
+
+If set to **-1**, the text doesn't fade out.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Creates a Rich Text panel that sustains visibility for 6 seconds with a 2 second long fade-out.</description>
+	<code>
+-- Create a window frame
+TextFrame = vgui.Create("DFrame")
+TextFrame:SetSize(200, 200)
+TextFrame:Center()
+TextFrame:SetTitle("Fading Text")
+TextFrame:MakePopup()
+
+-- RichText panel
+local richtext = vgui.Create("RichText", TextFrame)
+richtext:Dock(FILL)
+
+-- Sample text
+richtext:SetText("This is an example of a Rich Text panel using a fade-out with:\n\n6 seconds of sustain\n\n2 second fade-out length")
+	
+-- When the panel is ready for layout, begin the fade
+function richtext:PerformLayout()
+	
+	self:SetFontInternal("Trebuchet18")
+	self:SetBGColor(Color(64, 64, 92))
+	
+	-- Wait 6 seconds, then fade out in 2 seconds
+	self:InsertFade(6, 2)
+	
+end
+	</code>
+	<output>
+Some identical example outputs are shown below, only with different `length` values swapped in.
+
+
+
+
+<image src="RichText_InsertFade_output1.gif"/><image src="RichText_InsertFade_output2.gif"/><image src="RichText_InsertFade_output3.gif"/>
+	</output>
+
+</example>
+
+
+<example>
+	<description>Create a Rich Text panel where Dr. Kleiner reads a fading message in sync with text.</description>
+	<code>
+-- Create a window frame
+TextFrame = vgui.Create("DFrame")
+TextFrame:SetSize(350, 100)
+TextFrame:Center()
+TextFrame:SetTitle("Kleiner says:")
+TextFrame:MakePopup()
+
+-- RichText panel
+local richtext = vgui.Create("RichText", TextFrame)
+richtext:Dock(FILL)	
+
+-- Red text
+richtext:InsertColorChange(200, 60, 32, 255)
+richtext:SetVerticalScrollbarEnabled(false)
+	
+local words = {"There's", "only", "one", "hedy..."}
+local delay = 0
+
+-- Display each word in half second interval
+for w, txt in pairs(words) do
+
+	if(w == 1) then delay = 0.2
+	else delay = (w-1)*0.45 end
+
+	timer.Simple(delay, function()
+	
+		richtext:AppendText(txt.." ")
+		richtext:InsertFade(2, 1)	-- Sustain for 2 seconds while fading out after 1 second
+		
+		richtext:SetBGColor(Color(0, 0, 0))
+		richtext:SetFontInternal("DermaLarge")
+	
+	end)
+
+end
+
+-- Kleiner read along
+LocalPlayer():EmitSound("vo/k_lab2/kl_onehedy.wav")
+	</code>
+	<output><image src="RichText_InsertFade_example2.gif"/></output>
+
+</example>

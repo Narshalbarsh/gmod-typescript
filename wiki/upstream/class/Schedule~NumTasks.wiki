@@ -1,0 +1,8 @@
+<function name="NumTasks" parent="Schedule" type="classfunc">
+	<description>Returns the number of tasks in the schedule.</description>
+	<realm>Server</realm>
+	<file line="78-L80">lua/includes/modules/ai_schedule.lua</file>
+	<rets>
+		<ret name="" type="number">The number of tasks in this schedule.</ret>
+	</rets>
+</function>

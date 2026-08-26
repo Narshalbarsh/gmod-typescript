@@ -1,0 +1,16 @@
+<function name="SetGlobalState" parent="game" type="libraryfunc">
+	<description>
+Sets whether a Global State is off, active or dead ( inactive ).
+
+See <page>Global States</page> for more information.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="name" type="string">The name of the Global State to set. 
+
+If the Global State by that name does not exist, it will be created.
+
+See <page>Global States</page> for a list of default global states.</arg>
+		<arg name="state" type="number">The state of the Global State. See <page>Enums/GLOBAL</page>.</arg>
+	</args>
+</function>

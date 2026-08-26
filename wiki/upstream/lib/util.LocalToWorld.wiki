@@ -1,0 +1,23 @@
+<function name="LocalToWorld" parent="util" type="libraryfunc">
+	<description>
+A convenience function around LocalToWorld-related functions.
+
+<note>If <page>Entity:EntIndex</page> returns `0`, the function will return the passed `lpos`.</note>
+</description>
+	<realm>Shared</realm>
+	<file line="76-L95">lua/includes/extensions/util.lua</file>
+	<args>
+		<arg name="ent" type="Entity">The entity to take.</arg>
+		<arg name="lpos" type="Vector">A local space vector.</arg>
+		<arg name="bone" type="number" default="0">
+Actually to be treated as the number corresponding to a specific <page>PhysObj</page> of the entity.
+
+If that specific physics object is valid, then <page>PhysObj:LocalToWorld</page> is used.
+
+Otherwise, <page>Entity:LocalToWorld</page>.
+</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">The corresponding worldspace vector.</ret>
+	</rets>
+</function>

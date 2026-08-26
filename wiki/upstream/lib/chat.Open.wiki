@@ -1,0 +1,7 @@
+<function name="Open" parent="chat" type="libraryfunc">
+	<description>Opens the chat window.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="mode" type="number">If equals 1, opens public chat, otherwise opens team chat.</arg>
+	</args>
+</function>

@@ -1,0 +1,11 @@
+<function name="GetAutoStretchVertical" parent="DLabel" type="panelfunc">
+	<description>
+Returns whether the label stretches vertically or not.
+
+Set by <page>DLabel:SetAutoStretchVertical</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the label stretches vertically or not.</ret>
+	</rets>
+</function>

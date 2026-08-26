@@ -1,0 +1,7 @@
+<function name="GetSolidFlags" parent="Entity" type="classfunc">
+	<description>Returns solid flag(s) of an entity.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number{FSOLID}">The flag(s) of the entity, see <page>Enums/FSOLID</page>.</ret>
+	</rets>
+</function>

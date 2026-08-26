@@ -1,0 +1,8 @@
+<function name="FlashWindow" parent="system" type="libraryfunc">
+	<description>Flashes the window, turning the border to white briefly</description>
+
+	<realm>Client and Menu</realm>
+
+</function>
+
+<warning>Currently works only on Windows.</warning>

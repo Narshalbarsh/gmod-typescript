@@ -1,0 +1,12 @@
+<function name="SetDrawBorder" parent="DButton" type="panelfunc">
+	<description>
+<deprecated></deprecated>
+
+Does absolutely nothing at all. Default value is automatically set to true.
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="4">lua/vgui/dbutton.lua</file>
+	<args>
+		<arg name="draw" type="boolean">Does nothing.</arg>
+	</args>
+</function>

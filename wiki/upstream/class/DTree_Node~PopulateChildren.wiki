@@ -1,0 +1,8 @@
+<function name="PopulateChildren" parent="DTree_Node" type="panelfunc">
+	<description>
+<internal></internal>
+
+Called automatically from <page>DTree_Node:PopulateChildrenAndSelf</page>.
+	</description>
+	<realm>Client and Menu</realm>
+</function>

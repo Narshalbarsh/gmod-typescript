@@ -1,0 +1,13 @@
+<function name="PlayerTraceAttack" parent="GM" type="hook">
+	<description>Called when a player has been hit by a trace and damaged (such as from a bullet). Returning true overrides the damage handling and prevents <page>GM:ScalePlayerDamage</page> from being called.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="ply" type="Player">The player that has been hit</arg>
+		<arg name="dmginfo" type="CTakeDamageInfo">The damage info of the bullet</arg>
+		<arg name="dir" type="Vector">Normalized vector direction of the bullet's path</arg>
+		<arg name="trace" type="table{TraceResult}">The trace of the bullet's path, see <page>Structures/TraceResult</page></arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Override engine handling</ret>
+	</rets>
+</function>

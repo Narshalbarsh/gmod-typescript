@@ -1,0 +1,7 @@
+<function name="SetFogZ" parent="render" type="libraryfunc">
+	<description>If the <page text="fog mode">render.FogMode</page> is set to <page text="MATERIAL_FOG_LINEAR_BELOW_FOG_Z">Enums/MATERIAL_FOG</page>, the fog will only be rendered below the specified height.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="fogZ" type="number">The fog Z.</arg>
+	</args>
+</function>

@@ -1,0 +1,11 @@
+<function name="Get" parent="gamemode" type="libraryfunc">
+	<description><internal></internal> This returns the internally stored gamemode table.</description>
+	<realm>Shared</realm>
+	<file line="66-L68">lua/includes/modules/gamemode.lua</file>
+	<args>
+		<arg name="name" type="string">The name of the gamemode you want to get.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">The gamemode's table.</ret>
+	</rets>
+</function>

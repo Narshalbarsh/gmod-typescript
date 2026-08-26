@@ -1,0 +1,7 @@
+<function name="SetShowDropTargets" parent="DHorizontalScroller" type="panelfunc">
+	<description>Sets whether this panel should show drop targets.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="newState" type="boolean"></arg>
+	</args>
+</function>

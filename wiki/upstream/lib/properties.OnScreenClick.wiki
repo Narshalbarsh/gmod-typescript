@@ -1,0 +1,9 @@
+<function name="OnScreenClick" parent="properties" type="libraryfunc">
+	<description>Checks if player hovers over any entities and open a properties menu for it.</description>
+	<realm>Shared</realm>
+	<file line="93-L100">lua/includes/modules/properties.lua</file>
+	<args>
+		<arg name="eyepos" type="Vector">The eye pos of a player</arg>
+		<arg name="eyevec" type="Vector">The aim vector of a player</arg>
+	</args>
+</function>

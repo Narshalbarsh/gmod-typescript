@@ -1,0 +1,27 @@
+<panel>
+	<name>DShape</name>
+	<parent>DPanel</parent>
+	<realm>Client</realm>
+	<file line="">lua/vgui/dshape.lua</file>
+	<description>Draw a shape on a derma panel. Only one kind of shape, a rectangle, is available for use.</description>
+</panel>
+
+
+<example>
+	<description>Creates the DShape rectangle within a small popup frame</description>
+	<code>
+local Frame = vgui.Create( "DFrame" ) -- Create a frame 
+Frame:SetTitle( "Test panel" )
+Frame:SetSize(400,400)
+Frame:Center()			
+Frame:MakePopup()
+
+local Shape = vgui.Create( "DShape", Frame )
+Shape:SetType( "Rect" ) -- This is the only type it can be
+Shape:SetPos( 100, 100 ) 
+Shape:SetColor( Color(0, 255, 0, 255) )
+Shape:SetSize( 200, 200 )
+	</code>
+<output><image src="ab571/8dc3895a85e7ff9.png" alt="DShape demonstration" /></output>
+
+</example>

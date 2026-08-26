@@ -1,0 +1,4 @@
+<function name="MuzzleFlash" parent="Entity" type="classfunc">
+	<description>Fires the muzzle flash effect of the weapon the entity is carrying. This only creates a light effect and is often called alongside <page>Weapon:SendWeaponAnim</page></description>
+	<realm>Shared</realm>
+</function>

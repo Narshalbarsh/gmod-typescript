@@ -1,0 +1,16 @@
+<function name="TableToKeyValues" parent="util" type="libraryfunc">
+	<description>Converts the given table into a Valve keyValue formatted string.
+
+Use <page>util.KeyValuesToTable</page> to perform the opposite transformation.
+
+<page>util.TableToJSON</page> can be used as an alternative.
+</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="table" type="table">The table to convert.</arg>
+		<arg name="rootKey" type="string" default="TableToKeyValues">The root key name for the output KV table.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The output.</ret>
+	</rets>
+</function>

@@ -1,0 +1,20 @@
+<function name="SetPredictable" parent="Entity" type="classfunc">
+	<description>
+Sets whether an entity should be predictable or not.
+When an entity is set as predictable, its DT vars can be changed during predicted hooks. This is useful for entities which can be controlled by player input.
+
+Any datatable value that mismatches from the server will be overridden and a prediction error will be spewed.
+
+Weapons are predictable by default, and the drive system uses this function to make the controlled prop predictable as well.
+
+Visit  for a list of all predicted hooks, and the <page>Prediction</page> page.
+For further technical information on the subject, visit [valve's wiki](https://developer.valvesoftware.com/wiki/Prediction).
+
+<note>This function resets the datatable variables everytime it's called, it should ideally be called when a player starts using the entity and when he stops</note>
+<note>Entities set as predictable with this function will be unmarked when the user lags and receives a full packet update, to handle such case visit <page>GM:NotifyShouldTransmit</page></note>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="setPredictable" type="boolean">whether to make this entity predictable or not.</arg>
+	</args>
+</function>

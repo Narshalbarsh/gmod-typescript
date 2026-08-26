@@ -1,0 +1,9 @@
+<function name="ManipulateBonePosition" parent="Entity" type="classfunc">
+	<description>Sets custom bone offsets.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="boneID" type="number">Index of the bone you want to manipulate.</arg>
+		<arg name="pos" type="Vector">Position vector to apply. Note that the position is relative to the original bone position, not relative to the world or the entity.</arg>
+		<arg name="networking" type="boolean" default="true">boolean to network these changes (if called from server)</arg>
+	</args>
+</function>

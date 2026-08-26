@@ -1,0 +1,33 @@
+<function name="CreateParticleSystemNoEntity" parent="Global" type="libraryfunc">
+	<description>
+Creates a new particle system, and sets control points 0 and 1 to given position, as well as optionally orientation of CP0 to the given angles.
+
+See also <page>Global.CreateParticleSystem</page>
+
+<note>The particle effect must be precached with <page>Global.PrecacheParticleSystem</page> and the file its from must be added via <page>game.AddParticles</page> before it can be used!</note>
+	</description>
+	<added>2023.06.28</added>
+	<realm>Client</realm>
+	<args>
+		<arg name="effect" type="string">The name of the effect to create. It must be precached via <page>Global.PrecacheParticleSystem</page> beforehand.</arg>
+		<arg name="pos" type="Vector">The position for the particle system.</arg>
+		<arg name="ang" type="Angle" default="Angle( 0, 0, 0 )">The orientation of the particle system.</arg>
+	</args>
+	<rets>
+		<ret name="" type="CNewParticleEffect">The created particle system.</ret>
+	</rets>
+</function>
+
+<example>
+<description>Creates a big explosion effect at the place the player is looking at.</description>
+<code>
+PrecacheParticleSystem( "explosion_huge_g" )
+
+concommand.Add( "test_particle", function( ply, cmd, arg )
+
+	local pos = ply:GetEyeTrace().HitPos
+	CreateParticleSystemNoEntity( "explosion_huge_g", pos )
+
+end )
+</code>
+</example>

@@ -1,0 +1,27 @@
+<function name="SelectSchedule" parent="ENTITY" type="hook">
+	<description>Set the schedule we should be playing right now. Allows the NPC to start either a Lua schedule or an engine schedule. Despite sharing the same name as `CAI_BaseNPC::SelectSchedule()`, this isn't hooked to that function; this is called by Lua's <page>ENTITY:RunAI</page>, doesn't return an engine function, returning an engine function doesn't help and doesn't make the NPC start an engine schedule. To alter initial engine schedule, it is recommended to use <page>ENTITY:TranslateSchedule</page>. 
+<note>This is a helper function only available if your SENT is based on `base_ai`</note>
+</description>
+	<realm>Server</realm>
+	<file line="39">gamemodes/base/entities/entities/base_ai/schedules.lua</file>
+</function>
+
+<example>
+	<description>Creates a new schedule and assigns it to a scripted NPC.</description>
+	<code>
+local schdTest = ai_schedule.New( "Test Schedule" )
+ 
+schdTest:EngTask( "TASK_GET_PATH_TO_RANDOM_NODE",  128 )
+schdTest:EngTask( "TASK_RUN_PATH", 		   0   )
+schdTest:EngTask( "TASK_WAIT_FOR_MOVEMENT", 	   0   )
+ 
+ 
+function ENT:SelectSchedule()
+ 
+	self:StartSchedule( schdTest )
+ 
+end
+	</code>
+	<output>The scripted NPC will run around when spawned.</output>
+
+</example>

@@ -1,0 +1,12 @@
+<function name="OrderVectors" parent="Global" type="libraryfunc">
+	<description>
+Modifies the given vectors so that values of `vector2` on each axis (X Y Z) are larger than those of `vector1` by switching them around. Also known as ordering vectors.
+
+This is useful to convert (or guarantee) 2 position vectors to a bounding box "mins" and "maxs" vectors.
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="vector1" type="Vector">Vector 1. This will become a "mins" vector of the resulting bounding box.</arg>
+		<arg name="vector2" type="Vector">Vector 2. This will become a "maxs" vector of the resulting bounding box.</arg>
+	</args>
+</function>

@@ -1,0 +1,7 @@
+<function name="GetCanvas" parent="DProperties" type="panelfunc">
+	<description>Returns the <page>DScrollPanel</page> all the properties panels are attached to.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="DScrollPanel">A <page>DScrollPanel</page> canvas</ret>
+	</rets>
+</function>

@@ -1,0 +1,8 @@
+<function name="PerformLayoutInternal" parent="DScrollPanel" type="panelfunc">
+	<description>
+<internal></internal>
+
+Used internally to rebuild the panel's children positioning. You should use <page>Panel:InvalidateLayout</page> instead.
+</description>
+	<realm>Client and Menu</realm>
+</function>

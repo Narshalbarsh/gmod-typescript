@@ -1,0 +1,7 @@
+<function name="SetStartLength" parent="CLuaParticle" type="classfunc">
+	<description>Sets the initial length value of the particle.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="startLength" type="number">Initial length.</arg>
+	</args>
+</function>

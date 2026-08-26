@@ -1,0 +1,31 @@
+<function name="EntityFireBullets" parent="GM" type="hook">
+	<description>
+Called every time a bullet is about to be fired from an entity, which allows to completely modify the bullet structure before the bullet is actually fired.
+
+See <page>GM:PostEntityFireBullets</page> if you wish to hook the final bullet values, such as the aim direction post spread calculations.
+
+<warning>This hook is called directly from <page>Entity:FireBullets</page>. Due to this, you cannot call <page>Entity:FireBullets</page> inside this hook or an infinite loop will occur crashing the game.</warning>
+	</description>
+	<realm>Shared</realm>
+	<file line="270-L272">gamemodes/base/gamemode/shared.lua</file>
+	<args>
+		<arg name="entity" type="Entity">The entity that fired the bullet</arg>
+		<arg name="data" type="table{Bullet}">The bullet data. See <page>Structures/Bullet</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">
+* Return `true` to apply all changes done to the bullet table.
+* Return `false` to suppress the bullet.
+		</ret>
+	</rets>
+</function>
+
+<example>
+<description>Replaces all bullet tracer effects with the toolgun tracer effect.</description>
+<code>
+hook.Add( "EntityFireBullets", "EntityFireBulletsHook", function( ent, data )
+	data.TracerName = "ToolTracer"
+	return true -- Apply the changes
+end )
+</code>
+</example>

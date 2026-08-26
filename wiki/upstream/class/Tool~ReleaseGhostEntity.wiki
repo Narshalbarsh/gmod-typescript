@@ -1,0 +1,7 @@
+<function name="ReleaseGhostEntity" parent="Tool" type="classfunc">
+	<description>Removes any ghost entity created for this tool.
+
+This is called automatically at various points, including when changing tools, holstering the toolgun, therefore it is a very good idea to implement this callback in your custom tool to cleanup any custom ghost entities.</description>
+	<realm>Shared</realm>
+	<file line="68">gamemodes/sandbox/entities/weapons/gmod_tool/ghostentity.lua</file>
+</function>

@@ -1,0 +1,7 @@
+<function name="GetNormal" parent="CEffectData" type="classfunc">
+	<description>Returns the normalized direction vector of the effect.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Vector">The normalized direction vector of the effect.</ret>
+	</rets>
+</function>

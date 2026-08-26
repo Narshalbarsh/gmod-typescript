@@ -1,0 +1,29 @@
+<function name="WeaponEquip" parent="GM" type="hook">
+	<description>
+Called as a weapon entity is picked up by a player. (Including <page>Player:Give</page>)
+
+Contrary to the name of the hook, it is **not called** when the player switches their active weapon to another.
+
+See also <page>GM:PlayerDroppedWeapon</page> and <page>GM:PlayerCanPickupWeapon</page>.
+
+<note>At the time when this hook is called <page>Entity:GetOwner</page> will return `NULL`. The owner is set on the next frame.</note>
+<note>This will not be called when picking up a weapon you already have as the weapon will be removed and <page>WEAPON:EquipAmmo</page> will be called instead.</note>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="weapon" type="Weapon">The equipped weapon.</arg>
+		<arg name="owner" type="Player">The player that is picking up the weapon.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Drops the player's weapons as soon as they pick one up.</description>
+	<code>
+hook.Add( "WeaponEquip", "WeaponEquipExample", function( weapon, ply )
+	timer.Simple( 0, function()
+		ply:DropWeapon( weapon )
+	end )
+end )
+	</code>
+
+</example>

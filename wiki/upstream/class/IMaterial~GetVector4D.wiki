@@ -1,0 +1,14 @@
+<function name="GetVector4D" parent="IMaterial" type="classfunc">
+	<description>Returns the specified material vector as a 4 component vector.</description>
+	<realm>Shared and Menu</realm>
+	<added>2020.08.12</added>
+	<args>
+		<arg name="name" type="string">The name of the material vector to retrieve.</arg>
+	</args>
+	<rets>
+		<ret name="x" type="number">The x component of the vector.</ret>
+		<ret name="y" type="number">The y component of the vector.</ret>
+		<ret name="z" type="number">The z component of the vector.</ret>
+		<ret name="w" type="number">The w component of the vector.</ret>
+	</rets>
+</function>

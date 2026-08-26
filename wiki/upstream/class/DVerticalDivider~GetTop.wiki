@@ -1,0 +1,7 @@
+<function name="GetTop" parent="DVerticalDivider" type="panelfunc">
+	<description>Returns the top content panel of the <page>DVerticalDivider</page>.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="Panel">The top content panel.</ret>
+	</rets>
+</function>

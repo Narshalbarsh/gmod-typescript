@@ -1,0 +1,15 @@
+<function name="GetEntry" parent="list" type="libraryfunc">
+	<description>
+Returns a copy of the entry in the list `list` with key `key`.
+	</description>
+	<added>2025.05.09</added>
+	<realm>Shared and Menu</realm>
+	<file line="16-L27">lua/includes/modules/list.lua</file>
+	<args>
+		<arg name="list" type="string">List to search through.</arg>
+		<arg name="key" type="string">The key to search for.</arg>
+	</args>
+	<rets>
+		<ret name="" type="any|nil">Returns the  value if the list contains the key, nil otherwise.</ret>
+	</rets>
+</function>

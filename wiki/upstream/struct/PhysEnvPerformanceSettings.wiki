@@ -1,0 +1,41 @@
+<structure>
+	<realm>Shared</realm>
+	<description>Table used by <page>physenv.SetPerformanceSettings</page> and <page>physenv.GetPerformanceSettings</page>.
+
+When setting the settings, omitting any key will fallback to its current value. (can be retrieved via the get function)</description>
+	<fields>
+<item name="LookAheadTimeObjectsVsObject" type="number" default="nil">Maximum amount of seconds to precalculate collisions with objects.
+
+Default value for this setting is `0.5`.</item>
+<item name="LookAheadTimeObjectsVsWorld" type="number" default="nil">Maximum amount of seconds to precalculate collisions with world.
+
+Default value for this setting is `1`.</item>
+
+<item name="MaxCollisionChecksPerTimestep" type="number" default="nil">Maximum collision checks per tick.
+
+Objects may penetrate after this many collision checks
+
+Default value for this setting is `50000`.</item>
+<item name="MaxCollisionsPerObjectPerTimestep" type="number" default="nil">Maximum collision per object per tick.
+
+Object will be frozen after this many collisions (visual hitching vs. CPU cost)
+
+Default value for this setting is `10`.</item>
+
+<item name="MaxVelocity" type="number" default="nil">Maximum world-space speed of an object in inches per second.
+
+Default value for this setting is `4000`.</item>
+<item name="MaxAngularVelocity" type="number" default="nil">Maximum world-space rotational velocity in degrees per second.
+
+Default value for this setting is `7272.7280273438`.</item>
+
+<item name="MinFrictionMass" type="number" default="nil">Minimum mass of an object to be affected by friction.
+
+Default value for this setting is `10`.
+</item>
+<item name="MaxFrictionMass" type="number" default="nil">Maximum mass of an object to be affected by friction.
+
+Default value for this setting is `2500`.</item>
+	</fields>
+
+</structure>

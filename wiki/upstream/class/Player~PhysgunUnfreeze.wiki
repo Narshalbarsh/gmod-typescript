@@ -1,0 +1,10 @@
+<function name="PhysgunUnfreeze" parent="Player" type="classfunc">
+	<description>Unfreezes the props player is looking at. This is essentially the same as pressing reload with the physics gun, including double press for unfreeze all.
+
+For freezing props, use <page>PhysObj:EnableMotion</page>.</description>
+	<realm>Shared</realm>
+	<file line="53-L96">gamemodes/base/gamemode/obj_player_extend.lua</file>
+	<rets>
+		<ret name="" type="number">Number of props unfrozen.</ret>
+	</rets>
+</function>

@@ -1,0 +1,11 @@
+<function name="ValueChanged" parent="DNumSlider" type="panelfunc">
+	<description>
+<internal></internal> Called when the value has been changed. This will also be called when the user manually changes the value through the text panel.
+
+This is an internal function. Override <page>DNumSlider:OnValueChanged</page> instead.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="value" type="number">The value the slider has been changed to.</arg>
+	</args>
+</function>

@@ -1,0 +1,7 @@
+<function name="SelectNone" parent="Panel" type="classfunc">
+	<description>Deselects all items in a panel object. For text-based objects, this will deselect all text.
+
+<note>Only works on <page>RichText</page> and <page>TextEntry</page> and their derived panels by default (such as <page>DTextEntry</page>), and on any panel that manually reimplemented this method.</note>
+</description>
+	<realm>Client and Menu</realm>
+</function>

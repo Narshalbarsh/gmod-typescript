@@ -1,0 +1,11 @@
+<function name="RealFrameTime" parent="Global" type="libraryfunc">
+	<description>
+		Returns the real frame-time which is unaffected by host_timescale. To be used for GUI effects (for example)
+		<note>The returned number is clamped between `0` and `0.1`.</note>
+	</description>
+	<realm>Client</realm>
+	<file line="10-L19">lua/includes/util/client.lua</file>
+	<rets>
+		<ret name="" type="number">Real frame time</ret>
+	</rets>
+</function>

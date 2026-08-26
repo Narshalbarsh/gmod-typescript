@@ -1,0 +1,9 @@
+<function name="rawset" parent="Global" type="libraryfunc">
+	<description>Sets the value with the specified key from the table without calling the __newindex method.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="table" type="table">Table to get the value from.</arg>
+		<arg name="index" type="any">The index to get the value from.</arg>
+		<arg name="value" type="any">The value to set for the specified key.</arg>
+	</args>
+</function>

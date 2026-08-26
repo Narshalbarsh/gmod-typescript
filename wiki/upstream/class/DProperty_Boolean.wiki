@@ -1,0 +1,29 @@
+<title>DProperty_Boolean</title>
+<panel>
+	<parent>DProperty_Generic</parent>
+	<realm>Client</realm>
+	<description>
+		<internal></internal>
+		Checkbox control for the <page>DProperties</page> panel.
+	</description>
+</panel>
+
+<example>
+	<description>Example of this panel</description>
+	<code>
+local Panel = vgui.Create( "DFrame" )
+Panel:SetSize( 500, 500 )
+Panel:MakePopup()
+
+local props = vgui.Create( "DProperties", Panel )
+props:Dock( FILL )
+
+local boolRow = props:CreateRow( "MyCategory", "CheckboxExample" )
+boolRow:Setup( "Boolean" )
+boolRow:SetValue( true )
+boolRow.DataChanged = function( self, data )
+	MsgN( "Data changed: ", data )
+end
+	</code>
+
+</example>

@@ -1,0 +1,8 @@
+<function name="TauntCamera" parent="Global" type="libraryfunc">
+	<description>Returns a TauntCamera object</description>
+	<realm>Shared</realm>
+	<file line="14-L126">gamemodes/base/gamemode/player_class/taunt_camera.lua</file>
+	<rets>
+		<ret name="" type="table">TauntCamera</ret>
+	</rets>
+</function>

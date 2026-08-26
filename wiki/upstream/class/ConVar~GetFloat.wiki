@@ -1,0 +1,10 @@
+<function name="GetFloat" parent="ConVar" type="classfunc">
+	<description>Attempts to convert the <page>ConVar</page> value to a float</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="number">The float value of the console variable.
+
+
+If the value cannot be converted to a float, it will return 0.</ret>
+	</rets>
+</function>

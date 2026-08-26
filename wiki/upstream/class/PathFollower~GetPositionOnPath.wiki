@@ -1,0 +1,16 @@
+<function name="GetPositionOnPath" parent="PathFollower" type="classfunc">
+	<description>Returns the vector position of distance along path</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="distance" type="number">The distance along the path to query</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">The position</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Gets the current position on the path as a <page>Vector</page>.</description>
+	<code>path:GetPositionOnPath( path:GetCursorPosition() )</code>
+
+</example>

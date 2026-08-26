@@ -1,0 +1,17 @@
+<function name="Player" parent="Global" type="libraryfunc">
+	<description>
+Returns the player with the matching <page>Player:UserID</page>.
+
+For a function that returns a player based on their <page>Entity:EntIndex</page>, see <page>Global.Entity</page>.
+
+
+For a function that returns a player based on their connection ID, see <page>player.GetByID</page>.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="playerIndex" type="number">The player index.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Player">The retrieved player.</ret>
+	</rets>
+</function>

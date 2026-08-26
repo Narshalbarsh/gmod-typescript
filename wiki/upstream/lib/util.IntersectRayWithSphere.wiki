@@ -1,0 +1,57 @@
+<function name="IntersectRayWithSphere" parent="util" type="libraryfunc">
+	<description>Performs a ray-sphere intersection and returns the intersection positions or nil.</description>
+	<realm>Shared</realm>
+	<added>2023.08.08</added>
+	<args>
+		<arg name="rayOrigin" type="Vector">Origin/start position of the ray.</arg>
+		<arg name="rayDelta" type="Vector">The end position of the ray relative to the start position. Equivalent of `direction * distance`.</arg>
+		<arg name="spherePosition" type="Vector">Any position of the sphere.</arg>
+		<arg name="sphereRadius" type="number">The radius of the sphere.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The first intersection position along the ray, or `nil` if there is no intersection.</ret>
+		<ret name="" type="number">The second intersection position along the ray, or `nil` if there is no intersection.</ret>
+	</rets>
+</function>
+
+<example>
+
+<code>
+-- Store entity we look at
+local ent = NULL
+
+-- Do this every frame
+hook.Add( "Think", "Think_IntersectRayWithOBBExample", function()
+
+	-- Store player object
+	local ply = LocalPlayer()
+	
+	-- If player looked at some valid entity, swtich our entity to that
+	local trEnt = ply:GetEyeTrace().Entity
+	if ( IsValid( trEnt ) ) then ent = trEnt end
+
+	-- No entity? do nothing
+	if ( !IsValid( ent ) ) then return end
+
+	local start = ply:GetShootPos()
+	local delta = ply:GetAimVector() * 500
+	local endpos = start + delta
+
+	-- Perform a ray intersection against a sphere from the player's eyes
+	local frac1, frac2 = util.IntersectRayWithSphere( start, delta, ent:GetPos() + ent:OBBCenter(), ent:OBBMaxs():Length() )
+	--print( "res: ", frac1, frac2 ) -- For debugging
+
+	-- Display intersection points
+	if ( frac1 ) then
+		local intersect1 = LerpVector( frac1, start, endpos )
+		local intersect2 = LerpVector( frac2, start, endpos )
+		debugoverlay.Axis( intersect1, angle_zero, 10, 0.01 )
+		debugoverlay.Axis( intersect2, angle_zero, 10, 0.01 )
+	end
+
+	-- Draw the OBB visualization, requires developer 1 in console.
+	debugoverlay.Sphere( ent:GetPos() + ent:OBBCenter(), ent:OBBMaxs():Length(), 0.01, frac1 != nil and Color( 0, 255, 0 ) or Color( 255, 0, 0 ) )
+
+end )
+</code>
+</example>

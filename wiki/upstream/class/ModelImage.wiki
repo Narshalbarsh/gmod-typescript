@@ -1,0 +1,7 @@
+<panel>
+	<realm>Client</realm>
+	<description>
+		<internal></internal>
+		Panel used to display models, used by <page>SpawnIcon</page>.
+	</description>
+</panel>

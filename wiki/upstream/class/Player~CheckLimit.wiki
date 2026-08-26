@@ -1,0 +1,33 @@
+<function name="CheckLimit" parent="Player" type="classfunc">
+	<description>Checks if the limit of an entity type added by <page>Player:AddCount</page> is hit or not. If it's hit, it will call the <page>GM:PlayerCheckLimit</page> hook, and call <page>Player:LimitHit</page> if the hook doesn't return `false`.
+
+This will always return `true` in singleplayer, as singleplayer does not have limits.
+
+<note>This function is only available in Sandbox and its derivatives.</note>
+</description>
+	<realm>Shared</realm>
+	<file line="9-L32">gamemodes/sandbox/gamemode/player_extension.lua</file>
+	<args>
+		<arg name="str" type="string">The entity type to check the limit for. Default types:
+* "constraints"
+* "props"
+* "ragdolls"
+* "vehicles"
+* "effects"
+* "balloons"
+* "cameras"
+* "npcs"
+* "sents"
+* "dynamite"
+* "lamps"
+* "lights"
+* "wheels"
+* "thrusters"
+* "hoverballs"
+* "buttons"
+* "emitters"</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Returns `true` if the limit of this type is not hit, `false` otherwise.</ret>
+	</rets>
+</function>

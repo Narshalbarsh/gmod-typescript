@@ -1,0 +1,12 @@
+<function name="ReadEntity" parent="net" type="libraryfunc">
+	<description>
+Reads an entity from the received net message. You should always check if the specified entity exists as it may have been removed and therefore `NULL` if it is outside of the players [PVS (Potential Visibility Set)](https://developer.valvesoftware.com/wiki/PVS "PVS - Valve Developer Community") or was already removed.
+
+<warning>You **must** read information in same order as you write it.</warning>
+	</description>
+	<realm>Shared</realm>
+	<file line="66-L73">lua/includes/extensions/net.lua</file>
+	<rets>
+		<ret name="" type="Entity">The entity, or `nil` if no entity could be read.</ret>
+	</rets>
+</function>

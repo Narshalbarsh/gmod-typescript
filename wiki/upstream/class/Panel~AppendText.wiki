@@ -1,0 +1,7 @@
+<function name="AppendText" parent="Panel" type="classfunc">
+	<description>Appends text to a <page>RichText</page> element. This does not automatically add a new line.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="txt" type="string">The text to append (add on).</arg>
+	</args>
+</function>

@@ -1,0 +1,15 @@
+<function name="GetConVarG" parent="DColorPalette" type="panelfunc">
+	<description>
+An <page>Global.AccessorFunc</page> that returns the <page>ConVar</page> name for the green channel of the color.
+
+See also:
+* <page>DColorPalette:GetConVarR</page> - For the red channel
+* <page>DColorPalette:GetConVarB</page> - For the blue channel
+* <page>DColorPalette:GetConVarA</page> - For the alpha channel
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="7">lua/vgui/dcolorpalette.lua</file>
+	<rets>
+		<ret name="" type="string">The <page>ConVar</page> name for the green channel of the color</ret>
+	</rets>
+</function>

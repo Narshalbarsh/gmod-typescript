@@ -1,0 +1,7 @@
+<function name="SetVelocityInstantaneous" parent="PhysObj" type="classfunc">
+	<description>Sets the velocity of the physics object.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="velocity" type="Vector">The new velocity of the physics object.</arg>
+	</args>
+</function>

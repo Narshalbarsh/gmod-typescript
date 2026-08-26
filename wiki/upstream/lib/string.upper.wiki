@@ -1,0 +1,34 @@
+<function name="upper" parent="string" type="libraryfunc">
+	<description>
+		Changes any lower-case letters in a string to upper-case letters.
+		<note>This function doesn't work on special non-English UTF-8 characters.</note>
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="str" type="string">The string to convert.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">A string representing the value of a string converted to upper-case.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Demonstrates the use of this function.</description>
+	<code>
+print( string.upper( "ABCDEFG" ) )
+print( string.upper( "AbCdefG" ) )
+print( string.upper( "abcdefg" ) )
+print( string.upper( "1234567890" ) )
+	</code>
+	<output>
+```
+ABCDEFG
+
+ABCDEFG
+
+ABCDEFG
+
+1234567890
+```
+	</output>
+</example>

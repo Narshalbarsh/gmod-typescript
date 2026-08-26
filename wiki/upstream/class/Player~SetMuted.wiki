@@ -1,0 +1,29 @@
+<function name="SetMuted" parent="Player" type="classfunc">
+	<description>Sets if the player should be voicechat muted locally.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="mute" type="boolean">Mute or unmute.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Mutes all players on the server</description>
+	<code>
+for i, ply in ipairs( player.GetAll() ) do
+	ply:SetMuted( true )
+end
+	</code>
+
+</example>
+
+<example>
+	<description>Make muting also apply to text chat</description>
+	<code>
+hook.Add( "OnPlayerChat", "MutePlayerChat", function( ply )
+	if ply:IsMuted() then
+		return true
+	end
+end )
+	</code>
+
+</example>

@@ -1,0 +1,7 @@
+<function name="SetSideSpeed" parent="CMoveData" type="classfunc">
+	<description>Sets players strafe speed.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="speed" type="number">Strafe speed</arg>
+	</args>
+</function>

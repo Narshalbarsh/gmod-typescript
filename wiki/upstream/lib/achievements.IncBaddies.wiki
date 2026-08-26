@@ -1,0 +1,4 @@
+<function name="IncBaddies" parent="achievements" type="libraryfunc">
+	<description><internal></internal>Adds one to the count of baddies killed. Once this count reaches 1000, the 'War Zone' achievement is unlocked.</description>
+	<realm>Client</realm>
+</function>

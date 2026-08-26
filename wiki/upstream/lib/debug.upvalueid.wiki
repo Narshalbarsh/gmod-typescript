@@ -1,0 +1,22 @@
+<function name="upvalueid" parent="debug" type="libraryfunc">
+	<description> 
+<removed>This function was removed due to security concerns.</removed>
+
+Returns an unique identifier for the upvalue indexed from func.
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="func" type="function">The function to index the upvalue from.</arg>
+		<arg name="index" type="number">The index from func.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">A unique identifier.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Small example showing the type of the returned data.</description>
+	<code>print(type(debug.upvalueid(hook.Add, 1)))</code>
+	<output>userdata</output>
+
+</example>

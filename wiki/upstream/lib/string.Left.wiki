@@ -1,0 +1,22 @@
+<function name="Left" parent="string" type="libraryfunc">
+	<description>Returns everything left of supplied place of that string.</description>
+	<realm>Shared and Menu</realm>
+	<file line="244">lua/includes/extensions/string.lua</file>
+	<args>
+		<arg name="str" type="string">The string to extract from.</arg>
+		<arg name="num" type="number">Amount of chars relative to the beginning (starting from 1).</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">Returns a string containing a specified number of characters from the left side of a string.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Extracts "garry" from "garrys mod" string.</description>
+	<code>
+local text = "garrys mod"
+print(string.Left(text, 5))
+	</code>
+	<output>garry</output>
+
+</example>

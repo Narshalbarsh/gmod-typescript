@@ -1,0 +1,23 @@
+<function name="MakeBalloon" parent="Global" type="libraryfunc">
+	<description>
+	<internal></internal>
+	This function makes a balloon appear, similar to the one from the Toolgun.
+
+	<warning>This function doesn't make the rope attached to the balloon appear.</warning>
+	</description>
+	<realm>Server</realm>
+	<file line="L135-L174">gamemodes/sandbox/entities/weapons/gmod_tool/stools/balloon.lua</file>
+	<args>
+		<arg name="ply" type="Player">The player who spawns the balloon. This argument can be <page>nil</page> </arg>
+		<arg name="r" type="number" default="255">Balloon <page>color</page> (red)</arg>
+		<arg name="g" type="number" default="255">Balloon <page>color</page> (green)</arg>
+		<arg name="b" type="number" default="255">Balloon <page>color</page> (blue).</arg>
+		<arg name="force" type="number" default="0">The lift force applied to the balloon.</arg>
+		<arg name="data" type="table{BalloonData}">Data applied to the balloon. This data is required for correctly spawning the balloon.
+For more information, please see: <page>Structures/BalloonData</page></arg>
+	</args>
+
+	<rets>
+		<ret name="balloon" type="Entity">Returns the created balloon entity.</ret>
+	</rets>
+</function>

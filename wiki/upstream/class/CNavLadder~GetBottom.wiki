@@ -1,0 +1,7 @@
+<function name="GetBottom" parent="CNavLadder" type="classfunc">
+	<description>Returns the bottom most position of the ladder.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="Vector">The bottom most position of the ladder.</ret>
+	</rets>
+</function>

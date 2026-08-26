@@ -1,0 +1,7 @@
+<function name="IsMuted" parent="Player" type="classfunc">
+	<description>Returns whether or not the player is voice muted locally.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="boolean">whether or not the player is muted locally.</ret>
+	</rets>
+</function>

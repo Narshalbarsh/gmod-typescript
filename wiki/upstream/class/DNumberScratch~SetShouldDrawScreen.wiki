@@ -1,0 +1,11 @@
+<function name="SetShouldDrawScreen" parent="DNumberScratch" type="panelfunc">
+	<description>
+<internal></internal>
+
+Sets if the scratch window should be drawn or not. Cannot be used to force it to draw, only to hide it, which will not stop the panel from working with invisible window.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="shouldDraw" type="boolean"></arg>
+	</args>
+</function>

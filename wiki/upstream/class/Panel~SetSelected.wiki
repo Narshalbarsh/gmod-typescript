@@ -1,0 +1,8 @@
+<function name="SetSelected" parent="Panel" type="classfunc">
+	<file line="47-L57">lua/includes/extensions/client/panel/selections.lua</file>
+	<description>Sets the selected state of a selectable panel object. This functionality is set with <page>Panel:SetSelectable</page> and checked with <page>Panel:IsSelectable</page>.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="selected" type="boolean" default="false">Whether the object should be selected or deselected. <page>Panel:IsSelected</page> can be used to determine the selected state of the object.</arg>
+	</args>
+</function>

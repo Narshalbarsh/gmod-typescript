@@ -1,0 +1,12 @@
+<function name="TrimRight" parent="string" type="libraryfunc">
+	<description>Removes trailing spaces/passed character from a string.</description>
+	<realm>Shared and Menu</realm>
+	<file line="268-L271">lua/includes/extensions/string.lua</file>
+	<args>
+		<arg name="str" type="string">String to remove from</arg>
+		<arg name="char" type="string" default="%s">Custom character to remove, default is a space</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">Trimmed string</ret>
+	</rets>
+</function>

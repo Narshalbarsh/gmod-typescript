@@ -1,0 +1,16 @@
+<function name="NumberWang" parent="DForm" type="panelfunc">
+	<description>Adds a <page>DNumberWang</page> onto the <page>DForm</page></description>
+	<realm>Client and Menu</realm>
+	<file line="154-L172">lua/vgui/dform.lua</file>
+	<args>
+		<arg name="label" type="string">The label to be placed next to the DNumberWang</arg>
+		<arg name="convar" type="string">The console variable to change when the slider is changed</arg>
+		<arg name="min" type="number">The minimum value of the slider</arg>
+		<arg name="max" type="number">The maximum value of the slider</arg>
+		<arg name="decimals" type="number" default="nil">The number of decimals to allow in the slider (Optional)</arg>
+	</args>
+	<rets>
+		<ret name="" type="DNumberWang">The created <page>DNumberWang</page></ret>
+		<ret name="" type="DLabel">The created <page>DLabel</page></ret>
+	</rets>
+</function>

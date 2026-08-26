@@ -1,0 +1,39 @@
+<function name="bor" parent="bit" type="libraryfunc">
+	<description>Returns the bitwise OR of all values specified.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="value1" type="number">The first value.</arg>
+		<arg name="..." type="vararg">Extra values to be evaluated. (must all be numbers)</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The bitwise OR result between all numbers.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Performs the bitwise OR operation between three values.</description>
+	<code>
+local a = math.BinToInt("1000")
+local b = math.BinToInt("0100")
+local c = math.BinToInt("0001")
+
+local result = bit.bor(a, b, c)
+
+print(math.IntToBin(result))
+print(result)
+	</code>
+	<output>
+```
+1101
+13
+```
+	</output>
+
+</example>
+
+
+<example>
+	<description>Adding multiple capabilities to an NPC.</description>
+	<code>NPC:CapabilitiesAdd( bit.bor( CAP_MOVE_GROUND, CAP_ANIMATEDFACE, CAP_TURN_HEAD ) )</code>
+
+</example>

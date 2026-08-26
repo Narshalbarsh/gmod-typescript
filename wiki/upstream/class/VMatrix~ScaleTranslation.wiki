@@ -1,0 +1,7 @@
+<function name="ScaleTranslation" parent="VMatrix" type="classfunc">
+	<description>Scales the absolute translation with the given value.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="scale" type="number">Value to scale the translation with.</arg>
+	</args>
+</function>

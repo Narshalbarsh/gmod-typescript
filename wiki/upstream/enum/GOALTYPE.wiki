@@ -1,0 +1,20 @@
+<enum>
+	<realm>Server</realm>
+	<added>2021.10.04</added>
+	<description>
+Used by <page>NPC:GetCurGoalType</page>.
+
+<warning>These enumerations do not exist in game and are listed here only for reference</warning>
+	</description>
+	<items>
+<item key="GOALTYPE_NONE" value="0">No goal type.</item>
+<item key="GOALTYPE_TARGETENT" value="1">The goal type is an entity.</item>
+<item key="GOALTYPE_ENEMY" value="2">The goal type is the enemy entity.</item>
+<item key="GOALTYPE_PATHCORNER" value="3">The goal type is a path corner.</item>
+<item key="GOALTYPE_LOCATION" value="4">The goal type is a position.</item>
+<item key="GOALTYPE_LOCATION_NEAREST_NODE" value="5">The goal type is a node nearest to a certain position.</item>
+<item key="GOALTYPE_FLANK" value="6">Goal type is a flank location.</item>
+<item key="GOALTYPE_COVER" value="7">Goal type is a cover spot.</item>
+<item key="GOALTYPE_INVALID" value="8">Invalid goal type.</item>
+	</items>
+</enum>

@@ -1,0 +1,7 @@
+<function name="GetDrivingEntity" parent="Player" type="classfunc">
+	<description>Gets the entity the player is currently driving via the <page>drive</page> library.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Entity">The currently driven entity, or NULL entity</ret>
+	</rets>
+</function>

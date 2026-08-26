@@ -1,0 +1,8 @@
+<function name="SetPreset" parent="ControlPresets" type="panelfunc">
+	<description></description>
+	<realm>Client</realm>
+	<file line="122-L127">gamemodes/sandbox/gamemode/spawnmenu/controls/control_presets.lua</file>
+	<args>
+		<arg name="strName" type="string">Name of preset to set</arg>
+	</args>
+</function>

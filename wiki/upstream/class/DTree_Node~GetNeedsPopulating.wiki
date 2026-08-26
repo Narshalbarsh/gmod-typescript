@@ -1,0 +1,11 @@
+<function name="GetNeedsPopulating" parent="DTree_Node" type="panelfunc">
+	<description>
+<internal></internal>
+
+Returns whether or not the node is set to be populated from the filesystem.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean"></ret>
+	</rets>
+</function>

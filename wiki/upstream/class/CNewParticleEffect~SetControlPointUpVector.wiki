@@ -1,0 +1,8 @@
+<function name="SetControlPointUpVector" parent="CNewParticleEffect" type="classfunc">
+	<description>Sets the upward direction for given control point.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="cpID" type="number">The control point ID, 0 to 63.</arg>
+		<arg name="upward" type="Vector">The upward direction for given control point</arg>
+	</args>
+</function>

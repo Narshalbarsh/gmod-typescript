@@ -1,0 +1,19 @@
+<function name="FindBodygroupByName" parent="Entity" type="classfunc">
+	<description>
+		Searches the <page text="Entity's">Entity</page> model for a Body Group with a given name.
+		<note>
+			Weapons will return results from their viewmodels.
+		</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="name" type="string">
+			The name to search for.
+		</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">
+			The <page text="Body Group's ID">Structures/BodyGroupData#id</page> or `-1` if no Body Group has the provided name.
+		</ret>
+	</rets>
+</function>

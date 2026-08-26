@@ -1,0 +1,40 @@
+<function name="Pack" parent="table" type="libraryfunc">
+	<description>
+Packs a set of items into a table and returns the new table. It is meant as an alternative implementation of `table.pack` from newer versions of Lua.
+	</description>
+	<realm>Shared and Menu</realm>
+	<added>2023.08.08</added>
+	<file line="2-L4">lua/includes/extensions/table.lua</file>
+	<args>
+		<arg name="items" type="vararg">The items to pack into a table.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">A table containing the `items`.</ret>
+		<ret name="" type="number">The amount of items that were added to the table.</ret>
+	</rets>
+</function>
+
+<example>
+	<code>
+local productID =  234 
+local productName = "Dark Chocolate"
+local productIngredients = { "Cocoa Mass", "Cocoa Butter", "Vanilla", "Cocoa Solids: 70% min" }
+
+local darkChocolateTable = table.Pack( productID, productName, productIngredients )
+ 
+PrintTable( darkChocolateTable )
+	</code>
+<output>
+```
+1	=	234
+2	=	Dark Chocolate
+3:
+		1	=	Cocoa Mass
+		2	=	Cocoa Butter
+		3	=	Vanilla
+		4	=	Cocoa Solids: 70% min
+
+```
+</output>
+
+</example>

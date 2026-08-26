@@ -1,0 +1,9 @@
+<function name="BlastDamageInfo" parent="util" type="libraryfunc">
+	<description>Applies spherical damage based on damage info to all entities in the specified radius.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="dmg" type="CTakeDamageInfo">The information about the damage</arg>
+		<arg name="damageOrigin" type="Vector">Center of the spherical damage</arg>
+		<arg name="damageRadius" type="number">The radius in which entities will be damaged.</arg>
+	</args>
+</function>

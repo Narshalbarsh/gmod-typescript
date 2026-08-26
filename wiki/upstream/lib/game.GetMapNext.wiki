@@ -1,0 +1,7 @@
+<function name="GetMapNext" parent="game" type="libraryfunc">
+	<description>Returns the next map that would be loaded according to the file that is set by the mapcyclefile convar.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="string">nextMap or nil if called too early.</ret>
+	</rets>
+</function>

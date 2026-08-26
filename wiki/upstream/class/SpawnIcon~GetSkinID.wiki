@@ -1,0 +1,9 @@
+<function name="GetSkinID" parent="SpawnIcon" type="panelfunc">
+	<description>
+Returns the currently set skin of the spawnicon. This is set by <page>SpawnIcon:SetSkinID</page>.
+	</description>
+	<realm>Client</realm>
+	<rets>
+		<ret type="number">Current skin ID</ret>
+	</rets>
+</function>

@@ -1,0 +1,8 @@
+<function name="Fill" parent="DIconBrowser" type="panelfunc">
+	<description>
+<internal></internal>
+
+Automatically called to fill the browser with icons. Will not work if <page>DIconBrowser:SetManual</page> is set to true.
+	</description>
+	<realm>Client and Menu</realm>
+</function>

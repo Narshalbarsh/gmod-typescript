@@ -1,0 +1,9 @@
+<function name="IsWorldClicking" parent="Player" type="classfunc">
+	<description>
+Returns whether the player is using the world clicking feature, see <page>Panel:SetWorldClicker</page>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">Is the player world clicking or not.</ret>
+	</rets>
+</function>

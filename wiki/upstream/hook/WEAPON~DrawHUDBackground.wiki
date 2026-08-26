@@ -1,0 +1,4 @@
+<function name="DrawHUDBackground" parent="WEAPON" type="hook">
+	<description>This hook allows you to draw on screen while this weapon is in use. This hook is called **before** <page>WEAPON:DrawHUD</page> and is equivalent of <page>GM:HUDPaintBackground</page>.</description>
+	<realm>Client</realm>
+</function>

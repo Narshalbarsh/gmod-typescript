@@ -1,0 +1,17 @@
+<function name="SetSolidFlags" parent="Entity" type="classfunc">
+	<description>
+Sets solid flag(s) for the entity.
+
+This overrides any other flags the entity might have had. See <page>Entity:AddSolidFlags</page> for adding flags.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="flags" type="number{FSOLID}">The flag(s) to set, see <page>Enums/FSOLID</page>.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Mimics <page>Entity:SetTrigger</page> call on the entity and adds FSOLID_USE_TRIGGER_BOUNDS flag to it.</description>
+	<code>ent:SetSolidFlags( bit.bor( FSOLID_TRIGGER, FSOLID_USE_TRIGGER_BOUNDS ) )</code>
+
+</example>

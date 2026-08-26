@@ -1,0 +1,11 @@
+<function name="GetKnownEnemyCount" parent="NPC" type="classfunc">
+	<description>Returns known enemy count of this NPC.
+
+See also <page>NPC:GetKnownEnemies</page>
+</description>
+	<added>2022.06.08</added>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">Amount of entities that this NPC knows as enemies.</ret>
+	</rets>
+</function>

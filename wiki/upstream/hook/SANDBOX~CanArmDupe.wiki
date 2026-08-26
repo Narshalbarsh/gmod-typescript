@@ -1,0 +1,12 @@
+<function name="CanArmDupe" parent="SANDBOX" type="hook">
+	<added>2020.06.24</added>
+	<description>Called when a player attempts to "arm" a duplication with the Duplicator tool. Return false to prevent the player from sending data to server, and to ignore data if it was somehow sent anyway.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="ply" type="Player">The player who attempted to arm a dupe.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Can the player arm a dupe or not.</ret>
+		<ret name="" type="string" added="2024.07.10">If given and the return value above is `false`, overrides the error message displayed to the player.</ret>
+	</rets>
+</function>

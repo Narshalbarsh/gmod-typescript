@@ -1,0 +1,259 @@
+<function name="ShouldCollide" parent="GM" type="hook">
+	<description>
+Called to decide whether a pair of entities should collide with each other. This is only called if <page>Entity:SetCustomCollisionCheck</page> was used on one or both entities.
+
+Where applicable, consider using <page>constraint.NoCollide</page> or a [logic_collision_pair](https://developer.valvesoftware.com/wiki/Logic_collision_pair) entity instead - they are considerably easier to use and may be more appropriate in some situations.
+
+<warning>
+	This hook **must** return the same value consistently for the same pair of entities.  
+	If an entity changed in such a way that its collision rules change, you **must** call <page>Entity:CollisionRulesChanged</page> on that entity immediately - **not in this hook and not in physics callbacks.**  
+	As long as you religiously follow the rules set by the examples this hook will work reliably without breaking, even a small mistake might break physics.
+</warning>
+
+<bug issue="642">This hook can cause all physics to break under certain conditions.</bug>
+	</description>
+	<realm>Shared</realm>
+	<predicted>Yes</predicted>
+	<args>
+		<arg name="ent1" type="Entity">The first entity in the collision poll.</arg>
+		<arg name="ent2" type="Entity">The second entity in the collision poll.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether the entities should collide.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>A simple example where players do not collide with eachother.</description>
+	<code>
+hook.Add( "ShouldCollide", "CustomCollisions", function( ent1, ent2 )
+	-- If both entities are players then disable collisions!
+	if ( ent1:IsPlayer() and ent2:IsPlayer() ) then return false end
+end )
+	</code>
+</example>
+
+<example>
+	<description>As a best practice it is reccommended to use cached values for this hook as much as possible, calculating anything inside of this hook itself is both extremely expensive and runs the risk of not having called <page>Entity:CollisionRulesChanged</page> for a change in return value of the same entity pair.</description>
+	<code>
+hook.Add( "PlayerInitialSpawn", "SetCustomCollisions", function( ply )
+	ply:SetCustomCollisionCheck( true )
+end )
+
+-- Bad bad bad!!!!!
+-- There is no guarenteed way to know beforehand a players health will decrease,
+-- by the time a change in Source Engine has gone down to the Lua API its likely already too late for beating ShouldCollide.
+hook.Add( "ShouldCollide", "CustomCollisions", function( ent1, ent2 )
+	-- If the entities are players and they are both under 50 health then disable collisions!
+	if ( ent1:IsPlayer() and ent2:IsPlayer() ) and ( ent1:Health() < 50 and ent2:Health() < 50 ) then return false end
+end )
+
+
+-- Good!!!!
+-- We check a custom variable we set on players when they should be considered low health enough to not have collisions,
+-- we have full control over this and can call CollisionRulesChanged at the right moment.
+
+-- Make sure this is in shared code otherwise we get spongy physics!
+hook.Add( "ShouldCollide", "CustomCollisions", function( ent1, ent2 )
+	-- If the entities are in low health mode then disable collisions!
+	if ( ent1:IsPlayer() and ent2:IsPlayer() ) and ( ent1:GetLowHealthMode() and ent2:GetLowHealthMode() ) then return false end
+end )
+
+
+-- Make sure the code below runs before adding the hook though, dont wanna create any errors!
+
+-- Create a name for our DT var, players do not support SetupDataTables so we have to do it manually.
+DT_PLAYER_BOOL_LOWHEALTHMODE = 0
+
+local meta = FindMetaTable( "Player" )
+function meta:GetLowHealthMode()
+	return self:GetDTBool( DT_PLAYER_BOOL_LOWHEALTHMODE )
+end
+
+function meta:SetLowHealthMode( enabled )
+	self:SetDTBool( DT_PLAYER_BOOL_LOWHEALTHMODE, enabled )
+
+	-- We changed something to collisions, we have to call CollisionRulesChanged now!
+	self:CollisionRulesChanged()
+end
+
+-- We can now call SetLowHealthMode on our players without breaking physics!
+	</code>
+</example>
+
+<example>
+	<description>The conditions that control a ShouldCollide return should always be setup before calling <page>Entity:SetCustomCollisionCheck</page>, not doing so will result in physics breaking from uninitialised values being different for a couple frames affecting the return value.</description>
+	<code>
+hook.Add( "ShouldCollide", "CustomCollisions", function( ent1, ent2 )
+	-- Dont collide with anything if the entity requests it
+	if ( ent1.DontCollideWithAnything or ent2.DontCollideWithAnything ) then return false end
+end )
+
+
+-- Below is the Initialize function of an entity which is where you make this mistake most of the time.
+
+-- Bad! as soon as we call SetCustomCollisionCheck its gonna run, it will get this as nil for a couple frames which is intepreted as false in our ShouldCollide
+-- This will therefore be inconsistent and break physics.
+function ENT:Initialize()
+	self:SetCustomCollisionCheck( true )
+	self.DontCollideWithAnything = true
+end
+
+-- Good! we setup our variables first and then enable SetCustomCollisionCheck
+function ENT:Initialize()
+	self.DontCollideWithAnything = true
+	self:SetCustomCollisionCheck( true )
+end
+	</code>
+</example>
+
+<example>
+	<description>You should always return the same value for a pair of entities, so you have to check them the same way regardless of the order of arguments</description>
+	<code>
+-- Bad! we only check the variable on ent1, if it ever appears as ent2 then our physics will break because we arent being consistent!
+hook.Add( "ShouldCollide", "CustomCollisions", function( ent1, ent2 )
+    -- Dont collide with anything if the entity requests it
+    if ( ent1.DontCollideWithAnything ) then return false end
+end )
+
+-- Good! we check things regardless of the order they appear as!
+hook.Add( "ShouldCollide", "CustomCollisions", function( ent1, ent2 )
+    -- Dont collide with anything if the entity requests it
+    if ( ent1.DontCollideWithAnything or ent2.DontCollideWithAnything ) then return false end
+end )
+	</code>
+</example>
+
+<example>
+	<description>Avoid adding this hook more than once, it is extremely expensive to run. Instead you can use an inverse pattern where you give entities a function to disable collisions instead when needed, this will prevent having to add many hooks.</description>
+	<code>
+-- Make Entity:ShouldNotCollide checks to prevent having to add a lot of hooks that will grind your server to a halt.
+-- This is assigned as the GM variant to ensure this is your only source of truth.
+function GM:ShouldCollide( enta, entb )
+
+    local snca = enta.ShouldNotCollide
+    if snca and snca( enta, entb ) then return ( false ) end
+
+    local sncb = entb.ShouldNotCollide
+    if sncb and sncb( entb, enta ) then return ( false ) end
+
+    return ( true )
+end
+
+
+-- This can now be used in entity files, player metatable or the entity metatable to define when collisions should be disabled.
+-- The conditions used here should be changed from code outside of it, meaning that the same restrictions of ShouldCollide also apply here,
+-- when you change something that affects the return value immediatelly call CollisionRulesChanged afterwards, not inside of this function.
+
+function ENT:Initialize()
+	self:SetCustomCollisionCheck( true )
+end
+
+function ENT:ShouldNotCollide( ent )
+    -- Dont collide with func_breakable
+    return ent:GetClass() == "func_breakable"
+end
+	</code>
+</example>
+
+<example>
+	<description>If you want to use a players Team as a variable inside this hook you will have to keep in mind that you will have to call <page>Entity:CollisionRulesChanged</page> immediately after team changes.</description>
+	<code>
+-- We now use ChangeTeam instead of Player:SetTeam/GM:PlayerJoinTeam so that we have control over team changing as we have to instantly call CollisionRulesChanged,
+-- and not as the result of a hook as that is likely too late to beat ShouldCollide.
+local meta = FindMetaTable( "Player" )
+function meta:ChangeTeam( teamid )
+	local oldteam = self:Team()
+	self:SetTeam( teamid )
+	self:CollisionRulesChanged()
+	if oldteam ~= teamid then
+		gamemode.Call( "OnPlayerChangedTeam", self, oldteam, teamid )
+	end
+end
+
+hook.Add( "ShouldCollide", "CustomCollisions", function( ent1, ent2 )
+    -- Dont collide if players team is the same
+    if ( ent1:IsPlayer() and ent2:IsPlayer() ) and ( ent1:Team() == ent2:Team() ) then return false end
+end )
+
+hook.Add( "PlayerInitialSpawn", "SetCustomCollisions", function( ply )
+	ply:SetCustomCollisionCheck( true )
+end )
+	</code>
+</example>
+
+<example>
+	<description>This hook can also be used to create custom Collision Groups, as long as the conditions of it are not expected to change this is quite a safe way to use the hook. This is especially powerful if used in a custom entity base.</description>
+	<code>
+-- Use ShouldNotCollide again for this example, this should be in a shared file not related to the specific entity.
+hook.Add( "PlayerInitialSpawn", "SetCustomCollisions", function( ply )
+	ply:SetCustomCollisionCheck( true )
+end )
+
+function GM:ShouldCollide( enta, entb )
+    local snca = enta.ShouldNotCollide
+    if snca and snca( enta, entb ) then return ( false ) end
+
+    local sncb = entb.ShouldNotCollide
+    if sncb and sncb( entb, enta ) then return ( false ) end
+
+    return ( true )
+end
+
+
+-- Create some new ENUM's of our custom collision types, these should be globals in a shared file.
+MY_CUSTOM_COLLISIONS_PROJECTILES = 0
+MY_CUSTOM_COLLISIONS_PLAYERS = 1
+
+
+-- Custom collision functions, this is where the actual Entity file begins, these are also all shared.
+local M_Player = FindMetaTable( "Player" )
+local function ShouldNotCollide_NoCollidesWithProjectiles( thisent, ent )
+	return getmetatable( ent ) == M_Player and ent:IsMyCustomProjectile()
+end
+
+local function ShouldNotCollide_NoCollidesWithPlayers( thisent, ent )
+	return getmetatable( ent ) == M_Player
+end
+
+local collisionFunctionByType = {
+	[ MY_CUSTOM_COLLISIONS_PROJECTILES ] = ShouldNotCollide_NoCollidesWithProjectiles,
+	[ MY_CUSTOM_COLLISIONS_PLAYERS ] = ShouldNotCollide_NoCollidesWithPlayers
+}
+
+-- Setting one of them as an example
+ENT.CustomCollisionGroup = MY_CUSTOM_COLLISIONS_PLAYERS
+
+-- Actual application of the function, this should be the very first thing you do in Initialize.
+function ENT:Initialize()
+	self.ShouldNotCollide = collisionFunctionByType[ self.CustomCollisionGroup ]
+	self:SetCustomCollisionCheck( true )
+end
+	</code>
+</example>
+
+
+<example>
+	<description>This hook should only be added BEFORE any entity affected by it exists, this ussually means you should create it during the loading phase of a server. Dynamically adding and removing them is asking for trouble.</description>
+	<code>
+-- Bad! adding and removing these hooks randomly will very likely lead to a physics crash, entities should be loyal to this hook for their entire lifetime!
+-- Add the ShouldCollide rule after 10 minutes
+timer.Simple( 10 * 60, function()
+    hook.Add( "ShouldCollide", "CustomCollisions", function( ent1, ent2 )
+        if ( ent1:IsPlayer() and ent2:IsPlayer() ) then return false end
+    end )
+end )
+
+-- Remove it after 20 minutes
+timer.Simple( 20 * 60, function()
+    hook.Remove( "ShouldCollide", "CustomCollisions" )
+end )
+
+
+
+-- Good! The hook exists forever, no unexpected changes.
+hook.Add( "ShouldCollide", "CustomCollisions", function( ent1, ent2 )
+    if ( ent1:IsPlayer() and ent2:IsPlayer() ) then return false end
+end )
+	</code>
+</example>

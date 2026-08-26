@@ -1,0 +1,14 @@
+<function name="Localize" parent="Global" type="libraryfunc">
+	<description>Returns a localization for the given token, if none is found it will return the default (second) parameter.
+
+	<deprecated>Use <page>language.GetPhrase</page> instead.</deprecated>
+</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="localizationToken" type="string">The token to find a translation for.</arg>
+		<arg name="default" type="string">The default value to be returned if no translation was found.</arg>
+	</args>
+	<rets>
+		<ret type="string">The localized string, 128 char limit.</ret>
+</rets>
+</function>

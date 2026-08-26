@@ -1,0 +1,44 @@
+<function name="getinfo" parent="debug" type="libraryfunc">
+	<description>
+Returns debug information about a function.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="funcOrStackLevel" type="function" alttype="number">Takes either a function or a number representing the stack level as an argument. Stack level 0 always corresponds to the debug.getinfo call, 1 would be the function calling debug.getinfo in most cases, and so on.
+
+Returns useful information about that function in a table.</arg>
+		<arg name="fields" type="string" default=">flnSu">A string whose characters specify the information to be retrieved.
+
+* `f` - Populates the func field.
+* `l` - Populates the currentline field.
+* `L` - Populates the activelines field.
+* `n` - Populates the name and namewhat fields - only works if stack level is passed rather than function pointer.
+* `S` - Populates the location fields (lastlinedefined, linedefined, short_src, source and what).
+* `u` - Populates the argument and upvalue fields (isvararg, nparams, nups).
+* `>` - Causes this function to use the last argument to get the data from.</arg>
+		<arg name="function" type="function|nil">Function to use. (Only used by the `>` field)</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">A table as a <page>Structures/DebugInfo</page> containing information about the function you passed. Can return nil if the stack level didn't point to a valid stack frame.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Let's find out information about net.Receive, such as which file it's defined in, the line it starts and the line it ends, and if it's defined in Lua, or C plus additional information.</description>
+	<code>PrintTable( debug.getinfo( net.Receive ) )</code>
+	<output>
+```
+currentline	=	-1
+func	=	function: 0x2430a158
+isvararg	=	false
+lastlinedefined	=	13
+linedefined	=	9
+namewhat	=	
+nparams	=	2
+nups	=	0
+short_src	=	lua/includes/extensions/net.lua
+source	=	@lua/includes/extensions/net.lua
+what	=	Lua
+```
+	</output>
+
+</example>

@@ -1,0 +1,7 @@
+<function name="FlashlightIsOn" parent="Player" type="classfunc">
+	<description>Returns true if the player's flashlight is on.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the player's flashlight is on.</ret>
+	</rets>
+</function>

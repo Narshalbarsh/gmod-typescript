@@ -1,0 +1,245 @@
+<enum>
+	<realm>Server</realm>
+	<description>Enumerations used by <page>NPC:Classify</page>.</description>
+	<items>
+
+		<item key="CLASS_NONE" value="0">
+			None - default class for entities.
+		</item>
+
+		<item key="CLASS_PLAYER" value="1">
+			Players
+		</item>
+
+		<item key="CLASS_PLAYER_ALLY" value="2">
+			HL2 - **Allies**  
+			- `monster_barney`  
+			- `npc_citizen`  
+			- `npc_manhack` ( Hacked )  
+			- `npc_turret_floor` ( Friendly )
+		</item>
+
+		<item key="CLASS_PLAYER_ALLY_VITAL" value="3">
+			HL2 - **Vital Allies**  
+			- `npc_magnusson`  
+			- `npc_gman`  
+			- `npc_fisherman`  
+			- `npc_eli`  
+			- `npc_barney`  
+			- `npc_kleiner`  
+			- `npc_mossman`  
+			- `npc_alyx`  
+			- `npc_monk`  
+			- `npc_dog`  
+			- `npc_vortigaunt` at the end of EP2 (controlled by `MakeGameEndAlly` input)
+		</item>
+
+		<item key="CLASS_ANTLION" value="4">
+			HL2 - **Antlions**  
+			- `npc_antlion`  
+			- `npc_antlionguard`  
+			- `npc_antlionguard`
+		</item>
+
+		<item key="CLASS_BARNACLE" value="5">
+			HL2 - **Barnacles**  
+			- `npc_barnacle`
+		</item>
+
+		<item key="CLASS_BULLSEYE" value="6">
+			HL2 - **Bullseyes**  
+			- `npc_bullseye`
+		</item>
+
+		<item key="CLASS_CITIZEN_PASSIVE" value="7">
+			HL2 - **Passive / Non-Rebel Citizens**  
+			- `npc_citizen` in the beginning of HL2.
+		</item>
+
+		<item key="CLASS_CITIZEN_REBEL" value="8">
+			HL2 - <key> Unused </key>
+		</item>
+
+		<item key="CLASS_COMBINE" value="9">
+			HL2 - **Combine Troops**  
+			- `npc_combine`  
+			- `npc_advisor`  
+			- `apc_missile`  
+			- `npc_apcdriver`  
+			- `npc_turret_floor` ( Hostile )  
+			- `npc_rollermine` ( Hostile )  
+			- `npc_turret_ground` ( Active )  
+			- `npc_turret_ceiling` ( Active )  
+			- `npc_strider` ( Active - Not being carried by the gunship )
+		</item>
+
+		<item key="CLASS_COMBINE_GUNSHIP" value="10">
+			HL2 - **Combine Aircrafts**  
+			- `npc_combinegunship`  
+			- `npc_combinedropship`
+			- `npc_helicopter`
+		</item>
+
+		<item key="CLASS_CONSCRIPT" value="11">
+			HL2 - <key> Unused </key>
+		</item>
+
+		<item key="CLASS_HEADCRAB" value="12">
+			HL2 - **Headcrabs**  
+			- `npc_headcrab` ( Visible )
+		</item>
+
+		<item key="CLASS_MANHACK" value="13">
+			HL2 - **Manhacks**  
+			- `npc_manhack` ( Hostile - Not held by the gravity gun )
+		</item>
+
+		<item key="CLASS_METROPOLICE" value="14">
+			HL2 - **Metro Police**  
+			- `npc_metropolice`  
+			- `npc_vehicledriver`
+		</item>
+
+		<item key="CLASS_MILITARY" value="15">
+			HL2 - **Combine Military Objects**  
+			- `func_guntarget`  
+			- `npc_spotlight`  
+			- `npc_combine_camera` ( Active )
+		</item>
+
+		<item key="CLASS_SCANNER" value="16">
+			HL2 - **Combine Scanners**  
+			- `npc_cscanner`  
+			- `npc_clawscanner`
+		</item>
+
+		<item key="CLASS_STALKER" value="17">
+			HL2 - **Stalkers**  
+			- `npc_stalker`
+		</item>
+
+		<item key="CLASS_VORTIGAUNT" value="18">
+			HL2 - **Vortigaunts**  
+			- `npc_vortigaunt` before the end of EP2 ( Controlled by `MakeGameEndAlly` input )
+		</item>
+
+		<item key="CLASS_ZOMBIE" value="19">
+			HL2 - **Zombies**  
+			- `npc_zombie` ( Unslumped )  
+			- `npc_poisonzombie`  
+			- `npc_fastzombie`  
+			- `npc_fastzombie_torso`  
+			- `npc_zombine`
+		</item>
+
+		<item key="CLASS_PROTOSNIPER" value="20">
+			HL2 - **Snipers**  
+			- `npc_sniper`  
+			- `proto_sniper`
+		</item>
+
+		<item key="CLASS_MISSILE" value="21">
+			HL2 - **Missiles**  
+			- `rpg_missile`  
+			- `apc_missile`  
+			- `grenade_pathfollower`
+		</item>
+
+		<item key="CLASS_FLARE" value="22">
+			HL2 - **Flares**  
+			- `env_flare`
+		</item>
+
+		<item key="CLASS_EARTH_FAUNA" value="23">
+			HL2 - **Animals**  
+			- `npc_crow`  
+			- `npc_seagull`  
+			- `npc_pigeon`
+		</item>
+
+		<item key="CLASS_HACKED_ROLLERMINE" value="24">
+			HL2 - **Friendly Rollermines**  
+			- `npc_rollermine` ( Hacked ) 
+		</item>
+
+		<item key="CLASS_COMBINE_HUNTER" value="25">
+			HL2 - **Hunters**  
+			- `npc_hunter`
+		</item>
+
+		<item key="CLASS_MACHINE" value="26">
+			HL:S - **Turrets**  
+			- `monster_turret`  
+			- `monster_miniturret`  
+			- `monster_sentry`
+		</item>
+
+		<item key="CLASS_HUMAN_PASSIVE" value="27">
+			HL:S - **Friendly Humans**  
+			- `monster_scientist`
+		</item>
+
+		<item key="CLASS_HUMAN_MILITARY" value="28">
+			HL:S - **Human Military**  
+			- `monster_human_grunt`  
+			- `monster_apache`
+		</item>
+
+		<item key="CLASS_ALIEN_MILITARY" value="29">
+			HL:S - **Alien Military**  
+			- `monster_alien_controller`  
+			- `monster_vortigaunt`  
+			- `monster_alien_grunt`  
+			- `monster_nihilanth`  
+			- `monster_snark` if it has an enemy of class <br/> `CLASS_PLAYER` , `CLASS_HUMAN_PASSIVE` or `CLASS_HUMAN_MILITARY`
+		</item>
+
+		<item key="CLASS_ALIEN_MONSTER" value="30">
+			HL:S - **Monsters**  
+			- `monster_tentacle`  
+			- `monster_barnacle`  
+			- `monster_zombie`  
+			- `monster_gargantua`  
+			- `monster_houndeye`  
+			- `monster_ichthyosaur`  
+			- `monster_bigmomma`
+		</item>
+
+		<item key="CLASS_ALIEN_PREY" value="31">
+			HL:S - **Headcrabs**  
+			- `monster_headcrab`
+		</item>
+
+		<item key="CLASS_ALIEN_PREDATOR" value="32">
+			HL:S - **Alien Predators**  
+			- `monster_bullsquid`  
+			- `xen_tree`  
+			- `xen_hull`
+		</item>
+
+		<item key="CLASS_INSECT" value="33">
+			HL:S - **Insects**  
+			- `montser_roach`  
+			- `monster_leech`
+		</item>
+
+		<item key="CLASS_PLAYER_BIOWEAPON" value="34">
+			HL:S - **Player Bioweapons**  
+			- `hornet` fired by a player
+		</item>
+
+		<item key="CLASS_ALIEN_BIOWEAPON" value="35">
+			HL:S - **Enemy Bioweapons**  
+			- `hornet` fired by anyone but a player  
+			- `monster_snark` with no enemy or an enemy without the class <br/> `CLASS_PLAYER` , `CLASS_HUMAN_PASSIVE` or `CLASS_HUMAN_MILITARY`
+		</item>
+
+<item key="CLASS_PORTAL_TURRET" value="36">
+Portal - **Portal rocket and normal turrets, and the camera**
+* `npc_portal_turret_floor`
+* `npc_rocket_turret`
+* `npc_security_camera`
+</item>
+
+	</items>
+</enum>

@@ -1,0 +1,45 @@
+<function name="GotoTextStart" parent="Panel" type="classfunc">
+	<description>
+Causes a <page>RichText</page> element to scroll to the top of its text.
+	</description>
+	<realm>Client and Menu</realm>
+</function>
+
+<example>
+	<description>Creates a RichText panel with a "Back to Top" button which scrolls the text to the start.</description>
+	<code>
+-- Create a window frame
+TextFrame = vgui.Create("DFrame")
+TextFrame:SetSize(250, 200)
+TextFrame:Center()
+TextFrame:SetTitle("#ServerBrowser_ServerWarningTitle")
+TextFrame:MakePopup()
+
+-- RichText panel
+local richtext = vgui.Create("RichText", TextFrame)
+richtext:Dock(FILL)
+
+-- Yellow colored localized text about player capacity
+richtext:InsertColorChange(255, 255, 192, 255)
+richtext:AppendText("#ServerBrowser_ServerWarning_MaxPlayers")
+
+-- Create a button that moves the text back to the start
+local topbutton = vgui.Create("DButton", richtext)
+topbutton:SetSize(60, 20)
+topbutton:SetPos(160, 146)
+topbutton:SetText("Back to Top")
+
+-- When clicked, go to the start of the text
+topbutton.DoClick = function() richtext:GotoTextStart()	end
+
+-- Apply background color and font
+function richtext:PerformLayout()
+	
+	self:SetFontInternal("Trebuchet18")
+	self:SetBGColor(Color(64, 64, 84))
+	
+end
+	</code>
+	<output><image src="RichText_GotoTextStart_example1.gif"/></output>
+
+</example>

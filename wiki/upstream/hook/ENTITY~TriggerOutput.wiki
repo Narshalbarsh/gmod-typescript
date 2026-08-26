@@ -1,0 +1,69 @@
+<function name="TriggerOutput" parent="ENTITY" type="hook">
+	<description>Triggers all outputs stored using <page>ENTITY:StoreOutput</page>.
+</description>
+	<realm>Server</realm>
+	<file line="105-L123">gamemodes/base/entities/entities/base_entity/outputs.lua</file>
+	<args>
+		<arg name="output" type="string">Name of output to fire</arg>
+		<arg name="activator" type="Entity">Activator entity</arg>
+		<arg name="data" type="string" default="nil">The data to give to the output.</arg>
+	</args>
+</function>
+
+<example>
+	<description>
+Creates a brush entity that will run `OnEndTouch` outputs when compiled into a map
+	</description>
+	<code>
+ENT.Type = "brush"
+ENT.Base = "base_brush"
+
+function ENT:Initialize()
+	self:SetSolid(SOLID_BBOX)
+	self:SetTrigger(true) -- Generates EndTouch and StartTouch callbacks
+end
+
+function ENT:KeyValue( k, v )
+	-- Store 'OnEndTouch' outputs for map created entities
+	if ( k == "OnEndTouch" ) then
+		self:StoreOutput( k, v )
+	end
+end
+
+function ENT:EndTouch(ent)
+	-- Trigger all stored outputs
+	self:TriggerOutput("OnEndTouch", ent)
+end
+	</code>
+</example>
+
+<example>
+	<description>
+For engine entities you can use <page>Entity:Fire</page> to hook outputs. This example hooks all `trigger_teleport`.
+<note>ACTIVATOR / CALLER / TRIGGER_PLAYER globals are only available during execution, they are unset directly afterwards.</note>	
+</description>
+	<code>
+local function SetupMapLua()
+	local MapLua = ents.Create( "lua_run" )
+	MapLua:SetName( "triggerhook" )
+	MapLua:Spawn()
+
+	for _, v in ipairs( ents.FindByClass( "trigger_teleport" ) ) do
+		v:Fire( "AddOutput", "OnStartTouch triggerhook:RunPassedCode:hook.Run( 'OnTeleport' ):0:-1" )
+	end
+end
+
+hook.Add( "InitPostEntity", "SetupMapLua", SetupMapLua )
+hook.Add( "PostCleanupMap", "SetupMapLua", SetupMapLua )
+hook.Add( "OnTeleport", "TestTeleportHook", function()
+	local activator, caller = ACTIVATOR, CALLER
+	print( activator, caller )
+end )
+	</code>
+	<output>
+When player touches trigger_teleport this will be printed in the console:
+```
+Player [1][Player1] Entity [3][trigger_teleport]
+```
+	</output>
+</example>

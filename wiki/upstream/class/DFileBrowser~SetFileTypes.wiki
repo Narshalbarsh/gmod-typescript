@@ -1,0 +1,16 @@
+<function name="SetFileTypes" parent="DFileBrowser" type="panelfunc">
+	<description>
+An <page>Global.AccessorFunc</page> that sets the file type filter for the file list.
+
+This accepts the same file extension wildcards as <page>file.Find</page>.
+	</description>
+	<realm>Client</realm>
+	<file line="81-L90">lua/vgui/dfilebrowser.lua</file>
+	<args>
+		<arg name="fileTypes" type="string" default="*.*">A list of file types to display, separated by spaces e.g.
+```
+"*.lua *.txt *.mdl"
+```
+</arg>
+	</args>
+</function>

@@ -1,0 +1,7 @@
+<function name="SetBool" parent="ConVar" type="classfunc">
+	<description>Sets a ConVar's value to 1 or 0 based on the input boolean. This can only be ran on ConVars created from within Lua.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="value" type="boolean">Value to set the ConVar to.</arg>
+	</args>
+</function>

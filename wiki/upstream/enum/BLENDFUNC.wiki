@@ -1,0 +1,49 @@
+<enum>
+	<realm>Shared and Menu</realm>
+	<description>
+These enums are used by <page>render.OverrideBlend</page> to combine the Source and Destination color and alpha into a final pixel color after they have been multiplied by their corresponding <page text="Blend Multiplier">Enums/BLEND</page>.
+
+All results will be clamped in the range `(0-1)` and will produce final pixel channel values in the range `(0-255)`.
+
+For an interactive demonstration of how these enums behave, see [Anders Riggelsen's Visual glBlendFunc Tool here](https://www.andersriggelsen.dk/glblendfunc.php)
+	</description>
+	<items>
+		<item key="BLENDFUNC_ADD" value="0">
+			**Source + Destination**  
+			Adds each channel of the Source with the same channel of the Destination.
+
+			**Example:**  
+			Using the Source channels: `r=0.0`, `g=0.25`, `b=0.1`, `a=0.9`  
+			With Destination channels: `r=0.25`, `g=0.25`, `b=1.0`, `a=0.0`  
+			The final pixel channels are: `r=0.25`, `g=0.5`, `b=1.0`, `a=0.9`
+			 
+		</item>
+		<item key="BLENDFUNC_SUBTRACT" value="1">
+			**Source - Destination**  
+			Subtracts each channel of the Destination from the same channel of the Source.
+
+			**Example:**  
+			Using the Source channels: `r=0.0`, `g=0.25`, `b=1.0`, `a=0.9`  
+			With Destination channels: `r=0.25`, `g=0.1`, `b=0.4`, `a=0.0`  
+			The final pixel channels are: `r=0.0`, `g=0.0`, `b=0.6`, `a=0.9`
+		</item>
+		<item key="BLENDFUNC_REVERSE_SUBTRACT" value="2">
+			**Destination - Source**  
+			Subtracts each channel of the Source from the same channel of the Destination.
+
+			**Example:**  
+			Using the Source channels: `r=0.0`, `g=0.25`, `b=1.0`, `a=0.9`  
+			With Destination channels: `r=0.25`, `g=0.1`, `b=0.4`, `a=0.0`  
+			The final pixel channels are: `r=0.0`, `g=0.75`, `b=0.0`, `a=0.0`
+		</item>
+		<item key="BLENDFUNC_MIN" value="3">
+			**Min(Source, Destination**  
+			All of the Source channels are added together and compared to all of the Destination channels added together and the smaller of the two is used as the final pixel color.
+		</item>
+		<item key="BLENDFUNC_MAX" value="4">
+			**Max(Source, Destination**  
+			All of the Source channels are added together and compared to all of the Destination channels added together and the larger of the two is used as the final pixel color.
+		</item>
+	</items>
+
+</enum>

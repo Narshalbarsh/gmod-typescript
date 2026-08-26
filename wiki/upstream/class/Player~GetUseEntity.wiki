@@ -1,0 +1,13 @@
+<function name="GetUseEntity" parent="Player" type="classfunc">
+	<description>Returns the entity the player would use if they would press their `+use` keybind.
+	<note issue="5027">Because entity physics objects usually do not exist on the client, the client's use entity will resolve to whatever the crosshair is placed on within a little less than 72 units of the player's eye position. This differs from the entity returned by the server, which has fully physical use checking. See <page>util.TraceHull</page>.
+
+Issue tracker: [5027](https://github.com/Facepunch/garrysmod-issues/issues/5027)</note>
+	</description>
+
+	<realm>Shared</realm>
+	<added>2020.06.24</added>
+	<rets>
+		<ret name="ent" type="Entity">The entity that would be used or NULL.</ret>
+	</rets>
+</function>

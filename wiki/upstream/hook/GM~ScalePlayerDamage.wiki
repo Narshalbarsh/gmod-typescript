@@ -1,0 +1,32 @@
+<function name="ScalePlayerDamage" parent="GM" type="hook">
+	<description>
+This hook allows you to change how much damage a player receives when one takes damage to a specific body part.
+
+<note>This is called only for bullet damage a player receives, you should use <page>GM:EntityTakeDamage</page> instead if you need to detect **ALL** damage.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="ply" type="Player">The player taking damage.</arg>
+		<arg name="hitgroup" type="number">The hitgroup where the player took damage. See <page>Enums/HITGROUP</page></arg>
+		<arg name="dmginfo" type="CTakeDamageInfo">The damage info.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return true to prevent damage that this hook is called for, stop blood particle effects and blood decals.
+
+It is possible to return true only on client ( This will work **only in multiplayer** ) to stop the effects but still take damage.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Makes the player take twice as much damage when shot in the head, and only half damage when shot in the limbs.</description>
+	<code>
+function GM:ScalePlayerDamage( ply, hitgroup, dmginfo )
+	 if ( hitgroup == HITGROUP_HEAD ) then
+		dmginfo:ScaleDamage( 2 ) // More damage when we're shot in the head
+ 	 else
+		dmginfo:ScaleDamage( 0.50 )  // Less damage when shot anywhere else
+	 end
+end
+	</code>
+
+</example>

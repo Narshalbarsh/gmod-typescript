@@ -1,0 +1,11 @@
+<function name="GetDrawBackground" parent="DMenuBar" type="panelfunc">
+	<description>
+<deprecated>Use <page>DMenuBar:GetPaintBackground</page> instead.</deprecated>
+
+Returns whether or not the background should be painted. Is the same as <page>DMenuBar:GetPaintBackground</page>
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Should the background be painted</ret>
+	</rets>
+</function>

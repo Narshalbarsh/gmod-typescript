@@ -1,0 +1,15 @@
+<function name="AddControlPoint" parent="CNewParticleEffect" type="classfunc">
+	<description>
+Adds a control point to the particle system.
+
+<note>This function will not work if the <page>CNewParticleEffect:GetOwner</page> entity is not valid</note>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="cpID" type="number">The control point ID, 0 to 63.</arg>
+		<arg name="ent" type="Entity">The entity to attach the control point to.</arg>
+		<arg name="partAttachment" type="number">See <page>Enums/PATTACH</page>.</arg>
+		<arg name="entAttachment" type="string" default="nil">The attachment name on the entity to attach the particle system to</arg>
+		<arg name="offset" type="Vector" default="Vector( 0, 0, 0 )">The offset from the <page>Entity:GetPos</page> of the entity we are attaching this CP to.</arg>
+	</args>
+</function>

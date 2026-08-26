@@ -1,0 +1,7 @@
+<function name="HasFocus" parent="Panel" type="classfunc">
+	<description>Returns if the panel is focused.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">hasFocus</ret>
+	</rets>
+</function>

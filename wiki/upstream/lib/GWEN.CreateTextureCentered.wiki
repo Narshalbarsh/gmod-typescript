@@ -1,0 +1,38 @@
+<function name="CreateTextureCentered" parent="GWEN" type="libraryfunc">
+	<description>Used in derma skins to create a fixed scale rectangle drawing function from an image. it will be drawn in the center of the box.
+
+The texture is taken from `SKIN.GwenTexture` when the `material` is not supplied.</description>
+	<realm>Client and Menu</realm>
+	<file line="87-L119">lua/derma/derma_gwen.lua</file>
+	<args>
+		<arg name="x" type="number">The X coordinate on the texture.</arg>
+		<arg name="y" type="number">The Y coordinate on the texture.</arg>
+		<arg name="w" type="number">Width of the area on texture.</arg>
+		<arg name="h" type="number">Height of the area on texture.</arg>
+		<arg name="material" type="IMaterial" default="nil">If set, given material will be used over the SKIN's default material, which is `SKIN.GwenTexture`.</arg>
+	</args>
+	<rets>
+		<ret name="" type="function">The drawing function.
+
+<callback>
+	<arg name="x" type="number">X coordinate for the box.</arg>
+	<arg name="y" type="number">Y coordinate for the box.</arg>
+	<arg name="w" type="number">Width of the box.</arg>
+	<arg name="h" type="number">Height of the box.</arg>
+	<arg name="clr" type="Color" default="color_white">Optional color, default is white.</arg>
+</callback>
+</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Draws a box in the top left corner of the screen using current skins texture.</description>
+	<code>
+local paintBox = GWEN.CreateTextureCentered( 384, 32, 32, 32 )
+hook.Add( "HUDPaint", "PaintStuff", function()
+    paintBox( 0, 0, 100, 100 )
+end )
+	</code>
+	<output>If using default skin, it will be 32x32 transparent blue box centered inside the 100x100 box.</output>
+
+</example>

@@ -1,0 +1,42 @@
+<function name="NextThink" parent="Entity" type="classfunc">
+	<description>
+Controls when, relative to <page>Global.CurTime</page>, the <page>Entity</page> will next run its Think function.
+
+For Scripted Entities, this is the <page>ENTITY:Think</page> function.  
+For engine Entities, this is an internal function whose behavior will depend on the specific Entity type.
+
+
+For a Client-side equivalent, see <page>Entity:SetNextClientThink</page>.
+
+<bug issue="3269">This does not work with SWEPs or Nextbots.</bug>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="timestamp" type="number">
+			The timestamp, relative to <page>Global.CurTime</page>, when the next think should occur.
+		</arg>
+	</args>
+
+</function>
+
+<example>
+	<description>Repeatedly prints "Hello, World!" in console with a 1 second delay between each repetition.</description>
+	<code>
+function ENT:Think()
+    print("Hello, World!")
+
+    self:NextThink( CurTime() + 1 )
+    return true -- Note: You need to return true to override the default next think time
+end
+	</code>
+	<output>
+```
+Hello, World!
+Hello, World!
+Hello, World!
+Hello, World!
+...
+```
+	</output>
+
+</example>

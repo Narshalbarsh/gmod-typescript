@@ -1,0 +1,3 @@
+<type name="scripted_ents" category="libraryfunc" is="library">
+	<summary>The scripted_ents library allows you to access information about any scripted entities loaded into the game, as well as register your own entities.</summary>
+</type>

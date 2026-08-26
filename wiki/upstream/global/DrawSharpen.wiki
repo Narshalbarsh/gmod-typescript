@@ -1,0 +1,20 @@
+<function name="DrawSharpen" parent="Global" type="libraryfunc">
+	<description>Draws the sharpen shader, which creates more contrast.</description>
+	<realm>Client</realm>
+	<file line="12-L22">lua/postprocess/sharpen.lua</file>
+	<args>
+		<arg name="Contrast" type="number">How much contrast to create.</arg>
+		<arg name="Distance" type="number">How large the contrast effect will be.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Draws the sharpen shader.</description>
+	<code>
+hook.Add( "RenderScreenspaceEffects", "SharpenShader", function()
+
+	DrawSharpen( 1.2, 1.2 )
+
+end )
+	</code>
+</example>

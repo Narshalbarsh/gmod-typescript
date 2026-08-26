@@ -1,0 +1,10 @@
+<function name="GetNoCull" parent="ProjectedTexture" type="classfunc">
+	<description>
+Returns the state of projected texture view-frustum culling. See <page>ProjectedTexture:SetNoCull</page>.
+	</description>
+	<added>2024.10.09</added>
+	<realm>Client</realm>
+	<rets>
+		<ret name="enable" type="boolean">`false` if culling is enabled (default), `true` if disabled.</ret>
+	</rets>
+</function>

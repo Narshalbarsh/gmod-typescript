@@ -1,0 +1,7 @@
+<function name="SetUnDuckSpeed" parent="Player" type="classfunc">
+	<description>Sets how quickly a player un-ducks</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="UnDuckSpeed" type="number">How quickly the player will un-duck</arg>
+	</args>
+</function>

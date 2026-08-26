@@ -1,0 +1,9 @@
+<function name="ClearDepth" parent="render" type="libraryfunc">
+	<description>
+Resets the depth buffer.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg type="boolean" name="clearStencil" default="true">Whether to also clear the stencil buffer.</arg>
+	</args>
+</function>

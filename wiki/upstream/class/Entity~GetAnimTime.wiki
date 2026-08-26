@@ -1,0 +1,7 @@
+<function name="GetAnimTime" parent="Entity" type="classfunc">
+	<description>Returns the last time the entity had an animation update. Returns 0 if the entity doesn't animate.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">The last time the entity had an animation update.</ret>
+	</rets>
+</function>

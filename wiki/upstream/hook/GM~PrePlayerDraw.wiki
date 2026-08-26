@@ -1,0 +1,42 @@
+<function name="PrePlayerDraw" parent="GM" type="hook">
+	<description>Called before the player is drawn.
+
+See also <page>GM:PostPlayerDraw</page>.
+</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="player" type="Player">The player that is about to be drawn.</arg>
+		<arg name="flags" type="number">The <page text="STUDIO_">Enums/STUDIO</page> flags for this render operation.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return `true` to prevent default player rendering, which hides the player.</ret>
+	</rets>
+</function>
+
+
+<example>
+	<description>
+Draw the player transparent, without having to worry about visual overdraw.
+	</description>
+	<code>
+local drawingPlayer = false
+hook.Add( "PrePlayerDraw", "DrawPlayerTransparentPre", function( ply )
+	if ( drawingPlayer ) then return end
+
+	render.OverrideColorWriteEnable( true, false )
+	drawingPlayer = true
+	ply:DrawModel() -- This will call PrePlayerDraw again
+	drawingPlayer = false
+	render.OverrideColorWriteEnable( false, false )
+
+	render.SetBlend( 0.4 )
+end )
+
+hook.Add( "PostPlayerDraw", "DrawPlayerTransparentPost", function( ply )
+	render.SetBlend( 1 )
+end )
+	</code>
+	<output>
+<upload src="70c/8df02f607438889.png" size="1588653" name="image.png" />
+</output>
+</example>

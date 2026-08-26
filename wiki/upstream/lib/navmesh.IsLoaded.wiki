@@ -1,0 +1,7 @@
+<function name="IsLoaded" parent="navmesh" type="libraryfunc">
+	<description>Returns true if a navmesh has been loaded when loading the map.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="boolean">Whether a navmesh has been loaded when loading the map.</ret>
+	</rets>
+</function>

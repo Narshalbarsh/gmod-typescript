@@ -1,0 +1,7 @@
+<function name="GetMaxSpeed" parent="Vehicle" type="classfunc">
+	<description>Returns the max speed of the vehicle in MPH.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">The max speed of the vehicle in MPH</ret>
+	</rets>
+</function>

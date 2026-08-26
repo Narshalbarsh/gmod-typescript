@@ -1,0 +1,9 @@
+<function name="InitEngine" parent="Task" type="classfunc">
+	<description>Initialises the AI task as an engine task.</description>
+	<realm>Server</realm>
+	<file line="36-L43">lua/includes/modules/ai_task.lua</file>
+	<args>
+		<arg name="taskname" type="string">The name of the task.</arg>
+		<arg name="taskdata" type="number"></arg>
+	</args>
+</function>

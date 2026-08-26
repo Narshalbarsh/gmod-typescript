@@ -1,0 +1,11 @@
+<function name="GetTextArea" parent="DNumberWang" type="panelfunc">
+	<description>
+<deprecated></deprecated>
+
+This function returns the panel it is used on.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="Panel">self</ret>
+	</rets>
+</function>

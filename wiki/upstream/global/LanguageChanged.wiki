@@ -1,0 +1,21 @@
+<function name="LanguageChanged" parent="Global" type="libraryfunc">
+	<description>Callback function for when the client's language changes. Called by the engine.</description>
+	<realm>Menu</realm>
+	<file line="534-L544">lua/menu/mainmenu.lua</file>
+	<args>
+		<arg name="lang" type="string">The new language code.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Prints the new language code whenever the language changes.</description>
+	<code>
+local OldLanguageChanged = LanguageChanged
+function LanguageChanged( lang )
+	print( "New language: " .. lang )
+	OldLanguageChanged( lang )
+end
+	</code>
+	<output>New language: en</output>
+
+</example>

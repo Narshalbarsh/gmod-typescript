@@ -1,0 +1,22 @@
+<function name="PlayerHurt" parent="GM" type="hook">
+	<description>Called when a player gets hurt.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="victim" type="Player">Victim</arg>
+		<arg name="attacker" type="Entity">Attacker Entity</arg>
+		<arg name="healthRemaining" type="number">Remaining Health</arg>
+		<arg name="damageTaken" type="number">Damage Taken</arg>
+	</args>
+</function>
+
+<example>
+	<description>Show players attacker in Chat.</description>
+	<code>
+function GM:PlayerHurt(victim, attacker)
+    if ( attacker:IsPlayer() ) then
+        victim:ChatPrint("You were attacked by : " .. attacker:Nick())
+    end
+end
+	</code>
+
+</example>

@@ -1,0 +1,13 @@
+<function name="GetOpenSubMenu" parent="DMenu" type="panelfunc">
+	<description>
+<internal></internal>
+
+Returns the currently opened submenu.
+
+Used internally to store the open submenu by <page>DMenu:Hide</page>, <page>DMenu:OpenSubMenu</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="Panel">The currently opened submenu, if any.</ret>
+	</rets>
+</function>

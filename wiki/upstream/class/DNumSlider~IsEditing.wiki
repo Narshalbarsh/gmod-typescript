@@ -1,0 +1,7 @@
+<function name="IsEditing" parent="DNumSlider" type="panelfunc">
+	<description>Returns true if either the <page>DTextEntry</page>, the <page>DSlider</page> or the <page>DNumberScratch</page> are being edited.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Whether or not the <page>DNumSlider</page> is being edited by the player.</ret>
+	</rets>
+</function>

@@ -1,0 +1,3 @@
+<type name="ents" category="libraryfunc" is="library">
+	<summary>The ents library provides functions for creating and finding entities in the game.</summary>
+</type>

@@ -1,0 +1,7 @@
+<function name="GetParent" parent="Entity" type="classfunc">
+	<description>Returns the parent entity of this entity.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Entity">parentEntity</ret>
+	</rets>
+</function>

@@ -1,0 +1,7 @@
+<function name="GetWorld" parent="game" type="libraryfunc">
+	<description>Returns the worldspawn entity.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Entity">The world.</ret>
+	</rets>
+</function>

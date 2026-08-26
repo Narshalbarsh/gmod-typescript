@@ -1,0 +1,12 @@
+<function name="SetDrawBorder" parent="DColorButton" type="panelfunc">
+	<description>
+<deprecated></deprecated>
+
+	An <page>Global.AccessorFunc</page> that does absolutely nothing at all. Default value is automatically set to true.
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="6">lua/vgui/dcolorbutton.lua</file>
+	<args>
+		<arg name="draw" type="boolean">Does nothing.</arg>
+	</args>
+</function>

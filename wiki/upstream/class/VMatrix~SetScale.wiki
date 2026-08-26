@@ -1,0 +1,7 @@
+<function name="SetScale" parent="VMatrix" type="classfunc">
+	<description>Modifies the scale of the matrix while preserving the rotation and translation.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="scale" type="Vector">The scale to set.</arg>
+	</args>
+</function>

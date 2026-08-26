@@ -1,0 +1,10 @@
+<title>DListView_ColumnPlain</title>
+<panel>
+	<parent>DListView_Column</parent>
+	<realm>Client and Menu</realm>
+	<description>
+		<internal>
+			Used by <page>DListView</page>.
+		</internal>
+	</description>
+</panel>

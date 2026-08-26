@@ -1,0 +1,16 @@
+<enum>
+	<realm>Server</realm>
+	<description>Citizen type, a KeyValue for npc_citizen( citizentype ), serverside only.</description>
+	<items>
+<item key="CT_DEFAULT" value="0">Default citizen</item>
+
+<item key="CT_DOWNTRODDEN" value="1">Default citizen(?)</item>
+
+<item key="CT_REFUGEE" value="2">Refugee</item>
+
+<item key="CT_REBEL" value="3">Rebel</item>
+
+<item key="CT_UNIQUE" value="4">Odessa?</item>
+	</items>
+
+</enum>

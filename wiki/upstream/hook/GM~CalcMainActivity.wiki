@@ -1,0 +1,17 @@
+<function name="CalcMainActivity" parent="GM" type="hook">
+	<description>
+This hook is used to calculate animations for a player.
+
+<warning>This hook must return the same values at the same time on both, client **and** server. On client for players to see the animations, on server for hit detection to work properly.</warning>
+	</description>
+	<realm>Shared</realm>
+<file line="296-L321">gamemodes/base/gamemode/animations.lua</file>
+	<args>
+		<arg name="ply" type="Player">The player to apply the animation.</arg>
+		<arg name="vel" type="Vector">The velocity of the player.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number"><page>Enums/ACT</page> for the activity the player should use. A nil return will be treated as ACT_INVALID.</ret>
+		<ret name="" type="number">Sequence for the player to use. This takes precedence over the activity (the activity is still used for layering). Return -1 or nil to let the activity determine the sequence.</ret>
+	</rets>
+</function>

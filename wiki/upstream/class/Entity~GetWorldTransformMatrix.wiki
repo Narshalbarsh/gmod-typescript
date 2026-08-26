@@ -1,0 +1,15 @@
+<function name="GetWorldTransformMatrix" parent="Entity" type="classfunc">
+	<description>
+Returns the position and angle of the entity as a 3x4 matrix (<page>VMatrix</page> is 4x4 so the fourth row goes unused). The first three columns store the angle as a [rotation matrix](https://en.wikipedia.org/wiki/Rotation_matrix), and the fourth column stores the position vector.
+
+<bug issue="2764">This returns incorrect results for the angular component (columns 1-3) for the local player clientside.</bug>
+
+<bug issue="3106">This will use the local player's <page>Global.EyeAngles</page> in <page text="rendering hooks">3D_Rendering_Hooks</page>.</bug>
+
+<bug issue="3107">Columns 1-3 will be all 0 (angular component) in <page text="rendering hooks">3D_Rendering_Hooks</page> while paused in single-player.</bug>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="VMatrix">The position and angle matrix.</ret>
+	</rets>
+</function>

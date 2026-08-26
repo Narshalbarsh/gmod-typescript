@@ -1,0 +1,7 @@
+<function name="GetSpaceX" parent="DTileLayout" type="panelfunc">
+	<description>Returns the X axis spacing between 2 elements set by <page>DTileLayout:SetSpaceX</page>.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number"></ret>
+	</rets>
+</function>

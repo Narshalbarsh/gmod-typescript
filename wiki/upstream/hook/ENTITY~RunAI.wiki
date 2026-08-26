@@ -1,0 +1,11 @@
+<function name="RunAI" parent="ENTITY" type="hook">
+	<description>Called from the engine every [m_flNextDecisionTime](https://github.com/ValveSoftware/source-sdk-2013/blob/master/src/game/server/ai_basenpc.cpp#L3943C10-L3943C30) in seconds. This interval changes depending on NPC's [Efficiency](https://github.com/ValveSoftware/source-sdk-2013/blob/master/src/game/server/ai_basenpc.cpp#L3093). Returning `true` inside this hook will allow [CAI_BaseNPC::MaintainSchedule](https://github.com/ValveSoftware/source-sdk-2013/blob/master/src/game/server/ai_basenpc_schedule.cpp#L562) to also be called.
+
+<note>This hook only exists for `ai` type [SENTs](Scripted_Entities).</note>
+	</description>
+	<realm>Server</realm>
+	<file line="5">gamemodes/base/entities/entities/base_ai/schedules.lua</file>
+	<rets>
+		<ret name="" type="boolean">`true` to run engine schedules</ret>
+	</rets>
+</function>

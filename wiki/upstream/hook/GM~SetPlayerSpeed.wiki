@@ -1,0 +1,13 @@
+<function name="SetPlayerSpeed" parent="GM" type="hook">
+	<description>
+Sets player run and sprint speeds.
+<bug issue="2030">Using a speed of `0` can lead to prediction errors, and can cause players to move at `sv_maxvelocity`</bug>
+<warning>This is not a hook. Treat this as a utility function to set the player's speed.</warning>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="ply" type="Player">The player to set the speed of.</arg>
+		<arg name="walkSpeed" type="number">The walk speed.</arg>
+		<arg name="runSpeed" type="number">The run speed.</arg>
+	</args>
+</function>

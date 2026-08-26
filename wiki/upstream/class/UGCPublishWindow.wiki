@@ -1,0 +1,14 @@
+<panel>
+	<name>UGCPublishWindow</name>
+	<parent>DFrame</parent>
+	<file>lua/menu/ugcpublish.lua</file>
+	<realm>Menu</realm>
+	<description>
+		A window that is used to publish dupes and saves
+	<image src="b04e5/8dc6d3d77422fbe.png" size="94866" name="image.png" />
+	</description>
+	<overrides>
+		<page>Panel:Init</page>
+		<page>DListView:OnRowSelected</page>
+	</overrides>
+</panel>

@@ -1,0 +1,20 @@
+<function name="StartsWith" parent="string" type="libraryfunc">
+	<added>2023.01.25</added>
+	<description>Returns whether or not the first string starts with the second.</description>
+	<realm>Shared and Menu</realm>
+	<file line="324-L329">lua/includes/extensions/string.lua</file>
+	<args>
+		<arg name="inputStr" type="string">String to check.</arg>
+		<arg name="start" type="string">String to check with.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether the first string starts with the second.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Demonstrates the use of string.StartsWith</description>
+	<output>true</output>
+	<code>print(string.StartsWith("hello there", "hell"))</code>
+
+</example>

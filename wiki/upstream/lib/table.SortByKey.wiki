@@ -1,0 +1,47 @@
+<function name="SortByKey" parent="table" type="libraryfunc">
+	<description>
+Returns a list of keys sorted based on values of those keys.
+
+For normal sorting see <page>table.sort</page>.
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="141-L154">lua/includes/extensions/table.lua</file>
+	<args>
+		<arg name="tab" type="table">Table to sort. All values of this table must be of same type.</arg>
+		<arg name="descending" type="boolean" default="false">Should the order be descending?</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">A table of keys sorted by values from supplied table.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Example usage of the function.</description>
+	<code>
+local t = {}
+t['h'] = 2 -- Lowest value
+t['a'] = 150 -- Highest value
+t['x'] = 30
+
+PrintTable( table.SortByKey( t ) )
+PrintTable( table.SortByKey( t , true ) )
+	</code>
+	<output>
+
+```
+1 = a
+2 = x
+3 = h
+```
+
+
+
+```
+1 = h
+2 = x
+3 = a
+```
+
+	</output>
+
+</example>

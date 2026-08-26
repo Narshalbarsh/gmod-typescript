@@ -1,0 +1,17 @@
+<function name="ScrW" parent="Global" type="libraryfunc">
+	<description>
+Gets the width of the game's window (in pixels).
+<note>ScrW() returns the width from the current viewport, this can be changed via <page>render.SetViewPort</page>, inside Render Targets and cam.Start contexts.</note>
+</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The width of the game's window in pixels</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints the width of the screen</description>
+	<code>print( ScrW() )</code>
+	<output>1920 (depends on your resolution)</output>
+
+</example>

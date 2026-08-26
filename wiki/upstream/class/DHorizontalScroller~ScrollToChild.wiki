@@ -1,0 +1,7 @@
+<function name="ScrollToChild" parent="DHorizontalScroller" type="panelfunc">
+	<description>Scrolls the <page>DHorizontalScroller</page> to given child panel.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="target" type="Panel">The target child panel. Must be a child of <page>DHorizontalScroller:GetCanvas</page></arg>
+	</args>
+</function>

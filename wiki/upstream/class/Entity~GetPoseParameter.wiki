@@ -1,0 +1,12 @@
+<function name="GetPoseParameter" parent="Entity" type="classfunc">
+	<description>Returns the pose parameter value</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="name" type="string" alttype="number">Pose parameter name to look up. Can also be a pose parameter ID.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">Value of given pose parameter.
+
+<warning>This value will be from 0 - 1 on the client and from minimum range to maximum range on the server! You'll have to <page text="remap">math.Remap</page> this value clientside to <page>Entity:GetPoseParameterRange</page>'s returns if you want get the actual pose parameter value. See <page>Entity:SetPoseParameter</page>'s example.</warning></ret>
+	</rets>
+</function>

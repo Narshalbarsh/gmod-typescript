@@ -1,0 +1,8 @@
+<function name="SetPalette" parent="DColorMixer" type="panelfunc">
+	<description>Show or hide the palette panel</description>
+	<realm>Client and Menu</realm>
+	<file line="158-L164">lua/vgui/dcolormixer.lua</file>
+	<args>
+		<arg name="enabled" type="boolean">Show or hide the palette panel?</arg>
+	</args>
+</function>

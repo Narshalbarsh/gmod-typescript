@@ -1,0 +1,29 @@
+<enum>
+	<realm>Server</realm>
+	<description>Enumerations used by <page>CNavArea:GetAttributes</page> and <page>CNavArea:HasAttributes</page>.</description>
+	<items>
+<item key="NAV_MESH_INVALID" value="0">The nav area is invalid.</item>
+<item key="NAV_MESH_CROUCH" value="1">Must crouch to use this node/area</item>
+<item key="NAV_MESH_JUMP" value="2">Must jump to traverse this area (only used during generation)</item>
+<item key="NAV_MESH_PRECISE" value="4">Do not adjust for obstacles, just move along area</item>
+<item key="NAV_MESH_NO_JUMP" value="8">Inhibit discontinuity jumping</item>
+<item key="NAV_MESH_STOP" value="16">Must stop when entering this area</item>
+<item key="NAV_MESH_RUN" value="32">Must run to traverse this area</item>
+<item key="NAV_MESH_WALK" value="64">Must walk to traverse this area</item>
+<item key="NAV_MESH_AVOID" value="128">Avoid this area unless alternatives are too dangerous</item>
+<item key="NAV_MESH_TRANSIENT" value="256">Area may become blocked, and should be periodically checked</item>
+<item key="NAV_MESH_DONT_HIDE" value="512">Area should not be considered for hiding spot generation</item>
+<item key="NAV_MESH_STAND" value="1024">Bots hiding in this area should stand</item>
+<item key="NAV_MESH_NO_HOSTAGES" value="2048">Hostages shouldn't use this area</item>
+<item key="NAV_MESH_STAIRS" value="4096">This area represents stairs, do not attempt to climb or jump them - just walk up</item>
+<item key="NAV_MESH_NO_MERGE" value="8192">Don't merge this area with adjacent areas</item>
+<item key="NAV_MESH_OBSTACLE_TOP" value="16384">This nav area is the climb point on the tip of an obstacle</item>
+<item key="NAV_MESH_CLIFF" value="32768">This nav area is adjacent to a drop of at least `CliffHeight` (300 hammer units). Unused by base game.</item>
+<item key="NAV_MESH_BLOCKED_LUA" value="65536">Whether the area is blocked via <page>CNavArea:MarkAsBlocked</page>.</item>
+<item key="NAV_MESH_BLOCKED_PROPDOOR" value="268435456">Whether the area has a `prop_door_rotating` that is blocking it (because the door is closed)</item>
+<item key="NAV_MESH_FUNC_COST" value="536870912">Area has designer specified cost controlled by `func_nav_cost` entities</item>
+<item key="NAV_MESH_HAS_ELEVATOR" value="1073741824">Area is in an elevator's path</item>
+<item key="NAV_MESH_NAV_BLOCKER" value="-2147483648">Whether the area is blocked by a `func_nav_blocker` entity and is impassible.</item>
+	</items>
+
+</enum>

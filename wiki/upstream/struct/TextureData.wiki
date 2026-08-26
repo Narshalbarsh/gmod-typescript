@@ -1,0 +1,13 @@
+<structure>
+	<realm>Client and Menu</realm>
+	<description>Used for <page>draw.TexturedQuad</page>.</description>
+	<fields>
+<item name="texture" type="number">surface.GetTextureID number of the texture to be drawn.</item>
+<item name="x" type="number">The x Coordinate.</item>
+<item name="y" type="number">The y Coordinate.</item>
+<item name="w" type="number">The width of the texture.</item>
+<item name="h" type="number">The height of the texture.</item>
+<item name="color" type="Color" default="color_white">The texture color. See <page>Color</page>.</item>
+	</fields>
+
+</structure>

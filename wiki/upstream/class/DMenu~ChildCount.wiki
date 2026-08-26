@@ -1,0 +1,7 @@
+<function name="ChildCount" parent="DMenu" type="panelfunc">
+	<description>Returns the number of child elements of <page>DMenu</page>'s <page>DScrollPanel:GetCanvas</page>.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The number of child elements</ret>
+	</rets>
+</function>

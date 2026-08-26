@@ -1,0 +1,7 @@
+<function name="SetDeathDropHeight" parent="CLuaLocomotion" type="classfunc">
+	<description>Sets the height the bot is scared to fall from.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="height" type="number" default="200">Height</arg>
+	</args>
+</function>

@@ -1,0 +1,7 @@
+<function name="UnPredictedCurTime" parent="Global" type="libraryfunc">
+	<description>Returns the current asynchronous in-game time. This will not be synced with the players current clock allowing you to get <page>Global.CurTime</page> without interference from <page>Prediction</page>.</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="number">The asynchronous in-game time.</ret>
+	</rets>
+</function>

@@ -1,0 +1,24 @@
+<function name="GetRGB" parent="DRGBPicker" type="panelfunc">
+	<description>Returns the color currently set on the color picker.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="Color">The color set on the color picker, see <page>Color</page>.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints out the default set color.</description>
+	<code>
+local color_picker = vgui.Create("DRGBPicker")
+color_picker:SetSize(25, 150)
+color_picker:Center()
+
+print(color_picker:GetRGB())
+	</code>
+	<output>
+```
+255 255 255 255
+```
+</output>
+
+</example>

@@ -1,0 +1,13 @@
+<function name="ViewFile" parent="steamworks" type="libraryfunc">
+	<description>Opens the workshop website for specified Steam Workshop item in the Steam overlay browser.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="workshopItemID" type="string">The ID of workshop item.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Opens web page of Gm_construct_Beta Steam Workshop addon in Steam overlay browser.</description>
+	<code>steamworks.ViewFile( 21197 )</code>
+
+</example>

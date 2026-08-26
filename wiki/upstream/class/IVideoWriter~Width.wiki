@@ -1,0 +1,7 @@
+<function name="Width" parent="IVideoWriter" type="classfunc">
+	<description>Returns the width of the video stream.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">width</ret>
+	</rets>
+</function>

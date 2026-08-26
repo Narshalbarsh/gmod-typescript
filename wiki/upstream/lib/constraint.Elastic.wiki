@@ -1,0 +1,28 @@
+<function name="Elastic" parent="constraint" type="libraryfunc">
+	<description>Creates an elastic rope constraint.</description>
+	<realm>Server</realm>
+	<file line="546-L614">lua/includes/modules/constraint.lua</file>
+	<args>
+		<arg name="ent1" type="Entity">First entity.</arg>
+		<arg name="ent2" type="Entity">Second entity.</arg>
+		<arg name="bone1" type="number"><page>PhysObj</page> number of first entity to constrain to. (0 for non-ragdolls).
+
+See <page>Entity:TranslateBoneToPhysBone</page>.</arg>
+		<arg name="bone2" type="number"><page>PhysObj</page> number of second entity to constrain to. (0 for non-ragdolls). Must be different from `bone1`.
+
+See <page>Entity:TranslateBoneToPhysBone</page>.</arg>
+		<arg name="localPos1" type="Vector">Position relative to the the first physics object to constrain to.</arg>
+		<arg name="localPos2" type="Vector">Position relative to the the second physics object to constrain to.</arg>
+		<arg name="constant" type="number">Stiffness of the elastic. The larger the number the less the elastic will stretch.</arg>
+		<arg name="damping" type="number">How much energy the elastic loses. The larger the number, the less bouncy the elastic.</arg>
+		<arg name="relDamping" type="number">The amount of energy the elastic loses proportional to the relative velocity of the two objects the elastic is attached to.</arg>
+		<arg name="material" type="string" default="">The material of the rope. If unset, will be solid black.</arg>
+		<arg name="width" type="number">Width of rope.</arg>
+		<arg name="stretchOnly" type="boolean" default="false">Apply physics forces only on stretch.</arg>
+		<arg name="color" type="Color" default="color_white">The color of the rope. See <page>Color</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Entity">The created constraint. ([phys_spring](https://developer.valvesoftware.com/wiki/Phys_spring)) Will return `false` if the constraint could not be created.</ret>
+		<ret name="" type="Entity">The created rope. ([keyframe_rope](https://developer.valvesoftware.com/wiki/Keyframe_rope)) Will return `nil` if the constraint could not be created.</ret>
+	</rets>
+</function>

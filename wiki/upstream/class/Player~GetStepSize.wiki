@@ -1,0 +1,7 @@
+<function name="GetStepSize" parent="Player" type="classfunc">
+	<description>Returns the maximum height player can step onto.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The maximum height player can get up onto without jumping, in hammer units.</ret>
+	</rets>
+</function>

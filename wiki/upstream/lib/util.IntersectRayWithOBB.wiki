@@ -1,0 +1,54 @@
+<function name="IntersectRayWithOBB" parent="util" type="libraryfunc">
+	<description>Performs a Ray-OBB (Orientated Bounding Box) intersection and returns position, normal and the fraction if there was an intersection.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="rayStart" type="Vector">Origin or start position of the ray.</arg>
+		<arg name="rayDelta" type="Vector">The ray vector itself, the ray end point relative to the start point. Can be implemented as `direction * distance`
+
+Note that in this implementation, the ray is not infinite - it's only a segment.</arg>
+		<arg name="boxOrigin" type="Vector">The center of the box.</arg>
+		<arg name="boxAngles" type="Angle">The angle of the box.</arg>
+		<arg name="boxMins" type="Vector">The min position of the box.</arg>
+		<arg name="boxMaxs" type="Vector">The max position of the box.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">Hit position, nil if not hit.</ret>
+		<ret name="" type="Vector">Normal/direction vector, nil if not hit.</ret>
+		<ret name="" type="number">Fraction of trace used, nil if not hit.</ret>
+	</rets>
+</function>
+
+<example>
+<description>Simple example showing example usage of the function with visualization. Enter `developer 1` into the in-game console, and look at any entity. Will display a red box if there is no intersection, a green one if there is an intersection.
+
+Please note that while the example uses an entity to generate a box, it is not necessary. The whole point is to perform intersection checks against non physical objects, for example an in-world user interface screen, or testing if a player (or an NPC) is looking at a certain part of a map.
+</description>
+<code>
+-- Store entity we look at
+local ent = NULL
+
+-- Do this every frame
+hook.Add( "Think", "Think_IntersectRayWithOBBExample", function()
+
+	-- Store player object
+	local ply = Entity( 1 )
+	
+	-- If player looked at some valid entity, swtich our entity to that
+	local trEnt = ply:GetEyeTrace().Entity
+	if ( IsValid( trEnt ) ) then ent = trEnt end
+
+	-- No entity? do nothing
+	if ( !IsValid( ent ) ) then return end
+
+	-- Perform a ray intersection against the entity's OBB from the player's eyes
+	local hitPos, hitNormal, frac = util.IntersectRayWithOBB( ply:GetShootPos(), ply:GetAimVector() * 500, ent:GetPos() + ent:OBBCenter(), ent:GetAngles(), ent:OBBMins(), ent:OBBMaxs() )
+	-- print( "res: ", hitPos, hitNormal, frac ) -- For debugging
+
+	-- Draw the OBB visualization, requires developer 1 in console.
+	debugoverlay.BoxAngles( ent:OBBCenter() + ent:GetPos(), ent:OBBMins(), ent:OBBMaxs(), ent:GetAngles(), 0.01, hitPos != nil and Color(0,255,0) or Color( 255,0, 0) )
+
+end )
+
+</code>
+
+</example>

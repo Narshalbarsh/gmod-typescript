@@ -1,0 +1,40 @@
+<function name="insert" parent="table" type="libraryfunc">
+	<description>Inserts a value into a table at the end of the table or at the given position.
+	<note>This function does not call the `__newindex` [metamethod](Metamethods).</note>
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="tbl" type="table">The table to insert the variable into.</arg>
+		<arg name="position" type="number">The position in the table to insert the variable. If the third argument is nil this argument becomes the value to insert at the end of given table.</arg>
+		<arg name="value" type="any">The variable to insert into the table.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The index the object was placed at.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Demonstrates the use of this function.</description>
+	<code>
+sentence = { "hello", "there", "my", "name", "is", "drakehawke" }
+table.insert( sentence, "lol" )
+table.insert( sentence, 6, "not" )
+
+PrintTable( sentence )
+	</code>
+	<output>
+
+```
+1	=	hello
+2	=	there
+3	=	my
+4	=	name
+5	=	is
+6	=	not
+7	=	drakehawke
+8	=	lol
+```
+
+	</output>
+
+</example>

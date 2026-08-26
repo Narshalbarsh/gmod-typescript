@@ -1,0 +1,7 @@
+<function name="GetViewAngles" parent="CUserCmd" type="classfunc">
+	<description>Gets the direction the player is looking in.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Angle">The direction the player is looking in.</ret>
+	</rets>
+</function>

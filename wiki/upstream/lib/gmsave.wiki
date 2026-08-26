@@ -1,0 +1,3 @@
+<type name="gmsave" category="libraryfunc" is="library">
+	<summary>The gmsave library provides functions relating to the singleplayer save system in Garry's Mod.</summary>
+</type>

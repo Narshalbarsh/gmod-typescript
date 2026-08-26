@@ -1,0 +1,12 @@
+<function name="Setup" parent="DFileBrowser" type="panelfunc">
+	<description>
+<internal></internal> Called to set up the <page>DTree</page> and file viewer when a base path has been set.
+
+Calls <page>DFileBrowser:SetupTree</page> and <page>DFileBrowser:SetupFiles</page>.
+	</description>
+	<realm>Client</realm>
+	<file line="202-L208">lua/vgui/dfilebrowser.lua</file>
+	<rets>
+		<ret name="" type="boolean">Whether or not the variables needed to set up have been defined.</ret>
+	</rets>
+</function>

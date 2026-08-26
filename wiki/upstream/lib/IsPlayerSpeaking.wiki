@@ -1,0 +1,17 @@
+<function name="IsPlayerSpeaking" parent="util" type="libraryfunc">
+	<added>2026.08.12</added>
+	<description>
+		<internal></internal>
+	Determines whether a player is currently speaking. 
+
+Alias : <page>Player:IsSpeaking</page> (clientside).
+	</description>
+	<realm>Client</realm>
+	<args>
+		# The argument name must be changed.
+		<arg name="UserID" type="number"></arg>
+	</args>
+	<rets>
+		<ret name="IsSpeaking" type="boolean">Returns true if the player is currently speaking, false otherwise.</ret>
+	</rets>
+</function>

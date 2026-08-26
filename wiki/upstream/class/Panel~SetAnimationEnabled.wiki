@@ -1,0 +1,8 @@
+<function name="SetAnimationEnabled" parent="Panel" type="classfunc">
+	<file line="65-L76">lua/includes/extensions/client/panel/animation.lua</file>
+	<description>Enables or disables animations for the panel object by overriding the <page>PANEL:AnimationThink</page> hook to nil and back.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="enable" type="boolean">Whether to enable or disable animations.</arg>
+	</args>
+</function>

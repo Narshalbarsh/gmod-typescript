@@ -1,0 +1,36 @@
+<function name="RenderOverride" parent="ENTITY" type="hook">
+	<description>
+Called instead of the engine drawing function of the entity. This hook works on any entity (scripted or not) it is applied on.
+
+This does not work on "physgun_beam", use <page>GM:DrawPhysgunBeam</page> instead.
+
+<bug issue="3292">Drawing a viewmodel in this function will cause <page>GM:PreDrawViewModel</page>, <page>WEAPON:PreDrawViewModel</page>, <page>WEAPON:ViewModelDrawn</page>, <page>GM:PostDrawViewModel</page>, and <page>WEAPON:PostDrawViewModel</page> to be called twice.</bug>
+
+<bug issue="3299">This is called before PrePlayerDraw for players. If this function exists at all on a player, their worldmodel will always be rendered regardless of PrePlayerDraw's return.</bug>
+	</description>
+	<realm>Client</realm>
+
+	<args>
+		<arg name="flags" type="number">The <page text="STUDIO_">Enums/STUDIO</page> flags for this render operation.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Set the entity the player is looking at to not draw if the player is its owner.</description>
+	<code>
+local function DontDrawMe( self )
+	if ( self:GetOwner() == LocalPlayer() ) then
+		return
+	end
+	
+	self:DrawModel()
+end
+
+local pickent = LocalPlayer():GetEyeTrace().Entity
+
+if ( IsValid( pickent ) ) then
+	pickent.RenderOverride = DontDrawMe
+end
+	</code>
+
+</example>

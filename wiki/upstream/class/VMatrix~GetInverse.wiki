@@ -1,0 +1,13 @@
+<function name="GetInverse" parent="VMatrix" type="classfunc">
+	<description>
+Returns an inverted matrix without modifying the original matrix.
+
+Inverting the matrix will fail if its [determinant](https://en.wikipedia.org/wiki/Determinant) is 0 or close to 0. (ie. its "scale" in any direction is 0.)
+
+See also <page>VMatrix:GetInverseTR</page>.
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="VMatrix">The inverted matrix if possible, nil otherwise</ret>
+	</rets>
+</function>

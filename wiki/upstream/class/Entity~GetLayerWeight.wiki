@@ -1,0 +1,14 @@
+<function name="GetLayerWeight" parent="Entity" type="classfunc">
+	<description>
+Returns the current weight of the layer. See <page>Entity:SetLayerWeight</page> for more information.
+
+<note>This function only works on <page>BaseAnimatingOverlay</page> entities.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="layerID" type="number">The Layer ID</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The current weight of the layer</ret>
+	</rets>
+</function>

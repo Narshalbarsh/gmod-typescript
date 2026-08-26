@@ -1,0 +1,44 @@
+<function name="GetNetworkVars" parent="Entity" type="classfunc">
+	<description>
+		Returns all network vars created by <page>Entity:NetworkVar</page> and <page>Entity:NetworkVarElement</page> and their current values.
+
+		This is used internally by the duplicator. `Entity` type Network vars will not be returned!
+
+		For NWVars see <page>Entity:GetNWVarTable</page>.
+
+		<note>This function will only work on entities which had <page>Entity:InstallDataTable</page> called on them, which is done automatically for players and all <page>Scripted Entities</page></note>
+
+</description>
+	<realm>Shared</realm>
+	<file line="491-L515">lua/includes/extensions/entity.lua</file>
+	<rets>
+		<ret name="data" type="table">The Key-Value formatted table of network var names and their current values</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Example output, if used on a `env_skypaint`.</description>
+	<code>local ent = ents.FindByClass("env_skypaint")[ 1 ]
+PrintTable( ent:GetNetworkVars() )</code>
+	<output>
+```
+BottomColor	=	0.919000 0.929000 0.992000
+DrawStars	=	true
+DuskColor	=	1.000000 1.000000 1.000000
+DuskIntensity	=	2
+DuskScale	=	0.5
+FadeBias	=	0.10000000149012
+HDRScale	=	0.56000000238419
+StarFade	=	0.5
+StarLayers	=	1
+StarScale	=	2
+StarSpeed	=	0.029999999329448
+StarTexture	=	skybox/clouds
+SunColor	=	0.000000 0.000000 0.000000
+SunNormal	=	-0.377821 0.520026 0.766044
+SunSize	=	0
+TopColor	=	0.220000 0.510000 1.000000
+
+```
+</output>
+</example>

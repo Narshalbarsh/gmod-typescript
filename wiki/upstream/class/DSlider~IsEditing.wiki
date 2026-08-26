@@ -1,0 +1,7 @@
+<function name="IsEditing" parent="DSlider" type="panelfunc">
+	<description>Returns true if this element is being edited by the player.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean"></ret>
+	</rets>
+</function>

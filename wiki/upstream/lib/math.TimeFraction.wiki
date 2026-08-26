@@ -1,0 +1,20 @@
+<function name="TimeFraction" parent="math" type="libraryfunc">
+	<description>Returns the fraction of where the current time is relative to the start and end times</description>
+	<realm>Shared and Menu</realm>
+	<file line="207-L209">lua/includes/extensions/math.lua</file>
+	<args>
+		<arg name="start" type="number">Start time in seconds</arg>
+		<arg name="end" type="number">End time in seconds</arg>
+		<arg name="current" type="number">Current time in seconds</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">Fraction</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints the time fraction of 5 between 0 and 10</description>
+	<code>print(math.TimeFraction(0, 10, 5))</code>
+	<output>0.5</output>
+
+</example>

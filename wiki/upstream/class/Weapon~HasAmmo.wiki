@@ -1,0 +1,11 @@
+<function name="HasAmmo" parent="Weapon" type="classfunc">
+	<description>
+Returns whether the weapon has ammo left or not. It will return false when there's no ammo left in the magazine **and** when there's no reserve ammo left.
+
+<note>This will return true for weapons like crowbar, gravity gun, etc.</note>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the weapon has ammo or not.</ret>
+	</rets>
+</function>

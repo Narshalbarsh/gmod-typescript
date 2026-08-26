@@ -1,0 +1,8 @@
+<function name="GetHelpText" parent="Tool" type="classfunc">
+	<description>Returns a language key based on this tool's name and the current stage it is on.</description>
+	<realm>Shared</realm>
+	<file line="163">gamemodes/sandbox/entities/weapons/gmod_tool/object.lua</file>
+	<rets>
+		<ret name="key" type="string">The returned language key, for example `"#tool.weld.1"`</ret>
+	</rets>
+</function>

@@ -1,0 +1,7 @@
+<function name="GetScale" parent="CEffectData" type="classfunc">
+	<description>Returns the scale of the effect.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The scale of the effect</ret>
+	</rets>
+</function>

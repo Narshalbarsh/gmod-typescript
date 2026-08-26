@@ -1,0 +1,7 @@
+<function name="GetMin" parent="DNumberScratch" type="panelfunc">
+	<description>Returns the minimum value that can be selected on the number scratch</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The minimum value that can be selected on the number scratch</ret>
+	</rets>
+</function>

@@ -1,0 +1,35 @@
+<function name="UTIL_IsUselessModel" parent="Global" type="libraryfunc">
+	<description>
+<deprecated>You should use <page>Global.IsUselessModel</page> instead.</deprecated>
+
+This function is an alias of <page>Global.IsUselessModel</page>.
+
+Returns whether or not a model is useless by checking that the file path is that of a proper model.
+
+If the string ".mdl" is not found in the model name, the function will return true.
+
+The function will also return true if any of the following strings are found in the given model name:
+* "_gesture"
+* "_anim"
+* "_gst"
+* "_pst"
+* "_shd"
+* "_ss"
+* "_posture"
+* "_anm"
+* "ghostanim"
+* "_paths"
+* "_shared"
+* "anim_"
+* "gestures_"
+* "shared_ragdoll_"
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="336">lua/includes/util.lua</file>
+	<args>
+		<arg name="modelName" type="string">The model name to be checked</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether or not the model is useless</ret>
+	</rets>
+</function>

@@ -1,0 +1,7 @@
+<function name="GetHelpText" parent="ConVar" type="classfunc">
+	<description>Returns the help text assigned to that convar.</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="string">The help text</ret>
+	</rets>
+</function>

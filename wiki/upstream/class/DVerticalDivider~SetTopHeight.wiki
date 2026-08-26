@@ -1,0 +1,11 @@
+<function name="SetTopHeight" parent="DVerticalDivider" type="panelfunc">
+	<description>
+Sets the height of the top content panel.
+
+The height of the bottom content panel is automatically calculated by taking the total height of the <page>DVerticalDivider</page> and subtracting it with the height of the top content panel and the divider bar.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="height" type="number">The height of the top content panel.</arg>
+	</args>
+</function>

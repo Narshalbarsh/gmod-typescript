@@ -1,0 +1,14 @@
+<function name="GetWeapon" parent="CTakeDamageInfo" type="classfunc">
+	<description>
+Returns the inflicting weapon of the damage event, if there is any.
+
+This is not necessarily a <page>Weapon</page> entity, but it is very likely to be one.
+
+See <page>CTakeDamageInfo:GetInflictor</page> for the actual entity that did the damage.
+	</description>
+	<added>2025.01.15</added>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Entity">The damage-inflicting weapon or <page>NULL</page>.</ret>
+	</rets>
+</function>

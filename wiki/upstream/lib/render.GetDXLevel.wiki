@@ -1,0 +1,7 @@
+<function name="GetDXLevel" parent="render" type="libraryfunc">
+	<description>Returns the maximum available directX version.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The directX version.</ret>
+	</rets>
+</function>

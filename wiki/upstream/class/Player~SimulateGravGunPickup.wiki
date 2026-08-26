@@ -1,0 +1,8 @@
+<function name="SimulateGravGunPickup" parent="Player" type="classfunc">
+	<description>Signals the entity that it was picked up by the gravity gun. This call is only required if you want to simulate the situation of picking up objects.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ent" type="Entity">The entity picked up</arg>
+		<arg name="lightning" type="boolean" default="false">Whether or not to show lightning effects around the entity</arg>
+	</args>
+</function>

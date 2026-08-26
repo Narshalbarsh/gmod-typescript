@@ -1,0 +1,7 @@
+<function name="GetMultiple" parent="DListBox" type="panelfunc">
+	<description>Returns whether the list box can select multiple items.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="multiple" type="boolean">Whether the list box can select multiple items.</ret>
+	</rets>
+</function>

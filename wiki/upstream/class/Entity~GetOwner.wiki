@@ -1,0 +1,10 @@
+<function name="GetOwner" parent="Entity" type="classfunc">
+	<description>Returns the owner entity of this entity. See <page>Entity:SetOwner</page> for more info.
+
+	<note>This function is generally used to disable physics interactions on projectiles being fired by their owner, but can also be used for normal ownership in case physics interactions are not involved at all. The Gravity gun will be able to pick up the entity even if the owner can't collide with it, the Physics gun however will not.</note>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Entity">The owner entity of this entity.</ret>
+	</rets>
+</function>

@@ -1,0 +1,7 @@
+<function name="PointAtEntity" parent="Entity" type="classfunc">
+	<description>Changes an entities angles so that it faces the target entity.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="target" type="Entity">The entity to face.</arg>
+	</args>
+</function>

@@ -1,0 +1,8 @@
+<function name="GetMoveVelocity" parent="NPC" type="classfunc">
+	<description>Returns the current move velocity of the NPC.</description>
+	<realm>Server</realm>
+	<added>2021.03.31</added>
+	<rets>
+		<ret name="" type="Vector">The current move velocity of the NPC.</ret>
+	</rets>
+</function>

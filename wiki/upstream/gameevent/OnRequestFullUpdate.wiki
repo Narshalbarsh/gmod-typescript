@@ -1,0 +1,71 @@
+<cat>gameevent</cat>
+<title>OnRequestFullUpdate</title>
+
+<structure>
+	<realm>Shared and Menu</realm>
+	<description>
+		Called when a player requests a full update from the server.  
+		Called Clientside when the Update is received or when another player requested a full update.
+
+		<note>
+			When this event is called the first time for a client, <page>net</page> messages will be reliably received by the client.  
+			This gameevent is called twice for the player, because it is first called serverside and networked, but then also called clientside.
+		</note>
+
+		<bug issue="6465">
+			If `sv_parallel_sendsnapshot` is enabled, then this gameevent **won't** be called reliably since currently gmod discards of gameevents from other threads.
+		</bug>
+	</description>
+	<fields>
+		<item type="string" name="networkid">The SteamID the player has. Will be `BOT` for bots and `STEAM_0:0:0` in single-player.</item>
+		<item type="string" name="name">The <page text="name">Player:Nick</page> the player has.</item>
+		<item type="number" name="userid">The <page text="UserID">Player:UserID</page> the player has.</item>
+		<item type="number" name="index">The <page text="EntIndex">Entity:EntIndex</page> of the player, minus one.</item>
+	</fields>
+</structure>
+
+# Examples
+<example>
+	<description>Early Networking Example:</description>
+	<code>
+local Queue = {}
+
+hook.Add( "PlayerInitialSpawn", "EarlyNetworkingExample", function( ply )
+	Queue[ ply:UserID() ] = true
+end )
+
+gameevent.Listen( "OnRequestFullUpdate" )
+hook.Add( "OnRequestFullUpdate", "EarlyNetworkingExample", function( data )
+
+	local UID = data.userid			-- Same as Player:UserID()
+
+	if ( not Queue[ UID ] ) then
+		return
+	end
+
+	Queue[ UID ] = nil
+
+	-- Some networking here
+
+	-- net.Start( 'YourCoolNetMessage' )
+	-- net.Send( Player( UID ) )
+
+end )
+	</code>
+</example>
+
+<example>
+	<description>This is a basic template with the purpose of including all arguments / table variables to make it easily known which values can be accessed.</description>
+	<code>
+gameevent.Listen( "OnRequestFullUpdate" )
+hook.Add( "OnRequestFullUpdate", "OnRequestFullUpdate_example", function( data )
+	local name = data.name			// Same as Player:Nick()
+	local steamid = data.networkid	// Same as Player:SteamID()
+	local id = data.userid			// Same as Player:UserID()
+	local index = data.index   		// Same as Entity:EntIndex() minus one
+
+	// Called when a player requests a full update from the server.
+	
+end )
+	</code>
+</example>

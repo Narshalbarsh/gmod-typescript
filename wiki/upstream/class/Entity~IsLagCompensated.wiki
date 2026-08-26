@@ -1,0 +1,7 @@
+<function name="IsLagCompensated" parent="Entity" type="classfunc">
+	<description>Returns whether the entity is lag compensated or not.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the entity is lag compensated or not.</ret>
+	</rets>
+</function>

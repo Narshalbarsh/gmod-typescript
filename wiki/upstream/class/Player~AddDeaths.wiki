@@ -1,0 +1,14 @@
+<function name="AddDeaths" parent="Player" type="classfunc">
+	<description>Adds the provided amount to the player's death count.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="count" type="number">The amount to add to the death count.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Adds 2 deaths to player</description>
+	<code>Entity( 1 ):AddDeaths( 2 )</code>
+	<output>Player1 has 2 extra deaths on the scoreboard relative to their old score.</output>
+
+</example>

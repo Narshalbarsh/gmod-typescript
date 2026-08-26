@@ -1,0 +1,18 @@
+<enum>
+	<realm>Shared</realm>
+	<description>Enumerations used by <page>Entity:SetSolidFlags</page> and <page>Entity:GetSolidFlags</page>.</description>
+	<items>
+<item key="FSOLID_CUSTOMRAYTEST" value="1">Ignore solid type + always call into the entity for ray tests</item>
+<item key="FSOLID_CUSTOMBOXTEST" value="2">Ignore solid type + always call into the entity for swept box tests</item>
+<item key="FSOLID_NOT_SOLID" value="4">The object is currently not solid</item>
+<item key="FSOLID_TRIGGER" value="8">This is something may be collideable but fires touch functions even when it's not collideable (when the FSOLID_NOT_SOLID flag is set)</item>
+<item key="FSOLID_NOT_STANDABLE" value="16">The player can't stand on this</item>
+<item key="FSOLID_VOLUME_CONTENTS" value="32">Contains volumetric contents (like water)</item>
+<item key="FSOLID_FORCE_WORLD_ALIGNED" value="64">Forces the collision representation to be world-aligned even if it's SOLID_BSP or SOLID_VPHYSICS</item>
+<item key="FSOLID_USE_TRIGGER_BOUNDS" value="128">Uses a special trigger bounds separate from the normal OBB</item>
+<item key="FSOLID_ROOT_PARENT_ALIGNED" value="256">Collisions are defined in root parent's local coordinate space</item>
+<item key="FSOLID_TRIGGER_TOUCH_DEBRIS" value="512">This trigger will touch debris objects</item>
+<item key="FSOLID_MAX_BITS" value="10">The amount of bits needed to store the all the flags in a variable/sent over network.</item>
+	</items>
+
+</enum>

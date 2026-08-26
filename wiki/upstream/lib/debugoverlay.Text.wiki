@@ -1,0 +1,16 @@
+<function name="Text" parent="debugoverlay" type="libraryfunc">
+	<description>
+Displays text at the specified position.
+
+<note>This function will silently fail if the `developer` <page>ConVar</page> is set to `0`.  
+It is not networked to clients, except for the <page text="listen server host">Player:IsListenServerHost</page>.  
+It will not work when the game is paused.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="origin" type="Vector">Position origin.</arg>
+		<arg name="text" type="string">String message to display.</arg>
+		<arg name="lifetime" type="number" default="1">Number of seconds to appear.</arg>
+		<arg name="viewCheck" type="boolean" default="false">Clip text that is obscured.</arg>
+	</args>
+</function>

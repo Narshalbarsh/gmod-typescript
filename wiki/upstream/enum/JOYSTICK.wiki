@@ -1,0 +1,61 @@
+<enum>
+	<realm>Shared and Menu</realm>
+	<description>
+Enumerations used by <page>input.IsButtonDown</page>.
+
+It's also part of the <page>Enums/BUTTON_CODE</page>.
+	</description>
+	<items>
+<item key="JOYSTICK_FIRST" value="114"></item>
+<item key="JOYSTICK_FIRST_BUTTON" value="114">Joystick buttons are in this range, but don't have individual enum names.</item>
+<item key="JOYSTICK_LAST_BUTTON" value="145"></item>
+<item key="JOYSTICK_FIRST_POV_BUTTON" value="146">Joystick POV buttons are in this range, but don't have individual enum names.</item>
+<item key="JOYSTICK_LAST_POV_BUTTON" value="149"></item>
+<item key="JOYSTICK_FIRST_AXIS_BUTTON" value="150">Joystick axis buttons are in this range, but don't have individual enum names.</item>
+<item key="JOYSTICK_LAST_AXIS_BUTTON" value="161"></item>
+<item key="JOYSTICK_LAST" value="161"></item>
+	</items>
+	<fieldsonly></fieldsonly>
+
+</enum>
+
+<example>
+	<description>A button configuration for a wireless controller.</description>
+	<code>
+local lx=input.GetAnalogValue(ANALOG_JOY_X) // Left X Axis: left -, right +
+local ly=input.GetAnalogValue(ANALOG_JOY_Y) // Left Y Axis: up -, bottom +
+local lr=input.GetAnalogValue(ANALOG_JOY_R) // Right X Axis: left -, right +
+local lu=input.GetAnalogValue(ANALOG_JOY_U) // Right Y Axis: up -, bottom +
+
+lx=lx/32768; ly=ly/32768; lr=lr/32768; lu=lu/32768; // Conversion to floats -1.0 - 1.0
+
+local jA=input.IsButtonDown(114); // A Button
+local jB=input.IsButtonDown(115); // B Button
+local jX=input.IsButtonDown(116); // X Button
+local jY=input.IsButtonDown(117); // Y button
+local jL1=input.IsButtonDown(118); // L1 button
+local jL2=input.IsButtonDown(119); // R1 button
+local jPL=input.IsButtonDown(120); // Pause left
+local jPR=input.IsButtonDown(121); // Pause Right
+local jLAPD=input.IsButtonDown(122); // Left Analog Press down
+local jRAPD=input.IsButtonDown(123); // Right Analog Press down
+
+local jUp=input.IsButtonDown(146); // PAD BUTTONS .....
+local jRight=input.IsButtonDown(147); // 
+local jDown=input.IsButtonDown(148); // 
+local jLeft=input.IsButtonDown(149); // 
+
+local jLT=input.IsButtonDown(154); // Triggers 
+local jRT=input.IsButtonDown(155); // 
+
+// Obtain Mapping Enums //
+//for i=0,47 do
+//	if(input.IsButtonDown(114+i)) then 
+//		print((i+114).." TRUE")
+//	else 
+//	
+//	end
+//end
+	</code>
+
+</example>

@@ -1,0 +1,10 @@
+<function name="GetDrawBackground" parent="DLabel" type="panelfunc">
+	<description>
+<deprecated>You should use <page>DLabel:GetPaintBackground</page> instead.</deprecated>
+
+Returns whether or not the panel background is being drawn. Alias of <page>DLabel:GetPaintBackground</page>.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">True if the panel background is drawn, false otherwise.</ret>
+	</rets>
+</function>

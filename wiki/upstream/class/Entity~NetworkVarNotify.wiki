@@ -1,0 +1,49 @@
+<function name="NetworkVarNotify" parent="Entity" type="classfunc">
+	<description>
+Creates a callback that will execute when the given network variable changes - that is, when the `Set<name>()` function is run.
+
+The callback is executed **before** the value is changed, and is called even if the new and old values are the same.
+
+This function does not exist on entities in which <page>Entity:InstallDataTable</page> has not been called. 
+
+By default, this means this function only exists on SENTs (both serverside and clientside) and on players with a <page text="Player Class">Player_Classes</page> (serverside and clientside <page>Global.LocalPlayer</page> only).
+
+It's therefore safest to only use this in <page>ENTITY:SetupDataTables</page>.
+
+<bug request="324">The callback will not be called clientside if the var is changed right after entity spawn.</bug>
+	</description>
+	<realm>Shared</realm>
+	<file line="390-L396">lua/includes/extensions/entity.lua</file>
+	<args>
+		<arg name="name" type="string">Name of variable to track changes of.</arg>
+		<arg name="callback" type="function">The function to call when the variable changes.
+
+<callback>
+<arg type="Entity" name="entity">Entity whos variable changed.</arg>
+<arg type="string" name="name">Name of changed variable.</arg>
+<arg type="any" name="old">Old/current variable value.</arg>
+<arg type="any" name="new">New variable value that it was set to.</arg>
+</callback>
+</arg>
+	</args>
+</function>
+
+<example>
+	<description>Example usage.</description>
+	<code>
+function ENT:SetupDataTables()
+	self:NetworkVar( "Float", 0, "Amount" )
+	self:NetworkVar( "Vector", 1, "StartPos" )
+	self:NetworkVar( "Vector", 2, "EndPos" )
+
+	if ( SERVER ) then
+		self:NetworkVarNotify( "EndPos", self.OnVarChanged )
+	end
+end
+
+function ENT:OnVarChanged( name, old, new )
+	print( name, old, new )
+end
+	</code>
+	<output>Prints variable name, old value and new value whenever SetEndPos function is called.</output>
+</example>

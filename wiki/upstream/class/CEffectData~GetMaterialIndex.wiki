@@ -1,0 +1,7 @@
+<function name="GetMaterialIndex" parent="CEffectData" type="classfunc">
+	<description>Returns the material ID of the effect.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The material ID of the effect.</ret>
+	</rets>
+</function>

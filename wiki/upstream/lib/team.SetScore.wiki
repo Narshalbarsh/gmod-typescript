@@ -1,0 +1,9 @@
+<function name="SetScore" parent="team" type="libraryfunc">
+	<description>Sets the score of the given team</description>
+	<file line="178-L182">lua/includes/modules/team.lua</file>
+	<realm>Shared</realm>
+	<args>
+		<arg name="index" type="number">Index of the team</arg>
+		<arg name="score" type="number">The team's new score</arg>
+	</args>
+</function>

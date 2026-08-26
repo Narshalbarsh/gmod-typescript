@@ -1,0 +1,5 @@
+<function name="DragHoverEnd" parent="Panel" type="classfunc">
+	<file line="531-L538">lua/includes/extensions/client/panel/dragdrop.lua</file>
+	<description><internal></internal> Called to end a drag and hover action. This resets the panel's <page>PANEL:PaintOver</page> method, and is primarily used by <page>dragndrop.StopDragging</page>.</description>
+	<realm>Client and Menu</realm>
+</function>

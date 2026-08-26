@@ -1,0 +1,11 @@
+<function name="Disallow" parent="duplicator" type="libraryfunc">
+	<description>Disallow this entity to be duplicated. Opposite of <page>duplicator.Allow</page>.
+
+This function is useful for temporarily disabling duplication of certain entity classes that may have been previously allowed.</description>
+	<realm>Shared</realm>
+	<added>2023.08.08</added>
+	<file line="340-L344">lua/includes/modules/duplicator.lua</file>
+	<args>
+		<arg name="classname" type="string">An entity's classname to disallow duplicating.</arg>
+	</args>
+</function>

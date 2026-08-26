@@ -1,0 +1,16 @@
+<function name="TestPVS" parent="Entity" type="classfunc">
+	<description>
+Check if the given position or entity is within this entity's [PVS(Potential Visibility Set)](https://developer.valvesoftware.com/wiki/PVS "PVS - Valve Developer Community").
+
+See also <page>Entity:IsDormant</page>.
+
+<note>The function won't take in to account <page>Global.AddOriginToPVS</page> and the like.</note>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="testPoint" type="Vector|Entity"><page>Entity</page> or <page>Vector</page> to test against. If an entity is given, this function will test using its bounding box.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">`true` if the testPoint is within our PVS.</ret>
+	</rets>
+</function>

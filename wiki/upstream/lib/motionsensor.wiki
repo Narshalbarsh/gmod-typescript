@@ -1,0 +1,5 @@
+<type name="motionsensor" category="libraryfunc" is="library">
+	<summary>Functions related to Kinect for Windows usage in GMod.
+<warning>Kinect feature works only on 32-bit version of the game.</warning>
+</summary>
+</type>

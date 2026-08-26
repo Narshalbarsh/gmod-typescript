@@ -1,0 +1,8 @@
+<function name="EndTooltip" parent="Global" type="libraryfunc">
+	<description>Removes the currently active tool tip from the screen.</description>
+	<realm>Client and Menu</realm>
+	<file line="66-L80">lua/includes/util/tooltips.lua</file>
+	<args>
+		<arg name="panel" type="Panel">This is the panel that has a tool tip.</arg>
+	</args>
+</function>

@@ -1,0 +1,27 @@
+<function name="HUDDrawTargetID" parent="GM" type="hook">
+	<description>Called from <page>GM:HUDPaint</page> to draw player info when you hover over a player with your crosshair or mouse.</description>
+	<realm>Client</realm>
+	<file line="6-L60">gamemodes/base/gamemode/cl_targetid.lua</file>
+	<rets>
+		<ret name="" type="boolean">Should the player info be drawn.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>This code will turn off the player and health appearing when you look at them.</description>
+	<code>
+-- First solution: return false
+hook.Add( "HUDDrawTargetID", "HidePlayerInfo", function()
+
+	return false
+
+end )
+
+-- Second solution: override the gamemode hook
+function GM:HUDDrawTargetID()
+
+	return false
+
+end
+	</code>
+</example>

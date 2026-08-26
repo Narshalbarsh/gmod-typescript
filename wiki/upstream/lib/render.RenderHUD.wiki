@@ -1,0 +1,10 @@
+<function name="RenderHUD" parent="render" type="libraryfunc">
+	<description>Renders the HUD on the screen.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="x" type="number">X position for the HUD draw origin.</arg>
+		<arg name="y" type="number">Y position for the HUD draw origin.</arg>
+		<arg name="w" type="number">Width of the HUD draw.</arg>
+		<arg name="h" type="number">Height of the HUD draw.</arg>
+	</args>
+</function>

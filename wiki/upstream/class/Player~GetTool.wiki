@@ -1,0 +1,11 @@
+<function name="GetTool" parent="Player" type="classfunc">
+	<description>Returns <page text="TOOL">Structures/TOOL</page> table of players current tool, or of the one specified.</description>
+	<realm>Shared</realm>
+	<file line="105-L115">gamemodes/sandbox/gamemode/player_extension.lua</file>
+	<args>
+		<arg name="mode" type="string" default="nil">Classname of the tool to retrieve. ( Filename of the tool in gmod_tool/stools/ )</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">TOOL table, or nil if the table wasn't found or the player doesn't have a tool gun.</ret>
+	</rets>
+</function>

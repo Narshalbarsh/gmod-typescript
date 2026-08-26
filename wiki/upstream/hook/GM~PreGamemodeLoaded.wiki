@@ -1,0 +1,4 @@
+<function name="PreGamemodeLoaded" parent="GM" type="hook">
+	<description>Called before the gamemode is loaded.</description>
+	<realm>Shared</realm>
+</function>

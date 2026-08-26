@@ -1,0 +1,4 @@
+<function name="MoveToBack" parent="Panel" type="classfunc">
+	<description>Moves the panel object behind all other panels on screen. If the panel has been made a pop-up with <page>Panel:MakePopup</page>, it will still draw in front of any panels that haven't.</description>
+	<realm>Client and Menu</realm>
+</function>

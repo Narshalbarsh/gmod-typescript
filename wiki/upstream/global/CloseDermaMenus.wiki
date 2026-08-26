@@ -1,0 +1,4 @@
+<function name="CloseDermaMenus" parent="Global" type="libraryfunc">
+	<description>Closes all Derma menus that have been passed to <page>Global.RegisterDermaMenuForClose</page> and calls <page>GM:CloseDermaMenus</page></description>
+	<realm>Client and Menu</realm>
+</function>

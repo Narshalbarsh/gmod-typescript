@@ -1,0 +1,23 @@
+<function name="Publish" parent="steamworks" type="libraryfunc">
+	<description>
+<internal></internal>
+Publishes dupes, saves or demos to workshop.
+	</description>
+	<realm>Menu</realm>
+	<args>
+		<arg name="filename" type="string">Path to the file to upload</arg>
+		<arg name="image" type="string">Path to the image to use as icon</arg>
+		<arg name="name" type="string">Name of the Workshop submission</arg>
+		<arg name="desc" type="string">Description of the Workshop submission</arg>
+		<arg name="tags" type="table">The workshop tags to apply</arg>
+		<arg name="callback" type="function">Callback for when the publishing process finishes.
+
+<callback>
+<arg type="number" name="fileID">If success, file id of the published item.</arg>
+<arg type="string" name="error">On failure, the error message.</arg>
+</callback>
+</arg>
+		<arg name="fileid" type="number" default="nil">If set, the file ID to update</arg>
+		<arg name="changelist" type="string" default="None given.">List of changes when updating an item.</arg>
+	</args>
+</function>

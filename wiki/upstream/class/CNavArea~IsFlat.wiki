@@ -1,0 +1,7 @@
+<function name="IsFlat" parent="CNavArea" type="classfunc">
+	<description>Returns whether this Nav Area is flat within the tolerance of the **nav_coplanar_slope_limit_displacement** and **nav_coplanar_slope_limit** convars.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="boolean">Whether this CNavArea is mostly flat.</ret>
+	</rets>
+</function>

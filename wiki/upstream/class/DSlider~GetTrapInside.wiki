@@ -1,0 +1,9 @@
+<function name="GetTrapInside" parent="DSlider" type="panelfunc">
+	<description>
+Returns the value set by <page>DSlider:SetTrapInside</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean"></ret>
+	</rets>
+</function>

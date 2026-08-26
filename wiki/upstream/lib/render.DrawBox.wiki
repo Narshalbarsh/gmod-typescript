@@ -1,0 +1,35 @@
+<function name="DrawBox" parent="render" type="libraryfunc">
+	<description>
+Draws a box in 3D space.
+
+<rendercontext hook="false" type="3D"></rendercontext>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="position" type="Vector">Origin of the box.</arg>
+		<arg name="angles" type="Angle">Orientation of the box.</arg>
+		<arg name="mins" type="Vector">Start position of the box, relative to origin.</arg>
+		<arg name="maxs" type="Vector">End position of the box, relative to origin.</arg>
+		<arg name="color" type="Color" default="Color( 255, 255, 255 )">The color of the box.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Draws a white box at the position you are looking.</description>
+	<code>
+local x = Vector( 5, 5, 5 )
+
+hook.Add( "PostDrawTranslucentRenderables", "Boxxie", function()
+    local pos = LocalPlayer():GetEyeTrace().HitPos -- position to render box at
+
+    render.SetColorMaterial() -- white material for easy coloring
+
+    cam.IgnoreZ( true ) -- makes next draw calls ignore depth and draw on top
+    render.DrawBox( pos, angle_zero, x, -x, color_white ) -- draws the box 
+    cam.IgnoreZ( false ) -- disables previous call
+end )
+	</code>
+	<output>
+		<upload src="22674/8d9d79b16d43f75.png" size="860258" name="image.png" />
+	</output>
+</example>

@@ -1,0 +1,27 @@
+<function name="SetNetworked2Var" parent="Entity" type="classfunc">
+	<description>
+Sets a networked value on the entity.
+
+The value can then be accessed with <page>Entity:GetNetworked2Var</page> both from client and server.
+
+| Allowed Types   |  
+| --------------- |  
+| Angle           |  
+| Boolean         |  
+| Entity          |  
+| Float           |  
+| Int             |  
+| String          |  
+| Vector          |  
+<deprecated>You should be using <page>Entity:SetNW2Var</page> instead.</deprecated>
+<warning>Trying to network a type that is not listed above leads to the value not being networked!</warning>
+<note>Running this function clientside will only set it for the client it is called on.  
+The value will only be networked if it isn't the same as the current value and unlike SetNW*
+the value will only ne networked once and not every 10 seconds.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="key" type="string">The key to associate the value with</arg>
+		<arg name="value" type="any">The value to set</arg>
+	</args>
+</function>

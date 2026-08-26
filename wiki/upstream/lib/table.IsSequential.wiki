@@ -1,0 +1,11 @@
+<function name="IsSequential" parent="table" type="libraryfunc">
+	<description>Returns whether or not the table's keys are sequential</description>
+	<realm>Shared and Menu</realm>
+	<file line="196-L203">lua/includes/extensions/table.lua</file>
+	<args>
+		<arg name="tab" type="table">Table to check</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Is sequential</ret>
+	</rets>
+</function>

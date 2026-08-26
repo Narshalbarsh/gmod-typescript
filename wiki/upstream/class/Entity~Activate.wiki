@@ -1,0 +1,23 @@
+<function name="Activate" parent="Entity" type="classfunc">
+	<description>
+Activates the entity. This needs to be used on some entities (like constraints) after being spawned.
+
+<note>For some entity types when this function is used after <page>Entity:SetModelScale</page>, the physics object will be recreated with the new scale. [Source-sdk-2013](https://github.com/ValveSoftware/source-sdk-2013/blob/55ed12f8d1eb6887d348be03aee5573d44177ffb/mp/src/game/server/baseanimating.cpp#L321-L327).
+
+Calling this method after <page>Entity:SetModelScale</page> will recreate a new scaled `SOLID_VPHYSICS` <page>PhysObj</page> on scripted entities. This can be a problem if you made a properly scaled <page>PhysObj</page> of another kind (using <page>Entity:PhysicsInitSphere</page> for instance) or if you edited the <page>PhysObj</page>'s properties. This is especially the behavior of the Sandbox spawn menu.</note>
+
+	</description>
+	<realm>Shared</realm>
+</function>
+
+<example>
+	<description>Spawns a `sent_ball` on the player.</description>
+	<code>
+function ENT:SpawnMe(ply)
+	local ent = ents.Create("sent_ball")
+	ent:SetPos( ply:GetPos() ) 
+	ent:Spawn()
+	ent:Activate()
+end
+	</code>
+</example>

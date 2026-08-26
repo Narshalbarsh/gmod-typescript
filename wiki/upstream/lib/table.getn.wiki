@@ -1,0 +1,10 @@
+<function name="getn" parent="table" type="libraryfunc">
+	<description><deprecated>This function was deprecated in Lua 5.1 and is removed in 5.2. Use the length (#) operator instead.</deprecated> Returns the length of the table.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="tbl" type="table">The table to check.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">Sequential length.</ret>
+	</rets>
+</function>

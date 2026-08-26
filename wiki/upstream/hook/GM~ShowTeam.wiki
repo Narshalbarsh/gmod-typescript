@@ -1,0 +1,7 @@
+<function name="ShowTeam" parent="GM" type="hook">
+	<description>Called when a player executes `gm_showteam` console command. ( Default bind is <key>F2</key> )</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ply" type="Player">Player who executed the command</arg>
+	</args>
+</function>

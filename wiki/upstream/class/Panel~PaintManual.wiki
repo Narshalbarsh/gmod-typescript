@@ -1,0 +1,35 @@
+<function name="PaintManual" parent="Panel" type="classfunc">
+	<description>Paints the panel at its current position. To use this you must call <page>Panel:SetPaintedManually</page>(true).</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="unclamp" type="boolean" default="false"> If set, overrides panels' clipping so that it can render fully when its size is larger than the game's resolution.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Paints a simple panel inside a 3D rendering context.</description>
+	<code>
+local frame = vgui.Create( "DFrame" )
+frame:SetTitle( "PaintManual Test" )
+frame:SetSize( 500, 500 )
+frame:SetPaintedManually( true )
+
+hook.Add( "PostDrawTranslucentRenderables", "PaintManual Test", function()
+	if IsValid(frame) then
+		local eyePos = Entity(1):EyePos()
+		local forward = Entity(1):GetForward()
+		local forwardAngle = forward:Angle()
+
+		cam.Start3D2D(eyePos + (forward * 250), Angle(0, forwardAngle.y - 90, forwardAngle.r + 90), 0.2)
+			frame:PaintManual()
+		cam.End3D2D()
+	end
+end )
+	</code>
+	<output>
+The panel will be drawn facing the player located on the player's crosshair.
+<image src="panel_paintmanual_example1_output.png" alt="left"/>
+
+	</output>
+
+</example>

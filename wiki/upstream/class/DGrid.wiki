@@ -1,0 +1,39 @@
+<panel>
+	<parent>Panel</parent>
+	<realm>Client and Menu</realm>
+	<file line="">lua/vgui/dgrid.lua</file>
+	<preview>Screenshot 1.png</preview>
+	<description>
+		A really simple grid layout panel.
+
+		<note>This panel will set its size automatically based on set column count. 
+		This makes it play badly with <page>Panel:Dock</page> and cause a <page>PANEL:PerformLayout</page> call every frame.</note>
+	</description>
+</panel>
+
+
+<example>
+	<description>Creates a simple grid with numbered buttons.</description>
+	<code>
+local frame = vgui.Create( "DFrame" )
+frame:SetPos( 500, 500 )
+frame:SetSize( 200, 300 )
+frame:SetTitle( "Frame" )
+frame:MakePopup()
+ 
+local grid = vgui.Create( "DGrid", frame )
+grid:SetPos( 10, 30 )
+grid:SetCols( 5 )
+grid:SetColWide( 36 )
+ 
+for i = 1, 30 do
+	local but = vgui.Create( "DButton" )
+	but:SetText( i )
+	but:SetSize( 30, 20 )
+	grid:AddItem( but )
+end
+	</code>
+
+</example>
+
+<upload src="54669/8dc9e117bea2ad5.png" size="6633" name="gmod_mDemqnU0BF.png" />

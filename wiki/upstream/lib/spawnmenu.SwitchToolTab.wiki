@@ -1,0 +1,10 @@
+<function name="SwitchToolTab" parent="spawnmenu" type="libraryfunc">
+	<description>
+Opens specified tool tab in spawnmenu.
+	</description>
+	<realm>Client</realm>
+	<file line="72-L79">lua/includes/modules/spawnmenu.lua</file>
+	<args>
+		<arg name="id" type="number">The tab ID to open</arg>
+	</args>
+</function>

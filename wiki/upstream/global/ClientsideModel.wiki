@@ -1,0 +1,35 @@
+<function name="ClientsideModel" parent="Global" type="libraryfunc">
+	<description>
+Creates a non physical entity that only exists on the client. See also <page>ents.CreateClientProp</page> if physics is wanted.
+
+<bug issue="861">Parented clientside models will become detached if the parent entity leaves the PVS. A workaround is available on the issue tracker page linked below.</bug>
+
+<bug issue="1387">Clientside entities are not garbage-collected, thus you must store a reference to the object (in a variable) and call <page>CSEnt:Remove</page> manually when necessary.</bug>
+
+<bug issue="3184">Clientside models will occasionally delete themselves during high server lag.</bug>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="model" type="string">The file path to the model.</arg>
+		<arg name="renderGroup" type="number" default="RENDERGROUP_OTHER">The render group of the entity for the clientside leaf system, see <page>Enums/RENDERGROUP</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="CSEnt|nil">Created client-side model (`C_BaseFlex`) or `nil` if creation of the entity failed for any reason.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Creates a clientside entity where the player is looking.</description>
+	<code>
+
+concommand.Add( "test_csent", function( ply )
+
+	local trace = ply:GetEyeTrace()
+
+	local entity = ClientsideModel( "models/props_c17/oildrum001_explosive.mdl" )
+	entity:SetPos( trace.HitPos + trace.HitNormal * 24 )
+	entity:Spawn()
+
+end )
+	</code>
+</example>

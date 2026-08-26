@@ -1,0 +1,15 @@
+<function name="Normalize" parent="Vector" type="classfunc">
+	<description>Normalizes the given vector. This changes the vector you call it on, if you want to return a normalized copy without affecting the original, use <page>Vector:GetNormalized</page>.</description>
+	<realm>Shared and Menu</realm>
+</function>
+
+<example>
+	<description>Normalizes Vector(4, 3, 2).</description>
+	<code>
+local test = Vector(4, 3, 2)
+test:Normalize()
+MsgN( test )
+	</code>
+	<output>0.7428 0.5571 0.3714.</output>
+
+</example>

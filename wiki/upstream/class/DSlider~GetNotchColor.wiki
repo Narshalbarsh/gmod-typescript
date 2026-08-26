@@ -1,0 +1,10 @@
+<function name="GetNotchColor" parent="DSlider" type="panelfunc">
+	<description>
+<deprecated>Does not affect anything by default.</deprecated>
+Returns the current notch color, set by <page>DSlider:SetNotchColor</page></description>
+	<realm>Client and Menu</realm>
+	<added>2021.06.09</added>
+	<rets>
+		<ret name="clr" type="Color">The current color</ret>
+	</rets>
+</function>

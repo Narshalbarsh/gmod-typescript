@@ -1,0 +1,9 @@
+<function name="SwitchCreationTab" parent="spawnmenu" type="libraryfunc">
+	<description>Switches the creation tab (left side of the spawnmenu) on the spawnmenu to the given tab.</description>
+	<realm>Client</realm>
+	<file line="198-L205">lua/includes/modules/spawnmenu.lua</file>
+	<added>2021.12.15</added>
+	<args>
+		<arg name="id" type="string">The tab ID to open</arg>
+	</args>
+</function>

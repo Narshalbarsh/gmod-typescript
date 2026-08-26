@@ -1,0 +1,42 @@
+<function name="SetMaxClientSpeed" parent="CMoveData" type="classfunc">
+	<description>
+Sets the maximum player speed. Player won't be able to run or sprint faster then this value.
+
+
+This also automatically sets <page>CMoveData:SetMaxSpeed</page> when used in the <page>GM:SetupMove</page> hook. You must set it manually in the <page>GM:Move</page> hook.
+
+
+This must be called on both client and server to avoid prediction errors.
+
+
+This will **not** reduce speed in air.
+<note>Setting this to 0 will not make the player stationary. It won't do anything.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="maxSpeed" type="number">The new maximum speed</arg>
+	</args>
+</function>
+
+<example>
+	<description>Doesn't let the player to run or sprint faster than 100 units per second.</description>
+	<code>
+hook.Add("SetupMove","MySpeed", function( ply, mv )
+    mv:SetMaxClientSpeed( 100 )
+end )
+	</code>
+
+</example>
+
+
+<example>
+	<description>Doubles the players speed properly.</description>
+	<code>
+hook.Add( "Move", "testestst", function( ply, mv, usrcmd )
+	local speed = mv:GetMaxSpeed() * 2
+	mv:SetMaxSpeed( speed )
+	mv:SetMaxClientSpeed( speed )
+end )
+	</code>
+
+</example>

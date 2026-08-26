@@ -1,0 +1,14 @@
+<function name="GetTextureNameByID" parent="surface" type="libraryfunc">
+<description>
+Returns name/path of texture by ID. Opposite version of this function is <page>surface.GetTextureID</page>.
+
+</description>
+	<realm>Client and Menu</realm>
+	<added>2023.01.25</added>
+	<args>
+		<arg name="id" type="number">ID of texture.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">Returns name/path of texture.</ret>
+	</rets>
+</function>

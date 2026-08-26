@@ -1,0 +1,15 @@
+<function name="BuildSkeleton" parent="motionsensor" type="libraryfunc">
+	<description><internal></internal> Called to build the skeleton. See <page>Using The Kinect</page> and <page>Kinect developing</page>.</description>
+	<realm>Shared</realm>
+	<file line="221-L260">lua/includes/extensions/motionsensor.lua</file>
+	<args>
+		<arg name="translator" type="table">`list.Get( "SkeletonConvertor" )` and <page>motionsensor.ChooseBuilderFromEntity</page>.</arg>
+		<arg name="player" type="Player">The player to get motion sensor positions from.</arg>
+		<arg name="rotation" type="Angle">Global rotation of the player?</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">Position</ret>
+		<ret name="" type="Angle">Angles</ret>
+		<ret name="" type="table">Sensor</ret>
+	</rets>
+</function>

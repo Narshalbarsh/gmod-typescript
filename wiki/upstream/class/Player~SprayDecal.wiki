@@ -1,0 +1,18 @@
+<function name="SprayDecal" parent="Player" type="classfunc">
+	<description>Makes a player spray their decal.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="sprayOrigin" type="Vector">The location to spray from</arg>
+		<arg name="sprayEndPos" type="Vector">The location to spray to</arg>
+	</args>
+</function>
+
+<example>
+	<description>Makes the player spray their decal 5000 units away.</description>
+<code>
+local ply = Entity( 1 )
+local eyepos = ply:EyePos()
+ply:SprayDecal( eyepos, eyepos + ply:GetAimVector() * 5000 )
+</code>
+
+</example>

@@ -1,0 +1,7 @@
+<function name="SetBackground" parent="DSlider" type="panelfunc">
+	<description>Sets the background for the slider.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="path" type="string">Path to the image.</arg>
+	</args>
+</function>

@@ -1,0 +1,21 @@
+<function name="PostDrawViewModel" parent="GM" type="hook">
+	<description>
+Called after view model is drawn.
+
+The render FOV in this hook is different from the main view, as view models are usually rendered with a different FOV. Every render operation will only be accurate with the view model entity.
+
+See <page>GM:PreDrawViewModel</page> for a hook that is called just before a view model is drawn.
+
+For view model hands alternative, see <page>GM:PostDrawPlayerHands</page>.
+
+<rendercontext hook="true" type="3D"></rendercontext>
+
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="viewmodel" type="Entity">Players view model</arg>
+		<arg name="player" type="Player">The owner of the weapon/view model</arg>
+		<arg name="weapon" type="Weapon">The weapon the player is currently holding</arg>
+		<arg name="flags" type="number" added="2025.12.16">The <page text="STUDIO_">Enums/STUDIO</page> flags for this render operation.</arg>
+	</args>
+</function>

@@ -1,0 +1,18 @@
+<function name="Kick" parent="Player" type="classfunc">
+	<description>
+Kicks the player from the server.
+<note>This can not be run before the player has fully joined in. Use <page>game.KickID</page> for that.</note>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="reason" type="string" default="No reason given">Reason to show for disconnection.
+
+<warning>This will be shortened to ~512 chars, though this includes the command itself and the player index so will realistically be more around ~498. It is recommended to avoid going near the limit to avoid truncation.</warning></arg>
+	</args>
+</function>
+
+<example>
+	<description>Kick a player with reason "Goodbye"</description>
+	<code>Entity( 1 ):Kick( "Goodbye" )</code>
+
+</example>

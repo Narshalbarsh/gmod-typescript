@@ -1,0 +1,11 @@
+<function name="CanAddServerToFavorites" parent="Global" type="libraryfunc">
+	<description>
+<internal></internal>
+
+Used internally to check if the current server the player is on can be added to favorites or not. Does not check if the server is ALREADY in the favorites.
+	</description>
+	<realm>Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Can add to favorites?</ret>
+	</rets>
+</function>

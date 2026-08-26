@@ -1,0 +1,13 @@
+<function name="IsPotentiallyVisible" parent="CNavArea" type="classfunc">
+	<description>
+Returns whether this <page>CNavArea</page> can potentially see the given <page>CNavArea</page>.
+	</description>
+	<realm>Server</realm>
+	<added>2020.08.12</added>
+	<args>
+		<arg name="area" type="CNavArea">The <page>CNavArea</page> to test.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether the given area is visible from this area</ret>
+	</rets>
+</function>

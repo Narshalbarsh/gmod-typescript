@@ -1,0 +1,7 @@
+<function name="GetDock" parent="Panel" type="classfunc">
+	<description>Returns a dock enum for the panel's current docking type.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The dock enum for the panel. See <page>Enums/DOCK</page>.</ret>
+	</rets>
+</function>

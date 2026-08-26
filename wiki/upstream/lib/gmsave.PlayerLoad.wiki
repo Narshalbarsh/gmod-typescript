@@ -1,0 +1,9 @@
+<function name="PlayerLoad" parent="gmsave" type="libraryfunc">
+	<description>Sets player position and angles from supplied table.</description>
+	<realm>Server</realm>
+	<file line="14-L22">lua/includes/gmsave/player.lua</file>
+	<args>
+		<arg name="ply" type="Player">The player to "load" values for.</arg>
+		<arg name="data" type="table">A table containing Origin and Angle keys for position and angles to set.</arg>
+	</args>
+</function>

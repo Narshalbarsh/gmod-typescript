@@ -1,0 +1,13 @@
+<function name="SetUseType" parent="Entity" type="classfunc">
+	<description>Sets the use type of an entity, affecting how often <page>ENTITY:Use</page> will be called for Lua entities.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="useType" type="number{_USE}">The use type to apply to the entity. Uses <page>Enums/_USE</page>.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Makes the <page>ENTITY:Use</page> hook only get called once at every use.</description>
+	<code>Entity:SetUseType( SIMPLE_USE )</code>
+
+</example>

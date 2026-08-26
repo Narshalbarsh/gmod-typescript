@@ -1,0 +1,12 @@
+<function name="KeyFromValue" parent="table" type="libraryfunc">
+	<description>Returns the first key found to be containing the supplied value</description>
+	<realm>Shared and Menu</realm>
+	<file line="697-L701">lua/includes/extensions/table.lua</file>
+	<args>
+		<arg name="tab" type="table">Table to search</arg>
+		<arg name="value" type="any">Value to search for</arg>
+	</args>
+	<rets>
+		<ret name="" type="any">Key</ret>
+	</rets>
+</function>

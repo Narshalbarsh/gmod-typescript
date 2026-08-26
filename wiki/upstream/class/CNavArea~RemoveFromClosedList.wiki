@@ -1,0 +1,13 @@
+<function name="RemoveFromClosedList" parent="CNavArea" type="classfunc">
+	<description>
+<deprecated>Does nothing</deprecated>
+
+Removes this node from the Closed List.
+
+Used in pathfinding via the [A* algorithm](https://en.wikipedia.org/wiki/A*_search_algorithm).
+
+
+More information can be found on the <page>Simple Pathfinding</page> page.
+	</description>
+	<realm>Server</realm>
+</function>

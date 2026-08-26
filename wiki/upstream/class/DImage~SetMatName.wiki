@@ -1,0 +1,11 @@
+<function name="SetMatName" parent="DImage" type="panelfunc">
+	<description>
+<internal></internal>
+
+Sets the material to be loaded when the image is first rendered. Used by <page>DImage:SetOnViewMaterial</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="mat" type="string"></arg>
+	</args>
+</function>

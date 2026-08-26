@@ -1,0 +1,5 @@
+<function name="RefreshSkins" parent="derma" type="libraryfunc">
+	<description>Clears all cached panels so that they reassess which skin they should be using.</description>
+	<realm>Client and Menu</realm>
+	<file line="243-L247">lua/derma/derma.lua</file>
+</function>

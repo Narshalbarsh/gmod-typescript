@@ -1,0 +1,8 @@
+<function name="GetModels" parent="DFileBrowser" type="panelfunc">
+	<description>An <page>Global.AccessorFunc</page> that returns whether or not the model viewer mode is enabled. In this mode, files are displayed as <page>SpawnIcon</page>s instead of a list.</description>
+	<realm>Client</realm>
+	<file line="10">lua/vgui/dfilebrowser.lua</file>
+	<rets>
+		<ret name="" type="boolean">Whether or not files will be displayed using <page>SpawnIcon</page>s.</ret>
+	</rets>
+</function>

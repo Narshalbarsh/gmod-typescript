@@ -1,0 +1,24 @@
+<function name="RunString" parent="Global" type="libraryfunc">
+	<description>
+Evaluates and executes the given code, will throw an error on failure.
+<note>Local variables are not passed to the given code.</note>
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="code" type="string">The code to execute.</arg>
+		<arg name="identifier" type="string" default="RunString">The name that should appear in any error messages caused by this code.</arg>
+		<arg name="handleError" type="boolean" default="true">If false, this function will return a string containing any error messages instead of throwing an error.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">If handleError is false, the error message (if any).</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Compiles and runs `print("test")`.</description>
+	<code>
+RunString([[print("test")]])
+	</code>
+	<output>test</output>
+
+</example>

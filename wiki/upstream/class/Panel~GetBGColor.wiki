@@ -1,0 +1,11 @@
+<function name="GetBGColor" parent="Panel" type="classfunc">
+	<description>Returns the background color of a panel such as a <page>RichText</page>, <page>Label</page> or <page>DColorCube</page>.
+
+<note>This doesn't apply to all VGUI elements and its function varies between them</note>
+	</description>
+	<realm>Client and Menu</realm>
+	<added>2020.03.17</added>
+	<rets>
+		<ret name="color" type="Color">The <page>Color</page>.</ret>
+	</rets>
+</function>

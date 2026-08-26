@@ -1,0 +1,14 @@
+<function name="GetHitBoxHitGroup" parent="Entity" type="classfunc">
+	<description>Gets the hit group of a given hitbox in a given hitbox set.</description>
+	<realm>Shared</realm>
+<added>2020.03.17</added>
+	<args>
+		<arg name="hitbox" type="number">The number of the hit box.</arg>
+		<arg name="hitboxset" type="number">The number of the hit box set. This should be 0 in most cases.
+
+Numbering for these sets start from 0. The total group count can be found with <page>Entity:GetHitBoxSetCount</page>.</arg>
+	</args>
+	<rets>
+		<ret name="group" type="number">The hitbox group of given hitbox. See <page>Enums/HITGROUP</page></ret>
+	</rets>
+</function>

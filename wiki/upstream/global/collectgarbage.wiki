@@ -1,0 +1,24 @@
+<function name="collectgarbage" parent="Global" type="libraryfunc">
+	<description>Executes the specified action on the garbage collector.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="action" type="string" default="collect">The action to run.
+
+Valid actions are `collect`, `stop`, `restart`, `count`, `step`, `setpause`, `setstepmul` and `isrunning`.
+<note>`isrunning` is only available on the x86-64 versions, because of the difference in the LuaJIT version. [See here](jit.version)</note></arg>
+		<arg name="arg" type="number">The argument of the specified action, only applicable for `step`, `setpause` and `setstepmul`.</arg>
+	</args>
+	<rets>
+		<ret name="" type="any">If the action is count this is the number of kilobytes of memory used by Lua.
+If the action is step this is true if a garbage collection cycle was finished.
+
+If the action is setpause this is the previous value for the GC's pause.
+If the action is setstepmul this is the previous value for the GC's step.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>The current floored dynamic memory usage of Lua, in kilobytes.</description>
+	<code>print( collectgarbage( "count" ) )</code>
+
+</example>

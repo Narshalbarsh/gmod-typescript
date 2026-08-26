@@ -1,0 +1,13 @@
+<function name="PreRegisterTOOL" parent="SANDBOX" type="hook">
+	<description>Called just before registering a Sandbox scripted tool.</description>
+	<realm>Shared</realm>
+	<added>2021.10.31</added>
+	<file line="163-L165">gamemodes/sandbox/entities/weapons/gmod_tool/stool.lua</file>
+	<args>
+		<arg name="tool" type="table">The TOOL table to be registered. See <page>Structures/TOOL</page>.</arg>
+		<arg name="class" type="string">The class name to be assigned.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return `false` to prevent the TOOL from being registered.</ret>
+	</rets>
+</function>

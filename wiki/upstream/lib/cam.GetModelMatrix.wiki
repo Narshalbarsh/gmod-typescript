@@ -1,0 +1,9 @@
+<function name="GetModelMatrix" parent="cam" type="libraryfunc">
+	<description>Returns a copy of the model matrix that is at the top of the stack.
+	<note>Editing the matrix **will not** edit the current view. To do so, you will have to use <page>cam.PushModelMatrix</page>.</note>
+	</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="VMatrix">The currently active model matrix.</ret>
+	</rets>
+</function>

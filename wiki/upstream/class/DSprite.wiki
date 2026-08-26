@@ -1,0 +1,26 @@
+<panel>
+	<name>DSprite</name>
+	<parent>DPanel</parent>
+	<realm>Client</realm>
+	<file line="">lua/vgui/dsprite.lua</file>
+	<description>
+A panel that draws a sprite on the player's HUD with the given <page>IMaterial</page>, <page>Global.Color</page> and rotation.
+
+A shortcut for this is <page>Global.CreateSprite</page>().
+	</description>
+
+</panel>
+
+
+<example>
+	<description>Creates a DSprite with the `sent_ball` material, and sets the color to cyan.</description>
+	<code>
+local sprite = vgui.Create("DSprite")
+sprite:SetMaterial(Material("sprites/sent_ball"))
+sprite:SetColor(Color(0, 255, 255))
+sprite:Center()
+sprite:SetSize(200, 200)
+	</code>
+	<output>`See Preview above.`</output>
+
+</example>

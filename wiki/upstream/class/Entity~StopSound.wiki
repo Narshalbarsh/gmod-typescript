@@ -1,0 +1,9 @@
+<function name="StopSound" parent="Entity" type="classfunc">
+	<description>Stops emitting the given sound from the entity, especially useful for looping sounds.
+
+Internally plays the sound with the <page text="SND_STOP">Enums/SND#SND_STOP</page> flag to stop the sound.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="sound" type="string">The name of the sound script or the filepath to stop playback of.</arg>
+	</args>
+</function>

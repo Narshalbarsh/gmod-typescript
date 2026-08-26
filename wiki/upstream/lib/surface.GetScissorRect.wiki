@@ -1,0 +1,18 @@
+<function name="GetScissorRect" parent="surface" type="libraryfunc">
+	<description>
+		Retrieves the currently active scissor rect for the surface library. A faster, narrower version of <page>surface.GetPanelPaintState</page>.
+
+Useful for panel retrieving current panel's culling from <page>PANEL:Paint</page>.
+
+This does **NOT** return values set by <page>render.SetScissorRect</page>.
+	</description>
+	<added>2026.02.26</added>
+	<realm>Client</realm>
+	<rets>
+		<ret type="boolean">Whether the scissor rect is active or not. If `false`, the following values should be ignored.</ret>
+		<ret type="number">Left edge of the scissor rect.</ret>
+		<ret type="number">Top edge of the scissor rect.</ret>
+		<ret type="number">Right edge of the scissor rect.</ret>
+		<ret type="number">Bottom edge of the scissor rect.</ret>
+	</rets>
+</function>

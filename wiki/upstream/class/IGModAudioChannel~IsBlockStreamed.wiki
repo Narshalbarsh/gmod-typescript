@@ -1,0 +1,7 @@
+<function name="IsBlockStreamed" parent="IGModAudioChannel" type="classfunc">
+	<description>Returns whether the audio stream is block streamed or not.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="boolean">Is the audio stream block streamed or not.</ret>
+	</rets>
+</function>

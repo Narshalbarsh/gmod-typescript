@@ -1,0 +1,8 @@
+<function name="PlayerStopDriving" parent="drive" type="libraryfunc">
+	<description>Stops the player from driving anything. ( For example a prop in sandbox )</description>
+	<realm>Shared</realm>
+	<file line="50-L54">lua/includes/modules/drive.lua</file>
+	<args>
+		<arg name="ply" type="Player">The player to affect.</arg>
+	</args>
+</function>

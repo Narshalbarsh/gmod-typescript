@@ -1,0 +1,7 @@
+<function name="GetShadowPos" parent="PhysObj" type="classfunc">
+	<description>Returns the position of the <page>PhysObj</page> shadow. See <page>PhysObj:UpdateShadow</page>.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Vector">The position of the <page>PhysObj</page> shadow.</ret>
+	</rets>
+</function>

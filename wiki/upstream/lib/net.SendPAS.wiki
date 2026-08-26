@@ -1,0 +1,7 @@
+<function name="SendPAS" parent="net" type="libraryfunc">
+	<description>Sends current net message (see <page>net.Start</page>) to all players that are in the same [Potentially Audible Set (PAS)](https://developer.valvesoftware.com/wiki/PAS) as the position, or simply said, it adds all players that can potentially hear sounds from this position.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="position" type="Vector">PAS position.</arg>
+	</args>
+</function>

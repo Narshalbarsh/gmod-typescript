@@ -1,0 +1,55 @@
+<function name="SelectWeightedSequence" parent="Entity" type="classfunc">
+	<description>
+Returns sequence ID corresponding to given activity ID.
+
+Multiple sequences can be assigned to a single <page>Enums/ACT</page>, in which case a random one will be selected. This can be used for example to randomize idle animations (and is used for that by built-in weapons) without the need to code logic for this.  
+See also <page>Entity:SelectWeightedSequenceSeeded</page>.
+
+Opposite of <page>Entity:GetSequenceActivity</page>.
+
+Similar to <page>Entity:LookupSequence</page>.
+
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="act" type="number{ACT}">The activity ID, see <page>Enums/ACT</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The sequence ID, or `-1` if not found.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Use this hook to check if the model has a certain ACT_* enumeration, and if it does, play it.</description>
+	<code>
+local VModel = self:GetOwner():GetViewModel()
+
+if ( self:Clip1() == 0 and VModel:SelectWeightedSequence( ACT_VM_RELOAD_EMPTY ) ) then
+
+	local SEQ = self:LookupSequence( ACT_VM_RELOAD_EMPTY )
+
+	if ( SEQ == -1 ) then
+
+		print( "reload" )
+
+		local EnumToSeq = VModel:SelectWeightedSequence( ACT_VM_RELOAD )
+
+		--	Play the normal reload animation
+		VModel:SendViewModelMatchingSequence( EnumToSeq )
+
+	else
+
+		print( "reload empty" )
+
+		local EnumToSeq = VModel:SelectWeightedSequence( ACT_VM_RELOAD_EMPTY )
+
+		-- Play the empty reload animation
+		VModel:SendViewModelMatchingSequence( EnumToSeq )
+		
+	end
+
+end
+	</code>
+	<output>Will play the ACT_VM_RELOAD_EMPTY enumeration if the model has it. If not, it will play the normal reload enum.</output>
+
+</example>

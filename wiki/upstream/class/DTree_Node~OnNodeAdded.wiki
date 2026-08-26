@@ -1,0 +1,8 @@
+<function name="OnNodeAdded" parent="DTree_Node" type="panelhook">
+	<description>Called when a new sub-node is added this node.</description>
+	<realm>Client and Menu</realm>
+	<added>2021.03.31</added>
+	<args>
+		<arg name="newNode" type="DTree_Node">The newly added sub node.</arg>
+	</args>
+</function>

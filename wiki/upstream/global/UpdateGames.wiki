@@ -1,0 +1,26 @@
+<function name="UpdateGames" parent="Global" type="libraryfunc">
+	<description>
+		<internal></internal>
+		Updates the Gamelist.
+	</description>
+	<realm>Menu</realm>
+	<file line="546-L553">lua/menu/mainmenu.lua</file>
+</function>
+
+<example>
+	<description>Manually updating the Game list. This will Visually make all games available, but you won't be able to mount them.</description>
+	<code>
+function UpdateGames()
+	local games = engine.GetGames()
+	for k, v in ipairs( games ) do
+		v.installed = true
+		v.owned = true
+	end
+
+	pnlMainMenu:Call( "UpdateGames( " .. util.TableToJSON( games ) .. ")" )
+end
+	</code>	
+	<output>
+		<image src="ab571/8dc3893d902f3ff.png" alt="Mounted game settings" />
+	</output>
+</example>

@@ -1,0 +1,12 @@
+<function name="String" parent="cvars" type="libraryfunc">
+	<description>Retrieves console variable as a string.</description>
+	<realm>Shared and Menu</realm>
+	<file line="108-L117">lua/includes/modules/cvars.lua</file>
+	<args>
+		<arg name="cvar" type="string">Name of console variable.</arg>
+		<arg name="default" type="any" default="nil">The value to return if the console variable does not exist.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">Retrieved value.</ret>
+	</rets>
+</function>

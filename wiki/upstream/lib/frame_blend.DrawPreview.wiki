@@ -1,0 +1,8 @@
+<function name="DrawPreview" parent="frame_blend" type="libraryfunc">
+	<description>
+<internal></internal>
+
+Actually draws the frame blend effect.
+	</description>
+	<realm>Client</realm>
+</function>

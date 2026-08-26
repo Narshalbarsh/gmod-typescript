@@ -1,0 +1,21 @@
+<function name="SetDecimals" parent="DNumberWang" type="panelfunc">
+	<description>Sets the amount of decimal places allowed in the number selector.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="num" type="number">The amount of decimal places.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Sets the number selector to 3 decimal places and sets the value to a random number between 0 and 1.</description>
+	<code>
+local numinput = vgui.Create("DNumberWang")
+numinput:SetPos(5, 5)
+numinput:SetSize(90, 20)
+numinput:SetDecimals(3)
+
+numinput:SetValue(math.random())
+	</code>
+	<output><image src="DNumberWang_SetDecimals_example1.png"/></output>
+
+</example>

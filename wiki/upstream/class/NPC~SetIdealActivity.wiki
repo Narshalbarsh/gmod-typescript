@@ -1,0 +1,8 @@
+<function name="SetIdealActivity" parent="NPC" type="classfunc">
+	<description>Sets the ideal activity the NPC currently wants to achieve. This is most useful for custom SNPCs.</description>
+	<realm>Server</realm>
+	<added>2021.01.27</added>
+	<args>
+		<arg name="" type="number">The ideal activity to set. <page>Enums/ACT</page>.</arg>
+	</args>
+</function>

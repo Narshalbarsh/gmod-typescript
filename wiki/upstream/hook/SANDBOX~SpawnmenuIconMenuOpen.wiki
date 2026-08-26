@@ -1,0 +1,38 @@
+<function name="SpawnmenuIconMenuOpen" parent="SANDBOX" type="hook">
+	<file line="32">gamemodes/sandbox/gamemode/spawnmenu/creationmenu/content/contenticon.lua</file>
+	<description>Called when the player opens a context menu by right clicking one of the spawnmenu icons. Either <page>ContentIcon</page> or <page>SpawnIcon</page>.
+
+This hook can be used to add new custom menu options to the context menu.
+</description>
+<added>2025.03.18</added>
+	<realm>Client</realm>
+	<args>
+		<arg name="menu" type="Panel">The <page>DMenu</page> to add options to.</arg>
+		<arg name="icon" type="Panel">The <page>ContentIcon</page> or <page>SpawnIcon</page> that was right clicked. It will be a `SpawnIcon` for `model` content type, and a `ContentIcon` for all others.</arg>
+		<arg name="contentType" type="string">The content type, such as:
+* `weapon`
+* `entity`
+* `vehicle`
+* `npc`
+* `model`
+* `tool`
+* `postprocess`
+
+Addon related icons may have different types.
+</arg>
+	</args>
+</function>
+
+
+<example>
+<description>Adds a "copy name" option to NPC spawn icons.</description>
+<code>
+hook.Add( "SpawnmenuIconMenuOpen", "SM_CopyNPCName", function( menu, icon, contentType )
+    if ( contentType != "npc" ) then return end
+
+    menu:AddOption( "Copy Name", function()
+        SetClipboardText( language.GetPhrase( icon.m_NiceName ) )
+    end ):SetIcon( "icon16/page_copy.png" )
+end)
+</code>
+</example>

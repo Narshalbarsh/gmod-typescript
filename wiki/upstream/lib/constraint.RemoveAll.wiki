@@ -1,0 +1,24 @@
+<function name="RemoveAll" parent="constraint" type="libraryfunc">
+	<description>Attempts to remove all constraints associated with an entity.</description>
+	<realm>Server</realm>
+	<file line="189-L216">lua/includes/modules/constraint.lua</file>
+	<args>
+		<arg name="ent" type="Entity">The entity to remove constraints from.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether any constraints were removed.</ret>
+		<ret name="" type="number">Number of constraints removed.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>From stools/remover.lua.</description>
+	<code>
+-- Reload removes all constraints on the targetted entity
+function TOOL:Reload( trace )
+	if ( !IsValid( trace.Entity ) or trace.Entity:IsPlayer() ) then return false end
+	return constraint.RemoveAll( trace.Entity )
+end
+	</code>
+
+</example>

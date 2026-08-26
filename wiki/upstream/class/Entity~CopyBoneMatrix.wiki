@@ -1,0 +1,13 @@
+<function name="CopyBoneMatrix" parent="Entity" type="classfunc">
+	<description>
+Same as <page>Entity:GetBoneMatrix</page>, but instead of returning a new matrix object, it copies the data to a given matrix.
+
+This is measurably faster when accessing bone matrices a lot.
+	</description>
+	<realm>Shared</realm>
+	<added>2025.12.18</added>
+	<args>
+		<arg name="boneID" type="number">The bone ID to retrieve matrix of, starting at index 0.</arg>
+		<arg name="data" type="VMatrix">The matrix to copy the bone matrix to.</arg>
+	</args>
+</function>

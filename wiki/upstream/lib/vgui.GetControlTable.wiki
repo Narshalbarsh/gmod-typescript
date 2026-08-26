@@ -1,0 +1,11 @@
+<function name="GetControlTable" parent="vgui" type="libraryfunc">
+	<description>Returns the table of a Lua-defined panel by name. Does not return parent members of the table!</description>
+	<realm>Client and Menu</realm>
+    <file line="15-L17">lua/includes/extensions/client/panel/scriptedpanels.lua</file>
+	<args>
+		<arg name="Panelname" type="string">The name of the panel to get the table of.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">The `PANEL` table of the a Lua-defined panel with given name.</ret>
+	</rets>
+</function>

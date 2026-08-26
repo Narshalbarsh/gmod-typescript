@@ -1,0 +1,8 @@
+<function name="SetAdminOnly" parent="ContentIcon" type="panelfunc">
+	<description>An <page>Global.AccessorFunc</page> that sets whether the content item is admin only. This makes the icon to display a admin icon in the top left corner of the icon.</description>
+	<realm>Client</realm>
+	<file line="17">gamemodes/sandbox/gamemode/spawnmenu/creationmenu/content/contenticon.lua</file>
+	<args>
+		<arg name="adminOnly" type="boolean">Whether this content should be admin only or not</arg>
+	</args>
+</function>

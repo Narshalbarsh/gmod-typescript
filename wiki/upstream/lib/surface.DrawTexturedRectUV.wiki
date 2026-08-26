@@ -1,0 +1,86 @@
+<function name="DrawTexturedRectUV" parent="surface" type="libraryfunc">
+	<description>
+Draws a textured rectangle with a repeated or partial texture.
+
+`u` and `v` refer to texture coordinates.
+* (u, v) = (0, 0) is the top left
+* (u, v) = (1, 0) is the top right
+* (u, v) = (1, 1) is the bottom right
+* (u, v) = (0, 1) is the bottom left
+
+Using a start point of (1, 0) and an end point to (0, 1), you can draw an image flipped horizontally, same goes with other directions. Going above 1 will tile the texture. Negative values are allowed as well.
+
+Here's a helper image:
+<upload src="70c/8d7bba248dc08bd.png" size="183359" name="image.png" />
+
+See also <page>surface.DrawTexturedRect</page> and <page>surface.DrawTexturedRectRotated</page>.
+
+<note>If you are using a .png image, you need supply the "noclamp" flag as second parameter for <page>Global.Material</page> if you intend to use tiling.</note>
+
+<note>If you find that `surface.DrawTexturedRectUV` is getting your texture coordinates (u0, v0), (u1, v1) wrong and you're rendering with a material created with <page>Global.CreateMaterial</page>, try adjusting them with the following code:
+
+```
+local du = 0.5 / 32 -- half pixel anticorrection
+local dv = 0.5 / 32 -- half pixel anticorrection
+local u0, v0 = (u0 - du) / (1 - 2 * du), (v0 - dv) / (1 - 2 * dv)
+local u1, v1 = (u1 - du) / (1 - 2 * du), (v1 - dv) / (1 - 2 * dv)
+```
+
+
+**Explanation:**
+`surface.DrawTexturedRectUV` tries to correct the texture coordinates by half a pixel (something to do with sampling) and computes the correction using `IMaterial::GetMappingWidth()`/`GetMappingHeight()`. If the material was created without a `$basetexture`, then `GetMappingWidth()`/`GetMappingHeight()` uses the width and height of the error material (which is 32x32).</note>
+
+<rendercontext hook="false" type="2D"></rendercontext>
+
+<bug issue="3173">The UV offsets might require (sub-)pixel correction for accurate tiling results.</bug>
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="x" type="number">The X integer coordinate.</arg>
+		<arg name="y" type="number">The Y integer coordinate.</arg>
+		<arg name="width" type="number">The integer width of the rectangle.</arg>
+		<arg name="height" type="number">The integer height of the rectangle.</arg>
+		<arg name="startU" type="number">The U texture mapping of the rectangle origin.</arg>
+		<arg name="startV" type="number">The V texture mapping of the rectangle origin.</arg>
+		<arg name="endU" type="number">The U texture mapping of the rectangle end.</arg>
+		<arg name="endV" type="number">The V texture mapping of the rectangle end.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Demonstrates the function usage.</description>
+	<code>
+local mat = Material( "gui/tool.png" )
+hook.Add( "HUDPaint", "DrawTexturedRectUV_example1", function()
+	surface.SetDrawColor( color_white )
+	surface.SetMaterial( mat )
+
+	surface.DrawTexturedRect( 25, 25, 100, 100 )
+	surface.DrawTexturedRectUV( 25, 130, 100, 100, 0, 0, 1, 1 ) -- Exactly same as above line
+
+	-- Draws right half of the texture
+	-- Note that we also change the width of the rectangle to avoid stretcing of the texture
+	-- This is for demonstration purposes, you can do whatever it is you need
+	surface.DrawTexturedRectUV( 130, 130, 50, 100, 0.5, 0, 1, 1 )
+end )
+	</code>
+
+</example>
+
+
+<example>
+	<description>Paints repeated texture over a panel</description>
+	<code>
+local mat = Material( "icon16/box.png", "noclamp" )
+function PANEL:Paint( w, h )
+	-- Size of your texture, texW - width, texH - height
+	local texW = 16
+	local texH = 16
+
+	surface.SetMaterial( mat )
+	surface.SetDrawColor( color_white )
+	surface.DrawTexturedRectUV( 0, 0, w, h, 0, 0, w / texW, h / texH )
+end
+	</code>
+
+</example>

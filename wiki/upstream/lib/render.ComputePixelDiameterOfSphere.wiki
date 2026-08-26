@@ -1,0 +1,33 @@
+<function name="ComputePixelDiameterOfSphere" parent="render" type="libraryfunc">
+	<description>Calculates diameter of a 3D sphere on a 2D screen.
+
+<rendercontext hook="false" type="3D"></rendercontext>
+</description>
+	<realm>Client</realm>
+	<added>2023.09.06</added>
+	<args>
+		<arg name="point" type="Vector">The position of the sphere in 3D space.</arg>
+		<arg name="radius" type="number">The radius of the sphere in 3D space.</arg>
+	</args>
+	<rets>
+		<ret type="number">The diameter of the sphere in 2D screen space.</ret>
+	</rets>
+</function>
+
+<example>
+<code>
+hook.Add( "HUDPaint", "HUDPaint_PixelDiameterOfSphereExample", function()
+
+	local point = Vector( 0, 0, 0 )
+	
+	cam.Start3D()
+	local diameter = render.ComputePixelDiameterOfSphere( point, 10 ) 
+	cam.End3D()
+
+	local pos2D = point:ToScreen()	
+	surface.DrawCircle( pos2D.x, pos2D.y, diameter / 2, Color( 255, 120, 0 ) )
+
+end )
+</code>
+
+</example>

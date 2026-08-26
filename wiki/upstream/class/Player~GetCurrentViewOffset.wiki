@@ -1,0 +1,11 @@
+<function name="GetCurrentViewOffset" parent="Player" type="classfunc">
+	<description>
+Gets the current applied view offset, which transitions between the player's standing and ducked view offset depending on their duck state.
+
+Do not confuse with <page>Player:GetViewOffset</page> and <page>Player:GetViewOffsetDucked</page>, which always return the standing or ducked offset respectively.
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Vector">The actual view offset.</ret>
+	</rets>
+</function>

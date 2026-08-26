@@ -1,0 +1,7 @@
+<function name="SetCanWalk" parent="Player" type="classfunc">
+	<description>Set if the player should be allowed to walk using the (default) alt key. (`+walk` keybind)</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="canWalk" type="boolean">`true` allows the player to walk.</arg>
+	</args>
+</function>

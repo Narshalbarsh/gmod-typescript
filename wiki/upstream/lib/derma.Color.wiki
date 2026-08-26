@@ -1,0 +1,10 @@
+<function name="Color" parent="derma" type="libraryfunc">
+	<description>Gets the color from a Derma skin of a panel and returns default color if not found.</description>
+	<realm>Client and Menu</realm>
+	<file line="222-L229">lua/derma/derma.lua</file>
+	<args>
+		<arg name="name" type="string"></arg>
+		<arg name="pnl" type="Panel"></arg>
+		<arg name="default" type="Color">The default <page>Color</page> in case of failure.</arg>
+	</args>
+</function>

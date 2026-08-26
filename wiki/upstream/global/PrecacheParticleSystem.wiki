@@ -1,0 +1,34 @@
+<function name="PrecacheParticleSystem" parent="Global" type="libraryfunc">
+	<description>Precaches a particle system with the specified name. The particle system must come from a file that is loaded with <page>game.AddParticles</page> beforehand.
+
+When used on the server, it automatically precaches the particle on client.
+
+<warning>There is a limit of 4096 precached particles on the server. So only precache particles that are actually going to be used.
+
+There is no limit clientside.</warning>
+</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="particleSystemName" type="string">The name of the particle system.</arg>
+	</args>
+</function>
+
+<example>
+	<description>
+Example usage of the function. Precaches `ExplosionCore_wall` particle from `particles/explosion.pcf`, a Team Fortress 2 particle file.
+
+You can find a list of particles inside a .pcf file using the [Particle Editor Tool](https://developer.valvesoftware.com/wiki/Particle_Editor)
+	</description>
+	<code>
+game.AddParticles( "particles/explosion.pcf" )
+
+if ( SERVER ) then
+	-- A test console command to see if the particle works, spawns the particle where the player is looking at. 
+	concommand.Add( "particleitup", function( ply, cmd, args )
+		PrecacheParticleSystem( "ExplosionCore_wall" )
+		ParticleEffect( "ExplosionCore_wall", ply:GetEyeTrace().HitPos, Angle( 0, 0, 0 ) )
+	end )
+end
+	</code>
+
+</example>

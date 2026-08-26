@@ -1,0 +1,32 @@
+<function name="RecipientFilter" parent="Global" type="libraryfunc">
+	<description>Creates a new <page>CRecipientFilter</page>.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="unreliable" type="boolean" default="false" added="2020.08.12">If set to true, makes the filter unreliable. 
+
+This means, when sending over the network in cases like <page>Global.CreateSound</page> (and its subsequent updates), the message is not guaranteed to reach all clients.</arg>
+	</args>
+	<rets>
+		<ret name="" type="CRecipientFilter">The new created recipient filter.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Example usage of the function</description>
+	<code>
+local rf = RecipientFilter()
+rf:AddAllPlayers()
+print( rf:GetCount() )
+PrintTable( rf:GetPlayers() )
+	</code>
+	<output>
+
+```
+2
+1	=	Player [1][Player #1]
+2	=	Player [2][Player #2]
+```
+
+	</output>
+
+</example>

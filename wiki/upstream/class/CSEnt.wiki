@@ -1,0 +1,5 @@
+<type name="CSEnt" parent="Entity" category="classfunc" is="class">
+	<summary>CSEnt is a client-side only entity which can be created with <page>Global.ClientsideModel</page>, <page>Global.ClientsideRagdoll</page> and <page>Global.ClientsideScene</page>.
+
+Its base class is <page>Entity</page> so it inherits all of the client and shared functions used by <page>Entity</page>.</summary>
+</type>

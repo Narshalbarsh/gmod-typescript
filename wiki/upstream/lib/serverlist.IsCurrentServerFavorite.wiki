@@ -1,0 +1,20 @@
+<function name="IsCurrentServerFavorite" parent="serverlist" type="libraryfunc">
+	<description>
+		Returns true if the current server address is in their favorites. 
+	</description>
+	<rets>
+		<ret name="favorite" type="boolean">true if the current server is in their favorites</ret>
+	</rets>
+	<realm>Menu</realm>
+</function>
+
+<example>
+	<description>Adds an Address to the Favorites and checks if it has been added.</description>
+	<code>
+serverlist.AddCurrentServerToFavorites()
+print( serverlist.IsCurrentServerFavorite() )
+	</code>
+	<output>
+true
+	</output>
+</example>

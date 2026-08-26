@@ -1,0 +1,20 @@
+<function name="GetName" parent="Entity" type="classfunc">
+	<description>Returns the "targetname" of this entity, typically used in map making and scripting to uniquely identify and target (hence 'targetname') an entity or a group of entities.
+
+<warning>For players, this function is overwritten by <page>Player:GetName</page>, which returns the player's nick name, not the target name.</warning>
+</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="string">The name of the Entity</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints the name of an entity in console.</description>
+	<code>
+function PrintEntityName( ent )
+	print( ent:GetName() )
+end
+	</code>
+
+</example>

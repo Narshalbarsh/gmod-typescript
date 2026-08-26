@@ -1,0 +1,7 @@
+<function name="IsVehicle" parent="Entity" type="classfunc">
+	<description>Checks if the entity is a vehicle or not.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the entity is a vehicle.</ret>
+	</rets>
+</function>

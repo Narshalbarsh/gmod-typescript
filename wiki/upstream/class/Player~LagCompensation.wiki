@@ -1,0 +1,53 @@
+<function name="LagCompensation" parent="Player" type="classfunc">
+	<description>
+This allows the server to mitigate the lag of the player by moving back all the entities that can be lag compensated to the time the player attacked with his weapon.
+
+This technique is most commonly used on things that hit other entities instantaneously, such as traces.
+
+<note><page>Entity:FireBullets</page> calls this function internally.</note>
+
+Lag compensation only works for players and entities that have been enabled with <page>Entity:SetLagCompensated</page>
+
+Despite being defined shared, it can only be used server-side in a <page text="Predicted Hook">~search?q=%3Cpredicted%3EYes</page>.
+
+<warning>This function NEEDS to be disabled after you're done with it or it will break the movement of the entities affected!</warning>
+
+<bug issue="3683">Lag compensation does not support pose parameters.</bug>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="lagCompensation" type="boolean">The state of the lag compensation, true to enable and false to disable.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Do a crowbar-like melee trace, enabling lag compensation before doing so.</description>
+	<code>
+function SWEP:PrimaryAttack()
+	local tracedata = {}
+	tracedata.start = self:GetOwner():GetShootPos()
+	tracedata.endpos = self:GetOwner():GetShootPos() + self:GetOwner():GetAimVector() * 75
+	tracedata.filter = self:GetOwner()
+	tracedata.mins =  Vector( -8 , -8 , -8 )
+	tracedata.maxs =  Vector( 8 , 8 , 8 )
+	
+	-- It is recommended to use an IsPlayer check in case the weapon is being used by an NPC.
+	if ( self:GetOwner():IsPlayer() ) then
+		self:GetOwner():LagCompensation( true )
+	end
+	
+	local tr = util.TraceHull( tracedata )
+	
+	if ( self:GetOwner():IsPlayer() ) then
+		self:GetOwner():LagCompensation( false )
+	end
+	
+	if tr.Hit then
+		print( tr.Entity )	--your code here
+	end
+	
+	self:SetNextPrimaryFire( CurTime() + 0.5 )
+end
+	</code>
+
+</example>

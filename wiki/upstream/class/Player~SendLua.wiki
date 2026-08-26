@@ -1,0 +1,18 @@
+<function name="SendLua" parent="Player" type="classfunc">
+	<description>
+Executes a simple Lua string on the player. 
+<note>If you need to use this function more than once consider using <page>net</page> library. Send net message and make the entire code you want to execute in <page>net.Receive</page> on client.</note>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="script" type="string">The script to execute, limited to 6000 bytes.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Sends "Hello World" to the client's console.</description>
+	<code> 
+Entity( 1 ):SendLua( "print( 'Hello World' )" )
+	</code>
+
+</example>

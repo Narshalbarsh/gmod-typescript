@@ -1,0 +1,13 @@
+<function name="SetClipboardText" parent="Global" type="libraryfunc">
+	<description>Adds the given string to the computers clipboard, which can then be pasted in or outside of GMod with Ctrl + V.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="text" type="string">The text to add to the clipboard.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Sets the clipboards text to "Hello!".</description>
+	<code>SetClipboardText( "Hello!" )</code>
+
+</example>

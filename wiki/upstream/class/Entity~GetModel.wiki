@@ -1,0 +1,17 @@
+<function name="GetModel" parent="Entity" type="classfunc">
+	<description>
+Gets the model of given entity.
+
+<bug>This does not necessarily return the model's path, as is the case for brush and virtual models. This is intentional behaviour, however, there is currently no way to retrieve the actual file path.
+
+This also affects certain models that are edited by 3rd party programs after being compiled.</bug>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="string|nil">The entity's model. Will be a filesystem path for most models.
+
+This is guaranteed to be lower case.
+
+This will be <page>nil</page> for entities which cannot have models, such as point entities.</ret>
+	</rets>
+</function>

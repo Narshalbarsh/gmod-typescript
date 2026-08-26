@@ -1,0 +1,7 @@
+<function name="GetRange" parent="DNumberScratch" type="panelfunc">
+	<description>Returns the range of the <page>DNumberScratch</page>. Basically max value - min value.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The range of the <page>DNumberScratch</page></ret>
+	</rets>
+</function>

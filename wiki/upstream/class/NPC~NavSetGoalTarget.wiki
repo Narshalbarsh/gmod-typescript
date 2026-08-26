@@ -1,0 +1,15 @@
+<function name="NavSetGoalTarget" parent="NPC" type="classfunc">
+	<description>Set the goal target for an NPC.
+
+This will call either <page>NPC:TaskComplete</page> or <page>NPC:TaskFail</page> for the current schedule and task, forcing the current task to progress to next task or fail.
+
+</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="target" type="Entity">The targeted entity to set the goal to.</arg>
+		<arg name="offset" type="Vector" default="Vector( 0, 0, 0 )">The offset to apply to the targeted entity's position.</arg>
+	</args>
+	<rets>
+		<ret type="boolean">Whether path generation was successful or not</ret>
+	</rets>
+</function>

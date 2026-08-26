@@ -1,0 +1,15 @@
+<function name="GetChar" parent="utf8" type="libraryfunc">
+	<description>
+A UTF-8 compatible version of <page>string.GetChar</page>.
+	</description>
+	<realm>Shared and Menu</realm>
+	<added>2020.06.24</added>
+	<file line="352-L362">lua/includes/modules/utf8.lua</file>
+	<args>
+		<arg name="str" type="string">The string that you will be searching with the supplied index.</arg>
+		<arg name="index" type="number">The index's value of the string to be returned.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">str</ret>
+	</rets>
+</function>

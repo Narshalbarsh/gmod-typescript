@@ -1,0 +1,7 @@
+<function name="ViewModelIndex" parent="Entity" type="classfunc">
+	<description>Returns the index of this view model, it can be used to identify which one of the player's view models this entity is.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">View model index, ranges from 0 to 2, nil if the entity is not a view model</ret>
+	</rets>
+</function>

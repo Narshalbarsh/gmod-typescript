@@ -1,0 +1,10 @@
+<function name="IsModelLoaded" parent="util" type="libraryfunc">
+	<description>Checks if the model is loaded in the game.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="modelName" type="string">Name/Path of the model to check.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Returns true if the model is loaded in the game; otherwise false.</ret>
+	</rets>
+</function>

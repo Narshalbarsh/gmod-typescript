@@ -1,0 +1,11 @@
+<function name="OnDuplicated" parent="ENTITY" type="hook">
+	<description>
+Called on any entity after it has been created by the <page>duplicator</page> and before any bone/entity modifiers have been applied.
+
+This hook is called after <page>ENTITY:Initialize</page> and before <page>ENTITY:PostEntityPaste</page>.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="entTable" type="table">The stored data about the original entity that was duplicated. This would typically contain the <page>Entity:GetTable</page> fields that are serializalble. See <page>Structures/EntityCopyData</page>.</arg>
+	</args>
+</function>

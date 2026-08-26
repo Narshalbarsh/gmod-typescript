@@ -1,0 +1,7 @@
+<function name="GetMass" parent="PhysObj" type="classfunc">
+	<description>Returns the mass of the physics object.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The mass in kilograms.</ret>
+	</rets>
+</function>

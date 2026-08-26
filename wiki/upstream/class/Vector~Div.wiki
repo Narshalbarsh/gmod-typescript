@@ -1,0 +1,37 @@
+<function name="Div" parent="Vector" type="classfunc">
+	<description>Divide the vector by the given number, that means x, y and z are divided by that value. This will change the value of the original vector, see example 2 for division without changing the value.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="divisor" type="number">The value to divide the vector with.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Divides a vector by 255.</description>
+	<code>
+a = Vector(255, 130, 0)
+a:Div(255)
+print(a)
+	</code>
+	<output>
+```
+1 0.509804 0
+```
+	</output>
+
+</example>
+
+
+<example>
+	<description>If you don't want to set your vector to the result, and just return a new vector as the result. You can use a ' / ' operator to divide a vector with a divisor.</description>
+	<code>
+a = Vector(255, 255, 255)
+print(a/255)
+	</code>
+	<output>
+```
+1 1 1
+```
+	</output>
+
+</example>

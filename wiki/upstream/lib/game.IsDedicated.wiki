@@ -1,0 +1,9 @@
+<function name="IsDedicated" parent="game" type="libraryfunc">
+	<description>
+Returns true if the server is a dedicated server, false if it is a listen server or a singleplayer game.
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">Is the server dedicated or not.</ret>
+	</rets>
+</function>

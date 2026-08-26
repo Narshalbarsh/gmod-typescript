@@ -1,0 +1,43 @@
+<function name="Add" parent="sound" type="libraryfunc">
+	<description>Creates a [sound scripts](https://developer.valvesoftware.com/wiki/Soundscripts). It can also override sounds, which seems to only work when set on the server.
+
+You can find a list of common sound scripts that are shipped with the game by default here: <page>Common Sounds</page>.
+
+A list of sound scripts can be retrieved with <page>sound.GetTable</page>.
+</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="soundData" type="table{SoundData}">The sounds properties. See <page>Structures/SoundData</page></arg>
+	</args>
+</function>
+
+<example>
+	<description>
+Creates a sound script. It will automatically vary in pitch and be played in a given audio channel to better control which sounds mix with which sounds and how.
+
+In this example, the file location could be: (Choose one)
+* garrysmod/sound/`phx/explode03.wav`
+* garrysmod/gamemodes/MyCoolGameMode/content/sound/`phx/explode03.wav`
+* garrysmod/addons/myCoolAddon/sound/`phx/explode03.wav`
+* garrysmod/addons/myCoolAddon/gamemodes/MyCoolGameMode/content/sound/`phx/explode03.wav`
+	</description>
+	<code>
+sound.Add( {
+	name = "big_explosion",
+	channel = CHAN_STATIC,
+	volume = 1.0,
+	level = 80,
+	pitch = {95, 110},
+	sound = "phx/explode03.wav"
+} )
+	</code>
+	<output>
+You can now play your custom **sound script** with <page>Entity:EmitSound</page> like so:
+
+```
+Entity( 1 ):EmitSound( "big_explosion" )
+```
+
+	</output>
+
+</example>

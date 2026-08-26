@@ -1,0 +1,23 @@
+<function name="ToColor" parent="Vector" type="classfunc">
+	<description>
+Translates the <page>Vector</page> (values ranging from 0 to 1) into a <page>Color</page>. This will also range the values from 0 - 1 to 0 - 255.
+
+x * 255 -> r<br/>
+y * 255 -> g<br/>
+z * 255 -> b
+
+This is the opposite of <page>Color:ToVector</page>
+	</description>
+	<realm>Shared</realm>
+	<file line="8-L12">lua/includes/extensions/vector.lua</file>
+	<rets>
+		<ret name="" type="Color">The created <page>Color</page>.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Get the Player1's player model color but in RGB</description>
+	<code>print( Entity( 1 ):GetPlayerColor( ):ToColor( ) )</code>
+	<output>Prints the player color of Player1 in RGB instead of a Vector</output>
+
+</example>

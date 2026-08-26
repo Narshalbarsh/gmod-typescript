@@ -1,0 +1,19 @@
+<function name="ColorTo" parent="Panel" type="classfunc">
+	<file line="240-L250">lua/includes/extensions/client/panel/animation.lua</file>
+	<description>
+        Fades panels color to specified one. 
+       <note>The panel must have `GetColor` and `SetColor` functions for `ColorTo` to work.</note>
+    </description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="color" type="Color">The color to fade to</arg>
+		<arg name="length" type="number">Length of the animation</arg>
+		<arg name="delay" type="number" default="0">Delay before start fading</arg>
+		<arg name="callback" type="function" default="nil">Function to execute when finished
+<callback>
+<arg type="table{AnimationData}" name="animData">The <page>Structures/AnimationData</page> that was used.</arg>
+<arg type="Panel" name="targetPanel">The panel object that was animated.</arg>
+</callback>
+</arg>
+	</args>
+</function>

@@ -1,0 +1,20 @@
+<function name="AddTexCoord" parent="killicon" type="libraryfunc">
+	<description>Creates new kill icon using a sub-rectangle of a texture.</description>
+	<realm>Client</realm>
+	<added>2023.10.17</added>
+	<args>
+		<arg name="class" type="string">Weapon or entity class this killicon is for.</arg>
+		<arg name="texture" type="string">Path to the texture.</arg>
+		<arg name="color" type="Color"><page>Color</page> of the kill icon.</arg>
+		<arg name="x" type="number">The start position (X axis) of the rectangle on the given texture. This is in texture coordinates.</arg>
+		<arg name="y" type="number">The start position (Y axis) of the rectangle on the given texture. This is in texture coordinates.</arg>
+		<arg name="w" type="number">The width of the rectangle on the given texture. This is in texture coordinates.</arg>
+		<arg name="h" type="number">The height of the rectangle on the given texture. This is in texture coordinates.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Creates a kill icon using TF2 kill icons image.</description>
+	<code>killicon.AddTexCoord( "heavy_punch", "hud/dneg_images", color_white, 193, 449, 60, 30 )</code>
+
+</example>

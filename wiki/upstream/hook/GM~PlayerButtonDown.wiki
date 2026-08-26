@@ -1,0 +1,46 @@
+<function name="PlayerButtonDown" parent="GM" type="hook">
+	<description>Called when a player presses a button.
+
+This will not be called if player has a panel opened with keyboard input enabled, use <page>PANEL:OnKeyCodePressed</page> instead.
+
+See <page>GM:KeyPress</page> for an alternative that uses <page>Enums/IN</page>.
+See <page>GM:PlayerButtonUp</page> for the "key release" event.
+</description>
+	<realm>Shared</realm>
+	<predicted>Yes</predicted>
+	<args>
+		<arg name="ply" type="Player">Player who pressed the button</arg>
+		<arg name="button" type="number{BUTTON_CODE}">The button, see <page>Enums/BUTTON_CODE</page></arg>
+	</args>
+</function>
+
+<example>
+	<description>Prints the person who pressed the key.</description>
+	<code>
+hook.Add( "PlayerButtonDown", "PlayerButtonDownWikiExample", function( ply, button )
+	if CLIENT then
+		if ( IsFirstTimePredicted() ) then print( ply:Nick() .. " pressed " .. input.GetKeyName( button ) ) end
+	else
+		print( ply:Nick() .. " pressed " .. button )
+	end
+end)
+
+	</code>
+</example>
+
+
+<example>
+	<description>Prints the person who pressed the key if it is the T key.</description>
+	<code>
+hook.Add( "PlayerButtonDown", "PlayerButtonDownWikiExample2", function( ply, button )
+	if button != KEY_T then return end
+
+	if CLIENT and not IsFirstTimePredicted() then
+		return
+	end
+
+	print( ply:Nick() )
+end)
+
+	</code>
+</example>

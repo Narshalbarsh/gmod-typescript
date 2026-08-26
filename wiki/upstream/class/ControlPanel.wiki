@@ -1,0 +1,7 @@
+<panel>
+	<name>ControlPanel</name>
+	<parent>DForm</parent>
+	<realm>Client</realm>
+	<file line="">gamemodes/sandbox/gamemode/spawnmenu/controlpanel.lua</file>
+	<description>Used by the context menu in sandbox.</description>
+</panel>

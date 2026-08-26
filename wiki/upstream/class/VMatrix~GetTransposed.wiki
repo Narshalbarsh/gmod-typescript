@@ -1,0 +1,10 @@
+<function name="GetTransposed" parent="VMatrix" type="classfunc">
+	<description>
+Returns the transpose (each row becomes a column) of this matrix.
+	</description>
+	<added>2021.12.15</added>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="transposed" type="VMatrix">The transposed matrix.</ret>
+	</rets>
+</function>

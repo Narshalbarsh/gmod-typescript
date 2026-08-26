@@ -1,0 +1,7 @@
+<function name="SetGoalTolerance" parent="PathFollower" type="classfunc">
+	<description>How close we can get to the goal to call it done</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="distance" type="number">The distance we're setting it to</arg>
+	</args>
+</function>

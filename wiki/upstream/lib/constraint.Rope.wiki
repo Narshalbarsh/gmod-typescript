@@ -1,0 +1,30 @@
+<function name="Rope" parent="constraint" type="libraryfunc">
+	<description>Creates a simple rope (length) based constraint.</description>
+	<realm>Server</realm>
+	<file line="468-L540">lua/includes/modules/constraint.lua</file>
+	<args>
+		<arg name="ent1" type="Entity">First entity.</arg>
+		<arg name="ent2" type="Entity">Second entity.</arg>
+		<arg name="bone1" type="number"><page>PhysObj</page> number of first entity to constrain to. (0 for non-ragdolls).
+
+See <page>Entity:TranslateBoneToPhysBone</page>.</arg>
+		<arg name="bone2" type="number"><page>PhysObj</page> number of second entity to constrain to. (0 for non-ragdolls).
+
+See <page>Entity:TranslateBoneToPhysBone</page>.</arg>
+		<arg name="localPos1" type="Vector">Position relative to the the first physics object to constrain to.</arg>
+		<arg name="localPos2" type="Vector">Position relative to the the second physics object to constrain to.</arg>
+		<arg name="length" type="number">Length of the rope.</arg>
+		<arg name="addLength" type="number" default="0">Amount to add to the length of the rope. Works as it does in the Rope tool.</arg>
+		<arg name="forceLimit" type="number" default="0">Amount of force until it breaks (0 = unbreakable).</arg>
+		<arg name="width" type="number">Width of the rope.</arg>
+		<arg name="material" type="string" default="nil">Material of the rope. If unset, will be solid black.</arg>
+		<arg name="rigid" type="boolean" default="false">Whether the constraint is rigid.</arg>
+		<arg name="color" type="Color" default="color_white">The color of the rope.</arg>
+	</args>
+	<rets>
+		<ret name="constraint" type="Entity">The constraint entity ([phys_lengthconstraint](https://developer.valvesoftware.com/wiki/Phys_lengthconstraint)).
+
+Will be a `keyframe_rope` if you are roping to the same bone on the same entity. Will return `false` if the constraint could not be created.</ret>
+		<ret name="rope" type="Entity">The rope entity. Will return `nil` if `constraint` return value is a [keyframe_rope](https://developer.valvesoftware.com/wiki/Keyframe_rope) or if the constraint could not be created.</ret>
+	</rets>
+</function>

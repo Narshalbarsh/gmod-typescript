@@ -1,0 +1,7 @@
+<function name="SelectAll" parent="Panel" type="classfunc">
+	<description>Selects all items within a panel or object. For text-based objects, selects all text.
+
+<note>Only works on <page>RichText</page> and <page>TextEntry</page> and their derived panels by default (such as <page>DTextEntry</page>), and on any panel that manually reimplemented this method.</note>
+</description>
+	<realm>Client and Menu</realm>
+</function>

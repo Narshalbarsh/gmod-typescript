@@ -1,0 +1,26 @@
+<structure>
+	<realm>Server</realm>
+	<description>
+Structure used in storing/restoring physics object attributes.
+<page>duplicator.GenericDuplicatorFunction</page> and <page>duplicator.DoGenericPhysics</page> use a table of **PhysicsObjectSave**s with the struct's index in the table being the physics object ID.
+
+Pos and Angle are set by the following:
+
+```
+Pos, Angle = WorldToLocal(phys:GetPos(), phys:GetAngle(), Vector( 0, 0, 0 ), Angle( 0, 0, 0 ))
+```
+
+	</description>
+	<fields>
+<item name="Pos" type="Vector">The entity's world position made local with <page>Global.WorldToLocal</page></item>
+
+<item name="Angle" type="Angle">The entity's world angles made local with <page>Global.WorldToLocal</page></item>
+
+<item name="Frozen" type="boolean">Whether the entity is moveable. Equal to (`not` <page>PhysObj:IsMoveable</page>)</item>
+
+<item name="NoGrav" type="boolean">Whether the entity's gravity is affected by gravity or not. <page>PhysObj:IsGravityEnabled</page></item>
+
+<item name="Sleep" type="boolean">Whether the entity is dormant or not. <page>PhysObj:IsAsleep</page></item>
+	</fields>
+
+</structure>

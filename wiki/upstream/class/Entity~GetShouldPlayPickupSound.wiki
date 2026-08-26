@@ -1,0 +1,10 @@
+<function name="GetShouldPlayPickupSound" parent="Entity" type="classfunc">
+	<description>
+Checks if the entity plays a sound when picked up by a player.
+	</description>
+	<realm>Shared</realm>
+	<file line="7-L9">lua/includes/extensions/entity.lua</file>
+	<rets>
+		<ret name="" type="boolean">`true` if it plays the pickup sound, `false` otherwise.</ret>
+	</rets>
+</function>

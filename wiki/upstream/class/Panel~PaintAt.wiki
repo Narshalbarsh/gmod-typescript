@@ -1,0 +1,13 @@
+<function name="PaintAt" parent="Panel" type="classfunc">
+	<description>
+		Paints a ghost copy of the panel at the given position.
+		<warning>
+			This function sets Z pos of panel's children (<page>PANEL:SetZPos</page>). It also briefly unparents and reparents the panel.
+		</warning>
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="posX" type="number">The x coordinate to draw the panel from.</arg>
+		<arg name="posY" type="number">The y coordinate to draw the panel from.</arg>
+	</args>
+</function>

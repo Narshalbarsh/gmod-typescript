@@ -1,0 +1,8 @@
+<function name="SetTextInset" parent="Panel" type="classfunc">
+	<description>Sets the left and top text margins of a text-based panel object, such as a <page>DButton</page> or <page>DLabel</page>.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="insetX" type="number">The left margin for the text, in pixels. This will only affect centered text if the margin is greater than its x-coordinate.</arg>
+		<arg name="insetY" type="number">The top margin for the text, in pixels.</arg>
+	</args>
+</function>

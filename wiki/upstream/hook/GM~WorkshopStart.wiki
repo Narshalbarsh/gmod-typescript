@@ -1,0 +1,16 @@
+<function name="WorkshopStart" parent="GM" type="hook">
+	<description>
+Called when downloading content from Steam workshop begins. Used by default to show fancy workshop downloading panel.
+
+The order of Workshop hooks is this:
+* WorkshopStart
+* WorkshopDownloadTotals
+* * These are called for each new item:
+* WorkshopDownloadFile
+* WorkshopDownloadProgress - This is called until the file is finished
+* WorkshopDownloadedFile
+* WorkshopEnd (this ones called once)
+	</description>
+	<realm>Menu</realm>
+	<file line="5-11">lua/menu/mount/mount.lua</file>
+</function>

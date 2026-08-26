@@ -1,0 +1,7 @@
+<function name="Toggle" parent="timer" type="libraryfunc">
+	<description>Runs either <page>timer.Pause</page> or <page>timer.UnPause</page> based on the timer's current status.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="identifier" type="any">Identifier of the timer.</arg>
+	</args>
+</function>

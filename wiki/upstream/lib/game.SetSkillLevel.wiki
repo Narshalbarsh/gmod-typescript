@@ -1,0 +1,11 @@
+<function name="SetSkillLevel" parent="game" type="libraryfunc">
+	<description>
+Sets the difficulty level of the game, can be retrieved with <page>game.GetSkillLevel</page>.
+
+This will automatically change whenever the "skill" convar is modified serverside.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="level" type="number">The difficulty level, Easy( 1 ), Normal( 2 ), Hard( 3 ).</arg>
+	</args>
+</function>

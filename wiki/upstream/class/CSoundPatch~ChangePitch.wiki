@@ -1,0 +1,14 @@
+<function name="ChangePitch" parent="CSoundPatch" type="classfunc">
+	<description>
+Adjust the pitch, also known as the speed at which the sound is being played.
+
+Appears to only work while the sound is being played. See also <page>CSoundPatch:PlayEx</page>.
+
+This invokes <page>GM:EntityEmitSound</page>.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="pitch" type="number">The pitch can range from 0-255. Where 100 is the original pitch.</arg>
+		<arg name="deltaTime" type="number" default="0">The time to fade from previous to the new pitch.</arg>
+	</args>
+</function>

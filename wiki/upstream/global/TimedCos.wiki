@@ -1,0 +1,14 @@
+<function name="TimedCos" parent="Global" type="libraryfunc">
+	<description>Returns a cosine value that fluctuates based on the current time</description>
+	<realm>Shared and Menu</realm>
+	<file line="358-L363">lua/includes/util.lua</file>
+	<args>
+		<arg name="frequency" type="number">The frequency of fluctuation</arg>
+		<arg name="min" type="number">Minimum value</arg>
+		<arg name="max" type="number">Maximum value</arg>
+		<arg name="offset" type="number">Offset variable that doesn't affect the rate of change, but causes the returned value to be offset by time</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">Cosine value</ret>
+	</rets>
+</function>

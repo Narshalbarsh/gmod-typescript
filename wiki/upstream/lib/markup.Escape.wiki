@@ -1,0 +1,12 @@
+<function name="Escape" parent="markup" type="libraryfunc">
+	<description>Converts a string to its escaped, markup-safe equivalent.</description>
+	<realm>Client and Menu</realm>
+	<added>2021.12.15</added>
+	<file line="279-L281">lua/includes/modules/markup.lua</file>
+	<args>
+		<arg name="text" type="string">The string to sanitize.</arg>
+	</args>
+	<rets>
+		<ret name="sanitizedText" type="string">The parsed markup object ready to be drawn.</ret>
+	</rets>
+</function>

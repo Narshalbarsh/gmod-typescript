@@ -1,0 +1,7 @@
+<function name="GetFlags" parent="Entity" type="classfunc">
+	<description>Returns all flags of given entity.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">Flags of given entity as a bitflag, see <page>Enums/FL</page></ret>
+	</rets>
+</function>

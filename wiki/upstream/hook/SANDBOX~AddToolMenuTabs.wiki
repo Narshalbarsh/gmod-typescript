@@ -1,0 +1,20 @@
+<function name="AddToolMenuTabs" parent="SANDBOX" type="hook">
+	<description>This hook is used to add new tool tabs to spawnmenu.</description>
+	<realm>Client</realm>
+</function>
+
+<example>
+	<description>Add a new tab and a few categories into it.</description>
+	<code>
+hook.Add( "AddToolMenuTabs", "myHookClass", function()
+	spawnmenu.AddToolTab("myTab", "My Tab", "icon16/shield.png") -- Add a new tab
+
+	spawnmenu.AddToolCategory("myTab", "myCategory", "My Category") -- Add a category into that new tab
+
+	spawnmenu.AddToolMenuOption( "myTab", "myCategory", "myEntry", "My Entry", "", "", function( panel )
+		panel:AddControl( "Header", { Text = "Hello!" } )
+	end ) -- Add an entry to our new category
+end)
+	</code>
+
+</example>

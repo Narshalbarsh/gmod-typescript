@@ -1,0 +1,24 @@
+<function name="SetTextPos" parent="surface" type="libraryfunc">
+	<description>Set the top-left position to draw any future text at.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="x" type="number">The X integer co-ordinate.</arg>
+		<arg name="y" type="number">The Y integer co-ordinate.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Draws 'Hello World' on the screen, around top-left of the screen.</description>
+	<code>
+hook.Add( "HUDPaint", "HUDPaint_DrawABox", function()
+	surface.SetDrawColor( 0, 0, 0, 128 ) -- Set color for background
+	surface.DrawRect( 100, 100, 128, 20 ) -- Draw background
+
+	surface.SetTextColor( 255, 255, 255 ) -- Set text color
+	surface.SetTextPos( 136, 104 ) -- Set text position, top left corner
+	surface.SetFont( "Default" ) -- Set the font
+	surface.DrawText( "Hello World" ) -- Draw the text
+end )
+	</code>
+
+</example>

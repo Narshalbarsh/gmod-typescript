@@ -1,0 +1,8 @@
+<function name="IsDown" parent="DColorButton" type="panelfunc">
+	<description>Returns whether the <page>DColorButton</page> is currently being pressed (the user is holding it down).</description>
+	<realm>Client and Menu</realm>
+	<file line="24-L28">lua/vgui/dcolorbutton.lua</file>
+	<rets>
+		<ret name="" type="boolean"></ret>
+	</rets>
+</function>

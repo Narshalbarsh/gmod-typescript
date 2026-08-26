@@ -1,0 +1,11 @@
+<function name="SetDrawLanguageIDAtLeft" parent="Panel" type="classfunc">
+	<description>
+Sets where to draw the language selection box.
+
+See <page>Panel:SetDrawLanguageID</page> for a function that hides or shows the language selection box.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="left" type="boolean">true = left, false = right</arg>
+	</args>
+</function>

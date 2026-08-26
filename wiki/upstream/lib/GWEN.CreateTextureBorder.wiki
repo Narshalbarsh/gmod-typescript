@@ -1,0 +1,44 @@
+<function name="CreateTextureBorder" parent="GWEN" type="libraryfunc">
+	<description>
+This is a utility function that generates a specialized drawing function to render scalable textured borders. This is done with [9-slice scaling](https://en.wikipedia.org/wiki/9-slice_scaling). This is used in derma skins to create a bordered rectangle drawing function from an image.
+
+The texture is taken from `SKIN.GwenTexture` when the `material` argument is not supplied.
+
+
+</description>
+	<realm>Client and Menu</realm>
+	<file line="6-L56">lua/derma/derma_gwen.lua</file>
+	<args>
+		<arg name="x" type="number">The X coordinate on the texture.</arg>
+		<arg name="y" type="number">The Y coordinate on the texture.</arg>
+		<arg name="w" type="number">Width of the area on texture.</arg>
+		<arg name="h" type="number">Height of the area on texture.</arg>
+		<arg name="left" type="number">Left width of border.</arg>
+		<arg name="top" type="number">Top width of border.</arg>
+		<arg name="right" type="number">Right width of border.</arg>
+		<arg name="bottom" type="number">Bottom width of border.</arg>
+		<arg name="material" type="IMaterial" default="nil">If set, given material will be used over the SKIN's default material, which is `SKIN.GwenTexture`.</arg>
+	</args>
+	<rets>
+		<ret name="drawFunc" type="function">The drawing function.
+<callback>
+	<arg name="x" type="number">X coordinate for the box.</arg>
+	<arg name="y" type="number">Y coordinate for the box.</arg>
+	<arg name="w" type="number">Width of the box.</arg>
+	<arg name="h" type="number">Height of the box.</arg>
+	<arg name="clr" type="Color" default="color_white">Optional color, default is color_white.</arg>
+</callback></ret>
+	</rets>
+</function>
+
+<example>
+	<description>Draws a bordered box in the top left corner of the screen using current skins texture.</description>
+	<code>
+local paintBox = GWEN.CreateTextureBorder( 384, 32, 31, 31, 4, 4, 4, 4 )
+hook.Add( "HUDPaint", "PaintStuff", function()
+    paintBox( 0, 0, 100, 100 )
+end )
+	</code>
+	<output>If using default skin, it will be a 100x100px transparent blue box in top left corner with solid blue borders.</output>
+
+</example>

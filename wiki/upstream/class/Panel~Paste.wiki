@@ -1,0 +1,12 @@
+<function name="Paste" parent="Panel" type="classfunc">
+	<description>
+<deprecated>Due to privacy concerns, this function has been disabled</deprecated>
+
+Only works for TextEntries.
+
+Pastes the contents of the clipboard into the TextEntry.
+
+<note>Tab characters will be dropped from the pasted text</note>
+	</description>
+	<realm>Client and Menu</realm>
+</function>

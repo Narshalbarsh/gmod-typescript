@@ -1,0 +1,7 @@
+<function name="SupportsVertexShaders_2_0" parent="render" type="libraryfunc">
+	<description>Returns if the current settings and the system allow the usage of vertex shaders 2.0.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Whether Vertex Shaders 2.0 are supported or not.</ret>
+	</rets>
+</function>

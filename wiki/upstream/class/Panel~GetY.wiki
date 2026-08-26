@@ -1,0 +1,13 @@
+<function name="GetY" parent="Panel" type="classfunc">
+	<description>
+Returns the Y position of the panel relative to its <page>Panel:GetParent</page>.
+
+Uses <page>Panel:GetPos</page> internally.
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="66-L69">lua/includes/extensions/client/panel.lua</file>
+	<added>2021.03.31</added>
+	<rets>
+		<ret name="" type="number">Y coordinate.</ret>
+	</rets>
+</function>

@@ -1,0 +1,8 @@
+<type name="PhysObj" category="classfunc" is="class">
+	<summary>This is the object returned by <page>Entity:GetPhysicsObject</page>, <page>Entity:GetPhysicsObjectNum</page> and <page>Vehicle:GetWheel</page>.
+
+It represents a physics object. An entity can have multiple physics objects (ragdolls), one physics objects (props), or none. (NPCs, non physics entities, etc.)
+
+Physics objects are usually simulated by the physics engine and usually dictate the position of the entity, and not the other way around.
+</summary>
+</type>

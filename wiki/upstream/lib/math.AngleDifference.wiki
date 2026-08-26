@@ -1,0 +1,27 @@
+<function name="AngleDifference" parent="math" type="libraryfunc">
+	<description>Calculates the difference between two angles.</description>
+	<realm>Shared and Menu</realm>
+	<file line="193-L201">lua/includes/extensions/math.lua</file>
+	<args>
+		<arg name="a" type="number">The first angle.</arg>
+		<arg name="b" type="number">The second angle.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The difference between the angles between -180 and 180</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Find the angle difference between various angles</description>
+	<code>
+print("Angle difference between 159 and 240 is " .. math.AngleDifference(159, 240))
+print("Angle difference between 240 and 159 is " .. math.AngleDifference(240, 159))
+print("Angle difference between 58 and 145 is " .. math.AngleDifference(58, 145))
+	</code>
+	<output>
+Angle difference between 159 and 240 is -81<br/>
+Angle difference between 240 and 159 is 81<br/>
+Angle difference between 58 and 145 is -87
+	</output>
+
+</example>

@@ -1,0 +1,4 @@
+<function name="PostGamemodeLoaded" parent="GM" type="hook">
+	<description>Called after the gamemode has loaded.</description>
+	<realm>Shared</realm>
+</function>

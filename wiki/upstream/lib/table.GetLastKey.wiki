@@ -1,0 +1,14 @@
+<function name="GetLastKey" parent="table" type="libraryfunc">
+	<description>
+<deprecated>Instead, use the result of the length (#) operator, ensuring it is not zero. Non-numerically indexed tables are not ordered and do not have a last key.</deprecated>
+Returns the last key found in the given table
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="649-L652">lua/includes/extensions/table.lua</file>
+	<args>
+		<arg name="tab" type="table">Table to retrieve key from</arg>
+	</args>
+	<rets>
+		<ret name="" type="any">Key</ret>
+	</rets>
+</function>

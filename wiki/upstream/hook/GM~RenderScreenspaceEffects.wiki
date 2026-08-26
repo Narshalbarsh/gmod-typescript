@@ -1,0 +1,30 @@
+<function name="RenderScreenspaceEffects" parent="GM" type="hook">
+	<description>
+Used to render post processing effects.
+
+<rendercontext hook="true" type="2D"></rendercontext>
+	</description>
+	<realm>Client</realm>
+</function>
+
+<example>
+	<description>Renders color modify and sobel effects to create a cartoon effect.</description>
+	<code>
+local tab = {
+	["$pp_colour_addr"] = 0,
+	["$pp_colour_addg"] = 0,
+	["$pp_colour_addb"] = 0,
+	["$pp_colour_brightness"] = -0.04,
+	["$pp_colour_contrast"] = 1.35,
+	["$pp_colour_colour"] = 5,
+	["$pp_colour_mulr"] = 0,
+	["$pp_colour_mulg"] = 0,
+	["$pp_colour_mulb"] = 0
+}
+hook.Add("RenderScreenspaceEffects", "PostProcessingExample", function()
+	DrawColorModify( tab ) --Draws Color Modify effect
+	DrawSobel( 0.5 ) --Draws Sobel effect
+end )
+	</code>
+
+</example>

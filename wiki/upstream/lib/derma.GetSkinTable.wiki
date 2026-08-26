@@ -1,0 +1,8 @@
+<function name="GetSkinTable" parent="derma" type="libraryfunc">
+	<description>Returns a copy of the table containing every Derma skin.</description>
+	<realm>Client and Menu</realm>
+	<file line="154-L158">lua/derma/derma.lua</file>
+	<rets>
+		<ret name="" type="table">Table of every Derma skin.</ret>
+	</rets>
+</function>

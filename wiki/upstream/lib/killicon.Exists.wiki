@@ -1,0 +1,11 @@
+<function name="Exists" parent="killicon" type="libraryfunc">
+	<description>Checks if kill icon exists for given class.</description>
+	<realm>Client</realm>
+	<file line="45-L49">lua/includes/modules/killicon.lua</file>
+	<args>
+		<arg name="class" type="string">The class to test.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Returns true if kill icon exists.</ret>
+	</rets>
+</function>

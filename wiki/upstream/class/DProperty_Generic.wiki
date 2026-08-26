@@ -1,0 +1,32 @@
+<title>DProperty_Generic</title>
+<panel>
+	<parent>Panel</parent>
+	<realm>Client</realm>
+	<description>
+		<internal></internal>
+
+		A base for other controls for <page>DProperties</page>. Acts as a generic text input on its own.
+	</description>
+	<file line="">lua/vgui/prop_generic.lua</file>
+</panel>
+
+
+<example>
+	<description>Example usage of this control</description>
+	<code>
+local Panel = vgui.Create( "DFrame" )
+Panel:SetSize( 500, 500 )
+Panel:MakePopup()
+
+local props = vgui.Create( "DProperties", Panel )
+props:Dock( FILL )
+
+local textRow = props:CreateRow( "MyCategory", "GenericTextArea" )
+textRow:Setup( "Generic" )
+textRow:SetValue( "test" )
+textRow.DataChanged = function( self, data )
+	MsgN( "Text changed: ", data )
+end
+	</code>
+
+</example>

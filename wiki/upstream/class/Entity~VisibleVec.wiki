@@ -1,0 +1,14 @@
+<function name="VisibleVec" parent="Entity" type="classfunc">
+	<description>
+Returns true if supplied vector is visible from the entity's line of sight.
+
+This is achieved similarly to a trace.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="pos" type="Vector">The position to check for visibility</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Within line of sight</ret>
+	</rets>
+</function>

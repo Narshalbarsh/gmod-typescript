@@ -1,0 +1,9 @@
+<panel>
+	<name>URLLabel</name>
+	<realm>Client</realm>
+	<description>
+	<internal>Use <page>DLabelURL</page> instead.</internal>
+
+		A panel similar to <page>Label</page>, but can be clicked to open a URL in the Steam Overlay, and appears with an underline. This is used by <page>DLabelURL</page>.
+	</description>
+</panel>

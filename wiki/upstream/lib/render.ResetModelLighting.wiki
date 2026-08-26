@@ -1,0 +1,13 @@
+<function name="ResetModelLighting" parent="render" type="libraryfunc">
+	<description>
+Resets the model lighting to the specified color.
+
+It has the same effect as calling <page>render.SetModelLighting</page> for every direction with given color.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="r" type="number">The red part of the color, 0-1.</arg>
+		<arg name="g" type="number">The green part of the color, 0-1.</arg>
+		<arg name="b" type="number">The blue part of the color, 0-1.</arg>
+	</args>
+</function>

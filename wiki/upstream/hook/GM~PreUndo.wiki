@@ -1,0 +1,11 @@
+<function name="PreUndo" parent="GM" type="hook">
+	<description>Called just before performing an undo.</description>
+	<realm>Server</realm>
+	<added>2021.03.31</added>
+	<args>
+		<arg name="undo" type="table">The undo table. See <page text="Undo">Structures/Undo</page> struct.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return `false` to disallow the undo.</ret>
+	</rets>
+</function>

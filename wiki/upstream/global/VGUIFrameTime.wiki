@@ -1,0 +1,6 @@
+<function name="VGUIFrameTime" parent="Global" type="libraryfunc">
+	<description>
+<deprecated>Use the function <page>Global.SysTime</page> instead.</deprecated>
+Identical to <page>Global.SysTime</page>. On Windows, will be the previous value of <page>Global.SysTime</page>.</description>
+	<realm>Shared and Menu</realm>
+</function>

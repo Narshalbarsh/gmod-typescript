@@ -1,0 +1,14 @@
+<function name="AnimSlide" parent="DCollapsibleCategory" type="panelfunc">
+	<description>
+<internal></internal>
+
+Internal function that handles the open/close animations.
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="281-L307">lua/vgui/dcategorycollapse.lua</file>
+	<args>
+		<arg name="anim" type="table"></arg>
+		<arg name="delta" type="number"></arg>
+		<arg name="data" type="table"></arg>
+	</args>
+</function>

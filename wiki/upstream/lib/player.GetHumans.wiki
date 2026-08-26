@@ -1,0 +1,12 @@
+<function name="GetHumans" parent="player" type="libraryfunc">
+	<description>
+Returns a table containing all human players (non-bot/AI).
+
+Unlike <page>player.GetAll</page>, this does not include bots.
+<note>This function returns a sequential table, meaning it should be looped with <page>Global.ipairs</page> instead of <page>Global.pairs</page> for efficiency reasons.</note>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="table<Player>">A table containing all human (non-bot/AI) players.</ret>
+	</rets>
+</function>

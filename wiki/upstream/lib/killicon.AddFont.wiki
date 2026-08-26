@@ -1,0 +1,18 @@
+<function name="AddFont" parent="killicon" type="libraryfunc">
+	<description>Adds kill icon for given weapon/entity class using special font.</description>
+	<realm>Client</realm>
+	<file line="20-L28">lua/includes/modules/killicon.lua</file>
+	<args>
+		<arg name="class" type="string">Weapon or entity class.</arg>
+		<arg name="font" type="string">Font to be used.</arg>
+		<arg name="symbol" type="string">The symbol to be used.</arg>
+		<arg name="color" type="Color">Color of the killicon.</arg>
+		<arg name="heightScale " type="number" added="2023.10.17" default="1">Used internally to correct certain killicons to more closely match their visual size.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Example of using the function. Adds pistol kill icon.</description>
+	<code>killicon.AddFont( "weapon_pistol", "HL2MPTypeDeath", "-", Color( 255, 80, 0, 255 ) )</code>
+
+</example>

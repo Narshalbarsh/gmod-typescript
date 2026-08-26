@@ -1,0 +1,43 @@
+<function name="GetContentSize" parent="Panel" type="classfunc">
+	<description>
+Gets the size of the content/children within a panel object.
+
+Only works with <page>Label</page> derived panels by default such as <page>DLabel</page>.
+
+
+Will also work on any panel that manually implements this method.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The content width of the object.</ret>
+		<ret name="" type="number">The content height of the object.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Demonstrates how to implement this function in your own panel.</description>
+	<code>
+local PANEL = {}
+
+function PANEL:GetContentSize()
+	surface.SetFont( self:GetFont() )
+	return surface.GetTextSize( self:GetText() )
+end
+
+vgui.Register( "DTextEntry_Edit", PANEL, "DTextEntry" )
+
+-- Somewhere else, to test the newly created panel
+local frame = vgui.Create( "DFrame" )
+frame:SetSize( 500, 200 )
+frame:Center()
+frame:MakePopup()
+
+local txt = vgui.Create( "DTextEntry_Edit", frame )
+txt:SetPos( 5, 25 )
+txt:SetSize( 100, 10 )
+txt:SetText( "Really long string that is bigger than 100 pixels" )
+txt:SizeToContentsX( 5 ) -- Must be called after setting the text
+txt:SizeToContentsY( 5 ) -- These two functions will not have effect on a normal DTextEntry
+	</code>
+
+</example>

@@ -1,0 +1,31 @@
+<function name="WriteString" parent="net" type="libraryfunc">
+	<description>Appends a string to the current net message. The size of the written data is 8 bits for every ASCII character in the string + 8 bits for the null terminator.
+
+The maximum allowed length of a single written string is **65532 characters**. (aka the limit of the net message itself)
+</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="string" type="string">The string to be sent.
+
+The input will be terminated at the first null byte if one is present. See <page>net.WriteData</page> if you wish to write binary data.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Sends a message to all the clients.</description>
+	<code>
+-- Server
+util.AddNetworkString( "SendMessage" )
+
+net.Start( "SendMessage" )
+	net.WriteString( "Hello World!" )
+net.Broadcast()
+
+-- Client
+net.Receive( "SendMessage", function( len )
+     local message = net.ReadString()
+
+     chat.AddText( color_white, message )
+end )
+	</code>
+</example>

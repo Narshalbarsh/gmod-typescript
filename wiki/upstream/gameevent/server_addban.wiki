@@ -1,0 +1,48 @@
+<cat>gameevent</cat>
+<title>server_addban</title>
+
+<structure>
+	<realm>Shared and Menu</realm>
+	<description>
+		Called when a Player is banned using <page>Player:Ban</page>, **banip** or the **banid** command.
+
+		<note>
+			If **banip** was used the networkid will be an empty string.  
+			If **banid** was used the ip will be an empty string.  
+		</note>
+	</description>
+	<fields>
+		<item type="string" name="networkid">
+			The <page text="SteamID">Player:SteamID</page> the player has. Will be `BOT` for bots and `STEAM_0:0:0` in single-player.
+		</item>
+		<item type="string" name="name">The <page text="name">Player:Nick</page> the player has.</item>
+		<item type="number" name="userid">The <page text="UserID">Player:UserID</page> the player has.</item>
+		<item type="string" name="ip">The <page text="IPAddress">Player:IPAddress</page> of the player.</item>
+		<item type="string" name="duration">The Duration of the Ban (in minutes).</item>
+		<item type="string" name="by">The name of the Person who Banned the Player or Console.</item>
+		<item type="boolean" name="kicked">whether the player was also kicked.</item>
+	</fields>
+</structure>
+
+# Examples
+
+<example>
+	<description>
+		This is a basic template with the purpose of including all arguments / table variables to make it easily known which values can be accessed.									 
+	</description>
+	<code>
+gameevent.Listen( "server_addban" )
+hook.Add( "server_addban", "server_addban_example", function( data )
+	local name = data.name			// Same as Player:Nick()
+	local steamid = data.networkid	// Same as Player:SteamID()
+	local id = data.userid			// Same as Player:UserID()
+	local ip = data.ip   			// Same as Player:IPAddress()
+	local duration = data.duration	// The Duration of the Ban (in minutes).
+	local by = data.by 				// The Person who banned the Player. Can be Console.
+	local kicked = data.kicked		// If the player was kicked or not.
+
+	// Called when a Player is banned.
+	
+end )
+	</code>
+</example>

@@ -1,0 +1,5 @@
+<function name="Clear" parent="controlpanel" type="libraryfunc">
+	<description>Clears ALL the control panels ( for tools ).</description>
+	<realm>Client</realm>
+	<file line="43-L47">lua/includes/modules/controlpanel.lua</file>
+</function>

@@ -1,0 +1,8 @@
+<function name="SetControlPointRightVector" parent="CNewParticleEffect" type="classfunc">
+	<description>Sets the right direction for given control point.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="cpID" type="number">The control point ID, 0 to 63.</arg>
+		<arg name="right" type="Vector">The right direction for given control point.</arg>
+	</args>
+</function>

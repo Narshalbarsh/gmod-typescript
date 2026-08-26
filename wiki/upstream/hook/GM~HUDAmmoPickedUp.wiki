@@ -1,0 +1,15 @@
+<function name="HUDAmmoPickedUp" parent="GM" type="hook">
+	<description>Called when the client has picked up ammo. Override to disable default HUD notification.</description>
+	<realm>Client</realm>
+	<file line="64-L92">gamemodes/base/gamemode/cl_hudpickup.lua</file>
+	<args>
+		<arg name="itemName" type="string">Name of the item (ammo) picked up</arg>
+		<arg name="amount" type="number">Amount of the item (ammo) picked up</arg>
+	</args>
+</function>
+
+<example>
+<code>hook.Add( "HUDAmmoPickedUp", "AmmoPickedUp", function( itemName, amount )
+    -- You would use HUDPaint or DFrame
+end )</code>
+</example>

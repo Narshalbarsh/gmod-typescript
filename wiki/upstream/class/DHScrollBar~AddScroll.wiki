@@ -1,0 +1,10 @@
+<function name="AddScroll" parent="DHScrollBar" type="panelfunc">
+	<description>Adds specified amount of scroll in pixels.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="add" type="number">How much to scroll rightwards. Can be negative for leftwards scroll</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">True if the scroll level was changed (i.e. if we did or did not scroll)</ret>
+	</rets>
+</function>

@@ -1,0 +1,27 @@
+<function name="SetHealth" parent="Entity" type="classfunc">
+	<description>
+Sets the health of the entity.
+
+<note>
+You may want to take <page>Entity:GetMaxHealth</page> into account when calculating what to set health to, in case a gamemode has a different max health than 100.  
+In some cases, setting health only serverside can cause hitches in movement, for example if something is modifying the player speed based on health.  
+To solve this issue, it is better to set it shared in a predicted hook.
+</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="newHealth" type="number">New health value.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Sets the entity's health to their maximum health.</description>
+	<code>Entity( 1 ):SetHealth( Entity( 1 ):GetMaxHealth() )</code>
+	<output>The entity's health is now full.</output>
+</example>
+
+<example>
+	<description>Deducts 50 points of health from the entity.</description>
+	<code>Entity( 1 ):SetHealth( Entity( 1 ):Health() - 50 )</code>
+	<output>The entity now has 50 less health.</output>
+</example>

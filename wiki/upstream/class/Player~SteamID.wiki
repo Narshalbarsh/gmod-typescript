@@ -1,0 +1,27 @@
+<function name="SteamID" parent="Player" type="classfunc">
+	<description>
+Returns the player's SteamID.
+
+See <page>Player:AccountID</page> for a shorter version of the SteamID and <page>Player:SteamID64</page> for the full SteamID.
+
+It is recommended to use <page>Player:SteamID64</page> over the other SteamID formats whenever possible.
+
+<note>In a `-multirun` environment, this will return `STEAM_ID_LAN` for all "copies" of a player because they are not authenticated with Steam.
+
+For Bots this will return `BOT`.</note>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="string">"Text" representation of the player's SteamID.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints the EntityID, Name and SteamID of all players.</description>
+	<code>
+for _, ply in ipairs( player.GetAll() ) do
+	print( "[" .. ply:EntIndex() .. "]", ply:Nick(), ply:SteamID() )
+end
+	</code>
+	<output>A list consisting of every player's EntityID, Name & SteamID on the server.</output>
+</example>

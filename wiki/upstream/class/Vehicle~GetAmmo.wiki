@@ -1,0 +1,9 @@
+<function name="GetAmmo" parent="Vehicle" type="classfunc">
+	<description>Returns information about the ammo of the vehicle</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">Ammo type of the vehicle ammo</ret>
+		<ret name="" type="number">Clip size</ret>
+		<ret name="" type="number">Count</ret>
+	</rets>
+</function>

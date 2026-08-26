@@ -1,0 +1,17 @@
+<function name="IsFlagSet" parent="Entity" type="classfunc">
+	<description>Checks if given flag(s) is set or not.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="flag" type="number{FL}">The engine flag(s) to test, see <page>Enums/FL</page></arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Is set or not</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Checks if the player is on the ground.</description>
+	<code>print( Entity( 1 ):IsFlagSet( FL_ONGROUND ))</code>
+	<output>`true`</output>
+
+</example>

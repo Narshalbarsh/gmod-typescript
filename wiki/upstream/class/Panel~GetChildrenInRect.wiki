@@ -1,0 +1,14 @@
+<function name="GetChildrenInRect" parent="Panel" type="classfunc">
+	<file line="162-L187">lua/includes/extensions/client/panel/selections.lua</file>
+	<description>Returns a table of all visible, selectable children of the panel object that lie at least partially within the specified rectangle.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="x" type="number">The horizontal (x) position of the top-left corner of the rectangle, relative to the panel object.</arg>
+		<arg name="y" type="number">The vertical (y) position of the top-left corner of the rectangle, relative to the panel object.</arg>
+		<arg name="w" type="number">The width of the rectangle.</arg>
+		<arg name="h" type="number">The height of the rectangle.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">A table of panel objects that lie at least partially within the specified rectangle.</ret>
+	</rets>
+</function>

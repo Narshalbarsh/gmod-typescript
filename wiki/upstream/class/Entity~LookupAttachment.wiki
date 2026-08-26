@@ -1,0 +1,10 @@
+<function name="LookupAttachment" parent="Entity" type="classfunc">
+	<description>Returns the attachment index of the given attachment name.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="attachmentName" type="string">The name of the attachment.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The attachment index, or 0 if the attachment does not exist and -1 if the model is invalid.</ret>
+	</rets>
+</function>

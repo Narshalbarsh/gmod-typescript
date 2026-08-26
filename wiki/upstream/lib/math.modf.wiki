@@ -1,0 +1,21 @@
+<function name="modf" parent="math" type="libraryfunc">
+	<description>Returns the integral and fractional component of the modulo operation.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="base" type="number">The base value.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The integral component.</ret>
+		<ret name="" type="number">The fractional component.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Finds the integral and fractional components of 5.6.</description>
+	<code>print( math.modf( 5.6 ) )</code>
+	<output>
+```
+5	0.6
+```
+	</output>
+</example>

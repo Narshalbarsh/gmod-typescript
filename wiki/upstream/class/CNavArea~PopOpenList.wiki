@@ -1,0 +1,14 @@
+<function name="PopOpenList" parent="CNavArea" type="classfunc">
+	<description>
+Removes a CNavArea from the Open List with the lowest cost to traverse to from the starting node, and returns it.
+
+Used in pathfinding via the [A* algorithm](https://en.wikipedia.org/wiki/A*_search_algorithm).
+
+
+More information can be found on the <page>Simple Pathfinding</page> page.
+	</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="CNavArea">The CNavArea from the Open List with the lowest cost to traverse to from the starting node.</ret>
+	</rets>
+</function>

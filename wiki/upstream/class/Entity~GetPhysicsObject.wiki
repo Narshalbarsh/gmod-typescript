@@ -1,0 +1,24 @@
+<function name="GetPhysicsObject" parent="Entity" type="classfunc">
+	<description>
+Returns the entity's physics object, if the entity has physics. Same as `ent:GetPhysicsObjectNum( 0 )`
+
+<note>Entities don't have clientside physics objects by default, so this will return `[NULL PHYSOBJ]` on the client in most cases.</note>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="PhysObj">The entity's physics object.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Gets the mass of an entity.</description>
+	<code>
+local phys = ent:GetPhysicsObject()
+
+if ( IsValid( phys ) ) then -- Always check with IsValid! The ent might not have physics!
+	return phys:GetMass()
+else
+	return 0
+end
+	</code>
+</example>

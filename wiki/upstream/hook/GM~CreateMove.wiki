@@ -1,0 +1,20 @@
+<function name="CreateMove" parent="GM" type="hook">
+	<description>
+Allows you to change the players movements before they're sent to the server.
+
+See <page>Game Movement</page> for an explanation on the move system.
+
+<note>Due to this hook being clientside only, it could be overridden by the user allowing them to completely skip your logic, it is recommended to use <page>GM:StartCommand</page> in a shared file instead.</note>
+	</description>
+	<realm>Client</realm>
+	<file line="653-L659">gamemodes/base/gamemode/cl_init.lua</file>
+	<args>
+		<arg name="cmd" type="CUserCmd">The User Command data</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return true to:
+* Disable Sandbox C menu "screen clicking"
+* Disable Teammate nocollide (verification required)
+* Prevent calling of C_BaseHLPlayer::CreateMove & subsequently C_BasePlayer::CreateMove</ret>
+	</rets>
+</function>

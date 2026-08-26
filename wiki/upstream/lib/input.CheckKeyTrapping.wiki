@@ -1,0 +1,7 @@
+<function name="CheckKeyTrapping" parent="input" type="libraryfunc">
+	<description>Returns the last key captured by key trapping.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The key, see <page>Enums/KEY</page>.</ret>
+	</rets>
+</function>

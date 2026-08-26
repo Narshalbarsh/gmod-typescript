@@ -1,0 +1,64 @@
+<function name="OnValueChanged" parent="DNumberWang" type="panelhook">
+	<description>Called when the number selector value is changed.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="val" type="number">The new value of the number selector.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Creates a panel with two number selectors that play a male question sound byte and a female answer sound byte based on the new value of each number selector.</description>
+	<code>
+-- Background panel
+BGPanel = vgui.Create("DPanel")
+BGPanel:SetPos(20, 20)
+BGPanel:SetSize(100, 55)
+
+-- Statement label
+local lbl1 = vgui.Create("DLabel", BGPanel)
+lbl1:SetPos(5, 5)
+lbl1:SetSize(100, 20)
+lbl1:SetText("Statement: ")
+lbl1:SetColor(Color(64, 64, 255))
+
+-- Response label
+local lbl2 = vgui.Create("DLabel", BGPanel)
+lbl2:SetPos(5, 30)
+lbl2:SetSize(100, 20)
+lbl2:SetText("Response: ")
+lbl2:SetColor(Color(255, 0, 255))
+
+-- Number selector for "questions"
+local question = vgui.Create("DNumberWang", BGPanel)
+question:SetPos(65, 5)
+question:SetSize(30, 20)
+question:SetMinMax(1, 30)
+
+-- Number selector for answers
+local answer = vgui.Create("DNumberWang", BGPanel)
+answer:SetPos(65, 30)
+answer:SetSize(30, 20)
+answer:SetMinMax(1, 40)
+
+-- This is used to prevent overlapping talking
+local null = Sound("common/null.wav")
+
+-- Abstraction = cleaner code
+function TalkSound(snd)
+	EmitSound(snd, LocalPlayer():GetPos(), LocalPlayer():EntIndex(), CHAN_VOICE, 1, 80, 0, 100)
+end
+
+-- Play a statement based on new number
+function question:OnValueChanged(val)
+	TalkSound(null)
+	TalkSound(Sound("vo/npc/male01/question"..string.format("%02d", val)..".wav"))
+end
+
+-- Play an answer based on new number
+function answer:OnValueChanged(val)
+	TalkSound(null)
+	TalkSound(Sound("vo/npc/female01/answer"..string.format("%02d", val)..".wav"))
+end
+	</code>
+
+</example>

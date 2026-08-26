@@ -1,0 +1,14 @@
+<function name="SetInt" parent="IMaterial" type="classfunc">
+	<description>Sets the specified material value to the specified int, does nothing on a type mismatch.
+
+Calls <page>IMaterial:Recompute</page> internally.
+
+<note>Please note that certain material flags such as `$model` are stored in the `$flags` variable and cannot be directly set with this function. See the full list here: <page>Material Flags</page></note>
+
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="materialInt" type="string">The name of the material int.</arg>
+		<arg name="int" type="number">The new int value.</arg>
+	</args>
+</function>

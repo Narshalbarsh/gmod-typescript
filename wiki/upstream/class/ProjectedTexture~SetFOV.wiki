@@ -1,0 +1,11 @@
+<function name="SetFOV" parent="ProjectedTexture" type="classfunc">
+	<description>
+Sets the angle of projection.
+
+You must call <page>ProjectedTexture:Update</page> after using this function for it to take effect.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="fov" type="number">Must be higher than 0 and lower than 180</arg>
+	</args>
+</function>

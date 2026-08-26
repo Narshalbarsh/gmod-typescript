@@ -1,0 +1,29 @@
+<function name="PreEntityCopy" parent="ENTITY" type="hook">
+	<description>
+Called before the duplicator copies the entity.
+
+If you are looking for a way to make the duplicator spawn another entity when duplicated. (For example, you duplicate a `prop_physics`, but you want the duplicator to spawn `prop_physics_my`), you should add `prop_physics.ClassOverride = "prop_physics_my"`. The duplication table should be also stored on that `prop_physics`, not on `prop_physics_my`.
+
+See also <page>ENTITY:PostEntityCopy</page>.
+	</description>
+	<realm>Server</realm>
+</function>
+
+<example>
+	<description>Example on how to store values for duplicator, and then restore them afterwards</description>
+	<code>
+-- Store the value for duplicator
+function ENT:PreEntityCopy()
+	self.MyDuplicatorVariasble = self:GetSequence()
+end
+
+-- Restore the saved value
+function ENT:PostEntityPaste()
+	-- Always validate data before using it
+	if ( !self.MyDuplicatorVariasble ) then return end
+
+	self:ResetSequence( self.MyDuplicatorVariasble )
+end
+	</code>
+
+</example>

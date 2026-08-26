@@ -1,0 +1,16 @@
+<function name="OnPhysgunReload" parent="GM" type="hook">
+	<description>
+		Called when a player reloads with the physgun. Override this to disable default unfreezing behavior.
+		<bug>
+			Regardless of whether or not you return true or false, it will disable reloading. Only returning nil/nothing will allow reloading. The intended behavior should be that returning false disables reloading.
+		</bug>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="physgun" type="Weapon">The physgun in question.</arg>
+		<arg name="ply" type="Player">The player wielding the physgun.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether the player can reload with the physgun or not/</ret>
+	</rets>
+</function>

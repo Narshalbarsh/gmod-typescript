@@ -1,0 +1,14 @@
+<function name="PrecacheSentenceFile" parent="Global" type="libraryfunc">
+	<description>Load and precache a custom sentence file.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="filename" type="string">The path to the custom sentences.txt.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Precache a file named "customsentences.txt" in the data directory.</description>
+	<code>PrecacheSentenceFile( "data/customsentences.txt" )</code>
+	<output>Loads and precaches the sentences.</output>
+
+</example>

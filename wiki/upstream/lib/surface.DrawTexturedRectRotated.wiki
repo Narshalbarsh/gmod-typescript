@@ -1,0 +1,56 @@
+<function name="DrawTexturedRectRotated" parent="surface" type="libraryfunc">
+	<description>
+Draw a textured rotated rectangle with the given position and dimensions and angle on the screen, using the current active texture.
+
+See also <page>surface.DrawTexturedRectUV</page> and <page>surface.DrawTexturedRect</page>.
+
+<rendercontext hook="false" type="2D"></rendercontext>
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="x" type="number">The X integer co-ordinate, representing the center of the rectangle.</arg>
+		<arg name="y" type="number">The Y integer co-ordinate, representing the center of the rectangle.</arg>
+		<arg name="width" type="number">The integer width of the rectangle.</arg>
+		<arg name="height" type="number">The integer height of the rectangle.</arg>
+		<arg name="rotation" type="number">The rotation of the rectangle, in degrees.</arg>
+	</args>
+</function>
+
+<example>
+	<description>
+A function that allows you to override the origin of rotation.
+
+x0 and y0 are relative to the center of the rectangle.
+	</description>
+	<code>
+function surface.DrawTexturedRectRotatedPoint( x, y, w, h, rot, x0, y0 )
+	
+	local c = math.cos( math.rad( rot ) )
+	local s = math.sin( math.rad( rot ) )
+	
+	local newx = y0 * s - x0 * c
+	local newy = y0 * c + x0 * s
+	
+	surface.DrawTexturedRectRotated( x + newx, y + newy, w, h, rot )
+	
+end
+	</code>
+
+</example>
+
+
+<example>
+	<description>Draws a simple red forever rotating box.</description>
+	<code>
+function draw.RotatedBox( x, y, w, h, ang, color )
+	draw.NoTexture()
+	surface.SetDrawColor( color or color_white )
+	surface.DrawTexturedRectRotated( x, y, w, h, ang )
+end
+
+hook.Add( "HUDPaint", "my_rotated_box", function()
+	draw.RotatedBox( 100, 100, 100, 100, CurTime() % 360, Color( 255, 0, 0) )
+end )
+	</code>
+
+</example>

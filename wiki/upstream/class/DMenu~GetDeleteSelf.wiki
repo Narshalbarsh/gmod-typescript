@@ -1,0 +1,11 @@
+<function name="GetDeleteSelf" parent="DMenu" type="panelfunc">
+	<description>
+<deprecated></deprecated>
+
+Set by <page>DMenu:SetDeleteSelf</page>
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean"></ret>
+	</rets>
+</function>

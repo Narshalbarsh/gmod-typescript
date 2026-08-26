@@ -1,0 +1,34 @@
+<function name="RelativePathToGMA_Menu" parent="util" type="libraryfunc">
+	<description>
+		Returns which Workshop addon the given file belongs to.
+	</description>
+	<realm>Menu</realm>
+	<args>
+		<arg name="filePath" type="string">The relative path to a file, such as `materials/myMaterial.vmt`.</arg>
+	</args>
+	<rets>
+		<ret name="addonInfo" type="table">The info about owner addon. Will return nil if the file doesn't belong to an addon. Table Structure:
+```lua
+Author	=	[Addon Author]
+File	=	[Steam folder]\workshop\content\4000\[Addon ID]/[GMA Name].gma
+ID	=	[Addon ID]
+Title	=	[Addon Title]
+```
+		</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints the AddonInfo of the given Path (The Addon the file belongs to.)</description>
+	<code>
+PrintTable( util.RelativePathToGMA_Menu( "[Insert here something from an addon like a Model]" ) ) -- prints the AddonInfo
+	</code>
+	<output>
+```lua
+Author	=	[Addon Author]
+File	=	[Steam folder]\workshop\content\4000\[Addon ID]/[GMA Name].gma
+ID	=	[Addon ID]
+Title	=	[Addon Title]
+```
+	</output>
+</example>

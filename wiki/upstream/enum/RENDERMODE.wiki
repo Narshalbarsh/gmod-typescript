@@ -1,0 +1,28 @@
+<enum>
+	<realm>Shared</realm>
+	<description>Enumerations used by <page>Entity:SetRenderMode</page> and <page>Entity:GetRenderMode</page>.</description>
+	<items>
+<item key="RENDERMODE_NORMAL" value="0">Default render mode. Transparently has no effect.</item>
+<item key="RENDERMODE_TRANSCOLOR" value="1">Supports transparency.
+
+Use this to make alpha of <page>Global.Color</page> work for your entity. For players, it must be set for their active weapon aswell.</item>
+<item key="RENDERMODE_TRANSTEXTURE" value="2"></item>
+<item key="RENDERMODE_GLOW" value="3">Intended for glowing sprites. Allows transparency, and forces the sprite or model to be rendered unlit.
+
+The size of a sprite rendered with Glow is consistent with the screen size (unlike the alternative World Space Glow), making it appear larger at a distance, in comparison to the world.
+
+The GlowProxySize keyvalue affects this Render Mode on sprites.</item>
+<item key="RENDERMODE_TRANSALPHA" value="4">Enables Alphatesting. Legacy port from Goldsource. Obsolete in Source due to Alphatesting being handled in materials. Does not allow transparency.</item>
+<item key="RENDERMODE_TRANSADD" value="5">Add the material's color values to the existing image, instead of performing a multiplication. Sprites will appear through world geometry and the sprite/model will always brighten the world. Allows transparency.</item>
+<item key="RENDERMODE_ENVIROMENTAL" value="6">Causes the material to be not be drawn at all, similarly to Don't Render.</item>
+<item key="RENDERMODE_TRANSADDFRAMEBLEND" value="7">Functions like Additive, but also blends between animation frames. Requires the material to have a functioning animating texture. Allows transparency.</item>
+<item key="RENDERMODE_TRANSALPHADD" value="8">Functions similarly to Additive, except that the alpha channel controls the opacity of the sprite. An example of use is for dark sprites, with an example material being sprites/strider_blackball.vmt.</item>
+<item key="RENDERMODE_WORLDGLOW" value="9">Functions similarly to Glow, with the exception that the size of the sprite is relative to the world rather than the screen.
+
+The GlowProxySize keyvalue affects this Render Mode on sprites.</item>
+<item key="RENDERMODE_NONE" value="10">The entity is still being drawn and networked albeit invisible, therefore not making this Render Mode ideal for performance reasons.
+
+To completely avoid drawing and networking an entity, see EF_NODRAW.</item>
+	</items>
+
+</enum>

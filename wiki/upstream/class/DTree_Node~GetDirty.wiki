@@ -1,0 +1,11 @@
+<function name="GetDirty" parent="DTree_Node" type="panelfunc">
+	<description>
+<deprecated></deprecated>
+
+Returns value set by <page>DTree_Node:SetDirty</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean"></ret>
+	</rets>
+</function>

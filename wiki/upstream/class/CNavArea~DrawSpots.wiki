@@ -1,0 +1,4 @@
+<function name="DrawSpots" parent="CNavArea" type="classfunc">
+	<description>Draws the hiding spots on debug overlay. This includes sniper/exposed spots too!</description>
+	<realm>Server</realm>
+</function>

@@ -1,0 +1,59 @@
+<function name="ToTable" parent="string" type="libraryfunc">
+	<description>
+Splits the string into characters and creates a sequential table of characters.
+
+<warning>As a result of the  encoding, non-ASCII characters will be split into more than one character in the output table. Each character value in the output table will always be 1 byte.</warning>
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="8-L19">lua/includes/extensions/string.lua</file>
+	<args>
+		<arg name="str" type="string">The string you'll turn into a table.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">A sequential table where each value is a character from the given string</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Demonstrates the use of this function.</description>
+	<code>
+local mystring = "text"
+PrintTable( string.ToTable( mystring ) )
+	</code>
+	<output>
+```
+1 = t
+2 = e
+3 = x
+4 = t
+```
+	</output>
+
+</example>
+
+<example>
+	<description>Demonstrates how this function behaves with non-ASCII characters - in this case, Greek letters.</description>
+	<code>
+for k, v in ipairs( string.ToTable( "abcd αβγδ" ) ) do
+	print( k, bit.tohex( string.byte( v ) ), v )
+end
+	</code>
+	<output>
+```
+1	00000061	a
+2	00000062	b
+3	00000063	c
+4	00000064	d
+5	00000020	 
+6	000000ce	?
+7	000000b1	?
+8	000000ce	?
+9	000000b2	?
+10	000000ce	?
+11	000000b3	?
+12	000000ce	?
+13	000000b4	?
+```
+	</output>
+
+</example>

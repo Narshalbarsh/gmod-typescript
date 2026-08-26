@@ -1,0 +1,5 @@
+<function name="DrawMonitors" parent="GM" type="hook">
+	<description>Called every frame before drawing the in-game monitors ( Breencast, in-game TVs, etc ), but doesn't seem to be doing anything, trying to render 2D or 3D elements fail.</description>
+	<realm>Client</realm>
+	<file line="717-L718">gamemodes/base/gamemode/cl_init.lua</file>
+</function>

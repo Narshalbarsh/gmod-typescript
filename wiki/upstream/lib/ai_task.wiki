@@ -1,0 +1,3 @@
+<type name="ai_task" category="libraryfunc" is="library">
+	<summary>Used to create tasks for scripted NPCs.</summary>
+</type>

@@ -1,0 +1,11 @@
+<function name="PopMulti" parent="Stack" type="classfunc">
+	<description>Pop an item from the stack</description>
+	<realm>Shared and Menu</realm>
+	<file line="279-L305">lua/includes/extensions/util.lua</file>
+	<args>
+		<arg name="amount" type="number" default="1">Amount of items you want to pop.</arg>
+	</args>
+	<rets>
+		<ret name="items" type="table">The Popped Items.</ret>
+	</rets>
+</function>

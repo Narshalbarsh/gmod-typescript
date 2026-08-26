@@ -1,0 +1,13 @@
+<function name="getmetatable" parent="debug" type="libraryfunc">
+	<description>
+<deprecated></deprecated>
+
+Returns the metatable of an object. This function ignores the metatable's __metatable field.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="object" type="any">The object to retrieve the metatable from.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">The metatable of the given object.</ret>
+	</rets>
+</function>

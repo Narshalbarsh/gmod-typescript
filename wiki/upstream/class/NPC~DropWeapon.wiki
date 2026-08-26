@@ -1,0 +1,25 @@
+<function name="DropWeapon" parent="NPC" type="classfunc">
+	<description>Forces the NPC to drop the specified weapon.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="weapon" type="Weapon" default="nil">Weapon to be dropped. If unset, will default to the currently equipped weapon.</arg>
+		<arg name="target" type="Vector" default="nil">If set, launches the weapon at given position. There is a limit to how far it is willing to throw the weapon. Overrides velocity argument.</arg>
+		<arg name="velocity" type="Vector" default="nil">If set and previous argument is unset, launches the weapon with given velocity. If the velocity is higher than 400, it will be clamped to 400.</arg>
+	</args>
+</function>
+
+
+<example>
+	<description>A console command that makes all NPCs on the map throw their weapons at the player who executed the console command</description>
+	<code>
+concommand.Add( "dropall",function( ply )
+	for id, ent in ipairs( ents.GetAll() ) do
+		if ( ent:IsNPC() ) then
+			-- Some NPCs on some maps delete their weapons when the weapon is dropped, we don't want that.
+			ent:SetKeyValue( "spawnflags", bit.band( ent:GetSpawnFlags(), bit.bnot( SF_NPC_NO_WEAPON_DROP ) ) )
+			ent:DropWeapon( nil, ply:GetPos() )
+		end
+	end
+end )
+	</code>
+</example>

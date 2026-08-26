@@ -1,0 +1,38 @@
+<function name="GetImage" parent="DImage" type="panelfunc">
+	<description>Returns the image loaded in the image panel.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="string">The path to the image that is loaded.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Creates a frame with a randomly chosen post process effect thumbnail and prints the image path to console.</description>
+	<code>
+-- Frame
+MainFrame = vgui.Create("DFrame")
+MainFrame:SetSize(200, 200)
+MainFrame:Center()
+MainFrame:SetTitle("Post process effect")
+
+-- Load post process effect thumbnail
+local postprocess = vgui.Create("DImage", MainFrame)
+postprocess:SetSize(128, 128)
+postprocess:Center()
+
+local materials = file.Find("materials/gui/postprocess/*.png", "GAME")
+
+postprocess:SetImage("materials/gui/postprocess/"..materials[math.random(1, #materials)])
+
+print(postprocess:GetImage())
+	</code>
+	<output>
+
+```
+materials/gui/postprocess/colourmod.png
+```
+
+<image src="DImage_GetImage_example1.jpg"/>
+	</output>
+
+</example>

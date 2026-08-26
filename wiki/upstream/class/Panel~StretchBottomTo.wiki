@@ -1,0 +1,9 @@
+<function name="StretchBottomTo" parent="Panel" type="classfunc">
+	<file line="146-L146">lua/includes/extensions/client/panel.lua</file>
+	<description>Resizes the panel object's height so that its bottom is aligned with the top of the passed panel. An offset greater than zero will reduce the panel's height to leave a gap between it and the passed panel.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="tgtPanel" type="Panel">The panel to align the bottom of this one with.</arg>
+		<arg name="offset" type="number" default="0">The gap to leave between this and the passed panel. Negative values will cause the panel's height to increase, forming an overlap.</arg>
+	</args>
+</function>

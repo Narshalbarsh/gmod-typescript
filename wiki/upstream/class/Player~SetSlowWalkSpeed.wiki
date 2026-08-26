@@ -1,0 +1,12 @@
+<function name="SetSlowWalkSpeed" parent="Player" type="classfunc">
+	<description>
+Sets the player's slow walking speed, which is activated via <key>+WALK</key> keybind.
+
+See <page>Player:SetWalkSpeed</page> for normal walking speed, <page>Player:SetRunSpeed</page> for sprinting speed and <page>Player:SetLadderClimbSpeed</page> for ladder climb speed.
+	</description>
+	<realm>Shared</realm>
+	<added>2020.03.17</added>
+	<args>
+		<arg name="speed" type="number">The new slow walking speed.</arg>
+	</args>
+</function>

@@ -1,0 +1,13 @@
+<function name="SetDark" parent="DLabel" type="panelfunc">
+	<description>
+Sets the color of the text to the dark text color defined in the skin.
+
+Disables <page>DLabel:SetBright</page>. Gets overridden by <page>DLabel:SetHighlight</page>.
+
+You should only consider using this if you are using background elements that are not manually painted and are using the skin colors. Otherwise use <page>DLabel:SetTextColor</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="dark" type="boolean">Whenever to set the text to dark or not.</arg>
+	</args>
+</function>

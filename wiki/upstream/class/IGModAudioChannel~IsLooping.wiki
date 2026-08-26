@@ -1,0 +1,7 @@
+<function name="IsLooping" parent="IGModAudioChannel" type="classfunc">
+	<description>Returns if the sound channel is looping or not.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="boolean">Is looping or not.</ret>
+	</rets>
+</function>

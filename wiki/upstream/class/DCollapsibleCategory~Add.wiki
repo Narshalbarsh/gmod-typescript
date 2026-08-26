@@ -1,0 +1,11 @@
+<function name="Add" parent="DCollapsibleCategory" type="panelfunc">
+	<description>Adds a new text button to the collapsible category, like the tool menu in Spawnmenu.</description>
+	<realm>Client and Menu</realm>
+	<file line="75-L122">lua/vgui/dcategorycollapse.lua</file>
+	<args>
+		<arg name="name" type="string">The name of the button</arg>
+	</args>
+	<rets>
+		<ret name="" type="DButton">The <page>DButton</page></ret>
+	</rets>
+</function>

@@ -1,0 +1,8 @@
+<function name="GetCurGoalType" parent="NPC" type="classfunc">
+	<description>Returns the goal type for current navigation path.</description>
+	<realm>Server</realm>
+	<added>2023.10.04</added>
+	<rets>
+		<ret name="" type="number">The goal type. See <page>Enums/GOALTYPE</page>.</ret>
+	</rets>
+</function>

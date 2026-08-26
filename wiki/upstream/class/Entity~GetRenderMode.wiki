@@ -1,0 +1,7 @@
+<function name="GetRenderMode" parent="Entity" type="classfunc">
+	<description>Returns the render mode of the entity.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The render Mode. See <page>Enums/RENDERMODE</page></ret>
+	</rets>
+</function>

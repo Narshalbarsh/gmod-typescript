@@ -1,0 +1,11 @@
+<function name="NiceFloat" parent="util" type="libraryfunc">
+	<description>Formats a float by stripping off extra `0's` and `.'s`.</description>
+	<realm>Shared and Menu</realm>
+	<file line="147-L165">lua/includes/extensions/util.lua</file>
+	<args>
+		<arg name="float" type="number">The float to format.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">Formatted float.</ret>
+	</rets>
+</function>

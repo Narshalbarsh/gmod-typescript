@@ -1,0 +1,12 @@
+<function name="DoSaveToTextFiles" parent="spawnmenu" type="libraryfunc">
+	<description>
+<internal></internal>
+
+Calls <page>spawnmenu.SaveToTextFiles</page>.
+	</description>
+	<realm>Client</realm>
+	<file line="260-L264">lua/includes/modules/spawnmenu.lua</file>
+	<args>
+		<arg name="spawnlists" type="table">A table containing spawnlists.</arg>
+	</args>
+</function>

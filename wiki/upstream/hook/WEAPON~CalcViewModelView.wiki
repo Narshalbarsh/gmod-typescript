@@ -1,0 +1,36 @@
+<function name="CalcViewModelView" parent="WEAPON" type="hook">
+	<description>Allows overriding the position and angle of the viewmodel. This hook only works if you haven't overridden <page>GM:CalcViewModelView</page>.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="ViewModel" type="Entity">The viewmodel entity</arg>
+		<arg name="OldEyePos" type="Vector">Original position (before viewmodel bobbing and swaying)</arg>
+		<arg name="OldEyeAng" type="Angle">Original angle (before viewmodel bobbing and swaying)</arg>
+		<arg name="EyePos" type="Vector">Current position</arg>
+		<arg name="EyeAng" type="Angle">Current angle</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">New position</ret>
+		<ret name="" type="Angle">New angle</ret>
+	</rets>
+</function>
+
+<example>
+	<description>
+One way to change the viewmodel texture (skin) for your SWEP. Changing it from 0 to 1. 
+
+Remember to define the base path ([$cdmaterials](https://developer.valvesoftware.com/wiki/$cdmaterials)) for your model when e.g. using [Crowbar](https://developer.valvesoftware.com/wiki/Crowbar) to compile .smd to .mdl; or else you won't get any texture(s) applied. (the game won't know where to look) [QC Commands](https://developer.valvesoftware.com/wiki/Category:QC_Commands)
+
+And remember to use [$texturegroup](https://developer.valvesoftware.com/wiki/$texturegroup) for multiple skins.
+	</description>
+	<code>
+function SWEP:CalcViewModelView(ViewModel, OldEyePos, OldEyeAng, EyePos, EyeAng)
+    -- Set skin to the SWEPs second skin; 1. Starts at 0
+    ViewModel:SetSkin(1)
+end
+	</code>
+	<output>
+<image src="CalcViewModelView_ex1_skin0.JPG" alt="thumb|left|Skin_0"/>
+<image src="CalcViewModelView_ex1_skin1.JPG" alt="thumb|left|Skin_1"/>
+	</output>
+
+</example>

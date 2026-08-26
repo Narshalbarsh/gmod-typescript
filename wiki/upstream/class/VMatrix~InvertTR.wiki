@@ -1,0 +1,10 @@
+<function name="InvertTR" parent="VMatrix" type="classfunc">
+	<description>
+Quickly inverts the matrix. This function will not fail, but only works correctly on matrices that contain only translation and/or rotation.
+
+Using this function on a matrix with modified scale may return an incorrect inverted matrix.
+
+To invert a matrix that contains other modifications, see <page>VMatrix:Invert</page>. This function is faster.
+	</description>
+	<realm>Shared</realm>
+</function>

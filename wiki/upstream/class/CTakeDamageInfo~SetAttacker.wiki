@@ -1,0 +1,7 @@
+<function name="SetAttacker" parent="CTakeDamageInfo" type="classfunc">
+	<description>Sets the attacker ( character who originated the attack ) of the damage, for example a player or an NPC.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="ent" type="Entity">The entity to be set as the attacker.</arg>
+	</args>
+</function>

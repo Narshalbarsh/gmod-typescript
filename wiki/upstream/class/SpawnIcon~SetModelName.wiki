@@ -1,0 +1,11 @@
+<function name="SetModelName" parent="SpawnIcon" type="panelfunc">
+	<description>
+<internal>This is done automatically by SpawnIcon. You do not need to call this. Doing so may cause unforeseen consequences.</internal>
+
+Sets the model name, so it can be retrieved with <page>SpawnIcon:GetModelName</page>. Use <page>Panel:SetModel</page> instead.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg type="string" name="mdl">The model name to set</arg>
+	</args>
+</function>

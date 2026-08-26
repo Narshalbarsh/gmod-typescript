@@ -1,0 +1,23 @@
+<function name="SetHoldType" parent="Weapon" type="classfunc">
+	<description>
+Sets the hold type of the weapon. This function also calls <page>WEAPON:SetWeaponHoldType</page> and properly networks it to all clients.
+
+<note>This only works on scripted weapons.</note>
+
+<bug>Using this function on weapons held by bots will not network holdtype changes to clients if the world model is set to an empty string (SWEP.WorldModel = "").</bug>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="name" type="string">Name of the hold type. You can find all default hold types <page text="here">Hold_Types</page></arg>
+	</args>
+</function>
+
+<example>
+	<description>Puts a players hands down by its sides on <page text="reload">WEAPON:Reload</page>.</description>
+	<code>
+function SWEP:Reload()
+	self:SetHoldType( "normal" )
+end
+	</code>
+
+</example>

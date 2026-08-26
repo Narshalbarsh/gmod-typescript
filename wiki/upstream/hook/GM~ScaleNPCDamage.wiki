@@ -1,0 +1,81 @@
+<function name="ScaleNPCDamage" parent="GM" type="hook">
+	<description>
+Called when an NPC takes damage.
+
+<note>This hook is called only when a specific hit group of the NPC is hit. In cases where the hitgroup doesn't matter, you should use <page>GM:EntityTakeDamage</page> instead!</note>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="npc" type="NPC">The NPC that takes damage</arg>
+		<arg name="hitgroup" type="number">The hitgroup (hitbox) enum where the NPC took damage. See <page>Enums/HITGROUP</page></arg>
+		<arg name="dmginfo" type="CTakeDamageInfo">Damage info</arg>
+	</args>
+</function>
+
+<example>
+	<description>Double the damage whenever an NPC is hurt.</description>
+	<code>
+hook.Add( "ScaleNPCDamage", "ScaleNPCDamageExample", function( npc, hitgroup, dmginfo )
+	dmginfo:ScaleDamage( 2 )
+end )
+	</code>
+
+</example>
+
+<example>
+	<description>Mimic Half-Life 2 behaviour, in the context of a gamemode.
+
+Running this code from an addon is not advised, as you'd have to stop all other hooks from running, potentially breaking other addons or the gamemode, 
+or be applying the damage on top of the gamemode's scaling, resulting in unwanted issues like 4x or 6x headshot damage in Sandbox.</description>
+	<code>
+function GetNPCDamageMultiplier( npc, iHitGroup, dmginfo )
+
+	if ( iHitGroup == HITGROUP_GEAR ) then
+		-- HL2 also sets the hitgroup to GENERIC here, but we cannot
+		return 0.01
+	elseif ( iHitGroup == HITGROUP_HEAD ) then
+		-- Some NPCs have unique behaviors
+		if ( npc:GetClass() == "npc_combine_s" ) then
+			return 2
+		elseif ( npc:GetClass() == "npc_zombie" || npc:GetClass() == "npc_zombine" || npc:GetClass() == "npc_fastzombie" ||
+				npc:GetClass() == "npc_poisonzombie" || npc:GetClass() == "npc_zombie_torso" || npc:GetClass() == "npc_fastzombie_torso" ) then
+			if ( bit.band( dmginfo:GetDamageType(), DMG_BUCKSHOT ) != 0 ) then
+				if ( IsValid( dmginfo:GetAttacker() ) ) then
+					local flDist = ( npc:GetPos() - dmginfo:GetAttacker():GetPos() ):Length()
+
+					if ( flDist <= 96 ) then
+						return 3
+					end
+				end
+			else
+				return 2
+			end
+		end
+
+		return GetConVarNumber( "sk_npc_head" )
+	elseif ( iHitGroup == HITGROUP_CHEST ) then
+		return GetConVarNumber( "sk_npc_chest" )
+	elseif ( iHitGroup == HITGROUP_STOMACH ) then
+		return GetConVarNumber( "sk_npc_stomach" )
+	elseif ( iHitGroup == HITGROUP_LEFTARM || iHitGroup == HITGROUP_RIGHTARM ) then
+		return GetConVarNumber( "sk_npc_arm" )
+	elseif ( iHitGroup == HITGROUP_LEFTLEG || iHitGroup == HITGROUP_RIGHTLEG ) then
+		return GetConVarNumber( "sk_npc_leg" )
+	end
+
+	-- No change in damage
+	--return 1
+
+end
+
+function GM:ScaleNPCDamage( npc, hitgroup, dmginfo )
+
+	local damageScale = GetNPCDamageMultiplier( npc, hitgroup, dmginfo )
+	if ( damageScale ) then
+		dmginfo:ScaleDamage( damageScale )
+	end
+
+end
+	</code>
+
+</example>

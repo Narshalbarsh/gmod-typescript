@@ -1,0 +1,21 @@
+<function name="GetAnimated" parent="DModelPanel" type="panelfunc">
+	<description>Returns whether or not the panel entity should be animated when the default <page>DModelPanel:LayoutEntity</page> function is called.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="boolean">True if the panel entity can be animated with <page>Entity:SetSequence</page> directly, false otherwise.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints out the default boolean value for this function.</description>
+	<code>
+local mdl = vgui.Create("DModelPanel")
+mdl:SetPos(20, 20)
+mdl:SetSize(200, 200)
+mdl:SetModel("models/props_junk/watermelon01.mdl")
+
+print(mdl:GetAnimated())
+	</code>
+	<output>false</output>
+
+</example>

@@ -1,0 +1,17 @@
+<function name="ShouldMountAddon" parent="steamworks" type="libraryfunc">
+	<description>Returns whenever the specified Steam Workshop addon will be mounted or not.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="workshopItemID" type="string">The ID of the Steam Workshop</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Will the workshop item be mounted or not</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Checks if the client has enabled Gm_construct_Beta Steam Workshop addon.</description>
+	<code>print( steamworks.ShouldMountAddon( 21197 ) )</code>
+	<output>If client has enabled the addon true is printed into console, false otherwise.</output>
+
+</example>

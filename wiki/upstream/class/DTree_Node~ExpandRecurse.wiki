@@ -1,0 +1,11 @@
+<function name="ExpandRecurse" parent="DTree_Node" type="panelfunc">
+	<description>
+Expands or collapses this node, as well as ALL child nodes of this node.
+
+Works opposite of <page>DTree_Node:ExpandTo</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="expand" type="boolean">Whether to expand (true) or collapse (false)</arg>
+	</args>
+</function>

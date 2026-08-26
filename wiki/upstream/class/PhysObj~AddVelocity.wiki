@@ -1,0 +1,9 @@
+<function name="AddVelocity" parent="PhysObj" type="classfunc">
+	<description>Adds the specified velocity to the current.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="velocity" type="Vector">Additional velocity in `source_unit/s`. (World frame)
+			<note>Does nothing on frozen objects.</note>
+		</arg>
+	</args>
+</function>

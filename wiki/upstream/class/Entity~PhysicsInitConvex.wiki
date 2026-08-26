@@ -1,0 +1,69 @@
+<function name="PhysicsInitConvex" parent="Entity" type="classfunc">
+	<description>
+Initializes the physics mesh of the entity with a convex mesh defined by a table of points. The resulting mesh is the  of all the input points. If successful, the previous physics object will be removed.
+
+This is the standard way of creating moving physics objects with a custom convex shape. For more complex, concave shapes, see <page>Entity:PhysicsInitMultiConvex</page>.
+
+You may be expected to call <page>Entity:SetSolid</page> with desired solid type **before** calling this function.
+
+<bug issue="5060">Clientside physics objects on serverside entities do not move properly in some cases. Physics objects should only created on the server or you will experience incorrect physgun beam position, prediction issues, and other unexpected behavior.
+
+You can use the following workaround for movement, though clientside collisions will still be broken.
+```
+function ENT:Think()
+	if ( CLIENT ) then
+		local physobj = self:GetPhysicsObject()
+
+		if ( IsValid( physobj ) ) then
+			physobj:SetPos( self:GetPos() )
+			physobj:SetAngles( self:GetAngles() )
+		end
+	end
+end
+```
+</bug>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="points" type="table">A table of eight <page>Vector</page>s, in local coordinates, to be used in the computation of the convex mesh. Order does not matter.</arg>
+		<arg name="surfaceprop" type="string" added="2023.01.25" default="default">Physical material from [surfaceproperties.txt](https://github.com/Facepunch/garrysmod/blob/master/garrysmod/scripts/surfaceproperties.txt) or added with <page>physenv.AddSurfaceData</page>.</arg><arg name="massCenterOverride" type="Vector" default="nil" added="2024.10.29">If set, overwrites the center of mass for the created physics object.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Returns `true` on success, `false` otherwise.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Creates a "box" physics mesh for the entity.</description>
+	<code>
+function ENT:Initialize()
+	if ( CLIENT ) then return end -- We only want to run this code serverside
+
+	local x0 = -20 -- Define the min corner of the box
+	local y0 = -10
+	local z0 = -5
+
+	local x1 = 20 -- Define the max corner of the box
+	local y1 = 10
+	local z1 = 5
+
+	self:PhysicsInitConvex( {
+		Vector( x0, y0, z0 ),
+		Vector( x0, y0, z1 ),
+		Vector( x0, y1, z0 ),
+		Vector( x0, y1, z1 ),
+		Vector( x1, y0, z0 ),
+		Vector( x1, y0, z1 ),
+		Vector( x1, y1, z0 ),
+		Vector( x1, y1, z1 )
+	} )
+
+	-- Set up solidity and movetype
+	self:SetMoveType( MOVETYPE_VPHYSICS )
+	self:SetSolid( SOLID_VPHYSICS )
+
+	-- Enable custom collisions on the entity
+	self:EnableCustomCollisions( true )
+end
+	</code>
+</example>

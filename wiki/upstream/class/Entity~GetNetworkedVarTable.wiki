@@ -1,0 +1,22 @@
+<function name="GetNetworkedVarTable" parent="Entity" type="classfunc">
+	<description>
+<deprecated>You should be using <page>Entity:GetNWVarTable</page> instead.</deprecated>
+
+Returns all the networked variables in an entity.
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="table<string,any>">Key-Value table of all networked variables.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints all NWVars that exist for Player 1.</description>
+	<code>PrintTable( Entity(1):GetNWVarTable() )</code>
+	<output>
+```
+UserGroup	=	owner
+```
+</output>
+
+</example>

@@ -1,0 +1,14 @@
+<function name="SetDeaths" parent="Player" type="classfunc">
+	<description>Sets a player's death count</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="deathCount" type="number">Number of deaths (positive or negative)</arg>
+	</args>
+</function>
+
+<example>
+	<description>Sets the deaths of player 1 to 5</description>
+	<code>Entity( 1 ):SetDeaths( 5 )</code>
+	<output>None</output>
+
+</example>

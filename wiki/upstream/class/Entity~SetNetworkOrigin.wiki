@@ -1,0 +1,12 @@
+<function name="SetNetworkOrigin" parent="Entity" type="classfunc">
+	<description>
+		Virtually changes entity position for clients. Does almost the same thing as <page>Entity:SetPos</page> when used serverside.
+		<note>
+			Unlike <page>Entity:SetPos</page> it directly changes the position without checking for any unreasonable position.
+		</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="origin" type="Vector">The position to make clients think this entity is at.</arg>
+	</args>
+</function>

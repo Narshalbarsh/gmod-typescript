@@ -1,0 +1,7 @@
+<function name="ToTable" parent="Vector" type="classfunc">
+	<description>Returns the vector as a table with three elements.</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="table">The table with elements 1 = x, 2 = y, 3 = z.</ret>
+	</rets>
+</function>

@@ -1,0 +1,29 @@
+<function name="PlayerButtonUp" parent="GM" type="hook">
+	<description>Called when a player releases a button.
+
+This will not be called if player has a panel opened with keyboard input enabled, use <page>PANEL:OnKeyCodeReleased</page> instead.
+
+See <page>GM:KeyRelease</page> for an alternative that uses <page>Enums/IN</page>.
+See <page>GM:PlayerButtonDown</page> for the "key press" event.
+</description>
+	<realm>Shared</realm>
+	<predicted>Yes</predicted>
+	<args>
+		<arg name="ply" type="Player">Player who released the button</arg>
+		<arg name="button" type="number{BUTTON_CODE}">The button, see <page>Enums/BUTTON_CODE</page></arg>
+	</args>
+</function>
+
+<example>
+	<description>Prints the person who released the key.</description>
+	<code>
+hook.Add( "PlayerButtonUp", "ButtonUpWikiExample", function( ply, button )
+	if CLIENT then
+		if ( IsFirstTimePredicted() ) then print( ply:Nick() .. " released " .. input.GetKeyName( button ) ) end
+	else
+		print( ply:Nick() .. " released " .. button )
+	end
+end)
+
+	</code>
+</example>

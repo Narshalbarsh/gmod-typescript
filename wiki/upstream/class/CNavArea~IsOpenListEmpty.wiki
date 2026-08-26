@@ -1,0 +1,14 @@
+<function name="IsOpenListEmpty" parent="CNavArea" type="classfunc">
+	<description>
+Returns whether the Open List is empty or not.
+
+Used in pathfinding via the [A* algorithm](https://en.wikipedia.org/wiki/A*_search_algorithm).
+
+
+More information can be found on the <page>Simple Pathfinding</page> page.
+	</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the Open List is empty or not.</ret>
+	</rets>
+</function>

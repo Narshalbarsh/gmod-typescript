@@ -1,0 +1,9 @@
+<function name="CheckObjects" parent="Tool" type="classfunc">
+	<description>
+<internal>This is called automatically for most toolgun actions so you shouldn't need to use it.</internal>
+
+Checks all added objects to see if they're still valid, if not, clears the list of objects.
+	</description>
+	<realm>Shared</realm>
+	<file line="117">gamemodes/sandbox/entities/weapons/gmod_tool/stool.lua</file>
+</function>

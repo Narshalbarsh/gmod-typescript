@@ -1,0 +1,14 @@
+<function name="GetFriendStatus" parent="Player" type="classfunc">
+	<description>Returns the steam "relationship" towards the player.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="string">Should return one of four different things depending on their status on your friends list: "friend", "blocked", "none", "requested" or "error_nofriendid" for bots.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints the steam relationship towards another player</description>
+	<code>print( Entity( 1 ):GetFriendStatus() )</code>
+	<output>"friend"</output>
+
+</example>

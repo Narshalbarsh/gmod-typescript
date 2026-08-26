@@ -1,0 +1,7 @@
+<function name="SetStepSize" parent="Player" type="classfunc">
+	<description>Sets the maximum height a player can step onto without jumping.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="stepHeight" type="number">The new maximum height the player can step onto without jumping</arg>
+	</args>
+</function>

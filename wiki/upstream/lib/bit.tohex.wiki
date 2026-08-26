@@ -1,0 +1,11 @@
+<function name="tohex" parent="bit" type="libraryfunc">
+	<description>Returns the hexadecimal representation of the number with the specified number of characters.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="value" type="number">The value to be normalized.</arg>
+		<arg name="characters" type="number" default="8">Maximum number of characters, if set. The absolute maximum is 8.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The hexadecimal representation, such as "00000001".</ret>
+	</rets>
+</function>

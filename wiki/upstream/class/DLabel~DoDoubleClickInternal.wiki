@@ -1,0 +1,4 @@
+<function name="DoDoubleClickInternal" parent="DLabel" type="panelfunc">
+	<description>Called just before <page>DLabel:DoDoubleClick</page>. In <page>DLabel</page> does nothing and is safe to override.</description>
+	<realm>Client and Menu</realm>
+</function>

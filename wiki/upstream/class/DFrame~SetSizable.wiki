@@ -1,0 +1,23 @@
+<function name="SetSizable" parent="DFrame" type="panelfunc">
+	<description>
+Sets whether or not the <page>DFrame</page> can be resized by the user.
+
+This is achieved by clicking and dragging in the bottom right corner of the frame.
+
+You can set the minimum size using <page>DFrame:SetMinWidth</page> and <page>DFrame:SetMinHeight</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="sizeable" type="boolean">Whether the frame should be resizeable or not.</arg>
+	</args>
+</function>
+
+<example>
+	<description>A snippet of code that makes a frame resizable and sets the minimum size to its current size.</description>
+	<code>
+frame:SetSizable( true )
+frame:SetMinWidth( frame:GetWide() )
+frame:SetMinHeight( frame:GetTall() )
+	</code>
+
+</example>

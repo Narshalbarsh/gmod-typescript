@@ -1,0 +1,9 @@
+<function name="EndEntityDriving" parent="GM" type="hook">
+	<description>Called right before an entity stops driving. Overriding this hook will cause it to not call <page>drive.End</page> and the player will not stop driving.</description>
+	<realm>Shared</realm>
+	<file line="215-L219">gamemodes/base/gamemode/shared.lua</file>
+	<args>
+		<arg name="ent" type="Entity">The entity being driven</arg>
+		<arg name="ply" type="Player">The player driving the entity</arg>
+	</args>
+</function>

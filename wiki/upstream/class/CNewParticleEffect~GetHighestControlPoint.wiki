@@ -1,0 +1,7 @@
+<function name="GetHighestControlPoint" parent="CNewParticleEffect" type="classfunc">
+	<description>Returns the highest control point number for given particle system.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="boolean">The highest control point number for given particle system, 0 to 63.</ret>
+	</rets>
+</function>

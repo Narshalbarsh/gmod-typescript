@@ -1,0 +1,13 @@
+<function name="GetTextStyleColor" parent="DLabel" type="panelfunc">
+	<description>
+<internal></internal>
+
+Returns the "internal" or fallback color of the text.
+
+See also <page>DLabel:GetTextColor</page> and <page>DLabel:SetTextStyleColor</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="Color">The "internal" <page>Color</page> of the text</ret>
+	</rets>
+</function>

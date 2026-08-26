@@ -1,0 +1,5 @@
+<function name="Clear" parent="ControlPresets" type="panelfunc">
+	<description>Runs <page>Panel:Clear</page> on the Internal <page>DComboBox</page></description>
+	<realm>Client</realm>
+	<file line="48-L54">gamemodes/sandbox/gamemode/spawnmenu/controls/control_presets.lua</file>
+</function>

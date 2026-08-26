@@ -1,0 +1,9 @@
+<function name="AddScore" parent="team" type="libraryfunc">
+	<description>Increases the score of the given team</description>
+	<file line="184-L188">lua/includes/modules/team.lua</file>
+	<realm>Shared</realm>
+	<args>
+		<arg name="index" type="number">Index of the team</arg>
+		<arg name="increment" type="number">Amount to increase the team's score by</arg>
+	</args>
+</function>

@@ -1,0 +1,13 @@
+<function name="GetInverseTR" parent="VMatrix" type="classfunc">
+	<description>
+Returns an inverted matrix without modifying the original matrix. This function will not fail, but only works correctly on matrices that contain only translation and/or rotation.
+
+Using this function on a matrix with modified scale may return an incorrect inverted matrix.
+
+To get the inverse of a matrix that contains other modifications, see <page>VMatrix:GetInverse</page>.
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="VMatrix">The inverted matrix.</ret>
+	</rets>
+</function>

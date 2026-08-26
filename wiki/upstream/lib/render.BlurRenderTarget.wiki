@@ -1,0 +1,15 @@
+<function name="BlurRenderTarget" parent="render" type="libraryfunc">
+	<description>
+		Blurs the render target ( or a given texture ).
+		
+		<warning>Calling this on a RenderTarget created with TEXTUREFLAGS_POINTSAMPLE will result in strange visual glitching.</warning>
+	</description>
+	<realm>Client</realm>
+	<file line="88-L107">lua/includes/extensions/client/render.lua</file>
+	<args>
+		<arg name="rendertarget" type="ITexture">The texture to blur.</arg>
+		<arg name="blurx" type="number">Horizontal amount of blur.</arg>
+		<arg name="blury" type="number">Vertical amount of blur.</arg>
+		<arg name="passes" type="number">Amount of passes to go through.</arg>
+	</args>
+</function>

@@ -1,0 +1,23 @@
+<function name="DownloadUGC" parent="steamworks" type="libraryfunc">
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="workshopID" type="string">The ID of workshop item to download. **NOT** a file ID.</arg>
+		<arg name="resultCallback" type="function">The function to process retrieved data.
+
+<callback>
+<arg type="string" name="path">Contains a path to the saved file, or nil if the download failed for any reason.</arg>
+<arg type="file_class" name="file">A file object pointing to the downloaded .gma file. The file handle will be closed after the function exits.</arg>
+</callback>
+</arg>
+	</args>
+</function>
+
+<example>
+	<description>Downloads the Fire Extinguisher addon from Steam Workshop prints path to its .gma file to be used with <page>game.MountGMA</page>.</description>
+	<code>
+steamworks.DownloadUGC( "104607228", function( path, file )
+	print( path, file )
+end)
+	</code>
+
+</example>

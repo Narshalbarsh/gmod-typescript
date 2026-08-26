@@ -1,0 +1,32 @@
+<function name="Query" parent="serverlist" type="libraryfunc">
+	<description>Queries the master server for server list.</description>
+	<realm>Menu</realm>
+	<args>
+		<arg name="data" type="table">The information about what kind of servers we want. See <page>Structures/ServerQueryData</page>
+</arg>
+	</args>
+
+</function>
+
+<example name = 'Setting up this function' >
+	<description>Showcasing how to utilize this function</description>
+	<code>
+    local data = {
+        Type = "internet",
+        GameDir = "garrysmod",
+        AppID = 4000,
+        Callback = function(ping,name,desc,map,players,maxplayers,botplayers,pass,lastplayed,address,gamemode,workshopid,isanon,version,localization,gmcategory)
+            print("Callback worked")
+        end,
+        CallbackFailed = function (address)
+            print("callback failed")
+        end,
+        Finished = function ()
+            print("Finished")
+        end,
+}
+
+serverlist.Query(data)
+	</code>
+	<output>console will print either the "worked" callback function or the "failed" callback function</output>
+</example>

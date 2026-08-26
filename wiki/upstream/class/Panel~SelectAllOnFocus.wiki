@@ -1,0 +1,4 @@
+<function name="SelectAllOnFocus" parent="Panel" type="classfunc">
+	<description>If called on a <page>TextEntry</page>, clicking the text entry for the first time will automatically select all of the text ready to be copied by the user.</description>
+	<realm>Client and Menu</realm>
+</function>

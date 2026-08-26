@@ -1,0 +1,8 @@
+<function name="PositionTooltip" parent="DTooltip" type="panelfunc">
+	<description>
+<internal></internal>
+
+Positions the <page>DTooltip</page> so it doesn't stay in the same draw position.
+	</description>
+	<realm>Client and Menu</realm>
+</function>

@@ -1,0 +1,46 @@
+<enum>
+	<realm>Shared</realm>
+	<description>Enumerations used by Kinect SDK bindings.</description>
+	<items>
+<item key="SENSORBONE.SHOULDER_RIGHT" value="8"></item>
+
+<item key="SENSORBONE.SHOULDER_LEFT" value="4"></item>
+
+<item key="SENSORBONE.HIP" value="0"></item>
+
+<item key="SENSORBONE.ELBOW_RIGHT" value="9"></item>
+
+<item key="SENSORBONE.KNEE_RIGHT" value="17"></item>
+
+<item key="SENSORBONE.WRIST_RIGHT" value="10"></item>
+
+<item key="SENSORBONE.ANKLE_LEFT" value="14"></item>
+
+<item key="SENSORBONE.FOOT_LEFT" value="15"></item>
+
+<item key="SENSORBONE.WRIST_LEFT" value="6"></item>
+
+<item key="SENSORBONE.FOOT_RIGHT" value="19"></item>
+
+<item key="SENSORBONE.HAND_RIGHT" value="11"></item>
+
+<item key="SENSORBONE.SHOULDER" value="2"></item>
+
+<item key="SENSORBONE.HIP_LEFT" value="12"></item>
+
+<item key="SENSORBONE.HIP_RIGHT" value="16"></item>
+
+<item key="SENSORBONE.HAND_LEFT" value="7"></item>
+
+<item key="SENSORBONE.ANKLE_RIGHT" value="18"></item>
+
+<item key="SENSORBONE.SPINE" value="1"></item>
+
+<item key="SENSORBONE.ELBOW_LEFT" value="5"></item>
+
+<item key="SENSORBONE.KNEE_LEFT" value="13"></item>
+
+<item key="SENSORBONE.HEAD" value="3"></item>
+	</items>
+
+</enum>

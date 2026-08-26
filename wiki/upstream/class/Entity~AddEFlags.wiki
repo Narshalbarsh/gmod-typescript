@@ -1,0 +1,7 @@
+<function name="AddEFlags" parent="Entity" type="classfunc">
+	<description>Adds engine flags.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="flag" type="number{EFL}">Engine flag to add, see <page>Enums/EFL</page></arg>
+	</args>
+</function>

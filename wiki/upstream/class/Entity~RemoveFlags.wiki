@@ -1,0 +1,7 @@
+<function name="RemoveFlags" parent="Entity" type="classfunc">
+	<description>Removes specified flag(s) from the entity</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="flag" type="number{FL}">The flag(s) to remove, see <page>Enums/FL</page></arg>
+	</args>
+</function>

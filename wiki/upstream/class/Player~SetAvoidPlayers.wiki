@@ -1,0 +1,11 @@
+<function name="SetAvoidPlayers" parent="Player" type="classfunc">
+	<description>Pushes the player away from other players whenever the player inside another players' bounding box.
+
+This avoidance is performed clientside by altering movement sent to server.
+
+This applies to players within a single team. (<page>Player:Team</page>)</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="avoidPlayers" type="boolean">Whether to avoid teammates, or not.</arg>
+	</args>
+</function>

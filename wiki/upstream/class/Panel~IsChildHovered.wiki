@@ -1,0 +1,11 @@
+<function name="IsChildHovered" parent="Panel" type="classfunc">
+	<file line="610-L621">lua/includes/extensions/client/panel.lua</file>
+	<description>Determines whether the mouse cursor is hovered over one of this panel object's children. This is a reverse process using <page>vgui.GetHoveredPanel</page>, and looks upward to find the parent.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="immediate" type="boolean" default="false">Set to true to check only the immediate children of given panel ( first level )</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether or not one of this panel object's children is being hovered over.</ret>
+	</rets>
+</function>

@@ -1,0 +1,57 @@
+<function name="GetTable" parent="sound" type="libraryfunc">
+	<description>Returns a list of all registered [sound scripts](https://developer.valvesoftware.com/wiki/Soundscripts).
+
+New ones can be registered using <page>sound.Add</page>, and detailed information about each one can be retrieved via <page>sound.GetProperties</page>.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="table<string>">The list/array of all registered sound scripts ( No other information is provided )</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Writes all the sound scripts to a file in the data folder for easy searching.</description>
+	<code>file.Write("soundscripts.txt",table.concat(sound.GetTable(),"\n"))</code>
+	<output>
+data/soundscripts.txt:
+
+
+```
+...
+Event.HostageKilled
+PhxMetal.ImpactHard
+PhxMetal.ImpactSoft
+EpicMetal.ImpactHard
+EpicMetal.ImpactSoft
+EpicMetal_Heavy.ImpactHard
+EpicMetal_Heavy.ImpactSoft
+Egg.Crack
+Phx.HoverLight
+Phx.HoverStandard
+Phx.HoverHeavy
+Phx.Afterburner1
+Phx.Afterburner2
+Phx.Afterburner3
+Phx.Afterburner4
+Phx.Afterburner5
+Phx.Turbine
+Phx.Alien1
+Phx.Alien2
+Phx.Jet1
+Phx.Jet2
+Phx.Jet3
+Phx.Jet4
+Phx_Rubber_Tire.Strain
+Explo.ww2bomb
+AI_BaseNPC.BodyDrop_Heavy
+AI_BaseNPC.BodyDrop_Light
+AI_BaseNPC.SwishSound
+AI_BaseNPC.SentenceStop
+BaseCombatCharacter.CorpseGib
+BaseCombatCharacter.StopWeaponSounds
+BaseCombatCharacter.AmmoPickup
+...
+```
+
+	</output>
+
+</example>

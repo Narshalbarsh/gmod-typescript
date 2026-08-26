@@ -1,0 +1,31 @@
+<function name="DoRightClick" parent="DLabel" type="panelhook">
+	<description>
+Called when the label is right clicked (on key release) by the player.
+
+This will be called after <page>DLabel:OnDepressed</page> and <page>DLabel:OnReleased</page>.
+
+See also <page>DLabel:DoClick</page>, <page>DLabel:DoMiddleClick</page> and <page>DLabel:DoDoubleClick</page>.
+	</description>
+	<realm>Client and Menu</realm>
+</function>
+
+<example>
+	<description>Creates a label in the center of the screen, that prints `I was right clicked!` to the console and disappears when right clicked.</description>
+	<code>
+local lbl = vgui.Create( "DLabel" )
+lbl:SetFont( "DermaLarge" )
+lbl:SetText( "Click me!" )
+lbl:SizeToContents()
+lbl:Center()
+lbl:SetMouseInputEnabled( true )
+function lbl:DoRightClick()
+	print("I was right clicked!")
+	self:Remove()
+end
+	</code>
+	<output>
+```
+I was clicked!
+```
+ When the label is right clicked.</output>
+</example>

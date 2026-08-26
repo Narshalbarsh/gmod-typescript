@@ -1,0 +1,9 @@
+<function name="PhysicsDestroy" parent="Entity" type="classfunc">
+	<description>
+Destroys the current physics object of an entity.
+
+<note>Cannot be used on a ragdoll or the world entity.</note>
+<warning>This function cannot be used when called from a physics callback.</warning>
+	</description>
+	<realm>Shared</realm>
+</function>

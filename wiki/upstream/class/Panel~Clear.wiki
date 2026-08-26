@@ -1,0 +1,5 @@
+<function name="Clear" parent="Panel" type="classfunc">
+	<file line="590-L596">lua/includes/extensions/client/panel.lua</file>
+	<description>Removes all of the panel's children. Many panels also override this method to gracefully clear their contents without breaking themselves.</description>
+	<realm>Client and Menu</realm>
+</function>

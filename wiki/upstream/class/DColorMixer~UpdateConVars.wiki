@@ -1,0 +1,8 @@
+<function name="UpdateConVars" parent="DColorMixer" type="panelfunc">
+	<description><internal></internal></description>
+	<realm>Client and Menu</realm>
+	<file line="266-L275">lua/vgui/dcolormixer.lua</file>
+	<args>
+		<arg name="clr" type="Color">The <page>Color</page></arg>
+	</args>
+</function>

@@ -1,0 +1,11 @@
+<function name="EntityLost" parent="DEntityProperties" type="panelfunc">
+	<description>
+<internal></internal>
+
+Called internally when an entity being edited became invalid.
+
+You should use <page>DEntityProperties:OnEntityLost</page> instead.
+	</description>
+	<realm>Client</realm>
+	<file line="99-L104">lua/vgui/dentityproperties.lua</file>
+</function>

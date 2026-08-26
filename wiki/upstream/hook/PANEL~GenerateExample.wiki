@@ -1,0 +1,31 @@
+<function name="GenerateExample" parent="PANEL" type="hook">
+	<description>Called when the panel should generate example use case / example code to use for this panel. Used in the panel opened by ``derma_controls`` or ``derma_controls_menu``(To go directly to the main menu) console command.</description>
+	<file line="20">lua/derma/derma_example.lua</file>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="class" type="string">The classname of the panel to generate example for. This will be the class name of your panel.</arg>
+		<arg name="dpropertysheet" type="Panel">A <page>DPropertySheet</page> to add your example to. See examples below.</arg>
+		<arg name="width" type="number">Width of the property sheet?</arg>
+		<arg name="height" type="number">Width of the property sheet?</arg>
+	</args>
+</function>
+
+<example>
+	<description>Example usage of this hook from DButton's code.</description>
+	<code>
+function PANEL:GenerateExample( ClassName, PropertySheet, Width, Height )
+
+	local ctrl = vgui.Create( ClassName )
+	ctrl:SetText( "Example Button" )
+	ctrl:SetWide( 200 )
+
+	PropertySheet:AddSheet( ClassName, ctrl, nil, true, true )
+
+end
+
+derma.DefineControl( "DButton", "A standard Button", PANEL, "DLabel" )
+	</code>
+	<output>A tab named "DButton" will appear in **derma_controls** menu.
+<upload src="b58a0/8defbb8ce5bb449.png" size="15676" name="image.png" /></output>
+
+</example>

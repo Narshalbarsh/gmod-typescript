@@ -1,0 +1,7 @@
+<function name="GetMouseY" parent="CUserCmd" type="classfunc">
+	<description>Returns the delta of the angular vertical mouse movement of the player.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">yDelta</ret>
+	</rets>
+</function>

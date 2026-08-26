@@ -1,0 +1,8 @@
+<function name="RemovePlayers" parent="CRecipientFilter" type="classfunc">
+	<description>Remove players from this recipient filter that are present in a given table or recipient filter.</description>
+	<realm>Server</realm>
+	<added>2023.11.02</added>
+	<args>
+		<arg type="CRecipientFilter" name="input">The filter that contains a list of players to remove. This can also be a sequential table of players. Non player entities will be ignored. If a player in the given table/filter is not present in this filter, it is ignored.</arg>
+	</args>
+</function>

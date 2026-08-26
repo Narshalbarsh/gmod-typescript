@@ -1,0 +1,16 @@
+<function name="CursorPos" parent="Panel" type="classfunc">
+	<description>
+Returns the cursor position relative to the top left of the panel.
+
+This is equivalent to calling <page>gui.MousePos</page> and then <page>Panel:ScreenToLocal</page>.
+
+<warning>This function uses a cached value for the screen position of the panel, computed at the end of the last VGUI Think/Layout pass.
+
+ie. inaccurate results may be returned if the panel or any of its ancestors have been repositioned outside of <page>PANEL:Think</page> or <page>PANEL:PerformLayout</page> within the last frame.</warning>
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">X coordinate of the cursor, relative to the top left of the panel.</ret>
+		<ret name="" type="number">Y coordinate of the cursor, relative to the top left of the panel.</ret>
+	</rets>
+</function>

@@ -1,0 +1,8 @@
+<function name="GetHitboxSet" parent="Entity" type="classfunc">
+	<description>Returns entity's current hit box set</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The current hit box set id, or no value if the entity doesn't have hit boxes</ret>
+		<ret name="" type="string">The current hit box set name, or no value if the entity doesn't have hit boxes</ret>
+	</rets>
+</function>

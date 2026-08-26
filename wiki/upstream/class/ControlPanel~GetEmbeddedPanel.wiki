@@ -1,0 +1,8 @@
+<function name="GetEmbeddedPanel" parent="ControlPanel" type="panelfunc">
+	<description>Returns this control panel.</description>
+	<file line="23-L27">gamemodes/sandbox/gamemode/spawnmenu/controlpanel.lua</file>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="ControlPanel">The same control panel the function is being called on.</ret>
+	</rets>
+</function>

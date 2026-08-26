@@ -1,0 +1,17 @@
+<function name="Extinguish" parent="Entity" type="classfunc">
+	<description>
+Extinguishes the entity if it is on fire.
+
+Has no effect if called inside <page>GM:EntityTakeDamage</page> (and the attacker is the flame that's hurting the entity)
+
+See also <page>Entity:Ignite</page>.
+	</description>
+	<realm>Server</realm>
+</function>
+
+<example>
+	<description>Demonstrates the use of this function.</description>
+	<code>Player(1):Extinguish()</code>
+	<output>Extinguishes the first player if he is on fire.</output>
+
+</example>

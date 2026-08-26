@@ -1,0 +1,7 @@
+<function name="GetArrivalActivity" parent="NPC" type="classfunc">
+	<description>Returns the activity to be played when the NPC arrives at its goal</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">The arrival activity. See <page>Enums/ACT</page>.</ret>
+	</rets>
+</function>

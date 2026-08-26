@@ -1,0 +1,11 @@
+<function name="SetLocalPos" parent="duplicator" type="libraryfunc">
+	<description>
+"When a copy is copied it will be translated according to these.
+If you set them - make sure to set them back to 0 0 0!"
+	</description>
+	<realm>Shared</realm>
+	<file line="361">lua/includes/modules/duplicator.lua</file>
+	<args>
+		<arg name="v" type="Vector">The position to offset all pastes from.</arg>
+	</args>
+</function>

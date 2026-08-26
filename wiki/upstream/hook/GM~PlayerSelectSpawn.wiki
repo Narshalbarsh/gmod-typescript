@@ -1,0 +1,28 @@
+<function name="PlayerSelectSpawn" parent="GM" type="hook">
+	<description>
+		Called to determine a spawn point for a player to spawn at.
+		<note>The spawn point entity will also impact the player's eye angle. For example, if the entity is upside down, the player's view will be as well.</note>
+	</description>
+	<realm>Server</realm>
+	<file line="360-L495">gamemodes/base/gamemode/player.lua</file>
+	<args>
+		<arg name="ply" type="Player">The player who needs a spawn point</arg>
+		<arg name="transition" type="boolean">If true, the player just spawned from a map transition (`trigger_changelevel`). You probably want to not return an entity for that case to not override player's position.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Entity">The spawn point entity to spawn the player at</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Find a random spawn point</description>
+	<code>
+hook.Add("PlayerSelectSpawn", "RandomSpawn", function(pl)
+	local spawns = ents.FindByClass("info_player_start")
+	local random_entry = math.random(#spawns)
+
+	return spawns[random_entry]
+end)
+	</code>
+
+</example>

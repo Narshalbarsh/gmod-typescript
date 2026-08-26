@@ -1,0 +1,7 @@
+<function name="GetSelectedItems" parent="DListBox" type="panelfunc">
+	<description>Returns selected items.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="table">The selected items. A list of <page>DListBoxItem</page>.</ret>
+	</rets>
+</function>

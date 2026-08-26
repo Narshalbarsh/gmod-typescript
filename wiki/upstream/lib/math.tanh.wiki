@@ -1,0 +1,10 @@
+<function name="tanh" parent="math" type="libraryfunc">
+	<description>Returns the [hyperbolic tangent](https://en.wikipedia.org/wiki/Hyperbolic_functions) of the given number.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="number" type="number">Angle in radians.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The hyperbolic tangent of the given angle.</ret>
+	</rets>
+</function>

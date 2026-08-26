@@ -1,0 +1,16 @@
+<function name="util.traceir" parent="jit" type="libraryfunc">
+	<description><deprecated>This function was disabled due to security concerns.</deprecated>
+</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="tr" type="number"></arg>
+		<arg name="index" type="number"></arg>
+	</args>
+	<rets>
+		<ret name="" type="number">m</ret>
+		<ret name="" type="number">ot</ret>
+		<ret name="" type="number">op1</ret>
+		<ret name="" type="number">op2</ret>
+		<ret name="" type="number">prev</ret>
+	</rets>
+</function>

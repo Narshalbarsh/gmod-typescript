@@ -1,0 +1,8 @@
+<function name="Kill" parent="notification" type="libraryfunc">
+	<description>Removes the notification after 0.8 seconds.</description>
+	<realm>Client</realm>
+	<file line="57-L64">lua/includes/modules/notification.lua</file>
+	<args>
+		<arg name="uid" type="any">The unique ID of the notification</arg>
+	</args>
+</function>

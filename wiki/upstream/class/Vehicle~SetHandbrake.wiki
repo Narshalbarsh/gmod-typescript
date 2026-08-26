@@ -1,0 +1,11 @@
+<function name="SetHandbrake" parent="Vehicle" type="classfunc">
+	<description>
+Turns on or off the Jeep handbrake so it can roll without a driver inside.
+
+Does nothing while the vehicle has a driver in it.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="handbrake" type="boolean">true to turn on, false to turn off.</arg>
+	</args>
+</function>

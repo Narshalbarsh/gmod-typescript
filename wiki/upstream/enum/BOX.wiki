@@ -1,0 +1,18 @@
+<enum>
+	<realm>Shared and Menu</realm>
+	<description>Enumerations used by <page>render.SetModelLighting</page>.</description>
+	<items>
+<item key="BOX_FRONT" value="0">Place the light from the front</item>
+
+<item key="BOX_BACK" value="1">Place the light behind</item>
+
+<item key="BOX_RIGHT" value="2">Place the light to the right</item>
+
+<item key="BOX_LEFT" value="3">Place the light to the left</item>
+
+<item key="BOX_TOP" value="4">Place the light to the top</item>
+
+<item key="BOX_BOTTOM" value="5">Place the light to the bottom</item>
+	</items>
+
+</enum>

@@ -1,0 +1,63 @@
+<panel>
+	<parent>Panel</parent>
+	<realm>Client</realm>
+	<file line="">lua/vgui/dproperties.lua</file>
+	<description>
+A grid for editing the properties of something using names and values. Properties can be categorized and strongly typed.
+
+<image src="ab571/8dc38978e7c3bbe.png" alt="DProperties example" />
+##  Associated controls 
+* <page>DProperty_VectorColor</page>
+* <page>DProperty_Boolean</page>
+* <page>DProperty_Generic</page>
+* <page>DProperty_Combo</page>
+* <page>DProperty_Float</page>
+* <page>DProperty_Int</page>
+	</description>
+</panel>
+
+
+<example>
+	<description>Creates a DProperties control with a few properties set up</description>
+	<code>
+local f = vgui.Create( "DFrame" )
+f:SetSize( 500, 300 )
+f:Center()
+f:MakePopup()
+
+local DProperties = vgui.Create( "DProperties", f )
+DProperties:Dock( FILL )
+
+local Row1 = DProperties:CreateRow( "Category1", "Vector Color" )
+Row1:Setup( "VectorColor" )
+Row1:SetValue( Vector( 1, 0, 0 ) )
+Row1.DataChanged = function( _, val ) print( val ) end
+
+local Row2 = DProperties:CreateRow( "Category1", "Combo" )
+Row2:Setup( "Combo", { text = "Select type..." } )
+Row2:AddChoice( "Table", {} )
+Row2:AddChoice( "String", "Hello world" )
+Row2.DataChanged = function( self, data )
+	print( "You selected: ", data )
+end
+
+local Row3 = DProperties:CreateRow( "Category1", "Boolean" )
+Row3:Setup( "Boolean" )
+Row3:SetValue( true )
+
+local Row4 = DProperties:CreateRow( "Category2", "Float" )
+Row4:Setup( "Float", { min = 0, max = 5 } )
+Row4:SetValue( 2.5 )
+
+local Row5 = DProperties:CreateRow( "Category2", "Integer" )
+Row5:Setup( "Int", { min = 0, max = 5 } )
+Row5:SetValue( 2.5 )
+
+local Row6 = DProperties:CreateRow( "Category2", "Generic" )
+Row6:Setup( "Generic" )
+Row6:SetValue( "Hello World!" )
+Row6.DataChanged = function( _, val ) print( val ) end
+	</code>
+	<output>When you change the "Hello World!" textbox, it will print its new contents to the console.</output>
+
+</example>

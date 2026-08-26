@@ -1,0 +1,7 @@
+<function name="GetDieTime" parent="CLuaParticle" type="classfunc">
+	<description>Returns the amount of time in seconds after which the particle will be destroyed.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">The amount of time in seconds after which the particle will be destroyed</ret>
+	</rets>
+</function>

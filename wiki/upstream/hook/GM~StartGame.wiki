@@ -1,0 +1,5 @@
+<function name="StartGame" parent="GM" type="hook">
+	<description>Called when you start a new game via the menu.</description>
+	<realm>Menu</realm>
+	<file line="174">html/js/menu/control.NewGame.js</file>
+</function>

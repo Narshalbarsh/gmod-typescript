@@ -1,0 +1,25 @@
+<function name="CreateNewAddonPreset" parent="Global" type="libraryfunc">
+	<description>
+		Creates a new Preset from the given JSON string.
+	</description>
+	<realm>Menu</realm>
+	<file line="585-L592">lua/menu/mainmenu.lua</file>
+	<args>
+		<arg name="data" type="string">A JSON string containing all necessary information.
+			JSON structue should be <page>Structures/Preset</page>
+		</arg>
+	</args>
+</function>
+
+<example>
+	<description>Creating a custom Preset.</description>
+	<code>
+local preset = {
+	["enabled"] = {},
+	["disabled"] = {},
+	["name"] = "Example",
+	["newAction"] = "" -- do nothing with addons not in the preset.
+}
+CreateNewAddonPreset( util.TableToJSON( preset ) )
+	</code>
+</example>

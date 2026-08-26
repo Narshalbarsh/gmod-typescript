@@ -1,0 +1,11 @@
+<function name="ApplyTorqueCenter" parent="PhysObj" type="classfunc">
+	<description>Applies the specified angular impulse to the physics object. See <page>PhysObj:CalculateForceOffset</page></description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="angularImpulse" type="Vector">The angular impulse to be applied in `kg * m^2 * degrees / s`. (The vector is in world frame)
+			<note>
+				The unit conversion between meters and source units in this case is `1 meter ≈ 39.37 source units (100/2.54 exactly)`
+			</note>
+		</arg>
+	</args>
+</function>

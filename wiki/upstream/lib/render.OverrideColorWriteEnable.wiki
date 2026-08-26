@@ -1,0 +1,8 @@
+<function name="OverrideColorWriteEnable" parent="render" type="libraryfunc">
+	<description>Overrides the write behaviour of all next rendering operations towards the color channel of the current render target.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="enable" type="boolean">Enable or disable the override.</arg>
+		<arg name="shouldWrite" type="boolean">If the previous argument is true, sets whether the next rendering operations should write to the color channel or not. Anything drawn after will still write to depth if enabled and shouldWrite is false.</arg>
+	</args>
+</function>

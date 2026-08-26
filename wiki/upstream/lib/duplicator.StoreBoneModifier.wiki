@@ -1,0 +1,12 @@
+<function name="StoreBoneModifier" parent="duplicator" type="libraryfunc">
+	<description>Stores bone mod data for a registered bone modification function.</description>
+	<realm>Server</realm>
+	<file line="539-L553">lua/includes/modules/duplicator.lua</file>
+	<args>
+		<arg name="ent" type="Entity">The entity to add bone mod data to.</arg>
+		<arg name="boneID" type="number">The bone ID.
+See <page>Entity:GetPhysicsObjectNum</page>.</arg>
+		<arg name="key" type="any">The key for the bone modification.</arg>
+		<arg name="data" type="table">The bone modification data that is passed to the bone modification function.</arg>
+	</args>
+</function>

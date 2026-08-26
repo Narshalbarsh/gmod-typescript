@@ -1,0 +1,11 @@
+<function name="DestroyMethod" parent="drive" type="libraryfunc">
+	<description>
+<internal></internal>
+Destroys players current driving method.
+	</description>
+	<realm>Shared</realm>
+	<file line="103-L109">lua/includes/modules/drive.lua</file>
+	<args>
+		<arg name="ply" type="Player">The player to affect.</arg>
+	</args>
+</function>

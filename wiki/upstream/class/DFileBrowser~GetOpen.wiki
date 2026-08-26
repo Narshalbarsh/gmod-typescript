@@ -1,0 +1,8 @@
+<function name="GetOpen" parent="DFileBrowser" type="panelfunc">
+	<description>An <page>Global.AccessorFunc</page> that returns whether or not the file tree is open.</description>
+	<realm>Client</realm>
+	<file line="11">lua/vgui/dfilebrowser.lua</file>
+	<rets>
+		<ret name="" type="boolean">Whether or not the file tree is open.</ret>
+	</rets>
+</function>

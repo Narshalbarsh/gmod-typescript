@@ -1,0 +1,4 @@
+<function name="Check" parent="timer" type="libraryfunc">
+	<description><deprecated>If you want to check if whether or not a timer exists, use <page>timer.Exists</page>.</deprecated> This function does nothing.</description>
+	<realm>Shared and Menu</realm>
+</function>

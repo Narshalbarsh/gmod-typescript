@@ -1,0 +1,11 @@
+<function name="GetTable" parent="presets" type="libraryfunc">
+	<description>Returns a table with preset names and values from a single preset group.</description>
+	<realm>Client</realm>
+	<file line="8-L18">lua/includes/modules/presets.lua</file>
+	<args>
+		<arg name="groupname" type="string">Preset group name.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">All presets in specified group.</ret>
+	</rets>
+</function>

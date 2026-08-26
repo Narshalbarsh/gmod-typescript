@@ -1,0 +1,7 @@
+<function name="IsMoveable" parent="PhysObj" type="classfunc">
+	<description>Returns whenever the entity is able to move.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">movable</ret>
+	</rets>
+</function>

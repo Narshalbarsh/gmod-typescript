@@ -1,0 +1,7 @@
+<function name="GetSkin" parent="Entity" type="classfunc">
+	<description>Returns the skin index of the current skin. Can be manipulated via <page>Entity:SetSkin</page>.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">Current skin index.</ret>
+	</rets>
+</function>

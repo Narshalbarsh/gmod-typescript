@@ -1,0 +1,7 @@
+<function name="Write" parent="File" type="classfunc">
+	<args>
+		<arg name="data" type="string">Binary data to write to the file.</arg>
+	</args>
+	<description>Writes the given string into the file.</description>
+	<realm>Shared and Menu</realm>
+</function>

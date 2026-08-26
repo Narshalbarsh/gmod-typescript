@@ -1,0 +1,14 @@
+<cat>hook</cat>
+<function name="Deploy" parent="WEAPON" type="hook">
+	<description>
+Called when player has just switched to this weapon.
+
+<note>Due to this hook being predicted, it is not called clientside in singleplayer at all, and in multiplayer it will not be called clientside if the weapon is switched with <page>Player:SelectWeapon</page> or the "use" console command, however it will be called clientside with the default weapon selection menu and when using <page>CUserCmd:SelectWeapon</page></note>
+	</description>
+	<realm>Shared</realm>
+	<file line="114-L116">gamemodes/base/entities/weapons/weapon_base/shared.lua</file>
+	<predicted>Yes</predicted>
+	<rets>
+		<ret name="" type="boolean">Return true to allow switching away from this weapon using `lastinv` command</ret>
+	</rets>
+</function>

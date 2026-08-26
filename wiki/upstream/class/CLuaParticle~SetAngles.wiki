@@ -1,0 +1,7 @@
+<function name="SetAngles" parent="CLuaParticle" type="classfunc">
+	<description>Sets the angles of the particle.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="ang" type="Angle">New angle.</arg>
+	</args>
+</function>

@@ -1,0 +1,7 @@
+<function name="MovePause" parent="NPC" type="classfunc">
+	<description>Pauses the NPC movement?
+
+Related functions are <page>NPC:MoveStart</page>, <page>NPC:MoveStop</page> and <page>NPC:ResetMoveCalc</page>.</description>
+	<realm>Server</realm>
+	<added>2021.03.31</added>
+</function>

@@ -1,0 +1,7 @@
+<function name="GetSpacing" parent="DPanelList" type="panelfunc">
+	<description>Returns distance between list items set by <page>DPanelList:SetSpacing</page></description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">Distance between panels</ret>
+	</rets>
+</function>

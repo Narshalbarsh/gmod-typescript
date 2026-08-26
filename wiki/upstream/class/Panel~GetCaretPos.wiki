@@ -1,0 +1,7 @@
+<function name="GetCaretPos" parent="Panel" type="classfunc">
+	<description>Returns the position/offset of the caret (or text cursor) in a text-based panel object.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The caret position/offset from the start of the text. A value of `0` means the caret sits before the first character.</ret>
+	</rets>
+</function>

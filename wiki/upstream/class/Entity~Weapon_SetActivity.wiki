@@ -1,0 +1,13 @@
+<function name="Weapon_SetActivity" parent="Entity" type="classfunc">
+	<description>
+Sets the activity of the entity's active weapon.
+
+<note>This does nothing on the client.</note>
+<note>Only works for CBaseCombatCharacter entities, which includes players and NPCs.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="act" type="number">Activity number. See <page>Enums/ACT</page>.</arg>
+		<arg name="duration" type="number">How long the animation should take in seconds.</arg>
+	</args>
+</function>

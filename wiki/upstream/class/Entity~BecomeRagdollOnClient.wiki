@@ -1,0 +1,49 @@
+<function name="BecomeRagdollOnClient" parent="Entity" type="classfunc">
+	<description>
+Spawns a clientside ragdoll for the entity, positioning it in place of the original entity, and makes the entity invisible. It doesn't preserve flex values (face posing) as CSRagdolls don't support flex.
+
+It does not work on players. Use <page>Player:CreateRagdoll</page> instead.
+
+The original entity is not removed, and neither are any ragdolls previously generated with this function.
+
+To make the entity re-appear, run <page>Entity:SetNoDraw</page>( false )
+	</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="Entity">The created ragdoll. (`class C_ClientRagdoll`)</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Some examples:</description>
+	<code>
+
+-- Example 1: Spawns a ragdoll for all NPCs.
+
+for i, npc in ipairs( ents.FindByClass( "npc_*" ) ) do
+    npc.RagDoll = npc:BecomeRagdollOnClient()
+end
+
+
+-- Example 2: Apply force to a ragdoll.
+
+local npc = ents.FindByClass("npc_zombie")[1]
+if npc then
+    local rag = npc:BecomeRagdollOnClient()
+    local phys = rag:GetPhysicsObject()
+    if IsValid(phys) then
+        phys:ApplyForceCenter(Vector(0,0,5000)) -- push upward
+    end
+end
+
+
+-- Example 3: Every time a player hits an NPC, it becomes a ragdoll on the client side.
+
+hook.Add("EntityTakeDamage", "ClientRagdollOnHit", function(target, dmginfo)
+    if target:IsNPC() and dmginfo:GetAttacker():IsPlayer() then
+        local rag = target:BecomeRagdollOnClient()
+    end
+end)
+	</code>
+
+</example>

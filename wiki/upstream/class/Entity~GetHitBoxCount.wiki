@@ -1,0 +1,23 @@
+<function name="GetHitBoxCount" parent="Entity" type="classfunc">
+	<description>Gets how many hit boxes are in a given hit box set.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="set" type="number">The number of the hit box set.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The number of hit boxes.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Will print out how many hit boxes the client has in each of their hit box sets.</description>
+	<code>
+local numHitSetGroups = LocalPlayer():GetHitboxSetCount()
+
+for i = 0, numHitSetGroups - 1 do
+	local numHitBoxes = LocalPlayer():GetHitBoxCount( i )
+	print( "Hit box set " .. i .. " has " .. numHitBoxes .. " hit boxes!" )
+end
+	</code>
+	<output>Hit box set 0 has 17 hit boxes!</output>
+</example>

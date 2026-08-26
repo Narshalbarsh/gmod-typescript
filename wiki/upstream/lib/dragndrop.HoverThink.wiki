@@ -1,0 +1,8 @@
+<function name="HoverThink" parent="dragndrop" type="libraryfunc">
+	<description>
+<internal></internal>
+Handles the hover think. Called from <page>dragndrop.Think</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="557-L581">lua/includes/extensions/client/panel/dragdrop.lua</file>
+</function>

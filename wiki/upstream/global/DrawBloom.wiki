@@ -1,0 +1,28 @@
+<function name="DrawBloom" parent="Global" type="libraryfunc">
+	<description>Draws the bloom shader, which creates a glowing effect from bright objects.</description>
+	<realm>Client</realm>
+	<file line="25-L56">lua/postprocess/bloom.lua</file>
+	<args>
+		<arg name="Darken" type="number">Determines how much to darken the effect. A lower number will make the glow come from lower light levels. A value of `1` will make the bloom effect unnoticeable. Negative values will make even pitch black areas glow.</arg>
+		<arg name="Multiply" type="number">Will affect how bright the glowing spots are. A value of `0` will make the bloom effect unnoticeable.</arg>
+		<arg name="SizeX" type="number">The size of the bloom effect along the horizontal axis.</arg>
+		<arg name="SizeY" type="number">The size of the bloom effect along the vertical axis.</arg>
+		<arg name="Passes" type="number">Determines how much to exaggerate the effect.</arg>
+		<arg name="ColorMultiply" type="number">Will multiply the colors of the glowing spots, making them more vivid.</arg>
+		<arg name="Red" type="number">How much red to multiply with the glowing color. Should be between `0` and `1`.</arg>
+		<arg name="Green" type="number">How much green to multiply with the glowing color. Should be between `0` and `1`.</arg>
+		<arg name="Blue" type="number">How much blue to multiply with the glowing color. Should be between `0` and `1`.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Draws bloom effect with default settings.</description>
+	<code>
+hook.Add( "RenderScreenspaceEffects", "BloomEffect", function()
+
+	DrawBloom( 0.65, 2, 9, 9, 1, 1, 1, 1, 1 )
+
+end )
+	</code>
+
+</example>

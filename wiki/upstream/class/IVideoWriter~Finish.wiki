@@ -1,0 +1,4 @@
+<function name="Finish" parent="IVideoWriter" type="classfunc">
+	<description>Ends the video recording and dumps it to disk.</description>
+	<realm>Client and Menu</realm>
+</function>

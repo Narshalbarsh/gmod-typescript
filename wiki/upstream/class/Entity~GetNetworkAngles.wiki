@@ -1,0 +1,7 @@
+<function name="GetNetworkAngles" parent="Entity" type="classfunc">
+	<description>Gets networked angles for entity.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="Angle">angle</ret>
+	</rets>
+</function>

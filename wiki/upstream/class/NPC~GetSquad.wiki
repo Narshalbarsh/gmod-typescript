@@ -1,0 +1,8 @@
+<function name="GetSquad" parent="NPC" type="classfunc">
+	<description>Returns the current squad name of the NPC, as set via <page>NPC:SetSquad</page>.</description>
+	<realm>Server</realm>
+	<added>2021.01.27</added>
+	<rets>
+		<ret name="name" type="string">The new squad name to set.</ret>
+	</rets>
+</function>

@@ -1,0 +1,28 @@
+<function name="TranslatePhysBoneToBone" parent="Entity" type="classfunc">
+	<description>
+Returns the boneID of the bone the given <page>PhysObj</page> is attached to.
+
+See <page>Entity:TranslateBoneToPhysBone</page> for reverse function.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="physNum" type="number">The <page>PhysObj</page> number on the entity</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The boneID of the bone the <page>PhysObj</page> is attached to.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Does a trace, gets the physics bone from the trace, converts the physics bone number into the bone number and prints the result</description>
+	<code>
+concommand.Add( "boneid", function( ply )
+	local tr = ply:GetEyeTrace()
+	local bone = tr.Entity:TranslatePhysBoneToBone( tr.PhysicsBone )
+	print( bone )
+	ply:ChatPrint( bone )
+end )
+	</code>
+	<output>The bone number of what the client is looking at</output>
+
+</example>

@@ -1,0 +1,17 @@
+<function name="GetShader" parent="IMaterial" type="classfunc">
+	<description>
+Returns the name of the materials shader.
+
+<bug issue="3256">This function does not work serverside on Linux SRCDS and always returns `shader_error`.
+
+This bug is fixed on `dev` beta and in the next update.
+</bug>
+	</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="string">Name of the currently loaded shader for this material, or `shader_error` if the material has no loaded shader.
+
+It is not guaranteed to be in any specific capitalization, so case insensitive checks are advised.
+</ret>
+	</rets>
+</function>

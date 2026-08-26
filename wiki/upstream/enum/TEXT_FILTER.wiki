@@ -1,0 +1,13 @@
+<enum>
+	<realm>Client</realm>
+	<added>2022.02.02</added>
+	<description>
+Used by <page>util.FilterText</page>.
+	</description>
+	<items>
+<item key="TEXT_FILTER_UNKNOWN" value="0">Unknown context.</item>
+<item key="TEXT_FILTER_GAME_CONTENT" value="1">Game content, only legally required filtering is performed.</item>
+<item key="TEXT_FILTER_CHAT" value="2">Chat from another player.</item>
+<item key="TEXT_FILTER_NAME" value="3">Character or item name.</item>
+	</items>
+</enum>

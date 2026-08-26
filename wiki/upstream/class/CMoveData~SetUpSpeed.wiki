@@ -1,0 +1,7 @@
+<function name="SetUpSpeed" parent="CMoveData" type="classfunc">
+	<description>Sets vertical speed of the player. ( Z axis of <page>CMoveData:SetVelocity</page> )</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="speed" type="number">Vertical speed to set</arg>
+	</args>
+</function>

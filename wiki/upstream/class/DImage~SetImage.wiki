@@ -1,0 +1,42 @@
+<function name="SetImage" parent="DImage" type="panelfunc">
+	<description>
+Sets the image to load into the frame. If the first image can't be loaded and `strBackup` is set, that image will be loaded instead.
+
+This eventually calls <page>DImage:SetMaterial</page>.
+	</description>
+	<file line="91">lua/vgui/dimage.lua</file>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="strImage" type="string">The path of the image to load, relative to the `materials/` folder. When no file extension is supplied the `.vmt` file extension is assumed.</arg>
+		<arg name="strBackup" type="string" default="nil">The path of the backup image.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Creates a frame with a map of de_inferno inside, with the default avatar image loaded as a backup.</description>
+	<code>
+-- Frame
+MainFrame = vgui.Create( "DFrame" )
+MainFrame:SetSize( 300, 300 )
+MainFrame:Center()
+MainFrame:SetTitle( "Map of de_inferno" )
+
+-- Map of de_inferno (requires CS:S)
+local css_map = vgui.Create( "DImage", MainFrame )
+css_map:SetPos( 25, 40 )
+css_map:SetSize( 250, 250 )
+
+-- Set image to de_inferno map
+-- If it can't be loaded, load the [?] avatar image instead
+css_map:SetImage("overviews/de_inferno", "vgui/avatar_default")
+	</code>
+	<output>
+If CS:S is mounted then the left image is shown, otherwise the right image is shown.
+
+
+
+
+<image src="DImage_SetImage_example1.jpg"/> <image src="DImage_SetImage_example2.jpg"/>
+	</output>
+
+</example>

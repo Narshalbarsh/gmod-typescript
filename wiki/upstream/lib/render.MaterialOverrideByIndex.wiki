@@ -1,0 +1,46 @@
+<function name="MaterialOverrideByIndex" parent="render" type="libraryfunc">
+	<description>
+Similar to <page>render.MaterialOverride</page>, but overrides the materials per index. For simple entities you may want to just use <page>Entity:SetSubMaterial</page>.
+
+<page>render.MaterialOverride</page> overrides effects of this function.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="index" type="number" default="nil">The index of the material to override, in range of 0 to 31. `nil` will reset all overrides.</arg>
+		<arg name="material" type="IMaterial" default="nil">The material to override with, `nil` will reset the override for given index.</arg>
+	</args>
+</function>
+
+<example>
+<description>
+Example on overwriting only one of the model's materials.
+</description>
+<code>
+
+function ENT:Initialize()
+
+	if ( CLIENT ) then return end
+
+	-- Set the model to one with multiple materials.
+	self:SetModel( "models/props_phx/construct/windows/window1x1.mdl" )
+
+end
+
+local matForOverride = Material( "phoenix_storms/stripes" )
+
+function ENT:Draw( flags )
+
+	-- Override only a certain submaterial (the glass texture)
+	render.MaterialOverrideByIndex( 3, matForOverride )
+
+		-- Draw the model as usual
+        self:DrawModel( flags )
+
+	-- Reset all material overrides
+	render.MaterialOverrideByIndex()
+end
+</code>
+<output>
+<upload src="70c/8de3368f02b0ec2.png" size="814014" name="image.png" />
+</output>
+</example>

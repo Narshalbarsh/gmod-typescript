@@ -1,0 +1,16 @@
+<function name="IsUnreachable" parent="NPC" type="classfunc">
+	<description>Returns true if the entity was remembered as unreachable. The memory is updated automatically from following engine tasks if they failed:
+* TASK_GET_CHASE_PATH_TO_ENEMY
+* TASK_GET_PATH_TO_ENEMY_LKP
+* TASK_GET_PATH_TO_INTERACTION_PARTNER
+* TASK_ANTLIONGUARD_GET_CHASE_PATH_ENEMY_TOLERANCE
+* SCHED_FAIL_ESTABLISH_LINE_OF_FIRE - Combine NPCs, also when failing to change their enemy
+</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="testEntity" type="Entity">The entity to test.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">If the entity is reachable or not.</ret>
+	</rets>
+</function>

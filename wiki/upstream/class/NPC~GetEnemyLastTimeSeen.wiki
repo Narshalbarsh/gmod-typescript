@@ -1,0 +1,11 @@
+<function name="GetEnemyLastTimeSeen" parent="NPC" type="classfunc">
+	<description>Returns the last time an NPC's enemy was seen by the NPC.</description>
+	<realm>Server</realm>
+	<added>2020.06.24</added>
+	<args>
+		<arg name="enemy" type="Entity" default="GetEnemy()">The enemy to check.</arg>
+	</args>
+	<rets>
+		<ret name="time" type="number">Last time the given enemy was seen.</ret>
+	</rets>
+</function>

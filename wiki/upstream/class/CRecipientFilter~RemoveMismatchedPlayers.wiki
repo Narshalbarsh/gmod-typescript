@@ -1,0 +1,10 @@
+<function name="RemoveMismatchedPlayers" parent="CRecipientFilter" type="classfunc">
+	<description>Remove players from this recipient filter that are **NOT** present in a given table or recipient filter.</description>
+	<realm>Server</realm>
+	<added>2023.11.02</added>
+	<args>
+		<arg type="CRecipientFilter" name="input">The filter that contains a list of players to test against. Players **NOT** in the given filter will be removed from this filter.
+
+This can also be a sequential table of players. Non player entities will be ignored.</arg>
+	</args>
+</function>

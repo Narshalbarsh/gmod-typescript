@@ -1,0 +1,7 @@
+<function name="ClearEnemyMemory" parent="NPC" type="classfunc">
+	<description>Clears the Enemy from the NPC's memory, effectively forgetting it until met again with either the NPC vision or with <page>NPC:UpdateEnemyMemory</page>.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="enemy" type="Entity" default="GetEnemy()" added="2020.06.24">The enemy to mark</arg>
+	</args>
+</function>

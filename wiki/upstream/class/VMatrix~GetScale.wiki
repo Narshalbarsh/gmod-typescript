@@ -1,0 +1,7 @@
+<function name="GetScale" parent="VMatrix" type="classfunc">
+	<description>Returns the absolute scale of the matrix.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Vector">Absolute scale of the matrix</ret>
+	</rets>
+</function>

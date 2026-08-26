@@ -1,0 +1,8 @@
+<function name="Run_FName" parent="Task" type="classfunc">
+	<description><internal></internal> Runs the AI task as an NPC method. This requires the task to be of type `TYPE_FNAME`.</description>
+	<realm>Server</realm>
+	<file line="125">lua/includes/modules/ai_task.lua</file>
+	<args>
+		<arg name="target" type="NPC">The NPC to run the task on.</arg>
+	</args>
+</function>

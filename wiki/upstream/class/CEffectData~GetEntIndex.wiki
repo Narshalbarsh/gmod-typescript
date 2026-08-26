@@ -1,0 +1,7 @@
+<function name="GetEntIndex" parent="CEffectData" type="classfunc">
+	<description>Returns the entity index of the entity set for the effect.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">The entity index of the entity set for the effect.</ret>
+	</rets>
+</function>

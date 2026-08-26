@@ -1,0 +1,20 @@
+<function name="SetAllowWeaponsInVehicle" parent="Player" type="classfunc">
+	<description>
+Allows player to use their weapons in a vehicle. You need to call this before entering a vehicle.
+
+<bug issue="1277">Shooting in a vehicle fires two bullets.</bug>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="allow" type="boolean">Show we allow player to use their weapons in a vehicle or not.</arg>
+	</args>
+</function>
+
+<example>
+<description>Adds a console command to toggle the ability to use weapons in vehicles.</description>
+<code>
+concommand.Add( "weps_in_car", function( ply )
+	ply:SetAllowWeaponsInVehicle( not ply:GetAllowWeaponsInVehicle() )
+end )
+</code>
+</example>

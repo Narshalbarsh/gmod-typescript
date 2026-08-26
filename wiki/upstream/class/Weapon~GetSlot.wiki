@@ -1,0 +1,23 @@
+<function name="GetSlot" parent="Weapon" type="classfunc">
+	<description>Returns the slot of the weapon.
+	<note>The slot numbers start from 0.</note></description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The slot of the weapon.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>How you could use this function to check if a weapon slot was empty or not.</description>
+	<code>
+function IsSlotEmpty( ply, slot )
+	slot = slot - 1 -- take away 1 from the slot number you want since it starts from 0
+
+	for _, v in ipairs( ply:GetWeapons() ) do -- get all the weapons the player has and loop through them
+		if v:GetSlot() == slot then return false end -- check if the slot is the slot you wanted to check, if it is, return false
+	end
+
+	return true -- otherwise return true
+end
+	</code>
+</example>

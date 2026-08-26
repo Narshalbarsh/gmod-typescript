@@ -1,0 +1,12 @@
+<function name="SetMaxSpeed" parent="CMoveData" type="classfunc">
+	<description>
+Sets the maximum speed of the player. This must match with <page>CMoveData:SetMaxClientSpeed</page> both, on server and client.
+
+
+Doesn't seem to be doing anything on it's own, use <page>CMoveData:SetMaxClientSpeed</page> instead.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="maxSpeed" type="number">The new maximum speed</arg>
+	</args>
+</function>

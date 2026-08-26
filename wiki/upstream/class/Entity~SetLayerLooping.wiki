@@ -1,0 +1,12 @@
+<function name="SetLayerLooping" parent="Entity" type="classfunc">
+	<description>
+Sets whether the layer should loop or not.
+
+<note>This function only works on <page>BaseAnimatingOverlay</page> entites!</note>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="layerID" type="number">The Layer ID</arg>
+		<arg name="loop" type="boolean">Whether the layer should loop or not.</arg>
+	</args>
+</function>

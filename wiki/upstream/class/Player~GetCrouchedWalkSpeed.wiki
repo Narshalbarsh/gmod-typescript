@@ -1,0 +1,11 @@
+<function name="GetCrouchedWalkSpeed" parent="Player" type="classfunc">
+	<description>
+Returns the crouched walk speed multiplier.
+
+See also <page>Player:GetWalkSpeed</page> and <page>Player:SetCrouchedWalkSpeed</page>.
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The crouched walk speed multiplier.</ret>
+	</rets>
+</function>

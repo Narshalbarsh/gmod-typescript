@@ -1,0 +1,17 @@
+<function name="FindSpot" parent="NextBot" type="classfunc">
+	<description>Like <page>NextBot:FindSpots</page> but only returns a vector.</description>
+	<realm>Server</realm>
+	<file line="201">gamemodes/base/entities/entities/base_nextbot/sv_nextbot.lua</file>
+	<args>
+		<arg name="type" type="string">Either `"random"`, `"near"`, `"far"`.</arg>
+		<arg name="options" type="table">This table should contain the search info.
+* <page>string</page> type - The type (Only `hiding` for now)
+* <page>Vector</page> pos - the position to search.
+* <page>number</page> radius - the radius to search.
+* <page>number</page> stepup - the highest step to step up.
+* <page>number</page> stepdown - the highest we can step down without being hurt.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">If it finds a spot it will return a vector. If not it will return nil.</ret>
+	</rets>
+</function>

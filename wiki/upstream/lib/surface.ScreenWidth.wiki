@@ -1,0 +1,17 @@
+<function name="ScreenWidth" parent="surface" type="libraryfunc">
+	<description>
+<deprecated>You should use <page>Global.ScrW</page> instead.</deprecated>
+Returns the width of the current client's screen.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">screenWidth</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints out the current width of the screen.</description>
+	<code>MsgN("Screen width: " .. surface.ScreenWidth())</code>
+	<output>Screen width: 1920</output>
+
+</example>

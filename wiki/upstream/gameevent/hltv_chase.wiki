@@ -1,0 +1,38 @@
+<cat>gameevent</cat>
+<title>hltv_chase</title>
+
+<structure>
+	<realm>Client and Menu</realm>
+	<description>
+			Called when the view changes.
+	</description>
+	<fields>
+		<item type="number" name="distance">The distance from the Target.</item>
+		<item type="number" name="inertia">The inertia.</item>
+		<item type="number" name="ineye">`1` if we should use <page text="OBS_MODE_IN_EYE">Enums/OBS_MODE</page>. else, we use <page text="OBS_MODE_CHASE">Enums/OBS_MODE</page>.</item>
+		<item type="number" name="phi">The phi.</item>
+		<item type="number" name="target1">The <page text="EntIndex">Entity:EntIndex</page> of the Primary target.</item>
+		<item type="number" name="target2">The <page text="EntIndex">Entity:EntIndex</page> of the Secondary target.</item>
+		<item type="number" name="theta">The theta.</item>
+	</fields>
+</structure>
+
+# Examples
+<example>
+	<description>This is a basic template with the purpose of including all arguments / table variables to make it easily known which values can be accessed.</description>
+	<code>
+gameevent.Listen( "hltv_chase" )
+hook.Add( "hltv_chase", "hltv_chase_example", function( data )
+	local distance = data.distance	-- The distance from our Target
+	local inertia = data.inertia	-- The inertia
+	local ineye = data.ineye		-- If we should use OBS_MODE_IN_EYE
+	local phi = data.phi			-- The phi
+	local target1 = data.target1	-- The Entity:EntIndex() of our Primary Target
+	local target2 = data.target2	-- The Entity:EntIndex() of our Secondary Target
+	local theta = data.theta		-- The theta
+
+	-- Called when the view changes
+	
+end )
+	</code>
+</example>

@@ -1,0 +1,13 @@
+<function name="SetParentNode" parent="DTree_Node" type="panelfunc">
+	<description>
+<internal></internal>
+
+Sets the parent node of this node. Not the same as <page>Panel:SetParent</page>.
+
+This is set automatically, you shouldn't use this.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="parent" type="Panel">The panel to set as a parent node for this node</arg>
+	</args>
+</function>

@@ -1,0 +1,8 @@
+<function name="GetDeploySpeed" parent="Weapon" type="classfunc">
+	<description>Returns the weapon deploy speed, as set by <page>Weapon:SetDeploySpeed</page>. If not previously set, the value will be polled from the `sv_defaultdeployspeed` <page>ConVar</page>.</description>
+	<realm>Shared</realm>
+	<added>2023.06.28</added>
+	<rets>
+		<ret name="speed" type="number">The value to set deploy speed to.</ret>
+	</rets>
+</function>

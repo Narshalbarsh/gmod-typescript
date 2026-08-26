@@ -1,0 +1,12 @@
+<function name="DroppedOn" parent="PANEL" type="hook">
+	<description>
+Called when this panel is dropped onto another panel.
+
+Only works for panels derived from <page>DDragBase</page>.
+	</description>
+	<realm>Client</realm>
+	<file line="375-L377">lua/includes/extensions/client/panel/dragdrop.lua</file>
+	<args>
+		<arg name="pnl" type="Panel">The panel we are dropped onto</arg>
+	</args>
+</function>

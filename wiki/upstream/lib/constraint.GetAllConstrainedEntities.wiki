@@ -1,0 +1,28 @@
+<function name="GetAllConstrainedEntities" parent="constraint" type="libraryfunc">
+	<description>Returns a table of all entities recursively constrained to an entity.</description>
+	<realm>Server</realm>
+	<file line="1643-L1666">lua/includes/modules/constraint.lua</file>
+	<args>
+		<arg name="ent" type="Entity">The entity to check.</arg>
+		<arg name="resultTable" type="table" default="nil">Table used to return result. Optional.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">A table containing all of the constrained entities. This includes all entities constrained to entities constrained to the supplied entity, etc.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Adapted from stools/remover.lua</description>
+	<code>
+-- Remove this entity and everything constrained
+function TOOL:RightClick( trace )
+	if ( !IsValid( trace.Entity ) or trace.Entity:IsPlayer() ) then return false end
+	-- Loop through all the entities in the system
+	for _, Entity in pairs( constraint.GetAllConstrainedEntities( trace.Entity ) ) do
+		DoRemoveEntity( Entity )
+	end
+	return true
+end
+	</code>
+
+</example>

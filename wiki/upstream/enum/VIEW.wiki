@@ -1,0 +1,15 @@
+<enum>
+	<realm>Client</realm>
+	<description>Enumerations used by <page>render.RenderView</page> inside of <page>Structures/ViewData</page>.</description>
+	<items>
+<item key="VIEW_MAIN" value="0">Default value</item>
+<item key="VIEW_3DSKY" value="1">3D skybox</item>
+<item key="VIEW_MONITOR" value="2">Rendering for `_rt_Camera` base texture material (`func_monitor`, `info_camera_link`).</item>
+<item key="VIEW_REFLECTION" value="3">Water reflection</item>
+<item key="VIEW_REFRACTION" value="4">Water refraction</item>
+<item key="VIEW_INTRO_PLAYER" value="5">Used by `script_intro` entity.</item>
+<item key="VIEW_INTRO_CAMERA" value="6">Used by `script_intro` entity.</item>
+<item key="VIEW_SHADOW_DEPTH_TEXTURE" value="7">Internally used for <page>Global.ProjectedTexture</page> and flashlight.</item>
+<item key="VIEW_SSAO" value="8">For SSAO depth. Can be accessed via <page>render.GetResolvedFullFrameDepth</page>.</item>
+	</items>
+</enum>

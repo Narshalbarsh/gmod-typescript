@@ -1,0 +1,7 @@
+<function name="Height" parent="IVideoWriter" type="classfunc">
+	<description>Returns the height of the video stream.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">height</ret>
+	</rets>
+</function>

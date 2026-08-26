@@ -1,0 +1,7 @@
+<function name="GetBrightness" parent="ProjectedTexture" type="classfunc">
+	<description>Returns the brightness of the ProjectedTexture, which was previously set by <page>ProjectedTexture:SetBrightness</page></description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">The brightness of the ProjectedTexture.</ret>
+	</rets>
+</function>

@@ -1,0 +1,9 @@
+<function name="GetRadio" parent="DMenuOption" type="panelfunc">
+	<description>Returns whether this <page>DMenuOption</page> should act like a radio button, set by <page>DMenuOption:SetRadio</page>.
+</description>
+	<added>2024.02.20</added>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="checked" type="boolean">`true` to set as a radio button.</ret>
+	</rets>
+</function>

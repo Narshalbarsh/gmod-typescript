@@ -1,0 +1,11 @@
+<function name="GetLadders" parent="CNavArea" type="classfunc">
+	<description>
+Returns all <page>CNavLadder</page>s that have a ( one or two way ) connection **from** this <page>CNavArea</page>.
+
+See <page>CNavArea:GetLaddersAtSide</page> for a function that only returns <page>CNavLadder</page>s in given direction.
+	</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="table<CNavLadder>">The <page>CNavLadder</page>s that have a ( one or two way ) connection **from** this <page>CNavArea</page>.</ret>
+	</rets>
+</function>

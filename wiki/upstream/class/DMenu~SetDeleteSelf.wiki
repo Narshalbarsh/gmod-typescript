@@ -1,0 +1,11 @@
+<function name="SetDeleteSelf" parent="DMenu" type="panelfunc">
+	<description>
+Set to true by default. IF set to true, the menu will be deleted when it is closed, not simply hidden.
+
+This is used by <page>DMenuBar</page>
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="newState" type="boolean">true to delete menu on close, false to simply hide.</arg>
+	</args>
+</function>

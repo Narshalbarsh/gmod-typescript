@@ -1,0 +1,10 @@
+<function name="HasAttributes" parent="CNavArea" type="classfunc">
+	<description>Returns true if the given <page>CNavArea</page> has this attribute flag set.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="attribs" type="number">Attribute mask to check for, see <page>Enums/NAV_MESH</page></arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">True if the <page>CNavArea</page> matches the given mask. False otherwise.</ret>
+	</rets>
+</function>

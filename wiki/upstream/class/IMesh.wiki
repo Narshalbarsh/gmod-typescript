@@ -1,0 +1,11 @@
+<type name="IMesh" category="classfunc" is="class">
+	<summary>
+		Renderable mesh object, can be used to create models on the fly. 
+		The only way to create your own IMesh object is to call <page>Global.Mesh</page>.
+
+		<note>
+			IMeshes only respond to one projected texture.  
+			See the <page>render.RenderFlashlights</page> function and example that solves this problem.
+		</note>
+	</summary>
+</type>

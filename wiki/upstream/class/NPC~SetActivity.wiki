@@ -1,0 +1,8 @@
+<function name="SetActivity" parent="NPC" type="classfunc">
+	<description>Sets the NPC's current activity.</description>
+	<realm>Server</realm>
+	<added>2021.03.31</added>
+	<args>
+		<arg name="act" type="number">The new activity to set, see <page>Enums/ACT</page>.</arg>
+	</args>
+</function>

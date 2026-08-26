@@ -1,0 +1,34 @@
+<function name="RotateAroundAxis" parent="PhysObj" type="classfunc">
+	<description>A convinience function for <page>Angle:RotateAroundAxis</page>.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="dir" type="Vector">Direction, around which we will rotate</arg>
+		<arg name="ang" type="number">Amount of rotation, in degrees</arg>
+	</args>
+	<rets>
+		<ret name="" type="Angle">The resulting angle</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Shows that it is the same as <page>Angle:RotateAroundAxis</page>.</description>
+	<code>
+local phys = Entity(1):GetEyeTrace().Entity:GetPhysicsObject() -- Our physics object
+
+print( phys:RotateAroundAxis( Vector( 1, 0, 0 ), 20 ) )
+
+local a = phys:GetAngles()
+a:RotateAroundAxis( Vector( 1, 0, 0 ), 20 )
+print( a )
+	</code>
+	<output>
+Two exactly the same angles
+
+```
+-27.179 133.246 -23.236
+-27.179 133.246 -23.236
+```
+
+	</output>
+
+</example>

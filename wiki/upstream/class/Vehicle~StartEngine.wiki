@@ -1,0 +1,7 @@
+<function name="StartEngine" parent="Vehicle" type="classfunc">
+	<description>Starts or stops the engine.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="start" type="boolean">True to start, false to stop.</arg>
+	</args>
+</function>

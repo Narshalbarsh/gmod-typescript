@@ -1,0 +1,94 @@
+<enum>
+	<realm>Client</realm>
+	<description>
+These enums are used by <page>render.OverrideBlend</page> to determine what the Source and Destination color and alpha channel values for a given pixel will be multiplied by before they are sent to the <page text="Blend Function">Enums/BLENDFUNC</page> to calculate the pixel's final color during draw operations.
+
+For an interactive demonstration of how these enums behave, see [Anders Riggelsen's Visual glBlendFunc Tool here](https://www.andersriggelsen.dk/glblendfunc.php)
+
+<upload src="19952/8d96354db95acb4.png" size="573673" name="image.png" />
+
+</description>
+	<items>
+		<item key="BLEND_ZERO" value="0">
+			The Multiplier will be `r=0`, `g=0`, `b=0`, `a=0`
+
+			This is useful for removing the Source or Destination from the final pixel color.
+		</item>
+		<item key="BLEND_ONE" value="1">
+			The Multiplier will be `r=1`, `g=1`, `b=1`, `a=1`
+
+			This is useful for keeping the Source or Destination as their starting values.
+		</item>
+		<item key="BLEND_DST_COLOR" value="2">
+			The Multiplier will be the same as the Destination color and alpha.
+		</item>
+		<item key="BLEND_ONE_MINUS_DST_COLOR" value="3">
+			Each color and alpha channel value of the Destination is subtracted from `1`.
+
+			**Example:**  
+			If your Destination channels are: `r=1`, `g=0.25`, `b=0.1`, `a=1`  
+			They will be modified by: `r=1-1`, `g=1-0.25`, `b=1-0.1`, `a=1-1`  
+			The final Multiplier value will be: `r=0`, `g=0.75`, `b=0.9`, `a=0`
+		</item>
+		<item key="BLEND_SRC_ALPHA" value="4">
+			All color and alpha channels will be the same as the Source alpha value.  
+
+			**Example:**  
+			If your Source channels are: `r=0.1`, `g=0`, `b=1`, `a=0.5`  
+			The final Multiplier value will be: `r=0.5`, `g=0.5`, `b=0.5`, `a=0.5`
+		</item>
+		<item key="BLEND_ONE_MINUS_SRC_ALPHA" value="5">
+			All color and alpha channels will be set to the Source alpha value subtracted from `1`.
+
+			**Example:**  
+			If your Source channels are: `r=0`, `g=0.23`, `b=1`, `a=0.6`  
+			The alpha channel will be modified by `a=1-0.6`  
+			The final Multiplier value will be: `r=0.4`, `g=0.4`, `b=0.4`, `a=0.4`
+		</item>
+		<item key="BLEND_DST_ALPHA" value="6">
+			All color and alpha channels will be set to the the Destination alpha value.
+
+			**Example:**  
+			If your Destination channels are: `r=0.1`, `g=0`, `b=1`, `a=0.5`  
+			The final Multiplier value will be: `r=0.5`, `g=0.5`, `b=0.5`, `a=0.5`
+		</item>
+		<item key="BLEND_ONE_MINUS_DST_ALPHA" value="7">
+			All color and alpha channels will be set to the Destination alpha value subtracted from `1`.
+
+			**Example:**  
+			If your Destination channels are: `r=0`, `g=0.23`, `b=1`, `a=0.6`  
+			The alpha channel will be modified by `a=1-0.6`  
+			The final Multiplier value will be: `r=0.4`, `g=0.4`, `b=0.4`, `a=0.4`
+		</item>
+		<item key="BLEND_SRC_ALPHA_SATURATE" value="8">
+			First, the Source alpha is compared against the Destination alpha value subtracted from `1` and the smaller of the two is kept.
+
+			Then, the Source color channels are multiplied by the value from the first step.
+
+			The Source alpha channel is multiplied by `1`.
+
+			**Example:**  
+			If your Source channels are: `r=1`, `g=0.25`, `b=0.1`, `a=0.6`  
+			and your Destination channels are: `r=0`, `g=1`, `b=0.5`, `a=0.75`
+
+			The Destination alpha value subtracted from `1` is calculated: `1-0.75` = `0.25`  
+			The Source alpha `0.6` is compared to the subtracted Destination alpha `0.25` and the smaller of the two is kept (`0.25`)
+
+			The color channels of the Source are multiplied by the smaller value: `r=1*0.25`, `g=0.25*0.25`, `b=0.1*0.25`
+
+			The final Multiplier value will be `r=0.25`, `g=0.0625`, `b=0.025`, `a=0.6`
+		</item>
+		<item key="BLEND_SRC_COLOR" value="9">
+			The Multiplier will be the same as the Source color and alpha.
+		</item>
+		<item key="BLEND_ONE_MINUS_SRC_COLOR" value="10">
+			Each color and alpha channel value of the Source is subtracted from `1`.
+
+			**Example:**  
+			If your Source channels are: `r=1`, `g=0.25`, `b=0.1`, `a=1`  
+			They will be modified by: `r=1-1`, `g=1-0.25`, `b=1-0.1`, `a=1-1`  
+			The final Multiplier value will be: `r=0`, `g=0.75`, `b=0.9`, `a=0`
+		</item>
+	</items>
+
+</enum>

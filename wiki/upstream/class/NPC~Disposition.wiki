@@ -1,0 +1,30 @@
+<function name="Disposition" parent="NPC" type="classfunc">
+	<description>Returns the way the NPC "feels" about a given entity. See <page>NPC:AddEntityRelationship</page>.
+
+<note>For `ai` type entities, this will return <page>ENTITY:GetRelationship</page>. If it returns `nil` or for engine NPCs, this will return whatever was last set by <page>NPC:AddEntityRelationship</page>. As a last resort, engine will decide on the disposition based on this NPC's <page>NPC:Classify</page>. </note>
+
+</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ent" type="Entity">The entity to test our disposition towards.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number{D}">The NPCs disposition, see <page>Enums/D</page>.</ret>
+		<ret name="" type="number" added="2023.10.09">The NPCs disposition priority.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>If a player is hurt by a friendly NPC, announce it.</description>
+	<code>
+function FriendlyFireAnnouncement( ply, atk )
+   if atk:IsNPC() and atk:Disposition(ply) == D_LI then --like
+      PrintMessage("A "..atk:GetClass().." attacked "..ply:Nick().."!", HUD_PRINTTALK)
+   end
+end
+
+hook.Add( "PlayerHurt", "FriendlyFire", FriendlyFireAnnouncement )
+	</code>
+	<output>Prints "A ____ attacked ____!" to everyones chat.</output>
+
+</example>

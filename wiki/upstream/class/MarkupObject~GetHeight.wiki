@@ -1,0 +1,7 @@
+<function name="GetHeight" parent="MarkupObject" type="classfunc">
+	<description>Gets computed the height of the markupobject.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="Height" type="number">The computed height.</ret>
+	</rets>
+</function>

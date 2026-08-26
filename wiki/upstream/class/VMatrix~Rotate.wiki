@@ -1,0 +1,11 @@
+<function name="Rotate" parent="VMatrix" type="classfunc">
+	<description>
+Rotates the matrix by the given angle.
+
+Postmultiplies the matrix by a rotation matrix (A = AR).
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="rotation" type="Angle">Rotation.</arg>
+	</args>
+</function>

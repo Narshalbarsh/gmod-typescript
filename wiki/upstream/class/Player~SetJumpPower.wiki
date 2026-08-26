@@ -1,0 +1,7 @@
+<function name="SetJumpPower" parent="Player" type="classfunc">
+	<description>Sets the jump power, eg. the velocity that will be applied to the player when they jump.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="jumpPower" type="number">The new jump velocity.</arg>
+	</args>
+</function>

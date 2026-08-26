@@ -1,0 +1,7 @@
+<function name="GetSunInfo" parent="util" type="libraryfunc">
+	<description>Gets information about the sun position and obstruction or nil if there is no sun.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="table">The sun info. See <page>Structures/SunInfo</page></ret>
+	</rets>
+</function>

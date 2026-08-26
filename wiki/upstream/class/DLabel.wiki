@@ -1,0 +1,25 @@
+<panel>
+	<name>DLabel</name>
+	<parent>Label</parent>
+	<preview>DLabel_small.png</preview>
+	<realm>Client and Menu</realm>
+	<file line="">lua/vgui/dlabel.lua</file>
+	<description>
+		A standard Derma text label. A lot of this panels functionality is a base for button elements, such as <page>DButton</page>
+	</description>
+</panel>
+
+<example>
+	<description>Creates a DLabel.</description>
+	<code>
+local Panel = vgui.Create( "DFrame" )
+Panel:SetSize( 200, 200 )
+Panel:Center()
+Panel:MakePopup()
+
+local DLabel = vgui.Create( "DLabel", Panel )
+DLabel:SetPos( 40, 40 )
+DLabel:SetText( "Hello, world!" )
+	</code>
+	<output><image src="DLabel.png"/></output>
+</example>

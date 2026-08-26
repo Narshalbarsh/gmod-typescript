@@ -1,0 +1,7 @@
+<function name="GetEnterAllowed" parent="DTextEntry" type="panelfunc">
+	<description>Returns whether pressing Enter can cause the panel to lose focus. Note that a multiline DTextEntry cannot be escaped using the Enter key even when this function returns true.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Whether pressing the Enter key can cause the panel to lose focus.</ret>
+	</rets>
+</function>

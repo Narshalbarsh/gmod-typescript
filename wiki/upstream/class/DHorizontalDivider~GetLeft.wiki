@@ -1,0 +1,7 @@
+<function name="GetLeft" parent="DHorizontalDivider" type="panelfunc">
+	<description>Returns the left side content of the <page>DHorizontalDivider</page></description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="Panel">The content on the left side</ret>
+	</rets>
+</function>

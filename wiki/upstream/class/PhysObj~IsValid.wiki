@@ -1,0 +1,7 @@
+<function name="IsValid" parent="PhysObj" type="classfunc">
+	<description>Returns if the physics object is valid/not NULL.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the physics object is valid or not.</ret>
+	</rets>
+</function>

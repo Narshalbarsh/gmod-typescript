@@ -1,0 +1,12 @@
+<function name="SetStage" parent="Tool" type="classfunc">
+	<description>
+Sets the current stage of the tool. Does nothing clientside.
+
+See also <page>Tool:SetOperation</page>.
+	</description>
+	<realm>Shared</realm>
+	<file line="8-L14">/gamemodes/sandbox/entities/weapons/gmod_tool/object.lua</file>
+	<args>
+		<arg name="stage" type="number">The new stage to set.</arg>
+	</args>
+</function>

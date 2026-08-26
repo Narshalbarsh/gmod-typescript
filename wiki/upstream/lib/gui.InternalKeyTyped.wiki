@@ -1,0 +1,25 @@
+<function name="InternalKeyTyped" parent="gui" type="libraryfunc">
+	<description>
+Simulates an ASCII symbol writing.
+Use to write text in the chat or in VGUI.
+Doesn't work while the main menu is open!
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="code" type="number">ASCII code of symbol, see [this chart](https://files.facepunch.com/wiki/files/ab571/8dc389806d65b98.gif).</arg>
+	</args>
+</function>
+
+<example>
+	<description>Writes "Hello" every think.</description>
+	<code>
+hook.Add("Think","Example",function()
+	gui.InternalKeyTyped(72)
+	gui.InternalKeyTyped(101)
+	gui.InternalKeyTyped(108)
+	gui.InternalKeyTyped(108)
+	gui.InternalKeyTyped(111)
+end)
+	</code>
+
+</example>

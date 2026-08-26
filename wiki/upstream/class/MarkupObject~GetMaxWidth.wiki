@@ -1,0 +1,7 @@
+<function name="GetMaxWidth" parent="MarkupObject" type="classfunc">
+	<description>Gets maximum width for this markup object as defined in <page>markup.Parse</page>.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="maxWidth" type="number">The max width.</ret>
+	</rets>
+</function>

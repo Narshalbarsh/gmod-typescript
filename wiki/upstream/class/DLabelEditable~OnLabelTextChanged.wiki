@@ -1,0 +1,14 @@
+<function name="OnLabelTextChanged" parent="DLabelEditable" type="panelfunc">
+	<description>
+A hook called when the player presses Enter (i.e. the finished editing the label) and the text has changed.
+
+Allows you to override/modify the text that will be set to display.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="txt" type="string">The original user input text</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">If provided, will override the text that will be applied to the label itself.</ret>
+	</rets>
+</function>

@@ -1,0 +1,36 @@
+<structure>
+	<realm>Client</realm>
+	<description>
+Used for <page>cam.Start</page>.
+
+Unless stated otherwise, the default values for all these keys would be inherited from the engine's current `CViewSetup` and do not have static representations.
+	</description>
+	<fields>
+<item name="x" type="number" default="nil">The x position of the view port</item>
+<item name="y" type="number" default="nil">The y position of the view port</item>
+<item name="w" type="number" default="nil">The width of the view port</item>
+<item name="h" type="number" default="nil">The height of the view port</item>
+<item name="type" type="string" default="3D">The type of cam. Valid types are:
+* "2D" - No additional arguments are required
+* "3D" - Only origin and angles are needed, all other parameters are optional.</item>
+<item name="origin" type="Vector" default="nil">The position to render from</item>
+<item name="angles" type="Angle" default="nil">The angles to render from</item>
+<item name="fov" type="number" default="nil">The field of view</item>
+<item name="aspect" type="number" default="nil">The aspect ratio of the view port (Note that this is NOT set to w/h by default)</item>
+<item name="zfar" type="number" default="nil">The distance to the far clipping plane</item>
+<item name="znear" type="number" default="nil">The distance to the near clipping plane</item>
+<item name="subrect" type="boolean" default="nil">Set to true if this is to draw into a subrect of the larger screen.</item>
+<item name="bloomtone" type="boolean" default="false">m_bDoBloomAndToneMapping</item>
+<item name="offcenter" type="table" default="nil">A table having these keys: ( all floats )
+* left
+* right
+* bottom
+* top</item>
+<item name="ortho" type="table" default="nil">If set, makes the view/camera orthogonal. A table having these keys: ( all floats )
+* left
+* right
+* bottom
+* top</item>
+	</fields>
+
+</structure>

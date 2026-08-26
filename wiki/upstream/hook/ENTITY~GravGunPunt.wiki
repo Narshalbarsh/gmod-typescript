@@ -1,0 +1,25 @@
+<function name="GravGunPunt" parent="ENTITY" type="hook">
+	<description>
+Called when this entity is about to be punted with the gravity gun (primary fire).
+
+Only works in Sandbox derived gamemodes and only if <page>GM:GravGunPunt</page> is not overridden.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="ply" type="Player">The player pressing left-click with the gravity gun at an entity</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return true or false to enable or disable punting respectively.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Enables a scripted entity to be punted even when frozen.</description>
+	<code>
+function ENT:GravGunPunt( ply )
+	self:PhysWake()
+	return true
+end
+	</code>
+
+</example>

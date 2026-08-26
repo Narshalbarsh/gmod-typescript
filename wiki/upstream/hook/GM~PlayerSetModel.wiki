@@ -1,0 +1,20 @@
+<function name="PlayerSetModel" parent="GM" type="hook">
+	<description>
+Called whenever a player spawns and must choose a model. A good place to assign a model to a player.
+<note>This function may not work in your custom gamemode if you have overridden your <page>GM:PlayerSpawn</page> and you do not use <page text="self.BaseClass.PlayerSpawn">Global.DEFINE_BASECLASS</page> in it, or <page>hook.Call</page> this hook from <page>GM:PlayerSpawn</page>.</note>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ply" type="Player">The player being chosen</arg>
+	</args>
+</function>
+
+<example>
+	<description>Sets the player's model to Odessa</description>
+	<code>
+function GM:PlayerSetModel( ply )
+   ply:SetModel( "models/player/odessa.mdl" )
+end
+	</code>
+
+</example>

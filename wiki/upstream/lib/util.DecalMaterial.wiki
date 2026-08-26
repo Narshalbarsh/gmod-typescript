@@ -1,0 +1,12 @@
+<function name="DecalMaterial" parent="util" type="libraryfunc">
+	<description>Gets the full material path by the decal name. Used with <page>util.DecalEx</page>.
+
+If decal specifies multiple materials, a random one will be chosen.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="decalName" type="string">Name of the decal.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">Material path of the decal.</ret>
+	</rets>
+</function>

@@ -1,0 +1,27 @@
+<function name="DoDrawCrosshair" parent="WEAPON" type="hook">
+	<description>
+Called when the crosshair is about to get drawn, and allows you to override it.
+
+This function will **not** be called if `SWEP.DrawCrosshair` is set to false or if player is affected by <page>Player:CrosshairDisable</page>.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="x" type="number">X coordinate of the crosshair.</arg>
+		<arg name="y" type="number">Y coordinate of the crosshair.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return true to override the default crosshair.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Draws an outlined rectangle in place of the crosshair.</description>
+	<code>
+function SWEP:DoDrawCrosshair( x, y )
+	surface.SetDrawColor( 0, 250, 255, 255 )
+	surface.DrawOutlinedRect( x - 32, y - 32, 64, 64 )
+	return true
+end
+	</code>
+
+</example>

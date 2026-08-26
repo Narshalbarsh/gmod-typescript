@@ -1,0 +1,13 @@
+<function name="SelectWeapon" parent="CUserCmd" type="classfunc">
+	<description>
+Forces the associated player to select a weapon. This is used internally in the default HL2 weapon selection HUD.
+
+This may not work immediately if the current command is in prediction. Use <page>input.SelectWeapon</page> to switch the weapon from the client when the next available command can do so.
+
+<note>This is the ideal function to use to create a custom weapon selection HUD, as it allows prediction to run properly for <page>WEAPON:Deploy</page> and <page>GM:PlayerSwitchWeapon</page></note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="weapon" type="Weapon">The weapon entity to select.</arg>
+	</args>
+</function>

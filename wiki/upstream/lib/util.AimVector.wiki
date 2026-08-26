@@ -1,0 +1,19 @@
+<function name="AimVector" parent="util" type="libraryfunc">
+	<description>
+Function used to calculate aim vector from 2D screen position. It is used in SuperDOF calculate Distance.
+
+Essentially a generic version of <page>gui.ScreenToVector</page>.
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="ViewAngles" type="Angle">View angles</arg>
+		<arg name="ViewFOV" type="number">View Field of View</arg>
+		<arg name="x" type="number">Mouse X position</arg>
+		<arg name="y" type="number">Mouse Y position</arg>
+		<arg name="scrWidth" type="number">Screen width</arg>
+		<arg name="scrHeight" type="number">Screen height</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">Calculated aim vector</ret>
+	</rets>
+</function>

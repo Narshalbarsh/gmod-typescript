@@ -1,0 +1,17 @@
+<function name="OnPhysgunPickup" parent="GM" type="hook">
+	<description>
+Called to when a player has successfully picked up an entity with their Physics Gun.
+
+Not to be confused with <page>GM:PhysgunPickup</page> which is called to ask if the player should be able to pick up an entity.
+
+
+See <page>GM:GravGunOnPickedUp</page> for the Gravity Gun pickup variant.<br/>
+See <page>GM:OnPlayerPhysicsPickup</page> for the player `+use` pickup variant.<br/>
+
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ply" type="Player">The player that has picked up something using the physics gun.</arg>
+		<arg name="ent" type="Entity">The entity that was picked up.</arg>
+	</args>
+</function>

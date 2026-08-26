@@ -1,0 +1,7 @@
+<function name="GetChecked" parent="ImageCheckBox" type="panelfunc">
+	<description>Returns the checked state of the <page>ImageCheckBox</page></description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="boolean">true for checked, false otherwise</ret>
+	</rets>
+</function>

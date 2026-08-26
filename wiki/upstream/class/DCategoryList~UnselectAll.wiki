@@ -1,0 +1,5 @@
+<function name="UnselectAll" parent="DCategoryList" type="panelfunc">
+	<description>Calls <page>Panel:UnselectAll</page> on all child elements, if they have it.</description>
+	<realm>Client and Menu</realm>
+	<file line="37-L47">lua/vgui/dcategorylist.lua</file>
+</function>

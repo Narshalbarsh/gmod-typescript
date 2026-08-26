@@ -1,0 +1,11 @@
+<function name="SetBaseSize" parent="DTileLayout" type="panelfunc">
+	<description>
+Sets the size of a single tile. If a child panel is larger than this size, it will occupy several tiles.
+
+If you are setting the size of the children properly then you probably don't need to change this.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="size" type="number">The size of each tile. It is recommended you use `2ⁿ` (`16, 32, 64...`) numbers, and those above `4`, as numbers lower than this will result in many tiles being processed and therefore slow operation.</arg>
+	</args>
+</function>

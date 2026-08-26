@@ -1,0 +1,10 @@
+<function name="HasGodMode" parent="Player" type="classfunc">
+	<description>
+Returns whether the player has god mode or not, contolled by <page>Player:GodEnable</page> and <page>Player:GodDisable</page>.
+	</description>
+	<realm>Shared</realm>
+	<file line="254-L262">lua/includes/extensions/player.lua</file>
+	<rets>
+		<ret name="" type="boolean">Whether the player has god mode or not.</ret>
+	</rets>
+</function>

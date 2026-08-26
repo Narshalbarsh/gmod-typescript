@@ -1,0 +1,8 @@
+<function name="status" parent="jit" type="libraryfunc">
+	<description>Returns the status of the JIT compiler and the current optimizations enabled.</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Is JIT enabled</ret>
+		<ret name="" type="any">Strings for CPU-specific features and enabled optimizations</ret>
+	</rets>
+</function>

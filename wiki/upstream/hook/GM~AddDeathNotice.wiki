@@ -1,0 +1,28 @@
+<function name="AddDeathNotice" parent="GM" type="hook">
+	<description>
+Adds a death notice entry.
+	</description>
+	<realm>Client</realm>
+	<file line="202-L223">gamemodes/base/gamemode/cl_deathnotice.lua</file>
+	<args>
+		<arg name="attacker" type="string">The name of the attacker</arg>
+		<arg name="attackerTeam" type="number">The team of the attacker</arg>
+		<arg name="inflictor" type="string">Class name of the entity inflicting the damage</arg>
+		<arg name="victim" type="string">Name of the victim</arg>
+		<arg name="victimTeam" type="number">Team of the victim</arg>
+	</args>
+	<rets>
+		<ret name="" type="any">`true/false` to prevent the notice from being shown. Do not return otherwise.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Shows a suicide death notice in Sandbox.</description>
+	<code>
+local ply = Entity( 1 )
+hook.Run( "AddDeathNotice", ply:GetName(), ply:Team(), "suicide", ply:GetName(), ply:Team() )
+	</code>
+<output>
+<upload src="b58a0/8dda6965a418353.png" size="14377" name="image.png" />
+</output>
+</example>

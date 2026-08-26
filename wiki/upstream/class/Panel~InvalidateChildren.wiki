@@ -1,0 +1,8 @@
+<function name="InvalidateChildren" parent="Panel" type="classfunc">
+	<file line="473-L487">lua/includes/extensions/client/panel.lua</file>
+	<description>Invalidates the layout of this panel object and all its children. This will cause these objects to re-layout immediately, calling <page>PANEL:PerformLayout</page>. If you want to perform the layout in the next frame, you will have loop manually through all children, and call <page>Panel:InvalidateLayout</page> on each.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="recursive" type="boolean" default="false">If `true`, the method will recursively invalidate the layout of all children. Otherwise, only immediate children are affected.</arg>
+	</args>
+</function>

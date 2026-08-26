@@ -1,0 +1,13 @@
+<function name="SetViewOffsetDucked" parent="Player" type="classfunc">
+	<description>
+Sets the **desired** view offset which equals the difference between the players actual position and their view when crouching.
+
+If you want to set **actual** view offset, use <page>Player:SetCurrentViewOffset</page>
+
+See also <page>Player:SetViewOffset</page> for **desired** view offset when standing.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="viewOffset" type="Vector">The new desired view offset when crouching.</arg>
+	</args>
+</function>

@@ -1,0 +1,14 @@
+<function name="GetFraction" parent="DNumberScratch" type="panelfunc">
+	<description>
+Returns the value of the <page>DNumberScratch</page> as a fraction, a value between 0 and 1 where 0 is the minimum and 1 is the maximum value of the <page>DNumberScratch</page>.
+
+See also:
+* <page>DNumberScratch:GetTextValue</page>
+* <page>DNumberScratch:GetFloatValue</page>
+* <page>DNumberScratch:SetFraction</page>
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">A value between 0 and 1</ret>
+	</rets>
+</function>

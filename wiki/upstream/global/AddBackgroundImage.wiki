@@ -1,0 +1,8 @@
+<function name="AddBackgroundImage" parent="Global" type="libraryfunc">
+	<description>Adds the specified image path to the main menu background pool. Image can be png or jpeg.</description>
+	<realm>Menu</realm>
+	<file line="101-L105">lua/menu/background.lua</file>
+	<args>
+		<arg name="path" type="string">Path to the image.</arg>
+	</args>
+</function>

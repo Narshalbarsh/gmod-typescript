@@ -1,0 +1,14 @@
+<function name="MD5" parent="util" type="libraryfunc">
+	<description>
+		Generates the [MD5 hash](https://en.wikipedia.org/wiki/MD5) of the specified string.
+		<warning>MD5 is considered cryptographically broken and is known to be vulnerable to a variety of attacks including duplicate return values. If security or duplicate returns is a concern, use <page>util.SHA256</page>.</warning>
+	</description>
+	<realm>Shared</realm>
+	<added>2021.07.01</added>
+	<args>
+		<arg name="stringToHash" type="string">The string to calculate the MD5 hash of.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The MD5 hash of the string in hexadecimal form.</ret>
+	</rets>
+</function>

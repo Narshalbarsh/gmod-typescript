@@ -1,0 +1,12 @@
+<function name="GetHUDTexture" parent="surface" type="libraryfunc">
+	<description>Returns the [HUD icon](https://github.com/Facepunch/garrysmod/blob/master/garrysmod/scripts/hud_textures.txt) TextureID of a texture with the specified name.
+
+You probably want to use <page>Global.Material</page> and <page>surface.SetMaterial</page>.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="name" type="string">The name of the texture.</arg>
+	</args>
+	<rets>
+		<ret name="texID" type="number">The texture ID, for use with <page>surface.SetTexture</page>.</ret>
+	</rets>
+</function>

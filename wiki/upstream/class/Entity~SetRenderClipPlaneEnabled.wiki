@@ -1,0 +1,7 @@
+<function name="SetRenderClipPlaneEnabled" parent="Entity" type="classfunc">
+	<description>Enables the use of clipping planes to "cut" objects.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="enabled" type="boolean">Enable or disable clipping planes</arg>
+	</args>
+</function>

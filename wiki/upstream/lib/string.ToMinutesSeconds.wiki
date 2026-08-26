@@ -1,0 +1,18 @@
+<function name="ToMinutesSeconds" parent="string" type="libraryfunc">
+	<description>Returns given time in "MM:SS" format.</description>
+	<realm>Shared and Menu</realm>
+	<file line="204">lua/includes/extensions/string.lua</file>
+	<args>
+		<arg name="time" type="number">Time in seconds</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">Formatted time</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Example of using this function</description>
+	<code>print( string.ToMinutesSeconds( 61 ) )</code>
+	<output>01:01</output>
+
+</example>

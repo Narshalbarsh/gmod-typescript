@@ -1,0 +1,15 @@
+<function name="SetLinearAttenuation" parent="ProjectedTexture" type="classfunc">
+	<description>
+Sets the linear attenuation of the projected texture.
+
+See also <page>ProjectedTexture:SetConstantAttenuation</page> and <page>ProjectedTexture:SetQuadraticAttenuation</page>.
+
+The default value of linear attenuation when the projected texture is created is 100. (others are 0, as you are not supposed to mix them)
+
+You must call <page>ProjectedTexture:Update</page> after using this function for it to take effect.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="linearAtten" type="number"></arg>
+	</args>
+</function>

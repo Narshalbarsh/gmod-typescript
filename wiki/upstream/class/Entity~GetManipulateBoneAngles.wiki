@@ -1,0 +1,10 @@
+<function name="GetManipulateBoneAngles" parent="Entity" type="classfunc">
+	<description>Gets the entity's angle manipulation of the given bone. This is relative to the default angle, so the angle is zero when unmodified.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="boneID" type="number">The bone's ID</arg>
+	</args>
+	<rets>
+		<ret name="" type="Angle">The entity's angle manipulation of the given bone.</ret>
+	</rets>
+</function>

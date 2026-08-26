@@ -1,0 +1,13 @@
+<function name="Spectate" parent="Player" type="classfunc">
+	<description>
+Starts spectate mode for given player. This will also affect the players movetype in some cases.
+
+<page>Player:UnSpectate</page> should be used to remove the player from spectate mode, or call this with `OBS_MODE_NONE`.
+
+<bug>The player must be respawned, otherwise they will be able to walk through doors and become invincible. This will be fixed in a future update.</bug>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="mode" type="number{OBS_MODE}">Spectate mode, see <page>Enums/OBS_MODE</page>.</arg>
+	</args>
+</function>

@@ -1,0 +1,13 @@
+<function name="GetInt" parent="ConVar" type="classfunc">
+	<description>Attempts to convert the <page>ConVar</page> value to a integer.</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="number">The integer value of the console variable.
+
+
+If it fails to convert to an integer, it will return 0.
+
+
+All float/decimal values will be rounded down. ( With <page>math.floor</page> )</ret>
+	</rets>
+</function>

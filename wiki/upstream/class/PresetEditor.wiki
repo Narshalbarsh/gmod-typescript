@@ -1,0 +1,10 @@
+<panel>
+	<name>PresetEditor</name>
+	<parent>DFrame</parent>
+	<realm>Client</realm>
+	<description>
+		<internal></internal>
+		A preset editor, which can be opened by <page>ControlPresets</page>.
+		This control only exists in Sandbox derived gamemodes.
+	</description>
+</panel>

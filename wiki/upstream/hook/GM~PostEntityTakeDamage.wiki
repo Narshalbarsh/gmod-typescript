@@ -1,0 +1,26 @@
+<function name="PostEntityTakeDamage" parent="GM" type="hook">
+	<description>Called when an entity receives a damage event, after passing damage filters, etc.
+
+See <page>GM:EntityTakeDamage</page> if you wish to prevent damage events, or otherwise alter them.
+
+<warning>Applying damage from this hook to the entity taking damage will lead to infinite loop/crash.</warning>
+</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ent" type="Entity">The entity that took the damage.</arg>
+		<arg name="dmginfo" type="CTakeDamageInfo">Detailed information about the damage event.
+		<bug issue="7010">When you retrieve "the attacker" the player's angle and position will be incorrect.</bug>
+		</arg>
+		<arg name="wasDamageTaken" type="boolean">Whether the entity actually took the damage. (For example, shooting a Strider will generate this event, but it won't take bullet damage).</arg>
+	</args>
+</function>
+
+<example>
+	<description>Displays some info about damage taken event when they occur.</description>
+	<code>
+hook.Add( "PostEntityTakeDamage", "PostEntityTakeDamagePrintOut", function( ent, dmgInfo, wasDamageTaken )
+	print( dmgInfo:GetDamage() )
+	print( ent, dmgInfo:GetAttacker(), dmgInfo:GetWeapon(), dmgInfo:GetInflictor() )
+end )
+</code>
+</example>

@@ -1,0 +1,10 @@
+<function name="RemoveInternalConstraint" parent="Entity" type="classfunc">
+	<description>Breaks internal Ragdoll constrains, so you can for example separate an arm from the body of a ragdoll and preserve all physics.
+
+The visual mesh will still stretch as if it was properly connected unless the ragdoll model is specifically designed to avoid that.</description>
+	<realm>Server</realm>
+	<added>2020.03.17</added>
+	<args>
+		<arg name="num" type="number" default="-1">Which constraint to break, values below 0 mean break them all</arg>
+	</args>
+</function>

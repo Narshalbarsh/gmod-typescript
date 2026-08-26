@@ -1,0 +1,76 @@
+<function name="Post" parent="http" type="libraryfunc">
+	<description>
+Sends an asynchronous **POST** request to an HTTP server. Internally calls <page>Global.HTTP</page>.
+
+HTTP requests returning a status code >= `400` are still considered a success and will call the <page text="onSuccess">Structures/HTTPRequest</page> callback.
+
+The <page text="onFailure">Structures/HTTPRequest</page> callback is usually only called on DNS or TCP errors (e.g. the website is unavailable or the domain does not exist).
+
+<bug issue="2232">This cannot send or receive multiple headers with the same name.</bug>
+<note>HTTP-requests that respond with a large body may return an `unsuccessful` error. Try using the [Range](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Range) header to download the file in chunks.</note>
+<note>
+	HTTP-requests to destinations on private networks (such as `192.168.0.1`, or `127.0.0.1`) won't work.
+	<br/>
+	To enable HTTP-requests to destinations on private networks use <page>Command Line Parameters</page> `-allowlocalhttp`. (Dedicated servers only)
+</note>
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="46-L73">lua/includes/modules/http.lua</file>
+	<args>
+		<arg name="url" type="string">The url to of the website to post.</arg>
+		<arg name="parameters" type="table">The post parameters (x-www-form-urlencoded) to be send to the server. **Keys and values must be strings**.</arg>
+		<arg name="onSuccess" type="function" default="nil">Function to be called on success.
+<callback>
+<arg type="string" name="body">The reponse body as a string.</arg>
+<arg type="string" name="size">equal to <page>string.len</page>(body).</arg>
+<arg type="table" name="headers">The response headers as a table.</arg>
+<arg type="number" name="code">The HTTP success code.</arg>
+</callback>
+</arg>
+		<arg name="onFailure" type="function" default="nil">Function to be called on failure.
+<callback>
+<arg type="string" name="error">The error message.</arg>
+</callback>
+</arg>
+		<arg name="headers" type="table" default="{}">KeyValue table for headers.</arg>
+	</args>
+</function>
+
+<example>
+	<description>
+Write a file in PHP, and invoke it from Lua. The output below is written in the file, not in the console.
+
+```
+<?php
+	$p = $_POST["p"];
+	$a = $_POST["a"];
+
+	$f = fopen("write.html", "w");
+
+	fwrite($f, "This is a test. $p $a\n");
+
+	fclose($f);
+?>
+```
+	</description>
+	<code>
+http.Post( "http://localhost/post.php", { p = "Gmod", a = "Test" },
+
+	-- onSuccess function
+	function( body, length, headers, code )
+		print( "Done!" )
+	end,
+
+	-- onFailure function
+	function( message )
+		print( message )
+	end
+
+)
+	</code>
+	<output>
+```
+This is a test. Gmod Test
+```
+	</output>
+</example>

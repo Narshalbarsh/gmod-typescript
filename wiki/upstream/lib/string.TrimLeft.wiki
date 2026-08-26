@@ -1,0 +1,12 @@
+<function name="TrimLeft" parent="string" type="libraryfunc">
+	<description>Removes leading spaces/characters from a string.</description>
+	<realm>Shared and Menu</realm>
+	<file line="278-L281">lua/includes/extensions/string.lua</file>
+	<args>
+		<arg name="str" type="string">String to trim</arg>
+		<arg name="char" type="string" default="%s">Custom character to remove</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">Trimmed string</ret>
+	</rets>
+</function>

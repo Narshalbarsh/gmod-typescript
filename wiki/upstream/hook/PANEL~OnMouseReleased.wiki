@@ -1,0 +1,10 @@
+<function name="OnMouseReleased" parent="PANEL" type="hook">
+	<description>Called whenever a mouse key was released while the panel is focused.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="keyCode" type="number">They key code of the key released, see <page>Enums/MOUSE</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return true to suppress default action.</ret>
+	</rets>
+</function>

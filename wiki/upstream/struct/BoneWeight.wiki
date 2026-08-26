@@ -1,0 +1,20 @@
+<structure>
+	<realm>Shared</realm>
+	<description>
+A <page>table</page> structure representing the amount that a bone's transformation <page>VMatrix</page> should affect its vertex.
+
+A single vertex may have multiple BoneWeight structures affecting it, but each BoneWeight structure belongs to only one vertex.
+
+Added to the <page>Structures/MeshVertex</page> by <page>util.GetModelMeshes</page>.
+
+To find a bone's transformation <page>VMatrix</page>, see <page>Entity:GetBoneMatrix</page>.
+	</description>
+	<fields>
+		<item name="bone" type="number">
+The ID of the bone affecting the vertex.
+		</item>
+		<item name="weight" type="number">
+A percentage between `0` and `1` indicating how much influence this bone's <page>VMatrix</page> should have on the the vertex.
+		</item>
+	</fields>
+</structure>

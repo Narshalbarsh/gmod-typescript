@@ -1,0 +1,7 @@
+<function name="SetSuppressPickupNotices" parent="Player" type="classfunc">
+	<description>Sets whenever to suppress the pickup notification for the player.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="doSuppress" type="boolean">Whenever to suppress the notice or not.</arg>
+	</args>
+</function>

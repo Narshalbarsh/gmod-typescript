@@ -1,0 +1,14 @@
+<function name="GetRangeTo" parent="NextBot" type="classfunc">
+	<description>
+Returns the distance to an entity or position.
+
+See also <page>NextBot:GetRangeSquaredTo</page>.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="to" type="Vector">The position to measure distance to. Can be an entity.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The distance</ret>
+	</rets>
+</function>

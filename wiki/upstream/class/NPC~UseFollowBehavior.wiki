@@ -1,0 +1,19 @@
+<function name="UseFollowBehavior" parent="NPC" type="classfunc">
+	<description>
+<note>This function only works on `ai` type [SENTs](Scripted_Entities).</note>
+	</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="boolean">If we succeeded setting the behavior.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Create a `base_ai` that follows the player, using console commands and Lua.</description>
+	<code>
+ent_create base_ai targetname alyx additionalequipment weapon_ar2 
+ent_create ai_goal_follow goal !player formation 0 actor alyx searchtype 0 startactive 1
+-- Execute Lua code below after a second: 
+lua_run ents.FindByName("alyx")[1]:UseFollowBehavior() 
+	</code>
+</example>

@@ -1,0 +1,34 @@
+<title>DProperty_VectorColor</title>
+<panel>
+	<parent>DProperty_Generic</parent>
+	<realm>Client</realm>
+	<preview>DProperty_VectorColor_preview.png</preview>
+	<file line="">lua/vgui/prop_vectorcolor.lua</file>
+	<description>
+		<internal></internal>
+		Color picker control for a DProperties panel. Opens a <page>DColorCombo</page> if the color preview is clicked.
+
+		See <page>Editable Entities</page> for how this is used ingame.
+	</description>
+</panel>
+
+
+<example>
+	<description>Creates a demo VectorColor property.</description>
+	<code>
+local Panel = vgui.Create( "DFrame" )
+Panel:SetSize( 500, 500 )
+Panel:MakePopup()
+
+local props = vgui.Create( "DProperties", Panel )
+props:Dock( FILL )
+
+local colorPicker = props:CreateRow( "Color", "Select Color" )
+colorPicker:Setup( "VectorColor", {} )
+colorPicker:SetValue( Vector( 0.61, 0.1, 0.1 ) )
+colorPicker.DataChanged = function( self, data )
+	MsgN( "Selected color: ", data )
+end
+	</code>
+
+</example>

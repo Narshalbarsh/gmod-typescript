@@ -1,0 +1,16 @@
+<function name="RenderDoF" parent="Global" type="libraryfunc">
+	<description>Renders a Depth of Field effect</description>
+	<realm>Client</realm>
+	<file line="174-L279">lua/postprocess/super_dof.lua</file>
+	<args>
+		<arg name="origin" type="Vector">Origin to render the effect at</arg>
+		<arg name="angle" type="Angle">Angle to render the effect at</arg>
+		<arg name="usableFocusPoint" type="Vector">Point to focus the effect at</arg>
+		<arg name="angleSize" type="number">Angle size of the effect</arg>
+		<arg name="radialSteps" type="number">Amount of radial steps to render the effect with</arg>
+		<arg name="passes" type="number">Amount of render passes</arg>
+		<arg name="spin" type="boolean">Whether to cycle the frame or not</arg>
+		<arg name="inView" type="table">Table of view data</arg>
+		<arg name="fov" type="number">FOV to render the effect with</arg>
+	</args>
+</function>

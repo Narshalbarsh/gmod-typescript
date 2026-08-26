@@ -1,0 +1,7 @@
+<function name="GetParentPhysNum" parent="Entity" type="classfunc">
+	<description>If the entity is parented to an entity that has a model with multiple physics objects (like a ragdoll), this is used to retrieve what physics object number the entity is parented to on it's parent.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The physics object id, or nil if the entity has no parent</ret>
+	</rets>
+</function>

@@ -1,0 +1,82 @@
+<function name="codes" parent="utf8" type="libraryfunc">
+	<description>Returns an iterator (like <page>string.gmatch</page>) which returns both the position and codepoint of each utf8 character in the string. It raises an error if it meets any invalid byte sequence.</description>
+	<realm>Shared and Menu</realm>
+	<file line="146-L173">lua/includes/modules/utf8.lua</file>
+	<args>
+		<arg name="string" type="string">The string that you will get the codes from.</arg>
+	</args>
+	<rets>
+		<ret name="" type="function">The iterator (to be used in a for loop).</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Demonstrates usage of the function.</description>
+	<code>
+for p, c in utf8.codes("( ͡° ͜ʖ ͡°)") do
+    print(p,c)
+end
+	</code>
+	<output>
+
+```
+1    40    
+2    32    
+3    865    
+5    176    
+7    32    
+8    860    
+10    662    
+12    32    
+13    865    
+15    176    
+17    41
+```
+
+	</output>
+
+</example>
+
+<example>
+	<description>Text animation in DLabel. Works faster than <page>utf8.sub</page></description>
+	<code>
+local str = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Кириллица. Nam vel nunc quis nisl convallis ultrices. Suspendisse potenti. Quisque feugiat tincidunt aliquet. Curabitur id purus id nisi bibendum laoreet eu a lacus. Sed vel sollicitudin lorem."
+
+local frame = vgui.Create("DFrame")
+frame:SetSize(ScrW() * 0.4, ScrH() * 0.4)
+frame:SetTitle("utf8.codes example")
+frame:Center()
+
+local label = vgui.Create("DLabel", frame)
+label:Dock(TOP)
+label:SetWrap(true)
+label:SetFont("ChatFont")
+
+label.symbolsToProcess = 0
+label.Think = function(self)
+    -- Table that will contain the characters from `str`
+    local characters = {}
+    -- How many characters we have at the moment. Used to insert new characters
+    local curLen = 0
+
+    -- How many symbols we need to process
+    -- Will match the length of the text on the current Think()
+    self.symbolsToProcess = self.symbolsToProcess + 1
+    for _, code in utf8.codes(str) do
+        if curLen >= self.symbolsToProcess then
+            break
+        end
+
+        curLen = curLen + 1
+        characters[curLen] = utf8.char(code)
+    end
+
+    self:SetText(table.concat(characters))
+    -- Update the height of the DLabel, assuming that we may have new lines
+    self:SizeToContentsY(0)
+end
+	</code>
+	<output>
+	<upload src="afa74/8db166d9ac7fb40.gif" size="499662" name="utf8_codes_example.gif" />
+	</output>
+</example>

@@ -1,0 +1,7 @@
+<function name="PaintingDragging" parent="Panel" type="panelfield">
+	<description>Set to true by the <page>dragndrop</page> system when the panel is being drawn for the drag'n'drop.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Set to true if drawing for the transparent dragging render.</ret>
+	</rets>
+</function>

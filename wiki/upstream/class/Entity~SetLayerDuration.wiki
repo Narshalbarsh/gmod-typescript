@@ -1,0 +1,13 @@
+<function name="SetLayerDuration" parent="Entity" type="classfunc">
+	<description>
+Sets the duration of given layer. This internally overrides the <page>Entity:SetLayerPlaybackRate</page>.
+
+<note>This function only works on <page>BaseAnimatingOverlay</page> entities.</note>
+<bug>This stops layer playback if layer sequence conists of 1 frame. Use `Entity:SetLayerPlaybackRate(layerID,1/duration)` instead.</bug>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="layerID" type="number">The Layer ID</arg>
+		<arg name="duration" type="number">The new duration of the layer in seconds.</arg>
+	</args>
+</function>

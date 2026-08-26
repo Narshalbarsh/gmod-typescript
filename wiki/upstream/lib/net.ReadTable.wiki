@@ -1,0 +1,63 @@
+<function name="ReadTable" parent="net" type="libraryfunc">
+	<description>
+Reads a table from the received net message.
+
+See <page>net.WriteTable</page> for extra info.
+
+<note>Sometimes when sending a table through the net library, the order of the keys may be switched. So be cautious when comparing (See example 1).
+
+You may get `net.ReadType: Couldn't read type X` during the execution of the function, the problem is that you are sending objects that **cannot** be serialized/sent over the network.
+</note>
+
+<warning>You **must** read information in same order as you write it.</warning>
+	</description>
+	<realm>Shared</realm>
+	<file line="156-L183">lua/includes/extensions/net.lua</file>
+	<args>
+		<arg name="sequential" type="boolean" default="false" added="2023.09.06">Set to `true` if the input table is sequential. This saves on bandwidth.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">Table received via the net message, or a blank table if no table could be read.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>This is an example of how the keys order may be switched:</description>
+	<code>
+if ( CLIENT ) then
+	local tbl = {
+		Type = "Dining",
+		Legs = "4",
+		Material = "Wood"
+	}
+
+	net.Start( "TableSend" )
+		net.WriteTable( tbl )
+	net.SendToServer()
+
+
+	PrintTable( tbl ) -- Prints the order client-side.
+end
+
+if ( SERVER ) then
+	net.Receive( "TableSend", function( len, ply )
+	     PrintTable( net.ReadTable() ) -- Prints the order server-side.
+	end )
+end
+	</code>
+	<output>
+Client:
+```
+Type     = "Dining"
+Legs     = 4
+Material = "Wood"
+```
+
+Server:
+```
+Legs     = 4
+Material = "Wood"
+Type     = "Dining"
+```
+	</output>
+</example>

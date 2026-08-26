@@ -1,0 +1,26 @@
+<function name="GetVelocity" parent="Entity" type="classfunc">
+	<description>
+Returns the entity's velocity.
+
+This returns the total velocity of the entity and is equal to local velocity + base velocity.
+
+Clientside the velocity may be estimated for certain entities, such as physics based entities, instead of returning the "real" velocity from the server.
+
+<bug issue="774">This can become out-of-sync on the client if the server has been up for a long time.</bug>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Vector">The velocity of the entity.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Lets you know if the object is being moved.</description>
+	<code>
+if ent:GetVelocity():LengthSqr() > 0 then
+	// Is being moved
+else
+	// Not being moved
+end
+	</code>
+</example>

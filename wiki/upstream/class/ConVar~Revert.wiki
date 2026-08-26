@@ -1,0 +1,6 @@
+<function name="Revert" parent="ConVar" type="classfunc">
+	<description>Reverts <page>ConVar</page> to its default value
+
+<note>This can only be ran on ConVars created from within Lua.</note></description>
+	<realm>Shared and Menu</realm>
+</function>

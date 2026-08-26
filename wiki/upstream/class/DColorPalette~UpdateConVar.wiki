@@ -1,0 +1,15 @@
+<function name="UpdateConVar" parent="DColorPalette" type="panelfunc">
+	<description>
+<internal></internal>
+
+Internal helper function for <page>DColorPalette:UpdateConVars</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="193-L199">lua/vgui/dcolorpalette.lua</file>
+	<args>
+		<arg name="name" type="string">The name of the console variable to set</arg>
+		<arg name="key" type="string">The key of the 3rd argument to set the convar to
+Possible values: "r", "g", "b", "a"</arg>
+		<arg name="clr" type="Color">The <page>Color</page> to retrieve the info from.</arg>
+	</args>
+</function>

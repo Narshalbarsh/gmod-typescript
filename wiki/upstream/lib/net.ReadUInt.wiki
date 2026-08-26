@@ -1,0 +1,17 @@
+<function name="ReadUInt" parent="net" type="libraryfunc">
+	<description>
+Reads an unsigned integer with the specified number of bits from the received net message.
+
+<warning>You **must** read information in same order as you write it.</warning>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="bitCount" type="number">The size of the integer to be read, in bits.
+
+This must be set to what you set to <page>net.WriteUInt</page>. Read more information at <page>net.WriteUInt</page>.
+		</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The unsigned integer read, or `0` if the integer could not be read.</ret>
+	</rets>
+</function>

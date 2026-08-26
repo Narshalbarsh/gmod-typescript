@@ -1,0 +1,7 @@
+<function name="GetAllowWeaponsInVehicle" parent="Player" type="classfunc">
+	<description>Returns whether the player is allowed to use their weapons in a vehicle or not.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the player is allowed to use their weapons in a vehicle or not.</ret>
+	</rets>
+</function>

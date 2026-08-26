@@ -1,0 +1,15 @@
+<function name="log" parent="math" type="libraryfunc">
+	<description>
+With one argument, return the natural logarithm of x (to base e).
+
+With two arguments, return the logarithm of x to the given base, calculated as log(x)/log(base).
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="x" type="number">The value to get the base from exponent from.</arg>
+		<arg name="base" type="number" default="e">The logarithmic base.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">Logarithm of x to the given base</ret>
+	</rets>
+</function>

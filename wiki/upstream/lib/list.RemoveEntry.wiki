@@ -1,0 +1,13 @@
+<function name="RemoveEntry" parent="list" type="libraryfunc">
+	<description>
+Removes a single entry from the list `list` with key `key`.
+
+This is equivalent to `list.Set( myList, myKey, nil )`.
+	</description>
+	<added>2025.05.15</added>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="list" type="string">List to remove an entry in.</arg>
+		<arg name="key" type="string">The key for the entry to remove.</arg>
+	</args>
+</function>

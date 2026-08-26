@@ -1,0 +1,12 @@
+<function name="SetBBox" parent="CLuaEmitter" type="classfunc">
+	<description>
+Sets the bounding box for this emitter.
+
+Usually the bounding box is automatically determined by the particles, but this function overrides it.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="mins" type="Vector">The minimum position of the box</arg>
+		<arg name="maxs" type="Vector">The maximum position of the box</arg>
+	</args>
+</function>

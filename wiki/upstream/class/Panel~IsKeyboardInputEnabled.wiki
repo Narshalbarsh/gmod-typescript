@@ -1,0 +1,7 @@
+<function name="IsKeyboardInputEnabled" parent="Panel" type="classfunc">
+	<description>Returns true if the panel can receive keyboard input.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">keyboardInputEnabled</ret>
+	</rets>
+</function>

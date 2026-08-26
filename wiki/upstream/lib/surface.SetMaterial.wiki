@@ -1,0 +1,43 @@
+<function name="SetMaterial" parent="surface" type="libraryfunc">
+	<description>
+Sets the material to be used in all upcoming draw operations using the surface library.
+
+Not to be confused with <page>render.SetMaterial</page>.
+
+If you need to unset the texture, use the <page>draw.NoTexture</page> convenience function.
+
+<warning><page>Global.Material</page> function calls are expensive to be done inside this function or inside rendering context, you should be caching the results of <page>Global.Material</page> calls</warning>
+
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="material" type="IMaterial">The material to be used.
+
+<note>When using <page>render.PushRenderTarget</page> or <page>render.SetRenderTarget</page>, the material should have the `$ignorez` flag set to make it visible. If the material is not used in 3D rendering, it is probably safe to add it with this code:
+```lua
+material:SetInt( "$flags", bit.bor( material:GetInt( "$flags" ), 32768 ) )
+```
+
+If using <page>Global.Material</page>, simply use the `ignorez` parameter.
+</note>
+</arg>
+	</args>
+</function>
+
+<example>
+	<description>
+Example usage of this function in conjunction with <page>Material</page>. Note how the <page>Material</page> function will only be called once and its output is cached for performance.
+
+In this example the `.png` file is located in `materials/gui/ContentIcon-normal.png`.
+	</description>
+	<code>
+local wave = Material( "gui/ContentIcon-normal.png", "noclamp smooth" )
+
+hook.Add( "HUDPaint", "HUDPaint_DrawATexturedBox", function()
+	surface.SetMaterial( wave )
+	surface.SetDrawColor( color_white )
+	surface.DrawTexturedRect( 50, 50, 128, 128 )
+end )
+	</code>
+
+</example>

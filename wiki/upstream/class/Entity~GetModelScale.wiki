@@ -1,0 +1,17 @@
+<function name="GetModelScale" parent="Entity" type="classfunc">
+	<description>Gets the selected entity's model scale.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">Scale of that entity's model.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>This example shows how one can get the model scale of their self.</description>
+	<code>print( Entity(1):GetModelScale() )</code>
+	<output>
+```
+1
+```
+	</output>
+</example>

@@ -1,0 +1,15 @@
+<function name="GetNavArea" parent="navmesh" type="libraryfunc">
+	<description>
+Returns the Nav Area contained in this position that also satisfies the elevation limit.
+
+This function will properly see blocked <page>CNavArea</page>s. See <page>navmesh.GetNearestNavArea</page>.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="pos" type="Vector">The position to search for.</arg>
+		<arg name="beneathLimit" type="number">The elevation limit at which the Nav Area will be searched.</arg>
+	</args>
+	<rets>
+		<ret name="" type="CNavArea">The nav area.</ret>
+	</rets>
+</function>

@@ -1,0 +1,8 @@
+<function name="AlignLeft" parent="Panel" type="classfunc">
+	<file line="132-L132">lua/includes/extensions/client/panel.lua</file>
+	<description>Aligns the panel on the left of its parent with the specified offset.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="offset" type="number" default="0">The align offset.</arg>
+	</args>
+</function>

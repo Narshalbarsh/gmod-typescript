@@ -1,0 +1,8 @@
+<function name="SetColorButtons" parent="DColorPalette" type="panelfunc">
+	<description>Clears the palette and adds new buttons with given colors.</description>
+	<realm>Client and Menu</realm>
+	<file line="164-L179">lua/vgui/dcolorpalette.lua</file>
+	<args>
+		<arg name="tab" type="table">A number indexed table where each value is a <page>Color</page></arg>
+	</args>
+</function>

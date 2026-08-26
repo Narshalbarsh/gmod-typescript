@@ -1,0 +1,11 @@
+<function name="SetSpawnIcon" parent="Panel" type="classfunc">
+	<description>
+Sets the `.png` image to be displayed on a  <page>SpawnIcon</page> or the panel it is based on - <page>ModelImage</page>.
+
+Only `.png` images can be used with this function.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="icon" type="string">A path to the .png material, for example one of the <page>Silkicons</page> shipped with the game.</arg>
+	</args>
+</function>

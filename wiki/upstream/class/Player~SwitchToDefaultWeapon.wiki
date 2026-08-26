@@ -1,0 +1,9 @@
+<function name="SwitchToDefaultWeapon" parent="Player" type="classfunc">
+	<description>
+Attempts to switch the player weapon to the one specified in the "cl_defaultweapon" convar, if the player does not own the specified weapon nothing will happen.
+
+If you want to switch to a specific weapon, use: <page>Player:SetActiveWeapon</page>
+	</description>
+	<realm>Server</realm>
+	<file line="166-L177">lua/includes/extensions/player.lua</file>
+</function>

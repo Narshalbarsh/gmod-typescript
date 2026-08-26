@@ -1,0 +1,64 @@
+<function name="Angle" parent="Global" type="libraryfunc">
+	<description>
+		Creates an <page>Angle</page> object, representing a [Euler Angle](https://en.wikipedia.org/wiki/Euler_angles) made up of pitch, yaw, and roll components.
+		
+		<warning>
+			This function is relatively expensive, in terms of performance, in situations where it is being called multiple times every frame (Like a loop, for example.) This is due to the overhead associated with object creation and garbage collection.
+			Where possible, it is generally better to store an <page>Angle</page> in a variable and re-use that variable rather than re-creating it repeatedly.
+			In cases where an empty <page>Angle</page> is needed, the global variable `angle_zero` is the preferred solution instead of `Angle( 0, 0, 0 )`.
+		</warning>
+</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="pitch" type="number" default="0">
+			The pitch value of the angle, in degrees.
+		</arg>
+
+		<arg name="yaw" type="number" default="0">
+			The yaw value of the angle, in degrees.
+		</arg>
+		
+		<arg name="roll" type="number" default="0">
+			The roll value of the angle, in degrees. 
+		</arg>
+	</args>
+	<args name="Angle Copy">
+		<arg name="angle" type="Angle">
+			Creates a new <page>Angle</page> that is a copy of the <page>Angle</page> passed in.
+		</arg>
+	</args>
+	<args name="Parse String">
+		<arg name="angleString" type="string">
+			Attempts to parse the input <page>string</page> from the <page>Global.print</page> format of an <page>Angle</page>.
+
+			Returns an <page>Angle</page> with its pitch, yaw, and roll set to `0` if the <page>string</page> cannot be parsed.
+		</arg>
+	</args>
+	<rets>
+		<ret name="" type="Angle">The newly created <page>Angle</page>.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Creates an angle and prints the value to the console.</description>
+	<code>
+print( Angle( 1, 2, 3 ) )
+print( Angle( "4 5 6" ) )
+local test = Angle( 7, 8, 9 )
+print( Angle( test ) )
+
+print( Angle( "4 5 test" ) )
+print( Angle() )
+	</code>
+	<output>
+```
+1.00 2.00 3.00
+4.00 5.00 6.00
+7.00 8.00 9.00
+
+0.00 0.00 0.00
+0.00 0.00 0.00
+```
+	</output>
+
+</example>

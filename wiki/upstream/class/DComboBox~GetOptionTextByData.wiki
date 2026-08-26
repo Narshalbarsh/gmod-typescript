@@ -1,0 +1,15 @@
+<function name="GetOptionTextByData" parent="DComboBox" type="panelfunc">
+	<description>Returns an option's text based on the given data.</description>
+	<realm>Client and Menu</realm>
+	<file line="54-L72">lua/vgui/dcombobox.lua</file>
+	<args>
+		<arg name="data" type="string">The data to look up the name of.
+
+If given a <page>number</page> and no matching data was found, the function will test given data against each <page>Global.tonumber</page>'d data entry.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The option's text value.
+
+If no matching data was found, the data itself will be returned. If multiple identical data entries exist, the first instance will be returned.</ret>
+	</rets>
+</function>

@@ -1,0 +1,16 @@
+<function name="SetAttachment" parent="Entity" type="classfunc">
+	<description>
+<deprecated>You should be using <page>Entity:SetParent</page> instead.</deprecated>
+
+Parents the sprite to an attachment on another model.
+
+Works only on `env_sprite` entities.
+
+Despite existing on client, it doesn't actually do anything on client.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="ent" type="Entity">The entity to attach/parent to</arg>
+		<arg name="attachment" type="number">The attachment ID to parent to</arg>
+	</args>
+</function>

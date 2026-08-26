@@ -1,0 +1,10 @@
+<function name="DoSchedule" parent="ENTITY" type="hook">
+	<description>Runs a Lua schedule. Runs tasks inside the schedule. 
+<note>This is a helper function only available if your SENT is based on `base_ai`</note> 
+</description>
+	<realm>Server</realm>
+	<file line="63">gamemodes/base/entities/entities/base_ai/schedules.lua</file>
+	<args>
+		<arg name="sched" type="table">The schedule to run.</arg>
+	</args>
+</function>

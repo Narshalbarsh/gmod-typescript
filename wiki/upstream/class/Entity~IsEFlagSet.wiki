@@ -1,0 +1,10 @@
+<function name="IsEFlagSet" parent="Entity" type="classfunc">
+	<description>Checks if given flag is set or not.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="flag" type="number{EFL}">The engine flag to test, see <page>Enums/EFL</page></arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Is set or not</ret>
+	</rets>
+</function>

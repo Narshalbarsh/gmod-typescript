@@ -1,0 +1,17 @@
+<function name="AddEffects" parent="Entity" type="classfunc">
+	<description>
+Applies an engine effect to an entity.
+
+See also <page>Entity:IsEffectActive</page> and  <page>Entity:RemoveEffects</page>.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="effect" type="number{EF}">The effect to apply, see <page>Enums/EF</page>.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Adds a blinking effect to an entity.</description>
+	<code>Entity:AddEffects( EF_ITEM_BLINK )</code>
+
+</example>

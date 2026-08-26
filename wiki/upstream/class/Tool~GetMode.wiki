@@ -1,0 +1,24 @@
+<function name="GetMode" parent="Tool" type="classfunc">
+	<description>Returns the name of the current tool mode.</description>
+	<realm>Shared</realm>
+	<file line="101">gamemodes/sandbox/entities/weapons/gmod_tool/stool.lua</file>
+	<rets>
+		<ret name="" type="string">The current tool mode.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>The Toolgun weapon has a similar function, checking weapon class is strongly recommended as GetMode() is not available on all weapons.</description>
+	<code>
+local wep = Entity( 1 ):GetActiveWeapon()
+if ( IsValid( wep ) && wep:GetClass() == "gmod_tool" ) then
+	print( wep:GetMode() )
+end
+	</code>
+	<output>
+```
+remover
+```
+	</output>
+
+</example>

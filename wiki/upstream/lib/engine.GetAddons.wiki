@@ -1,0 +1,32 @@
+<function name="GetAddons" parent="engine" type="libraryfunc">
+	<description>
+Returns a list of addons the player have subscribed to on the workshop.
+
+This list will also include "Floating" .gma addons that are mounted by the game, but not the folder addons.
+	</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="table">A table of tables containing 8 keys (downloaded, models, title, file, mounted, wsid, size, updated).</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Will return a list of all the workshop addons you have downloaded / are downloading.</description>
+	<code>PrintTable( engine.GetAddons() )</code>
+	<output>
+```
+1:
+		downloaded	=	true 
+		models		=	0 
+		title		=	Title of Addon 
+		file		=	addons/title_of_addon_123456789.gma 
+		mounted		=	true
+		wsid		=	123456789
+		size		= 	13379999
+		updated		=	37419284747
+		tags		=
+		timeadded	=	4157213484
+
+```
+	</output>
+</example>

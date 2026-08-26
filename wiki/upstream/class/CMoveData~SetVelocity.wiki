@@ -1,0 +1,17 @@
+<function name="SetVelocity" parent="CMoveData" type="classfunc">
+	<description>Sets the player's velocity</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="velocity" type="Vector">The velocity to set</arg>
+	</args>
+</function>
+
+<example>
+	<description>Make the player shake to hell and back.</description>
+	<code>
+function GM:SetupMove( ply, movedata )
+    movedata:SetVelocity( VectorRand() * 800 )
+end
+	</code>
+
+</example>

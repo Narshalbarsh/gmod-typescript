@@ -1,0 +1,7 @@
+<function name="SetDoubleClickToOpen" parent="DTree_Node" type="panelfunc">
+	<description>Sets whether double clicking the node should expand/collapse it or not.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="enable" type="boolean">true to enable, false to disable this functionality.</arg>
+	</args>
+</function>

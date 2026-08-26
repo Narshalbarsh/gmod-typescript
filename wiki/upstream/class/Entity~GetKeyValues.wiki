@@ -1,0 +1,25 @@
+<function name="GetKeyValues" parent="Entity" type="classfunc">
+	<description>
+Returns a table containing Hammer key values the entity has stored. **Not all key values will be accessible this way.** Use <page>GM:EntityKeyValue</page> or <page>ENTITY:KeyValue</page> to capture and store every key value.
+
+Single key values can usually be retrieved with <page>Entity:GetInternalVariable</page>.
+
+Here's a list of keyvalues that will not appear in this list, as they are not stored/defined as actual keyvalues internally:
+* rendercolor - <page>Entity:GetColor</page> (Only RGB)
+* rendercolor32 - <page>Entity:GetColor</page> (RGBA)
+* renderamt - <page>Entity:GetColor</page> (Alpha)
+* disableshadows - <page text="EF_NOSHADOW">Enums/EF#EF_NOSHADOW</page>
+* mins - <page>Entity:GetCollisionBounds</page>
+* maxs - <page>Entity:GetCollisionBounds</page>
+* disablereceiveshadows - <page text="EF_NORECEIVESHADOW">Enums/EF#EF_NORECEIVESHADOW</page>
+* nodamageforces - <page text="EFL_NO_DAMAGE_FORCES">Enums/EFL#EFL_NO_DAMAGE_FORCES</page>
+* angle - <page>Entity:GetAngles</page>
+* angles - <page>Entity:GetAngles</page>
+* origin - <page>Entity:GetPos</page>
+* targetname - <page>Entity:GetName</page>
+	</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="table">A table of key values.</ret>
+	</rets>
+</function>

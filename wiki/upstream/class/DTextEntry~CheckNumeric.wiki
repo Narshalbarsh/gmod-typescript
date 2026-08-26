@@ -1,0 +1,14 @@
+<function name="CheckNumeric" parent="DTextEntry" type="panelfunc">
+	<description>
+Returns whether a string is numeric or not.
+Always returns false if the <page>DTextEntry:SetNumeric</page> is set to false.
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="296-L311">lua/vgui/dtextentry.lua</file>
+	<args>
+		<arg name="strValue" type="string">The string to check.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether the string is numeric or not.</ret>
+	</rets>
+</function>

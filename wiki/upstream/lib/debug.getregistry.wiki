@@ -1,0 +1,53 @@
+<function name="getregistry" parent="debug" type="libraryfunc">
+	<description>
+<deprecated>
+	This function now returns a table that serves as a proxy to <page>Global.FindMetaTable</page> and <page>Global.RegisterMetaTable</page>. If you previously used the registry to get/add metatables, you should use those functions directly instead.
+```lua
+--
+-- Hack for debug.getregistry
+--
+local meta = {}
+function meta.__index( self, key )
+	return FindMetaTable( key )
+end
+function meta.__newindex( self, key, value )
+	rawset( self, key, value )
+
+	if ( isstring( key ) and istable( value ) ) then
+		RegisterMetaTable( key, value )
+	end
+end
+
+local tbl = {}
+setmetatable( tbl, meta )
+function debug.getregistry() return tbl end
+```
+</deprecated>
+
+Returns the internal Lua registry table.
+
+The Lua registry is used by the engine and binary modules to create references to Lua values. The registry contains every global ran and used in the Lua environment. Avoid creating entries into the registry with a number as the key, as they are reserved for the reference system.
+
+<warning>Improper editing of the registry can result in unintended side effects, including crashing the game.</warning>
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="2-L19">lua/includes/util.lua</file>
+	<rets>
+		<ret name="" type="table">The Lua registry.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Let's try to find the global table (_G) inside the registry (_R).</description>
+	<code>
+	local _R = debug.getregistry()
+MsgN(_R._LOADED._G) -- _LOADED contains most things ran in Lua, but there are all sorts of other interesting tables inside of the registry.
+MsgN(_R._LOADED._G == _G)
+	</code>
+	<output>
+```
+table: 0xcece1d62
+true
+```
+	</output>
+</example>

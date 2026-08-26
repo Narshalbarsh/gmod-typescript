@@ -1,0 +1,20 @@
+<function name="Derma_Message" parent="Global" type="libraryfunc">
+	<description>Creates a derma window to display information</description>
+	<realm>Client and Menu</realm>
+	<file line="45-L93">lua/derma/derma_utils.lua</file>
+	<args>
+		<arg name="Text" type="string">The text within the created panel.</arg>
+		<arg name="Title" type="string">The title of the created panel.</arg>
+		<arg name="Button" type="string">The text of the button to close the panel.</arg>
+	</args>
+	<rets>
+		<ret name="" type="DFrame">The created <page>DFrame</page></ret>
+	</rets>
+</function>
+
+<example>
+	<description>Creates a popup informing the player that they are dead.</description>
+	<code>Derma_Message("You are currently dead", "Death Notice", "OK")</code>
+	<output><image src="Derma_Message.png"/></output>
+
+</example>

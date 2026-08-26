@@ -1,0 +1,26 @@
+<function name="yield" parent="coroutine" type="libraryfunc">
+	<description>Pauses the active coroutine and passes all additional variables to the call of <page>coroutine.resume</page> that resumed the coroutine last time, and returns all additional variables that were passed to the previous call of resume.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="returnValue" type="vararg">Arguments to be returned by the last call of <page>coroutine.resume</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="vararg">Arguments that were set previously by <page>coroutine.resume</page>.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Demonstrates the use of using varargs as a return value.</description>
+	<code>
+local co = coroutine.create( function()
+	coroutine.yield( "Hello world!" )
+end )
+
+print( coroutine.resume( co ) )
+	</code>
+	<output>
+```
+true, "Hello world!"
+```
+	</output>
+</example>

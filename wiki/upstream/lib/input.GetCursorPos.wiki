@@ -1,0 +1,10 @@
+<function name="GetCursorPos" parent="input" type="libraryfunc">
+	<description>Returns the cursor's position on the screen.
+<bug issue="4964">On macOS, the cursor isn't locked on the middle of the screen which causes a significant offset of the positions returned by this function.</bug>
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The cursors position on the X axis.</ret>
+		<ret name="" type="number">The cursors position on the Y axis.</ret>
+	</rets>
+</function>

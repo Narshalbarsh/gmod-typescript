@@ -1,0 +1,18 @@
+<function name="SetObject" parent="Tool" type="classfunc">
+	<description>
+Stores an <page>Entity</page> for later use in the tool.
+
+The stored values can be retrieved by <page>Tool:GetEnt</page>, <page>Tool:GetPos</page>, <page>Tool:GetLocalPos</page>, <page>Tool:GetPhys</page>, <page>Tool:GetBone</page> and <page>Tool:GetNormal</page>
+	</description>
+	<realm>Shared</realm>
+	<file line="112">gamemodes/sandbox/entities/weapons/gmod_tool/object.lua</file>
+	<args>
+		<arg name="id" type="number">The id of the object to store.</arg>
+		<arg name="ent" type="Entity">The entity to store.</arg>
+		<arg name="pos" type="Vector">The position to store.
+<note>this position is in **global space** and is internally converted to **local space** relative to the object, so when you retrieve it later it will be corrected to the object's new position</note></arg>
+		<arg name="phys" type="PhysObj">The physics object to store.</arg>
+		<arg name="bone" type="number">The hit bone to store.</arg>
+		<arg name="normal" type="Vector">The hit normal to store.</arg>
+	</args>
+</function>

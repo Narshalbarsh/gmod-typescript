@@ -1,0 +1,129 @@
+<panel>
+	<parent>DPanel</parent>
+	<realm>Client</realm>
+	<file line="">lua/vgui/dfilebrowser.lua</file>
+	<description>
+		A tree and list-based file browser.
+
+		It allows filtering by folder (directory) name and file extension, and can display models as <page>SpawnIcon</page>s.
+	</description>
+</panel>
+
+<example>
+	<description>Creates a DFileBrowser and displays the data/persist folder. Any file clicked is printed to the console.</description>
+	<code>
+local frame = vgui.Create( "DFrame" )
+frame:SetSize( 500, 250 )
+frame:SetSizable( true )
+frame:Center()
+frame:MakePopup()
+frame:SetTitle( "DFileBrowser Example" )
+
+local browser = vgui.Create( "DFileBrowser", frame )
+browser:Dock( FILL )
+
+browser:SetPath( "GAME" ) -- The access path i.e. GAME, LUA, DATA etc.
+browser:SetBaseFolder( "data" ) -- The root folder
+browser:SetOpen( true ) -- Open the tree to show sub-folders
+browser:SetCurrentFolder( "persist" ) -- Show files from persist
+
+function browser:OnSelect( path, pnl ) -- Called when a file is clicked
+	print( path )
+end
+	</code>
+	<output><image src="DFileBrowser_example.png"/></output>
+
+</example>
+
+
+<example>
+	<description>
+Creates a DFileBrowser that can spawn models from `props_` folders.
+
+<note>Uses the same <page>DFrame</page> as above</note>
+	</description>
+	<code>
+local frame = vgui.Create( "DFrame" )
+frame:SetSize( 500, 250 )
+frame:SetSizable( true )
+frame:Center()
+frame:MakePopup()
+frame:SetTitle( "DFileBrowser Example" )
+
+local browser = vgui.Create( "DFileBrowser", frame )
+browser:Dock( FILL )
+
+browser:SetPath( "GAME" ) -- The access path i.e. GAME, LUA, DATA etc.
+browser:SetBaseFolder( "models" ) -- The root folder
+browser:SetName( "Props_ Models" ) -- Name to display in tree
+browser:SetSearch( "props_" ) -- Search folders starting with "props_"
+browser:SetFileTypes( "*.mdl" ) -- File type filter
+browser:SetOpen( true ) -- Opens the tree (same as double clicking)
+browser:SetCurrentFolder( "props_badlands" ) -- Set the folder to use
+
+function browser:OnSelect( path, pnl ) -- Called when a file is clicked
+	RunConsoleCommand( "gm_spawn", path ) -- Spawn the model we clicked
+	frame:Close()
+end
+	</code>
+	<output>`See Preview`.</output>
+
+</example>
+
+
+<example>
+	<description>Same as above, but enables model viewing. The following line is added to the above code.</description>
+	<code>browser:SetModels( true ) -- Use SpawnIcons instead of a list</code>
+	<output><image src="DFileBrowser_models.png"/></output>
+
+</example>
+
+<example>
+	<description>Same as above, but enables model viewing. The following line is added to the above code.</description>
+	<code>browser:SetModels( true ) -- Use SpawnIcons instead of a list</code>
+	<output><image src="DFileBrowser_models.png"/></output>
+
+</example>
+
+<example>
+	<description>
+Creates a DFileBrowser for browsing and selecting sounds.
+	</description>
+	<code>
+        -- Create a new frame (window)
+        local frame = vgui.Create("DFrame")
+        frame:SetSize( 500, 250 )  -- Set the size of the frame
+        frame:SetSizable( true )  -- Allow the frame to be resizable
+        frame:Center()  -- Center the frame on the screen
+        frame:MakePopup()  -- Make the frame appear in front of other windows and accept user input
+        frame:SetTitle( "Select a sound:" )  -- Set the title of the frame
+
+        -- Create a file browser inside the frame
+        local browser = vgui.Create( "DFileBrowser", frame )
+        browser:Dock( FILL )  -- Make the browser fill the entire frame
+        -- Set the path that the browser should start in. "GAME" is a special path that refers to the game's root directory.
+        browser:SetPath("GAME")
+        -- Set the base folder to start searching to 'sound' (contains every sound from every addon/game)
+        browser:SetBaseFolder( "sound" )  
+        browser:SetOpen( true )  -- Show the folder as already open when the browser is created
+        browser:SetFileTypes(".wav .mp3 .ogg")  -- Filter the file types that the browser should only display
+
+        local s = nil  -- Initialize a local var to hold the preview sound
+
+        -- Define what should happen when a file is double-clicked in the browser
+        browser.OnDoubleClick = function(panel, path)
+            if(s ~= nil) then s:Stop() end  -- If a sound is currently playing, stop it
+            -- Select the sound and set it as the value of our ConVar, remove the "sound/" part from the path
+            GetConVar("mysoundconvar"):SetString(string.Replace(path, "sound/",""))
+            frame:Close()  -- Close the frame
+        end
+
+        -- Define what should happen when a file is clicked in the browser
+        browser.OnSelect = function(panel, path)
+            if(s ~= nil) then s:Stop() end  -- If a sound is currently playing, stop it
+            s = CreateSound(LocalPlayer(), string.Replace(path, "sound/",""))  -- Create and play a new sound from the selected file
+            s:Play()
+        end
+	</code>
+	<output><upload src="b4b46/8db900e82808bc0.png" size="126209" name="sound_browser.png" /></output>
+</example>

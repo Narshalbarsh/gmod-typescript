@@ -1,0 +1,7 @@
+<function name="SetAnimation" parent="Entity" type="classfunc">
+	<description>Sets a player's third-person animation. Mainly used by <page>Weapon</page>s to start the player's weapon attack and reload animations.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="playerAnim" type="number">Player animation, see <page>Enums/PLAYER</page>.</arg>
+	</args>
+</function>

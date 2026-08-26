@@ -1,0 +1,18 @@
+<function name="LocalPlayer" parent="Global" type="libraryfunc">
+	<description>
+Returns the player object of the current client.
+
+<note>LocalPlayer() will return NULL until all entities have been initialized. See <page>GM:InitPostEntity</page>.</note>
+	</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="Player">The player object representing the client.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Demonstrates the use of this function.</description>
+	<code>print( LocalPlayer() )</code>
+	<output>Player [1][Player1]</output>
+
+</example>

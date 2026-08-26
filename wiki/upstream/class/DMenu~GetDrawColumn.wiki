@@ -1,0 +1,11 @@
+<function name="GetDrawColumn" parent="DMenu" type="panelfunc">
+	<description>
+Returns whether the <page>DMenu</page> should draw the icon column with a different color or not.
+
+See <page>DMenu:SetDrawColumn</page>
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Whether to draw the column or not</ret>
+	</rets>
+</function>

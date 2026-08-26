@@ -1,0 +1,94 @@
+<function name="FindInSphere" parent="ents" type="libraryfunc">
+	<description>
+Gets all entities within the specified sphere.
+
+This function internally calls <page>util.IsBoxIntersectingSphere</page> for every entity on the map based on their Orientated Bounding Box.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="origin" type="Vector">Center of the sphere.</arg>
+		<arg name="radius" type="number">Radius of the sphere.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table<Entity>">A table of all found <page>Entity</page>s.</ret>
+	</rets>
+</function>
+
+<example>
+<description>Visualises the FindInSphere function when holding Use key, ignoring entities attached to the player.</description>
+<code>
+
+local entities  = {}
+local entities_sv  = {}
+local pos = Vector()
+local rad = 1000
+
+if ( SERVER ) then util.AddNetworkString( "send_sv_ents" ) end
+
+hook.Add( "Think", "VisualizeFindInSphere", function()
+	local ply = Entity( 1 )
+	if ( IsValid( ply ) and ply:KeyDown( IN_USE ) ) then
+		pos = ply:GetPos()
+		entities = ents.FindInSphere( pos, rad )
+
+		local newTab = {}
+		for id, ent in pairs( entities ) do
+			if ( ent:GetParent() == ply || ent == ply || ent:GetClass() == "gmod_hands" || ent:GetClass() == "viewmodel" ) then
+				-- Ignore this entity
+			else
+				local entTable = { ent = ent, pos = ent:GetPos(), ang = ent:GetAngles(), mins = ent:OBBMins(), maxs = ent:OBBMaxs(), class = ent:GetClass() }
+				-- spawnpoints have no size, so we fake it
+				if ( ent:GetClass() == "info_player_start" ) then
+					entTable.mins = ply:OBBMins()
+					entTable.maxs = ply:OBBMaxs()
+				end
+				table.insert( newTab, entTable )
+			end
+		end
+		entities = newTab
+
+		if ( SERVER ) then
+			net.Start( "send_sv_ents" )
+				net.WriteTable( entities )
+			net.Broadcast()
+		end
+	end
+end )
+
+net.Receive( "send_sv_ents",function( len, ply )
+	entities_sv = net.ReadTable()
+end )
+
+local function RenderEnts( enti, clr, isCl )
+	for id, tabl in pairs( enti ) do
+		local ent = tabl.ent
+
+		local test = "NULL"
+		if ( IsValid( ent ) ) then test = ent:EntIndex() end
+
+		debugoverlay.EntityTextAtPosition( tabl.pos, isCl and 1 or 0, (isCl and "CL " or "SV ") .. "Entity " .. test .. " " .. tabl.class, FrameTime() )
+		render.DrawWireframeBox( tabl.pos, tabl.ang, tabl.mins, tabl.maxs, clr, true )
+	end
+end
+
+local mat = Material( "models/wireframe" )
+hook.Add( "PostDrawTranslucentRenderables", "VisualizeFindInSphere", function()
+
+	render.SetMaterial( mat )
+	render.DrawSphere( pos, rad, 8, 8 )
+	render.DrawSphere( pos, -rad, 8, 8 )
+
+	local clr = Color( 255, 128, 0 )
+	RenderEnts( entities, clr, true )
+
+	clr = Color( 0, 128, 255 )
+	RenderEnts( entities_sv, clr )
+
+end )
+</code>
+
+<output>
+<upload src="70c/8dd5b4059c0bef5.png" size="1555311" name="image.png" />
+</output>
+
+</example>

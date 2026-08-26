@@ -1,0 +1,7 @@
+<function name="IdealZoom" parent="DNumberScratch" type="panelfunc">
+	<description>Returns the ideal zoom level for the panel based on the <page>DNumberScratch:GetRange</page>.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The ideal zoom level for the panel based on the panels range.</ret>
+	</rets>
+</function>

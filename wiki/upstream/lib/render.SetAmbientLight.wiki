@@ -1,0 +1,9 @@
+<function name="SetAmbientLight" parent="render" type="libraryfunc">
+	<description>Sets the ambient lighting for any upcoming render operation.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="r" type="number">The red part of the color, 0-1.</arg>
+		<arg name="g" type="number">The green part of the color, 0-1.</arg>
+		<arg name="b" type="number">The blue part of the color, 0-1.</arg>
+	</args>
+</function>

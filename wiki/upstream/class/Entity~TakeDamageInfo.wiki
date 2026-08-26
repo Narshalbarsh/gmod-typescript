@@ -1,0 +1,57 @@
+<function name="TakeDamageInfo" parent="Entity" type="classfunc">
+	<description>
+Applies the damage specified by the damage info to the entity.
+
+<warning>Calling this function on the victim entity in <page>ENTITY:OnTakeDamage</page> can cause infinite loops.</warning>
+<warning>This function does not seem to do any damage if you apply it to a player who is driving a prop_vehicle_jeep or prop_vehicle_jeep_old vehicle. You need to call it on the vehicle instead.</warning>
+<note>This function does not apply damage to [func_breakable_surf](https://developer.valvesoftware.com/wiki/Func_breakable_surf) entities correctly. To do this, you will need to use <page>Entity:DispatchTraceAttack</page> instead.</note>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="damageInfo" type="CTakeDamageInfo">The damage to apply.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Dissolve the target into oblivion.</description>
+	<code>
+function DissolveIt( ent, ply )
+	local d = DamageInfo()
+	d:SetDamage( ent:Health() )
+	d:SetAttacker( ply or ent )
+	d:SetDamageType( DMG_DISSOLVE ) 
+
+	ent:TakeDamageInfo( d )
+end
+concommand.Add( "dissolve_it", function( ply, cmd, arg )
+	local ent = ply:GetEyeTrace().Entity
+	if ( !IsValid( ent ) ) then return end -- Not looking at a valid entity
+
+	DissolveIt( ent, ply )
+end )
+	</code>
+</example>
+
+<example>
+	<description>Damage the vehicle if you need to kill the player inside.</description>
+<code>
+function TakeDamage( victim, damage, attacker, inflictor )
+	local dmg = DamageInfo() -- Create a server-side damage information class
+	dmg:SetDamage( damage )
+	dmg:SetAttacker( attacker )
+	dmg:SetInflictor( inflictor )
+	dmg:SetDamageType( DMG_ENERGYBEAM )
+	victim:TakeDamageInfo( dmg )
+end
+
+concommand.Add( "kill_this_entity", function( ply, cmd, args )
+	local target = ply:GetEyeTrace().Entity
+	if ( target:IsVehicle() ) then
+		target = target:GetDriver() -- Convert this to damage the plater inside
+	end
+
+	-- When target is a player in a vehicle will not get damaged
+	TakeDamage( target, target:Health(), ply, ply:GetActiveWeapon() )
+end )
+</code>
+</example>

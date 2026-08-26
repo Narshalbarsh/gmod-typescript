@@ -1,0 +1,14 @@
+<function name="GetChildNode" parent="DTree_Node" type="panelfunc">
+	<description>
+Returns n-th child node.
+
+Basically an alias of <page>Panel:GetChild</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="num" type="number">The number of the child to get, starting with 0</arg>
+	</args>
+	<rets>
+		<ret name="" type="Panel">The child panel, if valid ID is given</ret>
+	</rets>
+</function>

@@ -1,0 +1,11 @@
+<function name="GetLightness" parent="Color" type="classfunc">
+	<description>Converts a <page>Color</page> into [HSL color space](https://en.wikipedia.org/wiki/HSL_and_HSV) and returns the ["lightness"](https://en.wikipedia.org/wiki/Lightness) of the color.
+
+See <page>COLOR:ToHSL</page> if you want to get all 3 components.
+</description>
+	<realm>Shared and Menu</realm>
+	<added>2025.01.23</added>
+	<rets>
+		<ret name="lightness" type="number">Lightness in range [0, 1]</ret>
+	</rets>
+</function>

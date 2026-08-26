@@ -1,0 +1,10 @@
+<function name="LoadMaterial" parent="DImage" type="panelfunc">
+	<description>
+<internal></internal>
+
+Initializes the loading process of the material to render if it is not loaded yet.
+
+You do not need to call this function. It is done for you automatically.
+	</description>
+	<realm>Client and Menu</realm>
+</function>

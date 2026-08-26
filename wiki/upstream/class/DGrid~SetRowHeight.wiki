@@ -1,0 +1,11 @@
+<function name="SetRowHeight" parent="DGrid" type="panelfunc">
+	<description>
+Sets the height of each row. 
+
+The cell panels (grid items) will not be resized or centered.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="rowHeight" type="number">The height of each row</arg>
+	</args>
+</function>

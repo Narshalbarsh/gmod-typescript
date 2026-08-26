@@ -1,0 +1,68 @@
+<function name="Dot" parent="Vector" type="classfunc">
+	<description>
+Returns the [dot product](https://en.wikipedia.org/wiki/Dot_product#Geometric_definition)  of this vector and the passed one.
+
+The dot product of two vectors is the product of their magnitudes (lengths), and the cosine of the angle between them:<br/><br/>
+**a · b** = |**a**| |**b**| cos(θ) <br/><br/>
+where **a** and **b** are vectors.<br/><br/>
+See <page>Vector:Length</page> for obtaining magnitudes.
+
+A dot product returns just the cosine of the angle if both vectors are normalized, and zero if the vectors are at right angles to each other.
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="otherVector" type="Vector">The vector to calculate the dot product with</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The dot product between the two vectors</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Get the angle of two opposite normalized vectors.</description>
+	<code>
+local a = Vector(0, 1, 0)
+local b = Vector(0, -1, 0)
+
+local dot = a:Dot(b) -- returns the cos(ang) of the two vectors because they're both of length 1
+print("Radians", math.acos(dot)) -- the inverse of the cosine to get the angle
+print("Degrees", math.deg(math.acos(dot))) -- Convert radians to degrees
+	</code>
+	<output>
+Radians    3.1415926535898<br/>
+Degrees    180
+	</output>
+
+</example>
+
+
+<example>
+	<description>
+Calculates whether the player is looking in the direction of an entity. This is often faster than traces, but it produces a slightly different result.
+
+The player is looking in the direction of the entity if the angle between the aimvector and the vector from the player to the entity is less than 22.5 degrees (or pi / 8 radians).
+	</description>
+	<code>
+local directionAngCos = math.cos(math.pi / 8)
+local aimVector = ply:GetAimVector()
+-- The vector that goes from the player's shoot pos to the entity's position
+local entVector = ent:GetPos() - ply:GetShootPos() 
+local angCos = aimVector:Dot(entVector) / entVector:Length()
+print(angCos >= directionAngCos)
+	</code>
+	<output>This script will say if the player is looking in the direction of the entity.</output>
+
+</example>
+
+
+<example>
+	<description>A function to make sure the player is looking somewhere.</description>
+	<code>
+function IsLookingAt(ply, targetVec)
+	local diff = targetVec - ply:GetShootPos()
+	return ply:GetAimVector():Dot(diff) / diff:Length() >= 0.95 
+end
+	</code>
+	<output>Returns true if ply is looking at (or close to) the target.</output>
+
+</example>

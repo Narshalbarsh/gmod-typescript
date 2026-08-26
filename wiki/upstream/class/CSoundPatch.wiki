@@ -1,0 +1,5 @@
+<type name="CSoundPatch" category="classfunc" is="class">
+	<summary>CSoundPatch class.
+
+Created with <page>Global.CreateSound</page></summary>
+</type>

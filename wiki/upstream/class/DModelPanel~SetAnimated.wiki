@@ -1,0 +1,43 @@
+<function name="SetAnimated" parent="DModelPanel" type="panelfunc">
+	<description>Sets whether or not to animate the entity when the default <page>DModelPanel:LayoutEntity</page> is called.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="animated" type="boolean">True to animate, false otherwise.</arg>
+	</args>
+</function>
+
+<example>
+	<description>A comparison between 2 model panels: the first one has `animated` set to false and the second one has it set to true. Both are using the default <page>DModelPanel:LayoutEntity</page> method.</description>
+	<code>
+BGPanel = vgui.Create("DPanel")
+BGPanel:SetPos(20, 20)
+BGPanel:SetSize(400, 200)
+	
+-- Left panel
+local mdl1 = vgui.Create("DModelPanel", BGPanel)
+mdl1:SetPos(0, 0)
+mdl1:SetSize(200, 200)
+mdl1:SetModel("models/player/mossman.mdl")
+mdl1:SetCamPos(Vector(40, 40, 40))
+
+mdl1:SetAnimated(false)
+
+-- Right panel
+local mdl2 = vgui.Create("DModelPanel", BGPanel)
+mdl2:SetPos(200, 0)
+mdl2:SetSize(200, 200)
+mdl2:SetModel("models/player/mossman.mdl")
+mdl2:SetCamPos(Vector(40, 40, 40))
+
+mdl2:SetAnimated(true)
+
+-- Dance sequence	
+local dance = mdl1:GetEntity():LookupSequence("taunt_dance")
+
+-- Make both dance
+mdl1:GetEntity():SetSequence(dance)
+mdl2:GetEntity():SetSequence(dance)
+	</code>
+	<output><image src="DModelPanel_SetAnimated_example1.jpg"/></output>
+
+</example>

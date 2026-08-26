@@ -1,0 +1,52 @@
+<function name="RegisterConstraint" parent="duplicator" type="libraryfunc">
+	<description>Register a function used for creating a duplicator-supported constraint.</description>
+	<realm>Shared</realm>
+	<file line="367-L374">lua/includes/modules/duplicator.lua</file>
+	<args>
+		<arg name="name" type="string">The unique name of the new constraint. It will be used to identify which constraint to apply on duplicator load.</arg>
+		<arg name="callback" type="function">Function to be called when this constraint is created.
+
+It is a good idea to check <page>constraint.CanConstrain</page> before doing anything else.
+
+
+You must also call <page>constraint.AddConstraintTable</page> if creating custom constraint entities.
+  * This is what stores the constraint for duplicator to save and load, as well as for <page>constraint.GetTable</page>.
+  * The constraint entity must have `Type` key on it. This means that a single entity can only represent one constraint.
+
+Optionally, the callback can return up to 4 entities, which are considered the "constraint" entities.
+* Each of those is added to `"ropeconstraints"` or `"constraints"` cleanup list based on entity's classname (<page>Player:AddCleanup</page>)
+* The first entity is added to the player's entity count (<page>Player:AddCount</page>) in Sandbox.
+* None of these entities **should** be the 2 entities being constraint (i.e. a `prop_physics`), but it can be one one of them if you know what you are doing.
+</arg>
+		<arg name="customData" type="vararg">Arguments to be passed to the callback function when the constraint is created via <page>duplicator.CreateConstraintFromTable</page>.
+
+The data would be taken the constraint entity table added via <page>constraint.AddConstraintTable</page>. All <page>constraint</page> library constraints call it on the appropriate entity for you. (Typically its the first entity returned by the callback)</arg>
+	</args>
+</function>
+
+<example>
+	<description>Example of how to define a custom constraint. You apply the constraint via the custom `constraint_MyCustomConstraint` function, and it will automatically support duplicator.</description>
+	<code>
+function constraint_MyCustomConstraint( Ent1, Ent2, MyCoolData )
+	if ( !IsValid( Ent1 ) ) then return end
+	if ( !IsValid( Ent2 ) ) then return end
+
+	-- Your custom constraint code here, you can use "MyCoolData" here, as well as any custom arguments
+	-- Just make sure to save each custom argument in the Ent2 table below,
+	-- and add them to duplicator.RegisterConstraint below as well
+
+	constraint.AddConstraintTable( Ent1, Ent2, Ent2 )
+
+	Ent2:SetTable( {
+		Type = "MyCustomConstraint",
+		Ent1 = Ent1,
+		Ent2 = Ent2,
+		MyCoolData = MyCoolData
+	} )
+
+	return Ent2
+end
+duplicator.RegisterConstraint( "MyCustomConstraint", constraint_MyCustomConstraint, "Ent1", "Ent2", "MyCoolData" )
+</code>
+
+</example>

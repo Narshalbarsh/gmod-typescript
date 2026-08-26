@@ -1,0 +1,34 @@
+<function name="SpectateEntity" parent="Player" type="classfunc">
+	<description>
+Makes the player spectate the entity.
+
+To get the applied spectated entity, use <page>Player:GetObserverTarget</page>.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="entity" type="Entity">Entity to spectate.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Creates a entity, spectates it and after 5 seconds, stops spectating it.</description>
+	<code>
+local ent = ents.Create( "prop_physics" )
+ent:SetModel( "models/hunter/misc/sphere025x025.mdl" )
+ent:SetPos( Vector( 0, 0, 0 ) )
+ent:Spawn()
+ 
+for _, ply in ipairs( player.GetAll() ) do
+	ply:Spectate( OBS_MODE_CHASE )
+	ply:SpectateEntity( ent )
+	ply:StripWeapons()
+
+	timer.Simple( 5, function()
+		if IsValid( ply ) then
+			ply:UnSpectate()
+			ply:Spawn()
+		end
+	end )
+end
+	</code>
+</example>

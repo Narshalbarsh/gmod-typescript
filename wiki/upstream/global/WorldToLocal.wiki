@@ -1,0 +1,32 @@
+<function name="WorldToLocal" parent="Global" type="libraryfunc">
+	<description>Translates a worldspace vector and angle into a specific coordinate system.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="position" type="Vector">A worldspace vector.</arg>
+		<arg name="angle" type="Angle">A worldspace angle.</arg>
+		<arg name="newSystemOrigin" type="Vector">The origin of the new coordinate system.</arg>
+		<arg name="newSystemAngles" type="Angle">The angles of the new coordinate system.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">The corresponding local space `position`</ret>
+		<ret name="" type="Angle">The corresponding local space `angle`</ret>
+	</rets>
+</function>
+
+<example>
+	<description>A matrix math that shows how this is calculated internally.</description>
+	<code>
+local worldTransform = Matrix()
+worldTransform:SetTranslation( position )
+worldTransform:SetAngles( angle )
+
+local objectTransform = Matrix()
+objectTransform:SetTranslation( newSystemOrigin )
+objectTransform:SetAngles( newSystemAngles )
+
+-- Transform the world coordinates using the object transform as an inverted transformation matrix
+local worldToLocal = objectTransform:GetInverse() * worldTransform
+
+print( worldToLocal:GetTranslation(), worldToLocal:GetAngles() )
+	</code>
+</example>

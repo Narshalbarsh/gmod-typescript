@@ -1,0 +1,14 @@
+<function name="GetUnDuckSpeed" parent="Player" type="classfunc">
+	<description>Returns a player's unduck speed (in seconds)</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">unduck speed</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Gets player 1's unduck speed, and prints it to console</description>
+	<code>print( Entity( 1 ):GetUnDuckSpeed() )</code>
+	<output>0.3 in console</output>
+
+</example>

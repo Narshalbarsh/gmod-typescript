@@ -1,0 +1,64 @@
+<function name="ClientsideRagdoll" parent="Global" type="libraryfunc">
+	<description>
+Creates a fully clientside ragdoll.
+
+<note>The ragdoll initially starts as hidden and with shadows disabled, see the example for how to enable it.
+
+There's no need to call <page>Entity:Spawn</page> on this entity.</note>
+
+<bug issue="1387">Clientside entities are not garbage-collected, thus you must store a reference to the object and call <page>CSEnt:Remove</page> manually.</bug>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="model" type="string">The file path to the model.</arg>
+		<arg name="renderGroup" type="number" default="RENDERGROUP_OPAQUE">The <page>Enums/RENDERGROUP</page> to assign.</arg>
+	</args>
+	<rets>
+		<ret name="" type="CSEnt">The newly created client-side only ragdoll. (`C_ClientRagdoll`)</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Creates a new ragdoll with the player model of breen and enables rendering and shadows.</description>
+	<code>
+concommand.Add( "test_csragdoll", function( ply )
+
+	local ragdoll = ClientsideRagdoll( "models/player/breen.mdl" )
+	ragdoll:SetNoDraw( false )
+	ragdoll:DrawShadow( true )
+	--print( ragdoll )
+
+end )
+	</code>
+
+</example>
+
+<example>
+	<description>Example of how to set the ragdoll's position.</description>
+	<code>
+local csRag = FindMetaTable( "CSEnt" )
+-- csRag:SetPos() doesn't work for C_ClientRagdoll entities.
+function csRag:SetRagdollPos(pos)
+	
+	for i = 0, self:GetPhysicsObjectCount() - 1 do 
+		-- Get the physics object (PhysBone)
+		local phys = self:GetPhysicsObjectNum(i)
+		-- Get the position of the physics object relative to the ragdoll's position
+		local localPos = self:WorldToLocal( phys:GetPos() )
+		-- Set the physics object's location to the new position using the relative position to it's previous position
+		phys:SetPos( pos + localPos )
+		
+	end
+	
+end
+
+-- Example usage
+concommand.Add( "player_csragdoll", function( ply )
+	local ragdoll = ClientsideRagdoll( ply:GetModel() )		-- Create a ragdoll using the player's model
+	ragdoll:SetNoDraw( false )
+	ragdoll:DrawShadow( true )
+	ragdoll:SetRagdollPos( ply:GetPos() )		-- Set the position of the ragdoll to the player's position
+end )
+	</code>
+
+</example>

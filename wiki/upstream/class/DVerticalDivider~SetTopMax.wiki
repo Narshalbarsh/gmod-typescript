@@ -1,0 +1,7 @@
+<function name="SetTopMax" parent="DVerticalDivider" type="panelfunc">
+	<description>Sets the maximum height of the top content panel. This is ignored if the panel would exceed the minimum bottom content panel height set from <page>DVerticalDivider:SetBottomMin</page>.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="height" type="number">The maximum height of the top content panel. Default is 4096.</arg>
+	</args>
+</function>

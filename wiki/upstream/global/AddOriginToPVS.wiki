@@ -1,0 +1,22 @@
+<function name="AddOriginToPVS" parent="Global" type="libraryfunc">
+	<description>Adds the specified vector to the PVS which is currently building. This allows all objects in visleafs visible from that vector to be drawn.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="position" type="Vector">The origin to add.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Adds an RTCamera's current position to all player's PVS, causing props near it to always render on an rtscreen.</description>
+	<code>
+hook.Add( "SetupPlayerVisibility", "AddRTCamera", function( ply, viewEntity )
+	-- Adds any view entity
+	--
+	-- We test if the PVS is already loaded, as in the past adding a loaded pvs could have crash the server which was fixed.
+	-- (See https://github.com/Facepunch/garrysmod-issues/issues/3744)
+	if viewEntity:IsValid() and !viewEntity:TestPVS( ply ) then
+		AddOriginToPVS( viewEntity:GetPos() )
+	end
+end )
+	</code>
+</example>

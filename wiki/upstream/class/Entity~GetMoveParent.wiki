@@ -1,0 +1,11 @@
+<function name="GetMoveParent" parent="Entity" type="classfunc">
+	<description>
+Returns the movement parent of this entity.
+
+See <page>Entity:SetMoveParent</page> for more info.
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Entity">The movement parent of this entity.</ret>
+	</rets>
+</function>

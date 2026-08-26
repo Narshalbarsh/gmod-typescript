@@ -1,0 +1,8 @@
+<function name="OpenSubMenu" parent="DMenu" type="panelfunc">
+	<description>Closes any active sub menus, and opens a new one.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="item" type="Panel">The <page>DMenuOption</page> to open the submenu at</arg>
+		<arg name="menu" type="Panel" default="nil">The submenu to open. If set to nil, the function just closes existing submenus.</arg>
+	</args>
+</function>

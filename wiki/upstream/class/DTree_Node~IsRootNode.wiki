@@ -1,0 +1,7 @@
+<function name="IsRootNode" parent="DTree_Node" type="panelfunc">
+	<description>Returns true if <page>DTree_Node:GetRoot</page> is the same as <page>DTree_Node:GetParentNode</page> of this node.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">If this is a root node.</ret>
+	</rets>
+</function>

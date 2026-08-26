@@ -1,0 +1,73 @@
+<function name="setlocal" parent="debug" type="libraryfunc">
+	<description> 
+<removed>This function was removed due to security concerns.</removed>
+
+Sets a local variable's value.
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="thread" type="thread" default="Current Thread">The thread.</arg>
+		<arg name="level" type="number">The level above the thread.  
+
+0 is the function that was called (most always this function)'s arguments.
+
+1 is the thread that had called this function.
+
+2 is the thread that had called the function that started the thread that called this function.</arg>
+		<arg name="index" type="number">The variable's index you want to get.
+
+1 = the first local defined in the thread.
+
+2 = the second local defined in the thread.</arg>
+		<arg name="value" type="any" default="nil">The value to set the local to.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The name of the local variable if the local at the index exists, otherwise nil is returned.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints the local variables, sets them, then prints the variables again.</description>
+	<code>
+local var1 = "Luke, I am not your father."
+local var2 = "PMFPMF"
+
+(function()
+	print("Getting the locals now!")
+	PrintTable({debug.getlocal(2, 1)})
+	PrintTable({debug.getlocal(2, 2)})
+
+	print("\nSetting the locals now!")
+	print(debug.setlocal(2, 1, "I'm actually your mother."))
+	print(debug.setlocal(2, 2, "Chemo-chi"))
+	print(debug.setlocal(2, 3, "nil should be returned here!"))
+
+	print("\nHere are the locals after being set!")
+	PrintTable({debug.getlocal(2, 1)})
+	PrintTable({debug.getlocal(2, 2)})
+end)()
+	</code>
+	<output>
+
+```
+Getting the locals now!
+1	=	var1
+2	=	Luke, I am not your father.
+1	=	var2
+2	=	PMFPMF
+
+Setting the locals now!
+var1
+var2
+nil
+
+Here are the locals after being set!
+1	=	var1
+2	=	I'm actually your mother.
+1	=	var2
+2	=	Chemo-chi
+```
+
+	</output>
+
+</example>

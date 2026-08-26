@@ -1,0 +1,56 @@
+<function name="SetTabPosition" parent="Panel" type="classfunc">
+
+	<description>
+		When TAB is pressed, the next selectable panel in the number sequence is selected.
+
+		<note>This function requires <page>Panel:SetFocusTopLevel</page> to be called on the parent panel for tab navigation to work.</note>
+	</description>
+
+	<realm>Client and Menu</realm>
+
+	<args>
+		<arg name="position" type="number"></arg>
+	</args>
+
+</function>
+
+
+<example>
+	<description>Creates a menu to put information in with SetTablePosition application.</description>
+	<code>
+local Panel = vgui.Create("DFrame")
+Panel:SetSize(500,250)
+Panel:Center()
+Panel:SetText("My Information")
+Panel:MakePopup()
+
+local FirstName = vgui.Create("DTextEntry", Panel)
+FirstName:SetSize(400,35)
+FirstName:SetPos(50, 50)
+FirstName:SetPlaceholderText("First Name")
+FirstName:SetTabPosition( 1 )
+
+local LastName = vgui.Create("DTextEntry", Panel)
+LastName:SetSize(400,35)
+LastName:SetPos(50, 100)
+LastName:SetPlaceholderText("Last Name")
+LastName:SetTabPosition( 2 )
+
+local FavoriteColor = vgui.Create("DTextEntry", Panel)
+FavoriteColor:SetSize(400,35)
+FavoriteColor:SetPos(50, 150)
+FavoriteColor:SetPlaceholderText("Favorite Color")
+FavoriteColor:SetTabPosition( 3 )
+
+local CompletedButton = vgui.Create("DButton", Panel)
+CompletedButton:SetSize(200,35)
+CompletedButton:SetPos(150, 200)
+CompletedButton:SetText("Done")
+function CompletedButton:DoClick()
+    LocalPlayer():ConCommand("say My name is " .. FirstName:GetText() .. " " .. LastName:GetText() .. " and my favorite color is " .. FavoriteColor:GetText() .. "!")
+    Panel:Remove()
+end
+	</code>
+	<output>A Panel with a functional TAB Button.</output>
+
+</example>

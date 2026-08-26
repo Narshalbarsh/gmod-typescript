@@ -1,0 +1,7 @@
+<function name="GetDamageBonus" parent="CTakeDamageInfo" type="classfunc">
+	<description>Gets the current bonus damage.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">Bonus damage</ret>
+	</rets>
+</function>

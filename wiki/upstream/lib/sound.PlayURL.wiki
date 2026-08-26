@@ -1,0 +1,52 @@
+<function name="PlayURL" parent="sound" type="libraryfunc">
+	<description>
+Allows you to play external sound files, as well as online radio streams.
+You can find a list of all error codes [here](http://www.un4seen.com/doc/#bass/BASS_ErrorGetCode.html)
+
+For offline file playback, see <page>sound.PlayFile</page>.
+
+<bug issue="2296">Due to a bug with [BASS](http://www.un4seen.com/), AAC codec streams cannot be played in 3D mode.</bug>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="url" type="string">The URL of the sound to play</arg>
+		<arg name="flags" type="string">Flags for the sound. Can be one or more of following, separated by a space (`" "`):
+* 3d - Makes the sound 3D, so you can set its position
+* mono - Forces the sound to have only one channel
+* noplay - Forces the sound not to play as soon as this function is called
+* noblock - Disables streaming in blocks. It is more resource-intensive, but it is required for <page>IGModAudioChannel:SetTime</page>.
+
+If you don't want to use any of the above, you can just leave it as `""`.</arg>
+		<arg name="callback" type="function">Callback function that is called as soon as the the stream is loaded.
+<callback>
+<arg type="IGModAudioChannel" name="channel">The sound channel. Will be nil if an error occurred.</arg>
+<arg type="number" name="errorID">ID of an error if an error has occurred. Will be nil, otherwise.</arg>
+<arg type="string" name="errorName">Name of an error if an error has occurred. Will be nil, otherwise.</arg>
+</callback>
+</arg>
+	</args>
+</function>
+
+<example>
+	<description>Example usage of the function.</description>
+	<code>
+local g_station = nil
+sound.PlayURL( "https://radio.plaza.one/mp3", "3d", function( station, errCode, errStr )
+	if ( IsValid( station ) ) then
+
+		station:SetPos( LocalPlayer():GetPos() )
+	
+		station:Play()
+
+		-- Keep a reference to the audio object, so it doesn't get garbage collected which will stop the sound
+		g_station = station
+	
+	else
+
+		print( "Error playing sound!", errCode, errStr )
+
+	end
+end )
+	</code>
+
+</example>

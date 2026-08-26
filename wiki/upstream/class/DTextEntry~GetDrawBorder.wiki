@@ -1,0 +1,11 @@
+<function name="GetDrawBorder" parent="DTextEntry" type="panelfunc">
+	<description>
+<deprecated></deprecated>
+
+Returns the value set by <page>DTextEntry:SetDrawBorder</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean"></ret>
+	</rets>
+</function>

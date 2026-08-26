@@ -1,0 +1,7 @@
+<function name="GetImpulseCommand" parent="CMoveData" type="classfunc">
+	<description>Gets the number passed to "impulse" console command</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The impulse</ret>
+	</rets>
+</function>

@@ -1,0 +1,28 @@
+<function name="ScrH" parent="Global" type="libraryfunc">
+	<description>
+Gets the height of the game's window (in pixels).
+<note>ScrH() returns the height from the current viewport, this can be changed via <page>render.SetViewPort</page>, inside Render Targets and cam.Start contexts.</note>
+</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The height of the game's window in pixels</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints the Height of the window.</description>
+	<code>print( ScrH() )</code>
+	<output>1080 (depends on your screen).</output>
+</example>
+
+
+<example>
+	<description>Draws a white box on the top left corner of your screen.</description>
+	<code>
+hook.Add( "HUDPaint", "WhiteBox", function()
+    surface.SetDrawColor( 255, 255, 255, 255 )
+    surface.DrawRect( 0, 0, ScrW() / 2, ScrH() / 2 )
+end )
+	</code>
+	<output>A white box on the top left corner of your screen.</output>
+</example>

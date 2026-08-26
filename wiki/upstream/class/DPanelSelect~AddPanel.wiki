@@ -1,0 +1,8 @@
+<function name="AddPanel" parent="DPanelSelect" type="panelhook">
+	<description>Adds a panel to be selectable.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="pnl" type="Panel">The panel to add.</arg>
+		<arg name="conVars" type="table" default="nil"><page>ConVar</page>s to set when this panel is selected. Keys are the cvar name, value is the value for that cvar.</arg>
+	</args>
+</function>

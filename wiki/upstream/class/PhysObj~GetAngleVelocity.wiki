@@ -1,0 +1,14 @@
+<function name="GetAngleVelocity" parent="PhysObj" type="classfunc">
+	<description>Gets the angular velocity of the object in degrees per second as a local vector. You can use dot product to read the magnitude from a specific axis.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Vector">The angular velocity</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Calculate the RPM of an object rotating around its local Z axis with one revolution per second.</description>
+	<code>print("RPM", oPhys:GetAngleVelocity():Dot( Vector(0, 0, 1) ) / 6)</code>
+	<output>RPM 60</output>
+
+</example>

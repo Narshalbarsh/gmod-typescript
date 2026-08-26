@@ -1,0 +1,16 @@
+<function name="PassesDamageFilter" parent="Entity" type="classfunc">
+	<description>
+Tests whether the damage passes the entity filter.
+
+This will call <page>ENTITY:PassesDamageFilter</page> on scripted entities of the type "filter".
+
+<note>This function only works on entities of the type "filter". ( filter_* entities, including base game filter entites )</note>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="dmg" type="CTakeDamageInfo">The damage info to test</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether the damage info passes the entity filter.</ret>
+	</rets>
+</function>

@@ -1,0 +1,3 @@
+<type name="menubar" category="libraryfunc" is="library">
+	<summary>The menubar library.</summary>
+</type>

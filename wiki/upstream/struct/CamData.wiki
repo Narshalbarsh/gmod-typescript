@@ -1,0 +1,21 @@
+<structure>
+	<realm>Client</realm>
+	<description>Table structure used <page>GM:CalcView</page> and <page>GM:CalcVehicleView</page> hook.</description>
+	<fields>
+<item name="origin" type="Vector">The camera's position.</item>
+<item name="angles" type="Angle">The camera's angles.</item>
+<item name="fov" type="number">The camera's FOV.</item>
+<item name="znear" type="number">Distance to near clipping plane.</item>
+<item name="zfar" type="number">Distance to far clipping plane.</item>
+<item name="drawviewer" type="boolean" default="false">Set true to draw local players player model.</item>
+<item name="ortho" type="table" default="nil">If set, enables orthographic mode. The table has following arguments:
+* <page>number</page> left.
+* <page>number</page> right.
+* <page>number</page> top.
+* <page>number</page> bottom.
+
+Each describes where their border starts, (`left`+`right`) and (`top`+`bottom`) should equal `0` to center on the view position.
+</item>
+	</fields>
+
+</structure>

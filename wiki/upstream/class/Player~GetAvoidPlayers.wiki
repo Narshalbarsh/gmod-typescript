@@ -1,0 +1,7 @@
+<function name="GetAvoidPlayers" parent="Player" type="classfunc">
+	<description>Gets if the player will be pushed out of nocollided players.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">pushed</ret>
+	</rets>
+</function>

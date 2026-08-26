@@ -1,0 +1,28 @@
+<function name="Parse" parent="markup" type="libraryfunc">
+	<description>Parses markup into a <page>MarkupObject</page>. Currently, this only supports fonts and colors as demonstrated in the example.
+	<warning>This function is very slow! Always cache its result.</warning>
+</description>
+	<realm>Client and Menu</realm>
+	<file line="295-L557">lua/includes/modules/markup.lua</file>
+	<args>
+		<arg name="markup" type="string">The markup to be parsed.</arg>
+		<arg name="maxWidth" type="number" default="nil">The max width of the output.</arg>
+	</args>
+	<rets>
+		<ret name="" type="MarkupObject">The parsed markup object ready to be drawn via <page>MarkupObject:Draw</page>.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Renders a markup string on the HUD.
+<note>The the <colour> tag can also be written as <color>, and the <font> tag can also be written as <face>.</note></description>
+	<code>
+local parsed = markup.Parse("<font=Default>changed font</font>\n<colour=255,0,255,255>changed colour</colour>")
+
+hook.Add("HUDPaint", "MarkupTest", function()
+	parsed:Draw(100, 100, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
+end)
+	</code>
+	<output><image src="Screenshot-2012-08-30_13.13.59.png"/></output>
+
+</example>

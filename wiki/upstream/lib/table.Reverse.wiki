@@ -1,0 +1,38 @@
+<function name="Reverse" parent="table" type="libraryfunc">
+	<description>Returns a reversed copy of a sequential table. Any non-sequential and non-numeric keyvalue pairs will not be copied.</description>
+	<realm>Shared and Menu</realm>
+	<file line="731-L742">lua/includes/extensions/table.lua</file>
+	<args>
+		<arg name="tbl" type="table">Table to reverse.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">A reversed copy of the table.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Creates a table and reverses it.</description>
+	<code>
+local tbl = { "One", "Two", "Three", four = 4, [5] = "5" }
+
+PrintTable(tbl)
+print("")
+PrintTable(table.Reverse(tbl))
+	</code>
+	<output>
+
+```
+1	=	One
+2	=	Two
+3	=	Three
+four	=	4
+5	=	5
+
+1	=	Three
+2	=	Two
+3	=	One
+```
+
+	</output>
+
+</example>

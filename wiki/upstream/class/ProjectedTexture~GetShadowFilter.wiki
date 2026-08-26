@@ -1,0 +1,12 @@
+<function name="GetShadowFilter" parent="ProjectedTexture" type="classfunc">
+	<description>
+Returns the shadow "filter size" of the projected texture. `0` is fully pixelated, higher values will blur the shadow more.
+
+Set by <page>ProjectedTexture:SetShadowFilter</page>.
+	</description>
+	<added>2021.03.31</added>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">The current shadow filter size.</ret>
+	</rets>
+</function>

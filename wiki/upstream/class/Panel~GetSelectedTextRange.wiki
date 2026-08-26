@@ -1,0 +1,12 @@
+<function name="GetSelectedTextRange" parent="Panel" type="classfunc">
+	<description>Returns the currently selected range of text.
+
+This function will only work on <page>RichText</page> and <page>TextEntry</page> panels and their derivatives.
+	</description>
+	<realm>Client and Menu</realm>
+	<added>2020.03.17</added>
+	<rets>
+		<ret name="start" type="number">The start of the range. If no text is selected it may be 0 and/or equal to the end range.</ret>
+		<ret name="endrange" type="number">The end of the range. If no text is selected it may be 0 and/or equal to the start range.</ret>
+	</rets>
+</function>

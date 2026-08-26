@@ -1,0 +1,7 @@
+<function name="GetFileName" parent="IGModAudioChannel" type="classfunc">
+	<description>Returns the filename for the sound channel.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="string">The file name. This will not be always what you have put into the <page>sound.PlayURL</page> as first argument.</ret>
+	</rets>
+</function>

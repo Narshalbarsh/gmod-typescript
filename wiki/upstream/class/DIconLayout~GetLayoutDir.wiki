@@ -1,0 +1,7 @@
+<function name="GetLayoutDir" parent="DIconLayout" type="panelfunc">
+	<description>Returns the direction that it will be layed out, using the DOCK enumerations.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">Layout direction.</ret>
+	</rets>
+</function>

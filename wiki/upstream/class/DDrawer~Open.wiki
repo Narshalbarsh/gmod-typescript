@@ -1,0 +1,5 @@
+<function name="Open" parent="DDrawer" type="panelfunc">
+	<description>Opens the <page>DDrawer</page>.</description>
+	<realm>Client and Menu</realm>
+	<file line="58-L66">lua/vgui/ddrawer.lua</file>
+</function>

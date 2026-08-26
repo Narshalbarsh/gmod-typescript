@@ -1,0 +1,23 @@
+<function name="CanPlayerSuicide" parent="GM" type="hook">
+	<description>Determines if the player can kill themselves using the `kill` or `explode` console commands.</description>
+	<realm>Server</realm>
+	<file line="554-L556">gamemodes/base/gamemode/player.lua</file>
+	<args>
+		<arg name="player" type="Player">The player</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">`true` if the player should be allowed to suicide, `false` if not.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Makes suiciding only accessible for super admins.</description>
+	<code>
+hook.Add( "CanPlayerSuicide", "AllowOwnerSuicide", function( ply )
+	if not ply:IsSuperAdmin() then
+		return false
+	end
+end )
+	</code>
+
+</example>

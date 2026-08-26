@@ -1,0 +1,7 @@
+<function name="GetEnableShadows" parent="ProjectedTexture" type="classfunc">
+	<description>Returns whether shadows are enabled for this ProjectedTexture, which was previously set by <page>ProjectedTexture:SetEnableShadows</page></description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="boolean">Whether shadows are enabled.</ret>
+	</rets>
+</function>

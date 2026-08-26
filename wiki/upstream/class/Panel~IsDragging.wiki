@@ -1,0 +1,8 @@
+<function name="IsDragging" parent="Panel" type="classfunc">
+	<description>Returns whether this panel is currently being dragged or not.</description>
+	<realm>Client and Menu</realm>
+	<file line="367-L373">lua/includes/extensions/client/panel/dragdrop.lua</file>
+	<rets>
+		<ret name="" type="boolean">Whether this panel is currently being dragged or not.</ret>
+	</rets>
+</function>

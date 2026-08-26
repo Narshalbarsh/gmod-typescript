@@ -1,0 +1,8 @@
+<function name="InnerWidth" parent="DScrollPanel" type="panelfunc">
+	<description>Return the width of the DScrollPanel's canvas.</description>
+	<realm>Client and Menu</realm>
+	<file line="63-L67">lua/vgui/dscrollpanel.lua</file>
+	<rets>
+		<ret name="" type="number">The width of the DScrollPanel's canvas</ret>
+	</rets>
+</function>

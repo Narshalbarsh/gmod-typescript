@@ -1,0 +1,11 @@
+<function name="SetSaturation" parent="Color" type="classfunc">
+	<description>Converts a <page>Color</page> into [HSV color space](https://en.wikipedia.org/wiki/HSL_and_HSV), sets the [saturation](https://en.wikipedia.org/wiki/Colorfulness) and converts it back into an RGB color.
+
+This is useful to quickly change the saturation of the color without changing hue or luminance, allowing for things like easy theming.
+</description>
+	<realm>Shared and Menu</realm>
+	<added>2025.01.23</added>
+	<args>
+		<arg name="saturation" type="number">The new saturation value in range [0, 1]</arg>
+	</args>
+</function>

@@ -1,0 +1,8 @@
+<function name="StopParticlesWithNameAndAttachment" parent="Entity" type="classfunc">
+	<description>Stops all particle effects parented to the entity with given name on given attachment.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="name" type="string">The name of the particle to stop.</arg>
+		<arg name="attachment" type="number">The attachment of the entity to stop particles on.</arg>
+	</args>
+</function>

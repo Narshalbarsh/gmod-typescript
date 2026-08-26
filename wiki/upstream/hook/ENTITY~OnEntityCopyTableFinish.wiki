@@ -1,0 +1,21 @@
+<function name="OnEntityCopyTableFinish" parent="ENTITY" type="hook">
+	<description>
+Called after duplicator finishes saving the entity, allowing you to modify the save data.
+
+This is called after <page>ENTITY:PostEntityCopy</page>.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="data" type="table">The save <page>Structures/EntityCopyData</page> that you can modify.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Prevent this entity from being copied and subsequently pasted.</description>
+	<code>
+function ENT:OnEntityCopyTableFinish( data )
+	for k, v in pairs( data ) do data[ k ] = nil end
+end
+	</code>
+
+</example>

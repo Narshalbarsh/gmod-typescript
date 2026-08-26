@@ -1,0 +1,24 @@
+<enum>
+	<realm>Server</realm>
+	<description>Enumerations used by <page>NPC:SetNPCState</page>. Serverside only.</description>
+	<items>
+<item key="NPC_STATE_INVALID" value="-1">Invalid state</item>
+
+<item key="NPC_STATE_NONE" value="0">NPC default state</item>
+
+<item key="NPC_STATE_IDLE" value="1">NPC is idle</item>
+
+<item key="NPC_STATE_ALERT" value="2">NPC is alert and searching for enemies</item>
+
+<item key="NPC_STATE_COMBAT" value="3">NPC is in combat</item>
+
+<item key="NPC_STATE_SCRIPT" value="4">NPC is executing scripted sequence</item>
+
+<item key="NPC_STATE_PLAYDEAD" value="5">NPC is playing dead (used for expressions)</item>
+
+<item key="NPC_STATE_PRONE" value="6">NPC is prone to death</item>
+
+<item key="NPC_STATE_DEAD" value="7">NPC is dead</item>
+	</items>
+
+</enum>

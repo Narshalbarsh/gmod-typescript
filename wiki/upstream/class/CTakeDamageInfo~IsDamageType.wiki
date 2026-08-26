@@ -1,0 +1,24 @@
+<function name="IsDamageType" parent="CTakeDamageInfo" type="classfunc">
+	<description>Returns whenever the damageinfo contains the damage type specified.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="dmgType" type="number{DMG}">Damage type to test. See <page>Enums/DMG</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether this damage contains specified damage type or not</ret>
+	</rets>
+</function>
+
+<example>
+    <description>All of these expressions are equivalent to each other, evaluating to `true` if the damageinfo contains bullet, explosive, or club damage:
+```lua
+dmginfo:IsBulletDamage() or dmginfo:IsExplosionDamage() or dmginfo:IsDamageType(DMG_CLUB)
+```
+```lua
+dmginfo:IsDamageType(DMG_BULLET + DMG_BLAST + DMG_CLUB)
+```
+```lua
+bit.band(dmginfo:GetDamageType(), bit.bor(DMG_BULLET, DMG_BLAST, DMG_CLUB)) ~= 0
+```
+    </description>
+</example>

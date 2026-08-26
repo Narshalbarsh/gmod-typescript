@@ -1,0 +1,34 @@
+<function name="CollapseKeyValue" parent="table" type="libraryfunc">
+	<description>Collapses a table with keyvalue structure</description>
+	<realm>Shared and Menu</realm>
+	<file line="477-L495">lua/includes/extensions/table.lua</file>
+	<args>
+		<arg name="input" type="table">Input table</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">Output table</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Example usage</description>
+	<code>
+local output = table.CollapseKeyValue( {
+	{ Key = "mykey1", Value = "myvalue1" },
+	{ Key = 123, Value = 1345 },
+	{ Key = 1345, Value = "myvalue1" },
+} )
+	</code>
+	<output>
+
+```
+local output = {
+	[ "mykey1" ] = "myvalue1",
+	[ 123 ] = 1345,
+	[ 1345 ] = "myvalue1",
+}
+```
+
+	</output>
+
+</example>

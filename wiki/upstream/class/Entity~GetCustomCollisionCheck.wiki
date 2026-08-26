@@ -1,0 +1,7 @@
+<function name="GetCustomCollisionCheck" parent="Entity" type="classfunc">
+	<description>Returns whether this entity uses custom collision check set by <page>Entity:SetCustomCollisionCheck</page>.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">Whether this entity uses custom collision check or not</ret>
+	</rets>
+</function>

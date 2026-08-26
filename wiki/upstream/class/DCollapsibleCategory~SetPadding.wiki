@@ -1,0 +1,10 @@
+<function name="SetPadding" parent="DCollapsibleCategory" type="panelfunc">
+	<description>
+<deprecated></deprecated>
+Doesn't actually do anything.</description>
+	<realm>Client and Menu</realm>
+	<file line="53">lua/vgui/dcategorycollapse.lua</file>
+	<args>
+		<arg name="padding" type="number"></arg>
+	</args>
+</function>

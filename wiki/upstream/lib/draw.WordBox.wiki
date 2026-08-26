@@ -1,0 +1,49 @@
+<function name="WordBox" parent="draw" type="libraryfunc">
+	<description>
+Draws a rounded box with text in it.
+
+<rendercontext hook="false" type="2D"></rendercontext>
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="238-L263">lua/includes/modules/draw.lua</file>
+	<args>
+		<arg name="bordersize" type="number">Size of border, should be multiple of 2. Ideally this will be 8 or 16.</arg>
+		<arg name="x" type="number">The X Coordinate.</arg>
+		<arg name="y" type="number">The Y Coordinate.</arg>
+		<arg name="text" type="string">Text to draw.</arg>
+		<arg name="font" type="string">Font to draw in. See <page>surface.CreateFont</page> to create your own, or <page text="here">Default_Fonts</page> for a list of default fonts.</arg>
+		<arg name="boxcolor" type="Color">The box color. Uses <page>Color</page>.</arg>
+		<arg name="textcolor" type="Color">The text color. Uses <page>Color</page>.</arg>
+		<arg name="xalign" type="number" default="TEXT_ALIGN_LEFT">The alignment of the X coordinate using <page>Enums/TEXT_ALIGN</page>.</arg>
+		<arg name="yalign" type="number" default="TEXT_ALIGN_TOP">The alignment of the Y coordinate using <page>Enums/TEXT_ALIGN</page>.</arg>
+
+	</args>
+	<rets>
+		<ret name="" type="number">The width of the word box.</ret>
+		<ret name="" type="number">The height of the word box.</ret>
+	</rets>
+</function>
+
+<example>
+<description> Draws several boxes showing the effect of the alignment arguments.</description>
+<code>
+hook.Add( "HUDPaint", "HUDPaint_DrawABox2", function()
+
+	surface.SetDrawColor( Color( 255, 255, 255 ) )
+	surface.DrawLine( 100, 50, 100, 250 )
+
+	draw.WordBox( 4, 100, 100, "Example word box", "DermaDefault", Color( 128, 128, 128 ), Color( 255, 255, 255 ) )
+	draw.WordBox( 4, 100, 150, "Example word box", "DermaDefault", Color( 128, 128, 128 ), Color( 255, 255, 255 ), TEXT_ALIGN_CENTER )
+	draw.WordBox( 4, 100, 200, "Example word box", "DermaDefault", Color( 128, 128, 128 ), Color( 255, 255, 255 ), TEXT_ALIGN_RIGHT )
+
+	surface.SetDrawColor( Color( 255, 255, 255 ) )
+	surface.DrawLine( 250, 150, 650, 150 )
+
+	draw.WordBox( 4, 300, 150, "Example word box", "DermaDefault", Color( 128, 128, 128 ), Color( 255, 255, 255 ), nil )
+	draw.WordBox( 4, 400, 150, "Example word box", "DermaDefault", Color( 128, 128, 128 ), Color( 255, 255, 255 ), nil, TEXT_ALIGN_CENTER )
+	draw.WordBox( 4, 500, 150, "Example word box", "DermaDefault", Color( 128, 128, 128 ), Color( 255, 255, 255 ), nil, TEXT_ALIGN_BOTTOM )
+
+end )
+</code>
+<output><upload src="70c/8d934bcd64db30d.png" size="23849" name="image.png" /></output>
+</example>

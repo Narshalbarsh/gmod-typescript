@@ -1,0 +1,7 @@
+<function name="SetForceShowExpander" parent="DTree_Node" type="panelfunc">
+	<description>Sets whether or not the expand/collapse button (+/- button) should be shown on this node regardless of whether it has sub-elements or not.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="forceShow" type="boolean"></arg>
+	</args>
+</function>

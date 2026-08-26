@@ -1,0 +1,24 @@
+<function name="OnDamagedByExplosion" parent="GM" type="hook">
+	<description>Called when a player has been hurt by an explosion. Override to disable default sound effect.</description>
+	<realm>Server</realm>
+	<file line="554-L574">gamemodes/base/gamemode/player.lua</file>
+	<args>
+		<arg name="ply" type="Player">Player who has been hurt</arg>
+		<arg name="dmginfo" type="CTakeDamageInfo">Damage info from explosion</arg>
+	</args>
+</function>
+
+<example>
+	<description>
+Disables the high pitched ringing sound effect.
+
+Note that this hook does not have a return value, and instead by default it calls <page>Player:SetDSP</page>`( 35, false )` in the base gamemode.
+
+This is an example of disabling explosion effects.
+	</description>
+	<code>
+function GAMEMODE:OnDamagedByExplosion()
+end
+	</code>
+
+</example>

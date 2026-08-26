@@ -1,0 +1,7 @@
+<function name="SetConVar" parent="DNumSlider" type="panelfunc">
+	<description>Sets the console variable to be updated when the value of the slider is changed.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="cvar" type="string">The name of the <page>ConVar</page> to be updated.</arg>
+	</args>
+</function>

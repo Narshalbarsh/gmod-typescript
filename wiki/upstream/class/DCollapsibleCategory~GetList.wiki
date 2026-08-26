@@ -1,0 +1,12 @@
+<function name="GetList" parent="DCollapsibleCategory" type="panelfunc">
+	<description>
+If set, the <page>DCategoryList</page> that created this panel.
+
+See also <page>DCollapsibleCategory:SetList</page>.
+</description>
+	<realm>Client and Menu</realm>
+	<file line="54">lua/vgui/dcategorycollapse.lua</file>
+	<rets>
+		<ret name="" type="DCategoryList">The <page>DCategoryList</page> that created us.</ret>
+	</rets>
+</function>

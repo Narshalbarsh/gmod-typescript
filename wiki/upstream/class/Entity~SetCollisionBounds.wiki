@@ -1,0 +1,15 @@
+<function name="SetCollisionBounds" parent="Entity" type="classfunc">
+	<description>
+Sets the collision bounds for the entity, which are used for triggers (<page>Entity:SetTrigger</page>, <page>ENTITY:Touch</page>), and collision (If <page>Entity:SetSolid</page> set as <page text="SOLID_BBOX">Enums/SOLID</page>).
+
+Input bounds are relative to <page>Entity:GetPos</page>! 
+See also <page>Entity:SetCollisionBoundsWS</page>.
+
+<note>Player collision bounds are reset every frame to player's <page>Player:SetHull</page> values.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="mins" type="Vector">The minimum vector of the bounds.</arg>
+		<arg name="maxs" type="Vector">The maximum vector of the bounds.</arg>
+	</args>
+</function>

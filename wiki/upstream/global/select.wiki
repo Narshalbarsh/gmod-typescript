@@ -1,0 +1,37 @@
+<function name="select" parent="Global" type="libraryfunc">
+	<description>Used to select single values from a vararg or get the count of values in it.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="parameter" type="any">Can be a <page>number</page> or <page>string</page>.
+* If it's a string and starts with "#", the function will return the amount of values in the vararg (ignoring the rest of the string).
+* If it's a positive number, the function will return all values starting from the given index.
+* If the number is negative, it will return the amount specified from the end instead of the beginning. This mode will not be compiled by LuaJIT.</arg>
+		<arg name="vararg" type="vararg">The vararg. These are the values from which you want to select.</arg>
+	</args>
+	<rets>
+		<ret name="" type="any">Returns a <page>number</page> or <page>vararg</page>, depending on the select method.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>This code shows how it works with the "#" modifier:</description>
+	<code>print( select( '#', 'a', true, false, {}, 1 ) )</code>
+	<output>"5", which is the count of parameters passed excluding the modifier (the "#")</output>
+
+</example>
+
+
+<example>
+	<description>This prints from the 2nd vararg passed to the last</description>
+	<code>print( select( 2, 1, 2, 3, 4, 5 ) )</code>
+	<output>"2 3 4 5" in the console</output>
+
+</example>
+
+
+<example>
+	<description>This prints the last 2 arguments passed</description>
+	<code>print( select( -2, 1, 2, 3, 4, 5 ) )</code>
+	<output>"4 5" in the console</output>
+
+</example>

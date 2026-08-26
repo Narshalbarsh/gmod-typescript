@@ -1,0 +1,10 @@
+<function name="sinh" parent="math" type="libraryfunc">
+	<description>Returns the [hyperbolic sine](https://en.wikipedia.org/wiki/Hyperbolic_functions) of the given angle.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="number" type="number">Angle in radians.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The hyperbolic sine of the given angle.</ret>
+	</rets>
+</function>

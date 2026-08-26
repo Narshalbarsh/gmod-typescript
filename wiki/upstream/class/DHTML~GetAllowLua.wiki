@@ -1,0 +1,7 @@
+<function name="GetAllowLua" parent="DHTML" type="panelfunc">
+	<description>Returns if the loaded page can run Lua code, set by <page>DHTML:SetAllowLua</page></description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Whether or not Lua code can be called from the loaded page.</ret>
+	</rets>
+</function>

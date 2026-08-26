@@ -1,0 +1,10 @@
+<function name="SetLineHeight" parent="Panel" type="classfunc">
+	<description>
+Sets the height of a single line of a <page>RichText</page> panel.
+	</description>
+	<realm>Client and Menu</realm>
+	<added>2023.10.25</added>
+	<args>
+		<arg name="height" type="number">The new line height. Values below zero mean no override.</arg>
+	</args>
+</function>

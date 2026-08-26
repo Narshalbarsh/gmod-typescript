@@ -1,0 +1,18 @@
+<function name="TangentT" parent="mesh" type="libraryfunc">
+	<description>
+Sets the `T` tangent to be used.
+
+Tangents and binormals are using in bumpmap rendering.
+
+See also <page>mesh.TangentS</page> and <page>mesh.Begin</page>.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="tangentT" type="Vector">The T tangent.</arg>
+	</args>
+	<args name="Direct numbers input">
+		<arg name="x" type="number">The X part of the vertex' tangent T.</arg>
+		<arg name="y" type="number">The Y part of the vertex' tangent T.</arg>
+		<arg name="z" type="number">The Z part of the vertex' tangent T.</arg>
+	</args>
+</function>

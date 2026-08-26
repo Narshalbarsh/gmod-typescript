@@ -1,0 +1,29 @@
+<function name="SHA256" parent="util" type="libraryfunc">
+	<description>Generates the [SHA-256 hash](https://en.wikipedia.org/wiki/SHA-2) of the specified string. This is mostly unique and is astronomically unlikely to return the same hash for a different string unlike <page>util.CRC</page> or <page>util.MD5</page> which are both much more vulnerable to duplicate returns.</description>
+	<realm>Shared</realm>
+	<added>2021.07.01</added>
+	<args>
+		<arg name="stringToHash" type="string">The string to calculate the SHA-256 hash of.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The SHA-256 hash of the string in hexadecimal form.</ret>
+	</rets>
+</function>
+
+<example>
+		<description>Prints out an example of how SHA-256 hashes work.</description>
+		<code>
+local a, b = util.SHA256("Hello"), util.SHA256("World")
+print(a == b)
+print(a, b)
+print(a == util.SHA256("Hello"))
+		</code>
+		<output>
+```
+false
+185f8db32271fe25f561a6fc938b2e264306ec304eda518007d1764826381969
+78ae647dc5544d227130a0682a51e30bc7777fbb6d8a8f17007463a3ecd1d524
+true
+```
+		</output>
+</example>

@@ -1,0 +1,9 @@
+<function name="GetTooltipPanel" parent="Panel" type="classfunc">
+	<description>Returns the tooltip panel that was set with <page>PANEL:SetTooltipPanel</page>.
+</description>
+	<realm>Client and Menu</realm>
+	<file line="287-L289">lua/includes/extensions/client/panel.lua</file>
+	<rets>
+		<ret name="tooltip" type="Panel">The tooltip panel, if it was set.</ret>
+	</rets>
+</function>

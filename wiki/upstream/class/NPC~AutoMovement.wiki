@@ -1,0 +1,12 @@
+<function name="AutoMovement" parent="NPC" type="classfunc">
+	<description>Executes any movement the current sequence may have.</description>
+	<realm>Server</realm>
+	<added>2021.03.31</added>
+	<args>
+		<arg name="interval" type="number">This is a good place to use <page>Entity:GetAnimTimeInterval</page>.</arg>
+		<arg name="target" type="Entity" default="NULL"></arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">`true` if any movement was performed.</ret>
+	</rets>
+</function>

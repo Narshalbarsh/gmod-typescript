@@ -1,0 +1,27 @@
+<function name="GetCount" parent="CRecipientFilter" type="classfunc">
+	<description>Returns the number of valid players in the recipient filter.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">Number of valid players in the recipient filter.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Example usage of the function</description>
+	<code>
+local rf = RecipientFilter()
+rf:AddAllPlayers()
+print( rf:GetCount() )
+PrintTable( rf:GetPlayers() )
+	</code>
+	<output>
+
+```
+2
+1	=	Player [1][Player #1]
+2	=	Player [2][Player #2]
+```
+
+	</output>
+
+</example>

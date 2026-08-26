@@ -1,0 +1,30 @@
+<function name="Register" parent="scripted_ents" type="libraryfunc">
+	<file line="53-L139">lua/includes/modules/scripted_ents.lua</file>
+	<description>
+Registers an ENT table with a classname. Reregistering an existing classname will automatically update the functions of all existing entities of that class.
+
+<bug pull="1300">Sub-tables provided in the first argument will not carry over their metatable, and will receive a BaseClass key if the table was merged with the base's. Userdata references, which includes Vectors, Angles, Entities, etc. will not be copied.</bug>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="ENT" type="table">
+			The ENT table to register.  
+			For the table's format and available options see the <page>Structures/ENT</page> page.
+		</arg>
+		<arg name="classname" type="string">The classname to register.</arg>
+	</args>
+</function>
+
+<example>
+	<code>
+local ENT = scripted_ents.Get( "gmod_button" )
+local oldUse = ENT.Use
+
+function ENT:Use( activator, caller, type, value )
+	print( tostring( self.Entity ) .. " just got pressed!" )
+	oldUse( self, activator, caller, type, value )
+end
+
+scripted_ents.Register( ENT, "gmod_button" )
+	</code>
+</example>

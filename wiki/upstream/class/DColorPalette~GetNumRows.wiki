@@ -1,0 +1,8 @@
+<function name="GetNumRows" parent="DColorPalette" type="panelfunc">
+	<description>An <page>Global.AccessorFunc</page> that returns the number of rows of the palette, provided 6 colors fill each row. This value is equal to the number of colors in the DColorPalette divided by 6.</description>
+	<realm>Client and Menu</realm>
+	<file line="13">lua/vgui/dcolorpalette.lua</file>
+	<rets>
+		<ret name="" type="number">Number of rows of the DColorPalette.</ret>
+	</rets>
+</function>

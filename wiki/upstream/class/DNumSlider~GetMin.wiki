@@ -1,0 +1,7 @@
+<function name="GetMin" parent="DNumSlider" type="panelfunc">
+	<description>Returns the minimum value of the slider</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The minimum value of the slider</ret>
+	</rets>
+</function>

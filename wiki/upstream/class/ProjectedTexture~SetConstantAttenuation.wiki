@@ -1,0 +1,13 @@
+<function name="SetConstantAttenuation" parent="ProjectedTexture" type="classfunc">
+	<description>
+Sets the constant attenuation of the projected texture.
+
+See also <page>ProjectedTexture:SetLinearAttenuation</page> and <page>ProjectedTexture:SetQuadraticAttenuation</page>.
+
+You must call <page>ProjectedTexture:Update</page> after using this function for it to take effect.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="constAtten" type="number"></arg>
+	</args>
+</function>

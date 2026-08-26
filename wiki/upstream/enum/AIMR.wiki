@@ -1,0 +1,15 @@
+<enum>
+	<realm>Server</realm>
+	<added>2021.03.31</added>
+	<description>
+Used by <page>NPC:MoveClimbExec</page>, <page>NPC:MoveJumpExec</page> and <page>NPC:MoveJumpStop</page>.
+	</description>
+	<items>
+<item key="AIMR_ILLEGAL" value="-4">Move is illegal for some reason.</item>
+<item key="AIMR_BLOCKED_NPC" value="-3">Move was blocked by an NPC.</item>
+<item key="AIMR_BLOCKED_WORLD" value="-2">Move was blocked by the world.</item>
+<item key="AIMR_BLOCKED_ENTITY" value="-1">Move was blocked by an entity.</item>
+<item key="AIMR_OK" value="0">Move op was ok.</item>
+<item key="AIMR_CHANGE_TYPE" value="1">Locomotion method has changed.</item>
+	</items>
+</enum>

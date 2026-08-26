@@ -1,0 +1,18 @@
+<function name="SetShouldPlayPickupSound" parent="Entity" type="classfunc">
+	<description>Sets whether or not the entity should make a physics contact sound when it's been picked up by a player.</description>
+	<realm>Shared</realm>
+	<file line="11-L13">lua/includes/extensions/entity.lua</file>
+	<args>
+		<arg name="playsound" type="boolean" default="false">True to play the pickup sound, false otherwise.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Enable pickup sound on all entities.</description>
+	<code>
+function GM:OnEntityCreated(ent)
+    ent:SetShouldPlayPickupSound(true)
+end
+	</code>
+
+</example>

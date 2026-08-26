@@ -1,0 +1,11 @@
+<function name="OpenAutoComplete" parent="DTextEntry" type="panelfunc">
+	<file line="213-L232">lua/vgui/dtextentry.lua</file>
+	<description>
+<internal>You really should be using <page>DTextEntry:GetAutoComplete</page> instead.</internal>
+Builds a <page>DMenu</page> for the DTextEntry based on the input table.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="tab" type="table">Table containing results from <page>DTextEntry:GetAutoComplete</page>.</arg>
+	</args>
+</function>

@@ -1,0 +1,11 @@
+<function name="IsConnectedAtSide" parent="CNavLadder" type="classfunc">
+	<description>Returns whether this <page>CNavLadder</page> has an outgoing ( one or two way ) connection **to** given <page>CNavArea</page> in given direction.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="navArea" type="CNavArea">The <page>CNavArea</page> to test against.</arg>
+		<arg name="navDirType" type="number">The direction, in which to look for the connection. See <page>Enums/NavDir</page></arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether this <page>CNavLadder</page> has an outgoing ( one or two way ) connection **to** given <page>CNavArea</page> in given direction.</ret>
+	</rets>
+</function>

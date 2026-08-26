@@ -1,0 +1,4 @@
+<function name="DrawHUD" parent="TOOL" type="hook">
+	<description>Called when <page>WEAPON:DrawHUD</page> of the toolgun is called, only when the user has this tool selected.</description>
+	<realm>Client</realm>
+</function>

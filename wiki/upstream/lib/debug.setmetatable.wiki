@@ -1,0 +1,15 @@
+<function name="setmetatable" parent="debug" type="libraryfunc">
+	<description>
+<deprecated></deprecated>
+
+Sets the object's metatable. Unlike <page>Global.setmetatable</page>, this function works regardless of whether the first object passed is a valid table or not; this function even works on primitive datatypes such as numbers, functions, and even nil.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="object" type="any">Object to set the metatable for.</arg>
+		<arg name="metatable" type="table">The metatable to set for the object.
+If this argument is nil, then the object's metatable is removed.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">true if the object's metatable was set successfully.</ret>
+	</rets>
+</function>

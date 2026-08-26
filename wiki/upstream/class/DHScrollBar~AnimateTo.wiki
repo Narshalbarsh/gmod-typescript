@@ -1,0 +1,10 @@
+<function name="AnimateTo" parent="DHScrollBar" type="panelfunc">
+	<description>Smoothly scrolls to given level.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="scroll" type="number">The scroll level to animate to. In pixels from the left ( from 0 )</arg>
+		<arg name="length" type="number">Length of the animation in seconds</arg>
+		<arg name="delay" type="number" default="0">Delay of the animation in seconds</arg>
+		<arg name="ease" type="number" default="-1">See <page>Panel:NewAnimation</page> for explanation.</arg>
+	</args>
+</function>

@@ -1,0 +1,7 @@
+<function name="GetPathDistanceToGoal" parent="NPC" type="classfunc">
+	<realm>Server</realm>
+	<description>Returns the distance the NPC is from Target Goal.</description>
+	<rets>
+		<ret name="" type="number">The number of hammer units the NPC is away from the Goal.</ret>
+	</rets>
+</function>

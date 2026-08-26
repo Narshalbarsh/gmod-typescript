@@ -1,0 +1,25 @@
+<function name="OnScreenSizeChanged" parent="GM" type="hook">
+	<added>2020.04.29</added>
+	<description>
+Called when the player's screen resolution of the game changes. This also called when changing MSAA settings.
+
+<page>Global.ScrW</page> and <page>Global.ScrH</page> will return the new values when this hook is called.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="oldWidth" type="number">The previous width of the game's window.</arg>
+		<arg name="oldHeight" type="number">The previous height of the game's window.</arg>
+		<arg name="newWidth" type="number" added="2023.10.24">The new/current width of the game's window.</arg>
+		<arg name="newHeight" type="number" added="2023.10.24">The new/current height of the game's window.</arg>
+	</args>
+</function>
+
+<example>
+	<description>When a player change his Screen Size it's print the old Size and the new size.</description>
+	<code>
+hook.Add( "OnScreenSizeChanged", "PrintOld", function( oldWidth, oldHeight )
+	print( oldWidth, oldHeight ) -- Prints old width and height
+	print( ScrW(), ScrH() ) -- Prints new width and height
+end )
+	</code>
+</example>

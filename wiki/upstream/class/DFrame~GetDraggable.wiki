@@ -1,0 +1,8 @@
+<function name="GetDraggable" parent="DFrame" type="panelfunc">
+	<description>Gets whether or not the frame is draggable by the user.</description>
+	<realm>Client and Menu</realm>
+	<file line="5">lua/vgui/dframe.lua</file>
+	<rets>
+		<ret name="" type="boolean">Whether the frame is draggable or not.</ret>
+	</rets>
+</function>

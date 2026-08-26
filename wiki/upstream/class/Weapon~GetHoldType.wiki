@@ -1,0 +1,7 @@
+<function name="GetHoldType" parent="Weapon" type="classfunc">
+	<description>Returns the hold type of the weapon.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="string">The hold type of the weapon. You can find a list of default hold types <page text="here">Hold_Types</page>.</ret>
+	</rets>
+</function>

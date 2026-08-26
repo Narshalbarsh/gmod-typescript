@@ -1,0 +1,10 @@
+<function name="atan" parent="math" type="libraryfunc">
+	<description>Returns the [arctangent](https://en.wikipedia.org/wiki/Inverse_trigonometric_functions) of the given number.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="normal" type="number">Tangent value.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">An angle in radians, in the range -pi/2 to pi/2, which has the given tangent.</ret>
+	</rets>
+</function>

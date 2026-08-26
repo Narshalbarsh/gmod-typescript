@@ -1,0 +1,32 @@
+<function name="Init" parent="PANEL" type="hook">
+	<description>Called when the panel is created. This is called for each base type that the panel has.</description>
+	<realm>Client</realm>
+</function>
+
+<example>
+	<description>Shows how this method is called recursively for each base type a panel has.</description>
+	<code>
+local BASE = {}
+function BASE:Init()
+	print("Base Init Called")
+end
+
+
+local PANEL = {}
+function PANEL:Init()
+	print("Panel Init Called")
+end
+
+
+vgui.Register("MyBase", BASE, "DFrame")
+vgui.Register("MyPanel", PANEL, "MyBase")
+
+local panel = vgui.Create("MyPanel")
+	</code>
+	<output>
+Base Init Called
+
+Panel Init Called
+	</output>
+
+</example>

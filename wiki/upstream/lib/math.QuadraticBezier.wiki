@@ -1,0 +1,44 @@
+<function name="QuadraticBezier" parent="math" type="libraryfunc">
+	<description>Lerp point between 3 control points with quadratic bezier.
+
+See <page>math.CubicBezier</page> for a function which works with 4 control points.
+	</description>
+	<realm>Shared and Menu</realm>
+	<added>2023.08.08</added>
+	<file line="232-L238">lua/includes/extensions/math.lua</file>
+	<args>
+		<arg name="frac" type="number">The fraction for finding the result.</arg>
+		<arg name="p0" type="Vector">First control point</arg>
+		<arg name="p1" type="Vector">Tangent</arg>
+		<arg name="p2" type="Vector">Second control point</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">Point between control points at the specified fraction</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Demonstrates the use of this function.</description>
+	<code>
+local points = {
+	Vector( 128, 128 ),
+	Vector( 384, 128 ),
+	Vector( 384, 384 )
+}
+
+hook.Add( "HUDPaint", "math.QuadraticBezier", function()
+	local frac = RealTime() % 1
+	local point = math.QuadraticBezier( frac, unpack( points ) )
+
+	surface.SetDrawColor( 255, 255, 0 )
+	surface.DrawRect( point.x - 4, point.y - 4, 8, 8 )
+
+	surface.DrawRect( points[1].x - 4, points[1].y - 4, 8, 8 )
+	surface.DrawRect( points[2].x - 4, points[2].y - 4, 8, 8 )
+	surface.DrawRect( points[3].x - 4, points[3].y - 4, 8, 8 )
+end )
+	</code>
+	<output>
+		<image src="ab571/8dc389558600250.gif" alt="Quadratic Bezier demonstration" />
+	</output>
+</example>

@@ -1,0 +1,8 @@
+<function name="InternalCursorMoved" parent="gui" type="libraryfunc">
+	<description>Simulates a mouse move with the given deltas.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="deltaX" type="number">The movement delta on the x axis.</arg>
+		<arg name="deltaY" type="number">The movement delta on the y axis.</arg>
+	</args>
+</function>

@@ -1,0 +1,31 @@
+<function name="PlayerAuthed" parent="GM" type="hook">
+	<description>
+Called after the player gets their <page>Player:UniqueID</page> set for the first time. This hook will also be called in singleplayer.
+
+See <page>GM:NetworkIDValidated</page> for a hook that is called with the player's SteamID is validated by Steam.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ply" type="Player">The player</arg>
+		<arg name="steamid" type="string">The player's SteamID.
+<warning>This will always be an empty string `""` in singleplayer.</warning>
+</arg>
+		<arg name="uniqueid" type="string">The player's UniqueID.
+<warning>This will always be `"1"` in singleplayer.</warning>
+</arg>
+	</args>
+</function>
+
+<example>
+	<code>
+hook.Add( "PlayerAuthed", "JoinNotification", function( ply, steamid, uniqueid )
+    print( ply:Name() .. " has been authenticated as " .. steamid .. "." )
+end )
+	</code>
+	<output>
+```
+Player1 has been authenticated as STEAM_0:1:12345678.
+```
+	</output>
+
+</example>

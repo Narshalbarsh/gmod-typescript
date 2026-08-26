@@ -1,0 +1,9 @@
+<function name="Lock" parent="Player" type="classfunc">
+	<description>
+Stops a player from using any inputs, such as moving, turning, or attacking. Key binds are still called. Similar to <page>Player:Freeze</page> but the player takes no damage.
+
+Adds the <page text="FL_FROZEN">Enums/FL</page> and <page text="FL_GODMODE">Enums/FL</page> flags to the player.
+
+	</description>
+	<realm>Server</realm>
+</function>

@@ -1,0 +1,11 @@
+<function name="GetDark" parent="DLabel" type="panelfunc">
+	<description>
+Returns whether the <page>DLabel</page> should set its text color to the current skin's dark text color.
+
+See <page>DLabel:SetDark</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean"></ret>
+	</rets>
+</function>

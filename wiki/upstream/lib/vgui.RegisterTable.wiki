@@ -1,0 +1,36 @@
+<function name="RegisterTable" parent="vgui" type="libraryfunc">
+	<description>Registers a table to use as a panel, to be used with <page>vgui.CreateFromTable</page>.
+
+All this function does is assigns Base key to your table and returns the table.</description>
+	<realm>Client and Menu</realm>
+    <file line="100-L110">lua/includes/extensions/client/panel/scriptedpanels.lua</file>
+	<args>
+		<arg name="panel" type="table">The <page>PANEL</page> table.</arg>
+		<arg name="base" type="string" default="Panel">A base for the panel.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">The <page>PANEL</page> table</ret>
+	</rets>
+</function>
+
+
+<example>
+<code>
+local CustomPanel = {
+    Init = function( self )
+        self:SetSize( 200, 100 )
+    end,
+
+    Paint = function( self, w, h )
+        surface.SetDrawColor( 0, 255, 0, 255 )
+        surface.DrawRect( 0, 0, w, h)
+    end,
+}
+
+local my_custom_panel = vgui.RegisterTable( CustomPanel, "Panel" ) -- Register the panel class from a table
+
+local panel = vgui.CreateFromTable( my_custom_panel ) -- Create an instance of the panel
+panel:SetPos( 50, 50 )
+</code>
+
+</example>

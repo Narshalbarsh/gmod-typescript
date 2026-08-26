@@ -1,0 +1,9 @@
+<function name="Close" parent="DFrame" type="panelfunc">
+	<description>
+Hides or removes the DFrame, and calls <page>DFrame:OnClose</page>.
+
+To set whether the frame is hidden or removed, use <page>DFrame:SetDeleteOnClose</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="89-L99">lua/vgui/dframe.lua</file>
+</function>

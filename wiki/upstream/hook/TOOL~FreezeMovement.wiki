@@ -1,0 +1,7 @@
+<function name="FreezeMovement" parent="TOOL" type="hook">
+	<description>Called when <page>WEAPON:Think</page> of the toolgun is called, only when the user has this tool selected.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="boolean">Return true to freeze the player</ret>
+	</rets>
+</function>

@@ -1,0 +1,8 @@
+<function name="CleanList" parent="DTree_Node" type="panelfunc">
+	<description>
+Cleans up the internal table of items (sub-nodes) of this node from invalid panels or sub-nodes that were moved from this node to another.
+
+Appears the be completely unused by the game on its own.
+	</description>
+	<realm>Client and Menu</realm>
+</function>

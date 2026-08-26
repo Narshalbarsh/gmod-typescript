@@ -1,0 +1,33 @@
+<function name="CreateParticleSystem" parent="Global" type="libraryfunc">
+	<description>
+Creates a new particle system. See also <page>Entity:CreateParticleEffect</page>, <page>Global.ParticleEffectAttach</page> and <page>Global.CreateParticleSystemNoEntity</page>.
+
+<note>The particle effect must be precached with <page>Global.PrecacheParticleSystem</page> and the file its from must be added via <page>game.AddParticles</page> before it can be used!</note>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="ent" type="Entity">The entity to attach the control point to.</arg>
+		<arg name="effect" type="string">The name of the effect to create. It must be precached via <page>Global.PrecacheParticleSystem</page> beforehand.</arg>
+		<arg name="partAtt" type="number">See <page>Enums/PATTACH</page>.</arg>
+		<arg name="entAtt" type="number" default="0">The attachment ID on the entity to attach the particle system to</arg>
+		<arg name="offset" type="Vector" default="Vector( 0, 0, 0 )">The offset from the <page>Entity:GetPos</page> of the entity we are attaching this CP to.</arg>
+	</args>
+	<rets>
+		<ret name="" type="CNewParticleEffect">The created particle system.</ret>
+	</rets>
+</function>
+
+<example>
+<description>Creates a big explosion effect at the player's feet, and deletes it 0.1 seconds after starting.</description>
+<code>
+PrecacheParticleSystem( "explosion_huge_g" )
+
+concommand.Add( "test_particle", function( ply, cmd, arg )
+
+	local part = CreateParticleSystem( ply, "explosion_huge_g", PATTACH_POINT_FOLLOW )
+	timer.Simple( 0.1, function() part:StopEmission( false, true, false ) end )
+
+end )
+</code>
+
+</example>

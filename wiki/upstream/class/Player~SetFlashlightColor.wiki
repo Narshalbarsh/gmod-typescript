@@ -1,0 +1,24 @@
+<cat>classfunc</cat>
+<function name="SetFlashlightColor" parent="Player" type="classfunc">
+	<description>
+		Sets the color of a player's flashlight. 
+		Can be used on other players.
+	</description>
+	<added>2025.09.25</added>
+	<realm>Client</realm>
+	<args>
+		<arg name="color" type="Color" default="Color(255,255,255)">Flashlight color</arg>
+	</args>
+</function>
+
+<example>
+<description>
+Makes local player's flashlight cycle through all the rainbow colors
+</description>
+<code>
+hook.Add( "Think", "RainbowFlashlight", function()
+	local clr = HSVToColor( ( CurTime() * 20 ) % 360, 1, 1 );
+	LocalPlayer():SetFlashlightColor( clr )
+end )
+</code>
+</example>

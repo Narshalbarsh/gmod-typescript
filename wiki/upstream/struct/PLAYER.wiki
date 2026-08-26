@@ -1,0 +1,24 @@
+<structure>
+	<realm>Shared</realm>
+	<description>This page describes all **default** fields for a <page text="player class">Player_Classes</page>.</description>
+	<fields>
+<item name="DisplayName" type="string">The 'nice' name of the player class for display in User Interface and such.</item>
+<item name="WalkSpeed" type="number" default="400">How fast to move when not running</item>
+<item name="RunSpeed" type="number" default="600">How fast to move when running/sprinting</item>
+<item name="SlowWalkSpeed" type="number" default="200">How fast to move when slow walking, which is activated via the <key>+WALK</key> keybind.</item>
+<item name="CrouchedWalkSpeed" type="number" default="0.3">Multiply walk speed by this when crouching</item>
+<item name="DuckSpeed" type="number" default="0.3">How fast to go from not ducking, to ducking</item>
+<item name="UnDuckSpeed" type="number" default="0.3">How fast to go from ducking, to not ducking</item>
+<item name="JumpPower" type="number" default="200">How powerful a jump should be</item>
+<item name="CanUseFlashlight" type="boolean" default="true">Can the player use the flashlight</item>
+<item name="MaxHealth" type="number" default="100">Max health we can have</item>
+<item name="MaxArmor" type="number" default="0">Max armor the player can have</item>
+<item name="StartHealth" type="number" default="100">How much health we start with</item>
+<item name="StartArmor" type="number" default="0">How much armour we start with</item>
+<item name="DropWeaponOnDie" type="boolean" default="false">Do we drop our weapon when we die</item>
+<item name="TeammateNoCollide" type="boolean" default="true">Do we collide with teammates or run straight through them</item>
+<item name="AvoidPlayers" type="boolean" default="true">Automatically swerves around other players</item>
+<item name="UseVMHands" type="boolean" default="true">Uses viewmodel hands</item>
+	</fields>
+
+</structure>

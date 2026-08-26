@@ -1,0 +1,13 @@
+<function name="Render" parent="killicon" type="libraryfunc">
+	<description>Renders a kill icon.</description>
+	<realm>Client</realm>
+	<added>2023.10.17</added>
+	<file line="196-L200">lua/includes/modules/killicon.lua</file>
+	<args>
+		<arg name="x" type="number">X coordinate of the icon.</arg>
+		<arg name="y" type="number">Y coordinate of the icon.</arg>
+		<arg name="name" type="string">Classname of the kill icon.</arg>
+		<arg name="alpha" type="number" default="255">Alpha/transparency value ( 0 - 255 ) of the icon.</arg>
+		<arg name="dontEqualizeHeight" type="number" default="false">Do not rescale the icon to match the default kill icon font.</arg>
+	</args>
+</function>

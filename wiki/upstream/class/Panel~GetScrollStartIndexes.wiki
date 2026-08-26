@@ -1,0 +1,11 @@
+<function name="GetScrollStartIndexes" parent="Panel" type="classfunc">
+	<description>
+Returns the vertical and horizontal start indexes of a <page>TextEntry</page>'s visible text. This is useful when the panel is scrolled.
+	</description>
+	<added>2023.10.04</added>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="horizontalIndex" type="number">The horizontal start index. (characters)</ret>
+		<ret name="verticalIndex" type="number">The vertical start index. (lines)</ret>
+	</rets>
+</function>

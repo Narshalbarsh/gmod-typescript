@@ -1,0 +1,38 @@
+<function name="SetPoseParameter" parent="Entity" type="classfunc">
+	<description>
+Sets the specified pose parameter to the specified value.
+
+You should call <page>Entity:InvalidateBoneCache</page> after calling this function.
+
+<note>Avoid calling this in draw hooks, especially when animating things, as it might cause visual artifacts.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="poseName" type="string" alttype="number">Name of the pose parameter. <page>Entity:GetPoseParameterName</page> might come in handy here.
+
+Can also be a pose parameter ID.
+</arg>
+		<arg name="poseValue" type="number">The value to set the pose to.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Copies pose parameters from one entity to another. Since <page>Entity:GetPoseParameter</page> returns pose parameter values 0-1 on the client, they have to be remapped to the range returned by <page>Entity:GetPoseParameterRange</page> before being set on the target entity.</description>
+	<code>
+local function CopyPoseParams(pEntityFrom, pEntityTo)
+	if (SERVER) then
+		for i = 0, pEntityFrom:GetNumPoseParameters() - 1 do
+			local sPose = pEntityFrom:GetPoseParameterName(i)
+			pEntityTo:SetPoseParameter(sPose, pEntityFrom:GetPoseParameter(sPose))
+		end
+	else
+		for i = 0, pEntityFrom:GetNumPoseParameters() - 1 do
+			local flMin, flMax = pEntityFrom:GetPoseParameterRange(i)
+			local sPose = pEntityFrom:GetPoseParameterName(i)
+			pEntityTo:SetPoseParameter(sPose, math.Remap(pEntityFrom:GetPoseParameter(sPose), 0, 1, flMin, flMax))
+		end
+	end
+end
+	</code>
+
+</example>

@@ -1,0 +1,151 @@
+<function name="SetEntity" parent="DModelPanel" type="panelfunc">
+	<description>
+Sets the entity to be rendered by the model panel.
+
+<note>If you set `ent` to a shared entity you must set `ent` to nil before removing this panel or else a "Trying to remove server entity on client!" error is thrown</note>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="ent" type="Entity">The new panel entity.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Implementation of a function called **StartBreencast** which makes Dr. Breen recite his instinct speech within a model panel that's displayed to all clients. This mainly demonstrates how even shared entities such as NPCs can be used with <page>DModelPanel</page> as long as they're networked properly.</description>
+	<code>
+g_Breen = nil	-- Breen NPC
+
+if(SERVER) then
+	-- Broadcast propaganda to clients
+	util.AddNetworkString("BreencastSentence")
+end
+
+-- Broadcast Breen to clients each time he starts a new sentence.
+function GM:EntityEmitSound(data)
+
+	if(data.Entity == g_Breen) then
+	
+		local st, en = string.find(data.SoundName, "vo/")
+		local sentence = "sound/"..string.sub(data.SoundName, st)	-- Properly format sound name
+	
+		net.Start("BreencastSentence")
+			net.WriteEntity(data.Entity)
+			net.WriteString(sentence)
+		net.Broadcast()
+		
+	end
+	
+	return nil
+	
+end
+
+if(CLIENT) then
+
+	-- Receive latest breencast sound byte and update screen
+	function BreencastSentence()
+	
+		-- Client-side reference to Breen NPC
+		g_Breen = net.ReadEntity()
+		
+		local soundname = net.ReadString()
+		
+		-- Play sound byte
+		sound.PlayFile(soundname, "", function(sentence, errnum, err)
+		
+			if(err) then
+				Error(err)
+			else
+				sentence:Play()
+				StartBreencast()	-- Update breencast monitor
+			end
+		
+		end)
+	
+	end
+	
+	net.Receive("BreencastSentence", BreencastSentence)
+	
+end
+
+-- Call this server-side to begin Breencast
+function StartBreencast()
+
+	if(SERVER) then
+
+		-- Remove existing Breen NPC
+		if(g_Breen && IsValid(g_Breen)) then
+			g_Breen:Remove()
+		end
+
+		-- Create new Breen NPC
+		g_Breen = ents.Create("npc_breen")
+		g_Breen:Spawn()
+		
+		-- Hide NPC everywhere except inside model panel
+		g_Breen:SetSaveValue("m_takedamage", 0)
+		g_Breen:SetMoveType(MOVETYPE_NONE)
+		g_Breen:SetSolid(SOLID_NONE)
+		g_Breen:SetRenderMode(RENDERMODE_TRANSALPHA)
+		g_Breen:SetColor(Color(255, 255, 255, 0))
+		
+		-- Play propaganda		
+		g_Breen:PlayScene("scenes/breencast/instinct_tv.vcd")
+		g_Breen:SetEyeTarget(Vector(100, 0, 60))
+
+	elseif(CLIENT) then
+
+		-- Remove existing panel and clear model entity to prevent error
+		if(BGPanel) then
+			if(BGPanel:GetChild(0)) then BGPanel:GetChild(0):SetEntity(nil) end
+			BGPanel:Remove()
+			BGPanel = nil			
+		end
+		
+		-- Don't continue if Breen is undefined
+		if(!g_Breen or !IsValid(g_Breen)) then return end
+		
+		-- Black background panel
+		BGPanel = vgui.Create("DPanel")
+		BGPanel:SetPos(20, 20)
+		BGPanel:SetSize(200, 200)
+		BGPanel:SetBackgroundColor(Color(0, 0, 0, 255))
+		
+		-- Model panel
+		local mdl = vgui.Create("DModelPanel", BGPanel)
+		mdl:SetSize(BGPanel:GetSize())
+		mdl:SetFOV(40)	-- Default FOV is too jarring
+		
+		mdl:SetEntity(g_Breen)	-- Add Breen NPC to model panel
+		
+		-- Focus camera on Breen's head
+		function mdl:LayoutEntity(ent)
+		
+			-- If Breen has been removed somehow then remove screen
+			if(!IsValid(ent)) then
+				if(mdl:GetParent()) then mdl:GetParent():Remove() end
+				return
+			end
+		
+			local eyepos = ent:GetBonePosition(ent:LookupBone("ValveBiped.Bip01_Head1"))
+		
+			mdl:SetLookAt(eyepos)
+			mdl:SetCamPos(eyepos+Vector(35, 0, -4))
+			
+			return
+			
+		end
+		
+	end
+	
+end
+	</code>
+	<output>
+"I find it helpful at times like these to remind myself that our true enemy is: Instinct."
+
+
+
+
+<image src="Breencast_example.jpg"/>
+	</output>
+
+</example>

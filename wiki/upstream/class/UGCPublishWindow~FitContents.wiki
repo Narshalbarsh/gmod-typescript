@@ -1,0 +1,4 @@
+<function name="FitContents" parent="UGCPublishWindow" type="panelfunc">
+	<description>Rezises the panel to nicely fit all children</description>
+	<realm>Menu</realm>
+</function>

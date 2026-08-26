@@ -1,0 +1,4 @@
+<function name="ResetAge" parent="PathFollower" type="classfunc">
+	<description>Resets the age which is retrieved by <page>PathFollower:GetAge</page> to 0.</description>
+	<realm>Server</realm>
+</function>

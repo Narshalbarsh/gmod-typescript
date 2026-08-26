@@ -1,0 +1,19 @@
+<function name="GetVehicleClass" parent="Vehicle" type="classfunc">
+	<description>Returns the vehicle class name. This is only useful for Sandbox spawned vehicles or any vehicle that properly sets the vehicle class with <page>Vehicle:SetVehicleClass</page>.</description>
+	<realm>Shared</realm>
+	<file line="684-L688">lua/includes/extensions/entity.lua</file>
+	<rets>
+		<ret name="" type="string">The class name of the vehicle.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints the spawn menu name of the vehicle the player is currently in.</description>
+	<code>
+local c = Entity(1):GetVehicle():GetVehicleClass()
+if ( !list.Get( "Vehicles" )[ c ] ) then return end
+local t = list.Get( "Vehicles" )[ c ]
+print( t.Name )
+	</code>
+
+</example>

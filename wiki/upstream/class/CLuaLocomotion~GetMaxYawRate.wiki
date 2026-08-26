@@ -1,0 +1,7 @@
+<function name="GetMaxYawRate" parent="CLuaLocomotion" type="classfunc">
+	<description>Returns the max rate at which the NextBot can visually rotate.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">Maximum yaw rate</ret>
+	</rets>
+</function>

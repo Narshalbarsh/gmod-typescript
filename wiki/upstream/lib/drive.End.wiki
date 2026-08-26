@@ -1,0 +1,9 @@
+<function name="End" parent="drive" type="libraryfunc">
+	<description>Player has stopped driving the entity.</description>
+	<realm>Shared</realm>
+	<file line="214-L240">lua/includes/modules/drive.lua</file>
+	<args>
+		<arg name="ply" type="Player">The player.</arg>
+		<arg name="ent" type="Entity">The entity.</arg>
+	</args>
+</function>

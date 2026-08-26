@@ -1,0 +1,7 @@
+<function name="OnChangeAddressBar" parent="HTML" type="panelhook">
+	<description>Called when this panel's address changes.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="url" type="string">The URL of the new page.</arg>
+	</args>
+</function>

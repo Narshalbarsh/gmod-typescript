@@ -1,0 +1,14 @@
+<function name="SetUnderlineFont" parent="Panel" type="classfunc">
+	<description>Sets the underlined font for use by clickable text in a <page>RichText</page>. See also <page>Panel:InsertClickableTextStart</page>
+
+This function will only work on <page>RichText</page> panels.
+	</description>
+	<realm>Client and Menu</realm>
+	<added>2020.03.17</added>
+	<args>
+		<arg name="fontName" type="string">The name of the font.
+
+See <page text="here">Default_Fonts</page> for a list of existing fonts.
+Alternatively, use <page>surface.CreateFont</page> to create your own custom font.</arg>
+	</args>
+</function>

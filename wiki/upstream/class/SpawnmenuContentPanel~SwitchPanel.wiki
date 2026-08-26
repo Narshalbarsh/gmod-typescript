@@ -1,0 +1,10 @@
+<function name="SwitchPanel" parent="SpawnmenuContentPanel" type="panelfunc">
+	<description>
+Switches the current panel with the given panel
+	</description>
+	<args>
+		<arg name="panel" type="Panel">Panel to switch to</arg>
+	</args>
+	<realm>Client</realm>
+	<file line="58-L75">gamemodes/sandbox/gamemode/spawnmenu/creationmenu/content/content.lua</file>
+</function>

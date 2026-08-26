@@ -1,0 +1,10 @@
+<function name="exp" parent="math" type="libraryfunc">
+	<description>Returns e to the power of the input.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="exponent" type="number">The exponent for the function.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">e to the specified power</ret>
+	</rets>
+</function>

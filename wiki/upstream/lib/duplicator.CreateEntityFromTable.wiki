@@ -1,0 +1,23 @@
+<function name="CreateEntityFromTable" parent="duplicator" type="libraryfunc">
+	<description>
+"Create an entity from a table." 
+
+
+This creates an entity using the data in EntTable.
+
+
+If an entity factory has been registered for the entity's Class, it will be called. 
+
+
+Otherwise, <page>duplicator.GenericDuplicatorFunction</page> will be called instead.
+	</description>
+	<realm>Server</realm>
+	<file line="664-L716">lua/includes/modules/duplicator.lua</file>
+	<args>
+		<arg name="ply" type="Player">The player who wants to create something.</arg>
+		<arg name="entTable" type="table">The duplication data to build the entity with. See <page>Structures/EntityCopyData</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Entity">The newly created entity.</ret>
+	</rets>
+</function>

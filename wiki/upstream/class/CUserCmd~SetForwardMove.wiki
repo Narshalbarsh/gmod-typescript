@@ -1,0 +1,11 @@
+<function name="SetForwardMove" parent="CUserCmd" type="classfunc">
+	<description>
+Sets speed the client wishes to move forward with, negative if the clients wants to move backwards.
+
+See also <page>CUserCmd:ClearMovement</page>, <page>CUserCmd:SetSideMove</page> and <page>CUserCmd:SetUpMove</page>.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="speed" type="number">The new speed to request. The client will not be able to move faster than their set walk/sprint speed.</arg>
+	</args>
+</function>

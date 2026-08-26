@@ -1,0 +1,4 @@
+<function name="StartTouch" parent="EFFECT" type="hook">
+	<description>Effect alternative to <page>ENTITY:StartTouch</page>.</description>
+	<realm>Client</realm>
+</function>

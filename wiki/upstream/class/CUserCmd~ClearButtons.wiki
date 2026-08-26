@@ -1,0 +1,8 @@
+<function name="ClearButtons" parent="CUserCmd" type="classfunc">
+	<description>
+Removes all keys from the command.
+
+<note>If you are looking to affect player movement, you may need to use <page>CUserCmd:ClearMovement</page> instead of clearing the buttons.</note>
+	</description>
+	<realm>Shared</realm>
+</function>

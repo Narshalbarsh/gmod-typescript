@@ -1,0 +1,8 @@
+<function name="OnRightClickButton" parent="DColorPalette" type="panelfunc">
+	<description>Called when a palette button has been pressed. For Override</description>
+	<realm>Client and Menu</realm>
+	<file line="232-L234">lua/vgui/dcolorpalette.lua</file>
+	<args>
+		<arg name="pnl" type="Panel">The <page>DColorButton</page> that was pressed.</arg>
+	</args>
+</function>

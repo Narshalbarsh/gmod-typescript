@@ -1,0 +1,4 @@
+<function name="ClearGoal" parent="NPC" type="classfunc">
+	<description>Clears the current NPC goal or target.</description>
+	<realm>Server</realm>
+</function>

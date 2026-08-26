@@ -1,0 +1,4 @@
+<function name="EndOrthoView" parent="cam" type="libraryfunc">
+	<description>Switches the renderer back to the previous drawing mode from a 3D orthographic rendering context.</description>
+	<realm>Client</realm>
+</function>

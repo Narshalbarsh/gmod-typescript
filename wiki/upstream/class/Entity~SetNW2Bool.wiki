@@ -1,0 +1,18 @@
+<function name="SetNW2Bool" parent="Entity" type="classfunc">
+	<description>
+Sets a networked boolean value on the entity.
+
+The value can then be accessed with <page>Entity:GetNW2Bool</page> both from client and server.
+<bug issue="5455">You should not use the NW2 System on entities that are based on a Lua Entity or else NW2Vars could get mixed up, updated multiple times or not be set.</bug>
+<warning>The value will only be updated clientside if the entity is or enters the clients PVS. use <page>Entity:SetNWBool</page> instead</warning>
+
+<note>Running this function clientside will only set it for the client it is called on.  
+The value will only be networked if it isn't the same as the current value and unlike SetNW*
+the value will only be networked once and not every 10 seconds.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="key" type="string">The key to associate the value with</arg>
+		<arg name="value" type="boolean">The value to set</arg>
+	</args>
+</function>

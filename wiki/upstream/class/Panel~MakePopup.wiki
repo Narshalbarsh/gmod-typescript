@@ -1,0 +1,12 @@
+<function name="MakePopup" parent="Panel" type="classfunc">
+	<description>
+Focuses the panel and enables it to receive input.
+
+This automatically calls <page>Panel:SetMouseInputEnabled</page> and <page text="Panel:SetKeyboardInputEnabled">Panel:SetKeyboardInputEnabled(lowercase)</page> and sets them to `true`.
+
+<note>Panels derived from <page>Panel</page> will not work properly with this function. Due to this, any children will not be intractable with keyboard. Derive from <page>EditablePanel</page> instead.
+
+For non gui related mouse focus, you can use <page>gui.EnableScreenClicker</page>.</note>
+	</description>
+	<realm>Client and Menu</realm>
+</function>

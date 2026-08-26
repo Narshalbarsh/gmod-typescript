@@ -1,0 +1,4 @@
+<function name="MenuStart" parent="GM" type="hook">
+	<description>Called when `menu.lua` has finished loading.</description>
+	<realm>Menu</realm>
+</function>

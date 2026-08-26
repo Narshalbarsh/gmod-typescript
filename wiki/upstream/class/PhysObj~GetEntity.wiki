@@ -1,0 +1,7 @@
+<function name="GetEntity" parent="PhysObj" type="classfunc">
+	<description>Returns the parent entity of the physics object.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Entity">The entity this physics object belongs to</ret>
+	</rets>
+</function>

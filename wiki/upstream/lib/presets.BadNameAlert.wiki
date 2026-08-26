@@ -1,0 +1,9 @@
+<function name="BadNameAlert" parent="presets" type="libraryfunc">
+	<description>
+<internal></internal>
+
+Used internally to tell the player that the name they tried to use in their preset is not acceptable.
+	</description>
+	<realm>Client</realm>
+	<file line="81-L85">lua/includes/modules/presets.lua</file>
+</function>

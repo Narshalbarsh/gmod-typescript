@@ -1,0 +1,58 @@
+<function name="GetSaveTable" parent="Entity" type="classfunc">
+	<description>
+Returns a table of save values for an entity.
+
+These tables are not the same between the client and the server, and different entities may have different fields.
+
+<note>It is highly recommended to use <page>Entity:GetInternalVariable</page> for retrieving a single key of the save table for performance reasons.</note>
+
+You can get the list different fields an entity has by looking at it's source code (the 2013 SDK can be found [online](https://github.com/ValveSoftware/source-sdk-2013)). Accessible fields are defined by each `DEFINE_FIELD` and `DEFINE_KEYFIELD` inside the `DATADESC` block.
+
+Take the headcrab, for example:
+
+```
+BEGIN_DATADESC( CBaseHeadcrab )
+	// m_nGibCount - don't save
+	DEFINE_FIELD( m_bHidden, FIELD_BOOLEAN ),
+	DEFINE_FIELD( m_flTimeDrown, FIELD_TIME ),
+	DEFINE_FIELD( m_bCommittedToJump, FIELD_BOOLEAN ),
+	DEFINE_FIELD( m_vecCommittedJumpPos, FIELD_POSITION_VECTOR ),
+	DEFINE_FIELD( m_flNextNPCThink, FIELD_TIME ),
+	DEFINE_FIELD( m_flIgnoreWorldCollisionTime, FIELD_TIME ),
+	
+	DEFINE_KEYFIELD( m_bStartBurrowed, FIELD_BOOLEAN, "startburrowed" ),
+	DEFINE_FIELD( m_bBurrowed, FIELD_BOOLEAN ),
+	DEFINE_FIELD( m_flBurrowTime, FIELD_TIME ),
+	DEFINE_FIELD( m_nContext, FIELD_INTEGER ),
+	DEFINE_FIELD( m_bCrawlFromCanister, FIELD_BOOLEAN ),
+	DEFINE_FIELD( m_bMidJump, FIELD_BOOLEAN ),
+	DEFINE_FIELD( m_nJumpFromCanisterDir, FIELD_INTEGER ),
+	DEFINE_FIELD( m_bHangingFromCeiling, FIELD_BOOLEAN ),
+	DEFINE_FIELD( m_flIlluminatedTime, FIELD_TIME ),
+		
+	DEFINE_INPUTFUNC( FIELD_VOID, "Burrow", InputBurrow ),
+	DEFINE_INPUTFUNC( FIELD_VOID, "BurrowImmediate", InputBurrowImmediate ),
+	DEFINE_INPUTFUNC( FIELD_VOID, "Unburrow", InputUnburrow ),
+	DEFINE_INPUTFUNC( FIELD_VOID, "StartHangingFromCeiling", InputStartHangingFromCeiling ),
+	DEFINE_INPUTFUNC( FIELD_VOID, "DropFromCeiling", InputDropFromCeiling ),
+	
+	// Function Pointers
+	DEFINE_THINKFUNC( EliminateRollAndPitch ),
+	DEFINE_THINKFUNC( ThrowThink ),
+	DEFINE_ENTITYFUNC( LeapTouch ),
+END_DATADESC()
+```
+
+* For each **DEFINE_FIELD**, the save table will have a key with name of **first** argument.
+* For each **DEFINE_KEYFIELD**, the save table will have a key with name of the **third** argument.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="showAll" type="boolean" default="false">If set, shows all variables, not just the ones marked for save/load system.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">A table containing all save values in key/value format.
+
+The value may be a sequential table (starting with **1**) if the field in question is an array in engine.</ret>
+	</rets>
+</function>

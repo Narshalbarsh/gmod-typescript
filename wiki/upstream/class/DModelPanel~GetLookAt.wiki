@@ -1,0 +1,25 @@
+<function name="GetLookAt" parent="DModelPanel" type="panelfunc">
+	<description>Returns the position the viewing camera is pointing toward.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="Vector">The position the camera is pointing toward.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints out the default camera look-at position.</description>
+	<code>
+local mdl = vgui.Create("DModelPanel")
+mdl:SetPos(20, 20)
+mdl:SetSize(200, 200)
+mdl:SetModel("models/props_junk/watermelon01.mdl")
+
+print(mdl:GetLookAt())
+	</code>
+	<output>
+```
+0.000000 0.000000 40.000000
+```
+</output>
+
+</example>

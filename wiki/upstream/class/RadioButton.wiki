@@ -1,0 +1,24 @@
+<panel>
+	<parent>Panel</parent>
+	<realm>Client</realm>
+	<description>
+		<internal></internal>
+		<deprecated></deprecated>
+		Currently there are no functions to retrieve checked state of a Radio Button, and their visuals are seemingly broken.
+	</description>
+</panel>
+
+<example>
+	<code>
+local window = vgui.Create( "DFrame" )
+window:SetSize( 600, 400 )
+window:Center()
+window:MakePopup()
+
+for _, v in ipairs( { "test1", "test2", "test3" } ) do
+	local rb = window:Add( "RadioButton" )
+	rb:Dock( TOP )
+	rb:SetText( v )
+end
+	</code>
+</example>

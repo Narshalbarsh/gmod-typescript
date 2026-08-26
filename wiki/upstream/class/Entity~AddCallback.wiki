@@ -1,0 +1,49 @@
+<function name="AddCallback" parent="Entity" type="classfunc">
+	<description>
+Add a callback function to a specific event. This is used instead of hooks to avoid calling empty functions unnecessarily.
+
+This also allows you to use certain hooks in engine entities (non-scripted entities).
+
+<warning>This method does not check if the function has already been added to this object before, so if you add the same callback twice, it will be run twice! Make sure to add your callback only once.</warning>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="hook" type="string">The hook name to hook onto. See <page>Entity Callbacks</page></arg>
+		<arg name="func" type="function">The function to call. It's arguments and return values will depend on the hook specified in the first argument.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The callback ID that was just added, which can later be used in <page>Entity:RemoveCallback</page>.
+
+Returns nothing if the passed callback function was invalid or when asking for a non-existent hook.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Adds a callback to an entity which is called every time the entity angles change.</description>
+	<code>
+myentity:AddCallback( "OnAngleChange", function( entity, newangle )
+	-- Do stuff
+end )
+	</code>
+
+</example>
+
+
+<example>
+	<description>Creates watermelon prop which creates sparks on collision point whenever touches something.</description>
+	<code>
+local melon = ents.Create( "prop_physics" ) -- Spawn prop
+if ( !IsValid( melon ) ) then return end -- Safety first
+melon:SetModel( "models/props_junk/watermelon01.mdl" ) -- Set watermelon model
+melon:SetPos( Entity(1):GetEyeTrace().HitPos ) -- Set pos where is player looking
+melon:Spawn() -- Instantiate prop
+
+local function PhysCallback( ent, data ) -- Function that will be called whenever collision happends
+	local effect = EffectData() -- Create effect data
+	effect:SetOrigin( data.HitPos ) -- Set origin where collision point is
+	util.Effect( "cball_bounce", effect ) -- Spawn small sparky effect
+end
+melon:AddCallback( "PhysicsCollide", PhysCallback ) -- Add Callback
+	</code>
+
+</example>

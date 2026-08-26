@@ -1,0 +1,5 @@
+<function name="GetList" parent="cleanup" type="libraryfunc">
+	<description>Gets the cleanup list.</description>
+	<realm>Server</realm>
+	<file line="40-L42">lua/includes/modules/cleanup.lua</file>
+</function>

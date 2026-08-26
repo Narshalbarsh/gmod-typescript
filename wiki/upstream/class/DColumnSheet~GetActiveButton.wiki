@@ -1,0 +1,8 @@
+<function name="GetActiveButton" parent="DColumnSheet" type="panelfunc">
+	<description>An <page>Global.AccessorFunc</page> that returns the active button of this <page>DColumnSheet</page>.</description>
+	<realm>Client and Menu</realm>
+	<file line="4">lua/vgui/dcolumnsheet.lua</file>
+	<rets>
+		<ret name="" type="Panel">The active button</ret>
+	</rets>
+</function>

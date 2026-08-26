@@ -1,0 +1,12 @@
+<function name="RunTask" parent="ENTITY" type="hook">
+	<description>
+Called every think on running task.
+The actual task function should tell us when the task is finished.
+<note>This is a helper function only available if your SENT is based on `base_ai`</note>
+	</description>
+	<realm>Server</realm>
+	<file line="138">gamemodes/base/entities/entities/base_ai/schedules.lua</file>
+	<args>
+		<arg name="task" type="table">The task to run</arg>
+	</args>
+</function>

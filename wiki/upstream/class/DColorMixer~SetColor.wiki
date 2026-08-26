@@ -1,0 +1,8 @@
+<function name="SetColor" parent="DColorMixer" type="panelfunc">
+	<description>An <page>Global.AccessorFunc</page> that sets the color of the <page>DColorMixer</page>. See also <page>DColorMixer:GetColor</page></description>
+	<realm>Client and Menu</realm>
+	<file line="13">lua/vgui/dcolormixer.lua</file>
+	<args>
+		<arg name="color" type="Color">The color to set. See <page>Global.Color</page></arg>
+	</args>
+</function>

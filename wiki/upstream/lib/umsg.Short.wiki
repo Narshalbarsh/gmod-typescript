@@ -1,0 +1,10 @@
+<function name="Short" parent="umsg" type="libraryfunc">
+	<description>
+<deprecated>You should be using the <page>net</page> instead</deprecated>
+
+Writes a signed short (16 bit) to the usermessage.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="short" type="number">The short to be sent.</arg>
+	</args>
+</function>

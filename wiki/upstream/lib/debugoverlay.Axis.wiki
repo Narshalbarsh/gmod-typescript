@@ -1,0 +1,45 @@
+<function name="Axis" parent="debugoverlay" type="libraryfunc">
+	<description>
+		Displays an axis indicator at the specified position, with 3 lines pointing in the positive direction (i.e. direction in which the values increase) of each axis.
+
+		<note>This function will silently fail if the `developer` <page>ConVar</page> is set to `0`.  
+		It is not networked to clients, except for the <page text="listen server host">Player:IsListenServerHost</page>.  
+		It will not work when the game is paused.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="origin" type="Vector">Position origin.</arg>
+		<arg name="ang" type="Angle">Angle of the axis.</arg>
+		<arg name="size" type="number">Size of the axis.</arg>
+		<arg name="lifetime" type="number" default="1">Number of seconds to appear.</arg>
+		<arg name="ignoreZ" type="boolean" default="false">If true, will draw on top of everything; ignoring the Z buffer.</arg>
+	</args>
+</function>
+
+<example>
+	<description>
+Render the axis at the map origin, unrotated (`Angle(0, 0, 0)`).
+
+Note that the green line is pointing to the left, despite there not being an **Angle:Left** function. It operates per the [right hand rule](https://developer.valvesoftware.com/wiki/Coordinates).
+
+The colors represent the direction it is pointing to:
+* **Red:** Points to `ang:Forward()`, positive X
+* **Green:** Points to `-ang:Right()`, "left" or "negative right", positive Y
+* **Blue:** Points to `ang:Up()`, positive Z
+	</description>
+	<code>
+local pos = Vector(0, 0, 0)
+local ang = Angle(0, 0, 0)
+local len = 30
+local lifetime = 5
+local size = 10
+
+debugoverlay.Axis(pos, ang, size, lifetime, true)
+debugoverlay.Cross(pos + ang:Forward() * len, size, lifetime, Color(255, 0, 0), true) -- Red
+debugoverlay.Cross(pos - ang:Right()   * len, size, lifetime, Color(0, 255, 0), true) -- Green
+debugoverlay.Cross(pos + ang:Up()      * len, size, lifetime, Color(0, 0, 255), true) -- Blue
+	</code>
+	<output>
+	<upload src="70c/8de8e92ed4a599f.png" size="391835" name="image.png" />
+	</output>
+</example>

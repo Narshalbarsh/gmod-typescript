@@ -1,0 +1,8 @@
+<function name="OnLeaveGround" parent="NEXTBOT" type="hook">
+	<description>Called when the bot's feet leave the ground - for whatever reason.</description>
+	<realm>Server</realm>
+	<file line="82">gamemodes/base/entities/entities/base_nextbot/sv_nextbot.lua</file>
+	<args>
+		<arg name="ent" type="Entity">The entity the bot "jumped" from.</arg>
+	</args>
+</function>

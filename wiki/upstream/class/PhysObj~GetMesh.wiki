@@ -1,0 +1,7 @@
+<function name="GetMesh" parent="PhysObj" type="classfunc">
+	<description>Returns the physics mesh of the object which is used for physobj-on-physobj collision.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="table">Table of <page>Structures/MeshVertex</page>s where each three vertices represent a triangle. Returns nil if the physics object is a sphere.</ret>
+	</rets>
+</function>

@@ -1,0 +1,23 @@
+<function name="Finish" parent="undo" type="libraryfunc">
+	<description>Completes an undo entry, and registers it with the player's client</description>
+	<realm>Server</realm>
+        <file line="329-L363">lua/includes/modules/undo.lua</file>
+        <args>
+		<arg name="NiceText" type="string" default="nil">Text that appears in the player's undo history. If unset, is set to undo's name.</arg>
+	</args>
+</function>
+
+<example>
+	<description>This example creates a prop_physics, and adds it to the players undo list.</description>
+	<code>
+local prop = ents.Create( "prop_physics" )
+prop:SetModel( "models/props_junk/wood_crate001a.mdl" )
+prop:Spawn()
+
+undo.Create( "prop" )
+	undo.AddEntity( prop )
+	undo.SetPlayer( Player )
+undo.Finish( "Prop (" .. prop:GetModel() .. ")" )
+	</code>
+
+</example>

@@ -1,0 +1,17 @@
+<function name="GetViewModel" parent="Player" type="classfunc">
+	<description>
+Returns the player's view model entity by the index.
+Each player has 3 view models by default, but only the first one is used.
+
+To use the other viewmodels in your SWEP, see <page>Entity:SetWeaponModel</page>.
+
+<note>In the Client <page text="realm">States</page>, other players' viewmodels are not available unless they are being spectated.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="index" type="number" default="0">optional index of the view model to return, can range from 0 to 2</arg>
+	</args>
+	<rets>
+		<ret name="" type="Entity">The view model entity</ret>
+	</rets>
+</function>

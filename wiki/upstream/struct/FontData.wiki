@@ -1,0 +1,37 @@
+<structure>
+	<realm>Client and Menu</realm>
+	<description>Used for <page>surface.CreateFont</page>.</description>
+	<fields>
+<item name="font" type="string" default="Arial">The font source. Custom font files are stored in `resource/fonts/`.
+
+The length is limited to 31 characters maximum.
+
+<warning>This must be the actual 'nice' font, not a file name. Unless the client is running Linux or macOS. (<page>Finding the Font Name</page>)
+
+This also cannot be an already registered font, i.e. you cannot base your font from any of the <page text="Default Fonts">Default_Fonts</page></warning></item>
+<item name="extended" type="boolean" default="false">Allow the font to display glyphs that are outside of the Latin-1 range. Unicode code points above 0xFFFF are not supported.
+    <note>This currently has no effect on Linux, the value is capped at just 0xFF on the Linux client</note>
+</item>
+<item name="size" type="number" default="13">The font height in pixels
+
+`Range:` 4 - 255</item>
+<item name="weight" type="number" default="500">The font boldness</item>
+<item name="blursize" type="number" default="0">The strength of the font blurring
+
+`Range:` 0 - 80</item>
+<item name="scanlines" type="number" default="0">The "scanline" interval
+Must be &gt; 1 to work. This setting is per blursize per font - so if you create a font using "Arial" without scanlines, you cannot create an Arial font using scanlines with the same blursize</item>
+<item name="antialias" type="boolean" default="true">Smooth the font</item>
+<item name="underline" type="boolean" default="false">Add an underline to the font</item>
+<item name="italic" type="boolean" default="false">Make the font italic</item>
+<item name="strikeout" type="boolean" default="false">Add a strike through</item>
+<item name="symbol" type="boolean" default="false">Enables the use of symbolic fonts such as Webdings</item>
+<item name="rotary" type="boolean" default="false">Seems to add a line in the middle of each letter</item>
+<item name="shadow" type="boolean" default="false">Add shadow casting to the font</item>
+<item name="additive" type="boolean" default="false">Additive rendering</item>
+<item name="outline" type="boolean" default="false">Add a black outline to the font.
+
+This does not work well with antialias, and only allows black 1-pixel outlines. It may be preferable to not use this parameter, and instead use <page>draw.SimpleTextOutlined</page> when drawing text that you want outlined.</item>
+	</fields>
+
+</structure>

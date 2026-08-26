@@ -1,0 +1,10 @@
+<function name="DoingEngineSchedule" parent="ENTITY" type="hook">
+	<description>Called by the default `base_ai` SNPC, checking whether `ENT.bDoingEngineSchedule` is set by <page>ENTITY:StartEngineSchedule</page>.. 
+<note>This is a helper function only available if your SENT is based on `base_ai`</note>
+</description>
+	<realm>Server</realm>
+	<file line="193">gamemodes/base/entities/entities/base_ai/schedules.lua</file>
+<rets>
+		<ret name="ENT.bDoingEngineSchedule" type="boolean"></ret>
+	</rets>
+</function>

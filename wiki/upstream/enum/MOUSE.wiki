@@ -1,0 +1,34 @@
+<enum>
+	<realm>Shared and Menu</realm>
+	<description>
+Enumerations used by:
+* <page>input.IsMouseDown</page>
+* <page>input.WasMousePressed</page>
+* <page>input.WasMouseDoublePressed</page>
+
+It's also part of the <page>Enums/BUTTON_CODE</page>.
+# Catch mouse wheel
+You can catch the mouse wheel's value by:
+```
+local testVal = 0
+hook.Add("InputMouseApply", "testMouseWheel", function(cmd, x, y, ang)
+    testVal = testVal + cmd:GetMouseWheel() * 2 --any scale number you want to use
+    print(testVal)
+end)
+```
+	</description>
+	<items>
+<item key="MOUSE_FIRST" value="107">First mouse button</item>
+<item key="MOUSE_LEFT" value="107">Left mouse button</item>
+<item key="MOUSE_RIGHT" value="108">Right mouse button</item>
+<item key="MOUSE_MIDDLE" value="109">Middle mouse button, aka the wheel press</item>
+<item key="MOUSE_4" value="110">Mouse 4 button ( Sometimes, mouse wheel tilt left )</item>
+<item key="MOUSE_5" value="111">Mouse 5 button ( Sometimes, mouse wheel tilt right )</item>
+<item key="MOUSE_WHEEL_UP" value="112">Mouse wheel scroll up</item>
+<item key="MOUSE_WHEEL_DOWN" value="113">Mouse wheel scroll down</item>
+<item key="MOUSE_LAST" value="113">Last mouse button</item>
+<item key="MOUSE_COUNT" value="7">Mouse button count</item>
+	</items>
+	<fieldsonly></fieldsonly>
+
+</enum>

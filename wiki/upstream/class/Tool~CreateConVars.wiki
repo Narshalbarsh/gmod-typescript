@@ -1,0 +1,9 @@
+<function name="CreateConVars" parent="Tool" type="classfunc">
+	<description>
+<internal>This is called automatically for all tools.</internal>
+
+Creates clientside ConVars based on the ClientConVar table specified in the tool structure. Also creates the 'toolmode_allow_X' ConVar.
+	</description>
+	<realm>Shared</realm>
+	<file line="33">gamemodes/sandbox/entities/weapons/gmod_tool/stool.lua</file>
+</function>

@@ -1,0 +1,11 @@
+<function name="ReadVector" parent="net" type="libraryfunc">
+	<description>
+Reads a vector from the received net message. Vectors sent by this function are **compressed**, which may result in precision loss. See <page>net.WriteVector</page> for more information.
+
+<warning>You **must** read information in same order as you write it.</warning>
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Vector">The read vector, or `Vector( 0, 0, 0 )` if no vector could be read.</ret>
+	</rets>
+</function>

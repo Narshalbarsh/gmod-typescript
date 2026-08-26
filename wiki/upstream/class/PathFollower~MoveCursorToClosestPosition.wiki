@@ -1,0 +1,18 @@
+<function name="MoveCursorToClosestPosition" parent="PathFollower" type="classfunc">
+	<description>Moves the cursor of the path to the closest position compared to given vector.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="pos" type="Vector"></arg>
+		<arg name="type" type="number" default="0">Seek type
+
+
+0 = SEEK_ENTIRE_PATH - Search the entire path length
+
+
+1 = SEEK_AHEAD - Search from current cursor position forward toward end of path
+
+
+2 = SEEK_BEHIND - Search from current cursor position backward toward path start</arg>
+		<arg name="alongLimit" type="number" default="0"></arg>
+	</args>
+</function>

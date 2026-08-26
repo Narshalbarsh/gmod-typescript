@@ -1,0 +1,13 @@
+<function name="GetFont" parent="Panel" type="classfunc">
+	<description>
+Returns the name of the font that the panel renders its text with.
+
+This is the same font name set with <page>Panel:SetFontInternal</page>.
+
+<note>Only works on <page>Label</page> and <page>TextEntry</page> and their derived panels by default (such as <page>DLabel</page> and <page>DTextEntry</page>), and on any panel that manually implemented the <page>Panel:GetFont</page> method.</note>
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="string">The font name.</ret>
+	</rets>
+</function>

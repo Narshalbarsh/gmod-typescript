@@ -1,0 +1,21 @@
+<function name="SetPan" parent="IGModAudioChannel" type="classfunc">
+	<description>Sets the relative volume of the left and right channels.
+	</description>
+	<realm>Client</realm>
+	<added>2020.04.29</added>
+	<args>
+		<arg name="pan" type="number">Relative volume between the left and right channels. `-1` means only in left channel, `0` is center (default) and `1` is only in the right channel. Fractional values are supported.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Plays the a Half-Life 1 sound track in the left channel.</description>
+	<code>
+sound.PlayFile( "sound/music/hl1_song20.mp3", "", function( channel )
+	if ( IsValid( channel ) ) then
+		channel:Play()
+		channel:SetPan( -1 )
+	end
+end )
+	</code>
+</example>

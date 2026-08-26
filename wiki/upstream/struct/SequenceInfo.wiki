@@ -1,0 +1,26 @@
+<structure>
+	<realm>Shared</realm>
+	<description>Used by <page>Entity:GetSequenceInfo</page>.</description>
+	<fields>
+<item name="label" type="string">Name of the sequence.</item>
+<item name="activityname" type="string">Name of the activity this sequence is attached to.</item>
+<item name="activity" type="number{ACT}">The activity ID associated with this sequence. See <page>Enums/ACT</page>.</item>
+<item name="actweight" type="number">How likely this sequence is to be picked when playing an activity its attached to. -1 means this is the only sequence for that activity. (needs validation)</item>
+<item name="flags" type="number">The looping and other flags of this sequence, see [flags here](https://github.com/ValveSoftware/source-sdk-2013/blob/master/src/public/studio.h#L3078).</item>
+<item name="numevents" type="number">Number of animation events this sequence has.</item>
+<item name="numblends" type="number"></item>
+<item name="bbmin" type="Vector">Mins part of the bounding box for this sequence</item>
+<item name="bbmax" type="Vector">Maxs part of the bounding box for this sequence</item>
+<item name="fadeintime" type="number">ideal cross fade in time (0.2 default)</item>
+<item name="fadeouttime" type="number">ideal cross fade out time (0.2 default)</item>
+<item name="localentrynode" type="number">transition node at entry</item>
+<item name="localexitnode" type="number">transition node at exit</item>
+<item name="nodeflags" type="number">Transition rules</item>
+<item name="lastframe" type="number">Frame that should generate EndOFSequence</item>
+<item name="nextseq" type="number">If non 0, the next sequence for auto advancing sequences</item>
+<item name="pose" type="number"></item>
+<item name="cycleposeindex" type="number">If non 0, index of pose parameter to be used as cycle index. This means that the sequence playback will be controlled by a pose parameter.</item>
+<item name="anims" type="table<number>">A 1-based array of all animationIDs associated with this sequence. For use with <page>Entity:GetAnimInfo</page>.</item>
+	</fields>
+
+</structure>

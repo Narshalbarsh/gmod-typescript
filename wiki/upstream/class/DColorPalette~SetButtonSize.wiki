@@ -1,0 +1,15 @@
+<function name="SetButtonSize" parent="DColorPalette" type="panelfunc">
+	<description>
+Sets the size of each palette button.
+
+This is best kept to such a number, where this equation would return a whole number:<br/>
+`WidthOfColorPalette / ButtonSize= WholeNumber`
+
+If not, there will be ugly whitespace on the right side of the panel.
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="181-L191">lua/vgui/dcolorpalette.lua</file>
+	<args>
+		<arg name="size" type="number">Sets the new size</arg>
+	</args>
+</function>

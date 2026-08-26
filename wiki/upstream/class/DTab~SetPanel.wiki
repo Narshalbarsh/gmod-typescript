@@ -1,0 +1,7 @@
+<function name="SetPanel" parent="DTab" type="panelfunc">
+	<description><internal></internal> Used internally by <page>DTab:Setup</page>.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="pnl" type="Panel">The contents of this tab.</arg>
+	</args>
+</function>

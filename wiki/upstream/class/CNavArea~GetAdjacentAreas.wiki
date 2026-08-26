@@ -1,0 +1,15 @@
+<function name="GetAdjacentAreas" parent="CNavArea" type="classfunc">
+	<description>
+Returns a list of all the <page>CNavArea</page>s that have a  (one and two way) connection **from** this <page>CNavArea</page>.
+
+If an area has a one-way incoming connection to this <page>CNavArea</page>, then it will **not** be returned from this function, use <page>CNavArea:GetIncomingConnections</page> to get all one-way incoming connections.
+
+See <page>CNavArea:GetAdjacentAreasAtSide</page> for a function that only returns areas from one side/direction.
+	</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="table">A list of all <page>CNavArea</page> that have a (one and two way) connection **from** this <page>CNavArea</page>. 
+
+Returns an empty table if this area has no outgoing connections to any other areas.</ret>
+	</rets>
+</function>

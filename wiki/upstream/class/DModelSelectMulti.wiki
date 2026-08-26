@@ -1,0 +1,11 @@
+<panel>
+
+
+	<parent>DPropertySheet</parent>
+	<realm>Client</realm>
+	<file line="">lua/vgui/dmodelselectmulti.lua</file>
+	<description>
+		<deprecated></deprecated>
+		A combination of <page>DModelSelect</page> and <page>DPropertySheet</page>.
+	</description>
+</panel>

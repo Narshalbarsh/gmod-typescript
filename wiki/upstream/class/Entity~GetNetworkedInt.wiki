@@ -1,0 +1,15 @@
+<function name="GetNetworkedInt" parent="Entity" type="classfunc">
+	<description>
+<deprecated>You should use <page>Entity:GetNWInt</page> instead.</deprecated>
+
+Retrieves a networked integer value at specified index on the entity that is set by <page>Entity:SetNetworkedInt</page>.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="key" type="string">The key that is associated with the value</arg>
+		<arg name="fallback" type="number" default="0">The value to return if we failed to retrieve the value. ( If it isn't set )</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The retrieved value</ret>
+	</rets>
+</function>

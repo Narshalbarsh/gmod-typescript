@@ -1,0 +1,24 @@
+<function name="SetTextColor" parent="DTextEntry" type="panelfunc">
+	<description>Sets the text color of the <page>DTextEntry</page>.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="color" type="Color">The text color. Uses the <page>Color</page>.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Changes the text color inside the DTextEntry to the color red.</description>
+	<code>
+local Frame = vgui.Create("DFrame")
+Frame:SetSize(200,200)
+Frame:Center()
+Frame:MakePopup()
+
+local TextEntry = vgui.Create("DTextEntry", Frame)
+TextEntry:SetSize(180,20)
+TextEntry:SetPos(10,80)
+TextEntry:SetTextColor(Color(255,20,20))
+TextEntry:SetValue("Basic Text")
+	</code>
+
+</example>

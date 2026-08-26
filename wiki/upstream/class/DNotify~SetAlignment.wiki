@@ -1,0 +1,7 @@
+<function name="SetAlignment" parent="DNotify" type="panelfunc">
+	<description>Sets the alignment of the child panels in the notification</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="alignment" type="number{ContentAlignment}">The direction of the content, based on the number pad. See <page>Enums/ContentAlignment</page>.</arg>
+	</args>
+</function>

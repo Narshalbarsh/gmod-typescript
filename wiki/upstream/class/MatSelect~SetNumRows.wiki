@@ -1,0 +1,7 @@
+<function name="SetNumRows" parent="MatSelect" type="panelfunc">
+	<description>Sets the target height of the panel, in number of rows.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="rows" type="number">Amount of rows to target the height to. Default is `2`.</arg>
+	</args>
+</function>

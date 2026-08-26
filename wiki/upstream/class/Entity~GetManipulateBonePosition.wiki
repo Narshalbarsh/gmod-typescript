@@ -1,0 +1,10 @@
+<function name="GetManipulateBonePosition" parent="Entity" type="classfunc">
+	<description>Gets the entity's position manipulation of the given bone. This is relative to the default position, so it is zero when unmodified.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="boneId" type="number">The bone's ID</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">The entity's position manipulation of the given bone.</ret>
+	</rets>
+</function>

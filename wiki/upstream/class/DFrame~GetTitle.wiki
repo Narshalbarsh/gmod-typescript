@@ -1,0 +1,8 @@
+<function name="GetTitle" parent="DFrame" type="panelfunc">
+	<description>Returns the title of the frame.</description>
+	<realm>Client and Menu</realm>
+	<file line="77-L81">lua/vgui/dframe.lua</file>
+	<rets>
+		<ret name="" type="string">Title of the frame.</ret>
+	</rets>
+</function>

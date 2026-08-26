@@ -1,0 +1,7 @@
+<function name="GetMovementSequence" parent="NPC" type="classfunc">
+	<description>Returns the index of the sequence the NPC uses to move.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">The movement sequence index</ret>
+	</rets>
+</function>

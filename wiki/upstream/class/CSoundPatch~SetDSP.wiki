@@ -1,0 +1,15 @@
+<function name="SetDSP" parent="CSoundPatch" type="classfunc">
+	<description>
+Sets the DSP (Digital Signal Processor) effect for the sound.
+
+Similar to <page>Player:SetDSP</page> but for individual sounds.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="dspEffectId" type="number">
+			The numerical ID for the DSP effect to be enabled on the sound.  
+			
+			For a list of the available IDs and their meaning, see <page text="DSP Presets">DSP_Presets</page>.
+		</arg>
+	</args>
+</function>

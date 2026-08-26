@@ -1,0 +1,7 @@
+<function name="BoundingRadius" parent="Entity" type="classfunc">
+	<description>Returns the distance between the center of the bounding box and the furthest bounding box corner.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The radius of the bounding box.</ret>
+	</rets>
+</function>

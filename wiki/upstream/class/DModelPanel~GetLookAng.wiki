@@ -1,0 +1,21 @@
+<function name="GetLookAng" parent="DModelPanel" type="panelfunc">
+	<description>Returns the angles of the model viewing camera. Is **nil** until changed with <page>DModelPanel:SetLookAng</page>.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="Angle">The angles of the camera.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints out the default camera angles.</description>
+	<code>
+local mdl = vgui.Create("DModelPanel")
+mdl:SetPos(20, 20)
+mdl:SetSize(200, 200)
+mdl:SetModel("models/props_junk/watermelon01.mdl")
+
+print(mdl:GetLookAng())
+	</code>
+	<output>nil</output>
+
+</example>

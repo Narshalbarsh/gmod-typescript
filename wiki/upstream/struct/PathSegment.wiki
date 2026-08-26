@@ -1,0 +1,24 @@
+<structure>
+	<realm>Server</realm>
+	<description>Structure represents a path segment, returned by <page>PathFollower:GetCurrentGoal</page>, <page>PathFollower:FirstSegment</page> and <page>PathFollower:LastSegment</page>.</description>
+	<fields>
+<item name="area" type="CNavArea">The navmesh area this segment occupies.</item>
+<item name="curvature" type="number">How much of a curve should the bot execute when navigating this segment. 0 = none, 1 = 180°</item>
+<item name="distanceFromStart" type="number">Distance of this segment from the start of the path.</item>
+<item name="forward" type="Vector">The direction of travel to reach the end of this segment from the start, represented as a normalised vector.</item>
+<item name="how" type="number">The direction of travel to reach the end of this segment from the start, represented as a cardinal direction integer 0 to 3, or 9 for vertical movement.</item>
+<item name="ladder" type="CNavLadder">The navmesh ladder this segment occupies, if any.</item>
+<item name="length" type="number">Length of this segment.</item>
+<item name="m_portalCenter" type="Vector"></item>
+<item name="m_portalHalfWidth" type="number"></item>
+<item name="pos" type="Vector">The position of the end of this segment.</item>
+<item name="type" type="number">The movement type of this segment, indicating how bots are expected to move along this segment.
+* 0 is ground movement
+* 1 is falling down
+* 2 is climbing up or jumping
+* 3 is jumping over a gap
+* 4 is climbing a ladder up (unused)
+* 5 is climbing a ladder down (unused)</item>
+	</fields>
+
+</structure>

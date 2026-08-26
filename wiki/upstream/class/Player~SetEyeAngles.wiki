@@ -1,0 +1,29 @@
+<function name="SetEyeAngles" parent="Player" type="classfunc">
+	<description>
+Sets the local angle of the player's view (may rotate body too if angular difference is large)
+
+<note>This function works differently when the player is in a vehicle. In that case passing `Angle(0, 90, 0)` will have the player look forward (out the windshield) and `Angle(0, 0, 0)` will have them look to the right.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="angle" type="Angle">Angle to set the view to</arg>
+	</args>
+</function>
+
+<example>
+	<description>Points the first player at `Vector(0, 0, 0)` or forward if they are in a vehicle</description>
+	<code>
+local ply = player.GetByID(1)
+
+if (not ply:InVehicle()) then
+	local vec1 = Vector( 0, 0, 0 ) -- Where the player should look at
+	local vec2 = ply:GetShootPos() -- The player's eye pos
+
+	ply:SetEyeAngles( ( vec1 - vec2 ):Angle() ) -- Sets to the angle between the two vectors
+else
+	ply:SetEyeAngles( Angle( 0, 90, 0 ) )
+end
+	</code>
+	<output>The first player will look at 0, 0, 0 or forward if they are in a vehicle</output>
+
+</example>

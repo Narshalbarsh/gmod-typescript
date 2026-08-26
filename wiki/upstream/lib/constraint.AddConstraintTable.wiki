@@ -1,0 +1,18 @@
+<function name="AddConstraintTable" parent="constraint" type="libraryfunc">
+	<description>
+<internal></internal>
+Stores the constraint entity in the constrained entity's `Constraints` table.
+
+This will make the `constrt` entity be removed if any of the other entities `ent1`, `ent2`, `ent3` or `ent4` are removed by any means.  
+To prevent this, <page>constraint.AddConstraintTableNoDelete</page> can be used instead.
+</description>
+	<realm>Server</realm>
+	<file line="352-L368">lua/includes/modules/constraint.lua</file>
+	<args>
+		<arg name="ent1" type="Entity">The entity to store the information on.</arg>
+		<arg name="constrt" type="Entity">The constraint to store in the entity's table.</arg>
+		<arg name="ent2" type="Entity" default="nil">Optional. If different from `ent1`, the info will also be stored in the table for this entity.</arg>
+		<arg name="ent3" type="Entity" default="nil">Optional. Same as `ent2`.</arg>
+		<arg name="ent4" type="Entity" default="nil">Optional. Same as `ent2`.</arg>
+	</args>
+</function>

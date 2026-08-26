@@ -1,0 +1,8 @@
+<function name="IsGoalActive" parent="NPC" type="classfunc">
+	<description>Returns whether the NPC has an active goal.</description>
+	<realm>Server</realm>
+	<added>2021.03.31</added>
+	<rets>
+		<ret name="act" type="boolean">Whether the NPC has an active goal or not.</ret>
+	</rets>
+</function>

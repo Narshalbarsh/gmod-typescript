@@ -1,0 +1,36 @@
+<function name="UniqueIDTable" parent="Player" type="classfunc">
+	<description>
+Returns a table that will stay allocated for the specific player serverside between connects until the server shuts down or change map. On client it has no such special behavior.
+
+<note>This table is not synchronized (networked) between client and server.</note>
+</description>
+<file line="157-L170">gamemodes/base/gamemode/obj_player_extend.lua</file>
+	<realm>Shared</realm>
+	<args>
+		<arg name="key" type="any">Unique table key.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">The table that contains any info you have put in it.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Example usage</description>
+	<code>
+local table = Entity( 1 ):UniqueIDTable( "mytable" )
+table.MyValue = "test"
+
+// Somewhere else
+local table = Entity( 1 ):UniqueIDTable( "mytable" )
+print( table.MyValue )
+local table = Entity( 1 ):UniqueIDTable( "mytable_other" )
+print( table.MyValue )
+	</code>
+	<output>
+```
+"test"
+nil
+```
+	</output>
+
+</example>

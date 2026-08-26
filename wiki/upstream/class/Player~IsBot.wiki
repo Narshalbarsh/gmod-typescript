@@ -1,0 +1,7 @@
+<function name="IsBot" parent="Player" type="classfunc">
+	<description>Returns if the player is an bot or not</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">`true` if the player is a bot.</ret>
+	</rets>
+</function>

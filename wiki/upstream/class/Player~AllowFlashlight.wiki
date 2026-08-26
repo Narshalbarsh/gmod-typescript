@@ -1,0 +1,11 @@
+<function name="AllowFlashlight" parent="Player" type="classfunc">
+	<description>Sets if the player can toggle their flashlight. Function exists on both the server and client but has no effect when ran on the client.
+
+This is a Lua method that internally uses <page>GM:PlayerSwitchFlashlight</page>. If current gamemode overwrites that hook and doesn't respect <page>Player:CanUseFlashlight</page>, this function will not have any effect.
+</description>
+	<realm>Shared</realm>
+	<file line="182">lua/includes/extensions/player.lua</file>
+	<args>
+		<arg name="canFlashlight" type="boolean">True allows flashlight toggling</arg>
+	</args>
+</function>

@@ -1,0 +1,7 @@
+<function name="RemoveRecipientsNotOnTeam" parent="CRecipientFilter" type="classfunc">
+	<description>Removes all players that are not on the given team from the filter.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="teamid" type="number">Team index.</arg>
+	</args>
+</function>

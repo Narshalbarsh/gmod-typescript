@@ -1,0 +1,8 @@
+<function name="EndBeam" parent="render" type="libraryfunc">
+	<description>
+		Ends the beam mesh of a beam started with <page>render.StartBeam</page>.
+		
+		For more detailed information on Beams, as well as usage examples, see the <page text="Beams Render Reference">render_beams</page>.
+	</description>
+	<realm>Client</realm>
+</function>

@@ -1,0 +1,12 @@
+<function name="HandlePlayerNoClipping" parent="GM" type="hook">
+	<description>Allows to override player noclip animations.</description>
+	<realm>Shared</realm>
+	<file line="71-L98">gamemodes/base/gamemode/animations.lua</file>
+	<args>
+		<arg name="ply" type="Player">The player</arg>
+		<arg name="velocity" type="Vector">Players velocity</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return true if we've changed/set the animation, false otherwise</ret>
+	</rets>
+</function>

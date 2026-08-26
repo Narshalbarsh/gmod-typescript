@@ -1,0 +1,15 @@
+<function name="Invert" parent="VMatrix" type="classfunc">
+	<description>
+Inverts the matrix.
+
+Inverting the matrix will fail if its [determinant](https://en.wikipedia.org/wiki/Determinant) is 0 or close to 0. (ie. its "scale" in any direction is 0.)
+
+If the matrix cannot be inverted, it does not get modified.
+
+See also <page>VMatrix:InvertTR</page>.
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the matrix was inverted or not</ret>
+	</rets>
+</function>

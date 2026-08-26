@@ -1,0 +1,7 @@
+<function name="GetSizeY" parent="CNavArea" type="classfunc">
+	<description>Returns the height of this Nav Area.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number"></ret>
+	</rets>
+</function>

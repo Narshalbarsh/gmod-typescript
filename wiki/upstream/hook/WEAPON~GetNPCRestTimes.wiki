@@ -1,0 +1,8 @@
+<function name="GetNPCRestTimes" parent="WEAPON" type="hook">
+	<description>Called when the weapon is used by NPCs to tell the NPC how to use this weapon. Controls amount of time the NPC can rest (not shoot) between bursts.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">Minimum amount of time the NPC can rest (not shoot) between bursts in seconds. Default is `0.3` seconds.</ret>
+		<ret name="" type="number">Maximum amount of time the NPC can rest (not shoot) between bursts in seconds. Default is `0.6` seconds.</ret>
+	</rets>
+</function>

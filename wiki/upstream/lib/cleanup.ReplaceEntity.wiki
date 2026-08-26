@@ -1,0 +1,15 @@
+<function name="ReplaceEntity" parent="cleanup" type="libraryfunc">
+	<description>Replaces one entity in the cleanup module with another.
+
+You very likely want to call <page>undo.ReplaceEntity</page> with the same entities as well.
+</description>
+	<realm>Server</realm>
+	<file line="76-L95">lua/includes/modules/cleanup.lua</file>
+	<args>
+		<arg name="from" type="Entity">The old entity.</arg>
+		<arg name="to" type="Entity|nil">The new entity. Can be a `NULL` entity to remove the old entity from the cleanup system.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether any action was taken.</ret>
+	</rets>
+</function>

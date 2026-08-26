@@ -1,0 +1,40 @@
+<function name="DrawSphere" parent="render" type="libraryfunc">
+	<description>
+Draws a sphere in 3D space. The material previously set with <page>render.SetMaterial</page> will be applied the sphere's surface.
+
+See also <page>render.DrawWireframeSphere</page> for a wireframe equivalent.
+
+<rendercontext hook="false" type="3D"></rendercontext>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="position" type="Vector">Position of the sphere.</arg>
+		<arg name="radius" type="number">Radius of the sphere. Negative radius will make the sphere render inwards rather than outwards.</arg>
+		<arg name="longitudeSteps" type="number">The number of longitude steps. This controls the quality of the sphere. Higher quality will lower performance significantly. 50 is a good number to start with.</arg>
+		<arg name="latitudeSteps" type="number">The number of latitude steps. This controls the quality of the sphere. Higher quality will lower performance significantly. 50 is a good number to start with.</arg>
+		<arg name="color" type="Color" default="Color( 255, 255, 255 )">The color of the sphere.</arg>
+	</args>
+</function>
+
+<example>
+	<description>This will draw a blue, half-translucent sphere (force field) at the position local player is looking.</description>
+	<code>
+hook.Add( "PostDrawTranslucentRenderables", "test", function()
+
+	--[[
+		when you draw a sphere, you have to specify what material the sphere is
+		going to have before rendering it, render.SetColorMaterial()
+		just sets it to a white material so we can recolor it easily.
+	--]]
+	render.SetColorMaterial()
+
+	-- The position to render the sphere at, in this case, the looking position of the local player
+	local pos = LocalPlayer():GetEyeTrace().HitPos
+
+	-- Draw the sphere!
+	render.DrawSphere( pos, 50, 30, 30, Color( 0, 175, 175, 100 ) )
+
+end )
+	</code>
+
+</example>

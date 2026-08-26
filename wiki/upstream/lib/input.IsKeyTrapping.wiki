@@ -1,0 +1,7 @@
+<function name="IsKeyTrapping" parent="input" type="libraryfunc">
+	<description>Returns whether key trapping is activate and the next key press will be captured.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Whether key trapping active or not.</ret>
+	</rets>
+</function>

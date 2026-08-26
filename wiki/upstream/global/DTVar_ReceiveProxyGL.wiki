@@ -1,0 +1,32 @@
+<function name="DTVar_ReceiveProxyGL" parent="Global" type="libraryfunc">
+	<description>Calls all NetworkVarNotify functions of the given entity with the given new value, but doesn't change the real value.  
+internally uses <page>Entity:CallDTVarProxies</page></description>
+	<realm>Shared</realm>
+	<file line="211-L215">lua/includes/extensions/entity.lua</file>
+	<args>
+		<arg name="entity" type="Entity">The Entity to run the NetworkVarNotify functions from.</arg>
+		<arg name="Type" type="string">The NetworkVar Type.
+* `String`
+* `Bool`
+* `Float`
+* `Int` (32-bit signed integer)
+* `Vector`
+* `Angle`
+* `Entity`</arg>
+		<arg name="index" type="number">The NetworkVar index.</arg>
+		<arg name="new value" type="any">The new value.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Calls the NetworkVarNotify function with the given new value but doesn't changes the real value.</description>
+	<code>
+Entity(1):NetworkVar("String", 0, "Example")
+Entity(1):SetExample("hello")
+Entity(1):NetworkVarNotify("Example", function(ent, var, old, new) print(ent, var, old, new) end)
+DTVar_ReceiveProxyGL(Entity(1), "String", 0, "world")
+print("Value:" .. Entity(1):GetExample())
+	</code>
+	<output>Player [1][Raphael]	Example	hello	world  
+Value: hello</output>
+</example>

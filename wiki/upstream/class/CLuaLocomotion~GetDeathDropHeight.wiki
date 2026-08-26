@@ -1,0 +1,7 @@
+<function name="GetDeathDropHeight" parent="CLuaLocomotion" type="classfunc">
+	<description>Gets the height the bot is scared to fall from</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">Current death drop height</ret>
+	</rets>
+</function>

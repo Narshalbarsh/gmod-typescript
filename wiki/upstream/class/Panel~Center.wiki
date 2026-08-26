@@ -1,0 +1,16 @@
+<function name="Center" parent="Panel" type="classfunc">
+	<file line="165-L170">lua/includes/extensions/client/panel.lua</file>
+	<description>Centers the panel on its parent. 
+
+See <page>Panel:CenterHorizontal</page> and <page>Panel:CenterVertical</page> for more specialized functions.
+
+
+	<note>This will center the panel using the current size of the panel, so it should be called **AFTER** setting or adjusting the size of the panel.
+
+Take special care when using <page>Panel:Dock</page> as it will not update the size immediately.
+
+You may want to use <page>Panel:PerformLayout</page> to set positions of child panels.
+</note>
+</description>
+	<realm>Client and Menu</realm>
+</function>

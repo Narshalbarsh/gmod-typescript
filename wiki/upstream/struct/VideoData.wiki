@@ -1,0 +1,23 @@
+<structure>
+	<realm>Client and Menu</realm>
+	<description>Table structure used by <page>video.Record</page>.</description>
+	<fields>
+<item name="container" type="string">The video container format.
+
+Valid options are: `webm`, `ogg`</item>
+<item name="video" type="string">The video codec.
+
+Valid options are: `vp8`, `theora`</item>
+<item name="audio" type="string">The audio codec.
+
+Valid options are: `vorbis`</item>
+<item name="quality" type="number">The video quality</item>
+<item name="bitrate" type="number">The record bitrate</item>
+<item name="fps" type="number">Frames per second</item>
+<item name="lockfps" type="boolean">Lock the frame count per second</item>
+<item name="name" type="string">The file name for the video</item>
+<item name="width" type="number">The videos width</item>
+<item name="height" type="number">The videos height</item>
+	</fields>
+
+</structure>

@@ -1,0 +1,10 @@
+<function name="OnEntitySight" parent="NEXTBOT" type="hook">
+	<description>Called when the nextbot NPC sees another Nextbot NPC or a Player.
+		<note>This hook will only run after <page>NextBot:SetFOV</page> or other vision related function is called on the nextbot. See <page>NextBot:IsAbleToSee</page> for more details.</note>
+	</description>
+	<realm>Server</realm>
+	<added>2020.08.12</added>
+	<args>
+		<arg name="ent" type="Entity">the entity that was seen</arg>
+	</args>
+</function>

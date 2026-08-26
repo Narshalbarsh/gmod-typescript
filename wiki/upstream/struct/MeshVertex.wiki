@@ -1,0 +1,77 @@
+<structure>
+	<realm>Shared</realm>
+	<description>
+A <page>table</page> structure representing the data stored by a single vertex of a mesh.
+
+MeshVertex structures are usually grouped together in sets of 3 to define the corners of a triangle.
+
+<note>
+Not all MeshVertex will contain all fields and not all fields are used by all shaders
+
+Information on the fields used by most Source Engine shaders (Like `VertexLitGeneric`, `UnlitGeneric`, etc.) can be found [on the Valve Developer Wiki here.](https://developer.valvesoftware.com/wiki/Category:Shaders)
+</note>
+
+Returned by:
+* <page>util.GetModelMeshes</page>
+* <page>PhysObj:GetMesh</page>
+
+Used by:
+* <page>IMesh:BuildFromTriangles</page>
+* <page>Entity:PhysicsFromMesh</page> (only uses `pos` field)
+	</description>
+	<fields>
+		<item name="color" type="Color">
+The <page>Color</page> that the area around this corner of a triangle should be tinted.
+		</item>
+		<item name="normal" type="Vector">
+A normalized <page>Vector</page> representing a direction facing away from (perpendicular to) the surface of the triangle that this vertex is a part of.
+
+Many shaders use this to calculate lighting.
+		</item>
+		<item name="tangent" type="Vector">
+A normalized <page>Vector</page> representing a direction facing along (parallel with) the surface of the triangle that this vertex is a part of.
+		</item>
+		<item name="binormal" type="Vector">
+A normalized <page>Vector</page> representing a direction facing away from (perpendicular to) both the vertex's normal and tangent directions.
+
+This is the result of a <page text="Cross Product">Vector:Cross</page> between the vertex's normal and tangent directions.
+		</item>
+		<item name="pos" type="Vector">
+The position of the vertex in local space.
+		</item>
+		<item name="u" type="number">
+The horizontal coordinate of a position on the texture of the triangle that this vertex is a part of.  
+This controls which part of the texture is drawn at this vertex.
+
+In the range `0` (the texture's left edge) to `1` (the texture's right edge)
+		</item>
+		<item name="v" type="number">
+The vertical coordinate of a position on the texture of the triangle that this vertex is a part of.  
+This controls which part of the texture is drawn at this vertex.
+
+In the range `0` (the texture's top edge) to `1` (the texture's bottom edge)
+		</item>
+		<item name="u1" type="number" added="2024.02.28">
+A secondary U texture coordinate used by some shaders like `LightmappedGeneric`.
+
+Currently used exclusively by <page>IMesh:BuildFromTriangles</page>.
+		</item>
+		<item name="v1" type="number" added="2024.02.28">
+A secondary V texture coordinate used by some shaders like `LightmappedGeneric`.
+
+Currently used exclusively by <page>IMesh:BuildFromTriangles</page>.
+		</item>
+		<item name="userdata" type="table<number>">
+A sequential table of four numbers whose purpose and expected values are determined by the shader.
+
+Many Source Engine shaders to hold tangent information of the vertex in the order `tangentX`, `tangentY`, `tangentZ`, `tangentHandedness`.
+		</item>
+		<item name="weights" type="table<table>">
+A sequential table of all the <page text="BoneWeight structures">Structures/BoneWeight</page> that affect this vertex.
+
+The total sum of their `weight` values should be `1`
+
+Currently added exclusively by <page>util.GetModelMeshes</page>
+		</item>
+	</fields>
+</structure>

@@ -1,0 +1,19 @@
+<function name="sethook" parent="debug" type="libraryfunc">
+	<description>
+<deprecated></deprecated>
+
+Sets the given function as a Lua hook. This is completely different to gamemode hooks. The thread argument can be completely omitted and calling this function with no arguments will remove the current hook. This is used by default for infinite loop detection. More information on hooks can be found at http://www.lua.org/pil/23.2.html and https://www.gammon.com.au/scripts/doc.php?lua=debug.sethook
+
+Hooks are not always ran when code that has been compiled by LuaJIT's JIT compiler is being executed, this is due to Intermediate Representation internally storing constantly running bytecode for performance reasons. 	
+</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="thread" type="thread">Thread to set the hook on. This argument can be omitted.</arg>
+		<arg name="hook" type="function">Function for the hook to call. First argument in this function will be the mask event that called the hook as a full string (not as 'c' but instead as 'call').</arg>
+		<arg name="mask" type="string">The hook's mask. Can be one or more of the following events: 
+* c - Triggers the hook on each function call made from Lua.
+* r - Triggers the hook on each function return made from Lua.
+* l - Triggers the hook on each line compiled of code.</arg>
+		<arg name="count" type="number">How often to call the hook (in instructions). 0 for every instruction. Can be omitted.</arg>
+	</args>
+</function>

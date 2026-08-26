@@ -1,0 +1,11 @@
+<function name="DrawArrow" parent="DTooltip" type="panelfunc">
+	<description>
+Used to draw a triangle beneath the <page>DTooltip</page>
+<note>Requires <page>DTooltip:SetContents</page>, without this it will error</note>
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="x" type="number">arrow location on the x axis</arg>
+		<arg name="y" type="number">arrow location on the y axis</arg>
+	</args>
+</function>

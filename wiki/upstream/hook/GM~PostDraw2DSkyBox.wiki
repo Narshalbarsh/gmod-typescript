@@ -1,0 +1,30 @@
+<function name="PostDraw2DSkyBox" parent="GM" type="hook">
+	<description>
+Called right after the 2D skybox has been drawn - allowing you to draw over it.
+
+<rendercontext hook="true" type="3D"></rendercontext>
+	</description>
+	<realm>Client</realm>
+</function>
+
+<example>
+	<description>Draw a textured quad on the horizon, behind the 3D skybox.</description>
+	<code>
+local Mat = Material( "dev/graygrid" )
+
+hook.Add("PostDraw2DSkyBox", "ExampleHook", function()
+    
+    render.OverrideDepthEnable( true, false ) -- ignore Z to prevent drawing over 3D skybox
+
+    -- Start 3D cam centered at the origin
+    cam.Start3D( Vector( 0, 0, 0 ), EyeAngles() )
+        render.SetMaterial( Mat )
+        render.DrawQuadEasy( Vector(1,0,0) * 200, Vector(-1,0,0), 64, 64, Color(255,255,255), 0 )
+    cam.End3D()
+
+    render.OverrideDepthEnable( false, false )
+
+end)
+	</code>
+
+</example>

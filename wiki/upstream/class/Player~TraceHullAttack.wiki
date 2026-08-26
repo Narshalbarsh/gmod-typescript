@@ -1,0 +1,21 @@
+<function name="TraceHullAttack" parent="Player" type="classfunc">
+	<description>
+Performs a trace hull and applies damage to the entities hit, returns the first entity hit.
+
+<warning>Hitting the victim entity with this function in <page>ENTITY:OnTakeDamage</page> can cause infinite loops.</warning>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="startPos" type="Vector">The start position of the hull trace.</arg>
+		<arg name="endPos" type="Vector">The end position of the hull trace.</arg>
+		<arg name="mins" type="Vector">The minimum coordinates of the hull.</arg>
+		<arg name="maxs" type="Vector">The maximum coordinates of the hull.</arg>
+		<arg name="damage" type="number">The damage to be applied.</arg>
+		<arg name="damageFlags" type="number">Bitflag specifying the damage type, see <page>Enums/DMG</page>.</arg>
+		<arg name="damageForce" type="number">The force to be applied to the hit object.</arg>
+		<arg name="damageAllNPCs" type="boolean">Whether to apply damage to all hit NPCs or not.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Entity">The hit entity</ret>
+	</rets>
+</function>

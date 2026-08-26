@@ -1,0 +1,12 @@
+<function name="GetList" parent="scripted_ents" type="libraryfunc">
+	<file line="228-L236">lua/includes/modules/scripted_ents.lua</file>
+	<description>Returns a copy of the list of all ENT tables registered.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="table<string, table>">A table of all SENTs where the key is the classname and the value is a table where:
+* <page>table</page> **t** — The <page text="ENT">Structures/ENT</page> table associated with the entity.
+* <page>boolean</page> **isBaseType** — Unused. Always `true`.
+* <page>string</page> **Base** — The entity base.
+* <page>string</page> **type** — The entity type.</ret>
+	</rets>
+</function>

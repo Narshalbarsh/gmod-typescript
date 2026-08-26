@@ -1,0 +1,12 @@
+<function name="UpdateColor" parent="DColorMixer" type="panelfunc">
+	<description>
+<internal></internal>
+
+Use <page>DColorMixer:SetColor</page> instead!
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="277-L311">lua/vgui/dcolormixer.lua</file>
+	<args>
+		<arg name="clr" type="Color"></arg>
+	</args>
+</function>

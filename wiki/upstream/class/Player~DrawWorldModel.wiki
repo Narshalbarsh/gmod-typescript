@@ -1,0 +1,7 @@
+<function name="DrawWorldModel" parent="Player" type="classfunc">
+	<description>Show/Hide the player's weapon's worldmodel.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="draw" type="boolean">Should draw</arg>
+	</args>
+</function>

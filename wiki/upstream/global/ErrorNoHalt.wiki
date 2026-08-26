@@ -1,0 +1,31 @@
+<function name="ErrorNoHalt" parent="Global" type="libraryfunc">
+	<description>
+Throws a Lua error but does not break out of the current call stack.
+This function will not print a stack trace like a normal error would.
+Essentially similar if not equivalent to <page>Global.Msg</page>.
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="arguments" type="vararg">Converts all arguments to strings and prints them with no spacing.</arg>
+	</args>
+</function>
+
+<example>
+	<description>An example of the use of this function</description>
+	<code>
+local num = 11
+if ( num <= 10 and num >= 0 ) then
+	print( "The number is", num )
+else
+	ErrorNoHalt( "Number out of range!\n" )
+	print("This line will be printed")
+end
+	</code>
+	<output>
+```
+Number out of range!
+This line will be printed
+```
+	</output>
+
+</example>

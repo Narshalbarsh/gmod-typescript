@@ -1,0 +1,10 @@
+<function name="SetFont" parent="DLabel" type="panelfunc">
+	<description>Sets the font of the label.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="fontName" type="string">The name of the font.
+
+See <page text="here">Default_Fonts</page> for a list of existing fonts.
+Alternatively, use <page>surface.CreateFont</page> to create your own custom font.</arg>
+	</args>
+</function>

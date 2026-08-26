@@ -1,0 +1,4 @@
+<function name="End" parent="mesh" type="libraryfunc">
+	<description>Ends the mesh (Started with <page>mesh.Begin</page>) and renders it.</description>
+	<realm>Client</realm>
+</function>

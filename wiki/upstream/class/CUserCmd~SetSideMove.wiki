@@ -1,0 +1,11 @@
+<function name="SetSideMove" parent="CUserCmd" type="classfunc">
+	<description>
+Sets speed the client wishes to move sidewards with, positive to move right, negative to move left.
+
+See also <page>CUserCmd:SetForwardMove</page> and  <page>CUserCmd:SetUpMove</page>.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="speed" type="number">The new speed to request.</arg>
+	</args>
+</function>

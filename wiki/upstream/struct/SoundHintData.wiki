@@ -1,0 +1,15 @@
+<structure>
+	<realm>Server</realm>
+	<description>Table describing a sound hint, used by <page>NPC:GetBestSoundHint</page> and <page>sound.GetLoudestSoundHint</page>.</description>
+	<fields>
+<item name="origin" type="Vector">Origin of the sound hint</item>
+<item name="owner" type="Entity">Owner of the sound hint, if any (emitting entity, like a thumper)</item>
+<item name="target" type="Entity">Target of the sound hint, if any</item>
+<item name="volume" type="number">Volume of the sound hint</item>
+<item name="type" type="number{SOUND}"><page text="SOUND_ enums">Enums/SOUND</page></item>
+<item name="expiration" type="number"><page text="CurTime">Global.CurTime</page> based expiration date</item>
+<item name="expires" type="boolean">Does this sound hint expire?</item>
+<item name="channel" type="number{CHAN}"><page text="CHAN_ enums">Enums/CHAN</page></item>
+	</fields>
+
+</structure>

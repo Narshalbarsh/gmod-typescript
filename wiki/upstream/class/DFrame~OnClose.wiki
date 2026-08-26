@@ -1,0 +1,11 @@
+<function name="OnClose" parent="DFrame" type="panelhook">
+	<description>
+Called when the DFrame is closed with <page>DFrame:Close</page>. This applies when the `close` button in the DFrame's control box is clicked.
+
+This function does nothing and is safe to override.
+
+This is **not** called when the DFrame is removed with <page>Panel:Remove</page>, see <page>PANEL:OnRemove</page> for that.
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="101-L102">lua/vgui/dframe.lua</file>
+</function>

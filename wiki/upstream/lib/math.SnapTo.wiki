@@ -1,0 +1,38 @@
+<function name="SnapTo" parent="math" type="libraryfunc">
+	<description>Snaps a number to the closest multiplicative of given number. See also <page>Angle:SnapTo</page>.</description>
+	<realm>Shared and Menu</realm>
+	<file line="216-L218">lua/includes/extensions/math.lua</file>
+	<added>2022.06.08</added>
+	<args>
+		<arg name="input" type="number">The number to snap.</arg>
+		<arg name="snapTo" type="number">What to snap the input number to.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The clamped value.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Example usage</description>
+	<code>
+print( math.SnapTo( 0, 15 ) )
+print( math.SnapTo( 10, 15 ) )
+print( math.SnapTo( 20, 15 ) )
+print( math.SnapTo( 22.2, 15 ) )
+print( math.SnapTo( 22.5, 15 ) )
+print( math.SnapTo( 43, 15 ) )
+	</code>
+	<output>
+
+```
+0
+15
+15
+15
+30
+45
+```
+
+	</output>
+
+</example>

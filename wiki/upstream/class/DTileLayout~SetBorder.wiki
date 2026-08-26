@@ -1,0 +1,7 @@
+<function name="SetBorder" parent="DTileLayout" type="panelfunc">
+	<description>Sets the spacing between the border/edge of the <page>DTileLayout</page> and all the elements inside.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="border" type="number"></arg>
+	</args>
+</function>

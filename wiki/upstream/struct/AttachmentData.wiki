@@ -1,0 +1,9 @@
+<structure>
+	<realm>Shared</realm>
+	<description>Table returned by <page>Entity:GetAttachments</page>.</description>
+	<fields>
+<item name="id" type="number">Index of the attachment.</item>
+
+<item name="name" type="string">Name of the attachment.</item>
+	</fields>
+</structure>

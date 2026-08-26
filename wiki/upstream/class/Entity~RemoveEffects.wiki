@@ -1,0 +1,7 @@
+<function name="RemoveEffects" parent="Entity" type="classfunc">
+	<description>Removes an engine effect applied to an entity.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="effect" type="number{EF}">The effect to remove, see <page>Enums/EF</page>.</arg>
+	</args>
+</function>

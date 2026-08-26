@@ -1,0 +1,11 @@
+<function name="SetMaximumCharCount" parent="Panel" type="classfunc">
+	<description>Sets the maximum character count this panel should have.
+
+This function will only work on <page>RichText</page> and <page>TextEntry</page> panels and their derivatives.
+	</description>
+	<realm>Client and Menu</realm>
+	<added>2020.03.17</added>
+	<args>
+		<arg name="maxChar" type="number">The new maximum amount of characters this panel is allowed to contain.</arg>
+	</args>
+</function>

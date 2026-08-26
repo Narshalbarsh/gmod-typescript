@@ -1,0 +1,22 @@
+<function name="DrawOverlay" parent="GM" type="hook">
+	<description>
+Called after all other 2D draw hooks are called. Draws over all VGUI Panels and HUDs.
+
+Unlike <page>GM:HUDPaint</page>, this hook is called with the game paused and while the Camera SWEP is equipped.
+
+Does not get called when `r_drawvgui` is disabled.
+
+<rendercontext hook="true" type="2D"></rendercontext>
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="714-L715">gamemodes/base/gamemode/cl_init.lua</file>
+</function>
+
+<example>
+<description>Draws a simple box in top left corner that will be visible even when the main menu is open.</description>
+<code>
+hook.Add("DrawOverlay", "DrawOverlayExample", function()
+	draw.RoundedBox( 4, 50, 50, 100, 100, Color( 255, 255, 255 ) )
+end )
+</code>
+</example>

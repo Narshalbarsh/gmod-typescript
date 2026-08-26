@@ -1,0 +1,12 @@
+<function name="HUDDrawScoreBoard" parent="GM" type="hook">
+	<description>
+Called every frame to render the scoreboard.
+
+
+It is recommended to use Derma and VGUI for this job instead of this hook. Called right after <page>GM:HUDPaint</page>.
+
+<rendercontext hook="true" type="2D"></rendercontext>
+	</description>
+	<realm>Client</realm>
+	<file line="294-L295">gamemodes/base/gamemode/cl_scoreboard.lua</file>
+</function>

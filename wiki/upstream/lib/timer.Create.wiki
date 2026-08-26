@@ -1,0 +1,106 @@
+<function name="Create" parent="timer" type="libraryfunc">
+	<description>
+Creates a new timer that will repeat its function given amount of times.
+This function also requires the timer to be named, which allows you to control it after it was created via the <page>timer</page>.
+
+For a simple one-time timer with no identifiers, see <page>timer.Simple</page>.
+
+<warning>Timers use <page>Global.CurTime</page> internally. Due to this, they won't advance while the client is timing out from the server or on an empty dedicated server due to hibernation. (unless `sv_hibernate_think` is set to `1` or `delay` is set to `0` ).</warning>
+</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="identifier" type="string">Identifier of the timer to create. Must be unique. If a timer already exists with the same identifier, that timer will be updated to the new settings and reset.</arg>
+		<arg name="delay" type="number">The delay interval in seconds. If the delay is too small, the timer will fire on the next <page>GM:Tick</page>.</arg>
+		<arg name="repetitions" type="number">The number of times to repeat the timer. Enter `0` or any value below `0` for infinite repetitions.</arg>
+		<arg name="func" type="function">Function called when timer has finished the countdown.</arg>
+	</args>
+</function>
+
+<example>
+	<description>
+Creates a timer that has a 1 second delay and is only ran once (`UniqueName1`), a timer that has a 2 second delay and is ran continuously (`UniqueName2`), etc.
+
+This shows the different ways you can interact with functions.
+	</description>
+	<code>
+local function PrintSomething( text )
+	print( text )
+end
+
+local function PrintNoArguments()
+	print( "fun with timers!" )
+end
+
+local function CreateSomeTimers( )
+	timer.Create( "UniqueName1", 1, 1, function() print( "inside" ) end )
+	timer.Create( "UniqueName2", 2, 0, function() PrintSomething( "outside" ) end )
+	timer.Create( "UniqueName3", 5, 1, PrintNoArguments )
+end
+hook.Add( "Initialize", "Timer Example", CreateSomeTimers )
+	</code>
+	<output>
+```
+inside -- 1 second
+
+outside -- 2 seconds
+
+outside -- 4 seconds
+
+fun with timers! -- 5 seconds
+
+outside -- 6 seconds
+
+outside -- 8 seconds
+```
+	</output>
+</example>
+
+<example>
+	<description>
+Creates a timer that has 0.01 second delay, to demonstrate that the "minimum" delay of a timer is locked at the tickrate period (1/66 seconds).
+
+As the example below shows, by setting the delay rate to 1/100 (0.01 seconds), the difference in time between the iterations of the timer should be 0.01 seconds, but instead, it is 0.0149 (1/66) seconds.
+	</description>
+	<code>
+local tick = {} 
+local tick_key = 1 
+
+local function MinimumTimerDelay()
+	local current_time = CurTime()
+
+	if tick_key > 1 then
+		print( "Timer Iteration #" .. tick_key - 1 .. " had a delay of " .. current_time - tick[ tick_key - 1 ] )
+	end
+
+	tick[ tick_key ] = current_time
+	tick_key = tick_key + 1
+end
+
+local function Timer()
+	timer.Create( "Timer Delay", ( 1 / 100 ), 10, MinimumTimerDelay ) 
+end
+
+hook.Add( "Initialize", "Commence Timers", Timer )
+	</code>
+	<output>
+```
+Timer Iteration #1 had a delay of 0.014999389648438
+
+Timer Iteration #2 had a delay of 0.014999389648438
+
+Timer Iteration #3 had a delay of 0.014999389648438
+
+Timer Iteration #4 had a delay of 0.0150146484375
+
+Timer Iteration #5 had a delay of 0.014999389648438
+
+Timer Iteration #6 had a delay of 0.014999389648438
+
+Timer Iteration #7 had a delay of 0.014999389648438
+
+Timer Iteration #8 had a delay of 0.014999389648438
+
+Timer Iteration #9 had a delay of 0.014999389648438
+```
+	</output>
+</example>

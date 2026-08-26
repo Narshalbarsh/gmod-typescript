@@ -1,0 +1,59 @@
+<function name="DrawPhysgunBeam" parent="GM" type="hook">
+	<description>
+Allows you to override physgun effects rendering.
+
+<note>This is still called when `physgun_drawbeams` is set to `0`, because this hook is also capable of overriding physgun sprite effects, while the convar does not.</note>
+	</description>
+	<realm>Client</realm>
+	<file line="634-L639">gamemodes/base/gamemode/cl_init.lua</file>
+	<args>
+		<arg name="ply" type="Player">Physgun owner</arg>
+		<arg name="physgun" type="Weapon">The physgun</arg>
+		<arg name="enabled" type="boolean">Is the beam enabled</arg>
+		<arg name="target" type="Entity">Entity we are grabbing. This will be NULL if nothing is being held</arg>
+		<arg name="physBone" type="number">ID of the physics bone (<page>PhysObj</page>) we are grabbing at. Use <page>Entity:TranslatePhysBoneToBone</page> to translate to an actual bone.</arg>
+		<arg name="hitPos" type="Vector">Beam hit position relative to the physics bone (<page>PhysObj</page>) we are grabbing.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return false to hide default effects</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Example code that will draw a direct line from the physgun to the target.</description>
+	<code>
+hook.Add( "DrawPhysgunBeam", "test", function( ply, wep, enabled, target, bone, deltaPos )
+
+	-- Draw any physgun effects here that are not the beam.
+
+	-- Not "firing" the physgun? Don't draw anything.
+	if ( !enabled ) then return false end
+
+	local clr = Color( 255, 0, 0 )
+
+	-- White when not "firing" physgun, this will not work with the "if" above
+	if ( !enabled ) then clr = Color( 255, 255, 255, 255 ) end
+
+	local hitpos = ply:GetEyeTrace().HitPos
+	if ( IsValid( target ) ) then
+		local mt = target:GetBoneMatrix( bone )
+		if ( target:TranslatePhysBoneToBone( bone ) >= 0 ) then
+			mt = target:GetBoneMatrix( target:TranslatePhysBoneToBone( bone ) )
+		end
+
+		hitpos = LocalToWorld( deltaPos, Angle( 0, 0, 0 ), mt:GetTranslation(), mt:GetAngles() )
+	end
+
+	local srcPos = wep:GetAttachment( 1 ).Pos
+	if ( !ply:ShouldDrawLocalPlayer() ) then
+		srcPos = ply:GetViewModel():GetAttachment( 1 ).Pos
+	end
+
+	render.DrawLine( srcPos, hitpos, clr )
+
+	return false -- Hide original physics gun beam
+
+end )
+	</code>
+
+</example>

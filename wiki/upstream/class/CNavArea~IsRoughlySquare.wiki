@@ -1,0 +1,7 @@
+<function name="IsRoughlySquare" parent="CNavArea" type="classfunc">
+	<description>Returns if we're shaped like a square.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="boolean">If we're a square or not.</ret>
+	</rets>
+</function>

@@ -1,0 +1,49 @@
+<function name="DTVar" parent="Entity" type="classfunc">
+	<description>
+<internal><br/><br/>You should use <page>Entity:NetworkVar</page> instead</internal>
+
+Sets up a self.dt.NAME alias for a Data Table variable.
+	</description>
+	<realm>Shared</realm>
+	<file line="263-L295">lua/includes/extensions/entity.lua</file>
+	<args>
+		<arg name="type" type="string">The type of the DTVar being set up. Supported choices:
+
+* `String` (up to 511 characters)
+* `Bool`
+* `Float`
+* `Int` (32-bit signed integer)
+* `Vector`
+* `Angle`
+* `Entity`</arg>
+		<arg name="slot" type="number">The ID of the DTVar. Can be between `0` and `3` for strings, `0` and `31` for everything else.
+
+This can be omitted entirely (arguments will shift) and it will use the next available slot.</arg>
+		<arg name="name" type="string">Name by which you will refer to DTVar. It must be a valid variable name. (No spaces!)</arg>
+	</args>
+	<args name="Slot argument is omitted">
+		<arg name="type" type="string">The type of the DTVar being set up. Supported choices:
+
+* `String` (up to 511 characters)
+* `Bool`
+* `Float`
+* `Int` (32-bit signed integer)
+* `Vector`
+* `Angle`
+* `Entity`</arg>
+		<arg name="name" type="string">Name by which you will refer to DTVar. It must be a valid variable name. (No spaces!)</arg>
+	</args>
+</function>
+
+<example>
+	<description>Sets up two float networked variables, **TargetZ** and **Speed**</description>
+	<code>
+function ENT:SetupDataTables()
+
+	self:DTVar( "Float", 0, "TargetZ" )
+	self:DTVar( "Float", 1, "Speed" )
+
+end
+	</code>
+
+</example>

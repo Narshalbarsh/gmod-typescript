@@ -1,0 +1,17 @@
+<cat>Hook</cat>
+<title>SANDBOX</title>
+<type name="SANDBOX" category="hook" parent="GM" is="class">
+	<summary><note>This function or feature is only available in the Sandbox gamemode and its <page text="derivatives">Global.DeriveGamemode</page>.</note>
+
+This is a list of hooks that are only available in Sandbox or Sandbox derived gamemodes.
+
+Easiest way to tell if a gamemode is Sandbox derived is to check if this variable exists:
+
+```
+-- Replace GAMEMODE with GM if you are in gamemode files.
+if ( GAMEMODE.IsSandboxDerived ) then
+	-- Do stuff
+end
+```
+	</summary>
+</type>

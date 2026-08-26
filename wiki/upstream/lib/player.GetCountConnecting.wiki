@@ -1,0 +1,37 @@
+<function name="GetCountConnecting" parent="player" type="libraryfunc">
+	<description>
+Returns the amount of players connecting to the server, but not yet spawned in.
+
+`player.GetCountConnecting() + player.GetCount()` would result in the total player count on this server.
+
+	</description>
+	<added>2025.06.04</added>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">Number of players still connecting.</ret>
+	</rets>
+</function>
+
+<example>
+<description> Track how many players are connecting on the client.</description>
+	<code>
+local PlayerCountConnecting = 0
+hook.Add("PlayerConnect", "PlayerGetCountConnecting", function()
+    PlayerCountConnecting = PlayerCountConnecting + 1
+end)
+
+gameevent.Listen("player_disconnect")
+hook.Add("player_disconnect", "PlayerGetCountConnecting", function()
+    PlayerCountConnecting = math.max(0, PlayerCountConnecting - 1)
+end)
+
+gameevent.Listen("player_activate")
+hook.Add("player_activate", "PlayerGetCountConnecting", function()
+    PlayerCountConnecting = math.max(0, PlayerCountConnecting - 1)
+end)
+
+concommand.Add("player_count_connecting", function(ply)
+    print("Players currently connecting: " .. PlayerCountConnecting)
+end)
+	</code>
+</example>

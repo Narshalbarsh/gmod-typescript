@@ -1,0 +1,13 @@
+<enum>
+	<realm>Shared</realm>
+	<description>
+Used by <page>game.AddAmmoType</page>'s input structure - the <page>Structures/AmmoData</page>.
+
+<warning>These enumerations do not exist in game and are listed here only for reference</warning>
+	</description>
+	<items>
+<item key="AMMO_FORCE_DROP_IF_CARRIED" value="1">Forces player to drop the object they are carrying if the object was hit by this ammo type.</item>
+<item key="AMMO_INTERPRET_PLRDAMAGE_AS_DAMAGE_TO_PLAYER" value="2">Uses <page text="AmmoData">Structures/AmmoData</page>.plydmg of the ammo type as the damage to deal to shot players instead of <page text="Bullet">Structures/Bullet</page>.Damage.</item>
+	</items>
+
+</enum>

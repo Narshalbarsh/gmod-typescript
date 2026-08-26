@@ -1,0 +1,21 @@
+<function name="ClearPlayerClass" parent="player_manager" type="libraryfunc">
+	<description>Clears a player's class association by setting their ClassID to 0.</description>
+	<realm>Shared</realm>
+	<file line="399-L403">lua/includes/modules/player_manager.lua</file>
+	<args>
+		<arg name="ply" type="Player">Player to clear class from.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Source for player_manager.ClearPlayerClass. (from lua/includes/modules/player_manager.lua)</description>
+	<code>
+function ClearPlayerClass( ply )
+
+	ply:SetClassID( 0 )
+
+end
+	</code>
+	<output></output>
+
+</example>

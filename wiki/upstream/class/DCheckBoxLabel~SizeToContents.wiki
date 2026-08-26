@@ -1,0 +1,5 @@
+<function name="SizeToContents" parent="DCheckBoxLabel" type="panelfunc">
+	<description> Sizes the panel to the size of the internal DLabel and DButton</description>
+	<realm>Client and Menu</realm>
+	<file line="140-147">lua/vgui/dcheckbox.lua</file>
+</function>

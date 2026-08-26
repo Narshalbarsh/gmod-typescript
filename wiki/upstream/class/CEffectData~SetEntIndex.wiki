@@ -1,0 +1,7 @@
+<function name="SetEntIndex" parent="CEffectData" type="classfunc">
+	<description>Sets the entity of the effect via its index.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="entIndex" type="number">The entity index to be set.</arg>
+	</args>
+</function>

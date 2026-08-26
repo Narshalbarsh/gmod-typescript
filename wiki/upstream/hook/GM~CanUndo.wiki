@@ -1,0 +1,26 @@
+<function name="CanUndo" parent="GM" type="hook">
+	<description>Called whenever a players tries to undo.</description>
+	<realm>Server</realm>
+	<file line="429-L429">lua/includes/modules/undo.lua</file>
+	<args>
+		<arg name="ply" type="Player">The player who tried to undo something.</arg>
+		<arg name="undo" type="table{Undo}">The undo table as a <page>Structures/Undo</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return false to disallow the undo.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>
+Here's a trick you can do to achieve the behavior of this function on the client.
+	</description>
+	<code>
+hook.Add( "PlayerBindPress", "CanUndo", function( ply, bind )
+	if ply == LocalPlayer() and bind == "gmod_undo" then
+		return true -- false to allow, true to prevent
+	end
+end )
+	</code>
+
+</example>

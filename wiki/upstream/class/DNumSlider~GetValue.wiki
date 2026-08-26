@@ -1,0 +1,7 @@
+<function name="GetValue" parent="DNumSlider" type="panelfunc">
+	<description>Returns the value of the <page>DNumSlider</page></description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The value of the slider.</ret>
+	</rets>
+</function>

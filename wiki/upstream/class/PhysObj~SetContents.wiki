@@ -1,0 +1,7 @@
+<function name="SetContents" parent="PhysObj" type="classfunc">
+	<description>Sets the contents flag of the <page>PhysObj</page>.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="contents" type="number{CONTENTS}">The <page>Enums/CONTENTS</page>.</arg>
+	</args>
+</function>

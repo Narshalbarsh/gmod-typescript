@@ -1,0 +1,11 @@
+<function name="SetTrapInside" parent="DSlider" type="panelfunc">
+	<description>
+Makes the slider itself, the "knob", trapped within the bounds of the slider panel. Example:
+
+<upload src="70c/8dafb0260022da3.png" size="6257" name="image.png" />
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="trap" type="boolean"></arg>
+	</args>
+</function>

@@ -1,0 +1,12 @@
+<function name="SetExpanded" parent="DCollapsibleCategory" type="panelfunc">
+	<description>
+Sets whether the <page>DCollapsibleCategory</page> is expanded or not upon opening the container.
+
+You should use <page>DCollapsibleCategory:Toggle</page> or <page>DCollapsibleCategory:DoExpansion</page> instead.
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="48">lua/vgui/dcategorycollapse.lua</file>
+	<args>
+		<arg name="expanded" type="boolean" default="true">Whether it shall be expanded or not by default</arg>
+	</args>
+</function>

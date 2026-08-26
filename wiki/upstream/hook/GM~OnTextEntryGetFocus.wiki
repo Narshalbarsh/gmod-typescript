@@ -1,0 +1,12 @@
+<function name="OnTextEntryGetFocus" parent="GM" type="hook">
+	<description>
+Called when a <page>DTextEntry</page> gets focus.
+
+This hook is run from <page>DTextEntry:OnGetFocus</page> and <page>PANEL:OnMousePressed</page> of <page>DTextEntry</page>.
+	</description>
+	<realm>Client</realm>
+	<file line="L354">lua/vgui/dtextentry.lua</file>
+	<args>
+		<arg name="panel" type="Panel">The panel that got focus</arg>
+	</args>
+</function>

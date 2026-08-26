@@ -1,0 +1,20 @@
+<function name="SetCookie" parent="Panel" type="classfunc">
+	<file line="226-L233">lua/includes/extensions/client/panel.lua</file>
+	<description>
+Stores a string in the named cookie using <page>Panel:GetCookieName</page> as prefix.
+
+You can also retrieve and modify this cookie by using the <page>cookie</page>. Cookies are stored in this format:
+
+```
+panelCookieName.cookieName
+```
+
+
+<warning>The panel's cookie name MUST be set for this function to work. See <page>Panel:SetCookieName</page>.</warning>
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="cookieName" type="string">The unique name used to retrieve the cookie later.</arg>
+		<arg name="value" type="string">The value to store in the cookie. This can be retrieved later as a <page>string</page> or <page>number</page>.</arg>
+	</args>
+</function>

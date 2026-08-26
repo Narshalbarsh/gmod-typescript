@@ -1,0 +1,10 @@
+<function name="SetChecked" parent="DMenuOption" type="panelfunc">
+	<description>Sets the checked state of the <page>DMenuOption</page>.
+
+Invokes <page>DMenuOption:OnChecked</page>.
+</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="checked" type="boolean">`true` to set as checked.</arg>
+	</args>
+</function>

@@ -1,0 +1,8 @@
+<function name="GetDamping" parent="PhysObj" type="classfunc">
+	<description>Returns the linear and angular damping of the physics object.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The linear damping</ret>
+		<ret name="" type="number">The angular damping</ret>
+	</rets>
+</function>

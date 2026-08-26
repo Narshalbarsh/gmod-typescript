@@ -1,0 +1,13 @@
+<function name="CanPlayerUnfreeze" parent="GM" type="hook">
+	<description>Determines if the player can unfreeze the entity.</description>
+	<realm>Server</realm>
+	<file line="65-L69">gamemodes/base/gamemode/player.lua</file>
+	<args>
+		<arg name="player" type="Player">The player</arg>
+		<arg name="entity" type="Entity">The entity</arg>
+		<arg name="phys" type="PhysObj">The physics object of the entity</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">True if they can unfreeze.</ret>
+	</rets>
+</function>

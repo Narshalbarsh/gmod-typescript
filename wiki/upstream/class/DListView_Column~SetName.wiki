@@ -1,0 +1,7 @@
+<function name="SetName" parent="DListView_Column" type="panelfunc">
+	<description>Sets the text in the column's header.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="name" type="string">The new name that the column's header will use.</arg>
+	</args>
+</function>

@@ -1,0 +1,8 @@
+<function name="LockCursor" parent="DNumberScratch" type="panelfunc">
+	<description>
+<internal></internal>
+
+Used to lock the cursor in place.
+	</description>
+	<realm>Client and Menu</realm>
+</function>

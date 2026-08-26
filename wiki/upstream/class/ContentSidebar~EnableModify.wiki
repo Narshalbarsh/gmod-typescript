@@ -1,0 +1,7 @@
+<function name="EnableModify" parent="ContentSidebar" type="panelfunc">
+	<description>
+Internally calls <page>ContentSidebar:EnableSearch</page>, <page>ContentSidebar:CreateSaveNotification</page> and creates a ContentSidebarToolbox which is accessible under ContentSidebar.Toolbox. Call the Hook <page>SANDBOX:OpenToolbox</page> to open the created Toolbox
+	</description>
+	<realm>Client</realm>
+	<file line="25-L40">gamemodes/sandbox/gamemode/spawnmenu/creationmenu/content/contentsidebar.lua</file>
+</function>

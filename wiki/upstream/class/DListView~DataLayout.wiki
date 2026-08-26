@@ -1,0 +1,7 @@
+<function name="DataLayout" parent="DListView" type="panelfunc">
+	<description>Creates the lines and gets the height of the contents, in a DListView.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The height of the contents</ret>
+	</rets>
+</function>

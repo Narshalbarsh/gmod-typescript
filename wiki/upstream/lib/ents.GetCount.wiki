@@ -1,0 +1,15 @@
+<function name="GetCount" parent="ents" type="libraryfunc">
+	<description>
+Gives you the amount of currently existing entities.
+
+Similar to **#**<page>ents.GetAll</page>() but with better performance since the entity table doesn't have to be generated.  
+If <page>ents.GetAll</page> is already being called for iteration, than using the **#** operator on the table will be faster than calling this function since it is JITted.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="IncludeKillMe" type="boolean" default="false">Include entities with the FL_KILLME flag. This will skip an internal loop, and the function will be more efficient as a byproduct.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">Number of entities.</ret>
+	</rets>
+</function>

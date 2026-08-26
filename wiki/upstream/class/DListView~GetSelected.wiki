@@ -1,0 +1,7 @@
+<function name="GetSelected" parent="DListView" type="panelfunc">
+	<description>Gets all of the lines that are currently selected.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="table">A table of <page>DListView_Line</page>s.</ret>
+	</rets>
+</function>

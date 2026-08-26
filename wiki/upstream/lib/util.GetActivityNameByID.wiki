@@ -1,0 +1,14 @@
+<function name="GetActivityNameByID" parent="util" type="libraryfunc">
+	<description>Returns a name for given activity ID. This is useful for models that define custom activities.
+
+See <page>util.GetActivityIDByName</page> for a function that does the opposite.
+</description>
+	<realm>Shared</realm>
+	<added>2024.01.26</added>
+	<args>
+		<arg name="id" type="number">The ID of an activity from some hook. See also <page>Enums/ACT</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The associated name with given activity ID.</ret>
+	</rets>
+</function>

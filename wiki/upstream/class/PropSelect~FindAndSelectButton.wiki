@@ -1,0 +1,9 @@
+<function name="FindAndSelectButton" parent="PropSelect" type="panelfunc">
+	<description>
+Find and select a <page>SpawnIcon</page> panel based on the input model path.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="mdl" type="string">The model to find and select within this <page>PropSelect</page>.</arg>
+	</args>
+</function>

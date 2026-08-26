@@ -1,0 +1,19 @@
+<function name="SetGlobal2Float" parent="Global" type="libraryfunc">
+	<description>
+Defines a floating point number to be automatically networked to clients
+
+<warning>This function has a floating point precision error. Use <page>Global.SetGlobalFloat</page> instead</warning>
+<note>Running this function clientside will only set it clientside for the client it is called on!</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="index" type="any">Index to identify the global float with</arg>
+		<arg name="float" type="number">Float to be networked</arg>
+	</args>
+</function>
+
+<example>
+	<code>SetGlobal2Float("Example", 3.3)
+print(GetGlobal2Float("Example"))</code>
+	<output>3.2999999523163</output>
+</example>

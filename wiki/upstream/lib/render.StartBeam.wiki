@@ -1,0 +1,14 @@
+<function name="StartBeam" parent="render" type="libraryfunc">
+	<description>
+	<rendercontext hook="false" type="3D"></rendercontext>
+
+	Begin drawing a multi-segment Beam.
+
+			For more detailed information on Beams, as well as usage examples, see the <page text="Beams Render Reference">render_beams</page>.
+
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="segmentCount" type="number">The number of Beam Segments that this multi-segment Beam will contain.</arg>
+	</args>
+</function>

@@ -1,0 +1,8 @@
+<function name="MarkAsDamaging" parent="CNavArea" type="classfunc">
+	<description>Marks the area as damaging if traversed, for example when, for example having poisonous or no atmosphere, or a temporary fire present. See <page>CNavArea:IsDamaging</page>.</description>
+	<realm>Server</realm>
+	<added>2023.09.06</added>
+	<args>
+		<arg name="duration" type="number">For how long the area should stay marked as damaging. Multiple calls will overwrite the previous value.</arg>
+	</args>
+</function>

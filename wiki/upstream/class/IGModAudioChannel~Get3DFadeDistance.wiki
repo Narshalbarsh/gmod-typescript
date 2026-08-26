@@ -1,0 +1,8 @@
+<function name="Get3DFadeDistance" parent="IGModAudioChannel" type="classfunc">
+	<description>Returns 3D fade distances of a sound channel.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">The minimum distance. The channel's volume is at maximum when the listener is within this distance</ret>
+		<ret name="" type="number">The maximum distance. The channel's volume stops decreasing when the listener is beyond this distance</ret>
+	</rets>
+</function>

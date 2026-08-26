@@ -1,0 +1,7 @@
+<function name="GetRenderGroup" parent="Entity" type="classfunc">
+	<description>Returns the render group of the entity.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">The render group. See <page>Enums/RENDERGROUP</page></ret>
+	</rets>
+</function>

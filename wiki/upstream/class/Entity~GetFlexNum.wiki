@@ -1,0 +1,30 @@
+<function name="GetFlexNum" parent="Entity" type="classfunc">
+	<description>Returns the number of flex controllers this entity's model has.
+
+<note>Please note that while this function can return the real number of flex controllers, the game supports only a certain amount due to networking limitations. See <page>Entity:SetFlexWeight</page>.</note>
+
+</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The number of flexes.</ret>
+	</rets>
+</function>
+
+<example>
+
+<description>Draws all flex controller names and their values of the local player on the screen.</description>
+<code>
+hook.Add( "HUDPaint", "draw_all_flexes", function()
+	local p = LocalPlayer()
+
+	for i=0, p:GetFlexNum() - 1 do
+		draw.SimpleText( tostring( i ) .. " - " .. p:GetFlexName( i ) , "Default", 50, 50 + i * 10, color_white )
+		draw.SimpleText( ("%0.3f"):format( p:GetFlexWeight( i ) ), "Default", 250, 50 + i * 10, color_white )
+	end
+end )
+</code>
+<output>
+For default player model with flexes:
+<upload src="70c/8dc9c4b98a52bf4.png" size="409335" name="image.png" />
+</output>
+</example>

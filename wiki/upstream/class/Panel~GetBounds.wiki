@@ -1,0 +1,14 @@
+<function name="GetBounds" parent="Panel" type="classfunc">
+	<description>
+Returns the position and size of the panel.
+
+This is equivalent to calling <page>Panel:GetPos</page> and <page>Panel:GetSize</page> together.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">The x coordinate of the panel, relative to its parent's top left.</ret>
+		<ret name="" type="number">The y coordinate of the panel, relative to its parent's top left.</ret>
+		<ret name="" type="number">The width of the panel.</ret>
+		<ret name="" type="number">The height of the panel.</ret>
+	</rets>
+</function>

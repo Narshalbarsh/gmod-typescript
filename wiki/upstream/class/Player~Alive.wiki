@@ -1,0 +1,22 @@
+<function name="Alive" parent="Player" type="classfunc">
+	<description>Checks if the player is alive. 
+
+Player specific implementation of <page>Entity:Alive</page>, the value is synchronized to the client.
+</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the player is alive</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Loops through all the players and kills alive ones.</description>
+	<code>
+for i, ply in ipairs( player.GetAll() ) do
+	if ply:Alive() then
+		ply:Kill()
+	end
+end
+	</code>
+
+</example>

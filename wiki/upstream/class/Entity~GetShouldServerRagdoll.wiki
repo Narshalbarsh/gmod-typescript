@@ -1,0 +1,7 @@
+<function name="GetShouldServerRagdoll" parent="Entity" type="classfunc">
+	<description>Returns if entity should create a server ragdoll on death or a client one.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">Returns true if ragdoll will be created on server, false if on client</ret>
+	</rets>
+</function>

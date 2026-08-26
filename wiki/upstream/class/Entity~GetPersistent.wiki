@@ -1,0 +1,11 @@
+<function name="GetPersistent" parent="Entity" type="classfunc">
+	<description>
+Returns whether the entity is persistent or not.
+
+See <page>Entity:SetPersistent</page> for more information on persistence.
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">True if the entity is set to be persistent.</ret>
+	</rets>
+</function>

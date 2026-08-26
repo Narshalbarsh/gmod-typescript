@@ -1,0 +1,22 @@
+<function name="IsBasedOn" parent="weapons" type="libraryfunc">
+	<description>Checks if name is based on base</description>
+	<realm>Shared</realm>
+	<file line="32-L39">lua/includes/modules/weapons.lua</file>
+	<args>
+		<arg name="name" type="string">Entity's class name to be checked</arg>
+		<arg name="base" type="string">Base class name to be checked</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Returns true if class name is based on base, else false.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>See if gmod_tool is based on weapon_base, and whether weapon_base is based on itself.</description>
+	<code>print(weapons.IsBasedOn("gmod_tool", "weapon_base"), weapons.IsBasedOn("weapon_base", "weapon_base"))</code>
+	<output>
+true    
+false
+	</output>
+
+</example>

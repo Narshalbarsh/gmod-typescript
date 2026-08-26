@@ -1,0 +1,33 @@
+<type name="bit" category="libraryfunc" is="library">
+	<summary>The bitwise library contains useful functions for bitwise operations.
+Make sure you're familiar with [Bitwise Operators](https://code.tutsplus.com/articles/understanding-bitwise-operators--active-11301)</summary>
+</type>
+
+
+<example>
+	<description>Displays some bitwise operator functionality.</description>
+	<code>
+local mybits = 0
+mybits = bit.bor(mybits, 2) -- Add 2 4 and 8 to mybits
+mybits = bit.bor(mybits, 4)
+mybits = bit.bor(mybits, 8)
+
+print(bit.band(mybits, 4) == 4) -- Does mybits have 4?
+
+mybits = bit.band(mybits, bit.bnot(4)) -- Remove 4 from mybits
+
+print(bit.band(mybits, 4) == 4) -- Does mybits have 4?
+
+print(bit.band(mybits, 2) == 2) -- Does mybits have 2?
+	</code>
+	<output>
+
+```
+true
+false
+true
+```
+
+	</output>
+
+</example>

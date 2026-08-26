@@ -1,0 +1,11 @@
+<function name="GetHoldPos" parent="DHorizontalDivider" type="panelfunc">
+	<description>
+<internal></internal>
+
+Returns the local X coordinate of where the player started dragging the thing
+	</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number"></ret>
+	</rets>
+</function>

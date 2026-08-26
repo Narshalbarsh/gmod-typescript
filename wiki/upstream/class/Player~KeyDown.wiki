@@ -1,0 +1,29 @@
+<function name="KeyDown" parent="Player" type="classfunc">
+	<description>Returns whether a key is down. This is not networked to other players, meaning only the local client can see the keys they are pressing.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="key" type="number">The key, see <page>Enums/IN</page></arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">whether the key is down or not.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints whenever the first player is holding <key>+FORWARD</key> key (<key>W</key> on QWERTY keyboards).</description>
+	<code>
+hook.Add( "Tick", "KeyDown_Test", function()
+	if ( Entity( 1 ):KeyDown( IN_FORWARD ) ) then
+		print( "Player is pressing forward!" )
+	end
+end )
+	</code>
+	<output>
+```
+Player is pressing forward!
+Player is pressing forward!
+Player is pressing forward!
+Player is pressing forward!
+```
+	</output>
+</example>

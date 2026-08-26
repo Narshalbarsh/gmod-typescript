@@ -1,0 +1,11 @@
+<function name="SetName" parent="DKillIcon" type="panelfunc">
+	<description>
+Sets the killicon to be displayed. You should call <page>Panel:SizeToContents</page> following this.
+
+Killicons can be added with <page>killicon.Add</page> and <page>killicon.AddFont</page>.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="iconName" type="string">The name of the killicon to be displayed.</arg>
+	</args>
+</function>

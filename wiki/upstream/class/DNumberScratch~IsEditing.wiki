@@ -1,0 +1,7 @@
+<function name="IsEditing" parent="DNumberScratch" type="panelfunc">
+	<description>Returns whether the player is currently editing the value of the <page>DNumberScratch</page>.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean"></ret>
+	</rets>
+</function>

@@ -1,0 +1,18 @@
+<function name="LoadCookies" parent="PANEL" type="hook">
+	<description>Called after <page>Panel:SetCookieName</page> is called on this panel to apply the just loaded cookie values for this panel.</description>
+	<realm>Client</realm>
+</function>
+
+<example>
+	<code>
+function PANEL:LoadCookies()
+
+	local value = self:GetCookieNumber( "SavedCookieName", 0 )
+	print( value )
+
+	-- Do your stuff with the loaded value
+
+end
+	</code>
+
+</example>

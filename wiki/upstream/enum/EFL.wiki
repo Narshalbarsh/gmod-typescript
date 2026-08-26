@@ -1,0 +1,42 @@
+<enum>
+	<realm>Shared</realm>
+	<description>Enumerations used by <page>Entity:AddEFlags</page>, <page>Entity:RemoveEFlags</page> and <page>Entity:IsEFlagSet</page>.</description>
+	<items>
+
+<item key="EFL_KILLME" value="1">This entity is marked for death -- This allows the game to actually delete ents at a safe time.
+<warning>You should never set this flag manually.</warning></item>
+
+<item key="EFL_DORMANT" value="2">Entity is dormant, no updates to client</item>
+<item key="EFL_NOCLIP_ACTIVE" value="4">Lets us know when the noclip command is active</item>
+<item key="EFL_SETTING_UP_BONES" value="8">Set while a model is setting up its bones</item>
+<item key="EFL_KEEP_ON_RECREATE_ENTITIES" value="16">This is a special entity that should not be deleted when we respawn entities via <page>game.CleanUpMap</page>.</item>
+<item key="EFL_HAS_PLAYER_CHILD" value="16">One of the child entities is a player</item>
+<item key="EFL_DIRTY_SHADOWUPDATE" value="32">(Client only) need shadow manager to update the shadow</item>
+<item key="EFL_NOTIFY" value="64">Another entity is watching events on this entity (used by teleport)</item>
+<item key="EFL_FORCE_CHECK_TRANSMIT" value="128">The default behavior in ShouldTransmit is to not send an entity if it doesn't have a model. Certain entities want to be sent anyway because all the drawing logic is in the client DLL. They can set this flag and the engine will transmit them even if they don't have model</item>
+<item key="EFL_BOT_FROZEN" value="256">This is set on bots that are frozen</item>
+<item key="EFL_SERVER_ONLY" value="512">Non-networked entity</item>
+<item key="EFL_NO_AUTO_EDICT_ATTACH" value="1024">Don't attach the edict</item>
+<item key="EFL_DIRTY_ABSTRANSFORM" value="2048">Some 'dirty' bits with respect to absolute computations. Used internally by the engine when an entity's absolute position needs to be recalculated.</item>
+<item key="EFL_DIRTY_ABSVELOCITY" value="4096">Some 'dirty' bits with respect to absolute computations. Used internally by the engine when an entity's absolute velocity needs to be recalculated.</item>
+<item key="EFL_DIRTY_ABSANGVELOCITY" value="8192">Some 'dirty' bits with respect to absolute computations. Used internally by the engine when an entity's absolute angular velocity needs to be recalculated.</item>
+<item key="EFL_DIRTY_SURROUNDING_COLLISION_BOUNDS" value="16384">Marks the entity as having a 'dirty' surrounding box. Used internally by the engine to recompute the entity's collision bounds.</item>
+<item key="EFL_DIRTY_SPATIAL_PARTITION" value="32768">Used internally by the engine when an entity's "spatial partition" needs to be recalculated.</item>
+
+<item key="EFL_IN_SKYBOX" value="131072">This is set if the entity detects that it's in the skybox. This forces it to pass the "in PVS" for transmission</item>
+<item key="EFL_USE_PARTITION_WHEN_NOT_SOLID" value="262144">Entities with this flag set show up in the partition even when not solid</item>
+<item key="EFL_TOUCHING_FLUID" value="524288">Used to determine if an entity is floating</item>
+<item key="EFL_IS_BEING_LIFTED_BY_BARNACLE" value="1048576">The entity is currently being lifted by a Barnacle.</item>
+<item key="EFL_NO_ROTORWASH_PUSH" value="2097152">The entity is not affected by 'rotorwash push'--the wind-push effect caused by helicopters close to the ground in Half-Life 2.</item>
+<item key="EFL_NO_THINK_FUNCTION" value="4194304">Avoid executing the entity's Think</item>
+<item key="EFL_NO_GAME_PHYSICS_SIMULATION" value="8388608">The entity is currently not simulating any physics.</item>
+<item key="EFL_CHECK_UNTOUCH" value="16777216">The entity is about to have its untouch callback checked, e.g. when this entity stops touching another entity.</item>
+<item key="EFL_DONTBLOCKLOS" value="33554432">Entity shouldn't block NPC line-of-sight</item>
+<item key="EFL_DONTWALKON" value="67108864">NPCs should not walk on this entity</item>
+<item key="EFL_NO_DISSOLVE" value="134217728">The entity shouldn't dissolve</item>
+<item key="EFL_NO_MEGAPHYSCANNON_RAGDOLL" value="268435456">Mega physcannon can't ragdoll these guys</item>
+<item key="EFL_NO_WATER_VELOCITY_CHANGE" value="536870912">Don't adjust this entity's velocity when transitioning into water</item>
+<item key="EFL_NO_PHYSCANNON_INTERACTION" value="1073741824">Physcannon can't pick these up or punt them</item>
+<item key="EFL_NO_DAMAGE_FORCES" value="-2147483648">Doesn't accept forces from physics damage</item>
+	</items>
+</enum>

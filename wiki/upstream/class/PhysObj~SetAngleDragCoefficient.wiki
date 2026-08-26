@@ -1,0 +1,7 @@
+<function name="SetAngleDragCoefficient" parent="PhysObj" type="classfunc">
+	<description>Sets the amount of [drag](https://en.wikipedia.org/wiki/Drag_(physics)) to apply to a physics object when attempting to rotate.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="coefficient" type="number">[Drag coefficient](https://en.wikipedia.org/wiki/Drag_coefficient). The bigger this value is, the slower the angles will change.</arg>
+	</args>
+</function>

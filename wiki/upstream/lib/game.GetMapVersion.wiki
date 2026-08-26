@@ -1,0 +1,11 @@
+<function name="GetMapVersion" parent="game" type="libraryfunc">
+	<description>Returns the revision (Not to be confused with [VBSP Version](https://developer.valvesoftware.com/wiki/Source_BSP_File_Format#Versions)) and BSP version of the current map.
+
+Map revision is the amount of times the map file was saved in Hammer at the time of the map being compiled. This is useful to detect when a map has changed.
+</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">Revision of the currently loaded map. </ret>
+		<ret name="" type="number" added="2026.02.06">BSP version. </ret>
+	</rets>
+</function>

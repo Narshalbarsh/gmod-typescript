@@ -1,0 +1,7 @@
+<function name="GetTopRightArea" parent="CNavLadder" type="classfunc">
+	<description>Returns the top right <page>CNavArea</page> of the <page>CNavLadder</page>.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="CNavArea">The top right <page>CNavArea</page> of the <page>CNavLadder</page>.</ret>
+	</rets>
+</function>

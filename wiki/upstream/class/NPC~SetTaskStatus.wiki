@@ -1,0 +1,8 @@
+<function name="SetTaskStatus" parent="NPC" type="classfunc">
+	<description>Sets the status of the current task.</description>
+	<realm>Server</realm>
+	<added>2021.03.31</added>
+	<args>
+		<arg name="status" type="number">The status. See <page>Enums/TASKSTATUS</page>.</arg>
+	</args>
+</function>

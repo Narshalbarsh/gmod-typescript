@@ -1,0 +1,16 @@
+<function name="Add" parent="killicon" type="libraryfunc">
+	<description>Creates new kill icon using a texture.</description>
+	<realm>Client</realm>
+	<file line="30-L37">lua/includes/modules/killicon.lua</file>
+	<args>
+		<arg name="class" type="string">Weapon or entity class.</arg>
+		<arg name="texture" type="string">Path to the texture.</arg>
+		<arg name="color" type="Color"><page>Color</page> of the kill icon.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Creates default killicon.</description>
+	<code>killicon.Add( "default", "HUD/killicons/default", Color( 255, 80, 0, 255 ) )</code>
+
+</example>

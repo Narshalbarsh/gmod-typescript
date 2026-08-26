@@ -1,0 +1,7 @@
+<function name="ActiveList" parent="matproxy" type="libraryfield">
+	<description><internal></internal>A list of all **active** material proxies.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="table">The list of all active material proxies.</ret>
+	</rets>
+</function>

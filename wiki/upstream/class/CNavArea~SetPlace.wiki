@@ -1,0 +1,14 @@
+<function name="SetPlace" parent="CNavArea" type="classfunc">
+	<description>
+Sets the Place of the nav area.
+
+There is a limit of 256 unique places per `.nav` file.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="place" type="string">Set to `""` to remove place from the nav area. There's a limit of 255 characters.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Returns true of operation succeeded, false otherwise.</ret>
+	</rets>
+</function>

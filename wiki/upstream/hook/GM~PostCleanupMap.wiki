@@ -1,0 +1,8 @@
+<function name="PostCleanupMap" parent="GM" type="hook">
+	<description>
+Called right after the map has cleaned up (usually because <page>game.CleanUpMap</page> was called)
+
+See also <page>GM:PreCleanupMap</page>.
+	</description>
+	<realm>Shared</realm>
+</function>

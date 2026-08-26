@@ -1,0 +1,13 @@
+<function name="SetBoneController" parent="Entity" type="classfunc">
+	<description>
+Sets the specified value on the bone controller with the given ID of this entity, it's used in HL1 to change the head rotation of NPCs, turret aiming and so on.
+
+<note>This is the precursor of pose parameters, and only works for Half Life 1: Source models supporting it.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="boneControllerID" type="number">The ID of the bone controller to set the value to.
+Goes from 0 to 3.</arg>
+		<arg name="value" type="number">The value to set on the specified bone controller.</arg>
+	</args>
+</function>

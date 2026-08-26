@@ -1,0 +1,13 @@
+<function name="SetVelocity" parent="Entity" type="classfunc">
+	<description>
+Sets the entity's velocity. For entities with physics, consider using <page>PhysObj:SetVelocity</page> on the <page>PhysObj</page> of the entity.
+
+<note>Actually binds to CBaseEntity::SetBaseVelocity() which sets the entity's velocity due to forces applied by other entities.</note>
+
+<warning>If applied to a player, this will actually **ADD** velocity, not set it. (due to how movement code handles base velocity)</warning>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="velocity" type="Vector">The new velocity to set.</arg>
+	</args>
+</function>

@@ -1,0 +1,12 @@
+<function name="SetShadowFilter" parent="ProjectedTexture" type="classfunc">
+	<description>
+Sets the shadow "filter size" of the projected texture. `0` is fully pixelated, higher values will blur the shadow more. The initial value is the value of `r_projectedtexture_filter` <page>ConVar</page>.
+
+<validate>You must call <page>ProjectedTexture:Update</page> after using this function for it to take effect.</validate>
+	</description>
+	<added>2021.03.31</added>
+	<realm>Client</realm>
+	<args>
+		<arg name="filter" type="number">The shadow filter size to set.</arg>
+	</args>
+</function>

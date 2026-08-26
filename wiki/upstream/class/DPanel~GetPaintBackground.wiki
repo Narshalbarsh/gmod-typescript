@@ -1,0 +1,7 @@
+<function name="GetPaintBackground" parent="DPanel" type="panelfunc">
+	<description>Returns whether or not the panel background is being drawn.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">True if the panel background is drawn, false otherwise.</ret>
+	</rets>
+</function>

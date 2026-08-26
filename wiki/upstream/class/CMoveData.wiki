@@ -1,0 +1,5 @@
+<type name="CMoveData" category="classfunc" is="class">
+	<summary>A class used to store the inputs from <page>CUserCmd</page> and other information related to the current movement simulation, such as velocity, position and so on.
+
+This can only be accessed during <page>GM:SetupMove</page> , <page>GM:Move</page> , <page>GM:PlayerTick</page> and <page>GM:FinishMove</page>.</summary>
+</type>

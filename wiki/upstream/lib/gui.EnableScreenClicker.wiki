@@ -1,0 +1,13 @@
+<function name="EnableScreenClicker" parent="gui" type="libraryfunc">
+	<description>
+Enables the mouse cursor without restricting player movement, like using Sandbox's context menu. See <page>vgui.CursorVisible</page> for a function to see if the cursor is visible or not.
+
+<note>
+	Some <page>CUserCmd</page> functions will return incorrect values when this function is active because [the user input is getting overtaken by the vgui system](https://github.com/Facepunch/garrysmod-issues/issues/982#issuecomment-505671531).
+</note>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="enabled" type="boolean">Whether the cursor should be enabled or not. (true = enable, false = disable)</arg>
+	</args>
+</function>

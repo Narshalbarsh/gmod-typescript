@@ -1,0 +1,8 @@
+<function name="OnRowRightClick" parent="DListView" type="panelhook">
+	<description>Called when a row is right-clicked</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="lineID" type="number">The line ID of the right clicked line</arg>
+		<arg name="line" type="Panel">The line panel itself, a <page>DListView_Line</page>.</arg>
+	</args>
+</function>

@@ -1,0 +1,15 @@
+<function name="IsPointInBounds" parent="Entity" type="classfunc">
+	<description>
+Returns whether a given point is within the entity's Orientated Bounding Box.
+
+This relies on the entity having a collision mesh (not a physics object) and will be affected by `SOLID_NONE`.
+	</description>
+	<added>2022.08.02</added>
+	<realm>Shared</realm>
+	<args>
+		<arg name="point" type="Vector">The point to test, in world space coordinates.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether the point is within the entity's bounds.</ret>
+	</rets>
+</function>

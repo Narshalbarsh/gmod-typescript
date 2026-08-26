@@ -1,0 +1,12 @@
+<function name="SetGlobal2String" parent="Global" type="libraryfunc">
+	<description>
+Defines a string with a maximum of 511 characters to be automatically networked to clients
+
+<note>Running this function clientside will only set it clientside for the client it is called on!</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="index" type="any">Index to identify the global string with</arg>
+		<arg name="string" type="string">String to be networked</arg>
+	</args>
+</function>

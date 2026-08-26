@@ -8,10 +8,28 @@ declare const MENU: boolean;
 declare const GAMEMODE: Gamemode;
 declare const GM: Gamemode;
 declare const ENT: ENTITY;
+// The wiki uses the value names GM and ENT as types in a few places, table{GM}, table{ENT}
+type GM = Gamemode;
+type ENT = ENTITY;
 
-// Needed where the engine wants an Entity meaning "none", e.g. Player:SetActiveWeapon(NULL)
-// not the same thing as nil or undefined
-declare const NULL: Entity;
+/**
+ * GMod's Error global, the non-halting one, see the Global.Error wiki page.
+ * NEVER call plain Error(...) from TS expecting the GMod global,
+ * TSTL compiles any Error call to its own lualib class no matter what is declared,
+ * so Global.Error is skipped in modifications.json and this renamed declaration is the way to reach it
+ * @customName Error
+ * @noSelf
+ */
+declare function GmodError(...args: any[]): void;
+
+// The invalid entity, what the engine returns when it has nothing, player.GetByID for example,
+// and what it wants where an Entity means "none", Player:SetActiveWeapon(NULL).
+// Not the same thing as nil or undefined, it is an Entity object that fails IsValid.
+// Branded so a `Player | NULL` has to go through IsValid before it can be used as a Player
+interface NULL extends Entity {
+    readonly __nullEntity: unique symbol;
+}
+declare const NULL: NULL;
 
 /**
  * SubModelIds
@@ -73,7 +91,7 @@ type IsCustomEnum<N>   = N extends CustomHookName     ? true : false;
 type When<B extends boolean, T> = B extends true ? T : never;
 
 type ExpectedCallback<N extends HookName> =
-    | When<IsGameEvent<N>,   (data: gameevent[N]) => any>
+    | When<IsGameEvent<N>,   (data: gameevent[Extract<N, keyof gameevent>]) => any>
     | When<IsGMKey<N>,       GMFnFromKey<Extract<N, GMHookKey>>>
     | When<IsGMEnum<N>,      GMFnFromEnum<Extract<N, GMHookName>>>
     | When<IsCustomKey<N>,   CustomFnFromKey<Extract<N, CustomHookKey>>>
@@ -90,9 +108,12 @@ type Metatable<T> = {
             : T[K]
 };
 
-const color_white: Color
-const color_black: Color
-const color_transparent: Color
+declare const color_white: Color;
+declare const color_black: Color;
+declare const color_transparent: Color;
+
+// TODO: replace this stub once the wiki has a CtrlColor page, ControlPanel:ColorPicker links one that does not exist
+interface CtrlColor extends DPanel {}
 
 interface DCheckBoxLabel extends DPanel {
     Button: DCheckBox;
@@ -100,6 +121,21 @@ interface DCheckBoxLabel extends DPanel {
 }
 
 type PanelDef<T> = {
+    [K in keyof T]?: NonNullable<T[K]> extends (this: any, ...args: infer A) => infer R
+        ? (this: T, ...args: A) => R
+        : T[K];
+};
+
+// What scripted_ents.Register takes, every ENT field and hook optional.
+// Pass your own subtype as T and the hooks get it as `this`
+type EntityDef<T extends ENTITY = ENTITY> = {
+    [K in keyof T]?: NonNullable<T[K]> extends (this: any, ...args: infer A) => infer R
+        ? (this: T, ...args: A) => R
+        : T[K];
+};
+
+// same as EntityDef, for weapons.Register
+type SWEPDef<T extends SWEP = SWEP> = {
     [K in keyof T]?: NonNullable<T[K]> extends (this: any, ...args: infer A) => infer R
         ? (this: T, ...args: A) => R
         : T[K];

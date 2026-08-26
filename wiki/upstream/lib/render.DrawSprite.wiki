@@ -1,0 +1,112 @@
+<function name="DrawSprite" parent="render" type="libraryfunc">
+	<description>
+Draws a sprite in 3D space.
+
+<rendercontext hook="false" type="3D"></rendercontext>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="position" type="Vector">Position of the sprite.</arg>
+		<arg name="width" type="number">Width of the sprite.</arg>
+		<arg name="height" type="number">Height of the sprite.</arg>
+		<arg name="color" type="Color" default="Color( 255, 255, 255 )">Color of the sprite.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Draw a sprite at the center of the map.</description>
+	<code>
+local pos, material = Vector( 0, 0, 0 ), Material( "sprites/splodesprite" ) --Define this sort of stuff outside of loops to make more efficient code.
+hook.Add( "HUDPaint", "paintsprites", function()
+	cam.Start3D() -- Start the 3D function so we can draw onto the screen.
+		render.SetMaterial( material ) -- Tell render what material we want, in this case the flash from the gravgun
+		render.DrawSprite( pos, 16, 16, color_white ) -- Draw the sprite in the middle of the map, at 16x16 in it's original colour with full alpha.
+	cam.End3D()
+end )
+	</code>
+	<output>An orange star appears at 0,0,0 on the map.</output>
+
+</example>
+
+
+<example>
+	<description>
+Function that displays a sprite at the given position, without the need of a specific rendering context.
+
+`draw.VectorSprite`( <page>Vector</page> position, <page>number</page> size, <page>Color</page> color, <page>boolean</page> constantSize )
+	</description>
+	<code>
+local toDraw3d = {}
+local sprites3d = 0
+
+local toDraw2d = {}
+local sprites2d = 0
+
+local material = Material( "sprites/light_ignorez" )
+
+function draw.VectorSprite( position, size, color, constantSize )
+	if ( not isvector( position ) ) then
+		error( "bad argument #1 to draw.DrawVectorSprite (Vector expected, got " .. type( position ) .. ")" )
+	end
+
+	if ( not isnumber( size ) ) then
+		error( "bad argument #2 to draw.DrawVectorSprite (number expected, got " .. type( size ) .. ")" )
+	end
+
+	if ( not IsColor( color ) ) then
+		error( "bad argument #3 to draw.DrawVectorSprite (Color expected, got " .. type( color ) .. ")" )
+	end
+
+	local tbl = { position, size, color }
+
+	if ( constantSize ) then
+		sprites2d = sprites2d + 1
+		toDraw2d[sprites2d] = tbl
+	else
+		sprites3d = sprites3d + 1
+		toDraw3d[sprites3d] = tbl
+	end
+end
+
+local render_SetMaterial = render.SetMaterial
+local render_DrawSprite = render.DrawSprite
+hook.Add( "PreDrawEffects", "draw.VectorSprite", function()
+	if ( sprites3d ~= 0 ) then
+		render_SetMaterial( material )
+
+		for i = 1, sprites3d do
+			local info = toDraw3d[i]
+			toDraw3d[i] = nil -- Clear the table every frame
+
+			render_DrawSprite(info[1], info[2], info[2], info[3])
+		end
+
+		sprites3d = 0
+	end
+end )
+
+local surface_SetMaterial = surface.SetMaterial
+local surface_SetDrawColor = surface.SetDrawColor
+local surface_DrawTexturedRect = surface.DrawTexturedRect
+hook.Add( "DrawOverlay", "draw.VectorSprite", function()
+	if ( sprites2d ~= 0 ) then
+		surface_SetMaterial( material )
+
+		for i = 1, sprites2d do
+			local info = toDraw2d[i]
+			toDraw2d[i] = nil
+
+			local pos2d = info[1]:ToScreen()
+
+			if pos2d.visible then
+				surface_SetDrawColor( info[3] )
+				surface_DrawTexturedRect( pos2d.x, pos2d.y, info[2], info[2] )
+			end
+		end
+
+		sprites2d = 0
+	end
+end )
+	</code>
+
+</example>

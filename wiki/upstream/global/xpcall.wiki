@@ -1,0 +1,47 @@
+<function name="xpcall" parent="Global" type="libraryfunc">
+	<description>
+Attempts to call the first function. If the execution succeeds, this returns `true` followed by the returns of the function. If execution fails, this returns `false` and the second function is called with the error message. 
+
+Unlike in <page>Global.pcall</page>, the stack is not unwound and can therefore be used for stack analyses with the <page>debug</page>.
+
+<bug issue="2036">This cannot stop errors from hooks called from the engine.</bug>
+
+<bug issue="2498">This does not stop <page>Global.Error</page> and <page>Global.ErrorNoHalt</page> (As well as <page>Global.include</page>) from sending error messages to the server (if called clientside) or calling the <page>GM:OnLuaError</page> hook. The success boolean returned will always return true and thus you will not get the error message returned. <page>Global.error</page> does not exhibit these behaviours.</bug>
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="func" type="function">The function to call initially.</arg>
+		<arg name="errorCallback" type="function">The function to be called if execution of the first fails; the error message is passed as a string.
+
+You cannot throw an <page>Global.error</page>() from this callback: it will have no effect (not even stopping the callback).</arg>
+		<arg name="arguments" type="vararg">Arguments to pass to the initial function.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Status of the execution; `true` for success, `false` for failure.</ret>
+		<ret name="" type="vararg">The returns of the first function if execution succeeded, otherwise the **first** return value of the error callback.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Using xpcall to catch an error.</description>
+	<code>
+local function test()
+	aisj()
+end
+
+local function catch( err )
+	print( "ERROR: ", err )
+end
+
+print( "Output: ", xpcall( test, catch ) )
+	</code>
+	<output>
+
+```
+ERROR: 	lua/wiki/xpcall_example.lua:2: attempt to call global 'aisj' (a nil value)
+Output:	false 	nil
+```
+
+	</output>
+
+</example>

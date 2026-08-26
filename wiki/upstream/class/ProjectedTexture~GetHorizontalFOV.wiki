@@ -1,0 +1,7 @@
+<function name="GetHorizontalFOV" parent="ProjectedTexture" type="classfunc">
+	<description>Returns the horizontal FOV of the ProjectedTexture, which was previously set by <page>ProjectedTexture:SetHorizontalFOV</page> or <page>ProjectedTexture:SetFOV</page></description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">The horizontal FOV of the ProjectedTexture.</ret>
+	</rets>
+</function>

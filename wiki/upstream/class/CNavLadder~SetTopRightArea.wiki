@@ -1,0 +1,7 @@
+<function name="SetTopRightArea" parent="CNavLadder" type="classfunc">
+	<description>Sets the top right area of the <page>CNavLadder</page>.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="area" type="CNavArea"></arg>
+	</args>
+</function>

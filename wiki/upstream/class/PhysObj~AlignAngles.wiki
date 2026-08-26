@@ -1,0 +1,11 @@
+<function name="AlignAngles" parent="PhysObj" type="classfunc">
+	<description>Rotates the object so that it's angles are aligned to the ones inputted.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="from" type="Angle"></arg>
+		<arg name="to" type="Angle"></arg>
+	</args>
+	<rets>
+		<ret name="" type="Angle"></ret>
+	</rets>
+</function>

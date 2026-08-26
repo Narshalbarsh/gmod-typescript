@@ -1,0 +1,8 @@
+<function name="RenderIcon" parent="IconEditor" type="panelfunc">
+	<description>
+Re-renders the <page>SpawnIcon</page>.
+
+Called when a user clicks the `RENDER` button, this retrieves the render data from the internal <page>DAdjustableModelPanel</page> and passes it as a table to <page>Panel:RebuildSpawnIconEx</page>.
+	</description>
+	<realm>Client</realm>
+</function>

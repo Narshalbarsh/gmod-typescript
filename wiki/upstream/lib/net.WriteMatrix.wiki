@@ -1,0 +1,7 @@
+<function name="WriteMatrix" parent="net" type="libraryfunc">
+	<description>Writes a <page>VMatrix</page> to the current net message.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="matrix" type="VMatrix">The matrix to be sent.</arg>
+	</args>
+</function>

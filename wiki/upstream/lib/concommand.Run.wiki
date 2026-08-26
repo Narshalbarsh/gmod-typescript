@@ -1,0 +1,21 @@
+<function name="Run" parent="concommand" type="libraryfunc">
+	<description>
+<internal>You might be looking for <page>Global.RunConsoleCommand</page> or <page>Player:ConCommand</page>.</internal>
+
+Used by the engine to run a console command's callback function. This will only be called for commands that were added with <page>Global.AddConsoleCommand</page>, which <page>concommand.Add</page> calls internally. An error is sent to the player's console if no callback is found.
+
+This will still be called for concommands removed with <page>concommand.Remove</page> but will return false. This will not be called for concommands added by the engine, only those made from Lua.
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="45-L61">lua/includes/modules/concommand.lua</file>
+	<args>
+		<arg name="ply" type="Player">Player to run concommand on.</arg>
+		<arg name="cmd" type="string">Command name.</arg>
+		<arg name="args" type="any">Command arguments.
+Can be table or string.</arg>
+		<arg name="argumentString" type="string">string of all arguments sent to the command.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">`true` if the console command with the given name exists, and `false` if it doesn't.</ret>
+	</rets>
+</function>

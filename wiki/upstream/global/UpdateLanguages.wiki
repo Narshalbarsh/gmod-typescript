@@ -1,0 +1,19 @@
+<function name="UpdateLanguages" parent="Global" type="libraryfunc">
+	<description>
+		<internal></internal>
+		This function searches for all available languages and passes them to JS(JavaScript). JS then updates the Language list with the given languages.
+	</description>
+	<realm>Menu</realm>
+	<file line="523-L532">lua/menu/mainmenu.lua</file>
+</function>
+
+<example>
+	<description>This manually changes the Language list to only German.</description>
+	<code>
+local languages = {"de.png"}
+pnlMainMenu:Call( "UpdateLanguages(" .. util.TableToJSON( languages ) .. ")" )
+	</code>
+	<output>
+		<image src="ab571/8dc3893c19af903.png" name="language_settings.png" />
+	</output>
+</example>

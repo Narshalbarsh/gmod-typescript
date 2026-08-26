@@ -1,0 +1,10 @@
+<function name="IsCoplanar" parent="CNavArea" type="classfunc">
+	<description>Returns whether this Nav Area is in the same plane as the given one.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="navArea" type="CNavArea">The Nav Area to test.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether we're coplanar or not.</ret>
+	</rets>
+</function>

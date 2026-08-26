@@ -1,0 +1,10 @@
+<function name="Float" parent="umsg" type="libraryfunc">
+	<description>
+<deprecated>You should be using the <page>net</page> instead</deprecated>
+
+Writes a float to the usermessage.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="float" type="number">The float to be sent.</arg>
+	</args>
+</function>

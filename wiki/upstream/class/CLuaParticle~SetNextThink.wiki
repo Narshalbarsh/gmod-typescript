@@ -1,0 +1,7 @@
+<function name="SetNextThink" parent="CLuaParticle" type="classfunc">
+	<description>Sets when the particles think function should be called next, this uses the synchronized server time returned by <page>Global.CurTime</page>.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="nextThink" type="number">Next think time.</arg>
+	</args>
+</function>

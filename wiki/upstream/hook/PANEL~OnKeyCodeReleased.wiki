@@ -1,0 +1,14 @@
+<function name="OnKeyCodeReleased" parent="PANEL" type="hook">
+	<description>
+Called whenever a keyboard key was released while the panel is focused.
+
+<bug issue="2886">This is not run for TILDE/"toggleconsole" binding.</bug>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="keyCode" type="number">The key code of the released key, see <page>Enums/KEY</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return true to suppress default action.</ret>
+	</rets>
+</function>

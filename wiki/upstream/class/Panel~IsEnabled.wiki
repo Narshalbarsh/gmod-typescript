@@ -1,0 +1,11 @@
+<function name="IsEnabled" parent="Panel" type="classfunc">
+	<description>
+Returns whether the the panel is enabled or disabled.
+
+See <page>Panel:SetEnabled</page> for a function that makes the panel enabled or disabled.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the panel is enabled or disabled.</ret>
+	</rets>
+</function>

@@ -1,0 +1,21 @@
+<function name="AddPlayer" parent="CRecipientFilter" type="classfunc">
+	<description>Adds a player to the recipient filter</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="Player" type="Player">Player to add to the recipient filter.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Adds the first player object to the recipient filter, then sends him a message.</description>
+	<code>
+function SendMessage()
+	local filter = RecipientFilter()
+	filter:AddPlayer( Entity( 1 ) )
+	net.Start( "message" )
+	net.Send( filter )
+end
+	</code>
+	<output>Sends a netmessage to the first player object, if it exists.</output>
+
+</example>

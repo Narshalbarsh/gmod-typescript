@@ -1,0 +1,34 @@
+<function name="GetNW2VarProxy" parent="Entity" type="classfunc">
+	<description>Returns callback function for given NWVar of this entity.</description>
+	<realm>Shared</realm>
+	<file line="627">lua/includes/extensions/entity.lua</file>
+	<args>
+		<arg name="key" type="any">The key of the NWVar to get callback of.</arg>
+	</args>
+	<rets>
+		<ret name="" type="function">The callback of given NWVar, or nil if not found.
+
+<callback>
+<arg type="Entity" name="ent">The entity</arg>
+<arg type="string" name="name">Name of the NW2Var that has changed</arg>
+<arg type="any" name="oldval">The old value</arg>
+<arg type="any" name="newval">The new value</arg>
+</callback>
+</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints callback function of a NWVar called "Key" of Player 1.</description>
+	<code>
+print( Entity(1):GetNW2VarProxy( "Key" ) )
+Entity(1):SetNW2VarProxy( "Key", print )
+print( Entity(1):GetNW2VarProxy( "Key" ) )
+	</code>
+	<output>
+```
+nil
+function: builtin#25
+```
+	</output>
+</example>

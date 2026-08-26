@@ -1,0 +1,15 @@
+<function name="HSLToColor" parent="Global" type="libraryfunc">
+	<file line="76-L105">lua/includes/util/color.lua</file>
+	<description>
+Converts a color from [HSL color space](https://en.wikipedia.org/wiki/HSL_and_HSV) into RGB color space and returns a <page>Color</page>.
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="hue" type="number">The hue in degrees from 0-360.</arg>
+		<arg name="saturation" type="number">The saturation from 0-1.</arg>
+		<arg name="lightness" type="number">The lightness from 0-1.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Color">The <page>Color</page> created from the HSL color space.</ret>
+	</rets>
+</function>

@@ -1,0 +1,7 @@
+<function name="GetShowDropTargets" parent="DHorizontalScroller" type="panelfunc">
+	<description>Returns whether this panel should show drop targets.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean"></ret>
+	</rets>
+</function>

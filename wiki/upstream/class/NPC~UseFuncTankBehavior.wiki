@@ -1,0 +1,9 @@
+<function name="UseFuncTankBehavior" parent="NPC" type="classfunc">
+	<realm>Server</realm>
+	<description> Orders the SNPC to control any nearby `func_tank`s looking for an NPC to operate itself, if available. 
+<note>This function only works on `ai` type [SENTs](Scripted_Entities).</note>
+	</description>
+	<rets>
+		<ret name="" type="boolean">Whether the action succeeded.</ret>
+	</rets>
+</function>

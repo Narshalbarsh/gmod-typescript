@@ -1,0 +1,23 @@
+<function name="CRC" parent="util" type="libraryfunc">
+	<description>
+		Generates the [CRC Checksum](https://en.wikipedia.org/wiki/Cyclic_redundancy_check) of the specified string.
+		
+		<warning>
+			This is NOT a hashing function. It is a checksum, typically used for error detection/data corruption detection. It is possible for this function to generate "collisions", where two different strings will produce the same CRC. If you need a hashing function, use <page>util.SHA256</page>.
+		</warning>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="stringToChecksum" type="string">The string to calculate the checksum of.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The unsigned 32 bit checksum.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints out the CRC-32 checksum of "a".</description>
+	<code>print( util.CRC( "a" ))</code>
+	<output>3904355907</output>
+
+</example>

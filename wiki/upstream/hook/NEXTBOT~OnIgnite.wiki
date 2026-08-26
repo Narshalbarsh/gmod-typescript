@@ -1,0 +1,4 @@
+<function name="OnIgnite" parent="NEXTBOT" type="hook">
+	<description>Called when the bot is ignited.</description>
+	<realm>Server</realm>
+</function>

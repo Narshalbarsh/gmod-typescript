@@ -1,0 +1,33 @@
+<function name="PlayerStartVoice" parent="GM" type="hook">
+	<description>Called when a player starts using voice chat.
+<note>Set mp_show_voice_icons to 0, if you want disable icons above player.</note>
+</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="ply" type="Player">Player who started using voice chat.</arg>
+		<arg name="plyIndex" type="number" default="nil">The player index. Only appears when non-local player speaks for the first time.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Set true to hide player's `CHudVoiceStatus`.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Shows the icon when the player talks.</description>
+	<code>
+local icon = Material("icon32/unmuted.png")
+local function iconfunc()
+	surface.SetDrawColor(255, 255, 255)
+	surface.SetMaterial(icon)
+	surface.DrawTexturedRect(200, 200, 200, 200)
+end
+
+hook.Add("PlayerStartVoice", "ImageOnVoice", function()
+	hook.Add("HUDPaint", "ImageOnVoice", iconfunc)
+end)
+
+hook.Add("PlayerEndVoice", "ImageOnVoice", function()
+	hook.Remove("HUDPaint", "ImageOnVoice")
+end)
+	</code>
+</example>

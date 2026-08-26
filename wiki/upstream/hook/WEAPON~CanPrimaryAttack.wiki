@@ -1,0 +1,8 @@
+<function name="CanPrimaryAttack" parent="WEAPON" type="hook">
+	<description>Helper function for checking for no ammo.</description>
+	<realm>Shared</realm>
+	<file line="200-L213">gamemodes/base/entities/weapons/weapon_base/shared.lua</file>
+	<rets>
+		<ret name="" type="boolean">Can use primary attack</ret>
+	</rets>
+</function>

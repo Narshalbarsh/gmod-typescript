@@ -1,0 +1,13 @@
+<function name="PlayerTick" parent="GM" type="hook">
+	<description>
+The Move hook is called for you to manipulate the player's <page>CMoveData</page>. This hook is called moments before <page>GM:Move</page> and <page>GM:PlayerNoClip</page>.
+
+<warning>This hook will not run when inside a vehicle. <page>GM:VehicleMove</page> will be called instead.</warning>
+	</description>
+	<realm>Shared</realm>
+	<predicted>Yes</predicted>
+	<args>
+		<arg name="player" type="Player">The player</arg>
+		<arg name="mv" type="CMoveData">The current movedata for the player.</arg>
+	</args>
+</function>

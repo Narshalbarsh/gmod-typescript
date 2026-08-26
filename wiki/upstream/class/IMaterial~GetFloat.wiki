@@ -1,0 +1,10 @@
+<function name="GetFloat" parent="IMaterial" type="classfunc">
+	<description>Returns the specified material value as a float, or nil if the value is not set.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="materialFloat" type="string">The name of the material value.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">float</ret>
+	</rets>
+</function>

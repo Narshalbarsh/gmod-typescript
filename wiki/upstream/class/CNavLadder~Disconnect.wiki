@@ -1,0 +1,7 @@
+<function name="Disconnect" parent="CNavLadder" type="classfunc">
+	<description>Disconnects this ladder from given area in a single direction.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="area" type="CNavArea">The <page>CNavArea</page> this to disconnect from.</arg>
+	</args>
+</function>

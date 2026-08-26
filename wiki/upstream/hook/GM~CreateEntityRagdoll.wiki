@@ -1,0 +1,13 @@
+<function name="CreateEntityRagdoll" parent="GM" type="hook">
+	<description>
+Called when a serverside ragdoll of an entity has been created.
+
+See <page>GM:CreateClientsideRagdoll</page> for clientside ragdolls.
+	</description>
+	<realm>Server</realm>
+	<file line="85-L86">gamemodes/base/gamemode/init.lua</file>
+	<args>
+		<arg name="owner" type="Entity">Entity that owns the ragdoll</arg>
+		<arg name="ragdoll" type="Entity">The ragdoll entity</arg>
+	</args>
+</function>

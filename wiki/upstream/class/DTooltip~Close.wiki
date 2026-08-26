@@ -1,0 +1,4 @@
+<function name="Close" parent="DTooltip" type="panelfunc">
+	<description>Forces the tooltip to close. This will remove the panel.</description>
+	<realm>Client and Menu</realm>
+</function>

@@ -1,0 +1,11 @@
+<function name="IndexExists" parent="sql" type="libraryfunc">
+	<description>Returns true if the index with the specified name exists.</description>
+	<realm>Shared and Menu</realm>
+	<file line="41-L50">lua/includes/util/sql.lua</file>
+	<args>
+		<arg name="indexName" type="string">The name of the index to check.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">exists</ret>
+	</rets>
+</function>

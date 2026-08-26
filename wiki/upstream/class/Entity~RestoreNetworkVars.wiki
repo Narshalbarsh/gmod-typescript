@@ -1,0 +1,15 @@
+<function name="RestoreNetworkVars" parent="Entity" type="classfunc">
+	<description>
+		Calls the associated `Entity:Set*` function for each network var provided.
+
+		<internal>Used for the built-in duplicator, you do not need to call this yourself.</internal>
+
+		<note>This function will only work on entities which had <page>Entity:InstallDataTable</page> called on them, which is done automatically for players and all <page>Scripted Entities</page></note>
+
+</description>
+	<realm>Shared</realm>
+	<file line="520-L544">lua/includes/extensions/entity.lua</file>
+	<args>
+		<arg name="data" type="table">The data from <page>Entity:GetNetworkVars</page>.</arg>
+	</args>
+</function>

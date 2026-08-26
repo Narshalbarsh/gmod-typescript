@@ -1,0 +1,9 @@
+<function name="NetworkColorChange" parent="DColorPalette" type="panelfunc">
+	<description>
+<internal></internal>
+
+Used internally to make sure changes on one palette affect other palettes with same name.
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="103-L119">lua/vgui/dcolorpalette.lua</file>
+</function>

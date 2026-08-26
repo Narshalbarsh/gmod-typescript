@@ -1,0 +1,29 @@
+<function name="IsInWorld" parent="util" type="libraryfunc">
+	<description>Checks if a certain position is within the world bounds.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="position" type="Vector">Position to check.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether the vector is in world.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>
+Here's a trick you can do to achieve the behavior of this function on the client.
+
+(This may be less efficient than the serverside function itself)
+	</description>
+	<code>
+local tr = { collisiongroup = COLLISION_GROUP_WORLD, output = {} }
+
+function util.IsInWorld( pos )
+	tr.start = pos
+	tr.endpos = pos
+
+	return not util.TraceLine( tr ).HitWorld
+end
+	</code>
+
+</example>

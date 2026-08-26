@@ -1,0 +1,11 @@
+<function name="PlayerSave" parent="gmsave" type="libraryfunc">
+	<description>Returns a table containing player position and angles. Used by <page>gmsave.SaveMap</page>.</description>
+	<realm>Server</realm>
+	<file line="2-L12">lua/includes/gmsave/player.lua</file>
+	<args>
+		<arg name="ply" type="Player">The player to "save".</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">A table containing player position ( Origin ) and angles ( Angle ).</ret>
+	</rets>
+</function>

@@ -1,0 +1,14 @@
+<function name="WaterLevel" parent="Entity" type="classfunc">
+	<description>
+Returns an integer that represents how deep in water the entity is.
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The water level.
+* **0** - The entity isn't in water.
+* **1** - Slightly submerged (at least to the feet).
+* **2** - The majority of the entity is submerged (at least to the waist).
+* **3** - Completely submerged.
+</ret>
+	</rets>
+</function>

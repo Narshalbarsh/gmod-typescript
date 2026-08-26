@@ -1,0 +1,14 @@
+<function name="DeriveGamemode" parent="Global" type="libraryfunc">
+	<description>Loads and registers the specified gamemode, setting the GM table's DerivedFrom field to the value provided, if the table exists. The DerivedFrom field is used post-gamemode-load as the "derived" parameter for <page>gamemode.Register</page>. See  <page>Gamemode_Creation#derivinggamemodes</page> for more information about deriving gamemodes.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="base" type="string">Gamemode name to derive from.</arg>
+	</args>
+</function>
+
+<example>
+	<name>Example</name>
+	<description>Retrieves data from sandbox.</description>
+	<code>DeriveGamemode("sandbox")</code>
+
+</example>

@@ -1,0 +1,21 @@
+<function name="PhysicsInitSphere" parent="Entity" type="classfunc">
+	<description>
+Makes the physics object of the entity a sphere.
+
+This function will automatically destroy any previous physics objects and do the following:
+* <page>Entity:SetSolid</page>( `SOLID_BBOX` )
+* <page>Entity:SetMoveType</page>( `MOVETYPE_VPHYSICS` )
+
+<bug issue="5060">Clientside physics objects on serverside entities do not move properly in some cases. Physics objects should only created on the server or you will experience incorrect physgun beam position, prediction issues, and other unexpected behavior.
+
+A workaround is available on the <page>Entity:PhysicsInitConvex</page> page.</bug>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="radius" type="number">The radius of the sphere.</arg>
+		<arg name="physmat" type="string" default="default">Physical material from [surfaceproperties.txt](https://github.com/Facepunch/garrysmod/blob/master/garrysmod/scripts/surfaceproperties.txt) or added with <page>physenv.AddSurfaceData</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Returns `true` on success, `false` otherwise</ret>
+	</rets>
+</function>

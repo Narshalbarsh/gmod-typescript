@@ -1,0 +1,14 @@
+<function name="GetAmbientLightColor" parent="render" type="libraryfunc">
+	<description>Returns the ambient color intensity of the map, basically the color the sky emits.
+
+This is used by the engine to calculate shadow color using the following formula: `ambientLight * 3 + Vector( 0.3, 0.3, 0.3 )`
+
+See also <page>render.ComputeLighting</page>.
+</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="Vector">The ambient color intensity of the map.
+
+This is computed at map compile time and is stored in "linear color space".</ret>
+	</rets>
+</function>

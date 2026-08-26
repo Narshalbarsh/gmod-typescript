@@ -1,0 +1,11 @@
+<function name="GetTeamNumColor" parent="GM" type="hook">
+	<description>Returns the team color for the given team index.</description>
+	<realm>Client</realm>
+	<file line="136-L140">gamemodes/base/gamemode/cl_init.lua</file>
+	<args>
+		<arg name="team" type="number">Team index</arg>
+	</args>
+	<rets>
+		<ret name="" type="Color">Team <page>Color</page></ret>
+	</rets>
+</function>

@@ -1,0 +1,28 @@
+<function name="Fire" parent="Entity" type="classfunc">
+	<description>
+Fires an entity's input, conforming to the map IO event queue system. You can find inputs for most entities on the [Valve Developer Wiki](https://developer.valvesoftware.com/wiki/Output)
+
+See also <page>Entity:Input</page> for a function that bypasses the event queue and <page>GM:AcceptInput</page>.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="input" type="string">The name of the input to fire</arg>
+		<arg name="param" type="string|number|boolean" default="nil">The value to give to the input, can also be a <page>number</page> or a <page>boolean</page>.</arg>
+		<arg name="delay" type="number" default="0">Delay in seconds before firing</arg>
+		<arg name="activator" type="Entity" default="nil">The entity that caused this input (i.e. the player who pushed a button)</arg>
+		<arg name="caller" type="Entity" default="nil">The entity that is triggering this input (i.e. the button that was pushed)</arg>
+	</args>
+</function>
+
+<example>
+	<description>If you are looking at a door, this will lock it</description>
+	<code>
+// Entity(1) is considered a player in this example
+local tr = Entity( 1 ):GetEyeTrace()
+local ent = tr.Entity
+if IsValid( ent ) then
+	ent:Fire("Lock")
+end
+	</code>
+
+</example>

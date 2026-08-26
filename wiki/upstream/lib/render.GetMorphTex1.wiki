@@ -1,0 +1,13 @@
+<function name="GetMorphTex1" parent="render" type="libraryfunc">
+	<realm>Client</realm>
+	<description>
+<internal>You probably want to just use a custom render target. See <page>Global.GetRenderTargetEx</page>.</internal>
+
+Returns the second render target texture that was used internally for Morph post processing effect.
+
+See <page>render.GetMorphTex0</page> for more information..
+</description>
+	<rets>
+		<ret name="" type="ITexture">The render target texture named `s_pMorphTexture1`.</ret>
+	</rets>
+</function>

@@ -1,0 +1,22 @@
+<function name="SetSubMaterial" parent="Entity" type="classfunc">
+	<description>
+Overrides a single material on the model of this entity.
+
+To set a Lua material created with <page>Global.CreateMaterial</page>, just prepend a `!` to the material name.
+
+	<validate>The index argument limit seems to be larger than 0 to 31.</validate>
+
+<bug issue="3362">The server's value takes priority on the client.</bug>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="index" type="number" default="nil">Index of the material to override, acceptable values are from `0` to `31`.
+
+Indexes are by <page>Entity:GetMaterials</page>, but you have to subtract `1` from them.
+
+<note>If called with no arguments, all sub materials will be reset.</note></arg>
+
+		<arg name="material" type="string" default="nil">The material to override the default one with. Set to <page>nil</page> to revert to default material.</arg>
+	</args>
+
+</function>

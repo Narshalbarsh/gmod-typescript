@@ -1,0 +1,9 @@
+<function name="DisableMatrix" parent="Entity" type="classfunc">
+	<description>Disables an active matrix. See <page>Entity:EnableMatrix</page> for more info about active matrixes.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="matrixType" type="string">The name of the matrix type to disable.
+
+Currently the only matrix type is `"RenderMultiply"`.</arg>
+	</args>
+</function>

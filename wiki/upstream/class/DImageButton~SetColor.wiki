@@ -1,0 +1,22 @@
+<function name="SetColor" parent="DImageButton" type="panelfunc">
+	<description>Sets the color of the image. Equivalent of <page>DImage:SetImageColor</page></description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="color" type="Color">The <page>Color</page> to set</arg>
+	</args>
+</function>
+
+<example>
+	<description>Changes the image to blue:</description>
+	<code>
+-- E.g. for the Engineer (blue)
+local engineerClass = vgui.Create("DImageButton", container)
+engineerClass:SetColor(Color(22, 166, 236, 255))
+-- ...
+	</code>
+	<output>
+<image src="MBD_Lobby_DImageButtonWithoutSetColor.png" alt="thumb|left|Without_SetColor(...)"/>
+<image src="MBD_Lobby_DImageButtonWithSetColor.png" alt="thumb|left|With_SetColor(...)"/>
+	</output>
+
+</example>

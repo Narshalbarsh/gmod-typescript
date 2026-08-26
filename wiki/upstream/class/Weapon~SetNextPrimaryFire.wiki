@@ -1,0 +1,12 @@
+<function name="SetNextPrimaryFire" parent="Weapon" type="classfunc">
+	<description>
+Sets when the weapon can fire again. Time should be based on <page>Global.CurTime</page>.
+
+<note>The standard HL2 Pistol (`weapon_pistol`) bypasses this function due to an [internal implementation](https://github.com/ValveSoftware/source-sdk-2013/blob/master/src/game/server/hl2/weapon_pistol.cpp#L313-L317).</note>
+<bug issue="3786">This will fire extra bullets if the time is set to less than <page>Global.CurTime</page>.</bug>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="time" type="number">Time when player should be able to use primary fire again</arg>
+	</args>
+</function>

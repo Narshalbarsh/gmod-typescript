@@ -1,0 +1,11 @@
+<function name="GetDisabled" parent="DTextEntry" type="panelfunc">
+	<description>
+<deprecated>Use <page>Panel:IsEnabled</page> instead.</deprecated>
+
+Returns whether the textbox is disabled. Use <page>Panel:IsEnabled</page> instead.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret type="boolean">Whether the textbox is disabled.</ret>
+	</rets>
+</function>

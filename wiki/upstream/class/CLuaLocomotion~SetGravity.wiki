@@ -1,0 +1,11 @@
+<function name="SetGravity" parent="CLuaLocomotion" type="classfunc">
+	<description>
+Sets the locomotion's gravity.
+
+<note>With values 0 or below, or even lower positive values, the nextbot will start to drift sideways, use <page>CLuaLocomotion:SetVelocity</page> to counteract this.</note>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="gravity" type="number" default="1000">New gravity to set.</arg>
+	</args>
+</function>

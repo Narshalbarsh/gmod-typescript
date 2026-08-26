@@ -1,0 +1,12 @@
+<function name="SetLayerCycle" parent="Entity" type="classfunc">
+	<description>
+Sets the animation cycle/frame of given layer.
+
+<note>This function only works on <page>BaseAnimatingOverlay</page> entities.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="layerID" type="number">The Layer ID</arg>
+		<arg name="cycle" type="number">The new animation cycle/frame for given layer.</arg>
+	</args>
+</function>

@@ -1,0 +1,12 @@
+<function name="LightStyle" parent="engine" type="libraryfunc">
+	<description>
+This is a direct binding to the function `engine->LightStyle`. This function allows you to change the default light style of the map - so you can make lighting lighter or darker. You’ll need to call <page>render.RedownloadAllLightmaps</page> clientside to refresh the lightmaps to this new color.
+
+<bug issue="3626">Calling this function with arguments 0 and "a" will cause dynamic lights such as those produced by the Light tool to stop working.</bug>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="lightstyle" type="number">The lightstyle to edit. 0 to 63. If you want to edit map lighting, you want to set this to 0.</arg>
+		<arg name="pattern" type="string">The pattern to change the lightstyle to. `a` is the darkest, `z` is the brightest. You can use stuff like "abcxyz" to make flashing patterns. The normal brightness for a map is `m`. Values over `z` are allowed, `~` for instance.</arg>
+	</args>
+</function>

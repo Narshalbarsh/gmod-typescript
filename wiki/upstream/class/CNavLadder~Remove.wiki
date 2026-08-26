@@ -1,0 +1,4 @@
+<function name="Remove" parent="CNavLadder" type="classfunc">
+	<description>Removes the given nav ladder.</description>
+	<realm>Server</realm>
+</function>

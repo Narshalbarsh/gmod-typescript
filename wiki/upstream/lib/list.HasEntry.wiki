@@ -1,0 +1,16 @@
+<function name="HasEntry" parent="list" type="libraryfunc">
+	<description>
+Returns true if the list contains the given key.
+
+For a function that looks for values and not keys see <page>list.Contains</page>.
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="60-L66">lua/includes/modules/list.lua</file>
+	<args>
+		<arg name="list" type="string">List to search through.</arg>
+		<arg name="key" type="any">The key to test.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Returns true if the list contains the key, false otherwise.</ret>
+	</rets>
+</function>

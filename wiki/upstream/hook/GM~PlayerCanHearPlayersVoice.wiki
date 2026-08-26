@@ -1,0 +1,31 @@
+<function name="PlayerCanHearPlayersVoice" parent="GM" type="hook">
+	<description>
+Decides whether a player can hear another player using voice chat.
+
+<warning>
+	This hook is called **players count * speaking players count** times every 0.3 seconds if at least 1 player is talking or every 5 seconds if no one is talking.
+	You should ensure that your code is efficient, or this will definitely influence performance.
+</warning>
+	</description>
+	<realm>Server</realm>
+	<file line="754-L761">gamemodes/base/gamemode/player.lua</file>
+	<args>
+		<arg name="listener" type="Player">The listening player.</arg>
+		<arg name="talker" type="Player">The talking player.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return `true` if the listener should hear the talker, `false` if they shouldn't.</ret>
+		<ret name="" type="boolean">3D sound. If set to `true`, will fade out the sound the further away listener is from the  talker, the voice will also be in stereo, and not mono.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Players can only hear each other if they are within 500 units.</description>
+	<code>
+hook.Add( "PlayerCanHearPlayersVoice", "Maximum Range", function( listener, talker )
+    if listener:GetPos():DistToSqr( talker:GetPos() ) > 250000 then
+		return false
+	end
+end )
+	</code>
+</example>

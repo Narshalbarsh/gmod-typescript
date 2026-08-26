@@ -1,0 +1,43 @@
+<function name="RunGameUICommand" parent="Global" type="libraryfunc">
+	<description>Runs a menu command. Equivalent to <page>Global.RunConsoleCommand</page>`( "gamemenucommand", command )` unless the command starts with the `"engine"` keyword in which case it is equivalent to <page>Global.RunConsoleCommand</page>`( command )`.
+<warning>Invoking engine commands no longer works, prints out `Not running engine cmd 'concommand'`</warning>
+</description>
+	<realm>Menu</realm>
+	<args>
+		<arg name="command" type="string">The menu command to run
+
+Should be one of the following:
+* `Disconnect` - Disconnects from the current server.
+* `OpenBenchmarkDialog` - Opens the "Video Hardware Stress Test" dialog.
+* `OpenChangeGameDialog` - Does not work in GMod.
+* `OpenCreateMultiplayerGameDialog` - Opens the Source dialog for creating a listen server.
+* `OpenCustomMapsDialog` - Does nothing.
+* `OpenFriendsDialog` - Does nothing.
+* `OpenGameMenu` - Does not work in GMod.
+* `OpenLoadCommentaryDialog` - Opens the "Developer Commentary" selection dialog. Useless in GMod.
+* `OpenLoadDemoDialog` - Does nothing.
+* `OpenLoadGameDialog` - Opens the Source "Load Game" dialog.
+* `OpenNewGameDialog` - Opens the "New Game" dialog. Useless in GMod.
+* `OpenOptionsDialog` - Opens the options dialog.
+* `OpenPlayerListDialog` - Opens the "Mute Players" dialog that shows all players connected to the server and allows to mute them.
+* `OpenSaveGameDialog` - Opens the Source "Save Game" dialog.
+* `OpenServerBrowser` - Opens the legacy server browser.
+* `Quit` - Quits the game **without** confirmation (unlike other Source games).
+* `QuitNoConfirm` - Quits the game without confirmation (like other Source games).
+* `ResumeGame` - Closes the menu and returns to the game.
+* `engine 'concommand'` - Runs a console command. Unlike <page>Global.RunConsoleCommand</page> It will ignore <page>Blocked ConCommands</page>
+</arg>
+	</args>
+</function>
+
+<example>
+	<description>Opens the options dialog.</description>
+	<code>RunGameUICommand( "OpenOptionsDialog" )</code>
+
+</example>
+
+<example>
+	<description>Hides the game UI (menu). Equivalent to <page>Global.RunConsoleCommand</page>( "gameui_hide" )</description>
+	<code>RunGameUICommand( "engine gameui_hide" )</code>
+
+</example>

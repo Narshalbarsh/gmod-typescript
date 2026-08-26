@@ -1,0 +1,9 @@
+<function name="UpdateConvarValue" parent="DTextEntry" type="panelfunc">
+	<description>
+<internal>Used by <page>DTextEntry:OnTextChanged</page>, <page>DTextEntry:OnEnter</page> and <page>DTextEntry:OnLoseFocus</page></internal>
+
+Updates the ConVar associated with the TextEntry to its new value.
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="256-L262">lua/vgui/dtextentry.lua</file>
+</function>

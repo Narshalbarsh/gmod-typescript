@@ -1,0 +1,7 @@
+<function name="SetOpenLinksExternally" parent="Panel" type="classfunc">
+	<description>Set to true to open links in an external browser. This only functions on the `x86-64` beta.</description>
+	<realm>Menu</realm>
+	<args>
+		<arg name="openExternally" type="boolean"></arg>
+	</args>
+</function>

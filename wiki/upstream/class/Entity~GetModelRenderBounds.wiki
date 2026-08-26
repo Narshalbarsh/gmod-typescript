@@ -1,0 +1,8 @@
+<function name="GetModelRenderBounds" parent="Entity" type="classfunc">
+	<description>Returns the entity's model render bounds. Unlike <page>Entity:GetModelBounds</page>, bounds returning by this function will not be affected by animations (at compile time).</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Vector">The minimum vector of the bounds</ret>
+		<ret name="" type="Vector">The maximum vector of the bounds</ret>
+	</rets>
+</function>

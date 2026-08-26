@@ -1,0 +1,20 @@
+<function name="DrawViewModel" parent="Player" type="classfunc">
+	<description>Show/Hide the player's weapon's viewmodel.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="draw" type="boolean">Should draw</arg>
+		<arg name="vm" type="number" default="0">Which view model to show/hide, 0-2.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Create a <page>ConVar</page> object on the client realm to enable/disable the viewmodel.</description>
+	<code>
+local cvarObject = CreateClientConVar("nogun", "1", true, false, "Hide the current viewmodel.") -- Create the ConVar object
+
+hook.Add("HUDPaint", "draw_viewmodel", function()
+	LocalPlayer():DrawViewModel( cvarObject:GetBool() ) -- Call ConVar:GetBool() inside the parameters of DrawViewModel
+end)
+	</code>
+
+</example>

@@ -1,0 +1,7 @@
+<function name="SetScale" parent="CEffectData" type="classfunc">
+	<description>Sets the scale of the effect to be created with this effect data.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="scale" type="number">Scale of the effect.</arg>
+	</args>
+</function>

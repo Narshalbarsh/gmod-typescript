@@ -1,0 +1,7 @@
+<function name="VertexCount" parent="mesh" type="libraryfunc">
+	<description>Returns the amount of vertices that have been pushed via <page>mesh.AdvanceVertex</page>.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">The amount of vertices.</ret>
+	</rets>
+</function>

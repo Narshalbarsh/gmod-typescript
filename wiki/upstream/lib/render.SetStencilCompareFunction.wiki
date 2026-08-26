@@ -1,0 +1,19 @@
+<function name="SetStencilCompareFunction" parent="render" type="libraryfunc">
+	<description>
+Sets the Compare Function that all pixels affected by a draw operation will have their Stencil Buffer value tested against.  
+
+When not set to a static value like NEVER or ALWAYS, the Stencil Buffer value corresponding to each affected pixel will be compared against the current <page text="Reference Value">render.SetStencilReferenceValue</page>.
+
+Pixels that **Pass** the Compare Function check move on to the Depth Test, which determines if the draw operation will ultimately be allowed to overwrite the pixel's Color Channel, Stencil Buffer, and Depth Buffer values.
+
+Pixels that **Fail** the Compare Function check have the <page text="Fail Operation">render.SetStencilFailOperation</page> performed on their Stencil Buffer value and do **not** have any of their Render Target layers modified by the draw operation.
+
+For more detailed information on the Stencil system, including usage examples, see the <page text="Stencils Render Reference">render_stencils</page> page.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="compareFunction" type="number{STENCILCOMPARISONFUNCTION}">The Compare Function that each affected pixel's Stencil Buffer value will be evaluated against during a draw operation.</arg>
+	</args>
+</function>
+
+<upload src="b2b4c/8dc4ead6a5336e3.png" size="77526" name="CompareFunctionFlowChart.png" />

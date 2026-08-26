@@ -1,0 +1,4 @@
+<function name="ClearWalkableSeeds" parent="navmesh" type="libraryfunc">
+	<description>Clears all the walkable positions, used before calling <page>navmesh.BeginGeneration</page>.</description>
+	<realm>Server</realm>
+</function>

@@ -1,0 +1,10 @@
+<function name="Publish" parent="WorkshopFileBase" type="classfunc">
+	<description>
+		Creates a <page>UGCPublishWindow</page> to publish the dupe or save
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="filename" type="string">The type to search for. (`local`, `subscribed`, `subscribed_ugc`, `mine`, `favorite`)</arg>
+		<arg name="image" type="string">The image to use</arg>
+	</args>
+</function>

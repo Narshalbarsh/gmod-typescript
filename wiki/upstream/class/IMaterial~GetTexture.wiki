@@ -1,0 +1,10 @@
+<function name="GetTexture" parent="IMaterial" type="classfunc">
+	<description>Returns an <page>ITexture</page> based on the passed shader parameter.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="param" type="string">The [shader parameter](https://developer.valvesoftware.com/wiki/Category:List_of_Shader_Parameters) to retrieve. This should normally be `$basetexture`.</arg>
+	</args>
+	<rets>
+		<ret name="" type="ITexture">The value of the shader parameter. Returns nothing if the param doesn't exist.</ret>
+	</rets>
+</function>

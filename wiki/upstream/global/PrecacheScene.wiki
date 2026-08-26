@@ -1,0 +1,7 @@
+<function name="PrecacheScene" parent="Global" type="libraryfunc">
+	<description>Precaches a scene file.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="scene" type="string">Path to the scene file to precache.</arg>
+	</args>
+</function>

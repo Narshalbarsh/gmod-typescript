@@ -1,0 +1,11 @@
+<function name="GetPlayerClass" parent="player_manager" type="libraryfunc">
+	<description>Gets a players class.</description>
+	<realm>Shared</realm>
+	<file line="390-L397">lua/includes/modules/player_manager.lua</file>
+	<args>
+		<arg name="ply" type="Player">Player to get class.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The players class.</ret>
+	</rets>
+</function>

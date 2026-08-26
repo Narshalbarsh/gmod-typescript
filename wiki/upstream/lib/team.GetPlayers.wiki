@@ -1,0 +1,30 @@
+<function name="GetPlayers" parent="team" type="libraryfunc">
+	<description>
+		Returns a table with all player of the specified team.
+		<note>This function returns a sequential table, meaning it should be looped with <page>Global.ipairs</page> instead of <page>Global.pairs</page> for efficiency reasons.</note>
+	</description>
+	<file line="135-L147">lua/includes/modules/team.lua</file>
+	<realm>Shared</realm>
+	<args>
+		<arg name="teamIndex" type="number">The team index.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">A sequential table of <page>Player</page>s that belong to the requested team.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints all the players in a player's team.</description>
+	<code>PrintTable(team.GetPlayers(ply:Team()))</code>
+	<output>List of players.</output>
+
+</example>
+
+<example>
+	<description>Heals all the players in a player's team.</description>
+	<code>
+for _, teammate in ipairs(team.GetPlayers(ply:Team())) do
+   	teammate:SetHealth(teammate:GetMaxHealth())
+end
+	</code>
+</example>

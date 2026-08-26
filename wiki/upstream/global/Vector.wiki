@@ -1,0 +1,52 @@
+<function name="Vector" parent="Global" type="libraryfunc">
+	<description>Creates a <page>Vector</page> object.
+		<warning>Creating Vectors is relatively expensive when used in often running hooks or in operations requiring very frequent calls (like loops for example) due to object creation and garbage collection. It is better to store the vector in a variable or to use the [default vectors](https://wiki.facepunch.com/gmod/Global_Variables#misc) available. See <page>Vector:Add</page>.</warning>
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="x" type="number" default="0">The x component of the vector.</arg>
+		<arg name="y" type="number" default="0">The y component of the vector.</arg>
+		<arg name="z" type="number" default="0">The z component of the vector.</arg>
+	</args>
+	<args name="Vector Copy">
+		<arg name="vector" type="Vector">
+			Creates a new <page>Vector</page> that is a copy of the given <page>Vector</page>.
+		</arg>
+	</args>
+	<args name="Parse String">
+		<arg name="vectorString" type="string">
+			Attempts to parse the input <page>string</page> from the <page>Global.print</page> format of an <page>Vector</page>.
+
+			Returns a <page>Vector</page> with its `x`, `y`, and `z` set to `0` if the <page>string</page> cannot be parsed.
+		</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">The created vector object.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Creates a vector and prints the value to the console.</description>
+	<code>
+print( Vector( 1, 2, 3 ) )
+print( Vector( "4 5 6" ) )
+local test = Vector( 7, 8, 9 )
+print( Vector( test ) )
+
+print( Vector( "4 5 test" ) )
+print( Vector() )
+	</code>
+	<output>
+
+```
+1.000000 2.000000 3.000000
+4.000000 5.000000 6.000000
+7.000000 8.000000 9.000000
+
+0.000000 0.000000 0.000000
+0.000000 0.000000 0.000000
+```
+
+	</output>
+
+</example>

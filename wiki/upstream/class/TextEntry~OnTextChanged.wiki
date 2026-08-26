@@ -1,0 +1,8 @@
+<function name="OnTextChanged" parent="TextEntry" type="panelhook">
+	<description>
+Called when the text inside the <page>TextEntry</page> changes.
+
+You may be looking for <page>DTextEntry:OnValueChange</page> instead.
+	</description>
+	<realm>Client and Menu</realm>
+</function>

@@ -1,0 +1,7 @@
+<function name="Ping" parent="Player" type="classfunc">
+	<description>Returns the player's ping to server.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The player's ping.</ret>
+	</rets>
+</function>

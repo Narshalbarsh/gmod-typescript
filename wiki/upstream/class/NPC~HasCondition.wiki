@@ -1,0 +1,58 @@
+<function name="HasCondition" parent="NPC" type="classfunc">
+	<description>Returns whether or not the NPC has the given condition.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="condition" type="number">The condition index, see <page>Enums/COND</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">True if the NPC has the given condition, false otherwise.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Function that prints a list of conditions an NPC has.</description>
+	<code>
+function ListConditions(npc)
+	
+	if(!IsValid(npc)) then return end
+	
+	print(npc:GetClass().." ("..npc:EntIndex()..") has conditions:")
+	
+	for c = 0, 100 do
+	
+		if(npc:HasCondition(c)) then
+		
+			print(npc:ConditionName(c))
+			
+		end
+		
+	end
+	
+end
+	</code>
+	<output>
+(To server console):
+
+
+npc_antlion (120) has conditions:
+
+
+COND.IN_PVS
+
+
+COND.NO_WEAPON
+
+
+COND.HAVE_ENEMY_LOS
+
+
+COND.TOO_FAR_TO_ATTACK
+
+
+COND.NO_HEAR_DANGER
+
+
+COND.FLOATING_OFF_GROUND
+	</output>
+
+</example>

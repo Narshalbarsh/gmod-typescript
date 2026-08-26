@@ -1,0 +1,12 @@
+<function name="SetBaseFolder" parent="DFileBrowser" type="panelfunc">
+	<description>
+An <page>Global.AccessorFunc</page> that sets the root directory/folder of the file tree.
+
+This needs to be set for the file tree to be displayed.
+	</description>
+	<realm>Client</realm>
+	<file line="50-L57">lua/vgui/dfilebrowser.lua</file>
+	<args>
+		<arg name="baseDir" type="string">The path to the folder to use as the root.</arg>
+	</args>
+</function>

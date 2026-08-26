@@ -1,0 +1,16 @@
+<function name="GetShadowCastDirection" parent="ENTITY" type="hook">
+	<description>Called when the shadow needs to be recomputed. Allows shadow angles to be customized. This only works for `anim` type entities.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="type" type="number">Type of the shadow this entity uses. Possible values:
+* 0 - No shadow
+* 1 - Simple 'blob' shadow
+* 2 - Render To Texture shadow (updates only when necessary)
+* 3 - Dynamic RTT - updates always
+* 4 - Render to Depth Texture</arg>
+	</args>
+	<rets>
+		<ret name="dir" type="Vector">The new shadow direction to use.</ret>
+	</rets>
+</function>

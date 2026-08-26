@@ -1,0 +1,7 @@
+<function name="SetHideButtons" parent="DHScrollBar" type="panelfunc">
+	<description>Allows hiding the left and right buttons for better visual stylisation.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="hide" type="boolean">True to hide</arg>
+	</args>
+</function>

@@ -1,0 +1,8 @@
+<function name="SetControlPointEntity" parent="CNewParticleEffect" type="classfunc">
+	<description>Sets an entity to given control point for particle to use.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="cpID" type="number">The control point ID, 0 to 63.</arg>
+		<arg name="parent" type="Entity">The entity to set.</arg>
+	</args>
+</function>

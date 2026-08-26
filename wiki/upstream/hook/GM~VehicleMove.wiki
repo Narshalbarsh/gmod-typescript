@@ -1,0 +1,26 @@
+<function name="VehicleMove" parent="GM" type="hook">
+	<description>
+Called when you are driving a vehicle. This hook works just like <page>GM:Move</page>.
+
+This hook is called before <page>GM:Move</page> and will be called when <page>GM:PlayerTick</page> is not.
+	</description>
+	<realm>Shared</realm>
+	<predicted>Yes</predicted>
+	<args>
+		<arg name="ply" type="Player">Player who is driving the vehicle</arg>
+		<arg name="veh" type="Vehicle">The vehicle being driven</arg>
+		<arg name="mv" type="CMoveData">Move data</arg>
+	</args>
+</function>
+
+<example>
+<description>Disables the base gamemode's 3rd person vehicle camera option.</description>
+<code>
+hook.Add( "VehicleMove", "DisableVehicle3rdPerson", function( ply, vehicle, mv )
+	if ( mv:KeyPressed( IN_DUCK ) && vehicle.SetThirdPersonMode ) then
+		vehicle:SetThirdPersonMode( false )
+		return true -- Block the GM:VehicleMove which sets the 3rd person mode
+	end
+end )
+</code>
+</example>

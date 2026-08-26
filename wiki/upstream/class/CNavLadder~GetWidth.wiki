@@ -1,0 +1,7 @@
+<function name="GetWidth" parent="CNavLadder" type="classfunc">
+	<description>Returns the width of the ladder in Hammer Units.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">The width of the ladder in Hammer Units.</ret>
+	</rets>
+</function>

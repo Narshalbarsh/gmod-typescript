@@ -1,0 +1,7 @@
+<function name="SetLocalAngularVelocity" parent="Entity" type="classfunc">
+	<description>Sets the entity's angular velocity (rotation speed).</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="angVel" type="Angle">The angular velocity to set.</arg>
+	</args>
+</function>

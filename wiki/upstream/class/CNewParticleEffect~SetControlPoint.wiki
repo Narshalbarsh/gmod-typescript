@@ -1,0 +1,8 @@
+<function name="SetControlPoint" parent="CNewParticleEffect" type="classfunc">
+	<description>Sets a value for given control point.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="cpID" type="number">The control point ID, 0 to 63.</arg>
+		<arg name="value" type="Vector">The value to set for given control point.</arg>
+	</args>
+</function>

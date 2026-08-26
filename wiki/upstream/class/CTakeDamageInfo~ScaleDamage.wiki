@@ -1,0 +1,7 @@
+<function name="ScaleDamage" parent="CTakeDamageInfo" type="classfunc">
+	<description>Scales the damage by the given value.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="scale" type="number">Value to scale the damage with.</arg>
+	</args>
+</function>

@@ -1,0 +1,19 @@
+<function name="Copy" parent="duplicator" type="libraryfunc">
+	<description>Copies the entity, and all of its constraints and entities, then returns them in a table.</description>
+	<realm>Server</realm>
+	<file line="615-L645">lua/includes/modules/duplicator.lua</file>
+	<args>
+		<arg name="ent" type="Entity">The entity to duplicate. The function will automatically copy all constrained entities.</arg>
+		<arg name="tableToAdd" type="table" default="{}">A preexisting table to add entities and constraints in from.
+Uses the same table format as the table returned from this function.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">A table containing duplication info which includes the following members:
+* <page>table</page> Entities
+* <page>table</page> Constraints
+* <page>Vector</page> Mins
+* <page>Vector</page> Maxs
+
+The values of Mins & Maxs from the table are returned from <page>duplicator.WorkoutSize</page>.</ret>
+	</rets>
+</function>

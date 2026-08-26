@@ -1,0 +1,18 @@
+<function name="GetSpawnPoints" parent="team" type="libraryfunc">
+	<description>Returns a table of valid spawnpoint entities the team can use. These are set with  <page>team.SetSpawnPoint</page>.</description>
+	<file line="61-L78">lua/includes/modules/team.lua</file>
+	<realm>Shared</realm>
+	<args>
+		<arg name="index" type="number">Index of the team</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">Valid spawnpoint entities</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints a random spawnpoint entity for TEAM_RED</description>
+	<code>print(table.Random(team.GetSpawnPoints(TEAM_RED)))</code>
+	<output>Spawnpoint Entity</output>
+
+</example>

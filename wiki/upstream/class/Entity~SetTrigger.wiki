@@ -1,0 +1,11 @@
+<function name="SetTrigger" parent="Entity" type="classfunc">
+	<description>
+Marks the entity as a trigger, so it will generate <page>ENTITY:StartTouch</page>, <page>ENTITY:Touch</page> and <page>ENTITY:EndTouch</page> callbacks.
+
+Internally this is stored as <page text="FSOLID_TRIGGER">Enums/FSOLID</page> flag.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="maketrigger" type="boolean">Make the entity trigger or not</arg>
+	</args>
+</function>

@@ -74,10 +74,10 @@ export function extractFunction(page: WikiPage): WikiFunction | WikiStructItem {
         const parent: string = fromTitle.parent ?? fnNode.attr.parent ?? '';
         const name: string = (fromTitle.name ?? fnNode.attr.name) as string;
 
-        // Some wiki pages (e.g. math.pi) are encoded as <function ... type="libraryfield">
-        // but are actually namespace fields/constants, not callable functions.
+        // math.pi and Panel.PaintingDragging are <function type="libraryfield"> and type="panelfield" pages,
+        // they are fields, not callable
         const fnType = String(fnNode.attr?.type ?? '').toLowerCase();
-        if (fnType === 'libraryfield') {
+        if (fnType === 'libraryfield' || fnType === 'panelfield') {
             return {
                 kind: WikiElementKind.StructItem,
                 name,

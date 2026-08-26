@@ -1,0 +1,11 @@
+<function name="MapLoadType" parent="game" type="libraryfunc">
+	<description>
+Returns the map load type of the current map.
+
+After changing the map with the console command `changelevel`, "newgame" is returned. With `changelevel2` (single player only), "transition" is returned.
+	</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="string">The load type. Possible values are: "newgame", "loadgame", "transition", "background".</ret>
+	</rets>
+</function>

@@ -1,0 +1,17 @@
+<function name="AddAllPlayers" parent="CRecipientFilter" type="classfunc">
+	<description>Adds all players to the recipient filter.</description>
+	<realm>Server</realm>
+</function>
+
+<example>
+	<description>Adds all players to a recipient filter, then uses the recipient filter in a usermessage.</description>
+	<code>
+function SendMessage()
+	local filter = RecipientFilter()
+	filter:AddAllPlayers()
+	umsg.Start("message",filter)
+	umsg.End()
+end
+	</code>
+	<output>Sends a usermessage to every player.</output>
+</example>

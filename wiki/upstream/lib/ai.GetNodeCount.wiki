@@ -1,0 +1,11 @@
+<function name="GetNodeCount" parent="ai" type="libraryfunc">
+	<description>Returns the number of AI nodes on the map, used by the base game <page>NPC</page>s.
+
+For <page>NextBot</page>s, see <page>navmesh</page>.
+</description>
+	<added>2025.07.03</added>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">The node count.</ret>
+	</rets>
+</function>

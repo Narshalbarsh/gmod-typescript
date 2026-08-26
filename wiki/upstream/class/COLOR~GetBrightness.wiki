@@ -1,0 +1,12 @@
+<function name="GetBrightness" parent="Color" type="classfunc">
+	<description>Converts a <page>Color</page> into [HSV color space](https://en.wikipedia.org/wiki/HSL_and_HSV) and returns the [brightness also known as "value"](https://en.wikipedia.org/wiki/Brightness).
+
+See <page>COLOR:ToHSV</page> if you want to get all 3 components.
+</description>
+	<file line="277-L282">lua/includes/util/color.lua</file>
+	<realm>Shared and Menu</realm>
+	<added>2025.01.23</added>
+	<rets>
+		<ret name="brightness" type="number">Brightness in range [0, 1]</ret>
+	</rets>
+</function>

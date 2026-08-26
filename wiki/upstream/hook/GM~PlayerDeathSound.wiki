@@ -1,0 +1,43 @@
+<function name="PlayerDeathSound" parent="GM" type="hook">
+	<description>Returns whether or not the default death sound should be muted.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="boolean">Mute death sound</ret>
+	</rets>
+	<args>
+		<arg name="ply" type="Player">The player</arg>
+	</args>
+</function>
+
+<example>
+	<description>Plays a new sound for the player's demise.</description>
+	<code>
+hook.Add( "PlayerDeathSound", "CustomPlayerDeath", function( ply )
+	ply:EmitSound( "beams/beamstart5.wav", 75, math.random( 70, 126 ) ) -- plays the sound with normal sound levels, and a random pitch between 70 and 126
+	return true -- we don't want the default sound!
+end )
+	</code>
+</example>
+
+<example>
+	<description>Picks from a list of sounds and plays a certain one depending on the network variable applied to Player 1. Otherwise, it will play a fallback sound along with the original sound.</description>
+	<code>
+local p1 = Entity( 1 ) -- returns player 1
+local sndtbl = { "beams/beamstart5", "plats/bigstop1", "friends/message", "ambient/alarms/warningbell1", "vo/ravenholm/madlaugh03" } -- random selection of sounds for our purpose
+
+p1:SetNWInt( "DSound", math.random( 1, #sndtbl ) ) -- pick a random number from 1 to the maximum amount of entries our table has
+
+hook.Add( "PlayerDeathSound", "SelectedSound", function( ply )
+	local snd = sndtbl[ p1:GetNWInt( "DSound", 1 ) ]
+
+	if TypeID(snd) == TYPE_STRING then
+		ply:EmitSound( snd .. ".wav" )
+		return true
+	else -- fallback behavior
+		print( "Sound does not exist in table, error!" )
+		ply:EmitSound( "common/bugreporter_failed.wav" )
+		return false -- let's make it clear that we do actually have a problem when it doesn't mute the original sound
+	end
+end )
+	</code>
+</example>

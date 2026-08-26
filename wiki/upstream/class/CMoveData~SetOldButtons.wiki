@@ -1,0 +1,7 @@
+<function name="SetOldButtons" parent="CMoveData" type="classfunc">
+	<description>Sets the 'old' pressed buttons on the move data. These buttons are used to work out which buttons have been released, which have just been pressed and which are being held down.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="buttons" type="number">A number representing which buttons were down, see <page>Enums/IN</page></arg>
+	</args>
+</function>

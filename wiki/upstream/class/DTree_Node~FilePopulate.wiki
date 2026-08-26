@@ -1,0 +1,12 @@
+<function name="FilePopulate" parent="DTree_Node" type="panelfunc">
+	<description>
+<internal></internal>
+
+Called automatically from <page>DTree_Node:PopulateChildrenAndSelf</page> and <page>DTree_Node:PopulateChildren</page> to populate this node with child nodes of files and folders.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="bAndChildren" type="boolean">Does nothing. Set to true if called from <page>DTree_Node:PopulateChildren</page>.</arg>
+		<arg name="bExpand" type="boolean">Expand self once population process is finished.</arg>
+	</args>
+</function>

@@ -1,0 +1,4 @@
+<function name="SpawnedProp" parent="achievements" type="libraryfunc">
+	<description><internal></internal>Adds one to the count of props spawned. Once this count reaches 5000, the 'Creator' achievement is unlocked.</description>
+	<realm>Client</realm>
+</function>

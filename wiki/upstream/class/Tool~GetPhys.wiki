@@ -1,0 +1,14 @@
+<function name="GetPhys" parent="Tool" type="classfunc">
+	<description>
+Retrieves an <page>PhysObj</page> previously stored using <page>Tool:SetObject</page>.
+See also <page>Tool:GetEnt</page>.
+	</description>
+	<realm>Shared</realm>
+	<file line="100-L108">gamemodes/sandbox/entities/weapons/gmod_tool/object.lua</file>
+	<args>
+		<arg name="id" type="number">The id of the object which was set in <page>Tool:SetObject</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="PhysObj">Associated PhysObj with given id. If it wasn't specified, returns current <page>PhysObj</page> of associated Entity.</ret>
+	</rets>
+</function>

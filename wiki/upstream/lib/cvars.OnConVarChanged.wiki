@@ -1,0 +1,14 @@
+<function name="OnConVarChanged" parent="cvars" type="libraryfunc">
+	<description>
+<internal>You are probably looking for <page>cvars.AddChangeCallback</page>.</internal>
+
+Called by the engine when a convar value changes.
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="38-L52">lua/includes/modules/cvars.lua</file>
+	<args>
+		<arg name="name" type="string">Convar name.</arg>
+		<arg name="oldVal" type="string">The old value of the convar.</arg>
+		<arg name="newVal" type="string">The new value of the convar.</arg>
+	</args>
+</function>

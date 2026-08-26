@@ -1,0 +1,15 @@
+<function name="EmitStepSound" parent="Entity" type="classfunc">
+	<description>
+Plays a sound of a step depending on the surface below the entity's foot.
+
+It will use attachments `"RightFoot"` or `"LeftFoot"` to decide where to check the surface at. If the attachments do not exist, it will use regular Valve Biped skeleton bones. If they don't exist, it will fallback to the entity's origin.
+	</description>
+	<realm>Shared</realm>
+	<added>2026.07.01</added>
+	<args>
+		<arg name="isLeftFoot" type="boolean">Determines whether the step is a right foot or a left foot.
+
+This is used for certain NPCs such as Eli to determine what sound should be played. This also determines the position of the sound.</arg>
+		<arg name="volume" type="number" default="1">The volume, from 0 to 1.</arg>
+	</args>
+</function>

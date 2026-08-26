@@ -1,0 +1,28 @@
+<function name="Call" parent="gamemode" type="libraryfunc">
+	<description>
+Called by the engine to call a hook within the loaded gamemode.
+
+The supplied event 'name' must be defined in the active gamemode. Otherwise, nothing will happen - not even hooks added with <page>hook.Add</page> will be called.
+
+This is similar to <page>hook.Run</page> and <page>hook.Call</page>, except the hook library will call hooks created with hook.Add even if there is no corresponding gamemode function.
+	</description>
+	<realm>Shared</realm>
+	<file line="74-L83">lua/includes/modules/gamemode.lua</file>
+	<args>
+		<arg name="name" type="string">The name of the hook to call.</arg>
+		<arg name="args" type="vararg">The arguments.</arg>
+	</args>
+	<rets>
+		<ret name="" type="any">The result of the hook function - can be up to 6 values. Returns false if the gamemode function doesn't exist (i.e. nothing happened), but remember - a hook can also return false.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Shows a suicide death notice in Sandbox.</description>
+	<code>
+local ply = Entity(1)
+gamemode.Call( "AddDeathNotice", ply:GetName(), ply:Team(), nil, ply:GetName(), ply:Team() )
+	</code>
+	<output><image src="suidcide_death_notice.jpg"/></output>
+
+</example>

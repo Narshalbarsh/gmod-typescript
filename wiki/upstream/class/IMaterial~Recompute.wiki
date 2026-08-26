@@ -1,0 +1,8 @@
+<function name="Recompute" parent="IMaterial" type="classfunc">
+	<description>
+Recomputes the material's snapshot. This needs to be called if you have changed variables on your material and it isn't changing. 
+
+Be careful though - this function is slow - so try to call it only when needed!
+	</description>
+	<realm>Shared and Menu</realm>
+</function>

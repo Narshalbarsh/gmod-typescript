@@ -1,0 +1,7 @@
+<function name="SetEndAlpha" parent="CLuaParticle" type="classfunc">
+	<description>Sets the alpha value of the particle that it will reach when it dies.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="endAlpha" type="number">The new alpha value of the particle that it will reach when it dies.</arg>
+	</args>
+</function>

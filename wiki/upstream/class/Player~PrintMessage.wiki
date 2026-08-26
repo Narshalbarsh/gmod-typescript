@@ -1,0 +1,20 @@
+<function name="PrintMessage" parent="Player" type="classfunc">
+	<description>
+Displays a message either in their chat, console, or center of the screen. See also <page>Global.PrintMessage</page>.
+
+<note>When called serverside, this uses the archaic user message system (the <page>umsg</page>) and hence is limited to ≈250 characters.
+
+`HUD_PRINTCENTER` will not work when this is called clientside.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="type" type="number">Which type of message should be sent to the player (<page>Enums/HUD</page>).</arg>
+		<arg name="message" type="string">Message to be sent to the player.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Prints into the first players chat: `I'm new here.`.</description>
+	<code>Entity( 1 ):PrintMessage( HUD_PRINTTALK, "I'm new here." )</code>
+	<output>I'm new here.</output>
+</example>

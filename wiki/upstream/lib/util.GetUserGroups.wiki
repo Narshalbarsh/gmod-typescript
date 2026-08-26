@@ -1,0 +1,42 @@
+<function name="GetUserGroups" parent="util" type="libraryfunc">
+	<description>
+Returns a table of all SteamIDs that have a usergroup.
+
+<note>This returns the original usergroups table, changes done to this table are not retroactive and will only affect newly connected users</note>
+
+<note>This returns only groups that are registered in the **settings/users.txt** file of your server.  
+
+In order to get the usergroup of a connected player, please use <page>Player:GetUserGroup</page> instead.</note>
+	</description>
+	<realm>Server</realm>
+	<file line="99-L103">lua/includes/extensions/player_auth.lua</file>
+
+	<rets>
+		<ret name="" type="table">A table of users where the key is the SteamID of the user and the value is a table with 2 fields:  
+* <page>string</page> name - Player Steam name  
+* <page>string</page> group - Player usergroup name
+		</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Retrieve the names of every superadmin registered</description>
+	<code>
+local supadminsList = {}
+
+for steamid, infos in pairs(util.GetUserGroups()) do
+	if infos.group == "superadmin" then
+		supadminsList[#supadminsList + 1] = infos.name
+	end
+end
+
+PrintTable(supadminsList)
+	</code>
+	<output>
+```
+1  =	rubat
+2  =	garry
+```
+	</output>
+
+</example>

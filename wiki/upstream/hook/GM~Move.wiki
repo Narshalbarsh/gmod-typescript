@@ -1,0 +1,84 @@
+<function name="Move" parent="GM" type="hook">
+	<description>
+The Move hook is called for you to manipulate the player's MoveData. 
+
+You shouldn't adjust the player's position in any way in the move hook. This is because due to prediction errors, the netcode might run the move hook multiple times as packets arrive late. Therefore you should only adjust the movedata construct in this hook.
+
+Generally you shouldn't have to use this hook - if you want to make a custom move type you should look at the drive system.
+
+This hook is called after <page>GM:PlayerTick</page>.
+
+See <page>Game Movement</page> for an explanation on the move system.
+	</description>
+	<realm>Shared</realm>
+	<predicted>Yes</predicted>
+	<args>
+		<arg name="ply" type="Player">Player</arg>
+		<arg name="mv" type="CMoveData">Movement information</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return true to suppress default engine action.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>A noclip move type.</description>
+	<code>
+hook.Add( "Move", "Noclip", function( ply, mv )
+
+	--
+	-- Set up a speed, go faster if shift is held down
+	--
+	local speed = 0.0005 * FrameTime()
+	if ( mv:KeyDown( IN_SPEED ) ) then speed = 0.005 * FrameTime() end
+
+	--
+	-- Get information from the movedata
+	--
+	local ang = mv:GetMoveAngles()
+	local pos = mv:GetOrigin()
+	local vel = mv:GetVelocity()
+
+	--
+	-- Add velocities. This can seem complicated. On the first line
+	-- we're basically saying get the forward vector, then multiply it
+	-- by our forward speed (which will be &gt; 0 if we're holding W, &lt; 0 if we're
+	-- holding S and 0 if we're holding neither) - and add that to velocity.
+	-- We do that for right and up too, which gives us our free movement.
+	--
+	vel = vel + ang:Forward() * mv:GetForwardSpeed() * speed
+	vel = vel + ang:Right() * mv:GetSideSpeed() * speed
+	vel = vel + ang:Up() * mv:GetUpSpeed() * speed
+
+	--
+	-- We don't want our velocity to get out of hand so we apply
+	-- a little bit of air resistance. If no keys are down we apply
+	-- more resistance so we slow down more.
+	--
+	if ( math.abs( mv:GetForwardSpeed() ) + math.abs( mv:GetSideSpeed() ) + math.abs( mv:GetUpSpeed() ) < 0.1 ) then
+		vel = vel * 0.90
+	else
+		vel = vel * 0.99
+	end
+
+	--
+	-- Add the velocity to the position (this is the movement)
+	--
+	pos = pos + vel
+
+	--
+	-- We don't set the newly calculated values on the entity itself
+	-- we instead store them in the movedata. They should get applied
+	-- in the FinishMove hook.
+	--
+	mv:SetVelocity( vel )
+	mv:SetOrigin( pos )
+
+	--
+	-- Return true to not use the default behavior
+	--
+	return true
+
+end)
+	</code>
+</example>

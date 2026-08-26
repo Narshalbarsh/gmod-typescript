@@ -1,0 +1,14 @@
+<function name="SetTextAlign" parent="DListView_Column" type="panelfunc">
+	<description>Sets the text alignment for the column</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="alignment" type="number{ContentAlignment}">The direction of the content, based on the number pad. See <page>Enums/ContentAlignment</page>.
+
+|   |   |   |
+| --- | --- | --- |
+| <key>7</key>: **top-left** | <key>8</key>: **top-center**	| <key>9</key>: **top-right** |
+| <key>4</key>: **middle-left** | <key>5</key>: **center** | <key>6</key>: **middle-right** |
+| <key>1</key>: **bottom-left** | <key>2</key>: **bottom-center** | <key>3</key>: **bottom-right** |
+</arg>
+	</args>
+</function>

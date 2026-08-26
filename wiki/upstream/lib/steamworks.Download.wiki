@@ -1,0 +1,48 @@
+<function name="Download" parent="steamworks" type="libraryfunc">
+	<description>
+<note>You really should be using <page>steamworks.DownloadUGC</page> when downloading Steam Workshop items. This is a legacy function for preview images.</note>
+
+Downloads a file from the supplied addon and saves it as a `.cache` file in `garrysmod/cache/` folder.
+
+This is mostly used to download the preview image of the addon.
+
+In case the retrieved file is an image and you need the <page>IMaterial</page>, use <page>Global.AddonMaterial</page> with the path supplied from the callback.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="workshopPreviewID" type="string">The Preview ID of workshop item.</arg>
+		<arg name="uncompress" type="boolean">Whether to uncompress the file or not, assuming it was compressed with LZMA.<br/>
+You will usually want to set this to true.</arg>
+		<arg name="resultCallback" type="function">The function to process retrieved data.
+
+<callback>
+<arg type="string" name="path">Path to the downloaded file.</arg>
+</callback>
+</arg>
+	</args>
+</function>
+
+<example>
+	<description>Downloads and saves icon of `Gm_construct_Beta` Steam Workshop addon, then draws it on screen.</description>
+	<code>
+local mat = nil
+steamworks.FileInfo( 21197, function( result )
+	steamworks.Download( result.previewid, true, function( name )
+		print( name )
+		mat = AddonMaterial( name )
+	end)
+end)
+
+hook.Add( "HUDPaint", "PutAUniqueHookNameHere", function()
+	if ( !mat ) then return end -- TODO: Draw some loading placeholder
+
+	surface.SetDrawColor( 255, 255, 255, 255 ) -- Set the drawing color
+	surface.SetMaterial( mat ) -- Use our cached material
+	surface.DrawTexturedRect( 0, 0, 512, 512 ) -- Actually draw the rectangle
+end )
+	</code>
+	<output>
+<image src="70c/8dc59784d06be97.png" size="569647" name="image.png" />
+</output>
+
+</example>

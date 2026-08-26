@@ -1,0 +1,28 @@
+<function name="OnUndo" parent="GM" type="hook">
+	<description>Called when the player undoes something.</description>
+	<file line="46-L74">gamemodes/sandbox/gamemode/cl_init.lua</file>
+	<realm>Client</realm>
+	<args>
+		<arg name="name" type="string">The name of the undo action</arg>
+		<arg name="customText" type="string">The custom text for the undo, set by <page>undo.SetCustomUndoText</page></arg>
+	</args>
+	<rets>
+		<ret name="suppress" type="boolean">Return false to suppress the undo notification.
+		</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Print a message when the player undoes something.</description>
+	<code>
+hook.Add( "OnUndo", "CustomUndoText", function( name, customText )
+     if customText ~= nil then
+          MsgN( "Undone " .. customText )
+     else
+          MsgN( "Undone " .. name )
+     end
+end )
+	</code>
+	<output>Undone &lt;action&gt;</output>
+
+</example>

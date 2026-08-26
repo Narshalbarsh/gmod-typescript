@@ -1,0 +1,8 @@
+<function name="GetPredictionPlayer" parent="Global" type="libraryfunc">
+	<added>2020.04.29</added>
+	<description>Returns the player whose movement commands are currently being processed. The player this returns can safely have <page>Player:GetCurrentCommand</page>() called on them. See <page>Prediction</page>.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Player">The player currently being predicted, or NULL if no command processing is currently being done.</ret>
+	</rets>
+</function>

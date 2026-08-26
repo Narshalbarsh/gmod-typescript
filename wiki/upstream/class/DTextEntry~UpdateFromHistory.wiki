@@ -1,0 +1,6 @@
+<function name="UpdateFromHistory" parent="DTextEntry" type="panelfunc">
+	<description>
+<internal></internal>
+Used internally to set text from the history.</description>
+	<realm>Client and Menu</realm>
+</function>

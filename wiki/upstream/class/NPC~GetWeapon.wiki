@@ -1,0 +1,11 @@
+<function name="GetWeapon" parent="NPC" type="classfunc">
+	<description>Returns a specific weapon the NPC owns.</description>
+	<realm>Server</realm>
+	<added>2020.06.24</added>
+	<args>
+		<arg name="class" type="string">A classname of the weapon to try to get.</arg>
+	</args>
+	<rets>
+		<ret name="wep" type="Weapon">The weapon for the specified class, or NULL of the NPC doesn't have given weapon.</ret>
+	</rets>
+</function>

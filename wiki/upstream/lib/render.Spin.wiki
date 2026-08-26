@@ -1,0 +1,34 @@
+<function name="Spin" parent="render" type="libraryfunc">
+	<description>
+Swaps the frame buffers/cycles the frame. In other words, this updates the screen.
+
+If you take a really long time during a single frame render, it is a good idea to use this and let the user know that the game isn't stuck.
+	</description>
+	<realm>Client</realm>
+</function>
+
+<example>
+	<description>Code from [Super DOF](https://github.com/Facepunch/garrysmod/blob/master/garrysmod/lua/postprocess/super_dof.lua#L219-L236); Push the current progress of rendering onto the screen and display a percentage of completion near the bottom right.</description>
+	<code>
+-- Restore RT
+render.SetRenderTarget( OldRT )
+
+-- Render our result buffer to the screen
+matFSB:SetFloat( "$alpha", 1 )
+matFSB:SetTexture( "$basetexture", texFSB )
+
+render.SetMaterial( matFSB )
+render.DrawScreenQuad()
+
+cam.Start2D()
+	local add = ( i / ( math.pi*2 ) ) * ( 1 / passes )
+	local percent = string.format( "%.1f", ( mul - ( 1 / passes ) + add ) * 100 )
+	draw.DrawText( percent .. "%", "GModWorldtip", view.w - 100, view.h - 100, Color( 0, 0, 0, 255 ), TEXT_ALIGN_CENTER )
+	draw.DrawText( percent .. "%", "GModWorldtip", view.w - 101, view.h - 101, Color( 255, 255, 255, 255 ), TEXT_ALIGN_CENTER )
+cam.End2D()
+
+render.Spin()
+	</code>
+	<output><image src="Super_DoF_Render_Spin.gif"/></output>
+
+</example>

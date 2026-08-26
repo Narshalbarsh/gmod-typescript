@@ -1,0 +1,18 @@
+<function name="PostEntityPaste" parent="ENTITY" type="hook">
+	<description>
+Called after the <page>duplicator</page> pastes the entity, after the bone/entity modifiers have been applied to the entity.
+
+This hook is called after <page>ENTITY:OnDuplicated</page>. See also <page>ENTITY:PreEntityCopy</page>.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ply" type="Player">The player who pasted the entity.
+
+<warning>This may not be a valid player in some circumstances. For example, when a save is loaded from the main menu, this hook will be called before the player is spawned. This argument will be a NULL entity in that case.</warning>
+</arg>
+		<arg name="ent" type="Entity">The entity itself. Same as `self` within the function context.</arg>
+		<arg name="createdEntities" type="table">All entities that are within the placed dupe.
+<note>The keys of each value in this table are the original entity indexes when the duplication was created. This can be utilized to restore entity references that don't get saved in duplications.</note>
+</arg>
+	</args>
+</function>

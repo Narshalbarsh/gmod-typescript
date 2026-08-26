@@ -1,0 +1,21 @@
+<function name="GetAmbientLight" parent="DModelPanel" type="panelfunc">
+	<description>Returns the ambient lighting used on the rendered entity.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="Color">The color of the ambient lighting.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints out the default ambient lighting used on models.</description>
+	<code>
+local mdl = vgui.Create("DModelPanel")
+mdl:SetPos(20, 20)
+mdl:SetSize(200, 200)
+mdl:SetModel("models/props_junk/watermelon01.mdl")
+
+print(mdl:GetAmbientLight())
+	</code>
+	<output>50 50 50 255</output>
+
+</example>

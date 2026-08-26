@@ -1,0 +1,9 @@
+<function name="Classify" parent="NPC" type="classfunc">
+	<description>Returns the NPC relationship class. This is mostly used to tell NPCs who should be attacking who.
+
+Do not confuse with <page>Entity:GetClass</page>!</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number{CLASS}">See <page>Enums/CLASS</page></ret>
+	</rets>
+</function>

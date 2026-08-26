@@ -1,0 +1,10 @@
+<function name="Sub" parent="VMatrix" type="classfunc">
+	<description>
+Subtracts given matrix from this matrix.
+	</description>
+	<added>2021.12.15</added>
+	<realm>Shared</realm>
+	<args>
+		<arg name="input" type="VMatrix">The input matrix to subtract.</arg>
+	</args>
+</function>

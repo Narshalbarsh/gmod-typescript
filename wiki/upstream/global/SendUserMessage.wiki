@@ -1,0 +1,19 @@
+<function name="SendUserMessage" parent="Global" type="libraryfunc">
+	<description>
+		Send a usermessage  
+		<deprecated>
+			This uses the <page>umsg</page> internally, which has been deprecated. Use the <page>net</page> instead.
+		</deprecated>
+
+		<note>
+			This does nothing clientside.
+		</note>
+	</description>
+	<realm>Shared</realm>
+	<file line="11-L39">lua/includes/modules/usermessage.lua</file>
+	<args>
+		<arg name="name" type="string">The name of the usermessage</arg>
+		<arg name="recipients" type="any">Can be a <page>CRecipientFilter</page>, <page>table</page> or <page>Player</page> object.</arg>
+		<arg name="args" type="vararg">Data to send in the usermessage</arg>
+	</args>
+</function>

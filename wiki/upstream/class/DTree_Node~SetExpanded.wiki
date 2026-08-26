@@ -1,0 +1,8 @@
+<function name="SetExpanded" parent="DTree_Node" type="panelfunc">
+	<description>Expands or collapses this node.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="expand" type="boolean">Whether to expand (true) or collapse (false)</arg>
+		<arg name="surpressAnimation" type="boolean" default="false">Whether to play animation (false) or not (true)</arg>
+	</args>
+</function>

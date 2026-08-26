@@ -1,0 +1,8 @@
+<function name="SetEntity" parent="DEntityProperties" type="panelfunc">
+	<description>Sets the entity to be edited by this panel. The entity must support the <page>Editable Entities</page> system or nothing will happen.</description>
+	<realm>Client</realm>
+	<file line="14-L21">lua/vgui/dentityproperties.lua</file>
+	<args>
+		<arg name="ent" type="Entity">The entity to edit</arg>
+	</args>
+</function>

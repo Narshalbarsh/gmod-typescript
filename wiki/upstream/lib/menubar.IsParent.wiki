@@ -1,0 +1,10 @@
+<function name="IsParent" parent="menubar" type="libraryfunc">
+	<description>Checks if the supplied panel is parent to the menubar</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="pnl" type="Panel">The panel to check</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Is parent or not</ret>
+	</rets>
+</function>

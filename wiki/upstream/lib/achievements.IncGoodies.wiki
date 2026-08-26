@@ -1,0 +1,4 @@
+<function name="IncGoodies" parent="achievements" type="libraryfunc">
+	<description><internal></internal>Adds one to the count of friendly NPCs killed. Once this count reaches 1000, the 'Bad Friend' achievement is unlocked.</description>
+	<realm>Client</realm>
+</function>

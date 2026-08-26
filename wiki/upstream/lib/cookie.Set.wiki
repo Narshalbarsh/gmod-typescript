@@ -1,0 +1,65 @@
+<function name="Set" parent="cookie" type="libraryfunc">
+	
+	<file line="116-L121">lua/includes/modules/cookie.lua</file>
+	<realm>Shared and Menu</realm>
+	
+	<description>
+
+		Creates / updates a cookie in the <page text = 'Database'>cookie</page>.
+
+	</description>
+	
+	<args>
+
+		<arg name="key" type="string">
+
+			The name of the cookie.
+	
+		</arg>
+
+		<arg name="value" type="string">
+			
+			The data stored in the cookie.
+
+		</arg>
+
+	</args>
+
+</function>
+
+
+<br/>
+
+---
+
+<br/>
+
+<example>
+
+	<description>
+
+		Sets & prints out a cookie's value.
+
+	</description>
+
+	<code>
+
+cookie.Set('My-Cookie','Hello World')
+
+print('Set My-Cookie')
+
+print('My-Cookie:',cookie.GetString('My-Cookie'))
+
+	</code>
+
+
+	<output>
+
+```
+Set My-Cookie
+My-Cookie: Hello World
+```
+
+	</output>
+
+</example>

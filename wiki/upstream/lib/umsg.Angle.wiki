@@ -1,0 +1,9 @@
+<function name="Angle" parent="umsg" type="libraryfunc">
+	<description>
+<deprecated>You should be using the <page>net</page> instead</deprecated>
+Writes an angle to the usermessage.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="angle" type="Angle">The angle to be sent.</arg>
+	</args>
+</function>

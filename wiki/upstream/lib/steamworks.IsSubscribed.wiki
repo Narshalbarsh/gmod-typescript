@@ -1,0 +1,17 @@
+<function name="IsSubscribed" parent="steamworks" type="libraryfunc">
+	<description>Returns whenever the client is subscribed to the specified Steam Workshop item.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="workshopItemID" type="string">The ID of the Steam Workshop item.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Is the client subscribed to the addon or not.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Checks if client is subscribed to Gm_construct_Beta Steam Workshop addon.</description>
+	<code>print( steamworks.IsSubscribed( 21197 ) )</code>
+	<output>If client is subscribed true is printed into console, false otherwise.</output>
+
+</example>

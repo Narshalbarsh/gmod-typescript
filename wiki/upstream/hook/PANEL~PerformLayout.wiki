@@ -1,0 +1,60 @@
+<function name="PerformLayout" parent="PANEL" type="hook">
+	<description>
+Called whenever the panels' layout needs to be performed again. This means all child panels must be re-positioned to fit the possibly new size of this panel.
+
+This can be triggered in numerous ways:
+* <page>Panel:InvalidateLayout</page> was called this or previous frame (depending on the argument)
+* <page>Panel:SetPos</page> called more than once on the same panel ([Issue](https://github.com/Facepunch/garrysmod-issues/issues/5519))
+* A child element was added to this panel (TODO: Verify me)
+* The size of this panel has changed
+
+You should not call this function directly. Use <page>Panel:InvalidateLayout</page> instead.
+
+You should also be careful to not cause layout loops. You can use `vgui_visualizelayout 1` to visualize panel layouts as they happen for debugging purposes. Panels should not be doing this every frame for performance reasons.
+
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="width" type="number">The panels current width.</arg>
+		<arg name="height" type="number">The panels current height.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Creating a resizeable DFrame with a 'sidebar' that rescales along with the DFrame</description>
+	<code>
+local frame = vgui.Create("DFrame")
+frame:SetSize(500, 400)
+frame:Center()
+frame:SetSizable(true)
+-- oPerformLayout stores the original PerformLayout function
+-- We store it because we are going to overwrite it with our own to scale the Sidebar
+-- We then call the original function to maintain proper functionality of the frame
+-- You can find the original PerformLayout here https://github.com/Facepunch/garrysmod/blob/master/garrysmod/lua/vgui/dframe.lua#L234-L258
+local oPerformLayout = frame.PerformLayout
+
+frame.PerformLayout = function(pnl, w, h)
+    oPerformLayout(pnl, w, h)
+    pnl.Sidebar:SetWide(w * 0.5)
+end
+
+frame.Sidebar = frame:Add("DPanel")
+frame.Sidebar:Dock(LEFT)
+
+frame.Sidebar.Paint = function(pnl, w, h)
+    surface.SetDrawColor(255, 0, 0)
+    surface.DrawRect(0, 0, w, h)
+end
+
+frame.Sidebar.PerformLayout = function(pnl, w, h)
+    local buttonWidth = w * 0.5
+    local buttonHeight = h * 0.5
+    pnl.Button:SetSize(buttonWidth, buttonHeight)
+    -- now we center our button
+    pnl.Button:SetPos(w / 2 - buttonWidth / 2, h / 2 - buttonHeight / 2)
+end
+
+frame.Sidebar.Button = frame.Sidebar:Add("DButton")
+frame.Sidebar.Button:SetText("Hello!")
+	</code>
+</example>

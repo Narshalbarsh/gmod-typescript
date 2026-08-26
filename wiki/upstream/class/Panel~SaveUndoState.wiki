@@ -1,0 +1,8 @@
+<function name="SaveUndoState" parent="Panel" type="classfunc">
+	<description>
+Saves the current state (caret position and the text inside) of a <page>TextEntry</page> as an undo state.
+
+See also <page>Panel:Undo</page>.
+	</description>
+	<realm>Client and Menu</realm>
+</function>

@@ -1,0 +1,11 @@
+<function name="GetSquadMembers" parent="ai" type="libraryfunc">
+	<description>Returns all members of a given squad. See also <page>ai.GetSquadMemberCount</page> and <page>NPC:GetSquad</page>.</description>
+	<realm>Server</realm>
+	<added>2021.01.27</added>
+	<args>
+		<arg name="squad" type="string">The squad name.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">A table of <page>NPC</page>s in the given squad.</ret>
+	</rets>
+</function>

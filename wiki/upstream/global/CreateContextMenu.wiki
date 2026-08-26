@@ -1,0 +1,7 @@
+<function name="CreateContextMenu" parent="Global" type="libraryfunc">
+	<description>Creates a ContextMenu.
+	<internal></internal>
+	</description>
+	<realm>Client</realm>
+	<file line="137-L230">gamemodes/sandbox/gamemode/spawnmenu/contextmenu.lua</file>
+</function>

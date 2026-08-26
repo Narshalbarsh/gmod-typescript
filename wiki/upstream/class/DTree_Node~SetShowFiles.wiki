@@ -1,0 +1,11 @@
+<function name="SetShowFiles" parent="DTree_Node" type="panelfunc">
+	<description>
+<internal></internal>
+
+Sets whether or not nodes for files should be added when populating the node from filesystem.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="showFiles" type="boolean"></arg>
+	</args>
+</function>

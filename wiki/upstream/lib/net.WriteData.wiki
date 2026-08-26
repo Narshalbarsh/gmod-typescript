@@ -1,0 +1,52 @@
+<function name="WriteData" parent="net" type="libraryfunc">
+	<description>Writes a chunk of binary data to the message.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="binaryData" type="string">The binary data to be sent.</arg>
+		<arg name="length" type="number" default="#binaryData">The length of the binary data to be sent, in bytes.</arg>
+	</args>
+</function>
+
+<example>
+	<description>
+		Sends a message to the server without using WriteString.
+		<note>
+			You don't need to use <page>net.WriteUInt</page> if you **only use this function once** in the net message.  
+			You can get the bytes amount by dividing the message length by 8. **Like this:**
+			```lua
+				local compressed_message = net.ReadData( len / 8 ) -- Converts the length from Bits to Bytes.
+			```
+		</note>
+	</description>
+	<code>
+if ( CLIENT ) then
+	local message = "This is a cool message"
+	local compressed_message = util.Compress( message )
+	local bytes_amount = #compressed_message
+
+	concommand.Add( "send_message_data", function( ply, cmd, args )
+		net.Start( "SendMessage" )
+			net.WriteUInt( bytes_amount, 16 ) -- Writes the amount of bytes we have. Needed to read the data
+			net.WriteData( compressed_message, bytes_amount ) -- Writes the datas
+		net.SendToServer()
+	end )
+end
+
+if ( SERVER ) then
+	util.AddNetworkString( "SendMessage" )
+
+	net.Receive( "SendMessage", function( len, ply )
+		local bytes_amount = net.ReadUInt( 16 ) -- Gets back the amount of bytes our data has
+		local compressed_message = net.ReadData( bytes_amount ) -- Gets back our compressed message
+		local message = util.Decompress( compressed_message ) -- Decompresses our message
+
+		print( message )
+	end)
+end
+	</code>
+	<output>
+```
+This is a cool message
+```
+	</output>
+</example>

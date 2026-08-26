@@ -1,0 +1,11 @@
+<function name="GetAutoStretchVertical" parent="DLabelURL" type="panelfunc">
+	<description>
+<deprecated></deprecated>
+
+Does absolutely nothing at all.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="draw" type="boolean">Does nothing.</ret>
+	</rets>
+</function>

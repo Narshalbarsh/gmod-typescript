@@ -1,0 +1,4 @@
+<function name="MoveCursorToStart" parent="PathFollower" type="classfunc">
+	<description>Moves the cursor to the end of the path</description>
+	<realm>Server</realm>
+</function>

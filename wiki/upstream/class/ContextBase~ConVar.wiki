@@ -1,0 +1,8 @@
+<function name="ConVar" parent="ContextBase" type="panelfunc">
+	<description>Returns the <page>ConVar</page> for the panel to change/handle, set by <page>ContextBase:SetConVar</page></description>
+	<realm>Client</realm>
+	<file line="16-L18">lua/vgui/contextbase.lua</file>
+	<rets>
+		<ret name="" type="string">The <page>ConVar</page> for the panel to change.</ret>
+	</rets>
+</function>

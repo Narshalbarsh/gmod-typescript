@@ -1,0 +1,9 @@
+<function name="SetModel" parent="PLAYER" type="hook">
+	<file line="67-L74">gamemodes/base/gamemode/player_class/player_default.lua</file>
+	<description>
+Called when we need to set player model from the class.
+
+<note>This will only be called if you have not overridden <page>GM:PlayerSetModel</page> or call this function from it or anywhere else using <page>player_manager.RunClass</page></note>
+	</description>
+	<realm>Server</realm>
+</function>

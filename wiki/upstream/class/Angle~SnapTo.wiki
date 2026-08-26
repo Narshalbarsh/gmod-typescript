@@ -1,0 +1,35 @@
+<function name="SnapTo" parent="Angle" type="classfunc">
+	<description>
+Snaps the angle to nearest interval of degrees.
+
+<note>This will modify the original angle too!</note>
+	</description>
+	<realm>Shared</realm>
+	<file line="5-L18">lua/includes/extensions/angle.lua</file>
+	<args>
+		<arg name="axis" type="string">The component/axis to snap. Can be either `p`/`pitch`, `y`/`yaw` or `r`/`roll`.</arg>
+		<arg name="target" type="number">The target angle snap interval</arg>
+	</args>
+	<rets>
+		<ret name="" type="Angle">The snapped angle.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Example usage</description>
+	<code>
+print( Angle( 0, 92, 0 ):SnapTo( "y", 90 ) )
+print( Angle( 0, 115, 0 ):SnapTo( "y", 45 ) )
+print( Angle( 12, 98, 167 ):SnapTo( "p", 30 ):SnapTo( "y", 45 ):SnapTo( "r", 45 ) )
+	</code>
+	<output>
+
+```
+Angle( 0, 90, 0 )
+Angle( 0, 135, 0 )
+Angle( 0, 90, -180 )
+```
+
+	</output>
+
+</example>

@@ -1,0 +1,26 @@
+<function name="DrawRect" parent="surface" type="libraryfunc">
+	<description>
+Draws a solid rectangle on the screen.
+
+<rendercontext hook="false" type="2D"></rendercontext>
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="x" type="number">The X integer co-ordinate.</arg>
+		<arg name="y" type="number">The Y integer co-ordinate.</arg>
+		<arg name="width" type="number">The integer width of the rectangle.</arg>
+		<arg name="height" type="number">The integer height of the rectangle.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Draws a white 100 by 100 rectangle, 25 pixels from the top left of the screen.</description>
+	<code>
+hook.Add("HUDPaint", "MyRect", function()
+    surface.SetDrawColor(255,255,255,255)
+    surface.DrawRect(25, 25, 100, 100)
+end)
+	</code>
+	<output><image src="surface_drawrect.png"/></output>
+
+</example>

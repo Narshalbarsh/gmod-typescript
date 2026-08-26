@@ -1,0 +1,11 @@
+<function name="SetVoiceVolumeScale" parent="Player" type="classfunc">
+	<description>Sets the voice volume scale for given player on client. This value will persist from server to server, but will be reset when the game is shut down.
+
+<note>This doesn't work on bots, their scale will always be `1`. Does not work with multiruns.</note>
+	</description>
+	<realm>Client</realm>
+	<added>2021.06.09</added>
+	<args>
+		<arg name="" type="number">The voice volume scale, where `0` is 0% and `1` is 100%.</arg>
+	</args>
+</function>

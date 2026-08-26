@@ -1,0 +1,7 @@
+<function name="GetSpaceY" parent="DIconLayout" type="panelfunc">
+	<description>Returns distance between two "Icons" on the Y axis.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">distance between two "Icons" on the Y axis.</ret>
+	</rets>
+</function>

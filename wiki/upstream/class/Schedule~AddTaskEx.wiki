@@ -1,0 +1,14 @@
+<function name="AddTaskEx" parent="Schedule" type="classfunc">
+	<description>
+Adds a task to the schedule with completely custom function names.
+
+See also <page>Schedule:AddTask</page>.
+	</description>
+	<realm>Server</realm>
+	<file line="70-L76">lua/includes/modules/ai_schedule.lua</file>
+	<args>
+		<arg name="start" type="string">The full name of a function on the entity's table to be ran when the task is started.</arg>
+		<arg name="run" type="string">The full name of a function on the entity's table to be ran when the task is continuously running.</arg>
+		<arg name="data" type="number">Task data to be passed into the NPC's functions</arg>
+	</args>
+</function>

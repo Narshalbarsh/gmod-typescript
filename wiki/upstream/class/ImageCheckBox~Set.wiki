@@ -1,0 +1,12 @@
+<function name="Set" parent="ImageCheckBox" type="panelfunc">
+	<description>
+Sets the checked state of the checkbox.
+
+Checked state can be obtained by <page>ImageCheckBox</page>.State.
+	</description>
+	<file line="32-L36">lua/vgui/imagecheckbox.lua</file>
+	<realm>Client</realm>
+	<args>
+		<arg name="OnOff" type="boolean">true for checked, false otherwise</arg>
+	</args>
+</function>

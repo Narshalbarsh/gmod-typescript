@@ -1,0 +1,11 @@
+<function name="Unpack" parent="Color" type="classfunc">
+	<description>Returns the red, green, blue, and alpha of the color.</description>
+	<realm>Shared</realm>
+	<file line="177-L181">lua/includes/util/color.lua</file>
+	<rets>
+		<ret name="" type="number">Red</ret>
+		<ret name="" type="number">Green</ret>
+		<ret name="" type="number">Blue</ret>
+		<ret name="" type="number">Alpha</ret>
+	</rets>
+</function>

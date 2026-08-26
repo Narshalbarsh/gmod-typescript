@@ -1,0 +1,11 @@
+<function name="GetFloatValue" parent="DNumberWang" type="panelfunc">
+	<description>
+<deprecated></deprecated>
+
+Returns whatever is set by <page>DNumberWang:SetFloatValue</page> or 0.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number"></ret>
+	</rets>
+</function>

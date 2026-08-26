@@ -1,0 +1,7 @@
+<function name="GetCanZoom" parent="Player" type="classfunc">
+	<description>Determines whenever the player is allowed to use the zoom functionality.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">canZoom</ret>
+	</rets>
+</function>

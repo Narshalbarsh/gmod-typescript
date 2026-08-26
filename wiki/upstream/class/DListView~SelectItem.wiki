@@ -1,0 +1,7 @@
+<function name="SelectItem" parent="DListView" type="panelfunc">
+	<description>Selects a line in the listview.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="Line" type="Panel">The line to select.</arg>
+	</args>
+</function>

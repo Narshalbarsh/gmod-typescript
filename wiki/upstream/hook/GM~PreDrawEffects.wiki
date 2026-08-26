@@ -1,0 +1,10 @@
+<function name="PreDrawEffects" parent="GM" type="hook">
+	<description>
+Called just after <page>GM:PreDrawViewModel</page> and can technically be considered as a "PostDrawAllViewModels".
+
+See <page>GM:PostDrawEffects</page> for the associated hook.
+
+<rendercontext hook="true" type="3D"></rendercontext>
+	</description>
+	<realm>Client</realm>
+</function>

@@ -1,0 +1,10 @@
+<function name="ContextMenuOpened" parent="SANDBOX" type="hook">
+	<description>Called when the context menu is supposedly opened.
+
+This is simply an alias of <page>GM:OnContextMenuOpen</page> but will **not** be called if <page>SANDBOX:ContextMenuOpen</page> prevents the context menu from opening.
+
+This hook **will** be called even if the context menu doesn't actually exist, i.e. <page>SANDBOX:ContextMenuEnabled</page> blocked its creation.
+
+</description>
+	<realm>Client</realm>
+</function>

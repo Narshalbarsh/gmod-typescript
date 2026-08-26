@@ -1,0 +1,7 @@
+<function name="GetCycle" parent="Entity" type="classfunc">
+	<description>Returns the frame of the currently played sequence. This will be a number between 0 and 1 as a representation of sequence progress.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The frame of the currently played sequence</ret>
+	</rets>
+</function>

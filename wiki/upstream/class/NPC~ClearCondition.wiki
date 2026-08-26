@@ -1,0 +1,7 @@
+<function name="ClearCondition" parent="NPC" type="classfunc">
+	<description>Clears out the specified <page>Enums/COND</page> on this NPC.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="condition" type="number">The <page>Enums/COND</page> to clear out.</arg>
+	</args>
+</function>

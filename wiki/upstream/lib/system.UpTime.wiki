@@ -1,0 +1,13 @@
+<function name="UpTime" parent="system" type="libraryfunc">
+	<description>
+Returns the amount of seconds since the Steam user last moved their mouse.
+
+This is a direct binding to ISteamUtils-&gt;GetSecondsSinceComputerActive, and is most likely related to Steam's automatic "Away" online status.
+
+<note>This function does not work on Dedicated Servers and will instead return no value.</note>
+	</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="number">The amount of seconds since the Steam user last moved their mouse.</ret>
+	</rets>
+</function>

@@ -1,0 +1,7 @@
+<function name="SetVelocity" parent="CLuaLocomotion" type="classfunc">
+	<description>Sets the current movement velocity</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="velocity" type="Vector"></arg>
+	</args>
+</function>

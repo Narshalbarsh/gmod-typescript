@@ -1,0 +1,10 @@
+<function name="IsValid" parent="IMesh" type="classfunc">
+	<description>
+Returns whether this <page>IMesh</page> is valid or not.
+	</description>
+	<realm>Client</realm>
+	<added>2020.04.29</added>
+	<rets>
+		<ret type="boolean">Whether this <page>IMesh</page> is valid or not.</ret>
+	</rets>
+</function>

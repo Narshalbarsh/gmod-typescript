@@ -3,7 +3,8 @@ import { printDocComent } from './util';
 import { tryLoadFunctionOverride, OverrideKind } from '../override_loader';
 
 export function printNamespaceFunction(func: TSFunction, container?: string): string {
-    return printFunction(func, true, true, { kind: 'namespace', container });
+    // members of a `declare namespace` are already ambient, `declare` on them is TS1038
+    return printFunction(func, true, false, { kind: 'namespace', container });
 }
 
 export function printInterfaceFunction(func: TSFunction, container?: string): string {
@@ -12,6 +13,11 @@ export function printInterfaceFunction(func: TSFunction, container?: string): st
 
 export function printGlobalFunction(func: TSFunction): string {
     return printFunction(func, true, true, { kind: 'global' });
+}
+
+// overrides may be written with a leading `declare`, inside a namespace it has to go
+export function stripDeclare(text: string): string {
+    return text.replace(/^(\s*)declare\s+/gm, '$1');
 }
 
 function printFunction(
@@ -25,9 +31,10 @@ function printFunction(
     // Signature override (keep scraped doc, replace only the declaration)
     const override = tryLoadFunctionOverride(ctx?.kind ?? 'interface', ctx?.container, func.identifier);
     if (override) {
+        const body = ctx?.kind === 'namespace' ? stripDeclare(override) : override;
         return `
 ${docComment}
-${override}
+${body}
 `.trim();
     }
 

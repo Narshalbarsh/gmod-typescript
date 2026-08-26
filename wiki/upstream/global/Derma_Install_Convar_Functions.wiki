@@ -1,0 +1,39 @@
+<function name="Derma_Install_Convar_Functions" parent="Global" type="libraryfunc">
+	<description>
+Makes the panel (usually an input of sorts) respond to changes in console variables by adding next functions to the panel:
+* <page>Panel:SetConVar</page>
+* <page>Panel:ConVarChanged</page>
+* <page>Panel:ConVarStringThink</page>
+* <page>Panel:ConVarNumberThink</page>
+
+The console variable value is saved in the `m_strConVar` property of the panel.
+
+The panel should call
+<page>Panel:ConVarStringThink</page> or 
+<page>Panel:ConVarNumberThink</page> 
+in its <page>PANEL:Think</page> hook and should call <page>Panel:ConVarChanged</page> when the panel's value has changed.
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="80-L121">lua/derma/init.lua</file>
+	<args>
+		<arg name="target" type="Panel">The panel the functions should be added to.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Adds the functions to a panel (snippet of vgui/dcheckbox.lua)</description>
+	<code>
+local PANEL = {}
+
+Derma_Install_Convar_Functions( PANEL )
+
+function PANEL:Init()
+	-- Init function here
+end
+function PANEL:Think()
+	self:ConVarStringThink()
+end
+	</code>
+	<output>The `PANEL` table now contains the functions `SetConVar`, `ConVarChanged`, `ConVarStringThink` and `ConVarNumberThink` (and an `Init` function and a `Think` function)</output>
+
+</example>

@@ -1,0 +1,7 @@
+<function name="GetModelContents" parent="Entity" type="classfunc">
+	<description>Returns the contents of the entity's current model.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The contents of the entity's model. See <page>Enums/CONTENTS</page>.</ret>
+	</rets>
+</function>

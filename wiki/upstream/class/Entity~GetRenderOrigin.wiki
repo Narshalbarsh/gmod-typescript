@@ -1,0 +1,8 @@
+<function name="GetRenderOrigin" parent="Entity" type="classfunc">
+	<description>Returns the entity's render origin, set by <page>Entity:SetRenderOrigin</page> in a drawing hook.</description>
+	<realm>Client</realm>
+	<file line="17">lua/includes/extensions/client/entity.lua</file>
+	<rets>
+		<ret name="" type="Vector">The entitys render origin</ret>
+	</rets>
+</function>

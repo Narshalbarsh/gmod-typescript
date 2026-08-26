@@ -1,0 +1,46 @@
+<function name="FileInfo" parent="steamworks" type="libraryfunc">
+	<description>
+		Retrieves info about supplied Steam Workshop addon.
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="workshopItemID" type="string">The ID of Steam Workshop item.</arg>
+		<arg name="resultCallback" type="function">The function to process retrieved data.
+
+<callback>
+	<arg type="table" name="data">The data about the item, if the request succeeded, `nil` otherwise. See <page>Structures/UGCFileInfo</page>.</arg>
+</callback></arg>
+		<arg name="extraInfo" type="boolean" default="false" added="2026.06.25">If set, the function will retrieve more info about the workshop item, such as longer description and additional preview images. Only use this if absolutely necessary.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Retrieves all info of the [Wiremod](https://steamcommunity.com/sharedfiles/filedetails/?id=160250458) Steam Workshop addon.</description>
+	<code>steamworks.FileInfo( 160250458, function( result ) PrintTable( result ) end)</code>
+	<output>
+```
+banned	=	false
+children = {}
+created	=	1373845248
+description	=	"A collection of entities connectable by data wires..."
+disabled	=	false
+fileid	=	763849701485673437
+id	=	160250458
+installed	=	false
+owner	=	76561198096613988
+ownername	=	WireTeam
+previewid	=	597008945885476119
+previewsize	=	36221
+size	=	7375691
+tags	=	Addon,tool,Build,Fun
+title	=	Wiremod
+updated	=	1571560576
+
+score	=	0.92941749095917
+total	=	49119
+up	=	45695
+down	=	3424
+```
+	</output>
+
+</example>

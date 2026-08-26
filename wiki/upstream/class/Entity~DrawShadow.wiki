@@ -1,0 +1,7 @@
+<function name="DrawShadow" parent="Entity" type="classfunc">
+	<description>Sets whether an entity's shadow should be drawn.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="shouldDraw" type="boolean">True to enable, false to disable shadow drawing.</arg>
+	</args>
+</function>

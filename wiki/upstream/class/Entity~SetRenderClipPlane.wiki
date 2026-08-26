@@ -1,0 +1,24 @@
+<function name="SetRenderClipPlane" parent="Entity" type="classfunc">
+	<description>Used to specify a plane, past which an object will be visually clipped.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="planeNormal" type="Vector">The normal of the plane. Anything behind the normal will be clipped.</arg>
+		<arg name="planePosition" type="number">The position of the plane.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Creates a blue barrel at `Vector( 0, 0, 0 )`, freezes it, and will visually clip the barrel's lower half.</description>
+	<code>
+local ent = ents.CreateClientProp( "models/props_borealis/bluebarrel001.mdl" )
+ent:SetPos( Vector(0, 0, 0) )
+ent:Spawn()
+ent:GetPhysicsObject():EnableMotion( false )
+
+local normal = ent:GetUp()
+local position = normal:Dot( ent:GetPos() )
+ent:SetRenderClipPlaneEnabled( true )
+ent:SetRenderClipPlane( normal, position )
+	</code>
+
+</example>

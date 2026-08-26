@@ -1,0 +1,50 @@
+<function name="GetPlayerInfo" parent="Player" type="classfunc">
+	<description>Returns a table containing player information.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="table">A table containing player information.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Example output for a bot and a player.</description>
+	<code>
+PrintTable( Entity( 1 ):GetPlayerInfo() ) -- A player
+PrintTable( Entity( 2 ):GetPlayerInfo() ) -- A bot
+	</code>
+	<output>
+Player:
+```
+friendname	=	
+customfiles:
+		1	=	0912fb2c
+		2	=	0912fb2c
+		3	=	0912fb2c
+		4	=	0912fb2c
+fakeplayer	=	false
+guid	=	STEAM_0:0:18313012
+ishltv	=	false
+filesdownloaded	=	0
+friendid	=	36626024
+name	=	Rubat
+userid	=	2
+```
+
+Bot:
+```
+friendname	=	
+customfiles:
+		1	=	00000000
+		2	=	00000000
+		3	=	00000000
+		4	=	00000000
+fakeplayer	=	true
+guid	=	BOT
+ishltv	=	false
+filesdownloaded	=	0
+friendid	=	0
+name	=	Bot01
+userid	=	3
+```
+	</output>
+</example>

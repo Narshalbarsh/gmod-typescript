@@ -1,0 +1,32 @@
+<function name="GetWinningKey" parent="table" type="libraryfunc">
+	<description>Returns a key of the supplied table with the highest number value.</description>
+	<realm>Shared and Menu</realm>
+	<file line="678-L692">lua/includes/extensions/table.lua</file>
+	<args>
+		<arg name="inputTable" type="table">The table to search in.</arg>
+	</args>
+	<rets>
+		<ret name="" type="any">winningKey</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Code that looks up the most favourite fruit from a table where the fruit's name is the key, and it's number value determines how much favourite it is (the higher value, the better).</description>
+	<code>
+favouriteFruit = { banana = 4, strawberry = 4, blueberry = 2, apple = 6 }
+print(table.GetWinningKey(favouriteFruit))
+	</code>
+	<output>apple</output>
+
+</example>
+
+
+<example>
+	<description>A code that demonstrates a situation where there are two keys with the same value in the supplied table. String keys in the table represent the fruit name, and their number values determine how favourite it is (the higher value, the better).</description>
+	<code>
+favouriteFruit = { apple = 1, banana = 7, strawberry = 3, blueberry = 7 }
+print(table.GetWinningKey(favouriteFruit))
+	</code>
+	<output>banana</output>
+
+</example>

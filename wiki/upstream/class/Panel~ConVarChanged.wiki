@@ -1,0 +1,8 @@
+<function name="ConVarChanged" parent="Panel" type="classfunc">
+	<description>Updates a panel object's associated console variable. This must first be set up with <page>Global.Derma_Install_Convar_Functions</page>, and have a ConVar set using <page>Panel:SetConVar</page>.</description>
+	<file line="86-L91">lua/derma/init.lua</file>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="newValue" type="string">The new value to set the associated console variable to.</arg>
+	</args>
+</function>

@@ -1,0 +1,11 @@
+<function name="LookupPoseParameter" parent="Entity" type="classfunc">
+	<description>Returns pose parameter ID from its name.</description>
+	<realm>Shared</realm>
+	<added>2020.03.17</added>
+	<args>
+		<arg name="name" type="string">Pose parameter name</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The ID of the given pose parameter name, if it exists, -1 otherwise</ret>
+	</rets>
+</function>

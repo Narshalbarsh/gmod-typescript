@@ -1,0 +1,7 @@
+<function name="Refresh" parent="Panel" type="classfunc">
+	<description>Refreshes the HTML panel's current page.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="ignoreCache" type="boolean" default="false">If true, the refresh will ignore cached content similar to "ctrl+f5" in most browsers.</arg>
+	</args>
+</function>

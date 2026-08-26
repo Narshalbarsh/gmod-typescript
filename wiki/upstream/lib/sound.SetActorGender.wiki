@@ -1,0 +1,16 @@
+<function name="SetActorGender" parent="sound" type="libraryfunc">
+	<description>Sets the gender of a specific actor (model). This is a system from [base Half-Life 2](https://developer.valvesoftware.com/wiki/Global_actors) - `global_actors.txt`.
+
+This will affect what voice lines `npc_citizen` will use when they have the given model set.
+
+It is not limited to `npc_citizens` - any sound played on any entity with given model can have gender specific sounds playing, including soundscripts, by including `$gender` token in the sound file path.
+
+<warning>Internally the gender is stored by model file name only (i.e. `models/alyx.mdl` would be stored as `alyx`), not the full path! Be aware of potential collisions.</warning>
+</description>
+	<added>2024.12.12</added>
+	<realm>Shared</realm>
+	<args>
+		<arg name="modelPath" type="string">Path to the model file to set the gender of.</arg>
+		<arg name="gender" type="string">Gender to set. Only 2 options are permitted: `female` and `male`. Any other option will be ignored.</arg>
+	</args>
+</function>

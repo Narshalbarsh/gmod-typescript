@@ -1,0 +1,8 @@
+<function name="LoadGWENString" parent="Panel" type="classfunc">
+	<description>Loads controls for the panel from a JSON string.</description>
+	<realm>Client and Menu</realm>
+	<file line="138-L146">lua/derma/derma_gwen.lua</file>
+	<args>
+		<arg name="str" type="string">JSON string containing information about controls to create.</arg>
+	</args>
+</function>

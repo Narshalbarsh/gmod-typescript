@@ -1,0 +1,17 @@
+<function name="IncludeCS" parent="Global" type="libraryfunc">
+	<description>
+<deprecated>To send the target file to the client simply call AddCSLuaFile() in the target file itself.</deprecated>
+
+This function works exactly the same as <page>Global.include</page> both clientside and serverside.
+
+The only difference is that on the serverside it also calls <page>Global.AddCSLuaFile</page> on the filename, so that it gets sent to the client.
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="196-L202">lua/includes/util.lua</file>
+	<args>
+		<arg name="filename" type="string">The filename of the Lua file you want to include.</arg>
+	</args>
+	<rets>
+		<ret name="" type="vararg">Anything that the executed Lua script returns.</ret>
+	</rets>
+</function>

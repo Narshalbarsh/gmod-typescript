@@ -1,0 +1,17 @@
+<function name="SetWeaponColor" parent="Player" type="classfunc">
+	<description>Sets the player weapon's color. The part of the model that is colored is determined by the model itself, and is different for each model.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="Color" type="Vector">This is the color to be set. The format is Vector(r,g,b), and each color should be between 0 and 1.</arg>
+	</args>
+</function>
+
+<example>
+	<description>When a player spawns their weapon's color will be red.</description>
+	<code>
+hook.Add("PlayerSpawn", "SpawnSetColor", function( ply )
+	ply:SetWeaponColor( Vector( 1, 0, 0 ) )
+end )
+	</code>
+
+</example>

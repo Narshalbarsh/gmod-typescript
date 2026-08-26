@@ -1,0 +1,12 @@
+<function name="SetSortable" parent="DListView" type="panelfunc">
+	<description>
+		Enables/disables the sorting of columns by clicking.
+		<note>
+			This will only affect columns that are created after this function is called. Existing columns will be unaffected.
+		</note>
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="isSortable" type="boolean">Whether sorting columns with clicking is allowed or not.</arg>
+	</args>
+</function>

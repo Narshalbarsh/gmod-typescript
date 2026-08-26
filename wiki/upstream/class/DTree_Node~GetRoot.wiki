@@ -1,0 +1,11 @@
+<function name="GetRoot" parent="DTree_Node" type="panelfunc">
+	<description>
+Returns the root node, the <page>DTree</page> this node is under.
+
+See also <page>DTree_Node:GetParentNode</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="Panel">The root node</ret>
+	</rets>
+</function>

@@ -1,0 +1,12 @@
+<function name="ScoreboardHide" parent="GM" type="hook">
+	<description>Called when player released the scoreboard button (<key>TAB</key> by default).</description>
+	<realm>Client</realm>
+</function>
+
+<example>
+	<code>
+hook.Add( "ScoreboardHide", "Scoreboard_Close", function()
+	-- Use something like Base:Remove or DFrame:Close
+end )
+	</code>
+</example>

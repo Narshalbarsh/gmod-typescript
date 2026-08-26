@@ -1,0 +1,4 @@
+<function name="CleanList" parent="DPanelList" type="panelfunc">
+	<description>Removes all items.</description>
+	<realm>Client and Menu</realm>
+</function>

@@ -1,0 +1,15 @@
+<function name="SetDTString" parent="Entity" type="classfunc">
+	<description>
+<internal></internal>
+This is called internally by the <page>Entity:NetworkVar</page> system, you can use this in cases where using NetworkVar is not possible.
+
+Sets the specified string on the entity's datatable.
+
+<note>The length of these strings are capped at 512 characters.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="key" type="number">Goes from 0 to 3.</arg>
+		<arg name="str" type="string">The string to write on the entity's datatable, can't be more than 512 characters per string.</arg>
+	</args>
+</function>

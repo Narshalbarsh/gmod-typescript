@@ -1,0 +1,49 @@
+<function name="DrawText" parent="surface" type="libraryfunc">
+	<description>
+Draw the specified text on the screen, using the previously set [position](surface.SetTextPos), [font](surface.SetFont) and [color](surface.SetTextColor). This function does **not** handle newlines.
+
+This function moves the [text position](surface.SetTextPos) by the length of the drawn text - this can be used to change text properties (such as font or color) without having to manually recalculate the text position. See example #2 for example use of this behavior.
+
+<rendercontext hook="false" type="2D"></rendercontext>
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="text" type="string">The text to be rendered.</arg>
+		<arg name="forceAdditive" type="boolean" default="nil">`true` to force text to render additive, `false` to force not additive, `nil` to use font's value.
+
+When additive rendering is enabled, the rendered text pixels will be added to the existing screen pixels, rather than replacing them outright. This means black text will be invisible, and drawing on a pure white background will be impossible.
+
+<upload src="70c/8db6ce804200a43.png" size="21270" name="image.png" />
+</arg>
+	</args>
+</function>
+
+<example>
+	<description>Draws `Hello World` on the screen. All functions in this example must be called for the rendering to work flawlessly every time.</description>
+	<code>
+hook.Add( "HUDPaint", "drawsometext", function()
+	surface.SetFont( "Default" )
+	surface.SetTextColor( 255, 255, 255 )
+	surface.SetTextPos( 128, 128 ) 
+	surface.DrawText( "Hello World" )
+end )
+	</code>
+
+</example>
+
+<example>
+	<description>Draws rainbow text without using <page>surface.GetTextSize</page> and <page>surface.SetTextPos</page> for every character (more efficient).</description>
+	<code>
+local text = "~Rainbow~"
+hook.Add( "HUDPaint", "drawsometext", function()
+	surface.SetFont( "DermaLarge" )
+	surface.SetTextPos( 400, 128 )
+	for char = 1, #text do
+		local col = HSVToColor( ( ( RealTime() * 100 ) - char * 15 ) % 360, 1, 1 )
+		surface.SetTextColor( col.r, col.g, col.b )			-- Providing 3 numbers to surface.SetTextColor rather  
+		surface.DrawText( string.sub( text, char, char ) )	-- than a single color is faster
+	end
+end )
+	</code>
+
+</example>

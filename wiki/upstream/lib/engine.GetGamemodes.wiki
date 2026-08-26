@@ -1,0 +1,33 @@
+<function name="GetGamemodes" parent="engine" type="libraryfunc">
+	<description>Returns a table containing info for all installed gamemodes.</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="table">The gamemodes.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints out a list of gamemodes and various info.</description>
+	<code>PrintTable( engine.GetGamemodes() )</code>
+	<output>
+
+```
+1:
+ title = Base
+ workshopid = 
+ menusystem = false
+ maps = 
+ name = base
+2:
+ title = Sandbox
+ workshopid = 
+ menusystem = true
+ maps = ^gm_| ^gmod_
+ name = sandbox
+```
+
+```
+
+	</output>
+
+</example>

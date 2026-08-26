@@ -1,0 +1,33 @@
+<function name="SetPaintBackground" parent="DTextEntry" type="panelfunc">
+	<description>Sets whether to show the default background of the DTextEntry.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="show" type="boolean">`false` hides the background; this is `true` by default.</arg>
+	</args>
+</function>
+
+<example> 
+<description>Overrides the background of a DTextEntry and changes its color on every text change.</description>
+<code>
+    local frame = vgui.Create( "DFrame" )
+    frame:SetTitle("Colored TextEntry!")
+    frame:SetSize( 300, 100 )
+    frame:Center()
+    frame:MakePopup()
+
+    tEntryBG = vgui.Create("DPanel", frame)
+    tEntryBG:Dock(TOP)
+    tEntryBG:SetBackgroundColor(color_white)
+
+    tEntry = vgui.Create("DTextEntry", tEntryBG)
+    tEntry:SetPaintBackground(false)
+    tEntry:Dock(FILL)
+
+    tEntry.OnChange = function()
+        tEntryBG:SetBackgroundColor(ColorRand())
+    end
+</code>
+
+<output><upload src="b4b46/8db9418b5fb5bf1.gif" size="207110" name="bgoverride.gif" /></output>
+
+</example>

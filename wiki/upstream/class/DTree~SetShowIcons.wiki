@@ -1,0 +1,11 @@
+<function name="SetShowIcons" parent="DTree" type="panelfunc">
+	<description>
+Sets whether or not the <page>Silkicons</page> next to each node of the DTree will be displayed.
+
+Individual icons can be set with <page>DTree_Node:SetIcon</page> or passed as the second argument in <page>DTree:AddNode</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="show" type="boolean">Whether or not to show icons.</arg>
+	</args>
+</function>

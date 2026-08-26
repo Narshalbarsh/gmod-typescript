@@ -1,0 +1,7 @@
+<function name="SetNoDraw" parent="CLuaEmitter" type="classfunc">
+	<description>Prevents all particles of the emitter from automatically drawing.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="noDraw" type="boolean">Whether we should draw the particles ( false ) or not ( true )</arg>
+	</args>
+</function>

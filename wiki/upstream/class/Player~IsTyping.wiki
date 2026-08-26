@@ -1,0 +1,11 @@
+<function name="IsTyping" parent="Player" type="classfunc">
+	<description>
+Returns whether the player is typing in their chat.
+
+This may not work properly if the server uses a custom chatbox.
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the player is typing in their chat or not.</ret>
+	</rets>
+</function>

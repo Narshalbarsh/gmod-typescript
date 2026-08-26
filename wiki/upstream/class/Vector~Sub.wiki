@@ -1,0 +1,37 @@
+<function name="Sub" parent="Vector" type="classfunc">
+	<description>Substracts the values of the second vector from the orignal vector, this function can be used to avoid garbage collection.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="vector" type="Vector">The other vector.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Subtracts vector A's components with the other vector.</description>
+	<code>
+a = Vector(5, 6, 7)
+a:Sub(Vector(1, 2, 3))
+print(a)
+	</code>
+	<output>
+```
+4 4 4
+```
+	</output>
+
+</example>
+
+
+<example>
+	<description>If you don't want to set your vector to the result, and just return a new vector as the result. You can use a ' - ' operator to subtract two vectors from each other.</description>
+	<code>
+a = Vector(5, 6, 7)
+print(a-Vector(1, 2, 3))
+	</code>
+	<output>
+```
+4 4 4
+```
+	</output>
+
+</example>

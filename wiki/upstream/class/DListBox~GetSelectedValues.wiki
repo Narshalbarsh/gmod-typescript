@@ -1,0 +1,7 @@
+<function name="GetSelectedValues" parent="DListBox" type="panelfunc">
+	<description>Returns selected item values.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="table">The selected item values. A list of <page>Panel:GetValue</page> of each selected <page>DListBoxItem</page>.</ret>
+	</rets>
+</function>

@@ -1,0 +1,7 @@
+<function name="GetStart" parent="PathFollower" type="classfunc">
+	<description>Returns the path start position</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="Vector">The start position</ret>
+	</rets>
+</function>

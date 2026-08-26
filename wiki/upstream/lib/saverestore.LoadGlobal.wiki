@@ -1,0 +1,14 @@
+<function name="LoadGlobal" parent="saverestore" type="libraryfunc">
+	<description>
+<internal></internal>
+
+Called by engine when a save is being loaded.
+
+This handles loading gamemode and calls all of the hooks added with <page>saverestore.AddRestoreHook</page>.
+	</description>
+	<realm>Shared</realm>
+	<file line="408-L434">lua/includes/modules/saverestore.lua</file>
+	<args>
+		<arg name="save" type="IRestore">The restore object to read data from the save file with.</arg>
+	</args>
+</function>

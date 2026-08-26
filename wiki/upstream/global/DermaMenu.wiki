@@ -1,0 +1,23 @@
+<function name="DermaMenu" parent="Global" type="libraryfunc">
+	<description>Creates a <page>DMenu</page> and closes any current menus.</description>
+	<realm>Client and Menu</realm>
+	<file line="10-L18">lua/derma/derma_menus.lua</file>
+	<args>
+		<arg name="keepOpen" type="boolean" default="false">If we should keep other <page>DMenu</page>s open (`true`) or not (`false`).</arg>
+		<arg name="parent" type="Panel" default="nil">The panel to parent the created menu to.</arg>
+	</args>
+	<rets>
+		<ret name="menu" type="Panel">The created <page>DMenu</page>.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Creates a DMenu with buttons to commit suicide or close it.</description>
+	<code>
+local menu = DermaMenu() 
+menu:AddOption( "Die", function() RunConsoleCommand( "kill" ) end )
+menu:AddOption( "Close", function() print( "Close pressed" ) end ) -- The menu will remove itself, we don't have to do anything.
+menu:Open()
+	</code>
+	<output><image src="DermaMenu.png"/></output>
+</example>

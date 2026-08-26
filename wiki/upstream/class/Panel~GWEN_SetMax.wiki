@@ -1,0 +1,8 @@
+<function name="GWEN_SetMax" parent="Panel" type="classfunc">
+	<description><internal></internal> Used by <page>Panel:ApplyGWEN</page> to apply the `Max` property to a  <page>DNumberWang</page>, <page>Slider</page>, <page>DNumSlider</page> or <page>DNumberScratch</page>. This calls `SetMax` on one of the previously listed methods.</description>
+	<realm>Client and Menu</realm>
+	<file line="207">lua/derma/derma_gwen.lua</file>
+	<args>
+		<arg name="maxValue" type="number">The maximum value the element is to permit.</arg>
+	</args>
+</function>

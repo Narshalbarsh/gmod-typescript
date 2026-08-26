@@ -1,0 +1,32 @@
+<cat>gameevent</cat>
+<title>achievement_event</title>
+
+<structure>
+	<realm>Client and Menu</realm>
+	<description>
+			Called when a player makes progress on an achievement.
+
+			<note>Only called clientside for the player who made progress.</note>
+	</description>
+	<fields>
+		<item type="string" name="achievement_name">the name of the achievement.</item>
+		<item type="number" name="cur_val">amount of steps toward achievement.</item>
+		<item type="number" name="max_val">total amount of steps in achievement.</item>
+	</fields>
+</structure>
+
+# Examples
+<example>
+	<description>This is a basic template with the purpose of including all arguments / table variables to make it easily known which values can be accessed.</description>
+	<code>
+gameevent.Listen( "achievement_event" )
+hook.Add( "achievement_event", "achievement_event_example", function( data )
+	local achievement_name = data.achievement_name 	// the name of the achievement.
+	local cur_val = data.cur_val 					// amount of steps toward achievement
+	local max_val = data.max_val 					// total amount of steps in achievement
+
+	// 	Called when a player makes progress on an achievement.
+	
+end )
+	</code>
+</example>

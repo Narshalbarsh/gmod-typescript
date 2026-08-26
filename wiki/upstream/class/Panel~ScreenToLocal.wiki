@@ -1,0 +1,18 @@
+<function name="ScreenToLocal" parent="Panel" type="classfunc">
+	<description>
+Translates global screen coordinate to coordinates relative to the panel.
+
+See also <page>Panel:LocalToScreen</page>.
+
+<warning>This function uses a cached value for the screen position of the panel, computed at the end of the last VGUI Think/Layout pass, so inaccurate results may be returned if the panel or any of its ancestors have been re-positioned outside of <page>PANEL:Think</page> or <page>PANEL:PerformLayout</page> within the last frame.</warning>
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="screenX" type="number">The x coordinate of the screen position to be translated.</arg>
+		<arg name="screenY" type="number">The y coordinate of the screed position be to translated.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">Relativeposition X</ret>
+		<ret name="" type="number">Relativeposition Y</ret>
+	</rets>
+</function>

@@ -1,0 +1,10 @@
+<function name="UpdateBoneFollowers" parent="Entity" type="classfunc">
+	<description>Updates positions of bone followers created by <page>Entity:CreateBoneFollowers</page>.
+
+This should be called every tick.
+
+<note>This function only works on `anim`, `nextbot` and `ai` type entities.</note>
+</description>
+	<realm>Server</realm>
+	<added>2021.01.27</added>
+</function>

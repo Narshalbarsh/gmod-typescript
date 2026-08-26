@@ -1,0 +1,7 @@
+<function name="Toggle" parent="DCollapsibleCategory" type="panelfunc">
+	<description>Toggles the expanded state of the <page>DCollapsibleCategory</page>.
+
+See <page>DCollapsibleCategory:GetExpanded</page> for a function to retrieve the expanded state.</description>
+	<realm>Client and Menu</realm>
+	<file line="209-L225">lua/vgui/dcategorycollapse.lua</file>	
+</function>

@@ -1,0 +1,13 @@
+<function name="GetFlexBounds" parent="Entity" type="classfunc">
+	<description>Returns acceptable value range for the flex controller, as defined by the model.
+
+Used with <page>Entity:SetFlexWeight</page>.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="flex" type="number">The ID of the flex to look up bounds of</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The minimum value for this flex</ret>
+		<ret name="" type="number">The maximum value for this flex</ret>
+	</rets>
+</function>

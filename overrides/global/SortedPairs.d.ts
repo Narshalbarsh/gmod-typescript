@@ -8,12 +8,12 @@ declare function SortedPairs<K extends string | number, V>(
     desc?: boolean
 ): LuaIterable<LuaMultiReturn<[K, NonNullable<V>]>>;
 
-declare function SortedPairs<K, V>(
+declare function SortedPairs<K extends AnyNotNil, V>(
     t: LuaTable<K, V>,
     desc?: boolean
 ): LuaIterable<LuaMultiReturn<[K, NonNullable<V>]>>;
 
-declare function SortedPairs<K, V>(
+declare function SortedPairs<K extends AnyNotNil, V>(
     t: Readonly<LuaTable<K, V>>,
     desc?: boolean
 ): LuaIterable<LuaMultiReturn<[K, NonNullable<V>]>>;

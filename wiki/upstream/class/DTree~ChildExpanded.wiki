@@ -1,0 +1,16 @@
+<function name="ChildExpanded" parent="DTree" type="panelhook">
+	<description>
+<internal></internal>
+
+Calls directly to <page>Panel:InvalidateLayout</page>.
+Called by <page>DTree_Node</page>s when a sub element has been expanded or collapsed.
+
+Used as a placeholder function alongside <page>DTree:ExpandTo</page>, <page>DTree:SetExpanded</page> and <page>DTree:MoveChildTo</page>.
+
+The <page>DTree</page> acts a root node and methods with the same name in <page>DTree_Node</page> call to the parent.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="bExpand" type="boolean"></arg>
+	</args>
+</function>

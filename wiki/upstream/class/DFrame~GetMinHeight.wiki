@@ -1,0 +1,12 @@
+<function name="GetMinHeight" parent="DFrame" type="panelfunc">
+	<description>
+Gets the minimum height the DFrame can be resized to by the user.
+
+You must call <page>DFrame:SetSizable</page> before the user can resize the frame.
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="12">lua/vgui/dframe.lua</file>
+	<rets>
+		<ret name="" type="number">The minimum height the user can resize the frame to.</ret>
+	</rets>
+</function>

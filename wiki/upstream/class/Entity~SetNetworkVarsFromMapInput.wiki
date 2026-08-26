@@ -1,0 +1,36 @@
+<function name="SetNetworkVarsFromMapInput" parent="Entity" type="classfunc">
+	<description>
+A helper function to allow setting <page text="Network Variables">Networking_Entities</page> via <page>Entity:Fire</page>, primarily to allow mappers to set them from Hammer via Map I/O logic.
+
+Meant to be called from <page>ENTITY:AcceptInput</page>, see example.
+
+See also <page>Entity:SetNetworkKeyValue</page> for a function that does similar thing, but for entity key-values in Hammer instead.
+
+<note>This function will only work on entities which had <page>Entity:InstallDataTable</page> called on them, which is done automatically for players and all <page>Scripted Entities</page>.</note>
+</description>
+	<realm>Server</realm>
+	<file line="452-L475">lua/includes/extensions/entity.lua</file>
+	<added>2025.03.18</added>
+	<args>
+		<arg name="name" type="string">The name of the Map I/O input, including the `Set` prefix.</arg>
+		<arg name="param" type="string">The input parameter.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether a network variable was set successfully</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Example usage, adding this will allow mappers to set all your networks vars using Map I/O inputs. You will also need to provide manually crafted `.fgd` file that lists all the key values. `env_skypaint` can be used as an example (`garrysmod.fgd` and `env_skypaint.lua` in base gamemode).</description>
+	<code>
+function ENT:AcceptInput( name, activator, caller, data )
+
+	if ( self:SetNetworkVarsFromMapInput( name, data ) ) then
+		return true -- Accept the input so the there are no warnings in console with developer 2
+	end
+
+	-- Other code...
+
+end
+</code>
+</example>

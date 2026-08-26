@@ -1,0 +1,31 @@
+<function name="GetAmmo" parent="Player" type="classfunc">
+	<description>Returns a table of all ammo the player has.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="table">A table with the following format
+* <page>number</page> Key - AmmoID to be used with functions like <page>game.GetAmmoName</page>.
+* <page>number</page> Value - Amount of ammo the player has of this kind.
+		</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Output ammo table of the default Sandbox weapon loadout.</description>
+	<code>PrintTable( Entity( 1 ):GetAmmo() )</code>
+	<output>
+
+```
+1	=	130
+2	=	6
+3	=	256
+4	=	256
+5	=	32
+6	=	36
+7	=	64
+8	=	3
+10	=	6
+```
+
+	</output>
+
+</example>

@@ -1,0 +1,24 @@
+<function name="Msg" parent="Global" type="libraryfunc">
+	<description>
+Writes every given argument to the console. Limitations of <page>Global.print</page> apply.
+
+Automatically attempts to convert each argument to a string. (See <page>Global.tostring</page>)
+
+Unlike <page>Global.print</page>, arguments are not separated by anything. They are simply concatenated.
+
+Additionally, a newline isn't added automatically to the end, so subsequent Msg or print operations will continue the same line of text in the console. See <page>Global.MsgN</page> for a version that does add a newline.
+
+The text is blue on the server, orange on the client, and green on the menu: <image src="msg_server_client_colors.png"/>
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="args" type="vararg">List of values to print.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Prints "Hello World!" to the console.</description>
+	<code>Msg("Hello", " World!")</code>
+	<output>Hello World!</output>
+
+</example>

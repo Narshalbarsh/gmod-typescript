@@ -1,0 +1,14 @@
+<function name="GetBoneParent" parent="Entity" type="classfunc">
+	<description>
+Returns parent bone of given bone.
+
+<note>Will return -1 for <page>Global.ClientsideModel</page> until <page>Entity:SetupBones</page> is called on the entity.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="bone" type="number">The bone ID of the bone to get parent of, starting at index 0.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">Parent bone ID or -1 if we failed for some reason.</ret>
+	</rets>
+</function>

@@ -1,0 +1,7 @@
+<function name="IsLineSelected" parent="DListView_Line" type="panelfunc">
+	<description>Returns whether this line is selected.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="selected" type="boolean">Whether this line is selected.</ret>
+	</rets>
+</function>

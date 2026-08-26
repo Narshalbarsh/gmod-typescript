@@ -1,0 +1,7 @@
+<function name="SetSpaceY" parent="DIconLayout" type="panelfunc">
+	<description>Sets the vertical (y) spacing between children within the DIconLayout. You must call <page>DIconLayout:Layout</page> in order for the changes to take effect.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="ySpacing" type="number">The vertical gap between rows in the DIconLayout.</arg>
+	</args>
+</function>

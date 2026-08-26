@@ -1,0 +1,5 @@
+<function name="OnStopDragging" parent="PANEL" type="hook">
+	<file line="408-L410">lua/includes/extensions/client/panel/dragdrop.lua</file>
+	<description><internal></internal> Called by <page>Panel:DragMouseRelease</page> when the panel object is released after being dragged.</description>
+	<realm>Client</realm>
+</function>

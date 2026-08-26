@@ -1,0 +1,8 @@
+<function name="Stop" parent="IGModAudioChannel" type="classfunc">
+	<description>
+Stop the stream. It can be started again using <page>IGModAudioChannel:Play</page>.
+
+<bug issue="1497">Calling this invalidates the IGModAudioChannel object rendering it unusable for further functions.</bug>
+	</description>
+	<realm>Client</realm>
+</function>

@@ -1,0 +1,32 @@
+<function name="find" parent="string" type="libraryfunc">
+	<description>Attempts to find the specified substring in a string.
+
+<warning>This function uses <page text="Lua Patterns">Patterns</page> by default.</warning>
+</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="haystack" type="string">The string to search in.</arg>
+		<arg name="needle" type="string">The string to find, can contain patterns if enabled.</arg>
+		<arg name="startPos" type="number" default="1">The position to start the search from, can be negative start position will be relative to the end position.</arg>
+		<arg name="noPatterns" type="boolean" default="false">Disable patterns.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">Starting position of the found text, or nil if the text wasn't found</ret>
+		<ret name="" type="number">Ending position of found text, or nil if the text wasn't found</ret>
+		<ret name="" type="string">Matched text for each group if patterns are enabled and used, or nil if the text wasn't found</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Change the word "heck" to "****" in chat messages</description>
+	<code>
+hook.Add( "PlayerSay", "NoHeckHere", function( ply, text)
+    local swear = "heck"
+	if ( string.find( text:lower(), swear)) then    	
+		return string.gsub(text,  swear, "****")
+	end
+end )
+
+	</code>
+
+</example>

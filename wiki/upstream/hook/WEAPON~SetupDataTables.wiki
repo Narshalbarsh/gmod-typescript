@@ -1,0 +1,15 @@
+<function name="SetupDataTables" parent="WEAPON" type="hook">
+	<description>Called when the SWEP should set up its <page text=" Data Tables">Networking_Entities</page>.</description>
+	<realm>Shared</realm>
+</function>
+
+<example>
+	<description>Sets up networked variables, adds functions SetDamage, GetDamage, SetMuzzlePos and GetMuzzlePos.</description>
+	<code>
+function SWEP:SetupDataTables()
+	self:NetworkVar( "Float", 0, "Damage" )
+	self:NetworkVar( "Vector", 0, "MuzzlePos" )
+end
+	</code>
+
+</example>

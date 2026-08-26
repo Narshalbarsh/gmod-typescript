@@ -1,0 +1,12 @@
+<function name="SetActivity" parent="Weapon" type="classfunc">
+	<description>
+Sets the activity the weapon is playing.
+
+See also <page>Weapon:GetActivity</page>.
+	</description>
+	<added>2021.03.31</added>
+	<realm>Shared</realm>
+	<args>
+		<arg name="act" type="number">The new activity to set, see <page>Enums/ACT</page>.</arg>
+	</args>
+</function>

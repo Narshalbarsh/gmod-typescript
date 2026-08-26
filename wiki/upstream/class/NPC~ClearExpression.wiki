@@ -1,0 +1,4 @@
+<function name="ClearExpression" parent="NPC" type="classfunc">
+	<description>Clears the NPC's current expression which can be set with <page>NPC:SetExpression</page>.</description>
+	<realm>Server</realm>
+</function>

@@ -1,0 +1,11 @@
+<function name="GetSquadMemberCount" parent="ai" type="libraryfunc">
+	<description>Returns the amount of members a given squad has. See also <page>ai.GetSquadMembers</page>.</description>
+	<realm>Server</realm>
+	<added>2021.01.27</added>
+	<args>
+		<arg name="squad" type="string">The squad name.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The member count.</ret>
+	</rets>
+</function>

@@ -1,0 +1,10 @@
+<function name="GetSurfaceProp" parent="CEffectData" type="classfunc">
+	<description>Returns the surface property index of the effect. See <page>util.GetSurfaceData</page> for more details about what they are.
+
+See <page>CEffectData:SetSurfaceProp</page> for details about limitations of this function.
+</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The surface property index of the effect.</ret>
+	</rets>
+</function>

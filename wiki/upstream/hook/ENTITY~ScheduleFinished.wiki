@@ -1,0 +1,7 @@
+<function name="ScheduleFinished" parent="ENTITY" type="hook">
+	<description>Called whenever a Lua schedule is finished or <page>ENTITY:StartEngineSchedule</page> is called. Clears out schedule and task data stored within NPC's table. 
+<note>This is a helper function only available if your SENT is based on `base_ai`</note>
+</description>
+	<realm>Server</realm>
+	<file line="80">gamemodes/base/entities/entities/base_ai/schedules.lua</file>
+</function>

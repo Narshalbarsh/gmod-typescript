@@ -1,0 +1,29 @@
+<panel>
+	<name>SpawnIcon</name>
+	<parent>DButton</parent>
+	<realm>Client</realm>
+	<file line="">lua/vgui/spawnicon.lua</file>
+	<preview>SpawnIcon.jpg</preview>
+	<description>
+		A "spawn icon" displays an image for the given model path.
+		It is mostly used in the Spawn Menu (<key>Q</key>).
+		It uses <page>ModelImage</page> internally.
+	</description>
+</panel>
+
+
+<example>
+	<description>Creates a DFrame with a SpawnIcon inside.</description>
+	<code>
+local Panel = vgui.Create( "DFrame" ) -- Main Frame
+Panel:SetPos( 200, 200 )
+Panel:SetSize( 200, 200 )
+Panel:SetTitle( "Spawn Icon Test" )
+Panel:MakePopup()
+
+local SpawnI = vgui.Create( "SpawnIcon" , Panel ) -- SpawnIcon
+SpawnI:SetPos( 75, 75 )
+SpawnI:SetModel( "models/props_borealis/bluebarrel001.mdl" ) -- Model we want for this spawn icon
+	</code>
+
+</example>

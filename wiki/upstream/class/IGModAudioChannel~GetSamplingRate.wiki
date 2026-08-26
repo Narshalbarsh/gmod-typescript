@@ -1,0 +1,7 @@
+<function name="GetSamplingRate" parent="IGModAudioChannel" type="classfunc">
+	<description>Returns the sample rate for currently playing sound.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">The sample rate in Hz. This should always be 44100.</ret>
+	</rets>
+</function>

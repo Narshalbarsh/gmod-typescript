@@ -1,0 +1,11 @@
+<function name="bxor" parent="bit" type="libraryfunc">
+	<description>Returns the bitwise xor of all values specified.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="value" type="number">The value to be manipulated.</arg>
+		<arg name="otherValues" type="number" default="nil">Values bit xor with. Optional.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The XORed value.</ret>
+	</rets>
+</function>

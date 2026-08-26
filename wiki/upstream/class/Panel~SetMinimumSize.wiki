@@ -1,0 +1,26 @@
+<function name="SetMinimumSize" parent="Panel" type="classfunc">
+	<description>
+Sets the minimum dimensions of the panel or object.
+
+You can restrict either or both values.
+
+Calling the function without arguments will remove the minimum size.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="minW" type="number" default="nil">The minimum width of the object.</arg>
+		<arg name="minH" type="number" default="nil">The minimum height of the object.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Restricting height but not width</description>
+	<code>
+local frame = vgui.Create( "DFrame" )
+frame:SetSize( 800, 600 )
+frame:SetSizable( true )
+frame:SetMinimumSize( nil, 300 )
+frame:MakePopup()
+	</code>
+
+</example>

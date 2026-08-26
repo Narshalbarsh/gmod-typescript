@@ -1,0 +1,17 @@
+<function name="Size" parent="file" type="libraryfunc">
+	<description>Returns the file's size in bytes.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="fileName" type="string">The file's name.</arg>
+		<arg name="gamePath" type="string">The path to look for the files and directories in. See <page text="this list">File_Search_Paths</page> for a list of valid paths.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The file size in bytes, or `-1` if the file is not found.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints the size of `helloworld.txt`.</description>
+	<code>print( file.Size("helloworld.txt", "DATA") )</code>
+	<output>8</output>
+</example>

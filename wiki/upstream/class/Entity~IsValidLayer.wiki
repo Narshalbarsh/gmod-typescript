@@ -1,0 +1,37 @@
+<function name="IsValidLayer" parent="Entity" type="classfunc">
+	<description>
+Returns whether the given layer ID is valid and exists on this entity.
+
+<note>This function only works on <page>BaseAnimatingOverlay</page> entities.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="layerID" type="number">The Layer ID</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether the given layer ID is valid and exists on this entity.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Print information about an entity's all possible active layers.</description>
+	<code>local MAX_OVERLAYS = 15 -- defined in BaseAnimatingOverlay.h#L132
+local queryEnt = Entity(1) 
+for i = 0,MAX_OVERLAYS do -- overlay index starts from 0 up to 15 
+	if queryEnt:IsValidLayer(i) then 
+		s = queryEnt:GetLayerSequence(i) 
+		print(i,s,queryEnt:GetSequenceName(s),queryEnt:GetSequenceActivityName(s)) 
+	end 
+end 
+</code>
+	<output>
+
+```
+0	355	reload_revolver	ACT_HL2MP_GESTURE_RELOAD_REVOLVER
+2	249	jump_land	ACT_LAND
+
+```
+
+	</output>
+
+</example>

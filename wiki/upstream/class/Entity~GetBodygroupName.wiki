@@ -1,0 +1,25 @@
+<function name="GetBodygroupName" parent="Entity" type="classfunc">
+	<description>
+		Retrieves the name of the Body Group corresponding to a given <page text="Body Group ID">Structures/BodyGroupData#id</page> on the <page text="Entity's">Entity</page> model.
+		<note>
+			Weapons will return results from their viewmodels.
+		</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="bodyGroupId" type="number">
+			The Body Group ID to get the name of.
+		</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">
+				The name of the Body Group.
+		</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Demonstrates the use of this function.</description>
+	<code>print( Entity( 1 ):GetEyeTrace().Entity:GetBodygroupName( 1 ) )</code>
+	<output>"Weapon" in console, if player 1 is aiming at airboat.</output>
+</example>

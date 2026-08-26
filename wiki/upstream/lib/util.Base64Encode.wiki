@@ -1,0 +1,23 @@
+<function name="Base64Encode" parent="util" type="libraryfunc">
+	<description>Encodes the specified string to base64.
+
+<note>Unless disabled with the `inline` argument, the Base64 returned is compliant to the RFC 2045 standard. **This means it will have a line break after every 76th character.**</note>
+</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="str" type="string">String to encode.</arg>
+		<arg name="inline" type="boolean" default="false">`true` to disable RFC 2045 compliance (newline every 76th character)</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">Base 64 encoded string.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Encodes a string</description>
+	<code>
+local encoded = util.Base64Encode( "Base64 Encoding" )
+print(encoded)
+	</code>
+	<output>`QmFzZTY0IEVuY29kaW5n`</output>
+</example>

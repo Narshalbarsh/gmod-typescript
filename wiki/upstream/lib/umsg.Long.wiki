@@ -1,0 +1,10 @@
+<function name="Long" parent="umsg" type="libraryfunc">
+	<description>
+<deprecated>You should be using the <page>net</page> instead</deprecated>
+
+Writes a signed int (32 bit) to the usermessage.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="int" type="number">The int to be sent.</arg>
+	</args>
+</function>

@@ -1,0 +1,13 @@
+<structure>
+	<realm>Server</realm>
+	<description>The structure used by <page>Vehicle:GetOperatingParams</page>.</description>
+	<fields>
+<item name="RPM" type="number">The current RPM of the vehicle</item>
+<item name="gear" type="number">The current gear of the vehicle, starting from 0</item>
+<item name="isTorqueBoosting" type="boolean">Is the vehicle boosting?</item>
+<item name="speed" type="number">The current speed, in inches per second</item>
+<item name="steeringAngle" type="number">Steering angle</item>
+<item name="wheelsInContact" type="number">Wheels on ground</item>
+	</fields>
+
+</structure>

@@ -1,0 +1,7 @@
+<function name="PlayerDriveAnimate" parent="GM" type="hook">
+	<description>Called to update the player's animation during a drive.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="ply" type="Player">The driving player</arg>
+	</args>
+</function>

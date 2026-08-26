@@ -1,0 +1,7 @@
+<function name="SetNetworkAngles" parent="Entity" type="classfunc">
+	<description>Alters the entity's perceived serverside angle on the client.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="angle" type="Angle">Networked angle.</arg>
+	</args>
+</function>

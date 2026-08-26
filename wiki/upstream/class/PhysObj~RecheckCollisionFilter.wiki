@@ -1,0 +1,4 @@
+<function name="RecheckCollisionFilter" parent="PhysObj" type="classfunc">
+	<description>Call this when the collision filter conditions change due to this object's state (e.g. changing solid type or collision group)</description>
+	<realm>Shared</realm>
+</function>

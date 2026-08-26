@@ -1,0 +1,7 @@
+<function name="GetSolid" parent="Entity" type="classfunc">
+	<description>Returns solid type of an entity.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The solid type. See the <page>Enums/SOLID</page>.</ret>
+	</rets>
+</function>

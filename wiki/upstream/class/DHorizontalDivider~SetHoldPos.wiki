@@ -1,0 +1,11 @@
+<function name="SetHoldPos" parent="DHorizontalDivider" type="panelfunc">
+	<description>
+<internal></internal>
+
+Sets the local X coordinate of where the player started dragging the thing
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="x" type="number"></arg>
+	</args>
+</function>

@@ -1,0 +1,10 @@
+<function name="ComputeAdjacentConnectionHeightChange" parent="CNavArea" type="classfunc">
+	<description>Returns the height difference between the edges of two connected navareas.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="navarea" type="CNavArea"></arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The height change</ret>
+	</rets>
+</function>

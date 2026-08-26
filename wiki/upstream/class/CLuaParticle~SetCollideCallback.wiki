@@ -1,0 +1,25 @@
+<function name="SetCollideCallback" parent="CLuaParticle" type="classfunc">
+	<description>Sets the function that gets called whenever the particle collides with the world.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="collideFunc" type="function">The collision callback.
+
+<callback>
+<arg type="CLuaParticle" name="particle">The particle itself</arg>
+<arg type="Vector" name="hitPos">Position of the collision</arg>
+<arg type="Vector" name="hitNormal">Direction of the collision, perpendicular to the hit surface</arg>
+</callback></arg>
+	</args>
+</function>
+
+<example>
+	<description>Creates an explosion every time an particle collides with something.</description>
+	<code>
+MyParticle:SetCollideCallback( function( part, hitpos, hitnormal ) --This is an in-line function
+    local efdata = EffectData() --Grab base EffectData table
+    efdata:SetOrigin( hitpos ) --Sets the origin of it to the hitpos of the particle
+    util.Effect( "Explosion", efdata ) --Create the effect
+end )
+	</code>
+
+</example>

@@ -1,0 +1,8 @@
+<function name="AboveLayout" parent="IconEditor" type="panelfunc">
+	<description>
+Applies the top-down view camera settings for the model in the <page>DAdjustableModelPanel</page>.
+
+Called when a user clicks the `Above` (third) button (See <page>IconEditor</page>).
+	</description>
+	<realm>Client</realm>
+</function>

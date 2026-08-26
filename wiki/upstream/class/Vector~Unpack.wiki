@@ -1,0 +1,9 @@
+<function name="Unpack" parent="Vector" type="classfunc">
+	<description>Returns the x, y, and z of the vector.</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="number">x or Vector[1].</ret>
+		<ret name="" type="number">y or Vector[2].</ret>
+		<ret name="" type="number">z or Vector[3].</ret>
+	</rets>
+</function>

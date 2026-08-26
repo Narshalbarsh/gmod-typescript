@@ -1,0 +1,7 @@
+<function name="IsMotionEnabled" parent="PhysObj" type="classfunc">
+	<description>Returns if the physics object can move itself (by velocity, acceleration)</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">`true` if the motion is enabled, `false` otherwise.</ret>
+	</rets>
+</function>

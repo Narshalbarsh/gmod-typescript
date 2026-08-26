@@ -1,0 +1,7 @@
+<function name="IsPlaying" parent="CSoundPatch" type="classfunc">
+	<description>Returns whenever the sound is being played.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="boolean">Is playing or not</ret>
+	</rets>
+</function>

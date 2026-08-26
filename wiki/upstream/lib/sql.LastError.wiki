@@ -1,0 +1,22 @@
+<function name="LastError" parent="sql" type="libraryfunc">
+	<description>Returns the last error from a SQLite query.</description>
+	<realm>Shared and Menu</realm>
+	<file line="104-L109">lua/includes/util/sql.lua</file>
+	<rets>
+		<ret name="" type="string">Last error from SQLite database.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Reports all SQL errors into console automatically. Can help on debugging or testing.</description>
+	<code>
+sql.m_strError = nil -- This is required to invoke __newindex
+
+setmetatable( sql, { __newindex = function( table, k, v )
+	if ( k == "m_strError" and v and #v > 0 ) then
+		print("[SQL Error] " .. v )
+	end
+end } )
+	</code>
+	<output>After running `sql.Query("SELECT")` will print `[SQL Error] incomplete input` in the console.</output>
+</example>

@@ -1,0 +1,7 @@
+<function name="IsUnderwater" parent="CNavArea" type="classfunc">
+	<description>Whether this Nav Area is placed underwater.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="boolean">Whether we're underwater or not.</ret>
+	</rets>
+</function>

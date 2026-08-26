@@ -1,0 +1,13 @@
+<function name="GetPadding" parent="DCollapsibleCategory" type="panelfunc">
+	<description>
+<deprecated></deprecated>
+Doesn't actually do anything.
+
+Returns the number set by <page>DCollapsibleCategory:SetPadding</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="53">lua/vgui/dcategorycollapse.lua</file>
+	<rets>
+		<ret name="" type="number"></ret>
+	</rets>
+</function>

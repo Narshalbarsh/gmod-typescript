@@ -1,0 +1,17 @@
+<function name="ScreenHeight" parent="surface" type="libraryfunc">
+	<description>
+<deprecated>You should use <page>Global.ScrH</page> instead.</deprecated>
+Returns the height of the current client's screen.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">screenHeight</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints out the current height of the screen.</description>
+	<code>MsgN("Screen height: " .. surface.ScreenHeight())</code>
+	<output>Screen height: 1080</output>
+
+</example>

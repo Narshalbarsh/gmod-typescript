@@ -1,0 +1,16 @@
+<function name="AddOutputFromAcceptInput" parent="ENTITY" type="hook">
+	<added>2021.12.15</added>
+	<description>
+A helper function for creating <page>Scripted Entities</page>.
+
+Similar to <page>ENTITY:AddOutputFromKeyValue</page>, call it from <page>ENTITY:AcceptInput</page> and it'll return true if it successfully added an output from the passed input data.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="name" type="string">The input name from <page>ENTITY:AcceptInput</page>.</arg>
+		<arg name="data" type="string">The input data from <page>ENTITY:AcceptInput</page>.</arg>
+	</args>
+	<rets>
+		<ret type="boolean">Whether any outputs were added or not.</ret>
+	</rets>
+</function>

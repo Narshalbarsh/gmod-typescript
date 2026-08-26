@@ -1,0 +1,8 @@
+<function name="GetSkipShadowUpdates" parent="ProjectedTexture" type="classfunc">
+	<description>Returns whether shadow updates are disabled for this ProjectedTexture, which was previously set by <page>ProjectedTexture:SetSkipShadowUpdates</page>.</description>
+	<added>2026.04.10</added>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="boolean">Whether shadow updates are disabled.</ret>
+	</rets>
+</function>

@@ -1,0 +1,15 @@
+<function name="OnRightClick" parent="DFileBrowser" type="panelhook">
+	<description>
+Called when a file is right-clicked.
+
+<note>When not in model viewer mode, <page>DFileBrowser:OnSelect</page> will also be called if the file is not already selected.</note>
+	</description>
+	<realm>Client</realm>
+	<file line="303-L307">lua/vgui/dfilebrowser.lua</file>
+	<args>
+		<arg name="filePath" type="string">The path to the file that was right-clicked.</arg>
+		<arg name="selectedPanel" type="Panel">The panel that was right-clicked to select this file.
+
+This will either be a <page>DListView_Line</page> or <page>SpawnIcon</page> depending on whether the model viewer mode is enabled. <br/>See <page>DFileBrowser:SetModels</page>.</arg>
+	</args>
+</function>

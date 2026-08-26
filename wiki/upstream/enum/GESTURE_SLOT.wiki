@@ -1,0 +1,20 @@
+<enum>
+	<realm>Shared</realm>
+	<description>Enumerations used by <page>Player:AddVCDSequenceToGestureSlot</page>, <page>Player:AnimResetGestureSlot</page> and <page>Player:AnimRestartGesture</page>.</description>
+	<items>
+<item key="GESTURE_SLOT_ATTACK_AND_RELOAD" value="0">Slot for weapon gestures</item>
+
+<item key="GESTURE_SLOT_GRENADE" value="1"></item>
+
+<item key="GESTURE_SLOT_JUMP" value="2">Slot for jump gestures</item>
+
+<item key="GESTURE_SLOT_SWIM" value="3">Slot for swimming gestures</item>
+
+<item key="GESTURE_SLOT_FLINCH" value="4">Slot for flinching gestures</item>
+
+<item key="GESTURE_SLOT_VCD" value="5"></item>
+
+<item key="GESTURE_SLOT_CUSTOM" value="6">Slot for custom gestures</item>
+	</items>
+
+</enum>

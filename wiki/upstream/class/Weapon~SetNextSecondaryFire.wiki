@@ -1,0 +1,7 @@
+<function name="SetNextSecondaryFire" parent="Weapon" type="classfunc">
+	<description>Sets when the weapon can alt-fire again. Time should be based on <page>Global.CurTime</page>.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="time" type="number">Time when player should be able to use secondary fire again</arg>
+	</args>
+</function>

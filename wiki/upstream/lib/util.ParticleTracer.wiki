@@ -1,0 +1,17 @@
+<function name="ParticleTracer" parent="util" type="libraryfunc">
+	<description>Creates an orange box (.pcf) tracer effect with the given parameters. See <page>util.ParticleTracerEx</page> for version with additional arguments.
+
+Internally uses `ParticleTracer` engine effect. (<page>util.Effect</page>) which then spawns in `ParticleEffect` effect.
+<note>The default bullet effect is not in .pcf format, therefore it is not used with util.ParticleTracer.  Consider utilizing <page>util.Effect</page> instead</note>
+</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="name" type="string">The name of the .pcf particle effect to use for the tracer.
+
+Control Point 0 is the start location. Control Point 1 is the end pos.
+</arg>
+		<arg name="startPos" type="Vector">The start position of the tracer.</arg>
+		<arg name="endPos" type="Vector">The end position of the tracer.</arg>
+		<arg name="doWhiz" type="boolean">Whether to play the hit near-miss (whiz) sound.</arg>
+	</args>
+</function>

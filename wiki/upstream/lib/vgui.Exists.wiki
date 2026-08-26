@@ -1,0 +1,12 @@
+<function name="Exists" parent="vgui" type="libraryfunc">
+	<file line="19-L21">lua/includes/extensions/client/panel/scriptedpanels.lua</file>
+	<description>Returns true if Lua-defined panel exists by name. Uses <page>vgui.GetControlTable</page> internally.</description>
+	<realm>Client and Menu</realm>
+	<added>2023.04.19</added>
+	<args>
+		<arg name="Panelname" type="string">The name of the panel to get test.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether a panel with given name was registered yet or not.</ret>
+	</rets>
+</function>

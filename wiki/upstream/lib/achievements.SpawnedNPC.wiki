@@ -1,0 +1,4 @@
+<function name="SpawnedNPC" parent="achievements" type="libraryfunc">
+	<description><internal></internal>Adds one to the count of NPCs spawned. Once this count reaches 1000, the 'Procreator' achievement is unlocked.</description>
+	<realm>Client</realm>
+</function>

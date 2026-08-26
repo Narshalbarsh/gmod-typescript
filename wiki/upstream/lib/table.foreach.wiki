@@ -1,0 +1,57 @@
+<function name="ForEach" parent="table" type="libraryfunc">
+	<description>
+<deprecated>This was deprecated in Lua 5.1 and removed in 5.2. You should use <page>Global.pairs</page> instead.</deprecated> Iterates for each key-value pair in the table, calling the function with the key and value of the pair. If the function returns anything, the loop is broken.
+
+The GLua interpretation of this is <page>table.ForEach</page>.
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="747-L753">lua/includes/extensions/table.lua</file>
+	<args>
+		<arg name="tbl" type="table">The table to iterate over.</arg>
+		<arg name="callback" type="function">The function to run for each key and value.
+
+<callback>
+<arg name="key" type="any">The key of a key-value pair for this iteration.</arg>
+<arg name="val" type="any">The value of a key-value pair for this iteration.</arg>
+</callback>
+</arg>
+	</args>
+</function>
+
+<example>
+	<description>Demonstrates the use of this function.</description>
+	<code>
+local food = { "Cake", "Pies", Delicious = "Cookies", Awesome = "Pizza" }
+
+table.foreach( food, function( key, value )
+	print( tostring(key) .. " " .. value)
+end)
+	</code>
+	<output>
+```
+1 Cake
+2 Pies
+Awesome Pizza
+Delicious Cookies
+```
+	</output>
+</example>
+
+
+<example>
+	<description>Demonstrates the breaking effect if the callback returns a value.</description>
+	<code>
+local tbl = { "One", "Two", "Three", "Four" }
+
+table.foreach( tbl, function( key, value )
+	print( key, value )
+	if key == 2 then return true end
+end)
+	</code>
+	<output>
+```
+1    One
+2    Two
+```
+	</output>
+</example>

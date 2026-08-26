@@ -1,0 +1,9 @@
+<function name="SelectAllText" parent="Panel" type="classfunc">
+	<description><deprecated>Duplicate of <page>Panel:SelectAll</page>.</deprecated>
+
+Selects all the text in a panel object. Will not select non-text items; for this, use <page>Panel:SelectAll</page>.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="resetCursorPos" type="boolean">Reset cursor pos?</arg>
+	</args>
+</function>

@@ -1,0 +1,11 @@
+<function name="SetSolidMask" parent="NextBot" type="classfunc">
+	<description>
+Sets the solid mask for given NextBot.
+
+The default solid mask of a NextBot is <page text="MASK_NPCSOLID">Enums/MASK</page>.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="mask" type="number">The new mask, see <page>Enums/CONTENTS</page> and <page>Enums/MASK</page></arg>
+	</args>
+</function>

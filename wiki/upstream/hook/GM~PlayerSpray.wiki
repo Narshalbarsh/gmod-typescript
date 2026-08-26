@@ -1,0 +1,19 @@
+<function name="PlayerSpray" parent="GM" type="hook">
+	<description>Determines if the player can spray using the `impulse 201` console command.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="sprayer" type="Player">The player.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return `false` to allow spraying, return `true` to prevent spraying.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Makes so that only Admins can spray.</description>
+	<code>
+hook.Add( "PlayerSpray", "DisablePlayerSpray", function( ply )
+	return ply:IsAdmin()
+end )
+	</code>
+</example>

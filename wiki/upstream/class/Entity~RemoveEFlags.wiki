@@ -1,0 +1,7 @@
+<function name="RemoveEFlags" parent="Entity" type="classfunc">
+	<description>Removes specified engine flag</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="flag" type="number{EFL}">The flag to remove, see <page>Enums/EFL</page></arg>
+	</args>
+</function>

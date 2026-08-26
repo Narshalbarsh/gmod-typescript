@@ -1,0 +1,21 @@
+<function name="DotProduct" parent="Vector" type="classfunc">
+	<description><deprecated>This is an alias of <page>Vector:Dot</page>. Use that instead.</deprecated>Returns the dot product of the two vectors.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="Vector" type="Vector">The other vector.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">Dot Product</ret>
+	</rets>
+</function>
+
+<example>
+	<description>A function to make sure the player is looking somewhere.</description>
+	<code>
+function IsLookingAt( ply, targetVec )
+ return ply:GetAimVector():DotProduct( ( targetVec - ply:GetPos() + Vector(70) ):GetNormalized() ) < 0.95 
+end
+	</code>
+	<output>Returns true if ply is looking at (or close to) the target.</output>
+
+</example>

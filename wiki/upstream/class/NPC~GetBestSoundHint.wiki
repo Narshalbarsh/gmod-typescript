@@ -1,0 +1,11 @@
+<function name="GetBestSoundHint" parent="NPC" type="classfunc">
+	<description>Returns the most dangerous/closest sound hint based on the NPCs location and the types of sounds it can sense.</description>
+	<realm>Server</realm>
+	<added>2021.06.09</added>
+	<args>
+		<arg name="types" type="number">The types of sounds to choose from. See <page text="SOUND_ enums">Enums/SOUND</page></arg>
+	</args>
+	<rets>
+		<ret name="" type="table">A table with <page text="SoundHintData">Structures/SoundHintData</page> structure or `nil` if no sound hints are nearby.</ret>
+	</rets>
+</function>

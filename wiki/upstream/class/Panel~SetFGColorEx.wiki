@@ -1,0 +1,14 @@
+<function name="SetFGColorEx" parent="Panel" type="classfunc">
+	<description>
+<internal></internal>Sets the foreground color of the panel.
+
+For labels, this is the color of their text.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="r" type="number">The red channel of the color.</arg>
+		<arg name="g" type="number">The green channel of the color.</arg>
+		<arg name="b" type="number">The blue channel of the color.</arg>
+		<arg name="a" type="number">The alpha channel of the color.</arg>
+	</args>
+</function>

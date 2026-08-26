@@ -1,0 +1,11 @@
+<function name="RenderScreen" parent="WEAPON" type="hook">
+	<description>
+Called every frame just before <page>GM:RenderScene</page>.
+
+Used by the Tool Gun to render view model screens (<page>TOOL:DrawToolScreen</page>).
+
+
+<note>Materials rendered in this hook require $ignorez parameter to draw properly.</note>
+	</description>
+	<realm>Client</realm>
+</function>

@@ -1,0 +1,7 @@
+<function name="ContextMenuOpen" parent="SANDBOX" type="hook">
+	<description>Called when the context menu is trying to be opened.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="boolean">Return `false` to block the opening.</ret>
+	</rets>
+</function>

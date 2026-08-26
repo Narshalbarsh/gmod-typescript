@@ -1,0 +1,35 @@
+<function name="Query" parent="sql" type="libraryfunc">
+	<description>
+		Performs a query on the local SQLite database, returns a table as result set, nil if result is empty and false on error.
+			<warning>
+				To run SQL queries with this function safely, it is crucial to ensure that the concatenated variables in the query string are safe to avoid vulnerabilities like SQL injections. For this, it is recommended to use the <page>sql.SQLStr</page>, which allows arguments to be escaped correctly.
+
+It's best to just use <page>sql.QueryTyped</page> instead if possible.
+			</warning>
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="query" type="string">The query to execute.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table|boolean|nil">`false` is returned if there is an error, `nil` if the query returned no data.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Functions that are examples of saving and creating information into the database.</description>
+	<code>
+function CreateTable()
+	sql.Query("CREATE TABLE IF NOT EXISTS player_data ( SteamID64 INTEGER PRIMARY KEY, Money INTEGER )")
+end
+
+function SavePlayerToDataBase(ply, money)
+	sql.Query("INSERT OR REPLACE INTO player_data ( SteamID64, Money ) VALUES ( " ..  ply:SteamID64() .. ", " .. money .. " )")
+end
+
+function LoadPlayerFromDataBase(ply)
+	return sql.QueryValue("SELECT Money FROM player_data WHERE SteamID64 = " .. ply:SteamID64())
+end
+	</code>
+
+</example>

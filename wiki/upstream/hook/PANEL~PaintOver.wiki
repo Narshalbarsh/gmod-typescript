@@ -1,0 +1,14 @@
+<function name="PaintOver" parent="PANEL" type="hook">
+	<description>Called whenever the panel and all its children were drawn, return true to override the default drawing.
+
+This is useful to draw content over the panel without having to overwrite it's <page>PANEL:Paint</page> hook, for example as an indicator that a panel is selected in <page>PropSelect</page>
+</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="width" type="number">The panels current width.</arg>
+		<arg name="height" type="number">The panels current height.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Should we disable default PaintOver rendering? This is useful in case with Derma panels that use Derma hooks.</ret>
+	</rets>
+</function>

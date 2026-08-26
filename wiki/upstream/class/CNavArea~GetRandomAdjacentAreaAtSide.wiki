@@ -1,0 +1,10 @@
+<function name="GetRandomAdjacentAreaAtSide" parent="CNavArea" type="classfunc">
+	<description>Returns a random <page>CNavArea</page> that has an outgoing ( one or two way ) connection **from** this <page>CNavArea</page> in given direction.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="navDir" type="number">The direction, in which to look for <page>CNavArea</page>s, see <page>Enums/NavDir</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="CNavArea">The random <page>CNavArea</page> that has an outgoing ( one or two way ) connection **from** this <page>CNavArea</page> in given direction, if any.</ret>
+	</rets>
+</function>

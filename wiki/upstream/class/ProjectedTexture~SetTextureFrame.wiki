@@ -1,0 +1,11 @@
+<function name="SetTextureFrame" parent="ProjectedTexture" type="classfunc">
+	<description>
+For animated textures, this will choose which frame in the animation will be projected.
+
+You must call <page>ProjectedTexture:Update</page> after using this function for it to take effect.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="frame" type="number">The frame index to use.</arg>
+	</args>
+</function>

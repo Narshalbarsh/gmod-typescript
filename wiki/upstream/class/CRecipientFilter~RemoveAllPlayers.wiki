@@ -1,0 +1,20 @@
+<function name="RemoveAllPlayers" parent="CRecipientFilter" type="classfunc">
+	<description>Removes all players from the recipient filter.</description>
+	<realm>Server</realm>
+</function>
+
+<example>
+	<description>Adds all players that can see the origin of the map, removes all players, then adds the first player object to the recipient filter, and sends them a message.</description>
+	<code>
+function SendMessage()
+ local filter = RecipientFilter()
+ filter:AddPVS(Vector(0,0,0))
+ filter:RemoveAllPlayers()
+ filter:AddPlayer(Entity(1))
+ umsg.Start("message",filter)
+ umsg.End()
+end
+	</code>
+	<output>Sends a usermessage to the first player object, if it exists.</output>
+
+</example>

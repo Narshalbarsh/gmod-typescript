@@ -1,0 +1,7 @@
+<function name="GetMarkedLadder" parent="navmesh" type="libraryfunc">
+	<description>Returns the currently marked <page>CNavLadder</page>, for use with editing console commands.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="CNavLadder">The currently marked <page>CNavLadder</page>.</ret>
+	</rets>
+</function>

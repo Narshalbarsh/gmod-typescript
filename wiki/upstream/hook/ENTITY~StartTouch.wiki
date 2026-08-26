@@ -1,0 +1,13 @@
+<function name="StartTouch" parent="ENTITY" type="hook">
+	<description>
+Called when the entity starts touching another entity.
+
+See <page>ENTITY:Touch</page> and <page>ENTITY:EndTouch</page> for related hooks.
+
+<warning>This only works for **brush** entities and for entities that have <page>Entity:SetTrigger</page> set to true.</warning>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="entity" type="Entity">The entity that we started touching for the first time.</arg>
+	</args>
+</function>

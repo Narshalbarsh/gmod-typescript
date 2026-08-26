@@ -1,0 +1,13 @@
+<function name="SetClickOnDragHover" parent="DTree" type="panelfunc">
+	<description>
+Enables the "click when drag-hovering" functionality.
+
+If enabled, when hovering over any <page>DTree_Node</page> of this <page>DTree</page> while dragging a panel, the node will be automatically clicked on (and subsequently <page>DTree:OnNodeSelected</page> will be called) to open any attached panels, such as spawnlists in spawnmenu.
+
+See also: <page>PANEL:DragHoverClick</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="enable" type="boolean"></arg>
+	</args>
+</function>

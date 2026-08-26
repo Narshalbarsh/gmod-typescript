@@ -1,0 +1,33 @@
+<function name="HUDShouldDraw" parent="GM" type="hook">
+	<description>
+Called when the Gamemode is about to draw a given element on the client's HUD (heads-up display).
+
+<warning>This hook is called HUNDREDS of times per second (more than 5 times per frame on average). You shouldn't be performing any computationally intensive operations. For Weapons you SHOULD use <page>WEAPON:HUDShouldDraw</page> instead. </warning>
+	</description>
+	<realm>Client</realm>
+	<file line="49-L74">gamemodes/base/gamemode/cl_init.lua</file>
+	<args>
+		<arg name="name" type="string">The name of the HUD element. You can find a full list of HUD elements for this hook <page text="here">HUD_Element_List</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return false to prevent the given element from being drawn on the client's screen.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Hides the default health and battery (armor) HUD elements, while still allowing the display of other elements to be controlled by other addons.</description>
+	<code>
+local hide = {
+	["CHudHealth"] = true,
+	["CHudBattery"] = true
+}
+
+hook.Add( "HUDShouldDraw", "HideHUD", function( name )
+	if ( hide[ name ] ) then
+		return false
+	end
+
+	-- Don't return anything here, it may break other addons that rely on this hook.
+end )
+	</code>
+</example>

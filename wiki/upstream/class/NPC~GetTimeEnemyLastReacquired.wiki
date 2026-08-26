@@ -1,0 +1,12 @@
+<function name="GetTimeEnemyLastReacquired" parent="NPC" type="classfunc">
+	<description>Returns <page>Global.CurTime</page> based time since the enemy was reacquired, meaning it is currently in Line of Sight of the NPC.
+	</description>
+	<added>2022.06.08</added>
+	<realm>Server</realm>
+	<args>
+		<arg name="enemy" type="Entity" default="nil">The enemy to test. Defaults to currently active enemy (<page>NPC:GetEnemy</page>)</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">Time enemy was last reacquired.</ret>
+	</rets>
+</function>

@@ -1,0 +1,24 @@
+<function name="ShowProfile" parent="Player" type="classfunc">
+	<description>Opens the player steam profile page in the steam overlay browser.</description>
+	<realm>Client</realm>
+</function>
+
+<example>
+	<description>Frame with all players and when click on it open Steam Profile.</description>
+	<code>
+local frame = vgui.Create( "DFrame" )
+frame:Center()
+frame:SetSize( 300, 100 )
+frame:SetTitle( "Show Steam Profile" )
+
+for i, ply in ipairs(player.GetHumans()) do
+	local addbutton = vgui.Create( "DButton", frame )
+	addbutton:SetPos( ( i * 75 ) - 50, 50 )
+	addbutton:SetSize( 75, 20 )
+	addbutton:SetText( ply:Name() )
+	addbutton.DoClick = function()
+		ply:ShowProfile()
+	end
+end
+	</code>
+</example>

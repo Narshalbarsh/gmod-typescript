@@ -1,0 +1,37 @@
+<function name="DrawTextEntryText" parent="Panel" type="classfunc">
+	<description>Used to draw the text in a <page>DTextEntry</page> within a derma skin. This is usually called within the <page>SKIN:PaintTextEntry</page> skin hook.
+<note>Will silently fail if any of arguments are not given.</note>
+
+<rendercontext hook="false" type="2D"></rendercontext>
+</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="textCol" type="table">The colour of the main text.</arg>
+		<arg name="highlightCol" type="table">The colour of the selection highlight (when selecting text).</arg>
+		<arg name="cursorCol" type="table">The colour of the text cursor (or caret).</arg>
+	</args>
+</function>
+
+<example>
+	<description>The paint function used in the default derma skin.</description>
+	<code>
+function SKIN:PaintTextEntry( panel, w, h )
+
+	if ( panel.m_bBackground ) then
+	
+		if ( panel:GetDisabled() ) then
+			self.tex.TextBox_Disabled( 0, 0, w, h )
+		elseif ( panel:HasFocus() ) then
+			self.tex.TextBox_Focus( 0, 0, w, h )
+		else
+			self.tex.TextBox( 0, 0, w, h )
+		end
+	
+	end
+	
+	panel:DrawTextEntryText( panel.m_colText, panel.m_colHighlight, panel.m_colCursor )
+	
+end
+	</code>
+
+</example>

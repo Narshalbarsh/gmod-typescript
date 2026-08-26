@@ -1,0 +1,37 @@
+<structure>
+	<realm>Shared and Menu</realm>
+	<description>Table used by <page>Global.HTTP</page> function.</description>
+	<fields>
+		<item name="failed" type="function">Function to be called on failure.
+<callback>
+<arg type="string" name="reason">Reason for the failure.</arg>
+</callback>
+		</item>
+		<item name="success" type="function">Function to be called on success.
+<callback>
+<arg type="number" name="code">The HTTP result code</arg>
+<arg type="string" name="body">The document data, usually HTML or JSON contents.</arg>
+<arg type="table" name="headers">List of headers the server provided.</arg>
+</callback>
+		</item>
+		<item name="method" type="string" default="GET">Request method, case insensitive. Possible values are:
+* GET
+* POST
+* HEAD
+* PUT
+* DELETE
+* PATCH
+* OPTIONS
+		</item>
+		<item name="url" type="string">The target url</item>
+		<item name="parameters" type="table">KeyValue table for [URL parameters](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams). This is only applicable to the following request methods:
+* GET
+* POST (sent in body, so if `body` is set, parameters are ignored)
+* HEAD
+		</item>
+		<item name="headers" type="table">KeyValue table for headers</item>
+		<item name="body" type="string">Body string for POST data. If set, will override parameters</item>
+		<item name="type" type="string" default="text/plain; charset=utf-8">Content type for body.</item>
+<item name="timeout" type="number" default="60">The timeout for the connection.</item>
+	</fields>
+</structure>

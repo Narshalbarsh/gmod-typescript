@@ -1,0 +1,7 @@
+<function name="MouseCapture" parent="Panel" type="classfunc">
+	<description>Allows the panel to receive mouse input even if the mouse cursor is outside the bounds of the panel.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="doCapture" type="boolean">Set to true to enable, set to false to disable.</arg>
+	</args>
+</function>

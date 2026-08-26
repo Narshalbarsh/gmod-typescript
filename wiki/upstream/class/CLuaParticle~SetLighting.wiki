@@ -1,0 +1,7 @@
+<function name="SetLighting" parent="CLuaParticle" type="classfunc">
+	<description>Sets whether the particle should be affected by lighting.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="useLighting" type="boolean">Whether the particle should be affected by lighting.</arg>
+	</args>
+</function>

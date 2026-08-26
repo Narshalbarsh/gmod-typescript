@@ -1,0 +1,11 @@
+<function name="GetTeamColor" parent="GM" type="hook">
+	<description>Returns the color for the given entity's team. This is used in chat and deathnotice text.</description>
+	<realm>Client</realm>
+	<file line="124-L130">gamemodes/base/gamemode/cl_init.lua</file>
+	<args>
+		<arg name="ent" type="Entity">Entity</arg>
+	</args>
+	<rets>
+		<ret name="" type="Color">Team <page>Color</page></ret>
+	</rets>
+</function>

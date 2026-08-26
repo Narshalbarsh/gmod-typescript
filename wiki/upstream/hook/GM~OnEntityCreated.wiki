@@ -1,0 +1,41 @@
+<function name="OnEntityCreated" parent="GM" type="hook">
+	<description>
+Called as soon as the entity is created. Very little of the entity's properties will be initialized at this stage. (keyvalues, classname, flags, anything), especially on the serverside.
+
+<warning>Removing the created entity during this event can lead to unexpected problems. Use <page>Global.SafeRemoveEntityDelayed</page>( entity, 0 ) to safely remove the entity.</warning>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="entity" type="Entity">The entity</arg>
+	</args>
+</function>
+
+<example>
+	<description>When a prop spawns it yells.</description>
+	<code>
+hook.Add( "OnEntityCreated", "PropScream", function( ent )
+	if ( ent:GetClass() == "prop_physics" ) then
+		ent:EmitSound( "vo/npc/male01/no02.wav" )
+	end
+end )
+	</code>
+</example>
+
+
+<example>
+	<description>Adds all props and ragdolls into a list. More efficient alternative to looping over <page>ents.GetAll</page>.</description>
+	<code>
+local TrackedEnts = {
+	[ "prop_physics" ] = true,
+	[ "prop_ragdoll" ] = true
+}
+
+local EntList = {}
+
+hook.Add( "OnEntityCreated", "SoftEntList", function( ent )
+	if ( TrackedEnts[ ent:GetClass() ] ) then
+		EntList[ ent:EntIndex() ] = ent
+	end
+end )
+	</code>
+</example>

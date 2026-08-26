@@ -1,0 +1,5 @@
+<function name="CaptureMouse" parent="DAdjustableModelPanel" type="panelfunc">
+	<description><internal></internal> Used by the panel to perform mouse capture operations when adjusting the model.</description>
+	<realm>Client</realm>
+	<file line="61-L75">lua/vgui/dadjustablemodelpanel.lua</file>
+</function>

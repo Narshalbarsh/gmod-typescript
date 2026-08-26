@@ -1,0 +1,41 @@
+<panel>
+	<parent>DPanel</parent>
+	<realm>Client</realm>
+	<file line="">gamemodes/sandbox/gamemode/spawnmenu/creationmenu/content/contentsidebar.lua</file>
+	<description>
+		<internal></internal>
+
+		The ContentSidebar is internally used by the spawnmenu and manages things like the Spawnmenu Toolbar.
+		It internally uses a DTree which is accessible with ContentSidebar .Tree.
+		When <page>ContentSidebar:EnableModify</page> has been called ContentSidebar.Toolbox will return a <page>ContentSidebarToolbox</page>
+	</description>
+	<overrides>
+		<page>PANEL:Init</page>
+	</overrides>
+</panel>
+
+<example>
+	<description>How to create a <page>ContentSidebar</page>.</description>
+	<code>
+Frame = vgui.Create("DFrame")
+Frame:SetSize(ScrW() / 2, ScrH() / 2)
+Frame:Center()
+Frame:MakePopup()
+
+ContentSidebar = vgui.Create( "ContentSidebar", Frame)
+ContentSidebar:Dock(FILL)
+ContentSidebar:CreateSaveNotification()
+
+for k=1, 6 do
+	local Node = ContentSidebar.Tree:AddNode("Example", "icon16/user.png")
+	Node:SetHideExpander(true)
+	Node:SetExpanded(true)
+	Node.DoClick = function(self)
+		hook.Call("SpawnlistContentChanged", GAMEMODE or GM)
+	end
+	for v=1, math.random(1, 5) do
+		Node:AddNode("Example", "icon16/star.png")
+	end
+end
+	</code>
+</example>

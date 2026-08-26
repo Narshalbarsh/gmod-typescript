@@ -1,0 +1,13 @@
+<function name="InOutBack" parent="math.ease" type="libraryfunc">
+	<description>Eases in and out by reversing the direction of the ease slightly before returning on both ends.
+	<note>This doesn't work properly when used with <page>Global.Lerp</page> as it clamps the fraction between 0 and 1. Using your own version of <page>Global.Lerp</page> that is unclamped would be necessary instead.</note>
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="136-L140">lua/includes/extensions/math/ease.lua</file>
+	<args>
+		<arg name="fraction" type="number">Fraction of the progress to ease, from 0 to 1</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">"Eased" Value</ret>
+	</rets>
+</function>

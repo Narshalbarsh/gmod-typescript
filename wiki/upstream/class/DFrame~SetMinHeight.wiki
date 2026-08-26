@@ -1,0 +1,11 @@
+<function name="SetMinHeight" parent="DFrame" type="panelfunc">
+	<description>
+Sets the minimum height the DFrame can be resized to by the user.
+
+This only applies to users attempting to resize the frame; <page>Panel:SetTall</page> and similar methods will not be affected. You must call <page>DFrame:SetSizable</page> before the user can resize the frame.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="minH" type="number">The minimum height the user can resize the frame to.</arg>
+	</args>
+</function>

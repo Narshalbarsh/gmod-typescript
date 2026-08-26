@@ -1,0 +1,8 @@
+<function name="SetReadOnly" parent="DDragBase" type="panelfunc">
+	<description>Sets whether this panel is read only or not for drag'n'drop purposes. If set to `true`, you can only copy from this panel, and cannot modify its contents. This is an <page>Global.AccessorFunc</page> </description>
+	<realm>Client and Menu</realm>
+	<file line="6">lua/vgui/ddragbase.lua</file>
+	<args>
+		<arg name="name" type="boolean">Whether this panel should be read only or not.</arg>
+	</args>
+</function>

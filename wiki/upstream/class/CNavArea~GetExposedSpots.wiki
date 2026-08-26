@@ -1,0 +1,12 @@
+<function name="GetExposedSpots" parent="CNavArea" type="classfunc">
+	<description>
+Returns a table of very bad hiding spots in this area.
+
+See also <page>CNavArea:GetHidingSpots</page>.
+
+	</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="table">A table of <page>Vector</page>s</ret>
+	</rets>
+</function>

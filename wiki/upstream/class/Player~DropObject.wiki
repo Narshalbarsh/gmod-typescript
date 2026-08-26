@@ -1,0 +1,11 @@
+<function name="DropObject" parent="Player" type="classfunc">
+	<description>Drops any object the player is currently holding with either Gravity Gun, Physics Gun or `+use` (E key)
+
+See also <page>Entity:ForcePlayerDrop</page>.
+</description>
+	<realm>Server</realm>
+	<args>
+	
+		<arg name="entity" type="Entity" default="nil">Only drop if the held entity is this entity. If left blank, drop any held entity.</arg>
+</args>
+</function>

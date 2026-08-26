@@ -1,0 +1,11 @@
+<function name="LeaveTree" parent="DTree_Node" type="panelfunc">
+	<description>
+Removes given node as a sub-node of this node.
+
+It doesn't actually remove or unparent the panel, just removes it from the internal <page>DListView</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="pnl" type="Panel">The node to remove</arg>
+	</args>
+</function>

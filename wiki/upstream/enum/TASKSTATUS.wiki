@@ -1,0 +1,11 @@
+<enum>
+	<realm>Server</realm>
+	<description>Used by <page>NPC:GetTaskStatus</page> and <page>NPC:SetTaskStatus</page>.</description>
+	<items>
+<item key="TASKSTATUS_NEW" value="0">Just started</item>
+<item key="TASKSTATUS_RUN_MOVE_AND_TASK" value="1">Running task & movement.</item>
+<item key="TASKSTATUS_RUN_MOVE" value="2">Just running movement.</item>
+<item key="TASKSTATUS_RUN_TASK" value="3">Just running task.</item>
+<item key="TASKSTATUS_COMPLETE" value="4">Completed, get next task.</item>
+	</items>
+</enum>

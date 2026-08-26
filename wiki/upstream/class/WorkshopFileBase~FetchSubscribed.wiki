@@ -1,0 +1,19 @@
+<function name="FetchSubscribed" parent="WorkshopFileBase" type="classfunc">
+	<description>
+		Fetches all subscriptions for the set namespace and passes the result to <page>WorkshopFileBase:FillFileInfo</page>.
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="offset" type="number">Skips the first x results.</arg>
+		<arg name="perpage" type="number">How many results per page should be returned.</arg>
+		<arg name="tags" type="table">additional tags to filter the results.</arg>
+		<arg name="searchText" type="string">text that needs to be in the addon title. Use an empty string for none</arg>
+		<arg name="isUGC" type="boolean" default="nil">
+			if true it will use <page>engine.GetUserContent</page> instead of <page>engine.GetAddons</page>
+		</arg>
+		<arg name="filter" type="number" default="nil">The filter for the results. (`enabledonly`, `disabledonly`)</arg>
+		<arg name="sort" type="string" default="nil">
+			How it should be sorted. If set to `nil`, it will fallback to `timeadded`. (`title`, `size`, `updated`)
+		</arg>
+	</args>
+</function>

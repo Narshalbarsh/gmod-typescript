@@ -1,0 +1,7 @@
+<function name="UpdateScreenEffectTexture" parent="render" type="libraryfunc">
+	<description>Copies the entire screen to the screen effect texture, which can be acquired via <page>render.GetScreenEffectTexture</page>. This function is mainly intended to be used in <page>GM:RenderScreenspaceEffects</page>.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="textureIndex" type="number" default="0">Texture index to update. Max index is 3, but engine only creates the first two for you.</arg>
+	</args>
+</function>

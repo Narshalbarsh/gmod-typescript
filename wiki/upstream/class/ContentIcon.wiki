@@ -1,0 +1,39 @@
+<panel>
+	<parent>DButton</parent>
+	<realm>Client</realm>
+	<file line="">gamemodes/sandbox/gamemode/spawnmenu/creationmenu/content/contenticon.lua</file>
+	<description>
+		The spawn icon used for SWEPs and other SENTs, commonly featured as part of the spawn menu. 
+		Do note that at least one of your ContentIcon's parents must either be an <page>EditablePanel</page> or derived from it 
+		(like a <page>DFrame</page>, for example), else it won't be able to focus and thus be unclickable.
+
+		This control only exists in Sandbox derived gamemodes.
+	</description>
+</panel>
+
+
+<example>
+	<description>Creates a button to spawn one or multiple pistols on top of a custom <page>DFrame</page>.</description>
+	<code>
+local frame = vgui.Create( "DFrame" )
+frame:SetSize( 400, 200 )
+frame:Center()
+frame:SetTitle( "Secret SWEP Spawn Menu" )
+frame:MakePopup()
+
+local icon = vgui.Create( "ContentIcon", frame )
+icon:Center()
+icon:SetMaterial( "entities/weapon_pistol.png" )
+icon:SetName( "Pistol" )
+icon.DoClick = function() RunConsoleCommand( "gm_spawnswep", "weapon_pistol" ) end
+icon.OpenMenu = function()
+	local menu = DermaMenu()
+	menu:AddOption( "Copy to clipboard", function() SetClipboardText( "weapon_pistol" ) end )
+	menu:AddOption( "Spawn 5", function() for i=1,5 do RunConsoleCommand( "gm_spawnswep", "weapon_pistol" ) end end )
+	menu:AddOption( "Spawn 10", function() for i=1,10 do RunConsoleCommand( "gm_spawnswep", "weapon_pistol" ) end end )
+	menu:Open()
+end
+	</code>
+	<output><image src="ContentIconExample.png"/></output>
+
+</example>

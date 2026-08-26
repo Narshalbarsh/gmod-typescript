@@ -1,0 +1,45 @@
+<function name="GetRotatedAABB" parent="Entity" type="classfunc">
+	<description>Returns axis-aligned bounding box (AABB) of a orientated bounding box (OBB) based on entity's rotation.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="min" type="Vector">Minimum extent of an OBB in local coordinates.</arg>
+		<arg name="max" type="Vector">Maximum extent of an OBB in local coordinates.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">Minimum extent of the AABB relative to entity's position.</ret>
+		<ret name="" type="Vector">Maximum extent of the AABB relative to entity's position.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>The entity's AABB center (regardless of model origin) is stored in 'pos'.</description>
+	<code>
+local a, b = ent:GetRotatedAABB( v:OBBMins(), v:OBBMaxs() )
+local pos = ( ent:GetPos() + ( a + b ) / 2 )
+	</code>
+	<output>pos has the coordinates of the AABB center.</output>
+
+</example>
+
+<example>
+	<description>If `developer` is set to `1`, displays entity's OBB and it's AABB based on entity's rotation.
+
+The OBB can be any bounding box, not simply OBB of the model/entity.
+</description>
+	<code>
+local e = Entity( 123 )
+
+local minsB, maxsB = e:OBBMins(), e:OBBMaxs()
+local minsA, maxsA = e:GetRotatedAABB( minsB, maxsB )
+
+-- Draw the AABB
+debugoverlay.Box( e:GetPos(), minsA, maxsA, 10, Color( 255, 255, 255, 32 ) )
+
+-- Draw the OBB
+debugoverlay.BoxAngles( e:GetPos(), minsB, maxsB, e:GetAngles(), 10, Color( 255, 0, 255, 32 ) )
+	</code>
+	<output>Pink = OBB, white = AABB
+<upload src="70c/8da74afc3a996dc.png" size="556505" name="image.png" />
+</output>
+
+</example>

@@ -1,0 +1,22 @@
+<function name="RemovePVS" parent="CRecipientFilter" type="classfunc">
+	<description>Removes all players that can see this [PVS (Potential Visibility Set)](https://developer.valvesoftware.com/wiki/PVS "PVS - Valve Developer Community") from the recipient filter.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="pos" type="Vector">Position that players may be able to see.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Adds the first player object to the recipient filter, then sends him a message.</description>
+	<code>
+function SendMessage()
+	local filter = RecipientFilter()
+	filter:AddPVS( Vector( 0,0,0 ) )
+	filter:RemovePVS( Vector( 0,10,0 ) )
+	umsg.Start( "message", filter )
+	umsg.End()
+end
+	</code>
+	<output>Adds all players that can see the map's origin to the recipient filter, then removes all players who can see 10 units to the left of the origin, and sends the rest a message.</output>
+
+</example>

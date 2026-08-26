@@ -1,0 +1,9 @@
+<function name="AddOption" parent="ControlPresets" type="panelfunc">
+	<description>Adds option to the <page>DComboBox</page> subelement with <page>DComboBox:AddChoice</page> then adds it to the `options` subtable </description>
+	<realm>Client</realm>
+	<file line="48-L54">gamemodes/sandbox/gamemode/spawnmenu/controls/control_presets.lua</file>
+	<args>
+		<arg name="strName" type="string">Name</arg>
+		<arg name="data" type="any">data</arg>
+	</args>
+</function>

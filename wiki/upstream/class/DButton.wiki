@@ -1,0 +1,42 @@
+<panel>
+	<parent>DLabel</parent>
+	<preview>DButton_small.png</preview>
+	<realm>Client and Menu</realm>
+	<file>lua/vgui/dbutton.lua</file>
+	<description>
+A standard Derma button.
+
+By default, a <page>DButton</page> is 22px tall.
+	</description>
+	<overrides>
+<page>PANEL:Init</page>
+<page>PANEL:Paint</page>
+<page>PANEL:PerformLayout</page>
+<page>PANEL:GenerateExample</page>
+	</overrides>
+</panel>
+
+<example>
+	<description>The DButton is exactly what you think it is - a button!</description>
+	<code>
+local frame = vgui.Create( "DFrame" )
+frame:SetSize( 300, 250 )
+frame:Center()
+frame:MakePopup()
+
+local DermaButton = vgui.Create( "DButton", frame ) -- Create the button and parent it to the frame
+DermaButton:SetText( "Say hi" )					-- Set the text on the button
+DermaButton:SetPos( 25, 50 )					-- Set the position on the frame
+DermaButton:SetSize( 250, 30 )					-- Set the size
+DermaButton.DoClick = function()				-- A custom function run when clicked ( note the . instead of : )
+	RunConsoleCommand( "say", "Hi" )			-- Run the console command "say hi" when you click it ( command, args )
+end
+
+DermaButton.DoRightClick = function()
+	RunConsoleCommand( "say", "Hello World" )
+end
+	</code>
+	<output>
+		<upload src="aaf9e/8dc31b7e5d67702.gif" size="1225486" name="DButton.gif" />
+	</output>
+</example>

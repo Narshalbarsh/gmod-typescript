@@ -1,0 +1,11 @@
+<function name="SetIsMenu" parent="DFrame" type="panelfunc">
+	<description>
+Sets whether the frame is part of a derma menu or not.
+
+If this is set to `true`, <page>Global.CloseDermaMenus</page> will not be called when the frame is clicked, and thus any open menus will remain open.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="isMenu" type="boolean">Whether or not this frame is a menu component.</arg>
+	</args>
+</function>

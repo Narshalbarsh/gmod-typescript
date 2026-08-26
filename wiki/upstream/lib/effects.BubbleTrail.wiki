@@ -1,0 +1,22 @@
+<function name="BubbleTrail" parent="effects" type="libraryfunc">
+	<description>Creates a bubble trail effect, the very same you get when shooting underwater.</description>
+	<realm>Shared</realm>
+	<added>2020.04.29</added>
+	<args>
+		<arg name="startPos" type="Vector">The start position of the effect.</arg>
+		<arg name="endPos" type="Vector">The end position of the effects.</arg>
+		<arg name="count" type="number">How many bubbles to spawn. There's a hard limit of 500 tempents at any time.</arg>
+		<arg name="height" type="number">How high the bubbles can fly up before disappearing.</arg>
+		<arg name="speed" type="number" default="0">How quickly the bubbles move.</arg>
+		<arg name="delay" type="number" default="0">Delay in seconds after the function call and before the effect actually spawns.</arg>
+	</args>
+</function>
+
+<example>
+<description>
+Mimics the effect of shooting underwater.
+</description>
+<code>
+effects.BubbleTrail( Entity(1):GetEyeTrace().HitPos, Entity(1):GetShootPos(), 100, 20 )
+</code>
+</example>

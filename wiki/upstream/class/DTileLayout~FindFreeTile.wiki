@@ -1,0 +1,14 @@
+<function name="FindFreeTile" parent="DTileLayout" type="panelfunc">
+	<description><internal></internal> Finds the coordinates of the first group of free tiles that fit the given size.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="x" type="number">The x coordinate to start looking from.</arg>
+		<arg name="y" type="number">The y coordinate to start looking from.</arg>
+		<arg name="w" type="number">The needed width.</arg>
+		<arg name="h" type="number">The needed height.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The x coordinate of the found available space.</ret>
+		<ret name="" type="number">The y coordinate of the found available space.</ret>
+	</rets>
+</function>

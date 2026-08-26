@@ -1,0 +1,9 @@
+<function name="GetMother" parent="DListBoxItem" type="panelfunc">
+	<description>
+Returns the parent "mother" of this **DListBoxItem** set by <page>DListBoxItem:SetMother</page>.
+	</description>
+	<realm>Client</realm>
+	<rets>
+		<ret type="DListBox">The "mother" <page>DListBox</page>.</ret>
+	</rets>
+</function>

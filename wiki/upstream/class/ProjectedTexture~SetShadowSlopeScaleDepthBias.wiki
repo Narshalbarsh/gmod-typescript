@@ -1,0 +1,14 @@
+<function name="SetShadowSlopeScaleDepthBias" parent="ProjectedTexture" type="classfunc">
+	<description>
+Sets the shadow depth slope scale bias of the projected texture.
+
+The initial value is `2`. Normal projected textures obey the value of the `mat_slopescaledepthbias_shadowmap` <page>ConVar</page>.
+
+<validate>You must call <page>ProjectedTexture:Update</page> after using this function for it to take effect.</validate>
+	</description>
+	<added>2021.03.31</added>
+	<realm>Client</realm>
+	<args>
+		<arg name="bias" type="number">The shadow depth slope scale bias to set.</arg>
+	</args>
+</function>

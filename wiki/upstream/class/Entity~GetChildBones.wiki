@@ -1,0 +1,11 @@
+<function name="GetChildBones" parent="Entity" type="classfunc">
+	<description>Returns ids of child bones of given bone.</description>
+	<realm>Shared</realm>
+	<file line="196-L210">lua/includes/extensions/entity.lua</file>
+	<args>
+		<arg name="boneid" type="number">Bone id to lookup children of</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">A table of bone ids</ret>
+	</rets>
+</function>

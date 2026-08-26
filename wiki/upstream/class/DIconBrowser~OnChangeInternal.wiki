@@ -1,0 +1,8 @@
+<function name="OnChangeInternal" parent="DIconBrowser" type="panelfunc">
+	<description>
+<internal></internal>
+
+Use <page>DIconBrowser:OnChange</page> instead
+	</description>
+	<realm>Client and Menu</realm>
+</function>

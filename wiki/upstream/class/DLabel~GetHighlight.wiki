@@ -1,0 +1,11 @@
+<function name="GetHighlight" parent="DLabel" type="panelfunc">
+	<description>
+Returns whether the <page>DLabel</page> should set its text color to the current skin's highlighted text color.
+
+See <page>DLabel:SetHighlight</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean"></ret>
+	</rets>
+</function>

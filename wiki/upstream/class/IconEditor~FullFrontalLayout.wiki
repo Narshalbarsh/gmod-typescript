@@ -1,0 +1,8 @@
+<function name="FullFrontalLayout" parent="IconEditor" type="panelfunc">
+	<description>
+Applies the front view camera settings for the model in the <page>DAdjustableModelPanel</page>.
+
+Called when a user clicks the `Front` (second) button (See the ).
+	</description>
+	<realm>Client</realm>
+</function>

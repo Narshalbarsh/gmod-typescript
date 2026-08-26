@@ -1,0 +1,10 @@
+<function name="GetWheelBaseHeight" parent="Vehicle" type="classfunc">
+	<description>Returns the base wheel height.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="wheel" type="number">The wheel to get the base wheel height of.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The base wheel height.</ret>
+	</rets>
+</function>

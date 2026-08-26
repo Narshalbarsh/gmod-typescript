@@ -1,0 +1,7 @@
+<function name="GetSequence" parent="Entity" type="classfunc">
+	<description>Return the index of the model sequence that is currently active for the entity.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The index of the model sequence.</ret>
+	</rets>
+</function>

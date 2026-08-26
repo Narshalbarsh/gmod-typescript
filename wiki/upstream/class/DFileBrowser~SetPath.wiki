@@ -1,0 +1,12 @@
+<function name="SetPath" parent="DFileBrowser" type="panelfunc">
+	<description>
+An <page>Global.AccessorFunc</page> that sets the access path for the file tree. This is set to `GAME` by default.
+
+See <page>file.Read</page> for how paths work.
+	</description>
+	<realm>Client</realm>
+	<file line="59-L66">lua/vgui/dfilebrowser.lua</file>
+	<args>
+		<arg name="path" type="string">The access path i.e. "GAME", "LUA", "DATA" etc.</arg>
+	</args>
+</function>

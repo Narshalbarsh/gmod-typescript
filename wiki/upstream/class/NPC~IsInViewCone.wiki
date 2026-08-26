@@ -1,0 +1,14 @@
+<function name="IsInViewCone" parent="NPC" type="classfunc">
+	<description>Tests whether a position or an NPC is in the view cone of the NPC.</description>
+	<realm>Server</realm>
+	<added>2024.12.03</added>
+	<args>
+		<arg name="position" type="Vector">The position to test.</arg>
+	</args>
+	<args name="Entity input">
+		<arg name="ent" type="Entity">The entity to test. Will use the entity's position.</arg>
+	</args>
+	<rets>
+		<ret type="boolean">If the given position is in the view cone.</ret>
+	</rets>
+</function>

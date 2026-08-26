@@ -1,0 +1,80 @@
+<function name="ToColor" parent="string" type="libraryfunc">
+	<description>
+		Attempts to create a Color from a string.
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="343-L355">lua/includes/extensions/string.lua</file>
+	<args>
+		<arg name="colorString" type="string">
+			The string to convert from.
+
+			The expected format is 3 or 4 integer numbers in the range `0`-`255` with a single space separating them.  
+			These numbers are in the order: `red green blue alpha` where `alpha` is optional.  
+
+			<note>
+			If the input string is malformed but contains a correctly formatted substring within it, that valid substring will be used which may produce unexpected results.
+			</note>
+		</arg>
+	</args>
+	<rets>
+		<ret name="" type="Color">
+			The output <page>Color</page>  
+			
+			If the input string is improperly formatted, this will be `Color( 255, 255, 255, 255 )`
+		</ret>
+	</rets>
+</function>
+
+<example>
+	<description>
+		Converting `"255 0 255 125"` to `Color( 255, 0, 255, 125 )`
+	</description>
+	<code>
+PrintTable( string.ToColor( "255 0 255 125" ) )
+	</code>
+	<output>
+```
+["a"]	=	125
+["b"]	=	255
+["g"]	=	0
+["r"]	=	255
+```
+	</output>
+</example>
+
+<example name="Failed Conversion" >
+	<description>
+		Demonstrates what happens when an invalid string is entered.
+	</description>
+	<code>
+PrintTable( string.ToColor( "Hello, world!" ) )
+	</code>
+	<output>
+```
+["a"]	=	255
+["b"]	=	255
+["g"]	=	255
+["r"]	=	255
+```
+	</output>
+</example>
+
+<example name="Invalid String with Valid Substring" >
+	<description>
+		Demonstrates how a malformed input can produce an unexpected output.  
+
+		Because the input string contains the valid substring `5 100 25`, that will be treated as a `"red green blue"` formatted string to produce `Color( 5, 100, 25 )`.  
+		All other text in the string, including the number `50`, will be ignored. 
+	</description>
+	<code>
+PrintTable( string.ToColor( "ThisWillBeIgnored5 100 25 ThisWillAlsoBeIgnored 50" ) )
+	</code>
+	<output>
+```
+["a"]	=	255
+["b"]	=	25
+["g"]	=	100
+["r"]	=	5
+```
+	</output>
+</example>

@@ -1,0 +1,8 @@
+<function name="SetParent" parent="CNavArea" type="classfunc">
+	<description>Sets the new parent of this <page>CNavArea</page>.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="parent" type="CNavArea">The new parent to set</arg>
+		<arg name="how" type="number">How we get from parent to us using <page>Enums/NavTraverseType</page></arg>
+	</args>
+</function>

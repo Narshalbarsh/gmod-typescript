@@ -1,0 +1,14 @@
+<function name="SnatchModelInstance" parent="Entity" type="classfunc">
+	<description>
+Moves the model instance from the source entity to this entity. This can be used to transfer decals that have been applied on one entity to another.
+
+Both entities must have the same model.
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="srcEntity" type="Entity">Entity to move the model instance from.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether the operation was successful or not</ret>
+	</rets>
+</function>

@@ -1,0 +1,22 @@
+<function name="Visible" parent="Entity" type="classfunc">
+	<description>
+Returns whether the target/given entity is visible from the this entity.
+
+This is meant to be used only with NPCs.
+
+Differences from a simple trace include:
+* If target has `FL_NOTARGET`, returns `false`
+* If `ai_ignoreplayers` is turned on and target is a player, returns `false`
+* Reacts to `ai_LOS_mode`:
+* * If `1`, does a simple trace with `COLLISION_GROUP_NONE` and `MASK_BLOCKLOS`
+* * If not, does a trace with `MASK_BLOCKLOS_AND_NPCS` (- `CONTENTS_BLOCKLOS` is target is player) and a custom LOS filter (`CTraceFilterLOS`)
+* Returns `true` if hits a vehicle the target is driving
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="target" type="Entity">Entity to check for visibility to.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">If the entities can see each other.</ret>
+	</rets>
+</function>

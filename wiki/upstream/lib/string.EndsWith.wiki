@@ -1,0 +1,28 @@
+<function name="EndsWith" parent="string" type="libraryfunc">
+	<description>Returns whether or not the second passed string matches the end of the first.</description>
+	<realm>Shared and Menu</realm>
+	<file line="331-L335">lua/includes/extensions/string.lua</file>
+	<args>
+		<arg name="str" type="string">The string whose end is to be checked.</arg>
+		<arg name="end" type="string">The string to be matched with the end of the first.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">`true` if the first string ends with the second, or the second is empty, otherwise `false`.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Looks for arguments at the end of a string.</description>
+	<code>
+local endswith = string.EndsWith("Supercalifragilisticexpialidocious", "docious")
+if endswith then
+	print("Marry Poppins")
+end
+	</code>
+	<output>
+```
+Marry Poppins
+```
+</output>
+
+</example>

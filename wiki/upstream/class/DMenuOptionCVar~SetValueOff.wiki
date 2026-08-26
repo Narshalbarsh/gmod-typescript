@@ -1,0 +1,7 @@
+<function name="SetValueOff" parent="DMenuOptionCVar" type="panelfunc">
+	<description>Sets the value of the <page text="console variable">ConVars</page> when the <page>DMenuOptionCVar</page> is not checked.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="value" type="string">The value</arg>
+	</args>
+</function>

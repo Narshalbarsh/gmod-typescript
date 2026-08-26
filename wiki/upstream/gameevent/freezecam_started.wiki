@@ -1,0 +1,29 @@
+<cat>gameevent</cat>
+<title>freezecam_started</title>
+
+<structure>
+	<realm>Client and Menu</realm>
+	<description>
+		Called when the freeze cam starts spectating something.  
+		Example cause:
+```
+local ply = Entity( 1 )
+ply:Spectate( OBS_MODE_FREEZECAM )
+
+ply:SpectateEntity( ply )
+```
+	</description>
+</structure>
+
+# Examples
+<example>
+	<description>
+		This is a basic template with the purpose of including all arguments / table variables to make it easily known which values can be accessed.
+	</description>
+	<code>
+gameevent.Listen( "freezecam_started" )
+hook.Add( "freezecam_started", "freezecam_started_example", function( data )
+	// Called when the freeze cam starts spectating something.
+end )
+	</code>
+</example>

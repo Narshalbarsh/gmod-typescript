@@ -1,0 +1,7 @@
+<function name="OnNodeSelected" parent="DTree" type="panelhook">
+	<description>This function is called when a node within a tree is selected.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="node" type="Panel">The node that was selected.</arg>
+	</args>
+</function>

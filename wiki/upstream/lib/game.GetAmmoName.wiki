@@ -1,0 +1,14 @@
+<function name="GetAmmoName" parent="game" type="libraryfunc">
+	<description>
+Returns the ammo name for given ammo type ID.
+
+See <page>game.GetAmmoID</page> for reverse.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="id" type="number">Ammo ID to retrieve the name of. Starts from 1.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The name of given ammo type ID or nil if ammo type ID is invalid.</ret>
+	</rets>
+</function>

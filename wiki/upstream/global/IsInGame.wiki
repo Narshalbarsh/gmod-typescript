@@ -1,0 +1,7 @@
+<function name="IsInGame" parent="Global" type="libraryfunc">
+	<description>Returns true if the client is currently playing either a singleplayer or multiplayer game.</description>
+	<realm>Menu</realm>
+	<rets>
+		<ret name="" type="boolean">True if we are in a game.</ret>
+	</rets>
+</function>

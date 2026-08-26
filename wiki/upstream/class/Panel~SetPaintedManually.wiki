@@ -1,0 +1,7 @@
+<function name="SetPaintedManually" parent="Panel" type="classfunc">
+	<description>Enables or disables painting of the panel manually with <page>Panel:PaintManual</page>.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="paintedManually" type="boolean">True if the panel should be painted manually.</arg>
+	</args>
+</function>

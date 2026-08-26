@@ -1,0 +1,76 @@
+<function name="PushRenderTarget" parent="render" type="libraryfunc">
+	<description>
+Pushes the current render target and viewport to the RT stack then sets a new current render target and viewport. If the viewport is not specified, the dimensions of the render target are used instead.
+
+This is similar to a call to <page>render.SetRenderTarget</page> and <page>render.SetViewPort</page> where the current render target and viewport have been saved beforehand, except the viewport isn't clipped to screen bounds.
+
+See also <page>render.PopRenderTarget</page>.
+
+<note>If you want to render to the render target in 2d mode and it is not the same size as the screen, use <page>cam.Start2D</page> and <page>cam.End2D</page>.</note>
+<note>If the render target is bigger than the screen, rendering done with the surface library will be clipped to the screen bounds unless you call <page>Global.DisableClipping</page></note>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="texture" type="ITexture" default="nil">
+			The new render target to be used.  
+			Can be set to `nil` to push the main game frame buffer.
+		</arg>
+		<arg name="x" type="number" default="0">X origin of the viewport.</arg>
+		<arg name="y" type="number" default="0">Y origin of the viewport.</arg>
+		<arg name="w" type="number" default="texture:Width()">Width of the viewport.</arg>
+		<arg name="h" type="number" default="texture:Height()">Height of the viewport.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Shows how to create a material which uses a custom created Render Target texture.</description>
+	<code>
+-- Create render target
+local exampleRT = GetRenderTarget( "example_rt", 1024, 1024 )
+
+-- Draw to the render target
+render.PushRenderTarget( exampleRT )
+	cam.Start2D()
+		-- Draw background
+		surface.SetDrawColor( 0, 0, 0, 255 )
+		surface.DrawRect( 0, 0, 1024, 1024 )
+
+		-- Draw some foreground stuff
+		surface.SetDrawColor( 255, 0, 0, 255 )
+		surface.DrawRect( 0, 0, 256, 256 )
+	cam.End2D()
+render.PopRenderTarget()
+
+local customMaterial = CreateMaterial( "example_rt_mat", "UnlitGeneric", {
+	["$basetexture"] = exampleRT:GetName(), -- You can use "example_rt" as well
+	["$translucent"] = 1,
+	["$vertexcolor"] = 1
+} )
+
+hook.Add( "HUDPaint", "ExampleDraw", function()
+	surface.SetDrawColor( 255, 255, 255, 255 )
+	surface.SetMaterial( customMaterial )
+	surface.DrawTexturedRect( 0, 0, customMaterial:GetTexture( "$basetexture" ):Width(), customMaterial:GetTexture( "$basetexture" ):Height() )
+end )
+	</code>
+	<output>A black 1024x1024 render target with a 256x256 red square in top left corner drawn in your top left corner.</output>
+
+</example>
+
+
+<example>
+	<description>Shows how you can use alpha channel with render targets.</description>
+	<code>
+render.PushRenderTarget( texture )
+render.OverrideAlphaWriteEnable( true, true )
+
+render.ClearDepth()
+render.Clear( 0, 0, 0, 0 )
+
+-- Draw stuff here
+
+render.OverrideAlphaWriteEnable( false )
+render.PopRenderTarget()
+	</code>
+
+</example>

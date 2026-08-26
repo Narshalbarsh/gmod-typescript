@@ -1,0 +1,10 @@
+<function name="RenderAngles" parent="Global" type="libraryfunc">
+	<description>Returns the angle that the clients view is being rendered at. Returns `angles` from the return value of <page>render.GetViewSetup</page>.
+
+See also <page>Global.EyeAngles</page>.
+</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="Angle">Render Angles</ret>
+	</rets>
+</function>

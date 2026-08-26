@@ -1,0 +1,27 @@
+<function name="PlayerStepSoundTime" parent="GM" type="hook">
+	<description>Allows you to override the time between footsteps.
+
+See <page>GM:PlayerFootstep</page> for a related hook about footstep sounds themselves.
+		<note>This hook is called on all clients.</note>
+	</description>
+	<realm>Shared</realm>
+	<predicted>yes</predicted>
+	<args>
+		<arg name="ply" type="Player">Player who is walking</arg>
+		<arg name="type" type="number">The type of footsteps, see <page>Enums/STEPSOUNDTIME</page></arg>
+		<arg name="walking" type="boolean">Is the player walking or not ( +walk? )</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">Time between footsteps, in ms</ret>
+	</rets>
+</function>
+
+<example>
+	<description>A Very simple footstep cadence changer. This will change the cadence of the default footsteps.</description>
+	<code>
+		hook.Add("PlayerStepSoundTime", "SimpleCadence", function(ply, iType, walking)
+	return 500 -- This will change the cadence of the footsteps. Lower number = Faster cadence, Higher number = Slower cadence.
+end)
+	</code>
+
+</example>

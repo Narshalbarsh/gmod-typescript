@@ -1,0 +1,8 @@
+<function name="SetSpawnName" parent="ContentIcon" type="panelfunc">
+	<description>An <page>Global.AccessorFunc</page> that sets the internal "name" for the content icon, usually a class name for an entity.</description>
+	<realm>Client</realm>
+	<file line="15">gamemodes/sandbox/gamemode/spawnmenu/creationmenu/content/contenticon.lua</file>
+	<args>
+		<arg name="name" type="string">Internal "name" to be used when user left clicks the icon.</arg>
+	</args>
+</function>

@@ -1,0 +1,12 @@
+<function name="ParticleTracerEx" parent="util" type="libraryfunc">
+	<description>Creates a tracer effect with the given parameters. Expanded version of <page>util.ParticleTracer</page>.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="name" type="string">The name of the tracer effect.</arg>
+		<arg name="startPos" type="Vector">The start position of the tracer.</arg>
+		<arg name="endPos" type="Vector">The end position of the tracer.</arg>
+		<arg name="doWhiz" type="boolean">Play the hit miss(whiz) sound.</arg>
+		<arg name="entityIndex" type="number">Entity index of the emitting entity.</arg>
+		<arg name="attachmentIndex" type="number">Attachment index to be used as origin.</arg>
+	</args>
+</function>

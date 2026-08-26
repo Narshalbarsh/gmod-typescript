@@ -1,0 +1,17 @@
+<function name="SetValue" parent="DProperty_VectorColor" type="panelfunc">
+	<description>Sets the color value of the property.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="color" type="Vector">Sets the color to use in a <page>DProperty_VectorColor</page>.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Setup a color selection control with a custom default color.</description>
+	<code>
+local color = DP:CreateRow( "Category", "Select Color" )
+color:Setup( "VectorColor", {} )
+color:SetValue( Vector( 0.39, 1, 1 ) )
+	</code>
+
+</example>

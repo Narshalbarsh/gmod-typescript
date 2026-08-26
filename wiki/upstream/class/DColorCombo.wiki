@@ -1,0 +1,40 @@
+<panel>
+	<parent>DPropertySheet</parent>
+	<realm>Client</realm>
+	<file line="">lua/vgui/dcolorcombo.lua</file>
+	<description>
+		The **DColorCombo** allows the user to choose color, without alpha, 
+		using <page>DColorMixer</page> or <page>DColorPalette</page> in a tabbed view.
+	</description>
+</panel>
+
+
+
+
+
+<example>
+	<description>Creates a DColorCombo and sets its initial value.</description>
+	<code>
+local frame = vgui.Create( "DFrame" )
+frame:SetSize( 500, 300 )
+frame:Center()
+frame:MakePopup()
+
+local DermaColorCombo = vgui.Create( "DColorCombo", frame )
+DermaColorCombo:SetPos( 5, 30 )
+DermaColorCombo:SetColor( Color( 255, 255, 255 ) )
+
+local DColorButton = frame:Add( "DColorButton" )
+DColorButton:SetPos( 300, 50 )
+DColorButton:SetSize( 64, 64 )
+function DermaColorCombo:OnValueChanged( col )
+	DColorButton:SetColor( col )
+end
+	</code>
+
+
+
+
+</example>
+
+<image src="aaf9e/8dc3d50831b05f1.png" size="28598" name="image.png" />

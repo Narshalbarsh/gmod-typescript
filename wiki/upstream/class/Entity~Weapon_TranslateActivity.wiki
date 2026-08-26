@@ -1,0 +1,14 @@
+<function name="Weapon_TranslateActivity" parent="Entity" type="classfunc">
+	<description>
+Calls and returns <page>WEAPON:TranslateActivity</page> on the weapon the entity (player or NPC) carries.
+
+<note>Doesn't return anything on client, despite existing there.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="act" type="number">The NPC activity to translate</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The translated activity. Defaults to `act` input when a translation doesn't exist.</ret>
+	</rets>
+</function>

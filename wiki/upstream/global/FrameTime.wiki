@@ -1,0 +1,28 @@
+<function name="FrameTime" parent="Global" type="libraryfunc">
+	<description>
+Returns the <page>Global.CurTime</page>-based time in seconds it took to render the last frame.
+
+This should be used for frame/tick based timing, such as movement prediction or animations.
+
+For real-time-based frame time that isn't affected by `host_timescale`, use <page>Global.RealFrameTime</page>. RealFrameTime is more suited for things like GUIs or HUDs.
+	</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="number">time (in seconds)</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Print the frame time</description>
+	<code>print( FrameTime() )</code>
+	<output>0.014999999664724</output>
+
+</example>
+
+
+<example>
+	<description>Get the servers/clients tickrate/fps</description>
+	<code>print( "Tick: " .. ( 1 / FrameTime() ) )</code>
+	<output>Tick: 66.666668156783</output>
+
+</example>

@@ -1,0 +1,8 @@
+<function name="Stack" parent="util" type="libraryfunc">
+	<description>Returns a new <page>Stack</page> object.</description>
+	<realm>Shared and Menu</realm>
+	<file line="324-L326">lua/includes/extensions/util.lua</file>
+	<rets>
+		<ret name="" type="Stack">A brand new stack object.</ret>
+	</rets>
+</function>

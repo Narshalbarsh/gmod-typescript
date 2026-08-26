@@ -1,0 +1,9 @@
+<function name="BatteryPower" parent="system" type="libraryfunc">
+	<description>Returns the current battery power.</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="number">0-100 if a battery (laptop, UPS, etc) is present.
+
+Will instead return 255 if plugged in without a battery.</ret>
+	</rets>
+</function>

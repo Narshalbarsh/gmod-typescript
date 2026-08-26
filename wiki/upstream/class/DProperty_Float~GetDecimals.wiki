@@ -1,0 +1,7 @@
+<function name="GetDecimals" parent="DProperty_Float" type="panelhook">
+	<description>Called to poll the amount of digits after the decimal point. This is used internally for <page>DProperty_Int</page>.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="data" type="table">The amount of digits after the decimal point.</ret>
+	</rets>
+</function>

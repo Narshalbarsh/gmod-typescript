@@ -1,0 +1,9 @@
+<function name="SetTextSelectionColors" parent="Panel" type="classfunc">
+	<description>Sets text selection colors of a <page>RichText</page> element.</description>
+	<realm>Client and Menu</realm>
+	<added>2023.01.25</added>
+	<args>
+		<arg name="textColor" type="Color">The <page>Color</page> to set for selected text.</arg>
+		<arg name="backgroundColor" type="Color">The <page>Color</page> to set for selected text background.</arg>
+	</args>
+</function>

@@ -1,0 +1,7 @@
+<function name="ReadDouble" parent="File" type="classfunc">
+	<description>Reads an 8-byte little-endian IEEE-754 floating point double from the file.</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="number">The double-precision floating point value read from the file.</ret>
+	</rets>
+</function>

@@ -1,0 +1,10 @@
+<function name="CC_AdminCleanup" parent="cleanup" type="libraryfunc">
+	<description><internal></internal> Called by the `gmod_admin_cleanup` console command. Allows admins to clean up the server.</description>
+	<realm>Server</realm>
+	<file line="177-L229">lua/includes/modules/cleanup.lua</file>
+	<args>
+		<arg name="pl" type="Player">The player that called the console command.</arg>
+		<arg name="command" type="string">The console command that called this function.</arg>
+		<arg name="args" type="table">First and only arg is the cleanup type.</arg>
+	</args>
+</function>

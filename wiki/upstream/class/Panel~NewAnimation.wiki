@@ -1,0 +1,71 @@
+<function name="NewAnimation" parent="Panel" type="classfunc">
+	<description>
+Creates a new animation for the panel object.
+
+Methods that use this function:
+* <page>Panel:MoveTo</page>
+* <page>Panel:SizeTo</page>
+* <page>Panel:SlideUp</page>
+* <page>Panel:SlideDown</page>
+* <page>Panel:ColorTo</page>
+* <page>Panel:AlphaTo</page>
+* <page>Panel:MoveBy</page>
+* <page>Panel:LerpPositions</page>
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="102-L136">lua/includes/extensions/client/panel/animation.lua</file>
+	<args>
+		<arg name="length" type="number">The length of the animation in seconds.</arg>
+		<arg name="delay" type="number" default="0">The delay before the animation starts.</arg>
+		<arg name="ease" type="number" default="-1">The power/index to use for easing.
+* Positive values greater than 1 will ease in; the higher the number, the sharper the curve's gradient (less linear).
+* A value of 1 removes all easing.
+* Positive values between 0 and 1 ease out; values closer to 0 increase the curve's gradient (less linear).
+* A value of 0 will break the animation and should be avoided.
+* Any value less than zero will ease in/out; the value has no effect on the gradient.</arg>
+		<arg name="callback" type="function" default="nil">The function to be called when the animation ends.
+
+<callback>
+<arg type="table" name="animData">The <page>Structures/AnimationData</page> that was used.</arg>
+<arg type="Panel" name="targetPanel">The panel object that was animated.</arg>
+</callback>
+</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">Partially filled <page>Structures/AnimationData</page> with the following members: 
+* <page>number</page> **EndTime** - Equal to `length` and `delay` arguments added together, plus either the <page>Global.SysTime</page> if there is no other animation queued or the end time of the last animation in the queue.
+* <page>number</page> **StartTime** - Equal to the `delay` argument, plus either the <page>Global.SysTime</page> if there is no other animation queued or the end time of the last animation in the queue.
+* <page>number</page> **Ease** - Equal to the `ease` argument.
+* <page>function</page> **OnEnd** - Equal to the `callback` argument.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Example on how to use this function, makes a button go around in a circle in a DFrame.</description>
+	<code>
+local frame = vgui.Create( "DFrame" )
+frame:SetSize( 500, 500 )
+frame:Center()
+frame:MakePopup()
+
+local butt = frame:Add( "DButton" )
+butt:SetPos( 5, 30 )
+butt:SetSize( 100, 40 )
+
+function butt:doAnim()
+	local anim = self:NewAnimation( 10, 0, 1, function( anim, pnl )
+		self:doAnim()
+	end )
+
+	anim.Think = function( anim, pnl, fraction )
+		local radius = 200
+		pnl:SetPos( 250 + math.sin( Lerp( fraction, -math.pi, math.pi ) ) * radius - pnl:GetWide() / 2,
+					250 + math.cos( Lerp( fraction, -math.pi, math.pi ) ) * radius - pnl:GetTall() / 2 )
+
+		pnl:SetText( "Frac: " .. fraction .. "\nTime: " .. ( SysTime() - anim.StartTime ) )
+	end
+end
+butt:doAnim()
+	</code>
+
+</example>

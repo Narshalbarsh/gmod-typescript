@@ -1,0 +1,9 @@
+<function name="SetColor" parent="DColorButton" type="panelfunc">
+	<description>Sets the color of the <page>DColorButton</page>.</description>
+	<realm>Client and Menu</realm>
+	<file line="30-L41">lua/vgui/dcolorbutton.lua</file>
+	<args>
+		<arg name="color" type="Color">A <page>Color</page> to set the color as</arg>
+		<arg name="noTooltip" type="boolean" default="false">If true, the tooltip will not be reset to display the selected color.</arg>
+	</args>
+</function>

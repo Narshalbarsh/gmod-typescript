@@ -1,0 +1,7 @@
+<function name="GetTabbingDisabled" parent="DTextEntry" type="panelfunc">
+	<description>Returns whether or not the panel accepts <key>tab</key> key.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the <page>DTextEntry</page> should ignore <key>tab</key>.</ret>
+	</rets>
+</function>

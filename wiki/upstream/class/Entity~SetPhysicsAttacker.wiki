@@ -1,0 +1,12 @@
+<function name="SetPhysicsAttacker" parent="Entity" type="classfunc">
+	<description>
+Sets the player who gets credit if this entity kills something with physics damage within the time limit.
+
+<note>Only functional on props, "anim" type SENTs, vehicles and a few other select entities.</note>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ent" type="Player">Player who gets the kills. Setting this to a non-player entity will not work.</arg>
+		<arg name="timeLimit" type="number" default="5">Time in seconds until the entity forgets its physics attacker and prevents it from getting the kill credit.</arg>
+	</args>
+</function>

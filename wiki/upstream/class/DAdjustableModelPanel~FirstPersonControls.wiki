@@ -1,0 +1,5 @@
+<function name="FirstPersonControls" parent="DAdjustableModelPanel" type="panelfunc">
+	<description><internal></internal> Used to adjust the perspective in the model panel via the keyboard, when the right mouse button is used.</description>
+	<realm>Client</realm>
+		<file line="92-L146">lua/vgui/dadjustablemodelpanel.lua</file>
+</function>

@@ -1,0 +1,9 @@
+<function name="SetFocusTopLevel" parent="Panel" type="classfunc">
+    <description>Sets the panel that owns this FocusNavGroup to be the root in the focus traversal hierarchy. This function will only work on EditablePanel class panels and its derivatives.
+    
+    <note>Child panels that should be part of the tab navigation need <page>Panel:SetTabPosition</page> called on them.</note></description>
+    <realm>Client and Menu</realm>
+    <args>
+        <arg name="state" type="boolean"></arg>
+    </args>
+</function>

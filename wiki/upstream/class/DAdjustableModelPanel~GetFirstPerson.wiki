@@ -1,0 +1,11 @@
+<function name="GetFirstPerson" parent="DAdjustableModelPanel" type="panelfunc">
+	<description>Gets whether mouse and keyboard-based adjustment of the perspective has been enabled. See <page>DAdjustableModelPanel:SetFirstPerson</page> for more information.
+
+This is an <page>Global.AccessorFunc</page>
+</description>
+	<realm>Client</realm>
+	<file line="4">lua/vgui/dadjustablemodelpanel.lua</file>
+	<rets>
+		<ret name="" type="boolean">Whether first person controls are enabled. See <page>DAdjustableModelPanel:FirstPersonControls</page>.</ret>
+	</rets>
+</function>

@@ -1,0 +1,8 @@
+<function name="GetBackgroundColor" parent="DBubbleContainer" type="panelfunc">
+	<description>Returns Background Color, See <page>DBubbleContainer:SetBackgroundColor</page></description>
+	<realm>Client</realm>
+	<file line="4">lua/vgui/dbubblecontainer.lua</file>
+	<rets>
+		<ret name="" type="Color">Color of the background.</ret>
+	</rets>
+</function>

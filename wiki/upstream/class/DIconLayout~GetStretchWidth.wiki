@@ -1,0 +1,11 @@
+<function name="GetStretchWidth" parent="DIconLayout" type="panelfunc">
+	<description>
+Returns whether the icon layout will stretch its width to fit all the children.
+
+See also <page>DIconLayout:GetStretchHeight</page>
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean"></ret>
+	</rets>
+</function>

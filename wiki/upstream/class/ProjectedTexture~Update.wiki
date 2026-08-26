@@ -1,0 +1,7 @@
+<function name="Update" parent="ProjectedTexture" type="classfunc">
+	<description>Updates the Projected Light and applies all previously set parameters.
+
+The best place to call this function is in <page>GM:PreDrawOpaqueRenderables</page>.
+</description>
+	<realm>Client</realm>
+</function>

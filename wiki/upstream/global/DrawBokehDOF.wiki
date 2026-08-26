@@ -1,0 +1,10 @@
+<function name="DrawBokehDOF" parent="Global" type="libraryfunc">
+	<description>Draws the Bokeh Depth Of Field effect .</description>
+	<realm>Client</realm>
+	<added>2021.06.09</added>
+	<args>
+		<arg name="intensity" type="number">Intensity of the effect.</arg>
+		<arg name="distance" type="number">**Not worldspace distance**. Value range is from `0` to `1`.</arg>
+		<arg name="focus" type="number">Focus. Recommended values are from 0 to 12.</arg>
+	</args>
+</function>

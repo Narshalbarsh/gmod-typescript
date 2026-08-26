@@ -1,0 +1,7 @@
+<function name="GetFlags" parent="CEffectData" type="classfunc">
+	<description>Returns the flags of the effect.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The flags of the effect.</ret>
+	</rets>
+</function>

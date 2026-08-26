@@ -1,0 +1,41 @@
+<function name="HandleAnimEvent" parent="ENTITY" type="hook">
+	<description>
+Called before firing serverside animation events, such as weapon reload, drawing and holstering for NPCs, scripted sequences, etc.
+
+See <page>ENTITY:FireAnimationEvent</page> for the clientside version.
+
+<note>This hook only works on "anim", "ai" and "nextbot" type entities.</note>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="event" type="number">The ID of the event. See [this page](http://developer.valvesoftware.com/wiki/Animation_Events) for a list of default events, and see <page>util.GetAnimEventNameByID</page> for a helper function in handing custom events.</arg>
+		<arg name="eventTime" type="number">The absolute time this event occurred using <page>Global.CurTime</page>.</arg>
+		<arg name="cycle" type="number">The frame this event occurred as a number between 0 and 1.</arg>
+		<arg name="type" type="number">Event type. See [the Source SDK](https://github.com/ValveSoftware/source-sdk-2013/blob/master/src/game/shared/eventlist.h#L14-L23).</arg>
+		<arg name="options" type="string">Name or options of this event.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return true to mark the event as handled.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Handle a custom animation event.
+
+The .qc of the model would look something like this:
+```
+$sequence my_sequence_name "my_smd_name" ..... { 
+	 { event MY_CUSTOM_ANIM_EVENT 2 "my custom options" } 
+}
+```
+</description>
+<code>
+function ENT:HandleAnimEvent( event, eventTime, cycle, type, options )
+
+	if ( util.GetAnimEventNameByID( event ) == "MY_CUSTOM_ANIM_EVENT" ) then
+		print( "Do something..." )
+		return true
+	end
+end
+</code>
+</example>

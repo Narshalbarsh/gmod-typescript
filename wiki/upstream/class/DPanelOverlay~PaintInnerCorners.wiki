@@ -1,0 +1,7 @@
+<function name="PaintInnerCorners" parent="DPanelOverlay" type="panelfunc">
+	<description><internal></internal>Used internally by the panel for types 1 and 2.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="size" type="number"></arg>
+	</args>
+</function>

@@ -1,0 +1,6 @@
+<function name="SetArrivalActivity" parent="NPC" type="classfunc">
+	<realm>Server</realm>
+	<args>
+		<arg name="act" type="number">See <page>Enums/ACT</page>.</arg>
+	</args>
+</function>

@@ -1,0 +1,5 @@
+<function name="Clear" parent="DComboBox" type="panelfunc">
+	<description>Clears the combo box's text value, choices, and data values.</description>
+	<realm>Client and Menu</realm>
+	<file line="29-L40">lua/vgui/dcombobox.lua</file>
+</function>

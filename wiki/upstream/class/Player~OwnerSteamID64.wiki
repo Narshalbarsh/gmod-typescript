@@ -1,0 +1,14 @@
+<function name="OwnerSteamID64" parent="Player" type="classfunc">
+	<description>
+Returns the 64-bit SteamID aka CommunityID of the Steam Account that owns the Garry's Mod license this player is using. This is useful for detecting players using Steam Family Sharing.
+
+If player is not using Steam Family Sharing, this will return the player's actual SteamID64().
+
+<note>This data will only be available after the player has fully authenticated with Steam. See <page>Player:IsFullyAuthenticated</page>.</note>
+	</description>
+	<realm>Server</realm>
+	<added>2020.08.12</added>
+	<rets>
+		<ret name="" type="string">The 64bit SteamID</ret>
+	</rets>
+</function>

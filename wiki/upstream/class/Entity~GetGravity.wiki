@@ -1,0 +1,7 @@
+<function name="GetGravity" parent="Entity" type="classfunc">
+	<description>Gets the gravity multiplier of the entity.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">gravityMultiplier</ret>
+	</rets>
+</function>

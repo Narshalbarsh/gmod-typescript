@@ -1,0 +1,13 @@
+<function name="GetClientBool" parent="Tool" type="classfunc">
+	<description>Attempts to grab a clientside tool <page>ConVar</page> value as a <page>boolean</page>.</description>
+	<realm>Shared</realm>
+	<added>2023.01.25</added>
+	<file line="87">gamemodes/sandbox/entities/weapons/gmod_tool/stool.lua</file>
+	<args>
+		<arg name="name" type="string">Name of the <page>ConVar</page> to retrieve. The function will automatically add the `mytoolfilename_` part to it.</arg>
+		<arg name="default" type="boolean" default="false">The default value to return in case the lookup fails.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The value of the requested <page>ConVar</page>. It will be true if the value if the convar is not 0, just like <page>ConVar:GetBool</page></ret>
+	</rets>
+</function>

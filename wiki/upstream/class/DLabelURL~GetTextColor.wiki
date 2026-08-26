@@ -1,0 +1,7 @@
+<function name="GetTextColor" parent="DLabelURL" type="panelfunc">
+	<description>Gets the current text color of the <page>DLabelURL</page> set by <page>DLabelURL:SetTextColor</page>.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="Color">The current text <page>Color</page>.</ret>
+	</rets>
+</function>

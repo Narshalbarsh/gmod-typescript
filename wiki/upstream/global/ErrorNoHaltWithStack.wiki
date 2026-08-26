@@ -1,0 +1,12 @@
+<function name="ErrorNoHaltWithStack" parent="Global" type="libraryfunc">
+	<description>
+Throws a Lua error but does not break out of the current call stack.
+
+This function will print a stack trace like a normal error would.
+	</description>
+	<realm>Shared and Menu</realm>
+	<added>2021.01.27</added>
+	<args>
+		<arg name="arguments" type="vararg">Converts all arguments to strings and prints them with no spacing.</arg>
+	</args>
+</function>

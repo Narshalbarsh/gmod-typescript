@@ -1,0 +1,24 @@
+<function name="ToVector" parent="Color" type="classfunc">
+	<description>
+Translates the <page>Color</page> into a <page>Vector</page>, losing the alpha channel.
+This will also range the values from 0 - 255 to 0 - 1
+
+r / 255 -> x<br/>
+g / 255 -> y<br/>
+b / 255 -> z
+
+This is the opposite of <page>Vector:ToColor</page>
+	</description>
+	<realm>Shared</realm>
+	<file line="168-L172">lua/includes/util/color.lua</file>
+	<rets>
+		<ret name="" type="Vector">The created <page>Vector</page></ret>
+	</rets>
+</function>
+
+<example>
+	<description>Useful when setting player colors, since the function requires a vector as argument.</description>
+	<code>Entity( 1 ):SetPlayerColor( Color( 220, 20, 60 ):ToVector() )</code>
+	<output>Sets the player color for Player1 (only works if they are using a colorable player model)</output>
+
+</example>

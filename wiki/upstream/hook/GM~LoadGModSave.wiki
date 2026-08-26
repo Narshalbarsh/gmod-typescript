@@ -1,0 +1,9 @@
+<function name="LoadGModSave" parent="GM" type="hook">
+	<description><internal></internal>Called from `gm_load` when the game should load a map.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="data" type="string">Compressed save data</arg>
+		<arg name="map" type="string">The name of the map the save was created on</arg>
+		<arg name="timestamp" type="number">The time the save was created on. Will always be 0.</arg>
+	</args>
+</function>

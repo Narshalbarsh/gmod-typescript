@@ -1,0 +1,16 @@
+<enum>
+	<realm>Shared</realm>
+	<description>Displacement surface flags, used by the <page>Structures/TraceResult</page>.</description>
+	<items>
+<item key="DISPSURF_SURFACE" value="1"></item>
+
+<item key="DISPSURF_WALKABLE" value="2"></item>
+
+<item key="DISPSURF_BUILDABLE" value="4"></item>
+
+<item key="DISPSURF_SURFPROP1" value="8"></item>
+
+<item key="DISPSURF_SURFPROP2" value="16"></item>
+	</items>
+
+</enum>

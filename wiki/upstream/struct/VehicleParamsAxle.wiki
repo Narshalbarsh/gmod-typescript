@@ -1,0 +1,28 @@
+<structure>
+	<realm>Server</realm>
+	<description>The structure used by <page>Structures/VehicleParams</page>.</description>
+	<fields>
+<item name="brakeFactor" type="number"></item>
+<item name="offset" type="Vector"></item>
+<item name="raytraceCenterOffset" type="Vector"></item>
+<item name="raytraceOffset" type="Vector"></item>
+<item name="suspension_maxBodyForce" type="number"></item>
+<item name="suspension_springConstant" type="number"></item>
+<item name="suspension_springDamping" type="number"></item>
+<item name="suspension_springDampingCompression" type="number"></item>
+<item name="suspension_stabilizerConstant" type="number"></item>
+<item name="torqueFactor" type="number"></item>
+<item name="wheelOffset" type="Vector"></item>
+<item name="wheels_brakeMaterialIndex" type="number">Material index of braking material of the wheels. Upon braking, the wheels will be set to this material.</item>
+<item name="wheels_damping" type="number"></item>
+<item name="wheels_frictionScale" type="number"></item>
+<item name="wheels_inertia" type="number"></item>
+<item name="wheels_mass" type="number">Mass of each wheel.</item>
+<item name="wheels_materialIndex" type="number">Material index of the wheels by default.</item>
+<item name="wheels_radius" type="number">Radius of the wheels.</item>
+<item name="wheels_rotdamping" type="number"></item>
+<item name="wheels_skidMaterialIndex" type="number">Material index of skid material of the wheels. Upon skidding ( pressing Space and sliding the vehicle ), the wheels will be set to this material.</item>
+<item name="wheels_springAdditionalLength" type="number"></item>
+	</fields>
+
+</structure>

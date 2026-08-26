@@ -1,0 +1,13 @@
+<function name="ShouldOverrideProxy" parent="matproxy" type="libraryfunc">
+	<description>
+<internal></internal>
+Called by engine to determine if a certain material proxy is registered in Lua.</description>
+	<realm>Client</realm>
+	<file line="11-L15">lua/includes/modules/matproxy.lua</file>
+	<args>
+		<arg name="name" type="string">The name of proxy in question</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Whether the material proxy of given name is registered.</ret>
+	</rets>
+</function>

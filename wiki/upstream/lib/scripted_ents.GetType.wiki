@@ -1,0 +1,11 @@
+<function name="GetType" parent="scripted_ents" type="libraryfunc">
+	<file line="195-L214">lua/includes/modules/scripted_ents.lua</file>
+	<description>Returns the 'type' of a class, this will one of the following: 'anim', 'ai', 'brush', 'point'.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="classname" type="string">The classname to check</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">type</ret>
+	</rets>
+</function>

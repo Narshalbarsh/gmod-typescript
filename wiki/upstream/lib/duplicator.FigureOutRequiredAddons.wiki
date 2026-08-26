@@ -1,0 +1,12 @@
+<function name="FigureOutRequiredAddons" parent="duplicator" type="libraryfunc">
+	<description>Checks the given duplication table and tries to figure out any addons that might be required to correctly spawn the duplication. Currently this is limited to models and material overrides saved in the duplication.
+</description>
+	<realm>Shared</realm>
+	<added>2021.07.23</added>
+	<args>
+		<arg name="dupe" type="table">The duplication table to process, for example from <page>duplicator.Copy</page>.
+
+The provided table will have `RequiredAddons` key added.
+</arg>
+	</args>
+</function>

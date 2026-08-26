@@ -1,0 +1,7 @@
+<function name="GetAmmoType" parent="CTakeDamageInfo" type="classfunc">
+	<description>Returns the ammo type used by the weapon that inflicted the damage.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">Ammo type ID</ret>
+	</rets>
+</function>

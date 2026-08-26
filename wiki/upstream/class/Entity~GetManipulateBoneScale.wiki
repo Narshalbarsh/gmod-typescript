@@ -1,0 +1,10 @@
+<function name="GetManipulateBoneScale" parent="Entity" type="classfunc">
+	<description>Gets the entity's scale manipulation of the given bone. Normal scale is Vector( 1, 1, 1 )</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="boneID" type="number">The bone's ID</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">The entity's scale manipulation of the given bone</ret>
+	</rets>
+</function>

@@ -1,0 +1,18 @@
+<function name="Team" parent="Player" type="classfunc">
+	<description>
+Returns the player's team ID, set by <page>Player:SetTeam</page>
+
+Returns 0 clientside when the game is not fully loaded.
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The player's team's index number, as in the <page>Enums/TEAM</page> or a custom team defined in <page>team.SetUp</page>.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints the name of the player's team</description>
+	<code>print( team.GetName( Entity( 1 ):Team() ) )</code>
+	<output>Something like `Unassigned` in console.</output>
+
+</example>

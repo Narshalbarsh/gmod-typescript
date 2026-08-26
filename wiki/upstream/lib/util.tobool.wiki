@@ -1,0 +1,15 @@
+<function name="tobool" parent="util" type="libraryfunc">
+	<description>
+<deprecated>You should use <page>Global.tobool</page> instead.</deprecated>
+
+Converts string or a number to a bool, if possible. Alias of <page>Global.tobool</page>.
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="73-L73">lua/includes/extensions/util.lua</file>
+	<args>
+		<arg name="input" type="any">A string or a number to convert.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">False if the input is equal to the string or boolean "false", if the input is equal to the string or number "0", or if the input is nil. Returns true otherwise.</ret>
+	</rets>
+</function>

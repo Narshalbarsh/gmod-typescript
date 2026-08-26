@@ -1,0 +1,7 @@
+<function name="GetSpaceX" parent="DIconLayout" type="panelfunc">
+	<description>Returns the distance between two 'icons' on the X axis.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">Distance between two 'icons' on the X axis.</ret>
+	</rets>
+</function>

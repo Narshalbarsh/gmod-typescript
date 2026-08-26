@@ -1,0 +1,35 @@
+<function name="GetPropTable" parent="spawnmenu" type="libraryfunc">
+	<description>
+Returns a table of all prop categories and their props in the spawnmenu.
+
+Note that if the spawnmenu has not been populated, this will return an empty table.
+
+This will not return spawnlists created by addons, see  <page>spawnmenu.GetCustomPropTable</page> for that.
+	</description>
+	<realm>Client</realm>
+	<file line="212-L216">lua/includes/modules/spawnmenu.lua</file>
+	<rets>
+		<ret name="" type="table">Table of all the prop categories and props in the following format:
+
+```
+{
+	["settings/spawnlist/001-construction props.txt"] = {
+		name = "Construction Props",
+		icon = "icon16/page.png",
+		id = 1,
+		parentid = 0,
+		needsapp = "",
+		contents = {
+			{
+				model = "models/Cranes/crane_frame.mdl",
+				type = "model"
+			}
+			-- etc.
+		},
+	}
+	-- etc.
+}
+```
+</ret>
+	</rets>
+</function>

@@ -1,0 +1,7 @@
+<function name="GetSizeX" parent="DSizeToContents" type="panelfunc">
+	<description>Returns whether the <page>DSizeToContents</page> panel should size to contents horizontally.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the panel should size to contents horizontally.</ret>
+	</rets>
+</function>

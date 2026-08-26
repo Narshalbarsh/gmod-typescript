@@ -1,0 +1,17 @@
+<function name="IsEmpty" parent="table" type="libraryfunc">
+	<description>
+Returns whether or not the given table is empty.
+
+This works on both sequential and non-sequential tables, and is a lot faster for non-sequential tables than `table.Count(tbl) == 0`.
+
+For sequential tables it is better to use `tab[1] == nil`.
+	</description>
+	<realm>Shared and Menu</realm>
+	<file line="63-L65">lua/includes/extensions/table.lua</file>
+	<args>
+		<arg name="tab" type="table">Table to check.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Is empty?</ret>
+	</rets>
+</function>

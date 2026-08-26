@@ -1,0 +1,25 @@
+<function name="AddNetworkString" parent="util" type="libraryfunc">
+	<description>
+Adds the specified string to a string table, which will cache it and network it to all clients automatically.<br/>
+Whenever you want to create a net message with <page>net.Start</page>, you must add the name of that message as a networked string via this function.
+
+If the passed string already exists, nothing will happen and the ID of the existing item will be returned.
+
+<note>Each unique network name needs to be pooled once - do not put this function call into any other functions if you're using a constant string. Preferable place for this function is in a serverside lua file, or in a shared file with the <page>net.Receive</page> function.
+
+The string table used for this function does not interfere with the engine string tables and has 4095 slots.  
+This limit is shared among all entities, SetNW* and SetGlobal* functions. If you exceed the limit, you cannot create new variables, and you will get the following warning:
+```lua 
+Warning:  Table networkstring is full, can't add [key]
+```
+<warning>Existing variables will still get updated without the warning. You can check the limit by counting up until <page>util.NetworkIDToString</page> returns nil</warning></note>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="str" type="string">Adds the specified string to the string table.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The id of the string that was added to the string table.<br/>
+Same as calling <page>util.NetworkStringToID</page>.</ret>
+	</rets>
+</function>

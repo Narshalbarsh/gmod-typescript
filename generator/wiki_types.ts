@@ -20,17 +20,19 @@ export interface WikiElement {
 export interface WikiPage extends WikiElement {
     kind: WikiElementKind.Page;
     title: string;
-    wikiName: string;
-    wikiIcon: string;
-    wikiUrl: string;
+    // without the /gmod/ prefix, Panel:SetContentAlignment, Enums/NavDir
     address: string;
-    createdTime: Date;
-    updateCount: number;
     markup: string;
-    html: string;
-    footer: string;
     revisionId: number;
-    pageLinks: WikiPageLink[];
+    updateCount: number;
+    // only on pages fetched live from the wiki API, the local mirror does not keep them
+    wikiName?: string;
+    wikiIcon?: string;
+    wikiUrl?: string;
+    createdTime?: Date;
+    html?: string;
+    footer?: string;
+    pageLinks?: WikiPageLink[];
 }
 
 export interface WikiAddressable {

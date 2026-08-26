@@ -1,0 +1,12 @@
+<function name="PlayerSpawnObject" parent="SANDBOX" type="hook">
+	<description>Called to ask whether player is allowed to spawn a given model. This includes props, effects, and ragdolls and is called before the respective PlayerSpawn* hook.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ply" type="Player">The player in question</arg>
+		<arg name="model" type="string">Model path</arg>
+		<arg name="skin" type="number">Skin number</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return false to disallow the player to spawn the given model.</ret>
+	</rets>
+</function>

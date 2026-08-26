@@ -1,0 +1,7 @@
+<function name="SetAutoStretchVertical" parent="DLabel" type="panelfunc">
+	<description>Automatically adjusts the height of the label dependent of the height of the text inside of it.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="stretch" type="boolean">Whenever to stretch the label vertically or not.</arg>
+	</args>
+</function>

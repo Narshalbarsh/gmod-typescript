@@ -1,0 +1,8 @@
+<function name="UpdateAddonDisabledState" parent="Global" type="libraryfunc">
+	<description>
+		<internal></internal>
+		This function retrieves the values from <page>Global.GetAddonStatus</page> and passes them to JS(JavaScript).
+	</description>
+	<realm>Menu</realm>
+	<file line="567-L570">lua/menu/mainmenu.lua</file>
+</function>

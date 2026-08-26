@@ -1,0 +1,46 @@
+<type name="Vector" category="classfunc" is="class">
+	<summary>List of all possible functions to manipulate vectors.
+
+Created by <page>Global.Vector</page>.
+
+ Type   | Name           | Description                    
+ ------ | -------------- | ------------------------------ 
+ <page>number</page> | `x`, `X`, `r` or `1` | The X component of the vector. 
+ <page>number</page> | `y`, `Y`, `g` or `2` | The Y component of the vector. 
+ <page>number</page> | `z`, `Z`, `b` or `3` | The Z component of the vector.
+
+Metamethod | Second Operand | Description
+---------- | -------------- | -----------
+`__add` | <page>Vector</page> | Returns new <page>Vector</page> with the result of addition.
+`__div` | <page>number</page> or <page>Vector</page> | Returns new <page>Vector</page> with the result of division.
+`__eq` | <page>any</page> | Compares 2 operands, if they both are <page>Vector</page>, compares each individual component.
+`__index` | <page>number</page> or <page>string</page> | Gets the component of the <page>Vector</page>. Returns a <page>number</page>.
+`__mul` | <page>number</page> or <page>Vector</page>| Returns new <page>Vector</page> with the result of multiplication.
+`__newindex` | <page>number</page> or <page>string</page> | Sets the component of the <page>Vector</page>. Accepts <page>number</page> and <page>string</page>.
+`__sub` | <page>Vector</page> | Returns new <page>Vector</page> with the result of subtraction.
+`__tostring` | | Returns `x y z`.
+`__unm` | | Returns new <page>Vector</page> with the result of negation.
+
+</summary>
+</type>
+
+<example>
+	<description>Indexing by named component.</description>
+	<code>
+local v = Vector( 1, 2, 3 )
+print( v.x, v.y, v.z )
+	</code>
+	<output>1 2 3</output>
+
+</example>
+
+
+<example>
+	<description>Indexing by number (most efficient!).</description>
+	<code>
+local v = Vector( 1, 2, 3 )
+print( v[1], v[2], v[3] )
+	</code>
+	<output>1 2 3</output>
+
+</example>

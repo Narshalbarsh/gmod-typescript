@@ -1,0 +1,12 @@
+<function name="OnNotifyAddonConflict" parent="GM" type="hook">
+	<description>
+		Called when a Addon Conflict occurs, only works in the Menu realm.
+	</description>
+	<realm>Menu</realm>
+	<file line="260-L297">lua/menu/problems/problems.lua</file>
+	<args>
+		<arg name="addon1" type="string">The first Addon</arg>
+		<arg name="addon2" type="string">The second Addon</arg>
+		<arg name="fileName" type="string">The File the Conflict occurred in.</arg>
+	</args>
+</function>

@@ -1,0 +1,20 @@
+<function name="CreateStaticAnchorPoint" parent="constraint" type="libraryfunc">
+	<description> Creates an invisible, non-moveable anchor point in the world to which things can be attached.
+		<note>The entity used internally by this function (`gmod_anchor`) only exists in Sandbox derived gamemodes, meaning this function will only work in these gamemodes.  
+
+		To use this in other gamemodes, you may need to create your own [gmod_anchor](https://github.com/Facepunch/garrysmod/blob/master/garrysmod/gamemodes/sandbox/entities/entities/gmod_anchor.lua) entity.</note>
+	</description>
+
+
+	<realm>Server</realm>
+	<file line="665-L677">lua/includes/modules/constraint.lua</file>
+	<args>
+		<arg name="pos" type="Vector">The position to spawn the anchor at</arg>
+	</args>
+	<rets>
+		<ret name="" type="Entity">The anchor entity. (`gmod_anchor`)</ret>
+		<ret name="" type="PhysObj">The achor entity's physics object. (<page>Entity:GetPhysicsObject</page>)</ret>
+		<ret name="" type="number">Always `0`.</ret>
+		<ret name="" type="Vector">Always `vector_zero`.</ret>
+	</rets>
+</function>

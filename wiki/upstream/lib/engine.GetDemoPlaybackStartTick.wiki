@@ -1,0 +1,7 @@
+<function name="GetDemoPlaybackStartTick" parent="engine" type="libraryfunc">
+	<description>When starting playing a demo, <page>engine.GetDemoPlaybackTick</page> will be reset and its old value will be added to this functions return value.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number"></ret>
+	</rets>
+</function>

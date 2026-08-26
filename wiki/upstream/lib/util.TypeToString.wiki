@@ -1,0 +1,11 @@
+<function name="TypeToString" parent="util" type="libraryfunc">
+	<description>Converts a type to a (nice, but still parsable) string</description>
+	<realm>Shared and Menu</realm>
+	<file line="127-L144">lua/includes/extensions/util.lua</file>
+	<args>
+		<arg name="input" type="any">What to convert</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">Converted string</ret>
+	</rets>
+</function>

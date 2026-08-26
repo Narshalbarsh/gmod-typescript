@@ -1,0 +1,11 @@
+<function name="StretchToParent" parent="Panel" type="classfunc">
+	<file line="80-L103">lua/includes/extensions/client/panel.lua</file>
+	<description>Sets the dimensions of the panel to fill its parent. It will only stretch in directions that aren't nil.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="offsetLeft" type="number" default="nil">The left offset to the parent.</arg>
+		<arg name="offsetTop" type="number" default="nil">The top offset to the parent.</arg>
+		<arg name="offsetRight" type="number" default="nil">The right offset to the parent.</arg>
+		<arg name="offsetBottom" type="number" default="nil">The bottom offset to the parent.</arg>
+	</args>
+</function>

@@ -1,0 +1,9 @@
+<function name="LoadGModSaveFailed" parent="GM" type="hook">
+	<description>Called while an addon from the Steam workshop is downloading. Used by default to update details on the fancy workshop download panel.</description>
+	<realm>Menu</realm>
+	<file line="40-50">lua/menu/mount/mount.lua</file>
+	<args>
+		<arg name="reason" type="string">Failure Reason.</arg>
+		<arg name="workshopid" type="string">the workshop ID of the missing map (if found). Can be an empty string</arg>
+	</args>
+</function>

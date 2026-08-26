@@ -1,0 +1,13 @@
+<function name="GUIMouseDoublePressed" parent="GM" type="hook">
+	<description>
+Called when the mouse has been double clicked on any panel derived from CGModBase, such as the panel used by <page>gui.EnableScreenClicker</page> and the panel used by <page>Panel:ParentToHUD</page>.
+
+By default this hook calls <page>GM:GUIMousePressed</page>.
+	</description>
+	<realm>Client</realm>
+	<file line="99-L103">gamemodes/base/gamemode/cl_init.lua</file>
+	<args>
+		<arg name="mouseCode" type="number">The code of the mouse button pressed, see <page>Enums/MOUSE</page></arg>
+		<arg name="aimVector" type="Vector">A normalized vector pointing in the direction the client has clicked</arg>
+	</args>
+</function>

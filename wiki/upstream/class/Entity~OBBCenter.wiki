@@ -1,0 +1,10 @@
+<function name="OBBCenter" parent="Entity" type="classfunc">
+	<description>Returns the center of an entity's collision bounding box as a local vector.
+
+See also <page>Entity:GetCollisionBounds</page>, <page>Entity:OBBMins</page> and <page>Entity:OBBMaxs</page>.
+</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="Vector">The center of an entity's bounding box relative to its <page>Entity:GetPos</page>.</ret>
+	</rets>
+</function>

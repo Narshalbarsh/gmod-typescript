@@ -1,0 +1,13 @@
+<function name="SetLayerWeight" parent="Entity" type="classfunc">
+	<description>
+Sets the layer weight. This influences how strongly the animation should be overriding the normal animations of the entity.
+
+<note>This function only works on <page>BaseAnimatingOverlay</page> entities.</note>
+<note>Setting either <page>Entity:SetLayerBlendIn</page> or <page>Entity:SetLayerBlendOut</page> above 0 will turn on automatic weight blending, so you shouldn't be using this if you use any of above. </note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="layerID" type="number">The Layer ID</arg>
+		<arg name="weight" type="number">The new layer weight.</arg>
+	</args>
+</function>

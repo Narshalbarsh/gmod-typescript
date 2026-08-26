@@ -1,0 +1,8 @@
+<function name="ResetIdealActivity" parent="NPC" type="classfunc">
+	<description>Resets the ideal activity of the NPC. See also <page>NPC:SetIdealActivity</page>.</description>
+	<realm>Server</realm>
+	<added>2021.03.31</added>
+	<args>
+		<arg name="act" type="number">The new activity. See <page>Enums/ACT</page>.</arg>
+	</args>
+</function>

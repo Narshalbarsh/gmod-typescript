@@ -1,0 +1,66 @@
+<enum>
+	<realm>Server</realm>
+	<description>Enumerations used by <page>NPC:CapabilitiesAdd</page>, <page>WEAPON:GetCapabilities</page> and <page>NPC:CapabilitiesGet</page>. Serverside only.</description>
+	<items>
+<item key="CAP_SIMPLE_RADIUS_DAMAGE" value="-2147483648">When hit by an explosion, we'll simply block it instead of spilling it to entities behind us, the sv_robust_explosions cvar can also enable this globally when set to 0</item>
+
+<item key="CAP_MOVE_GROUND" value="1">Walk/Run</item>
+
+<item key="CAP_MOVE_JUMP" value="2">Jump/Leap</item>
+
+<item key="CAP_MOVE_FLY" value="4">Can fly  move all around</item>
+
+<item key="CAP_MOVE_CLIMB" value="8">climb ladders</item>
+
+<item key="CAP_MOVE_SWIM" value="16"></item>
+
+<item key="CAP_MOVE_CRAWL" value="32"></item>
+
+<item key="CAP_MOVE_SHOOT" value="64">Tries to shoot weapon while moving</item>
+
+<item key="CAP_SKIP_NAV_GROUND_CHECK" value="128"></item>
+
+<item key="CAP_USE" value="256">Open doors/push buttons/pull levers</item>
+
+<item key="CAP_AUTO_DOORS" value="1024">Can trigger auto doors</item>
+
+<item key="CAP_OPEN_DOORS" value="2048">Can open manual doors</item>
+
+<item key="CAP_TURN_HEAD" value="4096">Can turn head  always bone controller 0</item>
+
+<item key="CAP_WEAPON_RANGE_ATTACK1" value="8192"></item>
+
+<item key="CAP_WEAPON_RANGE_ATTACK2" value="16384"></item>
+
+<item key="CAP_WEAPON_MELEE_ATTACK1" value="32768"></item>
+
+<item key="CAP_WEAPON_MELEE_ATTACK2" value="65536"></item>
+
+<item key="CAP_INNATE_RANGE_ATTACK1" value="131072"></item>
+
+<item key="CAP_INNATE_RANGE_ATTACK2" value="262144"></item>
+
+<item key="CAP_INNATE_MELEE_ATTACK1" value="524288"></item>
+
+<item key="CAP_INNATE_MELEE_ATTACK2" value="1048576"></item>
+
+<item key="CAP_USE_WEAPONS" value="2097152"></item>
+
+<item key="CAP_USE_SHOT_REGULATOR" value="16777216"></item>
+
+<item key="CAP_ANIMATEDFACE" value="8388608">Has animated eyes/face</item>
+
+<item key="CAP_FRIENDLY_DMG_IMMUNE" value="33554432">Don't take damage from npc's that are D_LI</item>
+
+<item key="CAP_SQUAD" value="67108864">Can form squads</item>
+
+<item key="CAP_DUCK" value="134217728">Cover and Reload ducking</item>
+
+<item key="CAP_NO_HIT_PLAYER" value="268435456">Don't hit players</item>
+
+<item key="CAP_AIM_GUN" value="536870912">Use arms to aim gun, not just body</item>
+
+<item key="CAP_NO_HIT_SQUADMATES" value="1073741824"></item>
+	</items>
+
+</enum>

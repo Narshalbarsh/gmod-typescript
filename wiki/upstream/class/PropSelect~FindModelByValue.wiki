@@ -1,0 +1,13 @@
+<function name="FindModelByValue" parent="PropSelect" type="panelfunc">
+	<description>
+Find a <page>SpawnIcon</page> panel based on the input model path.
+	</description>
+	<realm>Client</realm>
+	<added>2024.09.02</added>
+	<args>
+		<arg name="mdl" type="string">The model to find within this <page>PropSelect</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="SpawnIcon">The found spawnicon, or `nil`.</ret>
+	</rets>
+</function>

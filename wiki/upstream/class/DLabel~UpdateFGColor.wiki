@@ -1,0 +1,8 @@
+<function name="UpdateFGColor" parent="DLabel" type="panelfunc">
+	<description>
+<internal></internal>
+
+Called internally to update the color of the text.
+	</description>
+	<realm>Client and Menu</realm>
+</function>

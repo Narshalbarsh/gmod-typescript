@@ -1,0 +1,8 @@
+<function name="EndBoxSelection" parent="Panel" type="classfunc">
+	<file line="223-L249">lua/includes/extensions/client/panel/selections.lua</file>
+	<description>Completes a box selection. If the end point of the selection box is within the selection canvas, mouse capture is disabled for the panel object, and the selected state of each child object within the selection box is toggled.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the end point of the selection box was within the selection canvas.</ret>
+	</rets>
+</function>

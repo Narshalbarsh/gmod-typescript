@@ -1,0 +1,227 @@
+<function name="ResolveCustomFlyCollision" parent="ENTITY" type="hook">
+	<added>2026.04.08</added>
+	<description>Called during a non-VPhysics collision event for flying entities. 
+
+This is best used to make projectiles bounce off from surfaces in their own way. For this to be triggered, this entity must be the one that's colliding, have some velocity, <page>Entity:GetMoveType</page> must be either <page text="MOVETYPE_FLY">Enums/MOVETYPE#MOVETYPE_FLY</page> or <page text="MOVETYPE_FLYGRAVITY">Enums/MOVETYPE#MOVETYPE_FLYGRAVITY</page>, and <page>Entity:GetMoveCollide</page> must be <page text="MOVECOLLIDE_FLY_CUSTOM">Enums/MOVECOLLIDE#MOVECOLLIDE_FLY_CUSTOM</page>.
+	<note>This works only on `anim` type entities.</note></description>
+	<realm>Server</realm>
+	<args>
+		<arg name="traceResult" type="table{TraceResult}">The <page>Structures/TraceResult</page> where the collision occured.</arg>
+		<arg name="vel" type="Vector">The calculated velocity after calculations such as bounciness, elasticity, ground sliding etc...</arg>
+	</args>
+	<rets>
+		<ret type="boolean">Return `true` to prevent default action.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>A rocket model which directly reflects off from surfaces without any velocity loss, similar to `sent_ball`.</description>
+	<code>
+AddCSLuaFile()
+
+ENT.Base = "base_anim"
+ENT.Type = "anim"
+ENT.PrintName = "Bouncy Rocket"
+ENT.Category = "Other"
+
+ENT.Editable = true
+ENT.Spawnable = true
+ENT.AdminOnly = true
+ENT.RenderGroup = RENDERGROUP_TRANSLUCENT
+ENT.PhysicsSolidMask = MASK_SOLID + CONTENTS_HITBOX -- collide with vphysics
+
+function ENT:Initialize()
+
+	self:SetModel( "models/weapons/w_missile_closed.mdl" )
+	self:SetMoveType( MOVETYPE_FLY )
+	self:SetMoveCollide( MOVECOLLIDE_FLY_CUSTOM )
+	self:SetCollisionGroup( COLLISION_GROUP_PROJECTILE )
+	self:SetSolid( SOLID_BBOX ) -- turns on collision with other entities
+	self:SetCollisionBounds( Vector( -1, -1, -1 ), Vector( 1, 1, 1 ) )
+	self:SetVelocity( self:GetForward() * 650 )
+
+end
+
+if ( CLIENT ) then return end
+
+function ENT:ResolveCustomFlyCollision( traceResult, vel )
+
+	vel = self:GetVelocity() -- using unmodified velocity
+	local speed = vel:Length()
+
+	local tempdir = traceResult.HitNormal
+	tempdir:Mul( 2 * vel:Dot( tempdir ) )
+
+	local dir = vel
+	dir:Sub( tempdir )
+	dir:Normalize()
+
+	local reflectionangle = dir:Angle()
+
+	local newvel = dir
+	newvel:Mul( speed )
+	self:SetLocalVelocity( newvel )
+
+	self:SetAngles( reflectionangle )
+
+end
+	</code>
+</example>
+
+<example>
+	<description>A reduced version of the engine's crossbow bolt that replicates the behavior closely. It flies. It reflects. It sticks. It hurts.</description>
+	<code>
+AddCSLuaFile()
+
+ENT.Base = "base_anim"
+ENT.Type = "anim"
+ENT.PrintName = "Simple Crossbow Bolt"
+ENT.Category = "Other"
+
+ENT.Spawnable = true
+ENT.AdminOnly = true
+ENT.RenderGroup = RENDERGROUP_OPAQUE
+ENT.PhysicsSolidMask = bit.band( bit.bor( MASK_SOLID, CONTENTS_HITBOX ), bit.bnot( CONTENTS_GRATE ) )
+
+function ENT:Initialize()
+
+	self:SetModel( "models/crossbow_bolt.mdl" )
+	self:SetSolid( SOLID_BBOX )
+	self:AddSolidFlags( FSOLID_NOT_STANDABLE )
+	self:SetCollisionGroup( COLLISION_GROUP_PROJECTILE )
+	self:SetCollisionBounds( Vector( -1, -1, -1 ), Vector( 1, 1, 1 ) )
+	self:SetMoveType( MOVETYPE_FLYGRAVITY )
+	self:SetMoveCollide( MOVECOLLIDE_FLY_CUSTOM )
+
+	self:SetGravity( 0.05 )
+
+	self:SetSkin( 1 )
+
+end
+
+if ( CLIENT ) then return end
+
+local BOLT_AIR_VELOCITY = 3500
+
+function ENT:SpawnFunction( pPlayer, trace_t, classname )
+
+	if ( not trace_t.Hit ) then return end
+
+	local aimdirection = trace_t.Normal
+	local angles = aimdirection:Angle()
+	local origin
+	local velocity
+
+	local simplecrossbowbolt = ents.Create( classname )
+	simplecrossbowbolt:SetAngles( angles )
+
+	origin = aimdirection
+	origin:Mul( 32 )
+	origin:Add( trace_t.StartPos )
+	simplecrossbowbolt:SetPos( origin )
+
+	velocity = origin
+	velocity:Sub( trace_t.StartPos )
+	velocity:Div( 32 )
+	velocity:Mul( BOLT_AIR_VELOCITY )
+	simplecrossbowbolt:SetVelocity( velocity )
+
+	simplecrossbowbolt:SetOwner( pPlayer )
+	simplecrossbowbolt:Spawn()
+
+	return simplecrossbowbolt
+
+end
+
+function ENT:ResolveCustomFlyCollision( trace_t, velocity )
+
+	if ( trace_t.HitSky ) then return self:Remove() end
+
+	local pOther = trace_t.Entity
+
+	self:EmitSound( "Weapon_Crossbow.BoltHitWorld" )
+
+	local direction = self:GetVelocity()
+	local speed = direction:Length()
+
+	direction:Normalize()
+
+	direction:Negate()
+	local hitDot = trace_t.HitNormal:Dot( direction )
+	direction:Negate()
+
+	if ( ( hitDot < 0.5 ) and ( speed > 100 ) ) then -- Reflect off
+
+		local vecReflection = Vector( 0, 0, 0 )
+		vecReflection:Set( trace_t.HitNormal )
+		vecReflection:Mul( 2 * hitDot )
+		vecReflection:Add( direction )
+
+		self:SetAngles( vecReflection:Angle() )
+
+		velocity = vecReflection
+		velocity:Mul( speed * 0.75 )
+		self:SetLocalVelocity( velocity )
+
+		self:SetGravity( 1 )
+
+	else -- Stick
+
+		self:SetMoveType( MOVETYPE_NONE )
+		self:SetCollisionGroup( COLLISION_GROUP_DEBRIS )
+
+		self:SetSkin( 0 )
+
+		-- Move the bolt back a bit so it looks clean
+		local compensatedpos = Vector( 0, 0, 0 )
+		compensatedpos:Set( trace_t.Normal )
+		compensatedpos:Mul( -6 )
+		compensatedpos:Add( trace_t.HitPos )
+
+		self:SetPos( compensatedpos )
+
+		-- Make it stick
+		self:SetParent( pOther )
+
+		-- Leave an impact effect
+		local data = EffectData()
+			data:SetOrigin( trace_t.HitPos )
+			data:SetStart( trace_t.StartPos )
+			data:SetSurfaceProp( trace_t.SurfaceProps )
+			data:SetDamageType( DMG_BULLET )
+			data:SetHitBox( trace_t.HitBox )
+			data:SetEntIndex( pOther:EntIndex() )
+		util.Effect( "Impact", data )
+
+		-- Cause some damage
+		local info = DamageInfo()
+			info:SetAttacker( self:GetOwner() )
+			info:SetInflictor( self )
+			info:SetDamage( 100 )
+			info:SetDamageType( DMG_BULLET )
+			info:SetDamagePosition( trace_t.HitPos )
+			local force = compensatedpos
+			force:Set( trace_t.Normal )
+			force:Mul( 75 * 4 * 0.7 )
+			info:SetDamageForce( force )
+		pOther:TakeDamageInfo( info )
+
+		-- Schedule removal
+		self.Think = self.Remove
+		self:NextThink( CurTime() + 10 )
+
+	end
+
+	-- Shoot sparks
+	local data = EffectData()
+		data:SetOrigin( trace_t.HitPos )
+		data:SetMagnitude( 2 )
+		data:SetScale( 1 )
+		local normal = trace_t.Normal
+		normal:Negate()
+		data:SetNormal( normal )
+	util.Effect( "ElectricSpark", data )
+
+end
+	</code>
+</example>

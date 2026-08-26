@@ -1,0 +1,25 @@
+<function name="PhysicsInit" parent="Entity" type="classfunc">
+	<description>
+Initializes the <page text="physics object">Entity:GetPhysicsObject</page> of the entity using its current <page text="model">Entity:GetModel</page>. Deletes the previous physics object if it existed and the new object creation was successful.
+
+If the entity's current model has no physics mesh associated to it, no physics object will be created and the previous object will still exist, if applicable.
+
+<note>When called clientside, this will not create a valid <page>PhysObj</page> if the model hasn't been <page text="precached">util.PrecacheModel</page> serverside.
+
+If successful, this function will automatically call <page>Entity:SetSolid</page>( solidType ) and <page>Entity:SetSolidFlags</page>( 0 ).</note>
+
+<bug issue="5060">Clientside physics objects on serverside entities do not move properly in some cases. Physics objects should only created on the server or you will experience incorrect physgun beam position, prediction issues, and other unexpected behavior.
+
+A workaround is available on the <page>Entity:PhysicsInitConvex</page> page.</bug>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="solidType" type="number">The solid type of the physics object to create, see <page>Enums/SOLID</page>. Should be `SOLID_VPHYSICS` in most cases.
+
+		<note>Using `SOLID_NONE` will only delete the current physics object - it does not create a new one.</note></arg>
+<arg name="massCenterOverride" type="Vector" default="nil" added="2024.10.29">If set, overwrites the center of mass for the created physics object.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Returns `true` on success, `false` otherwise.</ret>
+	</rets>
+</function>

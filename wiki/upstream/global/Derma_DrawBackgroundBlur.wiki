@@ -1,0 +1,26 @@
+<function name="Derma_DrawBackgroundBlur" parent="Global" type="libraryfunc">
+	<description>Draws background blur around the given panel.
+		<note>Calling this on the same <page>Panel</page> multiple times makes the blur darker.</note>
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="7-L37">lua/derma/derma_utils.lua</file>
+	<args>
+		<arg name="panel" type="Panel">Panel to draw the background blur around</arg>
+		<arg name="startTime" type="number">Time that the blur began being painted</arg>
+	</args>
+</function>
+
+<example>
+	<description>Blur being drawn around a panel</description>
+	<code>
+function PANEL:Init()
+	self.startTime = SysTime()
+end
+
+function PANEL:Paint()
+	Derma_DrawBackgroundBlur(self, self.startTime)
+end
+	</code>
+	<output>Background blur is drawn around the panel</output>
+
+</example>

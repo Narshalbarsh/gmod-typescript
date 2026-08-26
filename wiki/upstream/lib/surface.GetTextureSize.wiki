@@ -1,0 +1,14 @@
+<function name="GetTextureSize" parent="surface" type="libraryfunc">
+	<description>Returns the size of the texture with the associated texture ID.
+
+For `.png/.jpg` textures loaded with <page>Global.Material</page> you can use the `$realheight` and `$realwidth` material parameters (<page>IMaterial:GetInt</page>) to get the size of the image.
+</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="textureID" type="number">The texture ID, returned by <page>surface.GetTextureID</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The texture width.</ret>
+		<ret name="" type="number">The texture height.</ret>
+	</rets>
+</function>

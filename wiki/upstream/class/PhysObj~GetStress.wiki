@@ -1,0 +1,8 @@
+<function name="GetStress" parent="PhysObj" type="classfunc">
+	<description>Returns the internal and external stress of the entity.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">The external stress (`𝜎𝑒`). It's the value of a giving force to other entities (in kg).</ret>
+		<ret name="" type="number">The internal stress (`𝜎𝑖`). It's the value of a receiving force from other entities (in kg).</ret>
+	</rets>
+</function>

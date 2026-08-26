@@ -1,0 +1,8 @@
+<function name="DrawFilledRect" parent="Panel" type="classfunc">
+	<description>Draws a coloured rectangle to fill the panel object this method is called on. The colour is set using <page>surface.SetDrawColor</page>. This should only be called within the object's <page>PANEL:Paint</page> or <page>PANEL:PaintOver</page> hooks, as a shortcut for <page>surface.DrawRect</page>.
+
+
+<rendercontext hook="false" type="2D"></rendercontext>
+</description>
+	<realm>Client and Menu</realm>
+</function>

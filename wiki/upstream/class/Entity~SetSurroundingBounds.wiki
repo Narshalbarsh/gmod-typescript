@@ -1,0 +1,12 @@
+<function name="SetSurroundingBounds" parent="Entity" type="classfunc">
+	<added>2023.01.25</added>
+	<description>Sets the axis-aligned bounding box (AABB) for an entity's hitbox detection.
+
+	See also <page>Entity:SetSurroundingBoundsType</page> (mutually exclusive).
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="min" type="Vector">Minimum extent of the AABB relative to entity's position.</arg>
+		<arg name="max" type="Vector">Maximum extent of the AABB relative to entity's position.</arg>
+	</args>
+</function>

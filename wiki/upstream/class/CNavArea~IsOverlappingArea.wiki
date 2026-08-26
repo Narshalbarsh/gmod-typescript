@@ -1,0 +1,10 @@
+<function name="IsOverlappingArea" parent="CNavArea" type="classfunc">
+	<description>Returns true if this <page>CNavArea</page> is overlapping the given <page>CNavArea</page>.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="navArea" type="CNavArea">The <page>CNavArea</page> to test against.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">True if the given <page>CNavArea</page> overlaps this <page>CNavArea</page> at any point.</ret>
+	</rets>
+</function>

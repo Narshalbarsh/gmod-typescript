@@ -1,0 +1,11 @@
+<function name="MoveToBefore" parent="Panel" type="classfunc">
+	<file line="567-L588">lua/includes/extensions/client/panel.lua</file>
+	<description>Moves this panel object behind the specified sibling (child of the same parent) in the render order, and shuffles up the <page>Panel:SetZPos</page> of siblings now in front.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="siblingPanel" type="Panel">The panel to move this one behind. Must be a child of the same parent panel.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">`false` if the passed panel is not a sibling, otherwise `nil`.</ret>
+	</rets>
+</function>

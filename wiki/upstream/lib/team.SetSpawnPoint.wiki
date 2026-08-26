@@ -1,0 +1,19 @@
+<function name="SetSpawnPoint" parent="team" type="libraryfunc">
+	<description>
+Sets valid spawnpoint classes for use by a team.
+
+<note>GM.TeamBased must be set to true for this to work</note>
+	</description>
+	<file line="80-L87">lua/includes/modules/team.lua</file>
+	<realm>Shared</realm>
+	<args>
+		<arg name="index" type="number">Index of the team</arg>
+		<arg name="classes" type="any">A spawnpoint classname or table of spawnpoint classnames</arg>
+	</args>
+</function>
+
+<example>
+	<description>Allows TEAM_BLUE to spawn at terrorist spawn points</description>
+	<code>team.SetSpawnPoint( TEAM_BLUE, {"info_player_terrorist"} )</code>
+
+</example>

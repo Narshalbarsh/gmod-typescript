@@ -1,0 +1,13 @@
+<function name="Say" parent="Player" type="classfunc">
+	<description>
+Forces the player to say whatever the first argument is. Works on bots too.
+
+<note>This function ignores the default chat message cooldown</note>
+<warning>The argument can only contain 126 characters. [Source SDK 2013](https://github.com/ValveSoftware/source-sdk-2013/blob/0d8dceea4310fde5706b3ce1c70609d72a38efdf/sp/src/game/server/client.cpp#L84-L86)</warning>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="text" type="string">The text to force the player to say.</arg>
+		<arg name="teamOnly" type="boolean" default="false">Whether to send this message to our own team only.</arg>
+	</args>
+</function>

@@ -1,0 +1,26 @@
+<function name="SetOrthographic" parent="ProjectedTexture" type="classfunc">
+	<description>
+Changes the current projected texture between orthographic and perspective projection.
+
+You must call <page>ProjectedTexture:Update</page> after using this function for it to take effect.
+
+Shadows dont work. (For non static props and for most map brushes)
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="orthographic" type="boolean">When false, all other arguments are ignored and the texture is reset to perspective projection.</arg>
+		<arg name="left" type="number">The amount of units left from the projected texture's origin to project.</arg>
+		<arg name="top" type="number">The amount of units upwards from the projected texture's origin to project.</arg>
+		<arg name="right" type="number">The amount of units right from the projected texture's origin to project.</arg>
+		<arg name="bottom" type="number">The amount of units downwards from the projected texture's origin to project.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Set the projected texture back to perspective projection.</description>
+	<code>
+ProjectedTexture:SetOrthographic( false )
+ProjectedTexture:Update()
+	</code>
+
+</example>

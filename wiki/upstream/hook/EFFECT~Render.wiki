@@ -1,0 +1,7 @@
+<function name="Render" parent="EFFECT" type="hook">
+	<description>Called when the effect should be rendered. 
+
+	When not overridden, it will perform default action, which is <page>Entity:DrawModel</page>. 
+</description>
+	<realm>Client</realm>
+</function>

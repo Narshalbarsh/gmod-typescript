@@ -1,0 +1,11 @@
+<function name="GetDrawBorder" parent="DColorButton" type="panelfunc">
+	<description>
+<deprecated></deprecated>
+	An <page>Global.AccessorFunc</page> that returns value set by <page>DColorButton:SetDrawBorder</page>. See that page for more info.
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="6">lua/vgui/dcolorbutton.lua</file>
+	<rets>
+		<ret name="" type="boolean">Value set by <page>DColorButton:SetDrawBorder</page>.</ret>
+	</rets>
+</function>

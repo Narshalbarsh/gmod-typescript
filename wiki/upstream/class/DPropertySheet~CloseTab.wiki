@@ -1,0 +1,46 @@
+<function name="CloseTab" parent="DPropertySheet" type="panelfunc">
+	<file line="405-L441">lua/vgui/dpropertysheet.lua</file>
+	<description>
+		Removes tab and/or panel from the parent DPropertySheet.
+		<note>In case you close the active tab, it will be reset to the last item available in the list.</note>
+	</description>
+	
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="tab" type="Panel">The <page>DTab</page> of the sheet from <page>DPropertySheet</page>.
+
+See <page>DPropertySheet:GetItems</page>.</arg>
+		<arg name="removePanel" type="boolean">Set to true to remove the associated panel object as well.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Panel">The panel of the tab.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Example of how you'd create and use this panel and close unnecessary sheets.</description>
+	<code>
+local MainFrame = vgui.Create( "DFrame" )
+MainFrame:SetSize( 500, 300 )
+MainFrame:Center()
+MainFrame:MakePopup()
+
+local MainSheet = vgui.Create( "DPropertySheet", MainFrame )
+MainSheet:Dock( FILL )
+
+local First_Panel = vgui.Create( "DPanel", MainSheet )
+First_Panel.Paint = function( self, w, h ) draw.RoundedBox( 4, 0, 0, w, h, Color( 255, 128, 0, self:GetAlpha() ) ) end
+MainSheet:AddSheet( "Users Page", First_Panel, "icon16/user.png" )
+
+local Second_Panel = vgui.Create( "DPanel", MainSheet )
+Second_Panel.Paint = function( self, w, h ) draw.RoundedBox( 4, 0, 0, w, h, Color( 0, 128, 255, self:GetAlpha() ) ) end
+MainSheet:AddSheet( "Admins Page", Second_Panel, "icon16/lightning.png" )
+
+if LocalPlayer():IsAdmin() then
+	MainSheet:CloseTab( MainSheet:GetItems()[1].Tab ) --1 is a representation of the first sheet
+else
+	MainSheet:CloseTab( MainSheet:GetItems()[2].Tab ) --2 is a representation of the second sheet
+end
+	</code>
+
+</example>

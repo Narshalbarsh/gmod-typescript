@@ -1,0 +1,22 @@
+<function name="ChatPrint" parent="Player" type="classfunc">
+	<description>
+Prints a string to the chatbox of the client.
+
+<warning>Just like the <page>usermessage</page>, this function is affected by the 255 byte limit!</warning>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="message" type="string">String to be printed</arg>
+	</args>
+</function>
+
+<example>
+	<description>Prints "Hello World" to chat of all players</description>
+	<code>
+for i, ply in ipairs( player.GetAll() ) do
+	ply:ChatPrint( "Hello World" )
+end
+	</code>
+	<output>Hello World (In chatbox)</output>
+
+</example>

@@ -1,0 +1,12 @@
+<function name="SetPhysProp" parent="construct" type="libraryfunc">
+	<description>Sets props physical properties.</description>
+	<realm>Server</realm>
+	<file line="13-L51">lua/includes/modules/construct.lua</file>
+	<args>
+		<arg name="ply" type="Player">The player. This variable is not used and can be left out.</arg>
+		<arg name="ent" type="Entity">The entity to apply properties to.</arg>
+		<arg name="physObjID" type="number">You can use this or the argument below. This will be used in case you don't provide argument below.</arg>
+		<arg name="physObj" type="PhysObj">The physics object to apply the properties to.</arg>
+		<arg name="data" type="table">The table containing properties to apply. See <page>Structures/PhysProperties</page>.</arg>
+	</args>
+</function>

@@ -1,0 +1,14 @@
+<function name="SetConstraintRadius" parent="CMoveData" type="classfunc">
+	<description>
+Sets the radius that constrains the players movement.
+
+Works with conjunction of:
+* <page>CMoveData:SetConstraintWidth</page>
+* <page>CMoveData:SetConstraintSpeedScale</page>
+* <page>CMoveData:SetConstraintCenter</page>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="radius" type="number">The new constraint radius</arg>
+	</args>
+</function>

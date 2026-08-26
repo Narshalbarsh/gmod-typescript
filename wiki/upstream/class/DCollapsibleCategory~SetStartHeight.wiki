@@ -1,0 +1,10 @@
+<function name="SetStartHeight" parent="DCollapsibleCategory" type="panelfunc">
+	<description>
+<deprecated></deprecated>
+Does nothing.</description>
+	<realm>Client and Menu</realm>
+	<file line="49">lua/vgui/dcategorycollapse.lua</file>
+	<args>
+		<arg name="height" type="number"></arg>
+	</args>
+</function>

@@ -1,0 +1,7 @@
+<function name="SetMax" parent="DNumSlider" type="panelfunc">
+	<description>Sets the maximum value for the slider.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="max" type="number">The value to set as maximum for the slider.</arg>
+	</args>
+</function>

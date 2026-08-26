@@ -1,0 +1,9 @@
+<function name="IgnoreEnemyUntil" parent="NPC" type="classfunc">
+	<description>Makes the NPC ignore given entity/enemy until given time.</description>
+	<realm>Server</realm>
+	<added>2022.06.08</added>
+	<args>
+		<arg name="enemy" type="Entity">The enemy to ignore.</arg>
+		<arg name="until" type="number">How long to ignore the enemy for. This will be compared to <page>Global.CurTime</page>, so your value should be based on it.</arg>
+	</args>
+</function>

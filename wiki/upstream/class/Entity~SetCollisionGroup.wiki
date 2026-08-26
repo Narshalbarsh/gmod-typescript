@@ -1,0 +1,46 @@
+<function name="SetCollisionGroup" parent="Entity" type="classfunc">
+	<description>Sets the entity's collision group.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="group" type="number{COLLISION_GROUP}">Collision group of the entity, see <page>Enums/COLLISION_GROUP</page></arg>
+	</args>
+</function>
+
+<example>
+	<description>
+Showcase function that produces reliable player-player nocollision for targets.
+First argument is any player entity, second is an optional number for min time.
+After min time elapsed, no-collision will turn off once we are not penetrating any players.
+
+Contains no fail-saves or checks.
+	</description>
+	<code>
+function ActivateNoCollision(target, min)
+
+	local oldCollision = target:GetCollisionGroup() or COLLISION_GROUP_PLAYER
+	target:SetCollisionGroup(COLLISION_GROUP_PASSABLE_DOOR) -- Players can walk through target
+
+	if (min and (tonumber(min) > 0)) then 
+
+		timer.Simple(min, function() --after 'min' seconds
+			timer.Create(target:SteamID64().."_checkBounds_cycle", 0.5, 0, function() -- check every half second
+				local penetrating = ( self:GetPhysicsObject() and self:GetPhysicsObject():IsPenetrating() ) or false --if we are penetrating an object
+				local tooNearPlayer = false --or inside a player's hitbox
+				for i, ply in ipairs( player.GetAll() ) do
+					if target:GetPos():DistToSqr(ply:GetPos()) <= (80*80) then
+						tooNearPlayer = true
+					end
+				end
+				if not (penetrating and tooNearPlayer) then --if both false then 
+					target:SetCollisionGroup(oldCollision) -- Stop no-colliding by returning the original collision group (or default player collision)
+					timer.Destroy(target:SteamID64().."_checkBounds_cycle")
+				end
+			end)
+		end)
+	end
+end
+ActivateNoCollision(Entity( 1 ), 10)
+	</code>
+	<output>You can walk through the player for 10 seconds</output>
+
+</example>

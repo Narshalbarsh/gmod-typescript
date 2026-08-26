@@ -1,0 +1,4 @@
+<function name="on" parent="jit" type="libraryfunc">
+	<description>Enables LuaJIT Lua compilation.</description>
+	<realm>Shared and Menu</realm>
+</function>

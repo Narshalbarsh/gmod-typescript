@@ -1,0 +1,12 @@
+<function name="IsValidPhysicsObject" parent="util" type="libraryfunc">
+	<description>Checks whether the given numbered physics object of the given entity is valid or not. Most useful for ragdolls.</description>
+	<realm>Shared</realm>
+	<file line="9-L30">lua/includes/extensions/util.lua</file>
+	<args>
+		<arg name="ent" type="Entity">The entity to take.</arg>
+		<arg name="physobj" type="number">Number of the physics object to test.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">`true` that's valid, `false` otherwise.</ret>
+	</rets>
+</function>

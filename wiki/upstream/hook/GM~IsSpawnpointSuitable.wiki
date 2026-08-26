@@ -1,0 +1,13 @@
+<function name="IsSpawnpointSuitable" parent="GM" type="hook">
+	<description>Check if a player can spawn at a certain spawnpoint.</description>
+	<realm>Server</realm>
+	<file line="330-L358">gamemodes/base/gamemode/player.lua</file>
+	<args>
+		<arg name="ply" type="Player">The player who is spawned</arg>
+		<arg name="spawnpoint" type="Entity">The spawnpoint entity (on the map).</arg>
+		<arg name="makeSuitable" type="boolean">If this is true, it'll kill any players blocking the spawnpoint.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return true to indicate that the spawnpoint is suitable (Allow for the player to spawn here), false to prevent spawning.</ret>
+	</rets>
+</function>

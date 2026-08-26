@@ -1,0 +1,7 @@
+<function name="ReadEntity" parent="bf_read" type="classfunc">
+	<description>Reads a short representing an entity index and returns the matching entity handle.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="Entity">ent</ret>
+	</rets>
+</function>

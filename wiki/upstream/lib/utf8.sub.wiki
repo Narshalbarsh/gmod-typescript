@@ -1,0 +1,17 @@
+<function name="sub" parent="utf8" type="libraryfunc">
+	<description>
+A UTF-8 compatible version of <page>string.sub</page>.
+	<warning>Avoid using this function on large strings every tick/frame, as it may cause lags.</warning>
+	</description>
+	<realm>Shared and Menu</realm>
+	<added>2020.06.24</added>
+	<file line="364-L377">lua/includes/modules/utf8.lua</file>
+	<args>
+		<arg name="string" type="string">The string you'll take a sub-string out of.</arg>
+		<arg name="StartPos" type="number">The position of the first character that will be included in the sub-string.</arg>
+		<arg name="EndPos" type="number" default="nil">The position of the last character to be included in the sub-string. It can be negative to count from the end.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The substring.</ret>
+	</rets>
+</function>

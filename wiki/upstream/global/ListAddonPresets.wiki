@@ -1,0 +1,8 @@
+<function name="ListAddonPresets" parent="Global" type="libraryfunc">
+	<description>
+		<internal></internal>
+		Loads all Addon Presets and updates the Preset list.
+	</description>
+	<realm>Menu</realm>
+	<file line="621-L625">lua/menu/mainmenu.lua</file>
+</function>

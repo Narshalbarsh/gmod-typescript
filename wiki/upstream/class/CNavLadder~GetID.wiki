@@ -1,0 +1,7 @@
+<function name="GetID" parent="CNavLadder" type="classfunc">
+	<description>Returns this <page>CNavLadder</page>s unique ID.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="number">The unique ID.</ret>
+	</rets>
+</function>

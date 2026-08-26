@@ -1,0 +1,13 @@
+<function name="ToolPresets" parent="ControlPanel" type="panelfunc">
+	<description>Creates a <page>ControlPresets</page> panel and adds it as an <page text="item">ControlPanel:AddPanel</page>.</description>
+	<added>2021.12.15</added>
+	<realm>Client</realm>
+	<file line="59-L74">gamemodes/sandbox/gamemode/spawnmenu/controlpanel.lua</file>
+	<args>
+		<arg name="group" type="string">The <page text="preset">presets</page> group. Must be unique.</arg>
+		<arg name="cvarList" type="table">A table of <page>convar</page> names as keys and their defaults as the values. Typically the output of <page>Tool:BuildConVarList</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="ControlPresets">The created <page>ControlPresets</page> panel.</ret>
+	</rets>
+</function>

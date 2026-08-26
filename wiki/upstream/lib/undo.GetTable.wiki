@@ -1,0 +1,11 @@
+<function name="GetTable" parent="undo" type="libraryfunc">
+	<description>Serverside, returns a table containing all undo blocks of all players. Clientside, returns a table of the local player's undo blocks.
+	<note>Serverside, this table's keys use <page>Player:UniqueID</page> to store a player's undo blocks.</note>
+	</description>
+
+	<realm>Shared</realm>
+	<file line="187-L189">lua/includes/modules/undo.lua</file>
+	<rets>
+		<ret name="" type="table<table{Undo}>">The undo table.</ret>
+	</rets>
+</function>

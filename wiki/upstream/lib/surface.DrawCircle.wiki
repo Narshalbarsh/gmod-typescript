@@ -1,0 +1,35 @@
+<function name="DrawCircle" parent="surface" type="libraryfunc">
+	<description>
+Draws a hollow circle, made of lines. For a filled circle, see examples for <page>surface.DrawPoly</page>.
+
+<rendercontext hook="false" type="2D"></rendercontext>
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="originX" type="number">The center x integer coordinate.</arg>
+		<arg name="originY" type="number">The center y integer coordinate.</arg>
+		<arg name="radius" type="number">The radius of the circle.</arg>
+		<arg name="r" type="number">The red value of the color to draw the circle with.</arg>
+		<arg name="g" type="number">The green value of the color to draw the circle with.</arg>
+		<arg name="b" type="number">The blue value of the color to draw the circle with.</arg>
+		<arg name="a" type="number" default="255">The alpha value of the color to draw the circle with.</arg>
+	</args>
+	<args name="Use color object">
+		<arg name="originX" type="number">The center x integer coordinate.</arg>
+		<arg name="originY" type="number">The center y integer coordinate.</arg>
+		<arg name="radius" type="number">The radius of the circle.</arg>
+		<arg name="color" type="Color">A <page>Color</page> object/table to read the color from.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Example usage. Draws an orange circle at position 500, 500 with a varying/animated radius of 50 to 150.</description>
+	<code>
+hook.Add( "HUDPaint", "DrawCircleExample", function()
+
+	surface.DrawCircle( 500, 500, 100 + math.sin( CurTime() ) * 50, Color( 255, 120, 0 ) )
+
+end )
+	</code>
+
+</example>

@@ -1,0 +1,5 @@
+<function name="ConVarThink" parent="DColorMixer" type="panelfunc">
+	<description><internal></internal></description>
+	<file line="341-L360">lua/vgui/dcolormixer.lua</file>
+	<realm>Client and Menu</realm>
+</function>

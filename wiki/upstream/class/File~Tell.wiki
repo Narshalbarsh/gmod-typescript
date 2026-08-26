@@ -1,0 +1,7 @@
+<function name="Tell" parent="File" type="classfunc">
+	<description>Returns the current position of the file pointer.</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="number">pos</ret>
+	</rets>
+</function>

@@ -1,0 +1,7 @@
+<function name="AddGameFlag" parent="PhysObj" type="classfunc">
+	<description>Adds one or more bit flags.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="flags" type="number">Bitflag, see <page>Enums/FVPHYSICS</page>.</arg>
+	</args>
+</function>

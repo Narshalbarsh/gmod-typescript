@@ -1,0 +1,7 @@
+<function name="SetHasBrakePedal" parent="Vehicle" type="classfunc">
+	<description>Sets whether this vehicle has a brake pedal.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="brakePedal" type="boolean">Whether this vehicle has a brake pedal</arg>
+	</args>
+</function>

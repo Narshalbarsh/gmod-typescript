@@ -1,0 +1,18 @@
+<function name="GetRunSpeed" parent="Player" type="classfunc">
+	<description>
+Returns the player's sprint speed.
+
+See also <page>Player:SetRunSpeed</page>, <page>Player:GetWalkSpeed</page> and <page>Player:GetMaxSpeed</page>.
+	</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The sprint speed</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Prints the players run speed in the code.</description>
+	<code>print( Entity( 1 ):GetRunSpeed() )</code>
+	<output>500</output>
+
+</example>

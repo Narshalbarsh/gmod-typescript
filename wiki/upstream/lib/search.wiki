@@ -1,0 +1,3 @@
+<type name="search" category="libraryfunc" is="library">
+	<summary>The search library</summary>
+</type>

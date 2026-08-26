@@ -1,0 +1,22 @@
+<enum>
+	<realm>Client</realm>
+	<description>Enumerations used by <page>IGModAudioChannel:FFT</page>. Clientside only.</description>
+	<items>
+<item key="FFT_256" value="0">128 levels</item>
+
+<item key="FFT_512" value="1">256 levels</item>
+
+<item key="FFT_1024" value="2">512 levels</item>
+
+<item key="FFT_2048" value="3">1024 levels</item>
+
+<item key="FFT_4096" value="4">2048 levels</item>
+
+<item key="FFT_8192" value="5">4096 levels</item>
+
+<item key="FFT_16384" value="6">8192 levels</item>
+
+<item key="FFT_32768" value="7">16384 levels</item>
+	</items>
+
+</enum>

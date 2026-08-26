@@ -1,0 +1,19 @@
+<function name="ceil" parent="math" type="libraryfunc">
+	<description>Ceils or rounds a number up.
+
+	See <page>math.floor</page> for the inverse of this function.</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="number" type="number">The number to be rounded up.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">ceiled numbers</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Round pi.</description>
+	<code>print(math.ceil(math.pi))</code>
+	<output>4</output>
+
+</example>

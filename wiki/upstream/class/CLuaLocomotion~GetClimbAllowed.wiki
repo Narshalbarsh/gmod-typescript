@@ -1,0 +1,8 @@
+<function name="GetClimbAllowed" parent="CLuaLocomotion" type="classfunc">
+	<description>Returns whether the Nextbot is allowed to climb or not.</description>
+	<realm>Server</realm>
+	<added>2021.12.15</added>
+	<rets>
+		<ret name="allowed" type="boolean">Whether this bot is allowed to climb.</ret>
+	</rets>
+</function>

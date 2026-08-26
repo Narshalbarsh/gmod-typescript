@@ -1,0 +1,12 @@
+<function name="SetDisabled" parent="DTextEntry" type="panelfunc">
+	<description>
+<deprecated>Use <page>Panel:SetEnabled</page> instead.</deprecated>
+
+Disables input on a DTextEntry and greys it out visually. This differs from <page>DTextEntry:SetEditable</page> which doesn't visually change the textbox.
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="313-L315">lua/vgui/dtextentry.lua</file>
+	<args>
+		<arg name="disabled" type="boolean">Whether the textbox should be disabled</arg>
+	</args>
+</function>

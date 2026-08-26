@@ -1,0 +1,6 @@
+<function name="Death" parent="PLAYER" type="hook">	
+	<description>Called when the player dies</description>
+	<realm>Server</realm>
+	<added>2020.06.24</added>
+	<file line="74-L75">gamemodes/base/gamemode/player_class/player_default.lua</file>
+</function>

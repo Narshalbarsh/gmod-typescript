@@ -1,0 +1,27 @@
+<function name="Trim" parent="string" type="libraryfunc">
+	<description>Removes leading and trailing matches of a string.</description>
+	<realm>Shared and Menu</realm>
+	<file line="258-L261">lua/includes/extensions/string.lua</file>
+	<args>
+		<arg name="Inputstring" type="string">The string to trim.</arg>
+		<arg name="Char" type="string" default="%s">String to match - can be multiple characters. Matches spaces by default.</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">Modified string</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Demonstrates the use of string. Trim without second argument.</description>
+	<code>MsgN(string.Trim(" hi whatsup "))</code>
+	<output>"hi whatsup"</output>
+
+
+</example>
+
+<example>
+	<description>Trim with longer strings as second argument.</description>
+	<code>MsgN(string.Trim("you cant be serious ,you", "you"))</code>
+	<output>" cant be serious ,"</output>
+
+</example>

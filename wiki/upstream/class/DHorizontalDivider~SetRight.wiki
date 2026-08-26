@@ -1,0 +1,7 @@
+<function name="SetRight" parent="DHorizontalDivider" type="panelfunc">
+	<description>Sets the right side content</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="pnl" type="Panel">The right side content</arg>
+	</args>
+</function>

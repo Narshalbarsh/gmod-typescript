@@ -1,0 +1,9 @@
+<function name="GetPadding" parent="DScrollPanel" type="panelfunc">
+	<description>
+<deprecated></deprecated>
+Gets the <page>DScrollPanel</page>s padding, set by <page>DScrollPanel:SetPadding</page>.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">DScrollPanels padding</ret>
+	</rets>
+</function>

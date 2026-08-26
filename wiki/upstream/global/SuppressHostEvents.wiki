@@ -1,0 +1,9 @@
+<function name="SuppressHostEvents" parent="Global" type="libraryfunc">
+	<description>Suppress any networking from the server to the specified player. Set this to <page>NULL</page> to stop suppressing network events.
+
+This is automatically called by the engine before/after a player fires their weapon, reloads, or causes any other similar shared-predicted event to occur.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="suppressPlayer" type="Player">The player to suppress any networking to.</arg>
+	</args>
+</function>

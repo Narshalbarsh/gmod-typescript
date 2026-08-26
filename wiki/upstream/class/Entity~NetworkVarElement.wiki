@@ -1,0 +1,36 @@
+<function name="NetworkVarElement" parent="Entity" type="classfunc">
+	<description>
+Similarly to <page>Entity:NetworkVar</page>, creates a network variable on the entity and adds Set/Get functions for it. This method stores it's value as a member value of a vector or an angle. This allows to go beyond the normal variable limit of <page>Entity:NetworkVar</page> for `Int` and `Float` types, at the expense of `Vector` and `Angle` limit.
+
+This function should only be called in <page>ENTITY:SetupDataTables</page>.
+
+<warning>Make sure to not call the SetDT* and your custom set methods on the client realm unless you know exactly what you are doing.</warning>
+	</description>
+	<realm>Shared</realm>
+	<file line="402-L435">lua/includes/extensions/entity.lua</file>
+	<args>
+		<arg name="type" type="string">Supported choices:
+* `Vector`
+* `Angle`
+</arg>
+		<arg name="slot" type="number">The slot for this `Vector` or `Angle`, from `0` to `31`. See <page>Entity:NetworkVar</page> for more detailed explanation.
+
+This can be omitted entirely (arguments will shift) and it will use the next available slot.</arg>
+		<arg name="element" type="string">
+			Which element of a `Vector` or an `Angle` to store the value on. This can be `p`, `y`, `r` for <page>Angle</page>s, and `x`, `y`, `z` for <page>Vector</page>s
+		</arg>
+		<arg name="name" type="string">The name will affect how you access it. If you call it `Foo` you would add two new functions on your entity - `SetFoo()` and `GetFoo()`. So be careful that what you call it won't collide with any existing functions (don't call it "Pos" for example).</arg>
+		<arg name="extended" type="table" default="nil">A table of extra information. See <page>Entity:NetworkVar</page> for details.</arg>
+	</args>
+	<args name="Slot argument is omitted">
+		<arg name="type" type="string">Supported choices:
+* `Vector`
+* `Angle`
+</arg>
+		<arg name="element" type="string">
+			Which element of a `Vector` or an `Angle` to store the value on. This can be `p`, `y`, `r` for <page>Angle</page>s, and `x`, `y`, `z` for <page>Vector</page>s
+		</arg>
+		<arg name="name" type="string">The name will affect how you access it. If you call it `Foo` you would add two new functions on your entity - `SetFoo()` and `GetFoo()`. So be careful that what you call it won't collide with any existing functions (don't call it "Pos" for example).</arg>
+		<arg name="extended" type="table" default="nil">A table of extra information. See <page>Entity:NetworkVar</page> for details.</arg>
+	</args>
+</function>

@@ -1,0 +1,44 @@
+<function name="OnUserChanged" parent="DColorCube" type="panelhook">
+	<description>Function which is called when the color cube slider is moved (through user input). Meant to be overridden.</description>
+	<realm>Client and Menu</realm>
+	<file line="89-L93">lua/vgui/dcolorcube.lua</file>
+	<args>
+		<arg name="color" type="Color">The new color, uses <page>Color</page>.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Creates a color cube which controls the blue saturation and value of a ball image.</description>
+	<code>
+-- Frame
+MainFrame = vgui.Create("DFrame")
+MainFrame:SetSize(320, 200)
+MainFrame:Center()
+MainFrame:SetTitle("Choose the saturation and value")
+
+-- Image of a ball
+local ball_img = vgui.Create("DImage", MainFrame)
+ball_img:SetPos(20, 45)
+ball_img:SetSize(128, 128)
+
+ball_img:SetImage("sprites/sent_ball")
+
+-- Color cube
+local color_cube = vgui.Create("DColorCube", MainFrame)
+color_cube:SetPos(160, 40)
+color_cube:SetSize(150, 150)
+
+-- Set color to blue
+color_cube:SetColor(Color(0, 0, 255))
+
+-- Called when slider is moved by user
+function color_cube:OnUserChanged(col)
+	
+	-- Update ball color
+	ball_img:SetImageColor(col)
+
+end
+	</code>
+	<output><image src="DColorCube_OnUserChanged_example1.gif"/></output>
+
+</example>

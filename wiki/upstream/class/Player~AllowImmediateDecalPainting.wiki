@@ -1,0 +1,7 @@
+<function name="AllowImmediateDecalPainting" parent="Player" type="classfunc">
+	<description>Lets the player spray their decal without delay</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="allow" type="boolean">Allow or disallow</arg>
+	</args>
+</function>

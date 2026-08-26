@@ -1,0 +1,18 @@
+<function name="util.ircalladdr" parent="jit" type="libraryfunc">
+	<description>
+<deprecated>This function was disabled due to security concerns.</deprecated>
+
+	Previously got the address of a function from a set list of functions, but now always returns `0` as it is deprecated.
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="index" type="number">
+			This argument is ignored.
+		</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">
+			Always returns `0`
+		</ret>
+	</rets>
+</function>

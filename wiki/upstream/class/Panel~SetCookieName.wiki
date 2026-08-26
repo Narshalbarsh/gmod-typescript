@@ -1,0 +1,8 @@
+<function name="SetCookieName" parent="Panel" type="classfunc">
+	<file line="187-L197">lua/includes/extensions/client/panel.lua</file>
+	<description>Sets the panel's cookie name. Calls <page>PANEL:LoadCookies</page> if defined.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="name" type="string">The panel's cookie name. Used as prefix for <page>Panel:SetCookie</page>, therefore should be a unique value.</arg>
+	</args>
+</function>

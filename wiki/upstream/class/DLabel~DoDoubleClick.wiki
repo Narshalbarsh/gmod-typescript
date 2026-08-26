@@ -1,0 +1,38 @@
+<function name="DoDoubleClick" parent="DLabel" type="panelhook">
+	<description>
+Called when the label is double clicked by the player with left clicks.
+
+<page>DLabel:SetDoubleClickingEnabled</page> must be set to true for this hook to work, which it is by default.
+
+This will be called after <page>DLabel:OnDepressed</page> and <page>DLabel:OnReleased</page> and <page>DLabel:DoClick</page>.
+
+See also <page>DLabel:DoRightClick</page> and <page>DLabel:DoMiddleClick</page>.
+	</description>
+	<realm>Client and Menu</realm>
+</function>
+
+
+<example>
+	<description>Opens a URL in Steam Overlay by double clicking the text "Click ME"!</description>
+	<code>
+local frame = vgui.Create( "DFrame" )
+frame:SetTitle( "Double Click Example" )
+frame:SetSize( 250, 100 )
+frame:Center()
+frame:MakePopup()
+
+local frame_label = vgui.Create( "DLabel", frame )
+frame_label:SetPos( 10, 30 )
+frame_label:SetTextColor( Color( 255, 255, 255 ) )
+frame_label:SetText( "Double click me!" )
+frame_label:SizeToContents()
+frame_label:SetMouseInputEnabled( true )
+frame_label.DoDoubleClick = function()
+	gui.OpenURL("https://wiki.facepunch.com/gmod")
+end
+
+-- Uncommentiing this will disable double clicking
+-- frame_label:SetDoubleClickingEnabled( false )
+	</code>
+	<output><image src="ClickMeDouble.png"/></output>
+</example>

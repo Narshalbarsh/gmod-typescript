@@ -1,0 +1,13 @@
+<function name="SendHint" parent="Player" type="classfunc">
+	<description>
+Sends a hint to a player.
+
+<note>This function is only available in Sandbox and its derivatives. Since this adds `#Hint_` to the beginning of each message, you should only use it with default hint messages, or those cached with <page>language.Add</page>. For hints with custom text, look at <page>notification.AddLegacy</page>.</note>
+	</description>
+	<realm>Server</realm>
+	<file line="119-L127">gamemodes/sandbox/gamemode/player_extension.lua</file>
+	<args>
+		<arg name="name" type="string">Name/class/index of the hint. You can find a list of hint names for this function <page text="here">List_of_Hint_Classes</page>.</arg>
+		<arg name="delay" type="number">Delay in seconds before showing the hint</arg>
+	</args>
+</function>

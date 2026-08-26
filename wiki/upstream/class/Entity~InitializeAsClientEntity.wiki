@@ -1,0 +1,15 @@
+<function name="InitializeAsClientEntity" parent="Entity" type="classfunc">
+	<description>
+<deprecated>
+	This function got disabled and will always throw an error if it's used. This is the error: 
+```
+[ERROR] InitializeAsClientEntity is deprecated and should no longer be used.
+```
+</deprecated>
+
+Initializes this entity as being clientside only.
+
+Only works on entities fully created clientside, and as such it currently has no use due to this being automatically called by <page>ents.CreateClientProp</page>, <page>ents.CreateClientside</page>, <page>Global.ClientsideModel</page> and <page>Global.ClientsideScene</page>.
+	</description>
+	<realm>Client</realm>
+</function>

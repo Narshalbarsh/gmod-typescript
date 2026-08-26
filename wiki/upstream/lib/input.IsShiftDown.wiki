@@ -1,0 +1,7 @@
+<function name="IsShiftDown" parent="input" type="libraryfunc">
+	<description>Gets whether a shift key is being pressed</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">isDown</ret>
+	</rets>
+</function>

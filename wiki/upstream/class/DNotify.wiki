@@ -1,0 +1,65 @@
+<panel>
+	<parent>Panel</parent>
+	<realm>Client</realm>
+	<file line="">lua/vgui/dnotify.lua</file>
+	<preview>DNotify.gif</preview>
+	<description>A panel that fades its contents in and out once, like a notification.</description>
+</panel>
+
+
+<example>
+	<description>Creates a notification panel with a text label inside.</description>
+	<code>
+--Notification panel
+local NotifyPanel = vgui.Create("DNotify")
+NotifyPanel:SetPos(10, 5)
+NotifyPanel:SetSize(200, 40)
+
+-- Text label
+local lbl = vgui.Create("DLabel", NotifyPanel)
+lbl:Dock(FILL)
+lbl:SetText("This is a notification.")
+lbl:SetFont("GModNotify")
+lbl:SetDark(true)
+
+-- Add the label to the notification and begin fading
+NotifyPanel:AddItem(lbl)
+	</code>
+
+</example>
+
+
+<example>
+	<description>Creates a notification panel of Dr. Kleiner reminding the player to wear their HEV suit.</description>
+	<code>
+-- Notification panel
+local NotifyPanel = vgui.Create("DNotify")
+NotifyPanel:SetPos(15, 15)
+NotifyPanel:SetSize(150, 210)
+
+-- Gray background panel
+local bg = vgui.Create("DPanel", NotifyPanel)
+bg:Dock(FILL)
+bg:SetBackgroundColor(Color(64, 64, 64))
+
+-- Image of Dr. Kleiner (parented to background panel)
+local img = vgui.Create("DImage", bg)
+img:SetPos(11, 11)
+img:SetSize(128, 128)
+img:SetImage("entities/npc_kleiner.png")
+
+-- A yellow label message (parented to background panel)
+local lbl = vgui.Create("DLabel", bg)
+lbl:SetPos(11, 136)
+lbl:SetSize(128, 72)
+lbl:SetText("Remember to wear your HEV suit!")
+lbl:SetTextColor(Color(255, 200, 0))
+lbl:SetFont("GModNotify")
+lbl:SetWrap(true)
+
+-- Add the background panel to the notification
+NotifyPanel:AddItem(bg)
+	</code>
+	<output><image src="DNotify_example2.gif"/></output>
+
+</example>

@@ -1,0 +1,5 @@
+<function name="Close" parent="File" type="classfunc">
+	<description>Dumps the file changes to disk and closes the file handle which makes the handle useless.
+	</description>
+	<realm>Shared and Menu</realm>
+</function>

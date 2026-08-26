@@ -1,0 +1,12 @@
+<function name="GetLadderClimbSpeed" parent="Player" type="classfunc">
+	<description>
+Returns the player's ladder climbing speed.
+
+See <page>Player:GetWalkSpeed</page> for normal walking speed, <page>Player:GetRunSpeed</page> for sprinting speed and <page>Player:GetSlowWalkSpeed</page> for slow walking speed.
+	</description>
+	<realm>Shared</realm>
+	<added>2020.03.17</added>
+	<rets>
+		<ret name="speed" type="number">The ladder climbing speed.</ret>
+	</rets>
+</function>

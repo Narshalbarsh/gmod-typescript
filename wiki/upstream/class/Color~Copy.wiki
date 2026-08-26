@@ -1,0 +1,11 @@
+<function name="Copy" parent="Color" type="classfunc">
+	<realm>Shared and Menu</realm>
+	<file line="183-L187">lua/includes/util/color.lua</file>
+	<description>Returns a copy of this color, usually so it can be safely modified later without affecting the original color.</description>
+	<added>2025.05.30</added>
+	<rets>
+		<ret name="" type="Color">
+			The copy of the given color, safe to modify.
+		</ret>
+	</rets>
+</function>

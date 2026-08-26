@@ -1,0 +1,21 @@
+<function name="HexToColor" parent="Global" type="libraryfunc">
+	<description>
+Converts a hexadecimal representation of a color to <page>Color</page> object.
+	</description>
+	<realm>Shared and Menu</realm>
+	<added>2025.07.12</added>
+	<file line="119-L161">lua/includes/util/color.lua</file>
+	<args>
+		<arg name="hue" type="string">A hex formatted color. Accepted formats are:
+* `#RRGGBB`
+* `#RRGGBBAA` (Web color standard variation)
+* `#RGB`
+* `#RGBA`
+
+`#` can be omitted.
+</arg>
+	</args>
+	<rets>
+		<ret name="" type="Color">The <page>Color</page> created from the hexadecimal color code.</ret>
+	</rets>
+</function>

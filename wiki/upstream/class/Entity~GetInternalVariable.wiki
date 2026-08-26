@@ -1,0 +1,72 @@
+<function name="GetInternalVariable" parent="Entity" type="classfunc">
+	<description>
+An interface for accessing internal key values on entities.
+
+See <page>Entity:GetSaveTable</page> for a more detailed explanation. See <page>Entity:SetSaveValue</page> for the opposite of this function.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="variableName" type="string">Name of variable corresponding to an entity save value.</arg>
+	</args>
+	<rets>
+		<ret name="" type="any">The internal variable value.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Get how long it has been since the player was damaged.</description>
+	<code>
+local meta = FindMetaTable( "Player" )
+
+function meta:GetLastDamageTime()
+
+	return self:GetInternalVariable( "m_flLastDamageTime" )
+
+end
+
+print( Entity( 1 ):GetLastDamageTime() )
+	</code>
+	<output>
+```
+-31.965000152588
+```
+	</output>
+</example>
+
+<example>
+	<description>Determine if a door is locked or not (**server side**).</description>
+	<code>
+function IsDoorLocked( entity )
+
+	return ( entity:GetInternalVariable( "m_bLocked" ) )
+
+end
+	</code>
+	<output>Returns `true` if the door is locked.</output>
+</example>
+
+<example>
+	<description>Determines whether the door is open or not (**server side**).</description>
+	<code>
+function DoorIsOpen( door )
+	
+	local doorClass = door:GetClass()
+
+	if ( doorClass == "func_door" or doorClass == "func_door_rotating" ) then
+
+		return door:GetInternalVariable( "m_toggle_state" ) == 0
+
+	elseif ( doorClass == "prop_door_rotating" ) then
+
+		return door:GetInternalVariable( "m_eDoorState" ) ~= 0
+
+	else
+
+		return false
+
+	end
+
+end
+	</code>
+	<output>Returns `true` if the door is open.</output>
+</example>

@@ -1,0 +1,10 @@
+<function name="Add" parent="cleanup" type="libraryfunc">
+	<description>Adds an entity to a player's cleanup list.</description>
+	<realm>Server</realm>
+	<file line="88-L103">lua/includes/modules/cleanup.lua</file>
+	<args>
+		<arg name="pl" type="Player">Who's cleanup list to add the entity to.</arg>
+		<arg name="type" type="string">The type of cleanup.</arg>
+		<arg name="ent" type="Entity">The entity to add to the player's cleanup list.</arg>
+	</args>
+</function>

@@ -1,0 +1,22 @@
+<function name="GetVar" parent="Entity" type="classfunc">
+	<description>Retrieves a value from entity's <page>Entity:GetTable</page>. Set by <page>Entity:SetVar</page>.</description>
+	<realm>Shared</realm>
+	<file line="45-L55">lua/includes/extensions/entity.lua</file>
+	<args>
+		<arg name="key" type="any">Key of the value to retrieve</arg>
+		<arg name="default" type="any" default="nil">A default value to fallback to if we couldn't retrieve the value from entity</arg>
+	</args>
+	<rets>
+		<ret name="" type="any">Retrieved value</ret>
+	</rets>
+</function>
+
+<example>
+	<description>The 2 lines of code are functionally identical.</description>
+	<code>
+print( Entity( 1 ):GetVar( "Test" ) )
+
+print( Entity( 1 ).Test )
+	</code>
+
+</example>

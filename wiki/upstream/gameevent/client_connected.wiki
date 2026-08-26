@@ -1,0 +1,35 @@
+<cat>gameevent</cat>
+<title>client_connected</title>
+
+<structure>
+	<realm>Menu</realm>
+	<description>
+		Called when the connection to a Server has been established.
+
+		<note>
+			This is only available in the Menu state because this is called before the Client State has even started. 
+		</note>
+	</description>
+	<fields>
+		<item type="string" name="address">The Server address. Will be **loopback** in hosted games.</item>
+		<item type="number" name="ip">The IP of the Server. Will be **0** in hosted games. Use the **address** instead of this.</item>
+		<item type="number" name="port">The port of the Server. Will be **0** in hosted games.</item>
+	</fields>
+</structure>
+
+# Examples
+<example>
+	<description>This is a basic template with the purpose of including all arguments / table variables to make it easily known which values can be accessed. [This](https://github.com/RaphaelIT7/gmod-gameevent) Binary Module has been used.</description>
+	<code>
+require("gameevent") -- using a Binary Module because the Menu State doesn't has gameevent.Listen
+gameevent.Listen( "client_connected" )
+hook.Add( "client_connected", "client_beginconnect_example", function( data )
+	local address = data.address		// The Server address.
+	local ip = data.ip					// The Server IP. Use the address instead!
+	local port = data.port				// The Server Port.
+
+	// Called when the connection to a Server has been established.
+	
+end )
+	</code>
+</example>

@@ -1,0 +1,14 @@
+<function name="DoClick" parent="DColorPalette" type="panelfunc">
+	<description>
+<deprecated></deprecated>
+Basically the same functionality as <page>DColorPalette:OnValueChanged</page>, you should use that instead!
+
+For Override
+	</description>
+	<realm>Client and Menu</realm>
+	<file line="121-L125">lua/vgui/dcolorpalette.lua</file>
+	<args>
+		<arg name="clr" type="Color">The new color via the <page>Color</page></arg>
+		<arg name="btn" type="Panel">The <page>DColorButton</page> that was pressed.</arg>
+	</args>
+</function>

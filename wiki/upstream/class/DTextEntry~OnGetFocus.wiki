@@ -1,0 +1,19 @@
+<function name="OnGetFocus" parent="DTextEntry" type="panelhook">
+	<description>Called whenever the <page>DTextEntry</page> gains focus.</description>
+	<realm>Client and Menu</realm>
+	<file line="336-L348">lua/vgui/dtextentry.lua</file>
+</function>
+
+<example>
+	<code>
+local dTextEntry = vgui.Create("DTextEntry")
+dTextEntry:SetText("Enter text here")
+
+-- Make the text field clear when you click into it.
+dTextEntry.OnGetFocus = function(self)
+    self:SetValue("")
+end
+	</code>
+	<output>Text entry clears when user clicks it to begin typing</output>
+
+</example>

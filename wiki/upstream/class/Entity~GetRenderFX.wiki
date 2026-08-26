@@ -1,0 +1,7 @@
+<function name="GetRenderFX" parent="Entity" type="classfunc">
+	<description>Returns current render FX of the entity.</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The current render FX of the entity. See <page>Enums/kRenderFx</page></ret>
+	</rets>
+</function>

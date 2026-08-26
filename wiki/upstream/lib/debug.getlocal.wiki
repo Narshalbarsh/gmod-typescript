@@ -1,0 +1,93 @@
+<function name="getlocal" parent="debug" type="libraryfunc">
+	<description>
+<deprecated></deprecated>
+
+Gets the name and value of a local variable indexed from the level.
+	<warning>When a function has a tailcall return, you cannot access the locals of this function.</warning>
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="thread" type="thread" default="Current thread">The thread.</arg>
+		<arg name="level" type="number">The level above the thread. 
+* 0 = the function that was called (most always this function)'s arguments.
+* 1 = the thread that had called this function.
+* 2 = the thread that had called the function that started the thread that called this function.
+
+A function defined in Lua can also be passed as the level. The index will specify the parameter's name to be returned (a parameter will have a value of nil).</arg>
+		<arg name="index" type="number">The variable's index you want to get.
+* 1 = the first local defined in the thread.
+* 2 = the second local defined in the thread.
+* etc...
+		</arg>
+	</args>
+	<rets>
+		<ret name="" type="string">The name of the variable.
+
+Sometimes this will be `(*temporary)` if the local variable had no name. 
+
+<note>Variables with names starting with **(** are **internal variables**.</note></ret>
+		<ret name="" type="any">The value of the local variable.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Gets all the local variables of the current thread and stores them in a table.</description>
+	<code>
+
+local varA = 1
+local varB
+local locals = {}
+local i = 1
+
+while ( true ) do
+    local name, value = debug.getlocal( 1, i )
+    if ( name == nil ) then break end
+
+    locals[i] = {
+        name = name,
+        value = value,
+    }
+
+    i = i + 1
+end
+
+for k, v in pairs( locals ) do
+    print(v.name, "=", v.value)
+end
+	</code>
+	<output>
+```
+varA    =       1
+varB    =       nil
+locals  =       table: 0xa78f5ab2
+i       =       4
+```
+	</output>
+</example>
+
+<example>
+	<description>Prints the parameter names for <page>hook.Add</page>.</description>
+	<code>
+local print = print
+local getlocal = debug.getlocal
+
+local function PrintFunctionParameters( func )
+	local k = 2
+	local param = getlocal( func, 1 )
+	while param ~= nil do
+		print( param )
+		param = getlocal( func, k )
+		k = k + 1
+	end
+end
+
+PrintFunctionParameters( hook.Add )
+	</code>
+	<output>
+```
+event_name
+name
+func
+```
+	</output>
+</example>

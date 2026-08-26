@@ -1,0 +1,18 @@
+<function name="Deaths" parent="Player" type="classfunc">
+	<description>Returns the player's death count</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="number">The number of deaths the player has had.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>If the player's deaths are over 10, then they cannot spawn.</description>
+	<code>
+hook.Add( "PlayerDeathThink", "BlockSpawning", function( ply, ent, att )
+	return ply:Deaths() < 10 -- If less than 10 deaths then allow to spawn
+end )
+	</code>
+	<output>The player will not be able to spawn after they've died 10 times.</output>
+
+</example>

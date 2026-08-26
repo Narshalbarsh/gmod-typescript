@@ -1,0 +1,21 @@
+<function name="BroadcastLua" parent="Global" type="libraryfunc">
+	<description>
+		Sends the specified Lua code to all connected clients and executes it.
+		<note>
+			If you need to use this function more than once, consider using <page>net</page> library.
+			Send net message and make the entire code you want to execute in <page>net.Receive</page> on client.  
+
+			If executed **clientside**, this function won't do anything.
+		</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="code" type="string">The code to be executed. Capped at length of 6000 characters.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Print "Hello World!" in the clients' console.</description>
+	<code>BroadcastLua( "print( 'Hello World!' )" )</code>
+	<output>Hello World!</output>
+</example>

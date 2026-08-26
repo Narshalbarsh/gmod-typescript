@@ -1,0 +1,28 @@
+<function name="Label" parent="Global" type="libraryfunc">
+	<description>Convenience function that creates a <page>DLabel</page>, sets the text, and returns it</description>
+	<realm>Client and Menu</realm>
+	<file line="307-L314">lua/vgui/dlabel.lua</file>
+	<args>
+		<arg name="text" type="string">The string to set the label's text to</arg>
+		<arg name="parent" type="Panel" default="nil">Optional. The panel to parent the DLabel to</arg>
+	</args>
+	<rets>
+		<ret name="" type="DLabel">The created <page>DLabel</page></ret>
+	</rets>
+</function>
+
+<example>
+	<description>Create a label</description>
+	<code>local lbl = Label( "The quick brown fox" )</code>
+
+</example>
+
+
+<example>
+	<description>Create a label and parents it to a DPanel</description>
+	<code>
+local pnl = vgui.Create("DPanel")
+local lbl = Label( "The quick brown fox", pnl )
+	</code>
+
+</example>

@@ -1,0 +1,8 @@
+<function name="UseClientSideAnimation" parent="Entity" type="classfunc">
+	<description>
+<note>Does nothing on server.</note>
+
+Animations will be handled purely clientside instead of a fixed animtime, enabling interpolation. This does not affect layers and gestures.
+	</description>
+	<realm>Shared</realm>
+</function>

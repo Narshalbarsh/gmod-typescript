@@ -1,0 +1,10 @@
+<function name="DoMiddleClick" parent="DLabel" type="panelhook">
+	<description>
+Called when the label is middle mouse (Mouse wheel, also known as mouse 3) clicked (on key release) by the player.
+
+This will be called after <page>DLabel:OnDepressed</page> and <page>DLabel:OnReleased</page>.
+
+See also <page>DLabel:DoClick</page>, <page>DLabel:DoRightClick</page> and <page>DLabel:DoDoubleClick</page>.
+	</description>
+	<realm>Client and Menu</realm>
+</function>

@@ -1,0 +1,7 @@
+<function name="IsGenerating" parent="navmesh" type="libraryfunc">
+	<description>Whether we're currently generating a new navmesh with <page>navmesh.BeginGeneration</page>.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="boolean">Whether we're generating a nav mesh or not.</ret>
+	</rets>
+</function>

@@ -1,0 +1,7 @@
+<function name="Angle" parent="Vector" type="classfunc">
+	<description>Returns an angle representing the normal of the vector.</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="Angle">The angle/direction of the vector.</ret>
+	</rets>
+</function>

@@ -1,0 +1,7 @@
+<function name="Height" parent="IMaterial" type="classfunc">
+	<description>Returns the height of the member texture set for `$basetexture`.</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="number">Height of the base texture.</ret>
+	</rets>
+</function>

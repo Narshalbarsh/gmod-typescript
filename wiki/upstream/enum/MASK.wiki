@@ -1,0 +1,48 @@
+<enum>
+	<realm>Shared</realm>
+	<description>Enumerations used as trace masks in <page>Structures/Trace</page> and <page>Structures/HullTrace</page>. These enumerations are simply combinations of <page>Enums/CONTENTS</page>.</description>
+	<items>
+<item key="MASK_ALL" value="4294967295">Anything that is not empty space</item>
+
+<item key="MASK_BLOCKLOS" value="16449">Anything that blocks line of sight for AI</item>
+
+<item key="MASK_BLOCKLOS_AND_NPCS" value="33570881">Anything that blocks line of sight for AI or NPCs</item>
+
+<item key="MASK_CURRENT" value="16515072">Water that is moving (may not work)</item>
+
+<item key="MASK_DEADSOLID" value="65547">Anything that blocks corpse movement</item>
+
+<item key="MASK_NPCSOLID" value="33701899">Anything that blocks NPC movement</item>
+
+<item key="MASK_NPCSOLID_BRUSHONLY" value="147467">Anything that blocks NPC movement, except other NPCs</item>
+
+<item key="MASK_NPCWORLDSTATIC" value="131083">The world entity</item>
+
+<item key="MASK_OPAQUE" value="16513">Anything that blocks lighting</item>
+
+<item key="MASK_OPAQUE_AND_NPCS" value="33570945">Anything that blocks lighting, including NPCs</item>
+
+<item key="MASK_PLAYERSOLID" value="33636363">Anything that blocks player movement</item>
+
+<item key="MASK_PLAYERSOLID_BRUSHONLY" value="81931">World + Brushes + Player Clips</item>
+
+<item key="MASK_SHOT" value="1174421507">Anything that stops a bullet (including hitboxes)</item>
+
+<item key="MASK_SHOT_HULL" value="100679691">Anything that stops a bullet (excluding hitboxes)</item>
+
+<item key="MASK_SHOT_PORTAL" value="33570819">Solids except for grates</item>
+
+<item key="MASK_SOLID" value="33570827">Anything that is (normally) solid</item>
+
+<item key="MASK_SOLID_BRUSHONLY" value="16395">World + Brushes</item>
+
+<item key="MASK_SPLITAREAPORTAL" value="48">Things that split area portals</item>
+
+<item key="MASK_VISIBLE" value="24705">Anything that blocks line of sight for players</item>
+
+<item key="MASK_VISIBLE_AND_NPCS" value="33579137">Anything that blocks line of sight for players, including NPCs</item>
+
+<item key="MASK_WATER" value="16432">Anything that has water-like physics</item>
+	</items>
+
+</enum>

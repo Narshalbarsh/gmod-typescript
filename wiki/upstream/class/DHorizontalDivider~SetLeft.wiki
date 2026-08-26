@@ -1,0 +1,7 @@
+<function name="SetLeft" parent="DHorizontalDivider" type="panelfunc">
+	<description>Sets the left side content of the <page>DHorizontalDivider</page>.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="pnl" type="Panel">The panel to set as the left side</arg>
+	</args>
+</function>

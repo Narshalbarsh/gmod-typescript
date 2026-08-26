@@ -1,0 +1,7 @@
+<function name="SpawnMenuEnabled" parent="SANDBOX" type="hook">
+	<description>If false is returned then the spawn menu is never created. This saves load times if your mod doesn't actually use the spawn menu for any reason.</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="boolean">Whether to create spawnmenu or not.</ret>
+	</rets>
+</function>

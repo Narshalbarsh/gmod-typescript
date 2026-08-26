@@ -1,0 +1,7 @@
+<function name="DisplayError" parent="UGCPublishWindow" type="panelfunc">
+	<description>Displays the given error message.</description>
+	<realm>Menu</realm>
+	<args>
+		<arg name="err" type="string">The error message.</arg>
+	</args>
+</function>

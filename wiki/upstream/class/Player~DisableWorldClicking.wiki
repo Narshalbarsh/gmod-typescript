@@ -1,0 +1,8 @@
+<function name="DisableWorldClicking" parent="Player" type="classfunc">
+	<description>Disables world clicking for given player. See <page>Panel:SetWorldClicker</page> and <page>Player:IsWorldClickingDisabled</page>.</description>
+	<realm>Server</realm>
+	<added>2023.01.25</added>
+	<args>
+		<arg name="disable" type="boolean">Whether the world clicking should be disabled.</arg>
+	</args>
+</function>

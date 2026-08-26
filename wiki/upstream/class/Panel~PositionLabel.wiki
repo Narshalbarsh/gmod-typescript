@@ -1,0 +1,15 @@
+<function name="PositionLabel" parent="Panel" type="classfunc">
+	<description>Sets the width and position of a <page>DLabel</page> and places the passed panel object directly to the right of it. Returns the `y` value of the bottom of the tallest object. The panel on which this method is run is not relevant; only the passed objects are affected.</description>
+	<realm>Client and Menu</realm>
+	<file line="262-L275">lua/includes/extensions/client/panel.lua</file>
+	<args>
+		<arg name="lblWidth" type="number">The width to set the label to.</arg>
+		<arg name="x" type="number">The horizontal (x) position at which to place the label.</arg>
+		<arg name="y" type="number">The vertical (y) position at which to place the label.</arg>
+		<arg name="lbl" type="Panel">The label to resize and position.</arg>
+		<arg name="panelObj" type="Panel">The panel object to place to the right of the label.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The distance from the top of the parent panel to the bottom of the tallest object (the `y` position plus the height of the label or passed panel, depending on which is tallest).</ret>
+	</rets>
+</function>

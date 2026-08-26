@@ -1,0 +1,20 @@
+<function name="PlayerSpawnAsSpectator" parent="GM" type="hook">
+	<description>Called to spawn the player as a spectator.</description>
+	<realm>Server</realm>
+	<file line="219-233">gamemodes/base/gamemode/player.lua</file>
+	<args>
+		<arg name="ply" type="Player">The player to spawn as a spectator</arg>
+	</args>
+</function>
+
+<example>
+	<description>Makes all players spawn as spectators.</description>
+	<code>
+function GM:PlayerSpawn( ply )
+ 
+	GAMEMODE:PlayerSpawnAsSpectator( ply )
+ 
+end
+	</code>
+
+</example>

@@ -1,0 +1,29 @@
+<function name="SetColor" parent="DModelPanel" type="panelfunc">
+	<description>
+Sets the color of the rendered entity.
+
+<note>This does not work on Garry's Mod player models since they use a different color system. To modify a player model color, see Example 2 on the <page>DModelPanel</page> page</note>
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="color" type="Color">The render color of the entity.</arg>
+	</args>
+</function>
+
+<example>
+	<description>Creates a model panel with a red watermelon inside.</description>
+	<code>
+local panel = vgui.Create("DPanel")
+panel:SetPos(20, 20)
+panel:SetSize(200, 200)
+	
+local mdl = vgui.Create("DModelPanel", panel)
+mdl:SetSize(panel:GetSize())
+mdl:SetModel("models/props_junk/watermelon01.mdl")
+mdl:SetLookAt(Vector(0, 0, 0))
+mdl:SetCamPos(Vector(10, 10, 10))
+mdl:SetColor(Color(255, 0, 0))
+	</code>
+	<output><image src="DModelPanel_SetColor_example1.jpg"/></output>
+
+</example>

@@ -1,0 +1,7 @@
+<function name="StartScene" parent="DModelPanel" type="panelfunc">
+	<description>Runs a <page>Global.ClientsideScene</page> on the panel's entity.</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="path" type="string">The path to the scene file. (.vcd)</arg>
+	</args>
+</function>

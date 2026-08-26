@@ -1,0 +1,20 @@
+<enum>
+	<realm>Client</realm>
+	<description>
+Enumerations for use with <page>render.SetStencilPassOperation</page>, <page>render.SetStencilFailOperation</page> and <page>render.SetStencilZFailOperation</page>. Clientside only.
+<note>These enumerations are also mirrored as <page>Enums/STENCIL</page>.</note>
+
+Also see this corresponding MSDN entry: http://msdn.microsoft.com/en-us/library/windows/desktop/ff476219%28v=vs.85%29.aspx.
+	</description>
+	<items>
+<item key="STENCILOPERATION_KEEP" value="1">Preserves the existing stencil buffer value.</item>
+<item key="STENCILOPERATION_ZERO" value="2">Sets the value in the stencil buffer to 0.</item>
+<item key="STENCILOPERATION_REPLACE" value="3">Sets the value in the stencil buffer to the reference value, set using <page>render.SetStencilReferenceValue</page>.</item>
+<item key="STENCILOPERATION_INCRSAT" value="4">Increments the value in the stencil buffer by 1, clamping the result.</item>
+<item key="STENCILOPERATION_DECRSAT" value="5">Decrements the value in the stencil buffer by 1, clamping the result.</item>
+<item key="STENCILOPERATION_INVERT" value="6">Inverts the value in the stencil buffer.</item>
+<item key="STENCILOPERATION_INCR" value="7">Increments the value in the stencil buffer by 1, wrapping around on overflow.</item>
+<item key="STENCILOPERATION_DECR" value="8">Decrements the value in the stencil buffer by 1, wrapping around on overflow.</item>
+	</items>
+
+</enum>

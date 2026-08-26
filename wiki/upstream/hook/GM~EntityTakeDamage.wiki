@@ -1,0 +1,51 @@
+<function name="EntityTakeDamage" parent="GM" type="hook">
+	<description>Called when an entity is about to take damage. You can modify all parts of the damage info in this hook or completely block the damage event.
+
+See <page>GM:PostEntityTakeDamage</page> if you wish to hook the final damage event.
+
+<warning>Applying damage from this hook to the entity taking damage will lead to infinite loop/crash.</warning>
+</description>
+	<realm>Server</realm>
+	<file line="71-L72">gamemodes/base/gamemode/init.lua</file>
+	<args>
+		<arg name="target" type="Entity">The entity taking damage</arg>
+		<arg name="dmg" type="CTakeDamageInfo">Detailed information about the damage event.
+		<bug issue="7010">When you retrieve "the attacker" the player's angle and position will be incorrect.</bug>
+		</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return true to completely block the damage event</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Explosion damage is reduced to players only.</description>
+	<code>
+hook.Add( "EntityTakeDamage", "EntityDamageExample", function( target, dmginfo )
+	if ( target:IsPlayer() and dmginfo:IsExplosionDamage() ) then
+		dmginfo:ScaleDamage( 0.5 ) // Damage is now half of what you would normally take.
+	end
+end )
+	</code>
+
+</example>
+
+
+<example>
+	<description>Players in vehicles takes halved damage.</description>
+	<code>
+hook.Add( "EntityTakeDamage", "EntityDamageExample2", function( target, dmginfo )
+    if ( target:IsVehicle() ) then
+        local ply = target:GetDriver()
+        if ( IsValid(ply) && dmginfo:GetDamage() > 1 ) then
+            dmginfo:SetDamage(dmginfo:GetDamage() / 2)
+
+            ply:TakeDamageInfo(dmginfo)
+
+            dmginfo:SetDamage(0)
+        end
+    end
+end )
+	</code>
+
+</example>

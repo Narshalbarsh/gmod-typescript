@@ -1,0 +1,13 @@
+<function name="SetLayerSequence" parent="Entity" type="classfunc">
+	<description>
+Sets the sequence of given layer.
+
+<note>This function only works on <page>BaseAnimatingOverlay</page> entities.</note>
+	</description>
+	<added>2020.06.24</added>
+	<realm>Shared</realm>
+	<args>
+		<arg name="layerID" type="number">The Layer ID.</arg>
+		<arg name="seq" type="number">The sequenceID to set. See <page>Entity:LookupSequence</page>.</arg>
+	</args>
+</function>

@@ -1,0 +1,12 @@
+<function name="NavSetGoal" parent="NPC" type="classfunc">
+	<description>Picks random node around given vector, around specified length, using dir as search direction start. Works similarly to <page>NPC:NavSetRandomGoal</page>, but you can decide any position you want as a search starting point rather than your NPC.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="pos" type="Vector">The origin to calculate a path from.</arg>
+		<arg name="length" type="number">The target length of the path to calculate.</arg>
+		<arg name="dir" type="Vector">The direction in which to look for a new path end goal.</arg>
+	</args>
+	<rets>
+		<ret type="boolean">Whether path generation was successful or not.</ret>
+	</rets>
+</function>

@@ -1,0 +1,9 @@
+<function name="OnSelect" parent="DFileBrowser" type="panelhook">
+	<description>Called when a file is selected.</description>
+	<realm>Client</realm>
+	<file line="291-L295">lua/vgui/dfilebrowser.lua</file>
+	<args>		
+		<arg name="selectedPanel" type="Panel">The panel that was clicked to select this file.<br/><br/>This will either be a <page>DListView_Line</page> or <page>SpawnIcon</page> depending on whether the model viewer mode is enabled. See <page>DFileBrowser:SetModels</page>.</arg>
+<arg name="filePath" type="string">The path to the file that was selected.</arg>
+	</args>
+</function>

@@ -1,0 +1,9 @@
+<function name="IsTimingOut" parent="Player" type="classfunc">
+	<description>Returns `true` if the player is timing out (i.e. is losing connection), `false` otherwise.
+
+A player is considered timing out when more than 4 seconds has elapsed since a network packet was received from given player.</description>
+	<realm>Server</realm>
+	<rets>
+		<ret name="" type="boolean">Whether the player is timing out.</ret>
+	</rets>
+</function>

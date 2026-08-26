@@ -1,0 +1,11 @@
+<function name="GetDroppable" parent="dragndrop" type="libraryfunc">
+	<description>Returns a table of currently dragged panels.</description>
+	<realm>Client and Menu</realm>
+	<file line="162-L173">lua/includes/extensions/client/panel/dragdrop.lua</file>
+	<args>
+		<arg name="name" type="string" default="nil">If set, the function will return only the panels with this <page>Panel:Droppable</page> name.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">A table of all panels that are being currently dragged, if any.</ret>
+	</rets>
+</function>

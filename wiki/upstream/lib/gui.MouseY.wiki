@@ -1,0 +1,7 @@
+<function name="MouseY" parent="gui" type="libraryfunc">
+	<description>Returns y component of the mouse position.</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="number">mouseY</ret>
+	</rets>
+</function>

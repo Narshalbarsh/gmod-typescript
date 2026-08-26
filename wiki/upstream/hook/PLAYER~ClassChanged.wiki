@@ -1,0 +1,5 @@
+<function name="ClassChanged" parent="PLAYER" type="hook">	
+	<description>Called when the player's class was changed from this class.</description>
+	<realm>Shared</realm>
+	<added>2020.10.14</added>
+</function>

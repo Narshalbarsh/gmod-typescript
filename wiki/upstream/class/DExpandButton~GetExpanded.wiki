@@ -1,0 +1,8 @@
+<function name="GetExpanded" parent="DExpandButton" type="panelfunc">
+	<description>Returns whether this DExpandButton is expanded or not.</description>
+	<realm>Client and Menu</realm>
+	<file line="4">lua/vgui/dexpandbutton.lua</file>
+	<rets>
+		<ret name="" type="boolean">True if expanded, false otherwise</ret>
+	</rets>
+</function>

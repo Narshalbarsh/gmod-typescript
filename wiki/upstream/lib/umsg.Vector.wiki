@@ -1,0 +1,10 @@
+<function name="Vector" parent="umsg" type="libraryfunc">
+	<description>
+<deprecated>You should be using the <page>net</page> instead</deprecated>
+
+Writes a Vector to the usermessage.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="vector" type="Vector">The vector to be sent.</arg>
+	</args>
+</function>

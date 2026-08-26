@@ -1,0 +1,10 @@
+<function name="GetZ" parent="CNavArea" type="classfunc">
+	<description>Returns the elevation of this Nav Area at the given position.</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="pos" type="Vector">The position to get the elevation from, the z value from this position is ignored and only the X and Y values are used to this task.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">The elevation.</ret>
+	</rets>
+</function>

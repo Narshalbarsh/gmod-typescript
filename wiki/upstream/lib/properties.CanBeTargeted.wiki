@@ -1,0 +1,16 @@
+<function name="CanBeTargeted" parent="properties" type="libraryfunc">
+	<description>
+Returns true if given entity can be targeted by the player via the properties system.
+
+This should be used serverside in your properties to prevent abuse by clientside scripting.
+	</description>
+	<realm>Shared</realm>
+	<file line="104-L120">lua/includes/modules/properties.lua</file>
+	<args>
+		<arg name="ent" type="Entity">The entity to test</arg>
+		<arg name="ply" type="Player">If given, will also perform a distance check based on the entity's Orientated Bounding Box.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">True if entity can be targeted, false otherwise</ret>
+	</rets>
+</function>

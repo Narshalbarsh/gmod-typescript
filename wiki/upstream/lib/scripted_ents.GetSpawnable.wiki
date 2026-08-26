@@ -1,0 +1,8 @@
+<function name="GetSpawnable" parent="scripted_ents" type="libraryfunc">
+	<file line="238-L254">lua/includes/modules/scripted_ents.lua</file>
+	<description>Returns a list of all ENT tables which contain ENT.Spawnable</description>
+	<realm>Shared</realm>
+	<rets>
+		<ret name="" type="table">A table of <page>Structures/ENT</page>s</ret>
+	</rets>
+</function>

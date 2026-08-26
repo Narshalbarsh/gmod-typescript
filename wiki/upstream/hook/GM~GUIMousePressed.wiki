@@ -1,0 +1,13 @@
+<function name="GUIMousePressed" parent="GM" type="hook">
+	<description>
+Called whenever a players presses a mouse key on the context menu in Sandbox or on any panel derived from CGModBase, such as the panel used by <page>gui.EnableScreenClicker</page> and the panel used by <page>Panel:ParentToHUD</page>.
+
+See <page>GM:VGUIMousePressed</page> for a hook that is called on all VGUI elements.
+	</description>
+	<realm>Client</realm>
+	<file line="681-L682">gamemodes/base/gamemode/cl_init.lua</file>
+	<args>
+		<arg name="mouseCode" type="number">The key that the player pressed using <page>Enums/MOUSE</page>.</arg>
+		<arg name="aimVector" type="Vector">A normalized direction vector local to the camera. Internally, this is  <page>gui.ScreenToVector</page>( <page>gui.MousePos</page>() ).</arg>
+	</args>
+</function>

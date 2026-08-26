@@ -1,0 +1,11 @@
+<function name="MenuGetAddonData" parent="Global" type="libraryfunc">
+	<description>
+		<internal>Internally uses <page>steamworks.FileInfo</page> to fetch the data.</internal>
+		This function retrieves the Addon data and passes it onto JS(JavaScript)
+	</description>
+	<realm>Menu</realm>
+	<file line="572-L577">lua/menu/mainmenu.lua</file>
+	<args>
+		<arg name="workshopItemID" type="string">The ID of Steam Workshop item.</arg>
+	</args>
+</function>

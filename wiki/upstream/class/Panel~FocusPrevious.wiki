@@ -1,0 +1,4 @@
+<function name="FocusPrevious" parent="Panel" type="classfunc">
+	<description>Focuses the previous panel in the focus queue.</description>
+	<realm>Client and Menu</realm>
+</function>

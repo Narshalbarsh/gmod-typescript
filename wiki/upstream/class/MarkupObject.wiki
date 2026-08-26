@@ -1,0 +1,3 @@
+<type name="MarkupObject" category="classfunc" is="class">
+	<summary>Object containing parsed markup for later rendering. Created by <page>markup.Parse</page>.</summary>
+</type>

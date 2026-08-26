@@ -1,0 +1,16 @@
+<function name="StartMove" parent="drive" type="libraryfunc">
+	<description>
+<internal></internal>
+The user command is received by the server and then converted into a move. This is also run clientside when in multiplayer, for prediction to work.
+	</description>
+	<realm>Shared</realm>
+	<file line="169-L177">lua/includes/modules/drive.lua</file>
+	<args>
+		<arg name="ply" type="Player">The player.</arg>
+		<arg name="mv" type="CMoveData">The move data.</arg>
+		<arg name="cmd" type="CUserCmd">The user command.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">True if succeeded.</ret>
+	</rets>
+</function>

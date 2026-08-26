@@ -1,0 +1,17 @@
+<function name="IsJumpLegal" parent="ENTITY" type="hook">
+	<description>
+Called when deciding if the Scripted NPC should be able to perform a certain jump or not.
+<note>This is only called for "ai" type entities</note>
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="startPos" type="Vector">Start of the jump</arg>
+		<arg name="apex" type="Vector">Apex point of the jump</arg>
+		<arg name="endPos" type="Vector">The landing position</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return true if this jump should be allowed to be performed, false otherwise.
+
+Not returning anything, or returning a non boolean will perform the [default action](https://github.com/ValveSoftware/source-sdk-2013/blob/master/src/game/server/ai_basenpc_movement.cpp#L319).</ret>
+	</rets>
+</function>

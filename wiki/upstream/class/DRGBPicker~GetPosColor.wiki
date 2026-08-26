@@ -1,0 +1,17 @@
+<function name="GetPosColor" parent="DRGBPicker" type="panelfunc">
+	<description>
+<internal></internal>
+
+Returns the color at given position on the internal texture.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="x" type="number">The X coordinate on the texture to get the color from</arg>
+		<arg name="y" type="number">The Y coordinate on the texture to get the color from</arg>
+	</args>
+	<rets>
+		<ret name="" type="Color">The <page>Color</page></ret>
+		<ret name="" type="number">The X-coordinate clamped to the texture's width.</ret>
+		<ret name="" type="number">The Y-coordinate clamped to the texture's height.</ret>
+	</rets>
+</function>

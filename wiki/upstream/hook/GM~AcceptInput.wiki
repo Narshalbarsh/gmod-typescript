@@ -1,0 +1,49 @@
+<function name="AcceptInput" parent="GM" type="hook">
+	<description>
+Called when a map I/O event occurs.
+
+See also <page>Entity:Fire</page> and <page>Entity:Input</page> for functions to fire Inputs on entities.
+	</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="ent" type="Entity">Entity that receives the input</arg>
+		<arg name="input" type="string">The input name. Is not guaranteed to be a valid input on the entity.</arg>
+		<arg name="activator" type="Entity">Activator of the input</arg>
+		<arg name="caller" type="Entity">Caller of the input</arg>
+		<arg name="value" type="any">Data provided with the input. Will be either a <page>string</page>, a <page>number</page>, a <page>boolean</page> or a <page>nil</page>.</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">Return true to prevent this input from being processed. Do not return otherwise.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>This would block any input that the lua_run entity would receive.</description>
+	<code>
+hook.Add( "AcceptInput", "BlockLuaRun", function( ent, name, activator, caller, data )
+    if ( ent:GetClass() == "lua_run" ) then
+        return true
+    end
+end )
+	</code>
+</example>
+
+<example>
+	<description>Block the Open/Close input on doors.</description>
+	<code>
+local DoorClasses = {
+	["func_door"] = true,
+	["func_door_rotating"] = true
+}
+local BlockedInputs = {
+	["Open"] = true,
+	["Close"] = true
+}
+
+hook.Add( "AcceptInput", "BlockDoors", function( ent, name, activator, caller, data )
+    if ( BlockedInputs[name] and DoorClasses[ent:GetClass()] ) then
+        return true
+    end
+end )
+	</code>
+</example>

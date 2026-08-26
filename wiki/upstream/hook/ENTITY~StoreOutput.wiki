@@ -1,0 +1,27 @@
+<function name="StoreOutput" parent="ENTITY" type="hook">
+	<description>
+Used to store an output so it can be triggered with <page>ENTITY:TriggerOutput</page>.
+Outputs compiled into a map are passed to entities as key/value pairs through <page>ENTITY:KeyValue</page>.
+
+TriggerOutput will do nothing if this function has not been called first.
+	</description>
+	<realm>Server</realm>
+	<file line="10-L28">gamemodes/base/entities/entities/base_entity/outputs.lua</file>
+	<args>
+		<arg name="name" type="string">Name of output to store</arg>
+		<arg name="info" type="string">Output info</arg>
+	</args>
+</function>
+
+<example>
+	<description>Stores all outputs that are assigned to an entity in Hammer.</description>
+	<code>
+function ENT:KeyValue( k, v )
+	-- 99% of all outputs are named 'OnSomethingHappened'.
+	if ( string.Left( k, 2 ) == "On" ) then
+		self:StoreOutput( k, v )
+	end
+end
+	</code>
+
+</example>

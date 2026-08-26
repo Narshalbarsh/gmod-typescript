@@ -1,0 +1,37 @@
+<function name="getmetatable" parent="Global" type="libraryfunc">
+	<description>
+Returns the metatable of an object. This function obeys the metatable's __metatable field, and will return that field if the metatable has it set.
+
+Use <page>debug.getmetatable</page> if you want the true metatable of the object.
+
+If you want to modify the metatable, check out <page>Global.FindMetaTable</page> 
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="object" type="any">The value to return the metatable of.</arg>
+	</args>
+	<rets>
+		<ret name="" type="any">The metatable of the value. This is not always a table.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Use a table's metatable and alter it.</description>
+	<code>
+print(getmetatable(Pupil).__index.GetName(Pupil))
+-- getmetatable(Pupil) will return Pupil_meta.
+-- Same as print(Pupil:GetName())
+-- This is what the Lua interpreter basically does. (When __index is a table.)
+
+getmetatable(Pupil).SetName = function(self, newName)
+ self.name = newName
+end
+-- We're adding a new method to Pupil's metatable
+
+print(getmetatable(Pupil).GetName(Pupil))
+-- Still the same, because Pupil_meta.__index is Pupil_meta.
+	</code>
+	<output>"John Doe"</output>
+
+
+</example>

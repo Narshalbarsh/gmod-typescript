@@ -1,0 +1,15 @@
+<title>util.funcbc</title>
+<function name="util.funcbc" parent="jit" type="libraryfunc">
+	<description>Returns bytecode of a function at a position.
+		<note>This function only works for Lua defined functions.</note>
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="func" type="function">Function to retrieve bytecode from.</arg>
+		<arg name="pos" type="number">Position of the bytecode to retrieve.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">bytecode instruction</ret>
+		<ret name="" type="number">bytecode opcode</ret>
+	</rets>
+</function>

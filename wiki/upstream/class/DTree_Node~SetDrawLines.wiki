@@ -1,0 +1,11 @@
+<function name="SetDrawLines" parent="DTree_Node" type="panelfunc">
+	<description>
+<internal></internal>
+
+Sets whether or not this node should draw visual lines.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="draw" type="boolean"></arg>
+	</args>
+</function>

@@ -1,0 +1,11 @@
+<panel>
+	<parent>Panel</parent>
+	<realm>Client</realm>
+	<file line="">lua/vgui/dvscrollbar.lua</file>
+	<description>
+A generic vertical scrollbar, used in <page>DScrollPanel</page>. See the horizontal alternative [here](DHScrollBar).
+
+The scrollbar notably contains `DVScrollBar.btnUp`, `DVScrollBar.btnDown`, and `DVScrollBar.btnGrip` which are the up button, down button, and grip respectively. Editing the paint functions of these allows custom scrollbar styling (See <page>DScrollPanel:GetVBar</page> for an example), although it is a better idea to use [Derma Skins](Derma_Skin_Creation).
+	</description>
+
+</panel>

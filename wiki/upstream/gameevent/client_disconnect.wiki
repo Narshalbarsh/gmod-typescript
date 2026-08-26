@@ -1,0 +1,32 @@
+<cat>gameevent</cat>
+<title>client_disconnect</title>
+
+<structure>
+	<realm>Client and Menu</realm>
+	<description>
+		Called when the client is disconnecting from the server.
+		
+		<note>
+			Only called clientside for the disconnecting Player.  
+			message - will be an empty String if the client intentionally disconnects from the server.  
+			This is called multiple times in the **Menu state** when connecting to a server.  
+		</note>
+	</description>
+	<fields>
+		<item type="string" name="message">The disconnecting reason. Can be an empty String.</item>
+	</fields>
+</structure>
+
+# Examples
+<example>
+	<description>This is a basic template with the purpose of including all arguments / table variables to make it easily known which values can be accessed.</description>
+	<code>
+gameevent.Listen( "client_disconnect" )
+hook.Add( "client_disconnect", "client_disconnect_example", function( data )
+	local message = data.message	// The reason of the 
+
+	// Called when the client is disconnecting from the server.
+	
+end )
+	</code>
+</example>

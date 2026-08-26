@@ -1,0 +1,7 @@
+<function name="SetAllowLua" parent="DHTML" type="panelfunc">
+	<description>Determines whether the loaded page can run Lua code or not. See <page>DHTML</page> for how to run Lua from a DHTML window.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="allow" type="boolean" default="false">Whether or not to allow Lua.</arg>
+	</args>
+</function>

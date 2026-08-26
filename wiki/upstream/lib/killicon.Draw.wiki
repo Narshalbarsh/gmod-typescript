@@ -1,0 +1,14 @@
+<function name="Draw" parent="killicon" type="libraryfunc">
+	<description>Draws a kill icon.
+
+<deprecated>This function applies unpredictable vertical offsets, you should use <page>killicon.Render</page> instead, which does not suffer from this issue.</deprecated>
+</description>
+	<realm>Client</realm>
+	<file line="97-L135">lua/includes/modules/killicon.lua</file>
+	<args>
+		<arg name="x" type="number">X coordinate of the icon.</arg>
+		<arg name="y" type="number">Y coordinate of the icon.</arg>
+		<arg name="name" type="string">Classname of the kill icon.</arg>
+		<arg name="alpha" type="number" default="255">Alpha/transparency value ( 0 - 255 ) of the icon.</arg>
+	</args>
+</function>

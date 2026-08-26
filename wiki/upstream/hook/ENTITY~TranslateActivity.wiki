@@ -1,0 +1,17 @@
+<function name="TranslateActivity" parent="ENTITY" type="hook">
+	<added>2023.11.16</added>
+	<description>
+Called by the engine to alter NPC activities, if desired by the NPC.
+
+<note>This hook only exists for `ai` type SENTs.</note>
+</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="oldAct" type="number{ACT}">The activity to translate. </arg>
+	</args>
+	<rets>
+		<ret name="newAct" type="number{ACT}">The activity that should override the incoming activity. 
+
+Not returning anything, or returning a non value will perform the [default action](https://github.com/ValveSoftware/source-sdk-2013/blob/master/src/game/server/ai_basenpc.cpp#L5976).</ret>
+	</rets>
+</function>

@@ -1,0 +1,11 @@
+<function name="SetDragging" parent="DHorizontalDivider" type="panelfunc">
+	<description>
+<internal></internal>
+
+Sets whether the player is dragging the divider or not
+	</description>
+	<realm>Client</realm>
+	<args>
+		<arg name="dragonot" type="boolean"></arg>
+	</args>
+</function>

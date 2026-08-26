@@ -1,0 +1,7 @@
+<function name="GetTime" parent="IGModAudioChannel" type="classfunc">
+	<description>Returns the current time of the sound channel in seconds</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="number">The current time of the stream</ret>
+	</rets>
+</function>

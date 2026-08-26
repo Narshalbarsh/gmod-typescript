@@ -1,0 +1,7 @@
+<function name="SetSteeringDegrees" parent="Vehicle" type="classfunc">
+	<description>Sets the maximum steering degrees of the vehicle</description>
+	<realm>Server</realm>
+	<args>
+		<arg name="steeringDegrees" type="number">The new maximum steering degree</arg>
+	</args>
+</function>

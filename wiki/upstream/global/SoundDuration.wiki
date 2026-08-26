@@ -1,0 +1,14 @@
+<function name="SoundDuration" parent="Global" type="libraryfunc">
+	<description>
+Returns the approximate duration of the specified sound in seconds, for `.wav` and `.mp3` sounds.
+	<bug>This function only works on mp3 files if the file is encoded with constant bitrate.</bug>
+	<note>This function will not work with sound files prepended with a [sound character](https://developer.valvesoftware.com/wiki/Soundscripts#Sound_Characters).</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="soundName" type="string">The sound file path.</arg>
+	</args>
+	<rets>
+		<ret name="" type="number">Sound duration in seconds.</ret>
+	</rets>
+</function>

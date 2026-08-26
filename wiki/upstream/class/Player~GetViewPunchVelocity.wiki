@@ -1,0 +1,8 @@
+<function name="GetViewPunchVelocity" parent="Player" type="classfunc">
+	<description>Returns client's view punch velocity. See <page>Player:ViewPunch</page> and <page>Player:SetViewPunchVelocity</page></description>
+	<realm>Shared</realm>
+	<added>2020.10.14</added>
+	<rets>
+		<ret name="punchVel" type="Angle">The current view punch angle velocity.</ret>
+	</rets>
+</function>

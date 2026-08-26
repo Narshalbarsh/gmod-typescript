@@ -1,0 +1,10 @@
+<function name="DoModal" parent="Panel" type="classfunc">
+	<description>
+Makes the panel "lock" the screen until it is removed. All input will be directed to the given panel.
+
+It will silently fail if used while cursor is not visible.
+Call <page>Panel:MakePopup</page> before calling this function.
+This must be called on a panel derived from <page>EditablePanel</page>.
+	</description>
+	<realm>Client and Menu</realm>
+</function>

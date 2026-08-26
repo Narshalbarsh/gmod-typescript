@@ -1,0 +1,13 @@
+<function name="SetDTFloat" parent="Entity" type="classfunc">
+	<description>
+<internal></internal>
+This is called internally by the <page>Entity:NetworkVar</page> system, you can use this in cases where using NetworkVar is not possible.
+
+Sets the specified float on the entity's datatable.
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="key" type="number">Goes from 0 to 31.</arg>
+		<arg name="float" type="number">The float to write on the entity's datatable.</arg>
+	</args>
+</function>

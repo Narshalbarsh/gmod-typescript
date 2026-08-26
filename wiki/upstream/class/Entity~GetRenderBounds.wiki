@@ -1,0 +1,12 @@
+<function name="GetRenderBounds" parent="Entity" type="classfunc">
+	<description>
+Returns render bounds of the entity as local vectors. Can be overridden by <page>Entity:SetRenderBounds</page>.
+
+If the render bounds are not inside players view, the entity will not be drawn!
+	</description>
+	<realm>Client</realm>
+	<rets>
+		<ret name="" type="Vector">The minimum vector of the bounds</ret>
+		<ret name="" type="Vector">The maximum vector of the bounds.</ret>
+	</rets>
+</function>

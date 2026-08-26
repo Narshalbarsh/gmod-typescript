@@ -1,0 +1,14 @@
+<function name="IsAbleToSee" parent="NextBot" type="classfunc">
+	<description>Returns if the Nextbot NPC can see the give entity or not.
+
+<warning>Using this function creates the nextbot vision interface which will cause a significant performance hit!</warning></description>
+	<realm>Server</realm>
+	<added>2020.08.12</added>
+	<args>
+		<arg name="ent" type="Entity">The entity to test if we can see</arg>
+		<arg name="useFOV" type="number" default="true">Whether to use the Field of View of the Nextbot</arg>
+	</args>
+	<rets>
+		<ret name="" type="boolean">If the nextbot can see or not</ret>
+	</rets>
+</function>

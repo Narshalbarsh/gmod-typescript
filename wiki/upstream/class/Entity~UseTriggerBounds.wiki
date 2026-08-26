@@ -1,0 +1,19 @@
+<function name="UseTriggerBounds" parent="Entity" type="classfunc">
+	<description>
+Enables or disables trigger bounds.
+
+This will give the entity a "trigger box" that extends around its bounding box by boundSize units in X/Y and (boundSize / 2) in +Z (-Z remains the same).
+The trigger box is world aligned and will work regardless of the object's solidity and collision group.
+
+Valve use trigger boxes for all pickup items. Their bloat size is 24, a surprisingly large figure.
+
+<note>The trigger boxes can be made visible as a light blue box by using the **ent_bbox** console command while looking at the entity. Alternatively a classname or entity index can be used as the first argument.
+
+This requires **developer** to be set to **1**.</note>
+	</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="enable" type="boolean">Enable or disable the bounds.</arg>
+		<arg name="boundSize" type="number" default="0">The distance/size of the trigger bounds.</arg>
+	</args>
+</function>

@@ -1,0 +1,11 @@
+<function name="PaintDifferentColours" parent="DPanelOverlay" type="panelfunc">
+	<description><internal></internal>Used internally by the panel for type 3.</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="cola" type="table"></arg>
+		<arg name="colb" type="table"></arg>
+		<arg name="colc" type="table"></arg>
+		<arg name="cold" type="table"></arg>
+		<arg name="size" type="number"></arg>
+	</args>
+</function>

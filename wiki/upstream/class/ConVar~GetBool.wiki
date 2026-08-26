@@ -1,0 +1,7 @@
+<function name="GetBool" parent="ConVar" type="classfunc">
+	<description>Tries to convert the current string value of a <page>ConVar</page> to a boolean.</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="boolean">The boolean value of the console variable. If the variable is numeric and not 0, the result will be `true`. Otherwise the result will be `false`.</ret>
+	</rets>
+</function>

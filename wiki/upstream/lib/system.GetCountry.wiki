@@ -1,0 +1,11 @@
+<function name="GetCountry" parent="system" type="libraryfunc">
+	<description>
+Returns the country code of this computer, determined by the IP of the client. Uses the steamworks API function `SteamUtils()->GetIPCountry()`.
+
+<note>This function does not work on Dedicated Servers and will instead return no value.</note>
+	</description>
+	<realm>Shared and Menu</realm>
+	<rets>
+		<ret name="" type="string">Two-letter country code, using [ISO 3166-1](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) standard.</ret>
+	</rets>
+</function>

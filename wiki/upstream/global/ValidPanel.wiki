@@ -1,0 +1,12 @@
+<function name="ValidPanel" parent="Global" type="libraryfunc">
+	<file line="465-L471">lua/includes/extensions/client/panel.lua</file>
+	<description>
+<deprecated>You should use <page>Global.IsValid</page> instead</deprecated>
+
+Returns if a panel is safe to use.
+	</description>
+	<realm>Client and Menu</realm>
+	<args>
+		<arg name="panel" type="Panel">The panel to validate.</arg>
+	</args>
+</function>

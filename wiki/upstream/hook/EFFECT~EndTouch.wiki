@@ -1,0 +1,4 @@
+<function name="EndTouch" parent="EFFECT" type="hook">
+	<description>Effect alternative to <page>ENTITY:EndTouch</page>.</description>
+	<realm>Client</realm>
+</function>

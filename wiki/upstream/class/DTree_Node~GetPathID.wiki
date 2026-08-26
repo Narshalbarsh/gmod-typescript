@@ -1,0 +1,11 @@
+<function name="GetPathID" parent="DTree_Node" type="panelfunc">
+	<description>
+Returns the path ID (<page>File Search Paths</page>) used in populating the <page>DTree</page> from the filesystem.
+
+See <page>DTree_Node:SetPathID</page> and <page>DTree_Node:MakeFolder</page>.
+	</description>
+	<realm>Client and Menu</realm>
+	<rets>
+		<ret name="" type="string">The Path ID</ret>
+	</rets>
+</function>

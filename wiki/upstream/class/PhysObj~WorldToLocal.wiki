@@ -1,0 +1,10 @@
+<function name="WorldToLocal" parent="PhysObj" type="classfunc">
+	<description>Translates a worldspace vector into the physics object's local space.</description>
+	<realm>Shared</realm>
+	<args>
+		<arg name="vec" type="Vector">A worldspace vector.</arg>
+	</args>
+	<rets>
+		<ret name="" type="Vector">The corresponding local space vector.</ret>
+	</rets>
+</function>

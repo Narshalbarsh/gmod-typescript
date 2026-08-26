@@ -1,0 +1,44 @@
+<function name="setfenv" parent="debug" type="libraryfunc">
+	<description>
+<deprecated></deprecated>
+
+Sets the environment of the passed object.  
+
+Unlike <page>Global.setfenv</page>, this also works on **any** userdata, allowing you to save data stored to it which can be accessed using <page>debug.getfenv</page>.  
+Userdata seem to intentionally support this & setting/changing it does not affect anything (though unused by gmod / Entities and such don't this)  
+This can be useful when trying to store data on a <page>IGModAudioChannel</page>, <page>Vector</page>, <page>Angle</page> or any other that doesn't already allow you to store data on it.
+	</description>
+	<realm>Shared and Menu</realm>
+	<args>
+		<arg name="object" type="any">Object to set environment of. Valid types: userdata, thread, function.</arg>
+		<arg name="env" type="table">Environment to set.</arg>
+	</args>
+	<rets>
+		<ret name="" type="table">The object.</ret>
+	</rets>
+</function>
+
+<example>
+	<description>Create a new environment and setfenv Display inside it.</description>
+	<code>
+local newenvironment = {}
+
+function newenvironment.log( msg )
+	print( msg )
+end
+
+local function Display()
+	log( "yay" )
+end
+
+debug.setfenv( Display , newenvironment )
+
+Display()
+	</code>
+	<output>
+```
+yay
+```
+	</output>
+
+</example>

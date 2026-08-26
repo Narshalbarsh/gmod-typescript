@@ -1,0 +1,4 @@
+<function name="Stop" parent="motionsensor" type="libraryfunc">
+	<description>Stops the motion capture.</description>
+	<realm>Client</realm>
+</function>
